@@ -18,7 +18,7 @@
 #
 # CDDL HEADER END
 #
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
