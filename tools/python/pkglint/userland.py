@@ -48,7 +48,8 @@ class UserlandActionChecker(base.ActionChecker):
 		self.runpath_re = [
 			re.compile('^/lib(/.*)?$'),
 			re.compile('^/usr/'),
-			re.compile('^\$ORIGIN/')
+			re.compile('^\$ORIGIN/'),
+			re.compile('^/ec/')
 		]
 		self.initscript_re = re.compile("^etc/(rc.|init)\.d")
                 super(UserlandActionChecker, self).__init__(config)
@@ -102,6 +103,9 @@ class UserlandActionChecker(base.ActionChecker):
 		bits = ei.get("bits")
 		frag = os.path.basename(os.path.dirname(path))
 
+		if bits == 64 and path.find("/lib/amd64/"):
+			result = None
+			return result
 		if bits == 32 and frag in ["sparcv9", "amd64", "64"]:
 			result = _("32-bit object '%s' in 64-bit path")
 		elif bits == 64 and frag not in ["sparcv9", "amd64", "64"]:

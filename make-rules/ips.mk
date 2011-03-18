@@ -19,6 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 #
@@ -35,11 +36,11 @@
 # This set of rules makes the "publish" target the default target for make(1)
 #
 
-PKGDEPEND =	/usr/bin/pkgdepend
-PKGFMT =	/usr/bin/pkgfmt
-PKGMOGRIFY =	/usr/bin/pkgmogrify
-PKGSEND =	/usr/bin/pkgsend
-PKGLINT =	/usr/bin/pkglint
+PKGDEPEND =	$(ECPREFIX)/bin/pkgdepend
+PKGFMT =	$(ECPREFIX)/bin/pkgfmt
+PKGMOGRIFY =	$(ECPREFIX)/bin/pkgmogrify
+PKGSEND =	$(ECPREFIX)/bin/pkgsend
+PKGLINT =	$(ECPREFIX)/bin/pkglint
 
 # Package headers should all pretty much follow the same format
 METADATA_TEMPLATE =		$(WS_TOP)/transforms/manifest-metadata-template
@@ -72,6 +73,8 @@ PKG_MACROS +=		OS_VERSION=$(OS_VERSION)
 PKG_MACROS +=		IPS_COMPONENT_VERSION=$(IPS_COMPONENT_VERSION)
 PKG_MACROS +=		COMPONENT_VERSION=$(COMPONENT_VERSION)
 PKG_MACROS +=		COMPONENT_ARCHIVE_URL=$(COMPONENT_ARCHIVE_URL)
+PKG_MACROS +=		ECPREFIX=$(ECPREFIX)
+PKG_MACROS +=		PLAT=$(PLAT)
 
 PKG_OPTIONS +=		$(PKG_MACROS:%=-D %)
 
@@ -80,7 +83,7 @@ PKG_PROTO_DIRS += $(PROTO_DIR) $(@D) $(COMPONENT_DIR)
 MANIFEST_BASE =		$(BUILD_DIR)/manifest-$(MACH)
 
 CANONICAL_MANIFESTS =	$(wildcard *.p5m)
-GENERATED =		$(MANIFEST_BASE)-generated
+GENERATED =		manifest-$(MACH)-generated
 COMBINED =		$(MANIFEST_BASE)-combined
 MANIFESTS =		$(CANONICAL_MANIFESTS:%=$(MANIFEST_BASE)-%)
 
@@ -134,7 +137,7 @@ $(MANIFEST_BASE)-%.resolved:	$(MANIFEST_BASE)-%.depend
 # lint the manifest before we publish with it.
 $(MANIFEST_BASE)-%.linted:	$(MANIFEST_BASE)-%.resolved
 	@echo "VALIDATING MANIFEST CONTENT: $<"
-	$(ENV) PYTHONPATH=$(WS_TOOLS)/python PROTO_PATH="$(PKG_PROTO_DIRS)"\
+	$(ENV) PYTHONPATH=$(WS_TOOLS)/python:$(PYTHONPATH) PROTO_PATH="$(PKG_PROTO_DIRS)"\
 		$(PKGLINT) $(CANONICAL_REPO:%=-c $(WS_LINT_CACHE)) \
 			-f $(WS_TOOLS)/pkglintrc $<
 	$(PKGFMT) <$< >$@

@@ -19,6 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 #
@@ -51,7 +52,7 @@
 
 CONFIG_SHELL =	/bin/bash
 
-CONFIGURE_PREFIX =	/usr
+CONFIGURE_PREFIX =	$(ECPREFIX)
 
 CONFIGURE_BINDIR.32 =	$(CONFIGURE_PREFIX)/bin
 CONFIGURE_BINDIR.64 =	$(CONFIGURE_PREFIX)/bin/$(MACH64)

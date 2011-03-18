@@ -19,9 +19,12 @@
 # CDDL HEADER END
 #
 # Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
-PATH=/usr/bin:/usr/gnu/bin
+ECPREFIX=/ec
+
+PATH=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 
 # Default to looking for source archives on the internal mirror before we
 # hammer on the external repositories.
@@ -31,14 +34,15 @@ export DOWNLOAD_SEARCH_PATH ?=	http://userland.us.oracle.com/source-archives/
 export WS_TOP ?=		$(shell hg root)
 
 CONSOLIDATION =	userland
-PUBLISHER =	$(CONSOLIDATION)-build
+PUBLISHER =	s10.everycity.co.uk
 
 IS_GLOBAL_ZONE =	$(shell /usr/sbin/zoneadm list | grep -c global)
 ROOT =			/
 
 # get the most recent build number from the last mercurial tag
-LAST_HG_TAG =	$(shell hg tags -q | grep build- | head -1)
-LAST_BUILD_NUM = $(LAST_HG_TAG:build-%=%)
+#LAST_HG_TAG =	$(shell hg tags -q | grep build- | head -1)
+#LAST_BUILD_NUM = $(LAST_HG_TAG:build-%=%)
+LAST_BUILD_NUM = 161
 
 OS_VERSION =		$(shell uname -r)
 SOLARIS_VERSION =	$(OS_VERSION:5.%=2.%)
@@ -46,7 +50,7 @@ BUILD_NUM =		0.$(shell expr $(LAST_BUILD_NUM) + 1)
 BUILD_VERSION =		$(OS_VERSION)-$(BUILD_NUM)
 
 
-COMPILER =		studio
+COMPILER =		gcc
 BITS =			32
 PYTHON_VERSION =	2.6
 PYTHON_VERSIONS =	2.6
@@ -133,6 +137,9 @@ MACH32 =	$(MACH32_1:i386=i86)
 MACH64_1 =	$(MACH:sparc=sparcv9)
 MACH64 =	$(MACH64_1:i386=amd64)
 
+PLAT_1 =        $(MACH:sparc=sun)
+PLAT =          $(PLAT_1:i386=pc)
+
 BUILD_DIR_32 =		$(BUILD_DIR)/$(MACH32)
 BUILD_DIR_64 =		$(BUILD_DIR)/$(MACH64)
 
@@ -154,7 +161,7 @@ BUILD_TOOLS =	/ws/onnv-tools
 SPRO_ROOT =	$(BUILD_TOOLS)/SUNWspro
 SPRO_VROOT =	$(SPRO_ROOT)/sunstudio12.1
 
-GCC_ROOT =	/usr/sfw
+GCC_ROOT =	$(ECPREFIX)
 
 CC.studio.32 =	$(SPRO_VROOT)/bin/cc
 CCC.studio.32 =	$(SPRO_VROOT)/bin/CC
@@ -176,10 +183,10 @@ lint.64 =	$(SPRO_VROOT)/bin/lint -m64
 
 LINT =		$(lint.$(BITS))
 
-LD =		/usr/bin/ld
+LD =		/usr/ccs/bin/ld
 
-PYTHON.2.6.32 =	/usr/bin/python2.6
-PYTHON.2.6.64 =	/usr/bin/$(MACH64)/python2.6
+PYTHON.2.6.32 =	$(ECPREFIX)/bin/python2.6
+PYTHON.2.6.64 =	$(ECPREFIX)/bin/$(MACH64)/python2.6
 
 PYTHON.32 =	$(PYTHON.$(PYTHON_VERSION).$(BITS))
 PYTHON.64 =	$(PYTHON.$(PYTHON_VERSION).$(BITS))
@@ -188,15 +195,15 @@ JAVA_HOME =	/usr/jdk/instances/jdk1.6.0
 
 PERL =		/usr/perl5/bin/perl
 
-GMAKE =		/usr/gnu/bin/make
-GPATCH =	/usr/gnu/bin/patch
+GMAKE =		$(ECPREFIX)/bin/gmake
+GPATCH =	$(ECPREFIX)/bin/gpatch
 PATCH_LEVEL =	1
 GPATCH_BACKUP =	--backup --version-control=numbered
 GPATCH_FLAGS =	-p$(PATCH_LEVEL) $(GPATCH_BACKUP)
 
-PKGREPO =	/usr/bin/pkgrepo
-PKGSEND =	/usr/bin/pkgsend
-PKGLINT =	/usr/bin/pkglint
+PKGREPO =	$(ECPREFIX)bin/pkgrepo
+PKGSEND =	$(ECPREFIX)/bin/pkgsend
+PKGLINT =	$(ECPREFIX)/bin/pkglint
 
 TOUCH =		/usr/bin/touch
 MKDIR =		/bin/mkdir -p
@@ -205,7 +212,7 @@ CP =		/bin/cp -f
 LN =		/bin/ln
 SYMLINK =	/bin/ln -s
 ENV =		/usr/bin/env
-INSTALL =	/usr/bin/ginstall
+INSTALL =	$(ECPREFIX)/bin/install
 CHMOD =		/usr/bin/chmod
 
 INS.dir=        $(INSTALL) -d $@

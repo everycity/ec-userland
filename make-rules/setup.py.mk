@@ -19,6 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 $(BUILD_DIR)/%-2.6/.built:		PYTHON_VERSION=2.6
@@ -35,8 +36,8 @@ BUILD_64 = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH64)-%/.built)
 INSTALL_32 = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH32)-%/.installed)
 INSTALL_64 = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH64)-%/.installed)
 
-PYTHON_ENV =	CC="$(CC)"
-PYTHON_ENV +=	CFLAGS="$(CFLAGS)"
+#PYTHON_ENV =	CC="$(CC)"
+#PYTHON_ENV +=	CFLAGS="$(CFLAGS)"
 
 # build the configured source
 $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
@@ -51,7 +52,7 @@ $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
 # The default is site-packages, but that directory belongs to the end-user.
 # Modules which are shipped by the OS but not with the core Python distribution
 # belong in vendor-packages.
-PYTHON_LIB= /usr/lib/python$(PYTHON_VERSION)/vendor-packages
+PYTHON_LIB= $(ECPREFIX)/lib/python$(PYTHON_VERSION)/vendor-packages
 
 COMPONENT_INSTALL_ARGS +=	--root $(PROTO_DIR) 
 COMPONENT_INSTALL_ARGS +=	--install-lib=$(PYTHON_LIB)
