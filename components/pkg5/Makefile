@@ -30,7 +30,7 @@ COMPONENT_VERSION=	20100311
 COMPONENT_SRC=		$(COMPONENT_NAME)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-$(COMPONENT_VERSION).tar.bz2
 COMPONENT_ARCHIVE_HASH=	sha1:5389cb2db10cc6e2c33beb06fd9da03e29339fa5
-COMPONENT_ARCHIVE_URL= .
+COMPONENT_ARCHIVE_URL= http://pkgdev.openindiana.org/~aszeszo/distfiles/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
