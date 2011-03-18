@@ -40,6 +40,8 @@
 
 #<transform set name=pkg.fmri -> edit value "@[^ \t\n\r\f\v]*" "@$!(IPS_COMPONENT_VERSION),$!(BUILD_VERSION)">
 
+<transform dir file link hardlink -> edit path "^ec" "$!(ECPREFIX)">
+
 <transform dir file link hardlink -> \
 	edit path "/(sparcv9|amd64)$" "/$!(MACH64)">
 <transform dir file link hardlink -> \
@@ -53,7 +55,7 @@
 <transform dir file link hardlink -> \
 	edit path "/(sparc|i386)/" "/$!(MACH)/">
 <transform dir file link hardlink -> \
-	edit path "/(sparc|i386)-(sun|pc)-solaris\d\.\d+" "/$!(MACH)-$!(PLAT)-solaris$!(SOLARIS_RELEASE)">
+	edit path "/(sparc|i386)-(sun|pc)-solaris\d\.\d+" "/$!(MACH)-$!(PLAT)-solaris$!(SOLARIS_VERSION)">
 
 <transform dir file link hardlink -> \
 	edit target "/(sparcv9|amd64)$" "/$!(MACH64)">
@@ -68,7 +70,7 @@
 <transform dir file link hardlink -> \
 	edit target "/(sparc|i386)/" "/$!(MACH)/">
 <transform dir file link hardlink -> \
-	edit target "/(sparc|i386)-(sun|pc)-solaris\d\.\d+" "/$!(MACH)-$!(PLAT)-solaris$!(SOLARIS_RELEASE)">
+	edit target "/(sparc|i386)-(sun|pc)-solaris\d\.\d+" "/$!(MACH)-$!(PLAT)-solaris$!(SOLARIS_VERSION)">
 
 # <transform dir file link hardlink -> \
 # 	edit path "$(COMPONENT_NAME)" "$!(COMPONENT_NAME)">

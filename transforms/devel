@@ -27,6 +27,8 @@
 # header files
 <transform dir file link hardlink path=usr.*/include(/.+){0,1} -> \
     default facet.devel true>
+<transform dir file link hardlink path=ec.*/include(/.+){0,1} -> \
+    default facet.devel true>
 
 # archive libraries (on rare occasion, we should be delivering these)
 <transform file path=.*lib/.+\.a$ -> default facet.devel true>
