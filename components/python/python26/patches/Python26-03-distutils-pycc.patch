@@ -1,0 +1,26 @@
+diff -ruN Python-2.6.6.02/Lib/distutils/sysconfig.py Python-2.6.6.03/Lib/distutils/sysconfig.py
+--- Python-2.6.6.02/Lib/distutils/sysconfig.py	2010-08-03 22:18:06.000000000 +0100
++++ Python-2.6.6.03/Lib/distutils/sysconfig.py	2011-03-07 11:56:46.037947133 +0000
+@@ -170,16 +170,12 @@
+             get_config_vars('CC', 'CXX', 'OPT', 'CFLAGS',
+                             'CCSHARED', 'LDSHARED', 'SO')
+ 
+-        if 'CC' in os.environ:
+-            cc = os.environ['CC']
+-        if 'CXX' in os.environ:
+-            cxx = os.environ['CXX']
+-        if 'LDSHARED' in os.environ:
+-            ldshared = os.environ['LDSHARED']
+-        if 'CPP' in os.environ:
+-            cpp = os.environ['CPP']
+-        else:
+-            cpp = cc + " -E"           # not always
++        # On Solaris, we must always use pycc/pyCC, which will then look up
++        # $CC and $CXX
++        cc = '/ec/lib/python2.6/pycc'
++        cxx = '/ec/lib/python2.6/pyCC'
++        cpp = cc + " -E"
++
+         if 'LDFLAGS' in os.environ:
+             ldshared = ldshared + ' ' + os.environ['LDFLAGS']
+         if 'CFLAGS' in os.environ:

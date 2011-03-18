@@ -1,0 +1,90 @@
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/library/python-2/m2crypto@0.20.2,$(BUILD_VERSION)
+set name=pkg.summary value="Python interface for openssl"
+set name=pkg.description value="M2Crypto provides a python interface to the openssl library."
+#set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=info.source_url value=$(SOURCE_URL)
+set name=info.upstream_url value=http://chandlerproject.org/Projects/MeTooCrypto
+set name=info.upstream value="Heikki Toivonen <heikki@osafoundation.org>"
+set name=variant.arch value=$(ARCH)
+
+dir path=ec
+dir path=ec/lib
+dir path=ec/lib/python2.6
+dir path=ec/lib/python2.6/vendor-packages
+dir path=ec/lib/python2.6/vendor-packages/M2Crypto
+dir path=ec/lib/python2.6/vendor-packages/M2Crypto-0.20.2-py2.6.egg-info
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto-0.20.2-py2.6.egg-info/PKG-INFO
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto-0.20.2-py2.6.egg-info/SOURCES.txt
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto-0.20.2-py2.6.egg-info/dependency_links.txt
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto-0.20.2-py2.6.egg-info/top_level.txt
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/ASN1.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/AuthCookie.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/BIO.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/BN.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/DH.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/DSA.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/EC.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/EVP.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/Engine.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/Err.py
+dir path=ec/lib/python2.6/vendor-packages/M2Crypto/PGP
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/PGP/PublicKey.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/PGP/PublicKeyRing.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/PGP/RSA.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/PGP/__init__.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/PGP/constants.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/PGP/packet.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/RC4.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/RSA.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/Rand.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/SMIME.py
+dir path=ec/lib/python2.6/vendor-packages/M2Crypto/SSL
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/SSL/Checker.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/SSL/Cipher.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/SSL/Connection.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/SSL/Context.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/SSL/SSLServer.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/SSL/Session.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/SSL/TwistedProtocolWrapper.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/SSL/__init__.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/SSL/cb.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/SSL/ssl_dispatcher.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/SSL/timeout.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/X509.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/__init__.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/__m2crypto.so
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/callback.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/ftpslib.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/httpslib.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/m2.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/m2urllib.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/m2urllib2.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/m2xmlrpclib.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/threading.py
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/util.py
+
+license lic_m2crypto license=lic_m2crypto
+

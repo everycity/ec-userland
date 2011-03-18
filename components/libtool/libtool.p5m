@@ -1,0 +1,111 @@
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/developer/build/libtool@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="libtool - GNU libtool utility"
+#set name=info.classification value="org.opensolaris.category.2008:Development/GNU"
+set name=info.upstream_url value="http://www.gnu.org/software/libtool/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license libtool.license license="GPLv3"
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/libltdl
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/aclocal
+dir path=$(ECPREFIX)/share/info
+dir path=$(ECPREFIX)/share/libtool
+dir path=$(ECPREFIX)/share/libtool/config
+dir path=$(ECPREFIX)/share/libtool/libltdl
+dir path=$(ECPREFIX)/share/libtool/libltdl/libltdl
+dir path=$(ECPREFIX)/share/libtool/libltdl/loaders
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/libtool
+file path=$(ECPREFIX)/bin/libtoolize
+file path=$(ECPREFIX)/include/libltdl/lt_dlloader.h
+file path=$(ECPREFIX)/include/libltdl/lt_error.h
+file path=$(ECPREFIX)/include/libltdl/lt_system.h
+file path=$(ECPREFIX)/include/ltdl.h
+file path=$(ECPREFIX)/lib/libltdl.a
+file path=$(ECPREFIX)/lib/libltdl.la
+file path=$(ECPREFIX)/lib/libltdl.so.7.3.0
+file path=$(ECPREFIX)/share/aclocal/argz.m4
+file path=$(ECPREFIX)/share/aclocal/libtool.m4
+file path=$(ECPREFIX)/share/aclocal/ltdl.m4
+file path=$(ECPREFIX)/share/aclocal/ltoptions.m4
+file path=$(ECPREFIX)/share/aclocal/ltsugar.m4
+file path=$(ECPREFIX)/share/aclocal/ltversion.m4
+file path=$(ECPREFIX)/share/aclocal/lt~obsolete.m4
+file path=$(ECPREFIX)/share/info/libtool.info
+file path=$(ECPREFIX)/share/info/libtool.info-1
+file path=$(ECPREFIX)/share/info/libtool.info-2
+file path=$(ECPREFIX)/share/libtool/config/compile
+file path=$(ECPREFIX)/share/libtool/config/config.guess
+file path=$(ECPREFIX)/share/libtool/config/config.sub
+file path=$(ECPREFIX)/share/libtool/config/depcomp
+file path=$(ECPREFIX)/share/libtool/config/install-sh
+file path=$(ECPREFIX)/share/libtool/config/ltmain.sh
+file path=$(ECPREFIX)/share/libtool/config/missing
+file path=$(ECPREFIX)/share/libtool/libltdl/COPYING.LIB
+file path=$(ECPREFIX)/share/libtool/libltdl/Makefile.am
+file path=$(ECPREFIX)/share/libtool/libltdl/Makefile.in
+file path=$(ECPREFIX)/share/libtool/libltdl/Makefile.inc
+file path=$(ECPREFIX)/share/libtool/libltdl/README
+file path=$(ECPREFIX)/share/libtool/libltdl/aclocal.m4
+file path=$(ECPREFIX)/share/libtool/libltdl/argz.c
+file path=$(ECPREFIX)/share/libtool/libltdl/argz_.h
+file path=$(ECPREFIX)/share/libtool/libltdl/config-h.in
+file path=$(ECPREFIX)/share/libtool/libltdl/configure
+file path=$(ECPREFIX)/share/libtool/libltdl/configure.ac
+file path=$(ECPREFIX)/share/libtool/libltdl/libltdl/lt__alloc.h
+file path=$(ECPREFIX)/share/libtool/libltdl/libltdl/lt__dirent.h
+file path=$(ECPREFIX)/share/libtool/libltdl/libltdl/lt__glibc.h
+file path=$(ECPREFIX)/share/libtool/libltdl/libltdl/lt__private.h
+file path=$(ECPREFIX)/share/libtool/libltdl/libltdl/lt__strl.h
+file path=$(ECPREFIX)/share/libtool/libltdl/libltdl/lt_dlloader.h
+file path=$(ECPREFIX)/share/libtool/libltdl/libltdl/lt_error.h
+file path=$(ECPREFIX)/share/libtool/libltdl/libltdl/lt_system.h
+file path=$(ECPREFIX)/share/libtool/libltdl/libltdl/slist.h
+file path=$(ECPREFIX)/share/libtool/libltdl/loaders/dld_link.c
+file path=$(ECPREFIX)/share/libtool/libltdl/loaders/dlopen.c
+file path=$(ECPREFIX)/share/libtool/libltdl/loaders/dyld.c
+file path=$(ECPREFIX)/share/libtool/libltdl/loaders/load_add_on.c
+file path=$(ECPREFIX)/share/libtool/libltdl/loaders/loadlibrary.c
+file path=$(ECPREFIX)/share/libtool/libltdl/loaders/preopen.c
+file path=$(ECPREFIX)/share/libtool/libltdl/loaders/shl_load.c
+file path=$(ECPREFIX)/share/libtool/libltdl/lt__alloc.c
+file path=$(ECPREFIX)/share/libtool/libltdl/lt__dirent.c
+file path=$(ECPREFIX)/share/libtool/libltdl/lt__strl.c
+file path=$(ECPREFIX)/share/libtool/libltdl/lt_dlloader.c
+file path=$(ECPREFIX)/share/libtool/libltdl/lt_error.c
+file path=$(ECPREFIX)/share/libtool/libltdl/ltdl.c
+file path=$(ECPREFIX)/share/libtool/libltdl/ltdl.h
+file path=$(ECPREFIX)/share/libtool/libltdl/slist.c
+file path=$(ECPREFIX)/share/man/man1/libtool.1
+file path=$(ECPREFIX)/share/man/man1/libtoolize.1
+link path=$(ECPREFIX)/lib/libltdl.so target=libltdl.so.7.3.0
+link path=$(ECPREFIX)/lib/libltdl.so.7 target=libltdl.so.7.3.0

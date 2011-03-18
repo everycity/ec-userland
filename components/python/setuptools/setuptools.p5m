@@ -1,0 +1,180 @@
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/library/python-2/setuptools-26@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Download, build, install, upgrade, and uninstall Python packages easily"
+#set name=info.classification value="org.opensolaris.category.2008:Development/Python"
+set name=info.upstream_url value="http://pypi.python.org/pypi/setuptools"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license setuptools.license license="PSF,ZPL"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/python2.6
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools
+dir \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools-$(COMPONENT_VERSION)-py2.6.egg-info
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/tests
+file path=$(ECPREFIX)/bin/easy_install
+file path=$(ECPREFIX)/bin/easy_install-2.6
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/easy_install.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/easy_install.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pkg_resources.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pkg_resources.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools-$(COMPONENT_VERSION)-py2.6.egg-info/PKG-INFO
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools-$(COMPONENT_VERSION)-py2.6.egg-info/SOURCES.txt
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools-$(COMPONENT_VERSION)-py2.6.egg-info/dependency_links.txt
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools-$(COMPONENT_VERSION)-py2.6.egg-info/entry_points.txt
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools-$(COMPONENT_VERSION)-py2.6.egg-info/top_level.txt
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools-$(COMPONENT_VERSION)-py2.6.egg-info/zip-safe
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/__init__.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/__init__.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/archive_util.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/archive_util.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/cli.exe
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/__init__.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/__init__.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/alias.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/alias.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/bdist_egg.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/bdist_egg.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/bdist_rpm.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/bdist_rpm.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/bdist_wininst.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/bdist_wininst.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/build_ext.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/build_ext.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/build_py.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/build_py.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/develop.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/develop.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/easy_install.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/easy_install.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/egg_info.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/egg_info.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/install.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/install.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/install_egg_info.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/install_egg_info.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/install_lib.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/install_lib.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/install_scripts.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/install_scripts.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/register.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/register.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/rotate.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/rotate.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/saveopts.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/saveopts.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/sdist.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/sdist.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/setopt.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/setopt.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/test.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/test.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/upload.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/command/upload.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/depends.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/depends.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/dist.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/dist.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/extension.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/extension.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/gui.exe
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/package_index.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/package_index.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/sandbox.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/sandbox.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/tests/__init__.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/tests/__init__.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/tests/doctest.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/tests/doctest.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/tests/test_packageindex.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/tests/test_packageindex.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/tests/test_resources.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/setuptools/tests/test_resources.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/site.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/site.pyc

@@ -1,0 +1,14 @@
+diff -ruN Python-2.6.6.orig/setup.py Python-2.6.6/setup.py
+--- Python-2.6.6.orig/setup.py	2011-03-08 17:30:13.794859393 +0000
++++ Python-2.6.6/setup.py	2011-03-08 17:30:33.657904694 +0000
+@@ -689,8 +689,8 @@
+         if platform not in ['mac']:
+             # crypt module.
+ 
+-            if self.compiler.find_library_file(lib_dirs, 'crypt'):
+-                libs = ['crypt']
++            if self.compiler.find_library_file(lib_dirs, 'crypt_d'):
++                libs = ['crypt_d']
+             else:
+                 libs = []
+             exts.append( Extension('crypt', ['cryptmodule.c'], libraries=libs) )

@@ -1,0 +1,289 @@
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/package/pkg@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Image Packaging System"
+set name=pkg.description value="The Image Packaging System (IPS), or pkg(5), is the software delivery system used on OpenSolaris systems.  This package contains the core command-line components and depot server."
+#set name=info.classification value=org.opensolaris.category.2008:System/Packaging
+set name=opensolaris.smf.fmri value=svc:/application/pkg/server:default value=svc:/application/pkg/dynamic-mirror:default
+set name=variant.arch value=$(ARCH)
+
+dir path=etc
+dir path=etc/security
+dir path=etc/security/auth_attr.d
+file path=etc/security/auth_attr.d/SUNWipkg
+dir path=etc/security/exec_attr.d
+file path=etc/security/exec_attr.d/SUNWipkg
+dir path=lib
+dir path=lib/svc
+dir path=lib/svc/manifest
+dir path=lib/svc/manifest/application
+file path=lib/svc/manifest/application/pkg-mdns.xml
+file path=lib/svc/manifest/application/pkg-server.xml
+dir path=lib/svc/method
+file path=lib/svc/method/svc-pkg-depot
+file path=lib/svc/method/svc-pkg-mdns
+dir path=ec
+dir path=ec/bin
+file path=ec/bin/pkg
+file path=ec/bin/pkgdepend
+file path=ec/bin/pkgdiff
+file path=ec/bin/pkgfmt
+file path=ec/bin/pkglint
+file path=ec/bin/pkgmerge
+file path=ec/bin/pkgmogrify
+file path=ec/bin/pkgrecv
+file path=ec/bin/pkgrepo
+file path=ec/bin/pkgsend
+file path=ec/bin/pkgsign
+dir path=ec/lib
+file path=ec/lib/pkg.depotd mode=0755
+dir path=ec/lib/python2.6
+dir path=ec/lib/python2.6/vendor-packages
+file path=ec/lib/python2.6/vendor-packages/pkg-0.1-py2.6.egg-info
+dir path=ec/lib/python2.6/vendor-packages/pkg
+file path=ec/lib/python2.6/vendor-packages/pkg/__init__.py
+dir path=ec/lib/python2.6/vendor-packages/pkg/actions
+file path=ec/lib/python2.6/vendor-packages/pkg/actions/__init__.py
+file path=ec/lib/python2.6/vendor-packages/pkg/actions/_actions.so
+file path=ec/lib/python2.6/vendor-packages/pkg/actions/attribute.py
+file path=ec/lib/python2.6/vendor-packages/pkg/actions/depend.py
+file path=ec/lib/python2.6/vendor-packages/pkg/actions/directory.py
+file path=ec/lib/python2.6/vendor-packages/pkg/actions/driver.py
+file path=ec/lib/python2.6/vendor-packages/pkg/actions/file.py
+file path=ec/lib/python2.6/vendor-packages/pkg/actions/generic.py
+file path=ec/lib/python2.6/vendor-packages/pkg/actions/group.py
+file path=ec/lib/python2.6/vendor-packages/pkg/actions/hardlink.py
+file path=ec/lib/python2.6/vendor-packages/pkg/actions/legacy.py
+file path=ec/lib/python2.6/vendor-packages/pkg/actions/license.py
+file path=ec/lib/python2.6/vendor-packages/pkg/actions/link.py
+file path=ec/lib/python2.6/vendor-packages/pkg/actions/signature.py
+file path=ec/lib/python2.6/vendor-packages/pkg/actions/unknown.py
+file path=ec/lib/python2.6/vendor-packages/pkg/actions/user.py
+file path=ec/lib/python2.6/vendor-packages/pkg/api_common.py
+file path=ec/lib/python2.6/vendor-packages/pkg/arch.so
+dir path=ec/lib/python2.6/vendor-packages/pkg/bundle
+file path=ec/lib/python2.6/vendor-packages/pkg/bundle/DirectoryBundle.py
+file path=ec/lib/python2.6/vendor-packages/pkg/bundle/SolarisPackageDatastreamBundle.py
+file path=ec/lib/python2.6/vendor-packages/pkg/bundle/SolarisPackageDirBundle.py
+file path=ec/lib/python2.6/vendor-packages/pkg/bundle/TarBundle.py
+file path=ec/lib/python2.6/vendor-packages/pkg/bundle/__init__.py
+file path=ec/lib/python2.6/vendor-packages/pkg/catalog.py
+file path=ec/lib/python2.6/vendor-packages/pkg/cfgfiles.py
+file path=ec/lib/python2.6/vendor-packages/pkg/choose.py
+dir path=ec/lib/python2.6/vendor-packages/pkg/client
+file path=ec/lib/python2.6/vendor-packages/pkg/client/__init__.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/actuator.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/api.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/api_errors.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/bootenv.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/debugvalues.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/history.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/image.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/imageconfig.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/imageplan.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/imagetypes.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/indexer.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/pkg_solver.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/pkgplan.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/progress.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/publisher.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/query_parser.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/sigpolicy.py
+dir path=ec/lib/python2.6/vendor-packages/pkg/client/transport
+file path=ec/lib/python2.6/vendor-packages/pkg/client/transport/__init__.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/transport/engine.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/transport/exception.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/transport/fileobj.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/transport/mdetect.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/transport/repo.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/transport/stats.py
+file path=ec/lib/python2.6/vendor-packages/pkg/client/transport/transport.py
+file path=ec/lib/python2.6/vendor-packages/pkg/config.py
+file path=ec/lib/python2.6/vendor-packages/pkg/cpiofile.py
+file path=ec/lib/python2.6/vendor-packages/pkg/dependency.py
+file path=ec/lib/python2.6/vendor-packages/pkg/depotcontroller.py
+file path=ec/lib/python2.6/vendor-packages/pkg/elf.so
+dir path=ec/lib/python2.6/vendor-packages/pkg/file_layout
+file path=ec/lib/python2.6/vendor-packages/pkg/file_layout/__init__.py
+file path=ec/lib/python2.6/vendor-packages/pkg/file_layout/layout.py
+file path=ec/lib/python2.6/vendor-packages/pkg/file_layout/file_manager.py
+file path=ec/lib/python2.6/vendor-packages/pkg/facet.py
+dir path=ec/lib/python2.6/vendor-packages/pkg/flavor
+file path=ec/lib/python2.6/vendor-packages/pkg/flavor/__init__.py
+file path=ec/lib/python2.6/vendor-packages/pkg/flavor/base.py
+file path=ec/lib/python2.6/vendor-packages/pkg/flavor/depthlimitedmf.py
+file path=ec/lib/python2.6/vendor-packages/pkg/flavor/depthlimitedmf24.py
+hardlink path=ec/lib/python2.6/vendor-packages/pkg/flavor/depthlimitedmf25.py target=depthlimitedmf24.py
+file path=ec/lib/python2.6/vendor-packages/pkg/flavor/elf.py
+file path=ec/lib/python2.6/vendor-packages/pkg/flavor/hardlink.py
+file path=ec/lib/python2.6/vendor-packages/pkg/flavor/python.py
+file path=ec/lib/python2.6/vendor-packages/pkg/flavor/script.py
+file path=ec/lib/python2.6/vendor-packages/pkg/flavor/smf_manifest.py
+file path=ec/lib/python2.6/vendor-packages/pkg/fmri.py
+file path=ec/lib/python2.6/vendor-packages/pkg/indexer.py
+dir path=ec/lib/python2.6/vendor-packages/pkg/lint
+file path=ec/lib/python2.6/vendor-packages/pkg/lint/__init__.py
+file path=ec/lib/python2.6/vendor-packages/pkg/lint/base.py
+file path=ec/lib/python2.6/vendor-packages/pkg/lint/config.py
+file path=ec/lib/python2.6/vendor-packages/pkg/lint/engine.py
+file path=ec/lib/python2.6/vendor-packages/pkg/lint/log.py
+file path=ec/lib/python2.6/vendor-packages/pkg/lint/opensolaris.py
+file path=ec/lib/python2.6/vendor-packages/pkg/lint/pkglint_action.py
+file path=ec/lib/python2.6/vendor-packages/pkg/lint/pkglint_manifest.py
+file path=ec/lib/python2.6/vendor-packages/pkg/lockfile.py
+file path=ec/lib/python2.6/vendor-packages/pkg/manifest.py
+file path=ec/lib/python2.6/vendor-packages/pkg/misc.py
+file path=ec/lib/python2.6/vendor-packages/pkg/nrlock.py
+file path=ec/lib/python2.6/vendor-packages/pkg/p5i.py
+file path=ec/lib/python2.6/vendor-packages/pkg/p5p.py
+file path=ec/lib/python2.6/vendor-packages/pkg/pkggzip.py
+file path=ec/lib/python2.6/vendor-packages/pkg/pkgsubprocess.py
+file path=ec/lib/python2.6/vendor-packages/pkg/pkgtarfile.py
+dir path=ec/lib/python2.6/vendor-packages/pkg/portable
+file path=ec/lib/python2.6/vendor-packages/pkg/portable/__init__.py
+file path=ec/lib/python2.6/vendor-packages/pkg/portable/os_aix.py
+file path=ec/lib/python2.6/vendor-packages/pkg/portable/os_darwin.py
+file path=ec/lib/python2.6/vendor-packages/pkg/portable/os_sunos.py
+file path=ec/lib/python2.6/vendor-packages/pkg/portable/os_unix.py
+file path=ec/lib/python2.6/vendor-packages/pkg/portable/os_windows.py
+file path=ec/lib/python2.6/vendor-packages/pkg/portable/util.py
+file path=ec/lib/python2.6/vendor-packages/pkg/pspawn.so
+dir path=ec/lib/python2.6/vendor-packages/pkg/publish
+file path=ec/lib/python2.6/vendor-packages/pkg/publish/__init__.py
+file path=ec/lib/python2.6/vendor-packages/pkg/publish/dependencies.py
+file path=ec/lib/python2.6/vendor-packages/pkg/publish/transaction.py
+file path=ec/lib/python2.6/vendor-packages/pkg/query_parser.py
+file path=ec/lib/python2.6/vendor-packages/pkg/search_errors.py
+file path=ec/lib/python2.6/vendor-packages/pkg/search_storage.py
+dir path=ec/lib/python2.6/vendor-packages/pkg/server
+file path=ec/lib/python2.6/vendor-packages/pkg/server/__init__.py
+file path=ec/lib/python2.6/vendor-packages/pkg/server/api.py
+file path=ec/lib/python2.6/vendor-packages/pkg/server/api_errors.py
+file path=ec/lib/python2.6/vendor-packages/pkg/server/catalog.py
+file path=ec/lib/python2.6/vendor-packages/pkg/server/depot.py
+file path=ec/lib/python2.6/vendor-packages/pkg/server/depotresponse.py
+file path=ec/lib/python2.6/vendor-packages/pkg/server/face.py
+file path=ec/lib/python2.6/vendor-packages/pkg/server/feed.py
+file path=ec/lib/python2.6/vendor-packages/pkg/server/query_parser.py
+file path=ec/lib/python2.6/vendor-packages/pkg/server/repository.py
+file path=ec/lib/python2.6/vendor-packages/pkg/server/transaction.py
+file path=ec/lib/python2.6/vendor-packages/pkg/solver.so
+file path=ec/lib/python2.6/vendor-packages/pkg/sysvpkg.py
+file path=ec/lib/python2.6/vendor-packages/pkg/updatelog.py
+file path=ec/lib/python2.6/vendor-packages/pkg/variant.py
+file path=ec/lib/python2.6/vendor-packages/pkg/version.py
+dir path=ec/share
+dir path=ec/share/lib
+dir path=ec/share/lib/pkg
+file path=ec/share/lib/pkg/pkglintrc
+file path=ec/share/lib/pkg/opensolaris.org.sections
+dir path=ec/share/lib/pkg/web
+dir path=ec/share/lib/pkg/web/_themes
+dir path=ec/share/lib/pkg/web/_themes/default
+dir path=ec/share/lib/pkg/web/_themes/default/en
+file path=ec/share/lib/pkg/web/_themes/default/en/base.css
+file path=ec/share/lib/pkg/web/_themes/default/en/body_end.shtml
+file path=ec/share/lib/pkg/web/_themes/default/en/footer.shtml
+file path=ec/share/lib/pkg/web/_themes/default/en/head_end.shtml
+file path=ec/share/lib/pkg/web/_themes/default/en/header.shtml
+file path=ec/share/lib/pkg/web/_themes/default/feed-icon-14x14.png
+dir path=ec/share/lib/pkg/web/_themes/opensolaris.com
+dir path=ec/share/lib/pkg/web/_themes/opensolaris.com/en
+file path=ec/share/lib/pkg/web/_themes/opensolaris.com/en/base.css
+file path=ec/share/lib/pkg/web/_themes/opensolaris.com/en/body_end.shtml
+file path=ec/share/lib/pkg/web/_themes/opensolaris.com/en/footer.shtml
+file path=ec/share/lib/pkg/web/_themes/opensolaris.com/en/head_end.shtml
+file path=ec/share/lib/pkg/web/_themes/opensolaris.com/en/header.shtml
+dir path=ec/share/lib/pkg/web/_themes/opensolaris.org
+dir path=ec/share/lib/pkg/web/_themes/opensolaris.org/en
+file path=ec/share/lib/pkg/web/_themes/opensolaris.org/en/base.css
+file path=ec/share/lib/pkg/web/_themes/opensolaris.org/en/body_end.shtml
+file path=ec/share/lib/pkg/web/_themes/opensolaris.org/en/footer.shtml
+file path=ec/share/lib/pkg/web/_themes/opensolaris.org/en/head_end.shtml
+file path=ec/share/lib/pkg/web/_themes/opensolaris.org/en/header.shtml
+file path=ec/share/lib/pkg/web/_themes/opensolaris.org/feed-icon-14x14.png
+file path=ec/share/lib/pkg/web/_themes/p5i-link.png
+file path=ec/share/lib/pkg/web/_themes/pkg-block-icon.png
+file path=ec/share/lib/pkg/web/_themes/pkg-block-logo.png
+file path=ec/share/lib/pkg/web/_themes/pkg-block-logo.svg
+dir path=ec/share/lib/pkg/web/_themes/sun.com
+dir path=ec/share/lib/pkg/web/_themes/sun.com/en
+file path=ec/share/lib/pkg/web/_themes/sun.com/en/base.css
+file path=ec/share/lib/pkg/web/_themes/sun.com/en/body_end.shtml
+file path=ec/share/lib/pkg/web/_themes/sun.com/en/footer.shtml
+file path=ec/share/lib/pkg/web/_themes/sun.com/en/head_end.shtml
+file path=ec/share/lib/pkg/web/_themes/sun.com/en/header.shtml
+file path=ec/share/lib/pkg/web/_themes/yui-reset-font-grids_base-min.css
+dir path=ec/share/lib/pkg/web/_themes/oracle.com
+dir path=ec/share/lib/pkg/web/_themes/oracle.com/en
+file path=ec/share/lib/pkg/web/_themes/oracle.com/breadcrumb-center.png
+file path=ec/share/lib/pkg/web/_themes/oracle.com/breadcrumb-left.png
+file path=ec/share/lib/pkg/web/_themes/oracle.com/breadcrumb-right.png
+file path=ec/share/lib/pkg/web/_themes/oracle.com/feed-icon-14x14.png
+file path=ec/share/lib/pkg/web/_themes/oracle.com/mosaic-homebutton.png
+file path=ec/share/lib/pkg/web/_themes/oracle.com/navigation-item-background.png
+file path=ec/share/lib/pkg/web/_themes/oracle.com/navigation-last-button-cap.png
+file path=ec/share/lib/pkg/web/_themes/oracle.com/oralogo_small.gif
+file path=ec/share/lib/pkg/web/_themes/oracle.com/separator.png
+file path=ec/share/lib/pkg/web/_themes/oracle.com/en/base.css
+file path=ec/share/lib/pkg/web/_themes/oracle.com/en/body_end.shtml
+file path=ec/share/lib/pkg/web/_themes/oracle.com/en/footer.shtml
+file path=ec/share/lib/pkg/web/_themes/oracle.com/en/head_end.shtml
+file path=ec/share/lib/pkg/web/_themes/oracle.com/en/header.shtml
+file path=ec/share/lib/pkg/web/config.shtml
+dir path=ec/share/lib/pkg/web/en
+file path=ec/share/lib/pkg/web/en/advanced_search.shtml
+file path=ec/share/lib/pkg/web/en/base.shtml
+file path=ec/share/lib/pkg/web/en/catalog.shtml
+file path=ec/share/lib/pkg/web/en/index.shtml
+file path=ec/share/lib/pkg/web/en/layout.shtml
+file path=ec/share/lib/pkg/web/en/search.shtml
+file path=ec/share/lib/pkg/web/en/stats.shtml
+file path=ec/share/lib/pkg/web/index.shtml
+file path=ec/share/lib/pkg/web/robots.txt
+file path=ec/share/lib/pkg/web/shared.shtml
+dir path=ec/share/man
+dir path=ec/share/man/cat1
+file path=ec/share/man/cat1/pkg.1
+file path=ec/share/man/cat1/pkgdepend.1
+file path=ec/share/man/cat1/pkgdiff.1
+file path=ec/share/man/cat1/pkgfmt.1
+file path=ec/share/man/cat1/pkglint.1
+file path=ec/share/man/cat1/pkgmerge.1
+file path=ec/share/man/cat1/pkgmogrify.1
+file path=ec/share/man/cat1/pkgrecv.1
+file path=ec/share/man/cat1/pkgrepo.1
+file path=ec/share/man/cat1/pkgsend.1
+file path=ec/share/man/cat1/pkgsign.1
+dir path=ec/share/man/cat1m
+file path=ec/share/man/cat1m/pkg.depotd.1m
+dir path=ec/share/man/cat5
+file path=ec/share/man/cat5/pkg.5
+license cr_Oracle license=cr_Oracle
+license lic_minisat license=lic_minisat
+license lic_gustaebel license=lic_gustaebel
+
+group groupname=pkg5srv gid=97
+user username=pkg5srv uid=97 group=pkg5srv gcos-field="pkg(5) server UID"
+

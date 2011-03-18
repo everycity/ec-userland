@@ -1,0 +1,33 @@
+--- mDNSResponder-258.14.orig/mDNSPosix/Makefile	2009-08-11 02:13:47.000000000 +0100
++++ mDNSResponder-258.14/mDNSPosix/Makefile	2011-03-10 12:03:45.091395525 +0000
+@@ -179,9 +179,9 @@
+ 
+ # If directory /usr/share/man exists, then we install man pages into that, else /usr/man
+ ifeq ($(wildcard /usr/share/man), /usr/share/man)
+-MANPATH := /usr/share/man
++MANPATH := $(INSTBASE)/share/man
+ else
+-MANPATH := /usr/man
++MANPATH := $(INSTBASE)/usr/man
+ endif
+ 
+ # If directories /etc/init.d/rc*.d exist, then we install into that (Suse)
+@@ -211,7 +211,8 @@
+ 
+ all: setup Daemon libdns_sd Clients SAClient SAResponder SAProxyResponder Identify NetMonitor dnsextd $(OPTIONALTARG)
+ 
+-install: setup InstalledDaemon InstalledStartup InstalledLib InstalledManPages InstalledClients $(OPTINSTALL)
++#install: setup InstalledDaemon InstalledStartup InstalledLib InstalledManPages InstalledClients $(OPTINSTALL)
++install: setup InstalledDaemon InstalledLib InstalledManPages InstalledClients $(OPTINSTALL)
+ 
+ # 'setup' sets up the build directory structure the way we want
+ setup:
+@@ -289,7 +290,7 @@
+ 
+ # Note: If daemon already installed, we make sure it's stopped before overwriting it
+ $(INSTBASE)/sbin/mdnsd: $(BUILDDIR)/mdnsd
+-	@if test -x $@; then $(STARTUPSCRIPTDIR)/$(STARTUPSCRIPTNAME) stop; fi
++#	@if test -x $@; then $(STARTUPSCRIPTDIR)/$(STARTUPSCRIPTNAME) stop; fi
+ 	$(CP) $< $@
+ 
+ $(INSTBASE)/lib/libdns_sd.$(LDSUFFIX).$(LIBVERS): $(BUILDDIR)/libdns_sd.$(LDSUFFIX)

@@ -1,0 +1,12 @@
+diff -ruN mDNSResponder-258.14.orig/mDNSPosix/mDNSPosix.c mDNSResponder-258.14/mDNSPosix/mDNSPosix.c
+--- mDNSResponder-258.14.orig/mDNSPosix/mDNSPosix.c	2010-05-20 23:35:08.000000000 +0100
++++ mDNSResponder-258.14/mDNSPosix/mDNSPosix.c	2011-03-10 10:37:11.108354182 +0000
+@@ -1576,3 +1576,8 @@
+ 
+ 	return mStatus_NoError;
+ 	}
++
++mDNSexport void mDNSPlatformSetAllowSleep(mDNS *const m, mDNSBool allowSleep)
++	{
++		return;
++	}

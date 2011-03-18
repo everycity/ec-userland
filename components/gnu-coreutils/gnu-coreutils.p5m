@@ -1,0 +1,243 @@
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/file/gnu-coreutils@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="coreutils - GNU core utilities"
+#set name=info.classification value="org.opensolaris.category.2008:XXX Classification XXX"
+set name=info.upstream_url value="http://www.gnu.org/software/coreutils/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license gnu-coreutils.license license="GPLv3"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/coreutils
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/info
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/[
+file path=$(ECPREFIX)/bin/base64
+file path=$(ECPREFIX)/bin/basename
+file path=$(ECPREFIX)/bin/cat
+file path=$(ECPREFIX)/bin/chcon
+file path=$(ECPREFIX)/bin/chgrp
+file path=$(ECPREFIX)/bin/chmod
+file path=$(ECPREFIX)/bin/chown
+file path=$(ECPREFIX)/bin/chroot
+file path=$(ECPREFIX)/bin/cksum
+file path=$(ECPREFIX)/bin/comm
+file path=$(ECPREFIX)/bin/cp
+file path=$(ECPREFIX)/bin/csplit
+file path=$(ECPREFIX)/bin/cut
+file path=$(ECPREFIX)/bin/date
+file path=$(ECPREFIX)/bin/dd
+file path=$(ECPREFIX)/bin/df
+file path=$(ECPREFIX)/bin/dir
+file path=$(ECPREFIX)/bin/dircolors
+file path=$(ECPREFIX)/bin/dirname
+file path=$(ECPREFIX)/bin/du
+file path=$(ECPREFIX)/bin/echo
+file path=$(ECPREFIX)/bin/env
+file path=$(ECPREFIX)/bin/expand
+file path=$(ECPREFIX)/bin/expr
+file path=$(ECPREFIX)/bin/factor
+file path=$(ECPREFIX)/bin/false
+file path=$(ECPREFIX)/bin/fmt
+file path=$(ECPREFIX)/bin/fold
+file path=$(ECPREFIX)/bin/groups
+file path=$(ECPREFIX)/bin/head
+file path=$(ECPREFIX)/bin/hostid
+file path=$(ECPREFIX)/bin/id
+file path=$(ECPREFIX)/bin/install
+file path=$(ECPREFIX)/bin/join
+file path=$(ECPREFIX)/bin/kill
+file path=$(ECPREFIX)/bin/link
+file path=$(ECPREFIX)/bin/ln
+file path=$(ECPREFIX)/bin/logname
+file path=$(ECPREFIX)/bin/ls
+file path=$(ECPREFIX)/bin/md5sum
+file path=$(ECPREFIX)/bin/mkdir
+file path=$(ECPREFIX)/bin/mkfifo
+file path=$(ECPREFIX)/bin/mknod
+file path=$(ECPREFIX)/bin/mktemp
+file path=$(ECPREFIX)/bin/mv
+file path=$(ECPREFIX)/bin/nice
+file path=$(ECPREFIX)/bin/nl
+file path=$(ECPREFIX)/bin/nohup
+file path=$(ECPREFIX)/bin/nproc
+file path=$(ECPREFIX)/bin/od
+file path=$(ECPREFIX)/bin/paste
+file path=$(ECPREFIX)/bin/pathchk
+file path=$(ECPREFIX)/bin/pinky
+file path=$(ECPREFIX)/bin/pr
+file path=$(ECPREFIX)/bin/printenv
+file path=$(ECPREFIX)/bin/printf
+file path=$(ECPREFIX)/bin/ptx
+file path=$(ECPREFIX)/bin/pwd
+file path=$(ECPREFIX)/bin/readlink
+file path=$(ECPREFIX)/bin/rm
+file path=$(ECPREFIX)/bin/rmdir
+file path=$(ECPREFIX)/bin/runcon
+file path=$(ECPREFIX)/bin/seq
+file path=$(ECPREFIX)/bin/sha1sum
+file path=$(ECPREFIX)/bin/sha224sum
+file path=$(ECPREFIX)/bin/sha256sum
+file path=$(ECPREFIX)/bin/sha384sum
+file path=$(ECPREFIX)/bin/sha512sum
+file path=$(ECPREFIX)/bin/shred
+file path=$(ECPREFIX)/bin/shuf
+file path=$(ECPREFIX)/bin/sleep
+file path=$(ECPREFIX)/bin/sort
+file path=$(ECPREFIX)/bin/split
+file path=$(ECPREFIX)/bin/stat
+file path=$(ECPREFIX)/bin/stdbuf
+file path=$(ECPREFIX)/bin/stty
+file path=$(ECPREFIX)/bin/sum
+file path=$(ECPREFIX)/bin/sync
+file path=$(ECPREFIX)/bin/tac
+file path=$(ECPREFIX)/bin/tail
+file path=$(ECPREFIX)/bin/tee
+file path=$(ECPREFIX)/bin/test
+file path=$(ECPREFIX)/bin/timeout
+file path=$(ECPREFIX)/bin/touch
+file path=$(ECPREFIX)/bin/tr
+file path=$(ECPREFIX)/bin/true
+file path=$(ECPREFIX)/bin/truncate
+file path=$(ECPREFIX)/bin/tsort
+file path=$(ECPREFIX)/bin/tty
+file path=$(ECPREFIX)/bin/uname
+file path=$(ECPREFIX)/bin/unexpand
+file path=$(ECPREFIX)/bin/uniq
+file path=$(ECPREFIX)/bin/unlink
+file path=$(ECPREFIX)/bin/uptime
+file path=$(ECPREFIX)/bin/users
+file path=$(ECPREFIX)/bin/vdir
+file path=$(ECPREFIX)/bin/wc
+file path=$(ECPREFIX)/bin/who
+file path=$(ECPREFIX)/bin/whoami
+file path=$(ECPREFIX)/bin/yes
+file path=$(ECPREFIX)/lib/coreutils/libstdbuf.so
+file path=$(ECPREFIX)/share/info/coreutils.info
+file path=$(ECPREFIX)/share/man/man1/base64.1
+file path=$(ECPREFIX)/share/man/man1/basename.1
+file path=$(ECPREFIX)/share/man/man1/cat.1
+file path=$(ECPREFIX)/share/man/man1/chcon.1
+file path=$(ECPREFIX)/share/man/man1/chgrp.1
+file path=$(ECPREFIX)/share/man/man1/chmod.1
+file path=$(ECPREFIX)/share/man/man1/chown.1
+file path=$(ECPREFIX)/share/man/man1/chroot.1
+file path=$(ECPREFIX)/share/man/man1/cksum.1
+file path=$(ECPREFIX)/share/man/man1/comm.1
+file path=$(ECPREFIX)/share/man/man1/cp.1
+file path=$(ECPREFIX)/share/man/man1/csplit.1
+file path=$(ECPREFIX)/share/man/man1/cut.1
+file path=$(ECPREFIX)/share/man/man1/date.1
+file path=$(ECPREFIX)/share/man/man1/dd.1
+file path=$(ECPREFIX)/share/man/man1/df.1
+file path=$(ECPREFIX)/share/man/man1/dir.1
+file path=$(ECPREFIX)/share/man/man1/dircolors.1
+file path=$(ECPREFIX)/share/man/man1/dirname.1
+file path=$(ECPREFIX)/share/man/man1/du.1
+file path=$(ECPREFIX)/share/man/man1/echo.1
+file path=$(ECPREFIX)/share/man/man1/env.1
+file path=$(ECPREFIX)/share/man/man1/expand.1
+file path=$(ECPREFIX)/share/man/man1/expr.1
+file path=$(ECPREFIX)/share/man/man1/factor.1
+file path=$(ECPREFIX)/share/man/man1/false.1
+file path=$(ECPREFIX)/share/man/man1/fmt.1
+file path=$(ECPREFIX)/share/man/man1/fold.1
+file path=$(ECPREFIX)/share/man/man1/groups.1
+file path=$(ECPREFIX)/share/man/man1/head.1
+file path=$(ECPREFIX)/share/man/man1/hostid.1
+file path=$(ECPREFIX)/share/man/man1/id.1
+file path=$(ECPREFIX)/share/man/man1/install.1
+file path=$(ECPREFIX)/share/man/man1/join.1
+file path=$(ECPREFIX)/share/man/man1/kill.1
+file path=$(ECPREFIX)/share/man/man1/link.1
+file path=$(ECPREFIX)/share/man/man1/ln.1
+file path=$(ECPREFIX)/share/man/man1/logname.1
+file path=$(ECPREFIX)/share/man/man1/ls.1
+file path=$(ECPREFIX)/share/man/man1/md5sum.1
+file path=$(ECPREFIX)/share/man/man1/mkdir.1
+file path=$(ECPREFIX)/share/man/man1/mkfifo.1
+file path=$(ECPREFIX)/share/man/man1/mknod.1
+file path=$(ECPREFIX)/share/man/man1/mktemp.1
+file path=$(ECPREFIX)/share/man/man1/mv.1
+file path=$(ECPREFIX)/share/man/man1/nice.1
+file path=$(ECPREFIX)/share/man/man1/nl.1
+file path=$(ECPREFIX)/share/man/man1/nohup.1
+file path=$(ECPREFIX)/share/man/man1/nproc.1
+file path=$(ECPREFIX)/share/man/man1/od.1
+file path=$(ECPREFIX)/share/man/man1/paste.1
+file path=$(ECPREFIX)/share/man/man1/pathchk.1
+file path=$(ECPREFIX)/share/man/man1/pinky.1
+file path=$(ECPREFIX)/share/man/man1/pr.1
+file path=$(ECPREFIX)/share/man/man1/printenv.1
+file path=$(ECPREFIX)/share/man/man1/printf.1
+file path=$(ECPREFIX)/share/man/man1/ptx.1
+file path=$(ECPREFIX)/share/man/man1/pwd.1
+file path=$(ECPREFIX)/share/man/man1/readlink.1
+file path=$(ECPREFIX)/share/man/man1/rm.1
+file path=$(ECPREFIX)/share/man/man1/rmdir.1
+file path=$(ECPREFIX)/share/man/man1/runcon.1
+file path=$(ECPREFIX)/share/man/man1/seq.1
+file path=$(ECPREFIX)/share/man/man1/sha1sum.1
+file path=$(ECPREFIX)/share/man/man1/sha224sum.1
+file path=$(ECPREFIX)/share/man/man1/sha256sum.1
+file path=$(ECPREFIX)/share/man/man1/sha384sum.1
+file path=$(ECPREFIX)/share/man/man1/sha512sum.1
+file path=$(ECPREFIX)/share/man/man1/shred.1
+file path=$(ECPREFIX)/share/man/man1/shuf.1
+file path=$(ECPREFIX)/share/man/man1/sleep.1
+file path=$(ECPREFIX)/share/man/man1/sort.1
+file path=$(ECPREFIX)/share/man/man1/split.1
+file path=$(ECPREFIX)/share/man/man1/stat.1
+file path=$(ECPREFIX)/share/man/man1/stdbuf.1
+file path=$(ECPREFIX)/share/man/man1/stty.1
+file path=$(ECPREFIX)/share/man/man1/sum.1
+file path=$(ECPREFIX)/share/man/man1/sync.1
+file path=$(ECPREFIX)/share/man/man1/tac.1
+file path=$(ECPREFIX)/share/man/man1/tail.1
+file path=$(ECPREFIX)/share/man/man1/tee.1
+file path=$(ECPREFIX)/share/man/man1/test.1
+file path=$(ECPREFIX)/share/man/man1/timeout.1
+file path=$(ECPREFIX)/share/man/man1/touch.1
+file path=$(ECPREFIX)/share/man/man1/tr.1
+file path=$(ECPREFIX)/share/man/man1/true.1
+file path=$(ECPREFIX)/share/man/man1/truncate.1
+file path=$(ECPREFIX)/share/man/man1/tsort.1
+file path=$(ECPREFIX)/share/man/man1/tty.1
+file path=$(ECPREFIX)/share/man/man1/uname.1
+file path=$(ECPREFIX)/share/man/man1/unexpand.1
+file path=$(ECPREFIX)/share/man/man1/uniq.1
+file path=$(ECPREFIX)/share/man/man1/unlink.1
+file path=$(ECPREFIX)/share/man/man1/uptime.1
+file path=$(ECPREFIX)/share/man/man1/users.1
+file path=$(ECPREFIX)/share/man/man1/vdir.1
+file path=$(ECPREFIX)/share/man/man1/wc.1
+file path=$(ECPREFIX)/share/man/man1/who.1
+file path=$(ECPREFIX)/share/man/man1/whoami.1
+file path=$(ECPREFIX)/share/man/man1/yes.1

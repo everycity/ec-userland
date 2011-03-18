@@ -1,0 +1,22 @@
+diff -ruN mDNSResponder-258.14.orig/Clients/dns-sd.c mDNSResponder-258.14/Clients/dns-sd.c
+--- mDNSResponder-258.14.orig/Clients/dns-sd.c	2010-05-15 01:16:11.000000000 +0100
++++ mDNSResponder-258.14/Clients/dns-sd.c	2011-03-10 11:32:01.401261908 +0000
+@@ -170,8 +170,18 @@
+ 	#include <arpa/inet.h>		// For inet_addr()
+ 	#include <net/if.h>			// For if_nametoindex()
+ 	static const char kFilePathSep = '/';
++#if defined (__SVR4) && defined (__sun)
++	static size_t _sa_len(const struct sockaddr *addr)
++		{
++		if (addr->sa_family == AF_INET) return (sizeof(struct sockaddr_in));
++		else if (addr->sa_family == AF_INET6) return (sizeof(struct sockaddr_in6));
++		else return (sizeof(struct sockaddr));
++		}
++#define SA_LEN(addr) (_sa_len(addr))
++#else
+ 	#define SA_LEN(addr) ((addr)->sa_len)
+ #endif
++#endif
+ 
+ #if (TEST_NEW_CLIENTSTUB && !defined(__APPLE_API_PRIVATE))
+ #define __APPLE_API_PRIVATE 1

@@ -1,0 +1,126 @@
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/web/curl@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="The C-URL Wrappers Library"
+#set name=info.classification value="org.opensolaris.category.2008:System/Libraries"
+set name=info.upstream_url value="http://curl.haxx.se/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license curl.license license="BSD"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/curl
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+dir path=$(ECPREFIX)/share/man/man3
+file path=$(ECPREFIX)/bin/$(MACH64)/curl
+file path=$(ECPREFIX)/bin/$(MACH64)/curl-config
+file path=$(ECPREFIX)/bin/curl
+file path=$(ECPREFIX)/bin/curl-config
+file path=$(ECPREFIX)/include/curl/curl.h
+file curlbuild.h path=$(ECPREFIX)/include/curl/curlbuild.h
+file path=$(ECPREFIX)/include/curl/curlrules.h
+file path=$(ECPREFIX)/include/curl/curlver.h
+file path=$(ECPREFIX)/include/curl/easy.h
+file path=$(ECPREFIX)/include/curl/mprintf.h
+file path=$(ECPREFIX)/include/curl/multi.h
+file path=$(ECPREFIX)/include/curl/stdcheaders.h
+file path=$(ECPREFIX)/include/curl/typecheck-gcc.h
+file path=$(ECPREFIX)/include/curl/types.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libcurl.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libcurl.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libcurl.so.4.2.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libcurl.pc
+file path=$(ECPREFIX)/lib/libcurl.a
+file path=$(ECPREFIX)/lib/libcurl.la
+file path=$(ECPREFIX)/lib/libcurl.so.4.2.0
+file path=$(ECPREFIX)/lib/pkgconfig/libcurl.pc
+file path=$(ECPREFIX)/share/man/man1/curl-config.1
+file path=$(ECPREFIX)/share/man/man1/curl.1
+file path=$(ECPREFIX)/share/man/man3/curl_easy_cleanup.3
+file path=$(ECPREFIX)/share/man/man3/curl_easy_duphandle.3
+file path=$(ECPREFIX)/share/man/man3/curl_easy_escape.3
+file path=$(ECPREFIX)/share/man/man3/curl_easy_getinfo.3
+file path=$(ECPREFIX)/share/man/man3/curl_easy_init.3
+file path=$(ECPREFIX)/share/man/man3/curl_easy_pause.3
+file path=$(ECPREFIX)/share/man/man3/curl_easy_perform.3
+file path=$(ECPREFIX)/share/man/man3/curl_easy_recv.3
+file path=$(ECPREFIX)/share/man/man3/curl_easy_reset.3
+file path=$(ECPREFIX)/share/man/man3/curl_easy_send.3
+file path=$(ECPREFIX)/share/man/man3/curl_easy_setopt.3
+file path=$(ECPREFIX)/share/man/man3/curl_easy_strerror.3
+file path=$(ECPREFIX)/share/man/man3/curl_easy_unescape.3
+file path=$(ECPREFIX)/share/man/man3/curl_escape.3
+file path=$(ECPREFIX)/share/man/man3/curl_formadd.3
+file path=$(ECPREFIX)/share/man/man3/curl_formfree.3
+file path=$(ECPREFIX)/share/man/man3/curl_formget.3
+file path=$(ECPREFIX)/share/man/man3/curl_free.3
+file path=$(ECPREFIX)/share/man/man3/curl_getdate.3
+file path=$(ECPREFIX)/share/man/man3/curl_getenv.3
+file path=$(ECPREFIX)/share/man/man3/curl_global_cleanup.3
+file path=$(ECPREFIX)/share/man/man3/curl_global_init.3
+file path=$(ECPREFIX)/share/man/man3/curl_global_init_mem.3
+file path=$(ECPREFIX)/share/man/man3/curl_mprintf.3
+file path=$(ECPREFIX)/share/man/man3/curl_multi_add_handle.3
+file path=$(ECPREFIX)/share/man/man3/curl_multi_assign.3
+file path=$(ECPREFIX)/share/man/man3/curl_multi_cleanup.3
+file path=$(ECPREFIX)/share/man/man3/curl_multi_fdset.3
+file path=$(ECPREFIX)/share/man/man3/curl_multi_info_read.3
+file path=$(ECPREFIX)/share/man/man3/curl_multi_init.3
+file path=$(ECPREFIX)/share/man/man3/curl_multi_perform.3
+file path=$(ECPREFIX)/share/man/man3/curl_multi_remove_handle.3
+file path=$(ECPREFIX)/share/man/man3/curl_multi_setopt.3
+file path=$(ECPREFIX)/share/man/man3/curl_multi_socket.3
+file path=$(ECPREFIX)/share/man/man3/curl_multi_socket_action.3
+file path=$(ECPREFIX)/share/man/man3/curl_multi_strerror.3
+file path=$(ECPREFIX)/share/man/man3/curl_multi_timeout.3
+file path=$(ECPREFIX)/share/man/man3/curl_share_cleanup.3
+file path=$(ECPREFIX)/share/man/man3/curl_share_init.3
+file path=$(ECPREFIX)/share/man/man3/curl_share_setopt.3
+file path=$(ECPREFIX)/share/man/man3/curl_share_strerror.3
+file path=$(ECPREFIX)/share/man/man3/curl_slist_append.3
+file path=$(ECPREFIX)/share/man/man3/curl_slist_free_all.3
+file path=$(ECPREFIX)/share/man/man3/curl_strequal.3
+file path=$(ECPREFIX)/share/man/man3/curl_unescape.3
+file path=$(ECPREFIX)/share/man/man3/curl_version.3
+file path=$(ECPREFIX)/share/man/man3/curl_version_info.3
+file path=$(ECPREFIX)/share/man/man3/libcurl-easy.3
+file path=$(ECPREFIX)/share/man/man3/libcurl-errors.3
+file path=$(ECPREFIX)/share/man/man3/libcurl-multi.3
+file path=$(ECPREFIX)/share/man/man3/libcurl-share.3
+file path=$(ECPREFIX)/share/man/man3/libcurl-tutorial.3
+file path=$(ECPREFIX)/share/man/man3/libcurl.3
+link path=$(ECPREFIX)/lib/$(MACH64)/libcurl.so target=libcurl.so.4.2.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libcurl.so.4 target=libcurl.so.4.2.0
+link path=$(ECPREFIX)/lib/libcurl.so target=libcurl.so.4.2.0
+link path=$(ECPREFIX)/lib/libcurl.so.4 target=libcurl.so.4.2.0

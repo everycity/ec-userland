@@ -1,0 +1,430 @@
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/library/openldap@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="OpenLDAP Software"
+#set name=info.classification value="org.opensolaris.category.2008:System/Libraries"
+set name=info.upstream_url value="http://www.openldap.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license openldap.license license="BSD"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/openldap
+dir path=$(ECPREFIX)/etc/openldap/schema
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/libexec
+dir path=$(ECPREFIX)/sbin
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+dir path=$(ECPREFIX)/share/man/man3
+dir path=$(ECPREFIX)/share/man/man5
+dir path=$(ECPREFIX)/share/man/man8
+dir path=$(ECPREFIX)/var
+dir path=$(ECPREFIX)/var/openldap-data
+dir path=$(ECPREFIX)/var/run
+file path=$(ECPREFIX)/bin/$(MACH64)/ldapcompare
+file path=$(ECPREFIX)/bin/$(MACH64)/ldapdelete
+file path=$(ECPREFIX)/bin/$(MACH64)/ldapexop
+file path=$(ECPREFIX)/bin/$(MACH64)/ldapmodify
+file path=$(ECPREFIX)/bin/$(MACH64)/ldapmodrdn
+file path=$(ECPREFIX)/bin/$(MACH64)/ldappasswd
+file path=$(ECPREFIX)/bin/$(MACH64)/ldapsearch
+file path=$(ECPREFIX)/bin/$(MACH64)/ldapurl
+file path=$(ECPREFIX)/bin/$(MACH64)/ldapwhoami
+file path=$(ECPREFIX)/bin/ldapcompare
+file path=$(ECPREFIX)/bin/ldapdelete
+file path=$(ECPREFIX)/bin/ldapexop
+file path=$(ECPREFIX)/bin/ldapmodify
+file path=$(ECPREFIX)/bin/ldapmodrdn
+file path=$(ECPREFIX)/bin/ldappasswd
+file path=$(ECPREFIX)/bin/ldapsearch
+file path=$(ECPREFIX)/bin/ldapurl
+file path=$(ECPREFIX)/bin/ldapwhoami
+file path=$(ECPREFIX)/etc/openldap/DB_CONFIG.example
+file path=$(ECPREFIX)/etc/openldap/ldap.conf
+file path=$(ECPREFIX)/etc/openldap/ldap.conf.default
+file path=$(ECPREFIX)/etc/openldap/schema/README
+file path=$(ECPREFIX)/etc/openldap/schema/collective.schema
+file path=$(ECPREFIX)/etc/openldap/schema/corba.schema
+file path=$(ECPREFIX)/etc/openldap/schema/core.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/core.schema
+file path=$(ECPREFIX)/etc/openldap/schema/cosine.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/cosine.schema
+file path=$(ECPREFIX)/etc/openldap/schema/duaconf.schema
+file path=$(ECPREFIX)/etc/openldap/schema/dyngroup.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/dyngroup.schema
+file path=$(ECPREFIX)/etc/openldap/schema/inetorgperson.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/inetorgperson.schema
+file path=$(ECPREFIX)/etc/openldap/schema/java.schema
+file path=$(ECPREFIX)/etc/openldap/schema/misc.schema
+file path=$(ECPREFIX)/etc/openldap/schema/nis.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/nis.schema
+file path=$(ECPREFIX)/etc/openldap/schema/openldap.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/openldap.schema
+file path=$(ECPREFIX)/etc/openldap/schema/pmi.schema
+file path=$(ECPREFIX)/etc/openldap/schema/ppolicy.schema
+file path=$(ECPREFIX)/etc/openldap/slapd.conf
+file path=$(ECPREFIX)/etc/openldap/slapd.conf.default
+file path=$(ECPREFIX)/include/lber.h
+file path=$(ECPREFIX)/include/lber_types.h
+file path=$(ECPREFIX)/include/ldap.h
+file path=$(ECPREFIX)/include/ldap_cdefs.h
+file path=$(ECPREFIX)/include/ldap_features.h
+file path=$(ECPREFIX)/include/ldap_schema.h
+file path=$(ECPREFIX)/include/ldap_utf8.h
+file path=$(ECPREFIX)/include/slapi-plugin.h
+file path=$(ECPREFIX)/lib/$(MACH64)/liblber-2.4.so.2.6.0
+file path=$(ECPREFIX)/lib/$(MACH64)/liblber.a
+file path=$(ECPREFIX)/lib/$(MACH64)/liblber.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libldap-2.4.so.2.6.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libldap.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libldap.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libldap_r-2.4.so.2.6.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libldap_r.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libldap_r.la
+file path=$(ECPREFIX)/lib/liblber-2.4.so.2.6.0
+file path=$(ECPREFIX)/lib/liblber.a
+file path=$(ECPREFIX)/lib/liblber.la
+file path=$(ECPREFIX)/lib/libldap-2.4.so.2.6.0
+file path=$(ECPREFIX)/lib/libldap.a
+file path=$(ECPREFIX)/lib/libldap.la
+file path=$(ECPREFIX)/lib/libldap_r-2.4.so.2.6.0
+file path=$(ECPREFIX)/lib/libldap_r.a
+file path=$(ECPREFIX)/lib/libldap_r.la
+file path=$(ECPREFIX)/libexec/slapd
+file path=$(ECPREFIX)/share/man/man1/ldapcompare.1
+file path=$(ECPREFIX)/share/man/man1/ldapdelete.1
+file path=$(ECPREFIX)/share/man/man1/ldapexop.1
+file path=$(ECPREFIX)/share/man/man1/ldapmodify.1
+file path=$(ECPREFIX)/share/man/man1/ldapmodrdn.1
+file path=$(ECPREFIX)/share/man/man1/ldappasswd.1
+file path=$(ECPREFIX)/share/man/man1/ldapsearch.1
+file path=$(ECPREFIX)/share/man/man1/ldapurl.1
+file path=$(ECPREFIX)/share/man/man1/ldapwhoami.1
+file path=$(ECPREFIX)/share/man/man3/lber-decode.3
+file path=$(ECPREFIX)/share/man/man3/lber-encode.3
+file path=$(ECPREFIX)/share/man/man3/lber-memory.3
+file path=$(ECPREFIX)/share/man/man3/lber-sockbuf.3
+file path=$(ECPREFIX)/share/man/man3/lber-types.3
+file path=$(ECPREFIX)/share/man/man3/ldap.3
+file path=$(ECPREFIX)/share/man/man3/ldap_abandon.3
+file path=$(ECPREFIX)/share/man/man3/ldap_add.3
+file path=$(ECPREFIX)/share/man/man3/ldap_bind.3
+file path=$(ECPREFIX)/share/man/man3/ldap_compare.3
+file path=$(ECPREFIX)/share/man/man3/ldap_controls.3
+file path=$(ECPREFIX)/share/man/man3/ldap_delete.3
+file path=$(ECPREFIX)/share/man/man3/ldap_dup.3
+file path=$(ECPREFIX)/share/man/man3/ldap_error.3
+file path=$(ECPREFIX)/share/man/man3/ldap_extended_operation.3
+file path=$(ECPREFIX)/share/man/man3/ldap_first_attribute.3
+file path=$(ECPREFIX)/share/man/man3/ldap_first_entry.3
+file path=$(ECPREFIX)/share/man/man3/ldap_first_message.3
+file path=$(ECPREFIX)/share/man/man3/ldap_first_reference.3
+file path=$(ECPREFIX)/share/man/man3/ldap_get_dn.3
+file path=$(ECPREFIX)/share/man/man3/ldap_get_option.3
+file path=$(ECPREFIX)/share/man/man3/ldap_get_values.3
+file path=$(ECPREFIX)/share/man/man3/ldap_memory.3
+file path=$(ECPREFIX)/share/man/man3/ldap_modify.3
+file path=$(ECPREFIX)/share/man/man3/ldap_modrdn.3
+file path=$(ECPREFIX)/share/man/man3/ldap_open.3
+file path=$(ECPREFIX)/share/man/man3/ldap_parse_reference.3
+file path=$(ECPREFIX)/share/man/man3/ldap_parse_result.3
+file path=$(ECPREFIX)/share/man/man3/ldap_parse_sort_control.3
+file path=$(ECPREFIX)/share/man/man3/ldap_parse_vlv_control.3
+file path=$(ECPREFIX)/share/man/man3/ldap_rename.3
+file path=$(ECPREFIX)/share/man/man3/ldap_result.3
+file path=$(ECPREFIX)/share/man/man3/ldap_schema.3
+file path=$(ECPREFIX)/share/man/man3/ldap_search.3
+file path=$(ECPREFIX)/share/man/man3/ldap_sort.3
+file path=$(ECPREFIX)/share/man/man3/ldap_sync.3
+file path=$(ECPREFIX)/share/man/man3/ldap_tls.3
+file path=$(ECPREFIX)/share/man/man3/ldap_url.3
+file path=$(ECPREFIX)/share/man/man5/ldap.conf.5
+file path=$(ECPREFIX)/share/man/man5/ldif.5
+file path=$(ECPREFIX)/share/man/man5/slapd-bdb.5
+file path=$(ECPREFIX)/share/man/man5/slapd-config.5
+file path=$(ECPREFIX)/share/man/man5/slapd-dnssrv.5
+file path=$(ECPREFIX)/share/man/man5/slapd-ldap.5
+file path=$(ECPREFIX)/share/man/man5/slapd-ldbm.5
+file path=$(ECPREFIX)/share/man/man5/slapd-ldif.5
+file path=$(ECPREFIX)/share/man/man5/slapd-meta.5
+file path=$(ECPREFIX)/share/man/man5/slapd-monitor.5
+file path=$(ECPREFIX)/share/man/man5/slapd-ndb.5
+file path=$(ECPREFIX)/share/man/man5/slapd-null.5
+file path=$(ECPREFIX)/share/man/man5/slapd-passwd.5
+file path=$(ECPREFIX)/share/man/man5/slapd-perl.5
+file path=$(ECPREFIX)/share/man/man5/slapd-relay.5
+file path=$(ECPREFIX)/share/man/man5/slapd-shell.5
+file path=$(ECPREFIX)/share/man/man5/slapd-sock.5
+file path=$(ECPREFIX)/share/man/man5/slapd-sql.5
+file path=$(ECPREFIX)/share/man/man5/slapd.access.5
+file path=$(ECPREFIX)/share/man/man5/slapd.backends.5
+file path=$(ECPREFIX)/share/man/man5/slapd.conf.5
+file path=$(ECPREFIX)/share/man/man5/slapd.overlays.5
+file path=$(ECPREFIX)/share/man/man5/slapd.plugin.5
+file path=$(ECPREFIX)/share/man/man5/slapo-accesslog.5
+file path=$(ECPREFIX)/share/man/man5/slapo-auditlog.5
+file path=$(ECPREFIX)/share/man/man5/slapo-chain.5
+file path=$(ECPREFIX)/share/man/man5/slapo-collect.5
+file path=$(ECPREFIX)/share/man/man5/slapo-constraint.5
+file path=$(ECPREFIX)/share/man/man5/slapo-dds.5
+file path=$(ECPREFIX)/share/man/man5/slapo-dyngroup.5
+file path=$(ECPREFIX)/share/man/man5/slapo-dynlist.5
+file path=$(ECPREFIX)/share/man/man5/slapo-memberof.5
+file path=$(ECPREFIX)/share/man/man5/slapo-pbind.5
+file path=$(ECPREFIX)/share/man/man5/slapo-pcache.5
+file path=$(ECPREFIX)/share/man/man5/slapo-ppolicy.5
+file path=$(ECPREFIX)/share/man/man5/slapo-refint.5
+file path=$(ECPREFIX)/share/man/man5/slapo-retcode.5
+file path=$(ECPREFIX)/share/man/man5/slapo-rwm.5
+file path=$(ECPREFIX)/share/man/man5/slapo-sssvlv.5
+file path=$(ECPREFIX)/share/man/man5/slapo-syncprov.5
+file path=$(ECPREFIX)/share/man/man5/slapo-translucent.5
+file path=$(ECPREFIX)/share/man/man5/slapo-unique.5
+file path=$(ECPREFIX)/share/man/man5/slapo-valsort.5
+file path=$(ECPREFIX)/share/man/man8/slapacl.8
+file path=$(ECPREFIX)/share/man/man8/slapadd.8
+file path=$(ECPREFIX)/share/man/man8/slapauth.8
+file path=$(ECPREFIX)/share/man/man8/slapcat.8
+file path=$(ECPREFIX)/share/man/man8/slapd.8
+file path=$(ECPREFIX)/share/man/man8/slapdn.8
+file path=$(ECPREFIX)/share/man/man8/slapindex.8
+file path=$(ECPREFIX)/share/man/man8/slappasswd.8
+file path=$(ECPREFIX)/share/man/man8/slapschema.8
+file path=$(ECPREFIX)/share/man/man8/slaptest.8
+file path=$(ECPREFIX)/var/openldap-data/DB_CONFIG.example
+link path=$(ECPREFIX)/bin/$(MACH64)/ldapadd target=ldapmodify
+link path=$(ECPREFIX)/bin/ldapadd target=ldapmodify
+link path=$(ECPREFIX)/lib/$(MACH64)/liblber-2.4.so.2 \
+    target=liblber-2.4.so.2.6.0
+link path=$(ECPREFIX)/lib/$(MACH64)/liblber.so target=liblber-2.4.so.2.6.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libldap-2.4.so.2 \
+    target=libldap-2.4.so.2.6.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libldap.so target=libldap-2.4.so.2.6.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libldap_r-2.4.so.2 \
+    target=libldap_r-2.4.so.2.6.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libldap_r.so target=libldap_r-2.4.so.2.6.0
+link path=$(ECPREFIX)/lib/liblber-2.4.so.2 target=liblber-2.4.so.2.6.0
+link path=$(ECPREFIX)/lib/liblber.so target=liblber-2.4.so.2.6.0
+link path=$(ECPREFIX)/lib/libldap-2.4.so.2 target=libldap-2.4.so.2.6.0
+link path=$(ECPREFIX)/lib/libldap.so target=libldap-2.4.so.2.6.0
+link path=$(ECPREFIX)/lib/libldap_r-2.4.so.2 target=libldap_r-2.4.so.2.6.0
+link path=$(ECPREFIX)/lib/libldap_r.so target=libldap_r-2.4.so.2.6.0
+link path=$(ECPREFIX)/sbin/slapacl target=../libexec/slapd
+link path=$(ECPREFIX)/sbin/slapadd target=../libexec/slapd
+link path=$(ECPREFIX)/sbin/slapauth target=../libexec/slapd
+link path=$(ECPREFIX)/sbin/slapcat target=../libexec/slapd
+link path=$(ECPREFIX)/sbin/slapdn target=../libexec/slapd
+link path=$(ECPREFIX)/sbin/slapindex target=../libexec/slapd
+link path=$(ECPREFIX)/sbin/slappasswd target=../libexec/slapd
+link path=$(ECPREFIX)/sbin/slapschema target=../libexec/slapd
+link path=$(ECPREFIX)/sbin/slaptest target=../libexec/slapd
+link path=$(ECPREFIX)/share/man/man1/ldapadd.1 target=ldapmodify.1
+link path=$(ECPREFIX)/share/man/man3/ber_alloc_t.3 target=lber-encode.3
+link path=$(ECPREFIX)/share/man/man3/ber_bvarray_add.3 target=lber-types.3
+link path=$(ECPREFIX)/share/man/man3/ber_bvarray_free.3 target=lber-types.3
+link path=$(ECPREFIX)/share/man/man3/ber_bvdup.3 target=lber-types.3
+link path=$(ECPREFIX)/share/man/man3/ber_bvecadd.3 target=lber-types.3
+link path=$(ECPREFIX)/share/man/man3/ber_bvecfree.3 target=lber-types.3
+link path=$(ECPREFIX)/share/man/man3/ber_bvfree.3 target=lber-types.3
+link path=$(ECPREFIX)/share/man/man3/ber_bvstr.3 target=lber-types.3
+link path=$(ECPREFIX)/share/man/man3/ber_bvstrdup.3 target=lber-types.3
+link path=$(ECPREFIX)/share/man/man3/ber_dupbv.3 target=lber-types.3
+link path=$(ECPREFIX)/share/man/man3/ber_first_element.3 target=lber-decode.3
+link path=$(ECPREFIX)/share/man/man3/ber_flush.3 target=lber-encode.3
+link path=$(ECPREFIX)/share/man/man3/ber_free.3 target=lber-types.3
+link path=$(ECPREFIX)/share/man/man3/ber_get_bitstring.3 target=lber-decode.3
+link path=$(ECPREFIX)/share/man/man3/ber_get_boolean.3 target=lber-decode.3
+link path=$(ECPREFIX)/share/man/man3/ber_get_enum.3 target=lber-decode.3
+link path=$(ECPREFIX)/share/man/man3/ber_get_int.3 target=lber-decode.3
+link path=$(ECPREFIX)/share/man/man3/ber_get_next.3 target=lber-decode.3
+link path=$(ECPREFIX)/share/man/man3/ber_get_null.3 target=lber-decode.3
+link path=$(ECPREFIX)/share/man/man3/ber_get_stringa.3 target=lber-decode.3
+link path=$(ECPREFIX)/share/man/man3/ber_get_stringb.3 target=lber-decode.3
+link path=$(ECPREFIX)/share/man/man3/ber_next_element.3 target=lber-decode.3
+link path=$(ECPREFIX)/share/man/man3/ber_peek_tag.3 target=lber-decode.3
+link path=$(ECPREFIX)/share/man/man3/ber_printf.3 target=lber-encode.3
+link path=$(ECPREFIX)/share/man/man3/ber_put_enum.3 target=lber-encode.3
+link path=$(ECPREFIX)/share/man/man3/ber_put_int.3 target=lber-encode.3
+link path=$(ECPREFIX)/share/man/man3/ber_put_null.3 target=lber-encode.3
+link path=$(ECPREFIX)/share/man/man3/ber_put_ostring.3 target=lber-encode.3
+link path=$(ECPREFIX)/share/man/man3/ber_put_seq.3 target=lber-encode.3
+link path=$(ECPREFIX)/share/man/man3/ber_put_set.3 target=lber-encode.3
+link path=$(ECPREFIX)/share/man/man3/ber_put_string.3 target=lber-encode.3
+link path=$(ECPREFIX)/share/man/man3/ber_scanf.3 target=lber-decode.3
+link path=$(ECPREFIX)/share/man/man3/ber_skip_tag.3 target=lber-decode.3
+link path=$(ECPREFIX)/share/man/man3/ber_start_set.3 target=lber-encode.3
+link path=$(ECPREFIX)/share/man/man3/ber_str2bv.3 target=lber-types.3
+link path=$(ECPREFIX)/share/man/man3/ld_errno.3 target=ldap_error.3
+link path=$(ECPREFIX)/share/man/man3/ldap_abandon_ext.3 target=ldap_abandon.3
+link path=$(ECPREFIX)/share/man/man3/ldap_add_ext.3 target=ldap_add.3
+link path=$(ECPREFIX)/share/man/man3/ldap_add_ext_s.3 target=ldap_add.3
+link path=$(ECPREFIX)/share/man/man3/ldap_add_s.3 target=ldap_add.3
+link path=$(ECPREFIX)/share/man/man3/ldap_attributetype2name.3 \
+    target=ldap_schema.3
+link path=$(ECPREFIX)/share/man/man3/ldap_attributetype2str.3 \
+    target=ldap_schema.3
+link path=$(ECPREFIX)/share/man/man3/ldap_attributetype_free.3 \
+    target=ldap_schema.3
+link path=$(ECPREFIX)/share/man/man3/ldap_bind_s.3 target=ldap_bind.3
+link path=$(ECPREFIX)/share/man/man3/ldap_compare_ext.3 target=ldap_compare.3
+link path=$(ECPREFIX)/share/man/man3/ldap_compare_ext_s.3 \
+    target=ldap_compare.3
+link path=$(ECPREFIX)/share/man/man3/ldap_compare_s.3 target=ldap_compare.3
+link path=$(ECPREFIX)/share/man/man3/ldap_control_create.3 \
+    target=ldap_controls.3
+link path=$(ECPREFIX)/share/man/man3/ldap_control_dup.3 target=ldap_controls.3
+link path=$(ECPREFIX)/share/man/man3/ldap_control_find.3 \
+    target=ldap_controls.3
+link path=$(ECPREFIX)/share/man/man3/ldap_control_free.3 \
+    target=ldap_controls.3
+link path=$(ECPREFIX)/share/man/man3/ldap_controls_dup.3 \
+    target=ldap_controls.3
+link path=$(ECPREFIX)/share/man/man3/ldap_controls_free.3 \
+    target=ldap_controls.3
+link path=$(ECPREFIX)/share/man/man3/ldap_count_entries.3 \
+    target=ldap_first_entry.3
+link path=$(ECPREFIX)/share/man/man3/ldap_count_messages.3 \
+    target=ldap_first_message.3
+link path=$(ECPREFIX)/share/man/man3/ldap_count_references.3 \
+    target=ldap_first_reference.3
+link path=$(ECPREFIX)/share/man/man3/ldap_count_values.3 \
+    target=ldap_get_values.3
+link path=$(ECPREFIX)/share/man/man3/ldap_count_values_len.3 \
+    target=ldap_get_values.3
+link path=$(ECPREFIX)/share/man/man3/ldap_dcedn2dn.3 target=ldap_get_dn.3
+link path=$(ECPREFIX)/share/man/man3/ldap_delete_ext.3 target=ldap_delete.3
+link path=$(ECPREFIX)/share/man/man3/ldap_delete_ext_s.3 target=ldap_delete.3
+link path=$(ECPREFIX)/share/man/man3/ldap_delete_s.3 target=ldap_delete.3
+link path=$(ECPREFIX)/share/man/man3/ldap_destroy.3 target=ldap_dup.3
+link path=$(ECPREFIX)/share/man/man3/ldap_dn2ad_canonical.3 \
+    target=ldap_get_dn.3
+link path=$(ECPREFIX)/share/man/man3/ldap_dn2dcedn.3 target=ldap_get_dn.3
+link path=$(ECPREFIX)/share/man/man3/ldap_dn2str.3 target=ldap_get_dn.3
+link path=$(ECPREFIX)/share/man/man3/ldap_dn2ufn.3 target=ldap_get_dn.3
+link path=$(ECPREFIX)/share/man/man3/ldap_err2string.3 target=ldap_error.3
+link path=$(ECPREFIX)/share/man/man3/ldap_errlist.3 target=ldap_error.3
+link path=$(ECPREFIX)/share/man/man3/ldap_explode_dn.3 target=ldap_get_dn.3
+link path=$(ECPREFIX)/share/man/man3/ldap_explode_rdn.3 target=ldap_get_dn.3
+link path=$(ECPREFIX)/share/man/man3/ldap_extended_operation_s.3 \
+    target=ldap_extended_operation.3
+link path=$(ECPREFIX)/share/man/man3/ldap_free_urldesc.3 target=ldap_url.3
+link path=$(ECPREFIX)/share/man/man3/ldap_get_values_len.3 \
+    target=ldap_get_values.3
+link path=$(ECPREFIX)/share/man/man3/ldap_init.3 target=ldap_open.3
+link path=$(ECPREFIX)/share/man/man3/ldap_init_fd.3 target=ldap_open.3
+link path=$(ECPREFIX)/share/man/man3/ldap_initialize.3 target=ldap_open.3
+link path=$(ECPREFIX)/share/man/man3/ldap_install_tls.3 target=ldap_tls.3
+link path=$(ECPREFIX)/share/man/man3/ldap_is_ldap_url.3 target=ldap_url.3
+link path=$(ECPREFIX)/share/man/man3/ldap_matchingrule2name.3 \
+    target=ldap_schema.3
+link path=$(ECPREFIX)/share/man/man3/ldap_matchingrule2str.3 \
+    target=ldap_schema.3
+link path=$(ECPREFIX)/share/man/man3/ldap_matchingrule_free.3 \
+    target=ldap_schema.3
+link path=$(ECPREFIX)/share/man/man3/ldap_memalloc.3 target=ldap_memory.3
+link path=$(ECPREFIX)/share/man/man3/ldap_memcalloc.3 target=ldap_memory.3
+link path=$(ECPREFIX)/share/man/man3/ldap_memfree.3 target=ldap_memory.3
+link path=$(ECPREFIX)/share/man/man3/ldap_memrealloc.3 target=ldap_memory.3
+link path=$(ECPREFIX)/share/man/man3/ldap_memvfree.3 target=ldap_memory.3
+link path=$(ECPREFIX)/share/man/man3/ldap_modify_ext.3 target=ldap_modify.3
+link path=$(ECPREFIX)/share/man/man3/ldap_modify_ext_s.3 target=ldap_modify.3
+link path=$(ECPREFIX)/share/man/man3/ldap_modify_s.3 target=ldap_modify.3
+link path=$(ECPREFIX)/share/man/man3/ldap_modrdn2.3 target=ldap_modrdn.3
+link path=$(ECPREFIX)/share/man/man3/ldap_modrdn2_s.3 target=ldap_modrdn.3
+link path=$(ECPREFIX)/share/man/man3/ldap_modrdn_s.3 target=ldap_modrdn.3
+link path=$(ECPREFIX)/share/man/man3/ldap_mods_free.3 target=ldap_modify.3
+link path=$(ECPREFIX)/share/man/man3/ldap_msgfree.3 target=ldap_result.3
+link path=$(ECPREFIX)/share/man/man3/ldap_msgid.3 target=ldap_result.3
+link path=$(ECPREFIX)/share/man/man3/ldap_msgtype.3 target=ldap_result.3
+link path=$(ECPREFIX)/share/man/man3/ldap_next_attribute.3 \
+    target=ldap_first_attribute.3
+link path=$(ECPREFIX)/share/man/man3/ldap_next_entry.3 \
+    target=ldap_first_entry.3
+link path=$(ECPREFIX)/share/man/man3/ldap_next_message.3 \
+    target=ldap_first_message.3
+link path=$(ECPREFIX)/share/man/man3/ldap_next_reference.3 \
+    target=ldap_first_reference.3
+link path=$(ECPREFIX)/share/man/man3/ldap_objectclass2name.3 \
+    target=ldap_schema.3
+link path=$(ECPREFIX)/share/man/man3/ldap_objectclass2str.3 \
+    target=ldap_schema.3
+link path=$(ECPREFIX)/share/man/man3/ldap_objectclass_free.3 \
+    target=ldap_schema.3
+link path=$(ECPREFIX)/share/man/man3/ldap_parse_extended_result.3 \
+    target=ldap_parse_result.3
+link path=$(ECPREFIX)/share/man/man3/ldap_parse_sasl_bind_result.3 \
+    target=ldap_parse_result.3
+link path=$(ECPREFIX)/share/man/man3/ldap_perror.3 target=ldap_error.3
+link path=$(ECPREFIX)/share/man/man3/ldap_rename_s.3 target=ldap_rename.3
+link path=$(ECPREFIX)/share/man/man3/ldap_result2error.3 target=ldap_error.3
+link path=$(ECPREFIX)/share/man/man3/ldap_sasl_bind.3 target=ldap_bind.3
+link path=$(ECPREFIX)/share/man/man3/ldap_sasl_bind_s.3 target=ldap_bind.3
+link path=$(ECPREFIX)/share/man/man3/ldap_scherr2str.3 target=ldap_schema.3
+link path=$(ECPREFIX)/share/man/man3/ldap_search_ext.3 target=ldap_search.3
+link path=$(ECPREFIX)/share/man/man3/ldap_search_ext_s.3 target=ldap_search.3
+link path=$(ECPREFIX)/share/man/man3/ldap_search_s.3 target=ldap_search.3
+link path=$(ECPREFIX)/share/man/man3/ldap_search_st.3 target=ldap_search.3
+link path=$(ECPREFIX)/share/man/man3/ldap_set_option.3 \
+    target=ldap_get_option.3
+link path=$(ECPREFIX)/share/man/man3/ldap_set_rebind_proc.3 target=ldap_bind.3
+link path=$(ECPREFIX)/share/man/man3/ldap_set_urllist_proc.3 \
+    target=ldap_open.3
+link path=$(ECPREFIX)/share/man/man3/ldap_simple_bind.3 target=ldap_bind.3
+link path=$(ECPREFIX)/share/man/man3/ldap_simple_bind_s.3 target=ldap_bind.3
+link path=$(ECPREFIX)/share/man/man3/ldap_sort_entries.3 target=ldap_sort.3
+link path=$(ECPREFIX)/share/man/man3/ldap_sort_strcasecmp.3 target=ldap_sort.3
+link path=$(ECPREFIX)/share/man/man3/ldap_sort_values.3 target=ldap_sort.3
+link path=$(ECPREFIX)/share/man/man3/ldap_start_tls.3 target=ldap_tls.3
+link path=$(ECPREFIX)/share/man/man3/ldap_start_tls_s.3 target=ldap_tls.3
+link path=$(ECPREFIX)/share/man/man3/ldap_str2attributetype.3 \
+    target=ldap_schema.3
+link path=$(ECPREFIX)/share/man/man3/ldap_str2dn.3 target=ldap_get_dn.3
+link path=$(ECPREFIX)/share/man/man3/ldap_str2matchingrule.3 \
+    target=ldap_schema.3
+link path=$(ECPREFIX)/share/man/man3/ldap_str2objectclass.3 \
+    target=ldap_schema.3
+link path=$(ECPREFIX)/share/man/man3/ldap_str2syntax.3 target=ldap_schema.3
+link path=$(ECPREFIX)/share/man/man3/ldap_strdup.3 target=ldap_memory.3
+link path=$(ECPREFIX)/share/man/man3/ldap_syntax2name.3 target=ldap_schema.3
+link path=$(ECPREFIX)/share/man/man3/ldap_syntax2str.3 target=ldap_schema.3
+link path=$(ECPREFIX)/share/man/man3/ldap_syntax_free.3 target=ldap_schema.3
+link path=$(ECPREFIX)/share/man/man3/ldap_tls_inplace.3 target=ldap_tls.3
+link path=$(ECPREFIX)/share/man/man3/ldap_unbind.3 target=ldap_bind.3
+link path=$(ECPREFIX)/share/man/man3/ldap_unbind_ext.3 target=ldap_bind.3
+link path=$(ECPREFIX)/share/man/man3/ldap_unbind_ext_s.3 target=ldap_bind.3
+link path=$(ECPREFIX)/share/man/man3/ldap_unbind_s.3 target=ldap_bind.3
+link path=$(ECPREFIX)/share/man/man3/ldap_url_parse.3 target=ldap_url.3
+link path=$(ECPREFIX)/share/man/man3/ldap_value_free.3 \
+    target=ldap_get_values.3
+link path=$(ECPREFIX)/share/man/man3/ldap_value_free_len.3 \
+    target=ldap_get_values.3
+link path=$(ECPREFIX)/share/man/man5/slapd-hdb.5 target=slapd-bdb.5

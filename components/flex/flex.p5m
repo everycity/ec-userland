@@ -1,0 +1,98 @@
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/developer/lexer/flex@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Flex Lexer"
+#set name=info.classification value="org.opensolaris.category.2008:Development/Other Languages"
+set name=info.upstream_url value="http://flex.sourceforge.net/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license flex.license license="GPLv3"
+
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/info
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/locale
+dir path=$(ECPREFIX)/share/locale/ca
+dir path=$(ECPREFIX)/share/locale/ca/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/da
+dir path=$(ECPREFIX)/share/locale/da/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/de
+dir path=$(ECPREFIX)/share/locale/de/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/es
+dir path=$(ECPREFIX)/share/locale/es/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/fr
+dir path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ga
+dir path=$(ECPREFIX)/share/locale/ga/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ko
+dir path=$(ECPREFIX)/share/locale/ko/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/nl
+dir path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/pl
+dir path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/pt_BR
+dir path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ro
+dir path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ru
+dir path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/sv
+dir path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/tr
+dir path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/vi
+dir path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/zh_CN
+dir path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/flex
+file path=$(ECPREFIX)/include/FlexLexer.h
+file path=$(ECPREFIX)/info/flex.info
+file path=$(ECPREFIX)/info/flex.info-1
+file path=$(ECPREFIX)/info/flex.info-2
+file path=$(ECPREFIX)/lib/libfl.a
+file path=$(ECPREFIX)/lib/libfl_pic.a
+file path=$(ECPREFIX)/share/locale/ca/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/da/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/de/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/es/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/ga/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/ko/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/man/man1/flex.1

@@ -1,0 +1,21 @@
+diff -ruN mDNSResponder-258.14.orig/Clients/Makefile mDNSResponder-258.14/Clients/Makefile
+--- mDNSResponder-258.14.orig/Clients/Makefile	2009-08-11 02:13:47.000000000 +0100
++++ mDNSResponder-258.14/Clients/Makefile	2011-03-10 11:32:37.161389067 +0000
+@@ -30,7 +30,7 @@
+ LIBS =
+ else
+ TARGETS = build/dns-sd
+-LIBS = -L../mDNSPosix/build/prod/ -ldns_sd
++LIBS = -L../mDNSPosix/build/prod/ -ldns_sd -lsocket
+ endif
+ 
+ all: $(TARGETS)
+@@ -42,7 +42,7 @@
+ 	mkdir build
+ 
+ build/dns-sd: build dns-sd.c ClientCommon.c
+-	cc $(filter %.c %.o, $+) $(LIBS) -I../mDNSShared -Wall -o $@
++	gcc $(filter %.c %.o, $+) $(LIBS) -I../mDNSShared -Wall -o $@
+ 
+ build/dns-sd64: build dns-sd.c ClientCommon.c
+ 	cc $(filter %.c %.o, $+) $(LIBS) -I../mDNSShared -Wall -o $@ -m64

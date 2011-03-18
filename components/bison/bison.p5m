@@ -1,0 +1,192 @@
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/developer/parser/bison@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="bison - A YACC Replacement"
+#set name=info.classification value="org.opensolaris.category.2008:Development/Other Languages"
+set name=info.upstream_url value="http://www.gnu.org/software/bison/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license bison.license license="GPLv3"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/aclocal
+dir path=$(ECPREFIX)/share/bison
+dir path=$(ECPREFIX)/share/bison/m4sugar
+dir path=$(ECPREFIX)/share/bison/xslt
+dir path=$(ECPREFIX)/share/info
+dir path=$(ECPREFIX)/share/locale
+dir path=$(ECPREFIX)/share/locale/ast
+dir path=$(ECPREFIX)/share/locale/ast/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/da
+dir path=$(ECPREFIX)/share/locale/da/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/de
+dir path=$(ECPREFIX)/share/locale/de/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/el
+dir path=$(ECPREFIX)/share/locale/el/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/es
+dir path=$(ECPREFIX)/share/locale/es/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/et
+dir path=$(ECPREFIX)/share/locale/et/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/fi
+dir path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/fr
+dir path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ga
+dir path=$(ECPREFIX)/share/locale/ga/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/hr
+dir path=$(ECPREFIX)/share/locale/hr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/id
+dir path=$(ECPREFIX)/share/locale/id/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/it
+dir path=$(ECPREFIX)/share/locale/it/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ja
+dir path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ky
+dir path=$(ECPREFIX)/share/locale/ky/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/lt
+dir path=$(ECPREFIX)/share/locale/lt/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/lv
+dir path=$(ECPREFIX)/share/locale/lv/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ms
+dir path=$(ECPREFIX)/share/locale/ms/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/nb
+dir path=$(ECPREFIX)/share/locale/nb/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/nl
+dir path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/pl
+dir path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/pt
+dir path=$(ECPREFIX)/share/locale/pt/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/pt_BR
+dir path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ro
+dir path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ru
+dir path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/sl
+dir path=$(ECPREFIX)/share/locale/sl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/sv
+dir path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/th
+dir path=$(ECPREFIX)/share/locale/th/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/tr
+dir path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/uk
+dir path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/vi
+dir path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/zh_CN
+dir path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/zh_TW
+dir path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/bison
+file path=$(ECPREFIX)/bin/yacc
+file path=$(ECPREFIX)/lib/liby.a
+file path=$(ECPREFIX)/share/aclocal/bison-i18n.m4
+file path=$(ECPREFIX)/share/bison/README
+file path=$(ECPREFIX)/share/bison/bison.m4
+file path=$(ECPREFIX)/share/bison/c++-skel.m4
+file path=$(ECPREFIX)/share/bison/c++.m4
+file path=$(ECPREFIX)/share/bison/c-skel.m4
+file path=$(ECPREFIX)/share/bison/c.m4
+file path=$(ECPREFIX)/share/bison/glr.c
+file path=$(ECPREFIX)/share/bison/glr.cc
+file path=$(ECPREFIX)/share/bison/java-skel.m4
+file path=$(ECPREFIX)/share/bison/java.m4
+file path=$(ECPREFIX)/share/bison/lalr1.cc
+file path=$(ECPREFIX)/share/bison/lalr1.java
+file path=$(ECPREFIX)/share/bison/location.cc
+file path=$(ECPREFIX)/share/bison/m4sugar/foreach.m4
+file path=$(ECPREFIX)/share/bison/m4sugar/m4sugar.m4
+file path=$(ECPREFIX)/share/bison/xslt/bison.xsl
+file path=$(ECPREFIX)/share/bison/xslt/xml2dot.xsl
+file path=$(ECPREFIX)/share/bison/xslt/xml2text.xsl
+file path=$(ECPREFIX)/share/bison/xslt/xml2xhtml.xsl
+file path=$(ECPREFIX)/share/bison/yacc.c
+file path=$(ECPREFIX)/share/info/bison.info
+file path=$(ECPREFIX)/share/locale/ast/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/da/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/da/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/de/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/de/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/el/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/el/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/es/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/es/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/et/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/et/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/ga/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/ga/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/hr/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/hr/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/id/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/id/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/it/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/it/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/ky/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/lt/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/lv/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/ms/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/ms/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/nb/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/nb/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/pt/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/pt/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/sl/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/th/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/bison-runtime.mo
+file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/bison.mo
+file path=$(ECPREFIX)/share/man/man1/bison.1
+file path=$(ECPREFIX)/share/man/man1/yacc.1

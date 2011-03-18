@@ -1,0 +1,101 @@
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/library/python-2/pycurl@7.19.0,$(BUILD_VERSION)
+set name=pkg.summary value="Python bindings for libcurl"
+set name=pkg.description value="PycURL provides a thin layer of Python bindings on top of libcurl."
+#set name=info.classification value=org.opensolaris.category.2008:Development/Python
+set name=info.source_url value=$(SOURCE_URL)
+set name=info.upstream_url value=http://pycurl.sourceforge.net/
+set name=info.upstream value="Kjetil Jacobsen <kjetilja@gmail.com>" \
+        value="Markus F.X.J. Oberhumer <markus@oberhumer.com>"
+set name=variant.arch value=$(ARCH)
+
+# PycURL installs one of its subtrees in an odd place, so we want to move
+# it.  However, because the files are actually found in their original
+# location, we need to change the action's hash value to the original path
+# so that pkgsend can find the data.
+<transform file path=ec/lib/python2.6/vendor-packages/share.* -> set action.hash %(path)>
+<transform dir file path=ec/lib/python2.6/vendor-packages/share.* -> edit path $(PYDIRVP) usr>
+<transform file path=ec/share/doc/pycurl/.*\.py -> set pkg.tmp.autopyc false>
+
+dir path=ec
+dir path=ec/lib
+dir path=ec/lib/python2.6
+dir path=ec/lib/python2.6/vendor-packages
+file path=ec/lib/python2.6/vendor-packages/pycurl-7.19.0-py2.6.egg-info
+dir path=ec/lib/python2.6/vendor-packages/curl
+file path=ec/lib/python2.6/vendor-packages/curl/__init__.py
+file path=ec/lib/python2.6/vendor-packages/pycurl.so
+dir path=ec/lib/python2.6/vendor-packages/share
+dir path=ec/lib/python2.6/vendor-packages/share/doc
+dir path=ec/lib/python2.6/vendor-packages/share/doc/pycurl
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/COPYING
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/COPYING2
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/ChangeLog
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/INSTALL
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/README
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/TODO
+dir path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/examples
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/examples/basicfirst.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/examples/file_upload.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/examples/linksys.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/examples/retriever-multi.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/examples/retriever.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/examples/sfquery.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/examples/xmlrpc_curl.py mode=0755
+dir path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/html
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/html/callbacks.html
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/html/curlmultiobject.html
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/html/curlobject.html
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/html/curlshareobject.html
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/html/pycurl.html
+dir path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_cb.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_debug.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_ftp.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_getinfo.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_gtk.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_internals.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_memleak.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_multi.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_multi2.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_multi3.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_multi4.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_multi5.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_multi6.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_multi_socket.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_multi_socket_select.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_multi_timer.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_multi_vs_thread.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_post.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_post2.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_post3.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_share.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_socketopen.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_stringio.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/test_xmlrpc.py mode=0755
+file path=ec/lib/python2.6/vendor-packages/share/doc/pycurl/tests/util.py mode=0755
+license lic_pycurl license=lic_pycurl
+
