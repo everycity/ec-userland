@@ -21,6 +21,7 @@
 
 #
 # Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 <transform dir path=etc$ -> default group sys>
@@ -43,6 +44,14 @@
 <transform dir path=usr/share/doc$ -> default group other>
 <transform dir path=usr/share/lib$ -> default group sys>
 
+<transform dir path=ec$ -> default group sys>
+<transform dir path=ec/lib/pkgconfig$ -> default group other>
+<transform dir path=ec/lib/.*/pkgconfig$ -> default group other>
+<transform dir path=ec/share$ -> default group sys>
+<transform dir path=ec/share/aclocal$ -> default group other>
+<transform dir path=ec/share/doc$ -> default group other>
+<transform dir path=ec/share/lib$ -> default group sys>
+
 #
 # Most directories and files under /etc/security are group sys
 #
@@ -61,6 +70,9 @@
 <transform file path=usr/share/pixmaps/.* -> default group other>
 
 <transform dir path=usr/gnu/share$ -> default group sys>
+
+<transform dir path=ec/share/locale(/.+){0,2}$ -> default group other>
+<transform file path=ec/share/locale(/.+){3}$ -> default group other>
 
 #
 # programs & shared objects should generally have mode 0555

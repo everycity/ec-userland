@@ -21,14 +21,21 @@
 
 #
 # Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 # man pages
 <transform dir file link hardlink path=usr.*/man(/.+){0,1}$ -> \
     default facet.doc.man true>
 
+<transform dir file link hardlink path=ec.*/man(/.+){0,1}$ -> \
+    default facet.doc.man true>
+
 # texinfo docs
 <transform dir file link hardlink path=usr/.*/info(/.+){0,1}$ -> \
+    default facet.doc.info true>
+
+<transform dir file link hardlink path=ec/.*/info(/.+){0,1}$ -> \
     default facet.doc.info true>
 
 # html docs
@@ -37,10 +44,21 @@
 <transform dir file link hardlink path=usr/lib/help/.*\.html$ -> \
     default facet.doc.html true>
 
+<transform dir file link hardlink path=ec/.*/doc/.*(html?|css).* -> \
+    default facet.doc.html true>
+<transform dir file link hardlink path=ec/lib/help/.*\.html$ -> \
+    default facet.doc.html true>
+
 # pdf docs
 <transform dir file link hardlink path=usr/.*/doc/.*\.pdf$ -> \
     default facet.doc.html true>
 
+<transform dir file link hardlink path=ec/.*/doc/.*\.pdf$ -> \
+    default facet.doc.html true>
+
 # general documetation
 <transform dir file link hardlink path=usr/.*/doc(/.+){0,1}$ -> \
+    default facet.doc true>
+
+<transform dir file link hardlink path=ec/.*/doc(/.+){0,1}$ -> \
     default facet.doc true>
