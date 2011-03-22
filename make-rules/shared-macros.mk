@@ -24,7 +24,10 @@
 
 ECPREFIX=/ec
 
-PATH=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH.32=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH.64=$(ECPREFIX)/bin/$(MACH64):$(ECPREFIX)/bin:/usr/bin/$(MACH64):/usr/bin:/usr/sfw/bin/$(MACH64):/usr/sfw/bin:/usr/ccs/bin/$MACH64):/usr/ccs/bin
+
+PATH=$(PATH.$(BITS))
 
 # Default to looking for source archives on the internal mirror before we
 # hammer on the external repositories.
@@ -214,6 +217,8 @@ SYMLINK =	/bin/ln -s
 ENV =		/usr/bin/env
 INSTALL =	$(ECPREFIX)/bin/install
 CHMOD =		/usr/bin/chmod
+
+CMAKE=		$(ECPREFIX)/bin/cmake
 
 INS.dir=        $(INSTALL) -d $@
 INS.file=       $(INSTALL) -m 444 $< $(@D)
