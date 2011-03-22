@@ -1,0 +1,20 @@
+--- gsm-1.0-pl13/Makefile.orig	2006-04-26 20:14:26.000000000 +0100
++++ gsm-1.0-pl13/Makefile	2011-03-21 17:45:57.952497649 +0000
+@@ -71,7 +71,7 @@ LD 		= $(CC)
+ # Leave INSTALL_ROOT empty (or just don't execute "make install") to
+ # not install gsm and toast outside of this directory.
+ 
+-INSTALL_ROOT	=
++#INSTALL_ROOT	=
+ 
+ # Where do you want to install the gsm library, header file, and manpages?
+ #
+@@ -293,7 +293,7 @@ misc:		$(TLS)/sweet $(TLS)/bitter $(TLS)
+ 			$(TST)/lin2txt $(TST)/cod2txt $(TST)/gsm2cod
+ 		@-echo misc: Done.
+ 
+-install:	toastinstall gsminstall
++install:	all toastinstall gsminstall
+ 		@-echo install: Done.
+ 
+ 
