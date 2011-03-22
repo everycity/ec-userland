@@ -1,0 +1,92 @@
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright 2011 Audioboo Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/library/speex@1.1.99.1,$(BUILD_VERSION)
+set name=pkg.summary value="Free software speech codec"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://xiph.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license speex.license license="xiph BSD"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/speex
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/aclocal
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/speex
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/$(MACH64)/speexdec
+file path=$(ECPREFIX)/bin/$(MACH64)/speexenc
+file path=$(ECPREFIX)/bin/speexdec
+file path=$(ECPREFIX)/bin/speexenc
+file path=$(ECPREFIX)/include/speex/speex.h
+file path=$(ECPREFIX)/include/speex/speex_bits.h
+file path=$(ECPREFIX)/include/speex/speex_buffer.h
+file path=$(ECPREFIX)/include/speex/speex_callbacks.h
+file path=$(ECPREFIX)/include/speex/speex_config_types.h
+file path=$(ECPREFIX)/include/speex/speex_echo.h
+file path=$(ECPREFIX)/include/speex/speex_header.h
+file path=$(ECPREFIX)/include/speex/speex_jitter.h
+file path=$(ECPREFIX)/include/speex/speex_preprocess.h
+file path=$(ECPREFIX)/include/speex/speex_resampler.h
+file path=$(ECPREFIX)/include/speex/speex_stereo.h
+file path=$(ECPREFIX)/include/speex/speex_types.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libspeex.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libspeex.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libspeex.so.1.5.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libspeexdsp.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libspeexdsp.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libspeexdsp.so.1.5.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/speex.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/speexdsp.pc
+file path=$(ECPREFIX)/lib/libspeex.a
+file path=$(ECPREFIX)/lib/libspeex.la
+file path=$(ECPREFIX)/lib/libspeex.so.1.5.0
+file path=$(ECPREFIX)/lib/libspeexdsp.a
+file path=$(ECPREFIX)/lib/libspeexdsp.la
+file path=$(ECPREFIX)/lib/libspeexdsp.so.1.5.0
+file path=$(ECPREFIX)/lib/pkgconfig/speex.pc
+file path=$(ECPREFIX)/lib/pkgconfig/speexdsp.pc
+file path=$(ECPREFIX)/share/aclocal/speex.m4
+file path=$(ECPREFIX)/share/doc/speex/manual.pdf
+file path=$(ECPREFIX)/share/man/man1/speexdec.1
+file path=$(ECPREFIX)/share/man/man1/speexenc.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libspeex.so target=libspeex.so.1.5.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libspeex.so.1 target=libspeex.so.1.5.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libspeexdsp.so target=libspeexdsp.so.1.5.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libspeexdsp.so.1 \
+    target=libspeexdsp.so.1.5.0
+link path=$(ECPREFIX)/lib/libspeex.so target=libspeex.so.1.5.0
+link path=$(ECPREFIX)/lib/libspeex.so.1 target=libspeex.so.1.5.0
+link path=$(ECPREFIX)/lib/libspeexdsp.so target=libspeexdsp.so.1.5.0
+link path=$(ECPREFIX)/lib/libspeexdsp.so.1 target=libspeexdsp.so.1.5.0
