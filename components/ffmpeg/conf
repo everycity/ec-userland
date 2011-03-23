@@ -1,0 +1,1 @@
+./configure  --enable-libfaac --enable-libgsm --enable-libspeex --enable-libvorbis --enable-nonfree --disable-ffplay --disable-avdevice --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-version3 --host-libs=/ec/lib --extra-cflags="-fPIC"

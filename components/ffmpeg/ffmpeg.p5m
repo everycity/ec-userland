@@ -1,0 +1,134 @@
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright 2011 Audioboo Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/audioboo/ffmpeg@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Cross-platform audio recorder, converter, and streamer"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://www.fmpeg.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license ffmpeg.license license="LGPL"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/libavcodec
+dir path=$(ECPREFIX)/include/libavformat
+dir path=$(ECPREFIX)/include/libavutil
+dir path=$(ECPREFIX)/include/libswscale
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/ffmpeg
+file path=$(ECPREFIX)/bin/$(MACH64)/ffmpeg
+file path=$(ECPREFIX)/bin/$(MACH64)/ffprobe
+file path=$(ECPREFIX)/bin/$(MACH64)/ffserver
+file path=$(ECPREFIX)/bin/ffmpeg
+file path=$(ECPREFIX)/bin/ffprobe
+file path=$(ECPREFIX)/bin/ffserver
+file path=$(ECPREFIX)/include/libavcodec/avcodec.h
+file path=$(ECPREFIX)/include/libavcodec/avfft.h
+file path=$(ECPREFIX)/include/libavcodec/dxva2.h
+file path=$(ECPREFIX)/include/libavcodec/opt.h
+file path=$(ECPREFIX)/include/libavcodec/vaapi.h
+file path=$(ECPREFIX)/include/libavcodec/vdpau.h
+file path=$(ECPREFIX)/include/libavcodec/xvmc.h
+file path=$(ECPREFIX)/include/libavformat/avformat.h
+file path=$(ECPREFIX)/include/libavformat/avio.h
+file path=$(ECPREFIX)/include/libavutil/adler32.h
+file path=$(ECPREFIX)/include/libavutil/attributes.h
+file path=$(ECPREFIX)/include/libavutil/avconfig.h
+file path=$(ECPREFIX)/include/libavutil/avstring.h
+file path=$(ECPREFIX)/include/libavutil/avutil.h
+file path=$(ECPREFIX)/include/libavutil/base64.h
+file path=$(ECPREFIX)/include/libavutil/common.h
+file path=$(ECPREFIX)/include/libavutil/crc.h
+file path=$(ECPREFIX)/include/libavutil/error.h
+file path=$(ECPREFIX)/include/libavutil/fifo.h
+file path=$(ECPREFIX)/include/libavutil/intfloat_readwrite.h
+file path=$(ECPREFIX)/include/libavutil/log.h
+file path=$(ECPREFIX)/include/libavutil/lzo.h
+file path=$(ECPREFIX)/include/libavutil/mathematics.h
+file path=$(ECPREFIX)/include/libavutil/md5.h
+file path=$(ECPREFIX)/include/libavutil/mem.h
+file path=$(ECPREFIX)/include/libavutil/pixdesc.h
+file path=$(ECPREFIX)/include/libavutil/pixfmt.h
+file path=$(ECPREFIX)/include/libavutil/rational.h
+file path=$(ECPREFIX)/include/libavutil/sha1.h
+file path=$(ECPREFIX)/include/libswscale/swscale.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libavcodec.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libavformat.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libavutil.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libswscale.a
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libavcodec.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libavformat.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libavutil.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libswscale.pc
+file path=$(ECPREFIX)/lib/libavcodec.a
+file path=$(ECPREFIX)/lib/libavformat.a
+file path=$(ECPREFIX)/lib/libavutil.a
+file path=$(ECPREFIX)/lib/libswscale.a
+file path=$(ECPREFIX)/lib/pkgconfig/libavcodec.pc
+file path=$(ECPREFIX)/lib/pkgconfig/libavformat.pc
+file path=$(ECPREFIX)/lib/pkgconfig/libavutil.pc
+file path=$(ECPREFIX)/lib/pkgconfig/libswscale.pc
+file path=$(ECPREFIX)/share/ffmpeg/libx264-baseline.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-default.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-fast.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-fast_firstpass.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-faster.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-faster_firstpass.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-fastfirstpass.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-hq.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-ipod320.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-ipod640.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-lossless_fast.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-lossless_max.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-lossless_medium.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-lossless_slow.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-lossless_slower.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-lossless_ultrafast.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-main.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-max.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-medium.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-medium_firstpass.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-normal.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-placebo.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-placebo_firstpass.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-slow.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-slow_firstpass.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-slower.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-slower_firstpass.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-slowfirstpass.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-superfast.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-superfast_firstpass.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-ultrafast.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-ultrafast_firstpass.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-veryfast.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-veryfast_firstpass.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-veryslow.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libx264-veryslow_firstpass.ffpreset
