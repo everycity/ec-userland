@@ -20,23 +20,6 @@
 #
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
-
-
-# This Makefile has --enable-nasm support for 32bit encoding, which
-# enables MMX/SSE assembly instructions and adds a 15%-20% performance
-# boost.
-#
-# Unfortunately however, GNU LD has to be used to link the resultant
-# libmp3lame library because Sun LD complains about linking the NASM
-# produced object files.
-#
-# Because GCC 4.5 is compiled --with-ld=/usr/ccs/bin/ld, this
-# overrides the "LD=" parameter and collect2 will as a consequence
-# always call /usr/ccs/bin/ld. Setting "LD=" and passing --with-gnu-ld
-# still causes autoconf, automake and libtool to use GNU LD flags,
-# so we can cleverly use the LD_ALTEXEC= flag to get SUN LD to re-exec
-# the GNU linker (LD_ALTEXEC is a flag specific to Sun LD).
-
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		lame
@@ -46,9 +29,8 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:eb29c7c937b9b7330ca979dfabc25ab2a31b9db2
 COMPONENT_ARCHIVE_URL=	http://sourceforge.net/projects/lame/files/lame/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)/download
 
-CONFIGURE_OPTIONS.32  += LD=/ec/bin/ld LD_ALTEXEC=/ec/bin/ld --with-ld=/ec/bin/ld --enable-nasm --disable-static --with-gnu-ld
-CONFIGURE_OPTIONS.64  += LDFLAGS="-Wl,-melf_x86_64_sol2" LD=/ec/bin/ld LD_ALTEXEC=/ec/bin/ld --with-ld=/ec/bin/ld --disable-nasm --disable-static --with-gnu-ld --build=x86_64-pc-solaris2.10
-COMPONENT_BUILD_ENV += LDFLAGS="-Wl,-melf_x86_64_sol2"  LD=/ec/bin/ld LD_ALTEXEC=/ec/bin/ld
+CONFIGURE_OPTIONS.32  += --build=i386-pc-solaris2.10 --enable-analyser=no --enable-brhist --enable-decoder
+CONFIGURE_OPTIONS.64  += --build=x86_64-pc-solaris2.10 --enable-analyser=no --enable-brhist --enable-decoder
 COMPONENT_INSTALL_ENV += INSTALLROOT="$(PROTO_DIR)"
 
 include ../../make-rules/prep.mk
