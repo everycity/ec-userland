@@ -37,7 +37,7 @@ export DOWNLOAD_SEARCH_PATH ?=	http://userland.us.oracle.com/source-archives/
 export WS_TOP ?=		$(shell hg root)
 
 CONSOLIDATION =	userland
-PUBLISHER =	s10.everycity.co.uk
+PUBLISHER =	s10.pkg.ec
 
 IS_GLOBAL_ZONE =	$(shell /usr/sbin/zoneadm list | grep -c global)
 ROOT =			/
