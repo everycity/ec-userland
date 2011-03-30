@@ -1,5 +1,15 @@
---- mDNSResponder-258.14.orig/mDNSPosix/Makefile	2009-08-11 02:13:47.000000000 +0100
-+++ mDNSResponder-258.14/mDNSPosix/Makefile	2011-03-10 12:03:45.091395525 +0000
+diff -ruN mDNSResponder-258.14.orig/mDNSPosix/Makefile mDNSResponder-258.14/mDNSPosix/Makefile
+--- mDNSResponder-258.14.orig/mDNSPosix/Makefile	2009-08-10 18:13:47.000000000 -0700
++++ mDNSResponder-258.14/mDNSPosix/Makefile	2011-03-30 06:59:36.502807897 -0700
+@@ -61,7 +61,7 @@
+ CP = cp
+ RM = rm
+ LN = ln -s -f
+-CFLAGS_COMMON = -I$(COREDIR) -I$(SHAREDDIR) -I$(OBJDIR) -fwrapv -W -Wall -DPID_FILE=\"/var/run/mdnsd.pid\" -DMDNS_UDS_SERVERPATH=\"/var/run/mdnsd\"
++CFLAGS_COMMON = -I$(COREDIR) -I$(SHAREDDIR) -I$(OBJDIR) -fwrapv -W -Wall -DPID_FILE=\"/ec/var/run/mdnsd.pid\" -DMDNS_UDS_SERVERPATH=\"/ec/var/run/mdnsd\"
+ CFLAGS_PTHREAD =
+ LINKOPTS =
+ LINKOPTS_PTHREAD = -lpthread
 @@ -179,9 +179,9 @@
  
  # If directory /usr/share/man exists, then we install man pages into that, else /usr/man
@@ -22,12 +32,32 @@
  
  # 'setup' sets up the build directory structure the way we want
  setup:
-@@ -289,7 +290,7 @@
+@@ -269,7 +270,7 @@
+ #############################################################################
+ 
+ # The Install targets place built stuff in their proper places
+-InstalledDaemon: $(INSTBASE)/sbin/mdnsd
++InstalledDaemon: $(INSTBASE)/bin/mdnsd
+ 	@echo $+ " installed"
+ 
+ InstalledLib: $(INSTBASE)/lib/libdns_sd.$(LDSUFFIX).$(LIBVERS) $(INSTBASE)/include/dns_sd.h
+@@ -288,8 +289,8 @@
+ 	@echo $+ " installed"
  
  # Note: If daemon already installed, we make sure it's stopped before overwriting it
- $(INSTBASE)/sbin/mdnsd: $(BUILDDIR)/mdnsd
+-$(INSTBASE)/sbin/mdnsd: $(BUILDDIR)/mdnsd
 -	@if test -x $@; then $(STARTUPSCRIPTDIR)/$(STARTUPSCRIPTNAME) stop; fi
++$(INSTBASE)/bin/mdnsd: $(BUILDDIR)/mdnsd
 +#	@if test -x $@; then $(STARTUPSCRIPTDIR)/$(STARTUPSCRIPTNAME) stop; fi
  	$(CP) $< $@
  
  $(INSTBASE)/lib/libdns_sd.$(LDSUFFIX).$(LIBVERS): $(BUILDDIR)/libdns_sd.$(LDSUFFIX)
+@@ -305,7 +306,7 @@
+ 
+ # We make this target dependent on $(INSTBASE)/sbin/mdnsd because we need to ensure
+ # that the daemon is installed *before* we try to execute the command to start it.
+-$(STARTUPSCRIPTDIR)/$(STARTUPSCRIPTNAME): mdnsd.sh $(STARTUPSCRIPTDIR) $(INSTBASE)/sbin/mdnsd
++$(STARTUPSCRIPTDIR)/$(STARTUPSCRIPTNAME): mdnsd.sh $(STARTUPSCRIPTDIR) $(INSTBASE)/bin/mdnsd
+ 	$(CP) $< $@
+ 	chmod ugo+x $@
+ 	$@ start
