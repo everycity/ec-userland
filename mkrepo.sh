@@ -1,6 +1,9 @@
 #!/bin/sh
 
-[ -d repo ] && mv repo repo.`date +%Y-%m-%d-%H:%M:%S`
+MACH=`uname -p`
 
-pkgrepo create repo
-pkgrepo set -s repo publisher/prefix=s10.pkg.ec
+[ -d $MACH/repo ] && mv $MACH/repo $MACH/repo.`date +%Y-%m-%d-%H:%M:%S`
+[ -d $MACH ] || mkdir $MACH
+
+pkgrepo create $MACH/repo
+pkgrepo set -s $MACH/repo publisher/prefix=s10.pkg.ec

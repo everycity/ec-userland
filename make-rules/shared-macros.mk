@@ -176,8 +176,8 @@ CCC.studio.64 =	$(SPRO_VROOT)/bin/CC
 CC.gcc.32 =	$(GCC_ROOT)/bin/gcc
 CCC.gcc.32 =	$(GCC_ROOT)/bin/g++
 
-CC.gcc.64 =	$(GCC_ROOT)/bin/gcc
-CCC.gcc.64 =	$(GCC_ROOT)/bin/g++
+CC.gcc.64 =	$(GCC_ROOT)/bin/gcc -m64
+CCC.gcc.64 =	$(GCC_ROOT)/bin/g++ -m64
 
 CC =		$(CC.$(COMPILER).$(BITS))
 CCC =		$(CCC.$(COMPILER).$(BITS))
