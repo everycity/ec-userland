@@ -1,22 +1,13 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
-#
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
+
 #
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
@@ -39,8 +30,6 @@ dir path=$(ECPREFIX)/etc/openldap/schema
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/libexec
-dir path=$(ECPREFIX)/sbin
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
@@ -59,6 +48,7 @@ file path=$(ECPREFIX)/bin/$(MACH64)/ldappasswd
 file path=$(ECPREFIX)/bin/$(MACH64)/ldapsearch
 file path=$(ECPREFIX)/bin/$(MACH64)/ldapurl
 file path=$(ECPREFIX)/bin/$(MACH64)/ldapwhoami
+file path=$(ECPREFIX)/bin/$(MACH64)/slapd
 file path=$(ECPREFIX)/bin/ldapcompare
 file path=$(ECPREFIX)/bin/ldapdelete
 file path=$(ECPREFIX)/bin/ldapexop
@@ -68,6 +58,7 @@ file path=$(ECPREFIX)/bin/ldappasswd
 file path=$(ECPREFIX)/bin/ldapsearch
 file path=$(ECPREFIX)/bin/ldapurl
 file path=$(ECPREFIX)/bin/ldapwhoami
+file path=$(ECPREFIX)/bin/slapd
 file path=$(ECPREFIX)/etc/openldap/DB_CONFIG.example
 file path=$(ECPREFIX)/etc/openldap/ldap.conf
 file path=$(ECPREFIX)/etc/openldap/ldap.conf.default
@@ -119,7 +110,6 @@ file path=$(ECPREFIX)/lib/libldap.la
 file path=$(ECPREFIX)/lib/libldap_r-2.4.so.2.6.0
 file path=$(ECPREFIX)/lib/libldap_r.a
 file path=$(ECPREFIX)/lib/libldap_r.la
-file path=$(ECPREFIX)/libexec/slapd
 file path=$(ECPREFIX)/share/man/man1/ldapcompare.1
 file path=$(ECPREFIX)/share/man/man1/ldapdelete.1
 file path=$(ECPREFIX)/share/man/man1/ldapexop.1
@@ -222,7 +212,25 @@ file path=$(ECPREFIX)/share/man/man8/slapschema.8
 file path=$(ECPREFIX)/share/man/man8/slaptest.8
 file path=$(ECPREFIX)/var/openldap-data/DB_CONFIG.example
 link path=$(ECPREFIX)/bin/$(MACH64)/ldapadd target=ldapmodify
+link path=$(ECPREFIX)/bin/$(MACH64)/slapacl target=slapd
+link path=$(ECPREFIX)/bin/$(MACH64)/slapadd target=slapd
+link path=$(ECPREFIX)/bin/$(MACH64)/slapauth target=slapd
+link path=$(ECPREFIX)/bin/$(MACH64)/slapcat target=slapd
+link path=$(ECPREFIX)/bin/$(MACH64)/slapdn target=slapd
+link path=$(ECPREFIX)/bin/$(MACH64)/slapindex target=slapd
+link path=$(ECPREFIX)/bin/$(MACH64)/slappasswd target=slapd
+link path=$(ECPREFIX)/bin/$(MACH64)/slapschema target=slapd
+link path=$(ECPREFIX)/bin/$(MACH64)/slaptest target=slapd
 link path=$(ECPREFIX)/bin/ldapadd target=ldapmodify
+link path=$(ECPREFIX)/bin/slapacl target=slapd
+link path=$(ECPREFIX)/bin/slapadd target=slapd
+link path=$(ECPREFIX)/bin/slapauth target=slapd
+link path=$(ECPREFIX)/bin/slapcat target=slapd
+link path=$(ECPREFIX)/bin/slapdn target=slapd
+link path=$(ECPREFIX)/bin/slapindex target=slapd
+link path=$(ECPREFIX)/bin/slappasswd target=slapd
+link path=$(ECPREFIX)/bin/slapschema target=slapd
+link path=$(ECPREFIX)/bin/slaptest target=slapd
 link path=$(ECPREFIX)/lib/$(MACH64)/liblber-2.4.so.2 \
     target=liblber-2.4.so.2.6.0
 link path=$(ECPREFIX)/lib/$(MACH64)/liblber.so target=liblber-2.4.so.2.6.0
@@ -238,15 +246,6 @@ link path=$(ECPREFIX)/lib/libldap-2.4.so.2 target=libldap-2.4.so.2.6.0
 link path=$(ECPREFIX)/lib/libldap.so target=libldap-2.4.so.2.6.0
 link path=$(ECPREFIX)/lib/libldap_r-2.4.so.2 target=libldap_r-2.4.so.2.6.0
 link path=$(ECPREFIX)/lib/libldap_r.so target=libldap_r-2.4.so.2.6.0
-link path=$(ECPREFIX)/sbin/slapacl target=../libexec/slapd
-link path=$(ECPREFIX)/sbin/slapadd target=../libexec/slapd
-link path=$(ECPREFIX)/sbin/slapauth target=../libexec/slapd
-link path=$(ECPREFIX)/sbin/slapcat target=../libexec/slapd
-link path=$(ECPREFIX)/sbin/slapdn target=../libexec/slapd
-link path=$(ECPREFIX)/sbin/slapindex target=../libexec/slapd
-link path=$(ECPREFIX)/sbin/slappasswd target=../libexec/slapd
-link path=$(ECPREFIX)/sbin/slapschema target=../libexec/slapd
-link path=$(ECPREFIX)/sbin/slaptest target=../libexec/slapd
 link path=$(ECPREFIX)/share/man/man1/ldapadd.1 target=ldapmodify.1
 link path=$(ECPREFIX)/share/man/man3/ber_alloc_t.3 target=lber-encode.3
 link path=$(ECPREFIX)/share/man/man3/ber_bvarray_add.3 target=lber-types.3
