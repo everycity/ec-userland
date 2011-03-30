@@ -1,22 +1,13 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
-#
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
+
 #
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
@@ -31,79 +22,79 @@ set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 license apr.license license="APLv2"
 
 dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/apr
-dir path=$(ECPREFIX)/apr/1.4
-dir path=$(ECPREFIX)/apr/1.4/bin
-dir path=$(ECPREFIX)/apr/1.4/bin/$(MACH64)
-dir path=$(ECPREFIX)/apr/1.4/build
-dir path=$(ECPREFIX)/apr/1.4/build/$(MACH64)
-dir path=$(ECPREFIX)/apr/1.4/include
-dir path=$(ECPREFIX)/apr/1.4/include/apr-1
-dir path=$(ECPREFIX)/apr/1.4/lib
-dir path=$(ECPREFIX)/apr/1.4/lib/$(MACH64)
-dir path=$(ECPREFIX)/apr/1.4/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/apr/1.4/lib/pkgconfig
-file path=$(ECPREFIX)/apr/1.4/bin/$(MACH64)/apr-1-config
-file path=$(ECPREFIX)/apr/1.4/bin/apr-1-config
-file path=$(ECPREFIX)/apr/1.4/build/$(MACH64)/apr_rules.mk
-file path=$(ECPREFIX)/apr/1.4/build/$(MACH64)/libtool mode=555
-file path=$(ECPREFIX)/apr/1.4/build/$(MACH64)/make_exports.awk
-file path=$(ECPREFIX)/apr/1.4/build/$(MACH64)/make_var_export.awk
-file path=$(ECPREFIX)/apr/1.4/build/$(MACH64)/mkdir.sh mode=555
-file path=$(ECPREFIX)/apr/1.4/build/apr_rules.mk
-file path=$(ECPREFIX)/apr/1.4/build/libtool mode=555
-file path=$(ECPREFIX)/apr/1.4/build/make_exports.awk
-file path=$(ECPREFIX)/apr/1.4/build/make_var_export.awk
-file path=$(ECPREFIX)/apr/1.4/build/mkdir.sh mode=555
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_allocator.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_atomic.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_dso.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_env.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_errno.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_file_info.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_file_io.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_fnmatch.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_general.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_getopt.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_global_mutex.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_hash.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_inherit.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_lib.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_mmap.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_network_io.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_poll.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_pools.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_portable.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_proc_mutex.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_random.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_ring.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_shm.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_signal.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_strings.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_support.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_tables.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_thread_cond.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_thread_mutex.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_thread_proc.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_thread_rwlock.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_time.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_user.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_version.h
-file path=$(ECPREFIX)/apr/1.4/include/apr-1/apr_want.h
-file path=$(ECPREFIX)/apr/1.4/lib/$(MACH64)/apr.exp
-file path=$(ECPREFIX)/apr/1.4/lib/$(MACH64)/libapr-1.a
-file path=$(ECPREFIX)/apr/1.4/lib/$(MACH64)/libapr-1.la
-file path=$(ECPREFIX)/apr/1.4/lib/$(MACH64)/libapr-1.so.0.4.2
-file path=$(ECPREFIX)/apr/1.4/lib/$(MACH64)/pkgconfig/apr-1.pc
-file path=$(ECPREFIX)/apr/1.4/lib/apr.exp
-file path=$(ECPREFIX)/apr/1.4/lib/libapr-1.a
-file path=$(ECPREFIX)/apr/1.4/lib/libapr-1.la
-file path=$(ECPREFIX)/apr/1.4/lib/libapr-1.so.0.4.2
-file path=$(ECPREFIX)/apr/1.4/lib/pkgconfig/apr-1.pc
-link path=$(ECPREFIX)/apr/1.4/lib/$(MACH64)/libapr-1.so \
-    target=libapr-1.so.0.4.2
-link path=$(ECPREFIX)/apr/1.4/lib/$(MACH64)/libapr-1.so.0 \
-    target=libapr-1.so.0.4.2
-link path=$(ECPREFIX)/apr/1.4/lib/libapr-1.so target=libapr-1.so.0.4.2
-link path=$(ECPREFIX)/apr/1.4/lib/libapr-1.so.0 target=libapr-1.so.0.4.2
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/apr-1.0
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/apr-1.0
+dir path=$(ECPREFIX)/share/apr-1.0/build
+dir path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)
+file path=$(ECPREFIX)/bin/$(MACH64)/apr-1-config
+file path=$(ECPREFIX)/bin/apr-1-config
+file path=$(ECPREFIX)/include/apr-1.0/apr.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_allocator.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_atomic.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_dso.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_env.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_errno.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_file_info.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_file_io.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_fnmatch.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_general.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_getopt.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_global_mutex.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_hash.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_inherit.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_lib.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_mmap.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_network_io.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_poll.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_pools.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_portable.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_proc_mutex.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_random.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_ring.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_shm.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_signal.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_strings.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_support.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_tables.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_thread_cond.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_thread_mutex.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_thread_proc.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_thread_rwlock.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_time.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_user.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_version.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_want.h
+file path=$(ECPREFIX)/lib/$(MACH64)/apr.exp
+file path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so.0.4.2
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/apr-1.pc
+file path=$(ECPREFIX)/lib/apr.exp
+file path=$(ECPREFIX)/lib/libapr-1.a
+file path=$(ECPREFIX)/lib/libapr-1.la
+file path=$(ECPREFIX)/lib/libapr-1.so.0.4.2
+file path=$(ECPREFIX)/lib/pkgconfig/apr-1.pc
+file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/apr_rules.mk
+file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/libtool mode=555
+file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/make_exports.awk
+file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/make_var_export.awk
+file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/mkdir.sh mode=555
+file path=$(ECPREFIX)/share/apr-1.0/build/apr_rules.mk
+file path=$(ECPREFIX)/share/apr-1.0/build/libtool mode=555
+file path=$(ECPREFIX)/share/apr-1.0/build/make_exports.awk
+file path=$(ECPREFIX)/share/apr-1.0/build/make_var_export.awk
+file path=$(ECPREFIX)/share/apr-1.0/build/mkdir.sh mode=555
+link path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so target=libapr-1.so.0.4.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so.0 target=libapr-1.so.0.4.2
+link path=$(ECPREFIX)/lib/libapr-1.so target=libapr-1.so.0.4.2
+link path=$(ECPREFIX)/lib/libapr-1.so.0 target=libapr-1.so.0.4.2
+link path=$(ECPREFIX)/bin/$(MACH64)/apr-config target=apr-1-config
+link path=$(ECPREFIX)/bin/apr-config target=apr-1-config
