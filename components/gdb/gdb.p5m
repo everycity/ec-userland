@@ -1,0 +1,133 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/developer/debug/gdb@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="gdb - GNU debugger"
+#set name=info.classification value="org.opensolaris.category.2008:Development/System"
+set name=info.upstream_url value="http://www.gnu.org/software/gdb/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license gdb.license license="GPLv3"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/gdb
+dir path=$(ECPREFIX)/share/gdb/python
+dir path=$(ECPREFIX)/share/gdb/python/gdb
+dir path=$(ECPREFIX)/share/gdb/syscalls
+dir path=$(ECPREFIX)/share/info
+dir path=$(ECPREFIX)/share/locale
+dir path=$(ECPREFIX)/share/locale/da
+dir path=$(ECPREFIX)/share/locale/da/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/de
+dir path=$(ECPREFIX)/share/locale/de/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/es
+dir path=$(ECPREFIX)/share/locale/es/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/fi
+dir path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/fr
+dir path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ga
+dir path=$(ECPREFIX)/share/locale/ga/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/id
+dir path=$(ECPREFIX)/share/locale/id/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ja
+dir path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/nl
+dir path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/pt_BR
+dir path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ro
+dir path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ru
+dir path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/rw
+dir path=$(ECPREFIX)/share/locale/rw/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/sv
+dir path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/tr
+dir path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/vi
+dir path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/zh_CN
+dir path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/gdb
+file path=$(ECPREFIX)/bin/gdbtui
+file path=$(ECPREFIX)/include/ansidecl.h
+file path=$(ECPREFIX)/include/bfd.h
+file path=$(ECPREFIX)/include/bfdlink.h
+file path=$(ECPREFIX)/include/dis-asm.h
+file path=$(ECPREFIX)/include/symcat.h
+file path=$(ECPREFIX)/lib/libbfd.a
+file path=$(ECPREFIX)/lib/libbfd.la
+file path=$(ECPREFIX)/lib/libiberty.a
+file path=$(ECPREFIX)/lib/libopcodes.a
+file path=$(ECPREFIX)/lib/libopcodes.la
+file path=$(ECPREFIX)/share/gdb/syscalls/amd64-linux.xml
+file path=$(ECPREFIX)/share/gdb/syscalls/gdb-syscalls.dtd
+file path=$(ECPREFIX)/share/gdb/syscalls/i386-linux.xml
+file path=$(ECPREFIX)/share/gdb/syscalls/ppc-linux.xml
+file path=$(ECPREFIX)/share/gdb/syscalls/ppc64-linux.xml
+file path=$(ECPREFIX)/share/gdb/syscalls/sparc-linux.xml
+file path=$(ECPREFIX)/share/gdb/syscalls/sparc64-linux.xml
+file path=$(ECPREFIX)/share/info/annotate.info
+file path=$(ECPREFIX)/share/info/bfd.info
+file path=$(ECPREFIX)/share/info/configure.info
+file path=$(ECPREFIX)/share/info/gdb.info
+file path=$(ECPREFIX)/share/info/gdb.info-1
+file path=$(ECPREFIX)/share/info/gdb.info-2
+file path=$(ECPREFIX)/share/info/gdb.info-3
+file path=$(ECPREFIX)/share/info/gdb.info-4
+file path=$(ECPREFIX)/share/info/gdb.info-5
+file path=$(ECPREFIX)/share/info/gdb.info-6
+file path=$(ECPREFIX)/share/info/gdbint.info
+file path=$(ECPREFIX)/share/info/gdbint.info-1
+file path=$(ECPREFIX)/share/info/gdbint.info-2
+file path=$(ECPREFIX)/share/info/stabs.info
+file path=$(ECPREFIX)/share/info/standards.info
+file path=$(ECPREFIX)/share/locale/da/LC_MESSAGES/bfd.mo
+file path=$(ECPREFIX)/share/locale/da/LC_MESSAGES/opcodes.mo
+file path=$(ECPREFIX)/share/locale/de/LC_MESSAGES/opcodes.mo
+file path=$(ECPREFIX)/share/locale/es/LC_MESSAGES/bfd.mo
+file path=$(ECPREFIX)/share/locale/es/LC_MESSAGES/opcodes.mo
+file path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES/bfd.mo
+file path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES/opcodes.mo
+file path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES/bfd.mo
+file path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES/opcodes.mo
+file path=$(ECPREFIX)/share/locale/ga/LC_MESSAGES/opcodes.mo
+file path=$(ECPREFIX)/share/locale/id/LC_MESSAGES/bfd.mo
+file path=$(ECPREFIX)/share/locale/id/LC_MESSAGES/opcodes.mo
+file path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES/bfd.mo
+file path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES/opcodes.mo
+file path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES/opcodes.mo
+file path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES/bfd.mo
+file path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES/opcodes.mo
+file path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES/bfd.mo
+file path=$(ECPREFIX)/share/locale/rw/LC_MESSAGES/bfd.mo
+file path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES/bfd.mo
+file path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES/opcodes.mo
+file path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES/bfd.mo
+file path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES/opcodes.mo
+file path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES/bfd.mo
+file path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES/opcodes.mo
+file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/bfd.mo
+file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/opcodes.mo
+file path=$(ECPREFIX)/share/man/man1/gdb.1
+file path=$(ECPREFIX)/share/man/man1/gdbtui.1
