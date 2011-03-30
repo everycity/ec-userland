@@ -53,6 +53,7 @@ COMPARISON_TRANSFORMS +=	$(WS_TOP)/transforms/comparison-cleanup
 COMPARISON_TRANSFORMS +=	$(PKGMOGRIFY_TRANSFORMS)
 
 # order is important
+PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/variant-cleanup
 PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/defaults
 PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/actuators
 PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/devel
@@ -62,7 +63,6 @@ PUBLISH_TRANSFORMS +=	$(PKGMOGRIFY_TRANSFORMS)
 PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/publish-cleanup
 
 PKG_MACROS +=		MACH=$(MACH)
-PKG_MACROS +=		ARCH=$(MACH)
 PKG_MACROS +=		MACH32=$(MACH32)
 PKG_MACROS +=		MACH64=$(MACH64)
 PKG_MACROS +=		PUBLISHER=$(PUBLISHER)
@@ -78,7 +78,7 @@ PKG_MACROS +=		PLAT=$(PLAT)
 
 PKG_OPTIONS +=		$(PKG_MACROS:%=-D %)
 
-PKG_PROTO_DIRS += $(PROTO_DIR) $(@D) $(COMPONENT_DIR)
+PKG_PROTO_DIRS += $(PROTO_DIR) $(@D) $(COMPONENT_DIR) $(COMPONENT_SRC)
 
 MANIFEST_BASE =		$(BUILD_DIR)/manifest-$(MACH)
 
@@ -88,20 +88,17 @@ COMBINED =		$(MANIFEST_BASE)-combined
 MANIFESTS =		$(CANONICAL_MANIFESTS:%=$(MANIFEST_BASE)-%)
 
 
-MOGRIFIED=$(CANONICAL_MANIFESTS:%.p5m=$(MANIFEST_BASE)-%.resolved)
-PUBLISHED=$(MOGRIFIED:%.resolved=%.published)
+RESOLVED=$(CANONICAL_MANIFESTS:%.p5m=$(MANIFEST_BASE)-%.resolved)
+PUBLISHED=$(RESOLVED:%.resolved=%.published)
 
 COPYRIGHT_FILE =	$(COMPONENT_NAME)-$(COMPONENT_VERSION).copyright
-ifeq	($(IPS_PKG_NAME),)
-	IPS_PKG_NAME =	$(COMPONENT_NAME)
-endif
-IPS_COMPONENT_VERSION =	$(COMPONENT_VERSION)
+IPS_COMPONENT_VERSION ?=	$(COMPONENT_VERSION)
 
 .DEFAULT:		publish
 
 .SECONDARY:
 
-publish:		install $(BUILD_DIR)/.published
+publish:		build install $(BUILD_DIR)/.published-$(MACH)
 
 sample-manifest:	$(GENERATED).p5m
 
@@ -134,22 +131,26 @@ $(MANIFEST_BASE)-%.resolved:	$(MANIFEST_BASE)-%.depend
 		sed -e '/^$$/d' -e '/^#.*$$/d' ; \
 	 $(PKGDEPEND) resolve -o $< | sed -e '1d') | uniq >$@
 
-# lint the manifest before we publish with it.
-$(MANIFEST_BASE)-%.linted:	$(MANIFEST_BASE)-%.resolved
-	@echo "VALIDATING MANIFEST CONTENT: $<"
-	$(ENV) PYTHONPATH=$(WS_TOOLS)/python:$(PYTHONPATH) PROTO_PATH="$(PKG_PROTO_DIRS)"\
+$(BUILD_DIR)/.resolved-$(MACH):	$(RESOLVED)
+	$(TOUCH) $@
+
+# lint the manifests all at once
+$(BUILD_DIR)/.linted-$(MACH):	$(BUILD_DIR)/.resolved-$(MACH)
+	@echo "VALIDATING MANIFEST CONTENT: $(RESOLVED)"
+	$(ENV) PYTHONPATH=$(WS_TOOLS)/python PROTO_PATH="$(PKG_PROTO_DIRS)"\
 		$(PKGLINT) $(CANONICAL_REPO:%=-c $(WS_LINT_CACHE)) \
-			-f $(WS_TOOLS)/pkglintrc $<
-	$(PKGFMT) <$< >$@
+			-f $(WS_TOOLS)/pkglintrc $(RESOLVED)
+	$(TOUCH) $@
+
 
 # published
 PKGSEND_PUBLISH_OPTIONS = -s $(PKG_REPO) publish --fmri-in-manifest
 PKGSEND_PUBLISH_OPTIONS += $(PKG_PROTO_DIRS:%=-d %)
-$(MANIFEST_BASE)-%.published:	$(MANIFEST_BASE)-%.linted
+$(MANIFEST_BASE)-%.published:	$(MANIFEST_BASE)-%.resolved $(BUILD_DIR)/.linted-$(MACH)
 	$(PKGSEND) $(PKGSEND_PUBLISH_OPTIONS) $<
 	$(PKGFMT) <$< >$@
 
-$(BUILD_DIR)/.published:	$(PUBLISHED)
+$(BUILD_DIR)/.published-$(MACH):	$(PUBLISHED)
 	$(TOUCH) $@
 
 print-package-names:	canonical-manifests
@@ -172,7 +173,7 @@ install-packages:	publish
 	    echo "unsafe to install package(s) automatically" ; \
         fi
 
-$(MOGRIFIED):	install
+$(RESOLVED):	install
 
 canonical-manifests:	$(CANONICAL_MANIFESTS) Makefile $(PATCHES)
 ifeq	($(strip $(CANONICAL_MANIFESTS)),)

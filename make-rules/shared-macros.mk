@@ -24,22 +24,18 @@
 
 ECPREFIX=/ec
 
-PATH.32=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
-PATH.64=$(ECPREFIX)/bin/$(MACH64):$(ECPREFIX)/bin:/usr/bin/$(MACH64):/usr/bin:/usr/sfw/bin/$(MACH64):/usr/sfw/bin:/usr/ccs/bin/$MACH64):/usr/ccs/bin
-
-PATH=$(PATH.$(BITS))
+PATH=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 
 # Default to looking for source archives on the internal mirror before we
 # hammer on the external repositories.
-export DOWNLOAD_SEARCH_PATH ?=	http://userland.us.oracle.com/source-archives/
+export DOWNLOAD_SEARCH_PATH +=	http://userland.us.oracle.com/source-archives/
 
 # The workspace starts at the mercurial root
 export WS_TOP ?=		$(shell hg root)
 
 CONSOLIDATION =	userland
-PUBLISHER =	s10.pkg.ec
+PUBLISHER ?=	s10.pkg.ec
 
-IS_GLOBAL_ZONE =	$(shell /usr/sbin/zoneadm list | grep -c global)
 ROOT =			/
 
 # get the most recent build number from the last mercurial tag
@@ -58,17 +54,19 @@ BITS =			32
 PYTHON_VERSION =	2.6
 PYTHON_VERSIONS =	2.6
 
-WS_LOGS =	$(WS_TOP)/logs
-WS_REPO =	$(WS_TOP)/repo
+WS_LOGS =	$(WS_TOP)/$(MACH)/logs
+WS_REPO =	$(WS_TOP)/$(MACH)/repo
 WS_TOOLS =	$(WS_TOP)/tools
 WS_MAKE_RULES =	$(WS_TOP)/make-rules
 WS_COMPONENTS =	$(WS_TOP)/components
 WS_INCORPORATIONS =	$(WS_TOP)/incorporations
-WS_LINT_CACHE =	$(WS_TOP)/pkglint-cache
+WS_LINT_CACHE =	$(WS_TOP)/$(MACH)/pkglint-cache
 
 BASS_O_MATIC =	$(WS_TOOLS)/bass-o-matic
 
 CLONEY =	$(WS_TOOLS)/cloney
+
+CONFIG_SHELL =	/bin/bash
 
 PKG_REPO =	file:$(WS_REPO)
 
@@ -87,6 +85,7 @@ USRSHAREDIR =	$(USRDIR)/share
 USRSHAREMANDIR =	$(USRSHAREDIR)/man
 USRSHAREMAN1DIR =	$(USRSHAREMANDIR)/man1
 USRSHAREMAN3DIR =	$(USRSHAREMANDIR)/man3
+USRSHAREMAN4DIR =	$(USRSHAREMANDIR)/man4
 USRSHAREMAN5DIR =	$(USRSHAREMANDIR)/man5
 USRLIBDIR64 =	$(USRDIR)/lib/$(MACH64)
 PROTOETCDIR =	$(PROTO_DIR)/$(ETCDIR)
@@ -98,6 +97,8 @@ PROTOUSRSHAREDIR =	$(PROTO_DIR)/$(USRSHAREDIR)
 PROTOUSRSHAREMANDIR =	$(PROTO_DIR)/$(USRSHAREMANDIR)
 PROTOUSRSHAREMAN1DIR =	$(PROTO_DIR)/$(USRSHAREMAN1DIR)
 PROTOUSRSHAREMAN3DIR =	$(PROTO_DIR)/$(USRSHAREMAN3DIR)
+PROTOUSRSHAREMAN4DIR =	$(PROTO_DIR)/$(USRSHAREMAN4DIR)
+PROTOUSRSHAREMAN5DIR =	$(PROTO_DIR)/$(USRSHAREMAN5DIR)
 
 
 SFWBIN =	/usr/sfw/bin
@@ -172,11 +173,11 @@ CCC.studio.32 =	$(SPRO_VROOT)/bin/CC
 CC.studio.64 =	$(SPRO_VROOT)/bin/cc
 CCC.studio.64 =	$(SPRO_VROOT)/bin/CC
 
-CC.gcc.32 =	$(GCC_ROOT)/bin/gcc -m32
-CCC.gcc.32 =	$(GCC_ROOT)/bin/g++ -m32
+CC.gcc.32 =	$(GCC_ROOT)/bin/gcc
+CCC.gcc.32 =	$(GCC_ROOT)/bin/g++
 
-CC.gcc.64 =	$(GCC_ROOT)/bin/gcc -m64
-CCC.gcc.64 =	$(GCC_ROOT)/bin/g++ -m64
+CC.gcc.64 =	$(GCC_ROOT)/bin/gcc
+CCC.gcc.64 =	$(GCC_ROOT)/bin/g++
 
 CC =		$(CC.$(COMPILER).$(BITS))
 CCC =		$(CCC.$(COMPILER).$(BITS))
@@ -188,11 +189,21 @@ LINT =		$(lint.$(BITS))
 
 LD =		/usr/ccs/bin/ld
 
+PYTHON_VENDOR_PACKAGES.32 = /usr/lib/python$(PYTHON_VERSION)/vendor-packages
+PYTHON_VENDOR_PACKAGES.64 = /usr/lib/python$(PYTHON_VERSION)/vendor-packages/64
+PYTHON_VENDOR_PACKAGES = $(PYTHON_VENDOR_PACKAGES.$(BITS))
+
 PYTHON.2.6.32 =	$(ECPREFIX)/bin/python2.6
 PYTHON.2.6.64 =	$(ECPREFIX)/bin/$(MACH64)/python2.6
 
 PYTHON.32 =	$(PYTHON.$(PYTHON_VERSION).$(BITS))
 PYTHON.64 =	$(PYTHON.$(PYTHON_VERSION).$(BITS))
+PYTHON =	$(PYTHON.$(PYTHON_VERSION).$(BITS))
+
+# The default is site-packages, but that directory belongs to the end-user.
+# Modules which are shipped by the OS but not with the core Python distribution
+# belong in vendor-packages.
+PYTHON_LIB= /usr/lib/python$(PYTHON_VERSION)/vendor-packages
 
 JAVA_HOME =	/usr/jdk/instances/jdk1.6.0
 
@@ -212,13 +223,12 @@ TOUCH =		/usr/bin/touch
 MKDIR =		/bin/mkdir -p
 RM =		/bin/rm -f
 CP =		/bin/cp -f
+MV =		/bin/mv -f
 LN =		/bin/ln
 SYMLINK =	/bin/ln -s
 ENV =		/usr/bin/env
 INSTALL =	$(ECPREFIX)/bin/install
 CHMOD =		/usr/bin/chmod
-
-CMAKE=		$(ECPREFIX)/bin/cmake
 
 INS.dir=        $(INSTALL) -d $@
 INS.file=       $(INSTALL) -m 444 $< $(@D)

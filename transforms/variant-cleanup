@@ -18,14 +18,17 @@
 #
 # CDDL HEADER END
 #
-
-#
-# Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
 #
 
-# general locale
-<transform dir link hardlink path=.*/locale$ -> default facet.locale true>
+#
+# These transforms drop the actions that don't apply to the current architecture
+# and then remove the architecture tag from the action so that pkgdepend doesn't
+# get confused.
+#
 
-<transform dir file link hardlink \
-    path=.*/locale/([^/]+)(\..+){0,1}(/.+){0,1}$ -> \
-    default facet.locale.%<\1> true>
+# drop actions that don't apply to the architecture we are on
+<transform dir file link hardlink variant.arch=(?!$(MACH)) -> drop>
+
+# delete variant.arch from the manifest
+<transform dir file link hardlink -> delete variant.arch .*>
