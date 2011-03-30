@@ -1,22 +1,13 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
-#
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
+
 #
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
@@ -112,51 +103,7 @@ dir \
 dir \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include
 dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/arpa
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/dat
-#dir \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/firefox
-#dir \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/firefox/dbm
-#dir \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/firefox/js
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/iso
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/mps
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/pgsql
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/pgsql/internal
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/pgsql/server
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/pixman-1
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/dt
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/dt/include
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/dt/include/Xm
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/openwin
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/openwin/include
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/openwin/include/X11
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/openwin/include/X11/DPS
-#dir \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/openwin/include/xil
-dir \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/sys
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/objc
 dir \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/ssp
 dir \
@@ -181,13 +128,6 @@ dir \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/plugin/include/java
 dir \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/plugin/include/objc
-dir path=$(ECPREFIX)/libexec
-dir path=$(ECPREFIX)/libexec/gcc
-dir path=$(ECPREFIX)/libexec/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)
-dir \
-    path=$(ECPREFIX)/libexec/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)
-dir \
-    path=$(ECPREFIX)/libexec/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/install-tools
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/gcc-$(COMPONENT_VERSION)
 dir path=$(ECPREFIX)/share/gcc-$(COMPONENT_VERSION)/python
@@ -236,11 +176,12 @@ dir path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man7
+file path=$(ECPREFIX)/bin/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)-g++
 file path=$(ECPREFIX)/bin/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)-gcc
-file path=$(ECPREFIX)/bin/c++
 file path=$(ECPREFIX)/bin/cpp
 file path=$(ECPREFIX)/bin/gccbug
 file path=$(ECPREFIX)/bin/gcov
+file path=$(ECPREFIX)/bin/gfortran
 file \
     path=$(ECPREFIX)/include/c++/$(COMPONENT_VERSION)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(MACH64)/bits/atomic_word.h
 file \
@@ -1290,23 +1231,25 @@ file path=$(ECPREFIX)/include/c++/$(COMPONENT_VERSION)/unordered_set
 file path=$(ECPREFIX)/include/c++/$(COMPONENT_VERSION)/utility
 file path=$(ECPREFIX)/include/c++/$(COMPONENT_VERSION)/valarray
 file path=$(ECPREFIX)/include/c++/$(COMPONENT_VERSION)/vector
-#file path=$(ECPREFIX)/lib/$(MACH64)/libgcc_s.so.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libgfortran.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libgfortran.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libgomp.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libgomp.la
-#file path=$(ECPREFIX)/lib/$(MACH64)/libgomp.so.1.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libgomp.spec
 file path=$(ECPREFIX)/lib/$(MACH64)/libiberty.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libobjc.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libobjc.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libssp.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libssp.la
-#file path=$(ECPREFIX)/lib/$(MACH64)/libssp.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libssp_nonshared.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libssp_nonshared.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libstdc++.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libstdc++.la
-#file path=$(ECPREFIX)/lib/$(MACH64)/libstdc++.so.6.0.14
 file path=$(ECPREFIX)/lib/$(MACH64)/libstdc++.so.6.0.14-gdb.py
 file path=$(ECPREFIX)/lib/$(MACH64)/libsupc++.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libsupc++.la
+file \
+    specs.$(MACH) path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/specs
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/$(MACH64)/crtbegin.o
 file \
@@ -1320,77 +1263,33 @@ file \
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/$(MACH64)/libgcov.a
 file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/$(MACH64)/libgfortranbegin.a
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/$(MACH64)/libgfortranbegin.la
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/cc1 mode=555
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/cc1obj mode=555
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/cc1plus mode=555
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/collect2 mode=555
+file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/crtbegin.o
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/crtend.o
 file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/f951 mode=555
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/finclude/omp_lib.f90
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/finclude/omp_lib.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/finclude/omp_lib.mod
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/finclude/omp_lib_kinds.mod
+file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/gmon.o
-file \
-    specs.$(MACH) path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/specs
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/README
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/arpa/nameser_compat.h
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/complex.h
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/curses.h
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/dat/dat_platform_specific.h
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/firefox/dbm/ncompat.h
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/firefox/js/fdlibm.h
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/iso/math_c99.h
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/iso/setjmp_iso.h
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/limits.h
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/math.h
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/mps/secport.h
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/pgsql/internal/c.h
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/pgsql/server/c.h
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/pixman-1/pixman.h
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/pthread.h
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/dt/include/Xm/XmosP.h
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/dt/include/Xm/Xmos_r.h
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/openwin/include/X11/DPS/dpsconfig.h
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/openwin/include/X11/Xfuncs.h
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/openwin/include/X11/Xlibint.h
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/openwin/include/X11/Xos.h
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/openwin/include/X11/Xosdefs.h
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/openwin/include/X11/Xthreads.h
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/openwin/include/xil/_XilDefines.h
-#file \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/root/usr/openwin/include/xil/xil.h
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/sys/feature_tests.h
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/sys/int_const.h
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/sys/int_limits.h
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/sys/varargs.h
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/syslimits.h
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/wchar.h
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/abmintrin.h
 file \
@@ -1425,6 +1324,30 @@ file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/mmintrin.h
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/nmmintrin.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/objc/NXConstStr.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/objc/Object.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/objc/Protocol.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/objc/encoding.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/objc/hash.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/objc/objc-api.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/objc/objc-decls.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/objc/objc-list.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/objc/objc.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/objc/sarray.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/objc/thr.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/objc/typedstream.h
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/omp.h
 file \
@@ -1470,7 +1393,11 @@ file \
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/xopintrin.h
 file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/install-tools/fixinc.sh
+file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/install-tools/fixinc_list
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/install-tools/fixincl
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/install-tools/gsyslimits.h
 file \
@@ -1480,13 +1407,25 @@ file \
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/install-tools/macro_list
 file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/install-tools/mkheaders
+file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/install-tools/mkheaders.conf
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/install-tools/mkinstalldirs
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/libgcc.a
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/libgcc_eh.a
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/libgcov.a
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/libgfortranbegin.a
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/libgfortranbegin.la
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/lto-wrapper mode=555
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/lto1 mode=555
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/plugin/include/ada/gcc-interface/ada-tree.def
 file \
@@ -1759,54 +1698,30 @@ file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/plugin/include/vecprim.h
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/plugin/include/version.h
-#file path=$(ECPREFIX)/lib/libgcc_s.so.1
+file path=$(ECPREFIX)/lib/libgfortran.a
+file path=$(ECPREFIX)/lib/libgfortran.la
 file path=$(ECPREFIX)/lib/libgomp.a
 file path=$(ECPREFIX)/lib/libgomp.la
-#file path=$(ECPREFIX)/lib/libgomp.so.1.0.0
 file path=$(ECPREFIX)/lib/libgomp.spec
 file path=$(ECPREFIX)/lib/libiberty.a
+file path=$(ECPREFIX)/lib/libobjc.a
+file path=$(ECPREFIX)/lib/libobjc.la
 file path=$(ECPREFIX)/lib/libssp.a
 file path=$(ECPREFIX)/lib/libssp.la
-#file path=$(ECPREFIX)/lib/libssp.so.0.0.0
 file path=$(ECPREFIX)/lib/libssp_nonshared.a
 file path=$(ECPREFIX)/lib/libssp_nonshared.la
 file path=$(ECPREFIX)/lib/libstdc++.a
 file path=$(ECPREFIX)/lib/libstdc++.la
-#file path=$(ECPREFIX)/lib/libstdc++.so.6.0.14
 file path=$(ECPREFIX)/lib/libstdc++.so.6.0.14-gdb.py
 file path=$(ECPREFIX)/lib/libsupc++.a
 file path=$(ECPREFIX)/lib/libsupc++.la
-file \
-    path=$(ECPREFIX)/libexec/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/cc1 mode=555
-file \
-    path=$(ECPREFIX)/libexec/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/cc1plus mode=555
-file \
-    path=$(ECPREFIX)/libexec/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/collect2 mode=555
-file \
-    path=$(ECPREFIX)/libexec/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/install-tools/fixinc.sh mode=555
-file \
-    path=$(ECPREFIX)/libexec/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/install-tools/fixincl mode=555
-file \
-    path=$(ECPREFIX)/libexec/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/install-tools/mkheaders mode=555
-file \
-    path=$(ECPREFIX)/libexec/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/install-tools/mkinstalldirs mode=555
-file \
-    path=$(ECPREFIX)/libexec/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/lto-wrapper mode=555
-file \
-    path=$(ECPREFIX)/libexec/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/lto1 mode=555
 file \
     path=$(ECPREFIX)/share/gcc-$(COMPONENT_VERSION)/python/libstdcxx/__init__.py
 file \
     path=$(ECPREFIX)/share/gcc-$(COMPONENT_VERSION)/python/libstdcxx/v6/__init__.py
 file \
     path=$(ECPREFIX)/share/gcc-$(COMPONENT_VERSION)/python/libstdcxx/v6/printers.py
-#file path=$(ECPREFIX)/share/info/cpp.info
-#file path=$(ECPREFIX)/share/info/cppinternals.info
-#file path=$(ECPREFIX)/share/info/dir
-#file path=$(ECPREFIX)/share/info/gcc.info
-#file path=$(ECPREFIX)/share/info/gccinstall.info
-#file path=$(ECPREFIX)/share/info/gccint.info
-#file path=$(ECPREFIX)/share/info/libgomp.info
+file path=$(ECPREFIX)/share/info/libgomp.info
 file path=$(ECPREFIX)/share/locale/be/LC_MESSAGES/cpplib.mo
 file path=$(ECPREFIX)/share/locale/be/LC_MESSAGES/gcc.mo
 file path=$(ECPREFIX)/share/locale/ca/LC_MESSAGES/cpplib.mo
@@ -1845,38 +1760,18 @@ file path=$(ECPREFIX)/share/man/man1/cpp.1
 file path=$(ECPREFIX)/share/man/man1/g++.1
 file path=$(ECPREFIX)/share/man/man1/gcc.1
 file path=$(ECPREFIX)/share/man/man1/gcov.1
+file path=$(ECPREFIX)/share/man/man1/gfortran.1
 file path=$(ECPREFIX)/share/man/man7/fsf-funding.7
 file path=$(ECPREFIX)/share/man/man7/gfdl.7
 file path=$(ECPREFIX)/share/man/man7/gpl.7
 hardlink path=$(ECPREFIX)/bin/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)-c++ \
-    target=c++
-hardlink path=$(ECPREFIX)/bin/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)-g++ \
-    target=c++
+    target=i386-pc-solaris2.10-g++
 hardlink \
     path=$(ECPREFIX)/bin/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)-gcc-$(COMPONENT_VERSION) \
     target=i386-pc-solaris2.10-gcc
-hardlink path=$(ECPREFIX)/bin/g++ target=c++
+hardlink \
+    path=$(ECPREFIX)/bin/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)-gfortran \
+    target=gfortran
+hardlink path=$(ECPREFIX)/bin/c++ target=i386-pc-solaris2.10-g++
+hardlink path=$(ECPREFIX)/bin/g++ target=i386-pc-solaris2.10-g++
 hardlink path=$(ECPREFIX)/bin/gcc target=i386-pc-solaris2.10-gcc
-#link path=$(ECPREFIX)/lib/$(MACH64)/libgcc_s.so target=libgcc_s.so.1
-#link path=$(ECPREFIX)/lib/$(MACH64)/libgomp.so target=libgomp.so.1.0.0
-#link path=$(ECPREFIX)/lib/$(MACH64)/libgomp.so.1 target=libgomp.so.1.0.0
-#link path=$(ECPREFIX)/lib/$(MACH64)/libssp.so target=libssp.so.0.0.0
-#link path=$(ECPREFIX)/lib/$(MACH64)/libssp.so.0 target=libssp.so.0.0.0
-#link path=$(ECPREFIX)/lib/$(MACH64)/libstdc++.so target=libstdc++.so.6.0.14
-#link path=$(ECPREFIX)/lib/$(MACH64)/libstdc++.so.6 target=libstdc++.so.6.0.14
-link \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/X11 \
-    target=root/usr/openwin/include/X11
-link \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/Xm \
-    target=root/usr/dt/include/Xm
-#link \
-#    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/xil \
-#    target=root/usr/openwin/include/xil
-#link path=$(ECPREFIX)/lib/libgcc_s.so target=libgcc_s.so.1
-#link path=$(ECPREFIX)/lib/libgomp.so target=libgomp.so.1.0.0
-#link path=$(ECPREFIX)/lib/libgomp.so.1 target=libgomp.so.1.0.0
-#link path=$(ECPREFIX)/lib/libssp.so target=libssp.so.0.0.0
-#link path=$(ECPREFIX)/lib/libssp.so.0 target=libssp.so.0.0.0
-#link path=$(ECPREFIX)/lib/libstdc++.so target=libstdc++.so.6.0.14
-#link path=$(ECPREFIX)/lib/libstdc++.so.6 target=libstdc++.so.6.0.14
