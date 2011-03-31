@@ -34,6 +34,7 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS  +=           --with-included-glib
+CONFIGURE_OPTIONS  +=           --without-git
 
 include ../../make-rules/shared-targets.mk
 
