@@ -14,8 +14,6 @@
 
 include ../../make-rules/shared-macros.mk
 
-GMAKE=gmake -j16
-
 COMPONENT_NAME=		gcc
 COMPONENT_VERSION=	4.4.5
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
@@ -29,12 +27,11 @@ include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS  +=           --libexecdir=$(ECPREFIX)/lib
 CONFIGURE_OPTIONS  +=           --infodir=$(ECPREFIX)/share/info
-#CONFIGURE_OPTIONS  +=           --enable-lto
 CONFIGURE_OPTIONS  +=           --with-mpc=$(ECPREFIX)
 CONFIGURE_OPTIONS  +=           --with-mpfr=$(ECPREFIX)
 CONFIGURE_OPTIONS  +=           --with-gmp=$(ECPREFIX)
-#CONFIGURE_OPTIONS  +=           --with-ppl=$(ECPREFIX)
-#CONFIGURE_OPTIONS  +=           --with-cloog=$(ECPREFIX)
+CONFIGURE_OPTIONS  +=           --without-ppl
+CONFIGURE_OPTIONS  +=           --without-cloog
 CONFIGURE_OPTIONS  +=           --with-gnu-as
 CONFIGURE_OPTIONS  +=           --with-as=$(ECPREFIX)/bin/as
 CONFIGURE_OPTIONS  +=           --with-ld=/usr/ccs/bin/ld
