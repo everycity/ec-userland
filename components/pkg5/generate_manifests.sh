@@ -20,7 +20,8 @@ do
 	gsed s%path=$\(PYDIR\)%path=ec/lib/python2.6% | \
 	gsed s%path=$\(PYDIRVP\)%path=ec/lib/python2.6/vendor-packages% | \
 	gsed s%$\(PKGVERS_BUILTON\)-$\(PKGVERS_BRANCH\)%$\(BUILD_VERSION\)% | \
-	gsed s%$\(PKGVERS\)%$\(IPS_COMPONENT_VERSION\),$\(BUILD_VERSION\)% \
+	gsed s%$\(PKGVERS\)%$\(IPS_COMPONENT_VERSION\),$\(BUILD_VERSION\)% | \
+	gsed s%$\(ARCH\)%$\(MACH\)% \
 	> $i
 done
 

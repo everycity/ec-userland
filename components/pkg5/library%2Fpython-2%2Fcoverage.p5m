@@ -18,7 +18,7 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
 #
 
 set name=pkg.fmri value=pkg:/library/python-2/coverage@3.2,$(BUILD_VERSION)
@@ -28,7 +28,7 @@ set name=pkg.description value="Coverage measures Python code coverage, typicall
 set name=info.source_url value=$(SOURCE_URL)
 set name=info.upstream_url value=http://nedbatchelder.com/code/coverage/
 set name=info.upstream value="Ned Batchelder <ned@nedbatchelder.com>"
-set name=variant.arch value=$(ARCH)
+set name=variant.arch value=$(MACH)
 
 dir path=ec
 dir path=ec/bin

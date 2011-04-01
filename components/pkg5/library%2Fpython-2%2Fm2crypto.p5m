@@ -18,7 +18,7 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
 #
 
 set name=pkg.fmri value=pkg:/library/python-2/m2crypto@0.20.2,$(BUILD_VERSION)
@@ -28,7 +28,7 @@ set name=pkg.description value="M2Crypto provides a python interface to the open
 set name=info.source_url value=$(SOURCE_URL)
 set name=info.upstream_url value=http://chandlerproject.org/Projects/MeTooCrypto
 set name=info.upstream value="Heikki Toivonen <heikki@osafoundation.org>"
-set name=variant.arch value=$(ARCH)
+set name=variant.arch value=$(MACH)
 
 dir path=ec
 dir path=ec/lib
