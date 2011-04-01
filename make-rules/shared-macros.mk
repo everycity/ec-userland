@@ -209,15 +209,15 @@ JAVA_HOME =	/usr/jdk/instances/jdk1.6.0
 
 PERL =		/usr/perl5/bin/perl
 
-GMAKE =		$(ECPREFIX)/bin/gmake
-GPATCH =	$(ECPREFIX)/bin/gpatch
+GMAKE =		gmake
+GPATCH =	gpatch
 PATCH_LEVEL =	1
 GPATCH_BACKUP =	--backup --version-control=numbered
 GPATCH_FLAGS =	-p$(PATCH_LEVEL) $(GPATCH_BACKUP)
 
-PKGREPO =	$(ECPREFIX)bin/pkgrepo
-PKGSEND =	$(ECPREFIX)/bin/pkgsend
-PKGLINT =	$(ECPREFIX)/bin/pkglint
+PKGREPO =	pkgrepo
+PKGSEND =	pkgsend
+PKGLINT =	pkglint
 
 TOUCH =		/usr/bin/touch
 MKDIR =		/bin/mkdir -p

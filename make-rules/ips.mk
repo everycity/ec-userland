@@ -36,11 +36,11 @@
 # This set of rules makes the "publish" target the default target for make(1)
 #
 
-PKGDEPEND =	$(ECPREFIX)/bin/pkgdepend
-PKGFMT =	$(ECPREFIX)/bin/pkgfmt
-PKGMOGRIFY =	$(ECPREFIX)/bin/pkgmogrify
-PKGSEND =	$(ECPREFIX)/bin/pkgsend
-PKGLINT =	$(ECPREFIX)/bin/pkglint
+PKGDEPEND =	pkgdepend
+PKGFMT =	pkgfmt
+PKGMOGRIFY =	pkgmogrify
+PKGSEND =	pkgsend
+PKGLINT =	pkglint
 
 # Package headers should all pretty much follow the same format
 METADATA_TEMPLATE =		$(WS_TOP)/transforms/manifest-metadata-template
