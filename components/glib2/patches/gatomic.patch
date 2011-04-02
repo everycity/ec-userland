@@ -1,0 +1,10 @@
+--- glib-2.28.2/glib/gatomic.c.orig	2011-04-02 09:02:18.572458461 +0100
++++ glib-2.28.2/glib/gatomic.c	2011-04-02 09:03:17.639442189 +0100
+@@ -882,6 +882,7 @@ g_atomic_pointer_compare_and_exchange (v
+ 
+ #ifdef DEFINE_WITH_MUTEXES
+ /* We have to use the slow, but safe locking method */
++#include "gthread.h"
+ static GMutex *g_atomic_mutex; 
+ 
+ /**

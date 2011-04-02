@@ -40,7 +40,9 @@ LDFLAGS="-lsocket"
 #CONFIGURE_OPTIONS  +=		--disable-static
 #CONFIGURE_OPTIONS  +=		--enable-shared
 #CONFIGURE_OPTIONS  +=		CFLAGS="$(CFLAGS)"
-CONFIGURE_OPTIONS  +=		LDFLAGS="$(LDFLAGS)"
+CONFIGURE_OPTIONS.64 +=		LDFLAGS="-L/ec/lib/amd64 $(LDFLAGS)"
+CONFIGURE_OPTIONS.32  +=		LDFLAGS="-L/ec/lib $(LDFLAGS)"
+
 CONFIGURE_OPTIONS  +=		--with-libiconv=gnu
 CONFIGURE_OPTIONS  +=		--disable-fam
 
