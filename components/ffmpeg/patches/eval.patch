@@ -1,0 +1,14 @@
+--- ffmpeg-0.6.1/libavcodec/eval.c.orig	2011-04-02 18:31:38.094195744 +0100
++++ ffmpeg-0.6.1/libavcodec/eval.c	2011-04-02 18:36:04.009409621 +0100
+@@ -29,6 +29,11 @@
+ #include "libavutil/avutil.h"
+ #include "eval.h"
+ 
++#if !defined(NAN) || defined(__sun__)
++  #undef NAN
++  #define NAN 0.0/0.0
++#endif
++
+ typedef struct Parser{
+     int stack_index;
+     char *s;
