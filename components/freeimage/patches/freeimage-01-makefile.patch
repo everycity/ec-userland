@@ -1,0 +1,69 @@
+diff -ur FreeImage-orig/Makefile.solaris FreeImage/Makefile.solaris
+--- FreeImage-orig/Makefile.solaris	2005-04-12 06:32:52.000000000 +0700
++++ FreeImage/Makefile.solaris	2007-05-07 12:02:02.694485503 +0700
+@@ -5,27 +5,26 @@
+ include Makefile.srcs
+ 
+ # General configuration variables:
+-CC = gcc
+-CPP = g++
++CPP = $(CXX)
+ AR = ar
+ 
+-INSTALLDIR = /usr/local
++INSTALLDIR = $(DESTDIR)/usr
+ 
+ # Converts cr/lf to just lf
+ DOS2UNIX = dos2unix
+ 
+-COMPILERFLAGS = -O3
+-LIBRARIES = -lstdc++
++COMPILERFLAGS = 
++LIBRARIES = 
+ 
+ MODULES = $(SRCS:.c=.o)
+ MODULES := $(MODULES:.cpp=.o)
+-CFLAGS = $(COMPILERFLAGS) $(INCLUDE)
+-CPPFLAGS = $(COMPILERFLAGS)  -Wno-ctor-dtor-privacy $(INCLUDE)
++CPPFLAGS = $(INCLUDE)
+ 
+ TARGET  = freeimage
+ STATICLIB = lib$(TARGET).a
+ SHAREDLIB = lib$(TARGET)-$(VER_MAJOR).$(VER_MINOR).so
+ LIBNAME = lib$(TARGET).so.$(VER_MAJOR)
++SHORTLIBNAME = lib$(TARGET).so
+ 
+ 
+ 
+@@ -44,22 +43,25 @@
+ FreeImage: $(STATICLIB) $(SHAREDLIB)
+ 
+ .c.o:
+-	$(CC) $(CFLAGS) -c $< -o $@
++	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+ 
+ .cpp.o:
+-	$(CPP) $(CPPFLAGS) -c $< -o $@
++	$(CPP) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+ 
+ $(STATICLIB): $(MODULES)
+ 	$(AR) r $@ $(MODULES)
+ 
+ $(SHAREDLIB): $(MODULES)
+-	$(CC) -s -G -Wl,-soname=$(LIBNAME) -o $@ $(MODULES) $(LIBRARIES)
++	$(CC) -s -G -Wl,-h$(LIBNAME) -o $@ $(MODULES) $(LIBRARIES)
+ 
+ install:
+-	install -m 644 -o root -g root Source/FreeImage.h $(INSTALLDIR)/include
+-	install -m 644 -o root -g root $(STATICLIB) $(INSTALLDIR)/lib
+-	install -m 755 -o root -g root $(SHAREDLIB) $(INSTALLDIR)/lib
++	mkdir -p $(INSTALLDIR)/include
++	mkdir -p $(INSTALLDIR)/lib
++	install -m 644 Source/FreeImage.h $(INSTALLDIR)/include
++	install -m 644 $(STATICLIB) $(INSTALLDIR)/lib
++	install -m 755 $(SHAREDLIB) $(INSTALLDIR)/lib
+ 	ln -sf $(SHAREDLIB) $(INSTALLDIR)/lib/$(LIBNAME)
++	ln -sf $(SHAREDLIB) $(INSTALLDIR)/lib/$(SHORTLIBNAME)
+ 
+ clean:
+ 	rm -rf core Dist/*.* u2dtmp* $(MODULES) $(STATICLIB) $(SHAREDLIB) $(LIBNAME)
