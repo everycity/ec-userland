@@ -1,0 +1,90 @@
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/compress/bzip2@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="The bzip compression utility"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://bzip.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license bzip2.license license="bzip2"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/$(MACH64)/bzdiff
+file path=$(ECPREFIX)/bin/$(MACH64)/bzgrep
+file path=$(ECPREFIX)/bin/$(MACH64)/bzip2
+file path=$(ECPREFIX)/bin/$(MACH64)/bzip2recover
+file path=$(ECPREFIX)/bin/$(MACH64)/bzmore
+file path=$(ECPREFIX)/bin/bzdiff
+file path=$(ECPREFIX)/bin/bzgrep
+file path=$(ECPREFIX)/bin/bzip2
+file path=$(ECPREFIX)/bin/bzip2recover
+file path=$(ECPREFIX)/bin/bzmore
+file path=$(ECPREFIX)/include/bzlib.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libbz2.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libbz2.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libbz2.so.$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/bzip2.pc
+file path=$(ECPREFIX)/lib/libbz2.a
+file path=$(ECPREFIX)/lib/libbz2.la
+file path=$(ECPREFIX)/lib/libbz2.so.$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/lib/pkgconfig/bzip2.pc
+file path=$(ECPREFIX)/share/man/man1/bunzip2.1
+file path=$(ECPREFIX)/share/man/man1/bzcat.1
+file path=$(ECPREFIX)/share/man/man1/bzcmp.1
+file path=$(ECPREFIX)/share/man/man1/bzdiff.1
+file path=$(ECPREFIX)/share/man/man1/bzegrep.1
+file path=$(ECPREFIX)/share/man/man1/bzfgrep.1
+file path=$(ECPREFIX)/share/man/man1/bzgrep.1
+file path=$(ECPREFIX)/share/man/man1/bzip2.1
+file path=$(ECPREFIX)/share/man/man1/bzless.1
+file path=$(ECPREFIX)/share/man/man1/bzmore.1
+link path=$(ECPREFIX)/bin/$(MACH64)/bunzip2 target=bzip2
+link path=$(ECPREFIX)/bin/$(MACH64)/bzcat target=bzip2
+link path=$(ECPREFIX)/bin/$(MACH64)/bzcmp target=bzdiff
+link path=$(ECPREFIX)/bin/$(MACH64)/bzegrep target=bzgrep
+link path=$(ECPREFIX)/bin/$(MACH64)/bzfgrep target=bzgrep
+link path=$(ECPREFIX)/bin/$(MACH64)/bzless target=bzmore
+link path=$(ECPREFIX)/bin/bunzip2 target=bzip2
+link path=$(ECPREFIX)/bin/bzcat target=bzip2
+link path=$(ECPREFIX)/bin/bzcmp target=bzdiff
+link path=$(ECPREFIX)/bin/bzegrep target=bzgrep
+link path=$(ECPREFIX)/bin/bzfgrep target=bzgrep
+link path=$(ECPREFIX)/bin/bzless target=bzmore
+link path=$(ECPREFIX)/lib/$(MACH64)/libbz2.so \
+    target=libbz2.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/$(MACH64)/libbz2.so.1 \
+    target=libbz2.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/libbz2.so target=libbz2.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/libbz2.so.1 target=libbz2.so.$(COMPONENT_VERSION)
