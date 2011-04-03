@@ -1,0 +1,81 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/mailserver/exim@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="The Exim SMTP Server"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://www.exim.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license exim.license license="GPLv2"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/exim
+dir path=$(ECPREFIX)/sbin
+dir path=$(ECPREFIX)/var
+dir path=$(ECPREFIX)/var/log
+dir path=$(ECPREFIX)/var/log/exim mode=0775 owner=exim group=exim
+dir path=$(ECPREFIX)/var/spool
+dir path=$(ECPREFIX)/var/spool/exim mode=0770 owner=exim group=exim
+dir path=$(ECPREFIX)/var/spool/exim/db mode=0770 owner=exim group=exim
+dir path=$(ECPREFIX)/var/spool/exim/input mode=0770 owner=exim group=exim
+dir path=$(ECPREFIX)/var/spool/exim/msglog mode=0770 owner=exim group=exim
+dir path=$(ECPREFIX)/var
+dir path=$(ECPREFIX)/var/svc
+dir path=$(ECPREFIX)/var/svc/method
+dir path=var
+dir path=var/svc
+dir path=var/svc/manifest
+dir path=var/svc/manifest/site
+file path=$(ECPREFIX)/var/log/exim/main.log mode=0664 owner=exim group=exim preserve=true
+file path=$(ECPREFIX)/var/log/exim/panic.log mode=0664 owner=exim group=exim preserve=true
+file path=$(ECPREFIX)/var/log/exim/reject.log mode=0664 owner=exim group=exim preserve=true
+file path=var/svc/manifest/site/ec-exim.xml restart_fmri=svc:/system/manifest-import:default
+file path=$(ECPREFIX)/var/svc/method/exim.sh mode=0555 preserve=true
+file path=$(ECPREFIX)/etc/exim/aliases.conf preserve=true
+file path=$(ECPREFIX)/etc/exim/exim.conf preserve=true
+file path=$(ECPREFIX)/sbin/exicyclog
+file path=$(ECPREFIX)/sbin/exicyclog.O
+file path=$(ECPREFIX)/sbin/exigrep
+file path=$(ECPREFIX)/sbin/exigrep.O
+file path=$(ECPREFIX)/sbin/exim-$(COMPONENT_VERSION)-1
+file path=$(ECPREFIX)/sbin/exim_checkaccess
+file path=$(ECPREFIX)/sbin/exim_checkaccess.O
+file path=$(ECPREFIX)/sbin/exim_dbmbuild
+file path=$(ECPREFIX)/sbin/exim_dbmbuild.O
+file path=$(ECPREFIX)/sbin/exim_dumpdb
+file path=$(ECPREFIX)/sbin/exim_dumpdb.O
+file path=$(ECPREFIX)/sbin/exim_fixdb
+file path=$(ECPREFIX)/sbin/exim_fixdb.O
+file path=$(ECPREFIX)/sbin/exim_lock
+file path=$(ECPREFIX)/sbin/exim_lock.O
+file path=$(ECPREFIX)/sbin/exim_tidydb
+file path=$(ECPREFIX)/sbin/exim_tidydb.O
+file path=$(ECPREFIX)/sbin/eximstats
+file path=$(ECPREFIX)/sbin/eximstats.O
+file path=$(ECPREFIX)/sbin/exinext
+file path=$(ECPREFIX)/sbin/exinext.O
+file path=$(ECPREFIX)/sbin/exipick
+file path=$(ECPREFIX)/sbin/exipick.O
+file path=$(ECPREFIX)/sbin/exiqgrep
+file path=$(ECPREFIX)/sbin/exiqgrep.O
+file path=$(ECPREFIX)/sbin/exiqsumm
+file path=$(ECPREFIX)/sbin/exiqsumm.O
+file path=$(ECPREFIX)/sbin/exiwhat
+file path=$(ECPREFIX)/sbin/exiwhat.O
+link path=$(ECPREFIX)/sbin/exim target=exim-$(COMPONENT_VERSION)-1
+group gid=456 groupname=exim
+user gcos-field="Exim Account" group=exim uid=456 username=exim login-shell=/bin/false home-dir=/ec/var/spool/exim
