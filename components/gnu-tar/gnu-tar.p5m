@@ -92,6 +92,7 @@ dir path=$(ECPREFIX)/share/locale/sk
 dir path=$(ECPREFIX)/share/locale/sk/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/sl
 dir path=$(ECPREFIX)/share/locale/sl/LC_MESSAGES
+link path=$(ECPREFIX)/bin/gtar target=tar
 dir path=$(ECPREFIX)/share/locale/sv
 dir path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/tr
