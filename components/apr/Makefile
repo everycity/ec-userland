@@ -27,12 +27,14 @@ include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS.32	+=	--with-installbuilddir=$(ECPREFIX)/share/apr-1.0/build
 CONFIGURE_OPTIONS.64	+=	--with-installbuilddir=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)
+CONFIGURE_OPTIONS.32	+=	--includedir=$(ECPREFIX)/include/apr-1.0
+CONFIGURE_OPTIONS.64	+=	--includedir=$(ECPREFIX)/include/apr-1.0/$(MACH64)
 
-CONFIGURE_OPTIONS	+=	--includedir=$(ECPREFIX)/include/apr-1.0
 CONFIGURE_OPTIONS	+=	--enable-threads
 CONFIGURE_OPTIONS	+=	--enable-other-child
 CONFIGURE_OPTIONS	+=	--enable-nonportable-atomics
 CONFIGURE_OPTIONS	+=	--enable-shared
+
 
 COMPONENT_POST_INSTALL_ACTION = ( strip \
 		$(PROTO_DIR)/$(ECPREFIX)/lib/*so* \

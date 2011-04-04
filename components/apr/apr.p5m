@@ -26,6 +26,7 @@ dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/include/apr-1.0
+dir path=$(ECPREFIX)/include/apr-1.0/$(MACH64)
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
@@ -36,6 +37,42 @@ dir path=$(ECPREFIX)/share/apr-1.0/build
 dir path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)
 file path=$(ECPREFIX)/bin/$(MACH64)/apr-1-config
 file path=$(ECPREFIX)/bin/apr-1-config
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_allocator.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_atomic.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_dso.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_env.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_errno.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_file_info.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_file_io.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_fnmatch.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_general.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_getopt.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_global_mutex.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_hash.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_inherit.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_lib.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_mmap.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_network_io.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_poll.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_pools.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_portable.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_proc_mutex.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_random.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_ring.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_shm.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_signal.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_strings.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_support.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_tables.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_thread_cond.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_thread_mutex.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_thread_proc.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_thread_rwlock.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_time.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_user.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_version.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_want.h
 file path=$(ECPREFIX)/include/apr-1.0/apr.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_allocator.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_atomic.h
@@ -96,5 +133,3 @@ link path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so target=libapr-1.so.0.4.2
 link path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so.0 target=libapr-1.so.0.4.2
 link path=$(ECPREFIX)/lib/libapr-1.so target=libapr-1.so.0.4.2
 link path=$(ECPREFIX)/lib/libapr-1.so.0 target=libapr-1.so.0.4.2
-link path=$(ECPREFIX)/bin/$(MACH64)/apr-config target=apr-1-config
-link path=$(ECPREFIX)/bin/apr-config target=apr-1-config
