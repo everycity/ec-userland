@@ -40,7 +40,6 @@ build:		$(BUILD_32_and_64)
 include ../../make-rules/shared-targets.mk
 
 install:	$(INSTALL_32_and_64)
-	echo yoyoyo cp $(COMPONENT_DIR)/vimrc $(PROTO_DIR)/$(ECPREFIX)/share/vim/
 	cp $(COMPONENT_DIR)/vimrc $(PROTO_DIR)/$(ECPREFIX)/share/vim/
 
 BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
