@@ -281,6 +281,7 @@ file path=ec/share/man/cat1m/pkg.depotd.1m
 dir path=ec/share/man/cat5
 file path=ec/share/man/cat5/pkg.5
 dir path=var
+dir path=var/run
 dir path=var/svc
 dir path=var/svc/manifest
 dir path=var/svc/manifest/site
