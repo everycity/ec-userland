@@ -1,0 +1,115 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/library/libevent@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="The libevent event notification library"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://www.monkey.org/~provos/libevent/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license libevent.license license="BSD3c"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/event2
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+file path=$(ECPREFIX)/bin/$(MACH64)/event_rpcgen.py
+file path=$(ECPREFIX)/bin/event_rpcgen.py
+file path=$(ECPREFIX)/include/evdns.h
+file path=$(ECPREFIX)/include/event.h
+file path=$(ECPREFIX)/include/event2/buffer.h
+file path=$(ECPREFIX)/include/event2/buffer_compat.h
+file path=$(ECPREFIX)/include/event2/bufferevent.h
+file path=$(ECPREFIX)/include/event2/bufferevent_compat.h
+file path=$(ECPREFIX)/include/event2/bufferevent_ssl.h
+file path=$(ECPREFIX)/include/event2/bufferevent_struct.h
+file path=$(ECPREFIX)/include/event2/dns.h
+file path=$(ECPREFIX)/include/event2/dns_compat.h
+file path=$(ECPREFIX)/include/event2/dns_struct.h
+file path=$(ECPREFIX)/include/event2/event-config.h
+file path=$(ECPREFIX)/include/event2/event.h
+file path=$(ECPREFIX)/include/event2/event_compat.h
+file path=$(ECPREFIX)/include/event2/event_struct.h
+file path=$(ECPREFIX)/include/event2/http.h
+file path=$(ECPREFIX)/include/event2/http_compat.h
+file path=$(ECPREFIX)/include/event2/http_struct.h
+file path=$(ECPREFIX)/include/event2/keyvalq_struct.h
+file path=$(ECPREFIX)/include/event2/listener.h
+file path=$(ECPREFIX)/include/event2/rpc.h
+file path=$(ECPREFIX)/include/event2/rpc_compat.h
+file path=$(ECPREFIX)/include/event2/rpc_struct.h
+file path=$(ECPREFIX)/include/event2/tag.h
+file path=$(ECPREFIX)/include/event2/tag_compat.h
+file path=$(ECPREFIX)/include/event2/thread.h
+file path=$(ECPREFIX)/include/event2/util.h
+file path=$(ECPREFIX)/include/evhttp.h
+file path=$(ECPREFIX)/include/evrpc.h
+file path=$(ECPREFIX)/include/evutil.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libevent-2.0.so.5.0.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libevent_core-2.0.so.5.0.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libevent_extra-2.0.so.5.0.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libevent_openssl-2.0.so.5.0.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libevent_pthreads-2.0.so.5.0.1
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libevent.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libevent_openssl.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libevent_pthreads.pc
+file path=$(ECPREFIX)/lib/libevent-2.0.so.5.0.1
+file path=$(ECPREFIX)/lib/libevent_core-2.0.so.5.0.1
+file path=$(ECPREFIX)/lib/libevent_extra-2.0.so.5.0.1
+file path=$(ECPREFIX)/lib/libevent_openssl-2.0.so.5.0.1
+file path=$(ECPREFIX)/lib/libevent_pthreads-2.0.so.5.0.1
+file path=$(ECPREFIX)/lib/pkgconfig/libevent.pc
+file path=$(ECPREFIX)/lib/pkgconfig/libevent_openssl.pc
+file path=$(ECPREFIX)/lib/pkgconfig/libevent_pthreads.pc
+link path=$(ECPREFIX)/lib/$(MACH64)/libevent-2.0.so.5 \
+    target=libevent-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libevent.so target=libevent-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libevent_core-2.0.so.5 \
+    target=libevent_core-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libevent_core.so \
+    target=libevent_core-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libevent_extra-2.0.so.5 \
+    target=libevent_extra-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libevent_extra.so \
+    target=libevent_extra-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libevent_openssl-2.0.so.5 \
+    target=libevent_openssl-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libevent_openssl.so \
+    target=libevent_openssl-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libevent_pthreads-2.0.so.5 \
+    target=libevent_pthreads-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libevent_pthreads.so \
+    target=libevent_pthreads-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/libevent-2.0.so.5 target=libevent-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/libevent.so target=libevent-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/libevent_core-2.0.so.5 \
+    target=libevent_core-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/libevent_core.so target=libevent_core-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/libevent_extra-2.0.so.5 \
+    target=libevent_extra-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/libevent_extra.so target=libevent_extra-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/libevent_openssl-2.0.so.5 \
+    target=libevent_openssl-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/libevent_openssl.so \
+    target=libevent_openssl-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/libevent_pthreads-2.0.so.5 \
+    target=libevent_pthreads-2.0.so.5.0.1
+link path=$(ECPREFIX)/lib/libevent_pthreads.so \
+    target=libevent_pthreads-2.0.so.5.0.1
