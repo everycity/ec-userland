@@ -7,7 +7,7 @@
     </dependency>
 
     <dependency name='net' grouping='require_all' restart_on='none' type='service'>
-      <service_fmri value='svc:/network/loopback' />
+      <service_fmri value='svc:/milestone/network:default' />
     </dependency>
 
     <dependency name='ns' grouping='require_all' restart_on='none' type='service'>

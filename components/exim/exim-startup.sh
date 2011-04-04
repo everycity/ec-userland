@@ -14,7 +14,8 @@ getprop() {
     if [ $? -eq 0 ] ; then
         PROPVAL=`svccfg -s ${SMF_FMRI} listprop $1 | \
 		/usr/bin/nawk '{ for (i = 3; i <= NF; i++) printf $i" " }' | \
-		/usr/bin/nawk '{ sub(/^\"/,""); sub(/\"[ \t]*$/,""); print }'`
+		/usr/bin/nawk '{ sub(/^\"/,""); sub(/\"[ \t]*$/,""); print }' \
+		/usr/bin/sed 's/[ ]*$//g'`
         if [ "${PROPVAL}" = "\"\"" ] ; then
             PROPVAL=""
         fi
