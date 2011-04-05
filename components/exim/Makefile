@@ -32,7 +32,6 @@ COMPONENT_ARCHIVE_URL=	ftp://ftp.exim.org/pub/exim/exim4/$(COMPONENT_ARCHIVE)
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
-include ../../make-rules/shared-targets.mk
 
 COMPONENT_PREP_ACTION+= cp $(SOURCE_DIR)/src/EDITME $(SOURCE_DIR)/Local/Makefile
 COMPONENT_PRE_BUILD_ACTION+=	cp -r $(SOURCE_DIR)/* $(@D)
@@ -55,6 +54,3 @@ build:		$(BUILD_32)
 
 install:	$(INSTALL_32_and_64)
 
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk

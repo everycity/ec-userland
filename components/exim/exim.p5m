@@ -24,7 +24,7 @@ license exim.license license="GPLv2"
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/etc/exim
-dir path=$(ECPREFIX)/sbin
+dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/var
 dir path=$(ECPREFIX)/var/log
 dir path=$(ECPREFIX)/var/log/exim mode=0775 owner=exim group=exim
@@ -47,35 +47,35 @@ file path=var/svc/manifest/site/ec-exim.xml restart_fmri=svc:/system/manifest-im
 file path=$(ECPREFIX)/var/svc/method/exim.sh mode=0555 preserve=true
 file path=$(ECPREFIX)/etc/exim/aliases.conf preserve=true
 file path=$(ECPREFIX)/etc/exim/exim.conf preserve=true
-file path=$(ECPREFIX)/sbin/exicyclog
-file path=$(ECPREFIX)/sbin/exicyclog.O
-file path=$(ECPREFIX)/sbin/exigrep
-file path=$(ECPREFIX)/sbin/exigrep.O
-file path=$(ECPREFIX)/sbin/exim-$(COMPONENT_VERSION)-1
-file path=$(ECPREFIX)/sbin/exim_checkaccess
-file path=$(ECPREFIX)/sbin/exim_checkaccess.O
-file path=$(ECPREFIX)/sbin/exim_dbmbuild
-file path=$(ECPREFIX)/sbin/exim_dbmbuild.O
-file path=$(ECPREFIX)/sbin/exim_dumpdb
-file path=$(ECPREFIX)/sbin/exim_dumpdb.O
-file path=$(ECPREFIX)/sbin/exim_fixdb
-file path=$(ECPREFIX)/sbin/exim_fixdb.O
-file path=$(ECPREFIX)/sbin/exim_lock
-file path=$(ECPREFIX)/sbin/exim_lock.O
-file path=$(ECPREFIX)/sbin/exim_tidydb
-file path=$(ECPREFIX)/sbin/exim_tidydb.O
-file path=$(ECPREFIX)/sbin/eximstats
-file path=$(ECPREFIX)/sbin/eximstats.O
-file path=$(ECPREFIX)/sbin/exinext
-file path=$(ECPREFIX)/sbin/exinext.O
-file path=$(ECPREFIX)/sbin/exipick
-file path=$(ECPREFIX)/sbin/exipick.O
-file path=$(ECPREFIX)/sbin/exiqgrep
-file path=$(ECPREFIX)/sbin/exiqgrep.O
-file path=$(ECPREFIX)/sbin/exiqsumm
-file path=$(ECPREFIX)/sbin/exiqsumm.O
-file path=$(ECPREFIX)/sbin/exiwhat
-file path=$(ECPREFIX)/sbin/exiwhat.O
-link path=$(ECPREFIX)/sbin/exim target=exim-$(COMPONENT_VERSION)-1
+file path=$(ECPREFIX)/bin/exicyclog
+file path=$(ECPREFIX)/bin/exicyclog.O
+file path=$(ECPREFIX)/bin/exigrep
+file path=$(ECPREFIX)/bin/exigrep.O
+file path=$(ECPREFIX)/bin/exim-$(COMPONENT_VERSION)-1
+file path=$(ECPREFIX)/bin/exim_checkaccess
+file path=$(ECPREFIX)/bin/exim_checkaccess.O
+file path=$(ECPREFIX)/bin/exim_dbmbuild
+file path=$(ECPREFIX)/bin/exim_dbmbuild.O
+file path=$(ECPREFIX)/bin/exim_dumpdb
+file path=$(ECPREFIX)/bin/exim_dumpdb.O
+file path=$(ECPREFIX)/bin/exim_fixdb
+file path=$(ECPREFIX)/bin/exim_fixdb.O
+file path=$(ECPREFIX)/bin/exim_lock
+file path=$(ECPREFIX)/bin/exim_lock.O
+file path=$(ECPREFIX)/bin/exim_tidydb
+file path=$(ECPREFIX)/bin/exim_tidydb.O
+file path=$(ECPREFIX)/bin/eximstats
+file path=$(ECPREFIX)/bin/eximstats.O
+file path=$(ECPREFIX)/bin/exinext
+file path=$(ECPREFIX)/bin/exinext.O
+file path=$(ECPREFIX)/bin/exipick
+file path=$(ECPREFIX)/bin/exipick.O
+file path=$(ECPREFIX)/bin/exiqgrep
+file path=$(ECPREFIX)/bin/exiqgrep.O
+file path=$(ECPREFIX)/bin/exiqsumm
+file path=$(ECPREFIX)/bin/exiqsumm.O
+file path=$(ECPREFIX)/bin/exiwhat
+file path=$(ECPREFIX)/bin/exiwhat.O
+link path=$(ECPREFIX)/bin/exim target=exim-$(COMPONENT_VERSION)-1
 group gid=456 groupname=exim
 user gcos-field="Exim Account" group=exim uid=456 username=exim login-shell=/bin/false home-dir=/ec/var/spool/exim
