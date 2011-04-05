@@ -1,28 +1,18 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
-#
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
+
 #
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
-include ../../make-rules/shared-macros.mk
 
-GMAKE=gmake -j16
+include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		httpd
 COMPONENT_VERSION=	2.2.17
@@ -35,36 +25,44 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CPPFLAGS=-I$(ECPREFIX)/apr/1.4/include/apr-1 -I$(ECPREFIX)/apr-util/1.3/include/apr-1
+$(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
+	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
+	rsync -aH --delete $(SOURCE_DIR)/ $(@D)/
+	$(COMPONENT_PRE_CONFIGURE_ACTION)
+	(cd $(@D) ; $(ENV) $(CONFIGURE_ENV) $(CONFIG_SHELL) \
+		./configure $(CONFIGURE_OPTIONS))
+	$(COMPONENT_POST_CONFIGURE_ACTION)
+	$(TOUCH) $@
+
+CPPFLAGS=-I$(ECPREFIX)/include/apr-1.0
 CONFIGURE_ENV += CPPFLAGS="$(CPPFLAGS)"
 
-AP_PREFIX=$(ECPREFIX)/apache2/2.2
+AP_PREFIX=$(ECPREFIX)/lib/apache2/2.2
+AP_SHAREDIR=$(ECPREFIX)/share/apache2/2.2
 AP_SYSCONFDIR=$(ECPREFIX)/etc/apache2/2.2
 AP_DATADIR=$(ECPREFIX)/var/apache2/2.2
+
+# We patch sources differently depending on the flavour being built
+COMPONENT_PRE_CONFIGURE_ACTION += $(ENV) BITS=$(BITS) MACH=$(MACH$(BITS)) \
+	COMPONENT_DIR=$(COMPONENT_DIR) MPM=$(MPM) \
+	$(COMPONENT_DIR)/patch-source.sh $(@D)
 
 # -L/ec/lib gets added to EXTRA_LDFLAGS for some reason, removing it as otherwise 64-bit build fails
 COMPONENT_POST_CONFIGURE_ACTION += (cd $(@D); gsed -i s/\^EXTRA_LDFLAGS.*// build/config_vars.mk)
 
-CONFIGURE_OPTIONS     +=	--prefix=$(AP_PREFIX)
+CONFIGURE_OPTIONS      = CC="$(CC)"
+CONFIGURE_OPTIONS     += CXX="$(CCC)"
 
-CONFIGURE_OPTIONS.32  +=	--bindir=$(AP_PREFIX)/bin
-CONFIGURE_OPTIONS.64  +=	--bindir=$(AP_PREFIX)/bin/$(MACH64)
-CONFIGURE_OPTIONS.32  +=	--sbindir=$(AP_PREFIX)/bin
-CONFIGURE_OPTIONS.64  +=	--sbindir=$(AP_PREFIX)/bin/$(MACH64)
-CONFIGURE_OPTIONS.32  +=	--libdir=$(AP_PREFIX)/lib
-CONFIGURE_OPTIONS.64  +=	--libdir=$(AP_PREFIX)/lib/$(MACH64)
-CONFIGURE_OPTIONS.32  +=	--libexecdir=$(AP_PREFIX)/libexec
-CONFIGURE_OPTIONS.64  +=	--libexecdir=$(AP_PREFIX)/libexec/$(MACH64)
-CONFIGURE_OPTIONS     +=	--includedir=$(AP_PREFIX)/include
-CONFIGURE_OPTIONS     +=	--sysconfdir=$(AP_SYSCONFDIR)
-CONFIGURE_OPTIONS     +=	--datadir=$(AP_DATADIR)
+CONFIGURE_OPTIONS     += --enable-layout=EveryCity
 
-CONFIGURE_OPTIONS.32  +=	--with-pcre=$(ECPREFIX)/bin/pcre-config
-CONFIGURE_OPTIONS.64  +=	--with-pcre=$(ECPREFIX)/bin/$(MACH64)/pcre-config
-CONFIGURE_OPTIONS.32  +=	--with-apr=$(ECPREFIX)/apr/1.4/bin/apr-1-config
-CONFIGURE_OPTIONS.64  +=	--with-apr=$(ECPREFIX)/apr/1.4/bin/$(MACH64)/apr-1-config
-CONFIGURE_OPTIONS.32  +=	--with-apr-util=$(ECPREFIX)/apr-util/1.3/bin/apu-1-config
-CONFIGURE_OPTIONS.64  +=	--with-apr-util=$(ECPREFIX)/apr-util/1.3/bin/$(MACH64)/apu-1-config
+CONFIGURE_OPTIONS.32   = --with-pcre=$(ECPREFIX)/bin/pcre-config
+CONFIGURE_OPTIONS.64   = --with-pcre=$(ECPREFIX)/bin/$(MACH64)/pcre-config
+CONFIGURE_OPTIONS.32  += --with-apr=$(ECPREFIX)/bin/apr-1-config
+CONFIGURE_OPTIONS.64  += --with-apr=$(ECPREFIX)/bin/$(MACH64)/apr-1-config
+CONFIGURE_OPTIONS.32  += --with-apr-util=$(ECPREFIX)/bin/apu-1-config
+CONFIGURE_OPTIONS.64  += --with-apr-util=$(ECPREFIX)/bin/$(MACH64)/apu-1-config
+
+CONFIGURE_OPTIONS  +=	$(CONFIGURE_OPTIONS.$(BITS))
 
 CONFIGURE_OPTIONS  +=	--enable-mods-shared=all
 CONFIGURE_OPTIONS  +=	--enable-so
@@ -89,6 +87,8 @@ CONFIGURE_OPTIONS  +=	--enable-ssl
 CONFIGURE_OPTIONS  +=	--enable-exception-hook
 
 CONFIGURE_OPTIONS  +=	--with-mpm=$(MPM)
+
+CONFIGURE_OPTIONS  +=	$(CONFIGURE_OPTIONS.$(BITS))
 
 
 $(BUILD_DIR)/$(MACH32).worker/.configured:     BITS=32
@@ -116,10 +116,27 @@ build:		$(BUILD_DIR)/$(MACH32).prefork/.built \
 		$(BUILD_DIR)/$(MACH64).worker/.built
 
 install:	$(BUILD_DIR)/$(MACH32).prefork/.installed \
-		$(BUILD_DIR)/$(MACH64).prefork/.installed
-	$(CP) -f $(BUILD_DIR)/$(MACH32).worker/httpd $(PROTO_DIR)/$(AP_PREFIX)/bin/httpd.worker
-	$(CP) -f $(BUILD_DIR)/$(MACH64).worker/httpd $(PROTO_DIR)/$(AP_PREFIX)/bin/$(MACH64)/httpd.worker
-
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
+		$(BUILD_DIR)/$(MACH64).prefork/.installed \
+		$(BUILD_DIR)/$(MACH32).worker/.built \
+		$(BUILD_DIR)/$(MACH64).worker/.built
+	(cd $(BUILD_DIR)/$(MACH32).worker; \
+		$(GMAKE) install-include DESTDIR=$(PROTO_DIR))
+	(cd $(BUILD_DIR)/$(MACH32).worker; \
+		$(GMAKE) install-build DESTDIR=$(PROTO_DIR))
+	$(INSTALL) -d $(PROTO_DIR)/$(AP_PREFIX)/bin
+	$(INSTALL) -d $(PROTO_DIR)/$(AP_PREFIX)/bin/$(MACH64)
+	$(INSTALL) -m 555 $(BUILD_DIR)/$(MACH32).worker/support/apxs \
+		$(PROTO_DIR)/$(AP_PREFIX)/bin/apxs.worker
+	$(INSTALL) -m 555 $(BUILD_DIR)/$(MACH64).worker/support/apxs \
+		$(PROTO_DIR)/$(AP_PREFIX)/bin/$(MACH64)/apxs.worker
+	$(INSTALL) -m 555 $(BUILD_DIR)/$(MACH32).worker/httpd \
+		$(PROTO_DIR)/$(AP_PREFIX)/bin/httpd.worker
+	$(INSTALL) -m 555 $(BUILD_DIR)/$(MACH64).worker/httpd \
+		$(PROTO_DIR)/$(AP_PREFIX)/bin/$(MACH64)/httpd.worker
+	(strip \
+	    $(PROTO_DIR)/$(AP_PREFIX)/bin/* \
+	    $(PROTO_DIR)/$(AP_PREFIX)/bin/$(MACH64)/* \
+	    $(PROTO_DIR)/$(AP_PREFIX)/bin/modules/* \
+	    $(PROTO_DIR)/$(AP_PREFIX)/bin/modules/$(MACH64)/* \
+	    >/dev/null 2>&1; true )
+	rsync -a --delete $(COMPONENT_DIR)/conf/ $(PROTO_DIR)/$(ECPREFIX)/etc/apache2/2.2/

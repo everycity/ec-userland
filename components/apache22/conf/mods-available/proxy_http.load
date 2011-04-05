@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule proxy_http_module modules/amd64/mod_proxy_http.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule proxy_http_module modules/mod_proxy_http.so
+</IfDefine>

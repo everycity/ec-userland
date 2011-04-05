@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule userdir_module modules/amd64/mod_userdir.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule userdir_module modules/mod_userdir.so
+</IfDefine>

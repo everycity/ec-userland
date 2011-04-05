@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule auth_digest_module modules/amd64/mod_auth_digest.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule auth_digest_module modules/mod_auth_digest.so
+</IfDefine>

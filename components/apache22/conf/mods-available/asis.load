@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule asis_module modules/amd64/mod_asis.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule asis_module modules/mod_asis.so
+</IfDefine>

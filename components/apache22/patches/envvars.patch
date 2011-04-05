@@ -1,0 +1,77 @@
+diff -ruN httpd-2.2.17.orig/Makefile.in httpd-2.2.17/Makefile.in
+--- httpd-2.2.17.orig/Makefile.in	2008-11-25 12:24:49.000000000 -0800
++++ httpd-2.2.17/Makefile.in	2011-04-01 08:59:35.481942863 -0700
+@@ -82,9 +82,10 @@
+ 	    done ; \
+ 	done ; \
+ 	if test -f "$(builddir)/envvars-std"; then \
+-	    cp -p envvars-std $(DESTDIR)$(sbindir); \
+-	    if test ! -f $(DESTDIR)$(sbindir)/envvars; then \
+-	        cp -p envvars-std $(DESTDIR)$(sbindir)/envvars ; \
++	    [ -d $(DESTDIR)$(sysconfdir) ] || mkdir -p $(DESTDIR)$(sysconfdir); \
++	    cp -p envvars-std $(DESTDIR)$(sysconfdir); \
++	    if test ! -f $(DESTDIR)$(sysconfdir)/envvars; then \
++	        cp -p envvars-std $(DESTDIR)$(sysconfdir)/envvars ; \
+ 	    fi ; \
+ 	fi
+ 
+diff -ruN httpd-2.2.17.orig/support/Makefile.in httpd-2.2.17/support/Makefile.in
+--- httpd-2.2.17.orig/support/Makefile.in	2005-07-06 16:15:34.000000000 -0700
++++ httpd-2.2.17/support/Makefile.in	2011-04-01 08:59:52.202422895 -0700
+@@ -23,9 +23,10 @@
+ 	    fi ; \
+ 	done
+ 	@if test -f "$(builddir)/envvars-std"; then \
+-	    cp -p envvars-std $(DESTDIR)$(sbindir); \
+-	    if test ! -f $(DESTDIR)$(sbindir)/envvars; then \
+-	        cp -p envvars-std $(DESTDIR)$(sbindir)/envvars ; \
++	    [ -d $(DESTDIR)$(sysconfdir) ] || mkdir -p $(DESTDIR)$(sysconfdir); \
++	    cp -p envvars-std $(DESTDIR)$(sysconfdir); \
++	    if test ! -f $(DESTDIR)$(sysconfdir)/envvars; then \
++	        cp -p envvars-std $(DESTDIR)$(sysconfdir)/envvars ; \
+ 	    fi ; \
+ 	fi
+ 
+diff -ruN httpd-2.2.17.orig/support/apachectl.in httpd-2.2.17/support/apachectl.in
+--- httpd-2.2.17.orig/support/apachectl.in	2006-07-11 20:38:44.000000000 -0700
++++ httpd-2.2.17/support/apachectl.in	2011-04-01 08:43:51.137885534 -0700
+@@ -44,9 +44,14 @@
+ HTTPD='@exp_sbindir@/@progname@'
+ #
+ # pick up any necessary environment variables
+-if test -f @exp_sbindir@/envvars; then
+-  . @exp_sbindir@/envvars
++if test -f @exp_sysconfdir@/envvars; then
++  . @exp_sysconfdir@/envvars
+ fi
++
++if test -f $APACHE_ETC_ROOT/envvars; then
++  . $APACHE_ETC_ROOT/envvars
++fi
++
+ #
+ # a command that outputs a formatted text version of the HTML at the
+ # url given on the command line.  Designed for lynx, however other
+diff -ruN httpd-2.2.17.orig/support/apxs.in httpd-2.2.17/support/apxs.in
+--- httpd-2.2.17.orig/support/apxs.in	2010-05-10 13:02:56.000000000 -0700
++++ httpd-2.2.17/support/apxs.in	2011-04-01 08:43:51.138261304 -0700
+@@ -189,7 +189,7 @@
+ my $httpd = get_vars("sbindir") . "/" . get_vars("progname");
+ $httpd = eval qq("$httpd");
+ $httpd = eval qq("$httpd");
+-my $envvars = get_vars("sbindir") . "/envvars";
++my $envvars = get_vars("sysconfdir") . "/envvars";
+ $envvars = eval qq("$envvars");
+ $envvars = eval qq("$envvars");
+ 
+diff -ruN httpd-2.2.17.orig/support/envvars-std.in httpd-2.2.17/support/envvars-std.in
+--- httpd-2.2.17.orig/support/envvars-std.in	2006-07-11 20:38:44.000000000 -0700
++++ httpd-2.2.17/support/envvars-std.in	2011-04-01 08:45:47.718511716 -0700
+@@ -18,7 +18,4 @@
+ #
+ # This file is generated from envvars-std.in
+ #
+-@SHLIBPATH_VAR@="@exp_libdir@:$@SHLIBPATH_VAR@"
+-export @SHLIBPATH_VAR@
+-#
+ @OS_SPECIFIC_VARS@
