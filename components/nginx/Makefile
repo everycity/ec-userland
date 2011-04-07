@@ -36,7 +36,7 @@ include ../../make-rules/ips.mk
 CONFIGURE_OPTIONS = --prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS += --user=webservd
 CONFIGURE_OPTIONS += --group=webservd
-
+CONFIGURE_OPTIONS += --with-http_ssl_module --with-http_secure_link_module --with-http_stub_status_module --with-ipv6
 
 $(BUILD_DIR)/%/.configured:	$(SOURCE_DIR)/.prep
 	mkdir -p $(BUILD_DIR)

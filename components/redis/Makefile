@@ -27,7 +27,7 @@ COMPONENT_VERSION=	2.2.2
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:75b953e4a3067570555c5f3f5e8f481c40489904
-COMPONENT_ARCHIVE_URL=	http://redis.googlecode.com/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://redis.googlecode.com/files/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 #include ../../make-rules/configure.mk

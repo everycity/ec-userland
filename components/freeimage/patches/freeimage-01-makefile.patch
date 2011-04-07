@@ -1,7 +1,6 @@
-diff -ur FreeImage-orig/Makefile.solaris FreeImage/Makefile.solaris
---- FreeImage-orig/Makefile.solaris	2005-04-12 06:32:52.000000000 +0700
-+++ FreeImage/Makefile.solaris	2007-05-07 12:02:02.694485503 +0700
-@@ -5,27 +5,26 @@
+--- FreeImage.orig/Makefile.solaris	2009-07-30 06:35:48.000000000 +0100
++++ FreeImage/Makefile.solaris	2011-04-05 18:21:55.023851054 +0100
+@@ -5,27 +5,25 @@
  include Makefile.srcs
  
  # General configuration variables:
@@ -11,7 +10,7 @@ diff -ur FreeImage-orig/Makefile.solaris FreeImage/Makefile.solaris
  AR = ar
  
 -INSTALLDIR = /usr/local
-+INSTALLDIR = $(DESTDIR)/usr
++INSTALLDIR = $(DESTDIR)
  
  # Converts cr/lf to just lf
  DOS2UNIX = dos2unix
@@ -28,15 +27,26 @@ diff -ur FreeImage-orig/Makefile.solaris FreeImage/Makefile.solaris
 +CPPFLAGS = $(INCLUDE)
  
  TARGET  = freeimage
- STATICLIB = lib$(TARGET).a
+-STATICLIB = lib$(TARGET).a
  SHAREDLIB = lib$(TARGET)-$(VER_MAJOR).$(VER_MINOR).so
  LIBNAME = lib$(TARGET).so.$(VER_MAJOR)
 +SHORTLIBNAME = lib$(TARGET).so
  
  
  
-@@ -44,22 +43,25 @@
- FreeImage: $(STATICLIB) $(SHAREDLIB)
+@@ -34,32 +32,33 @@ default: all
+ all: dist
+ 
+ dist: FreeImage
+-	cp *.a Dist
+ 	cp *.so Dist
+ 	cp Source/FreeImage.h Dist
+ 
+ dos2unix:
+ 	@$(DOS2UNIX) $(SRCS) $(INCLS)
+ 
+-FreeImage: $(STATICLIB) $(SHAREDLIB)
++FreeImage: $(SHAREDLIB)
  
  .c.o:
 -	$(CC) $(CFLAGS) -c $< -o $@
@@ -57,13 +67,14 @@ diff -ur FreeImage-orig/Makefile.solaris FreeImage/Makefile.solaris
 -	install -m 644 -o root -g root Source/FreeImage.h $(INSTALLDIR)/include
 -	install -m 644 -o root -g root $(STATICLIB) $(INSTALLDIR)/lib
 -	install -m 755 -o root -g root $(SHAREDLIB) $(INSTALLDIR)/lib
+-	ln -sf $(SHAREDLIB) $(INSTALLDIR)/lib/$(LIBNAME)
 +	mkdir -p $(INSTALLDIR)/include
-+	mkdir -p $(INSTALLDIR)/lib
++	mkdir -p $(INSTALLLIBDIR)
 +	install -m 644 Source/FreeImage.h $(INSTALLDIR)/include
-+	install -m 644 $(STATICLIB) $(INSTALLDIR)/lib
-+	install -m 755 $(SHAREDLIB) $(INSTALLDIR)/lib
- 	ln -sf $(SHAREDLIB) $(INSTALLDIR)/lib/$(LIBNAME)
-+	ln -sf $(SHAREDLIB) $(INSTALLDIR)/lib/$(SHORTLIBNAME)
++	install -m 755 $(SHAREDLIB) $(INSTALLLIBDIR)/
++	ln -sf $(SHAREDLIB) $(INSTALLLIBDIR)/$(LIBNAME)
++	ln -sf $(SHAREDLIB) $(INSTALLLIBDIR)/$(SHORTLIBNAME)
  
  clean:
- 	rm -rf core Dist/*.* u2dtmp* $(MODULES) $(STATICLIB) $(SHAREDLIB) $(LIBNAME)
+-	rm -rf core Dist/*.* u2dtmp* $(MODULES) $(STATICLIB) $(SHAREDLIB) $(LIBNAME)
++	rm -rf core Dist/*.* u2dtmp* $(MODULES) $(SHAREDLIB) $(LIBNAME)
