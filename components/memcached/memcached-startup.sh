@@ -5,8 +5,7 @@
 
 . /lib/svc/share/smf_include.sh
 
-EXIMBINARY="/ec/sbin/exim"
-STARTUPOPTS="-bd -q15m"
+STARTUPOPTS="-u noaccess -l 127.0.0.1 -m 128M -d"
 
 getprop() {
     PROPVAL=""
@@ -14,7 +13,7 @@ getprop() {
     if [ $? -eq 0 ] ; then
         PROPVAL=`svccfg -s ${SMF_FMRI} listprop $1 | \
 		/usr/bin/nawk '{ for (i = 3; i <= NF; i++) printf $i" " }' | \
-		/usr/bin/nawk '{ sub(/^\"/,""); sub(/\"[ \t]*$/,""); print }' \
+		/usr/bin/nawk '{ sub(/^\"/,""); sub(/\"[ \t]*$/,""); print }' | \
 		/usr/bin/sed 's/[ ]*$//g'`
         if [ "${PROPVAL}" = "\"\"" ] ; then
             PROPVAL=""
@@ -24,26 +23,31 @@ getprop() {
     return
 }
 
-getprop exim/exim_binary
-if [ "${PROPVAL}" != "" ] ; then
-  EXIMBINARY="${PROPVAL}"
+getprop memcached/enable_64bit
+if [ "${PROPVAL}" = "true" ] ; then
+  MEMCACHEDBINARY="/ec/bin/amd64/memcached"
+  getprop memcached/memcached_binary64
+  if [ "${PROPVAL}" != "" ] ; then
+    MEMCACHEDBINARY="${PROPVAL}"
+  fi
+else
+  MEMCACHEDBINARY="/ec/bin/memcached"
+  getprop memcached/memcached_binary
+  if [ "${PROPVAL}" != "" ] ; then
+    MEMCACHEDBINARY="${PROPVAL}"
+  fi
 fi
 
-getprop exim/startup_options
+getprop memcached/startup_options
 if [ "${PROPVAL}" != "" ] ; then
   STARTUPOPTS="${PROPVAL}"
 fi
 
-getprop exim/configuration_file
-if [ "${PROPVAL}" != "" ] ; then
-  STARTUPOPTS="-C ${PROPVAL} ${STARTUPOPTS}"
-fi
-
 case "$1" in
   start)
-    echo "Starting Exim: \c"
-    $EXIMBINARY $STARTUPOPTS
-    echo "exim."
+    echo "Starting memcached: \c"
+    $MEMCACHEDBINARY $STARTUPOPTS
+    echo "memcached."
     ;;
   *)
     echo "Usage: $0 {start}"

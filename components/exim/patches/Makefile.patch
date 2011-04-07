@@ -5,7 +5,7 @@
  # and any superior directories, if they do not exist.
  
 -BIN_DIRECTORY=/usr/exim/bin
-+BIN_DIRECTORY=/ec/sbin
++BIN_DIRECTORY=/ec/bin
  
  
  #------------------------------------------------------------------------------

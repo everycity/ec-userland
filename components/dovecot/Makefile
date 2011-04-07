@@ -19,6 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2011 EveryCity Ltd.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -27,19 +28,16 @@ COMPONENT_VERSION=	2.0.11
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:e79cce204d06a3cabf43dbeb4f0a9bc109d4d095
-COMPONENT_ARCHIVE_URL=	ftp://xmlsoft.org/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://www.dovecot.org/releases/2.0/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-include ../../make-rules/shared-targets.mk
+CONFIGURE_OPTIONS.32 += --sbindir=$(ECPREFIX)/bin
+CONFIGURE_OPTIONS.64 += --sbindir=$(ECPREFIX)/bin/$(MACH64)
 
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
-
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
 
