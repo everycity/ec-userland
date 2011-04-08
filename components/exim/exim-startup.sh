@@ -5,7 +5,7 @@
 
 . /lib/svc/share/smf_include.sh
 
-EXIMBINARY="/ec/sbin/exim"
+EXIMBINARY="/ec/bin/exim"
 STARTUPOPTS="-bd -q15m"
 
 getprop() {
@@ -14,7 +14,7 @@ getprop() {
     if [ $? -eq 0 ] ; then
         PROPVAL=`svccfg -s ${SMF_FMRI} listprop $1 | \
 		/usr/bin/nawk '{ for (i = 3; i <= NF; i++) printf $i" " }' | \
-		/usr/bin/nawk '{ sub(/^\"/,""); sub(/\"[ \t]*$/,""); print }' \
+		/usr/bin/nawk '{ sub(/^\"/,""); sub(/\"[ \t]*$/,""); print }' | \
 		/usr/bin/sed 's/[ ]*$//g'`
         if [ "${PROPVAL}" = "\"\"" ] ; then
             PROPVAL=""
