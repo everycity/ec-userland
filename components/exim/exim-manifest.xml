@@ -35,7 +35,7 @@
         <!-- The default config file is at /ec/etc/exim/exim.conf - only
              specify one if you understand exims behaviour when doing so -->
         <propval name='configuration_file' type='astring' value=''/>
-        <propval name='exim_binary' type='astring' value='/ec/sbin/exim'/>
+        <propval name='exim_binary' type='astring' value='/ec/bin/exim'/>
       </property_group>
     </instance>
   </service>
