@@ -23,7 +23,6 @@ license vim.license license="vim73"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/fr
@@ -125,9 +124,6 @@ dir path=$(ECPREFIX)/share/vim/vim73/spell
 dir path=$(ECPREFIX)/share/vim/vim73/syntax
 dir path=$(ECPREFIX)/share/vim/vim73/tools
 dir path=$(ECPREFIX)/share/vim/vim73/tutor
-file path=$(ECPREFIX)/bin/$(MACH64)/vim
-file path=$(ECPREFIX)/bin/$(MACH64)/vimtutor
-file path=$(ECPREFIX)/bin/$(MACH64)/xxd
 file path=$(ECPREFIX)/bin/vim
 file path=$(ECPREFIX)/bin/vimtutor
 file path=$(ECPREFIX)/bin/xxd
@@ -191,7 +187,6 @@ file path=$(ECPREFIX)/share/man/ru.UTF-8/man1/vim.1
 file path=$(ECPREFIX)/share/man/ru.UTF-8/man1/vimdiff.1
 file path=$(ECPREFIX)/share/man/ru.UTF-8/man1/vimtutor.1
 file path=$(ECPREFIX)/share/man/ru.UTF-8/man1/xxd.1
-file path=$(ECPREFIX)/share/vim/vimrc preserve=true
 file path=$(ECPREFIX)/share/vim/vim73/autoload/README.txt
 file path=$(ECPREFIX)/share/vim/vim73/autoload/ada.vim
 file path=$(ECPREFIX)/share/vim/vim73/autoload/adacomplete.vim
@@ -1642,11 +1637,7 @@ file path=$(ECPREFIX)/share/vim/vim73/tutor/tutor.zh.big5
 file path=$(ECPREFIX)/share/vim/vim73/tutor/tutor.zh.euc
 file path=$(ECPREFIX)/share/vim/vim73/tutor/tutor.zh.utf-8
 file path=$(ECPREFIX)/share/vim/vim73/vimrc_example.vim
-link path=$(ECPREFIX)/bin/$(MACH64)/ex target=vim
-link path=$(ECPREFIX)/bin/$(MACH64)/rview target=vim
-link path=$(ECPREFIX)/bin/$(MACH64)/rvim target=vim
-link path=$(ECPREFIX)/bin/$(MACH64)/view target=vim
-link path=$(ECPREFIX)/bin/$(MACH64)/vimdiff target=vim
+file path=$(ECPREFIX)/share/vim/vimrc
 link path=$(ECPREFIX)/bin/ex target=vim
 link path=$(ECPREFIX)/bin/rview target=vim
 link path=$(ECPREFIX)/bin/rvim target=vim
@@ -1676,10 +1667,6 @@ link path=$(ECPREFIX)/share/man/it/man1/ex.1 target=vim.1
 link path=$(ECPREFIX)/share/man/it/man1/rview.1 target=vim.1
 link path=$(ECPREFIX)/share/man/it/man1/rvim.1 target=vim.1
 link path=$(ECPREFIX)/share/man/it/man1/view.1 target=vim.1
-link path=$(ECPREFIX)/share/man/man1/ex.1 target=vim.1
-link path=$(ECPREFIX)/share/man/man1/rview.1 target=vim.1
-link path=$(ECPREFIX)/share/man/man1/rvim.1 target=vim.1
-link path=$(ECPREFIX)/share/man/man1/view.1 target=vim.1
 link path=$(ECPREFIX)/share/man/pl.ISO8859-2/man1/ex.1 target=vim.1
 link path=$(ECPREFIX)/share/man/pl.ISO8859-2/man1/rview.1 target=vim.1
 link path=$(ECPREFIX)/share/man/pl.ISO8859-2/man1/rvim.1 target=vim.1

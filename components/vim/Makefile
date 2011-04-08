@@ -35,13 +35,7 @@ include ../../make-rules/ips.mk
 
 COMPONENT_PRE_CONFIGURE_ACTION += cp -r $(SOURCE_DIR)/* $(@D)
 
-build:		$(BUILD_32_and_64)
+build:		$(BUILD_32)
 
-include ../../make-rules/shared-targets.mk
-
-install:	$(INSTALL_32_and_64)
+install:	$(INSTALL_32)
 	cp $(COMPONENT_DIR)/vimrc $(PROTO_DIR)/$(ECPREFIX)/share/vim/
-
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
