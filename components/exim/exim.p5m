@@ -44,7 +44,7 @@ file path=$(ECPREFIX)/var/log/exim/main.log mode=0664 owner=exim group=exim pres
 file path=$(ECPREFIX)/var/log/exim/panic.log mode=0664 owner=exim group=exim preserve=true
 file path=$(ECPREFIX)/var/log/exim/reject.log mode=0664 owner=exim group=exim preserve=true
 file path=var/svc/manifest/site/ec-exim.xml restart_fmri=svc:/system/manifest-import:default
-file path=$(ECPREFIX)/var/svc/method/exim.sh mode=0555 preserve=true
+file path=$(ECPREFIX)/var/svc/method/exim.sh mode=0555
 file path=$(ECPREFIX)/etc/exim/aliases.conf preserve=true
 file path=$(ECPREFIX)/etc/exim/exim.conf preserve=true
 file path=$(ECPREFIX)/bin/exicyclog
