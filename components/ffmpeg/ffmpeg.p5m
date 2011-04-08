@@ -71,6 +71,10 @@ file path=$(ECPREFIX)/include/libavutil/pixfmt.h
 file path=$(ECPREFIX)/include/libavutil/rational.h
 file path=$(ECPREFIX)/include/libavutil/sha1.h
 file path=$(ECPREFIX)/include/libswscale/swscale.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libavcodec.so.52.72.2
+file path=$(ECPREFIX)/lib/$(MACH64)/libavformat.so.52.64.2
+file path=$(ECPREFIX)/lib/$(MACH64)/libavutil.so.50.15.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libswscale.so.0.11.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libavcodec.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libavformat.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libavutil.pc
@@ -119,6 +123,19 @@ file path=$(ECPREFIX)/share/ffmpeg/libx264-veryfast.ffpreset
 file path=$(ECPREFIX)/share/ffmpeg/libx264-veryfast_firstpass.ffpreset
 file path=$(ECPREFIX)/share/ffmpeg/libx264-veryslow.ffpreset
 file path=$(ECPREFIX)/share/ffmpeg/libx264-veryslow_firstpass.ffpreset
+link path=$(ECPREFIX)/lib/$(MACH64)/libavcodec.so target=libavcodec.so.52.72.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libavcodec.so.52 \
+    target=libavcodec.so.52.72.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libavformat.so \
+    target=libavformat.so.52.64.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libavformat.so.52 \
+    target=libavformat.so.52.64.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libavutil.so target=libavutil.so.50.15.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libavutil.so.50 \
+    target=libavutil.so.50.15.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libswscale.so target=libswscale.so.0.11.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libswscale.so.0 \
+    target=libswscale.so.0.11.0
 link path=$(ECPREFIX)/lib/libavcodec.so target=libavcodec.so.52.72.2
 link path=$(ECPREFIX)/lib/libavcodec.so.52 target=libavcodec.so.52.72.2
 link path=$(ECPREFIX)/lib/libavformat.so target=libavformat.so.52.64.2

@@ -32,7 +32,7 @@
     <instance name='default' enabled='false'>
       <property_group name='exim' type='application'>
         <propval name='startup_options' type='astring' value='-bd -q15m'/>
-        <propval name='configuration_file' type='astring' value=''/>
+        <propval name='configuration_file' type='astring' value='/ec/etc/exim/exim.conf'/>
         <propval name='exim_binary' type='astring' value='/ec/sbin/exim'/>
       </property_group>
     </instance>

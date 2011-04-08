@@ -35,7 +35,9 @@ include ../../make-rules/ips.mk
 
 include ../../make-rules/shared-targets.mk
 
-CONFIGURE_OPTIONS += --disable-static --enable-shared --enable-libfaac --enable-libgsm --enable-libspeex --enable-libvorbis --enable-nonfree --disable-ffplay --disable-avdevice --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-version3 --host-libs=/ec/lib
+CONFIGURE_OPTIONS += --disable-static --enable-shared --enable-libfaac --enable-libgsm --enable-libspeex --enable-libvorbis --enable-nonfree --disable-ffplay --disable-avdevice --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-version3 
+CONFIGURE_OPTIONS.32 += --host-libs=/ec/lib
+CONFIGURE_OPTIONS.64 += --host-libs=/ec/lib/amd64
 
 build:		$(BUILD_32_and_64)
 
