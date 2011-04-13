@@ -1,0 +1,41 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/network/bind-98/client@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="ISC Berkeley Internet Name Daemon"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://www.isc.org/software/bind"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license bind.license license="BINDv98"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/$(MACH64)/dig
+file path=$(ECPREFIX)/bin/$(MACH64)/host
+file path=$(ECPREFIX)/bin/$(MACH64)/nslookup
+file path=$(ECPREFIX)/bin/$(MACH64)/nsupdate
+file path=$(ECPREFIX)/bin/dig
+file path=$(ECPREFIX)/bin/host
+file path=$(ECPREFIX)/bin/nslookup
+file path=$(ECPREFIX)/bin/nsupdate
+file path=$(ECPREFIX)/share/man/man1/dig.1
+file path=$(ECPREFIX)/share/man/man1/host.1
+file path=$(ECPREFIX)/share/man/man1/nslookup.1
+file path=$(ECPREFIX)/share/man/man1/nsupdate.1
