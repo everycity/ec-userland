@@ -1,0 +1,214 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/database/mysql-55/server@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="MySQL Database Management System - Server"
+set name=info.classification value="org.opensolaris.category.2008:System/Databases"
+set name=info.upstream_url value="http://www.mysql.com/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license mysql55.license license="GPLv2"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/mysql55
+dir path=$(ECPREFIX)/lib/mysql55/bin
+dir path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)
+dir path=$(ECPREFIX)/lib/mysql55/man
+dir path=$(ECPREFIX)/lib/mysql55/man/man1
+dir path=$(ECPREFIX)/lib/mysql55/man/man8
+dir path=$(ECPREFIX)/lib/mysql55/plugins
+dir path=$(ECPREFIX)/lib/mysql55/plugins/$(MACH64)
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/mysql55
+dir path=$(ECPREFIX)/share/mysql55
+dir path=$(ECPREFIX)/share/mysql55/charsets
+dir path=$(ECPREFIX)/share/mysql55/czech
+dir path=$(ECPREFIX)/share/mysql55/danish
+dir path=$(ECPREFIX)/share/mysql55/dutch
+dir path=$(ECPREFIX)/share/mysql55/english
+dir path=$(ECPREFIX)/share/mysql55/estonian
+dir path=$(ECPREFIX)/share/mysql55/french
+dir path=$(ECPREFIX)/share/mysql55/german
+dir path=$(ECPREFIX)/share/mysql55/greek
+dir path=$(ECPREFIX)/share/mysql55/hungarian
+dir path=$(ECPREFIX)/share/mysql55/italian
+dir path=$(ECPREFIX)/share/mysql55/japanese
+dir path=$(ECPREFIX)/share/mysql55/korean
+dir path=$(ECPREFIX)/share/mysql55/norwegian
+dir path=$(ECPREFIX)/share/mysql55/norwegian-ny
+dir path=$(ECPREFIX)/share/mysql55/polish
+dir path=$(ECPREFIX)/share/mysql55/portuguese
+dir path=$(ECPREFIX)/share/mysql55/romanian
+dir path=$(ECPREFIX)/share/mysql55/russian
+dir path=$(ECPREFIX)/share/mysql55/serbian
+dir path=$(ECPREFIX)/share/mysql55/slovak
+dir path=$(ECPREFIX)/share/mysql55/spanish
+dir path=$(ECPREFIX)/share/mysql55/swedish
+dir path=$(ECPREFIX)/share/mysql55/ukrainian
+dir path=$(ECPREFIX)/var
+dir path=$(ECPREFIX)/var/mysql55
+dir path=$(ECPREFIX)/var/mysql55/data
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/msql2mysql
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/my_print_defaults
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/myisamchk
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/myisamlog
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/myisampack
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/mysql_convert_table_format
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/mysql_install_db
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/mysql_secure_installation
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/mysql_setpermission
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/mysql_tzinfo_to_sql
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/mysql_upgrade
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/mysql_zap
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/mysqlbinlog
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/mysqld_multi
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/mysqld_safe
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/mysqlhotcopy
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/mysqltest
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/perror
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/replace
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/resolve_stack_dump
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/resolveip
+file path=$(ECPREFIX)/lib/mysql55/bin/msql2mysql
+file path=$(ECPREFIX)/lib/mysql55/bin/my_print_defaults
+file path=$(ECPREFIX)/lib/mysql55/bin/myisamchk
+file path=$(ECPREFIX)/lib/mysql55/bin/myisamlog
+file path=$(ECPREFIX)/lib/mysql55/bin/myisampack
+file path=$(ECPREFIX)/lib/mysql55/bin/mysql_convert_table_format
+file path=$(ECPREFIX)/lib/mysql55/bin/mysql_install_db
+file path=$(ECPREFIX)/lib/mysql55/bin/mysql_secure_installation
+file path=$(ECPREFIX)/lib/mysql55/bin/mysql_setpermission
+file path=$(ECPREFIX)/lib/mysql55/bin/mysql_tzinfo_to_sql
+file path=$(ECPREFIX)/lib/mysql55/bin/mysql_upgrade
+file path=$(ECPREFIX)/lib/mysql55/bin/mysql_zap
+file path=$(ECPREFIX)/lib/mysql55/bin/mysqlbinlog
+file path=$(ECPREFIX)/lib/mysql55/bin/mysqld_multi
+file path=$(ECPREFIX)/lib/mysql55/bin/mysqld_safe
+file path=$(ECPREFIX)/lib/mysql55/bin/mysqlhotcopy
+file path=$(ECPREFIX)/lib/mysql55/bin/mysqltest
+file path=$(ECPREFIX)/lib/mysql55/bin/perror
+file path=$(ECPREFIX)/lib/mysql55/bin/replace
+file path=$(ECPREFIX)/lib/mysql55/bin/resolve_stack_dump
+file path=$(ECPREFIX)/lib/mysql55/bin/resolveip
+file path=$(ECPREFIX)/lib/mysql55/man/man1/innochecksum.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/msql2mysql.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/my_print_defaults.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/myisamchk.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/myisamlog.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/myisampack.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/mysql_convert_table_format.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/mysql_install_db.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/mysql_secure_installation.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/mysql_setpermission.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/mysql_tzinfo_to_sql.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/mysql_upgrade.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/mysql_zap.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/mysqlbinlog.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/mysqld_multi.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/mysqld_safe.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/mysqlhotcopy.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/mysqltest.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/mysqltest_embedded.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/perror.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/replace.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/resolve_stack_dump.1
+file path=$(ECPREFIX)/lib/mysql55/man/man1/resolveip.1
+file path=$(ECPREFIX)/lib/mysql55/man/man8/mysqld.8
+file path=$(ECPREFIX)/lib/mysql55/plugins/$(MACH64)/adt_null.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/$(MACH64)/auth.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/$(MACH64)/auth_test_plugin.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/$(MACH64)/ha_archive.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/$(MACH64)/ha_blackhole.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/$(MACH64)/ha_example.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/$(MACH64)/ha_federated.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/$(MACH64)/libdaemon_example.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/$(MACH64)/mypluglib.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/$(MACH64)/qa_auth_client.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/$(MACH64)/qa_auth_interface.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/$(MACH64)/qa_auth_server.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/$(MACH64)/semisync_master.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/$(MACH64)/semisync_slave.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/adt_null.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/auth.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/auth_test_plugin.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/ha_archive.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/ha_blackhole.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/ha_example.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/ha_federated.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/libdaemon_example.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/mypluglib.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/qa_auth_client.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/qa_auth_interface.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/qa_auth_server.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/semisync_master.so
+file path=$(ECPREFIX)/lib/mysql55/plugins/semisync_slave.so
+file path=$(ECPREFIX)/share/doc/mysql55/ChangeLog
+file path=$(ECPREFIX)/share/doc/mysql55/INFO_SRC
+file path=$(ECPREFIX)/share/mysql55/charsets/Index.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/README
+file path=$(ECPREFIX)/share/mysql55/charsets/armscii8.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/ascii.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/cp1250.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/cp1251.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/cp1256.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/cp1257.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/cp850.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/cp852.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/cp866.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/dec8.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/geostd8.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/greek.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/hebrew.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/hp8.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/keybcs2.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/koi8r.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/koi8u.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/latin1.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/latin2.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/latin5.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/latin7.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/macce.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/macroman.xml
+file path=$(ECPREFIX)/share/mysql55/charsets/swe7.xml
+file path=$(ECPREFIX)/share/mysql55/czech/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/danish/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/dutch/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/english/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/errmsg-utf8.txt
+file path=$(ECPREFIX)/share/mysql55/estonian/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/fill_help_tables.sql
+file path=$(ECPREFIX)/share/mysql55/french/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/german/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/greek/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/hungarian/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/italian/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/japanese/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/korean/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/mysql_system_tables.sql
+file path=$(ECPREFIX)/share/mysql55/mysql_system_tables_data.sql
+file path=$(ECPREFIX)/share/mysql55/mysql_test_data_timezone.sql
+file path=$(ECPREFIX)/share/mysql55/norwegian-ny/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/norwegian/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/polish/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/portuguese/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/romanian/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/russian/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/serbian/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/slovak/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/spanish/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/swedish/errmsg.sys
+file path=$(ECPREFIX)/share/mysql55/ukrainian/errmsg.sys

@@ -1,0 +1,173 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/database/mysql-55/library@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="MySQL Database Management System - Library"
+set name=info.classification value="org.opensolaris.category.2008:System/Databases"
+set name=info.upstream_url value="http://www.mysql.com/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license mysql55.license license="GPLv2"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/$(MACH64)
+dir path=$(ECPREFIX)/include/$(MACH64)/mysql
+dir path=$(ECPREFIX)/include/$(MACH64)/mysql/psi
+dir path=$(ECPREFIX)/include/mysql
+dir path=$(ECPREFIX)/include/mysql/psi
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/mysql55
+dir path=$(ECPREFIX)/lib/mysql55/bin
+dir path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)
+dir path=$(ECPREFIX)/lib/mysql55/man
+dir path=$(ECPREFIX)/lib/mysql55/man/man1
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/aclocal
+file path=$(ECPREFIX)/include/$(MACH64)/decimal.h
+file path=$(ECPREFIX)/include/$(MACH64)/errmsg.h
+file path=$(ECPREFIX)/include/$(MACH64)/keycache.h
+file path=$(ECPREFIX)/include/$(MACH64)/m_ctype.h
+file path=$(ECPREFIX)/include/$(MACH64)/m_string.h
+file path=$(ECPREFIX)/include/$(MACH64)/my_alloc.h
+file path=$(ECPREFIX)/include/$(MACH64)/my_attribute.h
+file path=$(ECPREFIX)/include/$(MACH64)/my_compiler.h
+file path=$(ECPREFIX)/include/$(MACH64)/my_config.h
+file path=$(ECPREFIX)/include/$(MACH64)/my_dbug.h
+file path=$(ECPREFIX)/include/$(MACH64)/my_dir.h
+file path=$(ECPREFIX)/include/$(MACH64)/my_getopt.h
+file path=$(ECPREFIX)/include/$(MACH64)/my_global.h
+file path=$(ECPREFIX)/include/$(MACH64)/my_list.h
+file path=$(ECPREFIX)/include/$(MACH64)/my_net.h
+file path=$(ECPREFIX)/include/$(MACH64)/my_pthread.h
+file path=$(ECPREFIX)/include/$(MACH64)/my_sys.h
+file path=$(ECPREFIX)/include/$(MACH64)/my_xml.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql/client_plugin.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql/innodb_priv.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql/plugin.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql/plugin_audit.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql/plugin_auth.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql/plugin_auth_common.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql/plugin_ftparser.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql/psi/mysql_file.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql/psi/mysql_thread.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql/psi/psi.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql/psi/psi_abi_v1.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql/psi/psi_abi_v2.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql/service_my_snprintf.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql/service_thd_alloc.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql/service_thd_wait.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql/service_thread_scheduler.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql/services.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql_com.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql_embed.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql_time.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysql_version.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysqld_ername.h
+file path=$(ECPREFIX)/include/$(MACH64)/mysqld_error.h
+file path=$(ECPREFIX)/include/$(MACH64)/plugin.h
+file path=$(ECPREFIX)/include/$(MACH64)/plugin_audit.h
+file path=$(ECPREFIX)/include/$(MACH64)/plugin_ftparser.h
+file path=$(ECPREFIX)/include/$(MACH64)/sql_common.h
+file path=$(ECPREFIX)/include/$(MACH64)/sql_state.h
+file path=$(ECPREFIX)/include/$(MACH64)/sslopt-case.h
+file path=$(ECPREFIX)/include/$(MACH64)/sslopt-longopts.h
+file path=$(ECPREFIX)/include/$(MACH64)/sslopt-vars.h
+file path=$(ECPREFIX)/include/$(MACH64)/typelib.h
+file path=$(ECPREFIX)/include/decimal.h
+file path=$(ECPREFIX)/include/errmsg.h
+file path=$(ECPREFIX)/include/keycache.h
+file path=$(ECPREFIX)/include/m_ctype.h
+file path=$(ECPREFIX)/include/m_string.h
+file path=$(ECPREFIX)/include/my_alloc.h
+file path=$(ECPREFIX)/include/my_attribute.h
+file path=$(ECPREFIX)/include/my_compiler.h
+file path=$(ECPREFIX)/include/my_config.h
+file path=$(ECPREFIX)/include/my_dbug.h
+file path=$(ECPREFIX)/include/my_dir.h
+file path=$(ECPREFIX)/include/my_getopt.h
+file path=$(ECPREFIX)/include/my_global.h
+file path=$(ECPREFIX)/include/my_list.h
+file path=$(ECPREFIX)/include/my_net.h
+file path=$(ECPREFIX)/include/my_pthread.h
+file path=$(ECPREFIX)/include/my_sys.h
+file path=$(ECPREFIX)/include/my_xml.h
+file path=$(ECPREFIX)/include/mysql.h
+file path=$(ECPREFIX)/include/mysql/client_plugin.h
+file path=$(ECPREFIX)/include/mysql/innodb_priv.h
+file path=$(ECPREFIX)/include/mysql/plugin.h
+file path=$(ECPREFIX)/include/mysql/plugin_audit.h
+file path=$(ECPREFIX)/include/mysql/plugin_auth.h
+file path=$(ECPREFIX)/include/mysql/plugin_auth_common.h
+file path=$(ECPREFIX)/include/mysql/plugin_ftparser.h
+file path=$(ECPREFIX)/include/mysql/psi/mysql_file.h
+file path=$(ECPREFIX)/include/mysql/psi/mysql_thread.h
+file path=$(ECPREFIX)/include/mysql/psi/psi.h
+file path=$(ECPREFIX)/include/mysql/psi/psi_abi_v1.h
+file path=$(ECPREFIX)/include/mysql/psi/psi_abi_v2.h
+file path=$(ECPREFIX)/include/mysql/service_my_snprintf.h
+file path=$(ECPREFIX)/include/mysql/service_thd_alloc.h
+file path=$(ECPREFIX)/include/mysql/service_thd_wait.h
+file path=$(ECPREFIX)/include/mysql/service_thread_scheduler.h
+file path=$(ECPREFIX)/include/mysql/services.h
+file path=$(ECPREFIX)/include/mysql_com.h
+file path=$(ECPREFIX)/include/mysql_embed.h
+file path=$(ECPREFIX)/include/mysql_time.h
+file path=$(ECPREFIX)/include/mysql_version.h
+file path=$(ECPREFIX)/include/mysqld_ername.h
+file path=$(ECPREFIX)/include/mysqld_error.h
+file path=$(ECPREFIX)/include/plugin.h
+file path=$(ECPREFIX)/include/plugin_audit.h
+file path=$(ECPREFIX)/include/plugin_ftparser.h
+file path=$(ECPREFIX)/include/sql_common.h
+file path=$(ECPREFIX)/include/sql_state.h
+file path=$(ECPREFIX)/include/sslopt-case.h
+file path=$(ECPREFIX)/include/sslopt-longopts.h
+file path=$(ECPREFIX)/include/sslopt-vars.h
+file path=$(ECPREFIX)/include/typelib.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libmysqlclient.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libmysqlclient.so.18.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libmysqlservices.a
+file path=$(ECPREFIX)/lib/libmysqlclient.a
+file path=$(ECPREFIX)/lib/libmysqlclient.so.18.0.0
+file path=$(ECPREFIX)/lib/libmysqlservices.a
+file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/mysql_config
+file path=$(ECPREFIX)/lib/mysql55/bin/mysql_config
+file path=$(ECPREFIX)/lib/mysql55/man/man1/mysql_config.1
+file path=$(ECPREFIX)/share/aclocal/mysql.m4
+link path=$(ECPREFIX)/bin/$(MACH64)/mysql_config \
+    target=../../lib/mysql55/bin/$(MACH64)/mysql_config
+link path=$(ECPREFIX)/bin/mysql_config target=../lib/mysql55/bin/mysql_config
+link path=$(ECPREFIX)/lib/$(MACH64)/libmysqlclient.so \
+    target=libmysqlclient.so.18
+link path=$(ECPREFIX)/lib/$(MACH64)/libmysqlclient.so.18 \
+    target=libmysqlclient.so.18.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libmysqlclient_r.a target=libmysqlclient.a
+link path=$(ECPREFIX)/lib/$(MACH64)/libmysqlclient_r.so \
+    target=libmysqlclient.so
+link path=$(ECPREFIX)/lib/$(MACH64)/libmysqlclient_r.so.18 \
+    target=libmysqlclient.so
+link path=$(ECPREFIX)/lib/$(MACH64)/libmysqlclient_r.so.18.0.0 \
+    target=libmysqlclient.so
+link path=$(ECPREFIX)/lib/libmysqlclient.so target=libmysqlclient.so.18
+link path=$(ECPREFIX)/lib/libmysqlclient.so.18 target=libmysqlclient.so.18.0.0
+link path=$(ECPREFIX)/lib/libmysqlclient_r.a target=libmysqlclient.a
+link path=$(ECPREFIX)/lib/libmysqlclient_r.so target=libmysqlclient.so
+link path=$(ECPREFIX)/lib/libmysqlclient_r.so.18 target=libmysqlclient.so
+link path=$(ECPREFIX)/lib/libmysqlclient_r.so.18.0.0 target=libmysqlclient.so
