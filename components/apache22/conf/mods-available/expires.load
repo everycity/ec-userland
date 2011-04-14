@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule expires_module modules/amd64/mod_expires.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule expires_module modules/mod_expires.so
+</IfDefine>

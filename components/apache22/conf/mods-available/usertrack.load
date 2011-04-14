@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule usertrack_module modules/amd64/mod_usertrack.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule usertrack_module modules/mod_usertrack.so
+</IfDefine>

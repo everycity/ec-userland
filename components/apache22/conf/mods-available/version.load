@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule version_module modules/amd64/mod_version.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule version_module modules/mod_version.so
+</IfDefine>

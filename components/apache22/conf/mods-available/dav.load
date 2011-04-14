@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule dav_module modules/amd64/mod_dav.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule dav_module modules/mod_dav.so
+</IfDefine>

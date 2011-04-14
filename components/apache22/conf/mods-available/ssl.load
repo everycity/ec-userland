@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule ssl_module modules/amd64/mod_ssl.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule ssl_module modules/mod_ssl.so
+</IfDefine>

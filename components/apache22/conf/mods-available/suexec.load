@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule suexec_module modules/amd64/mod_suexec.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule suexec_module modules/mod_suexec.so
+</IfDefine>

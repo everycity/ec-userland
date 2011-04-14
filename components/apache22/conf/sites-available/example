@@ -1,0 +1,9 @@
+<VirtualHost *:80>
+	ServerName www.example.com
+
+	DocumentRoot /data/virtualhosts/www.example.com
+
+	ErrorLog /ec/var/apache2/2.2/log/error.log
+	CustomLog /ec/var/apache2/2.2/log/access.log combined
+
+</VirtualHost>

@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule rewrite_module modules/amd64/mod_rewrite.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule rewrite_module modules/mod_rewrite.so
+</IfDefine>

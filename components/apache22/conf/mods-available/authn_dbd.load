@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule authn_dbd_module modules/amd64/mod_authn_dbd.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule authn_dbd_module modules/mod_authn_dbd.so
+</IfDefine>

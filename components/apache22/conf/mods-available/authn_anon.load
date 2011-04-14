@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule authn_anon_module modules/amd64/mod_authn_anon.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule authn_anon_module modules/mod_authn_anon.so
+</IfDefine>
