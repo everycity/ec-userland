@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule status_module modules/amd64/mod_status.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule status_module modules/mod_status.so
+</IfDefine>

@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule proxy_connect_module modules/amd64/mod_proxy_connect.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule proxy_connect_module modules/mod_proxy_connect.so
+</IfDefine>

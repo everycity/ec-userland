@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule mime_magic_module modules/amd64/mod_mime_magic.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule mime_magic_module modules/mod_mime_magic.so
+</IfDefine>

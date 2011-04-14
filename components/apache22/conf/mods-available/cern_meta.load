@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule cern_meta_module modules/amd64/mod_cern_meta.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule cern_meta_module modules/mod_cern_meta.so
+</IfDefine>
