@@ -33,31 +33,13 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-M4=/apps/bin/m4
+CONFIGURE_OPTIONS  +=           --disable-static
 
-#CPPFLAGS+= -fexceptions -I$(ECPREFIX)/include
-#LDFLAGS+= -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
-
-#CONFIGURE_OPTIONS  +=           CPPFLAGS="$(CPPFLAGS)"
-#CONFIGURE_OPTIONS  +=           CFLAGS="$(CFLAGS)"
-#CONFIGURE_OPTIONS  +=           LDFLAGS="$(LDFLAGS)"
-CONFIGURE_OPTIONS  +=           M4=$(M4)
-#CONFIGURE_OPTIONS  +=           ABI=32
-CONFIGURE_OPTIONS  +=           --prefix=$(ECPREFIX)
-#CONFIGURE_OPTIONS  +=           --disable-static
+CONFIGURE_OPTIONS.32 +=		ABI=32
+CONFIGURE_OPTIONS.64 +=		ABI=64
 
 include ../../make-rules/shared-targets.mk
 
-build:		$(BUILD_32)
+build:		$(BUILD_32_and_64)
 
-install:	$(INSTALL_32)
-
-test32:		$(BUILD_32)
-	(cd $(BUILD_DIR_32); env - $(GMAKE) check)
-
-test:	test32
-
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
-
+install:	$(INSTALL_32_and_64)

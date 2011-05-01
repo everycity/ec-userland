@@ -32,6 +32,7 @@ license pkg-config.license license="GPLv2"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/aclocal
 dir path=$(ECPREFIX)/share/doc
@@ -39,6 +40,7 @@ dir path=$(ECPREFIX)/share/doc/pkg-config
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 file path=$(ECPREFIX)/bin/pkg-config
+file path=$(ECPREFIX)/bin/$(MACH64)/pkg-config
 file path=$(ECPREFIX)/share/aclocal/pkg.m4
 file path=$(ECPREFIX)/share/doc/pkg-config/pkg-config-guide.html
 file path=$(ECPREFIX)/share/man/man1/pkg-config.1
