@@ -1,23 +1,15 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
-#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 # Copyright 2011 Audioboo Ltd. All rights reserved.
 #
 
@@ -40,8 +32,12 @@ dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/libxslt-plugins
 dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/$(MACH64)/python2.6
+dir path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages
 dir path=$(ECPREFIX)/lib/libxslt-plugins
 dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/lib/python2.6
+dir path=$(ECPREFIX)/lib/python2.6/site-packages
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/aclocal
 dir path=$(ECPREFIX)/share/doc
@@ -51,6 +47,8 @@ dir path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/EXSLT
 dir path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html
 dir path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/tutorial
 dir path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/tutorial2
+dir path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)
+dir path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/examples
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man3
@@ -82,14 +80,15 @@ file path=$(ECPREFIX)/include/libxslt/xsltconfig.h
 file path=$(ECPREFIX)/include/libxslt/xsltexports.h
 file path=$(ECPREFIX)/include/libxslt/xsltlocale.h
 file path=$(ECPREFIX)/include/libxslt/xsltutils.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libexslt.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libexslt.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libexslt.so.0.8.15
-file path=$(ECPREFIX)/lib/$(MACH64)/libxslt.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libxslt.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libxslt.so.$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libexslt.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libxslt.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/libxslt.py
+file path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/libxsltmod.la
+file path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/libxsltmod.so
 file path=$(ECPREFIX)/lib/$(MACH64)/xsltConf.sh
 file path=$(ECPREFIX)/lib/libexslt.la
 file path=$(ECPREFIX)/lib/libexslt.so.0.8.15
@@ -97,6 +96,9 @@ file path=$(ECPREFIX)/lib/libxslt.la
 file path=$(ECPREFIX)/lib/libxslt.so.$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/pkgconfig/libexslt.pc
 file path=$(ECPREFIX)/lib/pkgconfig/libxslt.pc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/libxslt.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/libxsltmod.la
+file path=$(ECPREFIX)/lib/python2.6/site-packages/libxsltmod.so
 file path=$(ECPREFIX)/lib/xsltConf.sh
 file path=$(ECPREFIX)/share/aclocal/libxslt.m4
 file path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/API.html
@@ -263,6 +265,21 @@ file \
     path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/xsltproc.html
 file \
     path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/xsltproc2.html
+file path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/TODO
+file \
+    path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/examples/basic.py
+file \
+    path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/examples/exslt.py
+file \
+    path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/examples/extelem.py
+file \
+    path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/examples/extfunc.py
+file \
+    path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/examples/pyxsltproc.py
+file \
+    path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/examples/test.xml
+file \
+    path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/examples/test.xsl
 file path=$(ECPREFIX)/share/man/man1/xsltproc.1
 file path=$(ECPREFIX)/share/man/man3/libexslt.3
 file path=$(ECPREFIX)/share/man/man3/libxslt.3
