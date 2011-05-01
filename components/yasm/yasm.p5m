@@ -1,0 +1,85 @@
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/developer/assembler/yasm@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="The Yasm Modular Assembler"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://www.tortall.net/projects/yasm/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license yasm.license license="BSD"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/libyasm
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+dir path=$(ECPREFIX)/share/man/man7
+file path=$(ECPREFIX)/bin/$(MACH64)/vsyasm
+file path=$(ECPREFIX)/bin/$(MACH64)/yasm
+file path=$(ECPREFIX)/bin/$(MACH64)/ytasm
+file path=$(ECPREFIX)/bin/vsyasm
+file path=$(ECPREFIX)/bin/yasm
+file path=$(ECPREFIX)/bin/ytasm
+file path=$(ECPREFIX)/include/libyasm-stdint.h
+file path=$(ECPREFIX)/include/libyasm.h
+file path=$(ECPREFIX)/include/libyasm/arch.h
+file path=$(ECPREFIX)/include/libyasm/assocdat.h
+file path=$(ECPREFIX)/include/libyasm/bitvect.h
+file path=$(ECPREFIX)/include/libyasm/bytecode.h
+file path=$(ECPREFIX)/include/libyasm/compat-queue.h
+file path=$(ECPREFIX)/include/libyasm/coretype.h
+file path=$(ECPREFIX)/include/libyasm/dbgfmt.h
+file path=$(ECPREFIX)/include/libyasm/errwarn.h
+file path=$(ECPREFIX)/include/libyasm/expr.h
+file path=$(ECPREFIX)/include/libyasm/file.h
+file path=$(ECPREFIX)/include/libyasm/floatnum.h
+file path=$(ECPREFIX)/include/libyasm/hamt.h
+file path=$(ECPREFIX)/include/libyasm/insn.h
+file path=$(ECPREFIX)/include/libyasm/intnum.h
+file path=$(ECPREFIX)/include/libyasm/inttree.h
+file path=$(ECPREFIX)/include/libyasm/linemap.h
+file path=$(ECPREFIX)/include/libyasm/listfmt.h
+file path=$(ECPREFIX)/include/libyasm/md5.h
+file path=$(ECPREFIX)/include/libyasm/module.h
+file path=$(ECPREFIX)/include/libyasm/objfmt.h
+file path=$(ECPREFIX)/include/libyasm/parser.h
+file path=$(ECPREFIX)/include/libyasm/phash.h
+file path=$(ECPREFIX)/include/libyasm/preproc.h
+file path=$(ECPREFIX)/include/libyasm/section.h
+file path=$(ECPREFIX)/include/libyasm/symrec.h
+file path=$(ECPREFIX)/include/libyasm/valparam.h
+file path=$(ECPREFIX)/include/libyasm/value.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libyasm.a
+file path=$(ECPREFIX)/lib/libyasm.a
+file path=$(ECPREFIX)/share/man/man1/yasm.1
+file path=$(ECPREFIX)/share/man/man7/yasm_arch.7
+file path=$(ECPREFIX)/share/man/man7/yasm_dbgfmts.7
+file path=$(ECPREFIX)/share/man/man7/yasm_objfmts.7
+file path=$(ECPREFIX)/share/man/man7/yasm_parsers.7
