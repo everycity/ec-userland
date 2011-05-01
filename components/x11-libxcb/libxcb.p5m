@@ -1,0 +1,317 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/x11/library/xcb@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="The X protocol C-language Bindings"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://xcb.freedesktop.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license libxcb.license license="MIT License (libxcb)"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/xcb
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/libxcb
+dir path=$(ECPREFIX)/share/doc/libxcb/tutorial
+file path=$(ECPREFIX)/include/xcb/bigreq.h
+file path=$(ECPREFIX)/include/xcb/composite.h
+file path=$(ECPREFIX)/include/xcb/damage.h
+file path=$(ECPREFIX)/include/xcb/dpms.h
+file path=$(ECPREFIX)/include/xcb/dri2.h
+file path=$(ECPREFIX)/include/xcb/glx.h
+file path=$(ECPREFIX)/include/xcb/randr.h
+file path=$(ECPREFIX)/include/xcb/record.h
+file path=$(ECPREFIX)/include/xcb/render.h
+file path=$(ECPREFIX)/include/xcb/res.h
+file path=$(ECPREFIX)/include/xcb/screensaver.h
+file path=$(ECPREFIX)/include/xcb/shape.h
+file path=$(ECPREFIX)/include/xcb/shm.h
+file path=$(ECPREFIX)/include/xcb/sync.h
+file path=$(ECPREFIX)/include/xcb/xc_misc.h
+file path=$(ECPREFIX)/include/xcb/xcb.h
+file path=$(ECPREFIX)/include/xcb/xcbext.h
+file path=$(ECPREFIX)/include/xcb/xevie.h
+file path=$(ECPREFIX)/include/xcb/xf86dri.h
+file path=$(ECPREFIX)/include/xcb/xfixes.h
+file path=$(ECPREFIX)/include/xcb/xinerama.h
+file path=$(ECPREFIX)/include/xcb/xinput.h
+file path=$(ECPREFIX)/include/xcb/xprint.h
+file path=$(ECPREFIX)/include/xcb/xproto.h
+file path=$(ECPREFIX)/include/xcb/xselinux.h
+file path=$(ECPREFIX)/include/xcb/xtest.h
+file path=$(ECPREFIX)/include/xcb/xv.h
+file path=$(ECPREFIX)/include/xcb/xvmc.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-composite.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-composite.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-damage.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-damage.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-dpms.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-dpms.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-dri2.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-dri2.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-glx.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-glx.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-randr.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-randr.so.0.1.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-record.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-record.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-render.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-render.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-res.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-res.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-screensaver.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-screensaver.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-shape.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-shape.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-shm.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-shm.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-sync.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-sync.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xevie.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xevie.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xf86dri.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xf86dri.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xfixes.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xfixes.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xinerama.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xinerama.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xprint.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xprint.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xtest.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xtest.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xv.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xv.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xvmc.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xvmc.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb.so.1.1.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-composite.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-damage.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-dpms.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-dri2.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-glx.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-randr.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-record.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-render.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-res.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-screensaver.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-shape.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-shm.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-sync.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-xevie.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-xf86dri.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-xfixes.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-xinerama.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-xprint.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-xtest.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-xv.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-xvmc.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb.pc
+file path=$(ECPREFIX)/lib/libxcb-composite.la
+file path=$(ECPREFIX)/lib/libxcb-composite.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-damage.la
+file path=$(ECPREFIX)/lib/libxcb-damage.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-dpms.la
+file path=$(ECPREFIX)/lib/libxcb-dpms.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-dri2.la
+file path=$(ECPREFIX)/lib/libxcb-dri2.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-glx.la
+file path=$(ECPREFIX)/lib/libxcb-glx.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-randr.la
+file path=$(ECPREFIX)/lib/libxcb-randr.so.0.1.0
+file path=$(ECPREFIX)/lib/libxcb-record.la
+file path=$(ECPREFIX)/lib/libxcb-record.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-render.la
+file path=$(ECPREFIX)/lib/libxcb-render.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-res.la
+file path=$(ECPREFIX)/lib/libxcb-res.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-screensaver.la
+file path=$(ECPREFIX)/lib/libxcb-screensaver.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-shape.la
+file path=$(ECPREFIX)/lib/libxcb-shape.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-shm.la
+file path=$(ECPREFIX)/lib/libxcb-shm.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-sync.la
+file path=$(ECPREFIX)/lib/libxcb-sync.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-xevie.la
+file path=$(ECPREFIX)/lib/libxcb-xevie.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-xf86dri.la
+file path=$(ECPREFIX)/lib/libxcb-xf86dri.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-xfixes.la
+file path=$(ECPREFIX)/lib/libxcb-xfixes.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-xinerama.la
+file path=$(ECPREFIX)/lib/libxcb-xinerama.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-xprint.la
+file path=$(ECPREFIX)/lib/libxcb-xprint.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-xtest.la
+file path=$(ECPREFIX)/lib/libxcb-xtest.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-xv.la
+file path=$(ECPREFIX)/lib/libxcb-xv.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb-xvmc.la
+file path=$(ECPREFIX)/lib/libxcb-xvmc.so.0.0.0
+file path=$(ECPREFIX)/lib/libxcb.la
+file path=$(ECPREFIX)/lib/libxcb.so.1.1.0
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-composite.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-damage.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-dpms.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-dri2.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-glx.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-randr.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-record.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-render.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-res.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-screensaver.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-shape.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-shm.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-sync.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-xevie.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-xf86dri.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-xfixes.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-xinerama.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-xprint.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-xtest.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-xv.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb-xvmc.pc
+file path=$(ECPREFIX)/lib/pkgconfig/xcb.pc
+file path=$(ECPREFIX)/share/doc/libxcb/tutorial/index.html
+file path=$(ECPREFIX)/share/doc/libxcb/tutorial/xcb.css
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-composite.so \
+    target=libxcb-composite.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-composite.so.0 \
+    target=libxcb-composite.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-damage.so \
+    target=libxcb-damage.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-damage.so.0 \
+    target=libxcb-damage.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-dpms.so target=libxcb-dpms.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-dpms.so.0 \
+    target=libxcb-dpms.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-dri2.so target=libxcb-dri2.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-dri2.so.0 \
+    target=libxcb-dri2.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-glx.so target=libxcb-glx.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-glx.so.0 target=libxcb-glx.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-randr.so \
+    target=libxcb-randr.so.0.1.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-randr.so.0 \
+    target=libxcb-randr.so.0.1.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-record.so \
+    target=libxcb-record.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-record.so.0 \
+    target=libxcb-record.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-render.so \
+    target=libxcb-render.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-render.so.0 \
+    target=libxcb-render.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-res.so target=libxcb-res.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-res.so.0 target=libxcb-res.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-screensaver.so \
+    target=libxcb-screensaver.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-screensaver.so.0 \
+    target=libxcb-screensaver.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-shape.so \
+    target=libxcb-shape.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-shape.so.0 \
+    target=libxcb-shape.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-shm.so target=libxcb-shm.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-shm.so.0 target=libxcb-shm.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-sync.so target=libxcb-sync.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-sync.so.0 \
+    target=libxcb-sync.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xevie.so \
+    target=libxcb-xevie.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xevie.so.0 \
+    target=libxcb-xevie.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xf86dri.so \
+    target=libxcb-xf86dri.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xf86dri.so.0 \
+    target=libxcb-xf86dri.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xfixes.so \
+    target=libxcb-xfixes.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xfixes.so.0 \
+    target=libxcb-xfixes.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xinerama.so \
+    target=libxcb-xinerama.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xinerama.so.0 \
+    target=libxcb-xinerama.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xprint.so \
+    target=libxcb-xprint.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xprint.so.0 \
+    target=libxcb-xprint.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xtest.so \
+    target=libxcb-xtest.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xtest.so.0 \
+    target=libxcb-xtest.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xv.so target=libxcb-xv.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xv.so.0 target=libxcb-xv.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xvmc.so target=libxcb-xvmc.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xvmc.so.0 \
+    target=libxcb-xvmc.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb.so target=libxcb.so.1.1.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libxcb.so.1 target=libxcb.so.1.1.0
+link path=$(ECPREFIX)/lib/libxcb-composite.so target=libxcb-composite.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-composite.so.0 \
+    target=libxcb-composite.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-damage.so target=libxcb-damage.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-damage.so.0 target=libxcb-damage.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-dpms.so target=libxcb-dpms.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-dpms.so.0 target=libxcb-dpms.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-dri2.so target=libxcb-dri2.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-dri2.so.0 target=libxcb-dri2.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-glx.so target=libxcb-glx.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-glx.so.0 target=libxcb-glx.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-randr.so target=libxcb-randr.so.0.1.0
+link path=$(ECPREFIX)/lib/libxcb-randr.so.0 target=libxcb-randr.so.0.1.0
+link path=$(ECPREFIX)/lib/libxcb-record.so target=libxcb-record.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-record.so.0 target=libxcb-record.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-render.so target=libxcb-render.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-render.so.0 target=libxcb-render.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-res.so target=libxcb-res.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-res.so.0 target=libxcb-res.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-screensaver.so \
+    target=libxcb-screensaver.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-screensaver.so.0 \
+    target=libxcb-screensaver.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-shape.so target=libxcb-shape.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-shape.so.0 target=libxcb-shape.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-shm.so target=libxcb-shm.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-shm.so.0 target=libxcb-shm.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-sync.so target=libxcb-sync.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-sync.so.0 target=libxcb-sync.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-xevie.so target=libxcb-xevie.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-xevie.so.0 target=libxcb-xevie.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-xf86dri.so target=libxcb-xf86dri.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-xf86dri.so.0 target=libxcb-xf86dri.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-xfixes.so target=libxcb-xfixes.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-xfixes.so.0 target=libxcb-xfixes.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-xinerama.so target=libxcb-xinerama.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-xinerama.so.0 target=libxcb-xinerama.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-xprint.so target=libxcb-xprint.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-xprint.so.0 target=libxcb-xprint.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-xtest.so target=libxcb-xtest.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-xtest.so.0 target=libxcb-xtest.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-xv.so target=libxcb-xv.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-xv.so.0 target=libxcb-xv.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-xvmc.so target=libxcb-xvmc.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb-xvmc.so.0 target=libxcb-xvmc.so.0.0.0
+link path=$(ECPREFIX)/lib/libxcb.so target=libxcb.so.1.1.0
+link path=$(ECPREFIX)/lib/libxcb.so.1 target=libxcb.so.1.1.0
