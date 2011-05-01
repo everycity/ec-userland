@@ -1,0 +1,57 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/library/libjpeg@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Independent JPEG Group JPEG image compression library"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://www.ijg.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license libjpeg.license license="IJGjpeg"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/$(MACH64)/cjpeg
+file path=$(ECPREFIX)/bin/$(MACH64)/djpeg
+file path=$(ECPREFIX)/bin/$(MACH64)/jpegtran
+file path=$(ECPREFIX)/bin/$(MACH64)/rdjpgcom
+file path=$(ECPREFIX)/bin/$(MACH64)/wrjpgcom
+file path=$(ECPREFIX)/bin/cjpeg
+file path=$(ECPREFIX)/bin/djpeg
+file path=$(ECPREFIX)/bin/jpegtran
+file path=$(ECPREFIX)/bin/rdjpgcom
+file path=$(ECPREFIX)/bin/wrjpgcom
+file path=$(ECPREFIX)/include/jconfig.h
+file path=$(ECPREFIX)/include/jerror.h
+file path=$(ECPREFIX)/include/jmorecfg.h
+file path=$(ECPREFIX)/include/jpeglib.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libjpeg.so.8.3.0
+file path=$(ECPREFIX)/lib/libjpeg.so.8.3.0
+file path=$(ECPREFIX)/share/man/man1/cjpeg.1
+file path=$(ECPREFIX)/share/man/man1/djpeg.1
+file path=$(ECPREFIX)/share/man/man1/jpegtran.1
+file path=$(ECPREFIX)/share/man/man1/rdjpgcom.1
+file path=$(ECPREFIX)/share/man/man1/wrjpgcom.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libjpeg.so target=libjpeg.so.8.3.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libjpeg.so.8 target=libjpeg.so.8.3.0
+link path=$(ECPREFIX)/lib/libjpeg.so target=libjpeg.so.8.3.0
+link path=$(ECPREFIX)/lib/libjpeg.so.8 target=libjpeg.so.8.3.0
