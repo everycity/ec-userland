@@ -33,24 +33,10 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-#CPPFLAGS+= -I$(ECPREFIX)/include
-#LDFLAGS+= -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
-
-#CONFIGURE_OPTIONS  +=           CPPFLAGS="$(CPPFLAGS)"
-#CONFIGURE_OPTIONS  +=           LDFLAGS="$(LDFLAGS)"
+CONFIGURE_OPTIONS += 	--with-ssl=$(ECPREFIX) --with-pic --enable-shared --disable-static --with-ca-bundle=$(ECPREFIX)/etc/openssl/cabundle.pem
 
 # common targets
 build:		$(BUILD_32_and_64)
 
-include ../../make-rules/shared-targets.mk
-
 install:	$(INSTALL_32_and_64)
 
-# build does this always
-test: build
-	@cd $(BUILD_DIR_32); $(MAKE) check
-	@cd $(BUILD_DIR_64); $(MAKE) check
-
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
