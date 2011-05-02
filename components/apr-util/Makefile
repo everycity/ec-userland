@@ -26,9 +26,10 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS	+=	--with-ldap
-CONFIGURE_OPTIONS	+=	--includedir=$(ECPREFIX)/include/apr-1.0
+CONFIGURE_OPTIONS.32	+=	--includedir=$(ECPREFIX)/include/apr-1.0
+CONFIGURE_OPTIONS.64	+=	--includedir=$(ECPREFIX)/include/apr-1.0/$(MACH64)
 CONFIGURE_OPTIONS.32	+=	--with-apr=$(ECPREFIX)/bin/apr-1-config
-CONFIGURE_OPTIONS.64	+=	--with-apr=$(ECPREFIX)/bin/amd64/apr-1-config
+CONFIGURE_OPTIONS.64	+=	--with-apr=$(ECPREFIX)/bin/$(MACH64)/apr-1-config
 
 COMPONENT_POST_INSTALL_ACTION = ( strip \
                 $(PROTO_DIR)/$(ECPREFIX)/lib/*so* \
