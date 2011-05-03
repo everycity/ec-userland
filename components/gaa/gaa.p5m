@@ -1,0 +1,45 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/developer/gaa@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="GAA Argument Analyzer"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://sourceforge.net/projects/gaa"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license gaa.license license="GPLv2"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/gaa
+dir path=$(ECPREFIX)/share/gaa
+dir path=$(ECPREFIX)/share/gaa/sample
+file path=$(ECPREFIX)/bin/$(MACH64)/gaa
+file path=$(ECPREFIX)/bin/gaa
+file path=$(ECPREFIX)/share/doc/gaa/gaa.css
+file path=$(ECPREFIX)/share/doc/gaa/gaa.html
+file path=$(ECPREFIX)/share/doc/gaa/gaa.ps
+file path=$(ECPREFIX)/share/doc/gaa/img1.png
+file path=$(ECPREFIX)/share/gaa/gaa.skel
+file path=$(ECPREFIX)/share/gaa/sample/config
+file path=$(ECPREFIX)/share/gaa/sample/sample.gaa
+file path=$(ECPREFIX)/share/gaa/sample/sample2.gaa
+file path=$(ECPREFIX)/share/gaa/sample/sample3.gaa
+file path=$(ECPREFIX)/share/gaa/sample/sample4.gaa
+file path=$(ECPREFIX)/share/gaa/sample/smain.c
+file path=$(ECPREFIX)/share/gaa/sample/smain2.c
