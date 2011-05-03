@@ -1,0 +1,311 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/text/aspell@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="GNU Aspell spell checking library"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://aspell.net/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license aspell.license license="LGPLv2.1"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/pspell
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60
+dir path=$(ECPREFIX)/lib/aspell-0.60
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/info
+dir path=$(ECPREFIX)/share/locale
+dir path=$(ECPREFIX)/share/locale/be
+dir path=$(ECPREFIX)/share/locale/be/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ca
+dir path=$(ECPREFIX)/share/locale/ca/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/cs
+dir path=$(ECPREFIX)/share/locale/cs/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/da
+dir path=$(ECPREFIX)/share/locale/da/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/de
+dir path=$(ECPREFIX)/share/locale/de/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/en_GB
+dir path=$(ECPREFIX)/share/locale/en_GB/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/es
+dir path=$(ECPREFIX)/share/locale/es/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/fr
+dir path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ga
+dir path=$(ECPREFIX)/share/locale/ga/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/it
+dir path=$(ECPREFIX)/share/locale/it/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/mn
+dir path=$(ECPREFIX)/share/locale/mn/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/nl
+dir path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/pt_BR
+dir path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ro
+dir path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ru
+dir path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/rw
+dir path=$(ECPREFIX)/share/locale/rw/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/sk
+dir path=$(ECPREFIX)/share/locale/sk/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/sl
+dir path=$(ECPREFIX)/share/locale/sl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/sr
+dir path=$(ECPREFIX)/share/locale/sr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/sv
+dir path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/tg
+dir path=$(ECPREFIX)/share/locale/tg/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/uk
+dir path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/vi
+dir path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/wa
+dir path=$(ECPREFIX)/share/locale/wa/LC_MESSAGES
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/$(MACH64)/aspell
+file path=$(ECPREFIX)/bin/$(MACH64)/aspell-import
+file path=$(ECPREFIX)/bin/$(MACH64)/precat
+file path=$(ECPREFIX)/bin/$(MACH64)/preunzip
+file path=$(ECPREFIX)/bin/$(MACH64)/prezip
+file path=$(ECPREFIX)/bin/$(MACH64)/prezip-bin
+file path=$(ECPREFIX)/bin/$(MACH64)/pspell-config
+file path=$(ECPREFIX)/bin/$(MACH64)/run-with-aspell
+file path=$(ECPREFIX)/bin/$(MACH64)/word-list-compress
+file path=$(ECPREFIX)/bin/aspell
+file path=$(ECPREFIX)/bin/aspell-import
+file path=$(ECPREFIX)/bin/precat
+file path=$(ECPREFIX)/bin/preunzip
+file path=$(ECPREFIX)/bin/prezip
+file path=$(ECPREFIX)/bin/prezip-bin
+file path=$(ECPREFIX)/bin/pspell-config
+file path=$(ECPREFIX)/bin/run-with-aspell
+file path=$(ECPREFIX)/bin/word-list-compress
+file path=$(ECPREFIX)/include/aspell.h
+file path=$(ECPREFIX)/include/pspell/pspell.h
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/ccpp.amf
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/comment.amf
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/context-filter.info
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/context-filter.so
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1250.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1250.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1251.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1251.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1252.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1252.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1253.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1253.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1254.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1254.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1255.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1255.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1256.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1256.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1257.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1257.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1258.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/cp1258.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/dvorak.kbd
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/email-filter.info
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/email-filter.so
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/email.amf
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/html-filter.info
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/html.amf
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-1.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-1.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-10.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-10.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-11.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-11.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-13.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-13.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-14.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-14.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-15.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-15.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-16.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-16.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-2.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-2.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-3.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-3.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-4.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-4.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-5.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-5.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-6.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-6.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-7.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-7.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-8.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-8.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-9.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/iso-8859-9.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/ispell
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/koi8-r.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/koi8-r.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/koi8-u.cmap
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/koi8-u.cset
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/none.amf
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/nroff-filter.info
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/nroff-filter.so
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/nroff.amf
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/perl.amf
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/sgml-filter.info
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/sgml-filter.so
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/sgml.amf
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/spell
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/split.kbd
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/standard.kbd
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/tex-filter.info
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/tex-filter.so
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/tex.amf
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/texinfo-filter.info
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/texinfo-filter.so
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/texinfo.amf
+file path=$(ECPREFIX)/lib/$(MACH64)/aspell-0.60/url.amf
+file path=$(ECPREFIX)/lib/$(MACH64)/libaspell.so.15.1.4
+file path=$(ECPREFIX)/lib/$(MACH64)/libpspell.so.15.1.4
+file path=$(ECPREFIX)/lib/aspell-0.60/ccpp.amf
+file path=$(ECPREFIX)/lib/aspell-0.60/comment.amf
+file path=$(ECPREFIX)/lib/aspell-0.60/context-filter.info
+file path=$(ECPREFIX)/lib/aspell-0.60/context-filter.so
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1250.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1250.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1251.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1251.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1252.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1252.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1253.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1253.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1254.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1254.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1255.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1255.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1256.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1256.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1257.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1257.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1258.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/cp1258.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/dvorak.kbd
+file path=$(ECPREFIX)/lib/aspell-0.60/email-filter.info
+file path=$(ECPREFIX)/lib/aspell-0.60/email-filter.so
+file path=$(ECPREFIX)/lib/aspell-0.60/email.amf
+file path=$(ECPREFIX)/lib/aspell-0.60/html-filter.info
+file path=$(ECPREFIX)/lib/aspell-0.60/html.amf
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-1.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-1.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-10.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-10.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-11.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-11.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-13.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-13.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-14.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-14.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-15.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-15.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-16.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-16.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-2.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-2.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-3.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-3.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-4.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-4.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-5.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-5.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-6.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-6.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-7.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-7.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-8.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-8.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-9.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/iso-8859-9.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/ispell
+file path=$(ECPREFIX)/lib/aspell-0.60/koi8-r.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/koi8-r.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/koi8-u.cmap
+file path=$(ECPREFIX)/lib/aspell-0.60/koi8-u.cset
+file path=$(ECPREFIX)/lib/aspell-0.60/none.amf
+file path=$(ECPREFIX)/lib/aspell-0.60/nroff-filter.info
+file path=$(ECPREFIX)/lib/aspell-0.60/nroff-filter.so
+file path=$(ECPREFIX)/lib/aspell-0.60/nroff.amf
+file path=$(ECPREFIX)/lib/aspell-0.60/perl.amf
+file path=$(ECPREFIX)/lib/aspell-0.60/sgml-filter.info
+file path=$(ECPREFIX)/lib/aspell-0.60/sgml-filter.so
+file path=$(ECPREFIX)/lib/aspell-0.60/sgml.amf
+file path=$(ECPREFIX)/lib/aspell-0.60/spell
+file path=$(ECPREFIX)/lib/aspell-0.60/split.kbd
+file path=$(ECPREFIX)/lib/aspell-0.60/standard.kbd
+file path=$(ECPREFIX)/lib/aspell-0.60/tex-filter.info
+file path=$(ECPREFIX)/lib/aspell-0.60/tex-filter.so
+file path=$(ECPREFIX)/lib/aspell-0.60/tex.amf
+file path=$(ECPREFIX)/lib/aspell-0.60/texinfo-filter.info
+file path=$(ECPREFIX)/lib/aspell-0.60/texinfo-filter.so
+file path=$(ECPREFIX)/lib/aspell-0.60/texinfo.amf
+file path=$(ECPREFIX)/lib/aspell-0.60/url.amf
+file path=$(ECPREFIX)/lib/libaspell.so.15.1.4
+file path=$(ECPREFIX)/lib/libpspell.so.15.1.4
+file path=$(ECPREFIX)/share/info/aspell-dev.info
+file path=$(ECPREFIX)/share/info/aspell.info
+file path=$(ECPREFIX)/share/locale/be/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/ca/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/cs/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/da/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/de/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/en_GB/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/es/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/ga/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/it/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/mn/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/rw/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/sk/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/sl/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/sr/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/tg/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/locale/wa/LC_MESSAGES/aspell.mo
+file path=$(ECPREFIX)/share/man/man1/aspell-import.1
+file path=$(ECPREFIX)/share/man/man1/aspell.1
+file path=$(ECPREFIX)/share/man/man1/prezip-bin.1
+file path=$(ECPREFIX)/share/man/man1/pspell-config.1
+file path=$(ECPREFIX)/share/man/man1/run-with-aspell.1
+file path=$(ECPREFIX)/share/man/man1/word-list-compress.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libaspell.so target=libaspell.so.15.1.4
+link path=$(ECPREFIX)/lib/$(MACH64)/libaspell.so.15 target=libaspell.so.15.1.4
+link path=$(ECPREFIX)/lib/$(MACH64)/libpspell.so target=libpspell.so.15.1.4
+link path=$(ECPREFIX)/lib/$(MACH64)/libpspell.so.15 target=libpspell.so.15.1.4
+link path=$(ECPREFIX)/lib/libaspell.so target=libaspell.so.15.1.4
+link path=$(ECPREFIX)/lib/libaspell.so.15 target=libaspell.so.15.1.4
+link path=$(ECPREFIX)/lib/libpspell.so target=libpspell.so.15.1.4
+link path=$(ECPREFIX)/lib/libpspell.so.15 target=libpspell.so.15.1.4
