@@ -1,0 +1,23 @@
+diff -up mcrypt-2.6.7/src/gaaout.c.BAD mcrypt-2.6.7/src/gaaout.c
+--- mcrypt-2.6.7/src/gaaout.c.BAD	2008-08-25 17:44:59.000000000 -0400
++++ mcrypt-2.6.7/src/gaaout.c	2008-08-25 17:45:18.000000000 -0400
+@@ -5,6 +5,7 @@
+ 
+ 
+ #include <defines.h>
++#include "mcrypt_int.h"
+ 
+ #include <stdio.h>
+ #include <string.h>
+diff -up mcrypt-2.6.7/src/mcrypt_int.h.BAD mcrypt-2.6.7/src/mcrypt_int.h
+--- mcrypt-2.6.7/src/mcrypt_int.h.BAD	2008-08-25 17:45:36.000000000 -0400
++++ mcrypt-2.6.7/src/mcrypt_int.h	2008-08-25 17:45:42.000000000 -0400
+@@ -15,3 +15,8 @@ void rol_buf(void * buffer, int buffersi
+ void mcrypt_version();
+ void mcrypt_license();
+ void usage(void);
++
++int print_list(void);
++int print_hashlist(void);
++int print_keylist(void);
++

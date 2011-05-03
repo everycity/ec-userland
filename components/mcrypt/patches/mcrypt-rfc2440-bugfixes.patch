@@ -1,0 +1,12 @@
+diff -up mcrypt-2.6.8/src/rfc2440.c.orig mcrypt-2.6.8/src/rfc2440.c
+--- mcrypt-2.6.8/src/rfc2440.c.orig	2008-11-16 14:50:01.000000000 -0500
++++ mcrypt-2.6.8/src/rfc2440.c	2008-11-25 09:26:00.000000000 -0500
+@@ -409,7 +409,7 @@ length_decode(const uchar *buf, int pos,
+         len += (buf[pos+1] + 192);
+     }
+     else if (buf[pos] == 255) {
+-        len += (buf[pos+1] << 24);
++        len = (buf[pos+1] << 24);
+         len += (buf[pos+2] << 16);
+         len += (buf[pos+3] << 8);
+         len += buf[pos+4];
