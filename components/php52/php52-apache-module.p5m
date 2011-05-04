@@ -23,24 +23,24 @@ license php52.license license="PHP52 License"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/apache
-dir path=$(ECPREFIX)/etc/apache/2.2
-dir path=$(ECPREFIX)/etc/apache/2.2/mods-available
-dir path=$(ECPREFIX)/etc/apache/2.2/mods-enabled
+dir path=$(ECPREFIX)/etc/apache2
+dir path=$(ECPREFIX)/etc/apache2/2.2
+dir path=$(ECPREFIX)/etc/apache2/2.2/mods-available
+dir path=$(ECPREFIX)/etc/apache2/2.2/mods-enabled
 dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/apache
-dir path=$(ECPREFIX)/lib/apache/2.2
-dir path=$(ECPREFIX)/lib/apache/2.2/modules
-dir path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
-file path=$(ECPREFIX)/etc/apache/2.2/mods-available/php52.load preserve=true
-file path=$(ECPREFIX)/etc/apache/2.2/mods-available/php52.conf preserve=true
-file path=$(ECPREFIX)/etc/apache/2.2/httpd.conf.bak
-file $(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/libphp5.so \
-    path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_php52.so
-file $(ECPREFIX)/lib/apache/2.2/modules/libphp5.so \
-    path=$(ECPREFIX)/lib/apache/2.2/modules/mod_php52.so
-link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/php52.load \
+dir path=$(ECPREFIX)/lib/apache2
+dir path=$(ECPREFIX)/lib/apache2/2.2
+dir path=$(ECPREFIX)/lib/apache2/2.2/modules
+dir path=$(ECPREFIX)/lib/apache2/2.2/modules/$(MACH64)
+file path=$(ECPREFIX)/etc/apache2/2.2/mods-available/php52.load preserve=true
+file path=$(ECPREFIX)/etc/apache2/2.2/mods-available/php52.conf preserve=true
+file path=$(ECPREFIX)/etc/apache2/2.2/httpd.conf.bak
+file $(ECPREFIX)/lib/apache2/2.2/modules/$(MACH64)/libphp5.so \
+    path=$(ECPREFIX)/lib/apache2/2.2/modules/$(MACH64)/mod_php52.so
+file $(ECPREFIX)/lib/apache2/2.2/modules/libphp5.so \
+    path=$(ECPREFIX)/lib/apache2/2.2/modules/mod_php52.so
+link path=$(ECPREFIX)/etc/apache2/2.2/mods-enabled/php52.load \
     target=../mods-available/php52.load preserve=true
-link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/php52.conf \
+link path=$(ECPREFIX)/etc/apache2/2.2/mods-enabled/php52.conf \
     target=../mods-available/php52.conf preserve=true
 depend fmri=web/php-52/php-common type=require

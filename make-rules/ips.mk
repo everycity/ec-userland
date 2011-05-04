@@ -129,7 +129,7 @@ $(MANIFEST_BASE)-%.resolved:	$(MANIFEST_BASE)-%.depend
 	($(PKGMOGRIFY) $(@:%.resolved=%.mogrified) \
 		$(WS_TOP)/transforms/drop-unresolved-dependencies | \
 		sed -e '/^$$/d' -e '/^#.*$$/d' ; \
-	 $(PKGDEPEND) resolve -o $< | sed -e '1d') | sort -S 256 | uniq >$@
+	 $(PKGDEPEND) resolve -o $< | sed -e '1d') | sort | uniq >$@
 
 $(BUILD_DIR)/.resolved-$(MACH):	$(RESOLVED)
 	$(TOUCH) $@

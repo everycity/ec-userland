@@ -23,17 +23,17 @@ license php52.license license="PHP52 License"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/php
-dir path=$(ECPREFIX)/etc/php/5.2
-dir path=$(ECPREFIX)/etc/php/5.2/conf.d
+dir path=$(ECPREFIX)/etc/php5
+dir path=$(ECPREFIX)/etc/php5/5.2
+dir path=$(ECPREFIX)/etc/php5/5.2/conf.d
 dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/php
-dir path=$(ECPREFIX)/lib/php/5.2
-dir path=$(ECPREFIX)/lib/php/5.2/extensions
-dir path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)
-file path=$(ECPREFIX)/etc/php/5.2/conf.d/readline.ini preserve=true
-file $(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613/readline.so \
-    path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/readline.so
-file $(ECPREFIX)/lib/php/5.2/lib/extensions/no-debug-non-zts-20060613/readline.so \
-    path=$(ECPREFIX)/lib/php/5.2/extensions/readline.so
+dir path=$(ECPREFIX)/lib/php5
+dir path=$(ECPREFIX)/lib/php5/5.2
+dir path=$(ECPREFIX)/lib/php5/5.2/extensions
+dir path=$(ECPREFIX)/lib/php5/5.2/extensions/$(MACH64)
+file path=$(ECPREFIX)/etc/php5/5.2/conf.d/readline.ini preserve=true
+file $(ECPREFIX)/lib/php5/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613/readline.so \
+    path=$(ECPREFIX)/lib/php5/5.2/extensions/$(MACH64)/readline.so
+file $(ECPREFIX)/lib/php5/5.2/lib/extensions/no-debug-non-zts-20060613/readline.so \
+    path=$(ECPREFIX)/lib/php5/5.2/extensions/readline.so
 depend fmri=web/php-52/php-common type=require

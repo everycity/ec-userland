@@ -23,22 +23,22 @@ license php52.license license="PHP52 License"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/php
-dir path=$(ECPREFIX)/etc/php/5.2
-dir path=$(ECPREFIX)/etc/php/5.2/conf.d
+dir path=$(ECPREFIX)/etc/php5
+dir path=$(ECPREFIX)/etc/php5/5.2
+dir path=$(ECPREFIX)/etc/php5/5.2/conf.d
 dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/php
-dir path=$(ECPREFIX)/lib/php/5.2
-dir path=$(ECPREFIX)/lib/php/5.2/lib
-dir path=$(ECPREFIX)/lib/php/5.2/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions
+dir path=$(ECPREFIX)/lib/php5
+dir path=$(ECPREFIX)/lib/php5/5.2
+dir path=$(ECPREFIX)/lib/php5/5.2/lib
+dir path=$(ECPREFIX)/lib/php5/5.2/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/php5/5.2/lib/$(MACH64)/extensions
 dir \
-    path=$(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613
-dir path=$(ECPREFIX)/lib/php/5.2/lib/extensions
-dir path=$(ECPREFIX)/lib/php/5.2/lib/extensions/no-debug-non-zts-20060613
-file path=$(ECPREFIX)/etc/php/5.2/conf.d/mhash.ini preserve=true
-file $(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613/mhash.so \
-    path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/mhash.so
-file $(ECPREFIX)/lib/php/5.2/lib/extensions/no-debug-non-zts-20060613/mhash.so \
-    path=$(ECPREFIX)/lib/php/5.2/extensions/mhash.so
+    path=$(ECPREFIX)/lib/php5/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613
+dir path=$(ECPREFIX)/lib/php5/5.2/lib/extensions
+dir path=$(ECPREFIX)/lib/php5/5.2/lib/extensions/no-debug-non-zts-20060613
+file path=$(ECPREFIX)/etc/php5/5.2/conf.d/mhash.ini preserve=true
+file $(ECPREFIX)/lib/php5/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613/mhash.so \
+    path=$(ECPREFIX)/lib/php5/5.2/extensions/$(MACH64)/mhash.so
+file $(ECPREFIX)/lib/php5/5.2/lib/extensions/no-debug-non-zts-20060613/mhash.so \
+    path=$(ECPREFIX)/lib/php5/5.2/extensions/mhash.so
 depend fmri=web/php-52/php-common type=require
