@@ -123,6 +123,10 @@ install:	$(BUILD_DIR)/$(MACH32).prefork/.installed \
 		$(GMAKE) install-include DESTDIR=$(PROTO_DIR))
 	(cd $(BUILD_DIR)/$(MACH32).worker; \
 		$(GMAKE) install-build DESTDIR=$(PROTO_DIR))
+	(cd $(BUILD_DIR)/$(MACH64).worker; \
+		$(GMAKE) install-include DESTDIR=$(PROTO_DIR))
+	(cd $(BUILD_DIR)/$(MACH64).worker; \
+		$(GMAKE) install-build DESTDIR=$(PROTO_DIR))
 	$(INSTALL) -d $(PROTO_DIR)/$(AP_PREFIX)/bin
 	$(INSTALL) -d $(PROTO_DIR)/$(AP_PREFIX)/bin/$(MACH64)
 	$(INSTALL) -m 555 $(BUILD_DIR)/$(MACH32).worker/support/apxs \

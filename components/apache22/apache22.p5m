@@ -450,7 +450,7 @@ file path=$(ECPREFIX)/lib/apache2/2.2/modules/mod_userdir.so
 file path=$(ECPREFIX)/lib/apache2/2.2/modules/mod_usertrack.so
 file path=$(ECPREFIX)/lib/apache2/2.2/modules/mod_version.so
 file path=$(ECPREFIX)/lib/apache2/2.2/modules/mod_vhost_alias.so
-file path=$(ECPREFIX)/share/apache2/2.2/build/config.nice
+file path=$(ECPREFIX)/share/apache2/2.2/build/config.nice mode=555
 file path=$(ECPREFIX)/share/apache2/2.2/build/config_vars.mk
 file path=$(ECPREFIX)/share/apache2/2.2/build/instdso.sh mode=555
 file path=$(ECPREFIX)/share/apache2/2.2/build/library.mk
@@ -459,7 +459,7 @@ file path=$(ECPREFIX)/share/apache2/2.2/build/mkdir.sh mode=555
 file path=$(ECPREFIX)/share/apache2/2.2/build/program.mk
 file path=$(ECPREFIX)/share/apache2/2.2/build/rules.mk
 file path=$(ECPREFIX)/share/apache2/2.2/build/special.mk
-file path=$(ECPREFIX)/share/apache2/2.2/build/worker/config.nice
+file path=$(ECPREFIX)/share/apache2/2.2/build/worker/config.nice mode=555
 file path=$(ECPREFIX)/share/apache2/2.2/build/worker/config_vars.mk
 file path=$(ECPREFIX)/share/apache2/2.2/build/worker/instdso.sh mode=555
 file path=$(ECPREFIX)/share/apache2/2.2/build/worker/library.mk
@@ -468,7 +468,7 @@ file path=$(ECPREFIX)/share/apache2/2.2/build/worker/mkdir.sh mode=555
 file path=$(ECPREFIX)/share/apache2/2.2/build/worker/program.mk
 file path=$(ECPREFIX)/share/apache2/2.2/build/worker/rules.mk
 file path=$(ECPREFIX)/share/apache2/2.2/build/worker/special.mk
-file path=$(ECPREFIX)/share/apache2/2.2/build/$(MACH64)/config.nice
+file path=$(ECPREFIX)/share/apache2/2.2/build/$(MACH64)/config.nice mode=555
 file path=$(ECPREFIX)/share/apache2/2.2/build/$(MACH64)/config_vars.mk
 file path=$(ECPREFIX)/share/apache2/2.2/build/$(MACH64)/instdso.sh mode=555
 file path=$(ECPREFIX)/share/apache2/2.2/build/$(MACH64)/library.mk
@@ -477,7 +477,7 @@ file path=$(ECPREFIX)/share/apache2/2.2/build/$(MACH64)/mkdir.sh mode=555
 file path=$(ECPREFIX)/share/apache2/2.2/build/$(MACH64)/program.mk
 file path=$(ECPREFIX)/share/apache2/2.2/build/$(MACH64)/rules.mk
 file path=$(ECPREFIX)/share/apache2/2.2/build/$(MACH64)/special.mk
-file path=$(ECPREFIX)/share/apache2/2.2/build/worker/$(MACH64)/config.nice
+file path=$(ECPREFIX)/share/apache2/2.2/build/worker/$(MACH64)/config.nice mode=555
 file path=$(ECPREFIX)/share/apache2/2.2/build/worker/$(MACH64)/config_vars.mk
 file path=$(ECPREFIX)/share/apache2/2.2/build/worker/$(MACH64)/instdso.sh mode=555
 file path=$(ECPREFIX)/share/apache2/2.2/build/worker/$(MACH64)/library.mk
