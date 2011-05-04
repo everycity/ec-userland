@@ -181,6 +181,7 @@ COMPONENT_POST_INSTALL_ACTION+= \
 	( $(MKDIR) -p $(PROTO_DIR)/$(PHP_SYSCONFDIR)/conf.d ; \
 	  $(MKDIR) -p $(PROTO_DIR)/$(AP_SYSCONFDIR)/mods-available ; \
 	  $(CP) $(COMPONENT_DIR)/files/*.ini $(PROTO_DIR)/$(PHP_SYSCONFDIR)/conf.d/ ; \
+	  $(MV) $(PROTO_DIR)/$(PHP_SYSCONFDIR)/conf.d/php.ini $(PROTO_DIR)/$(PHP_SYSCONFDIR)/ ; \
 	  $(CP) $(COMPONENT_DIR)/files/php52.conf $(PROTO_DIR)/$(AP_SYSCONFDIR)/mods-available/ ; \
 	  $(CP) $(COMPONENT_DIR)/files/php52.load $(PROTO_DIR)/$(AP_SYSCONFDIR)/mods-available/ \
 	)
