@@ -1,0 +1,40 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/web/server/apache-22/module/apache-userdir@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Apache Web Server V2.2 (userdir module)"
+#set name=info.classification value="org.opensolaris.category.2008:Web Services/Application and Web Servers"
+set name=info.upstream_url value="http://httpd.apache.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license apache22.license license="APLv2"
+
+depend fmri=web/server/apache-22/httpd type=require
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/apache
+dir path=$(ECPREFIX)/etc/apache/2.2
+dir path=$(ECPREFIX)/etc/apache/2.2/mods-available
+dir path=$(ECPREFIX)/etc/apache/2.2/mods-enabled
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/apache
+dir path=$(ECPREFIX)/lib/apache/2.2
+dir path=$(ECPREFIX)/lib/apache/2.2/modules
+dir path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/userdir.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/userdir.load preserve=true
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_userdir.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_userdir.so

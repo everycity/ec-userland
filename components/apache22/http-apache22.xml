@@ -124,7 +124,7 @@ CDDL HEADER END
 
 			<documentation>
 				<manpage title='httpd' section='8'
-					manpath='/ec/lib/apache2/2.2/man' />
+					manpath='/ec/lib/apache/2.2/man' />
 				<doc_link name='apache.org'
 					uri='http://httpd.apache.org' />
 			</documentation>

@@ -37,10 +37,10 @@ $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
 CPPFLAGS=-I$(ECPREFIX)/include/apr-1.0
 CONFIGURE_ENV += CPPFLAGS="$(CPPFLAGS)"
 
-AP_PREFIX=$(ECPREFIX)/lib/apache2/2.2
-AP_SHAREDIR=$(ECPREFIX)/share/apache2/2.2
-AP_SYSCONFDIR=$(ECPREFIX)/etc/apache2/2.2
-AP_DATADIR=$(ECPREFIX)/var/apache2/2.2
+AP_PREFIX=$(ECPREFIX)/lib/apache/2.2
+AP_SHAREDIR=$(ECPREFIX)/share/apache/2.2
+AP_SYSCONFDIR=$(ECPREFIX)/etc/apache/2.2
+AP_DATADIR=$(ECPREFIX)/var/apache/2.2
 
 # We patch sources differently depending on the flavour being built
 COMPONENT_PRE_CONFIGURE_ACTION += $(ENV) BITS=$(BITS) MACH=$(MACH$(BITS)) \
@@ -143,4 +143,6 @@ install:	$(BUILD_DIR)/$(MACH32).prefork/.installed \
 	    $(PROTO_DIR)/$(AP_PREFIX)/bin/modules/* \
 	    $(PROTO_DIR)/$(AP_PREFIX)/bin/modules/$(MACH64)/* \
 	    >/dev/null 2>&1; true )
-	rsync -a --delete $(COMPONENT_DIR)/conf/ $(PROTO_DIR)/$(ECPREFIX)/etc/apache2/2.2/
+	(cd $(PROTO_DIR)/$(AP_PREFIX)/../ ; rm -f active ; ln -s 2.2 active)
+	$(MKDIR) -p $(PROTO_DIR)/$(AP_SYSCONFDIR)/
+	rsync -a --delete $(COMPONENT_DIR)/conf/ $(PROTO_DIR)/$(AP_SYSCONFDIR)/
