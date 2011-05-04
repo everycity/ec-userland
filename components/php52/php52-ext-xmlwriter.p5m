@@ -36,3 +36,4 @@ file $(ECPREFIX)/lib/php5/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613
     path=$(ECPREFIX)/lib/php5/5.2/extensions/$(MACH64)/xmlwriter.so
 file $(ECPREFIX)/lib/php5/5.2/lib/extensions/no-debug-non-zts-20060613/xmlwriter.so \
     path=$(ECPREFIX)/lib/php5/5.2/extensions/xmlwriter.so
+depend fmri=web/php-52/php-common type=require

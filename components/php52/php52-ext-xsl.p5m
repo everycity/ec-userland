@@ -36,3 +36,4 @@ file $(ECPREFIX)/lib/php5/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613
     path=$(ECPREFIX)/lib/php5/5.2/extensions/$(MACH64)/xsl.so
 file $(ECPREFIX)/lib/php5/5.2/lib/extensions/no-debug-non-zts-20060613/xsl.so \
     path=$(ECPREFIX)/lib/php5/5.2/extensions/xsl.so
+depend fmri=web/php-52/php-common type=require

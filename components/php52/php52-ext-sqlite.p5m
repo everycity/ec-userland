@@ -45,7 +45,8 @@ dir path=$(ECPREFIX)/lib/php5/5.2/lib/extensions/no-debug-non-zts-20060613
 file \
     path=$(ECPREFIX)/lib/php5/5.2/include/php/ext/sqlite/libsqlite/src/sqlite.h
 file path=$(ECPREFIX)/etc/php5/5.2/conf.d/sqlite.ini preserve=true
-file \
-    path=$(ECPREFIX)/lib/php5/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613/sqlite.so
-file \
-    path=$(ECPREFIX)/lib/php5/5.2/lib/extensions/no-debug-non-zts-20060613/sqlite.so
+file $(ECPREFIX)/lib/php5/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613/sqlite.so \
+    path=$(ECPREFIX)/lib/php5/5.2/extensions/$(MACH64)/sqlite.so
+file $(ECPREFIX)/lib/php5/5.2/lib/extensions/no-debug-non-zts-20060613/sqlite.so \
+    path=$(ECPREFIX)/lib/php5/5.2/extensions/sqlite.so
+depend fmri=web/php-52/php-common type=require

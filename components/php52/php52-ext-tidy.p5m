@@ -36,3 +36,4 @@ file $(ECPREFIX)/lib/php5/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613
     path=$(ECPREFIX)/lib/php5/5.2/extensions/$(MACH64)/tidy.so
 file $(ECPREFIX)/lib/php5/5.2/lib/extensions/no-debug-non-zts-20060613/tidy.so \
     path=$(ECPREFIX)/lib/php5/5.2/extensions/tidy.so
+depend fmri=web/php-52/php-common type=require

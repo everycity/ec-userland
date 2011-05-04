@@ -37,7 +37,8 @@ dir \
 dir path=$(ECPREFIX)/lib/php5/5.2/lib/extensions
 dir path=$(ECPREFIX)/lib/php5/5.2/lib/extensions/no-debug-non-zts-20060613
 file path=$(ECPREFIX)/etc/php5/5.2/conf.d/pdo_sqlite.ini preserve=true
-file \
-    path=$(ECPREFIX)/lib/php5/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613/pdo_sqlite.so
-file \
-    path=$(ECPREFIX)/lib/php5/5.2/lib/extensions/no-debug-non-zts-20060613/pdo_sqlite.so
+file $(ECPREFIX)/lib/php5/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613/pdo_sqlite.so \
+    path=$(ECPREFIX)/lib/php5/5.2/extensions/$(MACH64)/pdo_sqlite.so
+file $(ECPREFIX)/lib/php5/5.2/lib/extensions/no-debug-non-zts-20060613/pdo_sqlite.so \
+    path=$(ECPREFIX)/lib/php5/5.2/extensions/pdo_sqlite.so
+depend fmri=web/php-52/php-common type=require

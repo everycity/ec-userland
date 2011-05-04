@@ -23,6 +23,8 @@ license php52.license license="PHP52 License"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/php5
+dir path=$(ECPREFIX)/etc/php5/5.2
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/php5
 dir path=$(ECPREFIX)/lib/php5/5.2
@@ -54,6 +56,7 @@ dir path=$(ECPREFIX)/lib/php5/5.2/share
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/etc/php5/5.2/php.ini preserve=true
 file path=$(ECPREFIX)/lib/php5/5.2/bin/$(MACH64)/php-config
 file path=$(ECPREFIX)/lib/php5/5.2/bin/$(MACH64)/phpize
 file path=$(ECPREFIX)/lib/php5/5.2/bin/pecl

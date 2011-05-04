@@ -311,3 +311,4 @@ file \
     path=$(ECPREFIX)/lib/php5/5.2/share/PEAR/test/XML_Util/tests/testBug_4950.phpt
 file \
     path=$(ECPREFIX)/lib/php5/5.2/share/PEAR/test/XML_Util/tests/testBug_5392.phpt
+depend fmri=web/php-52/php-common type=require
