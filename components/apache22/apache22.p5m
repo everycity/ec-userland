@@ -14,7 +14,7 @@
 
 set name=pkg.fmri value=pkg:/web/server/apache-22@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="Apache Web Server V2.2"
-set name=info.classification value="org.opensolaris.category.2008:Web Services/Application and Web Servers"
+#set name=info.classification value="org.opensolaris.category.2008:Web Services/Application and Web Servers"
 set name=info.upstream_url value="http://httpd.apache.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
