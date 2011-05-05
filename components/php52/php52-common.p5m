@@ -310,8 +310,8 @@ link path=$(ECPREFIX)/bin/phpize \
 link path=$(ECPREFIX)/bin/pecl \
     target=../lib/php/active/bin/pecl preserve=true
 link path=$(ECPREFIX)/bin/$(MACH64)/php-config \
-    target=../lib/php/active/bin/$(MACH64)/php-config preserve=true
+    target=../../lib/php/active/bin/$(MACH64)/php-config preserve=true
 link path=$(ECPREFIX)/bin/$(MACH64)/phpize \
-    target=../lib/php/active/bin/$(MACH64)/phpize preserve=true
+    target=../../lib/php/active/bin/$(MACH64)/phpize preserve=true
 link path=$(ECPREFIX)/bin/$(MACH64)/pecl \
-    target=../lib/php/active/bin/$(MACH64)/pecl preserve=true
+    target=../../lib/php/active/bin/$(MACH64)/pecl preserve=true

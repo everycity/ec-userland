@@ -43,6 +43,6 @@ link path=$(ECPREFIX)/bin/$(MACH64)/php target=php-cli preserve=true
 link path=$(ECPREFIX)/bin/php-cli \
     target=../lib/php/active/bin/php preserve=true
 link path=$(ECPREFIX)/bin/$(MACH64)/php-cli \
-    target=../lib/php/active/bin/$(MACH64)/php preserve=true
+    target=../../lib/php/active/bin/$(MACH64)/php preserve=true
 link path=$(ECPREFIX)/share/man/man1/php.1 \
     target=../../../lib/php/active/share/man/man1/php.1 preserve=true
