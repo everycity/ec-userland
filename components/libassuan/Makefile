@@ -33,6 +33,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+CONFIGURE_ENV.64 += PATH=$(ECPREFIX)/bin/$(MACH64):$(PATH)
+
 include ../../make-rules/shared-targets.mk
 
 build:		$(BUILD_32_and_64)
