@@ -23,18 +23,17 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		findutils
-COMPONENT_VERSION=	4.4.2
+COMPONENT_VERSION=	4.5.9
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:e8dd88fa2cc58abffd0bfc1eddab9020231bb024
-COMPONENT_ARCHIVE_URL=	http://ftp.gnu.org/gnu/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha1:7bfaadeb7a93c1bd959a360ecb0971a63ff43677
+COMPONENT_ARCHIVE_URL=	http://alpha.gnu.org/gnu/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS  +=           CFLAGS="$(CFLAGS)"
-CONFIGURE_OPTIONS  +=           --prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS  +=           --program-prefix=g
 
 include ../../make-rules/shared-targets.mk
