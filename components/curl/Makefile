@@ -33,7 +33,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS += 	--with-ssl=$(ECPREFIX) --with-pic --enable-shared --disable-static --with-ca-bundle=$(ECPREFIX)/etc/openssl/cabundle.pem
+CONFIGURE_OPTIONS += --with-pic --enable-shared --disable-static
+CONFIGURE_OPTIONS += --with-ca-bundle=$(ECPREFIX)/etc/openssl/cabundle.pem
 
 # common targets
 build:		$(BUILD_32_and_64)
