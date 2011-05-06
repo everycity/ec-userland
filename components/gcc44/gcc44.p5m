@@ -104,6 +104,16 @@ dir \
 dir \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/ssp
 dir \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed
+dir \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/arpa
+dir \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/dat
+dir \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/iso
+dir \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/sys
+dir \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/install-tools
 dir \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/install-tools/include
@@ -1308,6 +1318,34 @@ file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/x86intrin.h
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include/xmmintrin.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/README
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/arpa/nameser_compat.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/complex.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/curses.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/dat/dat_platform_specific.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/iso/math_c99.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/iso/setjmp_iso.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/limits.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/math.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/pthread.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/sys/feature_tests.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/sys/varargs.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/syslimits.h
+file \
+    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/wchar.h
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/install-tools/fixinc.sh mode=555
 file \
