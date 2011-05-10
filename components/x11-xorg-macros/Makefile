@@ -25,23 +25,14 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=		util-macros
 COMPONENT_VERSION=	1.13.0
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:c831ce81a95daf6bbeed24eb43ef5d117c058c27
-COMPONENT_ARCHIVE_URL=	http://cgit.freedesktop.org/xorg/util/macros/snapshot/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
+COMPONENT_ARCHIVE_HASH=	sha1:5d86ac2a4c0aa3428d72aff35dacc07baf883121
+COMPONENT_ARCHIVE_URL=	http://xorg.freedesktop.org/archive/individual/util/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
-include ../../make-rules/justmake.mk
+include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-
-COMPONENT_PREP_ACTION = (cd $(@D) ; ./autogen.sh --prefix=$(ECPREFIX) )
 
 build:		$(BUILD_32)
 
-install:	build
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/share/aclocal
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/share/pkgconfig
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/share/xorg-macros
-	$(CP) $(BUILD_DIR_32)/xorg-macros.m4 $(PROTO_DIR)/$(ECPREFIX)/share/aclocal/
-	$(CP) $(BUILD_DIR_32)/xorg-macros.pc $(PROTO_DIR)/$(ECPREFIX)/share/pkgconfig/
-	$(CP) $(BUILD_DIR_32)/INSTALL $(PROTO_DIR)/$(ECPREFIX)/share/xorg-macros/
-
+install:	$(INSTALL_32)
