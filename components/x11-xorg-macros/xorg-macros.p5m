@@ -28,4 +28,4 @@ dir path=$(ECPREFIX)/share/pkgconfig
 dir path=$(ECPREFIX)/share/xorg-macros
 file path=$(ECPREFIX)/share/aclocal/xorg-macros.m4
 file path=$(ECPREFIX)/share/pkgconfig/xorg-macros.pc
-file path=$(ECPREFIX)/share/xorg-macros/INSTALL
+file path=$(ECPREFIX)/share/util-macros/INSTALL
