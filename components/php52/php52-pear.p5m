@@ -315,7 +315,7 @@ file \
     path=$(ECPREFIX)/lib/php/5.2/share/PEAR/test/XML_Util/tests/testBug_4950.phpt
 file \
     path=$(ECPREFIX)/lib/php/5.2/share/PEAR/test/XML_Util/tests/testBug_5392.phpt
-link path=$(ECPREFIX)/bin/pear target=../lib/php/active/bin/pear preserve=true
-link path=$(ECPREFIX)/bin/peardev target=../lib/php/active/bin/peardev preserve=true
-link path=$(ECPREFIX)/bin/$(MACH64)/pear target=../../lib/php/active/bin/$(MACH64)/pear preserve=true
-link path=$(ECPREFIX)/bin/$(MACH64)/peardev target=../../lib/php/active/bin/$(MACH64)/peardev preserve=true
+link path=$(ECPREFIX)/bin/pear target=../lib/php/active/bin/pear preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/peardev target=../lib/php/active/bin/peardev preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/pear target=../../lib/php/active/bin/$(MACH64)/pear preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/peardev target=../../lib/php/active/bin/$(MACH64)/peardev preserve=true pkg.linted=true
