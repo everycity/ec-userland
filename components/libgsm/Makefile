@@ -37,7 +37,7 @@ include ../../make-rules/shared-targets.mk
 
 COMPONENT_BUILD_ENV+= CC="$(CC)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
 COMPONENT_PRE_INSTALL_ACTION+= mkdir -p $(PROTO_DIR)/$(ECPREFIX)/lib \
-	$(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64) $(PROTO_DIR)/$(ECPREFIX)/include \
+	$(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64) $(PROTO_DIR)/$(ECPREFIX)/include/gsm \
 	$(PROTO_DIR)/$(ECPREFIX)/share/man/man3
 COMPONENT_INSTALL_ARGS+= INSTALL_ROOT=$(PROTO_DIR)/$(ECPREFIX)
 
