@@ -40,7 +40,6 @@ dir path=$(ECPREFIX)/share/doc/mpfr/examples
 dir path=$(ECPREFIX)/share/info
 file path=$(ECPREFIX)/include/mpf2mpfr.h
 file path=$(ECPREFIX)/include/mpfr.h
-file path=$(ECPREFIX)/lib/libmpfr.la
 file path=$(ECPREFIX)/lib/libmpfr.so.4.0.1
 file path=$(ECPREFIX)/share/doc/mpfr/AUTHORS
 file path=$(ECPREFIX)/share/doc/mpfr/BUGS

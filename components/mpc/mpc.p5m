@@ -36,7 +36,6 @@ dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/info
 file path=$(ECPREFIX)/include/mpc.h
-file path=$(ECPREFIX)/lib/libmpc.la
 file path=$(ECPREFIX)/lib/libmpc.so.2.0.0
 file path=$(ECPREFIX)/share/info/mpc.info
 link path=$(ECPREFIX)/lib/libmpc.so target=libmpc.so.2.0.0

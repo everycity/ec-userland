@@ -19,6 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 set name=pkg.fmri value=pkg:/library/opencore-amr@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
@@ -42,19 +43,11 @@ file path=$(ECPREFIX)/include/opencore-amrnb/interf_dec.h
 file path=$(ECPREFIX)/include/opencore-amrnb/interf_enc.h
 file path=$(ECPREFIX)/include/opencore-amrwb/dec_if.h
 file path=$(ECPREFIX)/include/opencore-amrwb/if_rom.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libopencore-amrnb.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libopencore-amrnb.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libopencore-amrnb.so.0.0.2
-file path=$(ECPREFIX)/lib/$(MACH64)/libopencore-amrwb.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libopencore-amrwb.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libopencore-amrwb.so.0.0.2
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/opencore-amrnb.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/opencore-amrwb.pc
-file path=$(ECPREFIX)/lib/libopencore-amrnb.a
-file path=$(ECPREFIX)/lib/libopencore-amrnb.la
 file path=$(ECPREFIX)/lib/libopencore-amrnb.so.0.0.2
-file path=$(ECPREFIX)/lib/libopencore-amrwb.a
-file path=$(ECPREFIX)/lib/libopencore-amrwb.la
 file path=$(ECPREFIX)/lib/libopencore-amrwb.so.0.0.2
 file path=$(ECPREFIX)/lib/pkgconfig/opencore-amrnb.pc
 file path=$(ECPREFIX)/lib/pkgconfig/opencore-amrwb.pc

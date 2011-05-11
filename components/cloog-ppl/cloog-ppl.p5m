@@ -43,7 +43,6 @@ file path=$(ECPREFIX)/include/cloog/pprint.h
 file path=$(ECPREFIX)/include/cloog/program.h
 file path=$(ECPREFIX)/include/cloog/statement.h
 file path=$(ECPREFIX)/include/cloog/version.h
-file path=$(ECPREFIX)/lib/libcloog.la
 file path=$(ECPREFIX)/lib/libcloog.so.0.0.0
 file path=$(ECPREFIX)/share/info/cloog.info
 link path=$(ECPREFIX)/lib/libcloog.so target=libcloog.so.0.0.0

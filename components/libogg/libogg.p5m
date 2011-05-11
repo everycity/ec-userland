@@ -19,6 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 set name=pkg.fmri value=pkg:/library/libogg@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
@@ -46,12 +47,8 @@ dir path=$(ECPREFIX)/share/doc/libogg-$(COMPONENT_VERSION)/ogg
 file path=$(ECPREFIX)/include/ogg/config_types.h
 file path=$(ECPREFIX)/include/ogg/ogg.h
 file path=$(ECPREFIX)/include/ogg/os_types.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libogg.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libogg.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libogg.so.0.7.1
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/ogg.pc
-file path=$(ECPREFIX)/lib/libogg.a
-file path=$(ECPREFIX)/lib/libogg.la
 file path=$(ECPREFIX)/lib/libogg.so.0.7.1
 file path=$(ECPREFIX)/lib/pkgconfig/ogg.pc
 file path=$(ECPREFIX)/share/aclocal/ogg.m4

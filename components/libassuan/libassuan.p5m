@@ -19,6 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 set name=pkg.fmri value=pkg:/crypto/library/libassuan@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
@@ -42,9 +43,7 @@ dir path=$(ECPREFIX)/share/info
 file path=$(ECPREFIX)/bin/$(MACH64)/libassuan-config
 file path=$(ECPREFIX)/bin/libassuan-config
 file path=$(ECPREFIX)/include/assuan.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libassuan.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libassuan.so.0.1.0
-file path=$(ECPREFIX)/lib/libassuan.la
 file path=$(ECPREFIX)/lib/libassuan.so.0.1.0
 file path=$(ECPREFIX)/share/aclocal/libassuan.m4
 file path=$(ECPREFIX)/share/info/assuan.info

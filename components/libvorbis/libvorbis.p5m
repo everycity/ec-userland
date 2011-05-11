@@ -19,6 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 set name=pkg.fmri value=pkg:/library/libvorbis@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
@@ -47,26 +48,14 @@ dir path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/vorbisfile
 file path=$(ECPREFIX)/include/vorbis/codec.h
 file path=$(ECPREFIX)/include/vorbis/vorbisenc.h
 file path=$(ECPREFIX)/include/vorbis/vorbisfile.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libvorbis.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libvorbis.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libvorbis.so.0.4.5
-file path=$(ECPREFIX)/lib/$(MACH64)/libvorbisenc.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libvorbisenc.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libvorbisenc.so.2.0.8
-file path=$(ECPREFIX)/lib/$(MACH64)/libvorbisfile.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libvorbisfile.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libvorbisfile.so.3.3.4
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/vorbis.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/vorbisenc.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/vorbisfile.pc
-file path=$(ECPREFIX)/lib/libvorbis.a
-file path=$(ECPREFIX)/lib/libvorbis.la
 file path=$(ECPREFIX)/lib/libvorbis.so.0.4.5
-file path=$(ECPREFIX)/lib/libvorbisenc.a
-file path=$(ECPREFIX)/lib/libvorbisenc.la
 file path=$(ECPREFIX)/lib/libvorbisenc.so.2.0.8
-file path=$(ECPREFIX)/lib/libvorbisfile.a
-file path=$(ECPREFIX)/lib/libvorbisfile.la
 file path=$(ECPREFIX)/lib/libvorbisfile.so.3.3.4
 file path=$(ECPREFIX)/lib/pkgconfig/vorbis.pc
 file path=$(ECPREFIX)/lib/pkgconfig/vorbisenc.pc

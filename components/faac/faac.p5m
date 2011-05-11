@@ -19,6 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 set name=pkg.fmri value=pkg:/library/faac@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
@@ -43,11 +44,7 @@ file path=$(ECPREFIX)/bin/$(MACH64)/faac
 file path=$(ECPREFIX)/bin/faac
 file path=$(ECPREFIX)/include/faac.h
 file path=$(ECPREFIX)/include/faaccfg.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libfaac.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libfaac.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libfaac.so.0.0.0
-file path=$(ECPREFIX)/lib/libfaac.a
-file path=$(ECPREFIX)/lib/libfaac.la
 file path=$(ECPREFIX)/lib/libfaac.so.0.0.0
 file path=$(ECPREFIX)/share/man/man1/faac.1
 link path=$(ECPREFIX)/lib/$(MACH64)/libfaac.so target=libfaac.so.0.0.0

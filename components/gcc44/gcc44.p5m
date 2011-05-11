@@ -1172,22 +1172,8 @@ file path=$(ECPREFIX)/include/c++/$(COMPONENT_VERSION)/unordered_set
 file path=$(ECPREFIX)/include/c++/$(COMPONENT_VERSION)/utility
 file path=$(ECPREFIX)/include/c++/$(COMPONENT_VERSION)/valarray
 file path=$(ECPREFIX)/include/c++/$(COMPONENT_VERSION)/vector
-file path=$(ECPREFIX)/lib/$(MACH64)/libgfortran.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libgfortran.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libgomp.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libgomp.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libgomp.spec
 file path=$(ECPREFIX)/lib/$(MACH64)/libiberty.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libobjc.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libobjc.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libssp.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libssp.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libssp_nonshared.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libssp_nonshared.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libstdc++.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libstdc++.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libsupc++.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libsupc++.la
 file \
     specs.$(MACH) path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/specs
 file \
@@ -1202,10 +1188,6 @@ file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/$(MACH64)/libgcc_eh.a
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/$(MACH64)/libgcov.a
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/$(MACH64)/libgfortranbegin.a
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/$(MACH64)/libgfortranbegin.la
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/cc1 mode=555
 file \
@@ -1372,26 +1354,8 @@ file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/libgcc_eh.a
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/libgcov.a
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/libgfortranbegin.a
-file \
-    path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/libgfortranbegin.la
-file path=$(ECPREFIX)/lib/libgfortran.a
-file path=$(ECPREFIX)/lib/libgfortran.la
-file path=$(ECPREFIX)/lib/libgomp.a
-file path=$(ECPREFIX)/lib/libgomp.la
 file path=$(ECPREFIX)/lib/libgomp.spec
 file path=$(ECPREFIX)/lib/libiberty.a
-file path=$(ECPREFIX)/lib/libobjc.a
-file path=$(ECPREFIX)/lib/libobjc.la
-file path=$(ECPREFIX)/lib/libssp.a
-file path=$(ECPREFIX)/lib/libssp.la
-file path=$(ECPREFIX)/lib/libssp_nonshared.a
-file path=$(ECPREFIX)/lib/libssp_nonshared.la
-file path=$(ECPREFIX)/lib/libstdc++.a
-file path=$(ECPREFIX)/lib/libstdc++.la
-file path=$(ECPREFIX)/lib/libsupc++.a
-file path=$(ECPREFIX)/lib/libsupc++.la
 file path=$(ECPREFIX)/share/info/libgomp.info
 file path=$(ECPREFIX)/share/locale/be/LC_MESSAGES/cpplib.mo
 file path=$(ECPREFIX)/share/locale/be/LC_MESSAGES/gcc.mo

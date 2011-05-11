@@ -41,11 +41,7 @@ dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man3
 file path=$(ECPREFIX)/include/gdbm.h
 file path=$(ECPREFIX)/share/info/gdbm.info
-file path=$(ECPREFIX)/lib/$(MACH64)/libgdbm.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libgdbm.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libgdbm.so.3.0.0
-file path=$(ECPREFIX)/lib/libgdbm.a
-file path=$(ECPREFIX)/lib/libgdbm.la
 file path=$(ECPREFIX)/lib/libgdbm.so.3.0.0
 file path=$(ECPREFIX)/share/man/man3/gdbm.3
 link path=$(ECPREFIX)/lib/$(MACH64)/libgdbm.so target=libgdbm.so.3.0.0

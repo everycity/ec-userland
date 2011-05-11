@@ -122,14 +122,8 @@ file path=$(ECPREFIX)/bin/db_upgrade
 file path=$(ECPREFIX)/bin/db_verify
 file path=$(ECPREFIX)/include/db.h
 file path=$(ECPREFIX)/include/db_cxx.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libdb-5.1.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libdb-5.1.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libdb-5.1.so
-file path=$(ECPREFIX)/lib/$(MACH64)/libdb.a
-file path=$(ECPREFIX)/lib/libdb-5.1.a
-file path=$(ECPREFIX)/lib/libdb-5.1.la
 file path=$(ECPREFIX)/lib/libdb-5.1.so
-file path=$(ECPREFIX)/lib/libdb.a
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/BDB-C_APIReference.pdf
 file \

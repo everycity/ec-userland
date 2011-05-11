@@ -65,7 +65,6 @@ file path=$(ECPREFIX)/include/lzma/lzma.h
 file path=$(ECPREFIX)/include/lzma/stream_flags.h
 file path=$(ECPREFIX)/include/lzma/version.h
 file path=$(ECPREFIX)/include/lzma/vli.h
-file path=$(ECPREFIX)/lib/liblzma.la
 file path=$(ECPREFIX)/lib/liblzma.so.5.0.1
 file path=$(ECPREFIX)/lib/pkgconfig/liblzma.pc
 file path=$(ECPREFIX)/share/doc/xz/AUTHORS

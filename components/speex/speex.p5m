@@ -19,6 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 set name=pkg.fmri value=pkg:/library/speex@1.1.99.1,$(BUILD_VERSION)
@@ -61,19 +62,11 @@ file path=$(ECPREFIX)/include/speex/speex_preprocess.h
 file path=$(ECPREFIX)/include/speex/speex_resampler.h
 file path=$(ECPREFIX)/include/speex/speex_stereo.h
 file path=$(ECPREFIX)/include/speex/speex_types.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libspeex.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libspeex.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libspeex.so.1.5.0
-file path=$(ECPREFIX)/lib/$(MACH64)/libspeexdsp.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libspeexdsp.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libspeexdsp.so.1.5.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/speex.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/speexdsp.pc
-file path=$(ECPREFIX)/lib/libspeex.a
-file path=$(ECPREFIX)/lib/libspeex.la
 file path=$(ECPREFIX)/lib/libspeex.so.1.5.0
-file path=$(ECPREFIX)/lib/libspeexdsp.a
-file path=$(ECPREFIX)/lib/libspeexdsp.la
 file path=$(ECPREFIX)/lib/libspeexdsp.so.1.5.0
 file path=$(ECPREFIX)/lib/pkgconfig/speex.pc
 file path=$(ECPREFIX)/lib/pkgconfig/speexdsp.pc
