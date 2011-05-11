@@ -22,8 +22,6 @@
 #
 include ../../make-rules/shared-macros.mk
 
-GMAKE=/ec/bin/gmake
-
 COMPONENT_NAME=		mc
 COMPONENT_VERSION=	20110314
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
@@ -38,28 +36,8 @@ include ../../make-rules/ips.mk
 
 IPS_COMPONENT_VERSION= 4.7.99.1
 
-#CONFIGURE_OPTIONS  +=		--disable-static
-#CONFIGURE_OPTIONS  +=		--enable-shared
-#CONFIGURE_OPTIONS  +=		CFLAGS="$(CFLAGS)"
-#CONFIGURE_OPTIONS  +=		--with-libiconv=gnu
-CONFIGURE_OPTIONS  +=		--with-screen=slang
+CONFIGURE_OPTIONS  += --with-screen=slang
 
-
-# common targets
 build:		$(BUILD_32)
 
-include ../../make-rules/shared-targets.mk
-
 install:	$(INSTALL_32)
-
-#install:	$(PROTOUSRSHAREMAN3DIR) $(INSTALL_32_and_64)
-#	$(CP) -f $(COMPONENT_DIR)/man3/*.3 $(PROTOUSRSHAREMAN3DIR)
-
-# build does this always
-test: build
-	@cd $(BUILD_DIR_32); $(MAKE) check
-	@cd $(BUILD_DIR_64); $(MAKE) check
-
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
