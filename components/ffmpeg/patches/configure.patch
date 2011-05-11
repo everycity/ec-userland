@@ -1,0 +1,10 @@
+--- ffmpeg-0.6.1/configure.orig	2011-05-11 11:18:01.805575406 +0100
++++ ffmpeg-0.6.1/configure	2011-05-11 11:18:06.584376171 +0100
+@@ -1575,7 +1575,6 @@
+ die_unknown(){
+     echo "Unknown option \"$1\"."
+     echo "See $0 --help for available options."
+-    exit 1
+ }
+ 
+ show_list() {

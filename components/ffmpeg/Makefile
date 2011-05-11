@@ -19,7 +19,9 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
+
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ffmpeg
@@ -30,20 +32,19 @@ COMPONENT_ARCHIVE_HASH=	sha1:24ada1d35fc000980090e773101e101ca45f85e5
 COMPONENT_ARCHIVE_URL=	http://www.ffmpeg.org/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
-include configure.mk
+include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-include ../../make-rules/shared-targets.mk
+CONFIGURE_OPTIONS += --cc="$(CC)"
+CONFIGURE_OPTIONS.64 += --shlibdir=$(ECPREFIX)/lib/$(MACH64)
 
-CONFIGURE_OPTIONS += --disable-static --enable-shared --enable-libfaac --enable-libgsm --enable-libspeex --enable-libvorbis --enable-nonfree --disable-ffplay --disable-avdevice --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-version3 
-CONFIGURE_OPTIONS.32 += --host-libs=/ec/lib
-CONFIGURE_OPTIONS.64 += --host-libs=/ec/lib/amd64
+CONFIGURE_OPTIONS += --disable-static --enable-shared --enable-libfaac --enable-libgsm
+CONFIGURE_OPTIONS += --enable-libspeex --enable-libvorbis --enable-nonfree --disable-ffplay
+CONFIGURE_OPTIONS += --disable-avdevice --enable-libopencore-amrnb --enable-libopencore-amrwb
+CONFIGURE_OPTIONS += --enable-version3
+
 
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
-
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
 
