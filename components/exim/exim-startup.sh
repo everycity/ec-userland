@@ -1,7 +1,7 @@
 #!/bin/sh
-
-# Copyright (C) EveryCity 2011
-# Written by Alasdair Lumsden <al@everycity.co.uk> - 2011-04-03
+#
+# Copyright (c) EveryCity 2011
+#
 
 . /lib/svc/share/smf_include.sh
 

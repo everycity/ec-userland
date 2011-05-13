@@ -1,43 +1,82 @@
-<?xml version='1.0'?>
+<?xml version="1.0"?>
 <!DOCTYPE service_bundle SYSTEM '/usr/share/lib/xml/dtd/service_bundle.dtd.1'>
-  <service_bundle type='manifest' name='exim'>
-  <service name='network/smtp/exim' type='service' version='0'>
-    <dependency name='fs' grouping='require_all'  restart_on='none' type='service'>
-      <service_fmri value='svc:/system/filesystem/local' />
-    </dependency>
+<!--
+	Copyright (C) EveryCity 2011
+-->
+<service_bundle type='manifest' name='exim'>
 
-    <dependency name='net' grouping='require_all' restart_on='none' type='service'>
-      <service_fmri value='svc:/milestone/network:default' />
-    </dependency>
+<service
+	name='network/smtp/exim'
+	type='service'
+	version='1'>
 
-    <dependency name='ns' grouping='require_all' restart_on='none' type='service'>
-      <service_fmri value='svc:/milestone/name-services' />
-    </dependency>
+	<!--
+		Wait for network interfaces to be initialized.
+	-->
+	<dependency name='network'
+		grouping='require_all'
+		restart_on='error'
+		type='service'>
+		<service_fmri value='svc:/milestone/network:default'/>
+	</dependency>
 
-    <exec_method type='method' name='start'
-      exec='/ec/var/svc/method/exim.sh start'
-      timeout_seconds='-1'>
-    </exec_method>
+	<!--
+		Wait for all local filesystems to be mounted.
+	-->
+	<dependency name='filesystem-local'
+		grouping='require_all'
+		restart_on='none'
+		type='service'>
+      		<service_fmri
+			value='svc:/system/filesystem/local:default'/>
+	</dependency>
 
-    <exec_method type='method' name='stop'
-      exec=':kill'
-      timeout_seconds='30'>
-    </exec_method>
+	<!--
+		Wait for name services to come up.
+	-->
+	<dependency name='name-services'
+		grouping='require_all'
+		restart_on='none'
+		type='service'>
+      		<service_fmri
+			value='svc:/milestone/name-services:default'/>
+	</dependency>
 
-    <exec_method type='method' name='refresh'
-      exec=':kill -HUP'
-      timeout_seconds='30'>
-    </exec_method>
+	<exec_method
+		type='method'
+		name='start'
+		exec='/ec/var/svc/method/exim start'
+		timeout_seconds='60'/>
 
-    <instance name='default' enabled='false'>
-      <property_group name='exim' type='application'>
-        <propval name='startup_options' type='astring' value='-bd -q15m'/>
-        <!-- The default config file is at /ec/etc/exim/exim.conf - only
-             specify one if you understand exims behaviour when doing so -->
-        <propval name='configuration_file' type='astring' value=''/>
-        <propval name='exim_binary' type='astring' value='/ec/bin/exim'/>
-      </property_group>
-    </instance>
-  </service>
-  </service_bundle>
+ 	<exec_method
+		type='method'
+		name='stop'
+		exec=':kill'
+		timeout_seconds='30'/>
 
+	<exec_method
+		type='method'
+		name='refresh'
+		exec=':kill -HUP'
+		timeout_seconds='30'/>
+
+	<instance name='default' enabled='true'>
+
+		<property_group name='exim' type='application'>
+			<stability value='Evolving'/>
+        		<propval name='startup_options' type='astring' value='-bd -q15m'/>
+
+		        <!-- The default config file is at /ec/etc/exim/exim.conf - only
+		             specify one if you understand exims behaviour when doing so -->
+			<propval name='configuration_file' type='astring' value=''/>
+
+			<propval name='exim_binary' type='astring' value='/ec/bin/exim'/>
+		</property_group>
+
+	</instance>
+
+	<stability value='Evolving'/>
+
+</service>
+
+</service_bundle>

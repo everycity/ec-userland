@@ -42,8 +42,8 @@ COMPONENT_POST_INSTALL_ACTION+= mkdir -p $(PROTO_DIR)/$(ECPREFIX)/var/log/exim ;
 	touch $(PROTO_DIR)/$(ECPREFIX)/var/log/exim/reject.log ; \
 	mkdir -p $(PROTO_DIR)/$(ECPREFIX)/var/svc/method ; \
 	mkdir -p $(PROTO_DIR)/var/svc/manifest/site ; \
-	cp $(COMPONENT_DIR)/exim-startup.sh $(PROTO_DIR)/$(ECPREFIX)/var/svc/method/exim.sh ; \
-	cp $(COMPONENT_DIR)/exim-manifest.xml $(PROTO_DIR)/var/svc/manifest/site/ec-exim.xml
+	cp $(COMPONENT_DIR)/exim-startup.sh $(PROTO_DIR)/$(ECPREFIX)/var/svc/method/exim ; \
+	cp $(COMPONENT_DIR)/exim-manifest.xml $(PROTO_DIR)/var/svc/manifest/site/exim.xml
 
 
 #$(SOURCE_DIR)/.unpacked:
