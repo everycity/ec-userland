@@ -23,10 +23,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		exim
-COMPONENT_VERSION=	4.75
+COMPONENT_VERSION=	4.76
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:4a7cfaf70ddcfde58b8e68c98aeb6b61856b0abd
+COMPONENT_ARCHIVE_HASH=	sha1:13121644a9dfd6c066f65db4ad6703a3dc432c8a
 COMPONENT_ARCHIVE_URL=	ftp://ftp.exim.org/pub/exim/exim4/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -45,12 +45,7 @@ COMPONENT_POST_INSTALL_ACTION+= mkdir -p $(PROTO_DIR)/$(ECPREFIX)/var/log/exim ;
 	cp $(COMPONENT_DIR)/exim-startup.sh $(PROTO_DIR)/$(ECPREFIX)/var/svc/method/exim ; \
 	cp $(COMPONENT_DIR)/exim-manifest.xml $(PROTO_DIR)/var/svc/manifest/site/exim.xml
 
-
-#$(SOURCE_DIR)/.unpacked:
-#	echo mooop
-
-#build:		$(BUILD_32_and_64)
 build:		$(BUILD_32)
 
-install:	$(INSTALL_32_and_64)
+install:	$(INSTALL_32)
 
