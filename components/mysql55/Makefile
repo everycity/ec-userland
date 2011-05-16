@@ -53,8 +53,7 @@ CMAKE_OPTIONS+= -DINSTALL_PLUGINDIR=$(CMAKE_PLUGINDIR.$(BITS))
 CMAKE_OPTIONS+= -DINSTALL_SBINDIR=$(CMAKE_BINDIR.$(BITS))
 CMAKE_OPTIONS+= -DINSTALL_SCRIPTDIR=$(CMAKE_BINDIR.$(BITS))
 CMAKE_OPTIONS+= -DMYSQL_DATADIR=var/mysql/5.5/data
-CMAKE_OPTIONS+= -DSYSCONFDIR=etc/mysql/5.5
-CMAKE_OPTIONS+= -DDEFAULT_SYSCONFDIR=etc/mysql/5.5
+CMAKE_OPTIONS+= -DSYSCONFDIR=$(ECPREFIX)/etc/mysql/5.5
 
 
 # gcc invocation in some link.txt file is missing -m$(BITS) parameter
@@ -72,10 +71,7 @@ COMPONENT_POST_INSTALL_ACTION+= \
         mkdir -p $(PROTO_DIR)/$(ECPREFIX)/etc/mysql/5.5 ; \
         cp $(COMPONENT_DIR)/mysql55-startup.sh $(PROTO_DIR)/$(ECPREFIX)/var/svc/method/mysql55 ; \
         cp $(COMPONENT_DIR)/mysql55-manifest.xml $(PROTO_DIR)/var/svc/manifest/site/mysql55.xml ; \
-        cp $(COMPONENT_DIR)/mysql55-my.cnf $(PROTO_DIR)/$(ECPREFIX)/etc/mysql/5.5/my.cnf ; \
-	touch $(PROTO_DIR)/$(ECPREFIX)/var/mysql/5.5/data/mysqld.log ; \
-	chown mysql:mysql $(PROTO_DIR)/$(ECPREFIX)/var/mysql/5.5/data/mysqld.log ; \
-	chmod 0660 $(PROTO_DIR)/$(ECPREFIX)/var/mysql/5.5/data/mysqld.log
+        cp $(COMPONENT_DIR)/mysql55-my.cnf $(PROTO_DIR)/$(ECPREFIX)/etc/mysql/5.5/my.cnf
 
 $(BUILD_DIR)/%/.configured:	$(SOURCE_DIR)/.prep
 	($(RM) -rf $(@D) ; $(MKDIR) $(@D))

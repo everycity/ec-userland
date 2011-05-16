@@ -147,9 +147,6 @@ file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysql_config
 file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysql_config
 file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysql_config.1
 file path=$(ECPREFIX)/share/aclocal/mysql.m4
-link path=$(ECPREFIX)/bin/$(MACH64)/mysql_config \
-    target=../../lib/mysql/5.5/bin/$(MACH64)/mysql_config
-link path=$(ECPREFIX)/bin/mysql_config target=../lib/mysql/5.5/bin/mysql_config
 link path=$(ECPREFIX)/lib/$(MACH64)/libmysqlclient.so \
     target=libmysqlclient.so.18
 link path=$(ECPREFIX)/lib/$(MACH64)/libmysqlclient.so.18 \
@@ -165,3 +162,8 @@ link path=$(ECPREFIX)/lib/libmysqlclient.so.18 target=libmysqlclient.so.18.0.0
 link path=$(ECPREFIX)/lib/libmysqlclient_r.so target=libmysqlclient.so
 link path=$(ECPREFIX)/lib/libmysqlclient_r.so.18 target=libmysqlclient.so
 link path=$(ECPREFIX)/lib/libmysqlclient_r.so.18.0.0 target=libmysqlclient.so
+link path=$(ECPREFIX)/lib/mysql/active target=5.5 preserve=true
+link path=$(ECPREFIX)/bin/mysql_config \
+    target=../lib/mysql/active/bin/mysql_config preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysql_config \
+    target=../../lib/mysql/active/bin/$(MACH64)/mysql_config preserve=true pkg.linted=true

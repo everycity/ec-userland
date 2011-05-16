@@ -226,7 +226,90 @@ file path=$(ECPREFIX)/share/mysql/5.5/swedish/errmsg.sys
 file path=$(ECPREFIX)/share/mysql/5.5/ukrainian/errmsg.sys
 file path=var/svc/manifest/site/mysql55.xml restart_fmri=svc:/system/manifest-import:default
 file path=$(ECPREFIX)/var/svc/method/mysql55 mode=0555
-file path=$(ECPREFIX)/var/mysql/5.5/data/mysqld.log mode=0660 owner=mysql group=mysql preserve=true
 group gid=477 groupname=mysql
 user gcos-field="MySQL Account" group=mysql uid=477 username=mysql login-shell=/bin/false home-dir=/ec/var/mysql
-
+link path=$(ECPREFIX)/lib/mysql/active target=5.5 preserve=true
+link path=$(ECPREFIX)/bin/msql2mysql \ 
+    target=../lib/mysql/active/bin/msql2mysql preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/my_print_defaults \ 
+    target=../lib/mysql/active/bin/my_print_defaults preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/myisamchk \ 
+    target=../lib/mysql/active/bin/myisamchk preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/myisamlog \ 
+    target=../lib/mysql/active/bin/myisamlog preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/myisampack \ 
+    target=../lib/mysql/active/bin/myisampack preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysql_convert_table_format \ 
+    target=../lib/mysql/active/bin/mysql_convert_table_format preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysql_install_db \ 
+    target=../lib/mysql/active/bin/mysql_install_db preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysql_secure_installation \ 
+    target=../lib/mysql/active/bin/mysql_secure_installation preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysql_setpermission \ 
+    target=../lib/mysql/active/bin/mysql_setpermission preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysql_tzinfo_to_sql \ 
+    target=../lib/mysql/active/bin/mysql_tzinfo_to_sql preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysql_upgrade \ 
+    target=../lib/mysql/active/bin/mysql_upgrade preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysql_zap \ 
+    target=../lib/mysql/active/bin/mysql_zap preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysqlbinlog \ 
+    target=../lib/mysql/active/bin/mysqlbinlog preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysqld_multi \ 
+    target=../lib/mysql/active/bin/mysqld_multi preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysqld_safe \ 
+    target=../lib/mysql/active/bin/mysqld_safe preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysqlhotcopy \ 
+    target=../lib/mysql/active/bin/mysqlhotcopy preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysqltest \ 
+    target=../lib/mysql/active/bin/mysqltest preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/perror \ 
+    target=../lib/mysql/active/bin/perror preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/replace \ 
+    target=../lib/mysql/active/bin/replace preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/resolve_stack_dump \ 
+    target=../lib/mysql/active/bin/resolve_stack_dump preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/resolveip \ 
+    target=../lib/mysql/active/bin/resolveip preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/msql2mysql \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/msql2mysql preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/my_print_defaults \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/my_print_defaults preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/myisamchk \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/myisamchk preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/myisamlog \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/myisamlog preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/myisampack \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/myisampack preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysql_convert_table_format \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysql_convert_table_format preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysql_install_db \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysql_install_db preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysql_secure_installation \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysql_secure_installation preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysql_setpermission \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysql_setpermission preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysql_tzinfo_to_sql \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysql_tzinfo_to_sql preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysql_upgrade \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysql_upgrade preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysql_zap \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysql_zap preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysqlbinlog \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysqlbinlog preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysqld_multi \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysqld_multi preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysqld_safe \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysqld_safe preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysqlhotcopy \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysqlhotcopy preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysqltest \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysqltest preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/perror \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/perror preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/replace \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/replace preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/resolve_stack_dump \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/resolve_stack_dump preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/resolveip \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/resolveip preserve=true pkg.linted=true

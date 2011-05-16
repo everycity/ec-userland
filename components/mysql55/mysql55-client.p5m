@@ -85,3 +85,76 @@ file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysqlimport.1
 file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysqlman.1
 file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysqlshow.1
 file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysqlslap.1
+link path=$(ECPREFIX)/lib/mysql/active target=5.5 preserve=true
+link path=$(ECPREFIX)/bin/innochecksum \ 
+    target=../lib/mysql/active/bin/innochecksum preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/myisam_ftdump \ 
+    target=../lib/mysql/active/bin/myisam_ftdump preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysql \ 
+    target=../lib/mysql/active/bin/mysql preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysql_client_test \ 
+    target=../lib/mysql/active/bin/mysql_client_test preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysql_find_rows \ 
+    target=../lib/mysql/active/bin/mysql_find_rows preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysql_fix_extensions \ 
+    target=../lib/mysql/active/bin/mysql_fix_extensions preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysql_waitpid \ 
+    target=../lib/mysql/active/bin/mysql_waitpid preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysqlaccess \ 
+    target=../lib/mysql/active/bin/mysqlaccess preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysqlaccess.conf \ 
+    target=../lib/mysql/active/bin/mysqlaccess.conf preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysqladmin \ 
+    target=../lib/mysql/active/bin/mysqladmin preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysqlbug \ 
+    target=../lib/mysql/active/bin/mysqlbug preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysqlcheck \ 
+    target=../lib/mysql/active/bin/mysqlcheck preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysqld \ 
+    target=../lib/mysql/active/bin/mysqld preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysqldump \ 
+    target=../lib/mysql/active/bin/mysqldump preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysqldumpslow \ 
+    target=../lib/mysql/active/bin/mysqldumpslow preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysqlimport \ 
+    target=../lib/mysql/active/bin/mysqlimport preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysqlshow \ 
+    target=../lib/mysql/active/bin/mysqlshow preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/mysqlslap \ 
+    target=../lib/mysql/active/bin/mysqlslap preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/innochecksum \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/innochecksum preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/myisam_ftdump \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/myisam_ftdump preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysql \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysql preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysql_client_test \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysql_client_test preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysql_find_rows \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysql_find_rows preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysql_fix_extensions \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysql_fix_extensions preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysql_waitpid \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysql_waitpid preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysqlaccess \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysqlaccess preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysqlaccess.conf \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysqlaccess.conf preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysqladmin \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysqladmin preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysqlbug \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysqlbug preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysqlcheck \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysqlcheck preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysqld \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysqld preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysqldump \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysqldump preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysqldumpslow \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysqldumpslow preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysqlimport \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysqlimport preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysqlshow \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysqlshow preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/mysqlslap \ 
+    target=../../lib/mysql/active/bin/$(MACH64)/mysqlslap preserve=true pkg.linted=true
