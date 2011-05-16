@@ -5,6 +5,10 @@
 
 . /lib/svc/share/smf_include.sh
 
+# Do not change these defaults below, they will be overwritten
+# during the next package upgrade. Instead, set these properties
+# via SMF using "svccfg -s mysql55:default" and setprop
+
 EXIMBINARY="/ec/bin/exim"
 STARTUPOPTS="-bd -q15m"
 
