@@ -22,5 +22,5 @@
 #
 [pkglint]
 
-pkglint.ext.content = pkglint.userland
-
+#pkglint.ext.content = pkglint.userland
+pkglint.exclude = userland pkglint.userland

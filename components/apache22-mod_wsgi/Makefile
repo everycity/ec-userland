@@ -40,15 +40,15 @@ LDFLAGS.32 = -L$(ECPREFIX)/lib
 LDFLAGS.64 = -L$(ECPREFIX)/lib/$(MACH64)
 CONFIGURE_ENV += LDFLAGS=$(LDFLAGS.$(BITS))
 
-CONFIGURE_OPTIONS.32	+=	--with-apxs=$(ECPREFIX)/lib/apache2/2.2/bin/apxs
-CONFIGURE_OPTIONS.64	+=	--with-apxs=$(ECPREFIX)/lib/apache2/2.2/bin/$(MACH64)/apxs
+CONFIGURE_OPTIONS.32	+=	--with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/apxs
+CONFIGURE_OPTIONS.64	+=	--with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/apxs
 
 CONFIGURE_OPTIONS.32	+=	--with-python=$(ECPREFIX)/bin/python
 CONFIGURE_OPTIONS.64	+=	--with-python=$(ECPREFIX)/bin/$(MACH64)/python
 
 COMPONENT_POST_INSTALL_ACTION = ( strip \
-                $(PROTO_DIR)/$(ECPREFIX)/lib/apache2/2.2/modules/*so \
-                $(PROTO_DIR)/$(ECPREFIX)/lib/apache2/2.2/modules/$(MACH64)/*so \
+                $(PROTO_DIR)/$(ECPREFIX)/lib/apache/2.2/modules/*so \
+                $(PROTO_DIR)/$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/*so \
                 >/dev/null 2>&1; true )
 
 build:		$(BUILD_32_and_64)
