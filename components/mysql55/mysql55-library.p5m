@@ -14,7 +14,7 @@
 
 set name=pkg.fmri value=pkg:/database/mysql-55/library@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="MySQL Database Management System - Library"
-set name=info.classification value="org.opensolaris.category.2008:System/Databases"
+#set name=info.classification value="org.opensolaris.category.2008:System/Databases"
 set name=info.upstream_url value="http://www.mysql.com/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
@@ -32,11 +32,11 @@ dir path=$(ECPREFIX)/include/mysql
 dir path=$(ECPREFIX)/include/mysql/psi
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/mysql55
-dir path=$(ECPREFIX)/lib/mysql55/bin
-dir path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)
-dir path=$(ECPREFIX)/lib/mysql55/man
-dir path=$(ECPREFIX)/lib/mysql55/man/man1
+dir path=$(ECPREFIX)/lib/mysql/5.5
+dir path=$(ECPREFIX)/lib/mysql/5.5/bin
+dir path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)
+dir path=$(ECPREFIX)/lib/mysql/5.5/man
+dir path=$(ECPREFIX)/lib/mysql/5.5/man/man1
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/aclocal
 file path=$(ECPREFIX)/include/$(MACH64)/decimal.h
@@ -143,13 +143,13 @@ file path=$(ECPREFIX)/include/sslopt-vars.h
 file path=$(ECPREFIX)/include/typelib.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libmysqlclient.so.18.0.0
 file path=$(ECPREFIX)/lib/libmysqlclient.so.18.0.0
-file path=$(ECPREFIX)/lib/mysql55/bin/$(MACH64)/mysql_config
-file path=$(ECPREFIX)/lib/mysql55/bin/mysql_config
-file path=$(ECPREFIX)/lib/mysql55/man/man1/mysql_config.1
+file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysql_config
+file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysql_config
+file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysql_config.1
 file path=$(ECPREFIX)/share/aclocal/mysql.m4
 link path=$(ECPREFIX)/bin/$(MACH64)/mysql_config \
-    target=../../lib/mysql55/bin/$(MACH64)/mysql_config
-link path=$(ECPREFIX)/bin/mysql_config target=../lib/mysql55/bin/mysql_config
+    target=../../lib/mysql/5.5/bin/$(MACH64)/mysql_config
+link path=$(ECPREFIX)/bin/mysql_config target=../lib/mysql/5.5/bin/mysql_config
 link path=$(ECPREFIX)/lib/$(MACH64)/libmysqlclient.so \
     target=libmysqlclient.so.18
 link path=$(ECPREFIX)/lib/$(MACH64)/libmysqlclient.so.18 \

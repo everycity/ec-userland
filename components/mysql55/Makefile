@@ -17,22 +17,22 @@ include ../../make-rules/shared-macros.mk
 CMAKE= cmake
 
 COMPONENT_NAME=		mysql
-COMPONENT_VERSION=	5.5.10
+COMPONENT_VERSION=	5.5.12
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:7e0b426d7a9ef0eaa6e2b2ea3e5fef1e1a078c5d
+#COMPONENT_ARCHIVE_HASH=	sha1:7e0b426d7a9ef0eaa6e2b2ea3e5fef1e1a078c5d
 COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.mysql.com/Downloads/MySQL-5.5/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CMAKE_BINDIR.32 =	lib/mysql55/bin
-CMAKE_BINDIR.64 =	lib/mysql55/bin/$(MACH64)
+CMAKE_BINDIR.32 =	lib/mysql/5.5/bin
+CMAKE_BINDIR.64 =	lib/mysql/5.5/bin/$(MACH64)
 CMAKE_LIBDIR.32 =	lib
 CMAKE_LIBDIR.64 =	lib/$(MACH64)
-CMAKE_PLUGINDIR.32 =	lib/mysql55/plugins
-CMAKE_PLUGINDIR.64 =	lib/mysql55/plugins/$(MACH64)
+CMAKE_PLUGINDIR.32 =	lib/mysql/5.5/plugins
+CMAKE_PLUGINDIR.64 =	lib/mysql/5.5/plugins/$(MACH64)
 CMAKE_INCLUDEDIR.32 =	include
 CMAKE_INCLUDEDIR.64 =	include/$(MACH64)
 
@@ -44,16 +44,17 @@ CMAKE_OPTIONS+= -DCMAKE_CXX_FLAGS=$(CFLAGS)
 CMAKE_OPTIONS+= -DINSTALL_LAYOUT=SVR4
 CMAKE_OPTIONS+= -DCMAKE_INSTALL_PREFIX=$(ECPREFIX)
 CMAKE_OPTIONS+= -DINSTALL_BINDIR=$(CMAKE_BINDIR.$(BITS))
-CMAKE_OPTIONS+= -DINSTALL_DOCDIR=share/doc/mysql55
+CMAKE_OPTIONS+= -DINSTALL_DOCDIR=share/doc/mysql/5.5
 CMAKE_OPTIONS+= -DINSTALL_INCLUDEDIR=$(CMAKE_INCLUDEDIR.$(BITS))
 CMAKE_OPTIONS+= -DINSTALL_LIBDIR=$(CMAKE_LIBDIR.$(BITS))
-CMAKE_OPTIONS+= -DINSTALL_MANDIR=lib/mysql55/man
-CMAKE_OPTIONS+= -DINSTALL_MYSQLSHAREDIR=share/mysql55
+CMAKE_OPTIONS+= -DINSTALL_MANDIR=lib/mysql/5.5/man
+CMAKE_OPTIONS+= -DINSTALL_MYSQLSHAREDIR=share/mysql/5.5
 CMAKE_OPTIONS+= -DINSTALL_PLUGINDIR=$(CMAKE_PLUGINDIR.$(BITS))
 CMAKE_OPTIONS+= -DINSTALL_SBINDIR=$(CMAKE_BINDIR.$(BITS))
 CMAKE_OPTIONS+= -DINSTALL_SCRIPTDIR=$(CMAKE_BINDIR.$(BITS))
-CMAKE_OPTIONS+= -DMYSQL_DATADIR=var/mysql55/data
-CMAKE_OPTIONS+= -DSYSCONFDIR=etc/mysql55
+CMAKE_OPTIONS+= -DMYSQL_DATADIR=var/mysql/5.5/data
+CMAKE_OPTIONS+= -DSYSCONFDIR=etc/mysql/5.5
+CMAKE_OPTIONS+= -DDEFAULT_SYSCONFDIR=etc/mysql/5.5
 
 
 # gcc invocation in some link.txt file is missing -m$(BITS) parameter
@@ -65,6 +66,16 @@ COMPONENT_POST_CONFIGURE_ACTION.64= find $(@D) -type f -name link.txt \
     -exec perl -pi -e 's/gcc\ \ -fPIC/\/gcc\ -m64\ -fPIC/' {} \;
 COMPONENT_POST_CONFIGURE_ACTION=$(COMPONENT_POST_CONFIGURE_ACTION.$(BITS))
 
+COMPONENT_POST_INSTALL_ACTION+= \
+	mkdir -p $(PROTO_DIR)/$(ECPREFIX)/var/svc/method ; \
+        mkdir -p $(PROTO_DIR)/var/svc/manifest/site ; \
+        mkdir -p $(PROTO_DIR)/$(ECPREFIX)/etc/mysql/5.5 ; \
+        cp $(COMPONENT_DIR)/mysql55-startup.sh $(PROTO_DIR)/$(ECPREFIX)/var/svc/method/mysql55 ; \
+        cp $(COMPONENT_DIR)/mysql55-manifest.xml $(PROTO_DIR)/var/svc/manifest/site/mysql55.xml ; \
+        cp $(COMPONENT_DIR)/mysql55-my.cnf $(PROTO_DIR)/$(ECPREFIX)/etc/mysql/5.5/my.cnf ; \
+	touch $(PROTO_DIR)/$(ECPREFIX)/var/mysql/5.5/data/mysqld.log ; \
+	chown mysql:mysql $(PROTO_DIR)/$(ECPREFIX)/var/mysql/5.5/data/mysqld.log ; \
+	chmod 0660 $(PROTO_DIR)/$(ECPREFIX)/var/mysql/5.5/data/mysqld.log
 
 $(BUILD_DIR)/%/.configured:	$(SOURCE_DIR)/.prep
 	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
