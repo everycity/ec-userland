@@ -33,7 +33,7 @@ dir path=$(ECPREFIX)/lib/php/5.2/lib
 dir path=$(ECPREFIX)/lib/php/5.2/lib/extensions
 dir path=$(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions
 file path=$(ECPREFIX)/etc/php/5.2/conf.d/mysql55.ini preserve=true
-file $(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613/mysql.so \
+file $(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/mysql.so \
     path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/mysql55.so
-file $(ECPREFIX)/lib/php/5.2/lib/extensions/no-debug-non-zts-20060613/mysql.so \
+file $(ECPREFIX)/lib/php/5.2/extensions/mysql.so \
     path=$(ECPREFIX)/lib/php/5.2/extensions/mysql55.so
