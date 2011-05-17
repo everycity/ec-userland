@@ -12,8 +12,11 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
-set name=pkg.fmri value=pkg:/web/server/apache-22/documentation@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="Apache Web Server V2.2 (documentation)"
+<transform dir file link hardlink path=ec/var/apache/.*/manual(/.+){0,1}$ -> \
+    default facet.doc.html true>
+
+set name=pkg.fmri value=pkg:/web/server/apache-22/httpd@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Apache Web Server V2.2"
 #set name=info.classification value="org.opensolaris.category.2008:Web Services/Application and Web Servers"
 set name=info.upstream_url value="http://httpd.apache.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
@@ -21,18 +24,46 @@ set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license apache22.license license="APLv2"
 
-depend fmri=web/server/apache-22/httpd type=require
-
 dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/apache
+dir path=$(ECPREFIX)/etc/apache/2.2
+dir path=$(ECPREFIX)/etc/apache/2.2/conf.d
+dir path=$(ECPREFIX)/etc/apache/2.2/mods-available
+dir path=$(ECPREFIX)/etc/apache/2.2/mods-enabled
+dir path=$(ECPREFIX)/etc/apache/2.2/sites-available
+dir path=$(ECPREFIX)/etc/apache/2.2/sites-enabled
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/apache
+dir path=$(ECPREFIX)/include/apache/2.2
+dir path=$(ECPREFIX)/include/apache/2.2/worker
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/apache
+dir path=$(ECPREFIX)/lib/apache/2.2
+dir path=$(ECPREFIX)/lib/apache/2.2/bin
+dir path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)
+dir path=$(ECPREFIX)/lib/apache/2.2/modules
+dir path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/apache
 dir path=$(ECPREFIX)/share/apache/2.2
+dir path=$(ECPREFIX)/share/apache/2.2/build
+dir path=$(ECPREFIX)/share/apache/2.2/build/worker
 dir path=$(ECPREFIX)/share/apache/2.2/man
 dir path=$(ECPREFIX)/share/apache/2.2/man/man1
 dir path=$(ECPREFIX)/share/apache/2.2/man/man8
 dir path=$(ECPREFIX)/var
 dir path=$(ECPREFIX)/var/apache
 dir path=$(ECPREFIX)/var/apache/2.2
+dir path=$(ECPREFIX)/var/apache/2.2/cgi-bin preserve=true
+dir path=$(ECPREFIX)/var/apache/2.2/error preserve=true
+dir path=$(ECPREFIX)/var/apache/2.2/error/include preserve=true
+dir path=$(ECPREFIX)/var/apache/2.2/htdocs preserve=true
+dir path=$(ECPREFIX)/var/apache/2.2/icons preserve=true 
+dir path=$(ECPREFIX)/var/apache/2.2/icons/small preserve=true
+dir path=$(ECPREFIX)/var/apache/2.2/log mode=0755 owner=webservd group=webservd preserve=true
 dir path=$(ECPREFIX)/var/apache/2.2/manual
 dir path=$(ECPREFIX)/var/apache/2.2/manual/developer
 dir path=$(ECPREFIX)/var/apache/2.2/manual/faq
@@ -51,6 +82,415 @@ dir path=$(ECPREFIX)/var/apache/2.2/manual/style/latex
 dir path=$(ECPREFIX)/var/apache/2.2/manual/style/xsl
 dir path=$(ECPREFIX)/var/apache/2.2/manual/style/xsl/util
 dir path=$(ECPREFIX)/var/apache/2.2/manual/vhosts
+dir path=$(ECPREFIX)/var/run
+dir path=$(ECPREFIX)/var/svc
+dir path=$(ECPREFIX)/var/svc/method
+dir path=var
+dir path=var/svc
+dir path=var/svc/manifest
+dir path=var/svc/manifest/site
+file path=$(ECPREFIX)/etc/apache/2.2/conf.d/charset preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/conf.d/localized-error-pages preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/conf.d/other-vhosts-access-log preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/conf.d/security preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/envvars preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/httpd.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/magic preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mime.types preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/actions.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/actions.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/alias.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/alias.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/asis.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/auth_basic.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/auth_digest.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/authn_anon.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/authn_dbd.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/authn_dbm.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/authn_default.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/authn_file.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/authnz_ldap.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/authz_dbm.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/authz_default.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/authz_groupfile.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/authz_host.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/authz_owner.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/authz_user.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/autoindex.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/autoindex.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/cache.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/cern_meta.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/cgi.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/cgid.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/cgid.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/dav.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/dav_fs.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/dav_fs.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/dbd.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/deflate.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/deflate.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/dir.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/dir.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/disk_cache.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/disk_cache.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/dumpio.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/env.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/expires.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/ext_filter.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/file_cache.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/filter.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/headers.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/ident.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/imagemap.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/include.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/info.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/info.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/ldap.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/ldap.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/log_config.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/log_config.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/log_forensic.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/logio.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/mem_cache.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/mem_cache.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/mime.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/mime.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/mime_magic.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/mime_magic.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/mk-load-files.sh preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/negotiation.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/negotiation.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/proxy.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/proxy.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/proxy_ajp.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/proxy_balancer.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/proxy_balancer.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/proxy_connect.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/proxy_ftp.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/proxy_ftp.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/proxy_http.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/proxy_scgi.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/reqtimeout.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/reqtimeout.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/rewrite.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/setenvif.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/setenvif.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/speling.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/ssl.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/ssl.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/status.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/status.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/substitute.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/suexec.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/unique_id.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/userdir.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/userdir.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/usertrack.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/version.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/mods-available/vhost_alias.load preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/ports.conf preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/sites-available/default preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/sites-available/default-ssl preserve=true
+file path=$(ECPREFIX)/etc/apache/2.2/sites-available/example preserve=true
+file path=$(ECPREFIX)/include/apache/2.2/ap_compat.h
+file path=$(ECPREFIX)/include/apache/2.2/ap_config.h
+file path=$(ECPREFIX)/include/apache/2.2/ap_config_auto.h
+file path=$(ECPREFIX)/include/apache/2.2/ap_config_layout.h
+file path=$(ECPREFIX)/include/apache/2.2/ap_listen.h
+file path=$(ECPREFIX)/include/apache/2.2/ap_mmn.h
+file path=$(ECPREFIX)/include/apache/2.2/ap_mpm.h
+file path=$(ECPREFIX)/include/apache/2.2/ap_provider.h
+file path=$(ECPREFIX)/include/apache/2.2/ap_regex.h
+file path=$(ECPREFIX)/include/apache/2.2/ap_regkey.h
+file path=$(ECPREFIX)/include/apache/2.2/ap_release.h
+file path=$(ECPREFIX)/include/apache/2.2/http_config.h
+file path=$(ECPREFIX)/include/apache/2.2/http_connection.h
+file path=$(ECPREFIX)/include/apache/2.2/http_core.h
+file path=$(ECPREFIX)/include/apache/2.2/http_log.h
+file path=$(ECPREFIX)/include/apache/2.2/http_main.h
+file path=$(ECPREFIX)/include/apache/2.2/http_protocol.h
+file path=$(ECPREFIX)/include/apache/2.2/http_request.h
+file path=$(ECPREFIX)/include/apache/2.2/http_vhost.h
+file path=$(ECPREFIX)/include/apache/2.2/httpd.h
+file path=$(ECPREFIX)/include/apache/2.2/mod_auth.h
+file path=$(ECPREFIX)/include/apache/2.2/mod_cgi.h
+file path=$(ECPREFIX)/include/apache/2.2/mod_core.h
+file path=$(ECPREFIX)/include/apache/2.2/mod_dav.h
+file path=$(ECPREFIX)/include/apache/2.2/mod_dbd.h
+file path=$(ECPREFIX)/include/apache/2.2/mod_include.h
+file path=$(ECPREFIX)/include/apache/2.2/mod_log_config.h
+file path=$(ECPREFIX)/include/apache/2.2/mod_proxy.h
+file path=$(ECPREFIX)/include/apache/2.2/mod_rewrite.h
+file path=$(ECPREFIX)/include/apache/2.2/mod_ssl.h
+file path=$(ECPREFIX)/include/apache/2.2/mod_status.h
+file path=$(ECPREFIX)/include/apache/2.2/mpm.h
+file path=$(ECPREFIX)/include/apache/2.2/mpm_common.h
+file path=$(ECPREFIX)/include/apache/2.2/mpm_default.h
+file path=$(ECPREFIX)/include/apache/2.2/os.h
+file path=$(ECPREFIX)/include/apache/2.2/scoreboard.h
+file path=$(ECPREFIX)/include/apache/2.2/unixd.h
+file path=$(ECPREFIX)/include/apache/2.2/util_cfgtree.h
+file path=$(ECPREFIX)/include/apache/2.2/util_charset.h
+file path=$(ECPREFIX)/include/apache/2.2/util_ebcdic.h
+file path=$(ECPREFIX)/include/apache/2.2/util_filter.h
+file path=$(ECPREFIX)/include/apache/2.2/util_ldap.h
+file path=$(ECPREFIX)/include/apache/2.2/util_md5.h
+file path=$(ECPREFIX)/include/apache/2.2/util_script.h
+file path=$(ECPREFIX)/include/apache/2.2/util_time.h
+file path=$(ECPREFIX)/include/apache/2.2/util_xml.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/ap_compat.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/ap_config.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/ap_config_auto.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/ap_config_layout.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/ap_listen.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/ap_mmn.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/ap_mpm.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/ap_provider.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/ap_regex.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/ap_regkey.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/ap_release.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/fdqueue.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/http_config.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/http_connection.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/http_core.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/http_log.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/http_main.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/http_protocol.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/http_request.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/http_vhost.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/httpd.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/mod_auth.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/mod_cgi.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/mod_core.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/mod_dav.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/mod_dbd.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/mod_include.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/mod_log_config.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/mod_proxy.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/mod_rewrite.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/mod_ssl.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/mod_status.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/mpm.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/mpm_common.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/mpm_default.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/os.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/pod.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/scoreboard.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/unixd.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/util_cfgtree.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/util_charset.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/util_ebcdic.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/util_filter.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/util_ldap.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/util_md5.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/util_script.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/util_time.h
+file path=$(ECPREFIX)/include/apache/2.2/worker/util_xml.h
+file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/ab
+file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/apachectl
+file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/apxs
+file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/apxs.worker
+file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/checkgid
+file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/dbmmanage
+file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/htcacheclean
+file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/htdbm
+file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/htdigest
+file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/htpasswd
+file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/httpd
+file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/httpd.worker
+file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/httxt2dbm
+file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/logresolve
+file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/rotatelogs
+file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/suexec
+file a2enmod path=$(ECPREFIX)/lib/apache/2.2/bin/a2enmod
+file path=$(ECPREFIX)/lib/apache/2.2/bin/ab
+file path=$(ECPREFIX)/lib/apache/2.2/bin/apachectl
+file path=$(ECPREFIX)/lib/apache/2.2/bin/apxs
+file path=$(ECPREFIX)/lib/apache/2.2/bin/apxs.worker
+file path=$(ECPREFIX)/lib/apache/2.2/bin/checkgid
+file path=$(ECPREFIX)/lib/apache/2.2/bin/dbmmanage
+file path=$(ECPREFIX)/lib/apache/2.2/bin/htcacheclean
+file path=$(ECPREFIX)/lib/apache/2.2/bin/htdbm
+file path=$(ECPREFIX)/lib/apache/2.2/bin/htdigest
+file path=$(ECPREFIX)/lib/apache/2.2/bin/htpasswd
+file path=$(ECPREFIX)/lib/apache/2.2/bin/httpd
+file path=$(ECPREFIX)/lib/apache/2.2/bin/httpd.worker
+file path=$(ECPREFIX)/lib/apache/2.2/bin/httxt2dbm
+file path=$(ECPREFIX)/lib/apache/2.2/bin/logresolve
+file path=$(ECPREFIX)/lib/apache/2.2/bin/rotatelogs
+file path=$(ECPREFIX)/lib/apache/2.2/bin/suexec
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/httpd.exp
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_actions.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_alias.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_asis.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_auth_basic.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_auth_digest.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_authn_anon.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_authn_dbd.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_authn_dbm.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_authn_default.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_authn_file.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_authnz_ldap.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_authz_dbm.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_authz_default.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_authz_groupfile.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_authz_host.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_authz_owner.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_authz_user.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_autoindex.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_cache.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_cern_meta.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_cgi.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_cgid.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_dav.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_dav_fs.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_dbd.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_deflate.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_dir.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_disk_cache.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_dumpio.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_env.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_expires.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_ext_filter.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_file_cache.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_filter.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_headers.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_ident.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_imagemap.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_include.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_info.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_ldap.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_log_config.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_log_forensic.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_logio.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_mem_cache.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_mime.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_mime_magic.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_negotiation.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_proxy.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_ajp.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_balancer.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_connect.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_ftp.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_http.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_scgi.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_reqtimeout.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_rewrite.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_setenvif.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_speling.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_ssl.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_status.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_substitute.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_suexec.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_unique_id.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_userdir.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_usertrack.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_version.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_vhost_alias.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/httpd.exp
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_actions.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_alias.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_asis.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_auth_basic.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_auth_digest.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_authn_anon.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_authn_dbd.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_authn_dbm.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_authn_default.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_authn_file.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_authnz_ldap.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_authz_dbm.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_authz_default.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_authz_groupfile.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_authz_host.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_authz_owner.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_authz_user.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_autoindex.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_cache.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_cern_meta.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_cgi.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_cgid.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_dav.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_dav_fs.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_dbd.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_deflate.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_dir.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_disk_cache.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_dumpio.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_env.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_expires.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_ext_filter.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_file_cache.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_filter.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_headers.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_ident.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_imagemap.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_include.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_info.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_ldap.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_log_config.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_log_forensic.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_logio.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_mem_cache.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_mime.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_mime_magic.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_negotiation.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_proxy.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_proxy_ajp.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_proxy_balancer.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_proxy_connect.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_proxy_ftp.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_proxy_http.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_proxy_scgi.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_reqtimeout.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_rewrite.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_setenvif.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_speling.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_ssl.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_status.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_substitute.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_suexec.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_unique_id.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_userdir.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_usertrack.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_version.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_vhost_alias.so
+file path=$(ECPREFIX)/share/apache/2.2/build/config.nice
+file path=$(ECPREFIX)/share/apache/2.2/build/config_vars.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/instdso.sh mode=555
+file path=$(ECPREFIX)/share/apache/2.2/build/library.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/ltlib.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/mkdir.sh mode=555
+file path=$(ECPREFIX)/share/apache/2.2/build/program.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/rules.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/special.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/config.nice
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/config_vars.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/instdso.sh mode=555
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/library.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/ltlib.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/mkdir.sh mode=555
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/program.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/rules.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/special.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/$(MACH64)/config.nice
+file path=$(ECPREFIX)/share/apache/2.2/build/$(MACH64)/config_vars.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/$(MACH64)/instdso.sh mode=555
+file path=$(ECPREFIX)/share/apache/2.2/build/$(MACH64)/library.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/$(MACH64)/ltlib.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/$(MACH64)/mkdir.sh mode=555
+file path=$(ECPREFIX)/share/apache/2.2/build/$(MACH64)/program.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/$(MACH64)/rules.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/$(MACH64)/special.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/$(MACH64)/config.nice
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/$(MACH64)/config_vars.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/$(MACH64)/instdso.sh mode=555
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/$(MACH64)/library.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/$(MACH64)/ltlib.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/$(MACH64)/mkdir.sh mode=555
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/$(MACH64)/program.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/$(MACH64)/rules.mk
+file path=$(ECPREFIX)/share/apache/2.2/build/worker/$(MACH64)/special.mk
 file path=$(ECPREFIX)/share/apache/2.2/man/man1/dbmmanage.1
 file path=$(ECPREFIX)/share/apache/2.2/man/man1/htdbm.1
 file path=$(ECPREFIX)/share/apache/2.2/man/man1/htdigest.1
@@ -63,6 +503,256 @@ file path=$(ECPREFIX)/share/apache/2.2/man/man8/httpd.8
 file path=$(ECPREFIX)/share/apache/2.2/man/man8/logresolve.8
 file path=$(ECPREFIX)/share/apache/2.2/man/man8/rotatelogs.8
 file path=$(ECPREFIX)/share/apache/2.2/man/man8/suexec.8
+file path=$(ECPREFIX)/var/apache/2.2/cgi-bin/printenv
+file path=$(ECPREFIX)/var/apache/2.2/cgi-bin/test-cgi
+file path=$(ECPREFIX)/var/apache/2.2/error/HTTP_BAD_GATEWAY.html.var
+file path=$(ECPREFIX)/var/apache/2.2/error/HTTP_BAD_REQUEST.html.var
+file path=$(ECPREFIX)/var/apache/2.2/error/HTTP_FORBIDDEN.html.var
+file path=$(ECPREFIX)/var/apache/2.2/error/HTTP_GONE.html.var
+file \
+    path=$(ECPREFIX)/var/apache/2.2/error/HTTP_INTERNAL_SERVER_ERROR.html.var
+file path=$(ECPREFIX)/var/apache/2.2/error/HTTP_LENGTH_REQUIRED.html.var
+file path=$(ECPREFIX)/var/apache/2.2/error/HTTP_METHOD_NOT_ALLOWED.html.var
+file path=$(ECPREFIX)/var/apache/2.2/error/HTTP_NOT_FOUND.html.var
+file path=$(ECPREFIX)/var/apache/2.2/error/HTTP_NOT_IMPLEMENTED.html.var
+file path=$(ECPREFIX)/var/apache/2.2/error/HTTP_PRECONDITION_FAILED.html.var
+file \
+    path=$(ECPREFIX)/var/apache/2.2/error/HTTP_REQUEST_ENTITY_TOO_LARGE.html.var
+file path=$(ECPREFIX)/var/apache/2.2/error/HTTP_REQUEST_TIME_OUT.html.var
+file \
+    path=$(ECPREFIX)/var/apache/2.2/error/HTTP_REQUEST_URI_TOO_LARGE.html.var
+file path=$(ECPREFIX)/var/apache/2.2/error/HTTP_SERVICE_UNAVAILABLE.html.var
+file path=$(ECPREFIX)/var/apache/2.2/error/HTTP_UNAUTHORIZED.html.var
+file \
+    path=$(ECPREFIX)/var/apache/2.2/error/HTTP_UNSUPPORTED_MEDIA_TYPE.html.var
+file path=$(ECPREFIX)/var/apache/2.2/error/HTTP_VARIANT_ALSO_VARIES.html.var
+file path=$(ECPREFIX)/var/apache/2.2/error/README
+file path=$(ECPREFIX)/var/apache/2.2/error/contact.html.var
+file path=$(ECPREFIX)/var/apache/2.2/error/include/bottom.html
+file path=$(ECPREFIX)/var/apache/2.2/error/include/spacer.html
+file path=$(ECPREFIX)/var/apache/2.2/error/include/top.html
+file path=$(ECPREFIX)/var/apache/2.2/htdocs/index.html
+file path=$(ECPREFIX)/var/apache/2.2/icons/README
+file path=$(ECPREFIX)/var/apache/2.2/icons/README.html
+file path=$(ECPREFIX)/var/apache/2.2/icons/a.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/a.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/alert.black.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/alert.black.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/alert.red.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/alert.red.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/apache_pb.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/apache_pb.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/apache_pb2.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/apache_pb2.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/apache_pb2_ani.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/back.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/back.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/ball.gray.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/ball.gray.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/ball.red.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/ball.red.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/binary.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/binary.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/binhex.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/binhex.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/blank.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/blank.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/bomb.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/bomb.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/box1.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/box1.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/box2.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/box2.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/broken.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/broken.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/burst.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/burst.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/c.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/c.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/comp.blue.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/comp.blue.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/comp.gray.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/comp.gray.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/compressed.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/compressed.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/continued.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/continued.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/dir.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/dir.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/diskimg.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/diskimg.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/down.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/down.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/dvi.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/dvi.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/f.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/f.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/folder.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/folder.open.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/folder.open.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/folder.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/folder.sec.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/folder.sec.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/forward.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/forward.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/generic.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/generic.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/generic.red.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/generic.red.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/generic.sec.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/generic.sec.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/hand.right.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/hand.right.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/hand.up.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/hand.up.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/icon.sheet.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/icon.sheet.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/image1.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/image1.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/image2.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/image2.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/image3.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/image3.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/index.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/index.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/layout.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/layout.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/left.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/left.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/link.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/link.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/movie.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/movie.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/p.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/p.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/patch.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/patch.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/pdf.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/pdf.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie0.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie0.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie1.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie1.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie2.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie2.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie3.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie3.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie4.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie4.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie5.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie5.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie6.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie6.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie7.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie7.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie8.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/pie8.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/portal.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/portal.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/ps.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/ps.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/quill.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/quill.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/right.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/right.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/screw1.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/screw1.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/screw2.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/screw2.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/script.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/script.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/back.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/back.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/binary.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/binary.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/binhex.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/binhex.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/blank.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/blank.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/broken.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/broken.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/burst.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/burst.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/comp1.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/comp1.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/comp2.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/comp2.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/compressed.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/compressed.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/continued.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/continued.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/dir.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/dir.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/dir2.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/dir2.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/doc.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/doc.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/forward.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/forward.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/generic.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/generic.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/generic2.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/generic2.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/generic3.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/generic3.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/image.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/image.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/image2.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/image2.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/index.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/index.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/key.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/key.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/movie.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/movie.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/patch.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/patch.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/ps.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/ps.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/rainbow.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/rainbow.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/sound.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/sound.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/sound2.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/sound2.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/tar.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/tar.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/text.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/text.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/transfer.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/transfer.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/unknown.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/unknown.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/uu.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/small/uu.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/sound1.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/sound1.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/sound2.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/sound2.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/sphere1.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/sphere1.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/sphere2.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/sphere2.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/tar.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/tar.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/tex.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/tex.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/text.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/text.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/transfer.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/transfer.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/unknown.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/unknown.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/up.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/up.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/uu.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/uu.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/uuencoded.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/uuencoded.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/world1.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/world1.png
+file path=$(ECPREFIX)/var/apache/2.2/icons/world2.gif
+file path=$(ECPREFIX)/var/apache/2.2/icons/world2.png
 file path=$(ECPREFIX)/var/apache/2.2/manual/LICENSE
 file path=$(ECPREFIX)/var/apache/2.2/manual/bind.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/bind.html.de
@@ -86,8 +776,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/content-negotiation.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/content-negotiation.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/content-negotiation.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/content-negotiation.html.ja.utf8
-file \
-    path=$(ECPREFIX)/var/apache/2.2/manual/content-negotiation.html.ko.euc-kr
+file path=$(ECPREFIX)/var/apache/2.2/manual/content-negotiation.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/content-negotiation.html.tr.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/convenience.map
 file path=$(ECPREFIX)/var/apache/2.2/manual/custom-error.html
@@ -102,12 +791,14 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/developer/debugging.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/developer/debugging.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/developer/documenting.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/developer/documenting.html.en
+file path=$(ECPREFIX)/var/apache/2.2/manual/developer/documenting.html.zh-cn
 file path=$(ECPREFIX)/var/apache/2.2/manual/developer/filters.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/developer/filters.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/developer/hooks.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/developer/hooks.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/developer/index.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/developer/index.html.en
+file path=$(ECPREFIX)/var/apache/2.2/manual/developer/index.html.zh-cn
 file path=$(ECPREFIX)/var/apache/2.2/manual/developer/modules.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/developer/modules.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/developer/modules.html.ja.utf8
@@ -133,6 +824,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/env.html.tr.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/faq/index.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/faq/index.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/faq/index.html.tr.utf8
+file path=$(ECPREFIX)/var/apache/2.2/manual/faq/index.html.zh-cn
 file path=$(ECPREFIX)/var/apache/2.2/manual/filter.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/filter.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/filter.html.es
@@ -156,10 +848,12 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/handler.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/handler.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/handler.html.ru.koi8-r
 file path=$(ECPREFIX)/var/apache/2.2/manual/handler.html.tr.utf8
+file path=$(ECPREFIX)/var/apache/2.2/manual/handler.html.zh-cn
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/access.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/access.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/auth.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/auth.html.en
+file path=$(ECPREFIX)/var/apache/2.2/manual/howto/auth.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/auth.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/auth.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/auth.html.tr.utf8
@@ -169,6 +863,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/howto/cgi.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/cgi.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/htaccess.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/htaccess.html.en
+file path=$(ECPREFIX)/var/apache/2.2/manual/howto/htaccess.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/htaccess.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/htaccess.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/htaccess.html.pt-br
@@ -176,6 +871,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/howto/index.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/index.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/index.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/index.html.ko.euc-kr
+file path=$(ECPREFIX)/var/apache/2.2/manual/howto/index.html.zh-cn
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/public_html.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/public_html.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/howto/public_html.html.ja.utf8
@@ -208,6 +904,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/images/mod_rewrite_fig1.png
 file path=$(ECPREFIX)/var/apache/2.2/manual/images/mod_rewrite_fig2.gif
 file path=$(ECPREFIX)/var/apache/2.2/manual/images/mod_rewrite_fig2.png
 file path=$(ECPREFIX)/var/apache/2.2/manual/images/pixel.gif
+file path=$(ECPREFIX)/var/apache/2.2/manual/images/rewrite_rule_flow.png
 file path=$(ECPREFIX)/var/apache/2.2/manual/images/right.gif
 file path=$(ECPREFIX)/var/apache/2.2/manual/images/ssl_intro_fig1.gif
 file path=$(ECPREFIX)/var/apache/2.2/manual/images/ssl_intro_fig1.png
@@ -216,6 +913,8 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/images/ssl_intro_fig2.png
 file path=$(ECPREFIX)/var/apache/2.2/manual/images/ssl_intro_fig3.gif
 file path=$(ECPREFIX)/var/apache/2.2/manual/images/ssl_intro_fig3.png
 file path=$(ECPREFIX)/var/apache/2.2/manual/images/sub.gif
+file path=$(ECPREFIX)/var/apache/2.2/manual/images/syntax_rewritecond.png
+file path=$(ECPREFIX)/var/apache/2.2/manual/images/syntax_rewriterule.png
 file path=$(ECPREFIX)/var/apache/2.2/manual/images/up.gif
 file path=$(ECPREFIX)/var/apache/2.2/manual/index.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/index.html.de
@@ -226,6 +925,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/index.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/index.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/index.html.pt-br
 file path=$(ECPREFIX)/var/apache/2.2/manual/index.html.tr.utf8
+file path=$(ECPREFIX)/var/apache/2.2/manual/index.html.zh-cn
 file path=$(ECPREFIX)/var/apache/2.2/manual/install.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/install.html.de
 file path=$(ECPREFIX)/var/apache/2.2/manual/install.html.en
@@ -254,6 +954,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/misc/index.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/misc/index.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/misc/index.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/misc/index.html.tr.utf8
+file path=$(ECPREFIX)/var/apache/2.2/manual/misc/index.html.zh-cn
 file path=$(ECPREFIX)/var/apache/2.2/manual/misc/password_encryptions.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/misc/password_encryptions.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/misc/perf-tuning.html
@@ -279,6 +980,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/mod/beos.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/core.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/core.html.de
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/core.html.en
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/core.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/core.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/core.html.tr.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/directive-dict.html
@@ -294,6 +996,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/mod/directives.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/directives.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/directives.html.ru.koi8-r
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/directives.html.tr.utf8
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/directives.html.zh-cn
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/event.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/event.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/index.html
@@ -303,6 +1006,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/mod/index.html.es
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/index.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/index.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/index.html.tr.utf8
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/index.html.zh-cn
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_actions.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_actions.html.de
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_actions.html.en
@@ -319,14 +1023,16 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_asis.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_asis.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_auth_basic.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_auth_basic.html.en
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_auth_basic.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_auth_basic.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_auth_basic.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_auth_digest.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_auth_digest.html.en
-file \
-    path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_auth_digest.html.ko.euc-kr
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_auth_digest.html.fr
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_auth_digest.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_alias.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_alias.html.en
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_alias.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_anon.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_anon.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_anon.html.ja.utf8
@@ -339,23 +1045,23 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_dbm.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_dbm.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_default.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_default.html.en
-file \
-    path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_default.html.ja.utf8
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_default.html.ja.utf8
 file \
     path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_default.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_file.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_file.html.en
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_file.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_file.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authn_file.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authnz_ldap.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authnz_ldap.html.en
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authnz_ldap.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_dbm.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_dbm.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_dbm.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_default.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_default.html.en
-file \
-    path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_default.html.ja.utf8
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_default.html.ja.utf8
 file \
     path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_default.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_groupfile.html
@@ -371,14 +1077,14 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_host.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_owner.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_owner.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_owner.html.ja.utf8
-file \
-    path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_owner.html.ko.euc-kr
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_owner.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_user.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_user.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_user.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_user.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_autoindex.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_autoindex.html.en
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_autoindex.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_autoindex.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_autoindex.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_autoindex.html.tr.utf8
@@ -508,6 +1214,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_nw_ssl.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_nw_ssl.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy.html.en
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy_ajp.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy_ajp.html.en
@@ -518,18 +1225,19 @@ file \
     path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy_balancer.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy_connect.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy_connect.html.en
-file \
-    path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy_connect.html.ja.utf8
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy_connect.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy_ftp.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy_ftp.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy_http.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy_http.html.en
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy_http.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy_scgi.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_proxy_scgi.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_reqtimeout.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_reqtimeout.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_rewrite.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_rewrite.html.en
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_rewrite.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_setenvif.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_setenvif.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_setenvif.html.ja.utf8
@@ -555,6 +1263,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_substitute.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_substitute.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_suexec.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_suexec.html.en
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_suexec.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_suexec.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_suexec.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_suexec.html.tr.utf8
@@ -607,6 +1316,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/mod/quickreference.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/quickreference.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/quickreference.html.ru.koi8-r
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/quickreference.html.tr.utf8
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/quickreference.html.zh-cn
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/worker.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/worker.html.de
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/worker.html.en
@@ -620,6 +1330,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/mpm.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mpm.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/mpm.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mpm.html.tr.utf8
+file path=$(ECPREFIX)/var/apache/2.2/manual/mpm.html.zh-cn
 file path=$(ECPREFIX)/var/apache/2.2/manual/new_features_2_0.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/new_features_2_0.html.de
 file path=$(ECPREFIX)/var/apache/2.2/manual/new_features_2_0.html.en
@@ -641,6 +1352,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/platform/ebcdic.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/platform/index.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/platform/index.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/platform/index.html.ko.euc-kr
+file path=$(ECPREFIX)/var/apache/2.2/manual/platform/index.html.zh-cn
 file path=$(ECPREFIX)/var/apache/2.2/manual/platform/netware.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/platform/netware.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/platform/netware.html.ko.euc-kr
@@ -678,8 +1390,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/programs/htcacheclean.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/htcacheclean.html.en
 file \
     path=$(ECPREFIX)/var/apache/2.2/manual/programs/htcacheclean.html.ko.euc-kr
-file \
-    path=$(ECPREFIX)/var/apache/2.2/manual/programs/htcacheclean.html.tr.utf8
+file path=$(ECPREFIX)/var/apache/2.2/manual/programs/htcacheclean.html.tr.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/htdbm.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/htdbm.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/htdbm.html.tr.utf8
@@ -704,10 +1415,10 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/programs/index.html.es
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/index.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/index.html.ru.koi8-r
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/index.html.tr.utf8
+file path=$(ECPREFIX)/var/apache/2.2/manual/programs/index.html.zh-cn
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/logresolve.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/logresolve.html.en
-file \
-    path=$(ECPREFIX)/var/apache/2.2/manual/programs/logresolve.html.ko.euc-kr
+file path=$(ECPREFIX)/var/apache/2.2/manual/programs/logresolve.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/logresolve.html.tr.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/other.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/other.html.en
@@ -715,8 +1426,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/programs/other.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/other.html.tr.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/rotatelogs.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/rotatelogs.html.en
-file \
-    path=$(ECPREFIX)/var/apache/2.2/manual/programs/rotatelogs.html.ko.euc-kr
+file path=$(ECPREFIX)/var/apache/2.2/manual/programs/rotatelogs.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/rotatelogs.html.tr.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/suexec.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/programs/suexec.html.en
@@ -770,10 +1480,12 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/sitemap.html.es
 file path=$(ECPREFIX)/var/apache/2.2/manual/sitemap.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/sitemap.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/sitemap.html.tr.utf8
+file path=$(ECPREFIX)/var/apache/2.2/manual/sitemap.html.zh-cn
 file path=$(ECPREFIX)/var/apache/2.2/manual/ssl/index.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/ssl/index.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/ssl/index.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/ssl/index.html.tr.utf8
+file path=$(ECPREFIX)/var/apache/2.2/manual/ssl/index.html.zh-cn
 file path=$(ECPREFIX)/var/apache/2.2/manual/ssl/ssl_compat.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/ssl/ssl_compat.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/ssl/ssl_faq.html
@@ -808,6 +1520,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/style/sitemap.dtd
 file path=$(ECPREFIX)/var/apache/2.2/manual/style/version.ent
 file path=$(ECPREFIX)/var/apache/2.2/manual/suexec.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/suexec.html.en
+file path=$(ECPREFIX)/var/apache/2.2/manual/suexec.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/suexec.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/suexec.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/suexec.html.tr.utf8
@@ -845,6 +1558,7 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/vhosts/index.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/vhosts/index.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/vhosts/index.html.ru.koi8-r
 file path=$(ECPREFIX)/var/apache/2.2/manual/vhosts/index.html.tr.utf8
+file path=$(ECPREFIX)/var/apache/2.2/manual/vhosts/index.html.zh-cn
 file path=$(ECPREFIX)/var/apache/2.2/manual/vhosts/ip-based.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/vhosts/ip-based.html.en
 file path=$(ECPREFIX)/var/apache/2.2/manual/vhosts/ip-based.html.fr
@@ -862,3 +1576,143 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/vhosts/name-based.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/vhosts/name-based.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/vhosts/name-based.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/vhosts/name-based.html.tr.utf8
+file http-apache22 path=$(ECPREFIX)/var/svc/method/http-apache22 mode=555
+file http-apache22.xml path=var/svc/manifest/site/http-apache22.xml restart_fmri=svc:/system/manifest-import:default
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/alias.conf \
+    target=../mods-available/alias.conf preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/alias.load \
+    target=../mods-available/alias.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/auth_basic.load \
+    target=../mods-available/auth_basic.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/authn_file.load \
+    target=../mods-available/authn_file.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/authz_default.load \
+    target=../mods-available/authz_default.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/authz_groupfile.load \
+    target=../mods-available/authz_groupfile.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/authz_host.load \
+    target=../mods-available/authz_host.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/authz_user.load \
+    target=../mods-available/authz_user.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/autoindex.conf \
+    target=../mods-available/autoindex.conf preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/autoindex.load \
+    target=../mods-available/autoindex.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/cgi.load \
+    target=../mods-available/cgi.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/deflate.conf \
+    target=../mods-available/deflate.conf preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/deflate.load \
+    target=../mods-available/deflate.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/dir.conf \
+    target=../mods-available/dir.conf preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/dir.load \
+    target=../mods-available/dir.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/env.load \
+    target=../mods-available/env.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/log_config.load \
+    target=../mods-available/log_config.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/mime.conf \
+    target=../mods-available/mime.conf preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/mime.load \
+    target=../mods-available/mime.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/negotiation.conf \
+    target=../mods-available/negotiation.conf preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/negotiation.load \
+    target=../mods-available/negotiation.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/reqtimeout.conf \
+    target=../mods-available/reqtimeout.conf preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/reqtimeout.load \
+    target=../mods-available/reqtimeout.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/setenvif.conf \
+    target=../mods-available/setenvif.conf preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/setenvif.load \
+    target=../mods-available/setenvif.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/status.conf \
+    target=../mods-available/status.conf preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/status.load \
+    target=../mods-available/status.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/sites-enabled/000-default \
+    target=../sites-available/default preserve=true
+link path=$(ECPREFIX)/lib/apache/2.2/bin/a2dismod target=a2enmod
+link path=$(ECPREFIX)/lib/apache/2.2/bin/a2ensite target=a2enmod
+link path=$(ECPREFIX)/lib/apache/2.2/bin/a2dissite target=a2enmod
+
+link path=$(ECPREFIX)/etc/apache/2.2/sites-enabled/000-default \
+    target=../sites-available/default preserve=true
+link path=$(ECPREFIX)/lib/apache/2.2/bin/a2dismod target=a2enmod
+link path=$(ECPREFIX)/lib/apache/2.2/bin/a2ensite target=a2enmod
+link path=$(ECPREFIX)/lib/apache/2.2/bin/a2dissite target=a2enmod
+link path=$(ECPREFIX)/lib/apache/active target=2.2 preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/ab \
+    target=../lib/apache/active/bin/ab preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/ab \
+    target=../../lib/apache/active/bin/$(MACH64)/ab preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/apachectl \
+    target=../lib/apache/active/bin/apachectl preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/apachectl \
+    target=../../lib/apache/active/bin/$(MACH64)/apachectl preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/apxs \
+    target=../lib/apache/active/bin/apxs preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/apxs \
+    target=../../lib/apache/active/bin/$(MACH64)/apxs preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/checkgid \
+    target=../lib/apache/active/bin/checkgid preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/checkgid \
+    target=../../lib/apache/active/bin/$(MACH64)/checkgid preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/dbmmanage \
+    target=../lib/apache/active/bin/dbmmanage preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/dbmmanage \
+    target=../../lib/apache/active/bin/$(MACH64)/dbmmanage preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/htcacheclean \
+    target=../lib/apache/active/bin/htcacheclean preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/htcacheclean \
+    target=../../lib/apache/active/bin/$(MACH64)/htcacheclean preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/htdbm \
+    target=../lib/apache/active/bin/htdbm preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/htdbm \
+    target=../../lib/apache/active/bin/$(MACH64)/htdbm preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/htdigest \
+    target=../lib/apache/active/bin/htdigest preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/htdigest \
+    target=../../lib/apache/active/bin/$(MACH64)/htdigest preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/htpasswd \
+    target=../lib/apache/active/bin/htpasswd preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/htpasswd \
+    target=../../lib/apache/active/bin/$(MACH64)/htpasswd preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/httpd \
+    target=../lib/apache/active/bin/httpd preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/httpd \
+    target=../../lib/apache/active/bin/$(MACH64)/httpd preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/httxt2dbm \
+    target=../lib/apache/active/bin/httxt2dbm preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/httxt2dbm \
+    target=../../lib/apache/active/bin/$(MACH64)/httxt2dbm preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/logresolve \
+    target=../lib/apache/active/bin/logresolve preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/logresolve \
+    target=../../lib/apache/active/bin/$(MACH64)/logresolve preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/rotatelogs \
+    target=../lib/apache/active/bin/rotatelogs preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/rotatelogs \
+    target=../../lib/apache/active/bin/$(MACH64)/rotatelogs preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/suexec \
+    target=../lib/apache/active/bin/suexec preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/suexec \
+    target=../../lib/apache/active/bin/$(MACH64)/suexec preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/a2enmod \
+    target=../lib/apache/active/bin/a2enmod preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/a2enmod \
+    target=../../lib/apache/active/bin/$(MACH64)/a2enmod preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/a2dismod \
+    target=../lib/apache/active/bin/a2dismod preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/a2dismod \
+    target=../../lib/apache/active/bin/$(MACH64)/a2dismod preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/a2ensite \
+    target=../lib/apache/active/bin/a2ensite preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/a2ensite \
+    target=../../lib/apache/active/bin/$(MACH64)/a2ensite preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/a2dissite \
+    target=../lib/apache/active/bin/a2dissite preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/a2dissite \
+    target=../../lib/apache/active/bin/$(MACH64)/a2dissite preserve=true pkg.linted=true
