@@ -72,9 +72,12 @@ LDFLAGS               +=	$(LDFLAGS.$(BITS))
 CONFIGURE_ENV         +=	CC="$(CC)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
 CONFIGURE_SCRIPT       =	$(@D)/configure
 
-COMPONENT_PRE_CONFIGURE_ACTION	=	cp -R $(SOURCE_DIR)/ext/mysql/* $(@D) ; cd $(@D) ; /ec/lib/php/5.2/bin/phpize
-COMPONENT_POST_CONFIGURE_ACTION	=	perl -p -i -e 's/MYSQL_SHARED_LIBADD = .*/MYSQL_SHARED_LIBADD = -mysqlclient/g' $(@D)/Makefile
+COMPONENT_PRE_CONFIGURE_ACTION	 =	cp -R $(SOURCE_DIR)/ext/mysql/* $(@D) ; cd $(@D) ; /ec/lib/php/5.2/bin/phpize
+COMPONENT_POST_CONFIGURE_ACTION	 =	perl -p -i -e 's/MYSQL_SHARED_LIBADD = .*/MYSQL_SHARED_LIBADD = -lmysqlclient/g' $(@D)/Makefile
 COMPONENT_INSTALL_ARGS		+=	INSTALL_ROOT=$(PROTO_DIR)
+COMPONENT_POST_INSTALL_ACTION+= \
+	( $(MKDIR) -p $(PROTO_DIR)/$(PHP_SYSCONFDIR)/conf.d ; \
+	  $(CP) $(COMPONENT_DIR)/mysql55.ini $(PROTO_DIR)/$(PHP_SYSCONFDIR)/conf.d/ )
 
 build:		$(BUILD_32_and_64)
 
