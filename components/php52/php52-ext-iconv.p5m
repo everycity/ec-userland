@@ -36,10 +36,7 @@ dir path=$(ECPREFIX)/lib/php/5.2/include/php/ext/iconv
 dir path=$(ECPREFIX)/lib/php/5.2/lib
 dir path=$(ECPREFIX)/lib/php/5.2/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions
-dir \
-    path=$(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613
 dir path=$(ECPREFIX)/lib/php/5.2/lib/extensions
-dir path=$(ECPREFIX)/lib/php/5.2/lib/extensions/no-debug-non-zts-20060613
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/iconv/php_have_bsd_iconv.h
 file \
     path=$(ECPREFIX)/lib/php/5.2/include/php/ext/iconv/php_have_glibc_iconv.h
@@ -55,8 +52,6 @@ file \
     path=$(ECPREFIX)/lib/php/5.2/include/php/ext/iconv/php_php_iconv_h_path.h
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/iconv/php_php_iconv_impl.h
 file path=$(ECPREFIX)/etc/php/5.2/conf.d/iconv.ini preserve=true
-file $(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613/iconv.so \
-    path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/iconv.so
-file $(ECPREFIX)/lib/php/5.2/lib/extensions/no-debug-non-zts-20060613/iconv.so \
-    path=$(ECPREFIX)/lib/php/5.2/extensions/iconv.so
+file path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/iconv.so
+file path=$(ECPREFIX)/lib/php/5.2/extensions/iconv.so
 depend fmri=web/php-52/php-common type=require

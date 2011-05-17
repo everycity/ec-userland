@@ -32,8 +32,6 @@ dir path=$(ECPREFIX)/lib/php/5.2
 dir path=$(ECPREFIX)/lib/php/5.2/extensions
 dir path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)
 file path=$(ECPREFIX)/etc/php/5.2/conf.d/xmlreader.ini preserve=true
-file $(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613/xmlreader.so \
-    path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/xmlreader.so
-file $(ECPREFIX)/lib/php/5.2/lib/extensions/no-debug-non-zts-20060613/xmlreader.so \
-    path=$(ECPREFIX)/lib/php/5.2/extensions/xmlreader.so
+file path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/xmlreader.so
+file path=$(ECPREFIX)/lib/php/5.2/extensions/xmlreader.so
 depend fmri=web/php-52/php-common type=require

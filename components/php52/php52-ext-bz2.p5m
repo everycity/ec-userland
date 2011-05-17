@@ -32,8 +32,6 @@ dir path=$(ECPREFIX)/lib/php/5.2
 dir path=$(ECPREFIX)/lib/php/5.2/extensions
 dir path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)
 file path=$(ECPREFIX)/etc/php/5.2/conf.d/bz2.ini preserve=true
-file $(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613/bz2.so \
-    path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/bz2.so
-file $(ECPREFIX)/lib/php/5.2/lib/extensions/no-debug-non-zts-20060613/bz2.so \
-    path=$(ECPREFIX)/lib/php/5.2/extensions/bz2.so
+file path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/bz2.so
+file path=$(ECPREFIX)/lib/php/5.2/extensions/bz2.so
 depend fmri=web/php-52/php-common type=require

@@ -59,7 +59,7 @@ CONFIGURE_OPTIONS     +=	--datadir=$(PHP_DATADIR)
 CONFIGURE_OPTIONS     +=	--mandir=$(PHP_PREFIX)/share/man
 
 CONFIGURE_OPTIONS.32  +=	--with-apxs2=$(AP_PREFIX)/bin/apxs
-CONFIGURE_OPTIONS.64  +=	--with-apxs2=$(AP_PREFIX)/bin/amd64/apxs
+CONFIGURE_OPTIONS.64  +=	--with-apxs2=$(AP_PREFIX)/bin/$(MACH64)/apxs
 
 CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris2.10
 
@@ -183,8 +183,10 @@ COMPONENT_POST_INSTALL_ACTION+= \
 	)
 
 # Environment Variables
-COMPONENT_BUILD_ENV+=	"CC=$(CC)" "CXX=$(CCC)"
-CONFIGURE_ENV+=	"CC=$(CC)" "CXX=$(CCC)"
+COMPONENT_BUILD_ENV +=	"CC=$(CC)" "CXX=$(CCC)"
+CONFIGURE_ENV.32 +=	EXTENSION_DIR=$(PHP_PREFIX)/extensions
+CONFIGURE_ENV.64 +=	EXTENSION_DIR=$(PHP_PREFIX)/extensions/$(MACH64)
+CONFIGURE_ENV +=	"CC=$(CC)" "CXX=$(CCC)" $(CONFIGURE_ENV.$(BITS))
 
 # configure the unpacked source for building 32 and 64 bit version
 CONFIGURE_SCRIPT =	$(SOURCE_DIR)/configure

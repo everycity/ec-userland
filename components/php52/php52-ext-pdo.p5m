@@ -36,15 +36,10 @@ dir path=$(ECPREFIX)/lib/php/5.2/include/php/ext/pdo
 dir path=$(ECPREFIX)/lib/php/5.2/lib
 dir path=$(ECPREFIX)/lib/php/5.2/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions
-dir \
-    path=$(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613
 dir path=$(ECPREFIX)/lib/php/5.2/lib/extensions
-dir path=$(ECPREFIX)/lib/php/5.2/lib/extensions/no-debug-non-zts-20060613
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/pdo/php_pdo.h
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/pdo/php_pdo_driver.h
 file path=$(ECPREFIX)/etc/php/5.2/conf.d/pdo.ini preserve=true
-file $(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613/pdo.so \
-    path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/pdo.so
-file $(ECPREFIX)/lib/php/5.2/lib/extensions/no-debug-non-zts-20060613/pdo.so \
-    path=$(ECPREFIX)/lib/php/5.2/extensions/pdo.so
+file path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/pdo.so
+file path=$(ECPREFIX)/lib/php/5.2/extensions/pdo.so
 depend fmri=web/php-52/php-common type=require

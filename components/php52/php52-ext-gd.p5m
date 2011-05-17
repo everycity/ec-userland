@@ -37,10 +37,7 @@ dir path=$(ECPREFIX)/lib/php/5.2/include/php/ext/gd/libgd
 dir path=$(ECPREFIX)/lib/php/5.2/lib
 dir path=$(ECPREFIX)/lib/php/5.2/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions
-dir \
-    path=$(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613
 dir path=$(ECPREFIX)/lib/php/5.2/lib/extensions
-dir path=$(ECPREFIX)/lib/php/5.2/lib/extensions/no-debug-non-zts-20060613
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/gd/gdcache.h
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/gd/gdttf.h
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/gd/libgd/gd.h
@@ -56,8 +53,6 @@ file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/gd/libgd/jisx0208.h
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/gd/libgd/wbmp.h
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/gd/php_gd.h
 file path=$(ECPREFIX)/etc/php/5.2/conf.d/gd.ini preserve=true
-file $(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions/no-debug-non-zts-20060613/gd.so \
-    path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/gd.so
-file $(ECPREFIX)/lib/php/5.2/lib/extensions/no-debug-non-zts-20060613/gd.so \
-    path=$(ECPREFIX)/lib/php/5.2/extensions/gd.so
+file path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/gd.so
+file path=$(ECPREFIX)/lib/php/5.2/extensions/gd.so
 depend fmri=web/php-52/php-common type=require
