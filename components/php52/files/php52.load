@@ -6,5 +6,5 @@
         <IfDefine !64bit>
             LoadModule php5_module modules/mod_php52.so
         </IfDefine>
-    </IfDefine>
-</IfDefine>
+    </IfModule>
+</IfModule>
