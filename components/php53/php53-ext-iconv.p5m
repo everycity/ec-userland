@@ -46,7 +46,7 @@ file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/iconv/php_iconv_aliased_libico
 file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/iconv/php_iconv_supports_errno.h
 file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/iconv/php_php_iconv_h_path.h
 file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/iconv/php_php_iconv_impl.h
-file path=$(ECPREFIX)/etc/php/5.3/conf.d/iconv.ini preserve=true
+file files/iconv.ini path=$(ECPREFIX)/etc/php/5.3/conf.d/iconv.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)/iconv.so
 file path=$(ECPREFIX)/lib/php/5.3/extensions/iconv.so
 depend fmri=pkg:/web/php-53/php-common type=require

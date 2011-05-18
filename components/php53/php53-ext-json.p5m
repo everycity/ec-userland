@@ -36,7 +36,7 @@ dir path=$(ECPREFIX)/lib/php/5.3/include/php/ext/json
 dir path=$(ECPREFIX)/lib/php/5.3/extensions
 dir path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)
 file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/json/php_json.h
-file path=$(ECPREFIX)/etc/php/5.3/conf.d/json.ini preserve=true
+file files/json.ini path=$(ECPREFIX)/etc/php/5.3/conf.d/json.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)/json.so
 file path=$(ECPREFIX)/lib/php/5.3/extensions/json.so
 depend fmri=pkg:/web/php-53/php-common type=require

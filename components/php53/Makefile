@@ -170,41 +170,11 @@ COMPONENT_PRE_INSTALL_ACTION+= \
 	  echo "LoadModule foo foo/bar.so" >> $(PROTO_DIR)/$(AP_SYSCONFDIR)/httpd.conf \
 	)
 
-# Post-Install Actions
-COMPONENT_POST_INSTALL_ACTION+= \
-	( $(MKDIR) -p $(PROTO_DIR)/$(PHP_SYSCONFDIR)/conf.d ; \
-	  $(MKDIR) -p $(PROTO_DIR)/$(AP_SYSCONFDIR)/mods-available ; \
-	  $(MKDIR) -p $(PROTO_DIR)/var/svc/manifest/site ; \
-	  $(CP) $(COMPONENT_DIR)/files/post-install.xml $(PROTO_DIR)/var/svc/manifest/site/php53-postinstall.xml ; \
-	  $(CP) $(COMPONENT_DIR)/files/*.ini $(PROTO_DIR)/$(PHP_SYSCONFDIR)/conf.d/ ; \
-	  $(MV) $(PROTO_DIR)/$(PHP_SYSCONFDIR)/conf.d/php.ini $(PROTO_DIR)/$(PHP_SYSCONFDIR)/ ; \
-	  $(CP) $(COMPONENT_DIR)/files/php53.conf $(PROTO_DIR)/$(AP_SYSCONFDIR)/mods-available/ ; \
-	  $(CP) $(COMPONENT_DIR)/files/php53.load $(PROTO_DIR)/$(AP_SYSCONFDIR)/mods-available/ \
-	)
-
 # Environment Variables
 COMPONENT_BUILD_ENV+=	"CC=$(CC)" "CXX=$(CCC)"
 CONFIGURE_ENV.32 +=     EXTENSION_DIR=$(PHP_PREFIX)/extensions
 CONFIGURE_ENV.64 +=     EXTENSION_DIR=$(PHP_PREFIX)/extensions/$(MACH64)
 CONFIGURE_ENV +=        "CC=$(CC)" "CXX=$(CCC)" $(CONFIGURE_ENV.$(BITS))
-
-# configure the unpacked source for building 32 and 64 bit version
-CONFIGURE_SCRIPT =	$(SOURCE_DIR)/configure
-$(BUILD_DIR)/%/.configured:	$(SOURCE_DIR)/.prep
-	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
-	$(COMPONENT_PRE_CONFIGURE_ACTION)
-	(cd $(@D) ; $(ENV) $(CONFIGURE_ENV) $(CONFIG_SHELL) \
-		$(CONFIGURE_SCRIPT) $(CONFIGURE_OPTIONS))
-	$(COMPONENT_POST_CONFIGURE_ACTION)
-	$(TOUCH) $@
-
-# build the configured source
-$(BUILD_DIR)/%/.built:  $(BUILD_DIR)/%/.configured
-	$(COMPONENT_PRE_BUILD_ACTION)
-	(cd $(@D) ; $(ENV) $(COMPONENT_BUILD_ENV) \
-		$(GMAKE) -j16 $(COMPONENT_BUILD_ARGS) $(COMPONENT_BUILD_TARGETS))
-	$(COMPONENT_POST_BUILD_ACTION)
-	$(TOUCH) $@
 
 build:		$(BUILD_32_and_64)
 

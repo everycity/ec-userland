@@ -67,7 +67,7 @@ dir path=var
 dir path=var/svc
 dir path=var/svc/manifest
 dir path=var/svc/manifest/site
-file path=$(ECPREFIX)/etc/php/5.3/php.ini preserve=true
+file files/php.ini path=$(ECPREFIX)/etc/php/5.3/php.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.3/bin/$(MACH64)/phar.phar
 file path=$(ECPREFIX)/lib/php/5.3/bin/$(MACH64)/php-config
 file path=$(ECPREFIX)/lib/php/5.3/bin/$(MACH64)/phpize
@@ -314,23 +314,24 @@ file path=$(ECPREFIX)/lib/php/5.3/lib/build/shtool
 file path=$(ECPREFIX)/lib/php/5.3/share/man/man1/php-config.1
 file path=$(ECPREFIX)/lib/php/5.3/share/man/man1/phpize.1
 link path=$(ECPREFIX)/share/man/man1/php-config.1 \
-     target=../../../lib/php/active/share/man/man1/php-config.1 preserve=true
+    target=../../../lib/php/active/share/man/man1/php-config.1 preserve=true
 link path=$(ECPREFIX)/share/man/man1/phpize.1 \
-     target=../../../lib/php/active/share/man/man1/phpize.1 preserve=true
+    target=../../../lib/php/active/share/man/man1/phpize.1 preserve=true
 link path=$(ECPREFIX)/bin/phar.phar \
-     target=../lib/php/active/bin/phar.phar preserve=true
+    target=../lib/php/active/bin/phar.phar preserve=true
 link path=$(ECPREFIX)/bin/php-config \
-     target=../lib/php/active/bin/php-config preserve=true
+    target=../lib/php/active/bin/php-config preserve=true
 link path=$(ECPREFIX)/bin/phpize \
-     target=../lib/php/active/bin/phpize preserve=true
+    target=../lib/php/active/bin/phpize preserve=true
 link path=$(ECPREFIX)/bin/pecl \
-     target=../lib/php/active/bin/pecl preserve=true
+    target=../lib/php/active/bin/pecl preserve=true
 link path=$(ECPREFIX)/bin/$(MACH64)/phar.phar \
-     target=../../lib/php/active/bin/$(MACH64)/phar.phar preserve=true
+    target=../../lib/php/active/bin/$(MACH64)/phar.phar preserve=true
 link path=$(ECPREFIX)/bin/$(MACH64)/php-config \
-     target=../../lib/php/active/bin/$(MACH64)/php-config preserve=true
+    target=../../lib/php/active/bin/$(MACH64)/php-config preserve=true
 link path=$(ECPREFIX)/bin/$(MACH64)/phpize \
-     target=../../lib/php/active/bin/$(MACH64)/phpize preserve=true
+    target=../../lib/php/active/bin/$(MACH64)/phpize preserve=true
 link path=$(ECPREFIX)/bin/$(MACH64)/pecl \
-     target=../../lib/php/active/bin/$(MACH64)/pecl preserve=true
-file path=var/svc/manifest/site/php53-postinstall.xml restart_fmri=pkg:/svc:/system/manifest-import:default
+    target=../../lib/php/active/bin/$(MACH64)/pecl preserve=true
+file files/php53-postinstall.xml path=var/svc/manifest/site/php53-postinstall.xml \
+    restart_fmri=pkg:/svc:/system/manifest-import:default

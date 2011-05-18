@@ -41,7 +41,7 @@ dir path=$(ECPREFIX)/lib/php/5.3/extensions
 dir path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)
 file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/sqlite/libsqlite/src/sqlite.h
 file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/sqlite3/libsqlite/sqlite3.h
-file path=$(ECPREFIX)/etc/php/5.3/conf.d/sqlite.ini preserve=true
+file files/sqlite.ini path=$(ECPREFIX)/etc/php/5.3/conf.d/sqlite.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)/sqlite.so
 file path=$(ECPREFIX)/lib/php/5.3/extensions/sqlite.so
 depend fmri=pkg:/web/php-53/php-common type=require

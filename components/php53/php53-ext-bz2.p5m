@@ -31,7 +31,7 @@ dir path=$(ECPREFIX)/lib/php
 dir path=$(ECPREFIX)/lib/php/5.3
 dir path=$(ECPREFIX)/lib/php/5.3/extensions
 dir path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)
-file path=$(ECPREFIX)/etc/php/5.3/conf.d/bz2.ini preserve=true
+file files/bz2.ini path=$(ECPREFIX)/etc/php/5.3/conf.d/bz2.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)/bz2.so
 file path=$(ECPREFIX)/lib/php/5.3/extensions/bz2.so
 depend fmri=pkg:/web/php-53/php-common type=require

@@ -31,7 +31,7 @@ dir path=$(ECPREFIX)/lib/php
 dir path=$(ECPREFIX)/lib/php/5.3
 dir path=$(ECPREFIX)/lib/php/5.3/extensions
 dir path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)
-file path=$(ECPREFIX)/etc/php/5.3/conf.d/bcmath.ini preserve=true
+file files/bcmath.ini path=$(ECPREFIX)/etc/php/5.3/conf.d/bcmath.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)/bcmath.so
 file path=$(ECPREFIX)/lib/php/5.3/extensions/bcmath.so
 depend fmri=pkg:/web/php-53/php-common type=require

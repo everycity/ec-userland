@@ -32,7 +32,7 @@ dir path=$(ECPREFIX)/lib/php
 dir path=$(ECPREFIX)/lib/php/5.3
 dir path=$(ECPREFIX)/lib/php/5.3/extensions
 dir path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)
-file path=$(ECPREFIX)/etc/php/5.3/conf.d/sockets.ini preserve=true
+file files/sockets.ini path=$(ECPREFIX)/etc/php/5.3/conf.d/sockets.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/sockets/php_sockets.h
 file path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)/sockets.so
 file path=$(ECPREFIX)/lib/php/5.3/extensions/sockets.so

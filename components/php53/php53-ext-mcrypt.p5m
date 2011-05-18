@@ -31,7 +31,7 @@ dir path=$(ECPREFIX)/lib/php
 dir path=$(ECPREFIX)/lib/php/5.3
 dir path=$(ECPREFIX)/lib/php/5.3/extensions
 dir path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)
-file path=$(ECPREFIX)/etc/php/5.3/conf.d/mcrypt.ini preserve=true
+file files/mcrypt.ini path=$(ECPREFIX)/etc/php/5.3/conf.d/mcrypt.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)/mcrypt.so
 file path=$(ECPREFIX)/lib/php/5.3/extensions/mcrypt.so
 depend fmri=pkg:/web/php-53/php-common type=require
