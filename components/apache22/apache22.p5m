@@ -1610,8 +1610,12 @@ link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/dir.load \
     target=../mods-available/dir.load preserve=true
 link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/env.load \
     target=../mods-available/env.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/log_config.conf \
+    target=../mods-available/log_config.conf preserve=true
 link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/log_config.load \
     target=../mods-available/log_config.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/logio.load \
+    target=../mods-available/logio.load preserve=true
 link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/mime.conf \
     target=../mods-available/mime.conf preserve=true
 link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/mime.load \
