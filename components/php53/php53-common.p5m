@@ -334,4 +334,4 @@ link path=$(ECPREFIX)/bin/$(MACH64)/phpize \
 link path=$(ECPREFIX)/bin/$(MACH64)/pecl \
     target=../../lib/php/active/bin/$(MACH64)/pecl preserve=true
 file files/php53-postinstall.xml path=var/svc/manifest/site/php53-postinstall.xml \
-    restart_fmri=pkg:/svc:/system/manifest-import:default
+    restart_fmri=svc:/system/manifest-import:default
