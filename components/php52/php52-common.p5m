@@ -60,6 +60,10 @@ dir path=$(ECPREFIX)/lib/php/5.2/share/man/man1
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
+dir path=var
+dir path=var/svc
+dir path=var/svc/manifest
+dir path=var/svc/manifest/site
 file path=$(ECPREFIX)/etc/php/5.2/php.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.2/bin/$(MACH64)/php-config
 file path=$(ECPREFIX)/lib/php/5.2/bin/$(MACH64)/phpize
@@ -298,7 +302,6 @@ file path=$(ECPREFIX)/lib/php/5.2/lib/build/scan_makefile_in.awk
 file path=$(ECPREFIX)/lib/php/5.2/lib/build/shtool
 file path=$(ECPREFIX)/lib/php/5.2/share/man/man1/php-config.1
 file path=$(ECPREFIX)/lib/php/5.2/share/man/man1/phpize.1
-link path=$(ECPREFIX)/lib/php/active target=5.2 preserve=true
 link path=$(ECPREFIX)/share/man/man1/php-config.1 \
     target=../../../lib/php/active/share/man/man1/php-config.1 preserve=true
 link path=$(ECPREFIX)/share/man/man1/phpize.1 \
@@ -315,3 +318,4 @@ link path=$(ECPREFIX)/bin/$(MACH64)/phpize \
     target=../../lib/php/active/bin/$(MACH64)/phpize preserve=true
 link path=$(ECPREFIX)/bin/$(MACH64)/pecl \
     target=../../lib/php/active/bin/$(MACH64)/pecl preserve=true
+file path=var/svc/manifest/site/php52-postinstall.xml restart_fmri=pkg:/svc:/system/manifest-import:default

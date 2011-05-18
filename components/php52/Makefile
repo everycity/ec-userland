@@ -176,6 +176,8 @@ COMPONENT_PRE_INSTALL_ACTION+= \
 COMPONENT_POST_INSTALL_ACTION+= \
 	( $(MKDIR) -p $(PROTO_DIR)/$(PHP_SYSCONFDIR)/conf.d ; \
 	  $(MKDIR) -p $(PROTO_DIR)/$(AP_SYSCONFDIR)/mods-available ; \
+	  $(MKDIR) -p $(PROTO_DIR)/var/svc/manifest/site ; \
+	  $(CP) $(COMPONENT_DIR)/files/post-install.xml $(PROTO_DIR)/var/svc/manifest/site/php52-postinstall.xml ; \
 	  $(CP) $(COMPONENT_DIR)/files/*.ini $(PROTO_DIR)/$(PHP_SYSCONFDIR)/conf.d/ ; \
 	  $(MV) $(PROTO_DIR)/$(PHP_SYSCONFDIR)/conf.d/php.ini $(PROTO_DIR)/$(PHP_SYSCONFDIR)/ ; \
 	  $(CP) $(COMPONENT_DIR)/files/php52.conf $(PROTO_DIR)/$(AP_SYSCONFDIR)/mods-available/ ; \
