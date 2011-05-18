@@ -1,0 +1,266 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/web/php-53/php-pear@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="PHP Server 5.3 (pear)"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://www.php.net"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license php53.license license="PHP53 License"
+
+depend fmri=pkg:/web/php-53/php-common type=require
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/php
+dir path=$(ECPREFIX)/etc/php/5.3
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/php
+dir path=$(ECPREFIX)/lib/php/5.3
+dir path=$(ECPREFIX)/lib/php/5.3/bin
+dir path=$(ECPREFIX)/lib/php/5.3/bin/$(MACH64)
+dir path=$(ECPREFIX)/lib/php/5.3/share
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.channels
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.channels/.alias
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.registry
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.registry/.channel.__uri
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.registry/.channel.doc.php.net
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.registry/.channel.pecl.php.net
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/Archive
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/Console
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/OS
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/ChannelFile
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Downloader
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Frontend
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/PackageFile
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/PackageFile/Generator
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/PackageFile/Parser
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/PackageFile/v2
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/REST
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Task
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Task/Postinstallscript
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Task/Replace
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Task/Unixeol
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Task/Windowseol
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Validator
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/Structures
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/Structures/Graph
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/Structures/Graph/Manipulator
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/XML
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/data
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/data/PEAR
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/data/Structures_Graph
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Archive_Tar
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Archive_Tar/docs
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/PEAR
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/Structures_Graph
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/media
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/tutorials
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/tutorials/Structures_Graph
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/XML_Util
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/XML_Util/examples
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/Structures_Graph
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/Structures_Graph/tests
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/Structures_Graph/tests/testCase
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util
+dir path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests
+file path=$(ECPREFIX)/etc/php/5.3/pear.conf
+file path=$(ECPREFIX)/lib/php/5.3/bin/pear
+file path=$(ECPREFIX)/lib/php/5.3/bin/peardev
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.channels/.alias/pear.txt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.channels/.alias/pecl.txt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.channels/.alias/phpdocs.txt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.channels/__uri.reg
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.channels/doc.php.net.reg
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.channels/pear.php.net.reg
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.channels/pecl.php.net.reg
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.depdb
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.depdblock
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.filemap
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.lock
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.registry/archive_tar.reg
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.registry/console_getopt.reg
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.registry/pear.reg
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.registry/structures_graph.reg
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/.registry/xml_util.reg
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/Archive/Tar.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/Console/Getopt.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/OS/Guess.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Autoloader.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Builder.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/ChannelFile.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/ChannelFile/Parser.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Auth.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Auth.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Build.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Build.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Channels.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Channels.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Common.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Config.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Config.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Install.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Install.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Mirror.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Mirror.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Package.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Package.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Pickle.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Pickle.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Registry.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Registry.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Remote.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Remote.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Test.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Command/Test.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Common.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Config.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Dependency2.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/DependencyDB.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Downloader.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Downloader/Package.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/ErrorStack.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Exception.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/FixPHP5PEARWarnings.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Frontend.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Frontend/CLI.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Cfg.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Cfg.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Common.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Data.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Data.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Doc.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Doc.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Ext.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Ext.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Php.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Php.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Script.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Script.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Src.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Src.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Test.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Test.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Www.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Installer/Role/Www.xml
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/PackageFile.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/PackageFile/Generator/v1.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/PackageFile/Generator/v2.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/PackageFile/Parser/v1.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/PackageFile/Parser/v2.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/PackageFile/v1.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/PackageFile/v2.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/PackageFile/v2/Validator.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/PackageFile/v2/rw.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Packager.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/REST.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/REST/10.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/REST/11.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/REST/13.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Registry.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/RunTest.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Task/Common.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Task/Postinstallscript.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Task/Postinstallscript/rw.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Task/Replace.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Task/Replace/rw.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Task/Unixeol.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Task/Unixeol/rw.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Task/Windowseol.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Task/Windowseol/rw.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Validate.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/Validator/PECL.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR/XMLParser.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/PEAR5.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/Structures/Graph.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/Structures/Graph/Manipulator/AcyclicTest.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/Structures/Graph/Manipulator/TopologicalSorter.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/Structures/Graph/Node.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/System.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/XML/Util.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/data/PEAR/package.dtd
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/data/PEAR/template.spec
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/data/Structures_Graph/LICENSE
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Archive_Tar/docs/Archive_Tar.txt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/PEAR/INSTALL
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/PEAR/LICENSE
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/PEAR/README
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/generate.sh
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/Structures_Graph/Structures_Graph.html
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/Structures_Graph/Structures_Graph_Manipulator_AcyclicTest.html
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/Structures_Graph/Structures_Graph_Manipulator_TopologicalSorter.html
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/Structures_Graph/Structures_Graph_Node.html
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/Structures_Graph/_Structures_Graph_Manipulator_AcyclicTest_php.html
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/Structures_Graph/_Structures_Graph_Manipulator_TopologicalSorter_php.html
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/Structures_Graph/_Structures_Graph_Node_php.html
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/Structures_Graph/_Structures_Graph_php.html
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/Structures_Graph/tutorial_Structures_Graph.pkg.html
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/classtrees_Structures_Graph.html
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/elementindex.html
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/elementindex_Structures_Graph.html
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/errors.html
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/index.html
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/li_Structures_Graph.html
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/media/banner.css
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/media/stylesheet.css
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/packages.html
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/html/todolist.html
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/Structures_Graph/docs/tutorials/Structures_Graph/Structures_Graph.pkg
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/XML_Util/examples/example.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/doc/XML_Util/examples/example2.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/pearcmd.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/peclcmd.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/Structures_Graph/tests/AllTests.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/Structures_Graph/tests/testCase/BasicGraph.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/AllTests.php
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBasic_apiVersion.phpt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBasic_attributesToString.phpt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBasic_collapseEmptyTags.phpt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBasic_createCDataSection.phpt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBasic_createComment.phpt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBasic_createEndElement.phpt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBasic_createStartElement.phpt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBasic_createTag.phpt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBasic_createTagFromArray.phpt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBasic_getDocTypeDeclaration.phpt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBasic_getXmlDeclaration.phpt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBasic_isValidName.phpt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBasic_raiseError.phpt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBasic_replaceEntities.phpt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBasic_reverseEntities.phpt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBasic_splitQualifiedName.phpt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBug_4950.phpt
+file path=$(ECPREFIX)/lib/php/5.3/share/PEAR/test/XML_Util/tests/testBug_5392.phpt
+link path=$(ECPREFIX)/bin/pear target=../lib/php/active/bin/pear preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/peardev target=../lib/php/active/bin/peardev preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/pear target=../../lib/php/active/bin/$(MACH64)/pear preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/peardev target=../../lib/php/active/bin/$(MACH64)/peardev preserve=true pkg.linted=true
