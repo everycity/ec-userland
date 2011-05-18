@@ -1641,13 +1641,11 @@ link path=$(ECPREFIX)/etc/apache/2.2/sites-enabled/000-default \
 link path=$(ECPREFIX)/lib/apache/2.2/bin/a2dismod target=a2enmod
 link path=$(ECPREFIX)/lib/apache/2.2/bin/a2ensite target=a2enmod
 link path=$(ECPREFIX)/lib/apache/2.2/bin/a2dissite target=a2enmod
-
 link path=$(ECPREFIX)/etc/apache/2.2/sites-enabled/000-default \
     target=../sites-available/default preserve=true
 link path=$(ECPREFIX)/lib/apache/2.2/bin/a2dismod target=a2enmod
 link path=$(ECPREFIX)/lib/apache/2.2/bin/a2ensite target=a2enmod
 link path=$(ECPREFIX)/lib/apache/2.2/bin/a2dissite target=a2enmod
-link path=$(ECPREFIX)/lib/apache/active target=2.2 preserve=true pkg.linted=true
 link path=$(ECPREFIX)/bin/ab \
     target=../lib/apache/active/bin/ab preserve=true pkg.linted=true
 link path=$(ECPREFIX)/bin/$(MACH64)/ab \
@@ -1720,3 +1718,4 @@ link path=$(ECPREFIX)/bin/a2dissite \
     target=../lib/apache/active/bin/a2dissite preserve=true pkg.linted=true
 link path=$(ECPREFIX)/bin/$(MACH64)/a2dissite \
     target=../../lib/apache/active/bin/$(MACH64)/a2dissite preserve=true pkg.linted=true
+file post-install.xml path=var/svc/manifest/site/apache22-postinstall.xml restart_fmri=svc:/system/manifest-import:default
