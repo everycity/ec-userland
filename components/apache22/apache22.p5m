@@ -302,7 +302,7 @@ file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/httxt2dbm
 file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/logresolve
 file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/rotatelogs
 file path=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/suexec
-file a2enmod path=$(ECPREFIX)/lib/apache/2.2/bin/a2enmod
+file files/a2enmod path=$(ECPREFIX)/lib/apache/2.2/bin/a2enmod
 file path=$(ECPREFIX)/lib/apache/2.2/bin/ab
 file path=$(ECPREFIX)/lib/apache/2.2/bin/apachectl
 file path=$(ECPREFIX)/lib/apache/2.2/bin/apxs
@@ -1576,8 +1576,9 @@ file path=$(ECPREFIX)/var/apache/2.2/manual/vhosts/name-based.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/vhosts/name-based.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/vhosts/name-based.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/vhosts/name-based.html.tr.utf8
-file http-apache22 path=$(ECPREFIX)/var/svc/method/http-apache22 mode=555
-file http-apache22.xml path=var/svc/manifest/site/http-apache22.xml restart_fmri=svc:/system/manifest-import:default
+file files/apache22-startup.sh path=$(ECPREFIX)/var/svc/method/http-apache22 mode=555
+file files/apache22-manifest.xml path=var/svc/manifest/site/http-apache22.xml \
+    restart_fmri=svc:/system/manifest-import:default
 link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/alias.conf \
     target=../mods-available/alias.conf preserve=true
 link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/alias.load \
@@ -1718,4 +1719,5 @@ link path=$(ECPREFIX)/bin/a2dissite \
     target=../lib/apache/active/bin/a2dissite preserve=true pkg.linted=true
 link path=$(ECPREFIX)/bin/$(MACH64)/a2dissite \
     target=../../lib/apache/active/bin/$(MACH64)/a2dissite preserve=true pkg.linted=true
-file post-install.xml path=var/svc/manifest/site/apache22-postinstall.xml restart_fmri=svc:/system/manifest-import:default
+file files/apache22-postinstall.xml path=var/svc/manifest/site/apache22-postinstall.xml \
+    restart_fmri=svc:/system/manifest-import:default
