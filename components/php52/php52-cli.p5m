@@ -21,7 +21,7 @@ set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license php52.license license="PHP52 License"
 
-depend fmri=web/php-52/php-common type=require
+depend fmri=pkg:/web/php-52/php-common type=require
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/lib

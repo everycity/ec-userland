@@ -34,4 +34,4 @@ dir path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)
 file path=$(ECPREFIX)/etc/php/5.2/conf.d/openssl.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/openssl.so
 file path=$(ECPREFIX)/lib/php/5.2/extensions/openssl.so
-depend fmri=web/php-52/php-common type=require
+depend fmri=pkg:/web/php-52/php-common type=require

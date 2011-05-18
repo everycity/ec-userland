@@ -36,4 +36,4 @@ dir path=$(ECPREFIX)/lib/php/5.2/lib/extensions
 file path=$(ECPREFIX)/etc/php/5.2/conf.d/pdo_sqlite.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/pdo_sqlite.so
 file path=$(ECPREFIX)/lib/php/5.2/extensions/pdo_sqlite.so
-depend fmri=web/php-52/php-common type=require
+depend fmri=pkg:/web/php-52/php-common type=require

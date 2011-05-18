@@ -42,4 +42,4 @@ link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/php52.load \
     target=../mods-available/php52.load preserve=true
 link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/php52.conf \
     target=../mods-available/php52.conf preserve=true
-depend fmri=web/php-52/php-common type=require
+depend fmri=pkg:/web/php-52/php-common type=require

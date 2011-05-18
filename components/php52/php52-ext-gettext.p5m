@@ -34,4 +34,4 @@ dir path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)
 file path=$(ECPREFIX)/etc/php/5.2/conf.d/gettext.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/gettext.so
 file path=$(ECPREFIX)/lib/php/5.2/extensions/gettext.so
-depend fmri=web/php-52/php-common type=require
+depend fmri=pkg:/web/php-52/php-common type=require

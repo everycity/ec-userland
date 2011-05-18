@@ -80,4 +80,4 @@ file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/mbstring/php_mbregex.h
 file path=$(ECPREFIX)/etc/php/5.2/conf.d/mbstring.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/mbstring.so
 file path=$(ECPREFIX)/lib/php/5.2/extensions/mbstring.so
-depend fmri=web/php-52/php-common type=require
+depend fmri=pkg:/web/php-52/php-common type=require

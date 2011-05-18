@@ -42,4 +42,4 @@ file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/pdo/php_pdo_driver.h
 file path=$(ECPREFIX)/etc/php/5.2/conf.d/pdo.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/pdo.so
 file path=$(ECPREFIX)/lib/php/5.2/extensions/pdo.so
-depend fmri=web/php-52/php-common type=require
+depend fmri=pkg:/web/php-52/php-common type=require
