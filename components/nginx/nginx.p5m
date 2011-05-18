@@ -21,7 +21,7 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
-set name=pkg.fmri value=pkg:/webservers/nginx@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.fmri value=pkg:/web/server/nginx@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="Nginx Webserver"
 #set name=info.classification value="org.opensolaris.category.2008:
 set name=info.upstream_url value="http://nginx.net/"
@@ -35,22 +35,22 @@ dir path=$(ECPREFIX)/conf
 dir path=$(ECPREFIX)/html
 dir path=$(ECPREFIX)/logs
 dir path=$(ECPREFIX)/sbin
-file path=$(ECPREFIX)/conf/fastcgi.conf
+file path=$(ECPREFIX)/conf/fastcgi.conf preserve=true
 file path=$(ECPREFIX)/conf/fastcgi.conf.default
-file path=$(ECPREFIX)/conf/fastcgi_params
+file path=$(ECPREFIX)/conf/fastcgi_params preserve=true
 file path=$(ECPREFIX)/conf/fastcgi_params.default
-file path=$(ECPREFIX)/conf/koi-utf
-file path=$(ECPREFIX)/conf/koi-win
-file path=$(ECPREFIX)/conf/mime.types
+file path=$(ECPREFIX)/conf/koi-utf preserve=true
+file path=$(ECPREFIX)/conf/koi-win preserve=true
+file path=$(ECPREFIX)/conf/mime.types preserve=true
 file path=$(ECPREFIX)/conf/mime.types.default
-file path=$(ECPREFIX)/conf/nginx.conf
+file path=$(ECPREFIX)/conf/nginx.conf preserve=true
 file path=$(ECPREFIX)/conf/nginx.conf.default
-file path=$(ECPREFIX)/conf/scgi_params
+file path=$(ECPREFIX)/conf/scgi_params preserve=true
 file path=$(ECPREFIX)/conf/scgi_params.default
-file path=$(ECPREFIX)/conf/uwsgi_params
+file path=$(ECPREFIX)/conf/uwsgi_params preserve=true
 file path=$(ECPREFIX)/conf/uwsgi_params.default
-file path=$(ECPREFIX)/conf/win-utf
-file path=$(ECPREFIX)/html/50x.html
-file path=$(ECPREFIX)/html/index.html
+file path=$(ECPREFIX)/conf/win-utf preserve=true
+file path=$(ECPREFIX)/html/50x.html preserve=true
+file path=$(ECPREFIX)/html/index.html preserve=true
 file path=$(ECPREFIX)/sbin/nginx
 file path=$(ECPREFIX)/sbin/nginx.old

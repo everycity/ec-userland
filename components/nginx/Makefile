@@ -33,40 +33,25 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS = --prefix=$(ECPREFIX)
+CONFIGURE_OPTIONS  = --prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS += --user=webservd
 CONFIGURE_OPTIONS += --group=webservd
-CONFIGURE_OPTIONS += --with-http_ssl_module --with-http_secure_link_module --with-http_stub_status_module --with-ipv6
-
-$(BUILD_DIR)/%/.configured:	$(SOURCE_DIR)/.prep
-	mkdir -p $(BUILD_DIR)
-	rsync -aH --delete $(SOURCE_DIR)/ $(@D)/
-	$(COMPONENT_PRE_CONFIGURE_ACTION)
-	(cd $(@D) ; $(ENV) $(CONFIGURE_ENV) $(CONFIG_SHELL) \
-		./configure $(CONFIGURE_OPTIONS))
-	$(COMPONENT_POST_CONFIGURE_ACTION)
-	$(TOUCH) $@
-
 CONFIGURE_OPTIONS += --with-http_ssl_module
-#CONFIGURE_OPTIONS  +=		--disable-static
-#CONFIGURE_OPTIONS  +=		--enable-shared
-#CONFIGURE_OPTIONS  +=		CFLAGS="$(CFLAGS)"
+CONFIGURE_OPTIONS += --with-http_secure_link_module
+CONFIGURE_OPTIONS += --with-http_stub_status_module
+CONFIGURE_OPTIONS += --with-ipv6
 
-# common targets
+COMPONENT_BUILD_ENV +=  "CC=$(CC)" "CXX=$(CCC)"
+CONFIGURE_ENV +=  "CC=$(CC)" "CXX=$(CCC)"
+
+COMPONENT_PRE_CONFIGURE_ACTION += \
+	rsync -aH --delete $(SOURCE_DIR)/ $(@D)/
+
 build:		$(BUILD_32_and_64)
-
-include ../../make-rules/shared-targets.mk
 
 install:	$(INSTALL_32_and_64)
 
-#install:	$(PROTOUSRSHAREMAN3DIR) $(INSTALL_32_and_64)
-#	$(CP) -f $(COMPONENT_DIR)/man3/*.3 $(PROTOUSRSHAREMAN3DIR)
-
-# build does this always
 test: build
 	@cd $(BUILD_DIR_32); $(MAKE) check
 	@cd $(BUILD_DIR_64); $(MAKE) check
 
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
