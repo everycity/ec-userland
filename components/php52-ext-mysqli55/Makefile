@@ -64,13 +64,8 @@ CONFIGURE_SCRIPT       =	$(@D)/configure
 
 COMPONENT_PRE_CONFIGURE_ACTION	=	cp -R $(SOURCE_DIR)/ext/mysqli/* $(@D) ; cd $(@D) ; /ec/lib/php/5.2/bin/phpize
 COMPONENT_INSTALL_ARGS		+=	INSTALL_ROOT=$(PROTO_DIR)
-COMPONENT_POST_INSTALL_ACTION+= \
-	( $(MKDIR) -p $(PROTO_DIR)/$(PHP_SYSCONFDIR)/conf.d ; \
-	  $(CP) $(COMPONENT_DIR)/mysqli55.ini $(PROTO_DIR)/$(PHP_SYSCONFDIR)/conf.d/ )
 
 build:		$(BUILD_32_and_64)
-
-include ../../make-rules/shared-targets.mk
 
 install:	$(INSTALL_32_and_64)
 
