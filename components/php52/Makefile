@@ -178,24 +178,6 @@ CONFIGURE_ENV.32 +=	EXTENSION_DIR=$(PHP_PREFIX)/extensions
 CONFIGURE_ENV.64 +=	EXTENSION_DIR=$(PHP_PREFIX)/extensions/$(MACH64)
 CONFIGURE_ENV +=	"CC=$(CC)" "CXX=$(CCC)" $(CONFIGURE_ENV.$(BITS))
 
-# configure the unpacked source for building 32 and 64 bit version
-CONFIGURE_SCRIPT =	$(SOURCE_DIR)/configure
-$(BUILD_DIR)/%/.configured:	$(SOURCE_DIR)/.prep
-	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
-	$(COMPONENT_PRE_CONFIGURE_ACTION)
-	(cd $(@D) ; $(ENV) $(CONFIGURE_ENV) $(CONFIG_SHELL) \
-		$(CONFIGURE_SCRIPT) $(CONFIGURE_OPTIONS))
-	$(COMPONENT_POST_CONFIGURE_ACTION)
-	$(TOUCH) $@
-
-# build the configured source
-$(BUILD_DIR)/%/.built:  $(BUILD_DIR)/%/.configured
-	$(COMPONENT_PRE_BUILD_ACTION)
-	(cd $(@D) ; $(ENV) $(COMPONENT_BUILD_ENV) \
-		$(GMAKE) -j16 $(COMPONENT_BUILD_ARGS) $(COMPONENT_BUILD_TARGETS))
-	$(COMPONENT_POST_BUILD_ACTION)
-	$(TOUCH) $@
-
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
