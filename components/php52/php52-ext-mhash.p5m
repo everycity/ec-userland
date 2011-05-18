@@ -33,7 +33,7 @@ dir path=$(ECPREFIX)/lib/php/5.2/lib
 dir path=$(ECPREFIX)/lib/php/5.2/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/php/5.2/lib/$(MACH64)/extensions
 dir path=$(ECPREFIX)/lib/php/5.2/lib/extensions
-file path=$(ECPREFIX)/etc/php/5.2/conf.d/mhash.ini preserve=true
+file files/mhash.ini path=$(ECPREFIX)/etc/php/5.2/conf.d/mhash.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/mhash.so
 file path=$(ECPREFIX)/lib/php/5.2/extensions/mhash.so
 depend fmri=pkg:/web/php-52/php-common type=require

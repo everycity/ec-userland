@@ -31,7 +31,7 @@ dir path=$(ECPREFIX)/lib/php
 dir path=$(ECPREFIX)/lib/php/5.2
 dir path=$(ECPREFIX)/lib/php/5.2/extensions
 dir path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)
-file path=$(ECPREFIX)/etc/php/5.2/conf.d/sockets.ini preserve=true
+file files/sockets.ini path=$(ECPREFIX)/etc/php/5.2/conf.d/sockets.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/sockets.so
 file path=$(ECPREFIX)/lib/php/5.2/extensions/sockets.so
 depend fmri=pkg:/web/php-52/php-common type=require

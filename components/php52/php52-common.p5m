@@ -64,7 +64,7 @@ dir path=var
 dir path=var/svc
 dir path=var/svc/manifest
 dir path=var/svc/manifest/site
-file path=$(ECPREFIX)/etc/php/5.2/php.ini preserve=true
+file files/php.ini path=$(ECPREFIX)/etc/php/5.2/php.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.2/bin/$(MACH64)/php-config
 file path=$(ECPREFIX)/lib/php/5.2/bin/$(MACH64)/phpize
 file path=$(ECPREFIX)/lib/php/5.2/bin/pecl
@@ -318,4 +318,5 @@ link path=$(ECPREFIX)/bin/$(MACH64)/phpize \
     target=../../lib/php/active/bin/$(MACH64)/phpize preserve=true
 link path=$(ECPREFIX)/bin/$(MACH64)/pecl \
     target=../../lib/php/active/bin/$(MACH64)/pecl preserve=true
-file path=var/svc/manifest/site/php52-postinstall.xml restart_fmri=pkg:/svc:/system/manifest-import:default
+file files/php52-postinstall.xml path=var/svc/manifest/site/php52-postinstall.xml \
+    restart_fmri=pkg:/svc:/system/manifest-import:default

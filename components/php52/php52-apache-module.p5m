@@ -32,8 +32,8 @@ dir path=$(ECPREFIX)/lib/apache
 dir path=$(ECPREFIX)/lib/apache/2.2
 dir path=$(ECPREFIX)/lib/apache/2.2/modules
 dir path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
-file path=$(ECPREFIX)/etc/apache/2.2/mods-available/php52.load preserve=true
-file path=$(ECPREFIX)/etc/apache/2.2/mods-available/php52.conf preserve=true
+file files/php52.load path=$(ECPREFIX)/etc/apache/2.2/mods-available/php52.load preserve=true
+file files/php52.conf path=$(ECPREFIX)/etc/apache/2.2/mods-available/php52.conf preserve=true
 file $(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/libphp5.so \
     path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_php52.so
 file $(ECPREFIX)/lib/apache/2.2/modules/libphp5.so \

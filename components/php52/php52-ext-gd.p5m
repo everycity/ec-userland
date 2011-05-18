@@ -52,7 +52,7 @@ file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/gd/libgd/gdhelpers.h
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/gd/libgd/jisx0208.h
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/gd/libgd/wbmp.h
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/gd/php_gd.h
-file path=$(ECPREFIX)/etc/php/5.2/conf.d/gd.ini preserve=true
+file files/gd.ini path=$(ECPREFIX)/etc/php/5.2/conf.d/gd.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.2/extensions/$(MACH64)/gd.so
 file path=$(ECPREFIX)/lib/php/5.2/extensions/gd.so
 depend fmri=pkg:/web/php-52/php-common type=require
