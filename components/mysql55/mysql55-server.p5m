@@ -228,7 +228,6 @@ file path=var/svc/manifest/site/mysql55.xml restart_fmri=svc:/system/manifest-im
 file path=$(ECPREFIX)/var/svc/method/mysql55 mode=0555
 group gid=477 groupname=mysql
 user gcos-field="MySQL Account" group=mysql uid=477 username=mysql login-shell=/bin/false home-dir=/ec/var/mysql
-link path=$(ECPREFIX)/lib/mysql/active target=5.5 preserve=true
 link path=$(ECPREFIX)/bin/msql2mysql \ 
     target=../lib/mysql/active/bin/msql2mysql preserve=true pkg.linted=true
 link path=$(ECPREFIX)/bin/my_print_defaults \ 
@@ -313,3 +312,4 @@ link path=$(ECPREFIX)/bin/$(MACH64)/resolve_stack_dump \
     target=../../lib/mysql/active/bin/$(MACH64)/resolve_stack_dump preserve=true pkg.linted=true
 link path=$(ECPREFIX)/bin/$(MACH64)/resolveip \ 
     target=../../lib/mysql/active/bin/$(MACH64)/resolveip preserve=true pkg.linted=true
+depend fmri=pkg:/database/mysql-55/library type=require

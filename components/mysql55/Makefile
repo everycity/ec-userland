@@ -67,12 +67,14 @@ COMPONENT_POST_CONFIGURE_ACTION.64= find $(@D) -type f -name link.txt \
 COMPONENT_POST_CONFIGURE_ACTION=$(COMPONENT_POST_CONFIGURE_ACTION.$(BITS))
 
 COMPONENT_POST_INSTALL_ACTION+= \
-	mkdir -p $(PROTO_DIR)/$(ECPREFIX)/var/svc/method ; \
-        mkdir -p $(PROTO_DIR)/var/svc/manifest/site ; \
-        mkdir -p $(PROTO_DIR)/$(ECPREFIX)/etc/mysql/5.5 ; \
-        cp $(COMPONENT_DIR)/mysql55-startup.sh $(PROTO_DIR)/$(ECPREFIX)/var/svc/method/mysql55 ; \
-        cp $(COMPONENT_DIR)/mysql55-manifest.xml $(PROTO_DIR)/var/svc/manifest/site/mysql55.xml ; \
-        cp $(COMPONENT_DIR)/mysql55-my.cnf $(PROTO_DIR)/$(ECPREFIX)/etc/mysql/5.5/my.cnf
+	$(MKDIR) -p $(PROTO_DIR)/$(ECPREFIX)/var/svc/method ; \
+	$(MKDIR) -p $(PROTO_DIR)/var/svc/manifest/site ; \
+	$(MKDIR) -p $(PROTO_DIR)/$(ECPREFIX)/etc/mysql/5.5 ; \
+	$(MKDIR) -p $(PROTO_DIR)/var/svc/manifest/site ; \
+	$(CP) $(COMPONENT_DIR)/post-install.xml $(PROTO_DIR)/var/svc/manifest/site/mysql55-postinstall.xml ; \
+	$(CP) $(COMPONENT_DIR)/mysql55-startup.sh $(PROTO_DIR)/$(ECPREFIX)/var/svc/method/mysql55 ; \
+	$(CP) $(COMPONENT_DIR)/mysql55-manifest.xml $(PROTO_DIR)/var/svc/manifest/site/mysql55.xml ; \
+	$(CP) $(COMPONENT_DIR)/mysql55-my.cnf $(PROTO_DIR)/$(ECPREFIX)/etc/mysql/5.5/my.cnf
 
 $(BUILD_DIR)/%/.configured:	$(SOURCE_DIR)/.prep
 	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
