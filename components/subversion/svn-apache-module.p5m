@@ -1,0 +1,33 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/web/server/apache-22/module/apache-subversion@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="The Subversion Source Control Management System Apache Module"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://subversion.apache.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license subversion.license license="CollabNetSVN"
+
+dir path=$(ECPREFIX)/lib/apache
+dir path=$(ECPREFIX)/lib/apache/2.2
+dir path=$(ECPREFIX)/lib/apache/2.2/modules
+dir path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_authz_svn.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_dav_svn.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_authz_svn.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_dav_svn.so
+file subversion.conf path=$(ECPREFIX)/etc/apache/2.2/mods-available/subversion.conf preserve=true
+file subversion.load path=$(ECPREFIX)/etc/apache/2.2/mods-available/subversion.load preserve=true
