@@ -6,7 +6,7 @@
  
 +ec:	an
 +	$(BUILD) BUILDTYPE=ec IP=$(IP6) \
-+	SPECIALS="CC=gcc GSSDIR=/ec SSLDIR=/ec SSLINCLUDE=/ec/include/openssl SSLCERTS=/ec/etc/openssl/certs SSLKEYS=/ec/etc/openssl/private"
++	SPECIALS="CC=gcc GSSDIR=/usr SSLDIR=/ec SSLINCLUDE=/ec/include/openssl SSLCERTS=/ec/etc/openssl/certs SSLKEYS=/ec/etc/openssl/private"
 +
  lmd:	an
  	$(BUILD) BUILDTYPE=lnp IP=$(IP6) \

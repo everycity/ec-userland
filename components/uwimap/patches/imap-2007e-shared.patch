@@ -30,7 +30,7 @@ diff -up imap-2007e/src/osdep/unix/Makefile.shared imap-2007e/src/osdep/unix/Mak
 -.c.o:
 -	`$(CAT) CCTYPE` -c `$(CAT) CFLAGS` $*.c
 +$(SHLIBNAME):	$(SOFILES)
-+	gcc -G -Wl,-h,$(SHLIBNAME) -o $(SHLIBNAME) $(SOFILES) `cat LDFLAGS`
++	gcc -shared -Wl,-h,$(SHLIBNAME) -o $(SHLIBNAME) $(SOFILES) `cat LDFLAGS`
 +	ln -s $(SHLIBNAME) lib$(SHLIBBASE).so
  
 +.c.so:	osdep.h
