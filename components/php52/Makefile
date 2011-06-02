@@ -94,7 +94,8 @@ CONFIGURE_OPTIONS     +=	--with-xsl=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-curl=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-readline=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-pspell=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-imap-ssl=shared,$(ECPREFIX)
+CONFIGURE_OPTIONS     +=	--with-imap=shared,$(ECPREFIX)
+CONFIGURE_OPTIONS     +=	--with-imap-ssl
 
 # Enabled Extensions
 CONFIGURE_OPTIONS     +=	--with-libxml-dir=$(ECPREFIX)
