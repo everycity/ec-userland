@@ -19471,6 +19471,8 @@ link path=$(ECPREFIX)/bin/ruby target=ruby$(RUBY_VER)
 link path=$(ECPREFIX)/bin/testrb target=testrb$(RUBY_VER)
 link path=$(ECPREFIX)/lib/libruby$(RUBY_VER).so \
     target=libruby$(RUBY_VER).so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/libruby$(RUBY_VER).so.1 \
+    target=libruby$(RUBY_VER).so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/libruby$(RUBY_VER).so.$(RUBY_VER) \
     target=libruby$(RUBY_VER).so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/share/man/man1/ruby.1 target=ruby$(RUBY_VER).1
