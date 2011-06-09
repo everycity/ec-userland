@@ -1,0 +1,602 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/service/activemq@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Apache ActiveMQ messaging provider"
+set name=info.upstream_url value="http://activemq.apache.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license activemq.license license="APLv2"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/var
+dir path=$(ECPREFIX)/var/activemq owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/bin owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/bin/linux-x86-32 owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/bin/linux-x86-64 owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/bin/macosx owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/conf owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/data owner=activemq group=activemq mode=0755
+dir path=$(ECPREFIX)/var/activemq/docs owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/example owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/example/conf owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/example/perfharness owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/example/ruby owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/example/src owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/example/transactions owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/example/transactions/src owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/lib owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/lib/optional owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/lib/web owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/META-INF owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/filter owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/handler owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/jsp owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/jspf owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/jms owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/decorators owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/images owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/js owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/js/mochi owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/styles owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/test owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/xml owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/META-INF owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/META-INF/maven owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/META-INF/maven/org.apache.camel owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/META-INF/maven/org.apache.camel/camel-web owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/META-INF owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/model owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/decorators owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/jspf owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/tags owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/tags/api owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/com owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/com/sun owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/com/sun/jersey owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/com/sun/jersey/server owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/com/sun/jersey/server/impl owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/com/sun/jersey/server/impl/wadl owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/com/sun/jersey/server/impl/wadl/WadlResource owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/com/sun/jersey/server/impl/wadl/WadlResourceResource owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/css owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/css/prettify owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/images owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/js owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/js/dojo owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/js/prettify owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/js/th owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/org owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/CamelContextResource owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/ComponentResource owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/ComponentsResource owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/ConvertersFromResource owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/ConvertersResource owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/EndpointResource owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/EndpointsResource owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/ExchangeResource owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/LanguageResource owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/LanguagesResource owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/RouteResource owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/RoutesResource owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/demo owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/demo/META-INF owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/demo/WEB-INF owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/demo/js owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/demo/portfolio owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/demo/sandbox owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/demo/test owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/demo/test/assets owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/fileserver owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/fileserver/META-INF owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes/org owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes/org/apache owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes/org/apache/activemq owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes/org/apache/activemq/util owner=activemq group=activemq
+dir path=$(ECPREFIX)/var/activemq/webapps/styles owner=activemq group=activemq
+dir path=var
+dir path=var/svc
+dir path=var/svc/manifest
+dir path=var/svc/manifest/site
+file path=$(ECPREFIX)/var/activemq/LICENSE owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/NOTICE owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/README.txt owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/WebConsole-README.txt owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/activemq-all-$(COMPONENT_VERSION).jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/bin/activemq owner=activemq group=activemq mode=0555
+file path=$(ECPREFIX)/var/activemq/bin/activemq-admin owner=activemq group=activemq mode=0555
+file path=$(ECPREFIX)/var/activemq/bin/linux-x86-32/activemq owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/bin/linux-x86-32/libwrapper.so owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/bin/linux-x86-32/wrapper owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/bin/linux-x86-32/wrapper.conf owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/bin/linux-x86-64/activemq owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/bin/linux-x86-64/libwrapper.so owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/bin/linux-x86-64/wrapper owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/bin/linux-x86-64/wrapper.conf owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/bin/macosx/activemq owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/bin/macosx/libwrapper.jnilib owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/bin/macosx/wrapper owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/bin/macosx/wrapper.conf owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/bin/run.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/bin/wrapper.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/conf/activemq-command.xml preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/activemq-demo.xml preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/activemq-dynamic-network-broker1.xml preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/activemq-dynamic-network-broker2.xml preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/activemq-jdbc.xml preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/activemq-scalability.xml preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/activemq-security.xml preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/activemq-specjms.xml preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/activemq-static-network-broker1.xml preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/activemq-static-network-broker2.xml preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/activemq-stomp.xml preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/activemq-throughput.xml preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/activemq.xml preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/broker-localhost.cert preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/broker.ks preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/broker.ts preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/camel.xml preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/client.ks preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/client.ts preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/credentials-enc.properties preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/credentials.properties preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/jetty-realm.properties preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/jetty.xml preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/jmx.access preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/jmx.password preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/log4j.properties preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/conf/logging.properties preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/data/activemq.log preserve=true owner=activemq group=activemq mode=0644
+file path=$(ECPREFIX)/var/activemq/docs/index.html owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/build.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/conf/activemq.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/conf/log4j.properties owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/conf/resin-web.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/conf/web.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/perfharness/perfharness-activemq.sh owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/ruby/README.txt owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/ruby/catstomp.rb owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/ruby/listener.rb owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/ruby/publisher.rb owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/ruby/stompcat.rb owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/src/CommandLineSupport.java owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/src/ConsumerTool.java owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/src/EmbeddedBroker.java owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/src/Log4jJMSAppenderExample.java owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/src/ProducerAndConsumerTool.java owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/src/ProducerTool.java owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/src/RequesterTool.java owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/src/StompExample.java owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/src/TopicListener.java owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/src/TopicPublisher.java owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/src/jndi.properties owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/src/log4j-jms.properties owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/transactions/README.txt owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/transactions/build.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/transactions/src/Retailer.java owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/transactions/src/Supplier.java owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/transactions/src/TransactionsDemo.java owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/example/transactions/src/Vendor.java owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/activation-1.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/activemq-camel-$(COMPONENT_VERSION).jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/activemq-console-$(COMPONENT_VERSION).jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/activemq-core-$(COMPONENT_VERSION).jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/activemq-jaas-$(COMPONENT_VERSION).jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/activemq-protobuf-1.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/activemq-rar.txt owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/activemq-web-$(COMPONENT_VERSION).jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/camel-core-2.7.0.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/camel-jetty-2.7.0.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/camel-jms-2.7.0.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/camel-spring-2.7.0.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/geronimo-j2ee-management_1.1_spec-1.0.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/geronimo-jms_1.1_spec-1.1.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/geronimo-jta_1.0.1B_spec-1.0.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/jaxb-api-2.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/jaxb-impl-2.1.6.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/jcl-over-slf4j-1.5.11.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/kahadb-$(COMPONENT_VERSION).jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/activeio-core-3.1.2.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/activemq-jmdns_1.0-$(COMPONENT_VERSION).jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/activemq-optional-$(COMPONENT_VERSION).jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/activemq-pool-$(COMPONENT_VERSION).jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/activemq-spring-$(COMPONENT_VERSION).jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/activemq-xmpp-$(COMPONENT_VERSION).jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/commons-beanutils-1.6.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/commons-codec-1.2.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/commons-collections-3.2.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/commons-dbcp-1.2.2.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/commons-httpclient-3.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/commons-lang-2.4.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/commons-net-2.0.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/commons-pool-1.5.4.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/geronimo-j2ee-connector_1.5_spec-2.0.0.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/jasypt-1.7.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/jettison-1.2.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/josql-1.5.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/log4j-1.2.14.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/slf4j-log4j12-1.5.11.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/spring-aop-3.0.3.RELEASE.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/spring-asm-3.0.3.RELEASE.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/spring-beans-3.0.3.RELEASE.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/spring-context-3.0.3.RELEASE.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/spring-core-3.0.3.RELEASE.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/spring-expression-3.0.3.RELEASE.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/spring-jms-3.0.3.RELEASE.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/spring-oxm-tiger-1.5.8.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/spring-tx-3.0.3.RELEASE.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/stax2-api-3.0.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/velocity-1.6.2.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/woodstox-core-asl-4.0.7.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/xbean-spring-3.7.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/xpp3-1.1.4c.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/optional/xstream-1.3.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/slf4j-api-1.5.11.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/stax-1.2.0.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/stax-api-1.0.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/web/commons-management-1.0.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/web/core-3.1.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/web/geronimo-servlet_2.5_spec-1.2.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/web/jdom-1.0.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/web/jetty-all-server-7.1.6.v20100715.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/web/jetty-websocket-7.1.6.v20100715.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/web/jsp-2.1-glassfish-2.1.v20100127.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/web/jsp-api-2.1-glassfish-2.1.v20100127.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/web/rome-0.8.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/web/sitemesh-2.2.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/web/spring-web-3.0.3.RELEASE.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/lib/web/spring-webmvc-3.0.3.RELEASE.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/user-guide.html owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/404.html owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/500.html owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/META-INF/LICENSE owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/META-INF/NOTICE owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/WebConsoleStarter.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/CopyMessage.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/CreateDestination.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/CreateSubscriber.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/DeleteDestination.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/DeleteJob.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/DeleteMessage.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/DeleteSubscriber.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/MoveMessage.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/PurgeDestination.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/SendMessage.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/filter/ApplicationContextFilter$1.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/filter/ApplicationContextFilter$2.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/filter/ApplicationContextFilter.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/handler/BindingBeanNameUrlHandlerMapping.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/decorators.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/dispatcher-servlet.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/jspf/headertags.jspf owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/jspf/old.jspf owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/checkbox.tag owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/forEachMapEntry.tag owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/option.tag owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/short.tag owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/text.tag owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/tooltip.tag owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/uri.tag owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/jms/forEachConnection.tag owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/jms/forEachMessage.tag owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/jms/formatTimestamp.tag owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/jms/persistent.tag owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/web.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-default.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-embedded.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-invm.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-jndi.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-properties.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-query.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/browse.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/connection.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/connections.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/decorators/main.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/decorators/panel.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/decorators/printable.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/graph.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/activemq-logo.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/asf-logo.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/big-bullet.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/black-footer-bottom.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/black-footer-left.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/black-footer-right.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/bottom-red-bar.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/checker-bg.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/content-left.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/content-right.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/feed_atom.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/feed_rss.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/left-box-bottom.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/left-box-right.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/left-box-top.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/oval-arrow.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/right-box-bottom.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/right-box-left.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/right-box-top.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/small-bullet-gray.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/small-bullet-red.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/spacer.gif owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/top-red-bar.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/white-header-left.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/white-header-right.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/white-header-top.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/index.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/common.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/css.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/mochi/MochiKit.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/mochi/__package__.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/Base.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/Canvas.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/Layout.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/SVG.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/SweetCanvas.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/SweetSVG.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/dummy.svg owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/iecanvas.htc owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/prettify.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/standardista-table-sorting.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/message.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/network.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/queueConsumers.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/queueGraph.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/queues.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/scheduled.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/send.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/styles/prettify.css owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/styles/site.css owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/styles/sorttable.css owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/styles/type-settings.css owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/subscribers.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/test/dummy.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/test/index.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/test/systemProperties.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/topics.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/xml/queues.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/admin/xml/topics.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/META-INF/DEPENDENCIES owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/META-INF/LICENSE owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/META-INF/LICENSE.txt owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/META-INF/MANIFEST.MF owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/META-INF/NOTICE owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/META-INF/NOTICE.txt owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/META-INF/maven/org.apache.camel/camel-web/pom.properties owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/META-INF/maven/org.apache.camel/camel-web/pom.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/applicationContext.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/META-INF/DEPENDENCIES owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/META-INF/LICENSE owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/META-INF/LICENSE.txt owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/META-INF/NOTICE owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/META-INF/NOTICE.txt owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/application-doc.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/application-grammars.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/application.wadl owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/model/Camel.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/model/EndpointLink.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/model/Endpoints.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/model/Route.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/model/jaxb.index owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/model/package-info.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources/CamelChildResourceSupport.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources/CamelContextResource.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources/ComponentResource.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources/ComponentsResource.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources/Constants.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources/ConvertersFromResource.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources/ConvertersResource.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources/EndpointResource$1.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources/EndpointResource.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources/EndpointsResource.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources/ExchangeResource.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources/LanguageResource.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources/LanguagesResource.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources/RouteResource.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources/RouteStatusResource.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources/RoutesResource.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/AggregateDefinitionRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/CamelOSGIResourceConfig.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/CamelResourceConfig.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/CatchDefinitionRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/ChoiceDefinitionRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/ConvertBodyDefinitionRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/ErrorHandlerRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/ExpressionNodeRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/ExpressionRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/GroovyRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/JAXBContextResolver.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/JAXBContextResolverOSGI.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/JAXBMarshallerResolver$1.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/JAXBMarshallerResolver.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/LoadBalanceDefinitionRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/OnCompletionDefinitionRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/OnExceptionDefinitionRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/OutputDefinitionRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/PredicateRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/ProcessorDefinitionRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/ResequenceDefinitionRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/RoutingSlipDefinitionRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/SendDefinitionRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/TextRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/ThrottleDefinitionRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/ThrowExceptionDefinitionRenderer.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util/UriCharactersEncoder.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/resourcedoc.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/decorators.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/decorators/main.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/decorators/panel.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/decorators/plain.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/decorators/printable.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/jspf/header.jspf owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib/asm-3.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib/bytelist-1.0.6.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib/constantine-0.6.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib/jaffl-0.5.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib/jcodings-1.0.4.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib/jersey-atom-1.1.5.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib/jersey-core-1.1.5.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib/jersey-json-1.1.5.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib/jersey-server-1.1.5.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib/jersey-spring-1.1.5.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib/jffi-1.0.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib/jline-0.9.93.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib/jnr-netdb-1.0.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib/jnr-posix-1.1.4.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib/joda-time-1.6.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib/joni-1.1.4.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib/jsr311-api-1.1.1.jar owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/tags/api/doc.tag owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/tags/api/resource.tag owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/web.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/com/sun/jersey/server/impl/wadl/WadlResource/index.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/com/sun/jersey/server/impl/wadl/WadlResourceResource/index.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/css/prettify/prettify.css owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/css/site.css owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/css/sorttable.css owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/css/type-settings.css owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/asf-logo.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/big-bullet.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/black-footer-bottom.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/black-footer-left.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/black-footer-right.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/bottom-red-bar.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/camel-logo.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/checker-bg.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/content-left.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/content-right.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/feed_atom.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/feed_rss.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/left-box-bottom.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/left-box-right.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/left-box-top.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/oval-arrow.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/right-box-bottom.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/right-box-left.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/right-box-top.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/small-bullet-gray.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/small-bullet-red.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/spacer.gif owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/top-red-bar.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/white-header-left.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/white-header-right.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/images/white-header-top.png owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/buildProfile.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/common.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/css.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/dojo/dojo.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/prettify/lang-css.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/prettify/lang-hs.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/prettify/lang-lisp.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/prettify/lang-lua.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/prettify/lang-ml.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/prettify/lang-proto.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/prettify/lang-sql.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/prettify/lang-vb.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/prettify/lang-wiki.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/prettify/prettify.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/route.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/standardista-table-sorting.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/th/borders.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/th/components.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/th/css.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/th/docs.txt owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/th/helpers.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/th/models.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/js/th/th.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/CamelContextResource/api.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/CamelContextResource/index.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/CamelContextResource/systemProperties.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/ComponentResource/index.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/ComponentsResource/index.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/ConvertersFromResource/index.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/ConvertersResource/index.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/EndpointResource/index.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/EndpointResource/send.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/EndpointsResource/index.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/ExchangeResource/index.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/LanguageResource/index.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/LanguagesResource/index.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/RouteResource/edit.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/RouteResource/index.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/RoutesResource/create.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/RoutesResource/index.jsp owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/META-INF/LICENSE owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/META-INF/NOTICE owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/WEB-INF/web.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/chat.css owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/chat.html owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/index.html owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/js/amq.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/js/amq_dojo_adapter.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/js/amq_jquery_adapter.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/js/amq_prototype_adapter.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/js/chat.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/js/dojo.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/js/jquery-1.4.2.min.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/js/prototype.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/portfolio/portfolio.html owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/portfolio/portfolio.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/sandbox/index.html owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/sandbox/portfolio.html owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/sandbox/portfolio.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/sandbox/util.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/sandbox/webmq.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/send.html owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/style.css owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/test/amq_test.html owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/test/assets/README owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/test/assets/jsunittest.js owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/demo/test/assets/unittest.css owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/favicon.ico owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/fileserver/META-INF/LICENSE owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/fileserver/META-INF/NOTICE owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes/org/apache/activemq/util/FilenameGuardFilter$GuardedHttpServletRequest.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes/org/apache/activemq/util/FilenameGuardFilter.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes/org/apache/activemq/util/IOHelper.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes/org/apache/activemq/util/RestFilter.class owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/web.xml owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/fileserver/index.html owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/index.html owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/styles/site.css owner=activemq group=activemq
+file path=$(ECPREFIX)/var/activemq/webapps/styles/type-settings.css owner=activemq group=activemq
+file files/activemq-manifest.xml path=var/svc/manifest/site/activemq.xml restart_fmri=svc:/system/manifest-import:default
+group gid=478 groupname=activemq
+user gcos-field="ActiveMQ Account" group=activemq uid=478 username=activemq login-shell=/bin/false home-dir=$(ECPREFIX)/var/activemq
