@@ -1,0 +1,37 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/library/ruby-18/ruby-stomp-18@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Ruby bindings for the stomp messaging protocol"
+#set name=info.classification value="org.opensolaris.category.2008:Development/Ruby"
+set name=info.upstream_url value="http://rubyforge.org/projects/stomp/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license stomp.license license="APLv2"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/ruby
+dir path=$(ECPREFIX)/lib/ruby/vendor_ruby
+dir path=$(ECPREFIX)/lib/ruby/vendor_ruby/1.8
+dir path=$(ECPREFIX)/lib/ruby/vendor_ruby/1.8/stomp
+dir path=$(ECPREFIX)/lib/ruby/vendor_ruby/1.8/stomp/ext
+file path=$(ECPREFIX)/lib/ruby/vendor_ruby/1.8/stomp.rb
+file path=$(ECPREFIX)/lib/ruby/vendor_ruby/1.8/stomp/client.rb
+file path=$(ECPREFIX)/lib/ruby/vendor_ruby/1.8/stomp/connection.rb
+file path=$(ECPREFIX)/lib/ruby/vendor_ruby/1.8/stomp/errors.rb
+file path=$(ECPREFIX)/lib/ruby/vendor_ruby/1.8/stomp/ext/hash.rb
+file path=$(ECPREFIX)/lib/ruby/vendor_ruby/1.8/stomp/message.rb
+file path=$(ECPREFIX)/lib/ruby/vendor_ruby/1.8/stomp/version.rb
