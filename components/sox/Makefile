@@ -19,6 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -33,15 +34,14 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-include ../../make-rules/shared-targets.mk
-
 CONFIGURE_OPTIONS.64+= LDFLAGS="-L/ec/lib/amd64"
+
+CONFIGURE_OPTIONS+=	--with-pic --enable-shared --disable-static
+CONFIGURE_OPTIONS+=	--with-png
+CONFIGURE_OPTIONS+=	--with-mad
+CONFIGURE_OPTIONS+=	--with-lame
 
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
-
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
 
