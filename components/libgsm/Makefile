@@ -33,7 +33,6 @@ COMPONENT_ARCHIVE_URL=	http://libgsm.sourcearchive.com/downloads/1.0.13-3/$(COMP
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
-include ../../make-rules/shared-targets.mk
 
 COMPONENT_BUILD_ENV+= CC="$(CC)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
 COMPONENT_PRE_INSTALL_ACTION+= mkdir -p $(PROTO_DIR)/$(ECPREFIX)/lib \
@@ -46,7 +45,4 @@ build:		$(BUILD_32_and_64)
 install:	$(INSTALL_32) build
 	$(INSTALL) $(BUILD_DIR_64)/lib/libgsm.so.1 $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)
 
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
 
