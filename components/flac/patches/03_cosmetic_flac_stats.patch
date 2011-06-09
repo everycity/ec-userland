@@ -1,0 +1,32 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 03_cosmetic_flac_stats.dpatch by Joshua Kwan <joshk@triplehelix.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fix misuse of \r (potentially) in flac -d or -t output, closes: #138828
+
+@DPATCH@
+--- flac-1.1.2/src/flac/decode.c~	2005-08-18 02:16:46.000000000 -0700
++++ flac-1.1.2/src/flac/decode.c	2005-08-18 02:14:59.000000000 -0700
+@@ -1182,6 +1182,7 @@
+ 
+ void print_stats(const DecoderSession *decoder_session)
+ {
++	static int count = 0;
+ 	if(flac__utils_verbosity_ >= 2) {
+ #if defined _MSC_VER || defined __MINGW32__
+ 		/* with MSVC you have to spoon feed it the casting */
+@@ -1190,7 +1191,13 @@
+ 		const double progress = (double)decoder_session->samples_processed / (double)decoder_session->total_samples * 100.0;
+ #endif
+ 		if(decoder_session->total_samples > 0) {
+-			fprintf(stderr, "\r%s: %s%u%% complete",
++			while (count > 0 && count--)
++				fprintf(stderr, "\b");
++
++			if ((unsigned)floor(progress + 0.5) == 100)
++				return;
++			
++			count = fprintf(stderr, "%s: %s%u%% complete",
+ 				decoder_session->inbasefilename,
+ 				decoder_session->test_only? "testing, " : decoder_session->analysis_mode? "analyzing, " : "",
+ 				(unsigned)floor(progress + 0.5)
