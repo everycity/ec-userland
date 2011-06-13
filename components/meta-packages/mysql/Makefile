@@ -12,12 +12,12 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
-include ../../make-rules/shared-macros.mk
+include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		mysql
 COMPONENT_VERSION=	1.0
 
-include ../../make-rules/ips.mk
+include ../../../make-rules/ips.mk
 
 PKGLINT=/bin/true
 

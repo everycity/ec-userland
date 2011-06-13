@@ -17,4 +17,4 @@ set name=pkg.summary value="MySQL Database Management System - Client meta-packa
 set name=info.classification value="org.opensolaris.category.2008:System/Databases"
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
-depend fmri=database/mysql55/client type=require
+depend fmri=database/mysql-55/client type=require
