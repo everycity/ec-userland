@@ -1,0 +1,1015 @@
+diff -ruN mcollective-1.3.0.orig/lib/mcollective/agents.rb mcollective-1.3.0/lib/mcollective/agents.rb
+--- mcollective-1.3.0.orig/lib/mcollective/agents.rb	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/lib/mcollective/agents.rb	2011-06-09 16:49:06.837520514 +0100
+@@ -126,13 +126,17 @@
+ 
+         # Dispatches a message to an agent, accepts a block that will get run if there are
+         # any replies to process from the agent
+-        def dispatch(msg, target, connection)
++        def dispatch(msg, target, connection, &block)
+             Log.debug("Dispatching a message to agent #{target}")
+ 
+             Thread.new do
+                 begin
+                     agent = PluginManager["#{target}_agent"]
+ 
++                    handler = ReplyHandler.new(&block)
++                    
++                    agent.progress_handler(&handler.progress) if agent.respond_to?(:progress_handler)
++
+                     Timeout::timeout(agent.timeout) do
+                         replies = agent.handlemsg(msg, connection)
+ 
+@@ -140,7 +144,7 @@
+                         # returning nil will mean nothing goes back to the
+                         # requestor
+                         unless replies == nil
+-                            yield(replies)
++                            handler.replies.call(replies)
+                         end
+                     end
+                 rescue Timeout::Error => e
+@@ -150,6 +154,7 @@
+                     Log.error(e.backtrace.join("\n\t\t"))
+                 end
+             end
++
+         end
+ 
+         # Get a list of agents that we have
+diff -ruN mcollective-1.3.0.orig/lib/mcollective/agents.rb.orig mcollective-1.3.0/lib/mcollective/agents.rb.orig
+--- mcollective-1.3.0.orig/lib/mcollective/agents.rb.orig	1970-01-01 01:00:00.000000000 +0100
++++ mcollective-1.3.0/lib/mcollective/agents.rb.orig	2011-06-08 19:57:44.000000000 +0100
+@@ -0,0 +1,162 @@
++module MCollective
++    # A collection of agents, loads them, reloads them and dispatches messages to them.
++    # It uses the PluginManager to store, load and manage instances of plugins.
++    class Agents
++        def initialize(agents = {})
++            @config = Config.instance
++            raise ("Configuration has not been loaded, can't load agents") unless @config.configured
++
++            @@agents = agents
++
++            loadagents
++        end
++
++        # Deletes all agents
++        def clear!
++            @@agents.each_key do |agent|
++                PluginManager.delete "#{agent}_agent"
++                Util.unsubscribe(Util.make_subscriptions(agent, :broadcast))
++            end
++
++            @@agents = {}
++        end
++
++        # Loads all agents from disk
++        def loadagents
++            Log.debug("Reloading all agents from disk")
++
++            clear!
++
++            @config.libdir.each do |libdir|
++                agentdir = "#{libdir}/mcollective/agent"
++                next unless File.directory?(agentdir)
++
++                Dir.new(agentdir).grep(/\.rb$/).each do |agent|
++                    agentname = File.basename(agent, ".rb")
++                    loadagent(agentname) unless PluginManager.include?("#{agentname}_agent")
++                end
++            end
++        end
++
++        # Loads a specified agent from disk if available
++        def loadagent(agentname)
++            agentfile = findagentfile(agentname)
++            return false unless agentfile
++            classname = class_for_agent(agentname)
++
++            PluginManager.delete("#{agentname}_agent")
++
++            begin
++                single_instance = ["registration", "discovery"].include?(agentname)
++
++                PluginManager.loadclass(classname)
++
++                if activate_agent?(agentname)
++                    PluginManager << {:type => "#{agentname}_agent", :class => classname, :single_instance => single_instance}
++
++                    Util.subscribe(Util.make_subscriptions(agentname, :broadcast)) unless @@agents.include?(agentname)
++
++                    @@agents[agentname] = {:file => agentfile}
++                    return true
++                else
++                    Log.debug("Not activating agent #{agentname} due to agent policy in activate? method")
++                    return false
++                end
++            rescue Exception => e
++                Log.error("Loading agent #{agentname} failed: #{e}")
++                PluginManager.delete("#{agentname}_agent")
++                return false
++            end
++        end
++
++        # Builds a class name string given a Agent name
++        def class_for_agent(agent)
++            "MCollective::Agent::#{agent.capitalize}"
++        end
++
++        # Checks if a plugin should be activated by
++        # calling #activate? on it if it responds to
++        # that method else always activate it
++        def activate_agent?(agent)
++            klass = Kernel.const_get("MCollective").const_get("Agent").const_get(agent.capitalize)
++
++            if klass.respond_to?("activate?")
++                return klass.activate?
++            else
++                Log.debug("#{klass} does not have an activate? method, activating as default")
++                return true
++            end
++        rescue Exception => e
++            Log.warn("Agent activation check for #{agent} failed: #{e.class}: #{e}")
++            return false
++        end
++
++        # searches the libdirs for agents
++        def findagentfile(agentname)
++            @config.libdir.each do |libdir|
++                agentfile = File.join([libdir, "mcollective", "agent", "#{agentname}.rb"])
++                if File.exist?(agentfile)
++                    Log.debug("Found #{agentname} at #{agentfile}")
++                    return agentfile
++                end
++            end
++            return false
++        end
++
++        # Determines if we have an agent with a certain name
++        def include?(agentname)
++            PluginManager.include?("#{agentname}_agent")
++        end
++
++        # Returns the help for an agent after first trying to get
++        # rid of some indentation infront
++        def help(agentname)
++            raise("No such agent") unless include?(agentname)
++
++            body = PluginManager["#{agentname}_agent"].help.split("\n")
++
++            if body.first =~ /^(\s+)\S/
++                indent = $1
++
++                body = body.map {|b| b.gsub(/^#{indent}/, "")}
++            end
++
++            body.join("\n")
++        end
++
++        # Dispatches a message to an agent, accepts a block that will get run if there are
++        # any replies to process from the agent
++        def dispatch(msg, target, connection)
++            Log.debug("Dispatching a message to agent #{target}")
++
++            Thread.new do
++                begin
++                    agent = PluginManager["#{target}_agent"]
++
++                    Timeout::timeout(agent.timeout) do
++                        replies = agent.handlemsg(msg, connection)
++
++                        # Agents can decide if they wish to reply or not,
++                        # returning nil will mean nothing goes back to the
++                        # requestor
++                        unless replies == nil
++                            yield(replies)
++                        end
++                    end
++                rescue Timeout::Error => e
++                    Log.warn("Timeout while handling message for #{target}")
++                rescue Exception => e
++                    Log.error("Execution of #{target} failed: #{e}")
++                    Log.error(e.backtrace.join("\n\t\t"))
++                end
++            end
++        end
++
++        # Get a list of agents that we have
++        def self.agentlist
++            @@agents.keys
++        end
++    end
++end
++
++# vi:tabstop=4:expandtab:ai
+diff -ruN mcollective-1.3.0.orig/lib/mcollective/client.rb mcollective-1.3.0/lib/mcollective/client.rb
+--- mcollective-1.3.0.orig/lib/mcollective/client.rb	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/lib/mcollective/client.rb	2011-06-09 16:49:06.838160703 +0100
+@@ -126,7 +126,7 @@
+         #
+         # It returns a hash of times and timeouts for discovery and total run is taken from the options
+         # hash which in turn is generally built using MCollective::Optionparser
+-        def req(body, agent, options=false, waitfor=0)
++        def req(body, agent, options=false, waitfor=0,&block)
+             stat = {:starttime => Time.now.to_f, :discoverytime => 0, :blocktime => 0, :totaltime => 0}
+ 
+             options = @options unless options
+@@ -134,6 +134,8 @@
+             STDOUT.sync = true
+ 
+             hosts_responded = 0
++            
++            handler = ReplyHandler.new(&block)
+ 
+             begin
+                 Timeout.timeout(options[:timeout]) do
+@@ -141,10 +143,15 @@
+ 
+                     loop do
+                         resp = receive(reqid)
+-
+-                        hosts_responded += 1
+-
+-                        yield(resp)
++                        
++                        is_progress = resp[:body][:progress]
++                        
++                        if is_progress                          
++                          handler.progress.call(resp) if handler.progress                     
++                        else
++                          hosts_responded += 1
++                          handler.replies.call(resp)                          
++                        end
+ 
+                         break if (waitfor != 0 && hosts_responded >= waitfor)
+                     end
+diff -ruN mcollective-1.3.0.orig/lib/mcollective/reply_handler.rb mcollective-1.3.0/lib/mcollective/reply_handler.rb
+--- mcollective-1.3.0.orig/lib/mcollective/reply_handler.rb	1970-01-01 01:00:00.000000000 +0100
++++ mcollective-1.3.0/lib/mcollective/reply_handler.rb	2011-06-09 16:49:06.838518717 +0100
+@@ -0,0 +1,47 @@
++module MCollective
++  
++  # Responsible for handling two types of replies from the server
++  #
++  #   - replies
++  #
++  #       these are normal replies. it means the server has finished the request
++  # 
++  #   - progress
++  # 
++  #       these are update replies - execution is still in progress
++  #
++  # it is used inside the server and inside the client
++  
++  class ReplyHandler
++
++    def initialize(&block)      
++      @handle_replies, @handle_progress = nil, nil
++      
++      if block_given?      
++        begin
++          yield self 
++        rescue => e
++          raise "ReplyHandler block threw #{e.class.name}: #{e.message} \n" +  e.backtrace.join("\n")
++        end
++      end
++    end
++
++    def replies(&block)
++      if block_given?
++        @handle_replies = block
++      else
++        @handle_replies
++      end
++    end
++
++    def progress(&block)
++      if block_given?
++        @handle_progress = block
++      else
++        @handle_progress
++      end
++    end
++
++  end
++
++end
+\ No newline at end of file
+diff -ruN mcollective-1.3.0.orig/lib/mcollective/rpc/agent.rb mcollective-1.3.0/lib/mcollective/rpc/agent.rb
+--- mcollective-1.3.0.orig/lib/mcollective/rpc/agent.rb	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/lib/mcollective/rpc/agent.rb	2011-06-09 16:49:06.840628939 +0100
+@@ -179,6 +179,20 @@
+                 end
+             end
+ 
++            # set/get the progress handler block
++            def progress_handler(&block)
++              if block_given?
++                @progress_handler = block
++              else
++                @progress_handler
++              end
++            end
++
++            # send progress
++            def progress(data)
++              return unless @progress_handler              
++              @progress_handler.call(:data => data, :progress => true)
++            end
+ 
+             private
+             # Runs a command via the MC::Shell wrapper, options are as per MC::Shell
+diff -ruN mcollective-1.3.0.orig/lib/mcollective/rpc/agent.rb.orig mcollective-1.3.0/lib/mcollective/rpc/agent.rb.orig
+--- mcollective-1.3.0.orig/lib/mcollective/rpc/agent.rb.orig	1970-01-01 01:00:00.000000000 +0100
++++ mcollective-1.3.0/lib/mcollective/rpc/agent.rb.orig	2011-06-08 19:57:44.000000000 +0100
+@@ -0,0 +1,433 @@
++module MCollective
++    module RPC
++        # A wrapper around the traditional agent, it takes care of a lot of the tedious setup
++        # you would do for each agent allowing you to just create methods following a naming
++        # standard leaving the heavy lifting up to this clas.
++        #
++        # See http://marionette-collective.org/simplerpc/agents.html
++        #
++        # It only really makes sense to use this with a Simple RPC client on the other end, basic
++        # usage would be:
++        #
++        #    module MCollective
++        #       module Agent
++        #          class Helloworld<RPC::Agent
++        #             matadata :name        => "Test SimpleRPC Agent",
++        #                      :description => "A simple test",
++        #                      :author      => "You",
++        #                      :license     => "1.1",
++        #                      :url         => "http://your.com/,
++        #                      :timeout     => 60
++        #
++        #             action "hello" do
++        #                 reply[:msg] = "Hello #{request[:name]}"
++        #             end
++        #
++        #             action "foo" do
++        #                 implemented_by "/some/script.sh"
++        #             end
++        #          end
++        #       end
++        #    end
++        #
++        # If you wish to implement the logic for an action using an external script use the
++        # implemented_by method that will cause your script to be run with 2 arguments.
++        #
++        # The first argument is a file containing JSON with the request and the 2nd argument
++        # is where the script should save its output as a JSON hash.
++        #
++        # We also currently have the validation code in here, this will be moved to plugins soon.
++        class Agent
++            attr_accessor :meta, :reply, :request
++            attr_reader :logger, :config, :timeout, :ddl
++
++            def initialize
++                # Default meta data unset
++                @meta = {:timeout     => 10,
++                         :name        => "Unknown",
++                         :description => "Unknown",
++                         :author      => "Unknown",
++                         :license     => "Unknown",
++                         :version     => "Unknown",
++                         :url         => "Unknown"}
++
++                @timeout = meta[:timeout] || 10
++                @logger = Log.instance
++                @config = Config.instance
++                @agent_name = self.class.to_s.split("::").last.downcase
++
++                # Loads the DDL so we can later use it for validation
++                # and help generation
++                begin
++                    @ddl = DDL.new(@agent_name)
++                rescue Exception => e
++                    Log.warn("Failed to load DDL for agent: #{e.class}: #{e}")
++                    @ddl = nil
++                end
++
++                # if we have a global authorization provider enable it
++                # plugins can still override it per plugin
++                self.class.authorized_by(@config.rpcauthprovider) if @config.rpcauthorization
++
++                startup_hook
++            end
++
++            def handlemsg(msg, connection)
++                @request = RPC.request(msg)
++                @reply = RPC.reply
++
++                begin
++                    # Calls the authorization plugin if any is defined
++                    # if this raises an exception we wil just skip processing this
++                    # message
++                    authorization_hook(@request) if respond_to?("authorization_hook")
++
++
++                    # Audits the request, currently continues processing the message
++                    # we should make this a configurable so that an audit failure means
++                    # a message wont be processed by this node depending on config
++                    audit_request(@request, connection)
++
++                    before_processing_hook(msg, connection)
++
++                    if respond_to?("#{@request.action}_action")
++                        send("#{@request.action}_action")
++                    else
++                        raise UnknownRPCAction, "Unknown action: #{@request.action}"
++                    end
++                rescue RPCAborted => e
++                    @reply.fail e.to_s, 1
++
++                rescue UnknownRPCAction => e
++                    @reply.fail e.to_s, 2
++
++                rescue MissingRPCData => e
++                    @reply.fail e.to_s, 3
++
++                rescue InvalidRPCData => e
++                    @reply.fail e.to_s, 4
++
++                rescue UnknownRPCError => e
++                    @reply.fail e.to_s, 5
++
++                rescue Exception => e
++                    @reply.fail e.to_s, 5
++
++                end
++
++                after_processing_hook
++
++                if @request.should_respond?
++                    return @reply.to_hash
++                else
++                    Log.debug("Client did not request a response, surpressing reply")
++                    return nil
++                end
++            end
++
++            # By default RPC Agents support a toggle in the configuration that
++            # can enable and disable them based on the agent name
++            #
++            # Example an agent called Foo can have:
++            #
++            # plugin.foo.activate_agent = false
++            #
++            # and this will prevent the agent from loading on this particular
++            # machine.
++            #
++            # Agents can use the activate_when helper to override this for example:
++            #
++            # activate_when do
++            #    File.exist?("/usr/bin/puppet")
++            # end
++            def self.activate?
++                agent_name = self.to_s.split("::").last.downcase
++
++                Log.debug("Starting default activation checks for #{agent_name}")
++
++                should_activate = Config.instance.pluginconf["#{agent_name}.activate_agent"]
++
++                if should_activate
++                    Log.debug("Found plugin config #{agent_name}.activate_agent with value #{should_activate}")
++                    unless should_activate =~ /^1|y|true$/
++                        return false
++                    end
++                end
++
++                return true
++            end
++
++            # Generates help using the template based on the data
++            # created with metadata and input
++            def self.help(template)
++                if @ddl
++                    @ddl.help(template)
++                else
++                    "No DDL defined"
++                end
++            end
++
++            # to auto generate help
++            def help
++                self.help("#{@config[:configdir]}/rpc-help.erb")
++            end
++
++            # Returns an array of actions this agent support
++            def self.actions
++                public_instance_methods.sort.grep(/_action$/).map do |method|
++                    $1 if method =~ /(.+)_action$/
++                end
++            end
++
++
++            private
++            # Runs a command via the MC::Shell wrapper, options are as per MC::Shell
++            #
++            # The simplest use is:
++            #
++            #   out = ""
++            #   err = ""
++            #   status = run("echo 1", :stdout => out, :stderr => err)
++            #
++            #   reply[:out] = out
++            #   reply[:error] = err
++            #   reply[:exitstatus] = status
++            #
++            # This can be simplified as:
++            #
++            #   reply[:exitstatus] = run("echo 1", :stdout => :out, :stderr => :error)
++            #
++            # You can set a command specific environment and cwd:
++            #
++            #   run("echo 1", :cwd => "/tmp", :environment => {"FOO" => "BAR"})
++            #
++            # This will run 'echo 1' from /tmp with FOO=BAR in addition to a setting forcing
++            # LC_ALL = C.  To prevent LC_ALL from being set either set it specifically or:
++            #
++            #   run("echo 1", :cwd => "/tmp", :environment => nil)
++            #
++            # Exceptions here will be handled by the usual agent exception handler or any
++            # specific one you create, if you dont it will just fall through and be sent
++            # to the client
++            def run(command, options={})
++                shellopts = {}
++
++                # force stderr and stdout to be strings as the library
++                # will append data to them if given using the << method.
++                #
++                # if the data pased to :stderr or :stdin is a Symbol
++                # add that into the reply hash with that Symbol
++                [:stderr, :stdout].each do |k|
++                    if options.include?(k)
++                        if options[k].is_a?(Symbol)
++                            reply[ options[k] ] = ""
++                            shellopts[k] = reply[ options[k] ]
++                        else
++                            if options[k].respond_to?("<<")
++                                shellopts[k] = options[k]
++                            else
++                                reply.fail! "#{k} should support << while calling run(#{command})"
++                            end
++                        end
++                    end
++                end
++
++                [:stdin, :cwd, :environment].each do |k|
++                    if options.include?(k)
++                        shellopts[k] = options[k]
++                    end
++                end
++
++                shell = Shell.new(command, shellopts)
++
++                shell.runcommand
++
++                if options[:chomp]
++                    shellopts[:stdout].chomp! if shellopts[:stdout].is_a?(String)
++                    shellopts[:stderr].chomp! if shellopts[:stderr].is_a?(String)
++                end
++
++                shell.status.exitstatus
++            end
++
++            # Registers meta data for the introspection hash
++            def self.metadata(data)
++                [:name, :description, :author, :license, :version, :url, :timeout].each do |arg|
++                    raise "Metadata needs a :#{arg}" unless data.include?(arg)
++                end
++
++                # Our old style agents were able to do all sorts of things to the meta
++                # data during startup_hook etc, don't really want that but also want
++                # backward compat.
++                #
++                # Here if you're using the new metadata way this replaces the getter
++                # with one that always return the same data, setter will still work but
++                # wont actually do anything of note.
++                define_method("meta") {
++                    data
++                }
++            end
++
++            # Creates the needed activate? class in a manner similar to the other
++            # helpers like action, authorized_by etc
++            #
++            # activate_when do
++            #    File.exist?("/usr/bin/puppet")
++            # end
++            def self.activate_when(&block)
++                (class << self; self; end).instance_eval do
++                    define_method("activate?", &block)
++                end
++            end
++
++            # Creates a new action with the block passed and sets some defaults
++            #
++            # action "status" do
++            #    # logic here to restart service
++            # end
++            def self.action(name, &block)
++                raise "Need to pass a body for the action" unless block_given?
++
++                self.module_eval { define_method("#{name}_action", &block) }
++            end
++
++            # Helper that creates a method on the class that will call your authorization
++            # plugin.  If your plugin raises an exception that will abort the request
++            def self.authorized_by(plugin)
++                plugin = plugin.to_s.capitalize
++
++                # turns foo_bar into FooBar
++                plugin = plugin.to_s.split("_").map {|v| v.capitalize}.join
++                pluginname = "MCollective::Util::#{plugin}"
++
++                PluginManager.loadclass(pluginname)
++
++                class_eval("
++                    def authorization_hook(request)
++                        #{pluginname}.authorize(request)
++                    end
++                ")
++            end
++
++            # Validates a data member, if validation is a regex then it will try to match it
++            # else it supports testing object types only:
++            #
++            # validate :msg, String
++            # validate :msg, /^[\w\s]+$/
++            #
++            # There are also some special helper validators:
++            #
++            # validate :command, :shellsafe
++            # validate :command, :ipv6address
++            # validate :command, :ipv4address
++            #
++            # It will raise appropriate exceptions that the RPC system understand
++            #
++            # TODO: this should be plugins, 1 per validatin method so users can add their own
++            #       at the moment i have it here just to proof the point really
++            def validate(key, validation)
++                raise MissingRPCData, "please supply a #{key} argument" unless @request.include?(key)
++
++                if validation.is_a?(Regexp)
++                    raise InvalidRPCData, "#{key} should match #{validation}" unless @request[key].match(validation)
++
++                elsif validation.is_a?(Symbol)
++                    case validation
++                        when :shellsafe
++                            raise InvalidRPCData, "#{key} should be a String" unless @request[key].is_a?(String)
++
++                            ['`', '$', ';', '|', '&&', '>', '<'].each do |chr|
++                                raise InvalidRPCData, "#{key} should not have #{chr} in it" if @request[key].match(Regexp.escape(chr))
++                            end
++
++                        when :ipv6address
++                            begin
++                                require 'ipaddr'
++                                ip = IPAddr.new(@request[key])
++                                raise InvalidRPCData, "#{key} should be an ipv6 address" unless ip.ipv6?
++                            rescue
++                                raise InvalidRPCData, "#{key} should be an ipv6 address"
++                            end
++
++                        when :ipv4address
++                            begin
++                                require 'ipaddr'
++                                ip = IPAddr.new(@request[key])
++                                raise InvalidRPCData, "#{key} should be an ipv4 address" unless ip.ipv4?
++                            rescue
++                                raise InvalidRPCData, "#{key} should be an ipv4 address"
++                            end
++
++                    end
++                else
++                    raise InvalidRPCData, "#{key} should be a #{validation}" unless  @request[key].is_a?(validation)
++                end
++            end
++
++            # convenience wrapper around Util#shellescape
++            def shellescape(str)
++                Util.shellescape(str)
++            end
++
++            # handles external actions
++            def implemented_by(command, type=:json)
++                runner = ActionRunner.new(command, request, type)
++
++                res = runner.run
++
++                reply.fail! "Did not receive data from #{command}" unless res.include?(:data)
++                reply.fail! "Reply data from #{command} is not a Hash" unless res[:data].is_a?(Hash)
++
++                reply.data.merge!(res[:data])
++
++                if res[:exitstatus] > 0
++                    reply.fail "Failed to run #{command}: #{res[:stderr]}", res[:exitstatus]
++                end
++            rescue Exception => e
++                Log.warn("Unhandled #{e.class} exception during #{request.agent}##{request.action}: #{e}")
++                reply.fail! "Unexpected failure calling #{command}: #{e.class}: #{e}"
++            end
++
++            # Called at the end of the RPC::Agent standard initialize method
++            # use this to adjust meta parameters, timeouts and any setup you
++            # need to do.
++            #
++            # This will not be called right when the daemon starts up, we use
++            # lazy loading and initialization so it will only be called the first
++            # time a request for this agent arrives.
++            def startup_hook
++            end
++
++            # Called just after a message was received from the middleware before
++            # it gets passed to the handlers.  @request and @reply will already be
++            # set, the msg passed is the message as received from the normal
++            # mcollective runner and the connection is the actual connector.
++            def before_processing_hook(msg, connection)
++            end
++
++            # Called at the end of processing just before the response gets sent
++            # to the middleware.
++            #
++            # This gets run outside of the main exception handling block of the agent
++            # so you should handle any exceptions you could raise yourself.  The reason
++            # it is outside of the block is so you'll have access to even status codes
++            # set by the exception handlers.  If you do raise an exception it will just
++            # be passed onto the runner and processing will fail.
++            def after_processing_hook
++            end
++
++            # Gets called right after a request was received and calls audit plugins
++            #
++            # Agents can disable auditing by just overriding this method with a noop one
++            # this might be useful for agents that gets a lot of requests or simply if you
++            # do not care for the auditing in a specific agent.
++            def audit_request(msg, connection)
++                PluginManager["rpcaudit_plugin"].audit_request(msg, connection) if @config.rpcaudit
++            rescue Exception => e
++                Log.warn("Audit failed - #{e} - continuing to process message")
++            end
++        end
++    end
++end
++
++# vi:tabstop=4:expandtab:ai
+diff -ruN mcollective-1.3.0.orig/lib/mcollective/rpc/client.rb mcollective-1.3.0/lib/mcollective/rpc/client.rb
+--- mcollective-1.3.0.orig/lib/mcollective/rpc/client.rb	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/lib/mcollective/rpc/client.rb	2011-06-09 16:49:06.841322223 +0100
+@@ -256,9 +256,10 @@
+                 # Now do a call pretty much exactly like in method_missing except with our own
+                 # options and discovery magic
+                 if block_given?
+-                    call_agent(action, args, custom_options, [expected_agents].flatten) do |r|
+-                        block.call(r)
+-                    end
++                    call_agent(action, args, custom_options, [expected_agents].flatten,&block)
++                    # do |r|
++                    #    block.call(r)
++                    #end
+                 else
+                     call_agent(action, args, custom_options, [expected_agents].flatten)
+                 end
+@@ -451,20 +452,28 @@
+                 result = []
+                 respcount = 0
+ 
+-                if disc.size > 0
+-                    @client.req(req, @agent, opts, disc.size) do |resp|
+-                        respcount += 1
++                incoming_handler = ReplyHandler.new(&block)
+ 
+-                        if block_given?
+-                            process_results_with_block(action, resp, block)
+-                        else
+-                            if @progress
+-                                puts if respcount == 1
+-                                print twirl.twirl(respcount, disc.size)
+-                            end
++                if disc.size > 0
++                    @client.req(req, @agent, opts, disc.size) do |handler|
++                      
++                        handler.replies do |resp|
++                        
++                          respcount += 1
++
++                          if block_given?
++                              process_results_with_block(action, resp, incoming_handler.replies)
++                          else
++                              if @progress
++                                  puts if respcount == 1
++                                  print twirl.twirl(respcount, disc.size)
++                              end
+ 
+-                            result << process_results_without_block(resp, action)
++                              result << process_results_without_block(resp, action)
++                          end
+                         end
++                        
++                        handler.progress(&incoming_handler.progress) if incoming_handler.progress
+                     end
+ 
+                     @stats.client_stats = @client.stats
+diff -ruN mcollective-1.3.0.orig/lib/mcollective/runner.rb mcollective-1.3.0/lib/mcollective/runner.rb
+--- mcollective-1.3.0.orig/lib/mcollective/runner.rb	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/lib/mcollective/runner.rb	2011-06-09 16:49:06.841859513 +0100
+@@ -95,10 +95,19 @@
+ 
+         private
+         # Deals with messages directed to agents
+-        def agentmsg(msg, target, collective)
+-            @agents.dispatch(msg, target, @connection) do |replies|
+-                dest = Util.make_target(target, :reply, collective)
+-                reply(target, dest, replies, msg[:requestid], msg[:callerid]) unless replies == nil
++         def agentmsg(msg, target, collective)
++            @agents.dispatch(msg, target, @connection) do |handler|
++
++                handler.replies do |replies|  
++                  dest = Util.make_target(target, :reply, collective)
++                  reply(target, dest, replies, msg[:requestid], msg[:callerid]) unless replies == nil
++                end
++
++                handler.progress do |replies| 
++                  dest = Util.make_target(target, :reply, collective)
++                  reply(target, dest, replies, msg[:requestid], msg[:callerid]) unless replies == nil
++                end
++
+             end
+         end
+ 
+diff -ruN mcollective-1.3.0.orig/lib/mcollective/runner.rb.orig mcollective-1.3.0/lib/mcollective/runner.rb.orig
+--- mcollective-1.3.0.orig/lib/mcollective/runner.rb.orig	1970-01-01 01:00:00.000000000 +0100
++++ mcollective-1.3.0/lib/mcollective/runner.rb.orig	2011-06-08 19:57:44.000000000 +0100
+@@ -0,0 +1,157 @@
++module MCollective
++    # The main runner for the daemon, supports running in the foreground
++    # and the background, keeps detailed stats and provides hooks to access
++    # all this information
++    class Runner
++        def initialize(configfile)
++            @config = Config.instance
++            @config.loadconfig(configfile) unless @config.configured
++
++            @stats = PluginManager["global_stats"]
++
++            @security = PluginManager["security_plugin"]
++            @security.initiated_by = :node
++
++            @connection = PluginManager["connector_plugin"]
++            @connection.connect
++
++            @agents = Agents.new
++
++            Signal.trap("USR1") do
++                Log.info("Reloading all agents after receiving USR1 signal")
++                @agents.loadagents
++            end
++
++            Signal.trap("USR2") do
++                Log.info("Cycling logging level due to USR2 signal")
++                Log.cycle_level
++            end
++        end
++
++        # Daemonize the current process
++        def self.daemonize
++            fork do
++                Process.setsid
++                exit if fork
++                Dir.chdir('/tmp')
++                STDIN.reopen('/dev/null')
++                STDOUT.reopen('/dev/null', 'a')
++                STDERR.reopen('/dev/null', 'a')
++
++                yield
++            end
++        end
++
++        # Starts the main loop, before calling this you should initialize the MCollective::Config singleton.
++        def run
++            Util.subscribe(Util.make_subscriptions("mcollective", :broadcast))
++
++            # Start the registration plugin if interval isn't 0
++            begin
++                PluginManager["registration_plugin"].run(@connection) unless @config.registerinterval == 0
++            rescue Exception => e
++                Log.error("Failed to start registration plugin: #{e}")
++            end
++
++            loop do
++                begin
++                    msg = receive
++
++                    collective = msg[:collective]
++                    agent = msg[:agent]
++
++                    # requests from older clients would not include the
++                    # :collective and :agent this parses the target in
++                    # a backward compat way for them
++                    unless collective && agent
++                        parsed_dest = Util.parse_msgtarget(msg[:msgtarget])
++                        collective = parsed_dest[:collective]
++                        agent = parsed_dest[:agent]
++                    end
++
++                    if agent == "mcollective"
++                        Log.debug("Handling message for mcollectived controller")
++
++                        controlmsg(msg, collective)
++                    else
++                        Log.debug("Handling message for agent '#{agent}' on collective '#{collective}'")
++
++                        agentmsg(msg, agent, collective)
++                    end
++                rescue Interrupt
++                    Log.warn("Exiting after interrupt signal")
++                    @connection.disconnect
++                    exit!
++
++                rescue NotTargettedAtUs => e
++                    Log.debug("Message does not pass filters, ignoring")
++
++                rescue Exception => e
++                    Log.warn("Failed to handle message: #{e} - #{e.class}\n")
++                    Log.warn(e.backtrace.join("\n\t"))
++                end
++            end
++        end
++
++        private
++        # Deals with messages directed to agents
++        def agentmsg(msg, target, collective)
++            @agents.dispatch(msg, target, @connection) do |replies|
++                dest = Util.make_target(target, :reply, collective)
++                reply(target, dest, replies, msg[:requestid], msg[:callerid]) unless replies == nil
++            end
++        end
++
++        # Deals with messages sent to our control topic
++        def controlmsg(msg, collective)
++            begin
++                body = msg[:body]
++                requestid = msg[:requestid]
++                callerid = msg[:callerid]
++
++                replytopic = Util.make_target("mcollective", :reply, collective)
++
++                case body
++                    when /^stats$/
++                        reply("mcollective", replytopic, @stats.to_hash, requestid, callerid)
++
++                    when /^reload_agent (.+)$/
++                        reply("mcollective", replytopic, "reloaded #{$1} agent", requestid, callerid) if @agents.loadagent($1)
++
++                    when /^reload_agents$/
++                        reply("mcollective", replytopic, "reloaded all agents", requestid, callerid) if @agents.loadagents
++
++                    else
++                        Log.error("Received an unknown message to the controller")
++
++                end
++            rescue Exception => e
++                Log.error("Failed to handle control message: #{e}")
++            end
++        end
++
++        # Receive a message from the connection handler
++        def receive
++            msg = @connection.receive
++
++            @stats.received
++
++            msg = @security.decodemsg(msg)
++
++            raise(NotTargettedAtUs, "Received message is not targetted to us")  unless @security.validate_filter?(msg[:filter])
++
++            msg
++        end
++
++        # Sends a reply to a specific target topic
++        def reply(sender, target, msg, requestid, callerid)
++            reply = @security.encodereply(sender, target, msg, requestid, callerid)
++
++            @connection.publish(target, reply)
++
++            @stats.sent
++        end
++    end
++end
++
++# vi:tabstop=4:expandtab:ai
+diff -ruN mcollective-1.3.0.orig/lib/mcollective.rb mcollective-1.3.0/lib/mcollective.rb
+--- mcollective-1.3.0.orig/lib/mcollective.rb	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/lib/mcollective.rb	2011-06-09 16:49:06.836452287 +0100
+@@ -52,6 +52,7 @@
+     autoload :Applications, "mcollective/applications"
+     autoload :Vendor, "mcollective/vendor"
+     autoload :Shell, "mcollective/shell"
++    autoload :ReplyHandler, "mcollective/reply_handler"
+ 
+     MCollective::Vendor.load_vendored
+ 
