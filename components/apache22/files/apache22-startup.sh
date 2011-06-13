@@ -166,7 +166,7 @@ esac
 ${APACHE_BIN}/apachectl ${STARTUP_OPTIONS} ${cmd} 2>&1
 
 if [ $? -ne 0 ]; then
-    echo "Server failed to start. Check the error log (defaults to ${APACHE_VAR_ROOT}/log/error_log) for more information, if any."
+    echo "Server failed to start. Check the error log (defaults to ${APACHE_VAR_ROOT}/logs/error_log) for more information, if any."
     exit $SMF_EXIT_ERR_FATAL
 fi
 
