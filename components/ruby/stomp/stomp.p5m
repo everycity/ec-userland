@@ -19,6 +19,8 @@ set name=info.upstream_url value="http://rubyforge.org/projects/stomp/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
+depend fmri=runtime/ruby-18 type=require
+
 license stomp.license license="APLv2"
 
 dir path=$(ECPREFIX)
