@@ -21,12 +21,12 @@
 		Allow from all
 	</Directory>
 
-	ErrorLog /ec/var/apache/2.2/log/error.log
+	ErrorLog /ec/var/apache/2.2/logs/error_log
 
 	# Possible values include: debug, info, notice, warn, error, crit,
 	# alert, emerg.
 	LogLevel warn
 
-	CustomLog /ec/var/apache/2.2/log/access.log combined
+	CustomLog /ec/var/apache/2.2/logs/access_log combined
 
 </VirtualHost>
