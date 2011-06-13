@@ -56,6 +56,9 @@ CMAKE_OPTIONS+= -DINSTALL_SCRIPTDIR=$(CMAKE_BINDIR.$(BITS))
 CMAKE_OPTIONS+= -DMYSQL_DATADIR=var/mysql/5.5/data
 CMAKE_OPTIONS+= -DSYSCONFDIR=$(ECPREFIX)/etc/mysql/5.5
 
+CONFIGURE_ENV.32+=	LDFLAGS="-R/ec/lib/mysql/5.5/lib"
+CONFIGURE_ENV.64+=	LDFLAGS="-R/ec/lib/mysql/5.5/lib/$(MACH64)"
+CONFIGURE_ENV+=		$(CONFIGURE_ENV.$(BITS))
 
 # gcc invocation in some link.txt file is missing -m$(BITS) parameter
 # and it makes 64-bit build to fail, this is a quick hack to make it build

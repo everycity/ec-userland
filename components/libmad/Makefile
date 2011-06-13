@@ -18,28 +18,27 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2011 Audioboo Ltd. All rights reserved.
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
-COMPONENT_NAME=		sox
-COMPONENT_VERSION=	14.3.2
+COMPONENT_NAME=		libmad
+COMPONENT_VERSION=	0.15.1b
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:026636c90d7accba76225a2821aaa2ffa6fe41a3
-COMPONENT_ARCHIVE_URL=	http://downloads.sourceforge.net/project/$(COMPONENT_NAME)/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
+#COMPONENT_ARCHIVE_HASH=	sha1:
+COMPONENT_ARCHIVE_URL=	http://downloads.sourceforge.net/project/mad/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS.64+= LDFLAGS="-L/ec/lib/amd64"
+IPS_COMPONENT_VERSION=	0.15.1.2
 
-CONFIGURE_OPTIONS+=	--with-pic --enable-shared --disable-static
-CONFIGURE_OPTIONS+=	--with-png
-CONFIGURE_OPTIONS+=	--with-mad
-CONFIGURE_OPTIONS+=	--with-lame
+CONFIGURE_OPTIONS+=	--with-pic --disable-static --enable-shared
+CONFIGURE_OPTIONS+=	--disable-debugging
+
+COMPONENT_PRE_CONFIGURE_ACTION=cd $(SOURCE_DIR) ; touch NEWS AUTHORS ChangeLog ; autoreconf -i -s
 
 build:		$(BUILD_32_and_64)
 

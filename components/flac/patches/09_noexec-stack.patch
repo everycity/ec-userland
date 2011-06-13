@@ -1,0 +1,18 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 09_noexec-stack.dpatch by Russell Coker <russell@coker.com.au>
+##
+## DP: The following patch adds a section to the libFLAC.so file to indicate that
+## DP: it doesn't need an executable stack. This allows programs using it to run
+## DP: correctly on SE Linux systems, and with exec-shield.
+
+@DPATCH@
+diff -urNad flac~/src/libFLAC/ia32/nasm.h flac/src/libFLAC/ia32/nasm.h
+--- flac~/src/libFLAC/ia32/nasm.h	2009-08-03 16:37:33.000000000 +0200
++++ flac/src/libFLAC/ia32/nasm.h	2009-08-03 16:38:29.000000000 +0200
+@@ -73,3 +73,6 @@
+ _%1:
+ %1:
+ %endmacro
++
++section .note.GNU-stack progbits noalloc noexec nowrite align=1
++

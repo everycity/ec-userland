@@ -18,28 +18,23 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2011 Audioboo Ltd. All rights reserved.
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
-COMPONENT_NAME=		sox
-COMPONENT_VERSION=	14.3.2
+COMPONENT_NAME=		wavpack
+COMPONENT_VERSION=	4.60.1
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:026636c90d7accba76225a2821aaa2ffa6fe41a3
-COMPONENT_ARCHIVE_URL=	http://downloads.sourceforge.net/project/$(COMPONENT_NAME)/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_HASH=	sha1:
+COMPONENT_ARCHIVE_URL=	http://www.wavpack.com/wavpack-4.60.1.tar.bz2
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS.64+= LDFLAGS="-L/ec/lib/amd64"
-
 CONFIGURE_OPTIONS+=	--with-pic --enable-shared --disable-static
-CONFIGURE_OPTIONS+=	--with-png
-CONFIGURE_OPTIONS+=	--with-mad
-CONFIGURE_OPTIONS+=	--with-lame
+CONFIGURE_OPTIONS+=	--with-iconv=$(ECPREFIX)
 
 build:		$(BUILD_32_and_64)
 

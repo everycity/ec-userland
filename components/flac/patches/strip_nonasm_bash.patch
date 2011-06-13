@@ -1,0 +1,8 @@
+--- flac-1.2.1/strip_non_asm_libtool_args.sh.orig	2011-06-09 17:03:50.979385477 +0100
++++ flac-1.2.1/strip_non_asm_libtool_args.sh	2011-06-09 17:03:58.337658209 +0100
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/usr/bin/bash
+ #
+ # libtool assumes that the compiler can handle the -fPIC flag.
+ # This isn't always true (for example, nasm can't handle it).
