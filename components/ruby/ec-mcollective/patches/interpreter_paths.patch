@@ -1,0 +1,81 @@
+diff -ruN mcollective-1.3.0.orig/mc-call-agent mcollective-1.3.0/mc-call-agent
+--- mcollective-1.3.0.orig/mc-call-agent	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/mc-call-agent	2011-06-13 16:19:13.400794921 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env ruby
++#!/ec/bin/ruby1.8
+ 
+ require 'mcollective'
+ require 'pp'
+diff -ruN mcollective-1.3.0.orig/mc-controller mcollective-1.3.0/mc-controller
+--- mcollective-1.3.0.orig/mc-controller	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/mc-controller	2011-06-13 16:19:18.680345408 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env ruby
++#!/ec/bin/ruby1.8
+ 
+ require 'mcollective'
+ 
+diff -ruN mcollective-1.3.0.orig/mc-facts mcollective-1.3.0/mc-facts
+--- mcollective-1.3.0.orig/mc-facts	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/mc-facts	2011-06-13 16:19:22.422353246 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env ruby
++#!/ec/bin/ruby1.8
+ 
+ require 'mcollective'
+ 
+diff -ruN mcollective-1.3.0.orig/mc-find-hosts mcollective-1.3.0/mc-find-hosts
+--- mcollective-1.3.0.orig/mc-find-hosts	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/mc-find-hosts	2011-06-13 16:19:26.013526555 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env ruby
++#!/ec/bin/ruby1.8
+ 
+ require 'mcollective'
+ 
+diff -ruN mcollective-1.3.0.orig/mc-inventory mcollective-1.3.0/mc-inventory
+--- mcollective-1.3.0.orig/mc-inventory	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/mc-inventory	2011-06-13 16:19:29.633913180 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env ruby
++#!/ec/bin/ruby1.8
+ 
+ require 'mcollective'
+ 
+diff -ruN mcollective-1.3.0.orig/mc-ping mcollective-1.3.0/mc-ping
+--- mcollective-1.3.0.orig/mc-ping	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/mc-ping	2011-06-13 16:19:33.100211617 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env ruby
++#!/ec/bin/ruby1.8
+ 
+ require 'mcollective'
+ 
+diff -ruN mcollective-1.3.0.orig/mc-rpc mcollective-1.3.0/mc-rpc
+--- mcollective-1.3.0.orig/mc-rpc	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/mc-rpc	2011-06-13 16:19:36.521379907 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env ruby
++#!/ec/bin/ruby1.8
+ 
+ require 'mcollective'
+ 
+diff -ruN mcollective-1.3.0.orig/mco mcollective-1.3.0/mco
+--- mcollective-1.3.0.orig/mco	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/mco	2011-06-13 16:19:40.161945480 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env ruby
++#!/ec/bin/ruby1.8
+ 
+ require 'mcollective'
+ 
+diff -ruN mcollective-1.3.0.orig/mcollectived.rb mcollective-1.3.0/mcollectived.rb
+--- mcollective-1.3.0.orig/mcollectived.rb	2011-06-13 15:36:31.000000000 +0100
++++ mcollective-1.3.0/mcollectived.rb	2011-06-13 16:19:49.741350187 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env ruby
++#!/ec/bin/ruby1.8
+ 
+ require 'mcollective'
+ require 'getoptlong'

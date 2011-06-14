@@ -1,0 +1,101 @@
+diff -ruN mcollective-1.3.0.orig/etc/client.cfg.dist mcollective-1.3.0/etc/client.cfg.dist
+--- mcollective-1.3.0.orig/etc/client.cfg.dist	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/etc/client.cfg.dist	2011-06-13 14:57:34.800183741 +0100
+@@ -1,7 +1,7 @@
+ topicprefix = /topic/
+ main_collective = mcollective
+ collectives = mcollective
+-libdir = /usr/libexec/mcollective
++libdir = /ec/share/mcollective/plugins
+ logfile = /dev/null
+ loglevel = info
+ 
+@@ -17,5 +17,5 @@
+ 
+ # Facts
+ factsource = yaml
+-plugin.yaml = /etc/mcollective/facts.yaml
++plugin.yaml = /ec/etc/mcollective/facts.yaml
+ 
+diff -ruN mcollective-1.3.0.orig/etc/server.cfg.dist mcollective-1.3.0/etc/server.cfg.dist
+--- mcollective-1.3.0.orig/etc/server.cfg.dist	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/etc/server.cfg.dist	2011-06-13 14:57:34.800425748 +0100
+@@ -1,8 +1,8 @@
+ topicprefix = /topic/
+ main_collective = mcollective
+ collectives = mcollective
+-libdir = /usr/libexec/mcollective
+-logfile = /var/log/mcollective.log
++libdir = /ec/share/mcollective/plugins
++logfile = /ec/var/log/mcollective.log
+ loglevel = info
+ daemonize = 1
+ 
+@@ -18,5 +18,5 @@
+ 
+ # Facts
+ factsource = yaml
+-plugin.yaml = /etc/mcollective/facts.yaml
++plugin.yaml = /ec/etc/mcollective/facts.yaml
+ 
+diff -ruN mcollective-1.3.0.orig/lib/mcollective/config.rb mcollective-1.3.0/lib/mcollective/config.rb
+--- mcollective-1.3.0.orig/lib/mcollective/config.rb	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/lib/mcollective/config.rb	2011-06-13 14:57:49.250570109 +0100
+@@ -138,7 +138,7 @@
+             @configdir = File.dirname(configfile)
+             @color = true
+             @configfile = configfile
+-            @rpchelptemplate = "/etc/mcollective/rpc-help.erb"
++            @rpchelptemplate = "/ec/etc/mcollective/rpc-help.erb"
+             @logger_type = "file"
+             @keeplogs = 5
+             @max_log_size = 2097152
+diff -ruN mcollective-1.3.0.orig/lib/mcollective/rpc.rb mcollective-1.3.0/lib/mcollective/rpc.rb
+--- mcollective-1.3.0.orig/lib/mcollective/rpc.rb	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/lib/mcollective/rpc.rb	2011-06-13 14:57:49.250908743 +0100
+@@ -54,7 +54,7 @@
+         # Options would be a build up options hash from the Optionparser
+         # you can use the rpcoptions helper to create this
+         def rpcclient(agent, flags = {})
+-            configfile = flags[:configfile] || "/etc/mcollective/client.cfg"
++            configfile = flags[:configfile] || "/ec/etc/mcollective/client.cfg"
+             options = flags[:options] || nil
+ 
+             begin
+diff -ruN mcollective-1.3.0.orig/lib/mcollective/util.rb mcollective-1.3.0/lib/mcollective/util.rb
+--- mcollective-1.3.0.orig/lib/mcollective/util.rb	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/lib/mcollective/util.rb	2011-06-13 14:57:49.251308416 +0100
+@@ -127,7 +127,7 @@
+         end
+ 
+         # Picks a config file defaults to ~/.mcollective
+-        # else /etc/mcollective/client.cfg
++        # else /ec/etc/mcollective/client.cfg
+         def self.config_file_for_user
+             # expand_path is pretty lame, it relies on HOME environment
+             # which isnt't always there so just handling all exceptions
+@@ -136,10 +136,10 @@
+                 config = File.expand_path("~/.mcollective")
+ 
+                 unless File.readable?(config) && File.file?(config)
+-                    config = "/etc/mcollective/client.cfg"
++                    config = "/ec/etc/mcollective/client.cfg"
+                 end
+             rescue Exception => e
+-                config = "/etc/mcollective/client.cfg"
++                config = "/ec/etc/mcollective/client.cfg"
+             end
+ 
+             return config
+diff -ruN mcollective-1.3.0.orig/mcollectived.rb mcollective-1.3.0/mcollectived.rb
+--- mcollective-1.3.0.orig/mcollectived.rb	2011-06-08 19:57:44.000000000 +0100
++++ mcollective-1.3.0/mcollectived.rb	2011-06-13 14:57:49.251600009 +0100
+@@ -9,7 +9,7 @@
+     [ '--pidfile', '-p', GetoptLong::REQUIRED_ARGUMENT]
+ )
+ 
+-configfile = "/etc/mcollective/server.cfg"
++configfile = "/ec/etc/mcollective/server.cfg"
+ pid = ""
+ 
+ opts.each do |opt, arg|

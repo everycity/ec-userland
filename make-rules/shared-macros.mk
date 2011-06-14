@@ -28,7 +28,7 @@ PATH=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 
 # Default to looking for source archives on the internal mirror before we
 # hammer on the external repositories.
-export DOWNLOAD_SEARCH_PATH +=	http://userland.us.oracle.com/source-archives/
+#export DOWNLOAD_SEARCH_PATH +=	http://userland.us.oracle.com/source-archives/
 
 # The workspace starts at the mercurial root
 export WS_TOP ?=		$(shell hg root)
