@@ -23,7 +23,7 @@
 # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
 #
 
-include ../../make-rules/shared-macros.mk
+include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ruby
 COMPONENT_VERSION=	1.8.7
@@ -35,17 +35,17 @@ COMPONENT_ARCHIVE_URL=	http://ftp.ruby-lang.org/pub/ruby/1.8/$(COMPONENT_ARCHIVE
 IPS_COMPONENT_VERSION=	$(COMPONENT_VERSION).$(COMPONENT_PATCH_VERSION)
 
 # rubygems 
-COMPONENT_SRC_1=	rubygems-1.3.5
+COMPONENT_SRC_1=	rubygems-1.3.6
 COMPONENT_ARCHIVE_1=	$(COMPONENT_SRC_1).tgz
-COMPONENT_ARCHIVE_HASH_1=	sha1:8545f25d00c757a310b879a2580e56d6012fc981
+COMPONENT_ARCHIVE_HASH_1=	sha1:ad6606d1eae82cb69381e4f5b2022d2f3f2733f3
 COMPONENT_ARCHIVE_URL_1=	http://production.cf.rubygems.org/rubygems/$(COMPONENT_ARCHIVE_1)
 
 SOURCE_DIR_1=$(COMPONENT_DIR)/$(COMPONENT_SRC_1)
 CLEAN_PATHS += $(SOURCE_DIR_1)
 
-include $(WS_TOP)/make-rules/prep.mk
-include $(WS_TOP)/make-rules/ips.mk
-include $(WS_TOP)/make-rules/configure.mk
+include ../../../make-rules/prep.mk
+include ../../../make-rules/ips.mk
+include ../../../make-rules/configure.mk
 
 # COMPONENT_VERSION <major>.<minor>.<teeny>
 # is transformed into <major>.<minor> for RUBY_VER.
@@ -126,7 +126,7 @@ CONFIGURE_OPTIONS += --with-tk-dir=/usr
 CONFIGURE_OPTIONS += --with-curses-dir=$(ECPREFIX)
 CONFIGURE_OPTIONS += CFLAGS="$(CFLAGS)"
 
-include $(WS_TOP)/make-rules/shared-targets.mk
+include ../../../make-rules/shared-targets.mk
 
 # common targets
 
@@ -151,4 +151,4 @@ $(RUBYGEMS_INSTALL_TARGET):	$(INSTALL_32)
 
 BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
 
-include $(WS_TOP)/make-rules/depend.mk
+include ../../../make-rules/depend.mk

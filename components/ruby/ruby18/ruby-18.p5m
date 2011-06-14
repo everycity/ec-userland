@@ -29,7 +29,6 @@ dir path=$(ECPREFIX)/lib/ruby/$(RUBY_VER)/bigdecimal
 dir path=$(ECPREFIX)/lib/ruby/$(RUBY_VER)/cgi
 dir path=$(ECPREFIX)/lib/ruby/$(RUBY_VER)/cgi/session
 dir path=$(ECPREFIX)/lib/ruby/$(RUBY_VER)/date
-dir path=$(ECPREFIX)/lib/ruby/$(RUBY_VER)/digest
 dir path=$(ECPREFIX)/lib/ruby/$(RUBY_VER)/dl
 dir path=$(ECPREFIX)/lib/ruby/$(RUBY_VER)/drb
 dir path=$(ECPREFIX)/lib/ruby/$(RUBY_VER)/i386-solaris2.10
@@ -2948,7 +2947,11 @@ file \
 file \
     path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/commands/outdated_command.rb
 file \
+    path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/commands/owner_command.rb
+file \
     path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/commands/pristine_command.rb
+file \
+    path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/commands/push_command.rb
 file \
     path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/commands/query_command.rb
 file \
@@ -2980,11 +2983,6 @@ file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/dependency.rb
 file \
     path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/dependency_installer.rb
 file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/dependency_list.rb
-file \
-    path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/digest/digest_adapter.rb
-file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/digest/md5.rb
-file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/digest/sha1.rb
-file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/digest/sha2.rb
 file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/doc_manager.rb
 file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/exceptions.rb
 file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/ext.rb
@@ -2998,6 +2996,7 @@ file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/format.rb
 file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/gem_openssl.rb
 file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/gem_path_searcher.rb
 file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/gem_runner.rb
+file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/gemcutter_utilities.rb
 file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/indexer.rb
 file \
     path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/install_update_options.rb
@@ -3030,7 +3029,6 @@ file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/spec_fetcher.rb
 file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/specification.rb
 file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/test_utilities.rb
 file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/text.rb
-file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/timer.rb
 file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/uninstaller.rb
 file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/user_interaction.rb
 file path=$(ECPREFIX)/lib/ruby/vendor_ruby/$(RUBY_VER)/rubygems/validator.rb
