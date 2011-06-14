@@ -22,11 +22,11 @@ COMPONENT_ARCHIVE_HASH=	sha1:a7292484f699b6e2095131e17064c54a23b71016
 COMPONENT_ARCHIVE_URL=	http://puppetlabs.com/downloads/mcollective/$(COMPONENT_ARCHIVE)
 
 include ../../../make-rules/prep.mk
+include ../../../make-rules/ips.mk
+
 PKGMANGLE = /bin/true
 PKGLINT = /bin/true
 PKGDEPEND = /bin/true
-include ../../../make-rules/ips.mk
-
 
 build: prep
 
