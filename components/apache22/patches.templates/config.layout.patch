@@ -23,7 +23,7 @@
 +    includedir:    /ec/include/apache/2.2::MPM::
 +    localstatedir: /ec/var/run/apache/2.2
 +    runtimedir:    /ec/var/run/apache/2.2
-+    logfiledir:    ${datadir}/log
++    logfiledir:    ${datadir}/logs
 +    proxycachedir: ${datadir}/proxy
 +    infodir:       ${exec_prefix}/info
 +    installbuilddir: /ec/share/apache/2.2/build::MPM::::ISAINFO::

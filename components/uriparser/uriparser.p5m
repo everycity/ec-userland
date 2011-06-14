@@ -1,0 +1,46 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/text/uriparser@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="A URI parser that is strictly RFC3986 compliant"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://uriparser.sourceforge.net/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license uriparser.license license="URIParser"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/uriparser
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+file path=$(ECPREFIX)/include/uriparser/Uri.h
+file path=$(ECPREFIX)/include/uriparser/UriBase.h
+file path=$(ECPREFIX)/include/uriparser/UriDefsAnsi.h
+file path=$(ECPREFIX)/include/uriparser/UriDefsConfig.h
+file path=$(ECPREFIX)/include/uriparser/UriDefsUnicode.h
+file path=$(ECPREFIX)/include/uriparser/UriIp4.h
+file path=$(ECPREFIX)/lib/$(MACH64)/liburiparser.so.1.0.10
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/liburiparser.pc
+file path=$(ECPREFIX)/lib/liburiparser.so.1.0.10
+file path=$(ECPREFIX)/lib/pkgconfig/liburiparser.pc
+link path=$(ECPREFIX)/lib/$(MACH64)/liburiparser.so \
+    target=liburiparser.so.1.0.10
+link path=$(ECPREFIX)/lib/$(MACH64)/liburiparser.so.1 \
+    target=liburiparser.so.1.0.10
+link path=$(ECPREFIX)/lib/liburiparser.so target=liburiparser.so.1.0.10
+link path=$(ECPREFIX)/lib/liburiparser.so.1 target=liburiparser.so.1.0.10

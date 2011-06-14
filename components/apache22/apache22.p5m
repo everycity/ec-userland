@@ -63,7 +63,7 @@ dir path=$(ECPREFIX)/var/apache/2.2/error/include preserve=true
 dir path=$(ECPREFIX)/var/apache/2.2/htdocs preserve=true
 dir path=$(ECPREFIX)/var/apache/2.2/icons preserve=true 
 dir path=$(ECPREFIX)/var/apache/2.2/icons/small preserve=true
-dir path=$(ECPREFIX)/var/apache/2.2/log mode=0755 owner=webservd group=webservd preserve=true
+dir path=$(ECPREFIX)/var/apache/2.2/logs mode=0755 owner=webservd group=webservd preserve=true
 dir path=$(ECPREFIX)/var/apache/2.2/manual
 dir path=$(ECPREFIX)/var/apache/2.2/manual/developer
 dir path=$(ECPREFIX)/var/apache/2.2/manual/faq
@@ -1721,3 +1721,5 @@ link path=$(ECPREFIX)/bin/$(MACH64)/a2dissite \
     target=../../lib/apache/active/bin/$(MACH64)/a2dissite preserve=true pkg.linted=true
 file files/apache22-postinstall.xml path=var/svc/manifest/site/apache22-postinstall.xml \
     restart_fmri=svc:/system/manifest-import:default
+link path=$(ECPREFIX)/lib/apache/2.2/logs \
+    target=$(ECPREFIX)/var/apache/2.2/logs

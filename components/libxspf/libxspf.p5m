@@ -1,0 +1,71 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/library/audio/libxspf@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="XSPF playlist library"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://libspiff.sourceforge.net/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license libxspf.license license="LibXSPF"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/xspf
+dir path=$(ECPREFIX)/include/xspf/ProjectOpus
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+file path=$(ECPREFIX)/bin/$(MACH64)/xspf_check
+file path=$(ECPREFIX)/bin/$(MACH64)/xspf_strip
+file path=$(ECPREFIX)/bin/xspf_check
+file path=$(ECPREFIX)/bin/xspf_strip
+file path=$(ECPREFIX)/include/xspf/ProjectOpus/ProjectOpusPlaylistExtension.h
+file \
+    path=$(ECPREFIX)/include/xspf/ProjectOpus/ProjectOpusPlaylistExtensionReader.h
+file \
+    path=$(ECPREFIX)/include/xspf/ProjectOpus/ProjectOpusPlaylistExtensionWriter.h
+file path=$(ECPREFIX)/include/xspf/Xspf.h
+file path=$(ECPREFIX)/include/xspf/XspfChunkCallback.h
+file path=$(ECPREFIX)/include/xspf/XspfData.h
+file path=$(ECPREFIX)/include/xspf/XspfDateTime.h
+file path=$(ECPREFIX)/include/xspf/XspfDefines.h
+file path=$(ECPREFIX)/include/xspf/XspfExtension.h
+file path=$(ECPREFIX)/include/xspf/XspfExtensionReader.h
+file path=$(ECPREFIX)/include/xspf/XspfExtensionReaderFactory.h
+file path=$(ECPREFIX)/include/xspf/XspfExtensionWriter.h
+file path=$(ECPREFIX)/include/xspf/XspfIndentFormatter.h
+file path=$(ECPREFIX)/include/xspf/XspfProps.h
+file path=$(ECPREFIX)/include/xspf/XspfReader.h
+file path=$(ECPREFIX)/include/xspf/XspfReaderCallback.h
+file path=$(ECPREFIX)/include/xspf/XspfSeamlessFormatter.h
+file path=$(ECPREFIX)/include/xspf/XspfStack.h
+file path=$(ECPREFIX)/include/xspf/XspfToolbox.h
+file path=$(ECPREFIX)/include/xspf/XspfTrack.h
+file path=$(ECPREFIX)/include/xspf/XspfVersion.h
+file path=$(ECPREFIX)/include/xspf/XspfWriter.h
+file path=$(ECPREFIX)/include/xspf/XspfXmlFormatter.h
+file path=$(ECPREFIX)/include/xspf/xspf_c.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libxspf.so.4.0.1
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xspf.pc
+file path=$(ECPREFIX)/lib/libxspf.so.4.0.1
+file path=$(ECPREFIX)/lib/pkgconfig/xspf.pc
+link path=$(ECPREFIX)/lib/$(MACH64)/libxspf.so target=libxspf.so.4.0.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libxspf.so.4 target=libxspf.so.4.0.1
+link path=$(ECPREFIX)/lib/libxspf.so target=libxspf.so.4.0.1
+link path=$(ECPREFIX)/lib/libxspf.so.4 target=libxspf.so.4.0.1
