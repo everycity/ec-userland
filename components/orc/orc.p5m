@@ -1,0 +1,115 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/developer/orc@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="The Oil Runtime Compiler for SIMD array operations"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://code.entropywave.com/projects/orc/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license orc.license license="ORC"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/orc-0.4
+dir path=$(ECPREFIX)/include/orc-0.4/orc
+dir path=$(ECPREFIX)/include/orc-0.4/orc-test
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/gtk-doc
+dir path=$(ECPREFIX)/share/gtk-doc/html
+dir path=$(ECPREFIX)/share/gtk-doc/html/orc
+file path=$(ECPREFIX)/bin/$(MACH64)/orc-bugreport
+file path=$(ECPREFIX)/bin/$(MACH64)/orcc
+file path=$(ECPREFIX)/bin/orc-bugreport
+file path=$(ECPREFIX)/bin/orcc
+file path=$(ECPREFIX)/include/orc-0.4/orc-test/orcarray.h
+file path=$(ECPREFIX)/include/orc-0.4/orc-test/orcprofile.h
+file path=$(ECPREFIX)/include/orc-0.4/orc-test/orcrandom.h
+file path=$(ECPREFIX)/include/orc-0.4/orc-test/orctest.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/opcodes.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/orc-stdint.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/orc.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/orcarm.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/orccpuinsn.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/orcdebug.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/orcemulateopcodes.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/orcfunctions.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/orcmmx.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/orcneon.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/orconce.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/orcparse.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/orcpowerpc.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/orcprogram.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/orcsse.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/orcutils.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/orcx86.h
+file path=$(ECPREFIX)/include/orc-0.4/orc/orcx86insn.h
+file path=$(ECPREFIX)/lib/$(MACH64)/liborc-0.4.so.0.14.0
+file path=$(ECPREFIX)/lib/$(MACH64)/liborc-test-0.4.so.0.14.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/orc-0.4.pc
+file path=$(ECPREFIX)/lib/liborc-0.4.so.0.14.0
+file path=$(ECPREFIX)/lib/liborc-test-0.4.so.0.14.0
+file path=$(ECPREFIX)/lib/pkgconfig/orc-0.4.pc
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/ch01.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/ch02.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/ch03.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/ch04.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/ch05.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/home.png
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/index.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/index.sgml
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/left.png
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-ARM.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-MMX.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-Orc.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-OrcCompiler.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-OrcDebug.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-OrcExecutor.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-OrcOpcode.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-OrcProgram.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-OrcRule.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-PowerPC.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-SSE.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-Utility-functions.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-building.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-concepts.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-misc.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-opcodes.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-runninging.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-tutorial.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-x86.html
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc.devhelp
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc.devhelp2
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/right.png
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/style.css
+file path=$(ECPREFIX)/share/gtk-doc/html/orc/up.png
+link path=$(ECPREFIX)/lib/$(MACH64)/liborc-0.4.so target=liborc-0.4.so.0.14.0
+link path=$(ECPREFIX)/lib/$(MACH64)/liborc-0.4.so.0 \
+    target=liborc-0.4.so.0.14.0
+link path=$(ECPREFIX)/lib/$(MACH64)/liborc-test-0.4.so \
+    target=liborc-test-0.4.so.0.14.0
+link path=$(ECPREFIX)/lib/$(MACH64)/liborc-test-0.4.so.0 \
+    target=liborc-test-0.4.so.0.14.0
+link path=$(ECPREFIX)/lib/liborc-0.4.so target=liborc-0.4.so.0.14.0
+link path=$(ECPREFIX)/lib/liborc-0.4.so.0 target=liborc-0.4.so.0.14.0
+link path=$(ECPREFIX)/lib/liborc-test-0.4.so target=liborc-test-0.4.so.0.14.0
+link path=$(ECPREFIX)/lib/liborc-test-0.4.so.0 \
+    target=liborc-test-0.4.so.0.14.0
