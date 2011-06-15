@@ -25,10 +25,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ffmpeg
-COMPONENT_VERSION=	0.6.1
+COMPONENT_VERSION=	0.6.3
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:24ada1d35fc000980090e773101e101ca45f85e5
+#COMPONENT_ARCHIVE_HASH=	sha1:24ada1d35fc000980090e773101e101ca45f85e5
 COMPONENT_ARCHIVE_URL=	http://www.ffmpeg.org/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -41,10 +41,9 @@ CONFIGURE_OPTIONS.32+=	--bindir=$(ECPREFIX)/bin
 CONFIGURE_OPTIONS.64+=	--bindir=$(ECPREFIX)/bin/$(MACH64)
 CONFIGURE_OPTIONS.32+=	--libdir=$(ECPREFIX)/lib
 CONFIGURE_OPTIONS.64+=	--libdir=$(ECPREFIX)/lib/$(MACH64)
-CONFIGURE_OPTIONS.32+=	--sbindir=$(ECPREFIX)/sbin
-CONFIGURE_OPTIONS.64+=	--sbindir=$(ECPREFIX)/sbin/$(MACH64)
 CONFIGURE_OPTIONS.32+=	--shlibdir=$(ECPREFIX)/lib
 CONFIGURE_OPTIONS.64+=	--shlibdir=$(ECPREFIX)/lib/$(MACH64)
+CONFIGURE_OPTIONS.32+=	--cpu=nocona
 
 CONFIGURE_OPTIONS+=	--cc="$(CC)"
 CONFIGURE_OPTIONS+=	--disable-static
@@ -62,6 +61,8 @@ CONFIGURE_OPTIONS+=	--enable-libxvid
 CONFIGURE_OPTIONS+=	--enable-libgsm
 CONFIGURE_OPTIONS+=	--enable-libspeex
 CONFIGURE_OPTIONS+=	--enable-libvorbis
+CONFIGURE_OPTIONS+=	--enable-libmp3lame
+CONFIGURE_OPTIONS+=	--enable-libtheora
 CONFIGURE_OPTIONS+=	--enable-libopencore-amrnb
 CONFIGURE_OPTIONS+=	--enable-libopencore-amrwb
 CONFIGURE_OPTIONS+=	--disable-ffplay
