@@ -39,8 +39,14 @@ file path=$(ECPREFIX)/bin/fftw-wisdom
 file path=$(ECPREFIX)/bin/fftw-wisdom-to-conf
 file path=$(ECPREFIX)/include/fftw3.f
 file path=$(ECPREFIX)/include/fftw3.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libfftw3.so.3.2.4
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/fftw3.pc
+file path=$(ECPREFIX)/lib/libfftw3.so.3.2.4
 file path=$(ECPREFIX)/lib/pkgconfig/fftw3.pc
 file path=$(ECPREFIX)/share/info/fftw3.info
 file path=$(ECPREFIX)/share/man/man1/fftw-wisdom-to-conf.1
 file path=$(ECPREFIX)/share/man/man1/fftw-wisdom.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libfftw3.so target=libfftw3.so.3.2.4
+link path=$(ECPREFIX)/lib/$(MACH64)/libfftw3.so.3 target=libfftw3.so.3.2.4
+link path=$(ECPREFIX)/lib/libfftw3.so target=libfftw3.so.3.2.4
+link path=$(ECPREFIX)/lib/libfftw3.so.3 target=libfftw3.so.3.2.4
