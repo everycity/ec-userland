@@ -23,10 +23,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		nasm
-COMPONENT_VERSION=	2.08
+COMPONENT_VERSION=	2.09.08
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:00e498ff92646b6d286eb766a7489713f816219e
+#COMPONENT_ARCHIVE_HASH=	sha1:
 COMPONENT_ARCHIVE_URL=	http://www.nasm.us/pub/nasm/releasebuilds/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 COMPONENT_POST_CONFIGURE_ACTION += (mkdir -p $(BUILD_DIR_32)/lib $(BUILD_DIR_64)/lib)
@@ -38,7 +38,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-IPS_COMPONENT_VERSION=	2.8
+IPS_COMPONENT_VERSION=	2.9.8
 
 build:		$(BUILD_32_and_64)
 
