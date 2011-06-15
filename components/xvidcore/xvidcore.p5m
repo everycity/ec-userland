@@ -28,3 +28,7 @@ dir path=$(ECPREFIX)/lib/$(MACH64)
 file path=$(ECPREFIX)/include/xvid.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libxvidcore.so.4.3
 file path=$(ECPREFIX)/lib/libxvidcore.so.4.3
+link path=$(ECPREFIX)/lib/$(MACH64)/libxvidcore.so target=$(ECPREFIX)/lib/$(MACH64)/libxvidcore.so.4.3
+link path=$(ECPREFIX)/lib/$(MACH64)/libxvidcore.so.4 target=$(ECPREFIX)/lib/$(MACH64)/libxvidcore.so.4.3
+link path=$(ECPREFIX)/lib/libxvidcore.so target=$(ECPREFIX)/lib/libxvidcore.so.4.3
+link path=$(ECPREFIX)/lib/libxvidcore.so.4 target=$(ECPREFIX)/lib/libxvidcore.so.4.3
