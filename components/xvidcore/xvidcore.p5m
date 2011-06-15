@@ -1,0 +1,30 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/library/video/xvidcore@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Xvid MPEG-4 video codec library"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://www.xvid.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license xvidcore.license license="GPLv2"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+file path=$(ECPREFIX)/include/xvid.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libxvidcore.so.4.3
+file path=$(ECPREFIX)/lib/libxvidcore.so.4.3
