@@ -36,7 +36,7 @@ include ../../make-rules/ips.mk
 CONFIGURE_OPTIONS+=--with-pic --enable-shared --disable-static --with-gnu-ld
 CONFIGURE_ENV+=LD=/ec/bin/ld
 COMPONENT_BUILD_ENV.32+=LD_ALTEXEC=/ec/bin/ld
-COMPONENT_BUILD_ENV.64+=LD_ALTEXEC=/ec/bin/ld LDEMULATION="elf_x86_64_sol2"
+COMPONENT_BUILD_ENV.64+=LD_ALTEXEC=/ec/bin/amd64/ld
 COMPONENT_BUILD_ENV+=$(COMPONENT_BUILD_ENV.$(BITS))
 COMPONENT_INSTALL_ENV+=$(COMPONENT_BUILD_ENV.$(BITS))
 
