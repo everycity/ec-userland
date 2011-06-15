@@ -1,0 +1,73 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/library/video/theora@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Theora open video compression format"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://www.theora.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license libtheora.license license="libtheora"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/theora
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/libtheora-$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/include/theora/codec.h
+file path=$(ECPREFIX)/include/theora/theora.h
+file path=$(ECPREFIX)/include/theora/theoradec.h
+file path=$(ECPREFIX)/include/theora/theoraenc.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libtheora.so.0.3.10
+file path=$(ECPREFIX)/lib/$(MACH64)/libtheoradec.so.1.1.4
+file path=$(ECPREFIX)/lib/$(MACH64)/libtheoraenc.so.1.1.2
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/theora.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/theoradec.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/theoraenc.pc
+file path=$(ECPREFIX)/lib/libtheora.so.0.3.10
+file path=$(ECPREFIX)/lib/libtheoradec.so.1.1.4
+file path=$(ECPREFIX)/lib/libtheoraenc.so.1.1.2
+file path=$(ECPREFIX)/lib/pkgconfig/theora.pc
+file path=$(ECPREFIX)/lib/pkgconfig/theoradec.pc
+file path=$(ECPREFIX)/lib/pkgconfig/theoraenc.pc
+file path=$(ECPREFIX)/share/doc/libtheora-$(COMPONENT_VERSION)/color.html
+file \
+    path=$(ECPREFIX)/share/doc/libtheora-$(COMPONENT_VERSION)/doxygen-build.stamp
+file \
+    path=$(ECPREFIX)/share/doc/libtheora-$(COMPONENT_VERSION)/draft-ietf-avt-rtp-theora-00.txt
+file \
+    path=$(ECPREFIX)/share/doc/libtheora-$(COMPONENT_VERSION)/draft-ietf-avt-rtp-theora-00.xml
+file path=$(ECPREFIX)/share/doc/libtheora-$(COMPONENT_VERSION)/vp3-format.txt
+link path=$(ECPREFIX)/lib/$(MACH64)/libtheora.so target=libtheora.so.0.3.10
+link path=$(ECPREFIX)/lib/$(MACH64)/libtheora.so.0 target=libtheora.so.0.3.10
+link path=$(ECPREFIX)/lib/$(MACH64)/libtheoradec.so \
+    target=libtheoradec.so.1.1.4
+link path=$(ECPREFIX)/lib/$(MACH64)/libtheoradec.so.1 \
+    target=libtheoradec.so.1.1.4
+link path=$(ECPREFIX)/lib/$(MACH64)/libtheoraenc.so \
+    target=libtheoraenc.so.1.1.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libtheoraenc.so.1 \
+    target=libtheoraenc.so.1.1.2
+link path=$(ECPREFIX)/lib/libtheora.so target=libtheora.so.0.3.10
+link path=$(ECPREFIX)/lib/libtheora.so.0 target=libtheora.so.0.3.10
+link path=$(ECPREFIX)/lib/libtheoradec.so target=libtheoradec.so.1.1.4
+link path=$(ECPREFIX)/lib/libtheoradec.so.1 target=libtheoradec.so.1.1.4
+link path=$(ECPREFIX)/lib/libtheoraenc.so target=libtheoraenc.so.1.1.2
+link path=$(ECPREFIX)/lib/libtheoraenc.so.1 target=libtheoraenc.so.1.1.2
