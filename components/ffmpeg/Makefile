@@ -35,14 +35,39 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS += --cc="$(CC)"
-CONFIGURE_OPTIONS.64 += --shlibdir=$(ECPREFIX)/lib/$(MACH64)
+CONFIGURE_OPTIONS=	--prefix=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--mandir=$(ECPREFIX)/share/man
+CONFIGURE_OPTIONS.32+=	--bindir=$(ECPREFIX)/bin
+CONFIGURE_OPTIONS.64+=	--bindir=$(ECPREFIX)/bin/$(MACH64)
+CONFIGURE_OPTIONS.32+=	--libdir=$(ECPREFIX)/lib
+CONFIGURE_OPTIONS.64+=	--libdir=$(ECPREFIX)/lib/$(MACH64)
+CONFIGURE_OPTIONS.32+=	--sbindir=$(ECPREFIX)/sbin
+CONFIGURE_OPTIONS.64+=	--sbindir=$(ECPREFIX)/sbin/$(MACH64)
+CONFIGURE_OPTIONS.32+=	--shlibdir=$(ECPREFIX)/lib
+CONFIGURE_OPTIONS.64+=	--shlibdir=$(ECPREFIX)/lib/$(MACH64)
 
-CONFIGURE_OPTIONS += --disable-static --enable-shared --enable-libfaac --enable-libgsm
-CONFIGURE_OPTIONS += --enable-libspeex --enable-libvorbis --enable-nonfree --disable-ffplay
-CONFIGURE_OPTIONS += --disable-avdevice --enable-libopencore-amrnb --enable-libopencore-amrwb
-CONFIGURE_OPTIONS += --enable-version3
+CONFIGURE_OPTIONS+=	--cc="$(CC)"
+CONFIGURE_OPTIONS+=	--disable-static
+CONFIGURE_OPTIONS+=	--enable-shared
+CONFIGURE_OPTIONS+=	--enable-nonfree
+CONFIGURE_OPTIONS+=	--enable-version3
+CONFIGURE_OPTIONS+=	--enable-gpl
+CONFIGURE_OPTIONS+=	--enable-libfaac
+CONFIGURE_OPTIONS+=	--enable-libfaad
+CONFIGURE_OPTIONS+=	--enable-libdirac
+CONFIGURE_OPTIONS+=	--enable-libopenjpeg
+CONFIGURE_OPTIONS+=	--enable-libschroedinger
+CONFIGURE_OPTIONS+=	--enable-libx264
+CONFIGURE_OPTIONS+=	--enable-libxvid
+CONFIGURE_OPTIONS+=	--enable-libgsm
+CONFIGURE_OPTIONS+=	--enable-libspeex
+CONFIGURE_OPTIONS+=	--enable-libvorbis
+CONFIGURE_OPTIONS+=	--enable-libopencore-amrnb
+CONFIGURE_OPTIONS+=	--enable-libopencore-amrwb
+CONFIGURE_OPTIONS+=	--disable-ffplay
+CONFIGURE_OPTIONS+=	--disable-avdevice
 
+CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))
 
 build:		$(BUILD_32_and_64)
 
