@@ -1,0 +1,11 @@
+--- openjpeg_v1_4_sources_r697/codec/index.c.orig	2011-06-15 10:05:16.122959640 +0100
++++ openjpeg_v1_4_sources_r697/codec/index.c	2011-06-15 10:05:47.323624799 +0100
+@@ -29,7 +29,7 @@
+ #include <stdio.h>
+ #include <math.h>
+ #include <string.h>
+-#include "openjpeg.h"
++#include "../libopenjpeg/openjpeg.h"
+ #include "index.h"
+ 
+ /* ------------------------------------------------------------------------------------ */

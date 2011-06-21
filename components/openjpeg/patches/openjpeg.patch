@@ -1,0 +1,11 @@
+--- a/libopenjpeg/openjpeg.c.orig	2011-06-15 10:35:02.202909885 +0100
++++ b/libopenjpeg/openjpeg.c	2011-06-15 10:35:24.948615570 +0100
+@@ -28,7 +28,7 @@
+ #include <windows.h>
+ #endif /* _WIN32 */
+ 
+-#include "opj_config.h"
++#include "../opj_config.h"
+ #include "opj_includes.h"
+ 
+ /* ---------------------------------------------------------------------- */

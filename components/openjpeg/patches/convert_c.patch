@@ -1,0 +1,26 @@
+--- openjpeg_v1_4_sources_r697/codec/convert.c.orig	2011-06-21 11:09:22.208028880 +0100
++++ openjpeg_v1_4_sources_r697/codec/convert.c	2011-06-21 11:10:13.707827124 +0100
+@@ -93,7 +93,11 @@
+  <<-- <<-- <<-- <<-- */
+ 
+ // TGA header definition.
++#if defined(__sun) || defined(__sun__)
++#pragma pack(1)
++#else
+ #pragma pack(push,1) // Pack structure byte aligned
++#endif
+ typedef struct tga_header
+ {                           
+     unsigned char   id_length;              /* Image id field length    */
+@@ -115,7 +119,11 @@
+     unsigned char   pixel_depth;            /* Pixel depth              */
+     unsigned char   image_desc;             /* Image descriptor         */
+ } tga_header;
++#if defined(__sun) || defined(__sun__)
++#pragma pack(1)
++#else
+ #pragma pack(pop) // Return to normal structure packing alignment.
++#endif
+ 
+ int tga_readheader(FILE *fp, unsigned int *bits_per_pixel, 
+ 	unsigned int *width, unsigned int *height, int *flip_image)

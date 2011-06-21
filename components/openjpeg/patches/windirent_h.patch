@@ -1,0 +1,22 @@
+--- openjpeg_v1_4_sources_r697/codec/windirent.h.orig	2011-06-21 11:01:11.072392498 +0100
++++ openjpeg_v1_4_sources_r697/codec/windirent.h	2011-06-21 11:01:58.091019348 +0100
+@@ -122,7 +122,7 @@
+ #   error "not implemented"
+ # elif defined(__sgi)                          /* Silicon Graphics */
+ #   define HAVE_DIRENT_H
+-# elif defined(sun) || defined(_sun)           /* Sun Solaris */
++# elif defined(__sun) || defined(__sun__)           /* Sun Solaris */
+ #   define HAVE_DIRENT_H
+ # elif defined(__FreeBSD__)                    /* FreeBSD */
+ #   define HAVE_DIRENT_H
+--- openjpeg_v1_4_sources_r697/jp3d/codec/windirent.h.orig	2011-06-21 11:01:17.416184839 +0100
++++ openjpeg_v1_4_sources_r697/jp3d/codec/windirent.h	2011-06-21 11:02:45.062735354 +0100
+@@ -121,7 +121,7 @@
+ #   error "not implemented"
+ # elif defined(__sgi)                          /* Silicon Graphics */
+ #   define HAVE_DIRENT_H
+-# elif defined(sun) || defined(_sun)           /* Sun Solaris */
++# elif defined(__sun) || defined(__sun__)           /* Sun Solaris */
+ #   define HAVE_DIRENT_H
+ # elif defined(__FreeBSD__)                    /* FreeBSD */
+ #   define HAVE_DIRENT_H

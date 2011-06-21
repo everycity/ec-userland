@@ -1,0 +1,10 @@
+--- openjpeg_v1_4_sources_r697/codec/convert.c.orig	2011-06-21 15:18:31.003166273 +0100
++++ openjpeg_v1_4_sources_r697/codec/convert.c	2011-06-21 15:18:45.776688161 +0100
+@@ -48,6 +48,7 @@
+ #include "../libs/png/png.h"
+ #else
+ #include <png.h>
++#include <zlib.h>
+ #endif /* _WIN32 */
+ #endif /* HAVE_LIBPNG */
+ 
