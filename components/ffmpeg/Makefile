@@ -25,13 +25,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ffmpeg
-
-# Remember to update patches/install.patch when bumping version
-COMPONENT_VERSION=	0.6.3
-
+COMPONENT_VERSION=	0.8
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-#COMPONENT_ARCHIVE_HASH=	sha1:24ada1d35fc000980090e773101e101ca45f85e5
+COMPONENT_ARCHIVE_HASH=	sha1:461f87c4fc080e10ac0acc48287aaa706021bbc4
 COMPONENT_ARCHIVE_URL=	http://www.ffmpeg.org/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -40,13 +37,13 @@ include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS=	--prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--mandir=$(ECPREFIX)/share/man
-CONFIGURE_OPTIONS.32+=	--bindir=$(ECPREFIX)/bin
-CONFIGURE_OPTIONS.64+=	--bindir=$(ECPREFIX)/bin/$(MACH64)
+CONFIGURE_OPTIONS.32=	--bindir=$(ECPREFIX)/bin
+CONFIGURE_OPTIONS.64=	--bindir=$(ECPREFIX)/bin/$(MACH64)
 CONFIGURE_OPTIONS.32+=	--libdir=$(ECPREFIX)/lib
 CONFIGURE_OPTIONS.64+=	--libdir=$(ECPREFIX)/lib/$(MACH64)
 CONFIGURE_OPTIONS.32+=	--shlibdir=$(ECPREFIX)/lib
 CONFIGURE_OPTIONS.64+=	--shlibdir=$(ECPREFIX)/lib/$(MACH64)
-CONFIGURE_OPTIONS.32+=	--cpu=nocona
+CONFIGURE_OPTIONS.32+=	--cpu=i686
 
 CONFIGURE_OPTIONS+=	--cc="$(CC)"
 CONFIGURE_OPTIONS+=	--disable-static
@@ -55,7 +52,6 @@ CONFIGURE_OPTIONS+=	--enable-nonfree
 CONFIGURE_OPTIONS+=	--enable-version3
 CONFIGURE_OPTIONS+=	--enable-gpl
 CONFIGURE_OPTIONS+=	--enable-libfaac
-CONFIGURE_OPTIONS+=	--enable-libfaad
 CONFIGURE_OPTIONS+=	--enable-libdirac
 CONFIGURE_OPTIONS+=	--enable-libopenjpeg
 CONFIGURE_OPTIONS+=	--enable-libschroedinger
@@ -72,6 +68,9 @@ CONFIGURE_OPTIONS+=	--disable-ffplay
 CONFIGURE_OPTIONS+=	--disable-avdevice
 
 CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))
+
+COMPONENT_PRE_CONFIGURE_ACTION+=	\
+	/bin/echo "\#define FFMPEG_VERSION \"$(COMPONENT_VERSION)\"" > $(SOURCE_DIR)/version.h
 
 build:		$(BUILD_32_and_64)
 

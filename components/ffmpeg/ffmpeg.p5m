@@ -26,8 +26,10 @@ dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/include/libavcodec
+dir path=$(ECPREFIX)/include/libavfilter
 dir path=$(ECPREFIX)/include/libavformat
 dir path=$(ECPREFIX)/include/libavutil
+dir path=$(ECPREFIX)/include/libpostproc
 dir path=$(ECPREFIX)/include/libswscale
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
@@ -47,54 +49,83 @@ file path=$(ECPREFIX)/include/libavcodec/dxva2.h
 file path=$(ECPREFIX)/include/libavcodec/opt.h
 file path=$(ECPREFIX)/include/libavcodec/vaapi.h
 file path=$(ECPREFIX)/include/libavcodec/vdpau.h
+file path=$(ECPREFIX)/include/libavcodec/version.h
 file path=$(ECPREFIX)/include/libavcodec/xvmc.h
+file path=$(ECPREFIX)/include/libavfilter/avcodec.h
+file path=$(ECPREFIX)/include/libavfilter/avfilter.h
+file path=$(ECPREFIX)/include/libavfilter/avfiltergraph.h
+file path=$(ECPREFIX)/include/libavfilter/vsink_buffer.h
+file path=$(ECPREFIX)/include/libavfilter/vsrc_buffer.h
 file path=$(ECPREFIX)/include/libavformat/avformat.h
 file path=$(ECPREFIX)/include/libavformat/avio.h
+file path=$(ECPREFIX)/include/libavformat/version.h
 file path=$(ECPREFIX)/include/libavutil/adler32.h
+file path=$(ECPREFIX)/include/libavutil/aes.h
 file path=$(ECPREFIX)/include/libavutil/attributes.h
+file path=$(ECPREFIX)/include/libavutil/audioconvert.h
+file path=$(ECPREFIX)/include/libavutil/avassert.h
 file path=$(ECPREFIX)/include/libavutil/avconfig.h
 file path=$(ECPREFIX)/include/libavutil/avstring.h
 file path=$(ECPREFIX)/include/libavutil/avutil.h
 file path=$(ECPREFIX)/include/libavutil/base64.h
+file path=$(ECPREFIX)/include/libavutil/bswap.h
 file path=$(ECPREFIX)/include/libavutil/common.h
+file path=$(ECPREFIX)/include/libavutil/cpu.h
 file path=$(ECPREFIX)/include/libavutil/crc.h
+file path=$(ECPREFIX)/include/libavutil/dict.h
 file path=$(ECPREFIX)/include/libavutil/error.h
+file path=$(ECPREFIX)/include/libavutil/eval.h
 file path=$(ECPREFIX)/include/libavutil/fifo.h
+file path=$(ECPREFIX)/include/libavutil/file.h
+file path=$(ECPREFIX)/include/libavutil/imgutils.h
 file path=$(ECPREFIX)/include/libavutil/intfloat_readwrite.h
+file path=$(ECPREFIX)/include/libavutil/intreadwrite.h
+file path=$(ECPREFIX)/include/libavutil/lfg.h
 file path=$(ECPREFIX)/include/libavutil/log.h
 file path=$(ECPREFIX)/include/libavutil/lzo.h
 file path=$(ECPREFIX)/include/libavutil/mathematics.h
 file path=$(ECPREFIX)/include/libavutil/md5.h
 file path=$(ECPREFIX)/include/libavutil/mem.h
+file path=$(ECPREFIX)/include/libavutil/opt.h
+file path=$(ECPREFIX)/include/libavutil/parseutils.h
 file path=$(ECPREFIX)/include/libavutil/pixdesc.h
 file path=$(ECPREFIX)/include/libavutil/pixfmt.h
+file path=$(ECPREFIX)/include/libavutil/random_seed.h
 file path=$(ECPREFIX)/include/libavutil/rational.h
-file path=$(ECPREFIX)/include/libavutil/sha1.h
+file path=$(ECPREFIX)/include/libavutil/samplefmt.h
+file path=$(ECPREFIX)/include/libavutil/sha.h
+file path=$(ECPREFIX)/include/libpostproc/postprocess.h
 file path=$(ECPREFIX)/include/libswscale/swscale.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libavcodec.so.52.72.2
-file path=$(ECPREFIX)/lib/$(MACH64)/libavformat.so.52.64.2
-file path=$(ECPREFIX)/lib/$(MACH64)/libavutil.so.50.15.1
-file path=$(ECPREFIX)/lib/$(MACH64)/libswscale.so.0.11.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libavcodec.so.53.7.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libavfilter.so.2.23.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libavformat.so.53.4.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libavutil.so.51.9.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libpostproc.so.51.2.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libswscale.so.2.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libavcodec.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libavfilter.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libavformat.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libavutil.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpostproc.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libswscale.pc
-file path=$(ECPREFIX)/lib/libavcodec.so.52.72.2
-file path=$(ECPREFIX)/lib/libavformat.so.52.64.2
-file path=$(ECPREFIX)/lib/libavutil.so.50.15.1
-file path=$(ECPREFIX)/lib/libswscale.so.0.11.0
+file path=$(ECPREFIX)/lib/libavcodec.so.53.7.0
+file path=$(ECPREFIX)/lib/libavfilter.so.2.23.0
+file path=$(ECPREFIX)/lib/libavformat.so.53.4.0
+file path=$(ECPREFIX)/lib/libavutil.so.51.9.1
+file path=$(ECPREFIX)/lib/libpostproc.so.51.2.0
+file path=$(ECPREFIX)/lib/libswscale.so.2.0.0
 file path=$(ECPREFIX)/lib/pkgconfig/libavcodec.pc
+file path=$(ECPREFIX)/lib/pkgconfig/libavfilter.pc
 file path=$(ECPREFIX)/lib/pkgconfig/libavformat.pc
 file path=$(ECPREFIX)/lib/pkgconfig/libavutil.pc
+file path=$(ECPREFIX)/lib/pkgconfig/libpostproc.pc
 file path=$(ECPREFIX)/lib/pkgconfig/libswscale.pc
+file path=$(ECPREFIX)/share/ffmpeg/libvpx-1080p.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libvpx-1080p50_60.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libvpx-360p.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libvpx-720p.ffpreset
+file path=$(ECPREFIX)/share/ffmpeg/libvpx-720p50_60.ffpreset
 file path=$(ECPREFIX)/share/ffmpeg/libx264-baseline.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-default.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-fast.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-fast_firstpass.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-faster.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-faster_firstpass.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-fastfirstpass.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-hq.ffpreset
 file path=$(ECPREFIX)/share/ffmpeg/libx264-ipod320.ffpreset
 file path=$(ECPREFIX)/share/ffmpeg/libx264-ipod640.ffpreset
 file path=$(ECPREFIX)/share/ffmpeg/libx264-lossless_fast.ffpreset
@@ -103,44 +134,34 @@ file path=$(ECPREFIX)/share/ffmpeg/libx264-lossless_medium.ffpreset
 file path=$(ECPREFIX)/share/ffmpeg/libx264-lossless_slow.ffpreset
 file path=$(ECPREFIX)/share/ffmpeg/libx264-lossless_slower.ffpreset
 file path=$(ECPREFIX)/share/ffmpeg/libx264-lossless_ultrafast.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-main.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-max.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-medium.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-medium_firstpass.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-normal.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-placebo.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-placebo_firstpass.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-slow.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-slow_firstpass.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-slower.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-slower_firstpass.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-slowfirstpass.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-superfast.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-superfast_firstpass.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-ultrafast.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-ultrafast_firstpass.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-veryfast.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-veryfast_firstpass.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-veryslow.ffpreset
-file path=$(ECPREFIX)/share/ffmpeg/libx264-veryslow_firstpass.ffpreset
-link path=$(ECPREFIX)/lib/$(MACH64)/libavcodec.so target=libavcodec.so.52.72.2
-link path=$(ECPREFIX)/lib/$(MACH64)/libavcodec.so.52 \
-    target=libavcodec.so.52.72.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libavcodec.so target=libavcodec.so.53.7.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libavcodec.so.53 \
+    target=libavcodec.so.53.7.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libavfilter.so \
+    target=libavfilter.so.2.23.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libavfilter.so.2 \
+    target=libavfilter.so.2.23.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libavformat.so \
-    target=libavformat.so.52.64.2
-link path=$(ECPREFIX)/lib/$(MACH64)/libavformat.so.52 \
-    target=libavformat.so.52.64.2
-link path=$(ECPREFIX)/lib/$(MACH64)/libavutil.so target=libavutil.so.50.15.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libavutil.so.50 \
-    target=libavutil.so.50.15.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libswscale.so target=libswscale.so.0.11.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libswscale.so.0 \
-    target=libswscale.so.0.11.0
-link path=$(ECPREFIX)/lib/libavcodec.so target=libavcodec.so.52.72.2
-link path=$(ECPREFIX)/lib/libavcodec.so.52 target=libavcodec.so.52.72.2
-link path=$(ECPREFIX)/lib/libavformat.so target=libavformat.so.52.64.2
-link path=$(ECPREFIX)/lib/libavformat.so.52 target=libavformat.so.52.64.2
-link path=$(ECPREFIX)/lib/libavutil.so target=libavutil.so.50.15.1
-link path=$(ECPREFIX)/lib/libavutil.so.50 target=libavutil.so.50.15.1
-link path=$(ECPREFIX)/lib/libswscale.so target=libswscale.so.0.11.0
-link path=$(ECPREFIX)/lib/libswscale.so.0 target=libswscale.so.0.11.0
+    target=libavformat.so.53.4.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libavformat.so.53 \
+    target=libavformat.so.53.4.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libavutil.so target=libavutil.so.51.9.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libavutil.so.51 target=libavutil.so.51.9.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libpostproc.so \
+    target=libpostproc.so.51.2.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libpostproc.so.51 \
+    target=libpostproc.so.51.2.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libswscale.so target=libswscale.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libswscale.so.2 target=libswscale.so.2.0.0
+link path=$(ECPREFIX)/lib/libavcodec.so target=libavcodec.so.53.7.0
+link path=$(ECPREFIX)/lib/libavcodec.so.53 target=libavcodec.so.53.7.0
+link path=$(ECPREFIX)/lib/libavfilter.so target=libavfilter.so.2.23.0
+link path=$(ECPREFIX)/lib/libavfilter.so.2 target=libavfilter.so.2.23.0
+link path=$(ECPREFIX)/lib/libavformat.so target=libavformat.so.53.4.0
+link path=$(ECPREFIX)/lib/libavformat.so.53 target=libavformat.so.53.4.0
+link path=$(ECPREFIX)/lib/libavutil.so target=libavutil.so.51.9.1
+link path=$(ECPREFIX)/lib/libavutil.so.51 target=libavutil.so.51.9.1
+link path=$(ECPREFIX)/lib/libpostproc.so target=libpostproc.so.51.2.0
+link path=$(ECPREFIX)/lib/libpostproc.so.51 target=libpostproc.so.51.2.0
+link path=$(ECPREFIX)/lib/libswscale.so target=libswscale.so.2.0.0
+link path=$(ECPREFIX)/lib/libswscale.so.2 target=libswscale.so.2.0.0
