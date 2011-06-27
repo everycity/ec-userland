@@ -2,4 +2,4 @@ diff -rupN ffmpeg-0.6.1.orig//version.h ffmpeg-0.6.1//version.h
 --- ffmpeg-0.6.1.orig//version.h	1970-01-01 01:00:00.000000000 +0100
 +++ ffmpeg-0.6.1//version.h	2011-03-23 11:32:05.723082644 +0000
 @@ -0,0 +1 @@
-+#define FFMPEG_VERSION "0.6.1"
++#define FFMPEG_VERSION "0.6.3"

@@ -25,7 +25,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ffmpeg
+
+# Remember to update patches/install.patch when bumping version
 COMPONENT_VERSION=	0.6.3
+
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
 #COMPONENT_ARCHIVE_HASH=	sha1:24ada1d35fc000980090e773101e101ca45f85e5
