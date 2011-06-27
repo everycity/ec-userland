@@ -1,0 +1,110 @@
+diff -ur opencore-amr-0.1.2.orig/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/bitno_tab.h opencore-amr-0.1.2/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/bitno_tab.h
+--- opencore-amr-0.1.2.orig/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/bitno_tab.h	2009-07-12 01:09:48.000000000 +0100
++++ opencore-amr-0.1.2/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/bitno_tab.h	2011-06-27 20:06:37.583375885 +0100
+@@ -101,7 +101,7 @@
+     extern const Word16 bitno_MR102[];
+     extern const Word16 bitno_MR122[];
+     extern const Word16 bitno_MRDTX[];
+-    extern const Word16 *const bitno[];
++    extern const Word16 *const amrbitno[];
+ 
+     /*----------------------------------------------------------------------------
+     ; SIMPLE TYPEDEF'S
+diff -ur opencore-amr-0.1.2.orig/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/src/bitno_tab.cpp opencore-amr-0.1.2/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/src/bitno_tab.cpp
+--- opencore-amr-0.1.2.orig/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/src/bitno_tab.cpp	2009-07-12 01:09:49.000000000 +0100
++++ opencore-amr-0.1.2/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/src/bitno_tab.cpp	2011-06-27 20:06:23.086136934 +0100
+@@ -223,7 +223,7 @@
+     };
+ 
+     /* overall table with all parameter sizes for all modes */
+-    const Word16 * const bitno[N_MODES] =
++    const Word16 * const amrbitno[N_MODES] =
+     {
+         bitno_MR475,
+         bitno_MR515,
+diff -ur opencore-amr-0.1.2.orig/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/src/bits2prm.cpp opencore-amr-0.1.2/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/src/bits2prm.cpp
+--- opencore-amr-0.1.2.orig/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/src/bits2prm.cpp	2009-07-12 01:09:49.000000000 +0100
++++ opencore-amr-0.1.2/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/src/bits2prm.cpp	2011-06-27 20:06:11.873353003 +0100
+@@ -205,8 +205,8 @@
+ 
+     for (i = 0; i < prmno[mode]; i++)
+     {
+-        prm[i] = Bin2int (bitno[mode][i], bits);
+-        bits += bitno[mode][i];
++        prm[i] = Bin2int (amrbitno[mode][i], bits);
++        bits += amrbitno[mode][i];
+         add(0,0);       // account for above pointer update
+     }
+ 
+@@ -233,8 +233,8 @@
+ 
+     for (i = 0; i < prmno[mode]; i++)
+     {
+-        prm[i] = Bin2int(bitno[mode][i], bits);
+-        bits += bitno[mode][i];
++        prm[i] = Bin2int(amrbitno[mode][i], bits);
++        bits += amrbitno[mode][i];
+     }
+ 
+     return;
+diff -ur opencore-amr-0.1.2.orig/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/src/get_const_tbls.cpp opencore-amr-0.1.2/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/src/get_const_tbls.cpp
+--- opencore-amr-0.1.2.orig/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/src/get_const_tbls.cpp	2009-07-12 01:09:49.000000000 +0100
++++ opencore-amr-0.1.2/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/src/get_const_tbls.cpp	2011-06-27 20:07:18.360365750 +0100
+@@ -47,7 +47,7 @@
+     extern const Word16 table_gain_lowrates[];
+     extern const Word16 table_gain_highrates[];
+     extern const Word16 prmno[];
+-    extern const Word16* const bitno[];
++    extern const Word16* const amrbitno[];
+     extern const Word16 numOfBits[];
+     extern const Word16* const reorderBits[];
+     extern const Word16 numCompressedBytes[];
+@@ -88,7 +88,7 @@
+     tbl_struct_ptr->table_gain_lowrates_ptr = table_gain_lowrates;
+     tbl_struct_ptr->table_gain_highrates_ptr = table_gain_highrates;
+     tbl_struct_ptr->prmno_ptr = prmno;
+-    tbl_struct_ptr->bitno_ptr = bitno;
++    tbl_struct_ptr->bitno_ptr = amrbitno;
+     tbl_struct_ptr->numOfBits_ptr = numOfBits;
+     tbl_struct_ptr->reorderBits_ptr = reorderBits;
+     tbl_struct_ptr->numCompressedBytes_ptr = numCompressedBytes;
+diff -ur opencore-amr-0.1.2.orig/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/dec_amr.cpp opencore-amr-0.1.2/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/dec_amr.cpp
+--- opencore-amr-0.1.2.orig/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/dec_amr.cpp	2009-07-12 01:09:49.000000000 +0100
++++ opencore-amr-0.1.2/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/dec_amr.cpp	2011-06-27 20:05:53.887362568 +0100
+@@ -588,7 +588,7 @@
+        {
+       build_CN_param(&st->nodataSeed,
+              prmno[mode],
+-             bitno[mode],
++             amrbitno[mode],
+              parm);
+        }
+     }
+diff -ur opencore-amr-0.1.2.orig/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/sp_dec.cpp opencore-amr-0.1.2/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/sp_dec.cpp
+--- opencore-amr-0.1.2.orig/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/sp_dec.cpp	2009-07-12 01:09:49.000000000 +0100
++++ opencore-amr-0.1.2/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/sp_dec.cpp	2011-06-27 20:05:24.530556502 +0100
+@@ -224,8 +224,8 @@
+ 
+     for (i = 0; i < prmno[mode]; i++)
+     {
+-        prm[i] = Bin2int (bitno[mode][i], bits);
+-        bits += bitno[mode][i];
++        prm[i] = Bin2int (amrbitno[mode][i], bits);
++        bits += amrbitno[mode][i];
+         add(0,0);       // account for above pointer update
+     }
+ 
+diff -ur opencore-amr-0.1.2.orig/opencore/codecs_v2/audio/gsm_amr/amr_nb/enc/src/prm2bits.cpp opencore-amr-0.1.2/opencore/codecs_v2/audio/gsm_amr/amr_nb/enc/src/prm2bits.cpp
+--- opencore-amr-0.1.2.orig/opencore/codecs_v2/audio/gsm_amr/amr_nb/enc/src/prm2bits.cpp	2009-07-12 01:09:49.000000000 +0100
++++ opencore-amr-0.1.2/opencore/codecs_v2/audio/gsm_amr/amr_nb/enc/src/prm2bits.cpp	2011-06-27 20:05:00.704890811 +0100
+@@ -219,8 +219,8 @@
+ 
+    for (i = 0; i < prmno[mode]; i++)
+    {
+-       Int2bin (prm[i], bitno[mode][i], bits);
+-       bits += bitno[mode][i];
++       Int2bin (prm[i], amrbitno[mode][i], bits);
++       bits += amrbitno[mode][i];
+        add(0,0);       // account for above pointer update
+    }
+ 
