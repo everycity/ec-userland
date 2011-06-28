@@ -1,5 +1,5 @@
---- openssh-5.8p2/sshd_config.orig	2011-06-28 23:27:06.221832503 +0100
-+++ openssh-5.8p2/sshd_config	2011-06-28 23:33:16.694112718 +0100
+--- openssh-5.8p2/sshd_config.orig	2011-06-28 23:55:05.947218879 +0100
++++ openssh-5.8p2/sshd_config	2011-06-28 23:57:51.493513510 +0100
 @@ -1,10 +1,6 @@
 -#	$OpenBSD: sshd_config,v 1.82 2010/09/06 17:10:19 naddy Exp $
 -
@@ -43,9 +43,20 @@
  
  # Change to no to disable s/key passwords
  #ChallengeResponseAuthentication yes
-@@ -99,14 +95,14 @@
+@@ -90,23 +86,22 @@
+ #X11Forwarding no
+ #X11DisplayOffset 10
+ #X11UseLocalhost yes
+-#PrintMotd yes
++PrintMotd no
+ #PrintLastLog yes
+ #TCPKeepAlive yes
+ #UseLogin no
+ #UsePrivilegeSeparation yes
+ #PermitUserEnvironment no
  #Compression delayed
- #ClientAliveInterval 0
+-#ClientAliveInterval 0
++ClientAliveInterval 10
  #ClientAliveCountMax 3
 -#UseDNS yes
 +UseDNS no
@@ -54,7 +65,7 @@
  #PermitTunnel no
  #ChrootDirectory none
  
- # no default banner path
+-# no default banner path
 -#Banner none
 +Banner /ec/etc/ssh/banner
  
