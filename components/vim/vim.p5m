@@ -1687,3 +1687,4 @@ link path=$(ECPREFIX)/share/man/ru.UTF-8/man1/ex.1 target=vim.1
 link path=$(ECPREFIX)/share/man/ru.UTF-8/man1/rview.1 target=vim.1
 link path=$(ECPREFIX)/share/man/ru.UTF-8/man1/rvim.1 target=vim.1
 link path=$(ECPREFIX)/share/man/ru.UTF-8/man1/view.1 target=vim.1
+link path=$(ECPREFIX)/bin/vi target=vim
