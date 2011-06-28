@@ -64,8 +64,7 @@ link path=$(ECPREFIX)/bin/slogin target=./ssh
 link path=$(ECPREFIX)/share/man/man1/slogin.1 target=./ssh.1
 # Additional actions
 user gcos-field="OpenSSH Privilege Seperation Account" group=root uid=479 username=sshd login-shell=/bin/false home-dir=$(ECPREFIX)/var/empty
-file files/openssh-postinstall.xml path=var/svc/manifest/site/openssh-postinstall.xml \
-    restart_fmri=svc:/system/manifest-import:default
 file files/openssh-manifest.xml path=var/svc/manifest/site/openssh.xml \
     restart_fmri=svc:/system/manifest-import:default
 file files/banner path=$(ECPREFIX)/etc/ssh/banner
+file files/openssh-startup.sh path=$(ECPREFIX)/var/svc/method/openssh mode=0555

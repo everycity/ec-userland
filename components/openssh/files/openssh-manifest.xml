@@ -31,21 +31,10 @@
 			value='svc:/system/filesystem/local:default'/>
 	</dependency>
 
-	<!--
-		Don't start if this is starting
-	-->
-	<dependency name='postinstall-manifest'
-		grouping='optional_all'
-		restart_on='none'
-		type='service'>
-      		<service_fmri
-			value='svc:/tmp/postinstall/openssh'/>
-	</dependency>
-
 	<exec_method
 		type='method'
 		name='start'
-		exec='/ec/bin/sshd'
+		exec='/ec/var/svc/method/openssh start'
 		timeout_seconds='60'/>
 
  	<exec_method
