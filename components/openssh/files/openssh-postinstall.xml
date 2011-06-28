@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE service_bundle SYSTEM '/usr/share/lib/xml/dtd/service_bundle.dtd.1'>
+<!--
+	Copyright (C) EveryCity 2011
+-->
+<service_bundle type='manifest' name='openssh-postinstall'>
+
+<service
+	name='tmp/postinstall/openssh'
+	type='service'
+	version='1'>
+
+	<exec_method
+		type='method'
+		name='start'
+		exec='sh -c &quot;[ -f /ec/etc/ssh/ssh_host_rsa_key ] || /ec/bin/ssh-keygen -N \&quot;\&quot; -t rsa -f /ec/etc/ssh/ssh_host_rsa_key ; [ -f /ec/etc/ssh/ssh_host_dsa_key ] || /ec/bin/ssh-keygen -N \&quot;\&quot; -t dsa -f /ec/etc/ssh/ssh_host_dsa_key&quot; /usr/bin/ctrun svcadm disable tmp/postinstall/openssh'
+		timeout_seconds='60'/>
+
+ 	<exec_method
+		type='method'
+		name='stop'
+		exec='/usr/bin/ctrun svccfg delete -f tmp/postinstall/openssh'
+		timeout_seconds='30'/>
+
+	<instance name='default' enabled='true'/>
+
+	<stability value='Evolving'/>
+
+</service>
+
+</service_bundle>

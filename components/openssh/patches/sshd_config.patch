@@ -1,0 +1,62 @@
+--- openssh-5.8p2/sshd_config.orig	2011-06-28 23:27:06.221832503 +0100
++++ openssh-5.8p2/sshd_config	2011-06-28 23:33:16.694112718 +0100
+@@ -1,10 +1,6 @@
+-#	$OpenBSD: sshd_config,v 1.82 2010/09/06 17:10:19 naddy Exp $
+-
+ # This is the sshd server system-wide configuration file.  See
+ # sshd_config(5) for more information.
+ 
+-# This sshd was compiled with PATH=/usr/bin:/bin:/usr/sbin:/sbin
+-
+ # The strategy used for options in the default sshd_config shipped with
+ # OpenSSH is to specify options with their default value where
+ # possible, but leave them commented.  Uncommented options change a
+@@ -12,11 +8,11 @@
+ 
+ #Port 22
+ #AddressFamily any
+-#ListenAddress 0.0.0.0
++ListenAddress 0.0.0.0
+ #ListenAddress ::
+ 
+ # The default requires explicit activation of protocol 1
+-#Protocol 2
++Protocol 2
+ 
+ # HostKey for protocol version 1
+ #HostKey /etc/ssh/ssh_host_key
+@@ -37,7 +33,7 @@
+ # Authentication:
+ 
+ #LoginGraceTime 2m
+-#PermitRootLogin yes
++PermitRootLogin no
+ #StrictModes yes
+ #MaxAuthTries 6
+ #MaxSessions 10
+@@ -58,7 +54,7 @@
+ 
+ # To disable tunneled clear text passwords, change to no here!
+ #PasswordAuthentication yes
+-#PermitEmptyPasswords no
++PermitEmptyPasswords no
+ 
+ # Change to no to disable s/key passwords
+ #ChallengeResponseAuthentication yes
+@@ -99,14 +95,14 @@
+ #Compression delayed
+ #ClientAliveInterval 0
+ #ClientAliveCountMax 3
+-#UseDNS yes
++UseDNS no
+ #PidFile /var/run/sshd.pid
+ #MaxStartups 10
+ #PermitTunnel no
+ #ChrootDirectory none
+ 
+ # no default banner path
+-#Banner none
++Banner /ec/etc/ssh/banner
+ 
+ # override default of no subsystems
+ Subsystem	sftp	/usr/libexec/sftp-server
