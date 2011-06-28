@@ -1,0 +1,19 @@
+--- sudo-1.8.1p2/plugins/sudoers/ins_classic.h.orig	2011-06-28 16:07:04.551321655 +0100
++++ sudo-1.8.1p2/plugins/sudoers/ins_classic.h	2011-06-28 16:07:35.461131117 +0100
+@@ -21,16 +21,10 @@
+      * Insults from the original sudo(8).
+      */
+ 
+-    "Wrong!  You cheating scum!",
+-#ifdef PC_INSULTS
+     "And you call yourself a Rocket Scientist!",
+-#else
+-    "No soap, honkie-lips.",
+-#endif
+     "Where did you learn to type?",
+     "Are you on drugs?",
+     "My pet ferret can type better than you!",
+-    "You type like i drive.",
+     "Do you think like you type?",
+     "Your mind just hasn't been the same since the electro-shock, has it?",
+ 
