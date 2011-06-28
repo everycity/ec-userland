@@ -45,11 +45,11 @@ file path=$(ECPREFIX)/var/log/exim/panic.log mode=0664 owner=exim group=exim pre
 file path=$(ECPREFIX)/var/log/exim/reject.log mode=0664 owner=exim group=exim preserve=true
 file path=var/svc/manifest/site/exim.xml restart_fmri=svc:/system/manifest-import:default
 file path=$(ECPREFIX)/var/svc/method/exim mode=0555
-file path=$(ECPREFIX)/etc/exim/aliases.conf preserve=true
-file path=$(ECPREFIX)/etc/exim/exim.conf preserve=true
+file path=$(ECPREFIX)/etc/exim/aliases.conf mode=0644 preserve=true
+file path=$(ECPREFIX)/etc/exim/exim.conf mode=0644 preserve=true
 file path=$(ECPREFIX)/bin/exicyclog
 file path=$(ECPREFIX)/bin/exigrep
-file path=$(ECPREFIX)/bin/exim-$(COMPONENT_VERSION)-1
+file path=$(ECPREFIX)/bin/exim-$(COMPONENT_VERSION)-1 mode=5555 user=root group=root
 file path=$(ECPREFIX)/bin/exim_checkaccess
 file path=$(ECPREFIX)/bin/exim_dbmbuild
 file path=$(ECPREFIX)/bin/exim_dumpdb
