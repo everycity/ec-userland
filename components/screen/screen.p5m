@@ -23,6 +23,7 @@ license screen.license license="GPLv2"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/info
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/man
@@ -55,3 +56,4 @@ file path=$(ECPREFIX)/share/screen/utf8encodings/cc
 file path=$(ECPREFIX)/share/screen/utf8encodings/cd
 file path=$(ECPREFIX)/share/screen/utf8encodings/d6
 link path=$(ECPREFIX)/bin/screen target=screen-$(COMPONENT_VERSION)
+file files/screenrc path=$(ECPREFIX)/etc/screenrc
