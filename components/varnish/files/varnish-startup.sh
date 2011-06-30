@@ -7,7 +7,7 @@
 
 # Do not change these defaults below, they will be overwritten
 # during the next package upgrade. Instead, set these properties
-# via SMF using "svccfg -s mysql55:default" and setprop
+# via SMF using "svccfg -s varnish:default" and setprop
 
 config_file="/ec/etc/varnish/default.vcl"
 user="webservd"
