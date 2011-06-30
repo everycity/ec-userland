@@ -1,0 +1,115 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/web/cache/varnish@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Varnish Web Application Accelerator"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="https://www.varnish-cache.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license varnish.license license="Varnish"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/varnish
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/varnish
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/$(MACH64)/varnish
+dir path=$(ECPREFIX)/lib/$(MACH64)/varnish/vmods
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/lib/varnish
+dir path=$(ECPREFIX)/lib/varnish/vmods
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+dir path=$(ECPREFIX)/share/man/man3
+dir path=$(ECPREFIX)/share/man/man7
+dir path=$(ECPREFIX)/var
+dir path=$(ECPREFIX)/var/varnish user=webservd group=webservd
+file path=$(ECPREFIX)/bin/$(MACH64)/varnishadm
+file path=$(ECPREFIX)/bin/$(MACH64)/varnishd
+file path=$(ECPREFIX)/bin/$(MACH64)/varnishhist
+file path=$(ECPREFIX)/bin/$(MACH64)/varnishlog
+file path=$(ECPREFIX)/bin/$(MACH64)/varnishncsa
+file path=$(ECPREFIX)/bin/$(MACH64)/varnishreplay
+file path=$(ECPREFIX)/bin/$(MACH64)/varnishsizes
+file path=$(ECPREFIX)/bin/$(MACH64)/varnishstat
+file path=$(ECPREFIX)/bin/$(MACH64)/varnishtest
+file path=$(ECPREFIX)/bin/$(MACH64)/varnishtop
+file path=$(ECPREFIX)/bin/varnishadm
+file path=$(ECPREFIX)/bin/varnishd
+file path=$(ECPREFIX)/bin/varnishhist
+file path=$(ECPREFIX)/bin/varnishlog
+file path=$(ECPREFIX)/bin/varnishncsa
+file path=$(ECPREFIX)/bin/varnishreplay
+file path=$(ECPREFIX)/bin/varnishsizes
+file path=$(ECPREFIX)/bin/varnishstat
+file path=$(ECPREFIX)/bin/varnishtest
+file path=$(ECPREFIX)/bin/varnishtop
+file path=$(ECPREFIX)/etc/varnish/default.vcl mode=0644 preserve=true
+file path=$(ECPREFIX)/include/varnish/varnishapi.h
+file path=$(ECPREFIX)/include/varnish/vcli.h
+file path=$(ECPREFIX)/include/varnish/vsc.h
+file path=$(ECPREFIX)/include/varnish/vsc_all.h
+file path=$(ECPREFIX)/include/varnish/vsc_fields.h
+file path=$(ECPREFIX)/include/varnish/vsl.h
+file path=$(ECPREFIX)/include/varnish/vsl_tags.h
+file path=$(ECPREFIX)/include/varnish/vsm.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libvarnishapi.so.1.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/varnishapi.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvarnish.so
+file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvarnishcompat.so
+file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvcl.so
+file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvgz.so
+file path=$(ECPREFIX)/lib/$(MACH64)/varnish/vmods/libvmod_std.so
+file path=$(ECPREFIX)/lib/libvarnishapi.so.1.0.0
+file path=$(ECPREFIX)/lib/pkgconfig/varnishapi.pc
+file path=$(ECPREFIX)/lib/varnish/libvarnish.so
+file path=$(ECPREFIX)/lib/varnish/libvarnishcompat.so
+file path=$(ECPREFIX)/lib/varnish/libvcl.so
+file path=$(ECPREFIX)/lib/varnish/libvgz.so
+file path=$(ECPREFIX)/lib/varnish/vmods/libvmod_std.so
+file path=$(ECPREFIX)/share/man/man1/varnishadm.1
+file path=$(ECPREFIX)/share/man/man1/varnishd.1
+file path=$(ECPREFIX)/share/man/man1/varnishhist.1
+file path=$(ECPREFIX)/share/man/man1/varnishlog.1
+file path=$(ECPREFIX)/share/man/man1/varnishncsa.1
+file path=$(ECPREFIX)/share/man/man1/varnishreplay.1
+file path=$(ECPREFIX)/share/man/man1/varnishsizes.1
+file path=$(ECPREFIX)/share/man/man1/varnishstat.1
+file path=$(ECPREFIX)/share/man/man1/varnishtest.1
+file path=$(ECPREFIX)/share/man/man1/varnishtop.1
+file path=$(ECPREFIX)/share/man/man3/vmod_std.3
+file path=$(ECPREFIX)/share/man/man7/varnish-cli.7
+file path=$(ECPREFIX)/share/man/man7/vcl.7
+link path=$(ECPREFIX)/lib/$(MACH64)/libvarnishapi.so \
+    target=libvarnishapi.so.1.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libvarnishapi.so.1 \
+    target=libvarnishapi.so.1.0.0
+link path=$(ECPREFIX)/lib/libvarnishapi.so target=libvarnishapi.so.1.0.0
+link path=$(ECPREFIX)/lib/libvarnishapi.so.1 target=libvarnishapi.so.1.0.0
+
+# Custom Entries
+dir path=$(ECPREFIX)/var/svc
+dir path=$(ECPREFIX)/var/svc/method
+depend fmri=pkg:/developer/gcc-44 type=require
+depend fmri=pkg:/developer/gnu-binutils type=require
+file files/varnish-manifest.xml path=var/svc/manifest/site/varnish.xml restart_fmri=svc:/system/manifest-import:default
+file files/varnish-startup.sh path=$(ECPREFIX)/var/svc/method/varnish mode=0555

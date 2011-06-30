@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!DOCTYPE service_bundle SYSTEM "/usr/share/lib/xml/dtd/service_bundle.dtd.1">
+<!--
+	Copyright (C) EveryCity 2011
+-->
+<service_bundle type='manifest' name='varnish'>
+
+<service
+	name='network/http/varnish'
+	type='service'
+	version='1'>
+
+	<!--
+		Wait for network interfaces to be initialized.
+	-->
+	<dependency name='network'
+		grouping='require_all'
+		restart_on='error'
+		type='service'>
+		<service_fmri value='svc:/milestone/network:default'/>
+	</dependency>
+
+	<!--
+		Wait for all local filesystems to be mounted.
+	-->
+	<dependency name='filesystem-local'
+		grouping='require_all'
+		restart_on='none'
+		type='service'>
+		<service_fmri
+			value='svc:/system/filesystem/local:default'/>
+	</dependency>
+
+	<exec_method
+		type='method'
+		name='start'
+		exec='/ec/var/svc/method/varnish start'
+		timeout_seconds='60'>
+		<method_context>
+			<method_environment>
+				<envvar name='PATH' value='/ec/bin:/usr/bin:/usr/sbin:/usr/ccs/bin:/usr/xpg4/bin'/>
+			</method_environment>
+		</method_context>
+	</exec_method>
+
+	<exec_method
+		type='method'
+		name='stop'
+		exec=':kill'
+		timeout_seconds='60'/>
+
+	<exec_method
+		type='method'
+		name='refresh'
+		exec=':kill -HUP'
+		timeout_seconds='60'/>
+
+	<instance name='default' enabled='false'>
+
+		<property_group name='varnish' type='application'>
+			<stability value='Evolving'/>
+			<propval name='config_file' type='astring' value='/ec/etc/varnish/default.vcl'/>
+			<propval name='user' type='astring' value='webservd'/>
+			<propval name='working_dir' type='astring' value='/ec/var/varnish'/>
+			<propval name='cache_size' type='astring' value='file,/ec/var/varnish/varnish_cache.bin,512M'/>
+			<propval name='tcp_listen_address' type='astring' value='0.0.0.0'/>
+			<propval name='tcp_listen_port' type='astring' value='8000'/>
+			<propval name='admin_tcp_listen_address' type='astring' value='127.0.0.1'/>
+			<propval name='admin_tcp_listen_port' type='astring' value='2000'/>
+			<propval name='varnishd_32_binary' type='astring' value='/ec/bin/varnishd'/>
+			<propval name='varnishd_64_binary' type='astring' value='/ec/bin/amd64/varnishd'/>
+			<propval name='cc_command_32' type='astring' value='/ec/bin/gcc -fPIC -shared -o %o %s'/>
+			<propval name='cc_command_64' type='astring' value='/ec/bin/gcc -m64 -fPIC -shared -o %o %s'/>
+			<propval name='additional_startup_options' type='astring' value=''/>
+			<propval name='enable_64bit' type='boolean' value='true'/>
+<!--
+Property value defaults with description:
+
+-p listen_depth=8192         # Connections kernel buffers before rejecting.
+-p waiter=poll               # Listener implementation to use.
+-p thread_pool_max=2000      # Max threads per pool
+-p thread_pool_min=50        # Min Threads per pool, crank this high
+-p thread_pools=4            # Thread Pool per CPU
+-p thread_pool_add_delay=2ms # Thread init delay, not to bomb OS
+-p sess_timeout=10s          # Keep-Alive timeout
+-p max_restarts=12           # Amount of restart attempts
+-p session_linger=120ms      # Milliseconds to keep thread around
+-p connect_timeout=0s        # Important bug work around for Solaris
+-p lru_interval=20s          # LRU interval checks
+-p sess_workspace=262144     # Space for headers (256kb)
+-->
+
+			<propval name='properties_list' type='astring' value='listen_depth=8192 waiter=poll thread_pool_max=2000 thread_pool_min=50 thread_pools=4 thread_pool_add_delay=2ms sess_timeout=10s max_restarts=12 session_linger=120ms connect_timeout=0s lru_interval=20s sess_workspace=262144 cli_timeout=10'/>
+		</property_group>
+
+	</instance>
+
+	<stability value='Evolving'/>
+
+</service>
+
+</service_bundle>
