@@ -1,0 +1,2 @@
+2011-07-06, Alasdair Lumsden	: Modify apache22 to have rewrite module enabled by default
+2011-07-06, Alasdair Lumsden	: Create additional apache22 symlinks from /ec/lib/apache/2.2/* to /ec/var/apache/2.2/* (eg htdocs)
