@@ -26,12 +26,16 @@ COMPONENT_NAME=		ImageMagick
 COMPONENT_VERSION=	6.7.0
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)-10
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha1:
+COMPONENT_ARCHIVE_HASH=	sha1:d761aee6910c970aa30ee30ddaeadbd2c92180a9
 COMPONENT_ARCHIVE_URL=	ftp://ftp.imagemagick.org/pub/ImageMagick/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+LIBDIR.32=	$(ECPREFIX)/lib
+LIBDIR.64=	$(ECPREFIX)/lib/$(MACH64)
+CONFIGURE_ENV+=	LDFLAGS="-L$(LIBDIR.$(BITS)) -R$(LIBDIR.$(BITS))"
 
 build:		$(BUILD_32_and_64)
 
