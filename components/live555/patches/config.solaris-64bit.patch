@@ -1,0 +1,22 @@
+--- live/config.solaris-64bit.~1~	2011-07-08 09:36:47.000000000 +0100
++++ live/config.solaris-64bit	2011-07-10 02:06:28.179574761 +0100
+@@ -1,15 +1,15 @@
+-COMPILE_OPTS =          $(INCLUDES) -m64 -I. -O -DSOLARIS -DSOCKLEN_T=socklen_t
++COMPILE_OPTS =          $(INCLUDES) -m64 -I. -O -DSOLARIS -DSOCKLEN_T=socklen_t -fPIC
+ C =                     c
+-C_COMPILER =            cc
++C_COMPILER =            gcc
+ C_FLAGS =               $(COMPILE_OPTS)
+ CPP =                   cpp
+-CPLUSPLUS_COMPILER =    c++
++CPLUSPLUS_COMPILER =    g++
+ CPLUSPLUS_FLAGS =       $(COMPILE_OPTS) -Wall
+ OBJ =                   o
+ LINK =                  c++ -m64 -o 
+ LINK_OPTS =             -L.
+ CONSOLE_LINK_OPTS =     $(LINK_OPTS)
+-LIBRARY_LINK =          ld -o
++LIBRARY_LINK =          /usr/ccs/bin/ld -o
+ LIBRARY_LINK_OPTS =     $(LINK_OPTS) -64 -r -dn
+ LIB_SUFFIX =                    a
+ LIBS_FOR_CONSOLE_APPLICATION = -lsocket -lnsl
