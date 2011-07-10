@@ -1,0 +1,11 @@
+--- rtmpdump-2.3/Makefile.~1~	2010-06-30 20:58:35.000000000 +0100
++++ rtmpdump-2.3/Makefile	2011-07-10 02:46:19.907403913 +0100
+@@ -21,7 +21,7 @@
+ DEF=-DRTMPDUMP_VERSION=\"$(VERSION)\" $(CRYPTO_DEF) $(XDEF)
+ OPT=-O2
+ CFLAGS=-Wall $(XCFLAGS) $(INC) $(DEF) $(OPT)
+-LDFLAGS=-Wall $(XLDFLAGS)
++LDFLAGS=-Wall $(XLDFLAGS) -lnsl -lsocket
+ 
+ bindir=$(prefix)/bin
+ sbindir=$(prefix)/sbin
