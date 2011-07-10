@@ -64,6 +64,7 @@ CONFIGURE_OPTIONS+=	--enable-libmp3lame
 CONFIGURE_OPTIONS+=	--enable-libtheora
 CONFIGURE_OPTIONS+=	--enable-libopencore-amrnb
 CONFIGURE_OPTIONS+=	--enable-libopencore-amrwb
+CONFIGURE_OPTIONS+=	--enable-librtmp
 CONFIGURE_OPTIONS+=	--disable-ffplay
 CONFIGURE_OPTIONS+=	--disable-avdevice
 
