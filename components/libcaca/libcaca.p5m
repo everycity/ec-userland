@@ -1,0 +1,97 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/library/libcaca@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Library that outputs text instead of pixels"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://caca.zoy.org/wiki/libcaca"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license libcaca.license license="libcaca"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/libcaca
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/$(MACH64)/caca-config
+file path=$(ECPREFIX)/bin/$(MACH64)/cacademo
+file path=$(ECPREFIX)/bin/$(MACH64)/cacafire
+file path=$(ECPREFIX)/bin/$(MACH64)/cacaplay
+file path=$(ECPREFIX)/bin/$(MACH64)/cacaserver
+file path=$(ECPREFIX)/bin/$(MACH64)/cacaview
+file path=$(ECPREFIX)/bin/$(MACH64)/img2txt
+file path=$(ECPREFIX)/bin/caca-config
+file path=$(ECPREFIX)/bin/cacademo
+file path=$(ECPREFIX)/bin/cacafire
+file path=$(ECPREFIX)/bin/cacaplay
+file path=$(ECPREFIX)/bin/cacaserver
+file path=$(ECPREFIX)/bin/cacaview
+file path=$(ECPREFIX)/bin/img2txt
+file path=$(ECPREFIX)/include/caca++.h
+file path=$(ECPREFIX)/include/caca.h
+file path=$(ECPREFIX)/include/caca0.h
+file path=$(ECPREFIX)/include/caca_conio.h
+file path=$(ECPREFIX)/include/caca_types.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libcaca++.so.0.99.17
+file path=$(ECPREFIX)/lib/$(MACH64)/libcaca.so.0.99.17
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/caca++.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/caca.pc
+file path=$(ECPREFIX)/lib/libcaca++.so.0.99.17
+file path=$(ECPREFIX)/lib/libcaca.so.0.99.17
+file path=$(ECPREFIX)/lib/pkgconfig/caca++.pc
+file path=$(ECPREFIX)/lib/pkgconfig/caca.pc
+file path=$(ECPREFIX)/share/libcaca/caca.txt
+file path=$(ECPREFIX)/share/man/man1/caca-config.1
+file path=$(ECPREFIX)/share/man/man1/cacafire.1
+file path=$(ECPREFIX)/share/man/man1/cacaplay.1
+file path=$(ECPREFIX)/share/man/man1/cacaserver.1
+file path=$(ECPREFIX)/share/man/man1/cacaview.1
+file path=$(ECPREFIX)/share/man/man1/img2txt.1
+link path=$(ECPREFIX)/include/cucul.h target=caca.h
+link path=$(ECPREFIX)/lib/$(MACH64)/libcaca++.so target=libcaca++.so.0.99.17
+link path=$(ECPREFIX)/lib/$(MACH64)/libcaca++.so.0 target=libcaca++.so.0.99.17
+link path=$(ECPREFIX)/lib/$(MACH64)/libcaca.so target=libcaca.so.0.99.17
+link path=$(ECPREFIX)/lib/$(MACH64)/libcaca.so.0 target=libcaca.so.0.99.17
+link path=$(ECPREFIX)/lib/$(MACH64)/libcucul++.so target=libcaca++.so
+link path=$(ECPREFIX)/lib/$(MACH64)/libcucul++.so.0 target=libcaca++.so.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libcucul++.so.0.99.17 \
+    target=libcaca++.so.0.99.17
+link path=$(ECPREFIX)/lib/$(MACH64)/libcucul.so target=libcaca.so
+link path=$(ECPREFIX)/lib/$(MACH64)/libcucul.so.0 target=libcaca.so.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libcucul.so.0.99.17 \
+    target=libcaca.so.0.99.17
+link path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/cucul++.pc target=caca++.pc
+link path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/cucul.pc target=caca.pc
+link path=$(ECPREFIX)/lib/libcaca++.so target=libcaca++.so.0.99.17
+link path=$(ECPREFIX)/lib/libcaca++.so.0 target=libcaca++.so.0.99.17
+link path=$(ECPREFIX)/lib/libcaca.so target=libcaca.so.0.99.17
+link path=$(ECPREFIX)/lib/libcaca.so.0 target=libcaca.so.0.99.17
+link path=$(ECPREFIX)/lib/libcucul++.so target=libcaca++.so
+link path=$(ECPREFIX)/lib/libcucul++.so.0 target=libcaca++.so.0
+link path=$(ECPREFIX)/lib/libcucul++.so.0.99.17 target=libcaca++.so.0.99.17
+link path=$(ECPREFIX)/lib/libcucul.so target=libcaca.so
+link path=$(ECPREFIX)/lib/libcucul.so.0 target=libcaca.so.0
+link path=$(ECPREFIX)/lib/libcucul.so.0.99.17 target=libcaca.so.0.99.17
+link path=$(ECPREFIX)/lib/pkgconfig/cucul++.pc target=caca++.pc
+link path=$(ECPREFIX)/lib/pkgconfig/cucul.pc target=caca.pc
+link path=$(ECPREFIX)/share/man/man1/cacademo.1 target=cacafire.1
