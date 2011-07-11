@@ -26,7 +26,7 @@ COMPONENT_NAME=		slang
 COMPONENT_VERSION=	2.1.4
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-#COMPONENT_ARCHIVE_HASH=	sha1:8e38c591667be8d39840dc2c4e1e897da230f155
+COMPONENT_ARCHIVE_HASH=	sha1:8670420f870f3f5b92e72ec5962aefa52fd546a5
 COMPONENT_ARCHIVE_URL=	ftp://space.mit.edu/pub/davis/slang/v2.1/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -35,22 +35,14 @@ include ../../make-rules/ips.mk
 
 # configure the unpacked source for building 32 and 64 bit version
 $(BUILD_DIR)/%/.configured:	$(SOURCE_DIR)/.prep
-	mkdir -p $(BUILD_DIR)
-	rsync -aH --delete $(SOURCE_DIR)/ $(@D)/
-	$(COMPONENT_PRE_CONFIGURE_ACTION)
+	mkdir -p $(@)
+	cp -R $(SOURCE_DIR)/* $(@D)/
 	(cd $(@D) ; $(ENV) $(CONFIGURE_ENV) $(CONFIG_SHELL) \
 		./configure $(CONFIGURE_OPTIONS))
-	$(COMPONENT_POST_CONFIGURE_ACTION)
 	$(TOUCH) $@
 
 
+build:		$(BUILD_32_and_64)
 
-build:		$(BUILD_32)
+install:	$(INSTALL_32_and_64)
 
-include ../../make-rules/shared-targets.mk
-
-install:	$(INSTALL_32)
-
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
