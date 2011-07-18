@@ -35,14 +35,14 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS=	--prefix=/ec	
-CONFIGURE_OPTIONS.32+=	--bindir=/ec/bin
-CONFIGURE_OPTIONS.64+=	--bindir=/ec/bin/$(MACH64)
-CONFIGURE_OPTIONS.32+=	--libdir=/ec/lib
-CONFIGURE_OPTIONS.64+=	--libdir=/ec/lib/$(MACH64)
+CONFIGURE_OPTIONS=	--prefix=$(ECPREFIX)	
+CONFIGURE_OPTIONS.32+=	--bindir=$(ECPREFIX)/bin
+CONFIGURE_OPTIONS.64+=	--bindir=$(ECPREFIX)/bin/$(MACH64)
+CONFIGURE_OPTIONS.32+=	--libdir=$(ECPREFIX)/lib
+CONFIGURE_OPTIONS.64+=	--libdir=$(ECPREFIX)/lib/$(MACH64)
 CONFIGURE_OPTIONS.64+=	--host=x86_64-pc-solaris2.10
 CONFIGURE_OPTIONS.64+=	--extra-cflags=-m64
-CONFIGURE_OPTIONS.64+=	--extra-ldflags="-L/ec/lib/$(MACH64) -R/ec/lib/$(MACH64) -m64"
+CONFIGURE_OPTIONS.64+=	--extra-ldflags="-L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64) -m64"
 CONFIGURE_OPTIONS+=	--enable-pic
 CONFIGURE_OPTIONS+=	--enable-shared
 CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))
