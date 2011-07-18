@@ -19,6 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -33,38 +34,11 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-include ../../make-rules/shared-targets.mk
+CONFIGURE_SCRIPT=	./configure
+COMPONENT_PRE_CONFIGURE_ACTION+=	( cp -r $(SOURCE_DIR)/* $(@D) && \
+	cd $(@D) && libtoolize --force --copy  && aclocal && autoconf && automake )
 
 build:		$(BUILD_32_and_64)
-# configure the unpacked source for building 32 and 64 bit version
-$(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
-	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
-	$(COMPONENT_PRE_CONFIGURE_ACTION)
-	(cp -r $(SOURCE_DIR)/* $(@D) ; cd $(@D) ; $(ENV) $(CONFIGURE_ENV) $(CONFIG_SHELL) \
-		libtoolize --force --copy; aclocal; autoconf; automake; \
-		./configure $(CONFIGURE_OPTIONS))
-	$(COMPONENT_POST_CONFIGURE_ACTION)
-	$(TOUCH) $@
-
-# build the configured source
-$(BUILD_DIR)/%/.built:  $(BUILD_DIR)/%/.configured
-	$(COMPONENT_PRE_BUILD_ACTION)
-	(cd $(@D) ; $(ENV) $(COMPONENT_BUILD_ENV) \
-		$(GMAKE) $(COMPONENT_BUILD_TARGETS))
-	$(COMPONENT_POST_BUILD_ACTION)
-	$(TOUCH) $@
-
-# install the built source into a prototype area
-$(BUILD_DIR)/%/.installed:      $(BUILD_DIR)/%/.built
-	$(COMPONENT_PRE_INSTALL_ACTION)
-	(cd $(@D) ; $(ENV) $(COMPONENT_INSTALL_ENV) $(GMAKE) \
-		$(COMPONENT_INSTALL_ARGS) $(COMPONENT_INSTALL_TARGETS))
-	$(COMPONENT_POST_INSTALL_ACTION)
-	$(TOUCH) $@
 
 install:	$(INSTALL_32_and_64)
-
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
 
