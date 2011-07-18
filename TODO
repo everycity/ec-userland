@@ -1,2 +1,4 @@
 2011-07-06, Alasdair Lumsden	: Modify apache22 to have rewrite module enabled by default
 2011-07-06, Alasdair Lumsden	: Create additional apache22 symlinks from /ec/lib/apache/2.2/* to /ec/var/apache/2.2/* (eg htdocs)
+2011-07-06, Alasdair Lumsden	: Make apache22 and openssh not be enabled by default in manifest
+2011-07-06, Alasdair Lumsden	: Set all config files not be read only mode (search for preserve=true and amend mode=)
