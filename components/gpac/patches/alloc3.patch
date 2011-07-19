@@ -1,0 +1,42 @@
+--- gpac-2011-07-19/src/utils/alloc.c.~1~	2011-07-19 11:11:20.000000000 +0100
++++ gpac-2011-07-19/src/utils/alloc.c	2011-07-19 14:14:47.046684926 +0100
+@@ -697,12 +697,38 @@
+ }
+ #endif
+ 
++#if (defined (__SVR4) && defined (__sun))
++int gf_vasprintf(char **ret, const char *format, va_list args)
++{
++	va_list copy;
++	va_copy(copy, args);
++
++	/* Make sure it is determinate, despite manuals indicating otherwise */
++	*ret = 0;
++
++	int count = vsnprintf(NULL, 0, format, args);
++	if (count >= 0) {
++		char* buffer = malloc(count + 1);
++		if (buffer != NULL) {
++			count = vsnprintf(buffer, count + 1, format, copy);
++			if (count < 0)
++				free(buffer);
++			else
++				*ret = buffer;
++		}
++	}
++	va_end(args);  // Each va_start() or va_copy() needs a va_end()
++
++	return count;
++}
++#endif
++
+ int gf_asprintf(char **strp, const char *fmt, ...)
+ {
+ 	s32 size;
+ 	va_list args;
+ 	va_start(args, fmt);
+-#if defined(WIN32) || defined(_WIN32_WCE)
++#if defined(WIN32) || defined(_WIN32_WCE) || (defined (__SVR4) && defined (__sun))
+ 	size = gf_vasprintf(strp, fmt, args);
+ #else
+ 	size = asprintf(strp, fmt, args);

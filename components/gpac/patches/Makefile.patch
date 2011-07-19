@@ -1,0 +1,15 @@
+--- gpac-2011-07-19/Makefile.orig	2011-07-19 15:31:37.210343548 +0100
++++ gpac-2011-07-19/Makefile	2011-07-19 16:15:57.120070563 +0100
+@@ -55,9 +55,9 @@
+ 
+ install:
+ 	$(INSTALL) -d "$(DESTDIR)$(prefix)"
+-	$(INSTALL) -d "$(DESTDIR)$(prefix)/bin"
+-	$(INSTALL) $(INSTFLAGS) -m 755 bin/gcc/MP4Box "$(DESTDIR)$(prefix)/bin"
+-	$(INSTALL) $(INSTFLAGS) -m 755 bin/gcc/MP4Client "$(DESTDIR)$(prefix)/bin"
++	$(INSTALL) -d "$(DESTDIR)$(prefix)/$(bindir)"
++	$(INSTALL) $(INSTFLAGS) -m 755 bin/gcc/MP4Box "$(DESTDIR)$(prefix)/$(bindir)"
++	$(INSTALL) $(INSTFLAGS) -m 755 bin/gcc/MP4Client "$(DESTDIR)$(prefix)/$(bindir)"
+ 	$(INSTALL) -d "$(DESTDIR)$(moddir)"
+ 	$(INSTALL) bin/gcc/*.$(DYN_LIB_SUFFIX) "$(DESTDIR)$(moddir)"
+ 	rm -f $(DESTDIR)$(moddir)/libgpac.$(DYN_LIB_SUFFIX)
