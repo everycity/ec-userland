@@ -26,20 +26,14 @@ COMPONENT_NAME=		libtheora
 COMPONENT_VERSION=	1.1.1
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha1:
+COMPONENT_ARCHIVE_HASH=	sha1:0b91be522746a29351a5ee592fd8160940059303
 COMPONENT_ARCHIVE_URL=	http://downloads.xiph.org/releases/theora/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_ENV.32 += PKG_CONFIG=$(ECPREFIX)/bin/pkg-config
-CONFIGURE_ENV.64 += PKG_CONFIG=$(ECPREFIX)/bin/$(MACH64)/pkg-config
-
-include ../../make-rules/shared-targets.mk
-
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
-
 
