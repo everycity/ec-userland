@@ -32,12 +32,7 @@ COMPONENT_ARCHIVE_URL=	http://downloads.xvid.org/downloads/$(COMPONENT_ARCHIVE)
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-
-CONFIGURE_ENV+=LD=/ec/bin/ld
-COMPONENT_BUILD_ENV.32+=LD_ALTEXEC=/ec/bin/ld
-COMPONENT_BUILD_ENV.64+=LD_ALTEXEC=/ec/bin/amd64/ld
-COMPONENT_BUILD_ENV+=$(COMPONENT_BUILD_ENV.$(BITS))
-COMPONENT_INSTALL_ENV+=$(COMPONENT_BUILD_ENV.$(BITS))
+include ../../make-rules/gnu-ld.mk
 
 $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
 	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
