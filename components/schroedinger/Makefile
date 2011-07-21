@@ -32,13 +32,9 @@ COMPONENT_ARCHIVE_URL=	http://diracvideo.org/download/schroedinger/$(COMPONENT_A
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+include ../../make-rules/gnu-ld.mk
 
-CONFIGURE_OPTIONS+=--with-pic --enable-shared --disable-static --with-gnu-ld
-CONFIGURE_ENV+=LD=/ec/bin/ld
-COMPONENT_BUILD_ENV.32+=LD_ALTEXEC=/ec/bin/ld
-COMPONENT_BUILD_ENV.64+=LD_ALTEXEC=/ec/bin/amd64/ld
-COMPONENT_BUILD_ENV+=$(COMPONENT_BUILD_ENV.$(BITS))
-COMPONENT_INSTALL_ENV+=$(COMPONENT_BUILD_ENV.$(BITS))
+CONFIGURE_OPTIONS+=--with-pic --enable-shared --disable-static
 
 COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; libtoolize --force --copy ; autoreconf )
 
