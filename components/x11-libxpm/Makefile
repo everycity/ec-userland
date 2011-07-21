@@ -33,9 +33,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic --with-sysroot=/ec 'LIBS=-lintl'
-CONFIGURE_OPTIONS.32+=	'PKG_CONFIG=$(ECPREFIX)/bin/pkg-config'
-CONFIGURE_OPTIONS.64+=	'PKG_CONFIG=$(ECPREFIX)/bin/$(MACH64)/pkg-config'
+CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic
+CONFIGURE_OPTIONS+=	--with-sysroot=/ec 'LIBS=-lintl'
 
 build:		$(BUILD_32_and_64)
 
