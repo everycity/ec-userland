@@ -26,7 +26,7 @@ COMPONENT_NAME=		nasm
 COMPONENT_VERSION=	2.09.08
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha1:
+COMPONENT_ARCHIVE_HASH=	sha1:5d1b7a4b16e65dcbcb04e0b0735f1cd7a6a53a90
 COMPONENT_ARCHIVE_URL=	http://www.nasm.us/pub/nasm/releasebuilds/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 COMPONENT_POST_CONFIGURE_ACTION += (mkdir -p $(BUILD_DIR_32)/lib $(BUILD_DIR_64)/lib)
@@ -42,10 +42,5 @@ IPS_COMPONENT_VERSION=	2.9.8
 
 build:		$(BUILD_32_and_64)
 
-include ../../make-rules/shared-targets.mk
-
 install:	$(INSTALL_32_and_64)
 
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
