@@ -26,21 +26,15 @@ COMPONENT_NAME=		dirac
 COMPONENT_VERSION=	1.0.2
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha1:
+COMPONENT_ARCHIVE_HASH=	sha1:895aaad832a54b754e58f77c87d38c0c37752b0b
 COMPONENT_ARCHIVE_URL=	http://diracvideo.org/download/dirac-research/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+include ../../make-rules/gnu-ld.mk
 
-CONFIGURE_OPTIONS+=--with-pic --enable-shared --disable-static --with-gnu-ld
-#CONFIGURE_ENV+=LD=/ec/bin/ld
-#COMPONENT_BUILD_ENV.32+=LD_ALTEXEC=/ec/bin/ld
-#COMPONENT_BUILD_ENV.64+=LD_ALTEXEC=/ec/bin/ld LDEMULATION="elf_x86_64_sol2"
-#COMPONENT_BUILD_ENV+=$(COMPONENT_BUILD_ENV.$(BITS))
-#COMPONENT_INSTALL_ENV+=$(COMPONENT_BUILD_ENV.$(BITS))
-
-#COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; libtoolize --force --copy ; autoreconf )
+CONFIGURE_OPTIONS+=--with-pic --enable-shared --disable-static
 
 build:		$(BUILD_32_and_64)
 
