@@ -48,25 +48,18 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:eb29c7c937b9b7330ca979dfabc25ab2a31b9db2
 COMPONENT_ARCHIVE_URL=	http://sourceforge.net/projects/lame/files/lame/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)/download
 
-COMPONENT_BUILD_ENV.32+=        LD_ALTEXEC=$(ECPREFIX)/bin/ld
-COMPONENT_BUILD_ENV.64+=        LD_ALTEXEC=$(ECPREFIX)/bin/$(MACH64)/ld
-COMPONENT_BUILD_ENV+=           $(COMPONENT_BUILD_ENV.$(BITS))
-COMPONENT_INSTALL_ENV+=         $(COMPONENT_BUILD_ENV.$(BITS))
-COMPONENT_INSTALL_ENV+=		INSTALLROOT="$(PROTO_DIR)"
+include ../../make-rules/prep.mk
+include ../../make-rules/configure.mk
+include ../../make-rules/ips.mk
+include ../../make-rules/gnu-ld.mk
 
-CONFIGURE_ENV.32+=		LD=$(ECPREFIX)/bin/ld
-CONFIGURE_ENV.64+=		LD=$(ECPREFIX)/bin/$(MACH64)/ld
-CONFIGURE_ENV+=			$(CONFIGURE_ENV.$(BITS))
+COMPONENT_INSTALL_ENV+=		INSTALLROOT="$(PROTO_DIR)"
 
 CONFIGURE_OPTIONS+=	--enable-nasm
 CONFIGURE_OPTIONS+=	--enable-shared
 CONFIGURE_OPTIONS+=	--disable-static
 CONFIGURE_OPTIONS+=	--with-gnu-ld
 CONFIGURE_OPTIONS.64+=	--disable-nasm
-
-include ../../make-rules/prep.mk
-include ../../make-rules/configure.mk
-include ../../make-rules/ips.mk
 
 build:		$(BUILD_32_and_64)
 

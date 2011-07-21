@@ -29,13 +29,15 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:eb29c7c937b9b7330ca979dfabc25ab2a31b9db2
 COMPONENT_ARCHIVE_URL=	http://sourceforge.net/projects/lame/files/lame/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)/download
 
-CONFIGURE_OPTIONS.32  += --build=i386-pc-solaris2.10 --enable-analyser=no --enable-brhist --enable-decoder
-CONFIGURE_OPTIONS.64  += --build=x86_64-pc-solaris2.10 --enable-analyser=no --enable-brhist --enable-decoder
-COMPONENT_INSTALL_ENV += INSTALLROOT="$(PROTO_DIR)"
-
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+COMPONENT_INSTALL_ENV += INSTALLROOT="$(PROTO_DIR)"
+
+CONFIGURE_OPTIONS+=	--enable-analyser=no
+CONFIGURE_OPTIONS+=	--enable-brhist
+CONFIGURE_OPTIONS+=	--enable-decoder
 
 build:		$(BUILD_32_and_64)
 
