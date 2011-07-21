@@ -1,0 +1,58 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/service/cronie@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="crond and anacron - daemons for executing programs at set times"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="https://fedorahosted.org/cronie/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license COPYING license="MIT, BSD, ISC, GPLv2"
+
+depend fmri=pkg:/text/gnu-awk type=require
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+dir path=$(ECPREFIX)/share/man/man5
+dir path=$(ECPREFIX)/share/man/man8
+dir path=$(ECPREFIX)/var
+dir path=$(ECPREFIX)/var/svc
+dir path=$(ECPREFIX)/var/svc/method
+dir path=etc/cron.hourly
+dir path=var/spool/anacron
+dir path=var/svc/manifest
+dir path=var/svc/manifest/site
+file path=$(ECPREFIX)/bin/anacron
+file path=$(ECPREFIX)/bin/crond
+file path=$(ECPREFIX)/bin/crontab mode=4555
+file files/run-parts path=$(ECPREFIX)/bin/run-parts
+file path=$(ECPREFIX)/share/man/man1/crontab.1
+file path=$(ECPREFIX)/share/man/man5/anacrontab.5
+file path=$(ECPREFIX)/share/man/man5/crontab.5
+file path=$(ECPREFIX)/share/man/man8/anacron.8
+file path=$(ECPREFIX)/share/man/man8/cron.8
+file path=$(ECPREFIX)/share/man/man8/crond.8
+file files/svc-cronie path=$(ECPREFIX)/var/svc/method/svc-cronie mode=0555
+file path=etc/anacrontab preserve=true
+file path=etc/cron.d/0hourly
+file files/cron.deny path=etc/cron.d/cron.deny preserve=true
+file path=etc/cron.hourly/0anacron mode=0555
+file path=var/spool/anacron/cron.daily preserve=true
+file path=var/spool/anacron/cron.monthly preserve=true
+file path=var/spool/anacron/cron.weekly preserve=true
+file files/cronie.xml path=var/svc/manifest/site/cronie.xml restart_fmri=svc:/system/manifest-import:default
