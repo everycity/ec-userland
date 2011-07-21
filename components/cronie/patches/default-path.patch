@@ -1,0 +1,12 @@
+diff -ruN cronie-1.4.8.orig/src/pathnames.h cronie-1.4.8/src/pathnames.h
+--- cronie-1.4.8.orig/src/pathnames.h	2010-12-16 08:59:02.000000000 +0000
++++ cronie-1.4.8/src/pathnames.h	2011-07-21 11:54:02.288319572 +0100
+@@ -59,7 +59,7 @@
+ #endif
+ 
+ #ifndef _PATH_DEFPATH
+-# define _PATH_DEFPATH "/usr/bin:/bin"
++# define _PATH_DEFPATH "/ec/bin:/sbin:/usr/sbin:/usr/bin"
+ #endif
+ 
+ #ifndef _PATH_TMP
