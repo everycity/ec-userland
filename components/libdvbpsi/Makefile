@@ -26,7 +26,7 @@ COMPONENT_NAME=		libdvbpsi
 COMPONENT_VERSION=	0.2.0
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha1:
+COMPONENT_ARCHIVE_HASH=	sha1:d1bf702a15e51bc2fb08946bdf32ea430529abbe
 COMPONENT_ARCHIVE_URL=	http://download.videolan.org/pub/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -34,7 +34,7 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS+=	--with-pic --enable-shared --disable-static
-CONFIGURE_ENV+=	LDFLAGS="-lnsl -lsocket -lresolv"
+CONFIGURE_ENV+=		LDFLAGS="-lnsl -lsocket -lresolv"
 
 build:		$(BUILD_32_and_64)
 
