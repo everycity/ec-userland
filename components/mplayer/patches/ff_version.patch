@@ -1,0 +1,8 @@
+--- mplayer-2011-07-11/ffmpeg/version.sh.orig	2011-07-11 17:58:28.165519964 +0100
++++ mplayer-2011-07-11/ffmpeg/version.sh	2011-07-11 17:58:32.912328956 +0100
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ # check for git short hash
+ if ! test "$revision"; then
