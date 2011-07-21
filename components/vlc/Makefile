@@ -32,13 +32,8 @@ COMPONENT_ARCHIVE_URL=	http://sourceforge.net/projects/$(COMPONENT_NAME)/files/$
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+include ../../make-rules/gnu-ld.mk
 
-COMPONENT_BUILD_ENV.32+=	LD_ALTEXEC=/ec/bin/ld
-COMPONENT_BUILD_ENV.64+=	LD_ALTEXEC=/ec/bin/amd64/ld
-COMPONENT_BUILD_ENV+=		$(COMPONENT_BUILD_ENV.$(BITS))
-COMPONENT_INSTALL_ENV+=		$(COMPONENT_BUILD_ENV.$(BITS))
-
-CONFIGURE_ENV+=	LD=/ec/bin/ld
 CONFIGURE_ENV.32+=	LDFLAGS="-lnsl -L$(ECPREFIX)/lib"
 CONFIGURE_ENV.64+=	LDFLAGS="-lnsl -L$(ECPREFIX)/lib/$(MACH64)"
 CONFIGURE_ENV+=	CFLAGS="-D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__ -I$(ECPREFIX)/include -I$(ECPREFIX)/include/ncurses"
@@ -46,7 +41,6 @@ CONFIGURE_ENV+=	CXXFLAGS="-D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTEN
 CONFIGURE_ENV+=	$(CONFIGURE_ENV.$(BITS))
 
 CONFIGURE_OPTIONS+=	--with-pic --enable-shared --disable-static
-CONFIGURE_OPTIONS+=	--with-gnu-ld=yes
 CONFIGURE_OPTIONS+=	--disable-libgcrypt
 CONFIGURE_OPTIONS+=	--disable-remoteosd
 CONFIGURE_OPTIONS+=	--disable-glx
@@ -64,8 +58,6 @@ CONFIGURE_OPTIONS+=	--enable-run-as-root
 CONFIGURE_OPTIONS+=	--enable-id3tag
 CONFIGURE_OPTIONS+=	--enable-faad
 CONFIGURE_OPTIONS+=	--with-live555-tree=$(ECPREFIX)/lib/live555-$(BITS)bit
-CONFIGURE_OPTIONS.32+=	PKG_CONFIG="$(ECPREFIX)/bin/pkg-config"
-CONFIGURE_OPTIONS.64+=	PKG_CONFIG="$(ECPREFIX)/bin/$(MACH64)/pkg-config"
 
 build:		$(BUILD_32_and_64)
 
