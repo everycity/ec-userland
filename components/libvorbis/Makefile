@@ -19,6 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -29,22 +30,11 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:4b089ace4c8420c479b2fde9c5b01588cf86c959
 COMPONENT_ARCHIVE_URL=	http://downloads.xiph.org/releases/vorbis/$(COMPONENT_ARCHIVE)
 
-#CONFIGURE_OPTIONS.64+=	'CC=/ec/bin/gcc -m64' 'CXX=/ec/bin/g++ -m64' 'LDFLAGS=-L../../../../libogg/build/amd64/src'
-
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_ENV.32 += PKG_CONFIG=$(ECPREFIX)/bin/pkg-config
-CONFIGURE_ENV.64 += PKG_CONFIG=$(ECPREFIX)/bin/$(MACH64)/pkg-config
-
-include ../../make-rules/shared-targets.mk
-
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
-
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
 
