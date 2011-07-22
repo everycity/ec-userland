@@ -50,6 +50,9 @@ include ../../make-rules/shared-targets.mk
 install:	$(INSTALL_32)
 	$(MKDIR) -p $(PROTO_DIR)
 	$(CP) -R $(BUILD_DIR_32)/proto/root_$(MACH)/* $(PROTO_DIR)
+	sed "1s,^#!.*,#!$(PYTHON)," \
+	    < $(BUILD_DIR_32)/proto/root_$(MACH)/$(ECPREFIX)/bin/cherryd \
+	    > $(PROTO_DIR)/$(ECPREFIX)/bin/cherryd
 
 BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
 

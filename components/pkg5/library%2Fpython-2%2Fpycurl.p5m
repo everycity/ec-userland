@@ -21,6 +21,8 @@
 # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
 #
 
+<transform file path=ec/lib/python2.6/vendor-packages/share/doc/.* -> default pkg.depend.bypass-generate .*>
+
 set name=pkg.fmri value=pkg:/library/python-2/pycurl@7.19.0,$(BUILD_VERSION)
 set name=pkg.summary value="Python bindings for libcurl"
 set name=pkg.description value="PycURL provides a thin layer of Python bindings on top of libcurl."

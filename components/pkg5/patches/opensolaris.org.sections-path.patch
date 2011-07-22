@@ -1,0 +1,21 @@
+diff -ruN pkg-gate.orig/src/modules/lint/config.py pkg-gate/src/modules/lint/config.py
+--- pkg-gate.orig/src/modules/lint/config.py	2011-03-11 16:49:05.000000000 +0000
++++ pkg-gate/src/modules/lint/config.py	2011-07-22 13:51:18.262261170 +0100
+@@ -35,7 +35,7 @@
+     "do_pub_checks": "True",
+     "ignore_different_publishers": "True",
+     "info_classification_path":
+-        "/usr/share/lib/pkg/opensolaris.org.sections",
++        "/ec/share/lib/pkg/opensolaris.org.sections",
+     "use_progress_tracker": "True",
+     "pkglint.ext.opensolaris": "pkg.lint.opensolaris",
+     "pkglint.ext.pkglint_actions": "pkg.lint.pkglint_action",
+@@ -49,7 +49,7 @@
+ 
+                 self.config = ConfigParser.SafeConfigParser(defaults)
+                 if not config_file:
+-                        self.config.readfp(open("/usr/share/lib/pkg/pkglintrc"))
++                        self.config.readfp(open("/ec/share/lib/pkg/pkglintrc"))
+                         self.config.read([os.path.expanduser("~/.pkglintrc")])
+                 else:
+                         self.config.read(config_file)
