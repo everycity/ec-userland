@@ -1,0 +1,21 @@
+diff -ruN apache-tomcat-6.0.32.orig/conf/catalina.properties apache-tomcat-6.0.32/conf/catalina.properties
+--- apache-tomcat-6.0.32.orig/conf/catalina.properties	2011-02-02 19:06:47.000000000 +0000
++++ apache-tomcat-6.0.32/conf/catalina.properties	2011-07-22 16:36:41.490237375 +0100
+@@ -57,7 +57,7 @@
+ #     "foo/*.jar": Add all the JARs of the specified folder as class 
+ #                  repositories
+ #     "foo/bar.jar": Add bar.jar as a class repository
+-server.loader=
++server.loader=${catalina.home}/server/classes,${catalina.home}/server/*.jar
+ 
+ #
+ # List of comma-separated paths defining the contents of the "shared" 
+@@ -71,7 +71,7 @@
+ #     "foo/bar.jar": Add bar.jar as a class repository 
+ # Please note that for single jars, e.g. bar.jar, you need the URL form
+ # starting with file:.
+-shared.loader=
++shared.loader=${catalina.home}/shared/classes,${catalina.home}/shared/*.jar
+ 
+ #
+ # String cache configuration.
