@@ -1,0 +1,195 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/shell/bash@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="GNU Bourne-Again shell (bash)"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://www.gnu.org/software/bash/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license bash.license license="GPLv3, FDLv1.2"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/bash
+dir path=$(ECPREFIX)/share/locale
+dir path=$(ECPREFIX)/share/locale/af
+dir path=$(ECPREFIX)/share/locale/af/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/bg
+dir path=$(ECPREFIX)/share/locale/bg/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ca
+dir path=$(ECPREFIX)/share/locale/ca/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/cs
+dir path=$(ECPREFIX)/share/locale/cs/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/de
+dir path=$(ECPREFIX)/share/locale/de/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/en@boldquot
+dir path=$(ECPREFIX)/share/locale/en@boldquot/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/en@quot
+dir path=$(ECPREFIX)/share/locale/en@quot/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/eo
+dir path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/es
+dir path=$(ECPREFIX)/share/locale/es/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/et
+dir path=$(ECPREFIX)/share/locale/et/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/fi
+dir path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/fr
+dir path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ga
+dir path=$(ECPREFIX)/share/locale/ga/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/hu
+dir path=$(ECPREFIX)/share/locale/hu/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/id
+dir path=$(ECPREFIX)/share/locale/id/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ja
+dir path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/lt
+dir path=$(ECPREFIX)/share/locale/lt/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/nl
+dir path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/pl
+dir path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/pt_BR
+dir path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ro
+dir path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ru
+dir path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/sk
+dir path=$(ECPREFIX)/share/locale/sk/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/sv
+dir path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/tr
+dir path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/uk
+dir path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/vi
+dir path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/zh_CN
+dir path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/zh_TW
+dir path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/bash
+file path=$(ECPREFIX)/bin/bashbug
+file path=$(ECPREFIX)/share/bash/alias
+file path=$(ECPREFIX)/share/bash/arith
+file path=$(ECPREFIX)/share/bash/arith_for
+file path=$(ECPREFIX)/share/bash/bg
+file path=$(ECPREFIX)/share/bash/bind
+file path=$(ECPREFIX)/share/bash/break
+file path=$(ECPREFIX)/share/bash/builtin
+file path=$(ECPREFIX)/share/bash/caller
+file path=$(ECPREFIX)/share/bash/case
+file path=$(ECPREFIX)/share/bash/cd
+file path=$(ECPREFIX)/share/bash/colon
+file path=$(ECPREFIX)/share/bash/command
+file path=$(ECPREFIX)/share/bash/compgen
+file path=$(ECPREFIX)/share/bash/complete
+file path=$(ECPREFIX)/share/bash/compopt
+file path=$(ECPREFIX)/share/bash/conditional
+file path=$(ECPREFIX)/share/bash/continue
+file path=$(ECPREFIX)/share/bash/coproc
+file path=$(ECPREFIX)/share/bash/declare
+file path=$(ECPREFIX)/share/bash/dirs
+file path=$(ECPREFIX)/share/bash/disown
+file path=$(ECPREFIX)/share/bash/dot
+file path=$(ECPREFIX)/share/bash/echo
+file path=$(ECPREFIX)/share/bash/enable
+file path=$(ECPREFIX)/share/bash/eval
+file path=$(ECPREFIX)/share/bash/exec
+file path=$(ECPREFIX)/share/bash/exit
+file path=$(ECPREFIX)/share/bash/export
+file path=$(ECPREFIX)/share/bash/false
+file path=$(ECPREFIX)/share/bash/fc
+file path=$(ECPREFIX)/share/bash/fg
+file path=$(ECPREFIX)/share/bash/fg_percent
+file path=$(ECPREFIX)/share/bash/for
+file path=$(ECPREFIX)/share/bash/function
+file path=$(ECPREFIX)/share/bash/getopts
+file path=$(ECPREFIX)/share/bash/grouping_braces
+file path=$(ECPREFIX)/share/bash/hash
+file path=$(ECPREFIX)/share/bash/help
+file path=$(ECPREFIX)/share/bash/history
+file path=$(ECPREFIX)/share/bash/if
+file path=$(ECPREFIX)/share/bash/jobs
+file path=$(ECPREFIX)/share/bash/kill
+file path=$(ECPREFIX)/share/bash/let
+file path=$(ECPREFIX)/share/bash/local
+file path=$(ECPREFIX)/share/bash/logout
+file path=$(ECPREFIX)/share/bash/mapfile
+file path=$(ECPREFIX)/share/bash/popd
+file path=$(ECPREFIX)/share/bash/printf
+file path=$(ECPREFIX)/share/bash/pushd
+file path=$(ECPREFIX)/share/bash/pwd
+file path=$(ECPREFIX)/share/bash/read
+file path=$(ECPREFIX)/share/bash/readarray
+file path=$(ECPREFIX)/share/bash/readonly
+file path=$(ECPREFIX)/share/bash/return
+file path=$(ECPREFIX)/share/bash/select
+file path=$(ECPREFIX)/share/bash/set
+file path=$(ECPREFIX)/share/bash/shift
+file path=$(ECPREFIX)/share/bash/shopt
+file path=$(ECPREFIX)/share/bash/source
+file path=$(ECPREFIX)/share/bash/suspend
+file path=$(ECPREFIX)/share/bash/test
+file path=$(ECPREFIX)/share/bash/test_bracket
+file path=$(ECPREFIX)/share/bash/time
+file path=$(ECPREFIX)/share/bash/times
+file path=$(ECPREFIX)/share/bash/trap
+file path=$(ECPREFIX)/share/bash/true
+file path=$(ECPREFIX)/share/bash/type
+file path=$(ECPREFIX)/share/bash/typeset
+file path=$(ECPREFIX)/share/bash/ulimit
+file path=$(ECPREFIX)/share/bash/umask
+file path=$(ECPREFIX)/share/bash/unalias
+file path=$(ECPREFIX)/share/bash/unset
+file path=$(ECPREFIX)/share/bash/until
+file path=$(ECPREFIX)/share/bash/variable_help
+file path=$(ECPREFIX)/share/bash/wait
+file path=$(ECPREFIX)/share/bash/while
+file path=$(ECPREFIX)/share/locale/af/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/bg/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/ca/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/cs/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/de/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/en@boldquot/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/en@quot/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/es/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/et/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/ga/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/hu/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/id/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/lt/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/sk/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/bash.mo
+file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/bash.mo
