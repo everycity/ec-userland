@@ -651,12 +651,8 @@ dir path=$(ECPREFIX)/jdk/jdk1.6.0/lib/visualvm/profiler/lib
 dir path=$(ECPREFIX)/jdk/jdk1.6.0/lib/visualvm/profiler/lib/deployed
 dir path=$(ECPREFIX)/jdk/jdk1.6.0/lib/visualvm/profiler/lib/deployed/jdk15
 dir \
-    path=$(ECPREFIX)/jdk/jdk1.6.0/lib/visualvm/profiler/lib/deployed/jdk15/solaris-amd64
-dir \
     path=$(ECPREFIX)/jdk/jdk1.6.0/lib/visualvm/profiler/lib/deployed/jdk15/solaris-i386
 dir path=$(ECPREFIX)/jdk/jdk1.6.0/lib/visualvm/profiler/lib/deployed/jdk16
-dir \
-    path=$(ECPREFIX)/jdk/jdk1.6.0/lib/visualvm/profiler/lib/deployed/jdk16/solaris-amd64
 dir \
     path=$(ECPREFIX)/jdk/jdk1.6.0/lib/visualvm/profiler/lib/deployed/jdk16/solaris-i386
 dir path=$(ECPREFIX)/jdk/jdk1.6.0/lib/visualvm/profiler/lib/locale
@@ -6052,6 +6048,7 @@ file path=$(ECPREFIX)/jdk/jdk1.6.0/jre/lib/zi/America/Matamoros
 file path=$(ECPREFIX)/jdk/jdk1.6.0/jre/lib/zi/America/Mazatlan
 file path=$(ECPREFIX)/jdk/jdk1.6.0/jre/lib/zi/America/Menominee
 file path=$(ECPREFIX)/jdk/jdk1.6.0/jre/lib/zi/America/Merida
+file path=$(ECPREFIX)/jdk/jdk1.6.0/jre/lib/zi/America/Metlakatla
 file path=$(ECPREFIX)/jdk/jdk1.6.0/jre/lib/zi/America/Mexico_City
 file path=$(ECPREFIX)/jdk/jdk1.6.0/jre/lib/zi/America/Miquelon
 file path=$(ECPREFIX)/jdk/jdk1.6.0/jre/lib/zi/America/Moncton
@@ -6088,6 +6085,7 @@ file path=$(ECPREFIX)/jdk/jdk1.6.0/jre/lib/zi/America/Santiago
 file path=$(ECPREFIX)/jdk/jdk1.6.0/jre/lib/zi/America/Santo_Domingo
 file path=$(ECPREFIX)/jdk/jdk1.6.0/jre/lib/zi/America/Sao_Paulo
 file path=$(ECPREFIX)/jdk/jdk1.6.0/jre/lib/zi/America/Scoresbysund
+file path=$(ECPREFIX)/jdk/jdk1.6.0/jre/lib/zi/America/Sitka
 file path=$(ECPREFIX)/jdk/jdk1.6.0/jre/lib/zi/America/St_Johns
 file path=$(ECPREFIX)/jdk/jdk1.6.0/jre/lib/zi/America/St_Kitts
 file path=$(ECPREFIX)/jdk/jdk1.6.0/jre/lib/zi/America/St_Lucia
@@ -6931,11 +6929,7 @@ file \
 file \
     path=$(ECPREFIX)/jdk/jdk1.6.0/lib/visualvm/profiler/config/Modules/org-netbeans-modules-profiler.xml
 file \
-    path=$(ECPREFIX)/jdk/jdk1.6.0/lib/visualvm/profiler/lib/deployed/jdk15/solaris-amd64/libprofilerinterface.so
-file \
     path=$(ECPREFIX)/jdk/jdk1.6.0/lib/visualvm/profiler/lib/deployed/jdk15/solaris-i386/libprofilerinterface.so
-file \
-    path=$(ECPREFIX)/jdk/jdk1.6.0/lib/visualvm/profiler/lib/deployed/jdk16/solaris-amd64/libprofilerinterface.so
 file \
     path=$(ECPREFIX)/jdk/jdk1.6.0/lib/visualvm/profiler/lib/deployed/jdk16/solaris-i386/libprofilerinterface.so
 file \

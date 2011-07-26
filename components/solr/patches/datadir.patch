@@ -1,0 +1,12 @@
+diff -ruN apache-solr-3.3.0.orig/example/solr/conf/solrconfig.xml apache-solr-3.3.0/example/solr/conf/solrconfig.xml
+--- apache-solr-3.3.0.orig/example/solr/conf/solrconfig.xml	2011-06-26 12:25:52.000000000 +0100
++++ apache-solr-3.3.0/example/solr/conf/solrconfig.xml	2011-07-26 12:05:44.000000000 +0100
+@@ -95,7 +95,7 @@
+        replication is in use, this should match the replication
+        configuration.
+     -->
+-  <dataDir>${solr.data.dir:}</dataDir>
++  <dataDir>/ec/var/solr/data</dataDir>
+ 
+ 
+   <!-- The DirectoryFactory to use for indexes.
