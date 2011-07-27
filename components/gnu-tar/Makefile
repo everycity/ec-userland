@@ -33,16 +33,12 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS	+= --with-gzip=/ec/bin/gzip --with-bzip2=/ec/bin/bzip2
+CONFIGURE_OPTIONS  +=		--with-gzip=/ec/bin/gzip
+CONFIGURE_OPTIONS  +=		--with-bzip2=/ec/bin/bzip2
 
 CONFIGURE_ENV	+= FORCE_UNSAFE_CONFIGURE=1
 
 build:		$(BUILD_32_and_64)
 
-include ../../make-rules/shared-targets.mk
-
 install:	$(INSTALL_32_and_64)
 
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk

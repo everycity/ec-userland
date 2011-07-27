@@ -147,3 +147,5 @@ file path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES/tar.mo
 file path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES/tar.mo
 file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/tar.mo
 file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/tar.mo
+depend fmri=pkg:/compress/gnu-gzip type=require
+depend fmri=pkg:/compress/bzip2 type=require
