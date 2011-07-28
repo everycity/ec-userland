@@ -34,10 +34,11 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS.32 += --sbindir=$(ECPREFIX)/bin
-CONFIGURE_OPTIONS.64 += --sbindir=$(ECPREFIX)/bin/$(MACH64)
+CONFIGURE_OPTIONS.32+=	--sbindir=$(ECPREFIX)/bin
+CONFIGURE_OPTIONS.64+=	--sbindir=$(ECPREFIX)/bin/$(MACH64)
+CONFIGURE_OPTIONS+=	--with-mysql
 
-build:		$(BUILD_32_and_64)
+build:		$(BUILD_32)
 
-install:	$(INSTALL_32_and_64)
+install:	$(INSTALL_32)
 

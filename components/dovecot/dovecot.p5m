@@ -33,16 +33,11 @@ license dovecot.license license="MIT"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/etc/dovecot
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/include/dovecot
 dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/dovecot
-dir path=$(ECPREFIX)/lib/$(MACH64)/dovecot/auth
-dir path=$(ECPREFIX)/lib/$(MACH64)/dovecot/doveadm
 dir path=$(ECPREFIX)/lib/dovecot
 dir path=$(ECPREFIX)/lib/dovecot/auth
 dir path=$(ECPREFIX)/lib/dovecot/doveadm
@@ -59,9 +54,6 @@ dir path=$(ECPREFIX)/share/doc/dovecot/wiki
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man7
-file path=$(ECPREFIX)/bin/$(MACH64)/doveadm
-file path=$(ECPREFIX)/bin/$(MACH64)/doveconf
-file path=$(ECPREFIX)/bin/$(MACH64)/dsync
 file path=$(ECPREFIX)/bin/doveadm
 file path=$(ECPREFIX)/bin/doveconf
 file path=$(ECPREFIX)/bin/dsync
@@ -383,37 +375,6 @@ file path=$(ECPREFIX)/include/dovecot/utc-offset.h
 file path=$(ECPREFIX)/include/dovecot/var-expand.h
 file path=$(ECPREFIX)/include/dovecot/wildcard-match.h
 file path=$(ECPREFIX)/include/dovecot/write-full.h
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/dovecot/doveadm/lib10_doveadm_acl_plugin.so
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/dovecot/doveadm/lib10_doveadm_expire_plugin.so
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/dovecot/doveadm/lib10_doveadm_quota_plugin.so
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/dovecot/doveadm/lib10_doveadm_zlib_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/dovecot-config
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/lib01_acl_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/lib02_imap_acl_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/lib02_lazy_expunge_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/lib05_snarf_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/lib10_quota_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/lib11_imap_quota_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/lib11_trash_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/lib15_notify_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/lib20_autocreate_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/lib20_expire_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/lib20_fts_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/lib20_listescape_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/lib20_mail_log_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/lib20_virtual_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/lib20_zlib_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/lib21_fts_squat_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/lib30_imap_zlib_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-lda.so.0.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-login.so.0.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-sql.so.0.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-storage.so.0.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot.so.0.0.0
 file path=$(ECPREFIX)/lib/dovecot/doveadm/lib10_doveadm_acl_plugin.so
 file path=$(ECPREFIX)/lib/dovecot/doveadm/lib10_doveadm_expire_plugin.so
 file path=$(ECPREFIX)/lib/dovecot/doveadm/lib10_doveadm_quota_plugin.so
@@ -756,26 +717,6 @@ file path=$(ECPREFIX)/share/man/man1/dovecot-lda.1
 file path=$(ECPREFIX)/share/man/man1/dovecot.1
 file path=$(ECPREFIX)/share/man/man1/dsync.1
 file path=$(ECPREFIX)/share/man/man7/doveadm-search-query.7
-link path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-lda.so \
-    target=libdovecot-lda.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-lda.so.0 \
-    target=libdovecot-lda.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-login.so \
-    target=libdovecot-login.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-login.so.0 \
-    target=libdovecot-login.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-sql.so \
-    target=libdovecot-sql.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-sql.so.0 \
-    target=libdovecot-sql.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-storage.so \
-    target=libdovecot-storage.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-storage.so.0 \
-    target=libdovecot-storage.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot.so \
-    target=libdovecot.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot.so.0 \
-    target=libdovecot.so.0.0.0
 link path=$(ECPREFIX)/lib/dovecot/libdovecot-lda.so \
     target=libdovecot-lda.so.0.0.0
 link path=$(ECPREFIX)/lib/dovecot/libdovecot-lda.so.0 \
@@ -795,3 +736,4 @@ link path=$(ECPREFIX)/lib/dovecot/libdovecot-storage.so.0 \
 link path=$(ECPREFIX)/lib/dovecot/libdovecot.so target=libdovecot.so.0.0.0
 link path=$(ECPREFIX)/lib/dovecot/libdovecot.so.0 target=libdovecot.so.0.0.0
 link path=$(ECPREFIX)/libexec/dovecot/deliver target=dovecot-lda
+file dovecot-manifest.xml path=var/svc/manifest/site/dovecot.xml restart_fmri=svc:/system/manifest-import:default
