@@ -26,7 +26,7 @@ COMPONENT_NAME=		make
 COMPONENT_VERSION=	3.82
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha1:a9761cd9c3da485eb354175fcc2fe35856bc43ac
+COMPONENT_ARCHIVE_HASH=	sha1:92d1b87a30d1c9482e52fb4a68e8a355e7946331
 COMPONENT_ARCHIVE_URL=	http://ftp.gnu.org/gnu/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -37,10 +37,5 @@ CONFIGURE_OPTIONS  +=           --program-prefix=g
 
 build:		$(BUILD_32)
 
-include ../../make-rules/shared-targets.mk
-
 install:	$(INSTALL_32)
 
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
