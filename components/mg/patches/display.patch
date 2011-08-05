@@ -1,0 +1,22 @@
+--- mg-20110120/display.c.orig	2011-08-05 12:30:32.896985128 +0100
++++ mg-20110120/display.c	2011-08-05 12:31:15.565540698 +0100
+@@ -13,6 +13,10 @@
+ #include "def.h"
+ #include "kbd.h"
+ 
++#define bzero(b,n) memset(b,0,n)
++#define bcopy(b1,b2,n) memcpy(b2,b1,n)
++#define bcmp(b1,b2,n) memcmp(b1,b2,n)
++
+ #include <ctype.h>
+ 
+ /*
+@@ -27,7 +31,7 @@
+ #define	XSHORT	int
+ 
+ #ifdef	STANDOUT_GLITCH
+-#include <term.h>
++#include </ec/include/ncurses/term.h>
+ #endif
+ 
+ /*

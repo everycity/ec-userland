@@ -1,0 +1,57 @@
+--- mg-20110120/main.c.~1~	2011-01-02 22:57:56.000000000 +0000
++++ mg-20110120/main.c	2011-08-05 14:19:57.112142273 +0100
+@@ -14,7 +14,7 @@
+ #include "macro.h"
+ #endif	/* NO_MACRO */
+ 
+-#include <err.h>
++#include <limits.h>
+ 
+ int		 thisflag;			/* flags, this command	*/
+ int		 lastflag;			/* flags, last command	*/
+@@ -29,13 +29,10 @@
+ static void	 edinit(PF);
+ static void usage(void);
+ 
+-extern char	*__progname;
+-
+ static void
+ usage()
+ {
+-	fprintf(stderr, "usage: %s [-n] [-f mode] [+number] [file ...]\n",
+-	    __progname);
++	fprintf(stderr, "usage: mg [-n] [-f mode] [+number] [file ...]\n");
+ 	exit(1);
+ }
+ 
+@@ -55,8 +52,9 @@
+ 			break;
+ 		case 'f':
+ 			if (init_fcn_name != NULL)
+-				errx(1, "cannot specify more than one "
+-				    "initial function");
++				fprintf(stderr, "cannot specify more than one "
++				    "initial function\n");
++				exit(1);
+ 			init_fcn_name = optarg;
+ 			break;
+ 		default:
+@@ -86,7 +84,7 @@
+ 
+ 	if (init_fcn_name &&
+ 	    (init_fcn = name_function(init_fcn_name)) == NULL)
+-		errx(1, "Unknown function `%s'", init_fcn_name);
++		fprintf(stderr, "Unknown function `%s'", init_fcn_name);
+ 
+ 	vtinit();		/* Virtual terminal.		*/
+ 	dirinit();		/* Get current directory.	*/
+@@ -141,7 +139,8 @@
+ 
+ 				if ((curbp = findbuffer(cp)) == NULL) {
+ 					vttidy();
+-					errx(1, "Can't find current buffer!");
++					fprintf(stderr, "Can't find current buffer!\n");
++					exit(1);
+ 				}
+ 				(void)showbuffer(curbp, curwp, 0);
+ 				if (readin(cp) != TRUE)

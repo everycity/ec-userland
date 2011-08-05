@@ -1,0 +1,13 @@
+--- mg-20110120/echo.c.~1~	2011-01-02 22:57:56.000000000 +0000
++++ mg-20110120/echo.c	2011-08-05 13:40:23.075871709 +0100
+@@ -18,7 +18,9 @@
+ #include "funmap.h"
+ 
+ #include <stdarg.h>
+-#include <term.h>
++#include <limits.h>
++#include "asprintf.h"
++#include </ec/include/ncurses/term.h>
+ 
+ static char	*veread(const char *, char *, size_t, int, va_list);
+ static int	 complt(int, int, char *, size_t, int, int *);

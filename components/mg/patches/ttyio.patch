@@ -1,0 +1,26 @@
+--- mg-20110120/ttyio.c.~1~	2008-12-11 08:59:08.000000000 +0000
++++ mg-20110120/ttyio.c	2011-08-05 14:01:00.743941375 +0100
+@@ -16,7 +16,7 @@
+ #include <sys/ioctl.h>
+ #include <fcntl.h>
+ #include <termios.h>
+-#include <term.h>
++#include </ec/include/ncurses/term.h>
+ 
+ #define NOBUF	512			/* Output buffer size. */
+ 
+@@ -187,14 +187,8 @@
+ {
+ 	int	x;
+ 
+-#ifdef FIONREAD
+-
+ 	return ((ioctl(STDIN_FILENO, FIONREAD, &x) < 0) ? 0 : x);
+ 
+-#else   /* For platforms that don't have FIONREAD */
+-
+-	return ((ioctl(STDIN_FILENO, TIOCINQ, &x) < 0) ? 0 : x);
+-#endif
+ }
+ 
+ /*

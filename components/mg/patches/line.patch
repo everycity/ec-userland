@@ -1,0 +1,14 @@
+--- mg-20110120/line.c.~1~	2011-01-20 04:36:13.000000000 +0000
++++ mg-20110120/line.c	2011-08-05 13:43:36.109144344 +0100
+@@ -19,9 +19,11 @@
+  */
+ 
+ #include "def.h"
++#include "asprintf.h"
+ 
+ #include <stdlib.h>
+ #include <string.h>
++#include <limits.h>
+ 
+ /*
+  * Allocate a new line of size `used'.  lrealloc() can be called if the line
