@@ -1,0 +1,91 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+<transform file path=.*/etc/.* -> default preserve true>
+
+set name=pkg.fmri value=pkg:/service/syslog-ng@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="A highly portable syslog solution to create secure, flexible and reliable logging infrastructure in production environments"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://www.balabit.com/network-security/syslog-ng/opensource-logging-system"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license syslog-ng.license license="SyslogNG"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/syslog-ng
+dir path=$(ECPREFIX)/etc/syslog-ng/patterndb.d
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/syslog-ng
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/include
+dir path=$(ECPREFIX)/share/include/scl
+dir path=$(ECPREFIX)/share/include/scl/pacct
+dir path=$(ECPREFIX)/share/include/scl/syslogconf
+dir path=$(ECPREFIX)/share/include/scl/system
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+dir path=$(ECPREFIX)/share/man/man5
+dir path=$(ECPREFIX)/share/man/man8
+dir path=$(ECPREFIX)/share/xsd
+file path=$(ECPREFIX)/bin/loggen
+file path=$(ECPREFIX)/bin/pdbtool
+file path=$(ECPREFIX)/bin/syslog-ng
+file path=$(ECPREFIX)/bin/syslog-ng-ctl
+file path=$(ECPREFIX)/bin/update-patterndb
+file path=$(ECPREFIX)/etc/syslog-ng/modules.conf preserve=true
+file path=$(ECPREFIX)/etc/syslog-ng/scl.conf preserve=true
+file path=$(ECPREFIX)/lib/libsyslog-ng.so.0.0.0
+file path=$(ECPREFIX)/lib/syslog-ng/libaffile.so
+file path=$(ECPREFIX)/lib/syslog-ng/libafprog.so
+file path=$(ECPREFIX)/lib/syslog-ng/libafsocket-notls.so
+file path=$(ECPREFIX)/lib/syslog-ng/libafsocket-tls.so
+file path=$(ECPREFIX)/lib/syslog-ng/libafstreams.so
+file path=$(ECPREFIX)/lib/syslog-ng/libafuser.so
+file path=$(ECPREFIX)/lib/syslog-ng/libbasicfuncs.so
+file path=$(ECPREFIX)/lib/syslog-ng/libconfgen.so
+file path=$(ECPREFIX)/lib/syslog-ng/libconvertfuncs.so
+file path=$(ECPREFIX)/lib/syslog-ng/libcsvparser.so
+file path=$(ECPREFIX)/lib/syslog-ng/libdbparser.so
+file path=$(ECPREFIX)/lib/syslog-ng/libdummy.so
+file path=$(ECPREFIX)/lib/syslog-ng/libsyslogformat.so
+file path=$(ECPREFIX)/share/include/scl/pacct/plugin.conf
+file path=$(ECPREFIX)/share/include/scl/syslogconf/README
+file path=$(ECPREFIX)/share/include/scl/syslogconf/convert-syslogconf.awk
+file path=$(ECPREFIX)/share/include/scl/syslogconf/plugin.conf
+file path=$(ECPREFIX)/share/include/scl/system/generate-system-source.sh mode=0755
+file path=$(ECPREFIX)/share/include/scl/system/plugin.conf
+file path=$(ECPREFIX)/share/man/man1/loggen.1
+file path=$(ECPREFIX)/share/man/man1/pdbtool.1
+file path=$(ECPREFIX)/share/man/man1/syslog-ng-ctl.1
+file path=$(ECPREFIX)/share/man/man5/syslog-ng.conf.5
+file path=$(ECPREFIX)/share/man/man8/syslog-ng.8
+file path=$(ECPREFIX)/share/xsd/patterndb-1.xsd
+file path=$(ECPREFIX)/share/xsd/patterndb-2.xsd
+file path=$(ECPREFIX)/share/xsd/patterndb-3.xsd
+link path=$(ECPREFIX)/lib/libsyslog-ng.so target=libsyslog-ng.so.0.0.0
+link path=$(ECPREFIX)/lib/libsyslog-ng.so.0 target=libsyslog-ng.so.0.0.0
+link path=$(ECPREFIX)/lib/syslog-ng/libafsocket.so target=libafsocket-tls.so
+
+# Custom Entries
+file path=$(ECPREFIX)/etc/syslog-ng/syslog-ng.conf preserve=true
+file files/syslog-ng-manifest.xml path=var/svc/manifest/site/syslog-ng.xml \
+    restart_fmri=svc:/system/manifest-import:default
+
+file 64/lib/$(MACH64)/libsyslog-ng.so.0.0.0 path=$(ECPREFIX)/lib/$(MACH64)/libsyslog-ng.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsyslog-ng.so target=libsyslog-ng.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsyslog-ng.so.0 target=libsyslog-ng.so.0.0.0

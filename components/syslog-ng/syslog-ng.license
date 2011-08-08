@@ -1,0 +1,42 @@
+Copyright (c) 2002-2010 BalaBit IT Security Ltd.
+Copyright (c) 1996-2010 Balázs Scheidler
+
+syslog-ng is licensed under the combination of the GPL and LGPL licenses.
+
+The syslog-ng core (src/ subdirectory) is licensed under the
+Lesser General Public License as described in the file LGPL.txt
+
+The syslog-ng modules (src/xxxx/ subdirectories) are licensed under the
+General Public License as described in the file GPL.txt
+
+FAQ:
+====
+
+The questions and answers below try to summarize the intentions behind this
+licensing scheme.
+
+Q: Is it possible to create derived works of syslog-ng under the GPL/LGPL
+licenses?
+
+A: Yes, that's exactly the point of open source. Works derived from the
+plugins will have to use the GPL license, but you can choose to use LGPL for
+them as well.
+
+Q: Do I need to sign a Contributory License Agreement in order for my
+contribution to be accepted?
+
+A: No, starting with syslog-ng 3.2, you don't need to sign a CLA in order to
+have your contributions accepted.
+
+Q: Is it possible to create non-free plugins for syslog-ng?
+
+A: Yes. It is our understanding that plugins are derived works of the
+syslog-ng core but not derived works of other plugins.  Thus, non-free
+plugins are possible, provided they do not link to any of the GPLd plugins
+explicitly and the only connection between two plugins is via the syslog-ng
+core.
+
+Q: Who is permitted to create non-free plugins for syslog-ng? Is it just
+BalaBit (the current copyright holder as of the initial 3.2 release)?
+
+A: No, everyone including BalaBit.
