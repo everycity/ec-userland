@@ -1,0 +1,2 @@
+# Ensure we get a login shell
+defshell -bash
