@@ -1,0 +1,53 @@
+--- mg-20110120/grep.c.~1~	2011-01-02 22:57:56.000000000 +0000
++++ mg-20110120/grep.c	2011-08-05 14:07:28.082767222 +0100
+@@ -12,6 +12,7 @@
+ #include "libgen.h"
+ 
+ #include <time.h>
++#include <limits.h>
+ 
+ int	 globalwd = FALSE;
+ static int	 compile_goto_error(int, int);
+@@ -261,6 +262,30 @@
+ 	return (bp);
+ }
+ 
++static char* getToken(char** str, const char* delims)
++{
++    char* token;
++
++    if (*str==NULL) {
++        /* No more tokens */
++        return NULL;
++    }
++
++    token=*str;
++    while (**str!='\0') {
++        if (strchr(delims,**str)!=NULL) {
++            **str='\0';
++            (*str)++;
++            return token;
++        }
++        (*str)++;
++    }
++    /* There is no other token */
++    *str=NULL;
++    return token;
++}
++
++
+ /* ARGSUSED */
+ static int
+ compile_goto_error(int f, int n)
+@@ -285,9 +310,9 @@
+ 	if ((line = linetostr(curwp->w_dotp)) == NULL)
+ 		return (FALSE);
+ 	lp = line;
+-	if ((fname = strsep(&lp, ":")) == NULL || *fname == '\0')
++	if ((fname = getToken(&lp, ":")) == NULL || *fname == '\0')
+ 		goto fail;
+-	if ((ln = strsep(&lp, ":")) == NULL || *ln == '\0')
++	if ((ln = getToken(&lp, ":")) == NULL || *ln == '\0')
+ 		goto fail;
+ 	lineno = (int)strtonum(ln, INT_MIN, INT_MAX, &errstr);
+ 	if (errstr)

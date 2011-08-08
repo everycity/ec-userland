@@ -1,0 +1,28 @@
+--- mg-20110120/fileio.c.~1~	2008-12-30 16:04:23.000000000 +0000
++++ mg-20110120/fileio.c	2011-08-05 13:42:00.752326852 +0100
+@@ -27,6 +27,7 @@
+ #include <unistd.h>
+ 
+ #include "kbd.h"
++#include "asprintf.h"
+ 
+ static FILE	*ffp;
+ 
+@@ -568,7 +569,7 @@
+ 
+ 	while ((dent = readdir(dirp)) != NULL) {
+ 		int isdir;
+-#if defined (__CYGWIN__)	/* Cygwin lacks reclen/namlen. */
++#if defined (__CYGWIN__) || (defined (__SVR4) && defined (__sun))	/* Cygwin lacks reclen/namlen. */
+ 		if (strlen(dent->d_name) < len
+ 		    || memcmp(cp, dent->d_name, len) != 0)
+ #elif defined (__GLIBC__)		/* Linux uses reclen instead. */
+@@ -580,7 +581,7 @@
+ 
+ 		isdir = 0;
+ 
+-#ifndef __CYGWIN__      /* No support for d_type in Cygwin, do all
++#if (! defined (__CYGWIN__)) && (! defined (__SVR4)) && (! defined (__sun))       /* No support for d_type in Cygwin, do all
+ 			     type cheking with stat. */
+ 		if (dent->d_type == DT_DIR) {
+ 			isdir = 1;

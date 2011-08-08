@@ -1,0 +1,11 @@
+--- mg-20110120/re_search.c.~1~	2011-08-05 13:53:27.370425686 +0100
++++ mg-20110120/re_search.c	2011-08-05 13:53:42.319669959 +0100
+@@ -21,6 +21,8 @@
+ 
+ #include "macro.h"
+ 
++#include "asprintf.h"
++
+ #define SRCH_BEGIN	(0)		/* search sub-codes		    */
+ #define SRCH_FORW	(-1)
+ #define SRCH_BACK	(-2)

@@ -1,0 +1,10 @@
+--- mg-20110120/buffer.c.~1~	2011-01-20 04:36:13.000000000 +0000
++++ mg-20110120/buffer.c	2011-08-05 12:55:18.715160550 +0100
+@@ -7,6 +7,7 @@
+  */
+ 
+ #include "libgen.h"
++#include "asprintf.h"
+ #include <stdarg.h>
+ 
+ #include "def.h"

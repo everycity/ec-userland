@@ -1,0 +1,11 @@
+--- mg-20110120/tty.c.orig	2011-08-05 13:56:33.787798329 +0100
++++ mg-20110120/tty.c	2011-08-05 13:56:49.033383926 +0100
+@@ -33,7 +33,7 @@
+ #include <sys/time.h>
+ #include <sys/ioctl.h>
+ 
+-#include <term.h>
++#include </ec/include/ncurses/term.h>
+ 
+ static int	 charcost(char *);
+ 

@@ -1,0 +1,11 @@
+--- mg-20110120/extend.c.~1~	2011-01-02 23:16:08.000000000 +0000
++++ mg-20110120/extend.c	2011-08-05 13:41:08.122291368 +0100
+@@ -27,6 +27,8 @@
+ #endif /* FKEYS */
+ 
+ #include <ctype.h>
++#include <limits.h>
++#include "asprintf.h"
+ 
+ static int	 remap(KEYMAP *, int, PF, KEYMAP *);
+ static KEYMAP	*reallocmap(KEYMAP *);
