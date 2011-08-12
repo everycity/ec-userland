@@ -34,6 +34,9 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
+
+CONFIGURE_OPTIONS+=	--libexecdir=$(ECPREFIX)/lib
 CONFIGURE_OPTIONS+=	--with-gitconfig=$(ECPREFIX)/etc/gitconfig
 CONFIGURE_OPTIONS+=	--with-gitattributes=$(ECPREFIX)/etc/gitattributes
 CONFIGURE_OPTIONS+=	--with-python=$(ECPREFIX)/bin/python2.6
@@ -41,8 +44,6 @@ CONFIGURE_OPTIONS+=	--with-editor=vim
 
 CONFIGURE_OPTIONS.64+=	'LIBS=-lnsl'	
 
-build:		$(BUILD_32_and_64)
+build:		$(BUILD_32)
 
-install:	$(INSTALL_32_and_64)
-
-
+install:	$(INSTALL_32)
