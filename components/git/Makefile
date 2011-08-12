@@ -24,10 +24,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		git
-COMPONENT_VERSION=	1.7.4.1
+COMPONENT_VERSION=	1.7.6
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:fff10cb498b17decc146c8f18b0b02136d5e9b88
+COMPONENT_ARCHIVE_HASH=	sha1:c519b0765c419c84b561bb4a2a86526b16d95cde
 COMPONENT_ARCHIVE_URL=	http://kernel.org/pub/software/scm/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -42,7 +42,7 @@ CONFIGURE_OPTIONS+=	--with-gitattributes=$(ECPREFIX)/etc/gitattributes
 CONFIGURE_OPTIONS+=	--with-python=$(ECPREFIX)/bin/python2.6
 CONFIGURE_OPTIONS+=	--with-editor=vim
 
-CONFIGURE_OPTIONS.64+=	'LIBS=-lnsl'	
+COMPONENT_BUILD_ENV+=	PERL_PATH=$(ECPREFIX)/bin/perl
 
 build:		$(BUILD_32)
 
