@@ -1,0 +1,40 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/service/eventlog@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Event logging library, part of syslog-ng"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://www.balabit.com/network-security/syslog-ng/opensource-logging-system"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license eventlog.license license="EventLog"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/eventlog
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+file path=$(ECPREFIX)/include/eventlog/evtlog.h
+file path=$(ECPREFIX)/include/eventlog/evtmaps.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libevtlog.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/eventlog.pc
+file path=$(ECPREFIX)/lib/libevtlog.so.0.0.0
+file path=$(ECPREFIX)/lib/pkgconfig/eventlog.pc
+link path=$(ECPREFIX)/lib/$(MACH64)/libevtlog.so target=libevtlog.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libevtlog.so.0 target=libevtlog.so.0.0.0
+link path=$(ECPREFIX)/lib/libevtlog.so target=libevtlog.so.0.0.0
+link path=$(ECPREFIX)/lib/libevtlog.so.0 target=libevtlog.so.0.0.0

@@ -19,54 +19,31 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		git
-COMPONENT_VERSION=	1.7.4.1
+COMPONENT_VERSION=	1.7.6
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:fff10cb498b17decc146c8f18b0b02136d5e9b88
+COMPONENT_ARCHIVE_HASH=	sha1:c519b0765c419c84b561bb4a2a86526b16d95cde
 COMPONENT_ARCHIVE_URL=	http://kernel.org/pub/software/scm/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-include ../../make-rules/shared-targets.mk
+COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 
-build:		$(BUILD_32_and_64)
+CONFIGURE_OPTIONS+=	--libexecdir=$(ECPREFIX)/lib
+CONFIGURE_OPTIONS+=	--with-gitconfig=$(ECPREFIX)/etc/gitconfig
+CONFIGURE_OPTIONS+=	--with-gitattributes=$(ECPREFIX)/etc/gitattributes
+CONFIGURE_OPTIONS+=	--with-python=$(ECPREFIX)/bin/python2.6
+CONFIGURE_OPTIONS+=	--with-editor=vim
 
-CONFIGURE_OPTIONS+=	--with-python=/ec/bin/python
-CONFIGURE_OPTIONS.64+=	'LIBS=-lnsl'	
-# configure the unpacked source for building 32 and 64 bit version
-$(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
-	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
-	$(COMPONENT_PRE_CONFIGURE_ACTION)
-	(cp -r $(SOURCE_DIR)/* $(@D) ; cd $(@D) ; $(ENV) $(CONFIGURE_ENV) $(CONFIG_SHELL) \
-	        ./configure $(CONFIGURE_OPTIONS))
-	$(COMPONENT_POST_CONFIGURE_ACTION)
-	$(TOUCH) $@
+COMPONENT_BUILD_ENV+=	PERL_PATH=$(ECPREFIX)/bin/perl
 
-# build the configured source
-$(BUILD_DIR)/%/.built:  $(BUILD_DIR)/%/.configured
-	$(COMPONENT_PRE_BUILD_ACTION)
-	(cd $(@D) ; $(ENV) $(COMPONENT_BUILD_ENV) \
-		$(GMAKE) $(COMPONENT_BUILD_TARGETS))
-	$(COMPONENT_POST_BUILD_ACTION)
-	$(TOUCH) $@
+build:		$(BUILD_32)
 
-# install the built source into a prototype area
-$(BUILD_DIR)/%/.installed:      $(BUILD_DIR)/%/.built
-	$(COMPONENT_PRE_INSTALL_ACTION)
-	(cd $(@D) ; $(ENV) $(COMPONENT_INSTALL_ENV) $(GMAKE) \
-		$(COMPONENT_INSTALL_ARGS) $(COMPONENT_INSTALL_TARGETS))
-	$(COMPONENT_POST_INSTALL_ACTION)
-	$(TOUCH) $@
-
-install:	$(INSTALL_32_and_64)
-
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
-
+install:	$(INSTALL_32)
