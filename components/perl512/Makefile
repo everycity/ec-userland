@@ -37,6 +37,10 @@ include ../../make-rules/ips.mk
 # If that changes the sed filter needs to change.
 #
 
+# Disabling these two flags, one of them breaks cpan:
+#			    -Doptimize="$(CFLAGS.gcc)" \
+#			    -Duseshrplib \
+
 COMPONENT_PRE_BUILD_ACTION= \
 	(cd $(@D); $(ENV) -i \
 		MAKE=$(GMAKE) \
@@ -47,12 +51,10 @@ COMPONENT_PRE_BUILD_ACTION= \
 			    -Dsitelib=$(ECPREFIX)/lib/perl/site_perl/$(PERL_VERSION) \
 			    -Dvendorprefix=$(ECPREFIX)/lib/perl/$(PERL_VERSION) \
 			    -Dvendorlib=$(ECPREFIX)/lib/perl/vendor_perl/$(PERL_VERSION) \
-			    -Dlibperl=libperl.so \
-			    -Duseshrplib \
-			    -Dusedtrace \
-			    -Duse64bitint \
 			    -Dcc="gcc" \
-			    -Doptimize="$(CFLAGS.gcc)" \
+			    -Duse64bitint \
+			    -Dusedtrace \
+			    -Dlibperl=libperl.so \
 			    -Dcf_email="support@everycity.com" \
 			    -Dcf_by="perl-bugs" \
 			    -Dmyhostname="localhost" \
