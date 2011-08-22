@@ -19,7 +19,8 @@ COMPONENT_VERSION=	1.3.11
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
 COMPONENT_ARCHIVE_HASH=	sha1:dc71af7684f76d56f06b4fc8763a8606bd861e84
-COMPONENT_ARCHIVE_URL=	http://apache.mirror.rbftpnetworks.com/apr/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	http://apache.mirror.rbftpnetworks.com/apr/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://archive.apache.org/dist/apr/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

@@ -27,7 +27,7 @@ download setup prep build install publish validate:	time-$(MACH32).so \
 							time-$(MACH64).so
 
 time-$(MACH64).o:			BITS=64
-time-$(MACH32).o time-$(MACH64).o:	CFLAGS += -Kpic
+time-$(MACH32).o time-$(MACH64).o:	CFLAGS += -fpic
 
 time-$(MACH32).o time-$(MACH64).o:	time.c
 	$(CC) $(CFLAGS) -c -o $@ $<

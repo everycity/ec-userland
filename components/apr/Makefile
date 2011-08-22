@@ -19,7 +19,8 @@ COMPONENT_VERSION=	1.4.4
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
 COMPONENT_ARCHIVE_HASH=	sha1:d05cd65ec169c06174ca7c8978179289777f8dae
-COMPONENT_ARCHIVE_URL=	http://mirror.cc.columbia.edu/pub/software/apache/apr/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	http://mirror.cc.columbia.edu/pub/software/apache/apr/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://archive.apache.org/dist/apr/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

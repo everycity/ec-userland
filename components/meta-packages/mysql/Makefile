@@ -21,6 +21,8 @@ include ../../../make-rules/ips.mk
 
 PKGLINT=/bin/true
 
+download:
+
 build:
 
 install:
