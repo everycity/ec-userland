@@ -33,6 +33,3 @@ build: prep
 install: build
 	[ -d $(PROTO_DIR)/ec/var ] || mkdir -p $(PROTO_DIR)/ec/var
 	[ -h $(PROTO_DIR)/ec/var/activemq ] || ln -s $(SOURCE_DIR) $(PROTO_DIR)/ec/var/activemq
-
-clean::
-	[ -d $(BUILD_DIR) ] && rm -rf $(BUILD_DIR)

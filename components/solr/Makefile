@@ -29,6 +29,3 @@ build: prep
 install: build
 	@[ -d $(PROTO_DIR)/ec/lib/solr ] || $(MKDIR) $(PROTO_DIR)/ec/lib/solr
 	@(cd $(PROTO_DIR)/ec/lib/solr; unzip -o $(SOURCE_DIR)/dist/apache-solr-$(COMPONENT_VERSION).war)
-
-clean::
-	[ -d $(BUILD_DIR) ] && rm -rf $(BUILD_DIR)

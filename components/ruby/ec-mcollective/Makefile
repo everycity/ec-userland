@@ -45,6 +45,3 @@ install: build
 	cp -R $(COMPONENT_SRC)/plugins/* $(PROTO_DIR)/$(ECPREFIX)/share/mcollective/plugins
 	cp $(COMPONENT_SRC)/mc-* $(PROTO_DIR)/$(ECPREFIX)/bin
 	cp $(COMPONENT_SRC)/mco $(PROTO_DIR)/$(ECPREFIX)/bin
-
-clean::
-	[ -d $(BUILD_DIR) ] && rm -rf $(BUILD_DIR)

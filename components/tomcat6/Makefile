@@ -28,6 +28,3 @@ build: prep
 
 install: build
 	[ -d $(PROTO_DIR) ] || $(MKDIR) $(PROTO_DIR)
-
-clean::
-	[ -d $(BUILD_DIR) ] && rm -rf $(BUILD_DIR)

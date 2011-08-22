@@ -71,6 +71,3 @@ build: prep
 install: build
 	[ -d $(PROTO_DIR)/ec/jdk ] || mkdir -p $(PROTO_DIR)/ec/jdk
 	[ -h $(PROTO_DIR)/ec/jdk/jdk1.6.0 ] || ln -s $(SOURCE_DIR) $(PROTO_DIR)/ec/jdk/jdk1.6.0
-
-clean::
-	[ -d $(BUILD_DIR) ] && rm -rf $(BUILD_DIR)
