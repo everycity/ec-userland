@@ -47,6 +47,8 @@ $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
 
 download:
 
+prep:
+
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)

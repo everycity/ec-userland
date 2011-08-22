@@ -23,6 +23,8 @@ PKGLINT=/bin/true
 
 download:
 
+prep:
+
 build:
 
 install:
