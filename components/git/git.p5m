@@ -19,6 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 <transform file path=ec/lib/git-core/.+ -> default mode 0555>
@@ -42,10 +43,10 @@ dir path=$(ECPREFIX)/lib/python2.6/site-packages
 dir path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers
 dir path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git
 dir path=$(ECPREFIX)/lib/site_perl
-dir path=$(ECPREFIX)/lib/site_perl/5.8.4
-dir path=$(ECPREFIX)/lib/site_perl/5.8.4/i86pc-solaris-64int
-dir path=$(ECPREFIX)/lib/site_perl/5.8.4/i86pc-solaris-64int/auto
-dir path=$(ECPREFIX)/lib/site_perl/5.8.4/i86pc-solaris-64int/auto/Git
+dir path=$(ECPREFIX)/lib/site_perl/5.12.4
+dir path=$(ECPREFIX)/lib/site_perl/5.12.4/i86pc-solaris-64int
+dir path=$(ECPREFIX)/lib/site_perl/5.12.4/i86pc-solaris-64int/auto
+dir path=$(ECPREFIX)/lib/site_perl/5.12.4/i86pc-solaris-64int/auto/Git
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/git-core
 dir path=$(ECPREFIX)/share/git-core/templates
@@ -71,6 +72,7 @@ file path=$(ECPREFIX)/lib/git-core/git-add--interactive
 file path=$(ECPREFIX)/lib/git-core/git-am
 file path=$(ECPREFIX)/lib/git-core/git-archimport
 file path=$(ECPREFIX)/lib/git-core/git-bisect
+file path=$(ECPREFIX)/lib/git-core/git-citool
 file path=$(ECPREFIX)/lib/git-core/git-cvsexportcommit
 file path=$(ECPREFIX)/lib/git-core/git-cvsimport
 file path=$(ECPREFIX)/lib/git-core/git-daemon
@@ -78,7 +80,6 @@ file path=$(ECPREFIX)/lib/git-core/git-difftool
 file path=$(ECPREFIX)/lib/git-core/git-difftool--helper
 file path=$(ECPREFIX)/lib/git-core/git-fast-import
 file path=$(ECPREFIX)/lib/git-core/git-filter-branch
-file path=$(ECPREFIX)/lib/git-core/git-gui
 file path=$(ECPREFIX)/lib/git-core/git-gui--askpass
 file path=$(ECPREFIX)/lib/git-core/git-http-backend
 file path=$(ECPREFIX)/lib/git-core/git-http-fetch
@@ -95,13 +96,17 @@ file path=$(ECPREFIX)/lib/git-core/git-parse-remote
 file path=$(ECPREFIX)/lib/git-core/git-pull
 file path=$(ECPREFIX)/lib/git-core/git-quiltimport
 file path=$(ECPREFIX)/lib/git-core/git-rebase
+file path=$(ECPREFIX)/lib/git-core/git-rebase--am
 file path=$(ECPREFIX)/lib/git-core/git-rebase--interactive
+file path=$(ECPREFIX)/lib/git-core/git-rebase--merge
 file path=$(ECPREFIX)/lib/git-core/git-relink
-file path=$(ECPREFIX)/lib/git-core/git-remote-http
+file path=$(ECPREFIX)/lib/git-core/git-remote-https
 file path=$(ECPREFIX)/lib/git-core/git-remote-testgit
 file path=$(ECPREFIX)/lib/git-core/git-repack
 file path=$(ECPREFIX)/lib/git-core/git-request-pull
 file path=$(ECPREFIX)/lib/git-core/git-send-email
+file path=$(ECPREFIX)/lib/git-core/git-sh-i18n
+file path=$(ECPREFIX)/lib/git-core/git-sh-i18n--envsubst
 file path=$(ECPREFIX)/lib/git-core/git-sh-setup
 file path=$(ECPREFIX)/lib/git-core/git-show-index
 file path=$(ECPREFIX)/lib/git-core/git-stash
@@ -142,7 +147,7 @@ file \
 file path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/util.py
 file path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/util.pyc
 file \
-    path=$(ECPREFIX)/lib/site_perl/5.8.4/i86pc-solaris-64int/auto/Git/.packlist
+    path=$(ECPREFIX)/lib/site_perl/5.12.4/i86pc-solaris-64int/auto/Git/.packlist
 file path=$(ECPREFIX)/lib/site_perl/Error.pm
 file path=$(ECPREFIX)/lib/site_perl/Git.pm
 file path=$(ECPREFIX)/share/git-core/templates/description
@@ -189,6 +194,7 @@ file path=$(ECPREFIX)/share/git-gui/lib/msgs/hu.msg
 file path=$(ECPREFIX)/share/git-gui/lib/msgs/it.msg
 file path=$(ECPREFIX)/share/git-gui/lib/msgs/ja.msg
 file path=$(ECPREFIX)/share/git-gui/lib/msgs/nb.msg
+file path=$(ECPREFIX)/share/git-gui/lib/msgs/pt_br.msg
 file path=$(ECPREFIX)/share/git-gui/lib/msgs/ru.msg
 file path=$(ECPREFIX)/share/git-gui/lib/msgs/sv.msg
 file path=$(ECPREFIX)/share/git-gui/lib/msgs/zh_cn.msg
@@ -257,7 +263,6 @@ hardlink path=$(ECPREFIX)/lib/git-core/git-cherry \
     target=../../bin/git-receive-pack
 hardlink path=$(ECPREFIX)/lib/git-core/git-cherry-pick \
     target=../../bin/git-receive-pack
-hardlink path=$(ECPREFIX)/lib/git-core/git-citool target=git-gui
 hardlink path=$(ECPREFIX)/lib/git-core/git-clean \
     target=../../bin/git-receive-pack
 hardlink path=$(ECPREFIX)/lib/git-core/git-clone \
@@ -304,6 +309,7 @@ hardlink path=$(ECPREFIX)/lib/git-core/git-get-tar-commit-id \
     target=../../bin/git-receive-pack
 hardlink path=$(ECPREFIX)/lib/git-core/git-grep \
     target=../../bin/git-receive-pack
+hardlink path=$(ECPREFIX)/lib/git-core/git-gui target=git-citool
 hardlink path=$(ECPREFIX)/lib/git-core/git-hash-object \
     target=../../bin/git-receive-pack
 hardlink path=$(ECPREFIX)/lib/git-core/git-help \
@@ -380,9 +386,9 @@ hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ext \
     target=../../bin/git-receive-pack
 hardlink path=$(ECPREFIX)/lib/git-core/git-remote-fd \
     target=../../bin/git-receive-pack
-hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ftp target=git-remote-http
-hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ftps target=git-remote-http
-hardlink path=$(ECPREFIX)/lib/git-core/git-remote-https target=git-remote-http
+hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ftp target=git-remote-https
+hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ftps target=git-remote-https
+hardlink path=$(ECPREFIX)/lib/git-core/git-remote-http target=git-remote-https
 hardlink path=$(ECPREFIX)/lib/git-core/git-replace \
     target=../../bin/git-receive-pack
 hardlink path=$(ECPREFIX)/lib/git-core/git-repo-config \
