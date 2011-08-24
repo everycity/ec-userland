@@ -98,6 +98,8 @@ CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
 # set the default target for installation of the component
 COMPONENT_INSTALL_TARGETS =	install
 
+CLEAN_PATHS +=	$(BUILD_DIR)
+
 # configure the unpacked source for building 32 and 64 bit version
 CONFIGURE_SCRIPT =	$(SOURCE_DIR)/configure
 $(BUILD_DIR)/%/.configured:	$(SOURCE_DIR)/.prep
@@ -124,6 +126,3 @@ $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
 			$(COMPONENT_INSTALL_ARGS) $(COMPONENT_INSTALL_TARGETS))
 	$(COMPONENT_POST_INSTALL_ACTION)
 	$(TOUCH) $@
-
-clean::
-	$(RM) -r $(BUILD_DIR) $(PROTO_DIR)

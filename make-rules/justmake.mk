@@ -52,6 +52,8 @@ $(BUILD_DIR_64)/.install:	BITS=64
 # set the default target for installation of the component
 COMPONENT_INSTALL_TARGETS =	install
 
+CLEAN_PATHS +=  $(BUILD_DIR)
+
 # build the configured source
 $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
 	$(RM) -r $(@D) ; $(MKDIR) $(@D)
@@ -69,6 +71,3 @@ $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
 			$(COMPONENT_INSTALL_ARGS) $(COMPONENT_INSTALL_TARGETS))
 	$(COMPONENT_POST_INSTALL_ACTION)
 	$(TOUCH) $@
-
-clean::
-	$(RM) -r $(BUILD_DIR) $(PROTO_DIR)
