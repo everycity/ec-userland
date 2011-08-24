@@ -28,7 +28,7 @@ set name=info.upstream_url value="http://mercurial.selenic.com/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
-license mercurial.license license="GPLv2"
+license COPYING license="GPLv2"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -42,6 +42,8 @@ dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/hgext/zeroconf
 dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial
 dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/help
 dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/hgweb
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/tests
 dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/locale
 dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/locale/da
 dir \
@@ -67,6 +69,9 @@ dir \
 dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/locale/ro
 dir \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/locale/ro/LC_MESSAGES
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/locale/ru
+dir \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/locale/ru/LC_MESSAGES
 dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/locale/sv
 dir \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/locale/sv/LC_MESSAGES
@@ -165,8 +170,6 @@ file path=$(ECPREFIX)/lib/python2.6/vendor-packages/hgext/notify.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/hgext/notify.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/hgext/pager.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/hgext/pager.pyc
-file path=$(ECPREFIX)/lib/python2.6/vendor-packages/hgext/parentrevspec.py
-file path=$(ECPREFIX)/lib/python2.6/vendor-packages/hgext/parentrevspec.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/hgext/patchbomb.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/hgext/patchbomb.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/hgext/progress.py
@@ -221,6 +224,9 @@ file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/cmdutil.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/cmdutil.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/commands.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/commands.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/commandserver.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/commandserver.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/config.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/config.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/context.py
@@ -229,6 +235,8 @@ file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/copies.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/copies.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/dagparser.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/dagparser.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/dagutil.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/dagutil.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/demandimport.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/demandimport.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/diffhelpers.so
@@ -250,6 +258,8 @@ file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/filelog.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/filelog.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/filemerge.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/filemerge.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/fileset.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/fileset.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/graphmod.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/graphmod.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/hbisect.py
@@ -264,7 +274,11 @@ file \
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/help/extensions.txt
 file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/help/filesets.txt
+file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/help/glossary.txt
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/help/hgignore.txt
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/help/hgweb.txt
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/help/merge-tools.txt
@@ -317,6 +331,46 @@ file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/hgweb/wsgicgi.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/hook.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/hook.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/__init__.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/__init__.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/socketutil.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/socketutil.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/tests/__init__.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/tests/__init__.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/tests/simple_http_test.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/tests/simple_http_test.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/tests/test_bogus_responses.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/tests/test_bogus_responses.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/tests/test_chunked_transfer.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/tests/test_chunked_transfer.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/tests/test_proxy_support.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/tests/test_proxy_support.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/tests/test_ssl.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/tests/test_ssl.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/tests/util.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpclient/tests/util.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpconnection.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httpconnection.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httprepo.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/httprepo.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/i18n.py
@@ -341,6 +395,8 @@ file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/locale/pt_BR/LC_MESSAGES/hg.mo
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/locale/ro/LC_MESSAGES/hg.mo
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/locale/ru/LC_MESSAGES/hg.mo
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/locale/sv/LC_MESSAGES/hg.mo
 file \
@@ -392,6 +448,10 @@ file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/revlog.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/revlog.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/revset.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/revset.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/scmutil.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/scmutil.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/setdiscovery.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/setdiscovery.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/similar.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/similar.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/simplemerge.py
@@ -400,6 +460,8 @@ file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/sshrepo.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/sshrepo.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/sshserver.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/sshserver.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/sslutil.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/sslutil.pyc
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/statichttprepo.py
 file \
@@ -421,6 +483,10 @@ file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templatekw.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templater.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templater.pyc
 file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/atom/bookmarkentry.tmpl
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/atom/bookmarks.tmpl
+file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/atom/changelog.tmpl
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/atom/changelogentry.tmpl
@@ -440,6 +506,8 @@ file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/coal/header.tmpl
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/coal/map
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/gitweb/bookmarks.tmpl
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/gitweb/branches.tmpl
 file \
@@ -493,6 +561,8 @@ file \
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/map-cmdline.xml
 file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/monoblue/bookmarks.tmpl
+file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/monoblue/branches.tmpl
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/monoblue/changelog.tmpl
@@ -537,9 +607,13 @@ file \
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/monoblue/tags.tmpl
 file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/paper/bookmarks.tmpl
+file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/paper/branches.tmpl
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/paper/changeset.tmpl
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/paper/diffstat.tmpl
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/paper/error.tmpl
 file \
@@ -594,6 +668,10 @@ file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/raw/map
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/raw/notfound.tmpl
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/rss/bookmarkentry.tmpl
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/rss/bookmarks.tmpl
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/rss/changelog.tmpl
 file \
@@ -663,11 +741,11 @@ file \
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/static/excanvas.js
 file \
-    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/static/graph.js
-file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/static/hgicon.png
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/static/hglogo.png
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/static/mercurial.js
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/static/style-coal.css
 file \
@@ -682,6 +760,9 @@ file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/templates/template-vars.txt
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/transaction.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/transaction.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/treediscovery.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/treediscovery.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/ui.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/ui.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/mercurial/url.py
