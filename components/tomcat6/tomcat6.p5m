@@ -19,6 +19,7 @@
 <transform file path=ec/share/doc/tomcat6/(.*)$ -> set action.hash %<\1> >
 <transform file path=ec/etc/tomcat6/.* -> default group tomcat6>
 <transform file dir link hardlink path=ec/etc/tomcat6.* -> default preserve true>
+<transform file path=ec/etc/tomcat6.* -> default mode 0644>
 <transform file dir path=ec/etc/tomcat6.* -> default owner tomcat6>
 <transform file dir path=ec/etc/tomcat6.* -> default group tomcat6>
 <transform dir path=ec/var/tomcat6/.* -> default owner tomcat6>
