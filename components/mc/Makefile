@@ -23,20 +23,24 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		mc
-COMPONENT_VERSION=	20110314
+COMPONENT_VERSION=	4.7.99.2
+GIT_ID=			c819eb1fa3e179f237e9c30bb1e738c123da4e81
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-#COMPONENT_ARCHIVE_HASH=	sha1:
-COMPONENT_ARCHIVE_URL=	http://www.midnight-commander.org/downloads/$(COMPONENT_ARCHIVE)
-
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-$(GIT_ID).tar.gz
+#COMPONENT_ARCHIVE_URL=	git://midnight-commander.org/git/mc.git
+COMPONENT_ARCHIVE_URL=	git://repo.or.cz/midnight-commander.git
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-IPS_COMPONENT_VERSION= 4.7.99.1
+COMPONENT_PREP_ACTION = (cd $(@D) ; ./autogen.sh; libtoolize; )
 
-CONFIGURE_OPTIONS += --with-screen=slang LIBS="-lsocket"
+CONFIGURE_OPTIONS += LIBS="-lsocket"
+CONFIGURE_OPTIONS += --disable-static
+
+download::
+	$(COMPONENT_DIR)/generate-tarball.sh $(COMPONENT_ARCHIVE_URL) $(COMPONENT_SRC) $(GIT_ID)
 
 build:		$(BUILD_32)
 
