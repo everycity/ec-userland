@@ -24,6 +24,8 @@ COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.apache.org/tomcat/
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
 
+CLEAN_PATHS += $(BUILD_DIR)
+
 build: prep
 
 install: build
