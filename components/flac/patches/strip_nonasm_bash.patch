@@ -1,8 +1,40 @@
---- flac-1.2.1/strip_non_asm_libtool_args.sh.orig	2011-06-09 17:03:50.979385477 +0100
-+++ flac-1.2.1/strip_non_asm_libtool_args.sh	2011-06-09 17:03:58.337658209 +0100
-@@ -1,4 +1,4 @@
+--- flac-1.2.1/strip_non_asm_libtool_args.sh.~1~	2004-07-29 07:43:23.000000000 +0100
++++ flac-1.2.1/strip_non_asm_libtool_args.sh	2011-08-23 16:29:37.201172618 +0100
+@@ -1,19 +1,26 @@
 -#!/bin/sh
-+#!/usr/bin/bash
++#!/bin/sh
  #
  # libtool assumes that the compiler can handle the -fPIC flag.
  # This isn't always true (for example, nasm can't handle it).
+ # Also, on some versions of OS X it tries to pass -fno-common
+ # to 'as' which causes problems.
++
++if [ $# -eq 0 ] ; then
++  echo "No arguments passed!"
++  exit 1
++fi
++
+ command=""
+-while [ $1 ]; do
+-	if [ "$1" != "-fPIC" ]; then
+-		if [ "$1" != "-DPIC" ]; then
+-			if [ "$1" != "-fno-common" ]; then
+-				command="$command $1"
+-			fi
+-		fi
+-	fi
+-	shift
++
++for arg in "$@" ;
++do
++  case $arg in
++    "-fPIC") shift;;
++    "-DPIC") shift;;
++    "-fno-common") shift;;
++    *) command="$command $arg" ; shift ;;
++esac
+ done
+-echo $command
++
++echo "Running: '$command'"
+ exec $command
