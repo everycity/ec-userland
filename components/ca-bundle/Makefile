@@ -24,12 +24,7 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ca-bundle
 COMPONENT_VERSION=	2011.5.2
-#COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-#COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-#COMPONENT_ARCHIVE_HASH=	sha1:9cc59be07932b63e1f7d714c56ffaaa92af55373
-#COMPONENT_ARCHIVE_URL=	http://curl.haxx.se/download/$(COMPONENT_ARCHIVE)
 
-#include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
@@ -53,3 +48,5 @@ build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
 
+clean::
+	$(RM) -r $(CLEAN_PATHS)
