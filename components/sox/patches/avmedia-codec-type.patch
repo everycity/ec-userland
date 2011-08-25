@@ -1,0 +1,29 @@
+--- sox-14.3.2/src/ffmpeg.c.orig	2011-08-25 10:55:16.120975661 +0100
++++ sox-14.3.2/src/ffmpeg.c	2011-08-25 10:56:08.342513089 +0100
+@@ -91,7 +91,7 @@
+ 
+   if (!codec || avcodec_open(enc, codec) < 0)
+     return -1;
+-  if (enc->codec_type != CODEC_TYPE_AUDIO) {
++  if (enc->codec_type != AVMEDIA_TYPE_AUDIO) {
+     lsx_fail("ffmpeg CODEC %x is not an audio CODEC", enc->codec_type);
+     return -1;
+   }
+@@ -182,7 +182,7 @@
+   /* Find audio stream (FIXME: allow different stream to be selected) */
+   for (i = 0; (unsigned)i < ffmpeg->ctxt->nb_streams; i++) {
+     AVCodecContext *enc = ffmpeg->ctxt->streams[i]->codec;
+-    if (enc->codec_type == CODEC_TYPE_AUDIO && ffmpeg->audio_index < 0) {
++    if (enc->codec_type == AVMEDIA_TYPE_AUDIO && ffmpeg->audio_index < 0) {
+       ffmpeg->audio_index = i;
+       break;
+     }
+@@ -273,7 +273,7 @@
+ 
+   c = st->codec;
+   c->codec_id = codec_id;
+-  c->codec_type = CODEC_TYPE_AUDIO;
++  c->codec_type = AVMEDIA_TYPE_AUDIO;
+ 
+   /* put sample parameters */
+   c->bit_rate = 256000;  /* FIXME: allow specification */

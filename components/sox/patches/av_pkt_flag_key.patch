@@ -1,0 +1,11 @@
+--- sox-14.3.2/src/ffmpeg.c.orig	2011-08-25 11:00:09.678461809 +0100
++++ sox-14.3.2/src/ffmpeg.c	2011-08-25 11:00:30.361713985 +0100
+@@ -423,7 +423,7 @@
+       av_init_packet(&pkt);
+       pkt.size = avcodec_encode_audio(c, ffmpeg->audio_buf_aligned, AVCODEC_MAX_AUDIO_FRAME_SIZE, ffmpeg->samples);
+       pkt.pts = av_rescale_q(c->coded_frame->pts, c->time_base, ffmpeg->audio_st->time_base);
+-      pkt.flags |= PKT_FLAG_KEY;
++      pkt.flags |= AV_PKT_FLAG_KEY;
+       pkt.stream_index = ffmpeg->audio_st->index;
+       pkt.data = ffmpeg->audio_buf_aligned;
+ 
