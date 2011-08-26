@@ -26,6 +26,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+CONFIGURE_OPTIONS+=	--with-ncurses=$(ECPREFIX)
 
 build:		$(BUILD_32)
 
