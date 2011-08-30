@@ -23,6 +23,8 @@ set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license irssi.license license="GPLv2"
 
+depend fmri=pkg:/runtime/perl-512 type=require
+
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/etc
