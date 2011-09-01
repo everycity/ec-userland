@@ -12,4 +12,14 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
-export MANPATH=/ec/share/man:/ec/share:/usr/share/man
+MANPATH=/ec/share/man:/ec/share
+
+# Find common man locations
+mandirs=`ls -d /ec/lib/*/active/man /ec/lib/*/*/man /ec/share/*/*/man /ec/share/*/man 2>/dev/null`
+
+for i in $mandirs ; do
+	MANPATH="$MANPATH:$i"
+done
+
+export MANPATH=${MANPATH}:/usr/share/man
+
