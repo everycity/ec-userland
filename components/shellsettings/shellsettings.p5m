@@ -40,8 +40,9 @@ file files/inputrc path=$(ECPREFIX)/etc/inputrc preserve=true
 # Note we don't want to preserve /etc/profile, people shouldn't mess with it
 file files/profile path=$(ECPREFIX)/etc/profile
 
-# Overwrite the default login file to fix paths once and for all
+# Overwrite the default login and su files to fix paths once and for all
 file files/login path=etc/default/login
+file files/su path=etc/default/su
 
 # Deliver our bash.d settings
 file files/bash.d/10_shell.sh path=$(ECPREFIX)/etc/bash.d/10_shell.sh
