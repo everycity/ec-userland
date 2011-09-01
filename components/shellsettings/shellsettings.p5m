@@ -53,6 +53,10 @@ file files/bash.d/30_checkwinsize.sh path=$(ECPREFIX)/etc/bash.d/30_checkwinsize
 file files/bash.d/35_gnuterminfo.sh path=$(ECPREFIX)/etc/bash.d/35_gnuterminfo.sh
 file files/bash.d/40_path.sh path=$(ECPREFIX)/etc/bash.d/40_path.sh
 file files/bash.d/45_history.sh path=$(ECPREFIX)/etc/bash.d/45_history.sh
+file files/bash.d/50_windowtitle.sh path=$(ECPREFIX)/etc/bash.d/50_windowtitle.sh
+file files/bash.d/55_manpath.sh path=$(ECPREFIX)/etc/bash.d/55_manpath.sh
+file files/bash.d/60_toolprefs.sh path=$(ECPREFIX)/etc/bash.d/60_toolprefs.sh
+file files/bash.d/70_aliases.sh path=$(ECPREFIX)/etc/bash.d/70_aliases.sh
 file files/bash.d/80_motd.sh path=$(ECPREFIX)/etc/bash.d/80_motd.sh
 file files/bash.d/90_per_user_root_profile.sh path=$(ECPREFIX)/etc/bash.d/90_per_user_root_profile.sh
 
