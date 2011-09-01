@@ -30,6 +30,14 @@ echo -e -n "Welcome to$bldylw `hostname`$txtred,$bldgrn `who am i | awk '{print 
 echo
 echo -e "You are connecting from: ${bldgrn}`who am i | awk '{print $NF}'`${txtred}."
 echo
+if [ -f /ec/share/everycity/solaris-quickstart.txt ] ; then
+echo "To see our Solaris quickstart guide, simply type 'ec-quickstart'"
+else
+echo "To see our Solaris quickstart guide, simply install it with: "
+echo "  sudo pkg install documentation/everycity/quickstart-guide"
+echo "Then simply type 'ec-quickstart'"
+fi
+echo
 echo "======================================================================="
 echo
 echo -e -n "$txtrst"
