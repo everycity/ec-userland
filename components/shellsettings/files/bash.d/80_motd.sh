@@ -34,7 +34,7 @@ if [ -f /ec/share/everycity/solaris-quickstart.txt ] ; then
 echo "To see our Solaris quickstart guide, simply type 'ec-quickstart'"
 else
 echo "To see our Solaris quickstart guide, simply install it with: "
-echo "  sudo pkg install documentation/everycity/quickstart-guide"
+echo "  sudo pkg install documentation/everycity/solaris-quickstart"
 echo "Then simply type 'ec-quickstart'"
 fi
 echo
