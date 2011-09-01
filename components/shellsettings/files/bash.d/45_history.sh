@@ -14,7 +14,11 @@
 
 # Ignore unnecessary commands in the history
 export HISTIGNORE="&:ls:[bf]g:exit"
+
 # Set a reasonable history size
 export HISTSIZE=5000
 export HISTFILESIZE=5000
+
+# Set history to append rather than overwrite
+shopt -s histappend
 
