@@ -1,0 +1,624 @@
+====================================
+EveryCity - Solaris QuickStart Guide
+====================================
+
+************
+* Welcome! *
+************
+
+Welcome to your new Solaris server instance! We believe you'll love using it. 
+
+This is a quick guide to help you get started. We have assumed no prior 
+knowledge (other than basic UNIX), and as such this guide should be suitable 
+for users that have never used Solaris before.
+
+****************
+* Getting Help *
+****************
+
+If you ever need help, please do get in touch!
+
+Support:	020 7183 2801
+		support@everycity.co.uk
+
+General:	020 7183 2800
+		enquiries@everycity.co.uk
+
+Email and Telephone support is available during UK business hours (09:00 to 
+18:00 Monday to Friday), and emergency telephone support is available 24x7.
+
+If your query is urgent, please do call as you'll get straight through to an 
+engineer.
+
+
+********************
+* General Overview *
+********************
+
+If you just want to get your hands dirty, please feel free to skip to the next 
+section "Logging In".
+
+Our Solaris cloud platform delivers cutting edge features, including:
+
+- ZFS filesystem
+
+ZFS is truly the last word in filesystems, and allows us to deliver 
+unparalleled performance and 100% data integrity. For example, zfs stores a 
+checksum of every block on disk and can repair errors from the RAID parity. We 
+also leverage ZFS snapshots to take our backups, meaning we can restore files 
+within seconds.
+
+- SMF (Service Management Framework)
+
+SMF is used for managing services on the server; not only does it manage the 
+common services such as Apache and MySQL, SMF manages all system services, and 
+will automatically restart any of them if they fail. SMF maintains a log of the 
+start/stop times of every service, as well as any log messages, making SMF an 
+indispensable tool in a high uptime environment.
+
+- DTrace (Dymanic tracing facility)
+
+DTrace is a powerful tool for instrumenting system and application metrics, and 
+is especially useful in diagnosing performance issues.
+
+- IPS Package Manager
+
+We operate a network-based package management repository which we have loaded 
+with popular hosting software, including multiple versions, such as PHP 5.2 and 
+5.3, giving our clients unparalleled choice over the software they run. IPS 
+also provides transactionally safe upgrades, meaning clients can easily stay up 
+to date with the latest security and bug fixes.
+
+The Underlying Technology
+
+Under the hood, this platform consists of powerful physical hosts running 
+Solaris 10, which is virtualised using Solaris Zones - a super-lightweight 
+virtualisation technology with virtually no overhead. We run the IPS package 
+manager on top to deliver our own suite of software under the /ec prefix.
+
+To give users coming from a Linux/MacOS/FreeBSD background an easier time, we 
+install common GNU software under /ec/bin (such as GNU tar, make, tail, less, 
+etc), and place /ec/bin at the front of the $PATH environment variable. This 
+means the commands you run on our platform will be the same as the commands 
+you'd find on a typical CentOS or Ubuntu host.
+
+Although some commands are different on our Solaris cloud platform (for example 
+"pkg" instead of "apt-get"/"yum"), the learning curve shouldn't be too steep, 
+and if you have any questions, please get in touch where we'll be happy to help.
+
+
+**************
+* Logging In *
+**************
+
+You can log in via SSH - the standard method of securely accessing UNIX hosts.
+
+On UNIX platforms, such as MacOS or Linux, you can SSH to your server by typing 
+the following into a terminal window (On MacOS this is the "Terminal" 
+application):
+
+# ssh -p PORT USERNAME@W01.SERVERNAME.everycity.co.uk
+
+(Where PORT, USERNAME and W01.SERVERNAME are your SSH port, SSH Username and 
+server name respectively).
+
+Users on Windows can use the Putty SSH application, available from:
+
+  http://www.chiark.greenend.org.uk/~sgtatham/putty/
+
+After entering your password, you should be logged in successfully as a 
+non-root user.
+
+*** If this is the first time you have logged in we would strongly recommend 
+changing your password using the "passwd" command ***
+
+
+*****************************
+* Obtaining Root Privileges *
+*****************************
+
+As of July 2011, we now use sudo (instead of the native Solaris pfexec command) 
+to allow users to escalate to the root user. Simply run:
+
+# sudo su -
+
+This will prompt you for your password, and after entering it successfully, you 
+will be escalated to root.
+
+You can also simply prefix commands you want to run with elevated privileges 
+with the sudo command, for example:
+
+# sudo svcadm restart apache22
+
+To edit the sudoers file, type "visudo"
+
+
+****************************
+* Server Filesystem Layout *
+****************************
+
+Solaris 10 ships with native Solaris commands and configuration data under the 
+usual locations, such as /usr/bin and /etc. However Solaris 10, being an 
+enterprise-ready operating system with a history of running in mission critical 
+environments, has quite a conservative userland. As such, we deliver our own 
+suite of modern open source software under the /ec prefix, and we place /ec/bin 
+at the front of the $PATH.
+
+This means on our platform if you type "tail", "ls", "tar" or many of the other 
+commands you're used to, you will get fuller featured GNU "Linux-ey" versions, 
+instead of the Solaris variants, making our platform much more friendly to 
+migrants from other platforms.
+
+Common Folders:
+
+/etc		Native Solaris configuration files
+/usr/bin	Native Solaris binaries
+/var		Native Solaris logs and state
+
+/ec		EveryCity software prefix
+/ec/etc		EveryCity configuration files
+/ec/bin		EveryCity binaries
+/ec/var		EveryCity logs and state
+/ec/share	EveryCity manpages and shared 
+
+For example, the Apache 2.2 configuration data can be found under 
+/ec/etc/apache/2.2, and log data can be found under /ec/var/apache/2.2/logs
+
+
+**********************************
+* Installing & Managing Software *
+**********************************
+
+We use an excellent network based package manager (IPS, which we have 
+backported from OpenSolaris) to deliver software on our Solaris platform.
+
+You can browse the repo online to see what packages are available here:
+
+  http://s10.pkg.ec/
+
+IPS is very easy to use, and supports dependency tracking, as well as seamless 
+upgrades.
+
+
+- Listing installed software
+
+# pkg list
+NAME (PUBLISHER)                   VERSION         STATE      UFOXI
+compress/bzip2                     1.0.6-0.162     installed  -----
+compress/gnu-gzip                  1.4-0.162       installed  -----
+compress/gnu-tar                   1.26-0.162      installed  -----
+database/berkeleydb-51             5.1.25-0.162    installed  -----
+database/mysql-55/client           5.5.12-0.162    installed  -----
+...
+
+
+- Installing software
+
+# pkg install nano
+               Packages to install:     2
+           Create boot environment:    No
+DOWNLOAD                                  PKGS       FILES    XFER (MB)
+Completed                                  2/2     170/170      1.8/1.8
+
+PHASE                                        ACTIONS
+Install Phase                                282/282 
+
+PHASE                                          ITEMS
+Package State Update Phase                       2/2 
+Image State Update Phase                         2/2
+
+PHASE                                          ITEMS
+Reading Existing Index                           8/8 
+Indexing Packages                                2/2
+Deleting content cache
+
+
+- Uninstalling software
+
+# pkg uninstall nano
+
+
+- Searching for software
+
+If you know the name of the software you're looking for, you can easily search 
+for it using:
+
+# pkg search -p nano
+PACKAGE                      PUBLISHER
+pkg:/editor/nano@2.2.6-0.162 s10.pkg.ec
+
+You can also use wildcards, for example "pkg search -p nan\*"
+
+
+- Displaying more information about a package
+
+You can get more information about a package via the info command:
+
+# pkg info nano
+          Name: editor/nano
+       Summary: GNU nano
+         State: Installed
+     Publisher: s10.pkg.ec
+       Version: 2.2.6
+ Build Release: 5.10
+        Branch: 0.162
+Packaging Date: Wed May 18 14:42:16 2011
+          Size: 1.39 MB
+          FMRI: pkg://s10.pkg.ec/editor/nano@2.2.6,5.10-0.162:20110518T144216Z
+
+
+You can also get the contents of a package with:
+
+# pkg contents nano
+PATH
+ec
+ec/bin
+ec/bin/nano
+ec/bin/rnano
+ec/share
+ec/share/info
+...
+
+
+*******************************************
+* Keeping your system secure & up to date *
+*******************************************
+
+To keep your server secure, we highly recommend doing regular upgrades of all 
+the software installed.
+
+You can do this very easily with the package manager:
+
+# pkg image-update
+
+If you are a managed customer, you can request that we do this on a regular 
+basis.
+
+We have constructed our packages in such a way that they can be safely upgraded 
+without clobbering configuration files, and doing an update will only bump 
+minor versions (eg Apache 2.2.19 to 2.2.20, not 2.2 to 2.3). When new major 
+versions come along, we will provide new packages which can be installed 
+along-side the old ones, to allow a safe transition (eg from PHP 5.2 to 5.3).
+
+We would recommend performing an update at least once per month; waiting longer 
+than this may expose your server to unpatched security vulnerabilities in 
+software such as PHP which receives regular security updates.
+
+
+**********************************
+* Requesting Additional Software *
+**********************************
+
+If there is any software you require that isn't currently in our public 
+software repository, please let us know and we can package this up for you.
+
+
+**************************************
+* Service Management Framework (SMF) *
+**************************************
+
+Solaris has an incredible service management framework (SMF) for managing the 
+lifecycle of services. SMF lets you see which services are enabled, disabled, 
+and which services have failed repeatidly. SMF will automatically restart 
+failed services (services that exit or crash), and also maintains an audit log 
+for every service.
+
+- Viewing a list of all services
+
+The "svcs -a" command shows all services:
+
+# svcs -a
+...
+online         Jun_27   svc:/milestone/multi-user-server:default
+online         Jun_27   svc:/application/stosreg:default
+online         16:32:02 svc:/network/http/apache22:default
+online         16:38:05 svc:/network/smtp/exim:default
+
+You can also view the status of a specific service by typing "svcs servicename"
+
+- Service Name Globbing
+
+SMF commands can accept either a full service name, e.g. 
+svc:/network/http/apache22:default, or you can give it a shorter version, e.g. 
+apache22:
+
+# svcs apache22
+STATE          STIME    FMRI
+online         16:32:02 svc:/network/http/apache22:default
+
+# svcs http/apache22
+STATE          STIME    FMRI
+online         16:32:02 svc:/network/http/apache22:default
+
+The ":default" at the end specifies the "instance" of a service. A service can 
+have multiple definitions, for example if you wanted to run multiple copies of 
+Apache at the same time. If there is only one instance, you can ignore the 
+":default" bit and you won't have to specify it when typing service names.
+
+- Viewing additional information about a service
+
+You can obtain extra info, such as the name, status and log file for a service 
+by using the "svcs -x" command:
+
+# svcs -x apache22
+svc:/network/http/apache22:default (Apache 2.2 HTTP server)
+ State: online since Tue Jun 28 16:32:02 2011
+   See: httpd(8)
+   See: /var/svc/log/network-http-apache22:default.log
+Impact: None.
+
+
+This message also contains a reference to the service log file, which contains 
+information about the service, including start/stop times, any messages the 
+service prints to stdout/stderr, and any failures:
+
+# tail /var/svc/log/network-http-apache22:default.log
+[ Jun 28 16:32:02 Enabled. ]
+[ Jun 28 16:32:02 Executing start method ("/ec/var/svc/method/http-apache22 
+start") ]
+Apache version is 2.2
+[ Jun 28 16:32:02 Method "start" exited with status 0 ]
+
+
+**********************************************
+* Starting, Stopping and Restarting Services *
+**********************************************
+
+Whilst "svcs" displays information about services, "svcadm" starts and stops 
+services (svcadm enable/disable), and is very easy to use:
+
+# svcs ssh
+STATE          STIME    FMRI
+online         18:12:54 svc:/network/ssh:default
+
+# svcadm disable ssh
+# svcs ssh
+STATE          STIME    FMRI
+disabled       18:13:04 svc:/network/ssh:default
+
+# svcadm enable ssh
+# svcs ssh
+STATE          STIME    FMRI
+online         18:13:09 svc:/network/ssh:default
+
+Services can also be restarted with:
+
+# svcadm restart ssh
+
+If you catch a service that is transitioning state (eg being stopped or being 
+started), it will have an asterisk (*) next to the STATE, for example:
+
+# svcs ssh
+STATE          STIME    FMRI
+*online         18:13:09 svc:/network/ssh:default
+
+This would mean SSH is currently shutting down.
+
+
+*******************
+* Failed Services *
+*******************
+
+If a service fails for some reason (crashes repeatedly, or refuses to start), 
+it will go into maintenance mode, to alert you to the fact this has happened:
+
+# svcs ssh
+STATE          STIME    FMRI
+online         18:13:09 svc:/network/ssh:default
+
+# echo asdfasdf >> /etc/ssh/sshd_config
+# svcadm restart ssh
+# svcs ssh
+STATE          STIME    FMRI
+maintenance    18:16:35 svc:/network/ssh:default
+
+Here, adding gibberish to the bottom of the sshd_config file has caused SSH to 
+fail to restart correctly, and as such it has gone into maintenance mode. After 
+removing the incorrect config data, we can bring SSH back online with the 
+"svcadm clear" command:
+
+# cp /etc/ssh/sshd_config.backup /etc/ssh/sshd_config
+# svcadm clear ssh
+# svcs ssh
+STATE          STIME    FMRI
+online         18:18:01 svc:/network/ssh:default
+
+
+**********************
+* Apache HTTPD Guide *
+**********************
+
+We currently deliver Apache 2.2, and we have packaged this in the Debian/Ubuntu 
+style with a "sites-available/sites-enabled, mods-available/mods-enabled" 
+configuration layout.
+
+Apache Directories:
+
+Conf Data:	/ec/etc/apache/2.2
+Logs:		/ec/var/apache/2.2/logs
+Apache Root:	/ec/lib/apache/2.2
+Apache Modules:	/ec/lib/apache/2.2/modules
+
+
+- Adding Apache Virtualhosts
+
+We recommend following the default configuration layout, which will allow us to 
+support you more easily. Please create 1 file per virtualhost under the 
+following directory:
+
+/ec/etc/apache/2.2/sites-available/
+
+For example, /ec/etc/apache/2.2/sites-available/mywebsite.com
+
+You can then enable your site with:
+
+# a2ensite mywebsite.com
+
+Running this command will create a symlink from sites-enabled to 
+sites-available. We would then recommend checking to ensure the Apache 
+configuration is correct:
+
+# apachectl configtest
+Syntax OK
+
+Then restart with:
+
+# svcadm restart apache22
+
+
+- Enabling Apache Modules
+
+You can obtain a list of all the modules by looking under: 
+/ec/etc/apache/2.2/mods-available
+
+Modules can be enabled or disabled with:
+
+# a2enmod modulename
+# a2dismod modulename
+
+e.g. a2enmod proxy_ajp
+
+
+- The Apache ErrorLog
+
+The Apache ErrorLog contains information about any errors that result in Apache 
+being unhappy. It can be found at:
+
+  /ec/var/apache/2.2/logs/error_log
+
+
+*************
+* PHP Guide *
+*************
+
+We deliver both PHP 5.2 and 5.3, and both can be installed simultaneously for 
+the purposes of upgrading from one to the other (although only one can be 
+enabled within Apache at the same time).
+
+PHP Directories:
+
+The php.ini file:	/ec/etc/php/5.2/php.ini (or 5.3)
+PHP conf.d dir:		/ec/etc/php/5.2/conf.d (or 5.3)
+Modules Directory:	/ec/lib/php/5.2/extensions (or 5.3)
+
+The php command is available under /ec/bin/php. A symlink under 
+/ec/lib/php/active will point to either 5.2 or 5.3 depending on which is 
+installed first, and /ec/bin/php points at /ec/lib/php/active/bin/php
+
+If both versions are installed, this allows you to pick which version is run 
+when calling /ec/bin/php
+
+************************
+* Getting system stats *
+************************
+
+The Solaris equivalent of "top" is:
+
+# prstat -Z
+
+You can also obtain I/O stats with:
+
+# iostat -xn 2
+
+You can see how much memory your instance has with:
+
+# prtconf
+
+
+******************
+* 32bit vs 64bit *
+******************
+
+Solaris is a true 64bit operating system, that can run both 32bit and 64bit 
+software. Solaris typically delivers both 32bit and 64bit software on the same 
+system. 32bit software is the default, and can be found in /usr/bin or /ec/bin, 
+and 64bit software under /usr/bin/amd64 or /ec/bin/amd64
+
+We ship 64bit variants of Apache, PHP and MySQL. 64bit is typically not 
+necessary or recommended for Apache or PHP, as the additional memory 
+requirements can be significant, for no gain. However we would recommend 
+running the MySQL server 64bit, and that is our default.
+
+
+*************************
+* Adding Users & Groups *
+*************************
+
+Adding a group is simple:
+
+# groupadd bob
+
+Adding a user is also simple:
+
+# useradd -m -d /home/bob -g bob -s /usr/bin/bash bob
+
+-m = create the home directory
+-d = location of home directory
+-g = group
+-s = shell
+
+You can set the users password with:
+
+# passwd bob
+
+You may then wish to add the user to sudoers, by typing "visudo", so they can 
+obtain root access.
+
+
+**************************
+* Troubleshooting Issues *
+**************************
+
+- SSH is slow, or frequently times out
+
+We typically run SSH on a non-standard port (i.e. not port 22). Many ISPs rate 
+limit or traffic shape encrypted traffic on non-standard ports. This can have a 
+very negative impact on SSH traffic and make your terminal appear laggy or 
+cause it to disconnect.
+
+To rectify this, we typically need to revert your Zone back to the default SSH 
+port, 22. Please get in contact with us to arrange this.
+
+
+- I receive the error "Site Unavailable" when visiting my website
+
+This error is a result of the Zeus ZXTM Load Balancers (See item below). Our 
+Load Balancers check your Zone to ensure that HTTP is operating correctly. If 
+HTTP is not operating, or is returning an HTTP Error Code, the Load Balancer 
+takes the service out of use, and displays the "Site Unavailable" error 
+message.
+
+This functionality is in place to ensure that end users need never experience a 
+timeout or HTTP 503 error page when accessing your site.
+The Load Balancer checks the default HTTP VirtualHost. If you install an 
+Application on the default virtual host, and that application issues an HTTP 
+Error Code (Wordpress and Drupal are known to issue 503 error codes if the 
+database is not configured, or during the installation process), then you may 
+receive the above error.
+
+We would recommend installing websites inside their own VirtualHost entry, 
+which will ensure that you only receive the above error if your HTTP server is 
+not functioning correctly or not running.
+
+
+- I am unable to connect to a service on my server, is there a firewall in 
+place?
+
+Yes. We run both Zeus Load Balancers and Vyatta Firewalls in our cloud 
+architecture, which forward services running on public IP addresses
+to our client Zones, which are assigned internal IP addresses.
+
+This architecture provides the most flexibility and security for our clients. 
+It provides a firewall layer, and also enables us to deploy load balancing for 
+clients that need it simply and quickly.
+
+If you require a particular service or TCP/UDP port forwarded to your Zone, 
+please get in contact with us.
+
+
+- I am struggling with some aspect of the service, what help is available?
+
+We'd recommend getting in touch with us; our support team is friendly and there 
+to help. We can help out with the issue, offer advice, and point you in the 
+direction of additional documentation. Please see above for methods of 
+contacting us.
