@@ -14,9 +14,9 @@
 
 if [ "$EUID" != 0 ]; then
 
-echo -e -n "$rgb_red"
+echo -e -n "$txtred"
 echo "======================================================================="
-echo -e -n "$rgb_magenta"
+echo -e -n "$bldred"
 echo "             ___                       __                       "
 echo "            /\_ \                     /\ \                      "
 echo "         ___\//\ \     ___   __  __   \_\ \         __    ___   "
@@ -25,14 +25,14 @@ echo "       /\ \__/ \_\ \_/\ \_\ \ \ \_\ \/\ \_\ \  __/\  __//\ \__/ "
 echo "       \ \____\/\____\ \____/\ \____/\ \___,_\/\_\ \____\ \____\\"
 echo "        \/____/\/____/\/___/  \/___/  \/__,_ /\/_/\/____/\/____/"
 echo ""
-echo -e -n "$rgb_red"
-echo -e -n "Welcome to$rgb_yellow `hostname`$rgb_red,$rgb_green `who am i | awk '{print $1}'`${rgb_red}."
+echo -e -n "$txtred"
+echo -e -n "Welcome to$bldylw `hostname`$txtred,$bldgrn `who am i | awk '{print $1}'`${txtred}."
 echo
-echo -e "You are connecting from: ${rgb_green}`who am i | awk '{print $NF}'`${rgb_red}."
+echo -e "You are connecting from: ${bldgrn}`who am i | awk '{print $NF}'`${txtred}."
 echo
 echo "======================================================================="
 echo
-echo -e -n "$rgb_restore"
+echo -e -n "$txtrst"
 
 fi
 
