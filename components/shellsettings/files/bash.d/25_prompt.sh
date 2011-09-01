@@ -17,9 +17,12 @@ HOSTNAME=`hostname | /usr/bin/awk -F. '{print $1 "." $2}'`
 
 # Set the prompt
 
-if [ "$EUID" == 0 ]; then rgb_usr=$rgb_red; else rgb_usr=$rgb_green; fi
+if [ "$EUID" == 0 ]; then rgb_usr=$bldred; else rgb_usr=$bldgrn; fi
 
 if [ $?prompt ]; then
-	PS1="\[${rgb_usr}\]${USER}\[${rgb_white}\] \W (\[${rgb_yellow}\]${HOSTNAME}\[${rgb_white}\]): \[${rgb_restore}\]"
+	# Uncomment to remove the black background
+	#bak=""
+	bak=${bakblk}
+	PS1="\[${bak}${rgb_usr}\]${USER}\[${bldwht}${bak}\] \W (\[${bldylw}\]${HOSTNAME}\[${bldwht}${bak}\]):${txtrst} "
 fi
 
