@@ -27,6 +27,11 @@ export LOGNAME PATH
 # Bash shells
 case "$0" in
 -bash)
+	if [[ $- != *i* ]] ; then
+		# Shell is non-interactive.  Be done now!
+		return
+	fi
+
 	if [ -f /ec/etc/inputrc ] ; then
 		export INPUTRC=/ec/etc/inputrc
 	fi
