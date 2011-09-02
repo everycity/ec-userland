@@ -25,8 +25,17 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+IPS_COMPONENT_VERSION=9.4
+
 CONFIGURE_OPTIONS += 	--with-drivers=ALL
 CONFIGURE_OPTIONS +=	--enable-dynamic
+CONFIGURE_OPTIONS +=	--with-ijs
+CONFIGURE_OPTIONS +=	--without-omni
+CONFIGURE_OPTIONS +=	--with-jbig2dec
+CONFIGURE_OPTIONS +=	--with-jasper
+CONFIGURE_OPTIONS +=	--disable-compile-inits
+CONFIGURE_OPTIONS +=	--with-fontpath=$(ECPREFIX)/share/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/Resource:$(ECPREFIX)/share/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/Resource/Font:$(ECPREFIX)/share/$(COMPONENT_NAME)/fonts:/usr/openwin/lib/X11/fonts/Type1:/usr/openwin/lib/X11/fonts/TrueType:/usr/openwin/lib/X11/fonts/Type3:/usr/X11/lib/X11/fonts/Type1:/usr/X11/lib/fonts/TrueType:/usr/X11/lib/X11/fonts/Type3:/usr/X11/lib/X11/fonts/Resource:/usr/X11/lib/X11/Resource/Font
+
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 
