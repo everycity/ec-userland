@@ -1,0 +1,39 @@
+--- imagick-3.0.1/config.m4.orig	2011-09-05 16:12:59.183773198 +0100
++++ imagick-3.0.1/config.m4	2011-09-05 16:17:54.622061862 +0100
+@@ -1,9 +1,20 @@
++PHP_ARG_WITH(imagick-bits, whether to build 32bit or 64bit,
++[ --with-imagick-bits[=32,64]  Determines whether to build 32bit or 64bit extension.], 32)
++
+ PHP_ARG_WITH(imagick, whether to enable the imagick extension,
+ [ --with-imagick[=DIR]	Enables the imagick extension. DIR is the prefix to Imagemagick installation directory.], no)
+ 
+ PHP_ARG_WITH(imagick-gm, whether to enable the imagick GraphicsMagick backend,
+ [ --with-imagick-gm[=DIR]	GraphicsMagick backend. NO LONGER SUPPORTED!], no, no)
+ 
++if test $PHP_IMAGICK_BITS == "32"; then
++	WAND_BINDIR=bin
++elif test $PHP_IMAGICK_BITS == "64"; then
++	WAND_BINDIR=bin/amd64
++else
++	AC_MSG_ERROR(--with-imagick-bits must be set to 32 or 64, $PHP_IMAGICK_BITS not supported)
++fi
++
+ if test $PHP_IMAGICK_GM != "no"; then
+ 	AC_MSG_ERROR(GraphicsMagick backend is no longer supported)
+ fi
+@@ -14,13 +25,13 @@
+ 		
+   for i in $PHP_IMAGICK /usr/local /usr;
+   do
+-    test -r $i/bin/MagickWand-config && IMAGICK_AFTER_BWC_BREAK=true && WAND_BINARY=$i/bin/MagickWand-config && break
++    test -r $i/$WAND_BINDIR/MagickWand-config && IMAGICK_AFTER_BWC_BREAK=true && WAND_BINARY=$i/$WAND_BINDIR/MagickWand-config && break
+   done
+ 		
+ 	if test -z "$WAND_BINARY"; then
+     for i in $PHP_IMAGICK /usr/local /usr;
+     do
+-      test -r $i/bin/Wand-config && WAND_BINARY=$i/bin/Wand-config && break
++      test -r $i/$WAND_BINDIR/Wand-config && WAND_BINARY=$i/$WAND_BINDIR/Wand-config && break
+     done
+   fi
+ 		
