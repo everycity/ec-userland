@@ -1,0 +1,13 @@
+Index: ffmpeg-php/tests/persistentMovie.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/persistentMovie.phpt
++++ ffmpeg-php/tests/persistentMovie.phpt
+@@ -2,6 +2,8 @@
+ ffmpeg persistent movie test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded"); ?>
++--INI--
++ffmpeg.allow_persistent=1
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi', 1);

@@ -1,0 +1,391 @@
+Index: ffmpeg-php/tests/getAudioBitRate.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getAudioBitRate.phpt
++++ ffmpeg-php/tests/getAudioBitRate.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getAudioBitRate test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getAudioChannels.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getAudioChannels.phpt
++++ ffmpeg-php/tests/getAudioChannels.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getAudioChannels test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getAudioCodec.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getAudioCodec.phpt
++++ ffmpeg-php/tests/getAudioCodec.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getAudioCodec test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getAudioSampleRate.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getAudioSampleRate.phpt
++++ ffmpeg-php/tests/getAudioSampleRate.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getAudioSampleRate test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getAudioStreamId.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getAudioStreamId.phpt
++++ ffmpeg-php/tests/getAudioStreamId.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getAudioStreamId test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getBitRate.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getBitRate.phpt
++++ ffmpeg-php/tests/getBitRate.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getBitRate test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getDuration.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getDuration.phpt
++++ ffmpeg-php/tests/getDuration.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getDuration test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded\n"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getFileName.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getFileName.phpt
++++ ffmpeg-php/tests/getFileName.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getFileName test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getFrame.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getFrame.phpt
++++ ffmpeg-php/tests/getFrame.phpt
+@@ -6,6 +6,9 @@ extension_loaded('ffmpeg') or die("skip 
+ extension_loaded('gd') or die("skip gd extension not avaliable.\n");
+ function_exists("imagecreatetruecolor") or die("skip function imagecreatetruecolor unavailable");
+ ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $frame = 73;
+Index: ffmpeg-php/tests/getFrameCount.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getFrameCount.phpt
++++ ffmpeg-php/tests/getFrameCount.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getFrameCount test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded\n"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getFrameHeight.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getFrameHeight.phpt
++++ ffmpeg-php/tests/getFrameHeight.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getFrameHeight test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded\n"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getFrameNumber.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getFrameNumber.phpt
++++ ffmpeg-php/tests/getFrameNumber.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getFrameNumber test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded\n"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getFrameRate.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getFrameRate.phpt
++++ ffmpeg-php/tests/getFrameRate.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getFrameRate test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded\n"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getFrameWidth.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getFrameWidth.phpt
++++ ffmpeg-php/tests/getFrameWidth.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getFrameWidth test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded\n"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getFramesForward.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getFramesForward.phpt
++++ ffmpeg-php/tests/getFramesForward.phpt
+@@ -6,6 +6,9 @@ extension_loaded('ffmpeg') or die("skip 
+ extension_loaded('gd') or die("skip gd extension not avaliable.");
+ function_exists("imagecreatetruecolor") or die("skip function imagecreatetruecolor unavailable");
+ ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getFramesForwardPassedEnd.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getFramesForwardPassedEnd.phpt
++++ ffmpeg-php/tests/getFramesForwardPassedEnd.phpt
+@@ -6,6 +6,9 @@ extension_loaded('ffmpeg') or die("skip 
+ extension_loaded('gd') or die("skip gd extension not avaliable.");
+ function_exists("imagecreatetruecolor") or die("skip function imagecreatetruecolor unavailable");
+ ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getFramesNoArg.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getFramesNoArg.phpt
++++ ffmpeg-php/tests/getFramesNoArg.phpt
+@@ -6,6 +6,9 @@ extension_loaded('ffmpeg') or die("skip 
+ extension_loaded('gd') or die("skip gd extension not avaliable.");
+ function_exists("imagecreatetruecolor") or die("skip function imagecreatetruecolor unavailable");
+ ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getID3Info.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getID3Info.phpt
++++ ffmpeg-php/tests/getID3Info.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getID3Info() test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/16Hz-20kHz-Exp-1f-5sec.mp3');
+Index: ffmpeg-php/tests/getNextKeyFrame.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getNextKeyFrame.phpt
++++ ffmpeg-php/tests/getNextKeyFrame.phpt
+@@ -6,6 +6,9 @@ extension_loaded('ffmpeg') or die("skip 
+ extension_loaded('gd') or die("skip gd extension not avaliable.");
+ function_exists("imagecreatetruecolor") or die("skip function imagecreatetruecolor unavailable");
+ ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getPTS.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getPTS.phpt
++++ ffmpeg-php/tests/getPTS.phpt
+@@ -6,6 +6,9 @@ extension_loaded('ffmpeg') or die("skip 
+ extension_loaded('gd') or die("skip gd extension not avaliable.");
+ function_exists("imagecreatetruecolor") or die("skip function imagecreatetruecolor unavailable");
+ ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getPixelAspectRatio.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getPixelAspectRatio.phpt
++++ ffmpeg-php/tests/getPixelAspectRatio.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getPixelAspectRatio test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getPixelFormat.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getPixelFormat.phpt
++++ ffmpeg-php/tests/getPixelFormat.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getPixelFormat test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getVideoBitRate.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getVideoBitRate.phpt
++++ ffmpeg-php/tests/getVideoBitRate.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getVideoBitRate test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getVideoCodec.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getVideoCodec.phpt
++++ ffmpeg-php/tests/getVideoCodec.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getVideoCodec test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/getVideoStreamId.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/getVideoStreamId.phpt
++++ ffmpeg-php/tests/getVideoStreamId.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg getVideoStreamId test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/hasAudio.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/hasAudio.phpt
++++ ffmpeg-php/tests/hasAudio.phpt
+@@ -2,6 +2,9 @@
+ ffmpeg hasAudio test
+ --SKIPIF--
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded\n"); ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/isKeyFrame.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/isKeyFrame.phpt
++++ ffmpeg-php/tests/isKeyFrame.phpt
+@@ -6,6 +6,9 @@ extension_loaded('ffmpeg') or die("skip 
+ extension_loaded('gd') or die("skip gd extension not avaliable.");
+ function_exists("imagecreatetruecolor") or die("skip function imagecreatetruecolor unavailable");
+ ?>
++--INI--
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi');
+Index: ffmpeg-php/tests/persistentMovie.phpt
+===================================================================
+--- ffmpeg-php.orig/tests/persistentMovie.phpt
++++ ffmpeg-php/tests/persistentMovie.phpt
+@@ -4,6 +4,8 @@ ffmpeg persistent movie test
+ <?php extension_loaded('ffmpeg') or die("ffmpeg extension not loaded"); ?>
+ --INI--
+ ffmpeg.allow_persistent=1
++ffmpeg.show_warnings=1
++error_reporting = E_ALL & ~E_NOTICE
+ --FILE--
+ <?php
+ $mov = new ffmpeg_movie(dirname(__FILE__) . '/test_media/robot.avi', 1);

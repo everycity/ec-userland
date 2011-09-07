@@ -1,0 +1,32 @@
+--- ffmpeg-php-0.6.0/ffmpeg_tools.c	2011-01-05 19:24:41.776783607 +0200
++++ ffmpeg-php-0.6.0/ffmpeg_tools.c	2011-01-05 19:26:11.295776392 +0200
+@@ -61,7 +61,7 @@
+         return 2;
+     }
+ 
+-    sws_scale(sws_ctx, src->data, src->linesize, 0, src_height, dst->data, dst->linesize);
++    sws_scale(sws_ctx, (const uint8_t * const*)src->data, src->linesize, 0, src_height, dst->data, dst->linesize);
+     sws_freeContext(sws_ctx);
+ 
+     return 0;
+@@ -83,7 +83,7 @@
+         shiftedInput.linesize[0] = pxIn->linesize[0];
+         shiftedInput.linesize[1] = pxIn->linesize[1];
+         shiftedInput.linesize[2] = pxIn->linesize[2];
+-        sws_scale(context->context, (uint8_t**)shiftedInput.data, 
++        sws_scale(context->context, (const uint8_t * const*)shiftedInput.data, 
+                 (int*)shiftedInput.linesize, 0, context->height - context->bandBottom - 
+                 context->bandTop, pxOut->data, pxOut->linesize);
+     }
+--- ffmpeg-php-0.6.0/ffmpeg_movie.c~	2010-10-22 15:40:22.000000000 +0300
++++ ffmpeg-php-0.6.0/ffmpeg_movie.c	2010-10-22 15:40:23.647570108 +0300
+@@ -1212,8 +1212,7 @@
+     while (av_read_frame(ffmovie_ctx->fmt_ctx, &packet) >= 0) {
+         if (packet.stream_index == video_stream) {
+         
+-            avcodec_decode_video(decoder_ctx, frame, &got_frame,
+-                    packet.data, packet.size);
++            avcodec_decode_video2(decoder_ctx, frame, &got_frame, &packet);
+         
+             if (got_frame) {
+                 *is_keyframe = (packet.flags & PKT_FLAG_KEY);

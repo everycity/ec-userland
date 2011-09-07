@@ -1,0 +1,17 @@
+
+Do not make unsupported codec a php fatal error.
+
+PHP Fatal error:  Could not find decoder for movie.flv in ffmpeg-info.php on line 15
+
+Signed-off-by: Elan Ruusamäe <glen@delfi.ee>
+--- ffmpeg-php-0.6.0/ffmpeg_movie.c~	2008-10-14 01:46:53.000000000 +0300
++++ ffmpeg-php-0.6.0/ffmpeg_movie.c	2010-08-24 15:37:30.402235881 +0300
+@@ -501,7 +501,7 @@
+                     codec_id));
+ 
+         if (!decoder) {
+-            zend_error(E_ERROR, "Could not find decoder for %s", 
++            zend_error(E_WARNING, "Could not find decoder for %s", 
+                     _php_get_filename(ffmovie_ctx));
+             return NULL;
+         }
