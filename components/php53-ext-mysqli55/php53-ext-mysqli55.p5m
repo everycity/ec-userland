@@ -29,9 +29,8 @@ dir path=$(ECPREFIX)/etc/php/5.3/conf.d
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/php
 dir path=$(ECPREFIX)/lib/php/5.3
-dir path=$(ECPREFIX)/lib/php/5.3/lib
-dir path=$(ECPREFIX)/lib/php/5.3/lib/extensions
-dir path=$(ECPREFIX)/lib/php/5.3/lib/$(MACH64)/extensions
+dir path=$(ECPREFIX)/lib/php/5.3/extensions
+dir path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)
 file mysqli55.ini path=$(ECPREFIX)/etc/php/5.3/conf.d/mysqli55.ini preserve=true
 file $(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)/mysqli.so \
     path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)/mysqli55.so

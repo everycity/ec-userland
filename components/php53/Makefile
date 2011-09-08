@@ -23,11 +23,11 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	5.3.6
+COMPONENT_VERSION=	5.3.8
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha1:5ba7edcb5ea187687001c4ccdbb94ac48f77fa92
-COMPONENT_ARCHIVE_URL=	http://uk2.php.net/get/$(COMPONENT_ARCHIVE)/from/this/mirror
+COMPONENT_ARCHIVE_HASH=	sha1:0ad1bcbfed0142d1722ec203e26cb10ef524c704
+COMPONENT_ARCHIVE_URL=	http://uk3.php.net/get/$(COMPONENT_ARCHIVE)/from/this/mirror
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
@@ -42,11 +42,13 @@ PHP_PREFIX=$(ECPREFIX)/lib/php/5.3
 PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.3
 PHP_DATADIR=$(ECPREFIX)/var/php/5.3
 
+CFLAGS = -D_POSIX_PTHREAD_SEMANTICS
+
 # Configure Options
 
-CONFIGURE_OPTIONS      =	--prefix=$(PHP_PREFIX)
-CONFIGURE_OPTIONS.32  +=	--bindir=$(PHP_PREFIX)/bin
-CONFIGURE_OPTIONS.64  +=	--bindir=$(PHP_PREFIX)/bin/$(MACH64)
+CONFIGURE_OPTIONS	=	--prefix=$(PHP_PREFIX)
+CONFIGURE_OPTIONS.32	=	--bindir=$(PHP_PREFIX)/bin
+CONFIGURE_OPTIONS.64	=	--bindir=$(PHP_PREFIX)/bin/$(MACH64)
 CONFIGURE_OPTIONS.32  +=	--sbindir=$(PHP_PREFIX)/bin
 CONFIGURE_OPTIONS.64  +=	--sbindir=$(PHP_PREFIX)/bin/$(MACH64)
 CONFIGURE_OPTIONS.32  +=	--libdir=$(PHP_PREFIX)/lib
@@ -172,10 +174,11 @@ COMPONENT_PRE_INSTALL_ACTION+= \
 	)
 
 # Environment Variables
-COMPONENT_BUILD_ENV+=	"CC=$(CC)" "CXX=$(CCC)"
+COMPONENT_BUILD_ENV+=	"CC=$(CC)" "CXX=$(CCC)" "CFLAGS=$(CFLAGS)"
 CONFIGURE_ENV.32 +=     EXTENSION_DIR=$(PHP_PREFIX)/extensions
 CONFIGURE_ENV.64 +=     EXTENSION_DIR=$(PHP_PREFIX)/extensions/$(MACH64)
-CONFIGURE_ENV +=        "CC=$(CC)" "CXX=$(CCC)" $(CONFIGURE_ENV.$(BITS))
+CONFIGURE_ENV +=        "CC=$(CC)" "CXX=$(CCC)" "CFLAGS=$(CFLAGS)" $(CONFIGURE_ENV.$(BITS))
+
 
 build:		$(BUILD_32_and_64)
 

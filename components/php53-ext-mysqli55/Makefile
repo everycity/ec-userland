@@ -23,11 +23,11 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	5.3.6
+COMPONENT_VERSION=	5.3.8
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:9abcdea458c096c789504727e90706d7085e9755
-COMPONENT_ARCHIVE_URL=	http://uk2.php.net/get/$(COMPONENT_ARCHIVE)/from/this/mirror
+COMPONENT_ARCHIVE_HASH=	sha1:0ad1bcbfed0142d1722ec203e26cb10ef524c704
+COMPONENT_ARCHIVE_URL=	http://uk3.php.net/get/$(COMPONENT_ARCHIVE)/from/this/mirror
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
@@ -37,9 +37,9 @@ PHP_PREFIX=$(ECPREFIX)/lib/php/5.3
 PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.3
 PHP_DATADIR=$(ECPREFIX)/var/php/5.3
 
-CONFIGURE_OPTIONS      =	--prefix=$(PHP_PREFIX)
-CONFIGURE_OPTIONS.32  +=	--bindir=$(PHP_PREFIX)/bin
-CONFIGURE_OPTIONS.64  +=	--bindir=$(PHP_PREFIX)/bin/$(MACH64)
+CONFIGURE_OPTIONS	=	--prefix=$(PHP_PREFIX)
+CONFIGURE_OPTIONS.32	=	--bindir=$(PHP_PREFIX)/bin
+CONFIGURE_OPTIONS.64	=	--bindir=$(PHP_PREFIX)/bin/$(MACH64)
 CONFIGURE_OPTIONS.32  +=	--sbindir=$(PHP_PREFIX)/bin
 CONFIGURE_OPTIONS.64  +=	--sbindir=$(PHP_PREFIX)/bin/$(MACH64)
 CONFIGURE_OPTIONS.32  +=	--libdir=$(PHP_PREFIX)/lib
@@ -58,6 +58,18 @@ CONFIGURE_OPTIONS.32  +=	--with-mysqli=/ec/lib/mysql/5.5/bin/mysql_config
 CONFIGURE_OPTIONS.64  +=	--with-mysqli=/ec/lib/mysql/5.5/bin/amd64/mysql_config
 
 CONFIGURE_OPTIONS     +=	$(CONFIGURE_OPTIONS.$(BITS))
+
+CFLAGS			=	-D_POSIX_PTHREAD_SEMANTICS
+CFLAGS.32		=	-I/ec/lib/mysql/5.5/include
+CFLAGS.64		=	-I/ec/lib/mysql/5.5/include/$(MACH64)
+CPPFLAGS.32		+=	-I/ec/lib/mysql/5.5/include
+CPPFLAGS.64		+=	-I/ec/lib/mysql/5.5/include/$(MACH64)
+LDFLAGS.32		+=	-L/ec/lib/mysql/5.5/lib -R/ec/lib/mysql/5.5/lib
+LDFLAGS.64		+=	-L/ec/lib/mysql/5.5/lib/$(MACH64) -R/ec/lib/mysql/5.5/lib/$(MACH64)
+
+CFLAGS			+=	$(CFLAGS.$(BITS))
+CPPFLAGS		+=	$(CPPFLAGS.$(BITS))
+LDFLAGS			+=	$(LDFLAGS.$(BITS))
 
 CONFIGURE_ENV         +=	CC="$(CC)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
 CONFIGURE_SCRIPT       =	$(@D)/configure

@@ -194,6 +194,7 @@ file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/standard/crc32.h
 file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/standard/credits.h
 file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/standard/credits_ext.h
 file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/standard/credits_sapi.h
+file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/standard/crypt_blowfish.h
 file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/standard/crypt_freesec.h
 file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/standard/css.h
 file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/standard/cyr_convert.h
