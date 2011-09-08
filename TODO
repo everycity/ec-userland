@@ -4,5 +4,5 @@
 2011-07-06, Alasdair Lumsden	: Set all config files not be read only mode (search for preserve=true and amend mode=)
 2011-08-08, Alasdair Lumsden	: PHP - Consider un-sharing common libraries (eg xml ones) so performance is acceptable
 2011-08-08, Alasdair Lumsden	: Finish mtr & logrotate
-2011-08-22			: Update Apache to 2.2.19, apr to 1.4.5, apr-util to 1.3.12 and revert download URLs to non-archive versions
+2011-08-22			: Update apr to 1.4.5, apr-util to 1.3.12 and revert download URLs to non-archive versions
 2011-08-22			: Update isc-bind to 9.8.0-P4, libpng to 1.5.4 and live555 to latest
