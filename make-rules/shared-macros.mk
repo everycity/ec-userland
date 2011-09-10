@@ -187,7 +187,10 @@ lint.64 =	$(SPRO_VROOT)/bin/lint -m64
 
 LINT =		$(lint.$(BITS))
 
-LD =		/usr/ccs/bin/ld
+LD.32 =		/usr/ccs/bin/ld
+LD.64 =		/usr/ccs/bin/ld -64
+
+LD =		$(LD.$(BITS))
 
 PYTHON_VENDOR_PACKAGES.32 = /usr/lib/python$(PYTHON_VERSION)/vendor-packages
 PYTHON_VENDOR_PACKAGES.64 = /usr/lib/python$(PYTHON_VERSION)/vendor-packages/64
