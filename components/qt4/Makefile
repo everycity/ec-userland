@@ -51,6 +51,8 @@ CONFIGURE_OPTIONS+=	-nomake demos
 CONFIGURE_OPTIONS+=	-nomake translations
 CONFIGURE_OPTIONS+=	-nomake docs
 CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))
+CONFIGURE_OPTIONS+=	-plugin-sql-sqlite
+CONFIGURE_OPTIONS+=	-system-sqlite
 
 build:		$(BUILD_32_and_64)
 
