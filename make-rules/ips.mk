@@ -196,4 +196,4 @@ required-pkgs.mk:	Makefile
 pre-prep:	required-pkgs.mk
 
 
-CLEAN_PATHS +=	required-pkgs.mk
+CLEAN_PATHS +=	required-pkgs.mk manifest-i386-generated.p5m
