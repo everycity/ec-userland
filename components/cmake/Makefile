@@ -21,11 +21,12 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:6c42699bd63fdfcc7743d4906e3208d051d7f19b
 COMPONENT_ARCHIVE_URL=	http://www.cmake.org/files/v2.8/$(COMPONENT_ARCHIVE)
 
-CONFIGURE_OPTIONS  += --docdir=/share/doc/cmake-2.8
-
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+CONFIGURE_OPTIONS +=	--docdir=/share/doc/cmake-2.8
+CONFIGURE_OPTIONS +=	--mandir=/share/man
 
 build:		$(BUILD_32)
 
