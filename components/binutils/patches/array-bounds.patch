@@ -1,0 +1,12 @@
+--- binutils-2.20.1/binutils/readelf.c.orig	2011-09-14 12:29:56.022166405 +0100
++++ binutils-2.20.1/binutils/readelf.c	2011-09-14 12:31:58.490527256 +0100
+@@ -11197,7 +11197,8 @@
+ 
+   /* We have a normal (short) name.  */
+   j = 0;
+-  while ((arch->arhdr.ar_name[j] != '/') && (j < 16))
++  while ((arch->arhdr.ar_name[j] != '/')
++	&& (j < sizeof (arch->arhdr.ar_name) -1))
+     j++;
+   arch->arhdr.ar_name[j] = '\0';
+   return arch->arhdr.ar_name;
