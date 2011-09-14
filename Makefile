@@ -29,6 +29,7 @@ download:	TARGET = download
 prep:		TARGET = prep
 build:		TARGET = build
 install:	TARGET = install
+sample-manifest:	TARGET = sample-manifest
 publish:	TARGET = publish
 validate:	TARGET = validate
 clean:		TARGET = clean
@@ -38,8 +39,8 @@ test:		TARGET = test
 
 .DEFAULT:	publish
 
-download setup prep build install publish validate clean clobber \
-test: $(SUBDIRS)
+download setup prep build install sample-manifest publish validate clean \
+clobber test: $(SUBDIRS)
 
 $(SUBDIRS):	FORCE
 	+echo "$(TARGET) $@" ; $(GMAKE) -C $@ $(TARGET)
