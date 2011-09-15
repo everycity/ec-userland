@@ -21,7 +21,6 @@ set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license cabextract.license license="GPLv3"
 
-
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/share
@@ -29,4 +28,3 @@ dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 file path=$(ECPREFIX)/bin/cabextract
 file path=$(ECPREFIX)/share/man/man1/cabextract.1
-
