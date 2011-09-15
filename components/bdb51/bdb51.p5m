@@ -60,19 +60,23 @@ dir path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat
 dir path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/bind
 dir \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/bind/class-use
-dir path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/bind/serial
+dir \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/bind/serial
 dir \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/bind/serial/class-use
-dir path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/bind/tuple
+dir \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/bind/tuple
 dir \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/bind/tuple/class-use
-dir path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/collections
+dir \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/collections
 dir \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/collections/class-use
 dir path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/db
 dir \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/db/class-use
-dir path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/persist
+dir \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/persist
 dir \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/persist/class-use
 dir \
@@ -83,7 +87,8 @@ dir \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/persist/model
 dir \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/persist/model/class-use
-dir path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/persist/raw
+dir \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/persist/raw
 dir \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/persist/raw/class-use
 dir path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/util
@@ -154,14 +159,16 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/apiReference.css
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/configuration_reference.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db_archive.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db_checkpoint.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db_deadlock.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db_dump.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db_dump.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db_env_set_func_close.html
 file \
@@ -206,7 +213,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db_env_set_func_yield.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db_hotbackup.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db_load.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db_load.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db_log_verify.html
 file \
@@ -217,7 +225,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db_replicate.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db_sql_codegen.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db_stat.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db_stat.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/db_upgrade.html
 file \
@@ -226,28 +235,44 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbassociate.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbassociate_foreign.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbc.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbcclose.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbccmp.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbccount.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbcdel.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbcdup.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbcget.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbc.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbcclose.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbccmp.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbccount.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbcdel.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbcdup.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbcget.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbcget_priority.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbclose.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbclose.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbcompact.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbcput.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbcreate.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbcput.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbcreate.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbcset_priority.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbcursor.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbdel.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dberr.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbexists.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbfd.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbget.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbcursor.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbdel.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dberr.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbexists.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbfd.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbget.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbget_bt_minkey.html
 file \
@@ -304,15 +329,22 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbget_transactional.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbget_type.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbgetenv.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbjoin.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbgetenv.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbjoin.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbkey_range.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbm.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbopen.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbput.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbremove.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbrename.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbm.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbopen.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbput.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbremove.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbrename.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbset_alloc.html
 file \
@@ -375,30 +407,38 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbset_re_pad.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbset_re_source.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbsql.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbstat.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbsql.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbstat.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbstat_print.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbsync.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbt.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbsync.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbt.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbtruncate.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbupgrade.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbverify.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/env.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/dbverify.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/env.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envadd_data_dir.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envcdsgroup_begin.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envclose.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envclose.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envcreate.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envdbremove.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envdbrename.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/enverr.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/enverr.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envevent_notify.html
 file \
@@ -485,7 +525,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envlog_verify.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envlsn_reset.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envopen.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envopen.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envremove.html
 file \
@@ -570,7 +611,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envset_tx_timestamp.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envset_verbose.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envstat.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envstat.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/envstrerror.html
 file \
@@ -581,50 +623,68 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/frame_index.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/frame_main.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/historic.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/hsearch.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/index.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/historic.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/hsearch.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/index.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/introduction.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/lock.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/lock.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/lockdetect.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/lockget.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/lockid.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/lockget.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/lockid.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/lockid_free.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/lockput.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/lockstat.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/lockput.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/lockstat.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/lockstat_print.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/lockvec.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/lockvec.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/log_set_config_parameter.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logarchive.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logc.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logc.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logcclose.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logcget.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logcget.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logcompare.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logcursor.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logfile.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logflush.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logfile.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logflush.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logprintf.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logput.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logstat.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logput.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logstat.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/logstat_print.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/lsn.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/memp.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/lsn.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/memp.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mempfclose.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mempfcreate.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mempfget.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mempfget.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mempfopen.html
 file \
@@ -649,7 +709,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mempget_pgcookie.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mempget_priority.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mempput.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mempput.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mempregister.html
 file \
@@ -672,14 +733,18 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mempset_pgcookie.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mempset_priority.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mempstat.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mempstat.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mempstat_print.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mempsync.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mempsync.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/memptrickle.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/moreinfo.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mutex.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/moreinfo.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mutex.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mutex_set_align_parameter.html
 file \
@@ -716,8 +781,10 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mutexstat_print.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/mutexunlock.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/preface.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/rep.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/preface.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/rep.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/rep_set_clockskew_parameter.html
 file \
@@ -736,7 +803,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/repclockskew.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/repconfig.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/repelect.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/repelect.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/repget_clockskew.html
 file \
@@ -787,18 +855,24 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/repset_request.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/repset_timeout.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/repstart.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/repstat.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/repstart.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/repstat.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/repstat_print.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/repsync.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/repsync.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/reptransport.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seq.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seqclose.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seq.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seqclose.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seqcreate.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seqget.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seqget.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seqget_cachesize.html
 file \
@@ -811,7 +885,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seqget_range.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seqinitial_value.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seqopen.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seqopen.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seqremove.html
 file \
@@ -820,7 +895,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seqset_flags.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seqset_range.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seqstat.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seqstat.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/seqstat_print.html
 file \
@@ -873,11 +949,16 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/set_tx_max_parameter.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/set_verbose_parameter.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/setfunc.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/sqlite3.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/txn.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/txnabort.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/txnbegin.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/setfunc.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/sqlite3.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/txn.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/txnabort.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/txnbegin.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/txncheckpoint.html
 file \
@@ -888,7 +969,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/txnget_name.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/txnget_priority.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/txnid.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/txnid.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/txnprepare.html
 file \
@@ -901,7 +983,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/txnset_priority.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/txnset_timeout.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/txnstat.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/txnstat.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/txnstat_print.html
 file \
@@ -912,7 +995,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/apiReference.css
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/configuration_reference.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/db.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/db.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/db_archive.html
 file \
@@ -945,22 +1029,28 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbassociate.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbassociate_foreign.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbc.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbc.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbcclose.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbccmp.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbccmp.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbccount.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbcdel.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbcdup.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbcget.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbcdel.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbcdup.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbcget.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbcget_priority.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbclose.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbcompact.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbcput.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbcput.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbcreate.html
 file \
@@ -969,14 +1059,18 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbcursor.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbdeadlock.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbdel.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dberr.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbdel.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dberr.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbexception.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbexists.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbfd.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbget.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbfd.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbget.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbget_bt_minkey.html
 file \
@@ -1035,7 +1129,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbget_type.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbgetenv.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbjoin.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbjoin.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbkey_range.html
 file \
@@ -1058,8 +1153,10 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbmultiplerecnodatabuilder.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbmultiplerecnodataiterator.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbopen.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbput.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbopen.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbput.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbremove.html
 file \
@@ -1134,19 +1231,24 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbset_re_pad.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbset_re_source.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbsql.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbstat.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbsql.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbstat.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbstat_print.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbsync.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbt.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbsync.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbt.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbtruncate.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbupgrade.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/dbverify.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/env.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/env.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/envadd_data_dir.html
 file \
@@ -1159,7 +1261,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/envdbremove.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/envdbrename.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/enverr.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/enverr.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/envevent_notify.html
 file \
@@ -1348,15 +1451,18 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/frame_index.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/frame_main.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/index.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/index.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/introduction.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/lock.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/lock.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/lockdetect.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/lockget.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/lockid.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/lockid.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/lockid_free.html
 file \
@@ -1371,7 +1477,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/log_set_config_parameter.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/logarchive.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/logc.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/logc.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/logcclose.html
 file \
@@ -1386,13 +1493,16 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/logflush.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/logprintf.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/logput.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/logput.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/logstat.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/logstat_print.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/lsn.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/memp.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/lsn.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/memp.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/mempfclose.html
 file \
@@ -1457,7 +1567,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/memptrickle.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/moreinfo.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/mutex.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/mutex.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/mutex_set_align_parameter.html
 file \
@@ -1496,7 +1607,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/mutexunlock.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/preface.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/rep.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/rep.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/rep_set_clockskew_parameter.html
 file \
@@ -1577,12 +1689,14 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/repsync.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/reptransport.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/seq.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/seq.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/seqclose.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/seqcreate.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/seqget.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/seqget.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/seqget_cachesize.html
 file \
@@ -1661,7 +1775,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/set_verbose_parameter.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/sqlite3.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/txn.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/txn.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/txnabort.html
 file \
@@ -1676,7 +1791,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/txnget_name.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/txnget_priority.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/txnid.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/txnid.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/CXX/txnprepare.html
 file \
@@ -1739,7 +1855,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/STL/db_base_iterator.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/STL/db_container.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/STL/db_map.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/STL/db_map.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/STL/db_map_base_iterator.html
 file \
@@ -1752,7 +1869,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/STL/db_multiset.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/STL/db_reverse_iterator.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/STL/db_set.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/STL/db_set.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/STL/db_set_base_iterator.html
 file \
@@ -1779,7 +1897,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/STL/frame_index.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/STL/frame_main.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/STL/index.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/STL/index.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/STL/moreinfo.html
 file \
@@ -2350,8 +2469,10 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/db_count.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/db_cursor.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/db_del.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/db_get.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/db_del.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/db_get.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/db_get_join.html
 file \
@@ -2362,7 +2483,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/db_join.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/db_open.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/db_put.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/db_put.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/db_remove.html
 file \
@@ -2399,11 +2521,14 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/frame_index.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/frame_main.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/index.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/index.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/preface.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/tclapi.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/txn.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/tclapi.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/txn.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/api_reference/TCL/txn_abort.html
 file \
@@ -2418,35 +2543,54 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/articles/inmemory/C/gettingStarted.css
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/articles/inmemory/C/index.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/BDB-SQL-Guide.pdf
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/addedpragmas.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/admin-locking.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/admin-logfile.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/BDB-SQL-Guide.pdf
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/addedpragmas.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/admin-locking.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/admin-logfile.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/admin.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/bdb-concepts.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/buildinstall.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/changedpragmas.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/configcache.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/configpage.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/bdb-concepts.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/buildinstall.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/changedpragmas.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/configcache.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/configpage.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/configure.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/datamigration.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/dbfilesize.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/dbsql_replicate.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/dbsqlbasics.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/gettingStarted.css
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/datamigration.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/dbfilesize.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/dbsql_replicate.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/dbsqlbasics.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/gettingStarted.css
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/index.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/journaldirectory.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/lockhandling.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/lockingnotes.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/journaldirectory.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/lockhandling.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/lockingnotes.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/miscdiff.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/moreinfo.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/preface.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/recover.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/sql_encryption.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/sql_encryption.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/sync.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/unsupportedpragmas.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/using_dbconfig.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/bdb-sql/using_dbconfig.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/collections/tutorial/BasicProgram.html
 file \
@@ -2527,91 +2671,128 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/collections/tutorial/usingtransactions.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/BerkeleyDB-Core-C-GSG.pdf
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/CoreCursorUsage.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/CoreCursorUsage.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/CoreDBAdmin.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/CoreDbUsage.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/CoreEnvUsage.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/CoreEnvUsage.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/Cursors.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/DBEntry.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/DBOpenFlags.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/DbUsage.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/DeleteEntryWCursor.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/DeleteEntryWCursor.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/Positioning.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/PutEntryWCursor.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/PutEntryWCursor.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/ReplacingEntryWCursor.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/accessmethods.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/accessmethods.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/btree.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/cachesize.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/concepts.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/coredbclose.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/coreindexusage.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/coreindexusage.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/cstructs.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/databaseLimits.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/databaseLimits.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/databases.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/dbErrorReporting.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/dbErrorReporting.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/dbconfig.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/environments.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/gettingStarted.css
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/environments.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/gettingStarted.css
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/gettingit.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/index.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/indexes.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/introduction.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/introduction.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/joins.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/keyCreator.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/moreinfo.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/preface.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/readSecondary.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/readSecondary.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/returns.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/secondaryCursor.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/secondaryDelete.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/secondaryCursor.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/secondaryDelete.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/C/usingDbt.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/BerkeleyDB-Core-Cxx-GSG.pdf
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/CoreCursorUsage.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/CoreDBAdmin.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/CoreDbCXXUsage.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/CoreEnvUsage.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/CoreCursorUsage.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/CoreDBAdmin.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/CoreDbCXXUsage.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/CoreEnvUsage.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/Cursors.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/DBEntry.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/DBOpenFlags.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/DbCXXUsage.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/DBOpenFlags.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/DbCXXUsage.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/DeleteEntryWCursor.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/Positioning.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/PutEntryWCursor.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/Positioning.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/PutEntryWCursor.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/ReplacingEntryWCursor.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/accessmethods.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/accessmethods.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/btree.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/cachesize.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/concepts.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/coreExceptions.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/coredbclose.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/coreindexusage.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/databaseLimits.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/coreExceptions.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/coredbclose.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/coreindexusage.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/databaseLimits.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/databases.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/dbErrorReporting.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/dbErrorReporting.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/dbconfig.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/environments.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/gettingStarted.css
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/environments.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/gettingStarted.css
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/gettingit.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/index.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/indexes.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/introduction.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/introduction.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/joins.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/keyCreator.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/keyCreator.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/moreinfo.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/preface.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/readSecondary.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/readSecondary.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/returns.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/secondaryCursor.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/secondaryDelete.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/secondaryCursor.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/secondaryDelete.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/CXX/usingDbt.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/BerkeleyDB-Core-JAVA-GSG.pdf
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/CoreEnvUsage.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/CoreJavaUsage.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/CoreEnvUsage.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/CoreJavaUsage.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/Cursors.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/DBAdmin.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/DBEntry.html
@@ -2620,73 +2801,112 @@ file \
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/Env.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/EnvClose.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/EnvProps.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/Positioning.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/PutEntryWCursor.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/Positioning.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/PutEntryWCursor.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/ReplacingEntryWCursor.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/accessmethods.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/accessmethods.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/baseapi.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/bindAPI.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/btree.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/cachesize.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/coreExceptions.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/coredbclose.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/cursorJavaUsage.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/cachesize.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/coreExceptions.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/coredbclose.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/cursorJavaUsage.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dataaccessorclass.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/databaseLimits.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/databases.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/databaseLimits.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/databases.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dbErrorReporting.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dbconfig.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dbprops.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dbtJavaUsage.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dbtJavaUsage.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dpl.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dpl_delete.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dpl_entityjoin.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dpl_example.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dpl_delete.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dpl_entityjoin.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dpl_example.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dpl_exampledatabaseput.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dpl_exampleinventoryread.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dpl_replace.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dplindexcreate.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/getmultiple.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/gettingStarted.css
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/gettingit.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dpl_replace.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/dplindexcreate.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/getmultiple.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/gettingStarted.css
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/gettingit.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/index.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/indexes.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/introduction.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/inventoryclass.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/javadplconcepts.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/javaindexusage.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/introduction.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/inventoryclass.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/javadplconcepts.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/javaindexusage.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/joins.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/keyCreator.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/keyCreator.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/moreinfo.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/mydbenv-persist.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/persist_access.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/persist_first.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/persist_index.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/persistobject.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/mydbenv-persist.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/persist_access.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/persist_first.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/persist_index.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/persistobject.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/preface.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/readSecondary.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/readSecondary.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/returns.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/saveret.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/secondaryCursor.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/secondaryDelete.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/secondaryProps.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/secondaryCursor.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/secondaryDelete.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/secondaryProps.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/simpleda.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/simpleget.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/simpleput.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/simpleget.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/simpleput.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg/JAVA/usingDbt.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/Replication-C-GSG.pdf
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/addfeatures.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/apioverview.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/autoinit.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/addfeatures.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/apioverview.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/autoinit.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/bulk.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/c2ctransfer.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/elections.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/c2ctransfer.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/elections.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/electiontimes.html
 file \
@@ -2699,37 +2919,47 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/fwrkpermmessage.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/gettingStarted.css
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/heartbeats.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/index.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/heartbeats.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/index.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/introduction.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/manageblock.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/moreinfo.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/manageblock.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/moreinfo.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/permmessages.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/preface.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/preface.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/processingloop.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/repadvantage.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/repapp.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/repapp.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/repmgr_init_example_c.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/rywc.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/simpleprogramlisting.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/txnapp.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/C/txnapp.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/Replication-CXX-GSG.pdf
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/addfeatures.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/apioverview.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/autoinit.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/bulk.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/autoinit.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/bulk.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/c2ctransfer.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/elections.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/elections.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/electiontimes.html
 file \
@@ -2744,34 +2974,42 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/gettingStarted.css
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/heartbeats.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/index.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/index.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/introduction.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/manageblock.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/moreinfo.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/moreinfo.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/permmessages.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/preface.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/preface.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/processingloop.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/repadvantage.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/repapp.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/repapp.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/repmgr_init_example_c.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/rywc.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/rywc.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/simpleprogramlisting.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/txnapp.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/CXX/txnapp.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/Replication-JAVA-GSG.pdf
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/addfeatures.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/apioverview.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/autoinit.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/bulk.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/autoinit.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/bulk.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/c2ctransfer.html
 file \
@@ -2790,207 +3028,298 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/gettingStarted.css
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/heartbeats.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/index.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/index.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/introduction.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/manageblock.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/moreinfo.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/moreinfo.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/permmessages.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/preface.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/preface.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/processingloop.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/repadvantage.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/repapp.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/repapp.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/repmgr_init_example_c.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/rywc.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/rywc.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/simpleprogramlisting.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/txnapp.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_db_rep/JAVA/txnapp.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/BerkeleyDB-Core-C-Txn.pdf
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/abortresults.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/abortresults.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/apireq.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/architectrecovery.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/autocommit.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/backuprestore.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/autocommit.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/backuprestore.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/blocking_deadlocks.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/deadlock.jpg
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/enabletxn.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/enabletxn.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/envopen.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/filemanagement.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/gettingStarted.css
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/hotfailover.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/filemanagement.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/gettingStarted.css
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/hotfailover.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/index.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/inmem_txnexample_c.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/introduction.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/isolation.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/introduction.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/isolation.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/lockingsubsystem.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/logconfig.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/logfileremoval.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/logconfig.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/logfileremoval.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/maxtxns.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/moreinfo.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/moreinfo.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/multithread-intro.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/nestedtxn.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/nodurabletxn.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/perftune-intro.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/nestedtxn.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/nodurabletxn.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/perftune-intro.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/preface.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/readblock.jpg
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/readblock.jpg
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/readmodifywrite.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/recovery-intro.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/recovery.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/reversesplit.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/recovery-intro.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/recovery.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/reversesplit.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/rwlocks1.jpg
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/simplelock.jpg
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/sysfailure.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/txn_ccursor.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/txnconcurrency.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/txncursor.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/txnexample_c.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/txnindices.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/txnnowait.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/usingtxns.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/simplelock.jpg
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/sysfailure.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/txn_ccursor.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/txnconcurrency.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/txncursor.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/txnexample_c.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/txnindices.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/txnnowait.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/usingtxns.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/wrapup.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/writeblock.jpg
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/C/writeblock.jpg
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/BerkeleyDB-Core-Cxx-Txn.pdf
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/abortresults.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/apireq.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/abortresults.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/apireq.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/architectrecovery.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/autocommit.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/autocommit.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/backuprestore.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/blocking_deadlocks.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/deadlock.jpg
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/enabletxn.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/envopen.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/deadlock.jpg
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/enabletxn.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/envopen.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/filemanagement.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/gettingStarted.css
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/hotfailover.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/hotfailover.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/index.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/inmem_txnexample_c.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/introduction.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/isolation.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/introduction.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/isolation.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/lockingsubsystem.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/logconfig.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/logconfig.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/logfileremoval.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/maxtxns.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/moreinfo.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/maxtxns.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/moreinfo.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/multithread-intro.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/nestedtxn.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/nodurabletxn.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/nestedtxn.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/nodurabletxn.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/perftune-intro.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/preface.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/readblock.jpg
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/preface.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/readblock.jpg
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/readmodifywrite.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/recovery-intro.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/recovery.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/reversesplit.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/rwlocks1.jpg
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/simplelock.jpg
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/sysfailure.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/txn_ccursor.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/recovery.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/reversesplit.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/rwlocks1.jpg
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/simplelock.jpg
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/sysfailure.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/txn_ccursor.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/txnconcurrency.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/txncursor.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/txnexample_c.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/txnindices.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/txnnowait.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/usingtxns.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/wrapup.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/writeblock.jpg
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/txncursor.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/txnexample_c.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/txnindices.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/txnnowait.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/usingtxns.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/wrapup.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/CXX/writeblock.jpg
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/BerkeleyDB-Core-JAVA-Txn.pdf
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/abortresults.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/apireq.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/apireq.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/architectrecovery.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/autocommit.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/autocommit.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/backuprestore.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/blocking_deadlocks.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/deadlock.jpg
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/enabletxn.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/envopen.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/deadlock.jpg
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/enabletxn.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/envopen.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/filemanagement.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/gettingStarted.css
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/hotfailover.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/index.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/hotfailover.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/index.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/inmem_txnexample_java.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/introduction.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/isolation.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/isolation.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/lockingsubsystem.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/logconfig.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/logconfig.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/logfileremoval.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/maxtxns.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/moreinfo.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/maxtxns.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/moreinfo.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/multithread-intro.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/nestedtxn.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/nestedtxn.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/nodurabletxn.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/perftune-intro.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/preface.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/readblock.jpg
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/preface.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/readblock.jpg
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/readmodifywrite.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/recovery-intro.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/recovery.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/recovery.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/reversesplit.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/rwlocks1.jpg
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/simplelock.jpg
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/sysfailure.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/txn_ccursor.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/rwlocks1.jpg
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/simplelock.jpg
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/sysfailure.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/txn_ccursor.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/txnconcurrency.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/txncursor.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/txncursor.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/txnexample_dpl.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/txnexample_java.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/txnindices.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/txnnowait.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/usingtxns.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/wrapup.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/writeblock.jpg
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/txnindices.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/txnnowait.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/usingtxns.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/wrapup.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/gsg_txn/JAVA/writeblock.jpg
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/index.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/BDB_Installation.pdf
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/arch_bigpic.gif
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/arch_bigpic.gif
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/arch_smallpic.gif
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/build_unix.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/build_unix.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/build_unix_aix.html
 file \
@@ -3047,7 +3376,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/build_vxworks_intro6x.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/build_vxworks_notes.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/build_win.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/build_win.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/build_win_csharp.html
 file \
@@ -3064,7 +3394,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/build_win_tcl.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/build_win_test.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/build_wince.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/build_wince.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/build_wince_faq.html
 file \
@@ -3075,7 +3406,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/changelog_5_0.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/changelog_5_1.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/debug.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/debug.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/debug_compile.html
 file \
@@ -3084,16 +3416,21 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/debug_runtime.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/gettingStarted.css
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/index.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/install.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/index.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/install.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/install_multiple.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/introduction.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/moreinfo.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/preface.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/moreinfo.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/preface.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/test.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/test_faq.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/test_faq.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/upgrade_11gr2_51_dpl_recompile.html
 file \
@@ -3124,7 +3461,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/upgrade_4_8_toc.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/upgrade_51_toc.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/win_build64.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/win_build64.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/win_build_cxx.html
 file \
@@ -3133,8 +3471,10 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/win_build_dist_dll.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/installation/win_build_stl.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/allclasses-frame.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/allclasses-noframe.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/allclasses-frame.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/allclasses-noframe.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/bind/ByteArrayBinding.html
 file \
@@ -4099,40 +4439,57 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/util/package-tree.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/com/sleepycat/util/package-use.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/constant-values.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/deprecated-list.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/constant-values.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/deprecated-list.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/help-doc.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/index-all.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/index.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/overview-frame.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/overview-summary.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/overview-tree.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/overview-frame.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/overview-summary.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/overview-tree.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/package-list
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/resources/inherit.gif
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/serialized-form.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/resources/inherit.gif
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/serialized-form.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/java/style.css
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/license/license_db.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/BDB-Porting-Guide.pdf
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/license/license_db.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/BDB-Porting-Guide.pdf
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/audience.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/buildtarget.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/buildtarget.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/certport.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/gettingStarted.css
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/gettingStarted.css
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/index.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/introduction.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/introduction.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/layout.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/modifytest.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/modifytest.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/modscope.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/moreinfo.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/newbinary.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/portprocess.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/portprocess.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/preface.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/sourceintegrate.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/sourceintegrate.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/testport.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/testreview.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/testreview.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/porting/testrun.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/BDB_Prog_Reference.pdf
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/am.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/am.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/am_close.html
 file \
@@ -4217,7 +4574,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/bdb_usenix.pdf
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/bt_conf.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/cam.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/cam.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/cam_app.html
 file \
@@ -4232,7 +4590,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/dumpload_text.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/embedded.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/env.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/env.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/env_create.html
 file \
@@ -4253,7 +4612,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/env_remote.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/env_security.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/ext.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/ext.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/ext_perl.html
 file \
@@ -4322,7 +4682,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/lock_timeout.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/lock_twopl.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/log.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/log.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/log_config.html
 file \
@@ -4335,7 +4696,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/magic.txt
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/moreinfo.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/mp.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/mp.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/mp_config.html
 file \
@@ -4368,7 +4730,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/program_scope.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/refs.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/rep.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/rep.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/rep_app.html
 file \
@@ -4423,7 +4786,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/sequence.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/solaris.txt
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/stl.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/stl.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/stl_complex_rw.html
 file \
@@ -4452,7 +4816,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/stl_txn_usage.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/stl_usecase.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/tcl.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/tcl.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/tcl_error.html
 file \
@@ -4515,7 +4880,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/transapp_tune.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/transapp_why.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/txn.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/txn.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/txn_config.html
 file \
@@ -4524,7 +4890,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/witold.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/programmer_reference/writetest.cs
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/BDB_Upgrading.pdf
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/BDB_Upgrading.pdf
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/changelog_4_0_14.html
 file \
@@ -4541,12 +4908,17 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/changelog_4_4_20.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/changelog_4_5_20.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/changelog_4_6.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/changelog_4_7.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/gettingStarted.css
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/changelog_4_6.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/changelog_4_7.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/gettingStarted.css
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/index.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/introduction.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/moreinfo.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/introduction.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/moreinfo.html
 file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/preface.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/upgrade_2_0_convert.html
@@ -4560,7 +4932,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/upgrade_3_0_close.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/upgrade_3_0_cxx.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/upgrade_3_0_db.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/upgrade_3_0_db.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/upgrade_3_0_db_cxx.html
 file \
@@ -4615,7 +4988,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/upgrade_3_0_txn_stat.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/upgrade_3_0_value_set.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/upgrade_3_0_xa.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/upgrade_3_0_xa.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/upgrade_3_1_btstat.html
 file \
@@ -4712,7 +5086,8 @@ file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/upgrade_4_0_lock_id_free.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/upgrade_4_0_log.html
-file path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/upgrade_4_0_mp.html
+file \
+    path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/upgrade_4_0_mp.html
 file \
     path=$(ECPREFIX)/share/doc/db-$(COMPONENT_VERSION)/upgrading/upgrade_4_0_rpc.html
 file \
