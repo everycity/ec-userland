@@ -1,0 +1,98 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/library/giflib@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="giflib is a library for reading and writing gif images."
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://sourceforge.net/projects/giflib/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license giflib.license license="BSD Style"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+file path=$(ECPREFIX)/bin/$(MACH64)/gif2epsn
+file path=$(ECPREFIX)/bin/$(MACH64)/gif2ps
+file path=$(ECPREFIX)/bin/$(MACH64)/gif2rgb
+file path=$(ECPREFIX)/bin/$(MACH64)/gif2x11
+file path=$(ECPREFIX)/bin/$(MACH64)/gifasm
+file path=$(ECPREFIX)/bin/$(MACH64)/gifbg
+file path=$(ECPREFIX)/bin/$(MACH64)/gifburst
+file path=$(ECPREFIX)/bin/$(MACH64)/gifclip
+file path=$(ECPREFIX)/bin/$(MACH64)/gifclrmp
+file path=$(ECPREFIX)/bin/$(MACH64)/gifcolor
+file path=$(ECPREFIX)/bin/$(MACH64)/gifcomb
+file path=$(ECPREFIX)/bin/$(MACH64)/gifcompose
+file path=$(ECPREFIX)/bin/$(MACH64)/giffiltr
+file path=$(ECPREFIX)/bin/$(MACH64)/giffix
+file path=$(ECPREFIX)/bin/$(MACH64)/gifflip
+file path=$(ECPREFIX)/bin/$(MACH64)/gifhisto
+file path=$(ECPREFIX)/bin/$(MACH64)/gifinfo
+file path=$(ECPREFIX)/bin/$(MACH64)/gifinter
+file path=$(ECPREFIX)/bin/$(MACH64)/gifinto
+file path=$(ECPREFIX)/bin/$(MACH64)/gifovly
+file path=$(ECPREFIX)/bin/$(MACH64)/gifpos
+file path=$(ECPREFIX)/bin/$(MACH64)/gifrotat
+file path=$(ECPREFIX)/bin/$(MACH64)/gifrsize
+file path=$(ECPREFIX)/bin/$(MACH64)/gifspnge
+file path=$(ECPREFIX)/bin/$(MACH64)/giftext
+file path=$(ECPREFIX)/bin/$(MACH64)/gifwedge
+file path=$(ECPREFIX)/bin/$(MACH64)/icon2gif
+file path=$(ECPREFIX)/bin/$(MACH64)/raw2gif
+file path=$(ECPREFIX)/bin/$(MACH64)/rgb2gif
+file path=$(ECPREFIX)/bin/$(MACH64)/text2gif
+file path=$(ECPREFIX)/bin/gif2epsn
+file path=$(ECPREFIX)/bin/gif2ps
+file path=$(ECPREFIX)/bin/gif2rgb
+file path=$(ECPREFIX)/bin/gif2x11
+file path=$(ECPREFIX)/bin/gifasm
+file path=$(ECPREFIX)/bin/gifbg
+file path=$(ECPREFIX)/bin/gifburst
+file path=$(ECPREFIX)/bin/gifclip
+file path=$(ECPREFIX)/bin/gifclrmp
+file path=$(ECPREFIX)/bin/gifcolor
+file path=$(ECPREFIX)/bin/gifcomb
+file path=$(ECPREFIX)/bin/gifcompose
+file path=$(ECPREFIX)/bin/giffiltr
+file path=$(ECPREFIX)/bin/giffix
+file path=$(ECPREFIX)/bin/gifflip
+file path=$(ECPREFIX)/bin/gifhisto
+file path=$(ECPREFIX)/bin/gifinfo
+file path=$(ECPREFIX)/bin/gifinter
+file path=$(ECPREFIX)/bin/gifinto
+file path=$(ECPREFIX)/bin/gifovly
+file path=$(ECPREFIX)/bin/gifpos
+file path=$(ECPREFIX)/bin/gifrotat
+file path=$(ECPREFIX)/bin/gifrsize
+file path=$(ECPREFIX)/bin/gifspnge
+file path=$(ECPREFIX)/bin/giftext
+file path=$(ECPREFIX)/bin/gifwedge
+file path=$(ECPREFIX)/bin/icon2gif
+file path=$(ECPREFIX)/bin/raw2gif
+file path=$(ECPREFIX)/bin/rgb2gif
+file path=$(ECPREFIX)/bin/text2gif
+file path=$(ECPREFIX)/include/gif_lib.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libgif.so.$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/lib/libgif.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/$(MACH64)/libgif.so \
+    target=libgif.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/$(MACH64)/libgif.so.4 \
+    target=libgif.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/libgif.so target=libgif.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/libgif.so.4 target=libgif.so.$(COMPONENT_VERSION)
