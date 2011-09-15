@@ -18,9 +18,8 @@ COMPONENT_NAME=		syslog-ng
 COMPONENT_VERSION=	3.2.4
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME)_$(COMPONENT_VERSION).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha1:
+COMPONENT_ARCHIVE_HASH=	sha1:ff732f7223bd2bd0424d4b9028b523cf62133af1
 COMPONENT_ARCHIVE_URL=	http://www.balabit.com/downloads/files/syslog-ng/open-source-edition/$(COMPONENT_VERSION)/source/$(COMPONENT_ARCHIVE)
-
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

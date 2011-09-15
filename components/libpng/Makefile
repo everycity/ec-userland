@@ -24,10 +24,12 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libpng
 COMPONENT_VERSION=	1.5.2
+#COMPONENT_VERSION=	1.5.4
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:71c30b9b23169a2dac5b0a77954d9d91f8d944fe
-COMPONENT_ARCHIVE_URL=	http://kent.dl.sourceforge.net/project/libpng/libpng15/1.5.2/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://kent.dl.sourceforge.net/project/libpng/libpng15/older-releases/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	http://kent.dl.sourceforge.net/project/libpng/libpng15/${COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
