@@ -33,6 +33,9 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+# make build isn't thread safe.
+COMPONENT_BUILD_GMAKE_ARGS=
+
 include ../../make-rules/shared-targets.mk
 
 build:		$(BUILD_32_and_64)
