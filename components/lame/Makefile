@@ -53,7 +53,16 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 include ../../make-rules/gnu-ld.mk
 
+# make build isn't thread safe.
+COMPONENT_BUILD_GMAKE_ARGS=
+
 COMPONENT_INSTALL_ENV+=		INSTALLROOT="$(PROTO_DIR)"
+
+# CONFIGURE_OPTIONS from Makefile.nonnasm
+#
+#CONFIGURE_OPTIONS+=     --enable-analyser=no
+#CONFIGURE_OPTIONS+=     --enable-brhist
+#CONFIGURE_OPTIONS+=     --enable-decoder
 
 CONFIGURE_OPTIONS+=	--enable-nasm
 CONFIGURE_OPTIONS+=	--enable-shared
