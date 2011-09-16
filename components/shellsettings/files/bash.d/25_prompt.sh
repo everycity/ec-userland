@@ -23,6 +23,6 @@ if [ $?prompt ]; then
 	# Uncomment to remove the black background
 	#bak=""
 	bak=${bakblk}
-	PS1="\[${bak}${rgb_usr}\]${USER}\[${bldwht}${bak}\] \W (\[${bldylw}\]${HOSTNAME}\[${bldwht}${bak}\]):${txtrst} "
+	PS1="\[${bak}${rgb_usr}\]${USER}\[${bldwht}${bak}\] \W (\[${bldylw}\]${HOSTNAME}\[${bldwht}${bak}\]):\[${txtrst}\] "
 fi
 

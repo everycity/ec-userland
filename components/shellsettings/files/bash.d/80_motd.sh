@@ -14,9 +14,9 @@
 
 if [ "$EUID" != 0 ]; then
 
-echo -e -n "$txtred"
-echo "======================================================================="
 echo -e -n "$bldred"
+echo "======================================================================="
+echo -e -n "$bldpur"
 echo "             ___                       __                       "
 echo "            /\_ \                     /\ \                      "
 echo "         ___\//\ \     ___   __  __   \_\ \         __    ___   "
@@ -25,10 +25,10 @@ echo "       /\ \__/ \_\ \_/\ \_\ \ \ \_\ \/\ \_\ \  __/\  __//\ \__/ "
 echo "       \ \____\/\____\ \____/\ \____/\ \___,_\/\_\ \____\ \____\\"
 echo "        \/____/\/____/\/___/  \/___/  \/__,_ /\/_/\/____/\/____/"
 echo ""
-echo -e -n "$txtred"
-echo -e -n "Welcome to$bldylw `hostname`$txtred,$bldgrn `who am i | awk '{print $1}'`${txtred}."
+echo -e -n "$bldred"
+echo -e -n "Welcome to$bldylw `hostname`$txtred,$bldgrn `who am i | awk '{print $1}'`${bldred}."
 echo
-echo -e "You are connecting from: ${bldgrn}`who am i | awk '{print $NF}'`${txtred}."
+echo -e "You are connecting from: ${bldgrn}`who am i | awk '{print $NF}'`${bldred}."
 echo
 if [ -f /ec/share/everycity/solaris-quickstart.txt ] ; then
 echo "To see our Solaris quickstart guide, simply type 'ec-quickstart'"
