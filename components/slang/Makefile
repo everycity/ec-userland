@@ -33,6 +33,9 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+# make build isn't thread safe.
+COMPONENT_BUILD_GMAKE_ARGS=
+
 # configure the unpacked source for building 32 and 64 bit version
 $(BUILD_DIR)/%/.configured:	$(SOURCE_DIR)/.prep
 	mkdir -p $(@)
