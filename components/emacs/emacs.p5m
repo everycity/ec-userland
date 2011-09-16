@@ -5703,3 +5703,6 @@ file path=$(ECPREFIX)/var/games/emacs/tetris-scores
 hardlink path=$(ECPREFIX)/bin/$(MACH64)/emacs \
     target=emacs-$(COMPONENT_VERSION)
 hardlink path=$(ECPREFIX)/bin/emacs target=emacs-$(COMPONENT_VERSION)
+link \
+    path=path=$(ECPREFIX)/share/emacs/$(COMPONENT_VERSION)/etc/DOC-$(COMPONENT_VERSION).2 \
+    target=DOC-$(COMPONENT_VERSION).1

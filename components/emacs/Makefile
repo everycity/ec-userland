@@ -26,8 +26,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-#CONFIGURE_OPTIONS += 
-
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
