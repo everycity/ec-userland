@@ -27,6 +27,9 @@ include ../../make-rules/ips.mk
 
 IPS_COMPONENT_VERSION=9.4
 
+# make build isn't thread safe.
+COMPONENT_BUILD_GMAKE_ARGS=
+
 CONFIGURE_OPTIONS += 	--with-drivers=ALL
 CONFIGURE_OPTIONS +=	--enable-dynamic
 CONFIGURE_OPTIONS +=	--with-ijs
