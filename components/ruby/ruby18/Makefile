@@ -115,6 +115,9 @@ LD_B_DIRECT=
 # unreferenced symbol tgetent in libreadline, similar to CR #6919344
 LD_Z_IGNORE=
 
+# make build isn't thread safe.
+COMPONENT_BUILD_GMAKE_ARGS=
+
 CONFIGURE_PREFIX = $(ECPREFIX)
 CONFIGURE_OPTIONS += --program-suffix=$(RUBY_VER)
 CONFIGURE_OPTIONS += $(DTRACE_FLAG)
