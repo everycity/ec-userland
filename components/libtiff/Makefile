@@ -27,7 +27,7 @@ COMPONENT_VERSION=	3.9.5
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:f40aab20fb2f609b5cbc1171c40b66a1445e3773
-COMPONENT_ARCHIVE_URL=	ftp://ftp.remotesensing.org/pub/libtiff/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://download.osgeo.org/libtiff/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
@@ -42,5 +42,4 @@ CONFIGURE_OPTIONS+=	--with-docdir=$(ECPREFIX)/share/doc/tiffx
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
-
 
