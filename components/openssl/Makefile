@@ -26,17 +26,17 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		openssl
-COMPONENT_VERSION=	0.9.8r
+COMPONENT_VERSION=	1.0.0e
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:a02411e5f4d463cac4a2a4a357a4a0b93bf65e72
+COMPONENT_ARCHIVE_HASH=	sha1:235eb68e5a31b0f7a23bc05f52d7a39c596e2e69
 COMPONENT_ARCHIVE_URL=	http://openssl.org/source/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-IPS_COMPONENT_VERSION=  0.9.8.28
+IPS_COMPONENT_VERSION=  1.0.0.5
 
 # ----------------------------
 
@@ -55,9 +55,6 @@ GENERIC_CONFIGURE_OPTIONS = \
         --openssldir=$(ECPREFIX)/etc/openssl \
         --prefix=$(ECPREFIX) \
         --install_prefix=$(PROTO_DIR) \
-        no-ec \
-        no-ecdh \
-        no-ecdsa \
         no-rc3 \
         no-rc5 \
         no-mdc2 \
@@ -134,8 +131,8 @@ install:	build $(INSTALL_32)
 	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)
 	$(INSTALL) $(BUILD_DIR_64)/apps/openssl $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)
 	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)
-	$(INSTALL) $(BUILD_DIR_64)/libcrypto.so.0.9.8 $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)
-	$(INSTALL) $(BUILD_DIR_64)/libssl.so.0.9.8 $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)
+	$(INSTALL) $(BUILD_DIR_64)/libcrypto.so.1.0.0 $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)
+	$(INSTALL) $(BUILD_DIR_64)/libssl.so.1.0.0 $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)
 	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 	$(INSTALL) $(BUILD_DIR_64)/libcrypto.pc $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 	$(INSTALL) $(BUILD_DIR_64)/libssl.pc $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/pkgconfig
