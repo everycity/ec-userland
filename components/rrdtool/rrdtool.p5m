@@ -1,0 +1,256 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/image/rrdtool@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Time-series data storage and display system"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://oss.oetiker.ch/rrdtool/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license rrdtool.license license="GPLv2"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/perl
+dir path=$(ECPREFIX)/lib/perl/5.12.4
+dir path=$(ECPREFIX)/lib/perl/5.12.4/i86pc-solaris-64int
+dir path=$(ECPREFIX)/lib/perl/5.12.4/i86pc-solaris-64int/auto
+dir path=$(ECPREFIX)/lib/perl/5.12.4/i86pc-solaris-64int/auto/RRDp
+dir path=$(ECPREFIX)/lib/perl/5.12.4/i86pc-solaris-64int/auto/RRDs
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/lib/python2.6
+dir path=$(ECPREFIX)/lib/python2.6/site-packages
+dir path=$(ECPREFIX)/man
+dir path=$(ECPREFIX)/man/man3
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)
+dir path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html
+dir path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+dir path=$(ECPREFIX)/share/man/man3
+dir path=$(ECPREFIX)/share/rrdtool
+dir path=$(ECPREFIX)/share/rrdtool/examples
+dir path=$(ECPREFIX)/share/rrdtool/examples/rrdcached
+file path=$(ECPREFIX)/bin/rrdcached
+file path=$(ECPREFIX)/bin/rrdcgi
+file path=$(ECPREFIX)/bin/rrdtool
+file path=$(ECPREFIX)/bin/rrdupdate
+file path=$(ECPREFIX)/include/rrd.h
+file path=$(ECPREFIX)/include/rrd_client.h
+file path=$(ECPREFIX)/include/rrd_format.h
+file path=$(ECPREFIX)/lib/librrd.a
+file path=$(ECPREFIX)/lib/librrd.la
+file path=$(ECPREFIX)/lib/librrd.so.4.1.4
+file path=$(ECPREFIX)/lib/librrd_th.a
+file path=$(ECPREFIX)/lib/librrd_th.la
+file path=$(ECPREFIX)/lib/librrd_th.so.4.1.4
+file path=$(ECPREFIX)/lib/perl/5.12.4/RRDp.pm
+file path=$(ECPREFIX)/lib/perl/5.12.4/i86pc-solaris-64int/RRDs.pm
+file path=$(ECPREFIX)/lib/perl/5.12.4/i86pc-solaris-64int/auto/RRDp/.packlist
+file path=$(ECPREFIX)/lib/perl/5.12.4/i86pc-solaris-64int/auto/RRDs/.packlist
+file path=$(ECPREFIX)/lib/perl/5.12.4/i86pc-solaris-64int/auto/RRDs/RRDs.bs
+file path=$(ECPREFIX)/lib/perl/5.12.4/i86pc-solaris-64int/auto/RRDs/RRDs.so
+file path=$(ECPREFIX)/lib/perl/5.12.4/i86pc-solaris-64int/perllocal.pod
+file path=$(ECPREFIX)/lib/pkgconfig/librrd.pc
+file \
+    path=$(ECPREFIX)/lib/python2.6/site-packages/py_rrdtool-0.2.1-py2.6.egg-info
+file path=$(ECPREFIX)/lib/python2.6/site-packages/rrdtoolmodule.so
+file path=$(ECPREFIX)/man/man3/RRDp.3
+file path=$(ECPREFIX)/man/man3/RRDs.3
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/RRDp.html
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/RRDs.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/bin_dec_hex.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/cdeftutorial.html
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/librrd.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rpntutorial.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrd-beginners.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdbuild.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdcached.html
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdcgi.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdcreate.html
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrddump.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdfetch.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdfirst.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdflushcached.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdgraph.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdgraph_data.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdgraph_examples.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdgraph_graph.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdgraph_rpn.html
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdinfo.html
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdlast.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdlastupdate.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdresize.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdrestore.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdthreads.html
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdtool.html
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdtune.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdtutorial.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdupdate.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/rrdxport.html
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/bin_dec_hex.pod
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/bin_dec_hex.txt
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/cdeftutorial.pod
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/cdeftutorial.txt
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/librrd.txt
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rpntutorial.pod
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rpntutorial.txt
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrd-beginners.pod
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrd-beginners.txt
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdbuild.pod
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdbuild.txt
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdcached.pod
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdcached.txt
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdcgi.pod
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdcgi.txt
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdcreate.pod
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdcreate.txt
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrddump.pod
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrddump.txt
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdfetch.pod
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdfetch.txt
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdfirst.pod
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdfirst.txt
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdflushcached.pod
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdflushcached.txt
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdgraph.pod
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdgraph.txt
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdgraph_data.pod
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdgraph_data.txt
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdgraph_examples.pod
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdgraph_examples.txt
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdgraph_graph.pod
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdgraph_graph.txt
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdgraph_rpn.pod
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdgraph_rpn.txt
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdinfo.pod
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdinfo.txt
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdlast.pod
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdlast.txt
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdlastupdate.pod
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdlastupdate.txt
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdresize.pod
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdresize.txt
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdrestore.pod
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdrestore.txt
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdthreads.pod
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdthreads.txt
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdtool.pod
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdtool.txt
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdtune.pod
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdtune.txt
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdtutorial.pod
+file \
+    path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdtutorial.txt
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdupdate.pod
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdupdate.txt
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdxport.pod
+file path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/txt/rrdxport.txt
+file path=$(ECPREFIX)/share/man/man1/bin_dec_hex.1
+file path=$(ECPREFIX)/share/man/man1/cdeftutorial.1
+file path=$(ECPREFIX)/share/man/man1/rpntutorial.1
+file path=$(ECPREFIX)/share/man/man1/rrd-beginners.1
+file path=$(ECPREFIX)/share/man/man1/rrdbuild.1
+file path=$(ECPREFIX)/share/man/man1/rrdcached.1
+file path=$(ECPREFIX)/share/man/man1/rrdcgi.1
+file path=$(ECPREFIX)/share/man/man1/rrdcreate.1
+file path=$(ECPREFIX)/share/man/man1/rrddump.1
+file path=$(ECPREFIX)/share/man/man1/rrdfetch.1
+file path=$(ECPREFIX)/share/man/man1/rrdfirst.1
+file path=$(ECPREFIX)/share/man/man1/rrdflushcached.1
+file path=$(ECPREFIX)/share/man/man1/rrdgraph.1
+file path=$(ECPREFIX)/share/man/man1/rrdgraph_data.1
+file path=$(ECPREFIX)/share/man/man1/rrdgraph_examples.1
+file path=$(ECPREFIX)/share/man/man1/rrdgraph_graph.1
+file path=$(ECPREFIX)/share/man/man1/rrdgraph_rpn.1
+file path=$(ECPREFIX)/share/man/man1/rrdinfo.1
+file path=$(ECPREFIX)/share/man/man1/rrdlast.1
+file path=$(ECPREFIX)/share/man/man1/rrdlastupdate.1
+file path=$(ECPREFIX)/share/man/man1/rrdresize.1
+file path=$(ECPREFIX)/share/man/man1/rrdrestore.1
+file path=$(ECPREFIX)/share/man/man1/rrdthreads.1
+file path=$(ECPREFIX)/share/man/man1/rrdtool.1
+file path=$(ECPREFIX)/share/man/man1/rrdtune.1
+file path=$(ECPREFIX)/share/man/man1/rrdtutorial.1
+file path=$(ECPREFIX)/share/man/man1/rrdupdate.1
+file path=$(ECPREFIX)/share/man/man1/rrdxport.1
+file path=$(ECPREFIX)/share/man/man3/librrd.3
+file path=$(ECPREFIX)/share/rrdtool/examples/4charts.pl
+file path=$(ECPREFIX)/share/rrdtool/examples/bigtops.pl
+file path=$(ECPREFIX)/share/rrdtool/examples/cgi-demo.cgi
+file path=$(ECPREFIX)/share/rrdtool/examples/minmax.pl
+file path=$(ECPREFIX)/share/rrdtool/examples/perftest.pl
+file path=$(ECPREFIX)/share/rrdtool/examples/piped-demo.pl
+file path=$(ECPREFIX)/share/rrdtool/examples/rrdcached/RRDCached.pm
+file path=$(ECPREFIX)/share/rrdtool/examples/rrdcached/rrdcached-size.pl
+file path=$(ECPREFIX)/share/rrdtool/examples/shared-demo.pl
+file path=$(ECPREFIX)/share/rrdtool/examples/stripes.pl
+link path=$(ECPREFIX)/lib/librrd.so target=librrd.so.4.1.4
+link path=$(ECPREFIX)/lib/librrd.so.4 target=librrd.so.4.1.4
+link path=$(ECPREFIX)/lib/librrd_th.so target=librrd_th.so.4.1.4
+link path=$(ECPREFIX)/lib/librrd_th.so.4 target=librrd_th.so.4.1.4
+link path=$(ECPREFIX)/share/doc/rrdtool-$(COMPONENT_VERSION)/html/index.html \
+    target=rrdtool.html
