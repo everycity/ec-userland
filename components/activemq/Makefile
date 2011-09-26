@@ -24,6 +24,8 @@ COMPONENT_ARCHIVE_URL=	http://mirrors.ukfast.co.uk/sites/ftp.apache.org//activem
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
 
+CLEAN_PATHS +=	$(BUILD_DIR)
+
 PKGMANGLE = true
 PKGLINT = true
 PKGDEPEND = true

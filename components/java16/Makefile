@@ -43,6 +43,8 @@ COMPONENT_ARCHIVE_URL_2=	$(COMPONENT_ARCHIVE_URL_2.$(MACH))
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
 
+CLEAN_PATHS += $(BUILD_DIR)
+
 PKGMANGLE = true
 PKGLINT = true
 PKGDEPEND = true

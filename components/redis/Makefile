@@ -35,6 +35,8 @@ include ../../make-rules/ips.mk
 
 include ../../make-rules/shared-targets.mk
 
+CLEAN_PATHS +=	$(BUILD_DIR)
+
 COMPONENT_BUILD_ENV.32 += 'CC=/ec/bin/gcc -m32 -I/ec/include'
 COMPONENT_INSTALL_ENV.32 += 'CC=/ec/bin/gcc -m32'
 COMPONENT_BUILD_ENV.64 += 'CC=/ec/bin/gcc -DBYTE_ORDER=LITTLE_ENDIAN -m64 -I/ec/include/$(MACH64) -L/ec/lib/$(MACH64)'
