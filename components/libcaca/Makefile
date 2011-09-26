@@ -35,7 +35,8 @@ include ../../make-rules/ips.mk
 
 IPS_COMPONENT_VERSION=	0.99.17
 
-CONFIGURE_OPTIONS+=	LDFLAGS="-lnsl -lsocket -lresolv"
+LDFLAGS	+=	-lnsl -lsocket -lresolv
+
 CONFIGURE_OPTIONS+=	--disable-java
 CONFIGURE_OPTIONS+=	--disable-ruby
 

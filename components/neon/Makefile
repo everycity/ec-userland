@@ -27,18 +27,13 @@ COMPONENT_NAME=		neon
 COMPONENT_VERSION=	0.29.6
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha1:1a059b3736ef908b68acac91670f9df576d1a061
+COMPONENT_ARCHIVE_HASH=	sha1:ae1109923303f67ed3421157927bc4bc29c58961
 COMPONENT_ARCHIVE_URL=	http://www.webdav.org/neon/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS.32=		-L$(ECPREFIX)/lib
-LDFLAGS.64=		-L$(ECPREFIX)/lib/amd64
-LDFLAGS+=		$(LDFLAGS.$(BITS))
-
-CONFIGURE_OPTIONS+=	LDFLAGS=$(LDFLAGS)
 CONFIGURE_OPTIONS+=	--with-ca-bundle=$(ECPREFIX)/etc/openssl/cabundle.pem
 CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic
 CONFIGURE_OPTIONS+=	--with-ssl=openssl

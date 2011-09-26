@@ -24,6 +24,8 @@ COMPONENT_ARCHIVE_URL=	 http://mirrors.enquira.co.uk/apache//lucene/solr/$(COMPO
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
 
+CLEAN_PATHS +=	$(BUILD_DIR)
+
 build: prep
 
 install: build

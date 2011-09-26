@@ -38,9 +38,6 @@ include ../../make-rules/ips.mk
 
 LDFLAGS += -liconv
 
-CONFIGURE_OPTIONS  +=		LDFLAGS="$(LDFLAGS)"
-#CONFIGURE_OPTIONS  +=		CFLAGS="$(CFLAGS)"
-#CONFIGURE_OPTIONS  +=		--prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS  +=		--program-prefix=g
 #CONFIGURE_OPTIONS  +=		--with-libiconv-prefix=$(ECPREFIX)
 

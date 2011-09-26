@@ -33,8 +33,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS	+=	--libexecdir=$(ECPREFIX)/lib
-
 build:		$(BUILD_32_and_64)
 
 include ../../make-rules/shared-targets.mk

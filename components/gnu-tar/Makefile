@@ -33,7 +33,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS  +=           --libexecdir=$(ECPREFIX)/lib
 CONFIGURE_OPTIONS  +=		--with-gzip=/ec/bin/gzip
 CONFIGURE_OPTIONS  +=		--with-bzip2=/ec/bin/bzip2
 

@@ -389,6 +389,11 @@ CFLAGS +=	$(CFLAGS.$(COMPILER))
 # component build with CONFIGURE_OPTIONS += LDFLAGS="$(LDFLAGS)" or similiar.
 #
 
+LDFLAGS.32 =	-L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
+LDFLAGS.64 =	-L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)
+
+LDFLAGS =	$(LDFLAGS.$(BITS))
+
 # Reduce the symbol table size, effectively conflicting with -g.  We should
 # get linker guidance here.
 LD_Z_REDLOCSYM =	-z redlocsym

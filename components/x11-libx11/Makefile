@@ -35,7 +35,7 @@ include ../../make-rules/ips.mk
 
 # This is so that the 64bit libgcrypt-config gets picked up
 PATH.32=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
-PATH.64=$(ECPREFIX)/bin/amd64:/$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH.64=$(ECPREFIX)/bin/$(MACH64):/$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 PATH=$(PATH.$(BITS))
 
 CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic --with-sysroot=/ec
@@ -43,5 +43,4 @@ CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic --with-sysroot=/
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
-
 

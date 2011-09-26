@@ -35,6 +35,8 @@ include ../../make-rules/ips.mk
 
 include ../../make-rules/shared-targets.mk
 
+CONFIGURE_OPTIONS	+=	--libexecdir=$(ECPREFIX)/libexec
+
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)

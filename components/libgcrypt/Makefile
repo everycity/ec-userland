@@ -35,8 +35,8 @@ include ../../make-rules/ips.mk
 
 include ../../make-rules/shared-targets.mk
 
-CONFIGURE_OPTIONS+= --with-gnu-ld --with-gpg-error-prefix=/ec
-CONFIGURE_OPTIONS.64+= 'LDFLAGS=-L/ec/lib/amd64' --disable-asm
+CONFIGURE_OPTIONS	+=	--with-gnu-ld --with-gpg-error-prefix=/ec
+CONFIGURE_OPTIONS.64	+=	--disable-asm
 
 build:		$(BUILD_32_and_64)
 

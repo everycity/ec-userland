@@ -52,29 +52,27 @@ CONFIGURE_OPTIONS     +=	--datadir=$(PHP_DATADIR)
 CONFIGURE_OPTIONS     +=	--mandir=$(PHP_PREFIX)/share/man
 
 CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris2.10
-CONFIGURE_OPTIONS.32  +=	--with-php-config=/ec/lib/php/5.3/bin/php-config
-CONFIGURE_OPTIONS.64  +=	--with-php-config=/ec/lib/php/5.3/bin/amd64/php-config
-CONFIGURE_OPTIONS.32  +=	--with-mysqli=/ec/lib/mysql/5.5/bin/mysql_config
-CONFIGURE_OPTIONS.64  +=	--with-mysqli=/ec/lib/mysql/5.5/bin/amd64/mysql_config
+CONFIGURE_OPTIONS.32  +=	--with-php-config=$(PHP_PREFIX)/bin/php-config
+CONFIGURE_OPTIONS.64  +=	--with-php-config=$(PHP_PREFIX)/bin/$(MACH64)/php-config
+CONFIGURE_OPTIONS.32  +=	--with-mysqli=$(ECPREFIX)/lib/mysql/5.5/bin/mysql_config
+CONFIGURE_OPTIONS.64  +=	--with-mysqli=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysql_config
 
 CONFIGURE_OPTIONS     +=	$(CONFIGURE_OPTIONS.$(BITS))
 
 CFLAGS			=	-D_POSIX_PTHREAD_SEMANTICS
-CFLAGS.32		=	-I/ec/lib/mysql/5.5/include
-CFLAGS.64		=	-I/ec/lib/mysql/5.5/include/$(MACH64)
-CPPFLAGS.32		+=	-I/ec/lib/mysql/5.5/include
-CPPFLAGS.64		+=	-I/ec/lib/mysql/5.5/include/$(MACH64)
-LDFLAGS.32		+=	-L/ec/lib/mysql/5.5/lib -R/ec/lib/mysql/5.5/lib
-LDFLAGS.64		+=	-L/ec/lib/mysql/5.5/lib/$(MACH64) -R/ec/lib/mysql/5.5/lib/$(MACH64)
+CFLAGS.32		=	-I$(ECPREFIX)/lib/mysql/5.5/include
+CFLAGS.64		=	-I$(ECPREFIX)/lib/mysql/5.5/include/$(MACH64)
+CPPFLAGS.32		+=	-I$(ECPREFIX)/lib/mysql/5.5/include
+CPPFLAGS.64		+=	-I$(ECPREFIX)/lib/mysql/5.5/include/$(MACH64)
+LDFLAGS.32		+=	-L$(ECPREFIX)/lib/mysql/5.5/lib -R$(ECPREFIX)/lib/mysql/5.5/lib
+LDFLAGS.64		+=	-L$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64) -R$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64)
 
 CFLAGS			+=	$(CFLAGS.$(BITS))
 CPPFLAGS		+=	$(CPPFLAGS.$(BITS))
-LDFLAGS			+=	$(LDFLAGS.$(BITS))
 
-CONFIGURE_ENV         +=	CC="$(CC)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
 CONFIGURE_SCRIPT       =	$(@D)/configure
 
-COMPONENT_PRE_CONFIGURE_ACTION	=	cp -R $(SOURCE_DIR)/ext/mysqli/* $(@D) ; cd $(@D) ; /ec/lib/php/5.3/bin/phpize
+COMPONENT_PRE_CONFIGURE_ACTION	=	cp -R $(SOURCE_DIR)/ext/mysqli/* $(@D) ; cd $(@D) ; $(PHP_PREFIX)/bin/phpize
 COMPONENT_INSTALL_ARGS		+=	INSTALL_ROOT=$(PROTO_DIR)
 
 build:		$(BUILD_32_and_64)

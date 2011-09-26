@@ -24,6 +24,8 @@ COMPONENT_ARCHIVE_URL=	http://puppetlabs.com/downloads/mcollective/$(COMPONENT_A
 include ../../../make-rules/prep.mk
 include ../../../make-rules/ips.mk
 
+CLEAN_PATHS +=  $(BUILD_DIR)
+
 PKGMANGLE = /bin/true
 PKGLINT = /bin/true
 PKGDEPEND = /bin/true

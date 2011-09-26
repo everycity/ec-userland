@@ -33,11 +33,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS+=         -R$(ECPREFIX)/lib
-
-CONFIGURE_OPTIONS  +=           CFLAGS="$(CFLAGS)"
-CONFIGURE_OPTIONS  +=           LDFLAGS="$(LDFLAGS)"
-CONFIGURE_OPTIONS  +=           --prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS  +=           --disable-static
 
 include ../../make-rules/shared-targets.mk

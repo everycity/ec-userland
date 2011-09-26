@@ -35,10 +35,10 @@ include ../../make-rules/ips.mk
 
 include ../../make-rules/shared-targets.mk
 
-COMPONENT_BUILD_ENV.32 += 'CC=/ec/bin/gcc -m32 -I/ec/include' 
-COMPONENT_INSTALL_ENV.32 += 'CC=/ec/bin/gcc -m32' 
-COMPONENT_BUILD_ENV.64 += 'CC=/ec/bin/gcc -DBYTE_ORDER=LITTLE_ENDIAN -m64 -I/ec/include/amd64 -L/ec/lib/amd64'
-COMPONENT_INSTALL_ENV.64 += 'CC=/ec/bin/gcc -m64' 
+COMPONENT_BUILD_ENV.32 += 'CC=/ec/bin/gcc -m32 -I/ec/include'
+COMPONENT_INSTALL_ENV.32 += 'CC=/ec/bin/gcc -m32'
+COMPONENT_BUILD_ENV.64 += 'CC=/ec/bin/gcc -DBYTE_ORDER=LITTLE_ENDIAN -m64 -I/ec/include/$(MACH64) -L/ec/lib/$(MACH64)'
+COMPONENT_INSTALL_ENV.64 += 'CC=/ec/bin/gcc -m64'
 
 COMPONENT_INSTALL_TARGETS += os=solaris PREFIX=$(PROTO_DIR)/$(ECPREFIX)
 COMPONENT_PRE_INSTALL_ACTION= \

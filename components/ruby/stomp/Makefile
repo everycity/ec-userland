@@ -28,6 +28,8 @@ PKGMANGLE = true
 PKGLINT = true
 PKGDEPEND = true
 
+CLEAN_PATHS +=  $(BUILD_DIR)
+
 download::
 	$(COMPONENT_DIR)/generate-tarball.sh $(COMPONENT_ARCHIVE_URL) $(COMPONENT_SRC) $(GIT_ID)
 

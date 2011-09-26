@@ -37,6 +37,8 @@ include ../../make-rules/ips.mk
 
 COMPONENT_PRE_BUILD_ACTION+=	( $(CP) -R $(SOURCE_DIR)/* $(@D)/ ; cd $(@D) ; ./genMakefiles solaris-$(BITS)bit )
 
+CLEAN_PATHS+=	install
+
 build:		$(BUILD_32_and_64)
 
 install:	build

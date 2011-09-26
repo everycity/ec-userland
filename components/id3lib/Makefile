@@ -34,9 +34,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS.32 += LDFLAGS="-L/ec/lib -lm -lgcc_s"
-CONFIGURE_OPTIONS.64 +=	LDFLAGS="-L/ec/lib/amd64 -lm -lgcc_s"
-
+LDFLAGS	+=	-lm -lgcc_s
 
 build:		$(BUILD_32_and_64)
 
