@@ -19,7 +19,7 @@ COMPONENT_VERSION=	3.3.0
 COMPONENT_SRC=		apache-solr-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	apache-solr-$(COMPONENT_VERSION).tgz
 COMPONENT_ARCHIVE_HASH=	sha1:e6017419051e5eda9cb222e3b17006eeed682db9
-COMPONENT_ARCHIVE_URL=	 http://mirrors.enquira.co.uk/apache//lucene/solr/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.apache.org/lucene/solr/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
