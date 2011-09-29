@@ -29,5 +29,5 @@ CLEAN_PATHS +=	$(BUILD_DIR)
 build: prep
 
 install: build
-	@[ -d $(PROTO_DIR)/ec/lib/solr ] || $(MKDIR) $(PROTO_DIR)/ec/lib/solr
-	@(cd $(PROTO_DIR)/ec/lib/solr; unzip -o $(SOURCE_DIR)/dist/apache-solr-$(COMPONENT_VERSION).war)
+	@[ -d $(PROTO_DIR)$(ECPREFIX)/lib/solr ] || $(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/solr
+	@(cd $(PROTO_DIR)$(ECPREFIX)/lib/solr; unzip -o $(SOURCE_DIR)/dist/apache-solr-$(COMPONENT_VERSION).war)

@@ -35,7 +35,7 @@ include ../../make-rules/ips.mk
 
 include ../../make-rules/shared-targets.mk
 
-CONFIGURE_OPTIONS+= 'LDFLAGS=-liconv' --with-iconv '--with-mysql=/ec/lib/mysql/5.5/ --with-mysql-includes=/ec/lib/mysql/5.5/include/'
+CONFIGURE_OPTIONS+= 'LDFLAGS=-liconv' --with-iconv '--with-mysql=$(ECPREFIX)/lib/mysql/5.5/ --with-mysql-includes=$(ECPREFIX)/lib/mysql/5.5/include/'
 
 build:		$(BUILD_32_and_64)
 

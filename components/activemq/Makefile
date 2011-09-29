@@ -33,5 +33,5 @@ PKGDEPEND = true
 build: prep
 
 install: build
-	[ -d $(PROTO_DIR)/ec/var ] || mkdir -p $(PROTO_DIR)/ec/var
-	[ -h $(PROTO_DIR)/ec/var/activemq ] || ln -s $(SOURCE_DIR) $(PROTO_DIR)/ec/var/activemq
+	[ -d $(PROTO_DIR)$(ECPREFIX)/var ] || mkdir -p $(PROTO_DIR)$(ECPREFIX)/var
+	[ -h $(PROTO_DIR)$(ECPREFIX)/var/activemq ] || ln -s $(SOURCE_DIR) $(PROTO_DIR)$(ECPREFIX)/var/activemq

@@ -29,7 +29,7 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:52daa72572e844e5165315e208da539b2a55c5eb
 COMPONENT_ARCHIVE_URL=	http://downloads.xiph.org/releases/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
-CONFIGURE_OPTIONS.64+=  'CC=/ec/bin/gcc -m64' 'CXX=/ec/bin/g++ -m64' 'LDFLAGS=-L../../../../libogg/build/amd64/src'
+CONFIGURE_OPTIONS.64+=  'CC=$(ECPREFIX)/bin/gcc -m64' 'CXX=$(ECPREFIX)/bin/g++ -m64' 'LDFLAGS=-L../../../../libogg/build/amd64/src'
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

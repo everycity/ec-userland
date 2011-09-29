@@ -71,5 +71,5 @@ $(SOURCE_DIR)/.unpacked: download Makefile $(PATCHES)
 build: prep
 
 install: build
-	[ -d $(PROTO_DIR)/ec/jdk ] || mkdir -p $(PROTO_DIR)/ec/jdk
-	[ -h $(PROTO_DIR)/ec/jdk/jdk1.6.0 ] || ln -s $(SOURCE_DIR) $(PROTO_DIR)/ec/jdk/jdk1.6.0
+	[ -d $(PROTO_DIR)$(ECPREFIX)/jdk ] || mkdir -p $(PROTO_DIR)$(ECPREFIX)/jdk
+	[ -h $(PROTO_DIR)$(ECPREFIX)/jdk/jdk1.6.0 ] || ln -s $(SOURCE_DIR) $(PROTO_DIR)$(ECPREFIX)/jdk/jdk1.6.0

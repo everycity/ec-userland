@@ -22,7 +22,7 @@
 #
 include ../../make-rules/shared-macros.mk
 
-GMAKE=/ec/bin/gmake
+GMAKE=$(ECPREFIX)/bin/gmake
 
 COMPONENT_NAME=		glib
 COMPONENT_VERSION=	2.28.2
