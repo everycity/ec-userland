@@ -20,7 +20,7 @@
 #
 # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
 #
-include $(WS_TOP)/make-rules/shared-macros.mk
+include ../../../make-rules/shared-macros.mk
 
 #PATH=/usr/bin:/usr/gnu/bin:/usr/sbin
 
@@ -32,9 +32,9 @@ COMPONENT_ARCHIVE_HASH=	sha1:8d1ad6384d358c547c50c60f1bfdb3362c6c4a7d
 COMPONENT_ARCHIVE_URL=	http://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c11.tar.gz
 
 
-include $(WS_TOP)/make-rules/prep.mk
-include $(WS_TOP)/make-rules/setup.py.mk
-include $(WS_TOP)/make-rules/ips.mk
+include ../../../make-rules/prep.mk
+include ../../../make-rules/setup.py.mk
+include ../../../make-rules/ips.mk
 
 IPS_COMPONENT_VERSION=  0.6.3.11
 
@@ -50,4 +50,4 @@ test:
 
 BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
 
-include $(WS_TOP)/make-rules/depend.mk
+include ../../../make-rules/depend.mk
