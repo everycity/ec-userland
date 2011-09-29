@@ -1,0 +1,22 @@
+diff -urN pkg-gate.orig/src/patch/M2Crypto/crl.patch pkg-gate/src/patch/M2Crypto/crl.patch
+--- pkg-gate.orig/src/patch/M2Crypto/crl.patch	2011-03-11 16:49:05.000000000 +0000
++++ pkg-gate/src/patch/M2Crypto/crl.patch	2011-09-28 17:36:49.857680670 +0100
+@@ -163,15 +163,15 @@
+ +}
+ +
+ +/* X509_CRL_get_REVOKED() is a macro. */
+-+STACK *x509_CRL_get_revoked(X509_CRL *x) {
+++STACK_OF(X509_REVOKED) *x509_CRL_get_revoked(X509_CRL *x) {
+ +    return X509_CRL_get_REVOKED(x);
+ +}
+ +
+-+int sk_x509_REVOKED_num(STACK *stack) {
+++int sk_x509_REVOKED_num(STACK_OF(X509_REVOKED) *stack) {
+ +    return sk_X509_REVOKED_num((STACK_OF(X509_REVOKED) *)stack);
+ +}
+ +
+-+X509_REVOKED *sk_x509_REVOKED_get(STACK *stack, int x) {
+++X509_REVOKED *sk_x509_REVOKED_get(STACK_OF(X509_REVOKED) *stack, int x) {
+ +    return sk_X509_REVOKED_value((STACK_OF(X509_REVOKED) *)stack, x);
+ +}
+ +
