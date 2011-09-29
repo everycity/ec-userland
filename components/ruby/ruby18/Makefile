@@ -91,7 +91,7 @@ POST_RUBYGEMS_INSTALL_ACTION += \
 	/bin/sed -f Solaris/rbconfig.sedscript $(PROTO_RBCONFIG_FILE) \
 	> rbconfig.rb.mod ; \
 	$(MV) rbconfig.rb.mod $(PROTO_RBCONFIG_FILE) ; \
-	/bin/sed -e '1s;^\#!/.*;\#!/ec/bin/ruby$(RUBY_VER);' $(PROTO_DIR)$(ECPREFIX)/bin/gem$(RUBY_VER) \
+	/bin/sed -e '1s;^\#!/.*;\#!$(ECPREFIX)/bin/ruby$(RUBY_VER);' $(PROTO_DIR)$(ECPREFIX)/bin/gem$(RUBY_VER) \
 	> gem.mod ; \
 	$(MV) gem.mod $(PROTO_DIR)$(ECPREFIX)/bin/gem$(RUBY_VER)
 

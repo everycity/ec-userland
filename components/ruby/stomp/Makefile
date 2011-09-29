@@ -36,5 +36,5 @@ download::
 build: prep
 
 install: build
-	[ -d $(PROTO_DIR)/ec/lib/ruby/vendor_ruby ] || mkdir -p $(PROTO_DIR)/ec/lib/ruby/vendor_ruby
-	[ -h $(PROTO_DIR)/ec/lib/ruby/vendor_ruby/1.8 ] || ln -s $(SOURCE_DIR)/lib $(PROTO_DIR)/ec/lib/ruby/vendor_ruby/1.8
+	[ -d $(PROTO_DIR)$(ECPREFIX)/lib/ruby/vendor_ruby ] || mkdir -p $(PROTO_DIR)$(ECPREFIX)/lib/ruby/vendor_ruby
+	[ -h $(PROTO_DIR)$(ECPREFIX)/lib/ruby/vendor_ruby/1.8 ] || ln -s $(SOURCE_DIR)/lib $(PROTO_DIR)$(ECPREFIX)/lib/ruby/vendor_ruby/1.8
