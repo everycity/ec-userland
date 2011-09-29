@@ -33,6 +33,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+CLEAN_PATHS +=	package.xml
+
 PHP_PREFIX=$(ECPREFIX)/lib/php/5.3
 PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.3
 PHP_DATADIR=$(ECPREFIX)/var/php/5.3
