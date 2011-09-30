@@ -37,3 +37,4 @@
 #Shared documentation files
 <transform file path=.+/perllocal.pod -> drop>
 <transform file path=.+/share/info/dir -> drop>
+<transform file path=.+/share/info/standards.info -> drop>
