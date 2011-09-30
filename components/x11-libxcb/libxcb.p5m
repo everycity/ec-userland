@@ -77,6 +77,7 @@ file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xevie.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xf86dri.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xfixes.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xinerama.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xprint.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xtest.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xv.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-xvmc.so.0.0.0
