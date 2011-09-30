@@ -35,9 +35,8 @@ include ../../../make-rules/prep.mk
 include ../../../make-rules/configure.mk
 include ../../../make-rules/ips.mk
 
-#COMPONENT_CONFIGURE_ENV += LD_LIBRARY_PATH="$(ECPREFIX)/lib"
-#COMPONENT_BUILD_ENV += LD_LIBRARY_PATH="$(ECPREFIX)/lib"
-#COMPONENT_INSTALL_ENV += LD_LIBRARY_PATH="$(ECPREFIX)/lib"
+# make build isn't thread safe.
+COMPONENT_BUILD_GMAKE_ARGS=
 
 # We patch auto* files, so regenerate headers and configure
 COMPONENT_PREP_ACTION = \
@@ -79,9 +78,7 @@ CCFLAGS +=		-norunpath -compat=5
 
 CONFIGURE_OPTIONS  +=		--infodir=$(CONFIGURE_INFODIR)
 CONFIGURE_OPTIONS  +=		--enable-shared
-CONFIGURE_OPTIONS  +=		--disable-static
 CONFIGURE_OPTIONS  +=		--with-system-ffi
-#CONFIGURE_OPTIONS  +=		--without-gcc
 CONFIGURE_OPTIONS  +=		--with-wctype-functions
 CONFIGURE_OPTIONS  +=		ac_cv_opt_olimit_ok=no
 CONFIGURE_OPTIONS  +=		ac_cv_olimit_ok=no
