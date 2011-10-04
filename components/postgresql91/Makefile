@@ -25,7 +25,13 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-#CONFIGURE_OPTIONS += 
+#CONFIGURE_OPTIONS +=	--enable-dtrace
+CONFIGURE_OPTIONS +=	--with-perl
+CONFIGURE_OPTIONS +=	--with-python
+CONFIGURE_OPTIONS +=	--with-ldap
+CONFIGURE_OPTIONS +=	--with-openssl
+CONFIGURE_OPTIONS +=	--with-libxml
+CONFIGURE_OPTIONS +=	--with-libxslt
 
 build:		$(BUILD_32_and_64)
 
