@@ -37,8 +37,6 @@ include ../../make-rules/shared-targets.mk
 LDFLAGS +=	-liconv
 
 CONFIGURE_OPTIONS	+=	--with-iconv --with-mysql=$(ECPREFIX)/lib/mysql/5.5
-CONFIGURE_OPTIONS.32	+=	--with-mysql-includes=$(ECPREFIX)/lib/mysql/5.5/include
-CONFIGURE_OPTIONS.64	+=	--with-mysql-includes=$(ECPREFIX)/lib/mysql/5.5/include/$(MACH64)
 CONFIGURE_OPTIONS.64	+=	--enable-id64
 
 COMPONENT_PRE_CONFIGURE_ACTION.64 +=	( $(GPATCH) $(SOURCE_DIR)/configure configure.64.path )
