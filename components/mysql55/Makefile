@@ -17,10 +17,10 @@ include ../../make-rules/shared-macros.mk
 CMAKE= cmake
 
 COMPONENT_NAME=		mysql
-COMPONENT_VERSION=	5.5.15
+COMPONENT_VERSION=	5.5.16
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:c89be9fe209d74b62a5e5e71e099dad1e0674a87
+COMPONENT_ARCHIVE_HASH=	sha1:1a3372f9179bfc21cba0005c339a72f8e1458483
 COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.mysql.com/Downloads/MySQL-5.5/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -68,13 +68,13 @@ COMPONENT_POST_CONFIGURE_ACTION.64= find $(@D) -type f -name link.txt \
     -exec perl -pi -e 's/gcc\ \ -fPIC/\/gcc\ -m64\ -fPIC/' {} \;
 COMPONENT_POST_CONFIGURE_ACTION=$(COMPONENT_POST_CONFIGURE_ACTION.$(BITS))
 
-COMPONENT_POST_INSTALL_ACTION= perl -pi -e \
-      "s/^ldata=.*/ldata=\'\/ec\/var\/mysql\/5.5\/data\'/" \
-      $(PROTO_DIR)/$(ECPREFIX)/$(CMAKE_BINDIR.32)/mysql_config \
-      $(PROTO_DIR)/$(ECPREFIX)/$(CMAKE_BINDIR.64)/mysql_config
-#    perl -pi -e 's/-L\$$pkglibdir/-L\$$pkglibdir -R\$$pkglibdir/g' \
-#      $(PROTO_DIR)/$(ECPREFIX)/$(CMAKE_BINDIR.32)/mysql_config \
-#      $(PROTO_DIR)/$(ECPREFIX)/$(CMAKE_BINDIR.64)/mysql_config
+COMPONENT_POST_INSTALL_ACTION= ( perl -pi -e \
+	"s/^ldata=.*/ldata=\'\/ec\/var\/mysql\/5.5\/data\'/" \
+	$(PROTO_DIR)/$(ECPREFIX)/$(CMAKE_BINDIR.32)/mysql_config \
+	$(PROTO_DIR)/$(ECPREFIX)/$(CMAKE_BINDIR.64)/mysql_config ; \
+	perl -pi -e 's/-L\$$pkglibdir/-L\$$pkglibdir -R\$$pkglibdir/g' \
+	$(PROTO_DIR)/$(ECPREFIX)/$(CMAKE_BINDIR.32)/mysql_config \
+	$(PROTO_DIR)/$(ECPREFIX)/$(CMAKE_BINDIR.64)/mysql_config )
 
 $(BUILD_DIR)/%/.configured:	$(SOURCE_DIR)/.prep
 	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
