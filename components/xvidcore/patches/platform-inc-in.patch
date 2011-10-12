@@ -1,0 +1,10 @@
+--- xvidcore/build/generic/platform.inc.in.orig	2011-10-12 17:50:13.039508256 +0100
++++ xvidcore/build/generic/platform.inc.in	2011-10-12 17:50:45.885884344 +0100
+@@ -51,6 +51,7 @@
+ API_MINOR=@API_MINOR@
+ RANLIB=@RANLIB@
+ AR=@AR@
++LDFLAGS=@LDFLAGS@
+ 
+ # ============================================================================
+ # Installation
