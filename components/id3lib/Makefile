@@ -34,15 +34,9 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS	+=	-lm -lgcc_s
+LDFLAGS	+=	-lm -lgcc_s -lstdc++ -lz
 
 build:		$(BUILD_32_and_64)
 
-include ../../make-rules/shared-targets.mk
-
 install:	$(INSTALL_32_and_64)
-
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
 
