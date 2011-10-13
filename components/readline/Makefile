@@ -44,9 +44,6 @@ include ../../make-rules/shared-targets.mk
 
 install:	$(INSTALL_32_and_64)
 
-#install:	$(PROTOUSRSHAREMAN3DIR) $(INSTALL_32_and_64)
-#	$(CP) -f $(COMPONENT_DIR)/man3/*.3 $(PROTOUSRSHAREMAN3DIR)
-
 # build does this always
 test: build
 	@cd $(BUILD_DIR_32); $(MAKE) check
