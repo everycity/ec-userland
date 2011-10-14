@@ -48,7 +48,7 @@ build:		$(BUILD_32)
 install:	$(INSTALL_32)
 
 test32:		$(BUILD_32)
-	(cd $(BUILD_DIR_32); env - $(GMAKE) check)
+	(cd $(BUILD_DIR_32); $(GMAKE) check)
 
 test:	test32
 
