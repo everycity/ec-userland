@@ -1,0 +1,84 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/library/libzen@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Small C++ derivate class to have a simpler life"
+#set name=info.classification value="org.opensolaris.category.2008:Development/C"
+set name=info.upstream_url value="http://sourceforge.net/projects/zenlib/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license License.txt license="BSD"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/ZenLib
+dir path=$(ECPREFIX)/include/ZenLib/Base64
+dir path=$(ECPREFIX)/include/ZenLib/Format
+dir path=$(ECPREFIX)/include/ZenLib/Format/Html
+dir path=$(ECPREFIX)/include/ZenLib/Format/Http
+dir path=$(ECPREFIX)/include/ZenLib/HTTP_Client
+dir path=$(ECPREFIX)/include/ZenLib/TinyXml
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+file path=$(ECPREFIX)/bin/$(MACH64)/libzen-config
+file path=$(ECPREFIX)/bin/libzen-config
+file path=$(ECPREFIX)/include/ZenLib/Base64/base64.h
+file path=$(ECPREFIX)/include/ZenLib/BitStream.h
+file path=$(ECPREFIX)/include/ZenLib/BitStream_LE.h
+file path=$(ECPREFIX)/include/ZenLib/Conf.h
+file path=$(ECPREFIX)/include/ZenLib/Conf_Internal.h
+file path=$(ECPREFIX)/include/ZenLib/CriticalSection.h
+file path=$(ECPREFIX)/include/ZenLib/Dir.h
+file path=$(ECPREFIX)/include/ZenLib/File.h
+file path=$(ECPREFIX)/include/ZenLib/FileName.h
+file path=$(ECPREFIX)/include/ZenLib/Format/Html/Html_Handler.h
+file path=$(ECPREFIX)/include/ZenLib/Format/Html/Html_Request.h
+file path=$(ECPREFIX)/include/ZenLib/Format/Http/Http_Cookies.h
+file path=$(ECPREFIX)/include/ZenLib/Format/Http/Http_Handler.h
+file path=$(ECPREFIX)/include/ZenLib/Format/Http/Http_Request.h
+file path=$(ECPREFIX)/include/ZenLib/Format/Http/Http_Utils.h
+file path=$(ECPREFIX)/include/ZenLib/HTTP_Client.h
+file path=$(ECPREFIX)/include/ZenLib/HTTP_Client/HTTPClient.h
+file path=$(ECPREFIX)/include/ZenLib/HTTP_Client/HTTPClientAuth.h
+file path=$(ECPREFIX)/include/ZenLib/HTTP_Client/HTTPClientCommon.h
+file path=$(ECPREFIX)/include/ZenLib/HTTP_Client/HTTPClientString.h
+file path=$(ECPREFIX)/include/ZenLib/HTTP_Client/HTTPClientWrapper.h
+file path=$(ECPREFIX)/include/ZenLib/InfoMap.h
+file path=$(ECPREFIX)/include/ZenLib/MemoryDebug.h
+file path=$(ECPREFIX)/include/ZenLib/OS_Utils.h
+file path=$(ECPREFIX)/include/ZenLib/PreComp.h
+file path=$(ECPREFIX)/include/ZenLib/Thread.h
+file path=$(ECPREFIX)/include/ZenLib/TinyXml/tinyxml.h
+file path=$(ECPREFIX)/include/ZenLib/Trace.h
+file path=$(ECPREFIX)/include/ZenLib/Translation.h
+file path=$(ECPREFIX)/include/ZenLib/Utils.h
+file path=$(ECPREFIX)/include/ZenLib/Ztring.h
+file path=$(ECPREFIX)/include/ZenLib/ZtringList.h
+file path=$(ECPREFIX)/include/ZenLib/ZtringListList.h
+file path=$(ECPREFIX)/include/ZenLib/ZtringListListF.h
+file path=$(ECPREFIX)/include/ZenLib/int128s.h
+file path=$(ECPREFIX)/include/ZenLib/int128u.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libzen.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libzen.pc
+file path=$(ECPREFIX)/lib/libzen.so.0.0.0
+file path=$(ECPREFIX)/lib/pkgconfig/libzen.pc
+link path=$(ECPREFIX)/lib/$(MACH64)/libzen.so target=libzen.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libzen.so.0 target=libzen.so.0.0.0
+link path=$(ECPREFIX)/lib/libzen.so target=libzen.so.0.0.0
+link path=$(ECPREFIX)/lib/libzen.so.0 target=libzen.so.0.0.0
