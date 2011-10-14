@@ -22,9 +22,9 @@ set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 license exim.license license="GPLv2"
 
 dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/etc/exim
-dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/var
 dir path=$(ECPREFIX)/var/log
 dir path=$(ECPREFIX)/var/log/exim mode=0775 owner=exim group=exim
@@ -49,7 +49,7 @@ file path=$(ECPREFIX)/etc/exim/aliases.conf mode=0644 preserve=true
 file path=$(ECPREFIX)/etc/exim/exim.conf mode=0644 preserve=true
 file path=$(ECPREFIX)/bin/exicyclog
 file path=$(ECPREFIX)/bin/exigrep
-file path=$(ECPREFIX)/bin/exim-$(COMPONENT_VERSION)-1 mode=5555 user=root group=root
+file path=$(ECPREFIX)/bin/exim-$(COMPONENT_VERSION)-1 mode=4555 user=root group=root
 file path=$(ECPREFIX)/bin/exim_checkaccess
 file path=$(ECPREFIX)/bin/exim_dbmbuild
 file path=$(ECPREFIX)/bin/exim_dumpdb
