@@ -36,3 +36,21 @@ COMPONENT_BUILD_ENV += CPPFLAGS=$(CPPFLAGS)
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/include/MediaInfo
+	$(CP) $(SOURCE_DIR)/Source/MediaInfo/MediaInfo.h $(PROTO_DIR)$(ECPREFIX)/include/MediaInfo
+	$(CP) $(SOURCE_DIR)/Source/MediaInfo/MediaInfoList.h $(PROTO_DIR)$(ECPREFIX)/include/MediaInfo
+	$(CP) $(SOURCE_DIR)/Source/MediaInfo/MediaInfo_Const.h $(PROTO_DIR)$(ECPREFIX)/include/MediaInfo
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
+	echo "#!/bin/sh" > $(PROTO_DIR)$(ECPREFIX)/bin/libmediainfo-config
+	cat $(BUILD_DIR_32)/libmediainfo-config | sed -e 's/\(-DUNICODE.*\)\(-DUNICODE\)/\1/' | \
+		sed -e 's|[a-z/L\-]*home[.a-z/0-9\-]*||g' | \
+		sed -e 's|\(-L/ec/lib.*\)\(-L/ec/lib\)|\1|' | sed -e 's/\s\s*/ /g' >> \
+		$(PROTO_DIR)$(ECPREFIX)/bin/libmediainfo-config
+	echo "#!/bin/sh" > $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/libmediainfo-config
+	cat $(BUILD_DIR_64)/libmediainfo-config | sed -e 's/\(-DUNICODE.*\)\(-DUNICODE\)/\1/' | \
+		sed -e 's|[a-z/L\-]*home[.a-z/0-9\-]*||g' | \
+		sed -e 's|\(-L/ec/lib.*\)\(-L/ec/lib\)|\1|' | \
+		sed -e 's|/ec/lib|/ec/lib/amd64|g' | sed -e 's/\s\s*/ /g' >> \
+		$(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/libmediainfo-config
+
