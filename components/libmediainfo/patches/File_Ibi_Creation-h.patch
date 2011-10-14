@@ -1,0 +1,15 @@
+--- MediaInfoLib/Source/MediaInfo/Multiple/File_Ibi_Creation.h.orig	2011-10-14 14:25:41.960497876 +0100
++++ MediaInfoLib/Source/MediaInfo/Multiple/File_Ibi_Creation.h	2011-10-14 14:26:59.323278111 +0100
+@@ -28,6 +28,12 @@
+ 
+ //---------------------------------------------------------------------------
+ #include "ZenLib/Ztring.h"
++#ifdef SS
++   #undef SS //Solaris defines this somewhere
++#endif
++//---------------------------------------------------------------------------
++
++//---------------------------------------------------------------------------
+ #include <map>
+ #include <vector>
+ using namespace ZenLib;
