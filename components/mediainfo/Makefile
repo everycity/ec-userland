@@ -25,6 +25,11 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+# This is so that the 64bit libmediainfo-config gets picked up
+PATH.32	=	$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH.64	=	$(ECPREFIX)/bin/$(MACH64):$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH	=	$(PATH.$(BITS))
+
 COMPONENT_POST_UNPACK_ACTION = ( ${MV} MediaInfo $(COMPONENT_NAME) )
 
 COMPONENT_PREP_ACTION = (cd $(@D)/Project/GNU/CLI; $(CONFIG_SHELL) autogen; )
