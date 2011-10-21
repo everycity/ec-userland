@@ -12,7 +12,7 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
-include ../../make-rules/shared-macros.mk
+include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ghc
 COMPONENT_VERSION=	7.0.3
@@ -21,9 +21,9 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-i386-unknown-solaris2.tar.bz2
 COMPONENT_ARCHIVE_HASH=	sha1:2b06d57fc72c0bfbeed25c7f9f28d19aa6a0b306
 COMPONENT_ARCHIVE_URL=	http://haskell.org/ghc/dist/7.0.3/maeder/$(COMPONENT_ARCHIVE)
 
-include ../../make-rules/prep.mk
-include ../../make-rules/configure.mk
-include ../../make-rules/ips.mk
+include ../../../make-rules/prep.mk
+include ../../../make-rules/configure.mk
+include ../../../make-rules/ips.mk
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 
