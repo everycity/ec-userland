@@ -25,7 +25,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-
 $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
 	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
 	rsync -aH --delete $(SOURCE_DIR)/ $(@D)/
@@ -34,11 +33,6 @@ $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
 	    ./configure $(CONFIGURE_OPTIONS))
 	$(COMPONENT_POST_CONFIGURE_ACTION)
 	$(TOUCH) $@
-
-
-LDFLAGS.32 = -L$(ECPREFIX)/lib
-LDFLAGS.64 = -L$(ECPREFIX)/lib/$(MACH64)
-CONFIGURE_ENV += LDFLAGS=$(LDFLAGS.$(BITS))
 
 CONFIGURE_OPTIONS.32	+=	--with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/apxs
 CONFIGURE_OPTIONS.64	+=	--with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/apxs

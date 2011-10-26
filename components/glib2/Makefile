@@ -22,7 +22,7 @@
 #
 include ../../make-rules/shared-macros.mk
 
-GMAKE=/ec/bin/gmake
+GMAKE=$(ECPREFIX)/bin/gmake
 
 COMPONENT_NAME=		glib
 COMPONENT_VERSION=	2.28.2
@@ -35,17 +35,10 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS="-lsocket"
-
-#CONFIGURE_OPTIONS  +=		--disable-static
-#CONFIGURE_OPTIONS  +=		--enable-shared
-#CONFIGURE_OPTIONS  +=		CFLAGS="$(CFLAGS)"
-CONFIGURE_OPTIONS.64 +=		LDFLAGS="-L/ec/lib/amd64 $(LDFLAGS)"
-CONFIGURE_OPTIONS.32  +=		LDFLAGS="-L/ec/lib $(LDFLAGS)"
+LDFLAGS += "-lsocket"
 
 CONFIGURE_OPTIONS  +=		--with-libiconv=gnu
 CONFIGURE_OPTIONS  +=		--disable-fam
-
 
 # common targets
 build:		$(BUILD_32_and_64)

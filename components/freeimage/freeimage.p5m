@@ -9,6 +9,7 @@
 #
 
 #
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 # Copyright 2011 Audioboo Ltd. All rights reserved.
 #
 
@@ -26,13 +27,7 @@ dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
 file path=$(ECPREFIX)/include/FreeImage.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libfreeimage-$(COMPONENT_VERSION).so
-file path=$(ECPREFIX)/lib/libfreeimage-$(COMPONENT_VERSION).so
-link path=$(ECPREFIX)/lib/$(MACH64)/libfreeimage.so \
-    target=libfreeimage-$(COMPONENT_VERSION).so
-link path=$(ECPREFIX)/lib/$(MACH64)/libfreeimage.so.3 \
-    target=libfreeimage-$(COMPONENT_VERSION).so
-link path=$(ECPREFIX)/lib/libfreeimage.so \
-    target=libfreeimage-$(COMPONENT_VERSION).so
-link path=$(ECPREFIX)/lib/libfreeimage.so.3 \
-    target=libfreeimage-$(COMPONENT_VERSION).so
+file path=$(ECPREFIX)/lib/$(MACH64)/libfreeimage.so.3
+file path=$(ECPREFIX)/lib/libfreeimage.so.3
+link path=$(ECPREFIX)/lib/$(MACH64)/libfreeimage.so target=libfreeimage.so.3
+link path=$(ECPREFIX)/lib/libfreeimage.so target=libfreeimage.so.3

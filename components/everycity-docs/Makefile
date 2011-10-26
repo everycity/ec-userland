@@ -37,7 +37,8 @@ install:
 test:		$(NO_TESTS)
 
 clean:
-	[ -d $(BUILD_DIR) ] || rm -rf $(BUILD_DIR)
+	$(RM) -r $(BUILD_DIR)
+	$(RM) $(GENERATED).p5m
 
 clobber: clean
 

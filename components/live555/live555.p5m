@@ -240,6 +240,10 @@ file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/BitVector.o
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/ByteStreamFileSource.cpp
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/ByteStreamFileSource.o
 file \
+    path=$(ECPREFIX)/lib/live555-32bit/liveMedia/ByteStreamMemoryBufferSource.cpp
+file \
+    path=$(ECPREFIX)/lib/live555-32bit/liveMedia/ByteStreamMemoryBufferSource.o
+file \
     path=$(ECPREFIX)/lib/live555-32bit/liveMedia/ByteStreamMultiFileSource.cpp
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/ByteStreamMultiFileSource.o
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/COPYING
@@ -305,8 +309,6 @@ file \
     path=$(ECPREFIX)/lib/live555-32bit/liveMedia/H264VideoStreamDiscreteFramer.o
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/H264VideoStreamFramer.cpp
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/H264VideoStreamFramer.o
-file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/HTTPSink.cpp
-file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/HTTPSink.o
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/InputFile.cpp
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/InputFile.o
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/JPEGVideoRTPSink.cpp
@@ -374,8 +376,6 @@ file \
     path=$(ECPREFIX)/lib/live555-32bit/liveMedia/MPEG1or2VideoFileServerMediaSubsession.cpp
 file \
     path=$(ECPREFIX)/lib/live555-32bit/liveMedia/MPEG1or2VideoFileServerMediaSubsession.o
-file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/MPEG1or2VideoHTTPSink.cpp
-file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/MPEG1or2VideoHTTPSink.o
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/MPEG1or2VideoRTPSink.cpp
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/MPEG1or2VideoRTPSink.o
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/MPEG1or2VideoRTPSource.cpp
@@ -490,7 +490,12 @@ file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/RTSPClient.o
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/RTSPCommon.cpp
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/RTSPCommon.o
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/RTSPServer.cpp
+file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/RTSPServer.cpp.save
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/RTSPServer.o
+file \
+    path=$(ECPREFIX)/lib/live555-32bit/liveMedia/RTSPServerSupportingHTTPStreaming.cpp
+file \
+    path=$(ECPREFIX)/lib/live555-32bit/liveMedia/RTSPServerSupportingHTTPStreaming.o
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/SIPClient.cpp
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/SIPClient.o
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/ServerMediaSession.cpp
@@ -502,6 +507,8 @@ file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/SimpleRTPSource.o
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/StreamParser.cpp
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/StreamParser.hh
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/StreamParser.o
+file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/TCPStreamSink.cpp
+file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/TCPStreamSink.o
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/VideoRTPSink.cpp
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/VideoRTPSink.o
 file \
@@ -536,6 +543,8 @@ file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/BasicUDPSink.hh
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/BasicUDPSource.hh
 file \
     path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/ByteStreamFileSource.hh
+file \
+    path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/ByteStreamMemoryBufferSource.hh
 file \
     path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/ByteStreamMultiFileSource.hh
 file \
@@ -575,7 +584,6 @@ file \
     path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/H264VideoStreamDiscreteFramer.hh
 file \
     path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/H264VideoStreamFramer.hh
-file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/HTTPSink.hh
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/InputFile.hh
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/JPEGVideoRTPSink.hh
 file \
@@ -608,8 +616,6 @@ file \
     path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/MPEG1or2FileServerDemux.hh
 file \
     path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/MPEG1or2VideoFileServerMediaSubsession.hh
-file \
-    path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/MPEG1or2VideoHTTPSink.hh
 file \
     path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/MPEG1or2VideoRTPSink.hh
 file \
@@ -679,11 +685,15 @@ file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/RTPSource.hh
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/RTSPClient.hh
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/RTSPCommon.hh
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/RTSPServer.hh
+file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/RTSPServer.hh.save
+file \
+    path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/RTSPServerSupportingHTTPStreaming.hh
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/SIPClient.hh
 file \
     path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/ServerMediaSession.hh
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/SimpleRTPSink.hh
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/SimpleRTPSource.hh
+file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/TCPStreamSink.hh
 file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/VideoRTPSink.hh
 file \
     path=$(ECPREFIX)/lib/live555-32bit/liveMedia/include/WAVAudioFileServerMediaSubsession.hh
@@ -706,6 +716,7 @@ file path=$(ECPREFIX)/lib/live555-32bit/liveMedia/uLawAudioFilter.o
 file path=$(ECPREFIX)/lib/live555-32bit/mediaServer/COPYING
 file path=$(ECPREFIX)/lib/live555-32bit/mediaServer/DynamicRTSPServer.cpp
 file path=$(ECPREFIX)/lib/live555-32bit/mediaServer/DynamicRTSPServer.hh
+file path=$(ECPREFIX)/lib/live555-32bit/mediaServer/DynamicRTSPServer.hh.new
 file path=$(ECPREFIX)/lib/live555-32bit/mediaServer/DynamicRTSPServer.o
 file path=$(ECPREFIX)/lib/live555-32bit/mediaServer/Makefile
 file path=$(ECPREFIX)/lib/live555-32bit/mediaServer/Makefile.head
@@ -726,7 +737,6 @@ file path=$(ECPREFIX)/lib/live555-32bit/testProgs/Makefile.tail
 file path=$(ECPREFIX)/lib/live555-32bit/testProgs/openRTSP
 file path=$(ECPREFIX)/lib/live555-32bit/testProgs/openRTSP.cpp
 file path=$(ECPREFIX)/lib/live555-32bit/testProgs/openRTSP.o
-file path=$(ECPREFIX)/lib/live555-32bit/testProgs/pcr-decreasing-test2.ts
 file path=$(ECPREFIX)/lib/live555-32bit/testProgs/playCommon.cpp
 file path=$(ECPREFIX)/lib/live555-32bit/testProgs/playCommon.hh
 file path=$(ECPREFIX)/lib/live555-32bit/testProgs/playCommon.o
@@ -1015,6 +1025,10 @@ file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/BitVector.o
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/ByteStreamFileSource.cpp
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/ByteStreamFileSource.o
 file \
+    path=$(ECPREFIX)/lib/live555-64bit/liveMedia/ByteStreamMemoryBufferSource.cpp
+file \
+    path=$(ECPREFIX)/lib/live555-64bit/liveMedia/ByteStreamMemoryBufferSource.o
+file \
     path=$(ECPREFIX)/lib/live555-64bit/liveMedia/ByteStreamMultiFileSource.cpp
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/ByteStreamMultiFileSource.o
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/COPYING
@@ -1080,8 +1094,6 @@ file \
     path=$(ECPREFIX)/lib/live555-64bit/liveMedia/H264VideoStreamDiscreteFramer.o
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/H264VideoStreamFramer.cpp
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/H264VideoStreamFramer.o
-file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/HTTPSink.cpp
-file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/HTTPSink.o
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/InputFile.cpp
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/InputFile.o
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/JPEGVideoRTPSink.cpp
@@ -1149,8 +1161,6 @@ file \
     path=$(ECPREFIX)/lib/live555-64bit/liveMedia/MPEG1or2VideoFileServerMediaSubsession.cpp
 file \
     path=$(ECPREFIX)/lib/live555-64bit/liveMedia/MPEG1or2VideoFileServerMediaSubsession.o
-file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/MPEG1or2VideoHTTPSink.cpp
-file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/MPEG1or2VideoHTTPSink.o
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/MPEG1or2VideoRTPSink.cpp
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/MPEG1or2VideoRTPSink.o
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/MPEG1or2VideoRTPSource.cpp
@@ -1265,7 +1275,12 @@ file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/RTSPClient.o
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/RTSPCommon.cpp
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/RTSPCommon.o
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/RTSPServer.cpp
+file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/RTSPServer.cpp.save
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/RTSPServer.o
+file \
+    path=$(ECPREFIX)/lib/live555-64bit/liveMedia/RTSPServerSupportingHTTPStreaming.cpp
+file \
+    path=$(ECPREFIX)/lib/live555-64bit/liveMedia/RTSPServerSupportingHTTPStreaming.o
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/SIPClient.cpp
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/SIPClient.o
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/ServerMediaSession.cpp
@@ -1277,6 +1292,8 @@ file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/SimpleRTPSource.o
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/StreamParser.cpp
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/StreamParser.hh
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/StreamParser.o
+file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/TCPStreamSink.cpp
+file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/TCPStreamSink.o
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/VideoRTPSink.cpp
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/VideoRTPSink.o
 file \
@@ -1311,6 +1328,8 @@ file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/BasicUDPSink.hh
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/BasicUDPSource.hh
 file \
     path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/ByteStreamFileSource.hh
+file \
+    path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/ByteStreamMemoryBufferSource.hh
 file \
     path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/ByteStreamMultiFileSource.hh
 file \
@@ -1350,7 +1369,6 @@ file \
     path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/H264VideoStreamDiscreteFramer.hh
 file \
     path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/H264VideoStreamFramer.hh
-file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/HTTPSink.hh
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/InputFile.hh
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/JPEGVideoRTPSink.hh
 file \
@@ -1383,8 +1401,6 @@ file \
     path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/MPEG1or2FileServerDemux.hh
 file \
     path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/MPEG1or2VideoFileServerMediaSubsession.hh
-file \
-    path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/MPEG1or2VideoHTTPSink.hh
 file \
     path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/MPEG1or2VideoRTPSink.hh
 file \
@@ -1454,11 +1470,15 @@ file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/RTPSource.hh
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/RTSPClient.hh
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/RTSPCommon.hh
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/RTSPServer.hh
+file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/RTSPServer.hh.save
+file \
+    path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/RTSPServerSupportingHTTPStreaming.hh
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/SIPClient.hh
 file \
     path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/ServerMediaSession.hh
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/SimpleRTPSink.hh
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/SimpleRTPSource.hh
+file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/TCPStreamSink.hh
 file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/VideoRTPSink.hh
 file \
     path=$(ECPREFIX)/lib/live555-64bit/liveMedia/include/WAVAudioFileServerMediaSubsession.hh
@@ -1481,6 +1501,7 @@ file path=$(ECPREFIX)/lib/live555-64bit/liveMedia/uLawAudioFilter.o
 file path=$(ECPREFIX)/lib/live555-64bit/mediaServer/COPYING
 file path=$(ECPREFIX)/lib/live555-64bit/mediaServer/DynamicRTSPServer.cpp
 file path=$(ECPREFIX)/lib/live555-64bit/mediaServer/DynamicRTSPServer.hh
+file path=$(ECPREFIX)/lib/live555-64bit/mediaServer/DynamicRTSPServer.hh.new
 file path=$(ECPREFIX)/lib/live555-64bit/mediaServer/DynamicRTSPServer.o
 file path=$(ECPREFIX)/lib/live555-64bit/mediaServer/Makefile
 file path=$(ECPREFIX)/lib/live555-64bit/mediaServer/Makefile.head
@@ -1501,7 +1522,6 @@ file path=$(ECPREFIX)/lib/live555-64bit/testProgs/Makefile.tail
 file path=$(ECPREFIX)/lib/live555-64bit/testProgs/openRTSP
 file path=$(ECPREFIX)/lib/live555-64bit/testProgs/openRTSP.cpp
 file path=$(ECPREFIX)/lib/live555-64bit/testProgs/openRTSP.o
-file path=$(ECPREFIX)/lib/live555-64bit/testProgs/pcr-decreasing-test2.ts
 file path=$(ECPREFIX)/lib/live555-64bit/testProgs/playCommon.cpp
 file path=$(ECPREFIX)/lib/live555-64bit/testProgs/playCommon.hh
 file path=$(ECPREFIX)/lib/live555-64bit/testProgs/playCommon.o

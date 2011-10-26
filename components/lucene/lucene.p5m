@@ -1,0 +1,115 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/library/java/lucene@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Java-based indexing and search implementation"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://lucene.apache.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license lucene.license license="Apachev2"
+
+depend fmri=developer/java/jdk type=require
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/lucene
+dir path=$(ECPREFIX)/share/lucene
+file path=$(ECPREFIX)/share/doc/lucene/CHANGES.txt
+file path=$(ECPREFIX)/share/doc/lucene/JRE_VERSION_MIGRATION.txt
+file path=$(ECPREFIX)/share/doc/lucene/LICENSE.txt
+file path=$(ECPREFIX)/share/doc/lucene/NOTICE.txt
+file path=$(ECPREFIX)/share/doc/lucene/README.txt
+file path=$(ECPREFIX)/share/lucene/ant-1.7.1.jar
+file path=$(ECPREFIX)/share/lucene/ant-junit-1.7.1.jar
+file path=$(ECPREFIX)/share/lucene/commons-beanutils-1.7.0.jar
+file path=$(ECPREFIX)/share/lucene/commons-collections-3.1.jar
+file path=$(ECPREFIX)/share/lucene/commons-compress-1.1.jar
+file path=$(ECPREFIX)/share/lucene/commons-digester-1.7.jar
+file path=$(ECPREFIX)/share/lucene/commons-logging-1.0.4.jar
+file path=$(ECPREFIX)/share/lucene/icu4j-4_8.jar
+file path=$(ECPREFIX)/share/lucene/jakarta-regexp-1.4.jar
+file path=$(ECPREFIX)/share/lucene/junit-4.7.jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-analyzers-$(COMPONENT_VERSION)-javadoc.jar
+file path=$(ECPREFIX)/share/lucene/lucene-analyzers-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-benchmark-$(COMPONENT_VERSION)-javadoc.jar
+file path=$(ECPREFIX)/share/lucene/lucene-benchmark-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-core-$(COMPONENT_VERSION)-javadoc.jar
+file path=$(ECPREFIX)/share/lucene/lucene-core-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-demo-$(COMPONENT_VERSION)-javadoc.jar
+file path=$(ECPREFIX)/share/lucene/lucene-demo-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-facet-$(COMPONENT_VERSION)-examples.jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-facet-$(COMPONENT_VERSION)-javadoc.jar
+file path=$(ECPREFIX)/share/lucene/lucene-facet-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-grouping-$(COMPONENT_VERSION)-javadoc.jar
+file path=$(ECPREFIX)/share/lucene/lucene-grouping-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-highlighter-$(COMPONENT_VERSION)-javadoc.jar
+file path=$(ECPREFIX)/share/lucene/lucene-highlighter-$(COMPONENT_VERSION).jar
+file path=$(ECPREFIX)/share/lucene/lucene-icu-$(COMPONENT_VERSION)-javadoc.jar
+file path=$(ECPREFIX)/share/lucene/lucene-icu-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-instantiated-$(COMPONENT_VERSION)-javadoc.jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-instantiated-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-join-$(COMPONENT_VERSION)-javadoc.jar
+file path=$(ECPREFIX)/share/lucene/lucene-join-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-memory-$(COMPONENT_VERSION)-javadoc.jar
+file path=$(ECPREFIX)/share/lucene/lucene-memory-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-misc-$(COMPONENT_VERSION)-javadoc.jar
+file path=$(ECPREFIX)/share/lucene/lucene-misc-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-queries-$(COMPONENT_VERSION)-javadoc.jar
+file path=$(ECPREFIX)/share/lucene/lucene-queries-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-queryparser-$(COMPONENT_VERSION)-javadoc.jar
+file path=$(ECPREFIX)/share/lucene/lucene-queryparser-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-remote-$(COMPONENT_VERSION)-javadoc.jar
+file path=$(ECPREFIX)/share/lucene/lucene-remote-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-smartcn-$(COMPONENT_VERSION)-javadoc.jar
+file path=$(ECPREFIX)/share/lucene/lucene-smartcn-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-spatial-$(COMPONENT_VERSION)-javadoc.jar
+file path=$(ECPREFIX)/share/lucene/lucene-spatial-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-spellchecker-$(COMPONENT_VERSION)-javadoc.jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-spellchecker-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-stempel-$(COMPONENT_VERSION)-javadoc.jar
+file path=$(ECPREFIX)/share/lucene/lucene-stempel-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-test-framework-$(COMPONENT_VERSION)-javadoc.jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-test-framework-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-xml-query-parser-$(COMPONENT_VERSION)-javadoc.jar
+file \
+    path=$(ECPREFIX)/share/lucene/lucene-xml-query-parser-$(COMPONENT_VERSION).jar
+file path=$(ECPREFIX)/share/lucene/maven-ant-tasks-2.1.1.jar
+file path=$(ECPREFIX)/share/lucene/xercesImpl-2.9.1-patched-XERCESJ-1257.jar

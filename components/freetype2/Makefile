@@ -23,10 +23,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		freetype
-COMPONENT_VERSION=	2.4.4
+COMPONENT_VERSION=	2.4.7
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:1d136cbc51c67b212c91ba04dc5db797f35e64e6
+COMPONENT_ARCHIVE_HASH=	sha1:e1b2356ebbc6d39d813797572b1e5d8a2635e969
 COMPONENT_ARCHIVE_URL=	http://download.savannah.gnu.org/releases/freetype/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

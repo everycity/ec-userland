@@ -28,11 +28,13 @@ PKGMANGLE = true
 PKGLINT = true
 PKGDEPEND = true
 
+CLEAN_PATHS +=  $(BUILD_DIR)
+
 download::
 	$(COMPONENT_DIR)/generate-tarball.sh $(COMPONENT_ARCHIVE_URL) $(COMPONENT_SRC) $(GIT_ID)
 
 build: prep
 
 install: build
-	[ -d $(PROTO_DIR)/ec/lib/ruby/vendor_ruby ] || mkdir -p $(PROTO_DIR)/ec/lib/ruby/vendor_ruby
-	[ -h $(PROTO_DIR)/ec/lib/ruby/vendor_ruby/1.8 ] || ln -s $(SOURCE_DIR)/lib $(PROTO_DIR)/ec/lib/ruby/vendor_ruby/1.8
+	[ -d $(PROTO_DIR)$(ECPREFIX)/lib/ruby/vendor_ruby ] || mkdir -p $(PROTO_DIR)$(ECPREFIX)/lib/ruby/vendor_ruby
+	[ -h $(PROTO_DIR)$(ECPREFIX)/lib/ruby/vendor_ruby/1.8 ] || ln -s $(SOURCE_DIR)/lib $(PROTO_DIR)$(ECPREFIX)/lib/ruby/vendor_ruby/1.8

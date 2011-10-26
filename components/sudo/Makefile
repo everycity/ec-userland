@@ -37,10 +37,7 @@ include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS+=	--with-insults
 CONFIGURE_OPTIONS+=	--with-hal-insults
-CONFIGURE_OPTIONS+=	--with-editor=/ec/bin/vim
-CONFIGURE_OPTIONS+=	--libexecdir=$(ECPREFIX)/lib
-CONFIGURE_OPTIONS+=	--sysconfdir=$(ECPREFIX)/etc
-CONFIGURE_OPTIONS+=	--localstatedir=$(ECPREFIX)/var
+CONFIGURE_OPTIONS+=	--with-editor=$(ECPREFIX)/bin/vim
 CONFIGURE_OPTIONS+=	--exec-prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--with-timedir=$(ECPREFIX)/var/adm/sudo
 CONFIGURE_OPTIONS.32+=	--sbindir=$(ECPREFIX)/bin

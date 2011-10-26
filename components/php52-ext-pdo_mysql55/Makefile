@@ -52,27 +52,25 @@ CONFIGURE_OPTIONS     +=	--datadir=$(PHP_DATADIR)
 CONFIGURE_OPTIONS     +=	--mandir=$(PHP_PREFIX)/share/man
 
 CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris2.10
-CONFIGURE_OPTIONS.32  +=	--with-php-config=/ec/lib/php/5.2/bin/php-config
-CONFIGURE_OPTIONS.64  +=	--with-php-config=/ec/lib/php/5.2/bin/amd64/php-config
-CONFIGURE_OPTIONS     +=	--with-pdo-mysql=/ec/lib/mysql/5.5
+CONFIGURE_OPTIONS.32  +=	--with-php-config=$(PHP_PREFIX)/bin/php-config
+CONFIGURE_OPTIONS.64  +=	--with-php-config=$(PHP_PREFIX)/bin/$(MACH64)/php-config
+CONFIGURE_OPTIONS     +=	--with-pdo-mysql=$(ECPREFIX)/lib/mysql/5.5
 
 CONFIGURE_OPTIONS     +=	$(CONFIGURE_OPTIONS.$(BITS))
 
-CFLAGS.32             +=	-I/ec/lib/mysql/5.5/include
-CFLAGS.64             +=	-I/ec/lib/mysql/5.5/include/$(MACH64)
-CPPFLAGS.32           +=	-I/ec/lib/mysql/5.5/include
-CPPFLAGS.64           +=	-I/ec/lib/mysql/5.5/include/$(MACH64)
-LDFLAGS.32            +=	-L/ec/lib/mysql/5.5/lib -R/ec/lib/mysql/5.5/lib
-LDFLAGS.64            +=	-L/ec/lib/mysql/5.5/lib/$(MACH64) -R/ec/lib/mysql/5.5/lib/$(MACH64)
+CFLAGS.32             +=	-I$(ECPREFIX)/lib/mysql/5.5/include
+CFLAGS.64             +=	-I$(ECPREFIX)/lib/mysql/5.5/include/$(MACH64)
+CPPFLAGS.32           +=	-I$(ECPREFIX)/lib/mysql/5.5/include
+CPPFLAGS.64           +=	-I$(ECPREFIX)/lib/mysql/5.5/include/$(MACH64)
+LDFLAGS.32            +=	-L$(ECPREFIX)/lib/mysql/5.5/lib -R$(ECPREFIX)/lib/mysql/5.5/lib
+LDFLAGS.64            +=	-L$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64) -R$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64)
 
-CFLAGS                +=	$(CFLAGS.$(BITS))
 CPPFLAGS              +=	$(CPPFLAGS.$(BITS))
-LDFLAGS               +=	$(LDFLAGS.$(BITS))
 
-CONFIGURE_ENV         +=	CC="$(CC)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)" PHP_PDO_MYSQL="/ec/lib/mysql/5.5/bin/mysql_config"
+CONFIGURE_ENV         +=	PHP_PDO_MYSQL="$(ECPREFIX)/lib/mysql/5.5/bin/mysql_config"
 CONFIGURE_SCRIPT       =	$(@D)/configure
 
-COMPONENT_PRE_CONFIGURE_ACTION	=	cp -R $(SOURCE_DIR)/ext/pdo_mysql/* $(@D) ; cd $(@D) ; /ec/lib/php/5.2/bin/phpize
+COMPONENT_PRE_CONFIGURE_ACTION	=	cp -R $(SOURCE_DIR)/ext/pdo_mysql/* $(@D) ; cd $(@D) ; $(PHP_PREFIX)/bin/phpize
 COMPONENT_POST_CONFIGURE_ACTION	=	perl -p -i -e 's/PDO_MYSQL_SHARED_LIBADD = .*/PDO_MYSQL_SHARED_LIBADD = -lmysqlclient -lthread -lsocket -lz -lnsl -lm -lrt/g' $(@D)/Makefile
 COMPONENT_INSTALL_ARGS		+=	INSTALL_ROOT=$(PROTO_DIR)
 

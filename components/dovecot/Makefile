@@ -34,6 +34,10 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+# Dovecot doesn't seem to want to support libdir==libexecdir
+# http://www.dovecot.org/list/dovecot/2009-December/045498.html
+CONFIGURE_OPTIONS+=	--libexecdir=$(ECPREFIX)/libexec
+
 CONFIGURE_OPTIONS.32+=	--sbindir=$(ECPREFIX)/bin
 CONFIGURE_OPTIONS.64+=	--sbindir=$(ECPREFIX)/bin/$(MACH64)
 CONFIGURE_OPTIONS+=	--with-mysql

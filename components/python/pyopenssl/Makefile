@@ -20,9 +20,7 @@
 #
 # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
 #
-include $(WS_TOP)/make-rules/shared-macros.mk
-
-#PATH=/usr/bin:/usr/gnu/bin:/usr/sbin
+include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		pyOpenSSL
 COMPONENT_VERSION=	0.11
@@ -31,9 +29,11 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:92b550853626d2959c44abb72944b83403427497
 COMPONENT_ARCHIVE_URL=	http://launchpad.net/pyopenssl/main/0.11/+download/$(COMPONENT_ARCHIVE)
 
-include $(WS_TOP)/make-rules/prep.mk
-include $(WS_TOP)/make-rules/setup.py.mk
-include $(WS_TOP)/make-rules/ips.mk
+include ../../../make-rules/prep.mk
+include ../../../make-rules/setup.py.mk
+include ../../../make-rules/ips.mk
+
+#COMPONENT_BUILD_ARGS += --with-openssl=../../openssl/build/prototype/i386
 
 # common targets
 #build:		$(BUILD_32_and_64)
@@ -47,4 +47,4 @@ test:
 
 BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
 
-include $(WS_TOP)/make-rules/depend.mk
+include ../../../make-rules/depend.mk

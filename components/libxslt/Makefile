@@ -34,13 +34,14 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS.32 += --enable-static=no
-CONFIGURE_OPTIONS.64 +=	--enable-static=no
-
 # This is so that the 64bit libgcrypt-config gets picked up
 PATH.32=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
-PATH.64=$(ECPREFIX)/bin/amd64:/$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH.64=$(ECPREFIX)/bin/$(MACH64):/$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 PATH=$(PATH.$(BITS))
+
+CONFIGURE_ENV +=	LIBS="$(LIBS) -lpython2.6"
+
+CONFIGURE_OPTIONS +=	--enable-static=no
 
 build:		$(BUILD_32_and_64)
 

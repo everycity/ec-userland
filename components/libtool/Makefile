@@ -26,7 +26,7 @@ COMPONENT_NAME=		libtool
 COMPONENT_VERSION=	2.4
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha1:b534c293b22048c022b1ff3a372b9c03f26170b4
+COMPONENT_ARCHIVE_HASH=	sha1:149e9d7a993b643d13149a94d07bbca1085e601c
 COMPONENT_ARCHIVE_URL=	http://ftp.gnu.org/gnu/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -36,14 +36,10 @@ include ../../make-rules/ips.mk
 M4=/apps/bin/m4
 
 #CPPFLAGS+= -fexceptions -I$(ECPREFIX)/include
-#LDFLAGS+= -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
 
 #CONFIGURE_OPTIONS  +=           CPPFLAGS="$(CPPFLAGS)"
-#CONFIGURE_OPTIONS  +=           CFLAGS="$(CFLAGS)"
-#CONFIGURE_OPTIONS  +=           LDFLAGS="$(LDFLAGS)"
 CONFIGURE_OPTIONS  +=           M4=$(M4)
 #CONFIGURE_OPTIONS  +=           ABI=32
-CONFIGURE_OPTIONS  +=           --prefix=$(ECPREFIX)
 #CONFIGURE_OPTIONS  +=           --disable-static
 
 include ../../make-rules/shared-targets.mk

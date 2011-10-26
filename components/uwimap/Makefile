@@ -42,10 +42,10 @@ COMPONENT_BUILD_TARGETS+=	ec IP=6 SHLIBBASE=c-client SHLIBNAME=libc-client.so.1 
 build:		$(BUILD_32_and_64)
 
 install:        build
-	$(MKDIR) -p $(PROTO_DIR)/$(ECPREFIX)/lib/amd64
+	$(MKDIR) -p $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)
 	$(MKDIR) -p $(PROTO_DIR)/$(ECPREFIX)/include/c-client
 	$(CP) $(BUILD_DIR_32)/c-client/libc-client.so.1 $(PROTO_DIR)/$(ECPREFIX)/lib/
-	$(CP) $(BUILD_DIR_64)/c-client/libc-client.so.1 $(PROTO_DIR)/$(ECPREFIX)/lib/amd64
+	$(CP) $(BUILD_DIR_64)/c-client/libc-client.so.1 $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)
 	$(CP) $(SOURCE_DIR)/src/osdep/unix/*.h $(PROTO_DIR)/$(ECPREFIX)/include/c-client/
 	$(CP) $(SOURCE_DIR)/src/c-client/*.h $(PROTO_DIR)/$(ECPREFIX)/include/c-client/
 	$(CP) $(BUILD_DIR_32)/c-client/linkage.h $(PROTO_DIR)/$(ECPREFIX)/include/c-client/

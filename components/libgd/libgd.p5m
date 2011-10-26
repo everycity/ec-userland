@@ -1,0 +1,71 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/library/libgd@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="GD is an open source code library for the dynamic creation of images by programmers."
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://www.libgd.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license libgd.license license="BSD-like"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+file path=$(ECPREFIX)/bin/$(MACH64)/annotate
+file path=$(ECPREFIX)/bin/$(MACH64)/bdftogd
+file path=$(ECPREFIX)/bin/$(MACH64)/gd2copypal
+file path=$(ECPREFIX)/bin/$(MACH64)/gd2togif
+file path=$(ECPREFIX)/bin/$(MACH64)/gd2topng
+file path=$(ECPREFIX)/bin/$(MACH64)/gdcmpgif
+file path=$(ECPREFIX)/bin/$(MACH64)/gdlib-config
+file path=$(ECPREFIX)/bin/$(MACH64)/gdparttopng
+file path=$(ECPREFIX)/bin/$(MACH64)/gdtopng
+file path=$(ECPREFIX)/bin/$(MACH64)/giftogd2
+file path=$(ECPREFIX)/bin/$(MACH64)/pngtogd
+file path=$(ECPREFIX)/bin/$(MACH64)/pngtogd2
+file path=$(ECPREFIX)/bin/$(MACH64)/webpng
+file path=$(ECPREFIX)/bin/annotate
+file path=$(ECPREFIX)/bin/bdftogd
+file path=$(ECPREFIX)/bin/gd2copypal
+file path=$(ECPREFIX)/bin/gd2togif
+file path=$(ECPREFIX)/bin/gd2topng
+file path=$(ECPREFIX)/bin/gdcmpgif
+file path=$(ECPREFIX)/bin/gdlib-config
+file path=$(ECPREFIX)/bin/gdparttopng
+file path=$(ECPREFIX)/bin/gdtopng
+file path=$(ECPREFIX)/bin/giftogd2
+file path=$(ECPREFIX)/bin/pngtogd
+file path=$(ECPREFIX)/bin/pngtogd2
+file path=$(ECPREFIX)/bin/webpng
+file path=$(ECPREFIX)/include/entities.h
+file path=$(ECPREFIX)/include/gd.h
+file path=$(ECPREFIX)/include/gd_io.h
+file path=$(ECPREFIX)/include/gdcache.h
+file path=$(ECPREFIX)/include/gdfontg.h
+file path=$(ECPREFIX)/include/gdfontl.h
+file path=$(ECPREFIX)/include/gdfontmb.h
+file path=$(ECPREFIX)/include/gdfonts.h
+file path=$(ECPREFIX)/include/gdfontt.h
+file path=$(ECPREFIX)/include/gdfx.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libgd.so.2.0.0
+file path=$(ECPREFIX)/lib/libgd.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libgd.so target=libgd.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libgd.so.2 target=libgd.so.2.0.0
+link path=$(ECPREFIX)/lib/libgd.so target=libgd.so.2.0.0
+link path=$(ECPREFIX)/lib/libgd.so.2 target=libgd.so.2.0.0

@@ -26,7 +26,7 @@ COMPONENT_NAME=		libffi
 COMPONENT_VERSION=	3.0.9
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha1:56e41f87780e09d06d279690e53d4ea2c371ea88
+COMPONENT_ARCHIVE_HASH=	sha1:56e41f87780e09d06d279690e53d4ea2c371ea88
 COMPONENT_ARCHIVE_URL=	ftp://sources.redhat.com/pub/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -34,12 +34,8 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CPPFLAGS+= -I$(ECPREFIX)/include
-LDFLAGS+= -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
 
 CONFIGURE_OPTIONS  +=           CPPFLAGS="$(CPPFLAGS)"
-CONFIGURE_OPTIONS  +=           CFLAGS="$(CFLAGS)"
-CONFIGURE_OPTIONS  +=           LDFLAGS="$(LDFLAGS)"
-CONFIGURE_OPTIONS  +=           --prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS  +=           --disable-static
 
 include ../../make-rules/shared-targets.mk

@@ -46,8 +46,8 @@
 
 $(BUILD_DIR_32)/.built:	BITS=32
 $(BUILD_DIR_64)/.built:	BITS=64
-$(BUILD_DIR_32)/.install:	BITS=32
-$(BUILD_DIR_64)/.install:	BITS=64
+$(BUILD_DIR_32)/.installed:	BITS=32
+$(BUILD_DIR_64)/.installed:	BITS=64
 
 # set the default target for installation of the component
 COMPONENT_INSTALL_TARGETS =	install

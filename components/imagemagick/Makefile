@@ -33,10 +33,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LIBDIR.32=	$(ECPREFIX)/lib
-LIBDIR.64=	$(ECPREFIX)/lib/$(MACH64)
-CONFIGURE_ENV+=	LDFLAGS="-L$(LIBDIR.$(BITS)) -R$(LIBDIR.$(BITS))"
-
 CONFIGURE_OPTIONS+=	--enable-static=no --enable-shared=yes
 CONFIGURE_OPTIONS+=	--with-modules
 CONFIGURE_OPTIONS.32+=	--with-perl=$(ECPREFIX)/bin/perl

@@ -32,15 +32,6 @@ COMPONENT_ARCHIVE_URL=	http://ftp.gnu.org/gnu/$(COMPONENT_NAME)/$(COMPONENT_ARCH
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-
-#CPPFLAGS+= -I$(ECPREFIX)/include
-#LDFLAGS+= -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
-
-#CONFIGURE_OPTIONS  +=           CPPFLAGS="$(CPPFLAGS)"
-#CONFIGURE_OPTIONS  +=           CFLAGS="$(CFLAGS)"
-#CONFIGURE_OPTIONS  +=           LDFLAGS="$(LDFLAGS)"
-#CONFIGURE_OPTIONS  +=           --prefix=$(ECPREFIX)
-
 include ../../make-rules/shared-targets.mk
 
 build:		$(BUILD_32)

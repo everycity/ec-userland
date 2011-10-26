@@ -33,8 +33,9 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+LDFLAGS	+=	-lnsl -lsocket -lresolv
+
 CONFIGURE_OPTIONS+=	--with-pic --enable-shared --disable-static
-CONFIGURE_ENV+=		LDFLAGS="-lnsl -lsocket -lresolv"
 
 build:		$(BUILD_32_and_64)
 

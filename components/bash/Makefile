@@ -33,11 +33,9 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_ENV +=	CFLAGS="$(CFLAGS)"
-CONFIGURE_ENV +=	LDFLAGS="$(LDFLAGS)"
 CONFIGURE_ENV +=	LIBS="$(LIBS)"
 
-CONFIGURE_OPTIONS  +=		--localstatedir=$(ECPREFIX)/var
+CONFIGURE_OPTIONS  +=		--infodir=$(CONFIGURE_INFODIR)
 CONFIGURE_OPTIONS  += 		--enable-alias
 CONFIGURE_OPTIONS  += 		--enable-arith-for-command
 CONFIGURE_OPTIONS  += 		--enable-array-variables
@@ -75,7 +73,6 @@ CONFIGURE_OPTIONS  += 		--disable-profiling
 CONFIGURE_OPTIONS  += 		--enable-largefile
 CONFIGURE_OPTIONS  += 		--enable-nls	
 CONFIGURE_OPTIONS  += 		--with-bash-malloc	
-CONFIGURE_OPTIONS  +=		--infodir=$(CONFIGURE_INFODIR)
 
 build:		$(BUILD_32)
 

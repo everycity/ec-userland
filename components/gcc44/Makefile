@@ -25,8 +25,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS  +=           --libexecdir=$(ECPREFIX)/lib
-CONFIGURE_OPTIONS  +=           --infodir=$(ECPREFIX)/share/info
+CONFIGURE_ENV =
+
 CONFIGURE_OPTIONS  +=           --with-mpc=$(ECPREFIX)
 CONFIGURE_OPTIONS  +=           --with-mpfr=$(ECPREFIX)
 CONFIGURE_OPTIONS  +=           --with-gmp=$(ECPREFIX)

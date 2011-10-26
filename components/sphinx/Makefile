@@ -32,10 +32,15 @@ COMPONENT_ARCHIVE_URL=	http://sphinxsearch.com/files/$(COMPONENT_ARCHIVE)
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-
 include ../../make-rules/shared-targets.mk
 
-CONFIGURE_OPTIONS+= 'LDFLAGS=-liconv' --with-iconv '--with-mysql=/opt/webstack/mysql --with-mysql-includes=/opt/webstack/mysql/include'
+LDFLAGS +=	-liconv
+
+CONFIGURE_OPTIONS	+=	--with-iconv --with-mysql=$(ECPREFIX)/lib/mysql/5.5
+CONFIGURE_OPTIONS.64	+=	--enable-id64
+
+COMPONENT_PRE_CONFIGURE_ACTION.64 +=	( $(GPATCH) $(SOURCE_DIR)/configure configure.64.path )
+COMPONENT_PRE_CONFIGURE_ACTION +=	$(COMPONENT_PRE_CONFIGURE_ACTION.$(BITS))
 
 build:		$(BUILD_32_and_64)
 
@@ -46,22 +51,6 @@ $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
 	(cp -r $(SOURCE_DIR)/* $(@D) ; cd $(@D) ; $(ENV) $(CONFIGURE_ENV) $(CONFIG_SHELL) \
 		./configure $(CONFIGURE_OPTIONS))
 	$(COMPONENT_POST_CONFIGURE_ACTION)
-	$(TOUCH) $@
-
-# build the configured source
-$(BUILD_DIR)/%/.built:  $(BUILD_DIR)/%/.configured
-	$(COMPONENT_PRE_BUILD_ACTION)
-	(cd $(@D) ; $(ENV) $(COMPONENT_BUILD_ENV) \
-		$(GMAKE) $(COMPONENT_BUILD_TARGETS))
-	$(COMPONENT_POST_BUILD_ACTION)
-	$(TOUCH) $@
-
-# install the built source into a prototype area
-$(BUILD_DIR)/%/.installed:      $(BUILD_DIR)/%/.built
-	$(COMPONENT_PRE_INSTALL_ACTION)
-	(cd $(@D) ; $(ENV) $(COMPONENT_INSTALL_ENV) $(GMAKE) \
-			$(COMPONENT_INSTALL_ARGS) $(COMPONENT_INSTALL_TARGETS))
-	$(COMPONENT_POST_INSTALL_ACTION)
 	$(TOUCH) $@
 
 install:	$(INSTALL_32_and_64)

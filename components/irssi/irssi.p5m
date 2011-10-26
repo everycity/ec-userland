@@ -12,8 +12,6 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
-<transform file path=ec/lib/i86pc-solaris-64int/perllocal.pod -> drop>
-
 set name=pkg.fmri value=pkg:/network/chat/irssi@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="Irssi is a terminal based IRC client for UNIX systems"
 #set name=info.classification value="org.opensolaris.category.2008:

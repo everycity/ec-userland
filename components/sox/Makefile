@@ -34,8 +34,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS.64+= LDFLAGS="-L/ec/lib/amd64"
-
 CONFIGURE_OPTIONS+=	--with-pic --enable-shared --disable-static
 CONFIGURE_OPTIONS+=	--with-png
 CONFIGURE_OPTIONS+=	--with-mad

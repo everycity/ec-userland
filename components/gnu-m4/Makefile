@@ -34,14 +34,10 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 #CPPFLAGS+= -I$(ECPREFIX)/include
-#LDFLAGS+= -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
 
 #CONFIGURE_OPTIONS  +=           CPPFLAGS="$(CPPFLAGS)"
-#CONFIGURE_OPTIONS  +=           CFLAGS="$(CFLAGS)"
-#CONFIGURE_OPTIONS  +=           LDFLAGS="$(LDFLAGS)"
 #CONFIGURE_OPTIONS  +=           M4=$(M4)
 #CONFIGURE_OPTIONS  +=           ABI=32
-CONFIGURE_OPTIONS  +=           --prefix=$(ECPREFIX)
 #CONFIGURE_OPTIONS  +=           --disable-static
 CONFIGURE_OPTIONS  +=           --program-prefix=g
 
@@ -52,7 +48,7 @@ build:		$(BUILD_32)
 install:	$(INSTALL_32)
 
 test32:		$(BUILD_32)
-	(cd $(BUILD_DIR_32); env - $(GMAKE) check)
+	(cd $(BUILD_DIR_32); $(GMAKE) check)
 
 test:	test32
 

@@ -20,7 +20,7 @@
 #
 # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
 #
-include $(WS_TOP)/make-rules/shared-macros.mk
+include ../../../make-rules/shared-macros.mk
 
 PATH=$(ECPREFIX)/bin:/apps/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
 
@@ -31,13 +31,12 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
 COMPONENT_ARCHIVE_HASH=	sha1:a1daf2c2c7cffe0939c015260447572fe75c7e50
 COMPONENT_ARCHIVE_URL=	http://python.org/ftp/python/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
-include $(WS_TOP)/make-rules/prep.mk
-include $(WS_TOP)/make-rules/configure.mk
-include $(WS_TOP)/make-rules/ips.mk
+include ../../../make-rules/prep.mk
+include ../../../make-rules/configure.mk
+include ../../../make-rules/ips.mk
 
-#COMPONENT_CONFIGURE_ENV += LD_LIBRARY_PATH="$(ECPREFIX)/lib"
-#COMPONENT_BUILD_ENV += LD_LIBRARY_PATH="$(ECPREFIX)/lib"
-#COMPONENT_INSTALL_ENV += LD_LIBRARY_PATH="$(ECPREFIX)/lib"
+# make build isn't thread safe.
+COMPONENT_BUILD_GMAKE_ARGS=
 
 # We patch auto* files, so regenerate headers and configure
 COMPONENT_PREP_ACTION = \
@@ -79,9 +78,7 @@ CCFLAGS +=		-norunpath -compat=5
 
 CONFIGURE_OPTIONS  +=		--infodir=$(CONFIGURE_INFODIR)
 CONFIGURE_OPTIONS  +=		--enable-shared
-CONFIGURE_OPTIONS  +=		--disable-static
 CONFIGURE_OPTIONS  +=		--with-system-ffi
-#CONFIGURE_OPTIONS  +=		--without-gcc
 CONFIGURE_OPTIONS  +=		--with-wctype-functions
 CONFIGURE_OPTIONS  +=		ac_cv_opt_olimit_ok=no
 CONFIGURE_OPTIONS  +=		ac_cv_olimit_ok=no
@@ -111,4 +108,4 @@ $(BUILD_DIR)/%/.tested:	$(BUILD_DIR)/%/.built
 
 BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
 
-include $(WS_TOP)/make-rules/depend.mk
+include ../../../make-rules/depend.mk

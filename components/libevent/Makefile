@@ -23,24 +23,20 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libevent
-COMPONENT_VERSION=	2.0.10
+COMPONENT_VERSION=	2.0.15
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)-stable
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:21e26de201d55f47f9b340b014bd3b7a7d8b1f69
-COMPONENT_ARCHIVE_URL=	http://www.monkey.org/~provos/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha1:8e4f662f3bed28f82f89a5d0afaecac75adfa925
+COMPONENT_ARCHIVE_URL=	https://github.com/downloads/$(COMPONENT_NAME)/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS += --with-pic
+CONFIGURE_OPTIONS +=	--with-pic
+CONFIGURE_OPTIONS +=	--enable-static=no
 
 build:		$(BUILD_32_and_64)
 
-include ../../make-rules/shared-targets.mk
-
 install:	$(INSTALL_32_and_64)
 
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk

@@ -20,7 +20,7 @@
 #
 # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
 #
-include $(WS_TOP)/make-rules/shared-macros.mk
+include ../../../make-rules/shared-macros.mk
 
 #PATH=/usr/bin:/usr/gnu/bin:/usr/sbin
 
@@ -31,9 +31,9 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:ab9b677d1d14c9fd8283132ea1fe9cefcf1a67e3
 COMPONENT_ARCHIVE_URL=	http://pypi.python.org/packages/source/s/simplejson/$(COMPONENT_ARCHIVE)
 
-include $(WS_TOP)/make-rules/prep.mk
-include $(WS_TOP)/make-rules/setup.py.mk
-include $(WS_TOP)/make-rules/ips.mk
+include ../../../make-rules/prep.mk
+include ../../../make-rules/setup.py.mk
+include ../../../make-rules/ips.mk
 
 # common targets
 #build:		$(BUILD_32_and_64)
@@ -47,4 +47,4 @@ test:
 
 BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
 
-include $(WS_TOP)/make-rules/depend.mk
+include ../../../make-rules/depend.mk

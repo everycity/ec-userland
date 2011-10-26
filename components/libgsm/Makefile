@@ -45,4 +45,3 @@ build:		$(BUILD_32_and_64)
 install:	$(INSTALL_32) build
 	$(INSTALL) $(BUILD_DIR_64)/lib/libgsm.so.1 $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)
 
-

@@ -33,8 +33,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS.64	+= LDFLAGS="-L/ec/lib/amd64"
-CONFIGURE_OPTIONS.64	+= --with-ogg-libraries=/ec/lib/$(MACH64)
+CONFIGURE_OPTIONS.64	+= --with-ogg-libraries=$(ECPREFIX)/lib/$(MACH64)
 
 CONFIGURE_OPTIONS+=	--with-pic --enable-shared --disable-static
 CONFIGURE_OPTIONS+=	--with-ogg=/ec

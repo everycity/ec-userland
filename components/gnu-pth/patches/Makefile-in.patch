@@ -1,0 +1,15 @@
+--- pth-2.0.7/Makefile.in.orig	2011-10-13 15:08:57.124220332 +0100
++++ pth-2.0.7/Makefile.in	2011-10-13 15:09:28.207957590 +0100
+@@ -168,10 +168,10 @@
+ 
+ #   build the static and possibly shared libraries
+ libpth.la: $(LOBJS)
+-	$(LIBTOOL) --mode=link --quiet $(CC) -o libpth.la $(LOBJS) \
++	$(LIBTOOL) --mode=link --quiet $(CC) -o libpth.la $(LOBJS) $(LIBS) \
+ 	-rpath $(libdir) -version-info `$(SHTOOL) version -lc -dlibtool $(_VERSION_FILE)`
+ libpthread.la: pthread.lo $(LOBJS)
+-	$(LIBTOOL) --mode=link --quiet $(CC) -o libpthread.la pthread.lo $(LOBJS) \
++	$(LIBTOOL) --mode=link --quiet $(CC) -o libpthread.la pthread.lo $(LOBJS) $(LIBS) \
+ 	-rpath $(libdir) -version-info `$(SHTOOL) version -lc -dlibtool $(_VERSION_FILE)`
+ 
+ #   build the manual pages

@@ -1,0 +1,103 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/runtime/nodejs04@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Evented I/O for V8 JavaScript."
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://nodejs.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license nodejs.license license="BSD-like"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/node
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/node
+dir path=$(ECPREFIX)/lib/node/wafadmin
+dir path=$(ECPREFIX)/lib/node/wafadmin/Tools
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/node
+file path=$(ECPREFIX)/bin/node-waf
+file path=$(ECPREFIX)/include/node/config.h
+file path=$(ECPREFIX)/include/node/eio.h
+file path=$(ECPREFIX)/include/node/ev.h
+file path=$(ECPREFIX)/include/node/node.h
+file path=$(ECPREFIX)/include/node/node_buffer.h
+file path=$(ECPREFIX)/include/node/node_config.h
+file path=$(ECPREFIX)/include/node/node_events.h
+file path=$(ECPREFIX)/include/node/node_object_wrap.h
+file path=$(ECPREFIX)/include/node/node_version.h
+file path=$(ECPREFIX)/include/node/v8-debug.h
+file path=$(ECPREFIX)/include/node/v8-preparser.h
+file path=$(ECPREFIX)/include/node/v8-profiler.h
+file path=$(ECPREFIX)/include/node/v8-testing.h
+file path=$(ECPREFIX)/include/node/v8.h
+file path=$(ECPREFIX)/include/node/v8stdint.h
+file path=$(ECPREFIX)/lib/node/wafadmin/Build.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Configure.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Constants.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Environment.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Logs.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Node.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Options.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Runner.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Scripting.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Task.py
+file path=$(ECPREFIX)/lib/node/wafadmin/TaskGen.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/__init__.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/ar.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/cc.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/ccroot.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/compiler_cc.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/compiler_cxx.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/compiler_d.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/config_c.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/cxx.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/d.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/dmd.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/gas.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/gcc.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/gdc.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/gnu_dirs.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/gob2.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/gxx.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/icc.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/icpc.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/intltool.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/libtool.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/misc.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/nasm.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/node_addon.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/osx.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/preproc.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/python.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/suncc.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/suncxx.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/unittestw.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/winres.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/xlc.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Tools/xlcxx.py
+file path=$(ECPREFIX)/lib/node/wafadmin/Utils.py
+file path=$(ECPREFIX)/lib/node/wafadmin/__init__.py
+file path=$(ECPREFIX)/lib/node/wafadmin/ansiterm.py
+file path=$(ECPREFIX)/lib/node/wafadmin/pproc.py
+file path=$(ECPREFIX)/lib/node/wafadmin/py3kfixes.py
+file path=$(ECPREFIX)/lib/pkgconfig/nodejs.pc
+file path=$(ECPREFIX)/share/man/man1/node.1
