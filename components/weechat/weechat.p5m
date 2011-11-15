@@ -58,7 +58,6 @@ file path=$(ECPREFIX)/lib/weechat/plugins/charset.so.0.0.0
 file path=$(ECPREFIX)/lib/weechat/plugins/fifo.so.0.0.0
 file path=$(ECPREFIX)/lib/weechat/plugins/irc.so.0.0.0
 file path=$(ECPREFIX)/lib/weechat/plugins/logger.so.0.0.0
-file path=$(ECPREFIX)/lib/weechat/plugins/perl.so.0.0.0
 file path=$(ECPREFIX)/lib/weechat/plugins/python.so.0.0.0
 file path=$(ECPREFIX)/lib/weechat/plugins/relay.so.0.0.0
 file path=$(ECPREFIX)/lib/weechat/plugins/rmodifier.so.0.0.0
@@ -85,8 +84,6 @@ link path=$(ECPREFIX)/lib/weechat/plugins/irc.so target=irc.so.0.0.0
 link path=$(ECPREFIX)/lib/weechat/plugins/irc.so.0 target=irc.so.0.0.0
 link path=$(ECPREFIX)/lib/weechat/plugins/logger.so target=logger.so.0.0.0
 link path=$(ECPREFIX)/lib/weechat/plugins/logger.so.0 target=logger.so.0.0.0
-link path=$(ECPREFIX)/lib/weechat/plugins/perl.so target=perl.so.0.0.0
-link path=$(ECPREFIX)/lib/weechat/plugins/perl.so.0 target=perl.so.0.0.0
 link path=$(ECPREFIX)/lib/weechat/plugins/python.so target=python.so.0.0.0
 link path=$(ECPREFIX)/lib/weechat/plugins/python.so.0 target=python.so.0.0.0
 link path=$(ECPREFIX)/lib/weechat/plugins/relay.so target=relay.so.0.0.0

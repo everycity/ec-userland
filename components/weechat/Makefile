@@ -30,14 +30,10 @@ COMPONENT_PREP_ACTION=  (cd $(@D) ; autoconf)
 
 CONFIGURE_ENV+=		CPPFLAGS="-I$(ECPREFIX)/include/ncurses"
 CONFIGURE_ENV+=		LIBS="-lnsl"
-CONFIGURE_ENV+=		PERL="/usr/perl5/5.8.4/bin/perl"
 
+CONFIGURE_OPTIONS+=	--disable-perl
 CONFIGURE_OPTIONS+=	--disable-static
 CONFIGURE_OPTIONS+=	--with-debug=0
-
-COMPONENT_POST_CONFIGURE_ACTION+= \
-	$(PERL) -pi -e 's%/usr/perl5/5.8.4/lib/i86pc-solaris-64int/auto/DynaLoader/DynaLoader.a%%' \
-	$(@D)/src/plugins/scripts/perl/Makefile;
 
 build:		$(BUILD_32)
 
