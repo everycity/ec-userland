@@ -1,0 +1,31 @@
+diff -ruN weechat-0.3.6.orig/src/gui/curses/gui-curses-window.c weechat-0.3.6/src/gui/curses/gui-curses-window.c
+--- weechat-0.3.6.orig/src/gui/curses/gui-curses-window.c	2011-10-15 10:09:16.000000000 +0100
++++ weechat-0.3.6/src/gui/curses/gui-curses-window.c	2011-11-15 14:34:34.339330439 +0000
+@@ -91,22 +91,12 @@
+ void
+ gui_window_read_terminal_size ()
+ {
+-    struct winsize size;
+     int new_width, new_height;
+-    
+-    if (ioctl (fileno (stdout), TIOCGWINSZ, &size) == 0)
+-    {
+-        resizeterm (size.ws_row, size.ws_col);
+-        gui_term_cols = size.ws_col;
+-        gui_term_lines = size.ws_row;
+-    }
+-    else
+-    {
+-        getmaxyx (stdscr, new_height, new_width);
+-        gui_term_cols = new_width;
+-        gui_term_lines = new_height;
+-    }
+-    
++
++    getmaxyx (stdscr, new_height, new_width);
++    gui_term_cols = new_width;
++    gui_term_lines = new_height;
++
+     gui_ok = ((gui_term_cols >= GUI_WINDOW_MIN_WIDTH)
+               && (gui_term_lines >= GUI_WINDOW_MIN_HEIGHT));
+ }
