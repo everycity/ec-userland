@@ -38,9 +38,9 @@ GEOIP_DIR =	$(PROTO_DIR)/$(ECPREFIX)/share/GeoIP
 
 download::
 	$(WS_TOOLS)/userland-fetch --url $(COMPONENT_ARCHIVE_URL)
-	gunzip $(COMPONENT_ARCHIVE)
+	gunzip -f $(COMPONENT_ARCHIVE)
 
-$(BUILD_DIR)/%/.built: 
+$(BUILD_DIR)/%/.built:	prep
 	$(RM) -r $(@D) $(PROTO_DIR) ; $(MKDIR) -p $(@D) $(GEOIP_DIR)
 	$(TOUCH) $@
 
@@ -48,7 +48,7 @@ $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
 	$(CP) $(COMPONENT_FILE) $(GEOIP_DIR)/GeoIP.dat
 	$(TOUCH) $@
 
-prep:
+prep:	download
 
 build:		$(BUILD_32)
 
