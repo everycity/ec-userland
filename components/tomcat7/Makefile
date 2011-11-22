@@ -15,10 +15,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tomcat
-COMPONENT_VERSION=	7.0.21
+COMPONENT_VERSION=	7.0.22
 COMPONENT_SRC=		apache-tomcat-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	apache-tomcat-$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:e094aaa9386428ebb39af47e0744a704ba52b68b
+COMPONENT_ARCHIVE_HASH=	sha1:6371fe4c7636119459740d6e6e02ce188e9f7262
 COMPONENT_ARCHIVE_URL=	http://mirror.ox.ac.uk/sites/rsync.apache.org/tomcat/tomcat-7/v$(COMPONENT_VERSION)/bin/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
