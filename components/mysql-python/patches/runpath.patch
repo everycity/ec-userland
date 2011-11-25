@@ -1,0 +1,10 @@
+--- MySQL-python-1.2.3/setup_posix.py.orig	2011-11-22 11:37:33.988252538 +0000
++++ MySQL-python-1.2.3/setup_posix.py	2011-11-22 11:39:48.961799347 +0000
+@@ -58,6 +58,7 @@
+ 
+     # Copy the arch flags for linking as well
+     extra_link_args = list()
++    extra_link_args += [ dequote(i) for i in libs if i.startswith(compiler_flag("R")) ]
+     for i in range(len(extra_compile_args)):
+         if extra_compile_args[i] == '-arch':
+             extra_link_args += ['-arch', extra_compile_args[i + 1]]
