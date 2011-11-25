@@ -1,0 +1,48 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/graphics/wkhtmltopdf@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Simple shell utility to convert html to pdf using the webkit rendering engine, and qt"
+#set name=info.classification value="org.opensolaris.category.2008:
+set name=info.upstream_url value="http://code.google.com/p/wkhtmltopdf/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license wkhtmltopdf.license license="LGPLv3"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/wkhtmltox
+dir path=$(ECPREFIX)/lib
+file path=$(ECPREFIX)/bin/wkhtmltoimage
+file path=$(ECPREFIX)/bin/wkhtmltopdf
+file path=$(ECPREFIX)/include/wkhtmltox/converter.hh
+file path=$(ECPREFIX)/include/wkhtmltox/dllbegin.inc
+file path=$(ECPREFIX)/include/wkhtmltox/dllend.inc
+file path=$(ECPREFIX)/include/wkhtmltox/image.h
+file path=$(ECPREFIX)/include/wkhtmltox/imageconverter.hh
+file path=$(ECPREFIX)/include/wkhtmltox/imagesettings.hh
+file path=$(ECPREFIX)/include/wkhtmltox/loadsettings.hh
+file path=$(ECPREFIX)/include/wkhtmltox/multipageloader.hh
+file path=$(ECPREFIX)/include/wkhtmltox/pdf.h
+file path=$(ECPREFIX)/include/wkhtmltox/pdfconverter.hh
+file path=$(ECPREFIX)/include/wkhtmltox/pdfsettings.hh
+file path=$(ECPREFIX)/include/wkhtmltox/settings.hh
+file path=$(ECPREFIX)/include/wkhtmltox/utilities.hh
+file path=$(ECPREFIX)/include/wkhtmltox/websettings.hh
+file path=$(ECPREFIX)/lib/libwkhtmltox.so.0.10.0
+link path=$(ECPREFIX)/lib/libwkhtmltox.so target=libwkhtmltox.so.0.10.0
+link path=$(ECPREFIX)/lib/libwkhtmltox.so.0 target=libwkhtmltox.so.0.10.0
+link path=$(ECPREFIX)/lib/libwkhtmltox.so.0.10 target=libwkhtmltox.so.0.10.0
