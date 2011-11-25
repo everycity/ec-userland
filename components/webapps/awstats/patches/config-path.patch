@@ -1,0 +1,47 @@
+diff -ruN awstats-7.0.orig/tools/awstats_buildstaticpages.pl awstats-7.0/tools/awstats_buildstaticpages.pl
+--- awstats-7.0.orig/tools/awstats_buildstaticpages.pl	2010-08-04 13:56:50.000000000 +0100
++++ awstats-7.0/tools/awstats_buildstaticpages.pl	2011-11-25 14:23:44.463645388 +0000
+@@ -138,7 +138,7 @@
+ 	my @PossibleConfigDir=();
+ 
+ 	if ($configdir) { @PossibleConfigDir=("$configdir"); }
+-	else { @PossibleConfigDir=("$AwstatsDir","$DIR","/etc/awstats","/usr/local/etc/awstats","/etc","/etc/opt/awstats"); }
++	else { @PossibleConfigDir=("$AwstatsDir","$DIR","/ec/etc/awstats","/etc/awstats","/usr/local/etc/awstats","/etc","/etc/opt/awstats"); }
+ 
+ 	# Open config file
+ 	$FileConfig=$FileSuffix='';
+diff -ruN awstats-7.0.orig/tools/awstats_updateall.pl awstats-7.0/tools/awstats_updateall.pl
+--- awstats-7.0.orig/tools/awstats_updateall.pl	2006-07-23 23:57:48.000000000 +0100
++++ awstats-7.0/tools/awstats_updateall.pl	2011-11-25 14:23:04.059625043 +0000
+@@ -13,7 +13,7 @@
+ my $VERSION="1.0 (build $REVISION)";
+ 
+ # Default value of DIRCONFIG
+-my $DIRCONFIG = "/etc/awstats";
++my $DIRCONFIG = "/ec/etc/awstats";
+ 
+ my $Debug=0;
+ 
+diff -ruN awstats-7.0.orig/tools/geoip_generator.pl awstats-7.0/tools/geoip_generator.pl
+--- awstats-7.0.orig/tools/geoip_generator.pl	2010-04-17 18:57:58.000000000 +0100
++++ awstats-7.0/tools/geoip_generator.pl	2011-11-25 14:23:34.397140229 +0000
+@@ -136,7 +136,7 @@
+ 	# if an output was specified, then skip this
+ 	if (!($Output eq '')){return;}
+ 	if ($configdir) { @PossibleConfigDir=("$configdir"); }
+-	else { @PossibleConfigDir=("$DIR","/etc/awstats","/usr/local/etc/awstats","/etc","/etc/opt/awstats"); }
++	else { @PossibleConfigDir=("$DIR","/ec/etc/awstats","/etc/awstats","/usr/local/etc/awstats","/etc","/etc/opt/awstats"); }
+ 
+ 	# Open config file
+ 	$FileConfig=$FileSuffix='';
+diff -ruN awstats-7.0.orig/wwwroot/cgi-bin/awstats.pl awstats-7.0/wwwroot/cgi-bin/awstats.pl
+--- awstats-7.0.orig/wwwroot/cgi-bin/awstats.pl	2010-10-16 18:24:03.000000000 +0100
++++ awstats-7.0/wwwroot/cgi-bin/awstats.pl	2011-11-25 14:23:54.592104545 +0000
+@@ -1712,6 +1712,7 @@
+ 	my $configdir         = shift;
+ 	my @PossibleConfigDir = (
+ 			"$DIR",
++			"/ec/etc/awstats",
+ 			"/etc/awstats",
+ 			"/usr/local/etc/awstats", "/etc",
+ 			"/etc/opt/awstats"
