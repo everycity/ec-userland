@@ -25,8 +25,9 @@ set convert-meta Off
 # Keep the 8th bit for display
 set output-meta On
 
-# none, visible or audible
-set bell-style visible
+# This controls the bell (beep) behaviour of readline
+# none, visible or audible - default is audible
+#set bell-style visible
 
 # All of the following map the escape sequence of the 
 # value contained inside the 1st argument to the 

@@ -13,9 +13,15 @@
 #
 
 # Some delightful colours
-alias ls='/ec/bin/ls --color=auto'
+if [ -f /ec/bin/ls ] ; then
+	alias ls='/ec/bin/ls --color=auto'
+fi
 
 # Some helpful aliases for Linux converts
 alias top='prstat -Z'
-alias ll='/ec/bin/ls --color=auto -l'
+
+if [ -f /ec/bin/ls ] ; then
+	alias ll='/ec/bin/ls --color=auto -l'
+fi
+
 alias pp='/usr/bin/ps -ef'

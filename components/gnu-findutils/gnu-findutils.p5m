@@ -1,28 +1,21 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
-#
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
+
 #
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
+<transform file path=.+/lib/.* -> default mode 0555>
+
 set name=pkg.fmri value=pkg:/file/gnu-findutils@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="GNU utilities find and xargs"
+set name=pkg.summary value="GNU find utilities, including xargs, find and locate"
 #set name=info.classification value="org.opensolaris.category.2008:XXX Classification XXX"
 set name=info.upstream_url value="http://www.gnu.org/software/findutils/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
@@ -32,17 +25,152 @@ license gnu-findutils.license license="GPLv3"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/info
+dir path=$(ECPREFIX)/share/locale
+dir path=$(ECPREFIX)/share/locale/be
+dir path=$(ECPREFIX)/share/locale/be/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/bg
+dir path=$(ECPREFIX)/share/locale/bg/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ca
+dir path=$(ECPREFIX)/share/locale/ca/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/cs
+dir path=$(ECPREFIX)/share/locale/cs/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/da
+dir path=$(ECPREFIX)/share/locale/da/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/de
+dir path=$(ECPREFIX)/share/locale/de/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/el
+dir path=$(ECPREFIX)/share/locale/el/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/eo
+dir path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/es
+dir path=$(ECPREFIX)/share/locale/es/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/et
+dir path=$(ECPREFIX)/share/locale/et/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/fi
+dir path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/fr
+dir path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ga
+dir path=$(ECPREFIX)/share/locale/ga/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/gl
+dir path=$(ECPREFIX)/share/locale/gl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/hr
+dir path=$(ECPREFIX)/share/locale/hr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/hu
+dir path=$(ECPREFIX)/share/locale/hu/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/id
+dir path=$(ECPREFIX)/share/locale/id/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/it
+dir path=$(ECPREFIX)/share/locale/it/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ja
+dir path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ko
+dir path=$(ECPREFIX)/share/locale/ko/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/lg
+dir path=$(ECPREFIX)/share/locale/lg/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/lt
+dir path=$(ECPREFIX)/share/locale/lt/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ms
+dir path=$(ECPREFIX)/share/locale/ms/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/nl
+dir path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/pl
+dir path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/pt
+dir path=$(ECPREFIX)/share/locale/pt/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/pt_BR
+dir path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ro
+dir path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ru
+dir path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/rw
+dir path=$(ECPREFIX)/share/locale/rw/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/sk
+dir path=$(ECPREFIX)/share/locale/sk/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/sl
+dir path=$(ECPREFIX)/share/locale/sl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/sr
+dir path=$(ECPREFIX)/share/locale/sr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/sv
+dir path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/tr
+dir path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/uk
+dir path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/vi
+dir path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/zh_CN
+dir path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/zh_TW
+dir path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man5
+dir path=$(ECPREFIX)/var
 file path=$(ECPREFIX)/bin/gfind
+file path=$(ECPREFIX)/bin/glocate
+file path=$(ECPREFIX)/bin/goldfind
+file path=$(ECPREFIX)/bin/gupdatedb
 file path=$(ECPREFIX)/bin/gxargs
+file path=$(ECPREFIX)/lib/gbigram
+file path=$(ECPREFIX)/lib/gcode
+file path=$(ECPREFIX)/lib/gfrcode
+file path=$(ECPREFIX)/share/info/find-maint.info
 file path=$(ECPREFIX)/share/info/find.info
+file path=$(ECPREFIX)/share/info/find.info-1
+file path=$(ECPREFIX)/share/locale/be/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/bg/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/ca/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/cs/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/da/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/de/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/el/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/es/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/et/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/ga/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/gl/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/hr/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/hu/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/id/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/it/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/ko/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/lg/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/lt/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/ms/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/pt/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/rw/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/sk/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/sl/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/sr/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/findutils.mo
+file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/findutils.mo
 file path=$(ECPREFIX)/share/man/man1/gfind.1
+file path=$(ECPREFIX)/share/man/man1/glocate.1
+file path=$(ECPREFIX)/share/man/man1/gupdatedb.1
 file path=$(ECPREFIX)/share/man/man1/gxargs.1
+file path=$(ECPREFIX)/share/man/man5/glocatedb.5
+
 link path=$(ECPREFIX)/bin/find target=gfind
 link path=$(ECPREFIX)/bin/xargs target=gxargs
+link path=$(ECPREFIX)/bin/locate target=glocate
+link path=$(ECPREFIX)/bin/updatedb target=gupdatedb
+
 link path=$(ECPREFIX)/share/man/man1/find.1 target=gfind.1
 link path=$(ECPREFIX)/share/man/man1/xargs.1 target=gxargs.1
