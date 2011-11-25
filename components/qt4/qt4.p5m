@@ -4082,7 +4082,7 @@ link path=$(ECPREFIX)/lib/qt/4.7/lib/libQtXmlPatterns.so.4 \
     target=libQtXmlPatterns.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/qt/4.7/lib/libQtXmlPatterns.so.4.7 \
     target=libQtXmlPatterns.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/qt/4.7/mkspecs/default target=solaris-g++-64
+link path=$(ECPREFIX)/lib/qt/4.7/mkspecs/default target=solaris-g++
 
 # Custom Stuff
 
