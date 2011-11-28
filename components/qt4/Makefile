@@ -56,6 +56,12 @@ CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))
 CONFIGURE_OPTIONS+=	-plugin-sql-sqlite
 CONFIGURE_OPTIONS+=	-system-sqlite
 
+COMPONENT_POST_INSTALL_ACTION.32= ( cd $(PROTO_DIR)/$(ECPREFIX)/lib/qt/4.7/mkspecs ; \
+	mv qconfig.pri qconfig.pri.32 )
+COMPONENT_POST_INSTALL_ACTION.64= ( cd $(PROTO_DIR)/$(ECPREFIX)/lib/qt/4.7/mkspecs ; \
+	mv qconfig.pri qconfig.pri.64 ; ln -s qconfig.pri.32 qconfig.pri )
+COMPONENT_POST_INSTALL_ACTION=$(COMPONENT_POST_INSTALL_ACTION.$(BITS))
+
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)

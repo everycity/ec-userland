@@ -3530,7 +3530,6 @@ file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/netbsd-g++/qmake.conf
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/netbsd-g++/qplatformdefs.h
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/openbsd-g++/qmake.conf
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/openbsd-g++/qplatformdefs.h
-file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/qconfig.pri
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/qws/freebsd-generic-g++/qmake.conf
 file \
     path=$(ECPREFIX)/lib/qt/4.7/mkspecs/qws/freebsd-generic-g++/qplatformdefs.h
@@ -4249,3 +4248,7 @@ file $(ECPREFIX)/lib/qt/4.7/lib/pkgconfig/QtXmlPatterns.pc \
 file $(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/pkgconfig/QtXmlPatterns.pc \
     path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtXmlPatterns.pc
 
+file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/qconfig.pri.32
+file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/qconfig.pri.64
+link path=$(ECPREFIX)/lib/qt/4.7/mkspecs/qconfig.pri \
+    target=$(ECPREFIX)/lib/qt/4.7/mkspecs/qconfig.pri.32
