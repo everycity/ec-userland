@@ -28,7 +28,7 @@ include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
 COMPONENT_PRE_BUILD_ACTION+=	( cp -r $(SOURCE_DIR)/* $(@D) ; cd $(@D) ; \
-	qmake )
+	$(ECPREFIX)/lib/wkhtmltopdf-qt/bin/qmake )
 COMPONENT_INSTALL_ENV+= INSTALL_ROOT=$(PROTO_DIR)/$(ECPREFIX)
 
 build:          $(BUILD_32)
