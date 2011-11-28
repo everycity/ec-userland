@@ -1,0 +1,11 @@
+--- wkhtmltopdf-qt.2011.11.28/src/3rdparty/webkit/JavaScriptCore/wtf/MathExtras.h.orig	2011-11-28 16:07:19.157206707 +0000
++++ wkhtmltopdf-qt.2011.11.28/src/3rdparty/webkit/JavaScriptCore/wtf/MathExtras.h	2011-11-28 16:07:36.915890771 +0000
+@@ -190,7 +190,7 @@
+ inline float rad2grad(float r) { return r * 200.0f / piFloat; }
+ inline float grad2rad(float g) { return g * piFloat / 200.0f; }
+ 
+-#if !COMPILER(MSVC) && !OS(ANDROID) && !OS(SYMBIAN)
++#if !COMPILER(MSVC) && !OS(ANDROID) && !OS(SYMBIAN) && !OS(SOLARIS)
+ using std::isfinite;
+ using std::isinf;
+ using std::isnan;

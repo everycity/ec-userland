@@ -1,0 +1,12 @@
+--- qt-everywhere-opensource-src-4.7.3/src/3rdparty/webkit/WebCore/loader/icon/IconRecord.h.orig	2011-11-25 10:30:27.695648428 +0000
++++ qt-everywhere-opensource-src-4.7.3/src/3rdparty/webkit/WebCore/loader/icon/IconRecord.h	2011-11-25 10:30:51.792269796 +0000
+@@ -37,6 +37,9 @@
+ #include <wtf/OwnPtr.h>
+ #include "PlatformString.h"
+ #include "StringHash.h"
++#ifdef OS(SOLARIS)
++#include <sys/types.h>
++#endif
+ 
+ namespace WebCore { 
+ 
