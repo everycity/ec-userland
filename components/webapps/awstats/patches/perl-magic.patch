@@ -1,0 +1,72 @@
+diff -ruN awstats-7.0.orig/tools/awstats_buildstaticpages.pl awstats-7.0/tools/awstats_buildstaticpages.pl
+--- awstats-7.0.orig/tools/awstats_buildstaticpages.pl	2010-08-04 13:56:50.000000000 +0100
++++ awstats-7.0/tools/awstats_buildstaticpages.pl	2011-11-25 12:07:14.933868445 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ #------------------------------------------------------------------------------
+ # Launch awstats with -staticlinks option to build all static pages.
+ # See COPYING.TXT file about AWStats GNU General Public License.
+diff -ruN awstats-7.0.orig/tools/awstats_configure.pl awstats-7.0/tools/awstats_configure.pl
+--- awstats-7.0.orig/tools/awstats_configure.pl	2009-12-29 23:31:26.000000000 +0000
++++ awstats-7.0/tools/awstats_configure.pl	2011-11-25 12:07:14.934328244 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ #-------------------------------------------------------
+ # This script configures AWStats so that it works immediately.
+ # - Get Apache config file from registry (ask if not found)
+diff -ruN awstats-7.0.orig/tools/awstats_exportlib.pl awstats-7.0/tools/awstats_exportlib.pl
+--- awstats-7.0.orig/tools/awstats_exportlib.pl	2010-05-02 16:40:35.000000000 +0100
++++ awstats-7.0/tools/awstats_exportlib.pl	2011-11-25 12:07:14.934586453 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ #-----------------------------------------------------------------------------
+ # Export lib data values to a text files to allow to use AWStats robots,
+ # os, browsers, search_engines database with other log analyzers
+diff -ruN awstats-7.0.orig/tools/awstats_updateall.pl awstats-7.0/tools/awstats_updateall.pl
+--- awstats-7.0.orig/tools/awstats_updateall.pl	2006-07-23 23:57:48.000000000 +0100
++++ awstats-7.0/tools/awstats_updateall.pl	2011-11-25 12:07:14.934739845 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ #------------------------------------------------------------------------------
+ # Launch update process for all config files found in a particular directory.
+ # See COPYING.TXT file about AWStats GNU General Public License.
+diff -ruN awstats-7.0.orig/tools/geoip_generator.pl awstats-7.0/tools/geoip_generator.pl
+--- awstats-7.0.orig/tools/geoip_generator.pl	2010-04-17 18:57:58.000000000 +0100
++++ awstats-7.0/tools/geoip_generator.pl	2011-11-25 12:07:14.935063112 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ #-----------------------------------------------------------------------------
+ # Generates override files for the GEOIP databases for a given IP range
+ # This tool is part of AWStats log analyzer but can be use
+diff -ruN awstats-7.0.orig/tools/logresolvemerge.pl awstats-7.0/tools/logresolvemerge.pl
+--- awstats-7.0.orig/tools/logresolvemerge.pl	2010-05-02 16:40:35.000000000 +0100
++++ awstats-7.0/tools/logresolvemerge.pl	2011-11-25 12:07:14.935605562 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ #-----------------------------------------------------------------------------
+ # Allows you to get one unique output log file, sorted on date,
+ # built from particular sources.
+diff -ruN awstats-7.0.orig/tools/maillogconvert.pl awstats-7.0/tools/maillogconvert.pl
+--- awstats-7.0.orig/tools/maillogconvert.pl	2008-09-04 23:29:24.000000000 +0100
++++ awstats-7.0/tools/maillogconvert.pl	2011-11-25 12:07:14.936069687 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ #-------------------------------------------------------
+ # Convert a mail log file to a common log file for analyzing with any log
+ # analyzer.
+diff -ruN awstats-7.0.orig/tools/urlaliasbuilder.pl awstats-7.0/tools/urlaliasbuilder.pl
+--- awstats-7.0.orig/tools/urlaliasbuilder.pl	2010-05-02 16:40:36.000000000 +0100
++++ awstats-7.0/tools/urlaliasbuilder.pl	2011-11-25 12:07:14.936271401 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ #-------------------------------------------------------
+ # Small script to auto-generate URL Alias files for 5.2+ AWStats
+ # Requires two Perl modules below.

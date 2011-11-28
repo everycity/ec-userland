@@ -1,0 +1,1 @@
+0 4 * * * root /ec/share/awstats/tools/awstats_updateall.pl now -awstatsprog=/ec/share/awstats/wwwroot/cgi-bin/awstats.pl -configdir=/ec/etc/awstats
