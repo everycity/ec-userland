@@ -1,0 +1,10 @@
+/ec/log/cacti/*.log {
+        weekly
+        missingok
+        rotate 52
+        compress
+        notifempty
+        create 640 webservd webservd
+        sharedscripts
+}
+

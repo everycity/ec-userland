@@ -1,0 +1,6 @@
+Creating MySQL database for Cacti:
+
+shell> mysql --user=root mysql
+mysql> GRANT ALL ON cacti.* TO cacti@localhost IDENTIFIED BY 'cacti';
+mysql> flush privileges;
+
