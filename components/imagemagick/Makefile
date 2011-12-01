@@ -23,18 +23,21 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ImageMagick
-COMPONENT_VERSION=	6.7.0
-COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)-10
+COMPONENT_VERSION=	6.7.3-9
+IPS_COMPONENT_VERSION=	6.7.3.9
+COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:d761aee6910c970aa30ee30ddaeadbd2c92180a9
+COMPONENT_ARCHIVE_HASH=	sha1:009ea4fd8b14ebb283f20a01cd018db65b8ae293
 COMPONENT_ARCHIVE_URL=	ftp://ftp.imagemagick.org/pub/ImageMagick/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=	--enable-static=no --enable-shared=yes
-CONFIGURE_OPTIONS+=	--with-modules
+CONFIGURE_OPTIONS+=	--enable-shared=yes
+CONFIGURE_OPTIONS+=	--enable-static=no
+CONFIGURE_OPTIONS+=	--without-gvc
+CONFIGURE_OPTIONS+=	--without-modules
 CONFIGURE_OPTIONS.32+=	--with-perl=$(ECPREFIX)/bin/perl
 CONFIGURE_OPTIONS.32+=	--with-perl-options="INSTALLDIRS=vendor"
 CONFIGURE_OPTIONS.64+=	--without-perl
@@ -49,14 +52,16 @@ COMPONENT_PREP_ACTION= (cd $(@D) ; $(RM) magick/magick-config.h)
 # To get the Perl modules built it is necessary to copy the PerlMagick directory
 # to the build directory
 #
-COMPONENT_PRE_CONFIGURE_ACTION= ($(CP) -R $(SOURCE_DIR)/PerlMagick $(@D))
+COMPONENT_PRE_CONFIGURE_ACTION= ($(CP) -R $(SOURCE_DIR)/PerlMagick $(@D); cd $(SOURCE_DIR); $(AUTORECONF) -f)
 
+COMPONENT_BUILD_ARGS += LD="$(CC)"
+COMPONENT_BUILD_ARGS += LD_RUN_PATH="$(CONFIGURE_LIBDIR.$(BITS))"
 
 # Your build time output from ImageMagick should look like this:
 #
 # Shared libraries  --enable-shared=yes           yes
 # Static libraries  --enable-static=no            no
-# Module support    --with-modules=yes            yes
+# Module support    --with-modules=no             no
 # GNU ld            --with-gnu-ld=no              no
 # Quantum depth     --with-quantum-depth=16       16
 # High Dynamic Range Imagery
