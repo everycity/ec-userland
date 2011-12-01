@@ -1,0 +1,108 @@
+diff -ruN cacti-0.8.7h.orig/scripts/3com_cable_modem.pl cacti-0.8.7h/scripts/3com_cable_modem.pl
+--- cacti-0.8.7h.orig/scripts/3com_cable_modem.pl	2011-09-26 21:41:03.000000000 +0100
++++ cacti-0.8.7h/scripts/3com_cable_modem.pl	2011-11-25 16:08:41.006897345 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ 
+ open(PROCESS, "/bin/bash -c 'wget --quiet -O - http://192.168.100.1/cgibin/opcfg | grep \"10.18.18.11\" -c' |");
+ $status = <PROCESS>;
+diff -ruN cacti-0.8.7h.orig/scripts/diskfree.pl cacti-0.8.7h/scripts/diskfree.pl
+--- cacti-0.8.7h.orig/scripts/diskfree.pl	2011-09-26 21:41:03.000000000 +0100
++++ cacti-0.8.7h/scripts/diskfree.pl	2011-11-25 16:08:41.006993810 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ open(PROCESS,"df --block-size=1024 -P $ARGV[0] | grep -v Filesystem |");
+ foreach (<PROCESS>) {
+ 	if ($_ =~ /($ARGV[0])(.* )(.*[0-9])(.* )(.*[0-9])(.* )(.*[0-9])(.* )(.*[0-9])%(.* )/) {
+diff -ruN cacti-0.8.7h.orig/scripts/linux_memory.pl cacti-0.8.7h/scripts/linux_memory.pl
+--- cacti-0.8.7h.orig/scripts/linux_memory.pl	2011-09-26 21:41:03.000000000 +0100
++++ cacti-0.8.7h/scripts/linux_memory.pl	2011-11-25 16:08:41.007177700 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ 
+ open(PROCESS, "cat /proc/meminfo | grep -w $ARGV[0] |");
+ foreach (<PROCESS>) {
+diff -ruN cacti-0.8.7h.orig/scripts/loadavg.pl cacti-0.8.7h/scripts/loadavg.pl
+--- cacti-0.8.7h.orig/scripts/loadavg.pl	2011-09-26 21:41:03.000000000 +0100
++++ cacti-0.8.7h/scripts/loadavg.pl	2011-11-25 16:08:41.007279626 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ 
+ #get load avg for 5;15;30 min
+ open(PROCESS,"uptime |");
+diff -ruN cacti-0.8.7h.orig/scripts/loadavg_multi.pl cacti-0.8.7h/scripts/loadavg_multi.pl
+--- cacti-0.8.7h.orig/scripts/loadavg_multi.pl	2011-09-26 21:41:03.000000000 +0100
++++ cacti-0.8.7h/scripts/loadavg_multi.pl	2011-11-25 16:08:41.007368422 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ 
+ #get load avg for 1;5;10 min
+ open(PROCESS, "uptime |");
+diff -ruN cacti-0.8.7h.orig/scripts/ping.pl cacti-0.8.7h/scripts/ping.pl
+--- cacti-0.8.7h.orig/scripts/ping.pl	2011-09-26 21:41:03.000000000 +0100
++++ cacti-0.8.7h/scripts/ping.pl	2011-11-25 16:08:41.007460671 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ 
+ # take care for tcp:hostname or TCP:ip@
+ $host = $ARGV[0];
+diff -ruN cacti-0.8.7h.orig/scripts/query_unix_partitions.pl cacti-0.8.7h/scripts/query_unix_partitions.pl
+--- cacti-0.8.7h.orig/scripts/query_unix_partitions.pl	2011-09-26 21:41:03.000000000 +0100
++++ cacti-0.8.7h/scripts/query_unix_partitions.pl	2011-11-25 16:08:41.007875614 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ 
+ if (($ARGV[0] ne "query") && ($ARGV[0] ne "get") && ($ARGV[0] ne "index") && ($ARGV[0] ne "num_indexes")) {
+ 	print "usage:\n\n";
+diff -ruN cacti-0.8.7h.orig/scripts/unix_processes.pl cacti-0.8.7h/scripts/unix_processes.pl
+--- cacti-0.8.7h.orig/scripts/unix_processes.pl	2011-09-26 21:41:03.000000000 +0100
++++ cacti-0.8.7h/scripts/unix_processes.pl	2011-11-25 16:08:41.008551735 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ 
+ open(PROCESS, "ps ax | grep -c : |");
+ $output = <PROCESS>;
+diff -ruN cacti-0.8.7h.orig/scripts/unix_tcp_connections.pl cacti-0.8.7h/scripts/unix_tcp_connections.pl
+--- cacti-0.8.7h.orig/scripts/unix_tcp_connections.pl	2011-09-26 21:41:03.000000000 +0100
++++ cacti-0.8.7h/scripts/unix_tcp_connections.pl	2011-11-25 16:08:41.008645596 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ 
+ my $grep_string = $ARGV[0];
+ 
+diff -ruN cacti-0.8.7h.orig/scripts/unix_users.pl cacti-0.8.7h/scripts/unix_users.pl
+--- cacti-0.8.7h.orig/scripts/unix_users.pl	2011-09-26 21:41:03.000000000 +0100
++++ cacti-0.8.7h/scripts/unix_users.pl	2011-11-25 16:08:41.008734108 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ 
+ my $grep_string = $ARGV[0];
+ 
+diff -ruN cacti-0.8.7h.orig/scripts/weatherbug.pl cacti-0.8.7h/scripts/weatherbug.pl
+--- cacti-0.8.7h.orig/scripts/weatherbug.pl	2011-09-26 21:41:03.000000000 +0100
++++ cacti-0.8.7h/scripts/weatherbug.pl	2011-11-25 16:08:41.008821853 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ 
+ $output = `/bin/bash -c 'wget --quiet -O - \"http:\/\/wisapidata.weatherbug.com\/WxDataISAPI\/WxDataISAPI.dll?Magic=10991&RegNum=3647055&ZipCode=17241&StationID=NWVLL&Units=0&Version=2.7&Fore=1&t=1015084854\/"'`;
+ 
+diff -ruN cacti-0.8.7h.orig/scripts/webhits.pl cacti-0.8.7h/scripts/webhits.pl
+--- cacti-0.8.7h.orig/scripts/webhits.pl	2011-09-26 21:41:03.000000000 +0100
++++ cacti-0.8.7h/scripts/webhits.pl	2011-11-25 16:08:41.008874919 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/ec/bin/perl
+ 
+ if ($ARGV[0] eq "") {
+ 	$log_path = "/var/log/httpd/access_log";

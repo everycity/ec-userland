@@ -1,0 +1,1 @@
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * webservd /ec/bin/php /ec/share/cacti/site/poller.php >/dev/null 2>/ec/var/log/cacti/poller-error.log
