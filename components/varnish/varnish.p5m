@@ -98,6 +98,7 @@ file path=$(ECPREFIX)/share/man/man1/varnishtest.1
 file path=$(ECPREFIX)/share/man/man1/varnishtop.1
 file path=$(ECPREFIX)/share/man/man3/vmod_std.3
 file path=$(ECPREFIX)/share/man/man7/varnish-cli.7
+file path=$(ECPREFIX)/share/man/man7/varnish-counters.7
 file path=$(ECPREFIX)/share/man/man7/vcl.7
 link path=$(ECPREFIX)/lib/$(MACH64)/libvarnishapi.so \
     target=libvarnishapi.so.1.0.0
