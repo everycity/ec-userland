@@ -53,8 +53,8 @@ CONFIGURE_OPTIONS     +=	--mandir=$(PHP_PREFIX)/share/man
 CONFIGURE_OPTIONS     +=        --with-libmemcached-dir=$(ECPREFIX)
 
 CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris2.10
-CONFIGURE_OPTIONS.32  +=	--with-php-config=/ec/lib/php/5.3/bin/php-config
-CONFIGURE_OPTIONS.64  +=	--with-php-config=/ec/lib/php/5.3/bin/amd64/php-config
+CONFIGURE_OPTIONS.32  +=	--with-php-config=$(PHP_PREFIX)/bin/php-config
+CONFIGURE_OPTIONS.64  +=	--with-php-config=$(PHP_PREFIX)/bin/amd64/php-config
 
 CONFIGURE_OPTIONS     +=	$(CONFIGURE_OPTIONS.$(BITS))
 
@@ -67,7 +67,7 @@ LDFLAGS               +=	$(LDFLAGS.$(BITS))
 CONFIGURE_ENV         +=	CC="$(CC)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
 CONFIGURE_SCRIPT       =	$(@D)/configure
 
-COMPONENT_PRE_CONFIGURE_ACTION	 =	cp -R $(SOURCE_DIR)/* $(@D) ; cd $(@D) ; /ec/lib/php/5.3/bin/phpize
+COMPONENT_PRE_CONFIGURE_ACTION	 =	cp -R $(SOURCE_DIR)/* $(@D) ; cd $(@D) ; $(PHP_PREFIX)/bin/phpize
 COMPONENT_INSTALL_ARGS		+=	INSTALL_ROOT=$(PROTO_DIR)
 
 build:		$(BUILD_32_and_64)
