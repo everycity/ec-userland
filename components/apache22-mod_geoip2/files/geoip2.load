@@ -1,6 +1,6 @@
 <IfDefine 64bit>
-LoadModule mime_module modules/amd64/mod_geoip.so
+LoadModule geoip_module modules/amd64/mod_geoip.so
 </IfDefine>
 <IfDefine !64bit>
-LoadModule mime_module modules/mod_geoip.so
+LoadModule geoip_module modules/mod_geoip.so
 </IfDefine>
