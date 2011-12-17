@@ -1,24 +1,14 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
-#
-# Copyright 2011 Audioboo Ltd. All rights reserved.
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
@@ -37,6 +27,7 @@ dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/git-core
+dir path=$(ECPREFIX)/lib/git-core/mergetools
 dir path=$(ECPREFIX)/lib/i86pc-solaris-64int
 dir path=$(ECPREFIX)/lib/python2.6
 dir path=$(ECPREFIX)/lib/python2.6/site-packages
@@ -100,7 +91,7 @@ file path=$(ECPREFIX)/lib/git-core/git-rebase--am
 file path=$(ECPREFIX)/lib/git-core/git-rebase--interactive
 file path=$(ECPREFIX)/lib/git-core/git-rebase--merge
 file path=$(ECPREFIX)/lib/git-core/git-relink
-file path=$(ECPREFIX)/lib/git-core/git-remote-https
+file path=$(ECPREFIX)/lib/git-core/git-remote-ftps
 file path=$(ECPREFIX)/lib/git-core/git-remote-testgit
 file path=$(ECPREFIX)/lib/git-core/git-repack
 file path=$(ECPREFIX)/lib/git-core/git-request-pull
@@ -113,39 +104,38 @@ file path=$(ECPREFIX)/lib/git-core/git-stash
 file path=$(ECPREFIX)/lib/git-core/git-submodule
 file path=$(ECPREFIX)/lib/git-core/git-svn
 file path=$(ECPREFIX)/lib/git-core/git-web--browse
-file path=$(ECPREFIX)/lib/i86pc-solaris-64int/perllocal.pod
+file path=$(ECPREFIX)/lib/git-core/mergetools/araxis
+file path=$(ECPREFIX)/lib/git-core/mergetools/bc3
+file path=$(ECPREFIX)/lib/git-core/mergetools/defaults
+file path=$(ECPREFIX)/lib/git-core/mergetools/diffuse
+file path=$(ECPREFIX)/lib/git-core/mergetools/ecmerge
+file path=$(ECPREFIX)/lib/git-core/mergetools/emerge
+file path=$(ECPREFIX)/lib/git-core/mergetools/kdiff3
+file path=$(ECPREFIX)/lib/git-core/mergetools/kompare
+file path=$(ECPREFIX)/lib/git-core/mergetools/meld
+file path=$(ECPREFIX)/lib/git-core/mergetools/opendiff
+file path=$(ECPREFIX)/lib/git-core/mergetools/p4merge
+file path=$(ECPREFIX)/lib/git-core/mergetools/tkdiff
+file path=$(ECPREFIX)/lib/git-core/mergetools/tortoisemerge
+file path=$(ECPREFIX)/lib/git-core/mergetools/vim
+file path=$(ECPREFIX)/lib/git-core/mergetools/xxdiff
 file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers-0.1.0-py2.6.egg-info
 file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/__init__.py
 file \
-    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/__init__.pyc
-file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/__init__.py
-file \
-    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/__init__.pyc
 file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/exporter.py
 file \
-    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/exporter.pyc
-file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/git.py
-file \
-    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/git.pyc
 file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/importer.py
 file \
-    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/importer.pyc
-file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/non_local.py
 file \
-    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/non_local.pyc
-file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/repo.py
-file \
-    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/repo.pyc
 file path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/util.py
-file path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/util.pyc
 file \
     path=$(ECPREFIX)/lib/site_perl/5.12.4/i86pc-solaris-64int/auto/Git/.packlist
 file path=$(ECPREFIX)/lib/site_perl/Error.pm
@@ -153,8 +143,6 @@ file path=$(ECPREFIX)/lib/site_perl/Git.pm
 file path=$(ECPREFIX)/share/git-core/templates/description
 file path=$(ECPREFIX)/share/git-core/templates/hooks/applypatch-msg.sample
 file path=$(ECPREFIX)/share/git-core/templates/hooks/commit-msg.sample
-file path=$(ECPREFIX)/share/git-core/templates/hooks/post-commit.sample
-file path=$(ECPREFIX)/share/git-core/templates/hooks/post-receive.sample
 file path=$(ECPREFIX)/share/git-core/templates/hooks/post-update.sample
 file path=$(ECPREFIX)/share/git-core/templates/hooks/pre-applypatch.sample
 file path=$(ECPREFIX)/share/git-core/templates/hooks/pre-commit.sample
@@ -184,6 +172,7 @@ file path=$(ECPREFIX)/share/git-gui/lib/encoding.tcl
 file path=$(ECPREFIX)/share/git-gui/lib/error.tcl
 file path=$(ECPREFIX)/share/git-gui/lib/git-gui.ico
 file path=$(ECPREFIX)/share/git-gui/lib/index.tcl
+file path=$(ECPREFIX)/share/git-gui/lib/line.tcl
 file path=$(ECPREFIX)/share/git-gui/lib/logo.tcl
 file path=$(ECPREFIX)/share/git-gui/lib/merge.tcl
 file path=$(ECPREFIX)/share/git-gui/lib/mergetool.tcl
@@ -386,9 +375,9 @@ hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ext \
     target=../../bin/git-receive-pack
 hardlink path=$(ECPREFIX)/lib/git-core/git-remote-fd \
     target=../../bin/git-receive-pack
-hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ftp target=git-remote-https
-hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ftps target=git-remote-https
-hardlink path=$(ECPREFIX)/lib/git-core/git-remote-http target=git-remote-https
+hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ftp target=git-remote-ftps
+hardlink path=$(ECPREFIX)/lib/git-core/git-remote-http target=git-remote-ftps
+hardlink path=$(ECPREFIX)/lib/git-core/git-remote-https target=git-remote-ftps
 hardlink path=$(ECPREFIX)/lib/git-core/git-replace \
     target=../../bin/git-receive-pack
 hardlink path=$(ECPREFIX)/lib/git-core/git-repo-config \
