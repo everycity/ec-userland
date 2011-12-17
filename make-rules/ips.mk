@@ -47,7 +47,6 @@ METADATA_TEMPLATE =		$(WS_TOP)/transforms/manifest-metadata-template
 COPYRIGHT_TEMPLATE =		$(WS_TOP)/transforms/copyright-template
 
 # order is important
-GENERATE_TRANSFORMS +=		$(WS_TOP)/transforms/ec-drop
 GENERATE_TRANSFORMS +=		$(WS_TOP)/transforms/generate-cleanup
 
 COMPARISON_TRANSFORMS +=	$(WS_TOP)/transforms/comparison-cleanup
@@ -60,7 +59,6 @@ PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/actuators
 PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/devel
 PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/docs
 PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/locale
-PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/ec-drop
 PUBLISH_TRANSFORMS +=	$(PKGMOGRIFY_TRANSFORMS)
 PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/publish-cleanup
 
@@ -78,7 +76,7 @@ PKG_MACROS +=		COMPONENT_ARCHIVE_URL=$(COMPONENT_ARCHIVE_URL)
 PKG_MACROS +=		ECPREFIX=$(ECPREFIX)
 PKG_MACROS +=		PLAT=$(PLAT)
 
-PKG_OPTIONS +=		$(PKG_MACROS:%=-D %)
+PKG_OPTIONS +=		$(PKG_MACROS:%=-D %) -I$(WS_TOP)/transforms
 
 PKG_PROTO_DIRS += $(PROTO_DIR) $(@D) $(COMPONENT_DIR) $(COMPONENT_SRC)
 
