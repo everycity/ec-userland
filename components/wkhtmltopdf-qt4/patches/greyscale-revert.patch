@@ -1,0 +1,34 @@
+--- wkhtmltopdf-qt.2011.11.28/src/gui/painting/qprintengine_pdf.cpp.~1~	2011-11-28 14:18:20.000000000 +0000
++++ wkhtmltopdf-qt.2011.11.28/src/gui/painting/qprintengine_pdf.cpp	2011-12-16 16:06:49.350678680 +0000
+@@ -797,9 +797,6 @@
+         uLongf target=1024*1024*1024;
+         bool uns=false;
+         bool dct = false;
+-        
+-        d = (colorMode == QPrinter::GrayScale) ? 8 : 32;
+-        	
+         if (QImageWriter::supportedImageFormats().contains("jpeg") && colorMode != QPrinter::GrayScale) {
+             QByteArray imageData2;
+             
+@@ -848,10 +845,9 @@
+             delete[] dest;
+         }
+ 
+-        if (colorMode != QPrinter::GrayScale && noneScaled != 0 && data != 0 && 
+-            data->size() > 9 && (unsigned char)data->data()[0] == 0xff && (unsigned char)data->data()[1] == 0xd8 &&
++        if (colorMode != QPrinter::GrayScale && noneScaled != 0 && data != 0 &&
++            data->size() > 2 && (unsigned char)data->data()[0] == 0xff && (unsigned char)data->data()[1] == 0xd8 &&
+             (uLongf)data->size()*10 < target*13) {
+-            d = data->data()[6] * 8; //Read the number of channels from the jpeg header
+             imageData = *data;
+             target=data->size();
+             dct=true;
+@@ -903,7 +899,7 @@
+             }
+             maskObject = writeImage(mask, w, h, 1, 0, 0);
+         }
+-        object = writeImage(imageData, w, h, d,
++        object = writeImage(imageData, w, h, colorMode == QPrinter::GrayScale ? 8 : 32,
+                             maskObject, softMaskObject, dct);
+     }
+     imageCache.insert(serial_no, object);
