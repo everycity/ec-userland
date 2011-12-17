@@ -12,6 +12,9 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
+# Transforms
+<include ec-drop-common>
+
 set name=pkg.fmri value=pkg:/multimedia/live555@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="Live555 Streaming Media Library"
 set name=info.upstream_url value="http://www.live555.com/liveMedia/"

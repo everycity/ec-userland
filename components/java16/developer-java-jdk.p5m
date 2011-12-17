@@ -12,6 +12,9 @@
 # Copyright 2011, Andrzej Szeszo
 #
 
+# Transforms
+<include ec-drop-common>
+
 set name=pkg.fmri value=pkg:/developer/java/jdk@0.5.11,$(BUILD_VERSION)
 set name=pkg.description value="Java Platform development tools"
 set name=pkg.summary value="JDK 6.0 Dev. Tools (1.6.0_$(COMPONENT_VERSION))"

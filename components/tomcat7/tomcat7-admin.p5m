@@ -12,6 +12,8 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
+# Transforms
+<include ec-drop-common>
 <transform file path=ec/lib/tomcat7/(webapps/.+)$ -> set action.hash %<\1> >
 <transform dir path=ec/var/tomcat7/.* -> default owner tomcat7>
 <transform dir path=ec/var/tomcat7/.* -> default group tomcat7>

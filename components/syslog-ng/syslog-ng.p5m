@@ -12,6 +12,8 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
+# Transforms
+<include ec-drop-common>
 <transform file path=.*/etc/.* -> default preserve true>
 
 set name=pkg.fmri value=pkg:/service/syslog-ng@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)

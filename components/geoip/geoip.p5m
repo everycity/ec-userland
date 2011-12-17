@@ -12,6 +12,9 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
+# Transforms
+<include ec-drop-common>
+
 # Preserve and allow editing of GeoIP.conf
 <transform file path=.+/etc/GeoIP.conf$ -> default preserve true>
 <transform file path=.+/etc/GeoIP.conf$ -> default mode 0644>

@@ -12,6 +12,9 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
+# Transforms
+<include ec-drop-common>
+
 set name=pkg.fmri value=pkg:/library/libcaca@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="Library that outputs text instead of pixels"
 set name=info.upstream_url value="http://caca.zoy.org/wiki/libcaca"

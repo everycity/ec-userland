@@ -12,6 +12,9 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
+# Transforms
+<include ec-drop-common>
+
 set name=pkg.fmri value=pkg:/web/server/apache-22/module/apache-wsgi@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="Python WSGI plugin for Apache Web Server"
 set name=info.upstream_url value="http://code.google.com/p/modwsgi/"
