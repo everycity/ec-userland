@@ -37,7 +37,7 @@ $(BUILD_DIR)/%/.built:
 	$(TOUCH) $@
 
 $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
-	( $(WS_TOOLS)/userland-fetch --file $(CABUNDLE_FILE) --url $(CABUNDLE_URL) )
+	( wget -O $(CABUNDLE_FILE) $(CABUNDLE_URL) )
 	$(TOUCH) $@
 
 download:
