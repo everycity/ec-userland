@@ -14,7 +14,6 @@
 
 set name=pkg.fmri value=pkg:/network/bind-98/client@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="ISC Berkeley Internet Name Daemon"
-#set name=info.classification value="org.opensolaris.category.2008:
 set name=info.upstream_url value="http://www.isc.org/software/bind"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)

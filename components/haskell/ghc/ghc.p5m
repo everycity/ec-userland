@@ -14,7 +14,6 @@
 
 set name=pkg.fmri value=pkg:/runtime/ghc@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="GHC is a state-of-the-art, open source, compiler and interactive environment for Haskell."
-#set name=info.classification value="org.opensolaris.category.2008:
 set name=info.upstream_url value="http://www.haskell.org/ghc/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)

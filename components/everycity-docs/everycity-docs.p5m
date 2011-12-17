@@ -14,7 +14,6 @@
 
 set name=pkg.fmri value=pkg:/documentation/everycity/solaris-quickstart@1.0,$(BUILD_VERSION)
 set name=pkg.summary value="EveryCity Quickstart Documentation"
-#set name=info.classification value="org.opensolaris.category.2008:
 #set name=info.upstream_url value=""
 #set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)

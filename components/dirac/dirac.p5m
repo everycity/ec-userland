@@ -14,7 +14,6 @@
 
 set name=pkg.fmri value=pkg:/library/video/dirac@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="BBC research wavelet video compression library"
-#set name=info.classification value="org.opensolaris.category.2008:
 set name=info.upstream_url value="http://diracvideo.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)

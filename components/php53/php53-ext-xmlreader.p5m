@@ -14,7 +14,6 @@
 
 set name=pkg.fmri value=pkg:/web/php-53/extension/php-xmlreader@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="PHP Server 5.3 (xmlreader extension)"
-#set name=info.classification value="org.opensolaris.category.2008:
 set name=info.upstream_url value="http://www.php.net"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)

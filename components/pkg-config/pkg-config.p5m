@@ -23,7 +23,6 @@
 
 set name=pkg.fmri value=pkg:/developer/build/pkg-config@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="pkg-config - manage compile and link flags for libraries"
-#set name=info.classification value="org.opensolaris.category.2008:Development"
 set name=info.upstream_url value="http://pkg-config.freedesktop.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)

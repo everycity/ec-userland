@@ -14,7 +14,6 @@
 
 set name=pkg.fmri value=pkg:/database/mysql-55/client@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="MySQL Database Management System - Client"
-#set name=info.classification value="org.opensolaris.category.2008:System/Databases"
 set name=info.upstream_url value="http://www.mysql.com/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)

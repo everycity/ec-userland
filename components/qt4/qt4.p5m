@@ -14,7 +14,6 @@
 
 set name=pkg.fmri value=pkg:/library/qt4@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="Qt cross-platform application and UI framework"
-#set name=info.classification value="org.opensolaris.category.2008:
 set name=info.upstream_url value="http://qt.nokia.com/products/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)

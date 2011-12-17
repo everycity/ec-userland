@@ -24,7 +24,6 @@
 
 set name=pkg.fmri value=pkg:/library/speex@1.1.99.1,$(BUILD_VERSION)
 set name=pkg.summary value="Free software speech codec"
-#set name=info.classification value="org.opensolaris.category.2008:
 set name=info.upstream_url value="http://xiph.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)

@@ -23,7 +23,6 @@
 
 set name=pkg.fmri value=pkg:/database/sqlite-3@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="SQL database engine library"
-#set name=info.classification value="org.opensolaris.category.2008:System/Databases"
 set name=info.upstream_url value="http://www.sqlite.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)

@@ -14,7 +14,6 @@
 
 set name=pkg.fmri value=pkg:/image/rrdtool@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="Time-series data storage and display system"
-#set name=info.classification value="org.opensolaris.category.2008:
 set name=info.upstream_url value="http://oss.oetiker.ch/rrdtool/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
