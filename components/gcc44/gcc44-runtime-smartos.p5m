@@ -1,0 +1,93 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/system/library/gcc-44-runtime@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="GNU Runtime libraries"
+#set name=info.classification value="org.opensolaris.category.2008:Development/C"
+set name=info.upstream_url value="http://gcc.gnu.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license gcc44.license license="GPLv2"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+
+file path=$(ECPREFIX)/lib/$(MACH64)/libgcc_s.so.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libgfortran.so.3.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libgomp.so.1.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libobjc.so.2.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libssp.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libstdc++.so.6.0.13
+file path=$(ECPREFIX)/lib/$(MACH64)/libgfortran.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libgfortran.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libgomp.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libgomp.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libobjc.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libobjc.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libssp.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libssp.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libssp_nonshared.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libssp_nonshared.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libstdc++.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libstdc++.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libsupc++.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libsupc++.la
+
+file path=$(ECPREFIX)/lib/libgcc_s.so.1
+file path=$(ECPREFIX)/lib/libgfortran.so.3.0.0
+file path=$(ECPREFIX)/lib/libgomp.so.1.0.0
+file path=$(ECPREFIX)/lib/libobjc.so.2.0.0
+file path=$(ECPREFIX)/lib/libssp.so.0.0.0
+file path=$(ECPREFIX)/lib/libstdc++.so.6.0.13
+file path=$(ECPREFIX)/lib/libgfortran.a
+file path=$(ECPREFIX)/lib/libgfortran.la
+file path=$(ECPREFIX)/lib/libgomp.a
+file path=$(ECPREFIX)/lib/libgomp.la
+file path=$(ECPREFIX)/lib/libobjc.a
+file path=$(ECPREFIX)/lib/libobjc.la
+file path=$(ECPREFIX)/lib/libssp.a
+file path=$(ECPREFIX)/lib/libssp.la
+file path=$(ECPREFIX)/lib/libssp_nonshared.a
+file path=$(ECPREFIX)/lib/libssp_nonshared.la
+file path=$(ECPREFIX)/lib/libstdc++.a
+file path=$(ECPREFIX)/lib/libstdc++.la
+file path=$(ECPREFIX)/lib/libsupc++.a
+file path=$(ECPREFIX)/lib/libsupc++.la
+
+link path=$(ECPREFIX)/lib/$(MACH64)/libgcc_s.so target=libgcc_s.so.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libgfortran.so target=libgfortran.so.3.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libgfortran.so.3 \
+    target=libgfortran.so.3.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libgomp.so target=libgomp.so.1.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libgomp.so.1 target=libgomp.so.1.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libobjc.so target=libobjc.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libobjc.so.2 target=libobjc.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libssp.so target=libssp.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libssp.so.0 target=libssp.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libstdc++.so target=libstdc++.so.6.0.13
+link path=$(ECPREFIX)/lib/$(MACH64)/libstdc++.so.6 target=libstdc++.so.6.0.13
+
+link path=$(ECPREFIX)/lib/libgcc_s.so target=libgcc_s.so.1
+link path=$(ECPREFIX)/lib/libgfortran.so target=libgfortran.so.3.0.0
+link path=$(ECPREFIX)/lib/libgfortran.so.3 target=libgfortran.so.3.0.0
+link path=$(ECPREFIX)/lib/libgomp.so target=libgomp.so.1.0.0
+link path=$(ECPREFIX)/lib/libgomp.so.1 target=libgomp.so.1.0.0
+link path=$(ECPREFIX)/lib/libobjc.so target=libobjc.so.2.0.0
+link path=$(ECPREFIX)/lib/libobjc.so.2 target=libobjc.so.2.0.0
+link path=$(ECPREFIX)/lib/libssp.so target=libssp.so.0.0.0
+link path=$(ECPREFIX)/lib/libssp.so.0 target=libssp.so.0.0.0
+link path=$(ECPREFIX)/lib/libstdc++.so target=libstdc++.so.6.0.13
+link path=$(ECPREFIX)/lib/libstdc++.so.6 target=libstdc++.so.6.0.13
