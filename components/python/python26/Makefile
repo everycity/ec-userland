@@ -42,14 +42,20 @@ COMPONENT_BUILD_GMAKE_ARGS=
 COMPONENT_PREP_ACTION = \
 	(cd $(@D) ; autoheader ; autoconf)
 
-# This seems horribly wrong, but these defines break the ability to build c99
-# compliant modules or with gcc.
-COMPONENT_POST_CONFIGURE_ACTION = \
-	(cd $(@D) ; \
-	 perl -pi -e 's/(^\#define _POSIX_C_SOURCE.*)/\/* $$1 *\//' pyconfig.h ; \
-	 perl -pi -e 's/^(\#define _XOPEN_SOURCE.*)/\/* $$1 *\//' pyconfig.h ; \
-	 perl -pi -e 's/^(\#define _XOPEN_SOURCE_EXTENDED.*)/\/* $$1 *\//' \
-			pyconfig.h)
+# EC: Disabling the following block copied over from userland-gate as it breaks
+# the python build on smartos. Also note that smartos has a broken cpp that
+# can't build the dtrace probe - lofs mount the OI cpp to fix as a temporary
+# measure until Joyent fix.
+
+## This seems horribly wrong, but these defines break the ability to build c99
+## compliant modules or with gcc.
+#COMPONENT_POST_CONFIGURE_ACTION = \
+#	(cd $(@D) ; \
+#	 perl -pi -e 's/(^\#define _POSIX_C_SOURCE.*)/\/* $$1 *\//' pyconfig.h ; \
+#	 perl -pi -e 's/(^\#define _POSIX_C_SOURCE.*)/\/* $$1 *\//' pyconfig.h ; \
+#	 perl -pi -e 's/^(\#define _XOPEN_SOURCE.*)/\/* $$1 *\//' pyconfig.h ; \
+#	 perl -pi -e 's/^(\#define _XOPEN_SOURCE_EXTENDED.*)/\/* $$1 *\//' \
+#			pyconfig.h)
 
 #
 # Until the fix for "17858 pkgdepend generate hurls on some python modules" is
