@@ -47,7 +47,7 @@ $(BUILD_DIR)/%/.built:  $(SOURCE_DIR)/.prep
 $(BUILD_DIR)/%/.installed:      $(BUILD_DIR)/%/.built
 	$(MKDIR) $(PROTO_DIR)
 	(cd $(PROTO_DIR) ; $(ECPREFIX)/bin/tar -zxf \
-		$(@D)/dist/$(COMPONENT_NAME)-$(COMPONENT_VERSION_MJR).solaris-2.10-i86pc.tar.gz)
+		$(@D)/dist/$(COMPONENT_NAME)-$(COMPONENT_VERSION_MJR).solaris-$(SOLARIS_VERSION)-i86pc.tar.gz)
 	$(TOUCH) $@
 
 build:		$(BUILD_32)
