@@ -94,7 +94,6 @@ file path=$(ECPREFIX)/include/openssl/modes.h
 file path=$(ECPREFIX)/include/openssl/obj_mac.h
 file path=$(ECPREFIX)/include/openssl/objects.h
 file path=$(ECPREFIX)/include/openssl/ocsp.h
-file path=$(ECPREFIX)/include/openssl/opensslconf.h
 file path=$(ECPREFIX)/include/openssl/opensslv.h
 file path=$(ECPREFIX)/include/openssl/ossl_typ.h
 file path=$(ECPREFIX)/include/openssl/pem.h
@@ -1816,3 +1815,6 @@ link path=$(ECPREFIX)/share/man/man3/lh_node_usage_stats_bio.3 \
     target=lh_stats.3
 link path=$(ECPREFIX)/share/man/man3/lh_retrieve.3 target=lhash.3
 link path=$(ECPREFIX)/share/man/man3/lh_stats_bio.3 target=lh_stats.3
+
+# Custom combined 32bit v 64bit opensslconf.h
+file opensslconf.h path=$(ECPREFIX)/include/openssl/opensslconf.h
