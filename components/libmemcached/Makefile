@@ -33,7 +33,15 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=	--with-pic --enable-shared --disable-static
+COMPONENT_POST_CONFIGURE_ACTION = \
+       (cd $(@D) ; \
+        perl -pi -e 's/(^\#define HAVE_HTONLL.*)/\/* $$0 *\//' config.h )
+
+CONFIGURE_OPTIONS+=	--with-pic
+CONFIGURE_OPTIONS+=	--enable-shared
+CONFIGURE_OPTIONS+=	--disable-static
+CONFIGURE_OPTIONS.32+=	--disable-64bit
+CONFIGURE_OPTIONS.64+=	--enable-64bit
 
 build:		$(BUILD_32_and_64)
 
