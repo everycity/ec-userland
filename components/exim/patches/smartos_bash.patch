@@ -1,0 +1,23 @@
+--- exim-4.76/scripts/lookups-Makefile.orig	2011-12-18 04:19:06.647368639 +0000
++++ exim-4.76/scripts/lookups-Makefile	2011-12-18 04:19:26.425973292 +0000
+@@ -6,19 +6,10 @@
+ # most portable way to turn on various features we expect of POSIX sh.
+ if [ -z "$EXIM_LOOKUP_MAKEFILE_ADJUSTED" ]
+ then
+-  SHELL=/bin/sh
++  SHELL=/usr/bin/bash
+   EXIM_LOOKUP_MAKEFILE_ADJUSTED=yes
+   export EXIM_LOOKUP_MAKEFILE_ADJUSTED
+ 
+-  # Solaris sh and tr are problematic until we get xpg4 variants
+-  if [ -x /usr/xpg4/bin/sh ]
+-  then
+-    PATH="/usr/xpg4/bin:$PATH"
+-    export PATH
+-    SHELL=/usr/xpg4/bin/sh
+-    export SHELL
+-  fi
+-
+   # IRIX uses /bin/ksh for sh but in a compatibility mode unless $_XPG == 1,
+   # where said compatibility mode disables $(...)
+   _XPG=1

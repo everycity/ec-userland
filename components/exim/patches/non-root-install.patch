@@ -1,0 +1,25 @@
+--- exim-4.76/scripts/exim_install.~1~	2011-05-09 08:36:25.000000000 +0000
++++ exim-4.76/scripts/exim_install	2011-12-18 04:24:39.970727511 +0000
+@@ -72,7 +72,7 @@
+ INFO_DIRECTORY=`sed -n -e '/^ *INFO_DIRECTORY *=/{s/^[^=]*= *//; s/ \{1,\}#.*//;s/ *$//;h;}' -e '${g;p;}' Makefile`
+ NO_SYMLINK=`sed -n         -e '/^ *NO_SYMLINK *=/{s/^[^=]*= *//; s/ \{1,\}#.*//;s/ *$//;h;}' -e '${g;p;}' Makefile`
+ 
+-CHOWN=`sed -n           -e '/^ *CHOWN_COMMAND *=/{s/^[^=]*= *//; s/ \{1,\}#.*//;s/ *$//;h;}' -e '${g;p;}' Makefile`
++CHOWN=/bin/true
+ MV=`sed -n                 -e '/^ *MV_COMMAND *=/{s/^[^=]*= *//; s/ \{1,\}#.*//;s/ *$//;h;}' -e '${g;p;}' Makefile`
+ 
+ SYSTEM_ALIASES_FILE=`sed -n -e '/^ *SYSTEM_ALIASES_FILE *=/{s/^[^=]*= *//; s/ \{1,\}#.*//;s/ *$//;h;}' -e '${g;p;}' Makefile`
+@@ -141,11 +141,11 @@
+ # or /bin).
+ 
+ if [ "${CHOWN}" = "chown" -a -x /usr/sbin/chown ] ; then
+-  CHOWN=/usr/sbin/chown
++  CHOWN=/bin/true
+ fi
+ 
+ if [ "${CHOWN}" = "chown" -a ! -f /usr/bin/chown -a -f /usr/etc/chown ] ; then
+-  CHOWN=/usr/etc/chown
++  CHOWN=/bin/true
+ fi
+ 
+ # The values of CHOWN and MV taken from the Makefile are sometimes set to
