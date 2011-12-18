@@ -23,18 +23,21 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		curl
-COMPONENT_VERSION=	7.21.4
+COMPONENT_VERSION=	7.23.1
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:9cc59be07932b63e1f7d714c56ffaaa92af55373
+COMPONENT_ARCHIVE_HASH=	sha1:9bac69696446ead85e59d8488098ee84cf897b7e
 COMPONENT_ARCHIVE_URL=	http://curl.haxx.se/download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS += --with-pic --enable-shared --disable-static
-CONFIGURE_OPTIONS += --with-ca-bundle=$(ECPREFIX)/etc/openssl/cabundle.pem
+CONFIGURE_OPTIONS+=	--with-pic
+CONFIGURE_OPTIONS+=	--enable-shared
+CONFIGURE_OPTIONS+=	--disable-static
+CONFIGURE_OPTIONS+=	--with-libidn=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--with-ca-bundle=$(ECPREFIX)/etc/openssl/cabundle.pem
 
 # common targets
 build:		$(BUILD_32_and_64)

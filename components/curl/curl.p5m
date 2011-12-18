@@ -58,7 +58,6 @@ file path=$(ECPREFIX)/include/curl/mprintf.h
 file path=$(ECPREFIX)/include/curl/multi.h
 file path=$(ECPREFIX)/include/curl/stdcheaders.h
 file path=$(ECPREFIX)/include/curl/typecheck-gcc.h
-file path=$(ECPREFIX)/include/curl/types.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libcurl.so.4.2.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libcurl.pc
 file path=$(ECPREFIX)/lib/libcurl.so.4.2.0
