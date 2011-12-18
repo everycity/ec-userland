@@ -35,6 +35,8 @@ include ../../make-rules/ips.mk
 
 CPPFLAGS+= -I$(ECPREFIX)/include
 
+COMPONENT_PRE_CONFIGURE_ACTION += cd $(SOURCE_DIR) ; autoreconf ; cp -r $(SOURCE_DIR)/* $(@D)
+
 CONFIGURE_OPTIONS  +=           CPPFLAGS="$(CPPFLAGS)"
 CONFIGURE_OPTIONS  +=           --disable-static
 
