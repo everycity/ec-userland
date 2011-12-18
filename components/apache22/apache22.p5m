@@ -1660,6 +1660,10 @@ link path=$(ECPREFIX)/bin/apxs \
     target=../lib/apache/active/bin/apxs preserve=true pkg.linted=true
 link path=$(ECPREFIX)/bin/$(MACH64)/apxs \
     target=../../lib/apache/active/bin/$(MACH64)/apxs preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/apxs.worker \
+    target=../lib/apache/active/bin/apxs.worker preserve=true pkg.linted=true
+link path=$(ECPREFIX)/bin/$(MACH64)/apxs.worker \
+    target=../../lib/apache/active/bin/$(MACH64)/apxs.worker preserve=true pkg.linted=true
 link path=$(ECPREFIX)/bin/checkgid \
     target=../lib/apache/active/bin/checkgid preserve=true pkg.linted=true
 link path=$(ECPREFIX)/bin/$(MACH64)/checkgid \
