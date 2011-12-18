@@ -80,7 +80,7 @@ CONFIGURE_ENV.64+=	PKG_CONFIG="$(ECPREFIX)/bin/$(MACH64)/pkg-config"
 CONFIGURE_ENV += $(CONFIGURE_ENV.$(BITS))
 
 # Tell autoconf about 64bit builds
-CONFIGURE_OPTIONS.64 += --build=x86_64-pc-solaris2.10
+CONFIGURE_OPTIONS.64 += --build=x86_64-pc-solaris$(SOLARIS_VERSION)
 
 CONFIGURE_OPTIONS += --prefix=$(CONFIGURE_PREFIX)
 CONFIGURE_OPTIONS += --mandir=$(CONFIGURE_MANDIR)
