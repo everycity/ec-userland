@@ -22,6 +22,13 @@
 #
 include ../../make-rules/shared-macros.mk
 
+# Note: curlbuild.h comes in two flavours, 32bit and 64bit
+# These have been combined with a "#if (defined(__x86_64__))"
+# statement and is present in the build directory here.
+# If updating curl, you will need to re-combine these from the
+# build directory as curlbuild.h is generated during compile
+# time.
+
 COMPONENT_NAME=		curl
 COMPONENT_VERSION=	7.23.1
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
