@@ -1,0 +1,35 @@
+--- sudo-1.8.1p2/install-sh.backup	2011-12-18 00:36:38.824010029 +0000
++++ sudo-1.8.1p2/install-sh	2011-12-18 00:37:10.490361429 +0000
+@@ -166,13 +166,13 @@
+ 	    ${MKDIR} "${DEST}" || exit 1
+ 	fi
+ 	if ${CHOWNIT} ; then
+-	    ${CHOWN} "${OWNER}" "${DEST}" || exit 1
++	    echo "" >/dev/null
+ 	fi
+ 	if ${CHGROUPIT} ; then
+-	    ${CHGRP} "${GROUP}" "${DEST}" || exit 1
++	    echo "" >/dev/null
+ 	fi
+ 	if ${CHMODIT} ; then
+-	    ${CHMOD} "${MODE}"  "${DEST}" || exit 1
++	    echo "" >/dev/null
+ 	fi
+ 	shift;
+     done
+@@ -222,12 +222,12 @@
+     ${STRIP} "${DEST}" || exit 1
+ fi
+ if ${CHOWNIT} ; then
+-    ${CHOWN} "${OWNER}" "${DEST}" || exit 1
++    echo "" > /dev/null
+ fi
+ if ${CHGROUPIT} ; then
+-    ${CHGRP} "${GROUP}" "${DEST}" || exit 1
++    echo "" > /dev/null
+ fi
+ if ${CHMODIT} ; then
+-    ${CHMOD} "${MODE}"  "${DEST}" || exit 1
++    echo "" > /dev/null
+ fi
+ exit 0

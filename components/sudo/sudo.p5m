@@ -22,6 +22,10 @@
 <transform file path=ec/etc/sudoers -> default user root>
 <transform file path=ec/etc/sudoers -> default group root>
 <transform file path=ec/etc/sudoers -> default preserve true>
+<transform file path=ec/bin/sudoreplay -> default mode 0111>
+<transform file path=ec/bin/visudo -> default mode 0111>
+<transform file path=ec/bin/sudo -> default mode 04111>
+<transform file path=ec/lib/sesh -> default mode 0111>
 
 set name=pkg.fmri value=pkg:/security/sudo@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="Sudo security authentication utility"
