@@ -1,0 +1,20 @@
+--- logrotate-3.8.1/Makefile.~1~	2011-08-31 12:39:04.000000000 +0000
++++ logrotate-3.8.1/Makefile	2011-12-18 00:43:55.954742198 +0000
+@@ -44,7 +44,7 @@
+     CFLAGS = -D_GNU_SOURCE -D$(OS_NAME) -DVERSION=\"$(VERSION)\" $(RPM_OPT_FLAGS) $(LFS)
+     CC ?= gcc
+     CPP = $(CC) -E -M
+-    INSTALL = /usr/ucb/install
++    INSTALL = install
+     ifeq ($(CC),cc)
+         CPP = cc -xM
+     endif
+@@ -80,7 +80,7 @@
+     CFLAGS += -DSTATEFILE=\"$(STATEFILE)\"
+ endif
+ 
+-BINDIR = $(BASEDIR)/sbin
++BINDIR = $(BASEDIR)/bin
+ MANDIR ?= $(BASEDIR)/man
+ 
+ #--------------------------------------------------------------------------
