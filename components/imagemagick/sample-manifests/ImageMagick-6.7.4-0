@@ -15,13 +15,13 @@
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/multimedia/imagemagick@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="Convert, Edit, And Compose Images"
-set name=info.upstream_url value="http://www.imagemagick.org/"
+set name=pkg.fmri value=pkg:/@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="
+set name=info.upstream_url value="
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
-license imagemagick.license license="ImageMagick"
+license .license license="
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -245,8 +245,11 @@ file path=$(ECPREFIX)/include/ImageMagick/wand/pixel-wand.h
 file path=$(ECPREFIX)/include/ImageMagick/wand/stream.h
 file path=$(ECPREFIX)/include/ImageMagick/wand/wand-view.h
 file path=$(ECPREFIX)/lib/$(MACH64)/ImageMagick-6.7.4/config/configure.xml
+file path=$(ECPREFIX)/lib/$(MACH64)/libMagick++.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libMagick++.so.5.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libMagickCore.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libMagickCore.so.5.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libMagickWand.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libMagickWand.so.5.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/ImageMagick++.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/ImageMagick.pc
@@ -255,9 +258,13 @@ file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/MagickCore.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/MagickWand.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/Wand.pc
 file path=$(ECPREFIX)/lib/ImageMagick-6.7.4/config/configure.xml
+file path=$(ECPREFIX)/lib/libMagick++.la
 file path=$(ECPREFIX)/lib/libMagick++.so.5.0.0
+file path=$(ECPREFIX)/lib/libMagickCore.la
 file path=$(ECPREFIX)/lib/libMagickCore.so.5.0.0
+file path=$(ECPREFIX)/lib/libMagickWand.la
 file path=$(ECPREFIX)/lib/libMagickWand.so.5.0.0
+file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/perllocal.pod
 file path=$(ECPREFIX)/lib/perl/5.12/man/man3/Image::Magick.3
 file \
     path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-64int/Image/Magick.pm
