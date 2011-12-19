@@ -1,0 +1,11 @@
+--- vlc-1.1.11/modules/access/directory.c.orig	2011-12-19 00:29:43.874672007 +0000
++++ vlc-1.1.11/modules/access/directory.c	2011-12-19 00:41:07.410746807 +0000
+@@ -49,7 +49,7 @@
+ #ifdef HAVE_DIRENT_H
+ #   include <dirent.h>
+ #endif
+-#ifdef __sun__
++#if (defined(__sun__) && !defined(__EC_SOLARIS_2_11))
+ static inline int dirfd (DIR *dir)
+ {
+     return dir->dd_fd;

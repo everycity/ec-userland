@@ -34,11 +34,11 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 include ../../make-rules/gnu-ld.mk
 
-VLCFLAGS = 	-D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__ -I$(ECPREFIX)/include -I$(ECPREFIX)/include/ncurses
-CFLAGS +=	$(VLCFLAGS)
-LDFLAGS	+=	-lnsl
-
-CONFIGURE_ENV +=	CXXFLAGS="$(VLCFLAGS)"
+CONFIGURE_ENV.32+=      LDFLAGS="-lnsl -L$(ECPREFIX)/lib -L$(CONFIGURE_PREFIX)/lib -R$(CONFIGURE_PREFIX)/lib"
+CONFIGURE_ENV.64+=      LDFLAGS="-lnsl -L$(ECPREFIX)/lib/$(MACH64) -L$(CONFIGURE_PREFIX)/lib/$(MACH64) -R$(CONFIGURE_PREFIX)/lib/$(MACH64)"
+CONFIGURE_ENV+= CFLAGS="-D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__ -D __EC_SOLARIS_$(subst .,_,$(SOLARIS_VERSION)) -I$(ECPREFIX)/include -I$(ECPREFIX)/include/ncurses"
+CONFIGURE_ENV+= CXXFLAGS="-D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__ -D __EC_SOLARIS_$(subst .,_,$(SOLARIS_VERSION)) -I$(ECPREFIX)/include -I$(ECPREFIX)/include/ncurses"
+CONFIGURE_ENV+= $(CONFIGURE_ENV.$(BITS))
 
 CONFIGURE_OPTIONS+=	--with-pic --enable-shared --disable-static
 CONFIGURE_OPTIONS+=	--disable-libgcrypt
@@ -47,6 +47,7 @@ CONFIGURE_OPTIONS+=	--disable-glx
 CONFIGURE_OPTIONS+=	--disable-lua
 CONFIGURE_OPTIONS+=	--disable-a52
 CONFIGURE_OPTIONS+=	--disable-sdl
+CONFIGURE_OPTIONS+=	--disable-oss
 CONFIGURE_OPTIONS+=	--enable-qt4
 CONFIGURE_OPTIONS+=	--enable-debug
 CONFIGURE_OPTIONS+=	--enable-dvbpsi
