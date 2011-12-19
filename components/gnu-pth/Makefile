@@ -34,7 +34,7 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 # make build isn't thread safe.
-COMPONENT_BUILD_GMAKE_ARGS=
+override COMPONENT_BUILD_GMAKE_ARGS='-j1'
 
 build:		$(BUILD_32_and_64)
 
