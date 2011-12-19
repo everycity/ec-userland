@@ -22,8 +22,6 @@
 #
 include ../../make-rules/shared-macros.mk
 
-GMAKE= gmake -j16
-
 COMPONENT_NAME=		ruby
 COMPONENT_VERSION=	1.9.2-p180
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
@@ -41,21 +39,10 @@ IPS_COMPONENT_VERSION= 1.9.2.180
 #CONFIGURE_OPTIONS  +=		--enable-shared
 #CONFIGURE_OPTIONS  +=		CFLAGS="$(CFLAGS)"
 
-# common targets
-build:		$(BUILD_32_and_64)
+build:		$(BUILD_32)
 
 include ../../make-rules/shared-targets.mk
 
-install:	$(INSTALL_32_and_64)
+install:	$(INSTALL_32)
 
-#install:	$(PROTOUSRSHAREMAN3DIR) $(INSTALL_32_and_64)
-#	$(CP) -f $(COMPONENT_DIR)/man3/*.3 $(PROTOUSRSHAREMAN3DIR)
 
-# build does this always
-#test: build
-#	@cd $(BUILD_DIR_32); $(MAKE) check
-#	@cd $(BUILD_DIR_64); $(MAKE) check
-
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk

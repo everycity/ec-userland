@@ -1,0 +1,11 @@
+--- ruby-1.9.2-p180/ext/Setup.orig	2011-12-18 23:58:49.085685881 +0000
++++ ruby-1.9.2-p180/ext/Setup	2011-12-18 23:58:55.953827740 +0000
+@@ -19,7 +19,7 @@
+ #openssl
+ #pty
+ #racc/cparse
+-#readline
++readline
+ #ripper
+ #sdbm
+ #socket
