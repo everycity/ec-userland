@@ -54,7 +54,7 @@ include ../../make-rules/ips.mk
 include ../../make-rules/gnu-ld.mk
 
 # make build isn't thread safe.
-COMPONENT_BUILD_GMAKE_ARGS=
+override COMPONENT_BUILD_GMAKE_ARGS='-j1'
 
 COMPONENT_INSTALL_ENV+=		INSTALLROOT="$(PROTO_DIR)"
 
