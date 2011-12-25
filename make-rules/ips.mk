@@ -36,11 +36,14 @@
 # This set of rules makes the "publish" target the default target for make(1)
 #
 
+BUILD_VERSION =                $(OS_VERSION)-0.162
+
 PKGDEPEND =	pkgdepend
 PKGFMT =	pkgfmt
 PKGMOGRIFY =	pkgmogrify
 PKGSEND =	pkgsend
 PKGLINT =	pkglint
+PKGMANGLE =	$(WS_TOOLS)/userland-mangler
 
 # Package headers should all pretty much follow the same format
 METADATA_TEMPLATE =		$(WS_TOP)/transforms/manifest-metadata-template
@@ -72,33 +75,44 @@ PKG_MACROS +=		SOLARIS_VERSION=$(SOLARIS_VERSION)
 PKG_MACROS +=		OS_VERSION=$(OS_VERSION)
 PKG_MACROS +=		IPS_COMPONENT_VERSION=$(IPS_COMPONENT_VERSION)
 PKG_MACROS +=		COMPONENT_VERSION=$(COMPONENT_VERSION)
+PKG_MACROS +=		COMPONENT_PROJECT_URL=$(COMPONENT_PROJECT_URL)
 PKG_MACROS +=		COMPONENT_ARCHIVE_URL=$(COMPONENT_ARCHIVE_URL)
 PKG_MACROS +=		ECPREFIX=$(ECPREFIX)
 PKG_MACROS +=		PLAT=$(PLAT)
+PKG_MACROS +=		COMPONENT_HG_URL=$(COMPONENT_HG_URL)
+PKG_MACROS +=		COMPONENT_HG_REV=$(COMPONENT_HG_REV)
 
 PKG_OPTIONS +=		$(PKG_MACROS:%=-D %) -I$(WS_TOP)/transforms
 
+MANGLED_DIR =	$(PROTO_DIR)/mangled
+
+#PKG_PROTO_DIRS += $(MANGLED_DIR) $(PROTO_DIR) $(@D) $(COMPONENT_DIR) $(COMPONENT_SRC)
 PKG_PROTO_DIRS += $(PROTO_DIR) $(@D) $(COMPONENT_DIR) $(COMPONENT_SRC)
 
 MANIFEST_BASE =		$(BUILD_DIR)/manifest-$(MACH)
 
 CANONICAL_MANIFESTS =	$(wildcard *.p5m)
-GENERATED =		manifest-$(MACH)-generated
+GENERATED =		$(MANIFEST_BASE)-generated
 COMBINED =		$(MANIFEST_BASE)-combined
 MANIFESTS =		$(CANONICAL_MANIFESTS:%=$(MANIFEST_BASE)-%)
 
 
-RESOLVED=$(CANONICAL_MANIFESTS:%.p5m=$(MANIFEST_BASE)-%.resolved)
-PUBLISHED=$(RESOLVED:%.resolved=%.published)
+DEPENDED=$(CANONICAL_MANIFESTS:%.p5m=$(MANIFEST_BASE)-%.depend)
+RESOLVED=$(CANONICAL_MANIFESTS:%.p5m=$(MANIFEST_BASE)-%.depend.res)
+PUBLISHED=$(RESOLVED:%.depend.res=%.published)
 
-COPYRIGHT_FILE =	$(COMPONENT_NAME)-$(COMPONENT_VERSION).copyright
+COPYRIGHT_FILE ?=	$(COMPONENT_NAME)-$(COMPONENT_VERSION).copyright
 IPS_COMPONENT_VERSION ?=	$(COMPONENT_VERSION)
 
 .DEFAULT:		publish
 
 .SECONDARY:
 
-publish:		build install $(BUILD_DIR)/.published-$(MACH)
+# allow publishing to be overridden, such as when
+# a package is for one architecture only.
+PUBLISH_STAMP ?= $(BUILD_DIR)/.published-$(MACH)
+
+publish:		build install $(PUBLISH_STAMP)
 
 sample-manifest:	$(GENERATED).p5m
 
@@ -113,25 +127,29 @@ $(MANIFEST_BASE)-%.generate:	%.p5m canonical-manifests
 	cat $(METADATA_TEMPLATE) $< >$@
 
 # mogrify the manifest
-$(MANIFEST_BASE)-%.mogrified:	%.p5m canonical-manifests
+$(MANIFEST_BASE)-%.mogrified:	%.p5m $(BUILD_DIR) canonical-manifests
 	$(PKGMOGRIFY) $(PKG_OPTIONS) $< \
 		$(PUBLISH_TRANSFORMS) | \
 		sed -e '/^$$/d' -e '/^#.*$$/d' | uniq >$@
+
+# mangle the file contents
+#$(BUILD_DIR) $(MANGLED_DIR):
+#	$(MKDIR) $@
+
+#PKGMANGLE_OPTIONS = -D $(MANGLED_DIR) $(PKG_PROTO_DIRS:%=-d %)
+#$(MANIFEST_BASE)-%.mangled:	$(MANIFEST_BASE)-%.mogrified $(MANGLED_DIR)
+#	$(PKGMANGLE) $(PKGMANGLE_OPTIONS) -m $< >$@
 
 # generate dependencies
 PKGDEPEND_GENERATE_OPTIONS = -m $(PKG_PROTO_DIRS:%=-d %)
 $(MANIFEST_BASE)-%.depend:	$(MANIFEST_BASE)-%.mogrified
 	$(PKGDEPEND) generate $(PKGDEPEND_GENERATE_OPTIONS) $< >$@
 
-# resolve dependencies, prepend the mogrified manifest, less the unresolved
-# dependencies to the result.
-$(MANIFEST_BASE)-%.resolved:	$(MANIFEST_BASE)-%.depend
-	($(PKGMOGRIFY) $(@:%.resolved=%.mogrified) \
-		$(WS_TOP)/transforms/drop-unresolved-dependencies | \
-		sed -e '/^$$/d' -e '/^#.*$$/d' ; \
-	 $(PKGDEPEND) resolve -o $< | sed -e '1d') | sort -S 256 | uniq >$@
-
-$(BUILD_DIR)/.resolved-$(MACH):	$(RESOLVED)
+# resolve the dependencies all at once
+$(BUILD_DIR)/.resolved-$(MACH):	$(DEPENDED)
+	$(MV) $(DEPENDED) $(DEPENDED).tbd
+	$(PKGMOGRIFY) $(DEPENDED).tbd $(WS_TOP)/transforms/drop-os-dependencies > $(DEPENDED)
+	$(PKGDEPEND) resolve -m $(DEPENDED)
 	$(TOUCH) $@
 
 # lint the manifests all at once
@@ -142,11 +160,11 @@ $(BUILD_DIR)/.linted-$(MACH):	$(BUILD_DIR)/.resolved-$(MACH)
 			-f $(WS_TOOLS)/pkglintrc $(RESOLVED)
 	$(TOUCH) $@
 
-
 # published
 PKGSEND_PUBLISH_OPTIONS = -s $(PKG_REPO) publish --fmri-in-manifest
 PKGSEND_PUBLISH_OPTIONS += $(PKG_PROTO_DIRS:%=-d %)
-$(MANIFEST_BASE)-%.published:	$(MANIFEST_BASE)-%.resolved $(BUILD_DIR)/.linted-$(MACH)
+PKGSEND_PUBLISH_OPTIONS += -T \*.py
+$(MANIFEST_BASE)-%.published:	$(MANIFEST_BASE)-%.depend.res $(BUILD_DIR)/.linted-$(MACH)
 	$(PKGSEND) $(PKGSEND_PUBLISH_OPTIONS) $<
 	$(PKGFMT) <$< >$@
 

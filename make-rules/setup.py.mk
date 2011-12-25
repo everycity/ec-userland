@@ -19,14 +19,13 @@
 # CDDL HEADER END
 #
 # Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
-# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 $(BUILD_DIR)/%-2.6/.built:		PYTHON_VERSION=2.6
 $(BUILD_DIR)/$(MACH32)-%/.built:	BITS=32
 $(BUILD_DIR)/$(MACH64)-%/.built:	BITS=64
 
-$(BUILD_DIR)/%-2.6/.installed:	PYTHON_VERSION=2.6
+$(BUILD_DIR)/%-2.6/.installed:		PYTHON_VERSION=2.6
 $(BUILD_DIR)/$(MACH32)-%/.installed:	BITS=32
 $(BUILD_DIR)/$(MACH64)-%/.installed:	BITS=64
 
@@ -36,8 +35,8 @@ BUILD_64 = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH64)-%/.built)
 INSTALL_32 = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH32)-%/.installed)
 INSTALL_64 = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH64)-%/.installed)
 
-#PYTHON_ENV =	CC="$(CC)"
-#PYTHON_ENV +=	CFLAGS="$(CFLAGS)"
+PYTHON_ENV =	CC="$(CC)"
+PYTHON_ENV +=	CFLAGS="$(CFLAGS)"
 
 # build the configured source
 $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
@@ -45,8 +44,7 @@ $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
 	$(COMPONENT_PRE_BUILD_ACTION)
 	(cd $(SOURCE_DIR) ; $(ENV) $(PYTHON_ENV) \
 		$(PYTHON.$(BITS)) ./setup.py build \
-			--build-temp $(@D:$(BUILD_DIR)/%=%) \
-			$(COMPONENT_BUILD_ARGS))
+			--build-temp $(@D:$(BUILD_DIR)/%=%))
 	$(COMPONENT_POST_BUILD_ACTION)
 	$(TOUCH) $@
 
@@ -64,6 +62,22 @@ $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
 	(cd $(SOURCE_DIR) ; $(ENV) $(COMPONENT_INSTALL_ENV) \
 		$(PYTHON.$(BITS)) ./setup.py install $(COMPONENT_INSTALL_ARGS))
 	$(COMPONENT_POST_INSTALL_ACTION)
+	$(TOUCH) $@
+
+COMPONENT_TEST_DEP =	$(BUILD_DIR)/%/.installed
+COMPONENT_TEST_DIR =	$(COMPONENT_SRC)/test
+COMPONENT_TEST_ENV_CMD =	$(ENV) -
+COMPONENT_TEST_ENV +=	PYTHONPATH=$(PROTO_DIR)$(PYTHON_VENDOR_PACKAGES)
+COMPONENT_TEST_CMD =	$(PYTHON)
+COMPONENT_TEST_ARGS +=	./runtests.py
+
+# test the built source
+$(BUILD_DIR)/%/.tested:	$(COMPONENT_TEST_DEP)
+	$(COMPONENT_PRE_TEST_ACTION)
+	(cd $(COMPONENT_TEST_DIR); $(COMPONENT_TEST_ENV_CMD) \
+		$(COMPONENT_TEST_ENV) \
+		$(COMPONENT_TEST_CMD) $(COMPONENT_TEST_ARGS) )
+	$(COMPONENT_POST_TEST_ACTION)
 	$(TOUCH) $@
 
 clean::

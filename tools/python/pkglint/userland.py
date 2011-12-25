@@ -27,10 +27,10 @@
 # Some userland consolidation specific lint checks
 
 import pkg.lint.base as base
+from pkg.lint.engine import lint_fmri_successor
 import pkg.elf as elf
 import re
 import os.path
-
 
 class UserlandActionChecker(base.ActionChecker):
         """An opensolaris.org-specific class to check actions."""
@@ -48,14 +48,142 @@ class UserlandActionChecker(base.ActionChecker):
 		self.runpath_re = [
 			re.compile('^/lib(/.*)?$'),
 			re.compile('^/usr/'),
-			re.compile('^\$ORIGIN/'),
-			re.compile('^/ec/')
+			re.compile('^\$ORIGIN/')
+		]
+		self.runpath_64_re = [
+			re.compile('^.*/64(/.*)?$'),
+			re.compile('^.*/amd64(/.*)?$'),
+			re.compile('^.*/sparcv9(/.*)?$')
 		]
 		self.initscript_re = re.compile("^etc/(rc.|init)\.d")
+
+                self.lint_paths = {}
+                self.ref_paths = {}
+
                 super(UserlandActionChecker, self).__init__(config)
 
-	def startup(self, engine):
-		pass
+        def startup(self, engine):
+                """Initialize the checker with a dictionary of paths, so that we
+                can do link resolution.
+
+                This is copied from the core pkglint code, but should eventually
+                be made common.
+                """
+
+                def seed_dict(mf, attr, dic, atype=None, verbose=False):
+                        """Updates a dictionary of { attr: [(fmri, action), ..]}
+                        where attr is the value of that attribute from
+                        actions of a given type atype, in the given
+                        manifest."""
+
+                        pkg_vars = mf.get_all_variants()
+
+                        if atype:
+                                mfg = (a for a in mf.gen_actions_by_type(atype))
+                        else:
+                                mfg = (a for a in mf.gen_actions())
+
+                        for action in mfg:
+                                if atype and action.name != atype:
+                                        continue
+                                if attr not in action.attrs:
+                                        continue
+
+                                variants = action.get_variant_template()
+                                variants.merge_unknown(pkg_vars)
+                                action.attrs.update(variants)
+
+                                p = action.attrs[attr]
+                                dic.setdefault(p, []).append((mf.fmri, action))
+
+                # construct a set of FMRIs being presented for linting, and
+                # avoid seeding the reference dictionary with any for which
+                # we're delivering new packages.
+                lint_fmris = {}
+                for m in engine.gen_manifests(engine.lint_api_inst,
+                    release=engine.release, pattern=engine.pattern):
+                        lint_fmris.setdefault(m.fmri.get_name(), []).append(m.fmri)
+                for m in engine.lint_manifests:
+                        lint_fmris.setdefault(m.fmri.get_name(), []).append(m.fmri)
+
+                engine.logger.debug(
+                    _("Seeding reference action path dictionaries."))
+
+                for manifest in engine.gen_manifests(engine.ref_api_inst,
+                    release=engine.release):
+                        # Only put this manifest into the reference dictionary
+                        # if it's not an older version of the same package.
+                        if not any(
+                            lint_fmri_successor(fmri, manifest.fmri)
+                            for fmri
+                            in lint_fmris.get(manifest.fmri.get_name(), [])
+                        ):
+                                seed_dict(manifest, "path", self.ref_paths)
+
+                engine.logger.debug(
+                    _("Seeding lint action path dictionaries."))
+
+                # we provide a search pattern, to allow users to lint a
+                # subset of the packages in the lint_repository
+                for manifest in engine.gen_manifests(engine.lint_api_inst,
+                    release=engine.release, pattern=engine.pattern):
+                        seed_dict(manifest, "path", self.lint_paths)
+
+                engine.logger.debug(
+                    _("Seeding local action path dictionaries."))
+
+                for manifest in engine.lint_manifests:
+                        seed_dict(manifest, "path", self.lint_paths)
+
+                self.__merge_dict(self.lint_paths, self.ref_paths,
+                    ignore_pubs=engine.ignore_pubs)
+
+        def __merge_dict(self, src, target, ignore_pubs=True):
+                """Merges the given src dictionary into the target
+                dictionary, giving us the target content as it would appear,
+                were the packages in src to get published to the
+                repositories that made up target.
+
+                We need to only merge packages at the same or successive
+                version from the src dictionary into the target dictionary.
+                If the src dictionary contains a package with no version
+                information, it is assumed to be more recent than the same
+                package with no version in the target."""
+
+                for p in src:
+                        if p not in target:
+                                target[p] = src[p]
+                                continue
+
+                        def build_dic(arr):
+                                """Builds a dictionary of fmri:action entries"""
+                                dic = {}
+                                for (pfmri, action) in arr:
+                                        if pfmri in dic:
+                                                dic[pfmri].append(action)
+                                        else:
+                                                dic[pfmri] = [action]
+                                return dic
+
+                        src_dic = build_dic(src[p])
+                        targ_dic = build_dic(target[p])
+
+                        for src_pfmri in src_dic:
+                                # we want to remove entries deemed older than
+                                # src_pfmri from targ_dic.
+                                for targ_pfmri in targ_dic.copy():
+                                        sname = src_pfmri.get_name()
+                                        tname = targ_pfmri.get_name()
+                                        if lint_fmri_successor(src_pfmri,
+                                            targ_pfmri,
+                                            ignore_pubs=ignore_pubs):
+                                                targ_dic.pop(targ_pfmri)
+                        targ_dic.update(src_dic)
+                        l = []
+                        for pfmri in targ_dic:
+                                for action in targ_dic[pfmri]:
+                                        l.append((pfmri, action))
+                        target[p] = l
 
         def __realpath(self, path, target):
 		"""Combine path and target to get the real path."""
@@ -72,11 +200,13 @@ class UserlandActionChecker(base.ActionChecker):
 
 		return result
 
-	def __elf_runpath_check(self, path):
+	def __elf_runpath_check(self, path, engine):
 		result = None
 		list = []
 
 		ed = elf.get_dynamic(path)
+		ei = elf.get_info(path)
+		bits = ei.get("bits")
 		for dir in ed.get("runpath", "").split(":"):
 			if dir == None or dir == '':
 				continue
@@ -90,6 +220,22 @@ class UserlandActionChecker(base.ActionChecker):
 			if match == False:
 				list.append(dir)
 
+			if bits == 32:
+				for expr in self.runpath_64_re:
+					if expr.search(dir):
+						engine.warning(
+							_("64-bit runpath in 32-bit binary, '%s' includes '%s'") % (path, dir),
+							msgid="%s%s.3" % (self.name, "001"))
+			else:
+				match = False
+				for expr in self.runpath_64_re:
+					if expr.search(dir):
+						match = True
+						break
+				if match == False:
+					engine.warning(
+						_("32-bit runpath in 64-bit binary, '%s' includes '%s'") % (path, dir),
+						msgid="%s%s.3" % (self.name, "001"))
 		if len(list) > 0:
 			result = _("bad RUNPATH, '%%s' includes '%s'" %
 				   ":".join(list))
@@ -101,16 +247,28 @@ class UserlandActionChecker(base.ActionChecker):
 
 		ei = elf.get_info(path)
 		bits = ei.get("bits")
-		frag = os.path.basename(os.path.dirname(path))
+		type = ei.get("type");
+                elems = os.path.dirname(path).split("/")
 
-		if bits == 64 and path.find("/lib/amd64/"):
-			result = None
+                if ("amd64" in elems) or ("sparcv9" in elems) or ("64" in elems):
+                    path64 = True
+                else:
+                    path64 = False
+
+                if ("i86" in elems) or ("sparcv7" in elems) or ("32" in elems):
+                    path32 = True
+                else:
+                    path32 = False
+
+		# ignore 64-bit executables in normal (non-32-bit-specific)
+		# locations, that's ok now.
+		if (type == "exe" and bits == 64 and path32 == False and path64 == False):
 			return result
-		if bits == 32 and frag in ["sparcv9", "amd64", "64"]:
-			result = _("32-bit object '%s' in 64-bit path")
-		elif bits == 64 and frag not in ["sparcv9", "amd64", "64"]:
-			result = _("64-bit object '%s' in 32-bit path")
 
+		if bits == 32 and path64:
+			result = _("32-bit object '%s' in 64-bit path")
+		elif bits == 64 and not path64:
+			result = _("64-bit object '%s' in 32-bit path")
 		return result
 
 	def file_action(self, action, manifest, engine, pkglint_id="001"):
@@ -163,7 +321,7 @@ class UserlandActionChecker(base.ActionChecker):
 				if result != None:
 					engine.error(result % path, 
 						msgid="%s%s.2" % (self.name, pkglint_id))
-				result = self.__elf_runpath_check(fullpath)
+				result = self.__elf_runpath_check(fullpath, engine)
 				if result != None:
 					engine.error(result % path, 
 						msgid="%s%s.3" % (self.name, pkglint_id))
@@ -179,19 +337,11 @@ class UserlandActionChecker(base.ActionChecker):
 		path = action.attrs["path"]
 		target = action.attrs["target"]
 		realtarget = self.__realpath(path, target)
-		
-		resolved = False
-		for maction in manifest.gen_actions():
-			mpath = None
-			if maction.name in ["dir", "file", "link",
-						"hardlink"]:
-				mpath = maction.attrs["path"]
 
-			if mpath and mpath == realtarget:
-				resolved = True
-				break
-
-		if resolved != True:
+		# Check against the target image (ref_paths), since links might
+		# resolve outside the packages delivering a particular
+		# component.
+		if not self.ref_paths.get(realtarget, None):
 			engine.error(
 				_("%s %s has unresolvable target '%s'") %
 					(action.name, path, target),
@@ -223,7 +373,7 @@ class UserlandManifestChecker(base.ManifestChecker):
 	def __init__(self, config):
 		super(UserlandManifestChecker, self).__init__(config)
 
-	def license_check(self, manifest, engine, pkglint_id="001"):
+	def component_check(self, manifest, engine, pkglint_id="001"):
 		manifest_paths = []
 		files = False
 		license = False
@@ -236,10 +386,16 @@ class UserlandManifestChecker(base.ManifestChecker):
 			return
 
 		for action in manifest.gen_actions_by_type("license"):
-			return
+			license = True
+			break
 
-		engine.error( _("missing license action"),
-			msgid="%s%s.0" % (self.name, pkglint_id))
+		if license == False:
+			engine.error( _("missing license action"),
+				msgid="%s%s.0" % (self.name, pkglint_id))
 
-	license_check.pkglint_dest = _(
-		"license actions are required if you deliver files.")
+		if 'org.opensolaris.arc-caseid' not in manifest:
+			engine.error( _("missing ARC data (org.opensolaris.arc-caseid)"),
+				msgid="%s%s.0" % (self.name, pkglint_id))
+
+	component_check.pkglint_dest = _(
+		"license actions and ARC information are required if you deliver files.")

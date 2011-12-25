@@ -33,27 +33,6 @@ export DOWNLOAD_SEARCH_PATH ?=	http://dlc.openindiana.org/s10-userland/source-ar
 # The workspace starts at the mercurial root
 export WS_TOP ?=		$(shell hg root)
 
-CONSOLIDATION =	userland
-PUBLISHER ?=	s10.pkg.ec
-
-ROOT =			/
-
-# get the most recent build number from the last mercurial tag
-#LAST_HG_TAG =	$(shell hg tags -q | grep build- | head -1)
-#LAST_BUILD_NUM = $(LAST_HG_TAG:build-%=%)
-LAST_BUILD_NUM = 161
-
-OS_VERSION =		$(shell uname -r)
-SOLARIS_VERSION =	$(OS_VERSION:5.%=2.%)
-BUILD_NUM =		0.$(shell expr $(LAST_BUILD_NUM) + 1)
-BUILD_VERSION =		$(OS_VERSION)-$(BUILD_NUM)
-
-
-COMPILER =		gcc
-BITS =			32
-PYTHON_VERSION =	2.6
-PYTHON_VERSIONS =	2.6
-
 WS_LOGS =	$(WS_TOP)/$(MACH)/logs
 WS_REPO =	$(WS_TOP)/$(MACH)/repo
 WS_TOOLS =	$(WS_TOP)/tools
@@ -61,6 +40,33 @@ WS_MAKE_RULES =	$(WS_TOP)/make-rules
 WS_COMPONENTS =	$(WS_TOP)/components
 WS_INCORPORATIONS =	$(WS_TOP)/incorporations
 WS_LINT_CACHE =	$(WS_TOP)/$(MACH)/pkglint-cache
+
+# we want our pkg piplines to fail if there is an error
+# (like if pkgdepend fails in the middle of a pipe), but
+# we don't want the builds or ./configure's failing as well.
+# so we only set pipefail for the publish target and have
+# to reset it for the others since they might be invoked
+# as dependencies of publish.
+export SHELLOPTS
+build:		SHELLOPTS=
+test:		SHELLOPTS=
+install:	SHELLOPTS=
+publish:	SHELLOPTS=pipefail
+
+SHELL=	/bin/bash
+
+CONSOLIDATION =	openwebstack
+PUBLISHER ?=	$(CONSOLIDATION)
+
+ROOT =			/
+
+OS_VERSION =		$(shell uname -r)
+SOLARIS_VERSION =	$(OS_VERSION:5.%=2.%)
+
+COMPILER =		gcc
+BITS =			32
+PYTHON_VERSION =	2.6
+PYTHON_VERSIONS =	2.6
 
 BASS_O_MATIC =	$(WS_TOOLS)/bass-o-matic
 
@@ -78,30 +84,47 @@ PROTO_DIR =	$(BUILD_DIR)/prototype/$(MACH)
 ETCDIR =	/etc
 USRDIR =	/usr
 BINDIR =	/bin
+SBINDIR =	/sbin
 LIBDIR =	/lib
 USRBINDIR =	$(USRDIR)/bin
+USRSBINDIR =	$(USRDIR)/sbin
 USRLIBDIR =	$(USRDIR)/lib
 USRSHAREDIR =	$(USRDIR)/share
+USRINCDIR =	$(USRDIR)/include
+USRSHARELOCALEDIR =	$(USRSHAREDIR)/locale
 USRSHAREMANDIR =	$(USRSHAREDIR)/man
+USRSHAREDOCDIR =	$(USRSHAREDIR)/doc
+USRSHARELIBDIR =	$(USRSHAREDIR)/lib
 USRSHAREMAN1DIR =	$(USRSHAREMANDIR)/man1
+USRSHAREMAN1MDIR =	$(USRSHAREMANDIR)/man1m
 USRSHAREMAN3DIR =	$(USRSHAREMANDIR)/man3
 USRSHAREMAN4DIR =	$(USRSHAREMANDIR)/man4
 USRSHAREMAN5DIR =	$(USRSHAREMANDIR)/man5
 USRLIBDIR64 =	$(USRDIR)/lib/$(MACH64)
+PROTOBINDIR =	$(PROTO_DIR)/$(BINDIR)
 PROTOETCDIR =	$(PROTO_DIR)/$(ETCDIR)
+PROTOETCSECDIR = $(PROTO_DIR)/$(ETCDIR)/security
 PROTOUSRDIR =	$(PROTO_DIR)/$(USRDIR)
+PROTOLIBDIR =	$(PROTO_DIR)/$(LIBDIR)
 PROTOUSRBINDIR =	$(PROTO_DIR)/$(USRBINDIR)
+PROTOUSRSBINDIR =	$(PROTO_DIR)/$(USRSBINDIR)
 PROTOUSRLIBDIR =	$(PROTO_DIR)/$(USRLIBDIR)
 PROTOUSRLIBDIR64 =	$(PROTO_DIR)/$(USRLIBDIR64)
+PROTOUSRINCDIR =	$(PROTO_DIR)/$(USRINCDIR)
 PROTOUSRSHAREDIR =	$(PROTO_DIR)/$(USRSHAREDIR)
+PROTOUSRSHARELIBDIR =	$(PROTO_DIR)/$(USRSHARELIBDIR)
 PROTOUSRSHAREMANDIR =	$(PROTO_DIR)/$(USRSHAREMANDIR)
+PROTOUSRSHAREDOCDIR =	$(PROTO_DIR)/$(USRSHAREDOCDIR)
 PROTOUSRSHAREMAN1DIR =	$(PROTO_DIR)/$(USRSHAREMAN1DIR)
+PROTOUSRSHAREMAN1MDIR =	$(PROTO_DIR)/$(USRSHAREMAN1MDIR)
 PROTOUSRSHAREMAN3DIR =	$(PROTO_DIR)/$(USRSHAREMAN3DIR)
 PROTOUSRSHAREMAN4DIR =	$(PROTO_DIR)/$(USRSHAREMAN4DIR)
 PROTOUSRSHAREMAN5DIR =	$(PROTO_DIR)/$(USRSHAREMAN5DIR)
+PROTOUSRSHARELOCALEDIR =	$(PROTO_DIR)/$(USRSHARELOCALEDIR)
 
 
 SFWBIN =	/usr/sfw/bin
+SFWINCLUDE =	/usr/sfw/include
 SFWLIB =	/usr/sfw/lib
 SFWLIB64 =	/usr/sfw/lib/$(MACH64)
 SFWSHARE =	/usr/sfw/share
@@ -113,8 +136,11 @@ PROTOSFWLIB64 =	$(PROTO_DIR)/$(SFWLIB64)
 PROTOSFWSHARE =	$(PROTO_DIR)/$(SFWSHARE)
 PROTOSFWSHAREMAN =	$(PROTO_DIR)/$(SFWSHAREMAN)
 PROTOSFWSHAREMAN1 =	$(PROTO_DIR)/$(SFWSHAREMAN1)
+PROTOSFWINCLUDE =	$(PROTO_DIR)/$(SFWINCLUDE)
 
 GNUBIN =	/usr/gnu/bin
+GNULIB =	/usr/gnu/lib
+GNULIB64 =	/usr/gnu/lib/$(MACH64)
 GNUSHARE =	/usr/gnu/share
 GNUSHAREMAN =	/usr/gnu/share/man
 GNUSHAREMAN1 =	/usr/gnu/share/man/man1
@@ -141,8 +167,11 @@ MACH32 =	$(MACH32_1:i386=i86)
 MACH64_1 =	$(MACH:sparc=sparcv9)
 MACH64 =	$(MACH64_1:i386=amd64)
 
-PLAT_1 =        $(MACH:sparc=sun)
-PLAT =          $(PLAT_1:i386=pc)
+PLAT_1 =	$(MACH:sparc=sun)
+PLAT =		$(PLAT_1:i386=pc)
+
+CONFIGURE_32 =		$(BUILD_DIR_32)/.configured
+CONFIGURE_64 =		$(BUILD_DIR_64)/.configured
 
 BUILD_DIR_32 =		$(BUILD_DIR)/$(MACH32)
 BUILD_DIR_64 =		$(BUILD_DIR)/$(MACH64)
@@ -150,14 +179,26 @@ BUILD_DIR_64 =		$(BUILD_DIR)/$(MACH64)
 BUILD_32 =		$(BUILD_DIR_32)/.built
 BUILD_64 =		$(BUILD_DIR_64)/.built
 BUILD_32_and_64 =	$(BUILD_32) $(BUILD_64)
+$(BUILD_DIR_32)/.built:		BITS=32
+$(BUILD_DIR_64)/.built:		BITS=64
 
 INSTALL_32 =		$(BUILD_DIR_32)/.installed
 INSTALL_64 =		$(BUILD_DIR_64)/.installed
 INSTALL_32_and_64 =	$(INSTALL_32) $(INSTALL_64)
+$(BUILD_DIR_32)/.installed:       BITS=32
+$(BUILD_DIR_64)/.installed:       BITS=64
+
+# set the default target for installation of the component
+COMPONENT_INSTALL_TARGETS =	install
 
 TEST_32 =		$(BUILD_DIR_32)/.tested
 TEST_64 =		$(BUILD_DIR_64)/.tested
 TEST_32_and_64 =	$(TEST_32) $(TEST_64)
+$(BUILD_DIR_32)/.tested:       BITS=32
+$(BUILD_DIR_64)/.tested:       BITS=64
+
+# set the default target for test of the component
+COMPONENT_TEST_TARGETS =	check
 
 # BUILD_TOOLS is the root of all tools not normally installed on the system.
 BUILD_TOOLS =	/ws/onnv-tools
@@ -168,29 +209,26 @@ SPRO_VROOT =	$(SPRO_ROOT)/sunstudio12.1
 GCC_ROOT =	$(ECPREFIX)
 
 CC.studio.32 =	$(SPRO_VROOT)/bin/cc
-CCC.studio.32 =	$(SPRO_VROOT)/bin/CC
+CXX.studio.32 =	$(SPRO_VROOT)/bin/CC
 
 CC.studio.64 =	$(SPRO_VROOT)/bin/cc
-CCC.studio.64 =	$(SPRO_VROOT)/bin/CC
+CXX.studio.64 =	$(SPRO_VROOT)/bin/CC
 
 CC.gcc.32 =	$(GCC_ROOT)/bin/gcc
-CCC.gcc.32 =	$(GCC_ROOT)/bin/g++
+CXX.gcc.32 =	$(GCC_ROOT)/bin/g++
 
 CC.gcc.64 =	$(GCC_ROOT)/bin/gcc -m64
-CCC.gcc.64 =	$(GCC_ROOT)/bin/g++ -m64
+CXX.gcc.64 =	$(GCC_ROOT)/bin/g++ -m64
 
 CC =		$(CC.$(COMPILER).$(BITS))
-CCC =		$(CCC.$(COMPILER).$(BITS))
+CXX =		$(CXX.$(COMPILER).$(BITS))
 
 lint.32 =	$(SPRO_VROOT)/bin/lint -m32
 lint.64 =	$(SPRO_VROOT)/bin/lint -m64
 
 LINT =		$(lint.$(BITS))
 
-LD.32 =		/usr/ccs/bin/ld
-LD.64 =		/usr/ccs/bin/ld -64
-
-LD =		$(LD.$(BITS))
+LD =		/usr/ccs/bin/ld
 
 PYTHON_VENDOR_PACKAGES.32 = /usr/lib/python$(PYTHON_VERSION)/vendor-packages
 PYTHON_VENDOR_PACKAGES.64 = /usr/lib/python$(PYTHON_VERSION)/vendor-packages/64
@@ -208,15 +246,28 @@ PYTHON =	$(PYTHON.$(PYTHON_VERSION).$(BITS))
 # belong in vendor-packages.
 PYTHON_LIB= /usr/lib/python$(PYTHON_VERSION)/vendor-packages
 
-JAVA_HOME =	/usr/jdk/instances/jdk1.6.0
+JAVA_HOME =	$(ECPREFIX)/java
 
-PERL =		/usr/perl5/bin/perl
+PERL =		$(ECPREFIX)/bin/perl
 
-GMAKE =		gmake
-GPATCH =	gpatch
+PERL_ARCH =     $(shell $(PERL) -e 'use Config; print $$Config{archname}')
+# Optimally we should ask perl which C compiler was used but it doesn't
+# result in a full path name.  Only "c" is being recorded
+# inside perl builds while we actually need a full path to
+# the studio compiler.
+#PERL_CC =      $(shell $(PERL) -e 'use Config; print $$Config{cc}')
+PERL_OPTIMIZE = $(shell $(PERL) -e 'use Config; print $$Config{optimize}')
+
+PKG_MACROS +=   PERL_ARCH=$(PERL_ARCH)
+PKG_MACROS +=   PERL_VERSION=$(PERL_VERSION)
+
+CCSMAKE =	/usr/ccs/bin/make
+GMAKE =		$(ECPREFIX)/bin/make
+GPATCH =	$(ECPREFIX)/bin/patch
 PATCH_LEVEL =	1
 GPATCH_BACKUP =	--backup --version-control=numbered
 GPATCH_FLAGS =	-p$(PATCH_LEVEL) $(GPATCH_BACKUP)
+GSED =		$(ECPREFIX)/bin/sed
 
 PKGREPO =	pkgrepo
 PKGSEND =	pkgsend
@@ -226,7 +277,7 @@ ACLOCAL =	/ec/bin/aclocal-1.10
 AUTOMAKE =	/ec/bin/automake-1.10
 AUTORECONF = 	/ec/bin/autoreconf
 
-TOUCH =		/usr/bin/touch
+TOUCH =		$(ECPREFIX)/bin/touch
 MKDIR =		/bin/mkdir -p
 RM =		/bin/rm -f
 CP =		/bin/cp -f
@@ -236,9 +287,17 @@ SYMLINK =	/bin/ln -s
 ENV =		/usr/bin/env
 INSTALL =	$(ECPREFIX)/bin/install
 CHMOD =		/usr/bin/chmod
+NAWK =		/usr/bin/nawk
+TEE =		/usr/bin/tee
+
 
 INS.dir=        $(INSTALL) -d $@
 INS.file=       $(INSTALL) -m 444 $< $(@D)
+
+PKG_CONFIG_PATH.32 = $(ECPREFIX)/bin//pkgconfig
+PKG_CONFIG_PATH.64 = $(ECPREFIX)/bin/$(MACH64)/pkgconfig
+PKG_CONFIG_PATH = PKG_CONFIG_PATH.$(BITS)
+
 
 #
 # C preprocessor flag sets to ease feature selection.  Add the required
@@ -269,6 +328,9 @@ CPP_POSIX =	-D_POSIX_C_SOURCE=200112L -D_POSIX_PTHREAD_SEMANTICS
 # CFLAGS instead of using this directly
 CPP_XPG6MODE=	-D_XOPEN_SOURCE=600 -D__EXTENSIONS__=1 -D_XPG6
 
+# XPG5 mode. These options are specific for C++, where _XPG6,
+# _XOPEN_SOURCE=600 and C99 are illegal. -D__EXTENSIONS__=1 is legal in C++.
+CPP_XPG5MODE=   -D_XOPEN_SOURCE=500 -D__EXTENSIONS__=1 -D_XPG5
 
 #
 # Studio C compiler flag sets to ease feature selection.  Add the required
@@ -302,6 +364,16 @@ studio_C99_DISABLE =	-xc99=none
 # Use the compiler default 'xc99=all,no_lib'
 studio_C99MODE =
 
+# For C++, compatibility with C99 (which is technically illegal) is
+# enabled in a different way. So, we must use a different macro for it.
+studio_cplusplus_C99_ENABLE = 	-xlang=c99
+
+# Turn it off.
+studio_cplusplus_C99_DISABLE =
+
+# And this is the macro you should actually use
+studio_cplusplus_C99MODE = 
+
 # Allow zero-sized struct/union declarations and void functions with return
 # statements.
 studio_FEATURES_EXTENSIONS =	-features=extensions
@@ -326,9 +398,19 @@ studio_IROPTS =		$(studio_IROPTS.$(MACH))
 # Control register usage for generated code.  SPARC ABI requires system
 # libraries not to use application registers.  x86 requires 'no%frameptr' at
 # x04 or higher.
-studio_XREGS.sparc =	-xregs=no%appl,float
+
+# We should just use -xregs but we need to workaround 7030022. Note
+# that we can't use the (documented) -Wc,-xregs workaround because
+# libtool really hates -Wc and thinks it should be -Wl. Instead
+# we use an (undocumented) option which actually happens to be what
+# CC would use.
+studio_XREGS.sparc =	-Qoption cg -xregs=no%appl
 studio_XREGS.i386 =	-xregs=no%frameptr
 studio_XREGS =		$(studio_XREGS.$(MACH))
+
+gcc_XREGS.sparc =	-mno-app-regs
+gcc_XREGS.i386 =
+gcc_XREGS =		$(gcc_XREGS.$(MACH))
 
 # Set data alignment on sparc to reasonable values, 8 byte alignment for 32 bit
 # objects and 16 byte alignment for 64 bit objects.  This is added to CFLAGS by
@@ -345,6 +427,10 @@ studio_MT =		-mt
 # See CPP_XPG6MODE comment above.
 studio_XPG6MODE =	$(studio_C99MODE) $(CPP_XPG6MODE)
 XPG6MODE =		$(studio_XPG6MODE)
+
+# See CPP_XPG5MODE comment above. You can only use this in C++, not in C99.
+studio_XPG5MODE =	$(studio_cplusplus_C99MODE) $(CPP_XPG5MODE)
+XPG5MODE =		$(studio_XPG5MODE)
 
 # Default Studio C compiler flags.  Add the required feature to your Makefile
 # with CFLAGS += $(FEATURE_MACRO) and add to the component build with
@@ -378,6 +464,7 @@ CC_PIC =	$($(COMPILER)_PIC)
 # should not be necessary to add CFLAGS to any environment other than the
 # configure environment.
 CFLAGS.gcc +=	$(gcc_OPT)
+CFLAGS.gcc +=	$(gcc_XREGS)
 
 
 # Build 32 or 64 bit objects.
@@ -387,11 +474,43 @@ CFLAGS +=	$(CC_BITS)
 CFLAGS +=	$(CFLAGS.$(COMPILER))
 
 
+# Studio C++ requires -norunpath to avoid adding its location into the RUNPATH
+# to C++ applications.
+studio_NORUNPATH =	 -norunpath
+
+# To link in standard mode (the default mode) without any C++ libraries
+# (except libCrun), use studio_LIBRARY_NONE in your component Makefile.
+studio_LIBRARY_NONE =	 -library=%none
+
+# Don't link C++ with any C++ Runtime or Standard C++ library
+studio_CXXLIB_NONE =	-xnolib
+
+# Link C++ with the Studio C++ Runtime and Standard C++ library.  This is the
+# default for "standard" mode.
+studio_CXXLIB_CSTD =	-library=Cstd,Crun
+
+# link C++ with the Studio  C++ Runtime and Apache Standard C++ library
+studio_CXXLIB_APACHE =	-library=stdcxx4,Crun
+
+# Add the C++ ABI compatibility flags for older ABI compatibility.  The default
+# is "standard mode" (-compat=5)
+studio_COMPAT_VERSION_4 =	-compat=4
+
+# Tell the compiler that we don't want the studio runpath added to the
+# linker flags.  We never want the Studio location added to the RUNPATH.
+CXXFLAGS +=	$($(COMPILER)_NORUNPATH)
+
+# Build 32 or 64 bit objects in C++ as well.
+CXXFLAGS +=	$(CC_BITS)
+
 #
 # Solaris linker flag sets to ease feature selection.  Add the required
 # feature to your Makefile with LDFLAGS += $(FEATURE_MACRO) and add to the
 # component build with CONFIGURE_OPTIONS += LDFLAGS="$(LDFLAGS)" or similiar.
 #
+
+# set the bittedness that we want to link
+LD_BITS =	-$(BITS)
 
 ifneq ($(CONFIGURE_PREFIX), $(ECPREFIX))
 	CFLAGS +=	-I$(CONFIGURE_PREFIX)/include -I$(ECPREFIX)/include
@@ -420,6 +539,9 @@ LD_Z_TEXT =		-z direct
 # make sure all symbols are defined.
 LD_Z_DEFS =		-z defs
 
+# eliminate unreferenced dynamic dependencies
+LD_Z_IGNORE =		-z ignore
+
 # use direct binding
 LD_B_DIRECT =		-Bdirect
 
@@ -431,7 +553,8 @@ LD_B_DIRECT =		-Bdirect
 #
 
 # Create a non-executable stack when linking.
-LD_MAP_NOEXSTK =	-M /usr/lib/ld/map.noexstk
+LD_MAP_NOEXSTK.i386 =	-M /usr/lib/ld/map.noexstk
+LD_MAP_NOEXSTK.sparc =	-M /usr/lib/ld/map.noexstk
 
 # Create a non-executable bss segment when linking.
 LD_MAP_NOEXBSS =	-M /usr/lib/ld/map.noexbss
@@ -451,8 +574,8 @@ LD_OPTIONS_SO +=	$(LD_Z_TEXT) $(LD_Z_DEFS)
 # Default linker options that everyone should get.  Do not add additional
 # libraries to this macro, as it will apply to everything linked during the
 # component build.
-LD_OPTIONS +=	$(LD_MAP_NOEXSTK) $(LD_MAP_NOEXDATA.$(MACH)) \
-		$(LD_MAP_PAGEALIGN) $(LD_B_DIRECT)
+LD_OPTIONS +=	$(LD_MAP_NOEXSTK.$(MACH)) $(LD_MAP_NOEXDATA.$(MACH)) \
+		$(LD_MAP_PAGEALIGN) $(LD_B_DIRECT) $(LD_Z_IGNORE)
 
 # Environment variables and arguments passed into the build and install
 # environment(s).  These are the initial settings.
@@ -466,3 +589,11 @@ COMPONENT_BUILD_ENV += $(COMPONENT_BUILD_ENV.$(BITS))
 COMPONENT_BUILD_ARGS += $(COMPONENT_BUILD_ARGS.$(BITS))
 COMPONENT_INSTALL_ENV += $(COMPONENT_INSTALL_ENV.$(BITS))
 COMPONENT_INSTALL_ARGS += $(COMPONENT_INSTALL_ARGS.$(BITS))
+
+# declare these phony so that we avoid filesystem conflicts.
+.PHONY:	prep build install publish test clean clobber
+
+# If there are no tests to execute
+NO_TESTS =	test-nothing
+test-nothing:
+	@echo "There are no tests available at this time."

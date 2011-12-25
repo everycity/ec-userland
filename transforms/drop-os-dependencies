@@ -1,0 +1,34 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+<transform depend pkg.debug.depend.file=sh -> drop>
+<transform depend pkg.debug.depend.file=bash -> drop>
+<transform depend pkg.debug.depend.file=perl -> drop>
+<transform depend pkg.debug.depend.file=libc\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libm\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libdl\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libnsl\.so.* -> drop>
+<transform depend pkg.debug.depend.file=librt\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libsocket\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libresolv\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libcrypto\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libcurses\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libpthread\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libthread\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libsendfile\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libuuid\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libsasl\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libpam\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libmail\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libkstat\.so.* -> drop>
+<transform depend pkg.debug.depend.file=.*\.xml -> drop>

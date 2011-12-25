@@ -44,15 +44,7 @@
 #	COMPONENT_BUILD_TARGETS, COMPONENT_INSTALL_TARGETS
 #
 
-$(BUILD_DIR_32)/.built:	BITS=32
-$(BUILD_DIR_64)/.built:	BITS=64
-$(BUILD_DIR_32)/.installed:	BITS=32
-$(BUILD_DIR_64)/.installed:	BITS=64
-
-# set the default target for installation of the component
-COMPONENT_INSTALL_TARGETS =	install
-
-CLEAN_PATHS +=  $(BUILD_DIR)
+COMPONENT_INSTALL_ARGS += DESTDIR=$(PROTO_DIR)
 
 # build the configured source
 $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
@@ -71,3 +63,14 @@ $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
 			$(COMPONENT_INSTALL_ARGS) $(COMPONENT_INSTALL_TARGETS))
 	$(COMPONENT_POST_INSTALL_ACTION)
 	$(TOUCH) $@
+
+# test the built source
+$(BUILD_DIR)/%/.tested: $(BUILD_DIR)/%/.built
+	$(COMPONENT_PRE_TEST_ACTION)
+	(cd $(@D) ; $(ENV) $(COMPONENT_TEST_ENV) $(GMAKE) \
+		$(COMPONENT_TEST_ARGS) $(COMPONENT_TEST_TARGETS))
+	$(COMPONENT_POST_TEST_ACTION)
+	$(TOUCH) $@
+
+clean::
+	$(RM) -r $(BUILD_DIR) $(PROTO_DIR)

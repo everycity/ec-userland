@@ -29,25 +29,30 @@
 # support and build multiple version (32/64 bit) from a shared source.
 #
 # To use these rules, include ../make-rules/configure.mk in your Makefile
-# and define "build", "install" targets appropriate to building your component.
+# and define "build", "install", and "test" targets appropriate to building
+# your component.
 # Ex:
 #
 # 	build:		$(SOURCE_DIR)/build/$(MACH32)/.built \
 #	 		$(SOURCE_DIR)/build/$(MACH64)/.built
-# 
+#
 #	install:	$(SOURCE_DIR)/build/$(MACH32)/.installed \
 #	 		$(SOURCE_DIR)/build/$(MACH64)/.installed
+#
+#	test:		$(SOURCE_DIR)/build/$(MACH32)/.tested \
+#	 		$(SOURCE_DIR)/build/$(MACH64)/.tested
 #
 # Any additional pre/post configure, build, or install actions can be specified
 # in your make file by setting them in on of the following macros:
 #	COMPONENT_PRE_CONFIGURE_ACTION, COMPONENT_POST_CONFIGURE_ACTION
 #	COMPONENT_PRE_BUILD_ACTION, COMPONENT_POST_BUILD_ACTION
 #	COMPONENT_PRE_INSTALL_ACTION, COMPONENT_POST_INSTALL_ACTION
+#	COMPONENT_PRE_TEST_ACTION, COMPONENT_POST_TEST_ACTION
 #
 # If component specific make targets need to be used for build or install, they
 # can be specified in
-
 #	COMPONENT_BUILD_TARGETS, COMPONENT_INSTALL_TARGETS
+#	COMPONENT_TEST_TARGETS
 #
 
 CONFIGURE_PREFIX =	$(ECPREFIX)
@@ -69,7 +74,7 @@ CONFIGURE_INCLUDEDIR =	/usr/include
 
 CONFIGURE_ENV	=	CONFIG_SHELL="$(CONFIG_SHELL)"
 CONFIGURE_ENV	+=	CC="$(CC)"
-CONFIGURE_ENV	+=	CXX="$(CCC)"
+CONFIGURE_ENV	+=	CXX="$(CXX)"
 CONFIGURE_ENV	+=	CFLAGS="$(CFLAGS)"
 CONFIGURE_ENV	+=	LDFLAGS="$(LDFLAGS)"
 
@@ -94,20 +99,11 @@ CONFIGURE_OPTIONS += --localstatedir=$(CONFIGURE_LOCALSTATEDIR)
 
 COMPONENT_INSTALL_ARGS +=	DESTDIR=$(PROTO_DIR)
 
-$(BUILD_DIR)/$(MACH32)/.configured:	BITS=32
-$(BUILD_DIR)/$(MACH64)/.configured:	BITS=64
-$(BUILD_DIR)/$(MACH32)/.built:		BITS=32
-$(BUILD_DIR)/$(MACH64)/.built:		BITS=64
-$(BUILD_DIR)/$(MACH32)/.installed:	BITS=32
-$(BUILD_DIR)/$(MACH64)/.installed:	BITS=64
+$(BUILD_DIR_32)/.configured:	BITS=32
+$(BUILD_DIR_64)/.configured:	BITS=64
 
 CONFIGURE_ENV += $(CONFIGURE_ENV.$(BITS))
 CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
-
-# set the default target for installation of the component
-COMPONENT_INSTALL_TARGETS =	install
-
-CLEAN_PATHS +=	$(BUILD_DIR)
 
 # configure the unpacked source for building 32 and 64 bit version
 CONFIGURE_SCRIPT =	$(SOURCE_DIR)/configure
@@ -135,3 +131,14 @@ $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
 			$(COMPONENT_INSTALL_ARGS) $(COMPONENT_INSTALL_TARGETS))
 	$(COMPONENT_POST_INSTALL_ACTION)
 	$(TOUCH) $@
+
+# test the built source
+$(BUILD_DIR)/%/.tested:	$(BUILD_DIR)/%/.built
+	$(COMPONENT_PRE_TEST_ACTION)
+	(cd $(@D) ; $(ENV) $(COMPONENT_TEST_ENV) $(GMAKE) \
+			$(COMPONENT_TEST_ARGS) $(COMPONENT_TEST_TARGETS))
+	$(COMPONENT_POST_TEST_ACTION)
+	$(TOUCH) $@
+
+clean::
+	$(RM) -r $(BUILD_DIR) $(PROTO_DIR)
