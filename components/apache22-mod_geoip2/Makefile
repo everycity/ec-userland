@@ -29,13 +29,13 @@ CLEAN_PATHS += $(BUILD_DIR)
 $(BUILD_DIR)/$(MACH32)/.built:  prep
 	$(RM) -r $(@D) $(PROTO_DIR) ; $(MKDIR) -p $(@D)
 	$(CP) $(SOURCE_DIR)/mod_geoip.c $(@D)
-	( cd $(@D) ; $(ECPREFIX)/bin/apxs -L$(ECPREFIX)/lib -I$(ECPREFIX)/include -lGeoIP -c mod_geoip.c )
+	( cd $(@D) ; LTFLAGS="--tag=CC" $(ECPREFIX)/bin/apxs -L$(ECPREFIX)/lib -I$(ECPREFIX)/include -lGeoIP -c mod_geoip.c )
 	$(TOUCH) $@
 
 $(BUILD_DIR)/$(MACH64)/.built:  prep
 	$(RM) -r $(@D) $(PROTO_DIR) ; $(MKDIR) -p $(@D)
 	$(CP) $(SOURCE_DIR)/mod_geoip.c $(@D)
-	( cd $(@D) ; $(ECPREFIX)/bin/$(MACH64)/apxs -L$(ECPREFIX)/lib/$(MACH64) -I$(ECPREFIX)/include -lGeoIP -c mod_geoip.c )
+	( cd $(@D) ; LTFLAGS="--tag=CC" $(ECPREFIX)/bin/$(MACH64)/apxs -L$(ECPREFIX)/lib/$(MACH64) -I$(ECPREFIX)/include -lGeoIP -c mod_geoip.c )
 	$(TOUCH) $@
 
 $(BUILD_DIR)/$(MACH32)/.installed-$(MACH32):	build
