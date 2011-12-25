@@ -23,6 +23,8 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
+# Note: One of the patches has /ec hardcoded
+
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		pkg-gate
