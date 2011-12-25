@@ -84,9 +84,6 @@ PKG_MACROS +=		COMPONENT_HG_REV=$(COMPONENT_HG_REV)
 
 PKG_OPTIONS +=		$(PKG_MACROS:%=-D %) -I$(WS_TOP)/transforms
 
-MANGLED_DIR =	$(PROTO_DIR)/mangled
-
-#PKG_PROTO_DIRS += $(MANGLED_DIR) $(PROTO_DIR) $(@D) $(COMPONENT_DIR) $(COMPONENT_SRC)
 PKG_PROTO_DIRS += $(PROTO_DIR) $(@D) $(COMPONENT_DIR) $(COMPONENT_SRC)
 
 MANIFEST_BASE =		$(BUILD_DIR)/manifest-$(MACH)
@@ -127,18 +124,14 @@ $(MANIFEST_BASE)-%.generate:	%.p5m canonical-manifests
 	cat $(METADATA_TEMPLATE) $< >$@
 
 # mogrify the manifest
-$(MANIFEST_BASE)-%.mogrified:	%.p5m $(BUILD_DIR) canonical-manifests
+$(MANIFEST_BASE)-%.mogrified:	%.p5m canonical-manifests
 	$(PKGMOGRIFY) $(PKG_OPTIONS) $< \
 		$(PUBLISH_TRANSFORMS) | \
 		sed -e '/^$$/d' -e '/^#.*$$/d' | uniq >$@
 
 # mangle the file contents
-#$(BUILD_DIR) $(MANGLED_DIR):
-#	$(MKDIR) $@
-
-#PKGMANGLE_OPTIONS = -D $(MANGLED_DIR) $(PKG_PROTO_DIRS:%=-d %)
-#$(MANIFEST_BASE)-%.mangled:	$(MANIFEST_BASE)-%.mogrified $(MANGLED_DIR)
-#	$(PKGMANGLE) $(PKGMANGLE_OPTIONS) -m $< >$@
+$(BUILD_DIR):
+	$(MKDIR) $@
 
 # generate dependencies
 PKGDEPEND_GENERATE_OPTIONS = -m $(PKG_PROTO_DIRS:%=-d %)
