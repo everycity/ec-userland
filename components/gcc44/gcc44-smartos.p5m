@@ -1340,8 +1340,6 @@ file path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPON
 file path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/openssl/opensslconf.h
 file path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/string.h
 file path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/sys/nsctl/nsctl.h
-file path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/libgfortranbegin.a
-file path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/libgfortranbegin.la
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/install-tools/fixinc.sh mode=555
 file \
