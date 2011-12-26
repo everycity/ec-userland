@@ -1,0 +1,122 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/x11/library/xi@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="X Input Extension"
+set name=info.upstream_url value="http://www.x.org/wiki/XI2"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license libxi.license license="OpenGroup"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/X11
+dir path=$(ECPREFIX)/include/X11/extensions
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/libXi
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man3
+file path=$(ECPREFIX)/include/X11/extensions/XInput.h
+file path=$(ECPREFIX)/include/X11/extensions/XInput2.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libXi.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libXi.so.6.1.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xi.pc
+file path=$(ECPREFIX)/lib/libXi.la
+file path=$(ECPREFIX)/lib/libXi.so.6.1.0
+file path=$(ECPREFIX)/lib/pkgconfig/xi.pc
+file path=$(ECPREFIX)/share/doc/libXi/encoding.xml
+file path=$(ECPREFIX)/share/doc/libXi/inputlib.xml
+file path=$(ECPREFIX)/share/doc/libXi/library.xml
+file path=$(ECPREFIX)/share/man/man3/XAllowDeviceEvents.3
+file path=$(ECPREFIX)/share/man/man3/XChangeDeviceControl.3
+file path=$(ECPREFIX)/share/man/man3/XChangeDeviceDontPropagateList.3
+file path=$(ECPREFIX)/share/man/man3/XChangeDeviceKeyMapping.3
+file path=$(ECPREFIX)/share/man/man3/XChangeDeviceProperty.3
+file path=$(ECPREFIX)/share/man/man3/XChangeFeedbackControl.3
+file path=$(ECPREFIX)/share/man/man3/XChangeKeyboardDevice.3
+file path=$(ECPREFIX)/share/man/man3/XChangePointerDevice.3
+file path=$(ECPREFIX)/share/man/man3/XCloseDevice.3
+file path=$(ECPREFIX)/share/man/man3/XDeleteDeviceProperty.3
+file path=$(ECPREFIX)/share/man/man3/XDeviceBell.3
+file path=$(ECPREFIX)/share/man/man3/XDeviceTimeCoord.3
+file path=$(ECPREFIX)/share/man/man3/XFreeDeviceList.3
+file path=$(ECPREFIX)/share/man/man3/XGetDeviceButtonMapping.3
+file path=$(ECPREFIX)/share/man/man3/XGetDeviceControl.3
+file path=$(ECPREFIX)/share/man/man3/XGetDeviceDontPropagateList.3
+file path=$(ECPREFIX)/share/man/man3/XGetDeviceFocus.3
+file path=$(ECPREFIX)/share/man/man3/XGetDeviceKeyMapping.3
+file path=$(ECPREFIX)/share/man/man3/XGetDeviceModifierMapping.3
+file path=$(ECPREFIX)/share/man/man3/XGetDeviceMotionEvents.3
+file path=$(ECPREFIX)/share/man/man3/XGetDeviceProperty.3
+file path=$(ECPREFIX)/share/man/man3/XGetExtensionVersion.3
+file path=$(ECPREFIX)/share/man/man3/XGetFeedbackControl.3
+file path=$(ECPREFIX)/share/man/man3/XGetSelectedExtensionEvents.3
+file path=$(ECPREFIX)/share/man/man3/XGrabDevice.3
+file path=$(ECPREFIX)/share/man/man3/XGrabDeviceButton.3
+file path=$(ECPREFIX)/share/man/man3/XGrabDeviceKey.3
+file path=$(ECPREFIX)/share/man/man3/XIChangeHierarchy.3
+file path=$(ECPREFIX)/share/man/man3/XIChangeProperty.3
+file path=$(ECPREFIX)/share/man/man3/XIDefineCursor.3
+file path=$(ECPREFIX)/share/man/man3/XIDeleteProperty.3
+file path=$(ECPREFIX)/share/man/man3/XIFreeDeviceInfo.3
+file path=$(ECPREFIX)/share/man/man3/XIGetClientPointer.3
+file path=$(ECPREFIX)/share/man/man3/XIGetFocus.3
+file path=$(ECPREFIX)/share/man/man3/XIGetProperty.3
+file path=$(ECPREFIX)/share/man/man3/XIGetSelectedEvents.3
+file path=$(ECPREFIX)/share/man/man3/XIGrabButton.3
+file path=$(ECPREFIX)/share/man/man3/XIGrabDevice.3
+file path=$(ECPREFIX)/share/man/man3/XIGrabEnter.3
+file path=$(ECPREFIX)/share/man/man3/XIGrabFocusIn.3
+file path=$(ECPREFIX)/share/man/man3/XIGrabKeycode.3
+file path=$(ECPREFIX)/share/man/man3/XIListProperties.3
+file path=$(ECPREFIX)/share/man/man3/XIQueryDevice.3
+file path=$(ECPREFIX)/share/man/man3/XIQueryPointer.3
+file path=$(ECPREFIX)/share/man/man3/XIQueryVersion.3
+file path=$(ECPREFIX)/share/man/man3/XISelectEvents.3
+file path=$(ECPREFIX)/share/man/man3/XISetClientPointer.3
+file path=$(ECPREFIX)/share/man/man3/XISetFocus.3
+file path=$(ECPREFIX)/share/man/man3/XIUndefineCursor.3
+file path=$(ECPREFIX)/share/man/man3/XIUngrabButton.3
+file path=$(ECPREFIX)/share/man/man3/XIUngrabDevice.3
+file path=$(ECPREFIX)/share/man/man3/XIUngrabEnter.3
+file path=$(ECPREFIX)/share/man/man3/XIUngrabFocusIn.3
+file path=$(ECPREFIX)/share/man/man3/XIUngrabKeycode.3
+file path=$(ECPREFIX)/share/man/man3/XIWarpPointer.3
+file path=$(ECPREFIX)/share/man/man3/XListDeviceProperties.3
+file path=$(ECPREFIX)/share/man/man3/XListInputDevices.3
+file path=$(ECPREFIX)/share/man/man3/XOpenDevice.3
+file path=$(ECPREFIX)/share/man/man3/XQueryDeviceState.3
+file path=$(ECPREFIX)/share/man/man3/XSelectExtensionEvent.3
+file path=$(ECPREFIX)/share/man/man3/XSendExtensionEvent.3
+file path=$(ECPREFIX)/share/man/man3/XSetDeviceButtonMapping.3
+file path=$(ECPREFIX)/share/man/man3/XSetDeviceFocus.3
+file path=$(ECPREFIX)/share/man/man3/XSetDeviceMode.3
+file path=$(ECPREFIX)/share/man/man3/XSetDeviceModifierMapping.3
+file path=$(ECPREFIX)/share/man/man3/XSetDeviceValuators.3
+file path=$(ECPREFIX)/share/man/man3/XUngrabDevice.3
+file path=$(ECPREFIX)/share/man/man3/XUngrabDeviceButton.3
+file path=$(ECPREFIX)/share/man/man3/XUngrabDeviceKey.3
+link path=$(ECPREFIX)/lib/$(MACH64)/libXi.so target=libXi.so.6.1.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libXi.so.6 target=libXi.so.6.1.0
+link path=$(ECPREFIX)/lib/libXi.so target=libXi.so.6.1.0
+link path=$(ECPREFIX)/lib/libXi.so.6 target=libXi.so.6.1.0
