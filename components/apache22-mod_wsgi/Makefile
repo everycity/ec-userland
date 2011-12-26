@@ -25,6 +25,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+COMPONENT_BUILD_ENV+=	LTFLAGS="--tag=CC"
+
 $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
 	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
 	rsync -aH --delete $(SOURCE_DIR)/ $(@D)/
