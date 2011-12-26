@@ -36,7 +36,7 @@ include ../../make-rules/ips.mk
 IPS_COMPONENT_VERSION=1.4.697
 
 # make build isn't thread safe.
-COMPONENT_BUILD_GMAKE_ARGS=
+override COMPONENT_BUILD_GMAKE_ARGS=
 
 COMPONENT_PRE_CONFIGURE_ACTION+= cp -R $(SOURCE_DIR)/* $(@D)/
 

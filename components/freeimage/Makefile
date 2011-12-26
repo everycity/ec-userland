@@ -32,9 +32,10 @@ COMPONENT_ARCHIVE_URL=	http://downloads.sourceforge.net/project/freeimage/Source
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
+include ../../make-rules/gnu-ld.mk
 
-LDFLAGS.64 += -64
-COMPONENT_BUILD_ENV	+=	'CC=$(CC) $(CFLAGS) $(CC_PIC) -DSHARED_OBJECT' 'CXX=$(CCC) $(CXXFLAGS) $(CC_PIC)' 'LDFLAGS=$(LDFLAGS)'
+#LDFLAGS.64 += -64
+COMPONENT_BUILD_ENV	+=	CC="$(CC)" CFLAGS="$(CFLAGS) -DSHARED_OBJECT $(CC_PIC)" CXX="$(CXX)" CXXFLAGS="$(CXXFLAGS) -DSHARED_OBJECT $(CC_PIC)" LDFLAGS="$(LDFLAGS)"
 COMPONENT_BUILD_TARGETS	+=	OS=Solaris DESTDIR=$(PROTO_DIR)$(ECPREFIX)
 COMPONENT_INSTALL_ARGS	=	OS=Solaris DESTDIR=$(PROTO_DIR)$(ECPREFIX)
 COMPONENT_INSTALL_ARGS.32=	INSTALLLIBDIR=$(PROTO_DIR)$(ECPREFIX)/lib
