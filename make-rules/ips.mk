@@ -95,8 +95,9 @@ MANIFESTS =		$(CANONICAL_MANIFESTS:%=$(MANIFEST_BASE)-%)
 
 
 DEPENDED=$(CANONICAL_MANIFESTS:%.p5m=$(MANIFEST_BASE)-%.depend)
-RESOLVED=$(CANONICAL_MANIFESTS:%.p5m=$(MANIFEST_BASE)-%.depend.res)
-PUBLISHED=$(RESOLVED:%.depend.res=%.published)
+FIXED=$(CANONICAL_MANIFESTS:%.p5m=$(MANIFEST_BASE)-%.depend.fixed)
+RESOLVED=$(CANONICAL_MANIFESTS:%.p5m=$(MANIFEST_BASE)-%.depend.fixed.res)
+PUBLISHED=$(RESOLVED:%.depend.fixed.res=%.published)
 
 COPYRIGHT_FILE ?=	$(COMPONENT_NAME)-$(COMPONENT_VERSION).copyright
 IPS_COMPONENT_VERSION ?=	$(COMPONENT_VERSION)
@@ -138,11 +139,14 @@ PKGDEPEND_GENERATE_OPTIONS = -m $(PKG_PROTO_DIRS:%=-d %)
 $(MANIFEST_BASE)-%.depend:	$(MANIFEST_BASE)-%.mogrified
 	$(PKGDEPEND) generate $(PKGDEPEND_GENERATE_OPTIONS) $< >$@
 
+# Drop os dependencies from the dependency file
+$(MANIFEST_BASE)-%.depend.fixed:	$(MANIFEST_BASE)-%.depend
+	$(PKGMOGRIFY) $< $(WS_TOP)/transforms/drop-os-dependencies | \
+	sed -e '/^$$/d' -e '/^#.*$$/d' | uniq >$@
+
 # resolve the dependencies all at once
-$(BUILD_DIR)/.resolved-$(MACH):	$(DEPENDED)
-	$(MV) $(DEPENDED) $(DEPENDED).tbd
-	$(PKGMOGRIFY) $(DEPENDED).tbd $(WS_TOP)/transforms/drop-os-dependencies > $(DEPENDED)
-	$(PKGDEPEND) resolve -m $(DEPENDED)
+$(BUILD_DIR)/.resolved-$(MACH):	$(FIXED)
+	$(PKGDEPEND) resolve -m $(FIXED)
 	$(TOUCH) $@
 
 # lint the manifests all at once
@@ -157,7 +161,7 @@ $(BUILD_DIR)/.linted-$(MACH):	$(BUILD_DIR)/.resolved-$(MACH)
 PKGSEND_PUBLISH_OPTIONS = -s $(PKG_REPO) publish --fmri-in-manifest
 PKGSEND_PUBLISH_OPTIONS += $(PKG_PROTO_DIRS:%=-d %)
 PKGSEND_PUBLISH_OPTIONS += -T \*.py
-$(MANIFEST_BASE)-%.published:	$(MANIFEST_BASE)-%.depend.res $(BUILD_DIR)/.linted-$(MACH)
+$(MANIFEST_BASE)-%.published:	$(MANIFEST_BASE)-%.depend.fixed.res $(BUILD_DIR)/.linted-$(MACH)
 	$(PKGSEND) $(PKGSEND_PUBLISH_OPTIONS) $<
 	$(PKGFMT) <$< >$@
 
