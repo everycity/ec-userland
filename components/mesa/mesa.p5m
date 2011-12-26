@@ -1,0 +1,86 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/library/mesa@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="An open-source implementation of the OpenGL specification - a system for rendering interactive 3D graphics"
+set name=info.upstream_url value="http://www.mesa3d.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license mesa.license license="LGPLv2.1"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/EGL
+dir path=$(ECPREFIX)/include/GL
+dir path=$(ECPREFIX)/include/KHR
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+file path=$(ECPREFIX)/include/EGL/egl.h
+file path=$(ECPREFIX)/include/EGL/eglext.h
+file path=$(ECPREFIX)/include/EGL/eglplatform.h
+file path=$(ECPREFIX)/include/GL/GLwDrawA.h
+file path=$(ECPREFIX)/include/GL/GLwDrawAP.h
+file path=$(ECPREFIX)/include/GL/GLwMDrawA.h
+file path=$(ECPREFIX)/include/GL/GLwMDrawAP.h
+file path=$(ECPREFIX)/include/GL/gl.h
+file path=$(ECPREFIX)/include/GL/gl_mangle.h
+file path=$(ECPREFIX)/include/GL/glext.h
+file path=$(ECPREFIX)/include/GL/glfbdev.h
+file path=$(ECPREFIX)/include/GL/glu.h
+file path=$(ECPREFIX)/include/GL/glu_mangle.h
+file path=$(ECPREFIX)/include/GL/glx.h
+file path=$(ECPREFIX)/include/GL/glx_mangle.h
+file path=$(ECPREFIX)/include/GL/glxext.h
+file path=$(ECPREFIX)/include/GL/mesa_wgl.h
+file path=$(ECPREFIX)/include/GL/osmesa.h
+file path=$(ECPREFIX)/include/GL/vms_x_fix.h
+file path=$(ECPREFIX)/include/GL/wglext.h
+file path=$(ECPREFIX)/include/GL/wmesa.h
+file path=$(ECPREFIX)/include/KHR/khrplatform.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libEGL.so.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libGL.so.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libGLU.so.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libGLw.so.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libOSMesa.so.7
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/egl.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/gl.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/glu.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/glw.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/osmesa.pc
+file path=$(ECPREFIX)/lib/libEGL.so.1
+file path=$(ECPREFIX)/lib/libGL.so.1
+file path=$(ECPREFIX)/lib/libGLU.so.1
+file path=$(ECPREFIX)/lib/libGLw.so.1
+file path=$(ECPREFIX)/lib/libOSMesa.so.7
+file path=$(ECPREFIX)/lib/pkgconfig/egl.pc
+file path=$(ECPREFIX)/lib/pkgconfig/gl.pc
+file path=$(ECPREFIX)/lib/pkgconfig/glu.pc
+file path=$(ECPREFIX)/lib/pkgconfig/glw.pc
+file path=$(ECPREFIX)/lib/pkgconfig/osmesa.pc
+link path=$(ECPREFIX)/lib/$(MACH64)/libEGL.so target=libEGL.so.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libGL.so target=libGL.so.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libGLU.so target=libGLU.so.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libGLw.so target=libGLw.so.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libOSMesa.so target=libOSMesa.so.7
+link path=$(ECPREFIX)/lib/libEGL.so target=libEGL.so.1
+link path=$(ECPREFIX)/lib/libGL.so target=libGL.so.1
+link path=$(ECPREFIX)/lib/libGLU.so target=libGLU.so.1
+link path=$(ECPREFIX)/lib/libGLw.so target=libGLw.so.1
+link path=$(ECPREFIX)/lib/libOSMesa.so target=libOSMesa.so.7
