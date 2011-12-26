@@ -32,6 +32,10 @@ set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license curl.license license="BSD"
 
+file files/curl-config path=$(ECPREFIX)/bin/curl-config
+file files/curl-config.64 path=$(ECPREFIX)/bin/$(MACH64)/curl-config
+
+
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
@@ -46,9 +50,7 @@ dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man3
 file path=$(ECPREFIX)/bin/$(MACH64)/curl
-file path=$(ECPREFIX)/bin/$(MACH64)/curl-config
 file path=$(ECPREFIX)/bin/curl
-file path=$(ECPREFIX)/bin/curl-config
 file path=$(ECPREFIX)/include/curl/curl.h
 file curlbuild.h path=$(ECPREFIX)/include/curl/curlbuild.h
 file path=$(ECPREFIX)/include/curl/curlrules.h
