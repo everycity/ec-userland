@@ -483,6 +483,7 @@ file path=$(ECPREFIX)/share/man/man5/config.5
 file path=$(ECPREFIX)/share/man/man5/x509v3_config.5
 file path=$(ECPREFIX)/share/man/man7/des_modes.7
 link path=$(ECPREFIX)/lib/libcrypto.so target=libcrypto.so.1.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libcrypto.so target=libcrypto.so.1.0.0
 link path=$(ECPREFIX)/lib/libssl.so target=libssl.so.1.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libssl.so target=libssl.so.1.0.0
 link path=$(ECPREFIX)/share/man/man1/md2.1 target=dgst.1
