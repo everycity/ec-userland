@@ -21,6 +21,9 @@
 # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
 #
 
+<transform file path=.+\/amd64\/.+ -> default pkg.depend.bypass-generate .* >
+<transform file path=.+\.py$ -> default pkg.depend.bypass-generate .* >
+
 set name=pkg.fmri value=pkg:/runtime/python26@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="The Python interpreter, libraries and utilities"
 set name=info.upstream_url value="http://www.python.org/"
