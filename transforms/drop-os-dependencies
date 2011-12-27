@@ -12,6 +12,7 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 <transform depend pkg.debug.depend.file=sh -> drop>
+<transform depend pkg.debug.depend.file=ksh -> drop>
 <transform depend pkg.debug.depend.file=bash -> drop>
 <transform depend pkg.debug.depend.file=perl -> drop>
 <transform depend pkg.debug.depend.file=libc\.so.* -> drop>
@@ -46,3 +47,5 @@
 <transform depend pkg.debug.depend.file=libumem\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libwrap\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libxnet\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libsecdb\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libtsol\.so.* -> drop>
