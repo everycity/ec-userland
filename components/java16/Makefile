@@ -42,12 +42,13 @@ COMPONENT_ARCHIVE_URL_2=	$(COMPONENT_ARCHIVE_URL_2.$(MACH))
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
+include ../../make-rules/no-pkgdepend.mk
 
 CLEAN_PATHS += $(BUILD_DIR)
 
 #PKGMANGLE = true
-PKGLINT = true
-PKGDEPEND = true
+#PKGLINT = true
+#PKGDEPEND = true
 
 #UNPACK200   = $(SOURCE_DIR)/bin/unpack200
 
