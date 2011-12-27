@@ -34,11 +34,15 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
+override COMPONENT_BUILD_GMAKE_ARGS=
+
 COMPONENT_BUILD_ENV+= CC="$(CC)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
-COMPONENT_PRE_INSTALL_ACTION+= mkdir -p $(PROTO_DIR)/$(ECPREFIX)/lib \
-	$(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64) $(PROTO_DIR)/$(ECPREFIX)/include/gsm \
+COMPONENT_INSTALL_ENV+= CC="$(CC)"
+COMPONENT_PRE_INSTALL_ACTION+= mkdir -p $(PROTO_DIR)/$(ECPREFIX)/{bin,lib} \
+	$(PROTO_DIR)/$(ECPREFIX)/{bin,lib}/$(MACH64) \
+	$(PROTO_DIR)/$(ECPREFIX)/include/gsm \
 	$(PROTO_DIR)/$(ECPREFIX)/share/man/man3
-COMPONENT_INSTALL_ARGS+= INSTALL_ROOT=$(PROTO_DIR)/$(ECPREFIX)
+COMPONENT_INSTALL_ARGS= INSTALL_ROOT=$(PROTO_DIR)/$(ECPREFIX)
 
 build:		$(BUILD_32_and_64)
 
