@@ -39,6 +39,9 @@ include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 include ../../make-rules/no-pkgdepend.mk
 
+# Don't deliver the standard manifests
+PUBLISH_TRANSFORMS+=	$(COMPONENT_DIR)/transform-drop-lib-svc
+
 PKGLINT = /bin/true
 
 IPS_COMPONENT_VERSION=  0.$(COMPONENT_VERSION)
