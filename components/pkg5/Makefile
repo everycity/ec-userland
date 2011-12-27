@@ -37,6 +37,7 @@ COMPONENT_ARCHIVE_URL= http://dlc-int.openindiana.org/aszeszo/$(COMPONENT_ARCHIV
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
+include ../../make-rules/no-pkgdepend.mk
 
 PKGLINT = /bin/true
 
@@ -47,15 +48,10 @@ COMPONENT_INSTALL_ENV= true; cd $(@D)/src; $(ENV)
 
 build:		$(BUILD_32)
 
-include ../../make-rules/shared-targets.mk
-
-install:	$(INSTALL_32)
+install:	$(INSTALL_32)	
 	$(MKDIR) -p $(PROTO_DIR)
 	$(CP) -R $(BUILD_DIR_32)/proto/root_$(MACH)/* $(PROTO_DIR)
 	sed "1s,^#!.*,#!$(PYTHON)," \
 	    < $(BUILD_DIR_32)/proto/root_$(MACH)/$(ECPREFIX)/bin/cherryd \
 	    > $(PROTO_DIR)/$(ECPREFIX)/bin/cherryd
 
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
