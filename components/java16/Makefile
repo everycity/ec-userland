@@ -45,7 +45,7 @@ include ../../make-rules/ips.mk
 
 CLEAN_PATHS += $(BUILD_DIR)
 
-PKGMANGLE = true
+#PKGMANGLE = true
 PKGLINT = true
 PKGDEPEND = true
 
