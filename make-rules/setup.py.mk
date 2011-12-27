@@ -37,6 +37,7 @@ INSTALL_64 = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH64)-%/.installed)
 
 PYTHON_ENV =	CC="$(CC)"
 PYTHON_ENV +=	CFLAGS="$(CFLAGS)"
+PYTHON_ENV +=	LDFLAGS="$(LDFLAGS)"
 
 # build the configured source
 $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
