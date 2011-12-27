@@ -28,7 +28,11 @@
 <transform depend pkg.debug.depend.file=libsendfile\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libuuid\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libsasl\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libgen\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libpam\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libkrb5\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libgss\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libscf\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libmail\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libkstat\.so.* -> drop>
 <transform depend pkg.debug.depend.file=.*\.xml -> drop>
