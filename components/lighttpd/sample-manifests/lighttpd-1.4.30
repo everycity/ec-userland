@@ -1,0 +1,169 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="
+set name=info.upstream_url value="
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license .license license="
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/lighttpd
+dir path=$(ECPREFIX)/lib/lighttpd/1.4
+dir path=$(ECPREFIX)/lib/lighttpd/1.4/bin
+dir path=$(ECPREFIX)/lib/lighttpd/1.4/bin/$(MACH64)
+dir path=$(ECPREFIX)/lib/lighttpd/1.4/lib
+dir path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/lighttpd/1.4/share
+dir path=$(ECPREFIX)/lib/lighttpd/1.4/share/man
+dir path=$(ECPREFIX)/lib/lighttpd/1.4/share/man/man8
+file path=$(ECPREFIX)/lib/lighttpd/1.4/bin/$(MACH64)/lighttpd
+file path=$(ECPREFIX)/lib/lighttpd/1.4/bin/$(MACH64)/lighttpd-angel
+file path=$(ECPREFIX)/lib/lighttpd/1.4/bin/lighttpd
+file path=$(ECPREFIX)/lib/lighttpd/1.4/bin/lighttpd-angel
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_access.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_access.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_accesslog.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_accesslog.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_alias.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_alias.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_auth.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_auth.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_cgi.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_cgi.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_cml.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_cml.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_compress.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_compress.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_dirlisting.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_dirlisting.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_evasive.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_evasive.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_evhost.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_evhost.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_expire.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_expire.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_extforward.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_extforward.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_fastcgi.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_fastcgi.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_flv_streaming.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_flv_streaming.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_indexfile.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_indexfile.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_magnet.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_magnet.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_mysql_vhost.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_mysql_vhost.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_proxy.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_proxy.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_redirect.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_redirect.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_rewrite.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_rewrite.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_rrdtool.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_rrdtool.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_scgi.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_scgi.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_secdownload.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_secdownload.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_setenv.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_setenv.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_simple_vhost.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_simple_vhost.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_ssi.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_ssi.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_staticfile.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_staticfile.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_status.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_status.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_trigger_b4_dl.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_trigger_b4_dl.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_userdir.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_userdir.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_usertrack.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_usertrack.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_webdav.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/$(MACH64)/mod_webdav.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_access.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_access.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_accesslog.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_accesslog.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_alias.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_alias.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_auth.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_auth.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_cgi.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_cgi.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_cml.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_cml.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_compress.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_compress.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_dirlisting.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_dirlisting.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_evasive.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_evasive.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_evhost.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_evhost.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_expire.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_expire.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_extforward.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_extforward.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_fastcgi.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_fastcgi.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_flv_streaming.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_flv_streaming.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_indexfile.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_indexfile.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_magnet.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_magnet.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_mysql_vhost.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_mysql_vhost.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_proxy.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_proxy.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_redirect.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_redirect.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_rewrite.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_rewrite.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_rrdtool.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_rrdtool.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_scgi.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_scgi.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_secdownload.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_secdownload.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_setenv.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_setenv.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_simple_vhost.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_simple_vhost.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_ssi.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_ssi.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_staticfile.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_staticfile.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_status.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_status.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_trigger_b4_dl.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_trigger_b4_dl.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_userdir.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_userdir.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_usertrack.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_usertrack.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_webdav.la
+file path=$(ECPREFIX)/lib/lighttpd/1.4/lib/mod_webdav.so
+file path=$(ECPREFIX)/lib/lighttpd/1.4/share/man/man8/lighttpd.8

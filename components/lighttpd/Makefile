@@ -15,17 +15,32 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		lighttpd
-COMPONENT_VERSION=	1.4.29
+COMPONENT_MJR_VERSION=	1.4
+COMPONENT_MNR_VERSION=	30
+COMPONENT_VERSION=	$(COMPONENT_MJR_VERSION).$(COMPONENT_MNR_VERSION)
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:2251246cd657cd787add9e9541941e883b81bf13
-COMPONENT_ARCHIVE_URL=	http://download.lighttpd.net/lighttpd/releases-1.4.x/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha1:4a59c237fe62b06365aecb3ad4139b8593a21829
+COMPONENT_ARCHIVE_URL=	http://download.lighttpd.net/lighttpd/releases-$(COMPONENT_MJR_VERSION).x/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=	--with-zlib --with-bzip2 --with-openssl
+CONFIGURE_PREFIX=	$(ECPREFIX)/lib/lighttpd/$(COMPONENT_MJR_VERSION)
+CONFIGURE_SYSCONFDIR=	$(ECPREFIX)/etc/lighttpd/$(COMPONENT_MJR_VERSION)
+CONFIGURE_LOCALSTATEDIR=	$(ECPREFIX)/var/lighttpd/$(COMPONENT_MJR_VERSION)
+PKG_MACROS+=	LIGHTTPD_MAJOR=$(COMPONENT_MJR_VERSION)
+
+CONFIGURE_OPTIONS+=	--with-pic
+CONFIGURE_OPTIONS+=	--enable-shared
+CONFIGURE_OPTIONS+=	--disable-static
+CONFIGURE_OPTIONS+=	--with-zlib
+CONFIGURE_OPTIONS+=	--with-bzip2
+CONFIGURE_OPTIONS+=	--with-openssl
+CONFIGURE_OPTIONS+=	--with-pcre
+CONFIGURE_OPTIONS.32+=	--with-mysql=$(ECPREFIX)/bin/mysql_config
+CONFIGURE_OPTIONS.64+=	--with-mysql=$(ECPREFIX)/bin/$(MACH64)/mysql_config
 
 build:		$(BUILD_32_and_64)
 
