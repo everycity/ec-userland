@@ -15,22 +15,14 @@
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/mail/dovecot@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="Dovecot IMAP Server"
-set name=info.upstream_url value="http://dovecot.org/"
+set name=pkg.fmri value=pkg:/@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="
+set name=info.upstream_url value="
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
-license dovecot.license license="MIT"
+license .license license="
 
-# User Account
-group gid=470 groupname=dovecot
-user gcos-field="Dovecot Account" group=dovecot uid=470 username=dovecot login-shell=/bin/false home-dir=/ec/var/dovecot
-
-# SMF Manifest
-file files/dovecot-manifest.xml path=var/svc/manifest/site/dovecot.xml restart_fmri=svc:/system/manifest-import:default
-
-# Auto-generated content
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/etc
@@ -53,8 +45,6 @@ dir path=$(ECPREFIX)/share/doc/dovecot/wiki
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man7
-dir path=$(ECPREFIX)/var
-dir path=$(ECPREFIX)/var/dovecot
 file path=$(ECPREFIX)/bin/doveadm
 file path=$(ECPREFIX)/bin/doveconf
 file path=$(ECPREFIX)/bin/dovecot
@@ -187,9 +177,6 @@ file path=$(ECPREFIX)/include/dovecot/ioloop-iolist.h
 file path=$(ECPREFIX)/include/dovecot/ioloop-notify-fd.h
 file path=$(ECPREFIX)/include/dovecot/ioloop.h
 file path=$(ECPREFIX)/include/dovecot/iostream-internal.h
-file path=$(ECPREFIX)/include/dovecot/ipc-client.h
-file path=$(ECPREFIX)/include/dovecot/ipc-server.h
-file path=$(ECPREFIX)/include/dovecot/ipwd.h
 file path=$(ECPREFIX)/include/dovecot/istream-attachment.h
 file path=$(ECPREFIX)/include/dovecot/istream-base64-encoder.h
 file path=$(ECPREFIX)/include/dovecot/istream-concat.h
@@ -471,7 +458,6 @@ file path=$(ECPREFIX)/libexec/dovecot/dovecot-lda
 file path=$(ECPREFIX)/libexec/dovecot/gdbhelper
 file path=$(ECPREFIX)/libexec/dovecot/imap
 file path=$(ECPREFIX)/libexec/dovecot/imap-login
-file path=$(ECPREFIX)/libexec/dovecot/ipc
 file path=$(ECPREFIX)/libexec/dovecot/listview
 file path=$(ECPREFIX)/libexec/dovecot/lmtp
 file path=$(ECPREFIX)/libexec/dovecot/log
@@ -595,7 +581,6 @@ file path=$(ECPREFIX)/share/doc/dovecot/wiki/Design.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Dict.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Director.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/DomainLost.txt
-file path=$(ECPREFIX)/share/doc/dovecot/wiki/Errors.ChgrpNoPerm.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/FindMailLocation.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/FinishBasicConfiguration.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/HowTo.EximAndDovecotSASL.txt
@@ -682,16 +667,8 @@ file \
     path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Configuration.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Examples.txt
 file \
-    path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Extensions.SpamtestVirustest.txt
-file \
-    path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Extensions.Vacation.txt
-file path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Extensions.txt
-file \
     path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Plugins.Extdata.txt
-file path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Plugins.Pipe.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Plugins.txt
-file \
-    path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Troubleshooting.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Usage.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.txt
@@ -732,7 +709,6 @@ file path=$(ECPREFIX)/share/doc/dovecot/wiki/SharedMailboxes.Public.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/SharedMailboxes.Shared.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/SharedMailboxes.Symlinks.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/SharedMailboxes.txt
-file path=$(ECPREFIX)/share/doc/dovecot/wiki/Statistics.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/SystemUsers.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/TestInstallation.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/TestPop3Installation.txt
@@ -766,11 +742,9 @@ file path=$(ECPREFIX)/share/man/man1/doveadm-fetch.1
 file path=$(ECPREFIX)/share/man/man1/doveadm-force-resync.1
 file path=$(ECPREFIX)/share/man/man1/doveadm-help.1
 file path=$(ECPREFIX)/share/man/man1/doveadm-import.1
-file path=$(ECPREFIX)/share/man/man1/doveadm-index.1
 file path=$(ECPREFIX)/share/man/man1/doveadm-kick.1
 file path=$(ECPREFIX)/share/man/man1/doveadm-log.1
 file path=$(ECPREFIX)/share/man/man1/doveadm-mailbox.1
-file path=$(ECPREFIX)/share/man/man1/doveadm-move.1
 file path=$(ECPREFIX)/share/man/man1/doveadm-penalty.1
 file path=$(ECPREFIX)/share/man/man1/doveadm-purge.1
 file path=$(ECPREFIX)/share/man/man1/doveadm-pw.1
