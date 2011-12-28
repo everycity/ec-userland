@@ -15,17 +15,34 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		postgresql
-COMPONENT_VERSION=	9.1.1
+COMPONENT_MJR_VERSION=	9.1
+COMPONENT_MNR_VERSION=	2
+COMPONENT_VERSION=	$(COMPONENT_MJR_VERSION).$(COMPONENT_MNR_VERSION)
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:4df7b6f6b23acdac5ea198e3623796a2b62fc7a4
-COMPONENT_ARCHIVE_URL=	http://wwwmaster.postgresql.org/redir/398/f/source/v$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_HASH=	sha1:
+COMPONENT_ARCHIVE_URL=	http://ftp.postgresql.org/pub/source/v$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-#CONFIGURE_OPTIONS +=	--enable-dtrace
+CONFIGURE_PREFIX=	$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)
+CONFIGURE_SYSCONFDIR=	$(ECPREFIX)/etc/postgres/$(COMPONENT_MJR_VERSION)
+CONFIGURE_LOCALSTATEDIR=	$(ECPREFIX)/var/postgres/$(COMPONENT_MJR_VERSION)
+PKG_MACROS+=	COMPONENT_MJR_VERSION=$(COMPONENT_MJR_VERSION)
+
+PATH=	$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
+
+CONFIGURE_OPTIONS +=	'LIBS=-lintl'
+CONFIGURE_OPTIONS +=	--enable-dtrace
+CONFIGURE_OPTIONS +=	--enable-nls
+CONFIGURE_OPTIONS +=	--enable-thread-safety
+CONFIGURE_OPTIONS +=	--enable-integer-datetimes
+CONFIGURE_OPTIONS +=	--with-system-tzdata=/usr/share/lib/zoneinfo
+CONFIGURE_OPTIONS +=	--with-pam
+CONFIGURE_OPTIONS +=	--with-libedit-preferred
+CONFIGURE_OPTIONS +=	--with-gssapi
 CONFIGURE_OPTIONS +=	--with-perl
 CONFIGURE_OPTIONS +=	--with-python
 CONFIGURE_OPTIONS +=	--with-ldap
@@ -33,7 +50,9 @@ CONFIGURE_OPTIONS +=	--with-openssl
 CONFIGURE_OPTIONS +=	--with-libxml
 CONFIGURE_OPTIONS +=	--with-libxslt
 
-build:		$(BUILD_64)
+COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; autoreconf )
 
-install:	$(INSTALL_64)
+build:		$(BUILD_32_and_64)
+
+install:	$(INSTALL_32_and_64)
 
