@@ -1,61 +1,51 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
-#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 # Copyright 2011 Audioboo Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		sphinx
-COMPONENT_VERSION=	0.9.9
-COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
+COMPONENT_VERSION=	2.0.3
+COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)-release
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:8c739b96d756a50972c27c7004488b55d7458015
+COMPONENT_ARCHIVE_HASH=	sha1:dcc8055648d6bebff17ee65673011d64cc02ca41
 COMPONENT_ARCHIVE_URL=	http://sphinxsearch.com/files/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-include ../../make-rules/shared-targets.mk
 
 LDFLAGS +=	-liconv
+LDFLAGS.32+=	-L$(ECPREFIX)/lib/mysql/5.5/lib -R$(ECPREFIX)/lib/mysql/5.5/lib
+LDFLAGS.64+=	-L$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64) -R$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64)
+LDFLAGS.32+=	-L$(ECPREFIX)/lib/postgres/9.1/lib -R$(ECPREFIX)/lib/postgres/9.1/lib
+LDFLAGS.64+=	-L$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64) -R$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64)
 
-CONFIGURE_OPTIONS	+=	--with-iconv --with-mysql=$(ECPREFIX)/lib/mysql/5.5
-CONFIGURE_OPTIONS.64	+=	--enable-id64
+CONFIGURE_OPTIONS+=	--with-iconv
+CONFIGURE_OPTIONS.64+=	--enable-id64
+CONFIGURE_OPTIONS+=	--with-mysql
+CONFIGURE_OPTIONS+=	--with-mysql-includes=$(ECPREFIX)/lib/mysql/5.5/include
+CONFIGURE_OPTIONS.32+=	--with-mysql-libs=$(ECPREFIX)/lib/mysql/5.5/lib
+CONFIGURE_OPTIONS.64+=	--with-mysql-libs=$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64)
+CONFIGURE_OPTIONS+=	--with-pgsql
+CONFIGURE_OPTIONS+=	--with-pgsql-includes=$(ECPREFIX)/lib/postgres/9.1/include
+CONFIGURE_OPTIONS.32+=	--with-pgsql-libs=$(ECPREFIX)/lib/postgres/9.1/lib
+CONFIGURE_OPTIONS.64+=	--with-pgsql-libs=$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64)
 
-COMPONENT_PRE_CONFIGURE_ACTION.64 +=	( $(GPATCH) $(SOURCE_DIR)/configure configure.64.path )
-COMPONENT_PRE_CONFIGURE_ACTION +=	$(COMPONENT_PRE_CONFIGURE_ACTION.$(BITS))
+COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 
 build:		$(BUILD_32_and_64)
 
-# configure the unpacked source for building 32 and 64 bit version
-$(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
-	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
-	$(COMPONENT_PRE_CONFIGURE_ACTION)
-	(cp -r $(SOURCE_DIR)/* $(@D) ; cd $(@D) ; $(ENV) $(CONFIGURE_ENV) $(CONFIG_SHELL) \
-		./configure $(CONFIGURE_OPTIONS))
-	$(COMPONENT_POST_CONFIGURE_ACTION)
-	$(TOUCH) $@
-
 install:	$(INSTALL_32_and_64)
 
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
 
