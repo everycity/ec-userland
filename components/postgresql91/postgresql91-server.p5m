@@ -41,8 +41,8 @@ link path=$(ECPREFIX)/bin/$(MACH64)/postgres target=$(ECPREFIX)/lib/postgres/act
 dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/etc/postgres
 dir path=$(ECPREFIX)/etc/postgres/$(COMPONENT_MJR_VERSION)
-link path=$(ECPREFIX)/etc/postgres/$(COMPONENT_MJR_VERSION)/pg_hba.conf target=$(ECPREFIX)/var/postgres/$(COMPONENT_MJR_VERSION)/pg_hba.conf
-link path=$(ECPREFIX)/etc/postgres/$(COMPONENT_MJR_VERSION)/postgresql.conf target=$(ECPREFIX)/var/postgres/$(COMPONENT_MJR_VERSION)/postgresql.conf
+link path=$(ECPREFIX)/etc/postgres/$(COMPONENT_MJR_VERSION)/pg_hba.conf target=$(ECPREFIX)/var/postgres/$(COMPONENT_MJR_VERSION)/data/pg_hba.conf
+link path=$(ECPREFIX)/etc/postgres/$(COMPONENT_MJR_VERSION)/postgresql.conf target=$(ECPREFIX)/var/postgres/$(COMPONENT_MJR_VERSION)/data/postgresql.conf
 
 # var dirs
 dir path=$(ECPREFIX)/var
