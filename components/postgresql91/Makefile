@@ -20,7 +20,7 @@ COMPONENT_MNR_VERSION=	2
 COMPONENT_VERSION=	$(COMPONENT_MJR_VERSION).$(COMPONENT_MNR_VERSION)
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-#COMPONENT_ARCHIVE_HASH=	sha1:
+COMPONENT_ARCHIVE_HASH=	sha1:7d57b96eb1c764ec234c72b70511a5f7e23fb2b0
 COMPONENT_ARCHIVE_URL=	http://ftp.postgresql.org/pub/source/v$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -35,7 +35,14 @@ PKG_MACROS+=	COMPONENT_MJR_VERSION=$(COMPONENT_MJR_VERSION)
 PATH=	$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
 
 CONFIGURE_OPTIONS +=	'LIBS=-lintl'
+
+# DTrace probes only build/work on newer Solaris
+ifeq ($(SOLARIS_VERSION),2.11)
 CONFIGURE_OPTIONS +=	--enable-dtrace
+else
+CONFIGURE_OPTIONS +=    --disable-dtrace
+endif
+
 CONFIGURE_OPTIONS +=	--enable-nls
 CONFIGURE_OPTIONS +=	--enable-thread-safety
 CONFIGURE_OPTIONS +=	--enable-integer-datetimes
