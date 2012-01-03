@@ -38,6 +38,7 @@
 <transform depend pkg.debug.depend.file=libkstat\.so.* -> drop>
 <transform depend pkg.debug.depend.file=.*\.xml -> drop>
 <transform depend pkg.debug.depend.file=libcrypt\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libcrypt_d\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libkstat\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libmd5\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libpam\.so.* -> drop>
