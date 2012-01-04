@@ -1,0 +1,42 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/monitoring/nrpe@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="NRPE allows you to remotely execute Nagios plugins on other machines."
+set name=info.upstream_url value="http://www.nagios.org"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license nrpe.license license="GPL"
+
+group gid=455 groupname=nagios
+user gcos-field="Nagios Account" group=nagios uid=455 username=nagios login-shell=/bin/false home-dir=/tmp
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+file path=$(ECPREFIX)/bin/$(MACH64)/nrpe owner=nagios group=nagios
+file path=$(ECPREFIX)/bin/nrpe owner=nagios group=nagios
+file path=$(ECPREFIX)/lib/$(MACH64)/check_nrpe owner=nagios group=nagios
+file path=$(ECPREFIX)/lib/check_nrpe owner=nagios group=nagios
+file files/nrpe.cfg path=$(ECPREFIX)/etc/nrpe.cfg
+file files/nrpe-manifest.xml path=var/svc/manifest/site/nrpe.xml \
+    restart_fmri=svc:/system/manifest-import:default
+file files/nrpe-startup.sh path=$(ECPREFIX)/var/svc/method/nrpe mode=0555

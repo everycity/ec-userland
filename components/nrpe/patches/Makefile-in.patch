@@ -1,0 +1,13 @@
+--- nrpe-2.13/Makefile.in.orig	2012-01-04 17:04:57.207636514 +0000
++++ nrpe-2.13/Makefile.in	2012-01-04 17:05:27.975417122 +0000
+@@ -59,8 +59,8 @@
+ 	$(INSTALL) -m 644 sample-config/nrpe.xinetd /etc/xinetd.d/nrpe 
+ 
+ install-daemon-config:
+-	$(INSTALL) -m 775 $(NAGIOS_INSTALL_OPTS) -d $(DESTDIR)$(CFGDIR)
+-	$(INSTALL) -m 644 $(NRPE_INSTALL_OPTS) sample-config/nrpe.cfg $(DESTDIR)$(CFGDIR)
++	$(INSTALL) -m 775 -d $(DESTDIR)$(CFGDIR)
++	$(INSTALL) -m 644 sample-config/nrpe.cfg $(DESTDIR)$(CFGDIR)
+ 
+ clean:
+ 	cd $(SRC_BASE); $(MAKE) $@ ; cd ..

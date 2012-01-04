@@ -1,0 +1,19 @@
+--- nrpe-2.13/src/Makefile.in.orig	2012-01-04 17:13:48.696535793 +0000
++++ nrpe-2.13/src/Makefile.in	2012-01-04 17:14:14.619266021 +0000
+@@ -44,12 +44,12 @@
+ 	$(MAKE) install-daemon
+ 
+ install-plugin:
+-	$(INSTALL) -m 775 $(NAGIOS_INSTALL_OPTS) -d $(DESTDIR)$(LIBEXECDIR)
+-	$(INSTALL) -m 775 $(NAGIOS_INSTALL_OPTS) check_nrpe $(DESTDIR)$(LIBEXECDIR)
++	$(INSTALL) -m 775 -d $(DESTDIR)$(LIBEXECDIR)
++	$(INSTALL) -m 775 check_nrpe $(DESTDIR)$(LIBEXECDIR)
+ 
+ install-daemon:
+-	$(INSTALL) -m 775 $(NAGIOS_INSTALL_OPTS) -d $(DESTDIR)$(BINDIR)
+-	$(INSTALL) -m 775 $(NRPE_INSTALL_OPTS) nrpe $(DESTDIR)$(BINDIR)
++	$(INSTALL) -m 775 -d $(DESTDIR)$(BINDIR)
++	$(INSTALL) -m 775 nrpe $(DESTDIR)$(BINDIR)
+ 
+ clean:
+ 	rm -f core nrpe check_nrpe $(SNPRINTF_O)
