@@ -17,7 +17,6 @@ set name=pkg.summary value="mcollective server orchestration framework"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=info.upstream_url value=http://www.puppetlabs.com/mcollective/
 
-depend fmri=runtime/ruby-18 type=require
 depend fmri=library/ruby-18/ruby-stomp-18 type=require
 
 license mcollective.license license=APLv2

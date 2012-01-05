@@ -26,10 +26,6 @@ include ../../../make-rules/ips.mk
 
 CLEAN_PATHS +=  $(BUILD_DIR)
 
-PKGMANGLE = /bin/true
-PKGLINT = /bin/true
-PKGDEPEND = /bin/true
-
 build: prep
 
 install: build

@@ -13,6 +13,7 @@
 #
 <transform depend pkg.debug.depend.file=.*\.xml -> drop>
 <transform depend pkg.debug.depend.file=bash -> drop>
+<transform depend pkg.debug.depend.file=env -> drop>
 <transform depend pkg.debug.depend.file=ksh -> drop>
 <transform depend pkg.debug.depend.file=perl -> drop>
 <transform depend pkg.debug.depend.file=sh -> drop>
