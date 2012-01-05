@@ -24,10 +24,6 @@ COMPONENT_ARCHIVE_URL=	git://gitorious.org/~gmallard/stomp/gmallards-stomp-mainl
 include ../../../make-rules/prep.mk
 include ../../../make-rules/ips.mk
 
-PKGMANGLE = true
-PKGLINT = true
-PKGDEPEND = true
-
 CLEAN_PATHS +=  $(BUILD_DIR)
 
 download::
