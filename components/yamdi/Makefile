@@ -19,7 +19,7 @@ COMPONENT_VERSION=	1.8
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:daea2b7262ba1278a62525dafd3e8366d72fe2c3
-COMPONENT_ARCHIVE_URL=	http://downloads.sourceforge.net/project/yamdi/yamdi/1.8/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://kent.dl.sourceforge.net/project/yamdi/yamdi/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
