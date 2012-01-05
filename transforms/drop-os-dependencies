@@ -24,6 +24,7 @@
 <transform depend pkg.debug.depend.file=libdl\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libgen\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libGL\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libGLU\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libgss\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libkrb5\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libkstat\.so.* -> drop>
