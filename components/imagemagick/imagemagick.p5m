@@ -1802,6 +1802,7 @@ file path=$(ECPREFIX)/share/doc/ImageMagick/www/mirrors.html
 file path=$(ECPREFIX)/share/doc/ImageMagick/www/mogrify.html
 file path=$(ECPREFIX)/share/doc/ImageMagick/www/montage.html
 file path=$(ECPREFIX)/share/doc/ImageMagick/www/motion-picture.html
+file path=$(ECPREFIX)/share/doc/ImageMagick/www/parallel.html
 file path=$(ECPREFIX)/share/doc/ImageMagick/www/perl-magick.html
 file path=$(ECPREFIX)/share/doc/ImageMagick/www/porting.html
 file path=$(ECPREFIX)/share/doc/ImageMagick/www/quantize.html
