@@ -23,19 +23,21 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		vlc
-COMPONENT_VERSION=	1.1.11
+COMPONENT_VERSION=	1.1.13
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:068e75bdbfe6e595a4db14ad49e05688c8b1d5ad
-COMPONENT_ARCHIVE_URL=	http://sourceforge.net/projects/$(COMPONENT_NAME)/files/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)/download
+COMPONENT_ARCHIVE_HASH=	sha1:05bbc7ff427f3b919b29a45ce014caff9ba92648
+#068e75bdbfe6e595a4db14ad49e05688c8b1d5ad
+COMPONENT_ARCHIVE_URL=	http://download.videolan.org/pub/videolan/vlc/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+#http://sourceforge.net/projects/$(COMPONENT_NAME)/files/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)/download
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 include ../../make-rules/gnu-ld.mk
 
-CONFIGURE_ENV.32+=      LDFLAGS="-lnsl -L$(ECPREFIX)/lib -L$(CONFIGURE_PREFIX)/lib -R$(CONFIGURE_PREFIX)/lib"
-CONFIGURE_ENV.64+=      LDFLAGS="-lnsl -L$(ECPREFIX)/lib/$(MACH64) -L$(CONFIGURE_PREFIX)/lib/$(MACH64) -R$(CONFIGURE_PREFIX)/lib/$(MACH64)"
+CONFIGURE_ENV.32+=      LDFLAGS="-lnsl -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib -L$(CONFIGURE_PREFIX)/lib -R$(CONFIGURE_PREFIX)/lib -L$(ECPREFIX)/lib/qt/4.7/lib -R$(ECPREFIX)/lib/qt/4.7/lib"
+CONFIGURE_ENV.64+=      LDFLAGS="-lnsl -L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64) -L$(CONFIGURE_PREFIX)/lib/$(MACH64) -R$(CONFIGURE_PREFIX)/lib/$(MACH64) -L$(ECPREFIX)/lib/qt/4.7/lib -R$(ECPREFIX)/lib/qt/4.7/lib"
 CONFIGURE_ENV+= CFLAGS="-D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__ -D __EC_SOLARIS_$(subst .,_,$(SOLARIS_VERSION)) -I$(ECPREFIX)/include -I$(ECPREFIX)/include/ncurses"
 CONFIGURE_ENV+= CXXFLAGS="-D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__ -D __EC_SOLARIS_$(subst .,_,$(SOLARIS_VERSION)) -I$(ECPREFIX)/include -I$(ECPREFIX)/include/ncurses"
 CONFIGURE_ENV+= $(CONFIGURE_ENV.$(BITS))
