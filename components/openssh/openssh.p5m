@@ -42,7 +42,7 @@ file path=$(ECPREFIX)/bin/ssh-add
 file path=$(ECPREFIX)/bin/ssh-agent
 file path=$(ECPREFIX)/bin/ssh-keygen
 file path=$(ECPREFIX)/bin/ssh-keyscan
-file path=$(ECPREFIX)/bin/ssh-keysign mode=5511 user=root group=root
+file path=$(ECPREFIX)/bin/ssh-keysign mode=4511 user=root group=root
 file path=$(ECPREFIX)/bin/ssh-pkcs11-helper
 file path=$(ECPREFIX)/bin/sshd mode=0555 user=root group=root
 file path=$(ECPREFIX)/etc/ssh/moduli preserve=true
