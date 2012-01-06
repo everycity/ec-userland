@@ -1,100 +1,75 @@
 <?xml version="1.0"?>
 <!DOCTYPE service_bundle SYSTEM "/usr/share/lib/xml/dtd/service_bundle.dtd.1">
 <!--
-    DESC: SMF Manifest for Nagios Remote Plug-In Executor.
-    VERSION: $id$
-
-    Distributed under the BSD License.
-    
-    Copyright (c) 2007 DigiTar
-    All Rights Reserved
-
-    Redistribution and use in source and binary forms, with or without modification, 
-    are permitted provided that the following conditions are met:
-
-        * Redistributions of source code must retain the above copyright notice, 
-          this list of conditions and the following disclaimer.
-        * Redistributions in binary form must reproduce the above copyright notice, 
-          this list of conditions and the following disclaimer in the documentation 
-          and/or other materials provided with the distribution.
-        * Neither the name of DigiTar nor the names of its contributors may be
-          used to endorse or promote products derived from this software without 
-          specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
-EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES 
-OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT 
-SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, 
-INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED 
-TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR 
-BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
-CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN 
-ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH 
-DAMAGE.
+//
+// This file and its contents are supplied under the terms of the
+// Common Development and Distribution License ("CDDL)". You may
+// only use this file in accordance with the terms of the CDDL.
+//
+// A full copy of the text of the CDDL should have accompanied this
+// source. A copy of the CDDL is also available via the Internet at
+// http://www.illumos.org/license/CDDL.
+//
+//
+// Copyright 2011 EveryCity Ltd. All rights reserved.
+//
 -->
+<service_bundle type='manifest' name='nrpe'>
 
-<service_bundle type='manifest' name='nagios'>
+<service
+	name='network/nagios/nrpe'
+	type='service'
+	version='1'>
 
-<service 
-    name='network/nagios/nrpe' 
-    type='service' 
-    version='1'>
-    
-    <single_instance />
-   
-	<dependency
-	    name='fs-local'
-	    grouping='require_all'
-	    restart_on='none'
-	    type='service'>
-		<service_fmri value='svc:/system/filesystem/local' />
+	<!--
+		Wait for network interfaces to be initialized.
+	-->
+	<dependency name='network'
+		grouping='require_all'
+		restart_on='error'
+		type='service'>
+		<service_fmri value='svc:/milestone/network:default'/>
 	</dependency>
 
-	<dependency
-	    name='network-service'
-	    grouping='require_all'
-	    restart_on='none'
-	    type='service'>
-		<service_fmri value='svc:/network/service' />
+	<!--
+		Wait for all local filesystems to be mounted.
+	-->
+	<dependency name='filesystem-local'
+		grouping='require_all'
+		restart_on='none'
+		type='service'>
+		<service_fmri
+			value='svc:/system/filesystem/local:default'/>
 	</dependency>
 
-    <instance name='default' enabled='true'>
-		<dependency
-		    name='nrpe_configuration'
-		    grouping='require_all'
-		    restart_on='refresh'
-		    type='path'>
-			<service_fmri
-			    value='file://localhost/ec/etc/nrpe.cfg' />
-		</dependency>
+	<exec_method
+		type='method'
+		name='start'
+		exec='/ec/var/svc/method/nrpe start'
+		timeout_seconds='60'/>
 
-        <exec_method
-			type='method'
-			name='start'
-			exec='/ec/var/svc/method/nagios-nrpe start'
-			timeout_seconds='10' />
+	<exec_method
+		type='method'
+		name='stop'
+		exec=':kill'
+		timeout_seconds='60'/>
 
-		<exec_method
-			type='method'
-			name='stop'
-			exec=':kill'
-			timeout_seconds='10' />
+	<exec_method
+		type='method'
+		name='refresh'
+		exec=':kill -HUP'
+		timeout_seconds='60'/>
 
-		<exec_method
-			type='method'
-			name='refresh'
-			exec='/ec/var/svc/method/nagios-nrpe refresh'
-			timeout_seconds='10' />
+	<instance name='default' enabled='false'>
+		<property_group name='nrpe' type='application'>
+			<stability value='Evolving'/>
+			<propval name='config_file' type='astring' value='/ec/etc/nagios/nrpe.conf'/>
+			<propval name='additional_startup_options' type='astring' value=''/>
+		</property_group>
+	</instance>
 
-        <template>
-			<common_name>
-				<loctext xml:lang='C'>
-				Nagios Remote Plug-In Executor (NRPE)
-				</loctext>
-			</common_name>
-		</template>
-    
-    </instance>
+	<stability value='Evolving'/>
 
 </service>
+
 </service_bundle>
