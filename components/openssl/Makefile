@@ -26,22 +26,19 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		openssl
-COMPONENT_VERSION=	1.0.0e
+COMPONENT_VERSION=	1.0.0f
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:235eb68e5a31b0f7a23bc05f52d7a39c596e2e69
+COMPONENT_ARCHIVE_HASH=	sha1:f087190fc7702f328324aaa89c297cab6e236564
 COMPONENT_ARCHIVE_URL=	http://openssl.org/source/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-IPS_COMPONENT_VERSION=  1.0.0.5
+IPS_COMPONENT_VERSION=  1.0.0.6
 
-# Note: OpenSSL generates a header file, include/openssl/opensslconf.h
-# This header file is different depending on 32bit or 64bit build
-# If you upgrade OpenSSL, remember to grab both, and recombine
-# them in the same format as opensslconf.h in the root dir here.
+CLEAN_PATHS +=	opensslconf.h
 
 CFLAGS = -DNO_WINDOWS_BRAINDEATH
 CFLAGS64 = $(CFLAGS)
@@ -84,33 +81,37 @@ COMPONENT_PRE_BUILD_ACTION= \
 	    if [ $(BITS) = 32 ]; then ./Configure $(CONFIGURE_OPTIONS); \
             else ./Configure $(CONFIGURE_OPTIONS64); fi )
 
-
-# common targets
-build:		$(BUILD_32) $(BUILD_64)
+build:		$(BUILD_32_and_64)
 
 include ../../make-rules/shared-targets.mk
 
-install:	build $(INSTALL_32)
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/share
-	([ -d $(PROTO_DIR)/$(ECPREFIX)/etc/openssl/man ] && \
-	    $(CP) -RP $(PROTO_DIR)/$(ECPREFIX)/etc/openssl/man \
-	    $(PROTO_DIR)/$(ECPREFIX)/share || true)
-	([ -d $(PROTO_DIR)/$(ECPREFIX)/etc/openssl/man ] && \
-	    $(RM) -rf $(PROTO_DIR)/$(ECPREFIX)/etc/openssl/man || true)
+install:	$(INSTALL_32_and_64)
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share
+	([ -d $(PROTO_DIR)$(ECPREFIX)/etc/openssl/man ] && \
+	    $(CP) -RP $(PROTO_DIR)$(ECPREFIX)/etc/openssl/man \
+	    $(PROTO_DIR)$(ECPREFIX)/share || true)
+	([ -d $(PROTO_DIR)$(ECPREFIX)/etc/openssl/man ] && \
+	    $(RM) -rf $(PROTO_DIR)$(ECPREFIX)/etc/openssl/man || true)
 	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)
-	$(INSTALL) $(BUILD_DIR_64)/apps/openssl $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)
+	$(INSTALL) $(BUILD_DIR_64)/apps/openssl $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
 	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)
-	$(INSTALL) $(BUILD_DIR_64)/libcrypto.so.1.0.0 $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)
-	$(INSTALL) $(BUILD_DIR_64)/libssl.so.1.0.0 $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)
+	$(INSTALL) $(BUILD_DIR_64)/libcrypto.so.1.0.0 $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
+	$(INSTALL) $(BUILD_DIR_64)/libssl.so.1.0.0 $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
 	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-	$(INSTALL) $(BUILD_DIR_64)/libcrypto.pc $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-	$(INSTALL) $(BUILD_DIR_64)/libssl.pc $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-	$(INSTALL) $(BUILD_DIR_64)/openssl.pc $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-	(chmod +w $(PROTO_DIR)/$(ECPREFIX)/bin/openssl $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)/openssl \
-		$(PROTO_DIR)/$(ECPREFIX)/lib/*so.* $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/*so.*)
-	(strip $(PROTO_DIR)/$(ECPREFIX)/bin/openssl $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)/openssl \
-		$(PROTO_DIR)/$(ECPREFIX)/lib/*so.* $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/*so.*)
-
+	$(INSTALL) $(BUILD_DIR_64)/libcrypto.pc $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+	$(INSTALL) $(BUILD_DIR_64)/libssl.pc $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+	$(INSTALL) $(BUILD_DIR_64)/openssl.pc $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+	(chmod +w $(PROTO_DIR)$(ECPREFIX)/bin/openssl $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/openssl \
+		$(PROTO_DIR)$(ECPREFIX)/lib/*so.* $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/*so.*)
+	(strip $(PROTO_DIR)$(ECPREFIX)/bin/openssl $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/openssl \
+		$(PROTO_DIR)$(ECPREFIX)/lib/*so.* $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/*so.*)
+	# Note: OpenSSL generates a header file, include/openssl/opensslconf.h
+	# This header file is different depending on 32bit or 64bit build
+	echo "/* EC: combining 32 and 64bit versions */\n\n#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/opensslconf.h
+	cat $(BUILD_DIR_64)/include/openssl/opensslconf.h >> $(COMPONENT_DIR)/opensslconf.h
+	echo "\n#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/opensslconf.h
+	cat $(BUILD_DIR_32)/include/openssl/opensslconf.h >> $(COMPONENT_DIR)/opensslconf.h
+	echo "\n#endif /* EC */" >> $(COMPONENT_DIR)/opensslconf.h
 
 # build does this always
 test:  build
