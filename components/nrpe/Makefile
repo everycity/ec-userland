@@ -18,21 +18,20 @@ COMPONENT_NAME=		nrpe
 COMPONENT_VERSION=	2.13
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha1:
+COMPONENT_ARCHIVE_HASH=	sha1:2d5ead0ff114329a0daf0778c4bb8364249aebbc
 COMPONENT_ARCHIVE_URL=	http://downloads.sourceforge.net/project/nagios/nrpe-2.x/$(COMPONENT_SRC)/$(COMPONENT_ARCHIVE)
-
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS +=	--with-ssl=$(ECPREFIX)
-CONFIGURE_OPTIONS.32 +=	--with-ssl-lib=$(ECPREFIX)/lib
-CONFIGURE_OPTIONS.64 +=	--with-ssl-lib=$(ECPREFIX)/lib/$(MACH64)
+CONFIGURE_OPTIONS+=	--enable-command-args	
+CONFIGURE_OPTIONS+=	--with-ssl=$(ECPREFIX)
+CONFIGURE_OPTIONS.32+=	--with-ssl-lib=$(ECPREFIX)/lib
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 
-build:		$(BUILD_32_and_64)
+build:		$(BUILD_32)
 
-install:	$(INSTALL_32_and_64)
+install:	$(INSTALL_32)
 
