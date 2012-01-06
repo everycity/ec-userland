@@ -85,7 +85,7 @@ build:		$(BUILD_32_and_64)
 
 include ../../make-rules/shared-targets.mk
 
-install:	$(INSTALL_32_and_64)
+install:	build $(INSTALL_32)
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share
 	([ -d $(PROTO_DIR)$(ECPREFIX)/etc/openssl/man ] && \
 	    $(CP) -RP $(PROTO_DIR)$(ECPREFIX)/etc/openssl/man \
