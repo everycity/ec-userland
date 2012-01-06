@@ -28,7 +28,7 @@ group gid=455 groupname=nagios
 user gcos-field="Nagios Account" group=nagios uid=455 username=nagios login-shell=/bin/false home-dir=/tmp
 
 # Custom entries
-file files/nrpe.conf path=$(ECPREFIX)/etc/nrpe.conf
+file files/nrpe.conf path=$(ECPREFIX)/etc/nagios/nrpe.conf
 file files/nrpe-manifest.xml path=var/svc/manifest/site/nrpe.xml \
     restart_fmri=svc:/system/manifest-import:default
 file files/nrpe-startup.sh path=$(ECPREFIX)/var/svc/method/nrpe mode=0555
@@ -37,6 +37,7 @@ file files/nrpe-startup.sh path=$(ECPREFIX)/var/svc/method/nrpe mode=0555
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/nagios
 dir path=$(ECPREFIX)/lib
 file path=$(ECPREFIX)/bin/nrpe
 file path=$(ECPREFIX)/lib/check_nrpe
