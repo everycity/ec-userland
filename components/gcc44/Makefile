@@ -55,3 +55,6 @@ COMPONENT_POST_INSTALL_ACTION = \
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
+	$(CP) $(COMPONENT_DIR)/manifests/gcc44-$(OS_VERSION).p5m $(COMPONENT_DIR)
+	$(CP) $(COMPONENT_DIR)/manifests/gcc44-runtime-$(OS_VERSION).p5m $(COMPONENT_DIR)
+
