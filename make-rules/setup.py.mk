@@ -44,7 +44,8 @@ $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
 	$(RM) -r $(@D) ; $(MKDIR) $(@D)
 	$(COMPONENT_PRE_BUILD_ACTION)
 	(cd $(SOURCE_DIR) ; $(ENV) $(PYTHON_ENV) \
-		$(PYTHON.$(BITS)) ./setup.py build \
+		$(PYTHON.$(BITS)) ./setup.py $(PYTHON_PRE_SETUP_ARGS) \
+			build $(PYTHON_SETUP_BUILD_ARGS) \
 			--build-temp $(@D:$(BUILD_DIR)/%=%))
 	$(COMPONENT_POST_BUILD_ACTION)
 	$(TOUCH) $@

@@ -1,0 +1,140 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+<transform file path=.+/psycopg2/tests/.+ -> add pkg.depend.bypass-generate .*>
+
+set name=pkg.fmri value=pkg:/library/python/psycopg2@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Python-PostgreSQL Database Adapter"
+set name=info.upstream_url value="http://initd.org/psycopg/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license psycopg2.license license="GPL with exceptions or ZPL"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/python2.6
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/64
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.6.egg-info
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/64/_psycopg.so
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/__init__.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/__init__.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/_psycopg.so
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/errorcodes.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/errorcodes.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/extensions.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/extensions.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/extras.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/extras.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/pool.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/pool.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/psycopg1.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/psycopg1.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/__init__.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/__init__.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/dbapi20.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/dbapi20.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/dbapi20_tpc.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/dbapi20_tpc.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_async.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_async.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_bugX000.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_bugX000.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_bug_gc.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_bug_gc.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_cancel.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_cancel.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_connection.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_connection.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_copy.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_copy.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_cursor.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_cursor.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_dates.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_dates.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_extras_dictcursor.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_extras_dictcursor.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_green.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_green.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_lobject.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_lobject.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_module.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_module.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_notify.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_notify.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_psycopg2_dbapi20.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_psycopg2_dbapi20.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_quote.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_quote.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_transaction.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_transaction.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_types_basic.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_types_basic.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_types_extras.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_types_extras.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/testconfig.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/testconfig.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/testutils.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/testutils.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tz.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tz.pyc
