@@ -1,0 +1,21 @@
+diff -ruN eaccelerator-0.9.6.1.orig/eaccelerator.ini eaccelerator-0.9.6.1/eaccelerator.ini
+--- eaccelerator-0.9.6.1.orig/eaccelerator.ini	2010-01-26 14:25:13.000000000 +0000
++++ eaccelerator-0.9.6.1/eaccelerator.ini	2012-01-10 17:01:31.265289461 +0000
+@@ -28,7 +28,7 @@
+ ; code, session data, content and user entries  here. The same data can be
+ ; stored in shared memory also (for more quick access). Default value is
+ ; "/tmp/eaccelerator".
+-eaccelerator.cache_dir = "/tmp/eaccelerator"
++eaccelerator.cache_dir = "/ec/var/cache/eaccelerator"
+ 
+ ; Enables or disables eAccelerator. Should be "1" for enabling or
+ ; "0" for disabling. Default value is "1".
+@@ -45,7 +45,7 @@
+ 
+ ; Set the log file for eaccelerator. When this option isn't set then the data
+ ; will be logged to stderr
+-eaccelerator.log_file = "/var/log/httpd/eaccelerator_log"
++eaccelerator.log_file = "/ec/var/apache/2.2/logs/eaccelerator_log"
+ 
+ ; A string that's prepended to all keys. This allows two applications that use the
+ ; same key names to run on the same host by setting this in .htaccess or in the main
