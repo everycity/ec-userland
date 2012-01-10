@@ -1,0 +1,11 @@
+--- vsftpd-2.3.5/builddefs.h.orig	2012-01-10 09:37:34.719862018 +0000
++++ vsftpd-2.3.5/builddefs.h	2012-01-10 09:37:48.748726293 +0000
+@@ -3,7 +3,7 @@
+ 
+ #undef VSF_BUILD_TCPWRAPPERS
+ #define VSF_BUILD_PAM
+-#undef VSF_BUILD_SSL
++#define VSF_BUILD_SSL
+ 
+ #endif /* VSF_BUILDDEFS_H */
+ 

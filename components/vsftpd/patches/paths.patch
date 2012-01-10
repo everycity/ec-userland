@@ -1,0 +1,69 @@
+--- vsftpd-2.3.5/tunables.c.orig	2012-01-10 11:10:57.121662909 +0000
++++ vsftpd-2.3.5/tunables.c	2012-01-10 11:12:53.359468804 +0000
+@@ -250,19 +250,19 @@
+   /* -rw------- */
+   tunable_chown_upload_mode = 0600;
+ 
+-  install_str_setting("/usr/share/empty", &tunable_secure_chroot_dir);
++  install_str_setting("/ec/share/empty", &tunable_secure_chroot_dir);
+   install_str_setting("ftp", &tunable_ftp_username);
+   install_str_setting("root", &tunable_chown_username);
+-  install_str_setting("/var/log/xferlog", &tunable_xferlog_file);
+-  install_str_setting("/var/log/vsftpd.log", &tunable_vsftpd_log_file);
++  install_str_setting("/ec/var/log/xferlog", &tunable_xferlog_file);
++  install_str_setting("/ec/var/log/vsftpd.log", &tunable_vsftpd_log_file);
+   install_str_setting(".message", &tunable_message_file);
+   install_str_setting("nobody", &tunable_nopriv_user);
+   install_str_setting(0, &tunable_ftpd_banner);
+-  install_str_setting("/etc/vsftpd.banned_emails", &tunable_banned_email_file);
+-  install_str_setting("/etc/vsftpd.chroot_list", &tunable_chroot_list_file);
++  install_str_setting("/ec/etc/vsftpd/banned_emails", &tunable_banned_email_file);
++  install_str_setting("/ec/etc/vsftpd/chroot_list", &tunable_chroot_list_file);
+   install_str_setting("ftp", &tunable_pam_service_name);
+   install_str_setting("ftp", &tunable_guest_username);
+-  install_str_setting("/etc/vsftpd.user_list", &tunable_userlist_file);
++  install_str_setting("/ec/etc/vsftpd/user_list", &tunable_userlist_file);
+   install_str_setting(0, &tunable_anon_root);
+   install_str_setting(0, &tunable_local_root);
+   install_str_setting(0, &tunable_banner_file);
+@@ -275,9 +275,9 @@
+   install_str_setting(0, &tunable_hide_file);
+   install_str_setting(0, &tunable_deny_file);
+   install_str_setting(0, &tunable_user_sub_token);
+-  install_str_setting("/etc/vsftpd.email_passwords",
++  install_str_setting("/ec/etc/vsftpd/email_passwords",
+                       &tunable_email_password_file);
+-  install_str_setting("/usr/share/ssl/certs/vsftpd.pem",
++  install_str_setting("/ec/usr/share/ssl/certs/vsftpd.pem",
+                       &tunable_rsa_cert_file);
+   install_str_setting(0, &tunable_dsa_cert_file);
+   install_str_setting("DES-CBC3-SHA", &tunable_ssl_ciphers);
+--- vsftpd-2.3.5/vsftpd.conf.orig	2012-01-10 11:11:23.297766930 +0000
++++ vsftpd-2.3.5/vsftpd.conf	2012-01-10 11:14:41.937346046 +0000
+@@ -48,7 +48,7 @@
+ #
+ # You may override where the log file goes if you like. The default is shown
+ # below.
+-#xferlog_file=/var/log/vsftpd.log
++#xferlog_file=/ec/var/log/vsftpd.log
+ #
+ # If you want, you can have your log file in standard ftpd xferlog format.
+ # Note that the default log file location is /var/log/xferlog in this case.
+@@ -87,7 +87,7 @@
+ # useful for combatting certain DoS attacks.
+ #deny_email_enable=YES
+ # (default follows)
+-#banned_email_file=/etc/vsftpd.banned_emails
++#banned_email_file=/ec/etc/vsftpd/banned_emails
+ #
+ # You may specify an explicit list of local users to chroot() to their home
+ # directory. If chroot_local_user is YES, then this list becomes a list of
+@@ -98,7 +98,7 @@
+ #chroot_local_user=YES
+ #chroot_list_enable=YES
+ # (default follows)
+-#chroot_list_file=/etc/vsftpd.chroot_list
++#chroot_list_file=/ec/etc/vsftpd/chroot_list
+ #
+ # You may activate the "-R" option to the builtin ls. This is disabled by
+ # default to avoid remote users being able to cause excessive I/O on large
