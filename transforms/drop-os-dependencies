@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
 #
 <transform depend pkg.debug.depend.file=.*\.xml -> drop>
 <transform depend pkg.debug.depend.file=bash -> drop>

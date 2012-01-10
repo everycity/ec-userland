@@ -10,6 +10,7 @@
 
 #
 # Copyright 2011, Andrzej Szeszo
+# Copyright 2012, EveryCity Ltd. All rights reserved.
 #
 
 include ../../../make-rules/shared-macros.mk

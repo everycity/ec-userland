@@ -11,7 +11,7 @@
 // http://www.illumos.org/license/CDDL.
 //
 //
-// Copyright 2011 EveryCity Ltd. All rights reserved.
+// Copyright 2012 EveryCity Ltd. All rights reserved.
 //
 -->
 <service_bundle type='manifest' name='vsftpd'>
