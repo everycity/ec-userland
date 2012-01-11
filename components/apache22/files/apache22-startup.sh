@@ -17,7 +17,7 @@
 . /lib/svc/share/smf_include.sh
 
 # Set a reasonable ulimit
-ulimit -n
+ulimit -n 65535
 
 # Allow more than 256 file descriptors on Solaris 10 32bit
 # See the following URL for a full description:
