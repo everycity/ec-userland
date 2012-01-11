@@ -1,7 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE service_bundle SYSTEM "/usr/share/lib/xml/dtd/service_bundle.dtd.1">
 <!--
-	Copyright (C) EveryCity 2011
+//
+// This file and its contents are supplied under the terms of the
+// Common Development and Distribution License ("CDDL)". You may
+// only use this file in accordance with the terms of the CDDL.
+//
+// A full copy of the text of the CDDL should have accompanied this
+// source. A copy of the CDDL is also available via the Internet at
+// http://www.illumos.org/license/CDDL.
+//
+//
+// Copyright 2011 EveryCity Ltd. All rights reserved.
+//
 -->
 <service_bundle type='manifest' name='mysql55'>
 
@@ -49,7 +60,7 @@
 		exec=':kill -HUP'
 		timeout_seconds='60'/>
 
-	<instance name='default' enabled='true'>
+	<instance name='default' enabled='false'>
 
 		<property_group name='mysqld' type='application'>
 			<stability value='Evolving'/>
@@ -66,6 +77,7 @@
 			<propval name='mysqld_installdb_binary' type='astring' value='/ec/lib/mysql/5.5/bin/mysql_install_db'/>
 			<propval name='additional_startup_options' type='astring' value=''/>
 			<propval name='enable_64bit' type='boolean' value='true'/>
+			<propval name='skip_grant_tables' type='boolean' value='false'/>
 		</property_group>
 
 	</instance>

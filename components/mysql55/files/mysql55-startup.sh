@@ -1,6 +1,16 @@
 #!/usr/xpg4/bin/sh
 #
-# Copyright (c) EveryCity 2011
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 . /lib/svc/share/smf_include.sh
@@ -22,6 +32,7 @@ mysqld_64_binary="/ec/lib/mysql/5.5/bin/amd64/mysqld"
 mysqld_installdb_binary="/ec/lib/mysql/5.5/bin/mysql_install_db"
 additional_startup_options=""
 enable_64bit="true"
+skip_grant_tables="false"
 
 getprop() {
     PROPVAL=""
@@ -59,11 +70,17 @@ varprop mysqld_64_binary
 varprop mysqld_installdb_binary
 varprop additional_startup_options
 varprop enable_64bit
+varprop skip_grant_tables
 
 if [ "x$enable_64bit" = "xtrue" ] ; then
   mysqld_binary=$mysqld_64_binary
 else
   mysqld_binary=$mysqld_32_binary
+fi
+
+# Skip grant tables option
+if [ "x$skip_grant_tables" = "xtrue" ] ; then
+  additional_startup_options="$additional_startup_options --skip-grant-tables"
 fi
 
 # Create a data directory if it exists and is owned by the mysql user
