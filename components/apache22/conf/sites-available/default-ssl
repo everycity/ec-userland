@@ -2,19 +2,19 @@
 <VirtualHost _default_:443>
 	ServerAdmin webmaster@localhost
 
-	DocumentRoot /ec/var/apache/2.2/htdocs
+	DocumentRoot ${APACHE_VAR_ROOT}/htdocs
 	<Directory />
 		Options FollowSymLinks
 		AllowOverride None
 	</Directory>
-	<Directory /ec/var/apache/2.2/htdocs/>
+	<Directory ${APACHE_VAR_ROOT}/htdocs/>
 		Options Indexes FollowSymLinks MultiViews
 		AllowOverride None
 		Order allow,deny
 		allow from all
 	</Directory>
 
-	ScriptAlias /cgi-bin/ /ec/var/apache/2.2/cgi-bin/
+	ScriptAlias /cgi-bin/ ${APACHE_VAR_ROOT}/cgi-bin/
 	<Directory "/usr/lib/cgi-bin">
 		AllowOverride None
 		Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
@@ -22,13 +22,13 @@
 		Allow from all
 	</Directory>
 
-	ErrorLog /ec/var/apache/2.2/logs/error_log
+	ErrorLog ${APACHE_VAR_ROOT}/logs/error_log
 
 	# Possible values include: debug, info, notice, warn, error, crit,
 	# alert, emerg.
 	LogLevel warn
 
-	CustomLog /ec/var/apache/2.2/logs/ssl_access_log combined
+	CustomLog ${APACHE_VAR_ROOT}/logs/ssl_access_log combined
 
 	#   SSL Engine Switch:
 	#   Enable/Disable SSL for this virtual host.
@@ -39,8 +39,8 @@
 	#   /usr/share/doc/apache2.2-common/README.Debian.gz for more info.
 	#   If both key and certificate are stored in the same file, only the
 	#   SSLCertificateFile directive is needed.
-	SSLCertificateFile    /ec/etc/apache/2.2/ssl/ssl-cert-snakeoil.pem
-	SSLCertificateKeyFile /ec/etc/apache/2.2/ssl/ssl-cert-snakeoil.key
+	SSLCertificateFile    ${APACHE_ETC_ROOT}/ssl/ssl-cert-snakeoil.pem
+	SSLCertificateKeyFile ${APACHE_ETC_ROOT}/ssl/ssl-cert-snakeoil.key
 
 	#   Server Certificate Chain:
 	#   Point SSLCertificateChainFile at a file containing the
@@ -49,7 +49,7 @@
 	#   the referenced file can be the same as SSLCertificateFile
 	#   when the CA certificates are directly appended to the server
 	#   certificate for convinience.
-	#SSLCertificateChainFile /ec/etc/apache/2.2/ssl/server-ca.crt
+	#SSLCertificateChainFile ${APACHE_ETC_ROOT}/ssl/server-ca.crt
 
 	#   Certificate Authority (CA):
 	#   Set the CA certificate verification path where to find CA
@@ -58,8 +58,8 @@
 	#   Note: Inside SSLCACertificatePath you need hash symlinks
 	#         to point to the certificate files. Use the provided
 	#         Makefile to update the hash symlinks after changes.
-	#SSLCACertificatePath /ec/etc/apache/2.2/ssl/
-	#SSLCACertificateFile /ec/etc/apache/2.2/ssl/ca-bundle.crt
+	#SSLCACertificatePath ${APACHE_ETC_ROOT}/ssl/
+	#SSLCACertificateFile ${APACHE_ETC_ROOT}/ssl/ca-bundle.crt
 
 	#   Certificate Revocation Lists (CRL):
 	#   Set the CA revocation path where to find CA CRLs for client
@@ -68,8 +68,8 @@
 	#   Note: Inside SSLCARevocationPath you need hash symlinks
 	#         to point to the certificate files. Use the provided
 	#         Makefile to update the hash symlinks after changes.
-	#SSLCARevocationPath /ec/etc/apache/2.2/ssl/
-	#SSLCARevocationFile /ec/etc/apache/2.2/ssl/ca-bundle.crl
+	#SSLCARevocationPath ${APACHE_ETC_ROOT}/ssl/
+	#SSLCARevocationFile ${APACHE_ETC_ROOT}/ssl/ca-bundle.crl
 
 	#   Client Authentication (Type):
 	#   Client certificate verification type and depth.  Types are
@@ -125,7 +125,7 @@
 	<FilesMatch "\.(cgi|shtml|phtml|php)$">
 		SSLOptions +StdEnvVars
 	</FilesMatch>
-	<Directory /ec/var/apache/2.2/cgi-bin>
+	<Directory ${APACHE_VAR_ROOT}/cgi-bin>
 		SSLOptions +StdEnvVars
 	</Directory>
 

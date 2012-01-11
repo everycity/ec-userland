@@ -1,42 +1,33 @@
-#!/sbin/sh
+#!/usr/xpg4/bin/sh
+
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
-#
-#
-# Copyright 2008 Sun Microsystems, Inc.  All rights reserved.
-# Use is subject to license terms.
-#
-#ident	"@(#)http-apache22	1.8	08/06/11 SMI"	
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 . /lib/svc/share/smf_include.sh
 
-APACHE_VERSION=
-APACHE_USR_ROOT=/ec/lib/apache
-APACHE_ETC_ROOT=/ec/etc/apache
-APACHE_VAR_ROOT=/ec/var/apache
+# Set a reasonable ulimit
+ulimit -n
 
-#if startup options contain multiple arguments separated by a blank,
-#then they should be specified as below
-#e.g., %> svccfg -s apache22 setprop 'httpd/startup_options=("-f" "/etc/apache/2.2/new.conf")' 
-#
+# Allow more than 256 file descriptors on Solaris 10 32bit
+# See the following URL for a full description:
+# http://developers.sun.com/solaris/articles/stdio_256.html
+export LD_PRELOAD_32=/usr/lib/extendedFILE.so.1
+
+APACHE_USR_ROOT=/ec/lib/apache/2.2
+APACHE_ETC_ROOT=/ec/etc/apache/2.2
+APACHE_VAR_ROOT=/ec/var/apache/2.2
+
 STARTUP_OPTIONS=
 
 SERVER_TYPE=prefork
@@ -55,12 +46,9 @@ getprop() {
     return
 }
 
-APACHE_VERSION=`echo ${SMF_FMRI} | sed 's/[^0-9]//g;s/./\.&/g;s/^\.//'` 
-if [ "x${APACHE_VERSION}" != "x" ]; then
-    echo "Apache version is ${APACHE_VERSION}"
-    APACHE_USR_ROOT=${APACHE_USR_ROOT}/${APACHE_VERSION}
-    APACHE_ETC_ROOT=${APACHE_ETC_ROOT}/${APACHE_VERSION}
-    APACHE_VAR_ROOT=${APACHE_VAR_ROOT}/${APACHE_VERSION}
+getprop httpd/var_dir
+if [ "${PROPVAL}" != "" ] ; then
+    APACHE_VAR_ROOT=$PROPVAL
 fi
 
 getprop httpd/config_dir
@@ -145,7 +133,9 @@ worker)
 	;;
 esac
 	
-
+# Export APACHE_ETC_ROOT as an environment variable for use in config files
+export APACHE_ETC_ROOT="${APACHE_ETC_ROOT}"
+export APACHE_VAR_ROOT="${APACHE_VAR_ROOT}"
 
 case "$1" in
 start)
@@ -163,7 +153,7 @@ stop)
 	;;
 esac
 
-${APACHE_BIN}/apachectl ${STARTUP_OPTIONS} ${cmd} 2>&1
+${APACHE_BIN}/apachectl ${STARTUP_OPTIONS} -f ${APACHE_ETC_ROOT}/httpd.conf -k ${cmd} 2>&1
 
 if [ $? -ne 0 ]; then
     echo "Server failed to start. Check the error log (defaults to ${APACHE_VAR_ROOT}/logs/error_log) for more information, if any."

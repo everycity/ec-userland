@@ -3,7 +3,7 @@
 
 	DocumentRoot /data/virtualhosts/www.example.com
 
-	ErrorLog /ec/var/apache/2.2/logs/error_log
-	CustomLog /ec/var/apache/2.2/logs/access_log combined
+	ErrorLog ${APACHE_VAR_ROOT}/logs/error_log
+	CustomLog ${APACHE_VAR_ROOT}/logs/access_log combined
 
 </VirtualHost>

@@ -21,8 +21,8 @@
 +    manualdir:     ${datadir}/manual
 +    cgidir:        ${datadir}/cgi-bin
 +    includedir:    /ec/include/apache/2.2::MPM::
-+    localstatedir: /ec/var/run/apache/2.2
-+    runtimedir:    /ec/var/run/apache/2.2
++    localstatedir: /ec/var/apache/2.2/run
++    runtimedir:    /ec/var/apache/2.2/run
 +    logfiledir:    ${datadir}/logs
 +    proxycachedir: ${datadir}/proxy
 +    infodir:       ${exec_prefix}/info
