@@ -1,0 +1,31 @@
+--- psycopg2-2.4.4/setup.py.orig	2012-01-09 14:24:49.873112890 +0000
++++ psycopg2-2.4.4/setup.py	2012-01-09 14:26:11.680147337 +0000
+@@ -45,6 +45,7 @@
+ # Note: The setup.py must be compatible with both Python 2 and 3
+ 
+ import os
++import platform
+ import sys
+ import re
+ import subprocess
+@@ -521,11 +522,19 @@
+ sources = [ os.path.join('psycopg', x) for x in sources]
+ depends = [ os.path.join('psycopg', x) for x in depends]
+ 
++extra_link_args = ""
++
++if platform.architecture()[0] == '32bit':
++        extra_link_args = ['-R/ec/lib/postgres/9.1/lib']
++elif platform.architecture()[0] == '64bit':
++        extra_link_args = ['-R/ec/lib/postgres/9.1/lib/amd64']
++
+ ext.append(Extension("psycopg2._psycopg", sources,
+                      define_macros=define_macros,
+                      include_dirs=include_dirs,
+                      depends=depends,
+-                     undef_macros=[]))
++                     undef_macros=[],
++                     extra_link_args=extra_link_args))
+ 
+ # Compute the direct download url.
+ # Note that the current package installation programs are stupidly intelligent

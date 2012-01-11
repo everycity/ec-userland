@@ -1,0 +1,11 @@
+--- psycopg2-2.4.4/psycopg/config.h.orig	2012-01-09 12:44:40.442355756 +0000
++++ psycopg2-2.4.4/psycopg/config.h	2012-01-09 12:47:30.296291799 +0000
+@@ -141,7 +141,7 @@
+ #endif
+ #endif
+ 
+-#if (defined(__FreeBSD__) && __FreeBSD_version < 503000) || (defined(_WIN32) && !defined(__GNUC__)) || defined(__sun__) || defined(sun)
++#if (defined(__FreeBSD__) && __FreeBSD_version < 503000) || (defined(_WIN32) && !defined(__GNUC__))
+ /* what's this, we have no round function either? */
+ static double round(double num)
+ {

@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
 #
 
 set name=pkg.fmri value=pkg:/service/ec-mcollective@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)

@@ -17,20 +17,19 @@
 
 # Do not change these defaults below, they will be overwritten
 # during the next package upgrade. Instead, set these properties
-# via SMF using "svccfg -s nrpe:default" and setprop
+# via SMF using "svccfg -s vsftpd:default" and setprop
 
-config_file="/ec/etc/nagios/nrpe.conf"
-nrpe_binary="/ec/bin/nrpe"
-additional_startup_options=""
+config_file="/ec/etc/vsftpd/vsftpd.conf"
+vsftpd_binary="/ec/bin/vsftpd"
 
 getprop() {
     PROPVAL=""
     svcprop -q -p $1 ${SMF_FMRI}
     if [ $? -eq 0 ] ; then
         PROPVAL=`svccfg -s ${SMF_FMRI} listprop $1 | \
-		/usr/bin/nawk '{ for (i = 3; i <= NF; i++) printf $i" " }' | \
-		/usr/bin/nawk '{ sub(/^\"/,""); sub(/\"[ \t]*$/,""); print }' | \
-		/usr/bin/sed 's/[ ]*$//g'`
+                /usr/bin/nawk '{ for (i = 3; i <= NF; i++) printf $i" " }' | \
+                /usr/bin/nawk '{ sub(/^\"/,""); sub(/\"[ \t]*$/,""); print }' | \
+                /usr/bin/sed 's/[ ]*$//g'`
         if [ "${PROPVAL}" = "\"\"" ] ; then
             PROPVAL=""
         fi
@@ -40,20 +39,19 @@ getprop() {
 }
 
 varprop() {
-  getprop nrpe/$1
+  getprop vsftpd/$1
   if [ "${PROPVAL}" != "" ] ; then
     export $1="${PROPVAL}"
   fi
 }
 
 varprop config_file
-varprop additional_startup_options
 
 case "$1" in
   start)
-    echo "Starting nrpe: \c"
-    $nrpe_binary $additional_startup_options -d -c $config_file 
-    echo "nrpe."
+    echo "Starting vsftpd: \c"
+    $vsftpd_binary $config_file 
+    echo "vsftpd."
     ;;
   *)
     echo "Usage: $0 {start}"
@@ -61,5 +59,5 @@ case "$1" in
     ;;
 esac
 
-exit 0
+exit $SMF_EXIT_OK
 

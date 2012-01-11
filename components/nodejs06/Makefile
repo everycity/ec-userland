@@ -9,25 +9,27 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2012 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
-COMPONENT_NAME=		libffi
-COMPONENT_VERSION=	3.0.10
-COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
+COMPONENT_NAME=		node
+COMPONENT_VERSION=	0.6.7
+COMPONENT_SRC=		$(COMPONENT_NAME)-v$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:97abf70e6a6d315d9259d58ac463663051d471e1
-COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/sources.redhat.com/pub/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha1:f739156c44196b2191cc32937706725bdf76c42a
+COMPONENT_ARCHIVE_URL=	http://nodejs.org/dist/v$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=	--disable-static
+COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 
-build:		$(BUILD_32_and_64)
+CONFIGURE_OPTIONS =	--prefix=$(ECPREFIX)
 
-install:	$(INSTALL_32_and_64)
+build:		$(BUILD_32)
+
+install:	$(INSTALL_32)
 

@@ -1,0 +1,16 @@
+--- node-v0.4.12/tools/node-waf.orig	2011-10-07 16:45:44.687966346 +0100
++++ node-v0.4.12/tools/node-waf	2011-10-07 16:46:22.795860683 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/ec/bin/python2.6
+ import os, sys
+ 
+ 
+--- node-v0.6.7/tools/wafadmin/Scripting.py.orig        2012-01-09 10:28:56.705931702 +0000
++++ node-v0.6.7/tools/wafadmin/Scripting.py     2012-01-09 10:29:28.569076769 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/ec/bin/python2.6
+ # encoding: utf-8
+ # Thomas Nagy, 2005 (ita)
+ 
