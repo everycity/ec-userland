@@ -1632,6 +1632,8 @@ link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/reqtimeout.conf \
     target=../mods-available/reqtimeout.conf preserve=true
 link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/reqtimeout.load \
     target=../mods-available/reqtimeout.load preserve=true
+link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/rewrite.load \
+    target=../mods-available/rewrite.load preserve=true
 link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/setenvif.conf \
     target=../mods-available/setenvif.conf preserve=true
 link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/setenvif.load \
