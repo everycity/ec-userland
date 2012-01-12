@@ -46,6 +46,7 @@ CONFIGURE_OPTIONS+=	--enable-libfaac
 CONFIGURE_OPTIONS+=	--enable-libdirac
 CONFIGURE_OPTIONS+=	--enable-libopenjpeg
 CONFIGURE_OPTIONS+=	--enable-libschroedinger
+CONFIGURE_OPTIONS+=	--enable-libvpx
 CONFIGURE_OPTIONS+=	--enable-libx264
 CONFIGURE_OPTIONS+=	--enable-libxvid
 CONFIGURE_OPTIONS+=	--enable-libgsm
