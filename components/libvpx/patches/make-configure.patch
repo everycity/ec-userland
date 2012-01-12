@@ -1,0 +1,11 @@
+--- libvpx-v0.9.7-p1/build/make/configure.sh.orig	2012-01-12 10:01:10.723557287 +0000
++++ libvpx-v0.9.7-p1/build/make/configure.sh	2012-01-12 10:01:21.838595194 +0000
+@@ -866,7 +866,7 @@
+                 ;;
+             gcc*)
+                 add_cflags  -m${bits}
+-                add_ldflags -m${bits}
++                #add_ldflags -m${bits}
+                 link_with_cc=gcc
+                 tune_cflags="-march="
+             setup_gnu_toolchain
