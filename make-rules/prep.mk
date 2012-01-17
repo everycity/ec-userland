@@ -46,15 +46,17 @@ $(SOURCE_DIR)/.%ed:	$(PATCH_DIR)/%
 
 # template for download rules. add new rules with $(call download-rule, suffix)
 define download-rule
+ifdef COMPONENT_ARCHIVE$(1)
 ARCHIVES += $$(COMPONENT_ARCHIVE$(1))
 CLOBBER_PATHS += $$(COMPONENT_ARCHIVE$(1))
-$$(USERLAND_ARCHIVES)$$(COMPONENT_ARCHIVE$(1)):	Makefile
+$$(USERLAND_ARCHIVES)/$$(COMPONENT_ARCHIVE$(1)):	Makefile
 	($$(MKDIR) $$(COMPONENT_DIR)/source ; \
 	cd $$(COMPONENT_DIR)/source ; \
 	$$(FETCH) --file $$@ \
 		$$(COMPONENT_ARCHIVE_URL$(1):%=--url %) \
 		$$(COMPONENT_ARCHIVE_HASH$(1):%=--hash %) ; \
 	$$(TOUCH) $$@)
+endif
 endef
 
 # Generate the download rules from the above template
@@ -66,7 +68,7 @@ $(SOURCE_DIR)/.unpacked:	download Makefile $(PATCHES)
 	$(RM) -r $(SOURCE_DIR)
 	($(MKDIR) $(COMPONENT_DIR)/source ; \
 	cd $(COMPONENT_DIR)/source ; \
-	$(UNPACK) $(UNPACK_ARGS) $(USERLAND_ARCHIVES)$(COMPONENT_ARCHIVE))
+	$(UNPACK) $(UNPACK_ARGS) $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE))
 	$(COMPONENT_POST_UNPACK_ACTION)
 	$(TOUCH) $@
 
@@ -79,7 +81,7 @@ $(SOURCE_DIR)/.prep:	$(SOURCE_DIR)/.patched
 
 prep::	$(SOURCE_DIR)/.prep
 
-download::	$(ARCHIVES:%=$(USERLAND_ARCHIVES)%)
+download::	$(ARCHIVES:%=$(USERLAND_ARCHIVES)/%)
 
 clean::
 	$(RM) -r $(CLEAN_PATHS)

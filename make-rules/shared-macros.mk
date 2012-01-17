@@ -41,6 +41,8 @@ WS_COMPONENTS =	$(WS_TOP)/components
 WS_INCORPORATIONS =	$(WS_TOP)/incorporations
 WS_LINT_CACHE =	$(WS_TOP)/$(MACH)/pkglint-cache
 
+USERLAND_ARCHIVES =	$(WS_TOP)/archives
+
 # we want our pkg piplines to fail if there is an error
 # (like if pkgdepend fails in the middle of a pipe), but
 # we don't want the builds or ./configure's failing as well.
@@ -511,6 +513,10 @@ CXXFLAGS +=	$(CC_BITS)
 
 # set the bittedness that we want to link
 LD_BITS =	-$(BITS)
+
+ifndef CONFIGURE_PREFIX
+CONFIGURE_PREFIX=	$(ECPREFIX)
+endif
 
 ifneq ($(CONFIGURE_PREFIX), $(ECPREFIX))
 	CFLAGS +=	-I$(CONFIGURE_PREFIX)/include -I$(ECPREFIX)/include
