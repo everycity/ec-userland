@@ -33,18 +33,10 @@ include ../../../make-rules/prep.mk
 include ../../../make-rules/setup.py.mk
 include ../../../make-rules/ips.mk
 
-#COMPONENT_BUILD_ARGS += --with-openssl=../../openssl/build/prototype/i386
+COMPONENT_BUILD_ARGS += --with-openssl=$(ECPREFIX)
 
 # common targets
-#build:		$(BUILD_32_and_64)
-build:		$(BUILD_32)
+build:		$(BUILD_32_and_64)
 
-#install:	$(INSTALL_32_and_64)
-install:	$(INSTALL_32)
+install:	$(INSTALL_32_and_64)
 
-test:
-	@echo "no tests available"
-
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../../make-rules/depend.mk
