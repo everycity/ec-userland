@@ -1,0 +1,54 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/library/libvpx@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="The VP8 Codec SDK"
+set name=info.upstream_url value="http://www.webmproject.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license libvpx.license license="BSD"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/vpx
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+file path=$(ECPREFIX)/include/vpx/vp8.h
+file path=$(ECPREFIX)/include/vpx/vp8cx.h
+file path=$(ECPREFIX)/include/vpx/vp8dx.h
+file path=$(ECPREFIX)/include/vpx/vp8e.h
+file path=$(ECPREFIX)/include/vpx/vpx_codec.h
+file path=$(ECPREFIX)/include/vpx/vpx_codec_impl_bottom.h
+file path=$(ECPREFIX)/include/vpx/vpx_codec_impl_top.h
+file path=$(ECPREFIX)/include/vpx/vpx_decoder.h
+file path=$(ECPREFIX)/include/vpx/vpx_decoder_compat.h
+file path=$(ECPREFIX)/include/vpx/vpx_encoder.h
+file path=$(ECPREFIX)/include/vpx/vpx_image.h
+file path=$(ECPREFIX)/include/vpx/vpx_integer.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libvpx.so.0.9.7
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/vpx.pc
+file path=$(ECPREFIX)/lib/libvpx.so.0.9.7
+file path=$(ECPREFIX)/lib/pkgconfig/vpx.pc
+link path=$(ECPREFIX)/lib/$(MACH64)/libvpx.so target=libvpx.so.0.9.7
+link path=$(ECPREFIX)/lib/$(MACH64)/libvpx.so.0 target=libvpx.so.0.9.7
+link path=$(ECPREFIX)/lib/$(MACH64)/libvpx.so.0.9 target=libvpx.so.0.9.7
+link path=$(ECPREFIX)/lib/libvpx.so target=libvpx.so.0.9.7
+link path=$(ECPREFIX)/lib/libvpx.so.0 target=libvpx.so.0.9.7
+link path=$(ECPREFIX)/lib/libvpx.so.0.9 target=libvpx.so.0.9.7

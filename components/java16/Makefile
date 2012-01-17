@@ -57,17 +57,18 @@ CLEAN_PATHS += $(BUILD_DIR)
 #PACK_FILES += jre/lib/javaws.pack jre/lib/deploy.pack
 
 $(SOURCE_DIR)/.unpacked: download Makefile $(PATCHES)
-	$(RM) -r $(SOURCE_DIR)
-	$(CHMOD) +x $(COMPONENT_ARCHIVE_1) $(COMPONENT_ARCHIVE_2)
-	./$(COMPONENT_ARCHIVE_1)  --accept-license --unpack
+	($(RM) -r $(SOURCE_DIR) ; $(MKDIR) $(COMPONENT_DIR)/source ; \
+	cd $(COMPONENT_DIR)/source ; \
+	$(CHMOD) +x $(USERLAND_ARCHIVES)$(COMPONENT_ARCHIVE_1) $(USERLAND_ARCHIVES)$(COMPONENT_ARCHIVE_2) ; \
+	$(USERLAND_ARCHIVES)$(COMPONENT_ARCHIVE_1)  --accept-license --unpack ; \
 	rm -f $(SOURCE_DIR)/jre/LICENSE $(SOURCE_DIR)/jre/README \
-		$(SOURCE_DIR)/LICENSE $(SOURCE_DIR)/README.html
-	./$(COMPONENT_ARCHIVE_2) --accept-license --unpack
+		$(SOURCE_DIR)/LICENSE $(SOURCE_DIR)/README.html ; \
+	$(USERLAND_ARCHIVES)$(COMPONENT_ARCHIVE_2) --accept-license --unpack ; \
+	$(TOUCH) $@)
 #	for i in $(PACK_FILES); do \
 #		$(UNPACK200) $(SOURCE_DIR)/$$i $(SOURCE_DIR)/`echo $$i|sed s/\.pack/\.jar/` && \
 #		rm $(SOURCE_DIR)/$$i; \
 #	done
-	$(TOUCH) $@
 
 build: prep
 
