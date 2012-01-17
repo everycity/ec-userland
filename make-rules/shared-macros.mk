@@ -33,6 +33,7 @@ export DOWNLOAD_SEARCH_PATH ?=	http://dlc.openindiana.org/s10-userland/source-ar
 # The workspace starts at the mercurial root
 export WS_TOP ?=		$(shell hg root)
 
+WS_ARCHIVES =	$(WS_TOP)/archives
 WS_LOGS =	$(WS_TOP)/$(MACH)/logs
 WS_REPO =	$(WS_TOP)/$(MACH)/repo
 WS_TOOLS =	$(WS_TOP)/tools

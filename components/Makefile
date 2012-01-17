@@ -79,7 +79,10 @@ clean:		$(COMPONENT_DIRS.nosetup)
 clobber:	$(COMPONENT_DIRS.nosetup) clean
 	$(RM) -r $(WS_REPO) $(WS_LOGS) $(WS_LINT_CACHE)
 
-setup:	$(WS_LOGS) $(WS_REPO) tools $(WS_LINT_CACHE)
+setup:	$(WS_ARCHIVES) $(WS_LOGS) $(WS_REPO) tools $(WS_LINT_CACHE)
+
+$(WS_ARCHIVES):
+	$(MKDIR) $@
 
 $(WS_LOGS):
 	$(MKDIR) $@
