@@ -65,6 +65,8 @@ PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/locale
 PUBLISH_TRANSFORMS +=	$(PKGMOGRIFY_TRANSFORMS)
 PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/publish-cleanup
 
+PKGDEPEND_TRANSFORMS +=	$(WS_TOP)/transforms/drop-os-dependencies
+
 PKG_MACROS +=		MACH=$(MACH)
 PKG_MACROS +=		MACH32=$(MACH32)
 PKG_MACROS +=		MACH64=$(MACH64)
@@ -141,7 +143,7 @@ $(MANIFEST_BASE)-%.depend:	$(MANIFEST_BASE)-%.mogrified
 
 # Drop os dependencies from the dependency file
 $(MANIFEST_BASE)-%.depend.fixed:	$(MANIFEST_BASE)-%.depend
-	$(PKGMOGRIFY) $< $(WS_TOP)/transforms/drop-os-dependencies | \
+	$(PKGMOGRIFY) $< $(PKGDEPEND_TRANSFORMS) | \
 	sed -e '/^$$/d' -e '/^#.*$$/d' | uniq >$@
 
 # resolve the dependencies all at once
