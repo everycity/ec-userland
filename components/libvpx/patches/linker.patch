@@ -1,0 +1,12 @@
+--- libvpx-v0.9.7-p1/build/make/Makefile.~1~	2011-08-15 22:02:45.000000000 +0100
++++ libvpx-v0.9.7-p1/build/make/Makefile	2012-01-12 10:34:16.107510166 +0000
+@@ -228,8 +228,7 @@
+ # This needs further abstraction for dealing with non-GNU linkers.
+ $(1):
+ 	$(if $(quiet),@echo "    [LD] $$@")
+-	$(qexec)$$(LD) -shared $$(LDFLAGS) \
+-            -Wl,--no-undefined -Wl,-soname,$$(SONAME) \
++	$$(CC) -shared $$(LDFLAGS) -Wl,-soname,$$(SONAME) \
+             -Wl,--version-script,$$(SO_VERSION_SCRIPT) -o $$@ \
+             $$(filter %.o,$$?) $$(extralibs)
+ endef

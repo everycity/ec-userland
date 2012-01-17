@@ -512,6 +512,10 @@ CXXFLAGS +=	$(CC_BITS)
 # set the bittedness that we want to link
 LD_BITS =	-$(BITS)
 
+ifndef CONFIGURE_PREFIX
+CONFIGURE_PREFIX=	$(ECPREFIX)
+endif
+
 ifneq ($(CONFIGURE_PREFIX), $(ECPREFIX))
 	CFLAGS +=	-I$(CONFIGURE_PREFIX)/include -I$(ECPREFIX)/include
 	LDFLAGS.32 =	-L$(CONFIGURE_PREFIX)/lib -R$(CONFIGURE_PREFIX)/lib -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
