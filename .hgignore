@@ -16,3 +16,4 @@
 syntax: regexp
 components/.*/build/.*
 components/.*/source/.*
+i386/.*
