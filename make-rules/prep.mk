@@ -49,10 +49,12 @@ define download-rule
 ARCHIVES += $$(COMPONENT_ARCHIVE$(1))
 CLOBBER_PATHS += $$(COMPONENT_ARCHIVE$(1))
 $$(USERLAND_ARCHIVES)$$(COMPONENT_ARCHIVE$(1)):	Makefile
+	($$(MKDIR) $$(COMPONENT_DIR)/source ; \
+	cd $$(COMPONENT_DIR)/source ; \
 	$$(FETCH) --file $$@ \
 		$$(COMPONENT_ARCHIVE_URL$(1):%=--url %) \
-		$$(COMPONENT_ARCHIVE_HASH$(1):%=--hash %)
-	$$(TOUCH) $$@
+		$$(COMPONENT_ARCHIVE_HASH$(1):%=--hash %) ; \
+	$$(TOUCH) $$@)
 endef
 
 # Generate the download rules from the above template
@@ -62,7 +64,9 @@ $(foreach suffix,$(NUM_ARCHIVES),$(eval $(call download-rule,_$(suffix))))
 
 $(SOURCE_DIR)/.unpacked:	download Makefile $(PATCHES)
 	$(RM) -r $(SOURCE_DIR)
-	$(UNPACK) $(UNPACK_ARGS) $(USERLAND_ARCHIVES)$(COMPONENT_ARCHIVE)
+	($(MKDIR) $(COMPONENT_DIR)/source ; \
+	cd $(COMPONENT_DIR)/source ; \
+	$(UNPACK) $(UNPACK_ARGS) $(USERLAND_ARCHIVES)$(COMPONENT_ARCHIVE))
 	$(COMPONENT_POST_UNPACK_ACTION)
 	$(TOUCH) $@
 
