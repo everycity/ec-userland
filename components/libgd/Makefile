@@ -25,8 +25,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_POST_UNPACK_ACTION = ( ${MV} pierrejoye-gd-$(COMPONENT_NAME)-$(COMPONENT_SRC)/src $(COMPONENT_SRC) ; \
-	${RM} -r pierrejoye-gd-$(COMPONENT_NAME)-$(COMPONENT_SRC) )
+COMPONENT_POST_UNPACK_ACTION = ( ${MV} source/pierrejoye-gd-$(COMPONENT_NAME)-$(COMPONENT_SRC)/src source/$(COMPONENT_SRC) ; \
+	${RM} -r source/pierrejoye-gd-$(COMPONENT_NAME)-$(COMPONENT_SRC) )
 
 LDFLAGS += -liconv
 
