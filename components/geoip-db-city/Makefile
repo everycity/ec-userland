@@ -27,7 +27,7 @@ COMPONENT_VERSION=	20111006
 COMPONENT_FILE=		GeoLiteCity-$(COMPONENT_VERSION).dat
 COMPONENT_ARCHIVE=      $(COMPONENT_FILE).gz
 COMPONENT_ARCHIVE_HASH=	sha1:f92ba2e2e204aa9dcb61d741961583785879f3f3
-COMPONENT_ARCHIVE_URL=	http://dlc-origin.openindiana.org/s10-userland/source-archives/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://dlc-int.openindiana.org/s10-userland/source-archives/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/ips.mk
 
