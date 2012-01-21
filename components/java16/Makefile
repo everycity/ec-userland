@@ -59,11 +59,11 @@ CLEAN_PATHS += $(BUILD_DIR)
 $(SOURCE_DIR)/.unpacked: download Makefile $(PATCHES)
 	($(RM) -r $(SOURCE_DIR) ; $(MKDIR) $(COMPONENT_DIR)/source ; \
 	cd $(COMPONENT_DIR)/source ; \
-	$(CHMOD) +x $(USERLAND_ARCHIVES)$(COMPONENT_ARCHIVE_1) $(USERLAND_ARCHIVES)$(COMPONENT_ARCHIVE_2) ; \
-	$(USERLAND_ARCHIVES)$(COMPONENT_ARCHIVE_1)  --accept-license --unpack ; \
+	$(CHMOD) +x $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE_1) $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE_2) ; \
+	$(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE_1)  --accept-license --unpack ; \
 	rm -f $(SOURCE_DIR)/jre/LICENSE $(SOURCE_DIR)/jre/README \
 		$(SOURCE_DIR)/LICENSE $(SOURCE_DIR)/README.html ; \
-	$(USERLAND_ARCHIVES)$(COMPONENT_ARCHIVE_2) --accept-license --unpack ; \
+	$(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE_2) --accept-license --unpack ; \
 	$(TOUCH) $@)
 #	for i in $(PACK_FILES); do \
 #		$(UNPACK200) $(SOURCE_DIR)/$$i $(SOURCE_DIR)/`echo $$i|sed s/\.pack/\.jar/` && \
