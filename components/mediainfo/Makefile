@@ -30,7 +30,7 @@ PATH.32	=	$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 PATH.64	=	$(ECPREFIX)/bin/$(MACH64):$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 PATH	=	$(PATH.$(BITS))
 
-COMPONENT_POST_UNPACK_ACTION = ( ${MV} MediaInfo $(COMPONENT_NAME) )
+COMPONENT_POST_UNPACK_ACTION = ( ${MV} source/MediaInfo source/$(COMPONENT_NAME) )
 
 COMPONENT_PREP_ACTION = (cd $(@D)/Project/GNU/CLI; $(CONFIG_SHELL) autogen; )
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR)/Source $(@D))
