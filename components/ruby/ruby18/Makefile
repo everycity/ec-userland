@@ -40,7 +40,7 @@ COMPONENT_ARCHIVE_1=	$(COMPONENT_SRC_1).tgz
 COMPONENT_ARCHIVE_HASH_1=	sha1:ad6606d1eae82cb69381e4f5b2022d2f3f2733f3
 COMPONENT_ARCHIVE_URL_1=	http://production.cf.rubygems.org/rubygems/$(COMPONENT_ARCHIVE_1)
 
-SOURCE_DIR_1=$(COMPONENT_DIR)/$(COMPONENT_SRC_1)
+SOURCE_DIR_1=$(COMPONENT_DIR)/source/$(COMPONENT_SRC_1)
 CLEAN_PATHS += $(SOURCE_DIR_1)
 
 include ../../../make-rules/prep.mk
@@ -69,7 +69,8 @@ PKG_MACROS+=	RUBY_VER=$(RUBY_VER)
 # Rubygems does not have patches, nor does it use configure nor make.
 COMPONENT_PREP_ACTION = (cd $(@D) ; autoconf); \
 	$(RM) -r $(SOURCE_DIR_1); \
-	$(UNPACK) $(UNPACK_ARGS) $(USERLAND_ARCHIVES)$(COMPONENT_ARCHIVE_1)
+	cd $(COMPONENT_DIR)/source; \
+	$(UNPACK) $(UNPACK_ARGS) $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE_1)
 
 # These modifications of ruby.1 must occur after ruby
 # is installed, not before.  Although there are some other patches
@@ -142,7 +143,7 @@ test:	$(TEST_32)
 
 # install rubygems using ruby installed in proto area
 $(RUBYGEMS_INSTALL_TARGET):	$(INSTALL_32)
-	(cd $(COMPONENT_SRC_1); $(ENV) - \
+	( cd $(SOURCE_DIR_1); $(ENV) - \
 	"DESTDIR=$(PROTO_DIR)" \
 	LD_LIBRARY_PATH=$(PROTO_DIR)$(ECPREFIX)/lib \
 	GEM_HOME=$(PROTOGEMHOME) \
