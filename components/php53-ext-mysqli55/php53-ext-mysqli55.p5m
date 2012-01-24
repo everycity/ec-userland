@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -33,6 +33,11 @@ dir path=$(ECPREFIX)/lib/php
 dir path=$(ECPREFIX)/lib/php/5.3
 dir path=$(ECPREFIX)/lib/php/5.3/extensions
 dir path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)
+dir path=$(ECPREFIX)/lib/php/5.3/include
+dir path=$(ECPREFIX)/lib/php/5.3/include/php
+dir path=$(ECPREFIX)/lib/php/5.3/include/php/ext
+dir path=$(ECPREFIX)/lib/php/5.3/include/php/ext/mysqli
+file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/mysqli/php_mysqli_structs.h
 file mysqli55.ini path=$(ECPREFIX)/etc/php/5.3/conf.d/mysqli55.ini preserve=true
 file $(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)/mysqli.so \
     path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)/mysqli55.so
