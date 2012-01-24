@@ -34,12 +34,12 @@ install: build
 	[ -d $(PROTO_DIR)/$(ECPREFIX)/lib/ruby/vendor_ruby/1.8 ] || mkdir -p $(PROTO_DIR)/$(ECPREFIX)/lib/ruby/vendor_ruby/1.8
 	[ -d $(PROTO_DIR)/$(ECPREFIX)/etc/mcollective/plugin.d ] || mkdir -p $(PROTO_DIR)/$(ECPREFIX)/etc/mcollective/plugin.d
 	[ -d $(PROTO_DIR)/$(ECPREFIX)/etc/mcollective/ssl/clients ] || mkdir -p $(PROTO_DIR)/$(ECPREFIX)/etc/mcollective/ssl/clients
-	$(INSTALL) -m 0755 $(COMPONENT_SRC)/mcollectived.rb $(PROTO_DIR)/$(ECPREFIX)/bin/mcollectived
-	$(INSTALL) -m 0640 $(COMPONENT_SRC)/etc/server.cfg.dist $(PROTO_DIR)/$(ECPREFIX)/etc/mcollective/server.cfg
-	$(INSTALL) -m 0644 $(COMPONENT_SRC)/etc/client.cfg.dist $(PROTO_DIR)/$(ECPREFIX)/etc/mcollective/client.cfg
-	$(INSTALL) -m 0444 $(COMPONENT_SRC)/etc/facts.yaml.dist $(PROTO_DIR)/$(ECPREFIX)/etc/mcollective/facts.yaml
-	$(INSTALL) -m 0444 $(COMPONENT_SRC)/etc/rpc-help.erb $(PROTO_DIR)/$(ECPREFIX)/etc/mcollective/rpc-help.erb
-	cp -R $(COMPONENT_SRC)/lib/* $(PROTO_DIR)/$(ECPREFIX)/lib/ruby/vendor_ruby/1.8
-	cp -R $(COMPONENT_SRC)/plugins/* $(PROTO_DIR)/$(ECPREFIX)/share/mcollective/plugins
-	cp $(COMPONENT_SRC)/mc-* $(PROTO_DIR)/$(ECPREFIX)/bin
-	cp $(COMPONENT_SRC)/mco $(PROTO_DIR)/$(ECPREFIX)/bin
+	$(INSTALL) -m 0755 source/$(COMPONENT_SRC)/mcollectived.rb $(PROTO_DIR)/$(ECPREFIX)/bin/mcollectived
+	$(INSTALL) -m 0640 source/$(COMPONENT_SRC)/etc/server.cfg.dist $(PROTO_DIR)/$(ECPREFIX)/etc/mcollective/server.cfg
+	$(INSTALL) -m 0644 source/$(COMPONENT_SRC)/etc/client.cfg.dist $(PROTO_DIR)/$(ECPREFIX)/etc/mcollective/client.cfg
+	$(INSTALL) -m 0444 source/$(COMPONENT_SRC)/etc/facts.yaml.dist $(PROTO_DIR)/$(ECPREFIX)/etc/mcollective/facts.yaml
+	$(INSTALL) -m 0444 source/$(COMPONENT_SRC)/etc/rpc-help.erb $(PROTO_DIR)/$(ECPREFIX)/etc/mcollective/rpc-help.erb
+	cp -R source/$(COMPONENT_SRC)/lib/* $(PROTO_DIR)/$(ECPREFIX)/lib/ruby/vendor_ruby/1.8
+	cp -R source/$(COMPONENT_SRC)/plugins/* $(PROTO_DIR)/$(ECPREFIX)/share/mcollective/plugins
+	cp source/$(COMPONENT_SRC)/mc-* $(PROTO_DIR)/$(ECPREFIX)/bin
+	cp source/$(COMPONENT_SRC)/mco $(PROTO_DIR)/$(ECPREFIX)/bin
