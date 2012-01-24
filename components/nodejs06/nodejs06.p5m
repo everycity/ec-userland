@@ -94,6 +94,7 @@ dir path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-ignore
 dir path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-ignore/sub
 dir \
     path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-missing-bindir
+dir path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-optional-deps
 dir path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-private
 dir path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-test-package
 dir path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-url-dep
@@ -174,18 +175,16 @@ file path=$(ECPREFIX)/lib/node/wafadmin/__init__.py
 file path=$(ECPREFIX)/lib/node/wafadmin/ansiterm.py
 file path=$(ECPREFIX)/lib/node/wafadmin/pproc.py
 file path=$(ECPREFIX)/lib/node/wafadmin/py3kfixes.py
-file path=$(ECPREFIX)/lib/node_modules/npm/.gitmodules
 file path=$(ECPREFIX)/lib/node_modules/npm/.npmignore
 file path=$(ECPREFIX)/lib/node_modules/npm/.travis.yml
 file path=$(ECPREFIX)/lib/node_modules/npm/AUTHORS
 file path=$(ECPREFIX)/lib/node_modules/npm/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/Makefile
 file path=$(ECPREFIX)/lib/node_modules/npm/README.md
+file path=$(ECPREFIX)/lib/node_modules/npm/bin/npm
 file path=$(ECPREFIX)/lib/node_modules/npm/bin/npm-cli.js
-file path=$(ECPREFIX)/lib/node_modules/npm/bin/npm-g.cmd
 file path=$(ECPREFIX)/lib/node_modules/npm/bin/npm-get-uid-gid.js
 file path=$(ECPREFIX)/lib/node_modules/npm/bin/npm.cmd
-file path=$(ECPREFIX)/lib/node_modules/npm/bin/npm_g.cmd
 file path=$(ECPREFIX)/lib/node_modules/npm/bin/read-package-json.js
 file path=$(ECPREFIX)/lib/node_modules/npm/cli.js
 file path=$(ECPREFIX)/lib/node_modules/npm/configure
@@ -711,6 +710,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read/lib/read.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/README.md
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/forever.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/main.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/mimetypes.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/oauth.js
@@ -811,8 +811,6 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-ignore/sub/include4
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-ignore/test.sh
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-missing-bindir/package.json
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-missing-bindir/test.js
 file \
