@@ -14,8 +14,11 @@
 
 # Ignore all build and source trees to speed up hg merge/update
 syntax: regexp
+
 components/.*/build/.*
 components/.*/source/.*
+components/components\.mk
+components/depends\.mk
 i386/.*
 tools/time-.*
 archives/.*
