@@ -18,7 +18,7 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -32,6 +32,13 @@ COMPONENT_ARCHIVE_URL=	http://get.qt.nokia.com/qt/source/$(COMPONENT_ARCHIVE)
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+PATH.32=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH.64=$(ECPREFIX)/bin/$(MACH64):/$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH=$(PATH.$(BITS))
+
+LDFLAGS.32 +=   -L$(ECPREFIX)/lib/postgres/9.1/lib -R$(ECPREFIX)/lib/postgres/9.1/lib
+LDFLAGS.64 +=	-L$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64) -R$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64)
 
 COMPONENT_INSTALL_ENV+=	INSTALL_ROOT=$(PROTO_DIR)
 
@@ -54,6 +61,8 @@ CONFIGURE_OPTIONS+=	-nomake translations
 CONFIGURE_OPTIONS+=	-nomake docs
 CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))
 CONFIGURE_OPTIONS+=	-plugin-sql-sqlite
+CONFIGURE_OPTIONS+=	-plugin-sql-mysql
+CONFIGURE_OPTIONS+=	-plugin-sql-psql
 CONFIGURE_OPTIONS+=	-system-sqlite
 
 COMPONENT_POST_INSTALL_ACTION.32= ( cd $(PROTO_DIR)/$(ECPREFIX)/lib/qt/4.7/mkspecs ; \

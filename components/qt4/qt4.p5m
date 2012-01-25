@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -46,6 +46,7 @@ dir path=$(ECPREFIX)/lib/qt/4.7/include/QtGui
 dir path=$(ECPREFIX)/lib/qt/4.7/include/QtHelp
 dir path=$(ECPREFIX)/lib/qt/4.7/include/QtMultimedia
 dir path=$(ECPREFIX)/lib/qt/4.7/include/QtNetwork
+dir path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL
 dir path=$(ECPREFIX)/lib/qt/4.7/include/QtScript
 dir path=$(ECPREFIX)/lib/qt/4.7/include/QtScriptTools
 dir path=$(ECPREFIX)/lib/qt/4.7/include/QtSql
@@ -293,6 +294,7 @@ file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/QtGui
 file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/QtHelp
 file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/QtMultimedia
 file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/QtNetwork
+file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/QtOpenGL
 file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/QtScript
 file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/QtScriptTools
 file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/QtSql
@@ -599,7 +601,14 @@ file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/qfuturewatcher.h
 file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/qgenericmatrix.h
 file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/qgesture.h
 file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/qgesturerecognizer.h
+file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/qgl.h
+file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/qglbuffer.h
+file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/qglcolormap.h
+file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/qglframebufferobject.h
 file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/qglobal.h
+file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/qglpixelbuffer.h
+file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/qglscreen_qws.h
+file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/qglshaderprogram.h
 file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/qgraphicsanchorlayout.h
 file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/qgraphicseffect.h
 file path=$(ECPREFIX)/lib/qt/4.7/include/Qt/qgraphicsgridlayout.h
@@ -2858,6 +2867,30 @@ file path=$(ECPREFIX)/lib/qt/4.7/include/QtNetwork/qtcpserver.h
 file path=$(ECPREFIX)/lib/qt/4.7/include/QtNetwork/qtcpsocket.h
 file path=$(ECPREFIX)/lib/qt/4.7/include/QtNetwork/qudpsocket.h
 file path=$(ECPREFIX)/lib/qt/4.7/include/QtNetwork/qurlinfo.h
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/QGLBuffer
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/QGLColormap
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/QGLContext
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/QGLFormat
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/QGLFramebufferObject
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/QGLFramebufferObjectFormat
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/QGLPixelBuffer
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/QGLScreen
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/QGLScreenSurfaceFunctions
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/QGLShader
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/QGLShaderProgram
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/QGLWidget
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/QMacCompatGLenum
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/QMacCompatGLint
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/QMacCompatGLuint
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/QMacGLCompatTypes
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/QtOpenGL
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/qgl.h
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/qglbuffer.h
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/qglcolormap.h
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/qglframebufferobject.h
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/qglpixelbuffer.h
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/qglscreen_qws.h
+file path=$(ECPREFIX)/lib/qt/4.7/include/QtOpenGL/qglshaderprogram.h
 file path=$(ECPREFIX)/lib/qt/4.7/include/QtScript/QScriptClass
 file path=$(ECPREFIX)/lib/qt/4.7/include/QtScript/QScriptClassPropertyIterator
 file path=$(ECPREFIX)/lib/qt/4.7/include/QtScript/QScriptContext
@@ -3153,6 +3186,9 @@ file \
 file path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtNetwork.prl
 file \
     path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtNetwork.so.$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtOpenGL.prl
+file \
+    path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtOpenGL.so.$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtScript.prl
 file \
     path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtScript.so.$(COMPONENT_VERSION)
@@ -3168,6 +3204,7 @@ file \
 file path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtTest.prl
 file \
     path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtTest.so.$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtUiTools.a
 file path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtUiTools.prl
 file path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtWebKit.prl
 file \
@@ -3189,6 +3226,7 @@ file path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/pkgconfig/QtGui.pc
 file path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/pkgconfig/QtHelp.pc
 file path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/pkgconfig/QtMultimedia.pc
 file path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/pkgconfig/QtNetwork.pc
+file path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/pkgconfig/QtOpenGL.pc
 file path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/pkgconfig/QtScript.pc
 file path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/pkgconfig/QtScriptTools.pc
 file path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/pkgconfig/QtSql.pc
@@ -3219,6 +3257,8 @@ file path=$(ECPREFIX)/lib/qt/4.7/lib/libQtMultimedia.prl
 file path=$(ECPREFIX)/lib/qt/4.7/lib/libQtMultimedia.so.$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/qt/4.7/lib/libQtNetwork.prl
 file path=$(ECPREFIX)/lib/qt/4.7/lib/libQtNetwork.so.$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/lib/qt/4.7/lib/libQtOpenGL.prl
+file path=$(ECPREFIX)/lib/qt/4.7/lib/libQtOpenGL.so.$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/qt/4.7/lib/libQtScript.prl
 file path=$(ECPREFIX)/lib/qt/4.7/lib/libQtScript.so.$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/qt/4.7/lib/libQtScriptTools.prl
@@ -3229,6 +3269,7 @@ file path=$(ECPREFIX)/lib/qt/4.7/lib/libQtSvg.prl
 file path=$(ECPREFIX)/lib/qt/4.7/lib/libQtSvg.so.$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/qt/4.7/lib/libQtTest.prl
 file path=$(ECPREFIX)/lib/qt/4.7/lib/libQtTest.so.$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/lib/qt/4.7/lib/libQtUiTools.a
 file path=$(ECPREFIX)/lib/qt/4.7/lib/libQtUiTools.prl
 file path=$(ECPREFIX)/lib/qt/4.7/lib/libQtWebKit.prl
 file path=$(ECPREFIX)/lib/qt/4.7/lib/libQtWebKit.so.$(COMPONENT_VERSION)
@@ -3246,6 +3287,7 @@ file path=$(ECPREFIX)/lib/qt/4.7/lib/pkgconfig/QtGui.pc
 file path=$(ECPREFIX)/lib/qt/4.7/lib/pkgconfig/QtHelp.pc
 file path=$(ECPREFIX)/lib/qt/4.7/lib/pkgconfig/QtMultimedia.pc
 file path=$(ECPREFIX)/lib/qt/4.7/lib/pkgconfig/QtNetwork.pc
+file path=$(ECPREFIX)/lib/qt/4.7/lib/pkgconfig/QtOpenGL.pc
 file path=$(ECPREFIX)/lib/qt/4.7/lib/pkgconfig/QtScript.pc
 file path=$(ECPREFIX)/lib/qt/4.7/lib/pkgconfig/QtScriptTools.pc
 file path=$(ECPREFIX)/lib/qt/4.7/lib/pkgconfig/QtSql.pc
@@ -3506,22 +3548,28 @@ file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/linux-pgcc/qmake.conf
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/linux-pgcc/qplatformdefs.h
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/lynxos-g++/qmake.conf
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/lynxos-g++/qplatformdefs.h
+file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-g++/Info.plist.app
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-g++/Info.plist.lib
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-g++/qmake.conf
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-g++/qplatformdefs.h
+file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-g++40/Info.plist.app
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-g++40/Info.plist.lib
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-g++40/qmake.conf
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-g++40/qplatformdefs.h
+file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-g++42/Info.plist.app
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-g++42/Info.plist.lib
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-g++42/qmake.conf
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-g++42/qplatformdefs.h
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-icc/qmake.conf
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-icc/qplatformdefs.h
+file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-llvm/Info.plist.app
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-llvm/Info.plist.lib
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-llvm/qmake.conf
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-llvm/qplatformdefs.h
+file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-pbuilder/Info.plist.app
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-pbuilder/qmake.conf
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-pbuilder/qplatformdefs.h
+file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-xcode/Info.plist.app
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-xcode/Info.plist.lib
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-xcode/qmake.conf
 file path=$(ECPREFIX)/lib/qt/4.7/mkspecs/macx-xcode/qplatformdefs.h
@@ -3828,6 +3876,8 @@ file \
     path=$(ECPREFIX)/lib/qt/4.7/plugins/$(MACH64)/designer/libqt3supportwidgets.so
 file path=$(ECPREFIX)/lib/qt/4.7/plugins/$(MACH64)/designer/libqwebview.so
 file \
+    path=$(ECPREFIX)/lib/qt/4.7/plugins/$(MACH64)/graphicssystems/libqglgraphicssystem.so
+file \
     path=$(ECPREFIX)/lib/qt/4.7/plugins/$(MACH64)/graphicssystems/libqtracegraphicssystem.so
 file path=$(ECPREFIX)/lib/qt/4.7/plugins/$(MACH64)/iconengines/libqsvgicon.so
 file path=$(ECPREFIX)/lib/qt/4.7/plugins/$(MACH64)/imageformats/libqgif.so
@@ -3840,6 +3890,7 @@ file \
     path=$(ECPREFIX)/lib/qt/4.7/plugins/$(MACH64)/inputmethods/libqimsw-multi.so
 file path=$(ECPREFIX)/lib/qt/4.7/plugins/$(MACH64)/qmltooling/libtcpserver.so
 file path=$(ECPREFIX)/lib/qt/4.7/plugins/$(MACH64)/sqldrivers/libqsqlite.so
+file path=$(ECPREFIX)/lib/qt/4.7/plugins/$(MACH64)/sqldrivers/libqsqlmysql.so
 file path=$(ECPREFIX)/lib/qt/4.7/plugins/$(MACH64)/sqldrivers/libqsqlpsql.so
 file \
     path=$(ECPREFIX)/lib/qt/4.7/plugins/accessible/libqtaccessiblecompatwidgets.so
@@ -3852,6 +3903,8 @@ file path=$(ECPREFIX)/lib/qt/4.7/plugins/codecs/libqtwcodecs.so
 file path=$(ECPREFIX)/lib/qt/4.7/plugins/designer/libqdeclarativeview.so
 file path=$(ECPREFIX)/lib/qt/4.7/plugins/designer/libqt3supportwidgets.so
 file path=$(ECPREFIX)/lib/qt/4.7/plugins/designer/libqwebview.so
+file \
+    path=$(ECPREFIX)/lib/qt/4.7/plugins/graphicssystems/libqglgraphicssystem.so
 file \
     path=$(ECPREFIX)/lib/qt/4.7/plugins/graphicssystems/libqtracegraphicssystem.so
 file path=$(ECPREFIX)/lib/qt/4.7/plugins/iconengines/libqsvgicon.so
@@ -3927,6 +3980,12 @@ link path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtNetwork.so.4 \
     target=libQtNetwork.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtNetwork.so.4.7 \
     target=libQtNetwork.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtOpenGL.so \
+    target=libQtOpenGL.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtOpenGL.so.4 \
+    target=libQtOpenGL.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtOpenGL.so.4.7 \
+    target=libQtOpenGL.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtScript.so \
     target=libQtScript.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)/libQtScript.so.4 \
@@ -4035,6 +4094,12 @@ link path=$(ECPREFIX)/lib/qt/4.7/lib/libQtNetwork.so.4 \
     target=libQtNetwork.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/qt/4.7/lib/libQtNetwork.so.4.7 \
     target=libQtNetwork.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/qt/4.7/lib/libQtOpenGL.so \
+    target=libQtOpenGL.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/qt/4.7/lib/libQtOpenGL.so.4 \
+    target=libQtOpenGL.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/qt/4.7/lib/libQtOpenGL.so.4.7 \
+    target=libQtOpenGL.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/qt/4.7/lib/libQtScript.so \
     target=libQtScript.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/qt/4.7/lib/libQtScript.so.4 \
@@ -4083,7 +4148,7 @@ link path=$(ECPREFIX)/lib/qt/4.7/lib/libQtXmlPatterns.so.4 \
     target=libQtXmlPatterns.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/qt/4.7/lib/libQtXmlPatterns.so.4.7 \
     target=libQtXmlPatterns.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/qt/4.7/mkspecs/default target=solaris-g++
+link path=$(ECPREFIX)/lib/qt/4.7/mkspecs/default target=solaris-g++-64
 
 # Custom Stuff
 
