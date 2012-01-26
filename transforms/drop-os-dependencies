@@ -17,6 +17,7 @@
 <transform depend pkg.debug.depend.file=ksh -> drop>
 <transform depend pkg.debug.depend.file=perl -> drop>
 <transform depend pkg.debug.depend.file=sh -> drop>
+<transform depend pkg.debug.depend.file=libadm\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libc\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libcrypt\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libcrypt_d\.so.* -> drop>
@@ -34,6 +35,7 @@
 <transform depend pkg.debug.depend.file=libmd5\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libnsl\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libpam\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libpkcs11\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libpthread\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libresolv\.so.* -> drop>
 <transform depend pkg.debug.depend.file=librt\.so.* -> drop>
