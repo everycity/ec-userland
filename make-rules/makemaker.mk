@@ -85,4 +85,4 @@ $(PERLBD_ARCH)-%/.tested:	$(PERLBD_ARCH)-%/.built
 	$(TOUCH) $@
 
 clean:: 
-	$(RM) -r $(BUILD_DIR) $(PROTO_DIR)
+	$(RM) -r $(BUILD_DIR)

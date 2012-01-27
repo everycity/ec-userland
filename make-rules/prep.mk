@@ -25,7 +25,7 @@ UNPACK =	$(WS_TOOLS)/userland-unpack
 FETCH =		$(WS_TOOLS)/userland-fetch
 
 ARCHIVES += $(COMPONENT_ARCHIVE)
-CLEAN_PATHS += $(SOURCE_DIR)
+CLEAN_PATHS += source
 
 # In order to override PATCH_DIR and PATCH_PATTERN in component makefiles, they
 # need to be conditionally set here.  This means that the override needs to

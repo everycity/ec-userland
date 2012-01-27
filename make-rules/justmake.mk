@@ -73,4 +73,4 @@ $(BUILD_DIR)/%/.tested: $(BUILD_DIR)/%/.built
 	$(TOUCH) $@
 
 clean::
-	$(RM) -r $(BUILD_DIR) $(PROTO_DIR)
+	$(RM) -r $(BUILD_DIR)
