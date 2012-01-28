@@ -26,6 +26,9 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+# make build isn't thread safe.
+COMPONENT_BUILD_GMAKE_ARGS=
+
 CPPFLAGS += "-DFALSE_SHARING_ALIGN=64"
 
 CONFIGURE_OPTIONS  +=	--with-default-snmp-version=3
