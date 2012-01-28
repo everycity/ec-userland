@@ -812,7 +812,11 @@ file \
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-ignore/test.sh
 file \
+    path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-missing-bindir/package.json
+file \
     path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-missing-bindir/test.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-optional-deps/package.json
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-private/package.json
 file \
