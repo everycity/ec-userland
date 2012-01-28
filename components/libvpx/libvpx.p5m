@@ -42,13 +42,16 @@ file path=$(ECPREFIX)/include/vpx/vpx_decoder_compat.h
 file path=$(ECPREFIX)/include/vpx/vpx_encoder.h
 file path=$(ECPREFIX)/include/vpx/vpx_image.h
 file path=$(ECPREFIX)/include/vpx/vpx_integer.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libvpx.so.0.9.7
+file path=$(ECPREFIX)/lib/$(MACH64)/libvpx.so.$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/vpx.pc
-file path=$(ECPREFIX)/lib/libvpx.so.0.9.7
+file path=$(ECPREFIX)/lib/libvpx.so.$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/pkgconfig/vpx.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libvpx.so target=libvpx.so.0.9.7
-link path=$(ECPREFIX)/lib/$(MACH64)/libvpx.so.0 target=libvpx.so.0.9.7
-link path=$(ECPREFIX)/lib/$(MACH64)/libvpx.so.0.9 target=libvpx.so.0.9.7
-link path=$(ECPREFIX)/lib/libvpx.so target=libvpx.so.0.9.7
-link path=$(ECPREFIX)/lib/libvpx.so.0 target=libvpx.so.0.9.7
-link path=$(ECPREFIX)/lib/libvpx.so.0.9 target=libvpx.so.0.9.7
+link path=$(ECPREFIX)/lib/$(MACH64)/libvpx.so \
+    target=libvpx.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/$(MACH64)/libvpx.so.1 \
+    target=libvpx.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/$(MACH64)/libvpx.so.1.0 \
+    target=libvpx.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/libvpx.so target=libvpx.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/libvpx.so.1 target=libvpx.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/libvpx.so.1.0 target=libvpx.so.$(COMPONENT_VERSION)
