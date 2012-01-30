@@ -71,7 +71,7 @@ build install publish test: $(COMPONENT_DIRS)
 
 COMPONENT_DIRS.nosetup =	$(COMPONENT_DIRS:%=%.nosetup)
 
-download prep:	$(COMPONENT_DIRS.nosetup)
+download prep:	$(COMPONENT_DIRS.nosetup) $(WS_ARCHIVES)
 
 clean:		$(COMPONENT_DIRS.nosetup)
 	$(RM) components.mk depends.mk .profile
