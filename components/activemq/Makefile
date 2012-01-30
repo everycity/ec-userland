@@ -15,10 +15,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		activemq
-COMPONENT_VERSION=	5.5.0
+COMPONENT_VERSION=	5.5.1
 COMPONENT_SRC=		apache-$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-bin.tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:7d9475d7c13b883522d0580937959372d5430e85
+COMPONENT_ARCHIVE_HASH=	sha1:7ffffac52a529ebfe989de05609f3a8a1383ce8e
 COMPONENT_ARCHIVE_URL=	http://mirrors.ukfast.co.uk/sites/ftp.apache.org//activemq/apache-activemq/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
