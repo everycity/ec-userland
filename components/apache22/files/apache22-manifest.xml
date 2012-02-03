@@ -27,7 +27,7 @@
 	  and methods within the instance.
 	-->
 
-	<instance name='default' enabled='true'>
+	<instance name='default' enabled='false'>
 		<!--
 		  Wait for network interfaces to be initialized.
 		-->
@@ -60,6 +60,18 @@
 		    type='service'>
 		    <service_fmri
 			value='svc:/system/filesystem/autofs:default'/>
+		</dependency>
+
+		<!--
+		  Wait for NFS to become available, as we may be
+		  serving data from NFS mountpoints.
+		-->
+		<dependency name='nfs'
+		    grouping='optional_all'
+		    restart_on='error'
+		    type='service'>
+		    <service_fmri
+			value='svc:/network/nfs/client:default'/>
 		</dependency>
 
 		<exec_method
