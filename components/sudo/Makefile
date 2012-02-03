@@ -35,6 +35,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+LDFLAGS+=	-lintl
+
 CONFIGURE_OPTIONS+=	--with-insults
 CONFIGURE_OPTIONS+=	--with-hal-insults
 CONFIGURE_OPTIONS+=	--with-editor=$(ECPREFIX)/bin/vim
