@@ -1,0 +1,40 @@
+# This patch enables the magic config/var dir relocation to work with apachectl
+#
+--- httpd-2.2.22/support/apachectl.in.orig	2012-02-03 11:26:14.199975371 +0000
++++ httpd-2.2.22/support/apachectl.in	2012-02-03 11:51:55.181904194 +0000
+@@ -37,6 +37,22 @@
+ #
+ ARGV="$@"
+ #
++
++# If APACHE_ETC_ROOT isn't set, attempt to get it via SMF
++if [ ! -n "${APACHE_ETC_ROOT:+x}" ] ; then
++  APACHE_ETC_ROOT=`svcprop -p httpd/config_dir svc:/network/http/apache22:default 2>/dev/null`
++  [ $? -ne 0 ] && APACHE_ETC_ROOT=@exp_sysconfdir@
++  export APACHE_ETC_ROOT
++fi
++
++# If APACHE_VAR_ROOT isn't set, attempt to get it via SMF
++if [ ! -n "${APACHE_VAR_ROOT:+x}" ] ; then
++  APACHE_VAR_ROOT=`svcprop -p httpd/var_dir svc:/network/http/apache22:default 2>/dev/null`
++  [ $? -ne 0 ] && APACHE_VAR_ROOT=@exp_datadir@
++  export APACHE_VAR_ROOT
++fi
++
++
+ # |||||||||||||||||||| START CONFIGURATION SECTION  ||||||||||||||||||||
+ # --------------------                              --------------------
+ # 
+@@ -44,9 +60,10 @@
+ HTTPD='@exp_sbindir@/@progname@'
+ #
+ # pick up any necessary environment variables
+-if test -f @exp_sbindir@/envvars; then
+-  . @exp_sbindir@/envvars
++if test -f $APACHE_ETC_ROOT/envvars; then
++  . $APACHE_ETC_ROOT/envvars
+ fi
++
+ #
+ # a command that outputs a formatted text version of the HTML at the
+ # url given on the command line.  Designed for lynx, however other
