@@ -60,7 +60,7 @@
 		exec=':kill -HUP'
 		timeout_seconds='30'/>
 
-	<instance name='default' enabled='true'>
+	<instance name='default' enabled='false'>
 
 		<property_group name='exim' type='application'>
 			<stability value='Evolving'/>
