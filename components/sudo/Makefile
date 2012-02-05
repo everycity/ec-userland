@@ -23,13 +23,13 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		sudo
-COMPONENT_VERSION=	1.8.1p2
+COMPONENT_VERSION=	1.8.3p2
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:b743b3d7bdb06de68ea24eedfe13530e8fbcae09
+COMPONENT_ARCHIVE_HASH=	sha1:37d70b133f809116ce631229fa0e727d9f5125ad
 COMPONENT_ARCHIVE_URL=	http://www.sudo.ws/sudo/dist/$(COMPONENT_ARCHIVE)
 
-IPS_COMPONENT_VERSION=	1.8.1.2
+IPS_COMPONENT_VERSION=	1.8.3.2
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

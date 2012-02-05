@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -44,6 +44,27 @@ dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/doc
 dir path=$(ECPREFIX)/share/doc/sudo
+dir path=$(ECPREFIX)/share/locale
+dir path=$(ECPREFIX)/share/locale/da
+dir path=$(ECPREFIX)/share/locale/da/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/eo
+dir path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/eu
+dir path=$(ECPREFIX)/share/locale/eu/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/fi
+dir path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/it
+dir path=$(ECPREFIX)/share/locale/it/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ja
+dir path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/pl
+dir path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ru
+dir path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/uk
+dir path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/zh_CN
+dir path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1m
 dir path=$(ECPREFIX)/share/man/man4
@@ -57,6 +78,7 @@ file path=$(ECPREFIX)/etc/sudoers
 file path=$(ECPREFIX)/include/sudo_plugin.h
 file path=$(ECPREFIX)/lib/sudo_noexec.so
 file path=$(ECPREFIX)/lib/sudoers.so
+file path=$(ECPREFIX)/share/doc/sudo/CONTRIBUTORS
 file path=$(ECPREFIX)/share/doc/sudo/ChangeLog
 file path=$(ECPREFIX)/share/doc/sudo/HISTORY
 file path=$(ECPREFIX)/share/doc/sudo/LICENSE
@@ -68,6 +90,24 @@ file path=$(ECPREFIX)/share/doc/sudo/sample.pam
 file path=$(ECPREFIX)/share/doc/sudo/sample.sudo.conf
 file path=$(ECPREFIX)/share/doc/sudo/sample.sudoers
 file path=$(ECPREFIX)/share/doc/sudo/sample.syslog.conf
+file path=$(ECPREFIX)/share/locale/da/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/da/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/eu/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/eu/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/it/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/sudoers.mo
 file path=$(ECPREFIX)/share/man/man1m/sudo_plugin.1m
 file path=$(ECPREFIX)/share/man/man1m/sudoedit.1m
 file path=$(ECPREFIX)/share/man/man1m/sudoreplay.1m
