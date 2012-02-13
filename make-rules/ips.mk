@@ -146,7 +146,7 @@ $(MANIFEST_BASE)-%.depend:	$(MANIFEST_BASE)-%.mogrified
 
 # Drop os dependencies from the dependency file
 $(MANIFEST_BASE)-%.depend.fixed:	$(MANIFEST_BASE)-%.depend
-	$(PKGMOGRIFY) $< $(PKGDEPEND_TRANSFORMS) | \
+	$(PKGMOGRIFY) $(PKG_OPTIONS) $< $(PKGDEPEND_TRANSFORMS) | \
 	sed -e '/^$$/d' -e '/^#.*$$/d' | uniq >$@
 
 # resolve the dependencies all at once
