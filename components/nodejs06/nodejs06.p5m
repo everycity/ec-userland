@@ -466,6 +466,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/exec.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/fetch.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/find-prefix.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/find.js
+file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/gently-rm.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/get-agent.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/get.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/ini.js
@@ -723,7 +724,6 @@ file \
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/rimraf/AUTHORS
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/rimraf/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/rimraf/README.md
-file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/rimraf/fiber.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/rimraf/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/rimraf/rimraf.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/semver/LICENSE
