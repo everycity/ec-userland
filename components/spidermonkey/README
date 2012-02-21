@@ -1,0 +1,12 @@
+This package relies on autoconf-213 to install.  autoconf-213 is not in the
+IPS repo as it is a PITA to get to install alongside the version we want.  If
+anyone wants to complete autoconf-213 the starting point is committed to the
+hg repo.
+
+To build this package, therefore, you should manually install autoconf-213 in
+your build environment without the IPS autoconf then clean up and revert to
+the proper autoconf afterwards.
+
+The spidermonkey.p5m.off file is the correct manifest for this component but
+is deliberately misnamed to stop it getting built in full repo builds that
+will not have the correct autoconf.

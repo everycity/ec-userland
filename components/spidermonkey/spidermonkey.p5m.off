@@ -1,0 +1,145 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/library/js/spidermonkey@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="SpiderMonkey is Mozilla's JavaScript engine written in C/C++."
+set name=info.upstream_url value="https://developer.mozilla.org/en/SpiderMonkey"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+#license license="MPL/GPL/LGPL"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/js
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+file path=$(ECPREFIX)/bin/$(MACH64)/js-config
+file path=$(ECPREFIX)/bin/js-config
+file path=$(ECPREFIX)/include/js/Allocator.h
+file path=$(ECPREFIX)/include/js/Assembler.h
+file path=$(ECPREFIX)/include/js/CodeAlloc.h
+file path=$(ECPREFIX)/include/js/Containers.h
+file path=$(ECPREFIX)/include/js/Fragmento.h
+file path=$(ECPREFIX)/include/js/LIR.h
+file path=$(ECPREFIX)/include/js/LIRopcode.tbl
+file path=$(ECPREFIX)/include/js/Native.h
+file path=$(ECPREFIX)/include/js/NativeCommon.h
+file path=$(ECPREFIX)/include/js/NativeX64.h
+file path=$(ECPREFIX)/include/js/Nativei386.h
+file path=$(ECPREFIX)/include/js/RegAlloc.h
+file path=$(ECPREFIX)/include/js/VMPI.h
+file path=$(ECPREFIX)/include/js/Writer.h
+file path=$(ECPREFIX)/include/js/avmplus.h
+file path=$(ECPREFIX)/include/js/js-config.h
+file path=$(ECPREFIX)/include/js/js.msg
+file path=$(ECPREFIX)/include/js/jsanalyze.h
+file path=$(ECPREFIX)/include/js/jsapi.h
+file path=$(ECPREFIX)/include/js/jsarena.h
+file path=$(ECPREFIX)/include/js/jsarray.h
+file path=$(ECPREFIX)/include/js/jsatom.h
+file path=$(ECPREFIX)/include/js/jsautocfg.h
+file path=$(ECPREFIX)/include/js/jsautokw.h
+file path=$(ECPREFIX)/include/js/jsbit.h
+file path=$(ECPREFIX)/include/js/jsbool.h
+file path=$(ECPREFIX)/include/js/jsbuiltins.h
+file path=$(ECPREFIX)/include/js/jscell.h
+file path=$(ECPREFIX)/include/js/jsclist.h
+file path=$(ECPREFIX)/include/js/jsclone.h
+file path=$(ECPREFIX)/include/js/jscntxt.h
+file path=$(ECPREFIX)/include/js/jscompartment.h
+file path=$(ECPREFIX)/include/js/jscompat.h
+file path=$(ECPREFIX)/include/js/jsdate.h
+file path=$(ECPREFIX)/include/js/jsdbgapi.h
+file path=$(ECPREFIX)/include/js/jsdhash.h
+file path=$(ECPREFIX)/include/js/jsdtoa.h
+file path=$(ECPREFIX)/include/js/jsemit.h
+file path=$(ECPREFIX)/include/js/jsfriendapi.h
+file path=$(ECPREFIX)/include/js/jsfun.h
+file path=$(ECPREFIX)/include/js/jsgc.h
+file path=$(ECPREFIX)/include/js/jsgcchunk.h
+file path=$(ECPREFIX)/include/js/jsgcstats.h
+file path=$(ECPREFIX)/include/js/jshash.h
+file path=$(ECPREFIX)/include/js/jshashtable.h
+file path=$(ECPREFIX)/include/js/jshotloop.h
+file path=$(ECPREFIX)/include/js/jsinterp.h
+file path=$(ECPREFIX)/include/js/jsinttypes.h
+file path=$(ECPREFIX)/include/js/jsiter.h
+file path=$(ECPREFIX)/include/js/jslock.h
+file path=$(ECPREFIX)/include/js/jslong.h
+file path=$(ECPREFIX)/include/js/jsmath.h
+file path=$(ECPREFIX)/include/js/jsobj.h
+file path=$(ECPREFIX)/include/js/jsobjinlines.h
+file path=$(ECPREFIX)/include/js/json.h
+file path=$(ECPREFIX)/include/js/jsopcode.h
+file path=$(ECPREFIX)/include/js/jsopcode.tbl
+file path=$(ECPREFIX)/include/js/jsopcodeinlines.h
+file path=$(ECPREFIX)/include/js/jsotypes.h
+file path=$(ECPREFIX)/include/js/jsparse.h
+file path=$(ECPREFIX)/include/js/jsperf.h
+file path=$(ECPREFIX)/include/js/jsprf.h
+file path=$(ECPREFIX)/include/js/jsprobes.h
+file path=$(ECPREFIX)/include/js/jspropertycache.h
+file path=$(ECPREFIX)/include/js/jspropertycacheinlines.h
+file path=$(ECPREFIX)/include/js/jspropertytree.h
+file path=$(ECPREFIX)/include/js/jsproto.tbl
+file path=$(ECPREFIX)/include/js/jsproxy.h
+file path=$(ECPREFIX)/include/js/jsprvtd.h
+file path=$(ECPREFIX)/include/js/jspubtd.h
+file path=$(ECPREFIX)/include/js/jsreflect.h
+file path=$(ECPREFIX)/include/js/jsregexp.h
+file path=$(ECPREFIX)/include/js/jsscan.h
+file path=$(ECPREFIX)/include/js/jsscope.h
+file path=$(ECPREFIX)/include/js/jsscript.h
+file path=$(ECPREFIX)/include/js/jsscriptinlines.h
+file path=$(ECPREFIX)/include/js/jsstaticcheck.h
+file path=$(ECPREFIX)/include/js/jsstdint.h
+file path=$(ECPREFIX)/include/js/jsstr.h
+file path=$(ECPREFIX)/include/js/jstl.h
+file path=$(ECPREFIX)/include/js/jstracer.h
+file path=$(ECPREFIX)/include/js/jstypedarray.h
+file path=$(ECPREFIX)/include/js/jstypes.h
+file path=$(ECPREFIX)/include/js/jsutil.h
+file path=$(ECPREFIX)/include/js/jsval.h
+file path=$(ECPREFIX)/include/js/jsvalue.h
+file path=$(ECPREFIX)/include/js/jsvector.h
+file path=$(ECPREFIX)/include/js/jsversion.h
+file path=$(ECPREFIX)/include/js/jswrapper.h
+file path=$(ECPREFIX)/include/js/jsxdrapi.h
+file path=$(ECPREFIX)/include/js/jsxml.h
+file path=$(ECPREFIX)/include/js/nanojit.h
+file path=$(ECPREFIX)/include/js/njconfig.h
+file path=$(ECPREFIX)/include/js/njcpudetect.h
+file path=$(ECPREFIX)/include/js/prmjtime.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libmozjs185-1.0.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libmozjs185.so.1.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/mozjs185.pc
+file path=$(ECPREFIX)/lib/libmozjs185-1.0.a
+file path=$(ECPREFIX)/lib/libmozjs185.so.1.0.0
+file path=$(ECPREFIX)/lib/pkgconfig/mozjs185.pc
+link path=$(ECPREFIX)/lib/$(MACH64)/libmozjs185.so \
+    target=libmozjs185.so.1.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libmozjs185.so.1.0 \
+    target=libmozjs185.so.1.0.0
+link path=$(ECPREFIX)/lib/libmozjs185.so \
+    target=libmozjs185.so.1.0.0
+link path=$(ECPREFIX)/lib/libmozjs185.so.1.0 \
+    target=libmozjs185.so.1.0.0

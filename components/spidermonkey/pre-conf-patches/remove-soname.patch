@@ -1,0 +1,11 @@
+--- src/Makefile.in.orig	2012-02-20 11:48:43.609493662 +0000
++++ src/Makefile.in	2012-02-20 11:49:19.144275166 +0000
+@@ -871,7 +871,7 @@
+ SHLIB_ANY_VER   := $(DESTDIR)$(libdir)/$(SHARED_LIBRARY)
+ SHLIB_ABI_VER   := $(DESTDIR)$(libdir)/$(SHARED_LIBRARY).$(SRCREL_ABI_VERSION)
+ SHLIB_EXACT_VER := $(DESTDIR)$(libdir)/$(SHARED_LIBRARY).$(SRCREL_VERSION)
+-$(SHARED_LIBRARY): EXTRA_DSO_LDOPTS += -Wl,-soname,$(notdir $(SHLIB_ABI_VER))
++#$(SHARED_LIBRARY): EXTRA_DSO_LDOPTS += -Wl,-soname,$(notdir $(SHLIB_ABI_VER))
+ endif
+ endif
+ 
