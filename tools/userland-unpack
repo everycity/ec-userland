@@ -46,6 +46,8 @@ def uncompress_unpack_commands(filename, verbose=False):
 		uncompress = "7z --s"
 	elif (re.search("(\.zip)$", filename) != None):
 		uncompress = "unzip -qo"
+	elif (re.search("(\.xz)$", filename) != None):
+		uncompress = "xz -dc"
 
 	unpack = " | gtar -xf -"
 
