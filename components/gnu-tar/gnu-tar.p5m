@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -28,8 +28,6 @@ dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/sbin
-dir path=$(ECPREFIX)/sbin/$(MACH64)
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/info
 dir path=$(ECPREFIX)/share/locale
@@ -93,7 +91,6 @@ dir path=$(ECPREFIX)/share/locale/sk
 dir path=$(ECPREFIX)/share/locale/sk/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/sl
 dir path=$(ECPREFIX)/share/locale/sl/LC_MESSAGES
-link path=$(ECPREFIX)/bin/gtar target=tar
 dir path=$(ECPREFIX)/share/locale/sv
 dir path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/tr
@@ -109,6 +106,7 @@ dir path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES
 file path=$(ECPREFIX)/bin/$(MACH64)/tar
 file path=$(ECPREFIX)/bin/tar
 file path=$(ECPREFIX)/lib/$(MACH64)/charset.alias
+file path=$(ECPREFIX)/lib/$(MACH64)/rmt
 file path=$(ECPREFIX)/lib/charset.alias
 file path=$(ECPREFIX)/lib/rmt
 file path=$(ECPREFIX)/share/info/tar.info
@@ -150,5 +148,7 @@ file path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES/tar.mo
 file path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES/tar.mo
 file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/tar.mo
 file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/tar.mo
+link path=$(ECPREFIX)/bin/gtar target=tar
 depend fmri=pkg:/compress/gnu-gzip type=require
 depend fmri=pkg:/compress/bzip2 type=require
+depend fmri=pkg:/compress/xz type=require
