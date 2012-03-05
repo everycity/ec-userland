@@ -96,6 +96,7 @@ dir \
     path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-missing-bindir
 dir path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-optional-deps
 dir path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-private
+dir path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-shrinkwrap
 dir path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-test-package
 dir path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-url-dep
 dir path=$(ECPREFIX)/share
@@ -214,6 +215,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/restart.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/root.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/run-script.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/search.md
+file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/shrinkwrap.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/start.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/stop.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/submodule.md
@@ -267,6 +269,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/run-script.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/scripts.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/search.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/semver.md
+file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/shrinkwrap.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/star.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/start.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/stop.md
@@ -314,6 +317,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/html/api/root.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/api/run-script.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/api/search.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/api/set.html
+file path=$(ECPREFIX)/lib/node_modules/npm/html/api/shrinkwrap.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/api/start.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/api/stop.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/api/style.css
@@ -379,6 +383,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/scripts.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/search.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/semver.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/set.html
+file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/shrinkwrap.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/star.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/start.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/stop.html
@@ -437,6 +442,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/lib/root.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/run-script.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/search.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/set.js
+file path=$(ECPREFIX)/lib/node_modules/npm/lib/shrinkwrap.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/star.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/start.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/stop.js
@@ -467,7 +473,6 @@ file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/fetch.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/find-prefix.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/find.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/gently-rm.js
-file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/get-agent.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/get.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/ini.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/lifecycle.js
@@ -556,6 +561,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/scripts.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/search.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/semver.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/set.1
+file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/shrinkwrap.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/star.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/start.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/stop.1
@@ -602,6 +608,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/root.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/run-script.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/search.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/set.3
+file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/shrinkwrap.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/start.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/stop.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/submodule.3
@@ -716,6 +723,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/main.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/mimetypes.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/oauth.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/package.json
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tunnel.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/uuid.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/vendor/cookie/index.js
@@ -803,6 +811,12 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-ignore/include4
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-ignore/package.json
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-shrinkwrap/npm-shrinkwrap.json
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-shrinkwrap/package.json
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-shrinkwrap/test.sh
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/test/packages/npm-test-ignore/sub/include
 file \
