@@ -96,11 +96,11 @@ install:	build $(INSTALL_32)
 		$(PROTO_DIR)$(ECPREFIX)/lib/*so.* $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/*so.*)
 	# Note: OpenSSL generates a header file, include/openssl/opensslconf.h
 	# This header file is different depending on 32bit or 64bit build
-	echo "/* EC: combining 32 and 64bit versions */\n\n#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/opensslconf.h
-	cat $(BUILD_DIR_64)/include/openssl/opensslconf.h >> $(COMPONENT_DIR)/opensslconf.h
-	echo "\n#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/opensslconf.h
-	cat $(BUILD_DIR_32)/include/openssl/opensslconf.h >> $(COMPONENT_DIR)/opensslconf.h
-	echo "\n#endif /* EC */" >> $(COMPONENT_DIR)/opensslconf.h
+	/usr/bin/echo "/* EC: combining 32 and 64bit versions */\n\n#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/opensslconf.h
+	/usr/bin/cat $(BUILD_DIR_64)/include/openssl/opensslconf.h >> $(COMPONENT_DIR)/opensslconf.h
+	/usr/bin/echo "\n#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/opensslconf.h
+	/usr/bin/cat $(BUILD_DIR_32)/include/openssl/opensslconf.h >> $(COMPONENT_DIR)/opensslconf.h
+	/usr/bin/echo "\n#endif /* EC */" >> $(COMPONENT_DIR)/opensslconf.h
 
 # build does this always
 test:  build
