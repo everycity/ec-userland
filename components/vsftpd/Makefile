@@ -25,6 +25,15 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
+CPPFLAGS += -I$(COMPONENT_DIR)
+
+COMPONENT_BUILD_ENV == CPPFLAGS=$(CPPFLAGS)
+
+dirent-fixed.h:
+	@sed /^extern\ int.*dirfd\(DIR\ \\*\)\;/d </usr/include/dirent.h >dirent-fixed.h
+
+$(BUILD_32): dirent-fixed.h
+
 build:		$(BUILD_32)
 
 $(BUILD_DIR)/.installed:	build
