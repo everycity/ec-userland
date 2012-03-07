@@ -25,10 +25,15 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+CONFIGURE_ENV+= CFLAGS="-D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__"
+CONFIGURE_ENV+= CXXFLAGS="-D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__"
+
 CONFIGURE_OPTIONS+=	--enable-shared 
 CONFIGURE_OPTIONS+=	--disable-static
 CONFIGURE_OPTIONS+=	--with-pic
-CONFIGURE_OPTIONS+=	--without-gallium-drivers
+CONFIGURE_OPTIONS+=	--with-x
+CONFIGURE_OPTIONS+=	--with-driver=xlib
+CONFIGURE_OPTIONS+=	--with-gallium-drivers=swrast
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 
