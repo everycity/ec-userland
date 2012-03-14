@@ -42,11 +42,20 @@ CONFIGURE_OPTIONS+=	--with-neon=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--disable-mod-activation
 CONFIGURE_OPTIONS.32+=	--with-apr=$(ECPREFIX)/bin/apr-1-config
 CONFIGURE_OPTIONS.32+=	--with-apr-util=$(ECPREFIX)/bin/apu-1-config
+CONFIGURE_OPTIONS.32+=	--with-swig=$(ECPREFIX)/bin/swig
+CONFIGURE_OPTIONS.64+=	--with-swig=$(ECPREFIX)/bin/$(MACH64)/swig
 CONFIGURE_OPTIONS.64+=	--with-apr=$(ECPREFIX)/bin/$(MACH64)/apr-1-config
 CONFIGURE_OPTIONS.64+=	--with-apr-util=$(ECPREFIX)/bin/$(MACH64)/apu-1-config
 CONFIGURE_OPTIONS.32+=	--with-apxs=$(ECPREFIX)/bin/apxs
 CONFIGURE_OPTIONS.64+=	--with-apxs=$(ECPREFIX)/bin/$(MACH64)/apxs
 CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))
+
+COMPONENT_INSTALL_TARGETS.32+=	install-swig-py install-swig-rb
+COMPONENT_INSTALL_TARGETS.64+=	install-swig-py
+COMPONENT_INSTALL_TARGETS+=	$(COMPONENT_INSTALL_TARGETS.$(BITS))
+
+COMPONENT_PRE_CONFIGURE_ACTION+=	($(CP) -R $(SOURCE_DIR)/* $(@D)/)
+CONFIGURE_SCRIPT=	$(@D)/configure
 
 build:		$(BUILD_32_and_64)
 
