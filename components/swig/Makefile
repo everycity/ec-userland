@@ -1,26 +1,15 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
-#
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
-#
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2012 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -36,14 +25,22 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-# common targets
-build:		$(BUILD_32)
+CONFIGURE_OPTIONS+=	--with-x
+CONFIGURE_OPTIONS+=	--without-tcl
+CONFIGURE_OPTIONS+=	--without-python3
+CONFIGURE_OPTIONS.32+=	--with-python=$(ECPREFIX)/bin/python
+CONFIGURE_OPTIONS.64+=	--with-python=$(ECPREFIX)/bin/$(MACH64)/python
+CONFIGURE_OPTIONS.32+=	--with-java=$(ECPREFIX)/bin/java
+CONFIGURE_OPTIONS.64+=	--with-java=$(ECPREFIX)/bin/$(MACH64)/java
+CONFIGURE_OPTIONS.32+=	--with-javac=$(ECPREFIX)/bin/javac
+CONFIGURE_OPTIONS.64+=	--with-javac=$(ECPREFIX)/bin/$(MACH64)/javac
+CONFIGURE_OPTIONS+=	--with-javaincl=$(ECPREFIX)/jdk/active/include
+CONFIGURE_OPTIONS.32+=	--with-ruby=$(ECPREFIX)/bin/ruby1.8
+CONFIGURE_OPTIONS.64+=	--with-ruby=$(ECPREFIX)/bin/$(MACH64)/ruby1.8
+CONFIGURE_OPTIONS.32+=	--with-php=$(ECPREFIX)/lib/php/5.3/bin/php-cli
+CONFIGURE_OPTIONS.32+=	--with-php=$(ECPREFIX)/lib/php/5.3/bin/$(MACH64)/php-cli
 
-install:	$(INSTALL_32)
+build:		$(BUILD_32_and_64)
 
-test:
-	@echo "no tests available"
+install:	$(INSTALL_32_and_64)
 
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
