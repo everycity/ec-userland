@@ -55,6 +55,7 @@ CONFIGURE_OPTIONS+=	-opensource
 CONFIGURE_OPTIONS+=	-confirm-license
 CONFIGURE_OPTIONS+=	-xmlpatterns
 CONFIGURE_OPTIONS+=	-webkit
+CONFIGURE_OPTIONS+=	-opengl
 CONFIGURE_OPTIONS+=	-nomake examples
 CONFIGURE_OPTIONS+=	-nomake demos
 CONFIGURE_OPTIONS+=	-nomake translations

@@ -1,0 +1,12 @@
+diff -ruN vsftpd-2.3.5.orig/sysutil.c vsftpd-2.3.5/sysutil.c
+--- vsftpd-2.3.5.orig/sysutil.c	2011-12-17 19:31:28.000000000 +0000
++++ vsftpd-2.3.5/sysutil.c	2012-03-06 17:56:40.575437057 +0000
+@@ -37,7 +37,7 @@
+ #include <fcntl.h>
+ #include <netinet/in.h>
+ #include <stdio.h>
+-#include <dirent.h>
++#include <dirent-fixed.h>
+ #include <time.h>
+ #include <arpa/inet.h>
+ #include <errno.h>
