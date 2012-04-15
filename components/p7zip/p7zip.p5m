@@ -1,0 +1,94 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/compress/p7zip@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="p7zip is a port of 7za.exe for POSIX systems"
+set name=info.upstream_url value="http://p7zip.sourceforge.net/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license p7zip.license license="GNU LGPL + unRAR"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/p7zip
+dir path=$(ECPREFIX)/man
+dir path=$(ECPREFIX)/man/man1
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/p7zip
+dir path=$(ECPREFIX)/share/doc/p7zip/DOCS
+dir path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL
+dir path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/commands
+dir path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches
+file path=$(ECPREFIX)/bin/7za
+file path=$(ECPREFIX)/lib/p7zip/7zCon.sfx
+file path=$(ECPREFIX)/lib/p7zip/7za
+file path=$(ECPREFIX)/man/man1/7z.1
+file path=$(ECPREFIX)/man/man1/7za.1
+file path=$(ECPREFIX)/man/man1/7zr.1
+file path=$(ECPREFIX)/share/doc/p7zip/ChangeLog
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/7zC.txt
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/7zFormat.txt
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/License.txt
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/commands/add.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/commands/bench.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/commands/delete.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/commands/extract.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/commands/extract_full.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/commands/index.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/commands/list.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/commands/style.css
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/commands/test.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/commands/update.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/exit_codes.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/index.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/style.css
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/ar_exclude.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/ar_include.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/ar_no.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/charset.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/exclude.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/include.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/index.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/large_pages.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/list_tech.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/method.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/output_dir.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/overwrite.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/password.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/recurse.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/sfx.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/ssc.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/stdin.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/stdout.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/stop_switch.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/style.css
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/type.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/update.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/volume.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/working_dir.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/switches/yes.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/MANUAL/syntax.htm
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/Methods.txt
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/copying.txt
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/history.txt
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/lzma.txt
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/readme.txt
+file path=$(ECPREFIX)/share/doc/p7zip/DOCS/unRarLicense.txt
+file path=$(ECPREFIX)/share/doc/p7zip/README
