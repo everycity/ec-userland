@@ -1,0 +1,23 @@
+--- bind-9.8.1/util/mksymtbl.pl.orig	2012-04-13 13:59:34.890511767 +0000
++++ bind-9.8.1/util/mksymtbl.pl	2012-04-13 14:00:54.252696588 +0000
+@@ -29,7 +29,7 @@
+ my %options;
+ getopts('i:o:', \%options);
+ 
+-my ($binname, $need_uscorefix, $outputfile, $nsyms, $ostype, $nm_prog);
++my ($binname, $need_uscorefix, $outputfile, $nsyms, $ostype, $osrelease, $nm_prog);
+ my %symmap;
+ 
+ $binname = $ARGV[0];
+@@ -43,8 +43,10 @@
+ # OS-depending configuration
+ $nm_prog = "nm";
+ $ostype = `uname -s`;
++$osrelease = `uname -r`;
+ chop($ostype);
+-if ($ostype eq "SunOS" || $ostype eq "HP-UX") {
++chop($osrelease);
++if ( ($ostype eq "SunOS" && $osrelease eq "5.10") || $ostype eq "HP-UX") {
+ 	$nm_prog = "/usr/ccs/bin/nm -x"
+ }
+ 
