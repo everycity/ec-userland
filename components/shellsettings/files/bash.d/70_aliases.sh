@@ -18,7 +18,9 @@ if [ -f /ec/bin/ls ] ; then
 fi
 
 # Some helpful aliases for Linux converts
-alias top='prstat -Z'
+if [ ! -f /ec/bin/top ] ; then
+	alias top='prstat -Z'
+fi
 
 if [ -f /ec/bin/ls ] ; then
 	alias ll='/ec/bin/ls --color=auto -l'
