@@ -15,7 +15,7 @@
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/web/php-522extension/php-memcache@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.fmri value=pkg:/web/php-52/extension/php-memcache@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="php memcached extension"
 set name=info.upstream_url value="http://pecl.php.net/package/memcache"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
