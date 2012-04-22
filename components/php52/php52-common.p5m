@@ -159,6 +159,9 @@ file \
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/pcre/pcrelib/pcreposix.h
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/pcre/pcrelib/ucp.h
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/pcre/php_pcre.h
+file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/session/mod_files.h
+file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/session/mod_user.h
+file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/session/php_session.h
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/spl/php_spl.h
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/spl/spl_array.h
 file path=$(ECPREFIX)/lib/php/5.2/include/php/ext/spl/spl_directory.h

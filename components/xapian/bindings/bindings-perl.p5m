@@ -1,0 +1,115 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/library/xapian/bindings-perl@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Xapian is an Open Source Search Engine Library"
+set name=info.upstream_url value="http://xapian.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license xapian.license license="GPLv2"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/perl
+dir path=$(ECPREFIX)/lib/perl/site_perl
+dir path=$(ECPREFIX)/lib/perl/site_perl/5.12
+dir path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search
+dir path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian
+dir path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int
+dir path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto
+dir path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/Search
+dir \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/Search/Xapian
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/xapian-bindings
+dir path=$(ECPREFIX)/share/doc/xapian-bindings/perl
+dir path=$(ECPREFIX)/share/doc/xapian-bindings/perl/examples
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/AssertionError.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/BM25Weight.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/BoolWeight.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/Database.pm
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/DatabaseCorruptError.pm
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/DatabaseCreateError.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/DatabaseError.pm
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/DatabaseLockError.pm
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/DatabaseModifiedError.pm
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/DatabaseOpeningError.pm
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/DatabaseVersionError.pm
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/DocNotFoundError.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/Document.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/ESet.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/ESetIterator.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/Enquire.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/Error.pm
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/FeatureUnavailableError.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/InternalError.pm
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/InvalidArgumentError.pm
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/InvalidOperationError.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/LogicError.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/MSet.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/MSetIterator.pm
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/MultiValueSorter.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/NetworkError.pm
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/NetworkTimeoutError.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/PerlStopper.pm
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/PositionIterator.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/PostingIterator.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/Query.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/QueryParser.pm
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/QueryParserError.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/RSet.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/RangeError.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/RuntimeError.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/SimpleStopper.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/Stem.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/Stopper.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/TermGenerator.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/TermIterator.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/TradWeight.pm
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/UnimplementedError.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/ValueIterator.pm
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/Weight.pm
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/Search/Xapian/WritableDatabase.pm
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/Search/Xapian/Xapian.so
+file path=$(ECPREFIX)/share/doc/xapian-bindings/perl/examples/full-indexer.pl
+file path=$(ECPREFIX)/share/doc/xapian-bindings/perl/examples/full-searcher.pl
+file path=$(ECPREFIX)/share/doc/xapian-bindings/perl/examples/simpleexpand.pl
+file path=$(ECPREFIX)/share/doc/xapian-bindings/perl/examples/simpleindex.pl
+file \
+    path=$(ECPREFIX)/share/doc/xapian-bindings/perl/examples/simplematchdecider.pl
+file path=$(ECPREFIX)/share/doc/xapian-bindings/perl/examples/simplesearch.pl
+file path=$(ECPREFIX)/share/doc/xapian-bindings/perl/index.html
