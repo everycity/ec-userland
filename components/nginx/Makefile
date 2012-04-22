@@ -1,32 +1,24 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
+# Copyright 2012 EveryCity Ltd. All rights reserved.
 #
-# CDDL HEADER END
-#
-# Copyright 2011 EveryCity Ltd. All rights reserved.
-#
+
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		nginx
-COMPONENT_VERSION=	0.8.54
+COMPONENT_VERSION=	1.0.15
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:4d63c35b8974dba42cc62dd5046ae89df3528e34
+COMPONENT_ARCHIVE_HASH=	sha256:1daf3950623c90b084e7eceb104071596060aca5c721bf890549fc2990b1ebe6
 COMPONENT_ARCHIVE_URL=	http://nginx.org/download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -34,24 +26,26 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS  = --prefix=$(ECPREFIX)
+CONFIGURE_OPTIONS.32 = --sbin-path=$(ECPREFIX)/bin/nginx
+CONFIGURE_OPTIONS.64 = --sbin-path=$(ECPREFIX)/bin/$(MACH64)/nginx
+CONFIGURE_OPTIONS += --conf-path=$(ECPREFIX)/etc/nginx/nginx.conf
+CONFIGURE_OPTIONS += --http-log-path=$(ECPREFIX)/var/nginx/logs/access_log
+CONFIGURE_OPTIONS += --error-log-path=$(ECPREFIX)/var/nginx/logs/error_log
+CONFIGURE_OPTIONS += --pid-path=$(ECPREFIX)/var/run/nginx
+CONFIGURE_OPTIONS += --lock-path=$(ECPREFIX)/var/run/nginx
 CONFIGURE_OPTIONS += --user=webservd
 CONFIGURE_OPTIONS += --group=webservd
 CONFIGURE_OPTIONS += --with-http_ssl_module
 CONFIGURE_OPTIONS += --with-http_secure_link_module
 CONFIGURE_OPTIONS += --with-http_stub_status_module
 CONFIGURE_OPTIONS += --with-ipv6
+CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
 
-COMPONENT_BUILD_ENV +=  "CC=$(CC)" "CXX=$(CCC)"
-CONFIGURE_ENV +=  "CC=$(CC)" "CXX=$(CCC)"
-
-COMPONENT_PRE_CONFIGURE_ACTION += \
-	rsync -aH --delete $(SOURCE_DIR)/ $(@D)/
+COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
+COMPONENT_POST_INSTALL_ACTION+= \
+	( $(MKDIR) $(PROTO_DIR)/var/nginx/logs )
 
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
-
-test: build
-	@cd $(BUILD_DIR_32); $(MAKE) check
-	@cd $(BUILD_DIR_64); $(MAKE) check
 

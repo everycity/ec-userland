@@ -1,0 +1,87 @@
+--- nginx-1.0.15/conf/nginx.conf.~1~	2011-06-27 15:47:51.000000000 +0000
++++ nginx-1.0.15/conf/nginx.conf	2012-04-21 23:51:29.564390972 +0000
+@@ -1,19 +1,27 @@
++#
++# This file and its contents are supplied under the terms of the
++# Common Development and Distribution License ("CDDL)". You may
++# only use this file in accordance with the terms of the CDDL.
++#
++# A full copy of the text of the CDDL should have accompanied this
++# source. A copy of the CDDL is also available via the Internet at
++# http://www.illumos.org/license/CDDL.
++#
++
++#
++# Copyright 2012 EveryCity Ltd. All rights reserved.
++#
+ 
+-#user  nobody;
+ worker_processes  1;
+ 
+-#error_log  logs/error.log;
+-#error_log  logs/error.log  notice;
+-#error_log  logs/error.log  info;
+-
+-#pid        logs/nginx.pid;
+-
++#error_log  var/nginx/logs/error.log;
++#error_log  var/nginx/logs/error.log  notice;
++#error_log  var/nginx/logs/error.log  info;
+ 
+ events {
+     worker_connections  1024;
+ }
+ 
+-
+ http {
+     include       mime.types;
+     default_type  application/octet-stream;
+@@ -22,7 +30,7 @@
+     #                  '$status $body_bytes_sent "$http_referer" '
+     #                  '"$http_user_agent" "$http_x_forwarded_for"';
+ 
+-    #access_log  logs/access.log  main;
++    #access_log  var/nginx/logs/access.log  main;
+ 
+     sendfile        on;
+     #tcp_nopush     on;
+@@ -38,10 +46,10 @@
+ 
+         #charset koi8-r;
+ 
+-        #access_log  logs/host.access.log  main;
++        #access_log  var/nginx/logs/host.access.log  main;
+ 
+         location / {
+-            root   html;
++            root   share/nginx/html;
+             index  index.html index.htm;
+         }
+ 
+@@ -51,7 +59,7 @@
+         #
+         error_page   500 502 503 504  /50x.html;
+         location = /50x.html {
+-            root   html;
++            root   share/nginx/html;
+         }
+ 
+         # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+@@ -87,7 +95,7 @@
+     #    server_name  somename  alias  another.alias;
+ 
+     #    location / {
+-    #        root   html;
++    #        root   share/nginx/html;
+     #        index  index.html index.htm;
+     #    }
+     #}
+@@ -110,7 +118,7 @@
+     #    ssl_prefer_server_ciphers   on;
+ 
+     #    location / {
+-    #        root   html;
++    #        root   share/nginx/html;
+     #        index  index.html index.htm;
+     #    }
+     #}
