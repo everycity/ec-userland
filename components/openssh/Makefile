@@ -26,17 +26,17 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		openssh
-COMPONENT_VERSION=	5.8p2
+COMPONENT_VERSION=	6.0p1
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:64798328d310e4f06c9f01228107520adbc8b3e5
+#COMPONENT_ARCHIVE_HASH=	
 COMPONENT_ARCHIVE_URL=	http://mirror.bytemark.co.uk/pub/OpenBSD/OpenSSH/portable/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-IPS_COMPONENT_VERSION=  5.8.2
+IPS_COMPONENT_VERSION=  6.0.1
 
 CONFIGURE_OPTIONS+=	--sysconfdir=$(ECPREFIX)/etc/ssh
 CONFIGURE_OPTIONS+=	--sbindir=$(ECPREFIX)/bin
@@ -47,6 +47,7 @@ CONFIGURE_OPTIONS+=	--with-pid-dir=$(ECPREFIX)/var/run
 CONFIGURE_OPTIONS+=	--with-privsep-path=$(ECPREFIX)/var/empty
 CONFIGURE_OPTIONS+=	--with-md5-passwords
 CONFIGURE_OPTIONS+=	--with-pam
+CONFIGURE_OPTIONS+=	--with-solaris-contracts
 
 build:		$(BUILD_32)
 

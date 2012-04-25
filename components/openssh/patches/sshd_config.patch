@@ -1,7 +1,7 @@
---- openssh-5.8p2/sshd_config.orig	2011-06-28 23:55:05.947218879 +0100
-+++ openssh-5.8p2/sshd_config	2011-06-28 23:57:51.493513510 +0100
+--- openssh-6.0p1/sshd_config.~1~	2011-05-29 11:39:39.000000000 +0000
++++ openssh-6.0p1/sshd_config	2012-04-24 14:27:20.102772368 +0000
 @@ -1,10 +1,6 @@
--#	$OpenBSD: sshd_config,v 1.82 2010/09/06 17:10:19 naddy Exp $
+-#	$OpenBSD: sshd_config,v 1.84 2011/05/23 03:30:07 djm Exp $
 -
  # This is the sshd server system-wide configuration file.  See
  # sshd_config(5) for more information.
@@ -10,7 +10,7 @@
 -
  # The strategy used for options in the default sshd_config shipped with
  # OpenSSH is to specify options with their default value where
- # possible, but leave them commented.  Uncommented options change a
+ # possible, but leave them commented.  Uncommented options override the
 @@ -12,11 +8,11 @@
  
  #Port 22
@@ -34,7 +34,7 @@
  #StrictModes yes
  #MaxAuthTries 6
  #MaxSessions 10
-@@ -58,7 +54,7 @@
+@@ -61,7 +57,7 @@
  
  # To disable tunneled clear text passwords, change to no here!
  #PasswordAuthentication yes
@@ -43,7 +43,7 @@
  
  # Change to no to disable s/key passwords
  #ChallengeResponseAuthentication yes
-@@ -90,23 +86,22 @@
+@@ -93,23 +89,22 @@
  #X11Forwarding no
  #X11DisplayOffset 10
  #X11UseLocalhost yes
