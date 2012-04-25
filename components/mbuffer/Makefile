@@ -23,19 +23,19 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		mbuffer
-COMPONENT_VERSION=	20110119
+COMPONENT_VERSION=	20110724
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH=	sha1:572b30460d4015e2394cb5c67d8f3d0bfd0a089e
+COMPONENT_ARCHIVE_HASH=	sha1:1cdd01920320b14d7ad9b4cc6d3c96a2da000345
 COMPONENT_ARCHIVE_URL=	http://www.maier-komor.de/software/mbuffer/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-build:		$(BUILD_32)
+build:		$(BUILD_32_and_64)
 
-install:	$(INSTALL_32)
+install:	$(INSTALL_32_and_64)
 
 BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
 
