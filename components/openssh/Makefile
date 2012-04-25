@@ -44,10 +44,11 @@ CONFIGURE_OPTIONS+=	--libexecdir=$(ECPREFIX)/bin
 CONFIGURE_OPTIONS+=	--with-ssl-dir=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--with-default-path=$(ECPREFIX)/bin:$(ECPREFIX)/sbin:/usr/bin:/usr/sbin:/usr/ccs/bin
 CONFIGURE_OPTIONS+=	--with-pid-dir=$(ECPREFIX)/var/run
-CONFIGURE_OPTIONS+=	--with-privsep-path=$(ECPREFIX)/var/empty
+CONFIGURE_OPTIONS+=	--with-privsep-path=$(ECPREFIX)/var/empty/sshd
 CONFIGURE_OPTIONS+=	--with-md5-passwords
 CONFIGURE_OPTIONS+=	--with-pam
 CONFIGURE_OPTIONS+=	--with-solaris-contracts
+CONFIGURE_OPTIONS+=	--with-zlib=$(ECPREFIX)
 
 build:		$(BUILD_32)
 

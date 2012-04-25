@@ -1,5 +1,5 @@
 --- openssh-6.0p1/sshd_config.~1~	2011-05-29 11:39:39.000000000 +0000
-+++ openssh-6.0p1/sshd_config	2012-04-24 14:27:20.102772368 +0000
++++ openssh-6.0p1/sshd_config	2012-04-25 16:13:06.644591477 +0000
 @@ -1,10 +1,6 @@
 -#	$OpenBSD: sshd_config,v 1.84 2011/05/23 03:30:07 djm Exp $
 -
@@ -43,7 +43,7 @@
  
  # Change to no to disable s/key passwords
  #ChallengeResponseAuthentication yes
-@@ -93,23 +89,22 @@
+@@ -93,23 +89,25 @@
  #X11Forwarding no
  #X11DisplayOffset 10
  #X11UseLocalhost yes
@@ -54,8 +54,12 @@
  #UseLogin no
  #UsePrivilegeSeparation yes
  #PermitUserEnvironment no
- #Compression delayed
+-#Compression delayed
 -#ClientAliveInterval 0
++
++# Compression cannot be enabled with privilege separation on Solaris
++Compression no
++
 +ClientAliveInterval 10
  #ClientAliveCountMax 3
 -#UseDNS yes
