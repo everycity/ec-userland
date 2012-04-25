@@ -52,3 +52,4 @@
 <transform depend pkg.debug.depend.file=libuuid\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libwrap\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libxnet\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libcontract.so.* -> drop>
