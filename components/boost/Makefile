@@ -29,13 +29,13 @@ include ../../make-rules/ips.mk
 
 COMPONENT_BUILD_ENV += CC="$(CC)" CXX="$(CXX)"
 
-#EXECPREFIX.32= $(ECPREFIX)/bin
-#EXECPREFIX.64= $(ECPREFIX)/bin/$(MACH64)
-#EXECPREFIX= $(EXECPREFIX.$(BITS))
+EXECPREFIX.32= $(ECPREFIX)/bin
+EXECPREFIX.64= $(ECPREFIX)/bin/$(MACH64)
+EXECPREFIX= $(EXECPREFIX.$(BITS))
 
-#LIBDIR.32= $(ECPREFIX)/lib
-#LIBDIR.32= $(ECPREFIX)/lib/$(MACH64)
-#LIBDIR= $(LIBDIR.$(BITS))
+LIBDIR.32= $(ECPREFIX)/lib
+LIBDIR.64= $(ECPREFIX)/lib/$(MACH64)
+LIBDIR= $(LIBDIR.$(BITS))
 
 JAM=$(ENV) $(COMPONENT_BUILD_ENV) $(@D)/bjam -j10 -d2 --layout=system \
     --ignore-site-config --user-config=$(@D)/user-config.jam \
@@ -43,6 +43,7 @@ JAM=$(ENV) $(COMPONENT_BUILD_ENV) $(@D)/bjam -j10 -d2 --layout=system \
 
 COMPONENT_PRE_BUILD_ACTION = cd $(@D); $(ENV) $(COMPONENT_BUILD_ENV) \
     ./bootstrap.sh --with-icu --prefix=$(ECPREFIX) \
+    --exec-prefix=$(EXECPREFIX) --libdir=$(LIBDIR); \
     echo "using gcc ;" >user-config.jam; \
     $(JAM); \
     cd $(@D)/tools/build/v2 && ./bootstrap.sh --with-toolset=gcc; \
@@ -54,15 +55,16 @@ COMPONENT_PRE_BUILD_ACTION = cd $(@D); $(ENV) $(COMPONENT_BUILD_ENV) \
     cd $(@D)/libs/python/pyste/install && $(PYTHON) setup.py build
 
 COMPONENT_PRE_INSTALL_ACTION = cd $(@D); \
-	$(JAM) --prefix=$(PROTO_DIR)$(ECPREFIX) install; \
-	cd $(@D)/tools/build/v2 && ./bjam install --prefix=$(PROTO_DIR)$(ECPREFIX)
-
+	$(JAM) install --prefix=$(PROTO_DIR)$(ECPREFIX) \
+	--exec-prefix=$(PROTO_DIR)$(EXECPREFIX) --libdir=$(PROTO_DIR)$(LIBDIR); \
+	cd $(@D)/tools/build/v2 && ./bjam install --prefix=$(PROTO_DIR)$(ECPREFIX) \
+	--exec-prefix=$(PROTO_DIR)$(EXECPREFIX) --libdir=$(PROTO_DIR)$(LIBDIR)
 
 $(BUILD_32): GMAKE=/bin/true
 $(BUILD_64): GMAKE=/bin/true
 $(INSTALL_32): GMAKE=/bin/true
 $(INSTALL_64): GMAKE=/bin/true
 
-build:		$(BUILD_32)
+build:		$(BUILD_32_and_64)
 
-install:	$(INSTALL_32)
+install:	$(INSTALL_64)
