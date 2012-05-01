@@ -25,12 +25,28 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_BUILD_ARGS += --prefix=$(ECPREFIX)
+LIBPATH.32=	$(ECPREFIX)/lib
+LIBPATH.64=	$(ECPREFIX)/lib/$(MACH64)
+LIBPATH=	$(LIBPATH.$(BITS))
+
+#COMPONENT_BUILD_ENV += LDFLAGS="$(LDFLAGS)"
+#COMPONENT_BUILD_ENV += LINKFLAGS="$(LDFLAGS)"
+
+COMPONENT_BUILD_ARGS += --prefix=$(PROTO_DIR)$(ECPREFIX)
 COMPONENT_BUILD_ARGS += --cc="$(CC)" --cxx="$(CXX)"
+COMPONENT_BUILD_ARGS += --libpath=$(LIBPATH)
+COMPONENT_BUILD_ARGS += --extralib=rt
+COMPONENT_BUILD_ARGS += --$(BITS)
+COMPONENT_BUILD_ARGS += -j10
+#COMPONENT_BUILD_ARGS += --use-system-sm --use-system-pcre
 
-$(BUILD_DIR)/%/.built:	GMAKE=scons
+COMPONENT_INSTALL_ENV = $(COMPONENT_BUILD_ENV)
+COMPONENT_INSTALL_ARGS = $(COMPONENT_BUILD_ARGS)
+COMPONENT_INSTALL_ARGS+ = --full
 
-#build:		$(BUILD_32_and_64)
-build:		$(BUILD_32)
+$(BUILD_DIR)/%/.built:		GMAKE=scons
+$(BUILD_DIR)/%/.installed:	GMAKE=scons
 
-#install:	$(INSTALL_32_and_64)
+build:		$(BUILD_32_and_64)
+
+install:	$(INSTALL_32_and_64)
