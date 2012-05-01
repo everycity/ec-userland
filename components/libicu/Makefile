@@ -15,19 +15,26 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		icu
-COMPONENT_VERSION=	4.8.1.1
+COMPONENT_VERSION=	49.1.1
+COMPONENT_OTHER_VERSION=49_1_1
 COMPONENT_SRC=		$(COMPONENT_NAME)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC)4c-4_8_1_1-src.tgz
-COMPONENT_ARCHIVE_HASH=	sha1:7146ee269b39273fa98d750f73136b14f781758a
-COMPONENT_ARCHIVE_URL=	http://download.icu-project.org/files/icu4c/4.8.1.1/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE=	icu4c-$(COMPONENT_OTHER_VERSION)-src.tgz
+COMPONENT_ARCHIVE_HASH=	sha1:f407d7e2808b76e3a6ca316aab896aef74bf6722
+COMPONENT_ARCHIVE_URL=	\
+    http://download.icu-project.org/files/icu4c/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_SCRIPT   =    $(SOURCE_DIR)/source/configure
+MYCC.32 = $(CC) -march=i686
+MYCC.64 = $(CC)
+MYCC = $(MYCC.$(BITS))
+
+CONFIGURE_ENV += CC="$(MYCC)"
+
+CONFIGURE_SCRIPT= $(SOURCE_DIR)/source/configure
 
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
-
