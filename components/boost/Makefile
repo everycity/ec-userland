@@ -29,36 +29,23 @@ include ../../make-rules/ips.mk
 
 COMPONENT_BUILD_ENV += CC="$(CC)" CXX="$(CXX)"
 
-EXECPREFIX.32= $(ECPREFIX)/bin
-EXECPREFIX.64= $(ECPREFIX)/bin/$(MACH64)
-EXECPREFIX= $(EXECPREFIX.$(BITS))
-
 LIBDIR.32= $(ECPREFIX)/lib
 LIBDIR.64= $(ECPREFIX)/lib/$(MACH64)
 LIBDIR= $(LIBDIR.$(BITS))
 
-JAM=$(ENV) $(COMPONENT_BUILD_ENV) $(@D)/bjam -j10 -d2 --layout=system \
-    --ignore-site-config --user-config=$(@D)/user-config.jam \
-    debug-symbols=on address-model=$(BITS) --without-mpi
+BJAM=./bjam --v2 -d+2 -j10 -q address-model=$(BITS) \
+    -sBUILD="release <threading>single/multi" \
+    --prefix=$(PROTO_DIR)$(ECPREFIX) \
+    --libdir=$(PROTO_DIR)$(LIBDIR)
+
 
 COMPONENT_PRE_BUILD_ACTION = cd $(@D); $(ENV) $(COMPONENT_BUILD_ENV) \
-    ./bootstrap.sh --with-icu --prefix=$(ECPREFIX) \
-    --exec-prefix=$(EXECPREFIX) --libdir=$(LIBDIR); \
-    echo "using gcc ;" >user-config.jam; \
-    $(JAM); \
-    cd $(@D)/tools/build/v2 && ./bootstrap.sh --with-toolset=gcc; \
-    cd $(@D)/tools/bcp && $(JAM); \
-    cd $(@D)/tools/inspect/build && $(JAM); \
-    cd $(@D)/tools/quickbook && $(JAM); \
-    cd $(@D)/tools/wave/build && $(JAM); \
-    cd $(@D)/tools/regression/build && $(JAM); \
-    cd $(@D)/libs/python/pyste/install && $(PYTHON) setup.py build
+    ./bootstrap.sh --prefix=$(ECPREFIX) --libdir=$(LIBDIR) \
+        --with-toolset=gcc --with-icu=$(ECPREFIX); \
+    $(BJAM) release stage
 
 COMPONENT_PRE_INSTALL_ACTION = cd $(@D); \
-	$(JAM) install --prefix=$(PROTO_DIR)$(ECPREFIX) \
-	--exec-prefix=$(PROTO_DIR)$(EXECPREFIX) --libdir=$(PROTO_DIR)$(LIBDIR); \
-	cd $(@D)/tools/build/v2 && ./bjam install --prefix=$(PROTO_DIR)$(ECPREFIX) \
-	--exec-prefix=$(PROTO_DIR)$(EXECPREFIX) --libdir=$(PROTO_DIR)$(LIBDIR)
+    $(BJAM) install
 
 $(BUILD_32): GMAKE=/bin/true
 $(BUILD_64): GMAKE=/bin/true
@@ -67,4 +54,4 @@ $(INSTALL_64): GMAKE=/bin/true
 
 build:		$(BUILD_32_and_64)
 
-install:	$(INSTALL_64)
+install:	$(INSTALL_32_and_64)

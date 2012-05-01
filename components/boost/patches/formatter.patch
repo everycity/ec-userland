@@ -1,0 +1,12 @@
+diff -ruN boost_1_49_0.orig/libs/locale/src/icu/formatter.cpp boost_1_49_0/libs/locale/src/icu/formatter.cpp
+--- boost_1_49_0.orig/libs/locale/src/icu/formatter.cpp	2011-07-12 14:57:36.000000000 +0100
++++ boost_1_49_0/libs/locale/src/icu/formatter.cpp	2012-05-01 14:27:54.000000000 +0100
+@@ -58,7 +58,7 @@
+             virtual string_type format(int64_t value,size_t &code_points) const
+             {
+                 icu::UnicodeString tmp;
+-                icu_fmt_->format(value,tmp);
++                icu_fmt_->format(::int64_t(value),tmp);
+                 code_points=tmp.countChar32();
+                 return cvt_.std(tmp);
+             }
