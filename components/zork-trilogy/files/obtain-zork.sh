@@ -14,7 +14,18 @@ ZCODE_DIR=/ec/share/games/zcode
 # Check to see if we are root
 UUID=`id -u`
 
-[[ $UUID -ne 0 ]] && echo "Error: Please rerun this as root" && exit 1
+if [[ $UUID -ne 0 ]] ; then
+  echo "#######################################################################"
+  echo "# The Zork games are free to download and run, but the license        #"
+  echo "# forbids redistributing the files. Therefore we have provided a      #"
+  echo "# script to download them. Simply run the following command as root:  #"
+  echo "#                                                                     #"
+  echo "# /ec/share/games/zcode/obtain-zork.sh                                #"
+  echo "#                                                                     #"
+  echo "#######################################################################"
+  echo
+  exit 1
+fi
 
 tempdir=`mktemp -d`
 
