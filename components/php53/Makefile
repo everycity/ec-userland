@@ -51,8 +51,8 @@ CONFIGURE_OPTIONS     +=	--sysconfdir=$(PHP_SYSCONFDIR)
 CONFIGURE_OPTIONS     +=	--datadir=$(PHP_DATADIR)
 CONFIGURE_OPTIONS     +=	--mandir=$(PHP_PREFIX)/share/man
 
-CONFIGURE_OPTIONS.32  +=	--with-apxs2=$(AP_PREFIX)/bin/apxs
-CONFIGURE_OPTIONS.64  +=	--with-apxs2=$(AP_PREFIX)/bin/$(MACH64)/apxs
+#CONFIGURE_OPTIONS.32  +=	--with-apxs2=$(AP_PREFIX)/bin/apxs
+#CONFIGURE_OPTIONS.64  +=	--with-apxs2=$(AP_PREFIX)/bin/$(MACH64)/apxs
 
 CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris2.10
 
@@ -152,6 +152,8 @@ CONFIGURE_OPTIONS     +=	--enable-zip=shared
 
 CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
 
+CONFIGURE_OPTIONS += $(CONFIGURE_VARIANT_OPTIONS)
+
 # Installation Arguments
 COMPONENT_INSTALL_ARGS  += INSTALL_ROOT=$(PROTO_DIR)
 
@@ -169,6 +171,27 @@ COMPONENT_BUILD_ENV+=	"CC=$(CC)" "CXX=$(CCC)" "CFLAGS=$(CFLAGS)"
 CONFIGURE_ENV.32 +=     EXTENSION_DIR=$(PHP_PREFIX)/extensions
 CONFIGURE_ENV.64 +=     EXTENSION_DIR=$(PHP_PREFIX)/extensions/$(MACH64)
 
-build:		$(BUILD_32_and_64)
+# Standard build
+$(BUILD_DIR_32)/.configured:	CONFIGURE_VARIANT_OPTIONS= \
+    --with-apxs2=$(AP_PREFIX)/bin/apxs
+$(BUILD_DIR_64)/.configured:	CONFIGURE_VARIANT_OPTIONS= \
+    --with-apxs2=$(AP_PREFIX)/bin/$(MACH64)/apxs
+
+# CGI build
+$(BUILD_DIR)/$(MACH32).cgi/.configured:     BITS=32
+$(BUILD_DIR)/$(MACH64).cgi/.configured:     BITS=64
+#$(BUILD_DIR)/$(MACH32).cgi/.configured:     CONFIGURE_VARIANT_OPTIONS= 
+#$(BUILD_DIR)/$(MACH64).cgi/.configured:     CONFIGURE_VARIANT_OPTIONS= 
+$(BUILD_DIR)/$(MACH32).cgi/.built:          BITS=32
+$(BUILD_DIR)/$(MACH64).cgi/.built:          BITS=64
+$(BUILD_DIR)/$(MACH32).cgi/.installed:      BITS=32
+$(BUILD_DIR)/$(MACH64).cgi/.installed:      BITS=64
+
+
+build:		$(BUILD_32_and_64) \
+    $(BUILD_DIR)/$(MACH32).cgi/.built \
+    $(BUILD_DIR)/$(MACH64).cgi/.built
 
 install:	$(INSTALL_32_and_64)
+	$(CP) $(BUILD_DIR)/$(MACH32).cgi/sapi/cgi/php-cgi $(PROTO_DIR)$(PHP_PREFIX)/bin
+	$(CP) $(BUILD_DIR)/$(MACH64).cgi/sapi/cgi/php-cgi $(PROTO_DIR)$(PHP_PREFIX)/bin/$(MACH64)
