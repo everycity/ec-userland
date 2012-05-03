@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule fastcgi_module modules/amd64/mod_fastcgi.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule fastcgi_module modules/mod_fastcgi.so
+</IfDefine>
