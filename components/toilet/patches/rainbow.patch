@@ -1,0 +1,119 @@
+Only in toilet-0.3-mod/: .patched
+Only in toilet-0.3-mod/: .prep
+Only in toilet-0.3-mod/: .unpacked
+diff -u -r toilet-0.3/ChangeLog toilet-0.3-mod//ChangeLog
+--- toilet-0.3/ChangeLog	2012-04-06 21:09:07.000000000 +0000
++++ toilet-0.3-mod//ChangeLog	2012-05-03 22:50:44.598324677 +0000
+@@ -1099,7 +1099,7 @@
+ Author: sam
+ Date:   Thu Oct 26 12:12:44 2006 +0000
+ 
+-      * Get rid of -g -i -m short options, only keep --gay --irc --metal.
++      * Get rid of -g -i -m short options, only keep --rainbow --irc --metal.
+       * Add --html and --tga flags.
+ 
+  src/main.c |   51 +++++++++++++++++++++++++++++----------------------
+@@ -1111,7 +1111,7 @@
+ 
+       * Added filter_flip, filter_flop and filter_rotate.
+       * Add a -F flag to specify filters to apply. Can be specified more than
+-        once, and filters can be chained using ":", eg. "-F flip:gay".
++        once, and filters can be chained using ":", eg. "-F flip:rainbow".
+ 
+  src/filter.c |   94 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
+  src/filter.h |    5 +--
+diff -u -r toilet-0.3/doc/toilet.1.in toilet-0.3-mod//doc/toilet.1.in
+--- toilet-0.3/doc/toilet.1.in	2010-02-09 00:05:30.000000000 +0000
++++ toilet-0.3-mod//doc/toilet.1.in	2012-05-03 22:50:57.879611332 +0000
+@@ -93,17 +93,17 @@
+ .TP
+ .B \-F, \-\-filter list
+ .TP
+-.B \-\-gay, \-\-metal
++.B \-\-rainbow, \-\-metal
+ .PD
+ Specify a list of filters to be applied to the output.
+ .I <filters>
+ is a colon-separated list of filters such as
+-.I crop:rotate:gay
++.I crop:rotate:rainbow
+ and the special argument
+ .I list
+ outputs a list of available filters.
+ 
+-.B \-\-gay
++.B \-\-rainbow
+ and
+ .B \-\-metal
+ are shortcuts to commonly used filters that are guaranteed to exist. Several
+@@ -153,7 +153,7 @@
+ 
+ toilet Hello | toilet
+ 
+-tail -f /var/log/messages | toilet -f term --gay
++tail -f /var/log/messages | toilet -f term --rainbow
+ .RI
+ .SH BUGS
+ .B FIGlet
+diff -u -r toilet-0.3/src/filter.c toilet-0.3-mod//src/filter.c
+--- toilet-0.3/src/filter.c	2010-02-09 00:21:54.000000000 +0000
++++ toilet-0.3-mod//src/filter.c	2012-05-03 22:51:08.977358010 +0000
+@@ -28,7 +28,7 @@
+ #include "filter.h"
+ 
+ static void filter_crop(context_t *);
+-static void filter_gay(context_t *);
++static void filter_rainbow(context_t *);
+ static void filter_metal(context_t *);
+ static void filter_flip(context_t *);
+ static void filter_flop(context_t *);
+@@ -46,7 +46,7 @@
+ const lookup[] =
+ {
+     { "crop", filter_crop, "crop unused blanks" },
+-    { "gay", filter_gay, "add a rainbow colour effect" },
++    { "rainbow", filter_rainbow, "add a rainbow colour effect" },
+     { "metal", filter_metal, "add a metallic colour effect" },
+     { "flip", filter_flip, "flip horizontally" },
+     { "flop", filter_flop, "flip vertically" },
+@@ -185,7 +185,7 @@
+     }
+ }
+ 
+-static void filter_gay(context_t *cx)
++static void filter_rainbow(context_t *cx)
+ {
+     static unsigned char const rainbow[] =
+     {
+diff -u -r toilet-0.3/src/main.c toilet-0.3-mod//src/main.c
+--- toilet-0.3/src/main.c	2012-04-06 19:34:21.000000000 +0000
++++ toilet-0.3-mod//src/main.c	2012-05-03 22:51:12.398767049 +0000
+@@ -65,7 +65,7 @@
+             { "width", 1, NULL, 'w' },
+             { "termwidth", 0, NULL, 't' },
+             { "filter", 1, NULL, 'F' },
+-            { "gay", 0, NULL, 130 },
++            { "rainbow", 0, NULL, 130 },
+             { "metal", 0, NULL, 131 },
+             { "export", 1, NULL, 'E' },
+             { "irc", 0, NULL, 140 },
+@@ -104,8 +104,8 @@
+             if(filter_add(cx, caca_optarg) < 0)
+                 return -1;
+             break;
+-        case 130: /* --gay */
+-            filter_add(cx, "gay");
++        case 130: /* --rainbow */
++            filter_add(cx, "rainbow");
+             break;
+         case 131: /* --metal */
+             filter_add(cx, "metal");
+@@ -213,7 +213,7 @@
+     "  -t, --termwidth          adapt to terminal's width\n" \
+     "  -F, --filter <filters>   apply one or several filters to the text\n" \
+     "  -F, --filter list        list available filters\n" \
+-    "      --gay                rainbow filter (same as -F gay)\n" \
++    "      --rainbow            rainbow filter (same as -F rainbow)\n" \
+     "      --metal              metal filter (same as -F metal)\n" \
+     "  -E, --export <format>    select export format\n" \
+     "  -E, --export list        list available export formats\n" \
