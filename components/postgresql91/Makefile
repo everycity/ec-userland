@@ -63,4 +63,8 @@ COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; autoreconf )
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
+	( cd $(BUILD_DIR_32)/contrib/pgbench && make && \
+		cp pgbench $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/bin/ )
+	( cd $(BUILD_DIR_64)/contrib/pgbench && make && \
+		cp pgbench $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/bin/$(MACH64) )
 
