@@ -1,0 +1,55 @@
+--- frotz-2.43d/doc/frotz.conf-big.~1~	2000-10-28 17:43:07.000000000 +0000
++++ frotz-2.43d/doc/frotz.conf-big	2012-05-03 20:24:03.025489431 +0000
+@@ -16,26 +16,26 @@
+ foreground	white
+ 
+ # Set background color		(default "blue" if in color mode)
+-background	blue
++background	black
+ 
+ # Set error-reporting mode	(default "once")
+ errormode	once
+ 
+ # Set path to search for game files (no default)
+-zcode_path	/usr/local/games/zcode
++zcode_path	/ec/share/games/zcode
+ 
+ # Use plain ASCII only		(default "no")
+ ascii		no
+ 
+ # Turn sound on or off		(default "on")
+-sound		on
++sound		off
+ 
+ 
+ ############################################
+ # These are some less-commonly used options.
+ 
+ # Set random number seed	(default comes from the Unix epoch)
+-randseed	1234
++#randseed	1234
+ 
+ # Set number of undo slots	(default 500)
+ undo_slots	500
+@@ -63,13 +63,13 @@
+ force_color	no
+ 
+ # Set screen height		(default is detected height)
+-screen_height	24
++#screen_height	24
+ 
+ # Set screen width		(default is detected screen width)
+-screen_width	80
++#screen_width	80
+ 
+ # Set script width		(default is screen width)
+-script_width	80
++#script_width	80
+ 
+ # Set context lines		(default "0")
+ context_lines	0
+@@ -95,3 +95,4 @@
+ 
+ # Watch object locating		(default "no")
+ obj_loc		no
++
