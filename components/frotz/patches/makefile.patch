@@ -1,0 +1,54 @@
+--- frotz-2.43d/Makefile.~1~	2012-01-03 08:32:58.000000000 +0000
++++ frotz-2.43d/Makefile	2012-05-03 16:34:17.827230914 +0000
+@@ -14,7 +14,7 @@
+ #-malign-jumps=2
+ 
+ # Define where you want Frotz installed.  Usually this is /usr/local
+-PREFIX = /usr/local
++PREFIX = $(DESTDIR)/$(ECPREFIX)
+ 
+ MAN_PREFIX = $(PREFIX)
+ #MAN_PREFIX = /usr/local/share
+@@ -24,7 +24,7 @@
+ 
+ # Define where you want Frotz to look for frotz.conf.
+ #
+-CONFIG_DIR = /usr/local/etc
++CONFIG_DIR = $(ECPREFIX)/etc/frotz
+ #CONFIG_DIR = /etc
+ #CONFIG_DIR = /usr/pkg/etc
+ #CONFIG_DIR =
+@@ -59,6 +59,8 @@
+ #INCL = -I/usr/freeware/include
+ #INCL = -I/5usr/include
+ #INCL = -I/path/to/ncurses.h
++INCL = -I$(ECPREFIX)/include
++INCL = -I$(ECPREFIX)/include/ncurses
+ 
+ # If your vendor-supplied curses library won't work, uncomment the
+ # location where the ncurses library is.
+@@ -68,20 +70,21 @@
+ #LIB = -L/usr/freeware/lib
+ #LIB = -L/5usr/lib
+ #LIB = -L/path/to/libncurses.so
++LIB = -L$(ECPREFIX)/lib
+ 
+ # One of these must always be uncommented.  If your vendor-supplied
+ # curses library won't work, comment out the first option and uncomment
+ # the second.
+ #
+-CURSES = -lcurses
+-#CURSES = -lncurses
++#CURSES = -lcurses
++CURSES = -lncurses
+ 
+ # Uncomment this if your need to use ncurses instead of the
+ # vendor-supplied curses library.  This just tells the compile process
+ # which header to include, so don't worry if ncurses is all you have
+ # (like on Linux).  You'll be fine.
+ #
+-#CURSES_DEF = -DUSE_NCURSES_H
++CURSES_DEF = -DUSE_NCURSES_H
+ 
+ # Uncomment this if you're compiling Unix Frotz on a machine that lacks
+ # the memmove(3) system call.  If you don't know what this means, leave it

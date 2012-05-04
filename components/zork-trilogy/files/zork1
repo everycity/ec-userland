@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Obtain Zork
+/ec/share/games/zcode/obtain-zork.sh
+[[ $? -ne 0 ]] && echo "Error: Unable to obtain zork" && exit 1
+
+frotz ZORK1.DAT
+
