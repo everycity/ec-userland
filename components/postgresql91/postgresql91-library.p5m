@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -951,6 +951,7 @@ file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES/pgscripts-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES/plpgsql-$(COMPONENT_MJR_VERSION).mo
+file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES/psql-$(COMPONENT_MJR_VERSION).mo
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ja/LC_MESSAGES/ecpg-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ja/LC_MESSAGES/ecpglib6-$(COMPONENT_MJR_VERSION).mo
@@ -980,8 +981,10 @@ file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ja/LC_MESSAGES/plpython-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ja/LC_MESSAGES/postgres-$(COMPONENT_MJR_VERSION).mo
-file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ja/LC_MESSAGES/psql-$(COMPONENT_MJR_VERSION).mo
-file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/ecpg-$(COMPONENT_MJR_VERSION).mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ja/LC_MESSAGES/psql-$(COMPONENT_MJR_VERSION).mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/ecpg-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/initdb-$(COMPONENT_MJR_VERSION).mo
 file \
@@ -1000,7 +1003,8 @@ file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/plpgsql-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/nb/LC_MESSAGES/pg_config-$(COMPONENT_MJR_VERSION).mo
-file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/pl/LC_MESSAGES/ecpg-$(COMPONENT_MJR_VERSION).mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/pl/LC_MESSAGES/ecpg-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/pl/LC_MESSAGES/ecpglib6-$(COMPONENT_MJR_VERSION).mo
 file \
@@ -1079,9 +1083,15 @@ file \
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ro/LC_MESSAGES/plpython-$(COMPONENT_MJR_VERSION).mo
 file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ru/LC_MESSAGES/ecpg-$(COMPONENT_MJR_VERSION).mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ru/LC_MESSAGES/ecpglib6-$(COMPONENT_MJR_VERSION).mo
+file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ru/LC_MESSAGES/initdb-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ru/LC_MESSAGES/libpq5-$(COMPONENT_MJR_VERSION).mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ru/LC_MESSAGES/pg_basebackup-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ru/LC_MESSAGES/pg_config-$(COMPONENT_MJR_VERSION).mo
 file \
@@ -1089,7 +1099,21 @@ file \
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ru/LC_MESSAGES/pg_ctl-$(COMPONENT_MJR_VERSION).mo
 file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ru/LC_MESSAGES/pg_dump-$(COMPONENT_MJR_VERSION).mo
+file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ru/LC_MESSAGES/pg_resetxlog-$(COMPONENT_MJR_VERSION).mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ru/LC_MESSAGES/pgscripts-$(COMPONENT_MJR_VERSION).mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ru/LC_MESSAGES/plperl-$(COMPONENT_MJR_VERSION).mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ru/LC_MESSAGES/plpgsql-$(COMPONENT_MJR_VERSION).mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ru/LC_MESSAGES/plpython-$(COMPONENT_MJR_VERSION).mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ru/LC_MESSAGES/postgres-$(COMPONENT_MJR_VERSION).mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ru/LC_MESSAGES/psql-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/sv/LC_MESSAGES/initdb-$(COMPONENT_MJR_VERSION).mo
 file \
@@ -1108,7 +1132,8 @@ file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ta/LC_MESSAGES/pg_resetxlog-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ta/LC_MESSAGES/pgscripts-$(COMPONENT_MJR_VERSION).mo
-file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/tr/LC_MESSAGES/ecpg-$(COMPONENT_MJR_VERSION).mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/tr/LC_MESSAGES/ecpg-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/tr/LC_MESSAGES/ecpglib6-$(COMPONENT_MJR_VERSION).mo
 file \
@@ -1133,7 +1158,8 @@ file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/tr/LC_MESSAGES/plpgsql-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/tr/LC_MESSAGES/plpython-$(COMPONENT_MJR_VERSION).mo
-file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/tr/LC_MESSAGES/psql-$(COMPONENT_MJR_VERSION).mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/tr/LC_MESSAGES/psql-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/zh_CN/LC_MESSAGES/ecpg-$(COMPONENT_MJR_VERSION).mo
 file \
