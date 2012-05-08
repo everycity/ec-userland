@@ -1,0 +1,39 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/backup/zetaback@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Zetaback ZFS backup and recovery management system"
+set name=info.classification value="org.opensolaris.category.2008:Applications/System Utilities"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license LICENSE license='Zetaback License'
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/zetaback
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/zetaback
+file path=$(ECPREFIX)/bin/zetaback_agent
+file $(ECPREFIX)/etc/zetaback.conf.sample path=$(ECPREFIX)/share/doc/zetaback/zetaback.conf.sample
+file $(ECPREFIX)/etc/zetaback_agent.conf.sample path=$(ECPREFIX)/share/doc/zetaback/zetaback_agent.conf.sample
+file path=$(ECPREFIX)/share/man/man1/zetaback.1
+file path=$(ECPREFIX)/share/man/man1/zetaback_agent.1
