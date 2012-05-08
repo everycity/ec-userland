@@ -444,15 +444,6 @@ file path=$(ECPREFIX)/lib/node_modules/npm/html/docfoot.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/dochead.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/favicon.ico
 file path=$(ECPREFIX)/lib/node_modules/npm/html/index.html
-file path=$(ECPREFIX)/lib/node_modules/npm/html/n-64.png
-file path=$(ECPREFIX)/lib/node_modules/npm/html/n-large.png
-file path=$(ECPREFIX)/lib/node_modules/npm/html/npm-16.png
-file path=$(ECPREFIX)/lib/node_modules/npm/html/npm-256-square.png
-file path=$(ECPREFIX)/lib/node_modules/npm/html/npm-256w.png
-file path=$(ECPREFIX)/lib/node_modules/npm/html/npm-64-square.png
-file path=$(ECPREFIX)/lib/node_modules/npm/html/npm-fin.png
-file path=$(ECPREFIX)/lib/node_modules/npm/html/npm-large.png
-file path=$(ECPREFIX)/lib/node_modules/npm/html/npm.png
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/adduser.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/bin.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/bugs.js
@@ -751,6 +742,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/mkdirp/README.markdown
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/mkdirp/index.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/mkdirp/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/.npmignore
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/README.md
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js
@@ -884,10 +876,6 @@ file \
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/lib/rebuild.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/lib/remove.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/lib/util/asyncEmit.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/lib/util/hook.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/lib/util/mkdirp.js
 file \
