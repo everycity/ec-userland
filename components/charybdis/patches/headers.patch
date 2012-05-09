@@ -1,0 +1,54 @@
+diff -ruN charybdis-3.3.0.orig/include/stdinc.h charybdis-3.3.0/include/stdinc.h
+--- charybdis-3.3.0.orig/include/stdinc.h	2010-10-15 13:29:51.000000000 +0000
++++ charybdis-3.3.0/include/stdinc.h	2012-04-18 10:42:40.062574789 +0000
+@@ -94,14 +94,16 @@
+ #include <sys/time.h>
+ #include <sys/types.h>
+ #include <sys/file.h>
++/*
+ #ifdef HAVE_SYS_RESOURCE_H
+ #include <sys/resource.h>
+ #endif
++*/
+ 
+ 
+ #include <sys/socket.h>
+ #include <sys/stat.h>
+-#include <sys/wait.h>
++/* #include <sys/wait.h> */
+ 
+ #ifdef HAVE_SYS_PARAM_H
+ #include <sys/param.h>
+diff -ruN charybdis-3.3.0.orig/modules/m_stats.c charybdis-3.3.0/modules/m_stats.c
+--- charybdis-3.3.0.orig/modules/m_stats.c	2010-10-15 13:29:52.000000000 +0000
++++ charybdis-3.3.0/modules/m_stats.c	2012-04-18 10:56:29.172977034 +0000
+@@ -24,6 +24,7 @@
+  *  $Id: m_stats.c 1608 2006-06-04 02:11:40Z jilles $
+  */
+ 
++#include <sys/resource.h>
+ #include "stdinc.h"
+ #include "class.h"		/* report_classes */
+ #include "client.h"		/* Client */
+diff -ruN charybdis-3.3.0.orig/src/ircd.c charybdis-3.3.0/src/ircd.c
+--- charybdis-3.3.0.orig/src/ircd.c	2010-10-15 13:29:52.000000000 +0000
++++ charybdis-3.3.0/src/ircd.c	2012-04-18 11:01:14.812792885 +0000
+@@ -25,6 +25,7 @@
+  *  $Id$
+  */
+ 
++#include <sys/resource.h>
+ #include "ratbox_lib.h"
+ #include "stdinc.h"
+ #include "setup.h"
+diff -ruN charybdis-3.3.0.orig/src/ircd_signal.c charybdis-3.3.0/src/ircd_signal.c
+--- charybdis-3.3.0.orig/src/ircd_signal.c	2010-10-15 13:29:52.000000000 +0000
++++ charybdis-3.3.0/src/ircd_signal.c	2012-04-18 11:01:26.033490596 +0000
+@@ -20,6 +20,7 @@
+  * $Id: ircd_signal.c 6 2005-09-10 01:02:21Z nenolod $
+  */
+ 
++#include <sys/wait.h>
+ #include "stdinc.h"
+ #include "ircd_signal.h"
+ #include "ircd.h"		/* dorehash */
