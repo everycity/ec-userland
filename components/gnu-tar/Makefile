@@ -27,7 +27,7 @@ COMPONENT_VERSION=	1.26
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:ba89cba98c1a6aea3c80cda5ddcd5eceb5adbb9b
-COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/tar/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

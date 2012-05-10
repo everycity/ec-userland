@@ -27,7 +27,7 @@ COMPONENT_VERSION=	3.1.8
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:162fae13304864012138566da7545235e69354b6
-COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.gnu.org/gnu/gawk/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
