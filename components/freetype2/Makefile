@@ -18,15 +18,15 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		freetype
-COMPONENT_VERSION=	2.4.8
+COMPONENT_VERSION=	2.4.9
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:1634cef894460ab98dd37eadfcdd055ffda9a27c
+COMPONENT_ARCHIVE_HASH=	sha1:5cb80ab9d369c4e81a2221bcf45adcea2c996b9b
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_SAVANNAH)
 
 include ../../make-rules/prep.mk

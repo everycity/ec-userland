@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -86,13 +86,13 @@ file path=$(ECPREFIX)/include/freetype2/freetype/tttables.h
 file path=$(ECPREFIX)/include/freetype2/freetype/tttags.h
 file path=$(ECPREFIX)/include/freetype2/freetype/ttunpat.h
 file path=$(ECPREFIX)/include/ft2build.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libfreetype.so.6.8.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libfreetype.so.6.8.1
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/freetype2.pc
-file path=$(ECPREFIX)/lib/libfreetype.so.6.8.0
+file path=$(ECPREFIX)/lib/libfreetype.so.6.8.1
 file path=$(ECPREFIX)/lib/pkgconfig/freetype2.pc
 file path=$(ECPREFIX)/share/aclocal/freetype2.m4
-link path=$(ECPREFIX)/lib/$(MACH64)/libfreetype.so target=libfreetype.so.6.8.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libfreetype.so target=libfreetype.so.6.8.1
 link path=$(ECPREFIX)/lib/$(MACH64)/libfreetype.so.6 \
-    target=libfreetype.so.6.8.0
-link path=$(ECPREFIX)/lib/libfreetype.so target=libfreetype.so.6.8.0
-link path=$(ECPREFIX)/lib/libfreetype.so.6 target=libfreetype.so.6.8.0
+    target=libfreetype.so.6.8.1
+link path=$(ECPREFIX)/lib/libfreetype.so target=libfreetype.so.6.8.1
+link path=$(ECPREFIX)/lib/libfreetype.so.6 target=libfreetype.so.6.8.1
