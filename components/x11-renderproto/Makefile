@@ -27,7 +27,7 @@ COMPONENT_VERSION=	0.11.1
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:522aa3e04e0c78598bb4a50157ca39e2b02d9222
-COMPONENT_ARCHIVE_URL=	http://xorg.freedesktop.org/releases/individual/proto/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_XORG_PROTO)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
