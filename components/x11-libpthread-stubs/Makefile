@@ -27,7 +27,7 @@ COMPONENT_VERSION=	0.3
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:7174d6a5f4b158746f020b8fc7a3e3e5438dd233
-COMPONENT_ARCHIVE_URL=	http://xorg.freedesktop.org/releases/individual/xcb/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_XORG_XCB)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
