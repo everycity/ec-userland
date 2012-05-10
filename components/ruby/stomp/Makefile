@@ -20,7 +20,8 @@ COMPONENT_VERSION=	1.1.8
 GIT_ID=			v$(COMPONENT_VERSION)
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-$(GIT_ID).tar.gz
-COMPONENT_ARCHIVE_URL=	git://gitorious.org/~gmallard/stomp/gmallards-stomp-mainline.git
+#COMPONENT_ARCHIVE_URL=	git://gitorious.org/~gmallard/stomp/gmallards-stomp-mainline.git
+COMPONENT_ARCHIVE_URL=	git://gitorious.org/stomp/mainline.git
 
 include ../../../make-rules/prep.mk
 include ../../../make-rules/ips.mk
