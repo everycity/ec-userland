@@ -27,7 +27,7 @@ COMPONENT_VERSION=	2.4.8
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
 COMPONENT_ARCHIVE_HASH=	sha1:1634cef894460ab98dd37eadfcdd055ffda9a27c
-COMPONENT_ARCHIVE_URL=	http://download.savannah.gnu.org/releases/freetype/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_SAVANNAH)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
