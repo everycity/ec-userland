@@ -604,3 +604,14 @@ COMPONENT_INSTALL_ARGS += $(COMPONENT_INSTALL_ARGS.$(BITS))
 NO_TESTS =	test-nothing
 test-nothing:
 	@echo "There are no tests available at this time."
+
+
+# Shared download URLs
+DOWNLOAD_GNU_FTP=	http://ftp.gnu.org/gnu/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
+DOWNLOAD_GNU_SAVANNAH=	http://download.savannah.gnu.org/releases/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
+DOWNLOAD_PHP_PECL=	http://pecl.php.net/get/$(COMPONENT_ARCHIVE)
+DOWNLOAD_SOURCEFORGE=	http://downloads.sourceforge.net/project/$(COMPONENT_NAME)/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+DOWNLOAD_XMLSOFT=	ftp://xmlsoft.org/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
+DOWNLOAD_XORG_LIB=	http://xorg.freedesktop.org/releases/individual/lib/$(COMPONENT_ARCHIVE)
+DOWNLOAD_XORG_PROTO=	http://xorg.freedesktop.org/releases/individual/proto/$(COMPONENT_ARCHIVE)
+DOWNLOAD_XORG_XCB=	http://xorg.freedesktop.org/releases/individual/xcb/$(COMPONENT_ARCHIVE)
