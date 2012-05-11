@@ -9,20 +9,19 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2012 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
-<transform file path=ec/lib/git-core/.+ -> default mode 0555>
 
-set name=pkg.fmri value=pkg:/developer/versioning/git@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="git - Fast version control system"
-set name=info.upstream_url value="http://git-scm.com/"
+set name=pkg.fmri value=pkg:/@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="
+set name=info.upstream_url value="
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
-license COPYING license="GPLv2"
+license .license license="
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -140,23 +139,39 @@ file path=$(ECPREFIX)/lib/git-core/mergetools/tkdiff
 file path=$(ECPREFIX)/lib/git-core/mergetools/tortoisemerge
 file path=$(ECPREFIX)/lib/git-core/mergetools/vim
 file path=$(ECPREFIX)/lib/git-core/mergetools/xxdiff
+file path=$(ECPREFIX)/lib/i86pc-solaris-64int/perllocal.pod
 file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers-0.1.0-py2.6.egg-info
 file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/__init__.py
 file \
+    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/__init__.pyc
+file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/__init__.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/__init__.pyc
 file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/exporter.py
 file \
+    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/exporter.pyc
+file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/git.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/git.pyc
 file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/importer.py
 file \
+    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/importer.pyc
+file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/non_local.py
 file \
+    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/non_local.pyc
+file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/repo.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/repo.pyc
 file path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/util.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/util.pyc
 file \
     path=$(ECPREFIX)/lib/site_perl/5.12.4/i86pc-solaris-64int/auto/Git/.packlist
 file path=$(ECPREFIX)/lib/site_perl/Error.pm

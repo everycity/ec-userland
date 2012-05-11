@@ -24,10 +24,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		git
-COMPONENT_VERSION=	1.7.8
+COMPONENT_VERSION=	1.7.10.1
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:7453e737e008f7319a5eca24a9ef3c5fb1f13398
+COMPONENT_ARCHIVE_HASH=	sha1:870361f93fad7999f121bc7bc91a743feda68bdb
 COMPONENT_ARCHIVE_URL=	http://git-core.googlecode.com/files/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -41,6 +41,8 @@ CONFIGURE_OPTIONS+=	--with-gitconfig=$(ECPREFIX)/etc/gitconfig
 CONFIGURE_OPTIONS+=	--with-gitattributes=$(ECPREFIX)/etc/gitattributes
 CONFIGURE_OPTIONS+=	--with-python=$(ECPREFIX)/bin/python2.6
 CONFIGURE_OPTIONS+=	--with-editor=vim
+
+LDFLAGS+=	-lintl
 
 COMPONENT_BUILD_ENV+=	PERL_PATH=$(ECPREFIX)/bin/perl
 
