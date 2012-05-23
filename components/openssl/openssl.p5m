@@ -1152,6 +1152,10 @@ link path=$(ECPREFIX)/share/man/man3/EVP_mdc2.3 target=EVP_DigestInit.3
 link path=$(ECPREFIX)/share/man/man3/EVP_ripemd160.3 target=EVP_DigestInit.3
 link path=$(ECPREFIX)/share/man/man3/EVP_sha.3 target=EVP_DigestInit.3
 link path=$(ECPREFIX)/share/man/man3/EVP_sha1.3 target=EVP_DigestInit.3
+link path=$(ECPREFIX)/share/man/man3/EVP_sha224.3 target=EVP_DigestInit.3
+link path=$(ECPREFIX)/share/man/man3/EVP_sha256.3 target=EVP_DigestInit.3
+link path=$(ECPREFIX)/share/man/man3/EVP_sha384.3 target=EVP_DigestInit.3
+link path=$(ECPREFIX)/share/man/man3/EVP_sha512.3 target=EVP_DigestInit.3
 link path=$(ECPREFIX)/share/man/man3/HMAC.3 target=hmac.3
 link path=$(ECPREFIX)/share/man/man3/HMAC_Final.3 target=hmac.3
 link path=$(ECPREFIX)/share/man/man3/HMAC_Init.3 target=hmac.3

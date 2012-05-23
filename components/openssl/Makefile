@@ -15,17 +15,17 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		openssl
-COMPONENT_VERSION=	1.0.0g
+COMPONENT_VERSION=	1.0.0j
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:2b517baada2338663c27314cb922f9755e73e07f
+COMPONENT_ARCHIVE_HASH=	sha1:31e6e8bbf1de2f59fbd53382c34214887ccc1318
 COMPONENT_ARCHIVE_URL=	http://openssl.org/source/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-IPS_COMPONENT_VERSION=  1.0.0.7
+IPS_COMPONENT_VERSION=  1.0.0.10
 
 CLEAN_PATHS +=	opensslconf.h
 
