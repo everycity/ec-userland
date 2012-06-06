@@ -1,25 +1,17 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
+# Copyright 2012 EveryCity Ltd. All rights reserved.
 #
-# CDDL HEADER END
-#
-# Copyright 2011 EveryCity Ltd. All rights reserved.
-#
+
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ncurses
@@ -35,23 +27,29 @@ include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS  +=		--without-normal
 CONFIGURE_OPTIONS  +=		--with-shared
-#CONFIGURE_OPTIONS  +=		--enable-rpath
-#CONFIGURE_OPTIONS  +=		--enable-widec
 CONFIGURE_OPTIONS  +=		--without-debug
 CONFIGURE_OPTIONS  +=		--with-default-terminfo-dir=$(ECPREFIX)/share/terminfo
+#CONFIGURE_OPTIONS  +=		--enable-rpath
 
-# common targets
-build:		$(BUILD_32_and_64)
+# Support two variants - regular, and wide character support
+VARIANT_WIDE =		$(BUILD_DIR)/wide
+VARIANT_NONWIDE =	$(BUILD_DIR)/non-wide
 
-include ../../make-rules/shared-targets.mk
+VARIANTS =	$(VARIANT_WIDE) $(VARIANT_NONWIDE)
 
-install:	$(INSTALL_32_and_64)
+BUILD_32 = $(VARIANTS:%=%/$(MACH32)/.built)
+BUILD_64 = $(VARIANTS:%=%/$(MACH64)/.built)
 
-# build does this always
-test: build
-	@cd $(BUILD_DIR_32); $(MAKE) check
-	@cd $(BUILD_DIR_64); $(MAKE) check
+INSTALL_32 = $(VARIANTS:%=%/$(MACH32)/.installed)
+INSTALL_64 = $(VARIANTS:%=%/$(MACH64)/.installed)
 
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
+$(VARIANT_WIDE)/$(MACH64)/.configured: BITS=64
+$(VARIANT_NONWIDE)/$(MACH64)/.configured:  BITS=64
 
-include ../../make-rules/depend.mk
+$(VARIANT_WIDE)/%/.configured: CONFIGURE_OPTIONS += --enable-widec
+$(VARIANT_NONWIDE)/%/.configured: CONFIGURE_OPTIONS += --disable-widec
+
+build:          $(BUILD_32_and_64)
+
+install:        $(INSTALL_32_and_64)
+
