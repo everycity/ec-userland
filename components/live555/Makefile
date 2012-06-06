@@ -1,35 +1,26 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
-#
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2012 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		live555
-COMPONENT_VERSION=	2011.09.02
+COMPONENT_VERSION=	2012.05.17
 COMPONENT_SRC=		live
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:c592ac5735430e00cb360797c27a986d97ccac48
+COMPONENT_ARCHIVE_HASH=	sha256:d38452b1889e038d7d639d9654c4eaf657899dc5b9d85dbb0377b8967a0940c9
 COMPONENT_ARCHIVE_URL=	http://www.live555.com/liveMedia/public/$(COMPONENT_ARCHIVE)
 
-IPS_COMPONENT_VERSION=	2011.7.8
+IPS_COMPONENT_VERSION=	2012.5.17
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
@@ -41,8 +32,35 @@ CLEAN_PATHS+=	install
 
 build:		$(BUILD_32_and_64)
 
+# This recipe taken from http://ftp.de.debian.org/debian/pool/main/libl/liblivemedia/
 install:	build
+	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/bin
+	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)
 	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/lib
-	$(CP) -R $(BUILD_DIR_32) $(PROTO_DIR)/$(ECPREFIX)/lib/live555-32bit
-	$(CP) -R $(BUILD_DIR_64) $(PROTO_DIR)/$(ECPREFIX)/lib/live555-64bit
+	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)
+	for f in BasicUsageEnvironment \
+		UsageEnvironment liveMedia groupsock; do \
+	  $(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/include/$${f}; \
+	  $(CP) $(BUILD_DIR_32)/$${f}/include/*.h* $(PROTO_DIR)/$(ECPREFIX)/include/$${f}/; \
+	  $(CP) $(BUILD_DIR_32)/$${f}/lib$${f}.a $(PROTO_DIR)/$(ECPREFIX)/lib/; \
+	  $(CP) $(BUILD_DIR_64)/$${f}/lib$${f}.a $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/; \
+	done
+	$(CP) $(BUILD_DIR_32)/mediaServer/live555MediaServer $(PROTO_DIR)/$(ECPREFIX)/bin/
+	$(CP) $(BUILD_DIR_32)/proxyServer/live555ProxyServer $(PROTO_DIR)/$(ECPREFIX)/bin/
+	$(CP) $(BUILD_DIR_64)/mediaServer/live555MediaServer $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)/
+	$(CP) $(BUILD_DIR_64)/proxyServer/live555ProxyServer $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)/
+	for f in openRTSP playSIP sapWatch testAMRAudioStreamer \
+		testMP3Receiver testMP3Streamer \
+		testMPEG1or2AudioVideoStreamer \
+		testMPEG1or2AudioVideoToDarwin \
+		testMPEG1or2ProgramToTransportStream \
+		testMPEG1or2Splitter testMPEG1or2VideoReceiver \
+		testMPEG1or2VideoStreamer testMPEG2TransportStreamer \
+		testMPEG4VideoStreamer testMPEG4VideoToDarwin \
+		testOnDemandRTSPServer testRelay testWAVAudioStreamer \
+		MPEG2TransportStreamIndexer \
+		vobStreamer; do \
+	  $(CP) $(BUILD_DIR_32)/testProgs/$${f} $(PROTO_DIR)/$(ECPREFIX)/bin/; \
+	  $(CP) $(BUILD_DIR_64)/testProgs/$${f} $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)/; \
+	done
 	$(TOUCH) $@

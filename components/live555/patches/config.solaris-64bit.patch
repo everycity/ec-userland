@@ -2,7 +2,7 @@
 +++ live/config.solaris-64bit	2011-07-10 02:06:28.179574761 +0100
 @@ -1,15 +1,15 @@
 -COMPILE_OPTS =          $(INCLUDES) -m64 -I. -O -DSOLARIS -DSOCKLEN_T=socklen_t
-+COMPILE_OPTS =          $(INCLUDES) -m64 -I. -O -DSOLARIS -DSOCKLEN_T=socklen_t -fPIC
++COMPILE_OPTS =          $(INCLUDES) -m64 -I. -O -DSOLARIS -DSOCKLEN_T=socklen_t -fPIC -DLOCALE_NOT_USED
  C =                     c
 -C_COMPILER =            cc
 +C_COMPILER =            gcc
