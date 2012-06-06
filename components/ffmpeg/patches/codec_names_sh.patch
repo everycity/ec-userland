@@ -1,0 +1,8 @@
+--- ffmpeg-0.11/libavcodec/codec_names.sh.orig	2012-06-06 23:17:36.476725255 +0000
++++ ffmpeg-0.11/libavcodec/codec_names.sh	2012-06-06 23:17:54.295732157 +0000
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ # Copyright (c) 2011 Nicolas George
+ #
