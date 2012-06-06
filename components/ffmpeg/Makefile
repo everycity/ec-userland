@@ -16,10 +16,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ffmpeg
-COMPONENT_VERSION=	0.8.8
+COMPONENT_VERSION=	0.11
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:ed8492cfbdc006c452cf0ed029d6266a029e3952
+COMPONENT_ARCHIVE_HASH=	sha256:b1662f6f0d61c3070d8c64904c3c912e724f780d4bea7187012b99d4500a042f
 COMPONENT_ARCHIVE_URL=	http://www.ffmpeg.org/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -37,13 +37,22 @@ CONFIGURE_OPTIONS.64+=	--shlibdir=$(ECPREFIX)/lib/$(MACH64)
 CONFIGURE_OPTIONS.32+=	--cpu=i686
 
 CONFIGURE_OPTIONS+=	--cc="$(CC)"
+CONFIGURE_OPTIONS+=	--extra-cflags="$(CFLAGS)"
+CONFIGURE_OPTIONS+=	--extra-ldflags="$(LDFLAGS)"
+
 CONFIGURE_OPTIONS+=	--disable-static
 CONFIGURE_OPTIONS+=	--enable-shared
 CONFIGURE_OPTIONS+=	--enable-nonfree
 CONFIGURE_OPTIONS+=	--enable-version3
 CONFIGURE_OPTIONS+=	--enable-gpl
+
+CONFIGURE_OPTIONS+=	--enable-sse
+CONFIGURE_OPTIONS+=	--enable-ssse3
+CONFIGURE_OPTIONS+=	--enable-mmx
+CONFIGURE_OPTIONS+=	--enable-mmx2
+CONFIGURE_OPTIONS+=	--enable-yasm
+
 CONFIGURE_OPTIONS+=	--enable-libfaac
-CONFIGURE_OPTIONS+=	--enable-libdirac
 CONFIGURE_OPTIONS+=	--enable-libopenjpeg
 CONFIGURE_OPTIONS+=	--enable-libschroedinger
 CONFIGURE_OPTIONS+=	--enable-libvpx
@@ -57,6 +66,7 @@ CONFIGURE_OPTIONS+=	--enable-libtheora
 CONFIGURE_OPTIONS+=	--enable-libopencore-amrnb
 CONFIGURE_OPTIONS+=	--enable-libopencore-amrwb
 CONFIGURE_OPTIONS+=	--enable-librtmp
+
 CONFIGURE_OPTIONS+=	--disable-ffplay
 CONFIGURE_OPTIONS+=	--disable-avdevice
 
@@ -64,6 +74,15 @@ CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))
 
 COMPONENT_PRE_CONFIGURE_ACTION+=	\
 	/bin/echo "\#define FFMPEG_VERSION \"$(COMPONENT_VERSION)\"" > $(SOURCE_DIR)/version.h
+
+COMPONENT_POST_BUILD_ACTION=	(cd $(@D) ; $(ENV) $(COMPONENT_BUILD_ENV) \
+	$(GMAKE) alltools)
+
+BINDIR.32=      $(CONFIGURE_PREFIX)/bin
+BINDIR.64=      $(CONFIGURE_PREFIX)/bin/$(MACH64)
+
+COMPONENT_POST_INSTALL_ACTION=  ( cd $(@D) ; cp tools/cws2fws tools/graph2dot tools/lavfi-showfiltfmts \
+        tools/pktdumper tools/probetest tools/qt-faststart tools/trasher $(PROTO_DIR)$(BINDIR.$(BITS)) )
 
 build:		$(BUILD_32_and_64)
 
