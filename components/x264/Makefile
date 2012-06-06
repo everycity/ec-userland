@@ -1,49 +1,42 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
-#
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2012 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		x264
-COMPONENT_VERSION=	20110614-2245
+COMPONENT_VERSION=	20120605-2245
 COMPONENT_SRC=		$(COMPONENT_NAME)-snapshot-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:947f870cb77935d73be5e6f0ad9bc2e7435b9d66
+#COMPONENT_ARCHIVE_HASH=	sha1:947f870cb77935d73be5e6f0ad9bc2e7435b9d66
 COMPONENT_ARCHIVE_URL=	http://svn.everycity.co.uk/public/solaris/misc/$(COMPONENT_ARCHIVE)
 
-IPS_COMPONENT_VERSION=	2011.6.14
+IPS_COMPONENT_VERSION=	2012.6.5
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 include ../../make-rules/gnu-ld.mk
 
+CFLAGS=-I/ec/include
+
 CONFIGURE_OPTIONS=	--prefix=$(ECPREFIX)	
 CONFIGURE_OPTIONS.32+=	--bindir=$(ECPREFIX)/bin
 CONFIGURE_OPTIONS.64+=	--bindir=$(ECPREFIX)/bin/$(MACH64)
 CONFIGURE_OPTIONS.32+=	--libdir=$(ECPREFIX)/lib
 CONFIGURE_OPTIONS.64+=	--libdir=$(ECPREFIX)/lib/$(MACH64)
-CONFIGURE_OPTIONS.64+=	--host=x86_64-pc-solaris2.10
-CONFIGURE_OPTIONS.64+=	--extra-cflags=-m64
-CONFIGURE_OPTIONS.64+=	--extra-ldflags="-L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64) -m64"
+CONFIGURE_OPTIONS.64+=	--host=x86_64-pc-solaris$(SOLARIS_VERSION)
+CONFIGURE_OPTIONS.64+=	--extra-cflags="$(CFLAGS)"
+CONFIGURE_OPTIONS+=	--extra-ldflags="$(LDFLAGS)"
 CONFIGURE_OPTIONS+=	--enable-pic
 CONFIGURE_OPTIONS+=	--enable-shared
 CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))

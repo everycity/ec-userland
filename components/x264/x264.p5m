@@ -35,9 +35,9 @@ file path=$(ECPREFIX)/bin/$(MACH64)/x264
 file path=$(ECPREFIX)/bin/x264
 file path=$(ECPREFIX)/include/x264.h
 file path=$(ECPREFIX)/include/x264_config.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libx264.so.115
+file path=$(ECPREFIX)/lib/$(MACH64)/libx264.so.125
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/x264.pc
-file path=$(ECPREFIX)/lib/libx264.so.115
+file path=$(ECPREFIX)/lib/libx264.so.125
 file path=$(ECPREFIX)/lib/pkgconfig/x264.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libx264.so target=libx264.so.115
-link path=$(ECPREFIX)/lib/libx264.so target=libx264.so.115
+link path=$(ECPREFIX)/lib/$(MACH64)/libx264.so target=libx264.so.125
+link path=$(ECPREFIX)/lib/libx264.so target=libx264.so.125
