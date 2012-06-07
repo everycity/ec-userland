@@ -1,0 +1,15 @@
+--- Python-2.6.6/configure.in.~2~	2012-06-07 11:31:18.879501832 +0000
++++ Python-2.6.6/configure.in	2012-06-07 11:46:09.581862192 +0000
+@@ -3328,7 +3330,11 @@
+ fi
+ 
+ AC_CHECK_FUNCS([acosh asinh atanh copysign expm1 finite hypot log1p])
+-AC_CHECK_DECLS([isinf, isnan, isfinite], [], [], [[#include <math.h>]])
++# EC: isinf and isfinite are only defined with c99 on Solaris but
++# autoconf finds them, despite Python being built without c99 support.
++# So lets force python to not find them.
++#AC_CHECK_DECLS([isinf, isnan, isfinite], [], [], [[#include <math.h>]])
++AC_CHECK_DECLS([isnan], [], [], [[#include <math.h>]])
+ 
+ LIBS=$LIBS_SAVE
+ 
