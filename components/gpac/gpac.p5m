@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2012 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -25,18 +25,44 @@ license gpac.license license="LGPLv2.1"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/ec
+dir path=$(ECPREFIX)/ec/lib
+dir path=$(ECPREFIX)/ec/lib/gpac
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/gpac
-dir path=$(ECPREFIX)/lib/gpac
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/MP4Box
-file path=$(ECPREFIX)/bin/$(MACH64)/MP4Client
 file path=$(ECPREFIX)/bin/MP4Box
 file path=$(ECPREFIX)/bin/MP4Client
+file path=$(ECPREFIX)/ec/lib/gpac/gm_aac_in.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_ac3_in.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_audio_filter.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_bifs_dec.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_ctx_load.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_dummy_in.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_ffmpeg_in.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_ft_font.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_img_in.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_ismacryp.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_isom_in.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_laser_dec.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_mp3_in.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_mpd_in.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_mpegts_in.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_odf_dec.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_ogg_xiph.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_osd.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_oss_audio.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_rtp_in.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_saf_in.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_soft_raster.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_svg_in.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_timedtext.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_widgetman.so
+file path=$(ECPREFIX)/ec/lib/gpac/gm_xvid_dec.so
+file path=$(ECPREFIX)/ec/lib/libgpac.so.2.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_aac_in.so
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_ac3_in.so
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_audio_filter.so
@@ -54,40 +80,17 @@ file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_mpd_in.so
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_mpegts_in.so
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_odf_dec.so
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_ogg_xiph.so
+file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_osd.so
+file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_oss_audio.so
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_rtp_in.so
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_saf_in.so
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_soft_raster.so
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_svg_in.so
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_timedtext.so
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_widgetman.so
-file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_x11_out.so
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_xvid_dec.so
-file path=$(ECPREFIX)/lib/$(MACH64)/libgpac.so.0.4.6-DEV
-file path=$(ECPREFIX)/lib/gpac/gm_aac_in.so
-file path=$(ECPREFIX)/lib/gpac/gm_ac3_in.so
-file path=$(ECPREFIX)/lib/gpac/gm_audio_filter.so
-file path=$(ECPREFIX)/lib/gpac/gm_bifs_dec.so
-file path=$(ECPREFIX)/lib/gpac/gm_ctx_load.so
-file path=$(ECPREFIX)/lib/gpac/gm_dummy_in.so
-file path=$(ECPREFIX)/lib/gpac/gm_ffmpeg_in.so
-file path=$(ECPREFIX)/lib/gpac/gm_ft_font.so
-file path=$(ECPREFIX)/lib/gpac/gm_img_in.so
-file path=$(ECPREFIX)/lib/gpac/gm_ismacryp.so
-file path=$(ECPREFIX)/lib/gpac/gm_isom_in.so
-file path=$(ECPREFIX)/lib/gpac/gm_laser_dec.so
-file path=$(ECPREFIX)/lib/gpac/gm_mp3_in.so
-file path=$(ECPREFIX)/lib/gpac/gm_mpd_in.so
-file path=$(ECPREFIX)/lib/gpac/gm_mpegts_in.so
-file path=$(ECPREFIX)/lib/gpac/gm_odf_dec.so
-file path=$(ECPREFIX)/lib/gpac/gm_ogg_xiph.so
-file path=$(ECPREFIX)/lib/gpac/gm_rtp_in.so
-file path=$(ECPREFIX)/lib/gpac/gm_saf_in.so
-file path=$(ECPREFIX)/lib/gpac/gm_soft_raster.so
-file path=$(ECPREFIX)/lib/gpac/gm_svg_in.so
-file path=$(ECPREFIX)/lib/gpac/gm_timedtext.so
-file path=$(ECPREFIX)/lib/gpac/gm_widgetman.so
-file path=$(ECPREFIX)/lib/gpac/gm_x11_out.so
-file path=$(ECPREFIX)/lib/gpac/gm_xvid_dec.so
-file path=$(ECPREFIX)/lib/libgpac.so.0.4.6-DEV
-link path=$(ECPREFIX)/lib/$(MACH64)/libgpac.so target=libgpac.so.0.4.6-DEV
-link path=$(ECPREFIX)/lib/libgpac.so target=libgpac.so.0.4.6-DEV
+file path=$(ECPREFIX)/lib/$(MACH64)/libgpac.so.2.0.0
+link path=$(ECPREFIX)/ec/lib/libgpac.so target=libgpac.so.2.0.0
+link path=$(ECPREFIX)/ec/lib/libgpac.so.2 target=libgpac.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libgpac.so target=libgpac.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libgpac.so.2 target=libgpac.so.2.0.0
