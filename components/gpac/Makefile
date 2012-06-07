@@ -30,6 +30,8 @@ include ../../make-rules/ips.mk
 
 IPS_COMPONENT_VERSION=	2012.6.6
 
+PKGDEPEND_TRANSFORMS+=	$(COMPONENT_DIR)/skip-libgpac-so
+
 CONFIGURE_OPTIONS=	--prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--mandir=$(ECPREFIX)/share/man
 CONFIGURE_OPTIONS.32+=	--bindir=$(ECPREFIX)/bin
