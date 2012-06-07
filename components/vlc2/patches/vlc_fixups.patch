@@ -1,0 +1,23 @@
+--- vlc-2.0.1/include/vlc_fixups.h.orig	2012-06-06 21:59:26.797655812 +0000
++++ vlc-2.0.1/include/vlc_fixups.h	2012-06-06 21:59:47.794701428 +0000
+@@ -276,20 +276,6 @@
+ # define poll(a, b, c) vlc_poll(a, b, c)
+ #endif
+ 
+-#ifndef HAVE_IF_NAMEINDEX
+-#include <errno.h>
+-struct if_nameindex
+-{
+-    unsigned if_index;
+-    char    *if_name;
+-};
+-# ifndef HAVE_IF_NAMETOINDEX
+-#  define if_nametoindex(name)   atoi(name)
+-# endif
+-# define if_nameindex()         (errno = ENOBUFS, NULL)
+-# define if_freenameindex(list) (void)0
+-#endif
+-
+ /* search.h */
+ #ifndef HAVE_SEARCH_H
+ typedef struct entry {

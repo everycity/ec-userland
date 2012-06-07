@@ -1,0 +1,11 @@
+--- vlc-2.0.1/configure.~1~	2012-03-08 12:21:33.000000000 +0000
++++ vlc-2.0.1/configure	2012-06-06 18:50:03.082328168 +0000
+@@ -47001,7 +47001,7 @@
+ 
+ 
+ cat >>confdefs.h <<_ACEOF
+-#define VLC_COMPILE_HOST "`hostname -f 2>/dev/null || hostname`"
++#define VLC_COMPILE_HOST "`hostname 2>/dev/null || hostname`"
+ _ACEOF
+ 
+ 
