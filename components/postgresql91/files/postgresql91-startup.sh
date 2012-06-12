@@ -61,6 +61,7 @@ varprop enable_64bit
 
 if [ "x$enable_64bit" = "xtrue" ] ; then
   postgres_binary=$postgres_64_binary
+  bin_dir=$bin_dir/amd64
 else
   postgres_binary=$postgres_32_binary
 fi
@@ -104,15 +105,15 @@ check_data_dir() {
 case "$1" in
 'start')
 	check_data_dir
-        $bin_dir/pg_ctl -D $data_dir -l $data_dir/server.log start
+        $postgres_binary -D $data_dir -l $data_dir/server.log start
         ;;
 
 'stop')
-        $bin_dir/pg_ctl -D $data_dir stop
+        $postgres_binary -D $data_dir stop
         ;;
 
 'refresh')
-        $bin_dir/pg_ctl -D $data_dir reload
+        $postgres_binary -D $data_dir reload
         ;;
 
 *)
