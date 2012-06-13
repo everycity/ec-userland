@@ -71,7 +71,7 @@
 			<propval name='data_dir' type='astring' value='/ec/var/postgres/9.1/data'/>
 			<propval name='config_file' type='astring' value='/ec/etc/postgres/9.1/postgresql.conf'/>
 			<propval name='additional_startup_options' type='astring' value=''/>
-			<propval name='enable_64bit' type='boolean' value='false'/>
+			<propval name='enable_64bit' type='boolean' value='true'/>
 		</property_group>
 
 	</instance>
