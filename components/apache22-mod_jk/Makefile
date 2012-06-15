@@ -15,10 +15,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tomcat-connectors
-COMPONENT_VERSION=	1.2.35
+COMPONENT_VERSION=	1.2.37
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)-src
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME)-$(COMPONENT_VERSION)-src.tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:5e6765f4dbb65543cb95170ff427f10e6250f79b
+COMPONENT_ARCHIVE_HASH=	sha256:38a92623ddd28b85bbf54cf77f4c867ccbebafb71233131471623691e4e751f9
 COMPONENT_ARCHIVE_URL=	http://mirrors.ukfast.co.uk/sites/ftp.apache.org//tomcat/tomcat-connectors/jk/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
