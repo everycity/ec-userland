@@ -9,23 +9,25 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
-COMPONENT_NAME=		freetype
-COMPONENT_VERSION=	2.4.10
-COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:0c8e242c33c45928de560d7d595db06feb41d1b22167e37260ceabe72f9e992f
-COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_SAVANNAH)
+COMPONENT_NAME=		memconf
+COMPONENT_VERSION=	2.22
 
 include ../../make-rules/prep.mk
-include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-build:		$(BUILD_32_and_64)
+CLEAN_PATHS += $(BUILD_DIR)
 
-install:	$(INSTALL_32_and_64)
+download prep::
+configure build:
 
+install:
+	mkdir -p $(PROTO_DIR)$(ECPREFIX)/bin
+	cat $(COMPONENT_DIR)/memconf | \
+	    $(GSED) 's%#!/usr/bin/env perl%#!$(PERL)%' > \
+	    $(PROTO_DIR)$(ECPREFIX)/bin/memconf
+	chmod +x $(PROTO_DIR)$(ECPREFIX)/bin/memconf
