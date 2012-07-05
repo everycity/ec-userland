@@ -37,6 +37,7 @@
 <transform depend pkg.debug.depend.file=libnsl\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libpam\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libpkcs11\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libproject\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libpthread\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libresolv\.so.* -> drop>
 <transform depend pkg.debug.depend.file=librt\.so.* -> drop>
