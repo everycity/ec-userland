@@ -1,8 +1,8 @@
 --- ffmpeg-0.8/libavutil/eval.c.orig	2011-06-27 19:53:03.458662131 +0100
 +++ ffmpeg-0.8/libavutil/eval.c	2011-06-27 19:53:18.253407961 +0100
-@@ -29,6 +29,11 @@
- #include "avutil.h"
+@@ -31,6 +31,11 @@
  #include "eval.h"
+ #include "log.h"
  
 +#if !defined(NAN) || defined(__sun__)
 +  #undef NAN

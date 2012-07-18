@@ -1,6 +1,6 @@
 --- ffmpeg-0.6.1/libavcodec/nellymoserenc.c.orig	2011-04-02 20:21:00.300659088 +0100
 +++ ffmpeg-0.6.1/libavcodec/nellymoserenc.c	2011-04-02 20:21:56.923061743 +0100
-@@ -47,6 +47,9 @@
+@@ -51,6 +51,9 @@
  #define POW_TABLE_OFFSET 3
  #define OPT_SIZE ((1<<15) + 3000)
  
