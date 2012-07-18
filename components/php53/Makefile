@@ -77,6 +77,7 @@ CONFIGURE_OPTIONS     +=	--with-zlib=shared
 CONFIGURE_OPTIONS     +=	--with-openssl=shared
 CONFIGURE_OPTIONS     +=	--with-pdo-sqlite=shared
 CONFIGURE_OPTIONS     +=	--with-sqlite=shared
+CONFIGURE_OPTIONS     +=	--with-ldap=shared
 
 # Shared Extensions
 CONFIGURE_OPTIONS     +=	--with-iconv=shared,$(ECPREFIX)
