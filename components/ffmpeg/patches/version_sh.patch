@@ -1,0 +1,8 @@
+--- ffmpeg-0.11.1/version.sh.orig	2012-07-17 15:21:31.784974803 +0000
++++ ffmpeg-0.11.1/version.sh	2012-07-17 15:21:42.069158441 +0000
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ # check for git short hash
+ if ! test "$revision"; then
