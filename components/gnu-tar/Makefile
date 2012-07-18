@@ -33,6 +33,10 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+ifeq ($(SOLARIS_VERSION),2.10)
+COMPONENT_POST_UNPACK_ACTION=	($(GPATCH) -d $(@D) $(GPATCH_FLAGS) < gnulib-s10u9.patch)
+endif
+
 CONFIGURE_OPTIONS +=	--with-gzip=$(ECPREFIX)/bin/gzip
 CONFIGURE_OPTIONS +=	--with-bzip2=$(ECPREFIX)/bin/bzip2
 
