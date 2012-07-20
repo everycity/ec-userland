@@ -1,0 +1,22 @@
+--- mg-20110120/fgetln.c.orig	2012-07-20 13:33:12.825362330 +0000
++++ mg-20110120/fgetln.c	2012-07-20 13:34:36.629694425 +0000
+@@ -27,6 +27,7 @@
+ #define INITIAL_LINE_LENGTH	256
+ 
+ extern	char *fgetln(register FILE *,size_t *);
++extern char *getline(register FILE *);
+ 
+ #if defined (_WINDOWS) || defined (_WIN32) || defined (linux) || defined (sun)
+ 
+@@ -82,3 +83,11 @@
+ #elif defined (BSD)
+ extern	char *fgetln(register FILE *,size_t *);
+ #endif
++
++char *
++getline(fp)
++	register FILE *fp;
++{
++	return (fgetln(fp, NULL));
++}
++

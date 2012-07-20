@@ -1,6 +1,6 @@
 --- mg-20110120/fgetln.c.~1~	2008-12-30 12:41:23.000000000 +0000
 +++ mg-20110120/fgetln.c	2011-08-05 14:18:38.091799011 +0100
-@@ -22,22 +22,73 @@
+@@ -22,22 +22,63 @@
   * fgetln() wrapper for operating systems with getline()
   */
  
@@ -15,7 +15,6 @@
 +#define INITIAL_LINE_LENGTH	256
 +
 +extern	char *fgetln(register FILE *,size_t *);
-+extern	char *getline(register FILE *);
 +
 +#if defined (_WINDOWS) || defined (_WIN32) || defined (linux) || defined (sun)
 +
@@ -76,12 +75,3 @@
 +#elif defined (BSD)
 +extern	char *fgetln(register FILE *,size_t *);
  #endif
-+
-+char *
-+getline(fp)
-+	register FILE *fp;
-+{
-+
-+	return (fgetln(fp, NULL));
-+}
-+

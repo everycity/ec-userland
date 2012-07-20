@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -21,10 +21,13 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:1f0f3eb31f72cbf92513339aa681e289a00d654b
 COMPONENT_ARCHIVE_URL=	http://homepage.boetes.org/software/mg/$(COMPONENT_ARCHIVE)
 
-
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+ifeq ($(SOLARIS_VERSION),2.10)
+COMPONENT_POST_UNPACK_ACTION=	($(GPATCH) -d $(@D) $(GPATCH_FLAGS) < fgetln-s10.patch)
+endif
 
 CONFIGURE_OPTIONS = 
 COMPONENT_PRE_CONFIGURE_ACTION+= cp -R $(SOURCE_DIR)/* $(@D)/
