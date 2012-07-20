@@ -73,6 +73,7 @@ $(SOURCE_DIR)/.unpacked:	download Makefile $(PATCHES)
 	$(TOUCH) $@
 
 $(SOURCE_DIR)/.patched:	$(SOURCE_DIR)/.unpacked $(STAMPS)
+	$(COMPONENT_EXTRA_PATCH_ACTION)
 	$(TOUCH) $@
 
 $(SOURCE_DIR)/.prep:	$(SOURCE_DIR)/.patched
