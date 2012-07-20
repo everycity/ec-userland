@@ -26,7 +26,7 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 ifeq ($(SOLARIS_VERSION),2.10)
-COMPONENT_POST_UNPACK_ACTION=	($(GPATCH) -d $(@D) $(GPATCH_FLAGS) < fgetln-s10.patch)
+COMPONENT_EXTRA_PATCH_ACTION=	($(GPATCH) -d $(@D) $(GPATCH_FLAGS) < fgetln-s10.patch)
 endif
 
 CONFIGURE_OPTIONS = 
