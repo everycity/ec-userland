@@ -27,6 +27,7 @@ license postgresql91.license license="BSD Style"
 depend fmri=pkg:/database/postgresql-91/client type=require
 
 # Users
+group gid=90 groupname=postgres
 user gcos-field="Postgresql Account" group=postgres uid=90 username=postgres login-shell=/usr/bin/bash home-dir=/ec/var/postgres
 
 # Symlinks
