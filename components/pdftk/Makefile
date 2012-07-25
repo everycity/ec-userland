@@ -30,3 +30,5 @@ build: prep
 
 install: build
 	[ -d $(PROTO_DIR) ] || $(MKDIR) $(PROTO_DIR)
+	$(SYMLINK) $(SOURCE_DIR) $(PROTO_DIR)/ec || true
+
