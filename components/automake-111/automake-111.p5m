@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -38,6 +38,7 @@ dir path=$(ECPREFIX)/share/man/man1
 file $(ECPREFIX)/bin/aclocal path=$(ECPREFIX)/bin/aclocal-1.11
 file path=$(ECPREFIX)/bin/automake-1.11
 file path=$(ECPREFIX)/share/aclocal-1.11/amversion.m4
+file path=$(ECPREFIX)/share/aclocal-1.11/ar-lib.m4
 file path=$(ECPREFIX)/share/aclocal-1.11/as.m4
 file path=$(ECPREFIX)/share/aclocal-1.11/auxdir.m4
 file path=$(ECPREFIX)/share/aclocal-1.11/ccstdc.m4
@@ -82,6 +83,7 @@ file path=$(ECPREFIX)/share/automake-1.11/Automake/Configure_ac.pm
 file path=$(ECPREFIX)/share/automake-1.11/Automake/DisjConditions.pm
 file path=$(ECPREFIX)/share/automake-1.11/Automake/FileUtils.pm
 file path=$(ECPREFIX)/share/automake-1.11/Automake/General.pm
+file path=$(ECPREFIX)/share/automake-1.11/Automake/Getopt.pm
 file path=$(ECPREFIX)/share/automake-1.11/Automake/Item.pm
 file path=$(ECPREFIX)/share/automake-1.11/Automake/ItemDef.pm
 file path=$(ECPREFIX)/share/automake-1.11/Automake/Location.pm
@@ -98,6 +100,7 @@ file path=$(ECPREFIX)/share/automake-1.11/COPYING
 file path=$(ECPREFIX)/share/automake-1.11/INSTALL
 file path=$(ECPREFIX)/share/automake-1.11/acinstall
 file path=$(ECPREFIX)/share/automake-1.11/am/ansi2knr.am
+file path=$(ECPREFIX)/share/automake-1.11/am/check-html.am
 file path=$(ECPREFIX)/share/automake-1.11/am/check.am
 file path=$(ECPREFIX)/share/automake-1.11/am/check2.am
 file path=$(ECPREFIX)/share/automake-1.11/am/clean-hdr.am
@@ -140,6 +143,7 @@ file path=$(ECPREFIX)/share/automake-1.11/am/vala.am
 file path=$(ECPREFIX)/share/automake-1.11/am/yacc.am
 file path=$(ECPREFIX)/share/automake-1.11/ansi2knr.1
 file path=$(ECPREFIX)/share/automake-1.11/ansi2knr.c
+file path=$(ECPREFIX)/share/automake-1.11/ar-lib
 file path=$(ECPREFIX)/share/automake-1.11/compile
 file path=$(ECPREFIX)/share/automake-1.11/config-ml.in
 file path=$(ECPREFIX)/share/automake-1.11/config.guess
@@ -158,6 +162,8 @@ file path=$(ECPREFIX)/share/doc/automake/amhello-1.0.tar.gz
 file path=$(ECPREFIX)/share/info/automake.info
 file path=$(ECPREFIX)/share/info/automake.info-1
 file path=$(ECPREFIX)/share/info/automake.info-2
+file path=$(ECPREFIX)/share/info/automake.info-3
+file path=$(ECPREFIX)/share/info/dir
 file path=$(ECPREFIX)/share/man/man1/aclocal-1.11.1
 file path=$(ECPREFIX)/share/man/man1/aclocal.1
 file path=$(ECPREFIX)/share/man/man1/automake-1.11.1
