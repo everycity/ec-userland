@@ -24,9 +24,10 @@ COMPONENT_ARCHIVE_URL=	ftp://ftp.freedesktop.org/pub/mesa/$(COMPONENT_VERSION)/$
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+include ../../make-rules/gnu-ld.mk
 
-CONFIGURE_ENV+= CFLAGS="-D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__"
-CONFIGURE_ENV+= CXXFLAGS="-D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__"
+CONFIGURE_ENV+= CFLAGS="$(CC_BITS) -D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__"
+CONFIGURE_ENV+= CXXFLAGS="$(CC_BITS) -D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__"
 
 CONFIGURE_OPTIONS+=	--enable-shared 
 CONFIGURE_OPTIONS+=	--disable-static
