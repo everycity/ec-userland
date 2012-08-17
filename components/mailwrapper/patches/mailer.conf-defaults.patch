@@ -1,0 +1,8 @@
+diff -ruN mailwrapper-opencsw-1.0.orig/mailer.conf mailwrapper-opencsw-1.0/mailer.conf
+--- mailwrapper-opencsw-1.0.orig/mailer.conf	2012-06-19 09:50:19.000000000 +0000
++++ mailwrapper-opencsw-1.0/mailer.conf	2012-08-17 13:04:01.968942279 +0000
+@@ -5,3 +5,4 @@
+ # Example:
+ # mailq		/opt/csw/bin/mailq
+ 
++sendmail	/usr/lib/sendmail
