@@ -32,7 +32,8 @@ install: prep
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/var/svc/method
 	$(MKDIR) $(PROTO_DIR)/var/svc/manifest/site
 	cat $(SOURCE_DIR)/src/lib/svc/method/zfs-auto-snapshot | \
-	    $(GSED) 's%/lib/svc/method%$(ECPREFIX)/var/svc/method%g' > \
+	    $(GSED) -e 's%/lib/svc/method%$(ECPREFIX)/var/svc/method%g' \
+	        -e 's/NOW=.*/NOW=$$\(env TZ=UTC date +%s\)/' > \
 	    $(PROTO_DIR)$(ECPREFIX)/var/svc/method/zfs-auto-snapshot
 	$(CHMOD) +x $(PROTO_DIR)$(ECPREFIX)/var/svc/method/zfs-auto-snapshot
 	
