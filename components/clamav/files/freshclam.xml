@@ -1,0 +1,34 @@
+<?xml version='1.0'?>
+<!DOCTYPE service_bundle SYSTEM '/usr/share/lib/xml/dtd/service_bundle.dtd.1'>
+<service_bundle type='manifest' name='export'>
+  <service name='system/security/freshclam' type='service' version='0'>
+    <instance name='default' enabled='true'>
+      <dependency name='network' grouping='require_all' restart_on='error' type='service'>
+        <service_fmri value='svc:/milestone/network:default'/>
+      </dependency>
+      <dependency name='filesystem-local' grouping='require_all' restart_on='none' type='service'>
+        <service_fmri value='svc:/system/filesystem/local:default'/>
+      </dependency>
+      <dependency name='autofs' grouping='optional_all' restart_on='error' type='service'>
+        <service_fmri value='svc:/system/filesystem/autofs:default'/>
+      </dependency>
+      <exec_method name='start' type='method' exec='/ec/bin/freshclam -d' timeout_seconds='60'>
+        <method_context/>
+      </exec_method>
+      <exec_method name='stop' type='method' exec=':kill -QUIT' timeout_seconds='60'/>
+      <exec_method name='refresh' type='method' exec=':kill -HUP' timeout_seconds='60'/>
+      <property_group name='clamav' type='application'>
+        <stability value='Evolving'/>
+      </property_group>
+      <template>
+        <common_name>
+          <loctext xml:lang='C'>FreshClam</loctext>
+        </common_name>
+        <documentation>
+          <doc_link name='clamav.net' uri='http://www.clamav.net/doc/latest/'/>
+        </documentation>
+      </template>
+    </instance>
+    <stability value='Evolving'/>
+  </service>
+</service_bundle>
