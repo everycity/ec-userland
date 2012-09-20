@@ -533,6 +533,7 @@ else
 	LDFLAGS.64 =	-L$(CONFIGURE_PREFIX)/lib/amd64 -R$(CONFIGURE_PREFIX)/lib/amd64 -L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)
 endif
 
+CXXFLAGS +=    -I$(ECPREFIX)/include
 ifeq ($(SOLARIS_VERSION),2.11)
 LDFLAGS =	$(LD_BITS)
 endif
