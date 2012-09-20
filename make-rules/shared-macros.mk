@@ -220,8 +220,8 @@ CXX.studio.64 =	$(SPRO_VROOT)/bin/CC
 CC.gcc.32 =	$(GCC_ROOT)/bin/gcc
 CXX.gcc.32 =	$(GCC_ROOT)/bin/g++
 
-CC.gcc.64 =	$(GCC_ROOT)/bin/gcc -m64
-CXX.gcc.64 =	$(GCC_ROOT)/bin/g++ -m64
+CC.gcc.64 =	$(GCC_ROOT)/bin/gcc
+CXX.gcc.64 =	$(GCC_ROOT)/bin/g++
 
 CC =		$(CC.$(COMPILER).$(BITS))
 CXX =		$(CXX.$(COMPILER).$(BITS))
@@ -250,6 +250,10 @@ PYTHON =	$(PYTHON.$(PYTHON_VERSION).$(BITS))
 PYTHON_LIB= /usr/lib/python$(PYTHON_VERSION)/vendor-packages
 
 JAVA_HOME =	$(ECPREFIX)/java
+
+PERL_VERSION =	5.12
+PERL_VERSIONS =	5.12
+PERL.5.12 =	$(ECPREFIX)/lib/perl/5.12/bin/perl
 
 PERL =		$(ECPREFIX)/bin/perl
 
@@ -522,14 +526,15 @@ endif
 ifeq (CONFIGURE_PREFIX, ECPREFIX)
 	CFLAGS +=	-I$(ECPREFIX)/include
 	LDFLAGS.32 =	-L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
-	LDFLAGS.64 =	-m64 -L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)
+	LDFLAGS.64 =	-L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)
 else
 	CFLAGS +=	-I$(CONFIGURE_PREFIX)/include -I$(ECPREFIX)/include
 	LDFLAGS.32 =	-L$(CONFIGURE_PREFIX)/lib -R$(CONFIGURE_PREFIX)/lib -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
-	LDFLAGS.64 =	-m64 -L$(CONFIGURE_PREFIX)/lib/amd64 -R$(CONFIGURE_PREFIX)/lib/amd64 -L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)
+	LDFLAGS.64 =	-L$(CONFIGURE_PREFIX)/lib/amd64 -R$(CONFIGURE_PREFIX)/lib/amd64 -L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)
 endif
 
-LDFLAGS =	$(LDFLAGS.$(BITS))
+LDFLAGS =	$(CC_BITS)
+LDFLAGS +=	$(LDFLAGS.$(BITS))
 
 # Reduce the symbol table size, effectively conflicting with -g.  We should
 # get linker guidance here.
