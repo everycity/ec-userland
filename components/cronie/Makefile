@@ -31,6 +31,8 @@ CONFIGURE_OPTIONS+=	--localstatedir=/var
 CONFIGURE_OPTIONS+=	--enable-anacron
 CONFIGURE_OPTIONS+=	--enable-pie
 
+COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; autoreconf )
+
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
