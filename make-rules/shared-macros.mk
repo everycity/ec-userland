@@ -67,6 +67,7 @@ OS_VERSION =		$(shell uname -r)
 SOLARIS_VERSION =	$(OS_VERSION:5.%=2.%)
 
 COMPILER =		gcc
+LINKER =		ccs
 BITS =			32
 PYTHON_VERSION =	2.6
 PYTHON_VERSIONS =	2.6
@@ -517,7 +518,12 @@ CXXFLAGS +=	$(CC_BITS)
 #
 
 # set the bittedness that we want to link
-LD_BITS =	-$(BITS)
+ifeq ($(BITS),64)
+css.LD_BITS =  -$(BITS)
+endif
+gcc.LD_BITS =  -m$(BITS)
+LD_BITS =      $($(LINKER).LD_BITS)
+LDFLAGS =      $(LD_BITS)
 
 ifndef CONFIGURE_PREFIX
 CONFIGURE_PREFIX=	$(ECPREFIX)
@@ -534,9 +540,6 @@ else
 endif
 
 CXXFLAGS +=    -I$(ECPREFIX)/include
-ifeq ($(SOLARIS_VERSION),2.11)
-LDFLAGS =	$(LD_BITS)
-endif
 LDFLAGS +=	$(LDFLAGS.$(BITS))
 
 # Reduce the symbol table size, effectively conflicting with -g.  We should
