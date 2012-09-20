@@ -533,7 +533,7 @@ else
 	LDFLAGS.64 =	-L$(CONFIGURE_PREFIX)/lib/amd64 -R$(CONFIGURE_PREFIX)/lib/amd64 -L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)
 endif
 
-LDFLAGS =	$(CC_BITS)
+LDFLAGS =	$(LD_BITS)
 LDFLAGS +=	$(LDFLAGS.$(BITS))
 
 # Reduce the symbol table size, effectively conflicting with -g.  We should
