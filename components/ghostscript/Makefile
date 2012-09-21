@@ -16,6 +16,7 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ghostscript
 COMPONENT_VERSION=	9.04
+IPS_COMPONENT_VERSION=	9.4
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:75370060d0a272e66be20152a058e4135976f2e5
@@ -25,7 +26,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-IPS_COMPONENT_VERSION=9.4
+LINKER=	gcc
 
 # make build isn't thread safe.
 override COMPONENT_BUILD_GMAKE_ARGS=
