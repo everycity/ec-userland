@@ -39,8 +39,8 @@ dir path=var/svc
 dir path=var/svc/manifest
 dir path=var/svc/manifest/site
 file path=$(ECPREFIX)/bin/$(MACH64)/memcached
-file path=$(ECPREFIX)/bin/memcached
 file path=$(ECPREFIX)/include/memcached/protocol_binary.h
 file path=$(ECPREFIX)/share/man/man1/memcached.1
 file path=$(ECPREFIX)/var/svc/method/memcached.sh mode=0555
 file path=var/svc/manifest/site/ec-memcached.xml restart_fmri=svc:/system/manifest-import:default
+hardlink path=$(ECPREFIX)/bin/memcached target=$(MACH64)/memcached
