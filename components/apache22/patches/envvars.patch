@@ -43,14 +43,3 @@ diff -ruN httpd-2.2.17.orig/support/Makefile.in httpd-2.2.17/support/Makefile.in
  $envvars = eval qq("$envvars");
  $envvars = eval qq("$envvars");
  
-diff -ruN httpd-2.2.17.orig/support/envvars-std.in httpd-2.2.17/support/envvars-std.in
---- httpd-2.2.17.orig/support/envvars-std.in	2006-07-11 20:38:44.000000000 -0700
-+++ httpd-2.2.17/support/envvars-std.in	2011-04-01 08:45:47.718511716 -0700
-@@ -18,7 +18,4 @@
- #
- # This file is generated from envvars-std.in
- #
--@SHLIBPATH_VAR@="@exp_libdir@:$@SHLIBPATH_VAR@"
--export @SHLIBPATH_VAR@
--#
- @OS_SPECIFIC_VARS@

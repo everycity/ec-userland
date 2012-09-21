@@ -15,11 +15,11 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		httpd
-COMPONENT_VERSION=	2.2.22
+COMPONENT_VERSION=	2.2.23
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:766cd0843050a8dfb781e48b976f3ba6ebcf8696
-COMPONENT_ARCHIVE_URL=	http://mirrors.dedipower.com/ftp.apache.org/httpd/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_HASH=	sha256:
+COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.apache.org/httpd/$(COMPONENT_ARCHIVE)
 #COMPONENT_ARCHIVE_URL=	http://archive.apache.org/dist/httpd/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
