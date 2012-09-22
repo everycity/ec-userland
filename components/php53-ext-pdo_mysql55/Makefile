@@ -49,7 +49,7 @@ CONFIGURE_OPTIONS     +=	--with-pdo-mysql=$(ECPREFIX)/lib/mysql/5.5
 
 CONFIGURE_OPTIONS     +=	$(CONFIGURE_OPTIONS.$(BITS))
 
-CFLAGS			=	-D_POSIX_PTHREAD_SEMANTICS
+CFLAGS			=	$(CC_BITS) -D_POSIX_PTHREAD_SEMANTICS
 CFLAGS.32		=	-I$(ECPREFIX)/lib/mysql/5.5/include
 CFLAGS.64		=	-I$(ECPREFIX)/lib/mysql/5.5/include/$(MACH64)
 CPPFLAGS.32           +=	-I$(ECPREFIX)/lib/mysql/5.5/include
