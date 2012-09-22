@@ -25,11 +25,12 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+LINKER=	gcc
+
 CONFIGURE_OPTIONS  +=		--without-normal
 CONFIGURE_OPTIONS  +=		--with-shared
 CONFIGURE_OPTIONS  +=		--without-debug
 CONFIGURE_OPTIONS  +=		--with-default-terminfo-dir=$(ECPREFIX)/share/terminfo
-#CONFIGURE_OPTIONS  +=		--enable-rpath
 
 # Support two variants - regular, and wide character support
 VARIANT_WIDE =		$(BUILD_DIR)/wide
