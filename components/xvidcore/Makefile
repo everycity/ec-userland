@@ -34,6 +34,7 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 include ../../make-rules/gnu-ld.mk
 
+LINKER=	gcc
 LDFLAGS +=	-lrt
 
 $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
