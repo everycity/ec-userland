@@ -27,11 +27,13 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 include ../../make-rules/gnu-ld.mk
 
-CONFIGURE_ENV.32+=      LDFLAGS="-lnsl -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib -L$(CONFIGURE_PREFIX)/lib -R$(CONFIGURE_PREFIX)/lib -L$(ECPREFIX)/lib/qt/4.7/lib -R$(ECPREFIX)/lib/qt/4.7/lib"
-CONFIGURE_ENV.64+=      LDFLAGS="-lnsl -L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64) -L$(CONFIGURE_PREFIX)/lib/$(MACH64) -R$(CONFIGURE_PREFIX)/lib/$(MACH64) -L$(ECPREFIX)/lib/qt/4.7/lib -R$(ECPREFIX)/lib/qt/4.7/lib"
-CONFIGURE_ENV+= CFLAGS="-D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__ -D __EC_SOLARIS_$(subst .,_,$(SOLARIS_VERSION)) -I$(ECPREFIX)/include -I$(ECPREFIX)/include/ncurses"
-CONFIGURE_ENV+= CXXFLAGS="-D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__ -D __EC_SOLARIS_$(subst .,_,$(SOLARIS_VERSION)) -I$(ECPREFIX)/include -I$(ECPREFIX)/include/ncurses"
-CONFIGURE_ENV+= $(CONFIGURE_ENV.$(BITS))
+LINKER=	gcc
+
+CONFIGURE_ENV.32+=      LDFLAGS="$(LD_BITS) -lnsl -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib -L$(CONFIGURE_PREFIX)/lib -R$(CONFIGURE_PREFIX)/lib -L$(ECPREFIX)/lib/qt/4.7/lib -R$(ECPREFIX)/lib/qt/4.7/lib"
+CONFIGURE_ENV.64+=      LDFLAGS="$(LD_BITS) -lnsl -L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64) -L$(CONFIGURE_PREFIX)/lib/$(MACH64) -R$(CONFIGURE_PREFIX)/lib/$(MACH64) -L$(ECPREFIX)/lib/qt/4.7/lib -R$(ECPREFIX)/lib/qt/4.7/lib"
+CONFIGURE_ENV+= CFLAGS="$(CC_BITS) -D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__ -D __EC_SOLARIS_$(subst .,_,$(SOLARIS_VERSION)) -I$(ECPREFIX)/include -I$(ECPREFIX)/include/ncurses"
+CONFIGURE_ENV+= CXXFLAGS="$(CC_BITS) -D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__ -D __EC_SOLARIS_$(subst .,_,$(SOLARIS_VERSION)) -I$(ECPREFIX)/include -I$(ECPREFIX)/include/ncurses"
+CONFIGURE_ENV+=	$(CONFIGURE_ENV.$(BITS))
 
 CONFIGURE_OPTIONS+=	--with-pic --enable-shared --disable-static
 CONFIGURE_OPTIONS+=	--disable-libgcrypt
