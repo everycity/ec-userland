@@ -27,8 +27,6 @@ include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 include ../../make-rules/gnu-ld.mk
 
-#CONFIGURE_OPTIONS += 
-
 # remove the unwanted file.
 COMPONENT_PREP_ACTION = $(RM) $(SOURCE_DIR)/crc_i386.S
 
