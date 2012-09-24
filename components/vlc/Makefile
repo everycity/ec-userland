@@ -53,7 +53,6 @@ CONFIGURE_OPTIONS+=	--enable-ncurses
 CONFIGURE_OPTIONS+=	--enable-run-as-root
 CONFIGURE_OPTIONS+=	--enable-id3tag
 CONFIGURE_OPTIONS+=	--enable-faad
-CONFIGURE_OPTIONS+=	--with-live555-tree=$(ECPREFIX)/lib/live555-$(BITS)bit
 
 build:		$(BUILD_32_and_64)
 
