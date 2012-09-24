@@ -27,7 +27,7 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 include ../../make-rules/gnu-ld.mk
 
-CFLAGS=-I/ec/include
+CFLAGS= $(CC_BITS) -I/ec/include
 
 CONFIGURE_OPTIONS=	--prefix=$(ECPREFIX)	
 CONFIGURE_OPTIONS.32+=	--bindir=$(ECPREFIX)/bin
