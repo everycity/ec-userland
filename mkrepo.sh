@@ -8,3 +8,4 @@ MACH=`uname -p`
 
 pkgrepo create $MACH/repo
 pkgrepo set -s $MACH/repo publisher/prefix=$repo_prefix
+pkgrepo set -s $MACH/repo publisher/prefix=$repo_prefix
