@@ -14,10 +14,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	5.3.16
+COMPONENT_VERSION=	5.3.17
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:2c5667ae255931534481f9a004710444997e950f645408b7c7b036f507584a9f
+COMPONENT_ARCHIVE_HASH=	sha256:262211694d03b40a4ddeb826699949bf22d7ee82f5ce21fab63199346ea29afe
 COMPONENT_ARCHIVE_URL=	http://uk3.php.net/get/$(COMPONENT_ARCHIVE)/from/this/mirror
 
 include ../../make-rules/prep.mk
@@ -68,7 +68,7 @@ CONFIGURE_OPTIONS     +=	--with-kerberos
 CONFIGURE_OPTIONS     +=	--with-pcre-regex
 
 # Shared Extensions
-CONFIGURE_OPTIONS     +=	--with-bz2=shared
+CONFIGURE_OPTIONS     +=	--with-bz2=shared,/ec
 CONFIGURE_OPTIONS     +=	--with-curlwrappers
 CONFIGURE_OPTIONS     +=	--with-gettext=shared
 CONFIGURE_OPTIONS     +=	--with-xmlrpc=shared
