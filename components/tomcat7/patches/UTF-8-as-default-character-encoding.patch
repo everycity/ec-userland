@@ -1,10 +1,9 @@
-diff -ruN apache-tomcat-6.0.32.orig/conf/server.xml apache-tomcat-6.0.32/conf/server.xml
---- apache-tomcat-6.0.32.orig/conf/server.xml	2011-02-02 19:06:47.000000000 +0000
-+++ apache-tomcat-6.0.32/conf/server.xml	2011-07-22 16:35:21.402985533 +0100
-@@ -68,6 +68,7 @@
+--- apache-tomcat-7.0.30/conf/server.xml.orig	2012-09-26 16:10:35.315540364 +0000
++++ apache-tomcat-7.0.30/conf/server.xml	2012-09-26 16:11:19.583111782 +0000
+@@ -69,6 +69,7 @@
      -->
-     <Connector port="8080" protocol="HTTP/1.1" 
-                connectionTimeout="20000" 
+     <Connector port="8080" protocol="HTTP/1.1"
+                connectionTimeout="20000"
 +               URIEncoding="UTF-8"
                 redirectPort="8443" />
      <!-- A "Connector" using the shared thread pool-->
