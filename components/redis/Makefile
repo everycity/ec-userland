@@ -19,27 +19,34 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2012 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		redis
-COMPONENT_VERSION=	2.2.2
+COMPONENT_VERSION=	2.4.17
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:75b953e4a3067570555c5f3f5e8f481c40489904
+COMPONENT_ARCHIVE_HASH=	sha256:3fae7c47ef84886ff65073593c91586bb675babaf702eb6f3b37855ab3066ebd
 COMPONENT_ARCHIVE_URL=	http://redis.googlecode.com/files/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
-#include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 include ../../make-rules/shared-targets.mk
 
+LINKER=	gcc
+
 CLEAN_PATHS +=	$(BUILD_DIR)
 
-COMPONENT_BUILD_ENV.32 += 'CC=$(ECPREFIX)/bin/gcc -m32 -I$(ECPREFIX)/include'
+COMPONENT_BUILD_ENV.32 += 'CC=$(ECPREFIX)/bin/gcc $(CC_BITS) -I$(ECPREFIX)/include -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib'
+COMPONENT_BUILD_ENV.32 += 'CFLAGS=$(CC_BITS) -I$(ECPREFIX)/include -std=c99 -pedantic -O3 -Wall -W -D__EXTENSIONS__ -D_XPG6'
+COMPONENT_BUILD_ENV.32 += 'LDFLAGS=-L$(ECPREFIX)/lib -R$(ECPREFIX)/lib -ldl -lnsl -lsocket -lm -lpthread'
 COMPONENT_INSTALL_ENV.32 += 'CC=$(ECPREFIX)/bin/gcc -m32'
-COMPONENT_BUILD_ENV.64 += 'CC=$(ECPREFIX)/bin/gcc -DBYTE_ORDER=LITTLE_ENDIAN -m64 -I$(ECPREFIX)/include/$(MACH64) -L$(ECPREFIX)/lib/$(MACH64)'
+
+COMPONENT_BUILD_ENV.64 += 'CC=$(ECPREFIX)/bin/gcc $(CC_BITS) -I$(ECPREFIX)/include/$(MACH64) -L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)'
+COMPONENT_BUILD_ENV.64 += 'CFLAGS=$(CC_BITS) -DBYTE_ORDER=LITTLE_ENDIAN -I$(ECPREFIX)/include/$(MACH64) -std=c99 -pedantic -O3 -Wall -W -D__EXTENSIONS__ -D_XPG6'
+COMPONENT_BUILD_ENV.64 += 'LDFLAGS=-L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64) -ldl -lnsl -lsocket -lm -lpthread'
 COMPONENT_INSTALL_ENV.64 += 'CC=$(ECPREFIX)/bin/gcc -m64'
 
 COMPONENT_INSTALL_TARGETS += os=solaris PREFIX=$(PROTO_DIR)/$(ECPREFIX)
@@ -56,7 +63,6 @@ $(BUILD_DIR)/$(MACH64)/.installed:      BITS=64
 
 CONFIGURE_ENV += $(CONFIGURE_ENV.$(BITS))
 COMPONENT_INSTALL_ENV += $(COMPONENT_INSTALL_ENV.$(BITS))
-COMPONENT_BUILD_ENV += $(COMPONENT_BUILD_ENV.$(BITS))
 
 build:		$(BUILD_32_and_64)
 
