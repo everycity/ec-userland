@@ -1,0 +1,51 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/developer/lua@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="The Lua embeddable scripting language"
+set name=info.upstream_url value="http://www.lua.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license lua.license license="MIT-lua"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/$(MACH64)/lua
+file path=$(ECPREFIX)/bin/$(MACH64)/luac
+file path=$(ECPREFIX)/bin/lua
+file path=$(ECPREFIX)/bin/luac
+file path=$(ECPREFIX)/include/lauxlib.h
+file path=$(ECPREFIX)/include/lua.h
+file path=$(ECPREFIX)/include/lua.hpp
+file path=$(ECPREFIX)/include/luaconf.h
+file path=$(ECPREFIX)/include/lualib.h
+file path=$(ECPREFIX)/lib/$(MACH64)/liblua-5.2.so
+file path=$(ECPREFIX)/lib/liblua-5.2.so
+file path=$(ECPREFIX)/lib/pkgconfig/lua.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/lua.pc
+file path=$(ECPREFIX)/share/man/man1/lua.1
+file path=$(ECPREFIX)/share/man/man1/luac.1
