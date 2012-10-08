@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE service_bundle SYSTEM "/usr/share/lib/xml/dtd/service_bundle.dtd.1">
+<!--
+//
+// This file and its contents are supplied under the terms of the
+// Common Development and Distribution License ("CDDL)". You may
+// only use this file in accordance with the terms of the CDDL.
+//
+// A full copy of the text of the CDDL should have accompanied this
+// source. A copy of the CDDL is also available via the Internet at
+// http://www.illumos.org/license/CDDL.
+//
+//
+// Copyright 2012 EveryCity Ltd. All rights reserved.
+//
+-->
+<service_bundle type='manifest' name='powerdns'>
+
+<service
+	name='network/dns/powerdns-server'
+	type='service'
+	version='1'>
+
+	<!--
+		Wait for network interfaces to be initialized.
+	-->
+	<dependency name='network'
+		grouping='require_all'
+		restart_on='error'
+		type='service'>
+		<service_fmri value='svc:/milestone/network:default'/>
+	</dependency>
+
+	<!--
+		Wait for all local filesystems to be mounted.
+	-->
+	<dependency name='filesystem-local'
+		grouping='require_all'
+		restart_on='none'
+		type='service'>
+      		<service_fmri
+			value='svc:/system/filesystem/local:default'/>
+	</dependency>
+
+	<!--
+		Wait for name services to come up.
+	-->
+	<dependency name='name-services'
+		grouping='require_all'
+		restart_on='none'
+		type='service'>
+      		<service_fmri
+			value='svc:/milestone/name-services:default'/>
+	</dependency>
+
+	<exec_method
+		type='method'
+		name='start'
+		exec='/ec/var/svc/method/powerdns-server start'
+		timeout_seconds='60'/>
+
+ 	<exec_method
+		type='method'
+		name='stop'
+		exec=':kill'
+		timeout_seconds='30'/>
+
+	<exec_method
+		type='method'
+		name='refresh'
+		exec=':kill -HUP'
+		timeout_seconds='30'/>
+
+	<instance name='default' enabled='false'>
+
+		<property_group name='powerdns' type='application'>
+			<stability value='Evolving'/>
+			<propval name='enable_64bit' type='astring' value='true'/>
+        		<propval name='startup_options' type='astring' value=''/>
+
+		        <!-- The default config file is at /ec/etc/powerdns/pdns.conf -->
+			<propval name='config_dir' type='astring' value=''/>
+		</property_group>
+
+	</instance>
+
+	<stability value='Evolving'/>
+
+</service>
+
+</service_bundle>
