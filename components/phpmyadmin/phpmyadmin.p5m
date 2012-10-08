@@ -15,6 +15,7 @@
 # Transforms
 <include ec-drop-common>
 <transform file path=.*/etc/.* -> default preserve true>
+<transform file path=.*/etc/.* -> default mode 644>
 
 set name=pkg.fmri value=pkg:/database/phpmyadmin@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="A tool written in PHP intended to handle the administration of MySQL over the WWW"
@@ -46,7 +47,6 @@ dir path=$(ECPREFIX)/share/phpmyadmin/js/codemirror
 dir path=$(ECPREFIX)/share/phpmyadmin/js/codemirror/lib
 dir path=$(ECPREFIX)/share/phpmyadmin/js/codemirror/mode
 dir path=$(ECPREFIX)/share/phpmyadmin/js/codemirror/mode/mysql
-dir path=$(ECPREFIX)/share/phpmyadmin/js/highcharts
 dir path=$(ECPREFIX)/share/phpmyadmin/js/jqplot
 dir path=$(ECPREFIX)/share/phpmyadmin/js/jqplot/plugins
 dir path=$(ECPREFIX)/share/phpmyadmin/js/jquery
@@ -136,6 +136,8 @@ dir path=$(ECPREFIX)/share/phpmyadmin/locale/sk
 dir path=$(ECPREFIX)/share/phpmyadmin/locale/sk/LC_MESSAGES
 dir path=$(ECPREFIX)/share/phpmyadmin/locale/sl
 dir path=$(ECPREFIX)/share/phpmyadmin/locale/sl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/phpmyadmin/locale/sr@latin
+dir path=$(ECPREFIX)/share/phpmyadmin/locale/sr@latin/LC_MESSAGES
 dir path=$(ECPREFIX)/share/phpmyadmin/locale/sv
 dir path=$(ECPREFIX)/share/phpmyadmin/locale/sv/LC_MESSAGES
 dir path=$(ECPREFIX)/share/phpmyadmin/locale/tr
@@ -168,7 +170,6 @@ dir path=$(ECPREFIX)/share/phpmyadmin/themes/pmahomme/jquery
 dir path=$(ECPREFIX)/share/phpmyadmin/themes/pmahomme/jquery/images
 file path=$(ECPREFIX)/etc/phpmyadmin/config.inc.php
 file path=$(ECPREFIX)/share/doc/phpmyadmin/ChangeLog
-file path=$(ECPREFIX)/share/doc/phpmyadmin/Documentation.html
 file path=$(ECPREFIX)/share/doc/phpmyadmin/Documentation.txt
 file path=$(ECPREFIX)/share/doc/phpmyadmin/LICENSE
 file path=$(ECPREFIX)/share/doc/phpmyadmin/README
@@ -182,6 +183,7 @@ file path=$(ECPREFIX)/share/doc/phpmyadmin/examples/signon.php
 file path=$(ECPREFIX)/share/doc/phpmyadmin/examples/swekey.sample.conf
 file \
     path=$(ECPREFIX)/share/doc/phpmyadmin/examples/upgrade_tables_mysql_4_1_2+.sql
+file path=$(ECPREFIX)/share/phpmyadmin/Documentation.html
 file path=$(ECPREFIX)/share/phpmyadmin/RELEASE-DATE-$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/share/phpmyadmin/browse_foreigners.php
 file path=$(ECPREFIX)/share/phpmyadmin/bs_disp_as_mime_type.php
@@ -231,20 +233,23 @@ file path=$(ECPREFIX)/share/phpmyadmin/js/export.js
 file path=$(ECPREFIX)/share/phpmyadmin/js/functions.js
 file path=$(ECPREFIX)/share/phpmyadmin/js/get_image.js.php
 file path=$(ECPREFIX)/share/phpmyadmin/js/gis_data_editor.js
-file path=$(ECPREFIX)/share/phpmyadmin/js/highcharts/exporting.js
-file path=$(ECPREFIX)/share/phpmyadmin/js/highcharts/highcharts.js
 file path=$(ECPREFIX)/share/phpmyadmin/js/import.js
 file path=$(ECPREFIX)/share/phpmyadmin/js/indexes.js
+file path=$(ECPREFIX)/share/phpmyadmin/js/jqplot/excanvas.js
 file path=$(ECPREFIX)/share/phpmyadmin/js/jqplot/jquery.jqplot.js
+file path=$(ECPREFIX)/share/phpmyadmin/js/jqplot/plugins/jqplot.barRenderer.js
 file \
     path=$(ECPREFIX)/share/phpmyadmin/js/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js
 file \
     path=$(ECPREFIX)/share/phpmyadmin/js/jqplot/plugins/jqplot.canvasTextRenderer.js
+file \
+    path=$(ECPREFIX)/share/phpmyadmin/js/jqplot/plugins/jqplot.categoryAxisRenderer.js
 file path=$(ECPREFIX)/share/phpmyadmin/js/jqplot/plugins/jqplot.cursor.js
 file \
     path=$(ECPREFIX)/share/phpmyadmin/js/jqplot/plugins/jqplot.dateAxisRenderer.js
 file path=$(ECPREFIX)/share/phpmyadmin/js/jqplot/plugins/jqplot.highlighter.js
 file path=$(ECPREFIX)/share/phpmyadmin/js/jqplot/plugins/jqplot.pieRenderer.js
+file path=$(ECPREFIX)/share/phpmyadmin/js/jqplot/plugins/jqplot.pointLabels.js
 file path=$(ECPREFIX)/share/phpmyadmin/js/jquery/jquery-1.6.2.js
 file path=$(ECPREFIX)/share/phpmyadmin/js/jquery/jquery-ui-1.8.16.custom.js
 file path=$(ECPREFIX)/share/phpmyadmin/js/jquery/jquery.cookie.js
@@ -691,6 +696,8 @@ file path=$(ECPREFIX)/share/phpmyadmin/locale/ru/LC_MESSAGES/phpmyadmin.mo
 file path=$(ECPREFIX)/share/phpmyadmin/locale/si/LC_MESSAGES/phpmyadmin.mo
 file path=$(ECPREFIX)/share/phpmyadmin/locale/sk/LC_MESSAGES/phpmyadmin.mo
 file path=$(ECPREFIX)/share/phpmyadmin/locale/sl/LC_MESSAGES/phpmyadmin.mo
+file \
+    path=$(ECPREFIX)/share/phpmyadmin/locale/sr@latin/LC_MESSAGES/phpmyadmin.mo
 file path=$(ECPREFIX)/share/phpmyadmin/locale/sv/LC_MESSAGES/phpmyadmin.mo
 file path=$(ECPREFIX)/share/phpmyadmin/locale/tr/LC_MESSAGES/phpmyadmin.mo
 file path=$(ECPREFIX)/share/phpmyadmin/locale/uk/LC_MESSAGES/phpmyadmin.mo

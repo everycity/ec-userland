@@ -15,7 +15,7 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		phpMyAdmin
-COMPONENT_VERSION=	3.5.2.2
+COMPONENT_VERSION=	3.5.3
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)-all-languages
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 #COMPONENT_ARCHIVE_HASH=	sha1:
@@ -38,7 +38,7 @@ $(BUILD_DIR)/%/.built:	prep
 $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
 	$(CP) -R $(SOURCE_DIR)/* $(PHPMYADMIN_DIR)/
 	( cd $(PHPMYADMIN_DIR) && \
-	  for i in Documentation* README* ChangeLog LICENSE examples ; do \
+	  for i in Documentation.txt README* ChangeLog LICENSE examples ; do \
 	  mv $$i $(PHPMYADMIN_DOC_DIR)/ ; done && \
 	mv config.sample.inc.php $(PHPMYADMIN_ETC_DIR)/config.inc.php && \
 	ln -s $(ECPREFIX)/etc/phpmyadmin/config.inc.php config.inc.php )
