@@ -44,7 +44,7 @@ if ( $obj eq 'mod' ) {
 else {
     $dir    = 'sites';
     $sffx   = '';
-    $reload = 'svcadm refresh svc:/network/http/apache22';
+    $reload = 'svcadm restart svc:/network/http/apache22';
 }
 $name = ucfirst($obj);
 
