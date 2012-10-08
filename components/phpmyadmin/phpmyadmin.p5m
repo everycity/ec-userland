@@ -1315,4 +1315,4 @@ file path=$(ECPREFIX)/share/phpmyadmin/view_create.php
 file path=$(ECPREFIX)/share/phpmyadmin/view_operations.php
 file path=$(ECPREFIX)/share/phpmyadmin/webapp.php
 link path=$(ECPREFIX)/share/phpmyadmin/config.inc.php \
-    target=/ws/s10-userland/components/phpmyadmin/build/prototype/$(MACH)//ec/etc/phpmyadmin/config.inc.php
+    target=/ec/etc/phpmyadmin/config.inc.php
