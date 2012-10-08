@@ -1,0 +1,26 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012 EveryCity Ltd. All rights reserved.
+#
+
+<Directory "/ec/share/phpmyadmin">
+  Order Deny,Allow
+  Deny from all
+  Allow from 127.0.0.1
+# Swap above for the following to open up access:
+#  Order Allow,Deny
+#  Allow from all
+</Directory>
+
+# Set up a server-wide alias
+Alias /phpmyadmin /ec/share/phpmyadmin
+
