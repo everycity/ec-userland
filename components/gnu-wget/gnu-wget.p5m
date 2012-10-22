@@ -9,15 +9,16 @@
 #
 
 #
-# Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2012 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
+<transform file path=.*/etc/.* -> default preserve true>
+<transform file path=.*/etc/.* -> default mode 0644>
 
 set name=pkg.fmri value=pkg:/web/gnu-wget@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="GNU Wget"
+set name=pkg.summary value="GNU wget"
 set name=info.upstream_url value="http://www.gnu.org/software/wget/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
@@ -26,10 +27,8 @@ license gnu-wget.license license="GPLv3"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/info
 dir path=$(ECPREFIX)/share/locale
@@ -47,14 +46,8 @@ dir path=$(ECPREFIX)/share/locale/de
 dir path=$(ECPREFIX)/share/locale/de/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/el
 dir path=$(ECPREFIX)/share/locale/el/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/en@boldquot
-dir path=$(ECPREFIX)/share/locale/en@boldquot/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/en@quot
-dir path=$(ECPREFIX)/share/locale/en@quot/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/en_GB
 dir path=$(ECPREFIX)/share/locale/en_GB/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/en_US
-dir path=$(ECPREFIX)/share/locale/en_US/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/eo
 dir path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/es
@@ -119,9 +112,10 @@ dir path=$(ECPREFIX)/share/locale/zh_TW
 dir path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/wget
 file path=$(ECPREFIX)/bin/wget
 file path=$(ECPREFIX)/etc/wgetrc
+file path=$(ECPREFIX)/lib/charset.alias
+file path=$(ECPREFIX)/share/info/dir
 file path=$(ECPREFIX)/share/info/wget.info
 file path=$(ECPREFIX)/share/locale/be/LC_MESSAGES/wget.mo
 file path=$(ECPREFIX)/share/locale/bg/LC_MESSAGES/wget.mo
@@ -130,10 +124,7 @@ file path=$(ECPREFIX)/share/locale/cs/LC_MESSAGES/wget.mo
 file path=$(ECPREFIX)/share/locale/da/LC_MESSAGES/wget.mo
 file path=$(ECPREFIX)/share/locale/de/LC_MESSAGES/wget.mo
 file path=$(ECPREFIX)/share/locale/el/LC_MESSAGES/wget.mo
-file path=$(ECPREFIX)/share/locale/en@boldquot/LC_MESSAGES/wget.mo
-file path=$(ECPREFIX)/share/locale/en@quot/LC_MESSAGES/wget.mo
 file path=$(ECPREFIX)/share/locale/en_GB/LC_MESSAGES/wget.mo
-file path=$(ECPREFIX)/share/locale/en_US/LC_MESSAGES/wget.mo
 file path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES/wget.mo
 file path=$(ECPREFIX)/share/locale/es/LC_MESSAGES/wget.mo
 file path=$(ECPREFIX)/share/locale/et/LC_MESSAGES/wget.mo
