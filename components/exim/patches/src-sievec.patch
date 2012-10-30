@@ -1,6 +1,6 @@
 --- exim-4.75.orig/src/sieve.c Thu Oct 11 13:44:30 2007
 +++ exim-4.75/src/sieve.c Fri Jan 30 16:30:41 2009
-@@ -21,7 +21,7 @@
+@@ -19,7 +19,7 @@
  #include "exim.h"
  
  #if HAVE_ICONV

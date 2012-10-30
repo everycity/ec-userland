@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2012 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -51,7 +51,7 @@ file path=$(ECPREFIX)/etc/exim/aliases.conf mode=0644 preserve=true
 file path=$(ECPREFIX)/etc/exim/exim.conf mode=0644 preserve=true
 file path=$(ECPREFIX)/bin/exicyclog
 file path=$(ECPREFIX)/bin/exigrep
-file path=$(ECPREFIX)/bin/exim-$(COMPONENT_VERSION)-1 mode=4555 user=root group=root
+file path=$(ECPREFIX)/bin/exim-$(COMPONENT_VERSION)-3 mode=4555 user=root group=root
 file path=$(ECPREFIX)/bin/exim_checkaccess
 file path=$(ECPREFIX)/bin/exim_dbmbuild
 file path=$(ECPREFIX)/bin/exim_dumpdb
@@ -64,6 +64,6 @@ file path=$(ECPREFIX)/bin/exipick
 file path=$(ECPREFIX)/bin/exiqgrep
 file path=$(ECPREFIX)/bin/exiqsumm
 file path=$(ECPREFIX)/bin/exiwhat
-link path=$(ECPREFIX)/bin/exim target=exim-$(COMPONENT_VERSION)-1
+link path=$(ECPREFIX)/bin/exim target=exim-$(COMPONENT_VERSION)-3
 group gid=456 groupname=exim
 user gcos-field="Exim Account" group=exim uid=456 username=exim login-shell=/bin/false home-dir=/ec/var/spool/exim
