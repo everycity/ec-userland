@@ -1,0 +1,61 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/library/lzo@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="LZO is a portable lossless data compression library written in ANSI C."
+set name=info.upstream_url value="http://www.oberhumer.com/opensource/lzo/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license COPYING license="GPLv2"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/lzo
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/lzo
+file path=$(ECPREFIX)/include/lzo/lzo1.h
+file path=$(ECPREFIX)/include/lzo/lzo1a.h
+file path=$(ECPREFIX)/include/lzo/lzo1b.h
+file path=$(ECPREFIX)/include/lzo/lzo1c.h
+file path=$(ECPREFIX)/include/lzo/lzo1f.h
+file path=$(ECPREFIX)/include/lzo/lzo1x.h
+file path=$(ECPREFIX)/include/lzo/lzo1y.h
+file path=$(ECPREFIX)/include/lzo/lzo1z.h
+file path=$(ECPREFIX)/include/lzo/lzo2a.h
+file path=$(ECPREFIX)/include/lzo/lzo_asm.h
+file path=$(ECPREFIX)/include/lzo/lzoconf.h
+file path=$(ECPREFIX)/include/lzo/lzodefs.h
+file path=$(ECPREFIX)/include/lzo/lzoutil.h
+file path=$(ECPREFIX)/lib/$(MACH64)/liblzo2.la
+file path=$(ECPREFIX)/lib/$(MACH64)/liblzo2.so.2.0.0
+file path=$(ECPREFIX)/lib/liblzo2.la
+file path=$(ECPREFIX)/lib/liblzo2.so.2.0.0
+file path=$(ECPREFIX)/share/doc/lzo/AUTHORS
+file path=$(ECPREFIX)/share/doc/lzo/COPYING
+file path=$(ECPREFIX)/share/doc/lzo/LZO.FAQ
+file path=$(ECPREFIX)/share/doc/lzo/LZO.TXT
+file path=$(ECPREFIX)/share/doc/lzo/LZOAPI.TXT
+file path=$(ECPREFIX)/share/doc/lzo/NEWS
+file path=$(ECPREFIX)/share/doc/lzo/THANKS
+link path=$(ECPREFIX)/lib/$(MACH64)/liblzo2.so target=liblzo2.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/liblzo2.so.2 target=liblzo2.so.2.0.0
+link path=$(ECPREFIX)/lib/liblzo2.so target=liblzo2.so.2.0.0
+link path=$(ECPREFIX)/lib/liblzo2.so.2 target=liblzo2.so.2.0.0
