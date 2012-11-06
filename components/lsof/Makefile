@@ -13,22 +13,20 @@
 #
 include ../../make-rules/shared-macros.mk
 
-COMPONENT_NAME=		pcp
-COMPONENT_VERSION=	1.10
+COMPONENT_NAME=		lsof
+COMPONENT_VERSION=	1.0
 
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-PCP_DIR=	$(PROTO_DIR)/$(ECPREFIX)/bin/
-PCP_FILE=	$(PCP_DIR)/pcp
-PCP_URL=	http://www.unix.ms/pcp/pcp.txt
+LSOF_DIR=	$(PROTO_DIR)/$(ECPREFIX)/bin/
 
 $(BUILD_DIR)/%/.built: 
-	$(RM) -r $(@D) $(PROTO_DIR) ; $(MKDIR) -p $(@D) $(PCP_DIR)
+	$(RM) -r $(@D) $(PROTO_DIR) ; $(MKDIR) -p $(@D) $(LSOF_DIR)
 	$(TOUCH) $@
 
 $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
-	( wget -O $(PCP_FILE) $(PCP_URL) )
+	( cp $(COMPONENT_DIR)/files/lsof $(LSOF_DIR) )
 	$(TOUCH) $@
 
 download:
