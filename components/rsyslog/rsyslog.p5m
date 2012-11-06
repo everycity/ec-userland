@@ -1,0 +1,128 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/service/rsyslog@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="An enhanced syslog"
+set name=info.upstream_url value="http://www.rsyslog.com/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license rsyslog.license license="GPLv3 LGPLv3 ASL20"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/rsyslog
+dir path=$(ECPREFIX)/lib/rsyslog
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man5
+dir path=$(ECPREFIX)/share/man/man8
+file path=$(ECPREFIX)/bin/$(MACH64)/rsyslogd
+file path=$(ECPREFIX)/bin/rsyslogd
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/imfile.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/imfile.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/imklog.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/imklog.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/immark.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/immark.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/impstats.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/impstats.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/imsolaris.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/imsolaris.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/imtcp.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/imtcp.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/imudp.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/imudp.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/imuxsock.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/imuxsock.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/lmnet.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/lmnet.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/lmnetstrms.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/lmnetstrms.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/lmnsd_ptcp.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/lmnsd_ptcp.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/lmregexp.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/lmregexp.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/lmstrmsrv.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/lmstrmsrv.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/lmtcpclt.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/lmtcpclt.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/lmtcpsrv.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/lmtcpsrv.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/lmzlibw.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/lmzlibw.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/ommail.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/ommail.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/omruleset.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/omruleset.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/omtesting.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/omtesting.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/omuxsock.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/omuxsock.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/pmlastmsg.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/pmlastmsg.so
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/pmsnare.la
+file path=$(ECPREFIX)/lib/$(MACH64)/rsyslog/pmsnare.so
+file path=$(ECPREFIX)/lib/rsyslog/imfile.la
+file path=$(ECPREFIX)/lib/rsyslog/imfile.so
+file path=$(ECPREFIX)/lib/rsyslog/imklog.la
+file path=$(ECPREFIX)/lib/rsyslog/imklog.so
+file path=$(ECPREFIX)/lib/rsyslog/immark.la
+file path=$(ECPREFIX)/lib/rsyslog/immark.so
+file path=$(ECPREFIX)/lib/rsyslog/impstats.la
+file path=$(ECPREFIX)/lib/rsyslog/impstats.so
+file path=$(ECPREFIX)/lib/rsyslog/imsolaris.la
+file path=$(ECPREFIX)/lib/rsyslog/imsolaris.so
+file path=$(ECPREFIX)/lib/rsyslog/imtcp.la
+file path=$(ECPREFIX)/lib/rsyslog/imtcp.so
+file path=$(ECPREFIX)/lib/rsyslog/imudp.la
+file path=$(ECPREFIX)/lib/rsyslog/imudp.so
+file path=$(ECPREFIX)/lib/rsyslog/imuxsock.la
+file path=$(ECPREFIX)/lib/rsyslog/imuxsock.so
+file path=$(ECPREFIX)/lib/rsyslog/lmnet.la
+file path=$(ECPREFIX)/lib/rsyslog/lmnet.so
+file path=$(ECPREFIX)/lib/rsyslog/lmnetstrms.la
+file path=$(ECPREFIX)/lib/rsyslog/lmnetstrms.so
+file path=$(ECPREFIX)/lib/rsyslog/lmnsd_ptcp.la
+file path=$(ECPREFIX)/lib/rsyslog/lmnsd_ptcp.so
+file path=$(ECPREFIX)/lib/rsyslog/lmregexp.la
+file path=$(ECPREFIX)/lib/rsyslog/lmregexp.so
+file path=$(ECPREFIX)/lib/rsyslog/lmstrmsrv.la
+file path=$(ECPREFIX)/lib/rsyslog/lmstrmsrv.so
+file path=$(ECPREFIX)/lib/rsyslog/lmtcpclt.la
+file path=$(ECPREFIX)/lib/rsyslog/lmtcpclt.so
+file path=$(ECPREFIX)/lib/rsyslog/lmtcpsrv.la
+file path=$(ECPREFIX)/lib/rsyslog/lmtcpsrv.so
+file path=$(ECPREFIX)/lib/rsyslog/lmzlibw.la
+file path=$(ECPREFIX)/lib/rsyslog/lmzlibw.so
+file path=$(ECPREFIX)/lib/rsyslog/ommail.la
+file path=$(ECPREFIX)/lib/rsyslog/ommail.so
+file path=$(ECPREFIX)/lib/rsyslog/omruleset.la
+file path=$(ECPREFIX)/lib/rsyslog/omruleset.so
+file path=$(ECPREFIX)/lib/rsyslog/omtesting.la
+file path=$(ECPREFIX)/lib/rsyslog/omtesting.so
+file path=$(ECPREFIX)/lib/rsyslog/omuxsock.la
+file path=$(ECPREFIX)/lib/rsyslog/omuxsock.so
+file path=$(ECPREFIX)/lib/rsyslog/pmlastmsg.la
+file path=$(ECPREFIX)/lib/rsyslog/pmlastmsg.so
+file path=$(ECPREFIX)/lib/rsyslog/pmsnare.la
+file path=$(ECPREFIX)/lib/rsyslog/pmsnare.so
+file path=$(ECPREFIX)/share/man/man5/rsyslog.conf.5
+file path=$(ECPREFIX)/share/man/man8/rsyslogd.8
