@@ -1,0 +1,11 @@
+--- e2fsprogs-libs-1.42.6/lib/uuid/Makefile.in.orig	2012-11-06 17:22:05.456248996 +0000
++++ e2fsprogs-libs-1.42.6/lib/uuid/Makefile.in	2012-11-06 17:22:24.266015325 +0000
+@@ -67,7 +67,7 @@
+ @ELF_CMT@	$(Q) $(CC) $(ALL_CFLAGS) -fPIC -o elfshared/$*.o -c $<
+ @BSDLIB_CMT@	$(Q) $(CC) $(ALL_CFLAGS) $(BSDLIB_PIC_FLAG) -o pic/$*.o -c $<
+ 
+-all:: tst_uuid uuid_time $(SMANPAGES) uuid.pc
++all:: uuid_time $(SMANPAGES) uuid.pc
+ 
+ uuid.h: $(srcdir)/uuid.h.in
+ 	$(E) "	CP $@"

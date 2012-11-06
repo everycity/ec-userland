@@ -1,0 +1,11 @@
+--- e2fsprogs-libs-1.42.6/MCONFIG.in.orig	2012-11-06 17:56:56.433730884 +0000
++++ e2fsprogs-libs-1.42.6/MCONFIG.in	2012-11-06 17:57:03.699322081 +0000
+@@ -137,7 +137,7 @@
+ DEP_SUBSTITUTE= $(top_builddir)/util/subst $(SUBST_CONF)
+ 
+ $(top_builddir)/util/subst:
+-	cd $(top_builddir)/util ; $(MAKE) subst
++	cd $(top_builddir)/util ; $(MAKE) subst CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
+ 
+ #
+ # Script for installing symlinks (for shared libraries)

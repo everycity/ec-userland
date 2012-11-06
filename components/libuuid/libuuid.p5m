@@ -1,0 +1,59 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/library/libuuid@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="DCE compatible Universally Unique Identifier library (from the e2fsprogs package)"
+set name=info.upstream_url value="http://e2fsprogs.sourceforge.net/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license libuuid.license license="GPLv2"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/uuid
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/info
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man3
+file path=$(ECPREFIX)/include/uuid/uuid.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libuuid.so.1.2
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/uuid.pc
+file path=$(ECPREFIX)/lib/libuuid.so.1.2
+file path=$(ECPREFIX)/lib/pkgconfig/uuid.pc
+file path=$(ECPREFIX)/share/man/man3/uuid.3
+file path=$(ECPREFIX)/share/man/man3/uuid_clear.3
+file path=$(ECPREFIX)/share/man/man3/uuid_compare.3
+file path=$(ECPREFIX)/share/man/man3/uuid_copy.3
+file path=$(ECPREFIX)/share/man/man3/uuid_generate_time.3
+file path=$(ECPREFIX)/share/man/man3/uuid_is_null.3
+file path=$(ECPREFIX)/share/man/man3/uuid_parse.3
+file path=$(ECPREFIX)/share/man/man3/uuid_time.3
+file path=$(ECPREFIX)/share/man/man3/uuid_unparse.3
+hardlink path=$(ECPREFIX)/share/man/man3/uuid_generate.3 \
+    target=uuid_generate_time.3
+hardlink path=$(ECPREFIX)/share/man/man3/uuid_generate_random.3 \
+    target=uuid_generate_time.3
+link path=$(ECPREFIX)/lib/$(MACH64)/libuuid.so \
+    target=/ec/lib/$(MACH64)/libuuid.so.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libuuid.so.1 target=libuuid.so.1.2
+link path=$(ECPREFIX)/lib/libuuid.so target=/ec/lib/libuuid.so.1
+link path=$(ECPREFIX)/lib/libuuid.so.1 target=libuuid.so.1.2

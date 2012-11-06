@@ -1,0 +1,15 @@
+--- e2fsprogs-libs-1.42.6/Makefile.in.~1~	2012-07-06 13:37:27.000000000 +0000
++++ e2fsprogs-libs-1.42.6/Makefile.in	2012-11-06 17:47:42.957201645 +0000
+@@ -15,9 +15,10 @@
+ @BLKID_CMT@BLKID_LIB_SUBDIR= lib/blkid
+ @QUOTA_CMT@QUOTA_LIB_SUBDIR= lib/quota
+ 
+-LIB_SUBDIRS=lib/et lib/ss lib/e2p $(UUID_LIB_SUBDIR) lib/ext2fs $(BLKID_LIB_SUBDIR) $(QUOTA_LIB_SUBDIR) intl
++#LIB_SUBDIRS=lib/et lib/ss lib/e2p $(UUID_LIB_SUBDIR) 
++LIB_SUBDIRS=$(UUID_LIB_SUBDIR) 
+ PROG_SUBDIRS=e2fsck $(DEBUGFS_DIR) misc $(RESIZE_DIR) tests/progs po
+-SUBDIRS=util $(LIB_SUBDIRS) $(PROG_SUBDIRS) tests
++SUBDIRS=$(LIB_SUBDIRS)
+ 
+ SUBS= util/subst.conf lib/config.h lib/dirpaths.h \
+ 	lib/ext2fs/ext2_types.h lib/blkid/blkid_types.h lib/uuid/uuid_types.h
