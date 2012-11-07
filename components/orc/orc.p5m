@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2012 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -35,6 +35,7 @@ dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 dir path=$(ECPREFIX)/lib/pkgconfig
 dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/aclocal
 dir path=$(ECPREFIX)/share/gtk-doc
 dir path=$(ECPREFIX)/share/gtk-doc/html
 dir path=$(ECPREFIX)/share/gtk-doc/html/orc
@@ -64,12 +65,17 @@ file path=$(ECPREFIX)/include/orc-0.4/orc/orcsse.h
 file path=$(ECPREFIX)/include/orc-0.4/orc/orcutils.h
 file path=$(ECPREFIX)/include/orc-0.4/orc/orcx86.h
 file path=$(ECPREFIX)/include/orc-0.4/orc/orcx86insn.h
-file path=$(ECPREFIX)/lib/$(MACH64)/liborc-0.4.so.0.14.0
-file path=$(ECPREFIX)/lib/$(MACH64)/liborc-test-0.4.so.0.14.0
+file path=$(ECPREFIX)/lib/$(MACH64)/liborc-0.4.la
+file path=$(ECPREFIX)/lib/$(MACH64)/liborc-0.4.so.0.16.0
+file path=$(ECPREFIX)/lib/$(MACH64)/liborc-test-0.4.la
+file path=$(ECPREFIX)/lib/$(MACH64)/liborc-test-0.4.so.0.16.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/orc-0.4.pc
-file path=$(ECPREFIX)/lib/liborc-0.4.so.0.14.0
-file path=$(ECPREFIX)/lib/liborc-test-0.4.so.0.14.0
+file path=$(ECPREFIX)/lib/liborc-0.4.la
+file path=$(ECPREFIX)/lib/liborc-0.4.so.0.16.0
+file path=$(ECPREFIX)/lib/liborc-test-0.4.la
+file path=$(ECPREFIX)/lib/liborc-test-0.4.so.0.16.0
 file path=$(ECPREFIX)/lib/pkgconfig/orc-0.4.pc
+file path=$(ECPREFIX)/share/aclocal/orc.m4
 file path=$(ECPREFIX)/share/gtk-doc/html/orc/ch01.html
 file path=$(ECPREFIX)/share/gtk-doc/html/orc/ch02.html
 file path=$(ECPREFIX)/share/gtk-doc/html/orc/ch03.html
@@ -103,15 +109,15 @@ file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc.devhelp2
 file path=$(ECPREFIX)/share/gtk-doc/html/orc/right.png
 file path=$(ECPREFIX)/share/gtk-doc/html/orc/style.css
 file path=$(ECPREFIX)/share/gtk-doc/html/orc/up.png
-link path=$(ECPREFIX)/lib/$(MACH64)/liborc-0.4.so target=liborc-0.4.so.0.14.0
+link path=$(ECPREFIX)/lib/$(MACH64)/liborc-0.4.so target=liborc-0.4.so.0.16.0
 link path=$(ECPREFIX)/lib/$(MACH64)/liborc-0.4.so.0 \
-    target=liborc-0.4.so.0.14.0
+    target=liborc-0.4.so.0.16.0
 link path=$(ECPREFIX)/lib/$(MACH64)/liborc-test-0.4.so \
-    target=liborc-test-0.4.so.0.14.0
+    target=liborc-test-0.4.so.0.16.0
 link path=$(ECPREFIX)/lib/$(MACH64)/liborc-test-0.4.so.0 \
-    target=liborc-test-0.4.so.0.14.0
-link path=$(ECPREFIX)/lib/liborc-0.4.so target=liborc-0.4.so.0.14.0
-link path=$(ECPREFIX)/lib/liborc-0.4.so.0 target=liborc-0.4.so.0.14.0
-link path=$(ECPREFIX)/lib/liborc-test-0.4.so target=liborc-test-0.4.so.0.14.0
+    target=liborc-test-0.4.so.0.16.0
+link path=$(ECPREFIX)/lib/liborc-0.4.so target=liborc-0.4.so.0.16.0
+link path=$(ECPREFIX)/lib/liborc-0.4.so.0 target=liborc-0.4.so.0.16.0
+link path=$(ECPREFIX)/lib/liborc-test-0.4.so target=liborc-test-0.4.so.0.16.0
 link path=$(ECPREFIX)/lib/liborc-test-0.4.so.0 \
-    target=liborc-test-0.4.so.0.14.0
+    target=liborc-test-0.4.so.0.16.0
