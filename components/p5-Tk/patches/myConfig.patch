@@ -1,0 +1,29 @@
+--- Tk-804.030/myConfig.~1~	2011-06-13 17:37:19.000000000 +0000
++++ Tk-804.030/myConfig	2012-11-08 14:31:49.531897470 +0000
+@@ -323,7 +323,7 @@
+     {
+       if ($Config{'osname'} eq 'solaris' || $Config{'osname'} eq 'sunos')
+ 	{
+-	  $xlib = &lX11(0,'/usr/openwin/lib');
++	  $xlib = &lX11(0,'/ec/lib');
+ 	}
+     }
+ 
+@@ -346,7 +346,7 @@
+   #
+   unless (defined $xlib)
+     {
+-      $xlib = &lX11(0,chooseX11(</usr/X11*/lib>),chooseX11(</usr/lib/X11*>),</usr/Xfree*/lib>,'/usr/X386/lib')
++      $xlib = &lX11(0,chooseX11(</ec/lib>),chooseX11(</ec/lib>),</ec/lib>,'/ec/lib')
+     }
+ 
+   #
+@@ -377,7 +377,7 @@
+     {
+       warn "Cannot find X include files via $base/include\n";
+       $xinc = &IX11(map("$_/include",@xdirs),
+-		    '/usr/openwin/include',
++		    '/ec/include',
+ 		    chooseX11(</usr/X11*/include>),
+ 		    chooseX11(</usr/include/X11*>),
+ 		    </usr/Xfree*/include>,

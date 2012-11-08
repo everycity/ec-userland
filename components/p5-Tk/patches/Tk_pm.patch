@@ -1,0 +1,13 @@
+--- Tk-804.030/Tk.pm.orig	2012-11-08 14:20:18.367319655 +0000
++++ Tk-804.030/Tk.pm	2012-11-08 14:20:56.790391327 +0000
+@@ -90,8 +90,8 @@
+ my $boot_time = timeofday();
+ 
+ # This is a workround for Solaris X11 locale handling
+-Preload(DynaLoader::dl_findfile('-L/usr/openwin/lib','-lX11'))
+-  if (NeedPreload() && -d '/usr/openwin/lib');
++Preload(DynaLoader::dl_findfile('-L/ec/lib','-lX11'))
++  if (NeedPreload() && -d '/ec/lib');
+ 
+ use Tk::Submethods ('option'    =>  [qw(add get clear readfile)],
+                     'clipboard' =>  [qw(clear append get)]
