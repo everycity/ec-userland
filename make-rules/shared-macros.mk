@@ -31,7 +31,7 @@ PATH=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 export DOWNLOAD_SEARCH_PATH ?=	http://dlc-int.openindiana.org/s10-userland/source-archives
 
 # Calculate the workspace top with some make shiznitz, and tidy it up with realpath
-export WS_TOP ?=	$(shell realpath $(dir $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST)))..)
+export WS_TOP ?=	$(realpath $(dir $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST)))..)
 
 WS_ARCHIVES =	$(WS_TOP)/archives
 WS_LOGS =	$(WS_TOP)/$(MACH)/logs
