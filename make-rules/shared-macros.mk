@@ -31,7 +31,7 @@ PATH=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 export DOWNLOAD_SEARCH_PATH ?=	http://dlc-int.openindiana.org/s10-userland/source-archives
 
 # The workspace starts at the mercurial root
-export WS_TOP ?=		$(shell hg root)
+export WS_TOP ?=		$(shell git rev-parse --show-toplevel)
 
 WS_ARCHIVES =	$(WS_TOP)/archives
 WS_LOGS =	$(WS_TOP)/$(MACH)/logs
