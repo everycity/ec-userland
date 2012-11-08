@@ -1,0 +1,6 @@
+Copyright (C) 1997-2006 Stephen McCamant. All rights reserved. This
+module is free software; you can redistribute and/or modify it under
+the same terms as Perl itself. (As an exception, the file Keysyms.pm,
+which is derived from a file in the standard X11 distribution, has
+another, less restrictive copying policy, as do some of the extension
+modules in the directory Protocol/Ext: see those files for details).
