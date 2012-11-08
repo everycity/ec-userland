@@ -30,3 +30,6 @@ dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 file path=$(ECPREFIX)/bin/cssh
 file path=$(ECPREFIX)/share/man/man1/cssh.1
+
+depend fmri=library/perl-5/Tk type=require
+depend fmri=library/perl-5/x11/protocol type=require
