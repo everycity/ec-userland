@@ -30,8 +30,8 @@ PATH=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 # hammer on the external repositories.
 export DOWNLOAD_SEARCH_PATH ?=	http://dlc-int.openindiana.org/s10-userland/source-archives
 
-# The workspace starts at the mercurial root
-export WS_TOP ?=		$(shell git rev-parse --show-toplevel)
+# Calculate the workspace top with some make shiznitz, and tidy it up with realpath
+export WS_TOP ?=	$(shell realpath $(dir $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST)))..)
 
 WS_ARCHIVES =	$(WS_TOP)/archives
 WS_LOGS =	$(WS_TOP)/$(MACH)/logs
