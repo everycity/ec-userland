@@ -1,0 +1,56 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/terminal/xterm@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="The xterm program is a terminal emulator for the X Window System. It provides DEC VT102 and Tektronix 4014 compatible terminals for programs that can't use the window system directly.  This version implements ISO/ANSI colors using the new color model (i.e., background color erase). It also implements most of the control sequences for VT220"
+set name=info.upstream_url value="http://invisible-island.net/xterm/xterm.html"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license xterm.license license="xterm"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/X11
+dir path=$(ECPREFIX)/lib/X11/app-defaults
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+dir path=$(ECPREFIX)/share/pixmaps
+file path=$(ECPREFIX)/bin/koi8rxterm
+file path=$(ECPREFIX)/bin/resize
+file path=$(ECPREFIX)/bin/uxterm
+file path=$(ECPREFIX)/bin/xterm
+file path=$(ECPREFIX)/lib/X11/app-defaults/KOI8RXTerm
+file path=$(ECPREFIX)/lib/X11/app-defaults/KOI8RXTerm-color
+file path=$(ECPREFIX)/lib/X11/app-defaults/UXTerm
+file path=$(ECPREFIX)/lib/X11/app-defaults/UXTerm-color
+file path=$(ECPREFIX)/lib/X11/app-defaults/XTerm
+file path=$(ECPREFIX)/lib/X11/app-defaults/XTerm-color
+file path=$(ECPREFIX)/share/man/man1/koi8rxterm.1
+file path=$(ECPREFIX)/share/man/man1/resize.1
+file path=$(ECPREFIX)/share/man/man1/uxterm.1
+file path=$(ECPREFIX)/share/man/man1/xterm.1
+file path=$(ECPREFIX)/share/pixmaps/filled-xterm_32x32.xpm
+file path=$(ECPREFIX)/share/pixmaps/filled-xterm_48x48.xpm
+file path=$(ECPREFIX)/share/pixmaps/mini.xterm_32x32.xpm
+file path=$(ECPREFIX)/share/pixmaps/mini.xterm_48x48.xpm
+file path=$(ECPREFIX)/share/pixmaps/xterm-color_32x32.xpm
+file path=$(ECPREFIX)/share/pixmaps/xterm-color_48x48.xpm
+file path=$(ECPREFIX)/share/pixmaps/xterm_32x32.xpm
+file path=$(ECPREFIX)/share/pixmaps/xterm_48x48.xpm
