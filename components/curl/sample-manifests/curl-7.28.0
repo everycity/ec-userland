@@ -1,40 +1,27 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
-#
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2012 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/web/curl@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="The C-URL Wrappers Library"
-set name=info.upstream_url value="http://curl.haxx.se/"
+set name=pkg.fmri value=pkg:/@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="
+set name=info.upstream_url value="
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
-license curl.license license="BSD"
-
-file files/curl-config path=$(ECPREFIX)/bin/curl-config
-file files/curl-config.64 path=$(ECPREFIX)/bin/$(MACH64)/curl-config
-
+license .license license="
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -50,9 +37,11 @@ dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man3
 file path=$(ECPREFIX)/bin/$(MACH64)/curl
+file path=$(ECPREFIX)/bin/$(MACH64)/curl-config
 file path=$(ECPREFIX)/bin/curl
+file path=$(ECPREFIX)/bin/curl-config
 file path=$(ECPREFIX)/include/curl/curl.h
-file curlbuild.h path=$(ECPREFIX)/include/curl/curlbuild.h
+file path=$(ECPREFIX)/include/curl/curlbuild.h
 file path=$(ECPREFIX)/include/curl/curlrules.h
 file path=$(ECPREFIX)/include/curl/curlver.h
 file path=$(ECPREFIX)/include/curl/easy.h
@@ -60,8 +49,10 @@ file path=$(ECPREFIX)/include/curl/mprintf.h
 file path=$(ECPREFIX)/include/curl/multi.h
 file path=$(ECPREFIX)/include/curl/stdcheaders.h
 file path=$(ECPREFIX)/include/curl/typecheck-gcc.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libcurl.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libcurl.so.4.2.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libcurl.pc
+file path=$(ECPREFIX)/lib/libcurl.la
 file path=$(ECPREFIX)/lib/libcurl.so.4.2.0
 file path=$(ECPREFIX)/lib/pkgconfig/libcurl.pc
 file path=$(ECPREFIX)/share/man/man1/curl-config.1
