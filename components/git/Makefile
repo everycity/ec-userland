@@ -31,6 +31,7 @@ CONFIGURE_OPTIONS+=	--libexecdir=$(ECPREFIX)/lib
 CONFIGURE_OPTIONS+=	--with-gitconfig=$(ECPREFIX)/etc/gitconfig
 CONFIGURE_OPTIONS+=	--with-gitattributes=$(ECPREFIX)/etc/gitattributes
 CONFIGURE_OPTIONS+=	--with-python=$(ECPREFIX)/bin/python2.6
+CONFIGURE_OPTIONS+=	--with-perl=$(ECPREFIX)/bin/perl
 CONFIGURE_OPTIONS+=	--with-editor=vim
 
 LDFLAGS+=	-lintl
