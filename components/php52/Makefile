@@ -75,7 +75,6 @@ CONFIGURE_OPTIONS     +=	--with-kerberos
 CONFIGURE_OPTIONS     +=	--with-pcre-regex
 
 # Shared Extensions
-CONFIGURE_OPTIONS     +=	--with-bz2=shared
 CONFIGURE_OPTIONS     +=	--with-curlwrappers
 CONFIGURE_OPTIONS     +=	--with-gettext=shared
 CONFIGURE_OPTIONS     +=	--with-xmlrpc=shared
@@ -86,6 +85,7 @@ CONFIGURE_OPTIONS     +=	--with-pdo-sqlite=shared
 CONFIGURE_OPTIONS     +=	--with-sqlite=shared
 
 # Shared Extensions
+CONFIGURE_OPTIONS     +=	--with-bz2=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-iconv=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-tidy=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-mhash=shared,$(ECPREFIX)
