@@ -38,6 +38,14 @@ CONFIGURE_OPTIONS+=	--with-libidn=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--with-ca-bundle=$(ECPREFIX)/etc/openssl/cabundle.pem
 CONFIGURE_OPTIONS+=	--without-librtmp
 
+COMPONENT_POST_INSTALL_ACTION.32 =	( perl -pi -e \
+	's/CURLLIBDIR=.*/CURLLIBDIR="-L\/ec\/lib -R\/ec\/lib "/' \
+	$(PROTO_DIR)/$(ECPREFIX)/bin/curl-config )
+COMPONENT_POST_INSTALL_ACTION.64 =	( perl -pi -e \
+	's/CURLLIBDIR=.*/CURLLIBDIR="-L\/ec\/lib\/$(MACH64) -R\/ec\/lib\/$(MACH64) "/' \
+	$(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)/curl-config )
+COMPONENT_POST_INSTALL_ACTION=$(COMPONENT_POST_INSTALL_ACTION.$(BITS))
+
 # common targets
 build:		$(BUILD_32_and_64)
 
