@@ -1,33 +1,24 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
-#
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
+
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011,2012 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		git
-COMPONENT_VERSION=	1.7.10.1
+COMPONENT_VERSION=	1.8.0
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:870361f93fad7999f121bc7bc91a743feda68bdb
+COMPONENT_ARCHIVE_HASH=	sha256:ccc32f18ea12ea730a7d1d9d3d7bf51447439299a99d4d326f49f1f8bb488974
 COMPONENT_ARCHIVE_URL=	http://git-core.googlecode.com/files/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -40,6 +31,7 @@ CONFIGURE_OPTIONS+=	--libexecdir=$(ECPREFIX)/lib
 CONFIGURE_OPTIONS+=	--with-gitconfig=$(ECPREFIX)/etc/gitconfig
 CONFIGURE_OPTIONS+=	--with-gitattributes=$(ECPREFIX)/etc/gitattributes
 CONFIGURE_OPTIONS+=	--with-python=$(ECPREFIX)/bin/python2.6
+CONFIGURE_OPTIONS+=	--with-perl=$(ECPREFIX)/bin/perl
 CONFIGURE_OPTIONS+=	--with-editor=vim
 
 LDFLAGS+=	-lintl

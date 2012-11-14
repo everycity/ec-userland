@@ -18,14 +18,15 @@ COMPONENT_NAME=		clamav
 COMPONENT_VERSION=	0.97.6
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha1:
+COMPONENT_ARCHIVE_HASH=	sha256:a15a2bb9200ac9f2c6f1c5e1072ac265a2c4fe5a9be4663b47d076afdfa123f8
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SOURCEFORGE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-#CONFIGURE_OPTIONS += 
+CONFIGURE_OPTIONS+=	--with-zlib=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--disable-clamav
 
 build:		$(BUILD_32_and_64)
 

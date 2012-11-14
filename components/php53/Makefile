@@ -14,10 +14,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	5.3.17
+COMPONENT_VERSION=	5.3.18
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:262211694d03b40a4ddeb826699949bf22d7ee82f5ce21fab63199346ea29afe
+COMPONENT_ARCHIVE_HASH=	sha256:8affdcce1886f731ccba95ec5ac9bfe382a349df57f5cfea28ba98d2bec6ae36
 COMPONENT_ARCHIVE_URL=	http://uk3.php.net/get/$(COMPONENT_ARCHIVE)/from/this/mirror
 
 include ../../make-rules/prep.mk
@@ -54,7 +54,7 @@ CONFIGURE_OPTIONS     +=	--mandir=$(PHP_PREFIX)/share/man
 #CONFIGURE_OPTIONS.32  +=	--with-apxs2=$(AP_PREFIX)/bin/apxs
 #CONFIGURE_OPTIONS.64  +=	--with-apxs2=$(AP_PREFIX)/bin/$(MACH64)/apxs
 
-CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris2.10
+CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris$(SOLARIS_VERSION)
 
 CONFIGURE_OPTIONS     +=	--with-config-file-path=$(PHP_SYSCONFDIR)
 CONFIGURE_OPTIONS     +=	--with-config-file-scan-dir=$(PHP_SYSCONFDIR)/conf.d
@@ -68,7 +68,6 @@ CONFIGURE_OPTIONS     +=	--with-kerberos
 CONFIGURE_OPTIONS     +=	--with-pcre-regex
 
 # Shared Extensions
-CONFIGURE_OPTIONS     +=	--with-bz2=shared,/ec
 CONFIGURE_OPTIONS     +=	--with-curlwrappers
 CONFIGURE_OPTIONS     +=	--with-gettext=shared
 CONFIGURE_OPTIONS     +=	--with-xmlrpc=shared
@@ -80,6 +79,7 @@ CONFIGURE_OPTIONS     +=	--with-sqlite=shared
 CONFIGURE_OPTIONS     +=	--with-ldap=shared
 
 # Shared Extensions
+CONFIGURE_OPTIONS     +=	--with-bz2=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-iconv=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-tidy=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-mhash=shared,$(ECPREFIX)
