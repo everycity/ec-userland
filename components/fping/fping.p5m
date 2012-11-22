@@ -29,5 +29,6 @@ dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man8
 file path=$(ECPREFIX)/bin/fping mode=4755
+file path=$(ECPREFIX)/bin/fping6 mode=4755
 file path=$(ECPREFIX)/share/man/man8/fping.8
-link path=$(ECPREFIX)/bin/fping6 target=fping
+file path=$(ECPREFIX)/share/man/man8/fping6.8

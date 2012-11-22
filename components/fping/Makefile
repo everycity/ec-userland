@@ -15,18 +15,18 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		fping
-COMPONENT_VERSION=	2.4b2
-IPS_COMPONENT_VERSION=	2.4.2
-COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)_to
-COMPONENT_ARCHIVE=	fping.tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha256:
-COMPONENT_ARCHIVE_URL=	http://fping.sourceforge.net/download/$(COMPONENT_ARCHIVE)
+COMPONENT_VERSION=	3.4
+COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
+COMPONENT_ARCHIVE_HASH=	sha256:d42528af4931f16a8e3438bd4a45cfdd72163ad8835a3c95351c336a26e56afe
+COMPONENT_ARCHIVE_URL=	http://fping.org/dist/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-#CONFIGURE_OPTIONS+=	
+CONFIGURE_OPTIONS+=	--enable-ipv4
+CONFIGURE_OPTIONS+=	--enable-ipv6
 
 build:		$(BUILD_32)
 
