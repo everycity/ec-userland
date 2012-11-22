@@ -15,19 +15,19 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		vsftpd
-COMPONENT_VERSION=	2.3.5
+COMPONENT_VERSION=	3.0.2
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:f15b39ba6d68c953ab3c3e613e6ddc2a26493755
+COMPONENT_ARCHIVE_HASH=	sha256:be46f0e2c5528fe021fafc8dab1ecfea0c1f183063a06977f8537fcd0b195e56
 COMPONENT_ARCHIVE_URL=	https://security.appspot.com/downloads/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-CPPFLAGS += -I$(COMPONENT_DIR)
+CFLAGS += -I$(COMPONENT_DIR) -idirafter dummyinc
 
-COMPONENT_BUILD_ENV == CPPFLAGS=$(CPPFLAGS)
+COMPONENT_BUILD_ENV+= CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)" CC=gcc
 
 dirent-fixed.h:
 	@sed /^extern\ int.*dirfd\(DIR\ \\*\)\;/d </usr/include/dirent.h >dirent-fixed.h

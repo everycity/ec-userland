@@ -1,0 +1,30 @@
+--- vsftpd-3.0.0.orig/sysdeputil.c	Fri Mar 26 04:25:33 2010
++++ vsftpd-3.0.0/sysdeputil.c		Fri Apr 20 23:50:22 2012
+@@ -313,8 +313,13 @@
+ 
+ static pam_handle_t* s_pamh;
+ static struct mystr s_pword_str;
++#if defined(sun) && defined(__SVR4) 
++static int pam_conv_func(int nmsg, struct pam_message** p_msg,
++                         struct pam_response** p_reply, void* p_addata);
++#else
+ static int pam_conv_func(int nmsg, const struct pam_message** p_msg,
+                          struct pam_response** p_reply, void* p_addata);
++#endif
+ static void vsf_auth_shutdown(void);
+ 
+ int
+@@ -442,8 +447,13 @@
+ }
+ 
+ static int
++#if defined(sun) && defined(__SVR4) 
++pam_conv_func(int nmsg, struct pam_message** p_msg,
++              struct pam_response** p_reply, void* p_addata)
++#else
+ pam_conv_func(int nmsg, const struct pam_message** p_msg,
+               struct pam_response** p_reply, void* p_addata)
++#endif
+ {
+   int i;
+   struct pam_response* p_resps = 0;
