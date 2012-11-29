@@ -65,6 +65,8 @@ CONFIGURE_OPTIONS_sparc = solaris-sparcv8-gcc
 CONFIGURE_OPTIONS = $(GENERIC_CONFIGURE_OPTIONS) \
                 $(CONFIGURE_OPTIONS_$(MACH))
 
+COMPONENT_BUILD_TARGETS+= LDFLAGS="$(LDFLAGS)"
+
 COMPONENT_PRE_BUILD_ACTION= \
 	(cd $(@D) ; \
 	    if [ $(BITS) = 32 ]; then ./Configure $(CONFIGURE_OPTIONS); \
