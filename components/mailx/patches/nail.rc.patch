@@ -1,0 +1,21 @@
+--- nail/nail.rc.orig	2012-11-26 17:35:22.100165693 +0000
++++ nail/nail.rc	2012-11-26 17:36:10.519310345 +0000
+@@ -1,10 +1,6 @@
+ # This is the configuration file for Heirloom mailx (formerly
+ # known under the name "nail".
+ # See mailx(1) for further options.
+-# This file is not overwritten when 'make install' is run in
+-# the mailx build process again.
+-
+-# Sccsid @(#)nail.rc	2.11 (gritter) 8/2/08
+ 
+ # Do not forward to mbox by default since this is likely to be
+ # irritating for most users today.
+@@ -64,3 +60,7 @@
+ 
+ # Only include selected header fields when forwarding messages.
+ fwdretain subject date from to
++
++# Use an SMTP Smarthost
++# set smtp=smtp://smtp-smarthost.example.com
++

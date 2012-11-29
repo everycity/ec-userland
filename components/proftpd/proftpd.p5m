@@ -1,0 +1,212 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/network/ftp/proftpd@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Highly configurable FTP server software"
+set name=info.upstream_url value="http://proftpd.open-source-solution.org/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license COPYING license="GPLv2"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/proftpd
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/proftpd
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/lib/proftpd
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/locale
+dir path=$(ECPREFIX)/share/locale/bg_BG
+dir path=$(ECPREFIX)/share/locale/bg_BG/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/en_US
+dir path=$(ECPREFIX)/share/locale/en_US/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/fr_FR
+dir path=$(ECPREFIX)/share/locale/fr_FR/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/it_IT
+dir path=$(ECPREFIX)/share/locale/it_IT/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ja_JP
+dir path=$(ECPREFIX)/share/locale/ja_JP/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ko_KR
+dir path=$(ECPREFIX)/share/locale/ko_KR/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ru_RU
+dir path=$(ECPREFIX)/share/locale/ru_RU/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/zh_CN
+dir path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/zh_TW
+dir path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+dir path=$(ECPREFIX)/share/man/man5
+dir path=$(ECPREFIX)/share/man/man8
+dir path=$(ECPREFIX)/var
+dir path=$(ECPREFIX)/var/run
+dir path=$(ECPREFIX)/var/svc
+dir path=$(ECPREFIX)/var/svc/method
+file path=$(ECPREFIX)/bin/ftpasswd
+file path=$(ECPREFIX)/bin/ftpcount
+file path=$(ECPREFIX)/bin/ftpdctl
+file path=$(ECPREFIX)/bin/ftpmail
+file path=$(ECPREFIX)/bin/ftpquota
+file path=$(ECPREFIX)/bin/ftpscrub
+file path=$(ECPREFIX)/bin/ftpshut
+file path=$(ECPREFIX)/bin/ftptop
+file path=$(ECPREFIX)/bin/ftpwho
+file path=$(ECPREFIX)/bin/proftpd
+file path=$(ECPREFIX)/bin/prxs
+file path=$(ECPREFIX)/etc/proftpd/blacklist.dat mode=0644 preserve=true
+file path=$(ECPREFIX)/etc/proftpd/dhparams.pem mode=0644 preserve=true
+file path=$(ECPREFIX)/etc/proftpd/proftpd.conf mode=0644 preserve=true
+file path=$(ECPREFIX)/include/proftpd/auth.h
+file path=$(ECPREFIX)/include/proftpd/bindings.h
+file path=$(ECPREFIX)/include/proftpd/buildstamp.h
+file path=$(ECPREFIX)/include/proftpd/child.h
+file path=$(ECPREFIX)/include/proftpd/class.h
+file path=$(ECPREFIX)/include/proftpd/cmd.h
+file path=$(ECPREFIX)/include/proftpd/compat.h
+file path=$(ECPREFIX)/include/proftpd/conf.h
+file path=$(ECPREFIX)/include/proftpd/config.h
+file path=$(ECPREFIX)/include/proftpd/ctrls.h
+file path=$(ECPREFIX)/include/proftpd/data.h
+file path=$(ECPREFIX)/include/proftpd/default_paths.h
+file path=$(ECPREFIX)/include/proftpd/dirtree.h
+file path=$(ECPREFIX)/include/proftpd/display.h
+file path=$(ECPREFIX)/include/proftpd/encode.h
+file path=$(ECPREFIX)/include/proftpd/env.h
+file path=$(ECPREFIX)/include/proftpd/event.h
+file path=$(ECPREFIX)/include/proftpd/expr.h
+file path=$(ECPREFIX)/include/proftpd/feat.h
+file path=$(ECPREFIX)/include/proftpd/filter.h
+file path=$(ECPREFIX)/include/proftpd/fsio.h
+file path=$(ECPREFIX)/include/proftpd/ftp.h
+file path=$(ECPREFIX)/include/proftpd/glibc-glob.h
+file path=$(ECPREFIX)/include/proftpd/help.h
+file path=$(ECPREFIX)/include/proftpd/inet.h
+file path=$(ECPREFIX)/include/proftpd/libsupp.h
+file path=$(ECPREFIX)/include/proftpd/log.h
+file path=$(ECPREFIX)/include/proftpd/memcache.h
+file path=$(ECPREFIX)/include/proftpd/mkhome.h
+file path=$(ECPREFIX)/include/proftpd/mod_ctrls.h
+file path=$(ECPREFIX)/include/proftpd/mod_load.h
+file path=$(ECPREFIX)/include/proftpd/mod_quotatab.h
+file path=$(ECPREFIX)/include/proftpd/mod_sftp.h
+file path=$(ECPREFIX)/include/proftpd/mod_sql.h
+file path=$(ECPREFIX)/include/proftpd/mod_tls.h
+file path=$(ECPREFIX)/include/proftpd/mod_wrap2.h
+file path=$(ECPREFIX)/include/proftpd/modules.h
+file path=$(ECPREFIX)/include/proftpd/netacl.h
+file path=$(ECPREFIX)/include/proftpd/netaddr.h
+file path=$(ECPREFIX)/include/proftpd/netio.h
+file path=$(ECPREFIX)/include/proftpd/options.h
+file path=$(ECPREFIX)/include/proftpd/parser.h
+file path=$(ECPREFIX)/include/proftpd/pidfile.h
+file path=$(ECPREFIX)/include/proftpd/pool.h
+file path=$(ECPREFIX)/include/proftpd/pr-syslog.h
+file path=$(ECPREFIX)/include/proftpd/privs.h
+file path=$(ECPREFIX)/include/proftpd/proctitle.h
+file path=$(ECPREFIX)/include/proftpd/proftpd.h
+file path=$(ECPREFIX)/include/proftpd/regexp.h
+file path=$(ECPREFIX)/include/proftpd/response.h
+file path=$(ECPREFIX)/include/proftpd/scoreboard.h
+file path=$(ECPREFIX)/include/proftpd/session.h
+file path=$(ECPREFIX)/include/proftpd/sets.h
+file path=$(ECPREFIX)/include/proftpd/stash.h
+file path=$(ECPREFIX)/include/proftpd/str.h
+file path=$(ECPREFIX)/include/proftpd/support.h
+file path=$(ECPREFIX)/include/proftpd/table.h
+file path=$(ECPREFIX)/include/proftpd/throttle.h
+file path=$(ECPREFIX)/include/proftpd/timers.h
+file path=$(ECPREFIX)/include/proftpd/tpl.h
+file path=$(ECPREFIX)/include/proftpd/trace.h
+file path=$(ECPREFIX)/include/proftpd/var.h
+file path=$(ECPREFIX)/include/proftpd/version.h
+file path=$(ECPREFIX)/include/proftpd/xferlog.h
+file path=$(ECPREFIX)/lib/pkgconfig/proftpd.pc
+file path=$(ECPREFIX)/lib/proftpd/mod_auth_file.so
+file path=$(ECPREFIX)/lib/proftpd/mod_auth_pam.so
+file path=$(ECPREFIX)/lib/proftpd/mod_ban.so
+file path=$(ECPREFIX)/lib/proftpd/mod_copy.so
+file path=$(ECPREFIX)/lib/proftpd/mod_ctrls_admin.so
+file path=$(ECPREFIX)/lib/proftpd/mod_deflate.so
+file path=$(ECPREFIX)/lib/proftpd/mod_delay.so
+file path=$(ECPREFIX)/lib/proftpd/mod_dynmasq.so
+file path=$(ECPREFIX)/lib/proftpd/mod_exec.so
+file path=$(ECPREFIX)/lib/proftpd/mod_facl.so
+file path=$(ECPREFIX)/lib/proftpd/mod_facts.so
+file path=$(ECPREFIX)/lib/proftpd/mod_ident.so
+file path=$(ECPREFIX)/lib/proftpd/mod_ifsession.so
+file path=$(ECPREFIX)/lib/proftpd/mod_ifversion.so
+file path=$(ECPREFIX)/lib/proftpd/mod_lang.so
+file path=$(ECPREFIX)/lib/proftpd/mod_ldap.so
+file path=$(ECPREFIX)/lib/proftpd/mod_load.so
+file path=$(ECPREFIX)/lib/proftpd/mod_memcache.so
+file path=$(ECPREFIX)/lib/proftpd/mod_qos.so
+file path=$(ECPREFIX)/lib/proftpd/mod_quotatab.so
+file path=$(ECPREFIX)/lib/proftpd/mod_quotatab_file.so
+file path=$(ECPREFIX)/lib/proftpd/mod_quotatab_ldap.so
+file path=$(ECPREFIX)/lib/proftpd/mod_quotatab_radius.so
+file path=$(ECPREFIX)/lib/proftpd/mod_quotatab_sql.so
+file path=$(ECPREFIX)/lib/proftpd/mod_radius.so
+file path=$(ECPREFIX)/lib/proftpd/mod_ratio.so
+file path=$(ECPREFIX)/lib/proftpd/mod_readme.so
+file path=$(ECPREFIX)/lib/proftpd/mod_rewrite.so
+file path=$(ECPREFIX)/lib/proftpd/mod_sftp.so
+file path=$(ECPREFIX)/lib/proftpd/mod_sftp_pam.so
+file path=$(ECPREFIX)/lib/proftpd/mod_sftp_sql.so
+file path=$(ECPREFIX)/lib/proftpd/mod_shaper.so
+file path=$(ECPREFIX)/lib/proftpd/mod_site_misc.so
+file path=$(ECPREFIX)/lib/proftpd/mod_sql.so
+file path=$(ECPREFIX)/lib/proftpd/mod_sql_mysql.so
+file path=$(ECPREFIX)/lib/proftpd/mod_sql_odbc.so
+file path=$(ECPREFIX)/lib/proftpd/mod_sql_passwd.so
+file path=$(ECPREFIX)/lib/proftpd/mod_sql_postgres.so
+file path=$(ECPREFIX)/lib/proftpd/mod_sql_sqlite.so
+file path=$(ECPREFIX)/lib/proftpd/mod_tls.so
+file path=$(ECPREFIX)/lib/proftpd/mod_tls_memcache.so
+file path=$(ECPREFIX)/lib/proftpd/mod_tls_shmcache.so
+file path=$(ECPREFIX)/lib/proftpd/mod_unique_id.so
+file path=$(ECPREFIX)/lib/proftpd/mod_wrap.so
+file path=$(ECPREFIX)/lib/proftpd/mod_wrap2.so
+file path=$(ECPREFIX)/lib/proftpd/mod_wrap2_file.so
+file path=$(ECPREFIX)/lib/proftpd/mod_wrap2_sql.so
+file path=$(ECPREFIX)/share/locale/bg_BG/LC_MESSAGES/proftpd.mo
+file path=$(ECPREFIX)/share/locale/en_US/LC_MESSAGES/proftpd.mo
+file path=$(ECPREFIX)/share/locale/fr_FR/LC_MESSAGES/proftpd.mo
+file path=$(ECPREFIX)/share/locale/it_IT/LC_MESSAGES/proftpd.mo
+file path=$(ECPREFIX)/share/locale/ja_JP/LC_MESSAGES/proftpd.mo
+file path=$(ECPREFIX)/share/locale/ko_KR/LC_MESSAGES/proftpd.mo
+file path=$(ECPREFIX)/share/locale/ru_RU/LC_MESSAGES/proftpd.mo
+file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/proftpd.mo
+file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/proftpd.mo
+file path=$(ECPREFIX)/share/man/man1/ftpasswd.1
+file path=$(ECPREFIX)/share/man/man1/ftpcount.1
+file path=$(ECPREFIX)/share/man/man1/ftpmail.1
+file path=$(ECPREFIX)/share/man/man1/ftpquota.1
+file path=$(ECPREFIX)/share/man/man1/ftptop.1
+file path=$(ECPREFIX)/share/man/man1/ftpwho.1
+file path=$(ECPREFIX)/share/man/man5/xferlog.5
+file path=$(ECPREFIX)/share/man/man8/ftpdctl.8
+file path=$(ECPREFIX)/share/man/man8/ftpscrub.8
+file path=$(ECPREFIX)/share/man/man8/ftpshut.8
+file path=$(ECPREFIX)/share/man/man8/proftpd.8
+link path=$(ECPREFIX)/bin/in.proftpd target=proftpd
+
+file files/proftpd-startup.sh path=$(ECPREFIX)/var/svc/method/proftpd mode=0555
+file files/proftpd-manifest.xml path=var/svc/manifest/site/proftpd.xml
