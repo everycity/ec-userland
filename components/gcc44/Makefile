@@ -32,6 +32,7 @@ CONFIGURE_OPTIONS  +=           --with-mpfr=$(ECPREFIX)
 CONFIGURE_OPTIONS  +=           --with-gmp=$(ECPREFIX)
 CONFIGURE_OPTIONS  +=           --without-ppl
 CONFIGURE_OPTIONS  +=           --without-cloog
+CONFIGURE_OPTIONS  +=		--without-gnu-ld
 CONFIGURE_OPTIONS  +=           --with-gnu-as
 CONFIGURE_OPTIONS  +=           --with-as=$(ECPREFIX)/bin/as
 CONFIGURE_OPTIONS  +=           --with-ld=/usr/ccs/bin/ld
