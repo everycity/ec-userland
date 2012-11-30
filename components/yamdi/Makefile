@@ -31,7 +31,7 @@ CLEAN_PATHS +=	$(BUILD_DIR)
 
 $(BUILD_DIR)/%/.built:	prep
 	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
-	(cd $(@D) ; $(CC) $(SOURCE_DIR)/yamdi.c -o yamdi -O2 -Wall)
+	(cd $(@D) ; $(CC) $(SOURCE_DIR)/yamdi.c -o yamdi -O2 -Wall -D_FILE_OFFSET_BITS=64)
 	$(TOUCH) $@
 
 build:		$(BUILD_32_and_64)
