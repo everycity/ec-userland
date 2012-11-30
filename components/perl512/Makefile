@@ -70,6 +70,8 @@ COMPONENT_PRE_BUILD_ACTION= \
 
 COMPONENT_INSTALL_ENV	+=	DESTDIR="$(PROTO_DIR)"
 
+COMPONENT_BUILD_TARGETS+= LDFLAGS="$(LDFLAGS)"
+
 #
 # perl's install path for sparc is based off the value of the
 # "arch" command.  So we must package that way also.
