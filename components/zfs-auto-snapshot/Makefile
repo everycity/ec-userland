@@ -17,9 +17,9 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=         zfs-auto-snapshot
 COMPONENT_VERSION=      5441075
 IPS_COMPONENT_VERSION=  0.12
-COMPONENT_SRC=          aszeszo-zfs-auto-snapshot-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=      $(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_URL=  https://nodeload.github.com/aszeszo/zfs-auto-snapshot/tarball/$(COMPONENT_VERSION)
+COMPONENT_SRC=          zfs-auto-snapshot-$(COMPONENT_VERSION)
+COMPONENT_ARCHIVE=      aszeszo-$(COMPONENT_SRC).tar.gz
+COMPONENT_ARCHIVE_URL=  https://nodeload.github.com/aszeszo/$(COMPONENT_NAME)/tar.gz/$(COMPONENT_VERSION)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
