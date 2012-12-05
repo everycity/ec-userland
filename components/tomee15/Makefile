@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2012 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -19,7 +19,7 @@ COMPONENT_VERSION=	1.5.0
 OPENEJB_VERSION=	4.5.0
 COMPONENT_SRC=		apache-tomee-webprofile-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	apache-tomee-$(COMPONENT_VERSION)-webprofile.tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha256:65cc0ef5c9742e89788d1d5938eac1b0b984dcea298119a6bf856612854b9dbe
+COMPONENT_ARCHIVE_HASH=	sha256:a97c47329eaf720ab9fb3374a76fee0d87fcc1b48557061208398afec2286a0a
 COMPONENT_ARCHIVE_URL=	http://mirrors.ukfast.co.uk/sites/ftp.apache.org/openejb/openejb-$(OPENEJB_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
