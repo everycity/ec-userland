@@ -1,4 +1,9 @@
 archives
+components/*.mk
 components/*/build
 components/*/source
+components/*/*/build
+components/*/*/source
 i386
+tools/time-*o
+
