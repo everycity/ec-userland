@@ -1,0 +1,172 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/developer/build/automake-112@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="GNU Automake $(COMPONENT_VERSION)"
+set name=info.upstream_url value="http://www.gnu.org/software/automake/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license COPYING license="GPLv2"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/aclocal
+dir path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)
+dir path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)
+dir path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake
+dir path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/automake
+dir path=$(ECPREFIX)/share/info
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/aclocal
+file path=$(ECPREFIX)/bin/automake
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/amversion.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/ar-lib.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/as.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/auxdir.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/ccstdc.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/cond-if.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/cond.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/depend.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/depout.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/dmalloc.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/gcj.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/header.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/init.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/install-sh.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/lead-dot.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/lex.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/lispdir.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/maintainer.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/make.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/minuso.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/missing.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/mkdirp.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/obsol-gt.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/obsol-lt.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/obsolete.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/options.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/protos.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/python.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/runlog.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/sanity.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/silent.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/strip.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/substnot.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/tar.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/upc.m4
+file path=$(ECPREFIX)/share/aclocal-$(COMPONENT_VERSION)/vala.m4
+file path=$(ECPREFIX)/share/aclocal/README
+file \
+    path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/ChannelDefs.pm
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/Channels.pm
+file \
+    path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/Condition.pm
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/Config.pm
+file \
+    path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/Configure_ac.pm
+file \
+    path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/DisjConditions.pm
+file \
+    path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/FileUtils.pm
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/General.pm
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/Getopt.pm
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/Item.pm
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/ItemDef.pm
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/Location.pm
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/Options.pm
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/Rule.pm
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/RuleDef.pm
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/VarDef.pm
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/Variable.pm
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/Version.pm
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/Wrap.pm
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/Automake/XFile.pm
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/COPYING
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/INSTALL
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/check.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/check2.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/clean-hdr.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/clean.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/compile.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/configure.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/data.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/dejagnu.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/depend.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/depend2.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/distdir.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/footer.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/header-vars.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/header.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/inst-vars.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/install.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/java.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/lang-compile.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/lex.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/library.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/libs.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/libtool.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/lisp.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/ltlib.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/ltlibrary.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/mans-vars.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/mans.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/program.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/progs.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/python.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/remake-hdr.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/scripts.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/subdirs.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/tags.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/texi-vers.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/texibuild.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/texinfos.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/vala.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/am/yacc.am
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/ar-lib
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/compile
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/config.guess
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/config.sub
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/depcomp
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/elisp-comp
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/install-sh
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/mdate-sh
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/missing
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/mkinstalldirs
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/py-compile
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/tap-driver.pl
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/tap-driver.sh
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/test-driver
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/texinfo.tex
+file path=$(ECPREFIX)/share/automake-$(COMPONENT_VERSION)/ylwrap
+file path=$(ECPREFIX)/share/doc/automake/amhello-1.0.tar.gz
+file path=$(ECPREFIX)/share/info/automake-history.info
+file path=$(ECPREFIX)/share/info/automake.info
+file path=$(ECPREFIX)/share/info/automake.info-1
+file path=$(ECPREFIX)/share/info/automake.info-2
+file path=$(ECPREFIX)/share/info/automake.info-3
+file path=$(ECPREFIX)/share/info/dir
+file path=$(ECPREFIX)/share/man/man1/aclocal-$(COMPONENT_VERSION).1
+file path=$(ECPREFIX)/share/man/man1/aclocal.1
+file path=$(ECPREFIX)/share/man/man1/automake-$(COMPONENT_VERSION).1
+file path=$(ECPREFIX)/share/man/man1/automake.1
+hardlink path=$(ECPREFIX)/bin/aclocal-$(COMPONENT_VERSION) target=aclocal
+hardlink path=$(ECPREFIX)/bin/automake-$(COMPONENT_VERSION) target=automake
