@@ -42,7 +42,7 @@ ANT_DIST_DIRS+=-Ddist.manual=$(PROTO_DIR)/$(ECPREFIX)/share/doc/ant/manual
 ANT_DIST_DIRS+=-Ddist.javadocs=$(PROTO_DIR)/$(ECPREFIX)/share/doc/ant/manual/api
 ANT_DIST_DIRS+=-Ddist.lib=$(PROTO_DIR)/$(ECPREFIX)/share/lib/ant
 
-OPTIONAL_LIBS+=$(USERLAND_ARCHIVES)/junit-4.5.jar
+OPTIONAL_LIBS+=$(ECPREFIX)/share/lib/java/junit-4.10.jar
 #OPTIONAL_LIBS+=/usr/share/antlr-2.7.7/antlr.jar
 COMPONENT_PRE_BUILD_ACTION = $(CP) $(OPTIONAL_LIBS) $(@D)/lib/optional
 
