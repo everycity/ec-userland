@@ -25,6 +25,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+LDFLAGS +=	-lm -llua
+
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
