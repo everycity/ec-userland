@@ -9,22 +9,26 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		apr-util
-COMPONENT_VERSION=	1.3.11
+COMPONENT_VERSION=	1.5.1
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:dc71af7684f76d56f06b4fc8763a8606bd861e84
+COMPONENT_ARCHIVE_HASH=	sha256:296890939f968d167f980b17921ab035071e378a6383de20c4ffb40fd2626220
 #COMPONENT_ARCHIVE_URL=	http://apache.mirror.rbftpnetworks.com/apr/$(COMPONENT_ARCHIVE)
 COMPONENT_ARCHIVE_URL=	http://archive.apache.org/dist/apr/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+PATH.32 =	$(ECPREFIX)/lib/postgres/9.1/bin:$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH.64 =	$(ECPREFIX)/lib/postgres/9.1/bin/$(MACH64):$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH =	$(PATH.$(BITS))
 
 CONFIGURE_OPTIONS	+=	--with-ldap
 CONFIGURE_OPTIONS.32	+=	--includedir=$(ECPREFIX)/include/apr-1.0
