@@ -103,7 +103,6 @@ COMPONENT_INSTALL_ARGS +=	DESTDIR=$(PROTO_DIR)
 $(BUILD_DIR_32)/.configured:	BITS=32
 $(BUILD_DIR_64)/.configured:	BITS=64
 
-CONFIGURE_ENV += $(CONFIGURE_ENV.$(BITS))
 CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
 
 # configure the unpacked source for building 32 and 64 bit version
