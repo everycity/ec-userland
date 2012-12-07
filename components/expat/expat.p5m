@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -29,6 +29,8 @@ dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
@@ -36,11 +38,16 @@ file path=$(ECPREFIX)/bin/$(MACH64)/xmlwf
 file path=$(ECPREFIX)/bin/xmlwf
 file path=$(ECPREFIX)/include/expat.h
 file path=$(ECPREFIX)/include/expat_external.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libexpat.so.1.5.2
-file path=$(ECPREFIX)/lib/libexpat.so.1.5.2
+file path=$(ECPREFIX)/lib/$(MACH64)/libexpat.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libexpat.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libexpat.so.1.6.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/expat.pc
+file path=$(ECPREFIX)/lib/libexpat.a
+file path=$(ECPREFIX)/lib/libexpat.la
+file path=$(ECPREFIX)/lib/libexpat.so.1.6.0
+file path=$(ECPREFIX)/lib/pkgconfig/expat.pc
 file path=$(ECPREFIX)/share/man/man1/xmlwf.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libexpat.so target=libexpat.so.1.5.2
-link path=$(ECPREFIX)/lib/$(MACH64)/libexpat.so.1 target=libexpat.so.1.5.2
-link path=$(ECPREFIX)/lib/libexpat.so target=libexpat.so.1.5.2
-link path=$(ECPREFIX)/lib/libexpat.so.1 target=libexpat.so.1.5.2
-
+link path=$(ECPREFIX)/lib/$(MACH64)/libexpat.so target=libexpat.so.1.6.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libexpat.so.1 target=libexpat.so.1.6.0
+link path=$(ECPREFIX)/lib/libexpat.so target=libexpat.so.1.6.0
+link path=$(ECPREFIX)/lib/libexpat.so.1 target=libexpat.so.1.6.0
