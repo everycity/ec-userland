@@ -14,25 +14,16 @@
 
 include ../../make-rules/shared-macros.mk
 
-# Note that the ECPREFIX path is hard coded as /ec in some of the
-# patches.
-
 COMPONENT_NAME=		gpac
-#COMPONENT_VERSION=	2012-06-06
 COMPONENT_VERSION=	0.5.0
 COMPONENT_SRC=		$(COMPONENT_NAME)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-$(COMPONENT_VERSION).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:42971ac39511a1b6d1db39af664ce887b38c8657328c88cd200d87a02de81c24
-#COMPONENT_ARCHIVE_URL=	http://svn.everycity.co.uk/public/solaris/misc/$(COMPONENT_ARCHIVE)
 COMPONENT_ARCHIVE_URL=	http://sourceforge.net/projects/gpac/files/GPAC/GPAC%200.5.0/$(COMPONENT_ARCHIVE)/download
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-
-#IPS_COMPONENT_VERSION=	2012.6.6
-
-PKGDEPEND_TRANSFORMS+=	$(COMPONENT_DIR)/skip-libgpac-so
 
 CONFIGURE_OPTIONS=	--prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--mandir=$(ECPREFIX)/share/man
