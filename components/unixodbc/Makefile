@@ -26,6 +26,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+CONFIGURE_OPTIONS+=	--includedir=$(ECPREFIX)/include/odbc
+CONFIGURE_OPTIONS+=	--oldincludedir=$(ECPREFIX)/include/odbc
 CONFIGURE_OPTIONS+=	--enable-static=no
 CONFIGURE_OPTIONS+=	--enable-shared
 
