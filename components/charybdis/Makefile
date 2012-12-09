@@ -38,12 +38,13 @@ CONFIGURE_OPTIONS +=	--with-helpdir=$(ECPREFIX)/share/doc/charybdis
 CONFIGURE_OPTIONS +=	--with-moduledir=$(ECPREFIX)/lib/charybdis/modules
 CONFIGURE_OPTIONS +=	--with-logdir=$(ECPREFIX)/var/log/charybdis
 
-COMPONENT_PRE_INSTALL_ACTION +=	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/var/log/charybdis
+COMPONENT_PRE_INSTALL_ACTION  +=       ( \
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/var/log/charybdis )
+COMPONENT_POST_INSTALL_ACTION +=       ( \
+	$(MV) $(PROTO_DIR)$(ECPREFIX)/etc/charybdis/example.conf \
+	    $(PROTO_DIR)$(ECPREFIX)/etc/charybdis/ircd.conf )
 
 build:          $(BUILD_32)
 
 install:        $(INSTALL_32)
-	$(MV) $(PROTO_DIR)/$(ECPREFIX)/etc/charybdis/example.conf \
-	    $(PROTO_DIR)/$(ECPREFIX)/etc/charybdis/ircd.conf
-	$(TOUCH) $(BUILD_DIR)/$(MACH32)/.installed
 
