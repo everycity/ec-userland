@@ -42,13 +42,13 @@ COMPONENT_PRE_CONFIGURE_ACTION+= cp -R $(SOURCE_DIR)/* $(@D)/
 
 build:	$(BUILD_32_and_64)
 
-PROTOPKGCONFDIR.32 = $(PROTO_DIR)/$(ECPREFIX)/lib/pkgconfig
-PROTOPKGCONFDIR.64 = $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+PROTOPKGCONFDIR.32 = $(PROTO_DIR)$(ECPREFIX)/lib/pkgconfig
+PROTOPKGCONFDIR.64 = $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 PROTOPKGCONFDIR = $(PROTOPKGCONFDIR.$(BITS))
 
 COMPONENT_PRE_INSTALL_ACTION = \
-    perl -pi -e 's%^mandir.*%mandir\ =\ $(PROTO_DIR)/$(ECPREFIX)/man%' $(@D)/doc/Makefile; \
-    perl -pi -e 's%^doc_dir.*datarootdir.%doc_dir\ =\ $(PROTO_DIR)/$(ECPREFIX)/share%' \
+    perl -pi -e 's%^mandir.*%mandir\ =\ $(PROTO_DIR)$(ECPREFIX)/man%' $(@D)/doc/Makefile; \
+    perl -pi -e 's%^doc_dir.*datarootdir.%doc_dir\ =\ $(PROTO_DIR)$(ECPREFIX)/share%' \
     $(@D)/doc/Makefile; perl -pi -e 's%^pkgconf_dir.*%pkgconf_dir\ =\ $(PROTOPKGCONFDIR)%' \
     $(@D)/Makefile; $(MKDIR) $(PROTOPKGCONFDIR)
 

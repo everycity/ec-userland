@@ -19,7 +19,7 @@ COMPONENT_VERSION=	1.10
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-PCP_DIR=	$(PROTO_DIR)/$(ECPREFIX)/bin/
+PCP_DIR=	$(PROTO_DIR)$(ECPREFIX)/bin/
 PCP_FILE=	$(PCP_DIR)/pcp
 PCP_URL=	http://www.unix.ms/pcp/pcp.txt
 

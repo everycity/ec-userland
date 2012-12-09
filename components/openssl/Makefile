@@ -83,12 +83,12 @@ install:	build $(INSTALL_32)
 	    $(PROTO_DIR)$(ECPREFIX)/share || true)
 	([ -d $(PROTO_DIR)$(ECPREFIX)/etc/openssl/man ] && \
 	    $(RM) -rf $(PROTO_DIR)$(ECPREFIX)/etc/openssl/man || true)
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
 	$(INSTALL) $(BUILD_DIR_64)/apps/openssl $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
 	$(INSTALL) $(BUILD_DIR_64)/libcrypto.so.1.0.0 $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
 	$(INSTALL) $(BUILD_DIR_64)/libssl.so.1.0.0 $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 	$(INSTALL) $(BUILD_DIR_64)/libcrypto.pc $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 	$(INSTALL) $(BUILD_DIR_64)/libssl.pc $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 	$(INSTALL) $(BUILD_DIR_64)/openssl.pc $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig

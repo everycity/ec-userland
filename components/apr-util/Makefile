@@ -37,8 +37,8 @@ CONFIGURE_OPTIONS.32	+=	--with-apr=$(ECPREFIX)/bin/apr-1-config
 CONFIGURE_OPTIONS.64	+=	--with-apr=$(ECPREFIX)/bin/$(MACH64)/apr-1-config
 
 COMPONENT_POST_INSTALL_ACTION = ( strip \
-                $(PROTO_DIR)/$(ECPREFIX)/lib/*so* \
-                $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/*so* \
+                $(PROTO_DIR)$(ECPREFIX)/lib/*so* \
+                $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/*so* \
                 >/dev/null 2>&1; true )
 
 build:		$(BUILD_32_and_64)

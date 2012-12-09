@@ -24,7 +24,7 @@ ifneq ($(SOLARIS_VERSION), 2.10)
 PUBLISH_STAMP=
 endif
 
-PROTO_BIN_DIR=  $(PROTO_DIR)/$(ECPREFIX)/bin
+PROTO_BIN_DIR=  $(PROTO_DIR)$(ECPREFIX)/bin
 
 $(BUILD_DIR)/%/.built: 
 	$(RM) -r $(@D) $(PROTO_DIR) ; $(MKDIR) -p $(@D) $(PROTO_BIN_DIR)

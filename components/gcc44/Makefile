@@ -42,15 +42,15 @@ CONFIGURE_OPTIONS  +=           --with-stage1-ldflags=-R$(ECPREFIX)/lib
 CONFIGURE_OPTIONS  +=           --with-boot-ldflags=-R$(ECPREFIX)/lib
 
 COMPONENT_POST_INSTALL_ACTION = \
-        ( strip $(PROTO_DIR)/$(ECPREFIX)/bin/* \
-                $(PROTO_DIR)/$(ECPREFIX)/lib/*so* \
-                $(PROTO_DIR)/$(ECPREFIX)/lib/*/*so* \
-                $(PROTO_DIR)/$(ECPREFIX)/lib/gcc/*/*/cc1 \
-                $(PROTO_DIR)/$(ECPREFIX)/lib/gcc/*/*/cc1obj \
-                $(PROTO_DIR)/$(ECPREFIX)/lib/gcc/*/*/cc1plus \
-                $(PROTO_DIR)/$(ECPREFIX)/lib/gcc/*/*/collect2 \
-                $(PROTO_DIR)/$(ECPREFIX)/lib/gcc/*/*/f951 \
-                $(PROTO_DIR)/$(ECPREFIX)/lib/gcc/*/*/install-tools/fixincl \
+        ( strip $(PROTO_DIR)$(ECPREFIX)/bin/* \
+                $(PROTO_DIR)$(ECPREFIX)/lib/*so* \
+                $(PROTO_DIR)$(ECPREFIX)/lib/*/*so* \
+                $(PROTO_DIR)$(ECPREFIX)/lib/gcc/*/*/cc1 \
+                $(PROTO_DIR)$(ECPREFIX)/lib/gcc/*/*/cc1obj \
+                $(PROTO_DIR)$(ECPREFIX)/lib/gcc/*/*/cc1plus \
+                $(PROTO_DIR)$(ECPREFIX)/lib/gcc/*/*/collect2 \
+                $(PROTO_DIR)$(ECPREFIX)/lib/gcc/*/*/f951 \
+                $(PROTO_DIR)$(ECPREFIX)/lib/gcc/*/*/install-tools/fixincl \
                 >/dev/null 2>&1; true )
 
 build:		$(BUILD_32)

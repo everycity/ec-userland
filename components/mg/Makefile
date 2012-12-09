@@ -34,8 +34,8 @@ COMPONENT_PRE_CONFIGURE_ACTION+= cp -R $(SOURCE_DIR)/* $(@D)/
 
 # install the built source into a prototype area
 $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/bin
-	$(CP) $(@D)/mg $(PROTO_DIR)/$(ECPREFIX)/bin/
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin
+	$(CP) $(@D)/mg $(PROTO_DIR)$(ECPREFIX)/bin/
 	$(TOUCH) $@
 
 build:		$(BUILD_32)

@@ -34,21 +34,21 @@ build:		$(BUILD_32_and_64)
 
 # This recipe taken from http://ftp.de.debian.org/debian/pool/main/libl/liblivemedia/
 install:	build
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/bin
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/lib
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
 	for f in BasicUsageEnvironment \
 		UsageEnvironment liveMedia groupsock; do \
-	  $(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/include/$${f}; \
-	  $(CP) $(BUILD_DIR_32)/$${f}/include/*.h* $(PROTO_DIR)/$(ECPREFIX)/include/$${f}/; \
-	  $(CP) $(BUILD_DIR_32)/$${f}/lib$${f}.a $(PROTO_DIR)/$(ECPREFIX)/lib/; \
-	  $(CP) $(BUILD_DIR_64)/$${f}/lib$${f}.a $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/; \
+	  $(MKDIR) $(PROTO_DIR)$(ECPREFIX)/include/$${f}; \
+	  $(CP) $(BUILD_DIR_32)/$${f}/include/*.h* $(PROTO_DIR)$(ECPREFIX)/include/$${f}/; \
+	  $(CP) $(BUILD_DIR_32)/$${f}/lib$${f}.a $(PROTO_DIR)$(ECPREFIX)/lib/; \
+	  $(CP) $(BUILD_DIR_64)/$${f}/lib$${f}.a $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/; \
 	done
-	$(CP) $(BUILD_DIR_32)/mediaServer/live555MediaServer $(PROTO_DIR)/$(ECPREFIX)/bin/
-	$(CP) $(BUILD_DIR_32)/proxyServer/live555ProxyServer $(PROTO_DIR)/$(ECPREFIX)/bin/
-	$(CP) $(BUILD_DIR_64)/mediaServer/live555MediaServer $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)/
-	$(CP) $(BUILD_DIR_64)/proxyServer/live555ProxyServer $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)/
+	$(CP) $(BUILD_DIR_32)/mediaServer/live555MediaServer $(PROTO_DIR)$(ECPREFIX)/bin/
+	$(CP) $(BUILD_DIR_32)/proxyServer/live555ProxyServer $(PROTO_DIR)$(ECPREFIX)/bin/
+	$(CP) $(BUILD_DIR_64)/mediaServer/live555MediaServer $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/
+	$(CP) $(BUILD_DIR_64)/proxyServer/live555ProxyServer $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/
 	for f in openRTSP playSIP sapWatch testAMRAudioStreamer \
 		testMP3Receiver testMP3Streamer \
 		testMPEG1or2AudioVideoStreamer \
@@ -60,7 +60,7 @@ install:	build
 		testOnDemandRTSPServer testRelay testWAVAudioStreamer \
 		MPEG2TransportStreamIndexer \
 		vobStreamer; do \
-	  $(CP) $(BUILD_DIR_32)/testProgs/$${f} $(PROTO_DIR)/$(ECPREFIX)/bin/; \
-	  $(CP) $(BUILD_DIR_64)/testProgs/$${f} $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)/; \
+	  $(CP) $(BUILD_DIR_32)/testProgs/$${f} $(PROTO_DIR)$(ECPREFIX)/bin/; \
+	  $(CP) $(BUILD_DIR_64)/testProgs/$${f} $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/; \
 	done
 	$(TOUCH) $@

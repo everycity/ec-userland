@@ -28,7 +28,7 @@ COMPONENT_VERSION=	2011.5.2
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-CABUNDLE_DIR=	$(PROTO_DIR)/$(ECPREFIX)/etc/openssl
+CABUNDLE_DIR=	$(PROTO_DIR)$(ECPREFIX)/etc/openssl
 CABUNDLE_FILE=	$(CABUNDLE_DIR)/cabundle.pem
 CABUNDLE_URL=	http://curl.haxx.se/ca/cacert.pem
 

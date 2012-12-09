@@ -28,8 +28,8 @@ COMPONENT_VERSION=	1.0
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-ZCODE_DIR=	$(PROTO_DIR)/$(ECPREFIX)/share/games/zcode
-PROTO_BIN_DIR=	$(PROTO_DIR)/$(ECPREFIX)/bin
+ZCODE_DIR=	$(PROTO_DIR)$(ECPREFIX)/share/games/zcode
+PROTO_BIN_DIR=	$(PROTO_DIR)$(ECPREFIX)/bin
 
 $(BUILD_DIR)/%/.built: 
 	$(RM) -r $(@D) $(PROTO_DIR) ; $(MKDIR) -p $(@D) $(ZCODE_DIR) $(PROTO_BIN_DIR)

@@ -28,10 +28,10 @@ include ../../make-rules/ips.mk
 IPS_COMPONENT_VERSION= 5.0.5
 
 COMPONENT_POST_INSTALL_ACTION = ( strip \
-                $(PROTO_DIR)/$(ECPREFIX)/bin/* \
-                $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)/* \
-                $(PROTO_DIR)/$(ECPREFIX)/lib/*so* \
-                $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/*so* \
+                $(PROTO_DIR)$(ECPREFIX)/bin/* \
+                $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/* \
+                $(PROTO_DIR)$(ECPREFIX)/lib/*so* \
+                $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/*so* \
                 >/dev/null 2>&1; true )
 
 build:		$(BUILD_32_and_64)

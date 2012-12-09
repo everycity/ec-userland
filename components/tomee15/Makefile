@@ -36,14 +36,14 @@ $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
 	( for i in etc/tomee15 lib/tomee15 share/doc/tomee15 var/tomee15/common/classes \
 		var/tomee15/server/classes var/tomee15/shared/classes \
 		var/tomee15/temp var/tomee15/webapps var/tomee15/work var/log/tomee15 ; \
-		do $(MKDIR) -p $(PROTO_DIR)/$(ECPREFIX)/$$i ; done )
+		do $(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/$$i ; done )
 	( for i in bin lib webapps endorsed ; \
-		do $(CP) -R $(SOURCE_DIR)/$$i $(PROTO_DIR)/$(ECPREFIX)/lib/tomee15/ ; done )
+		do $(CP) -R $(SOURCE_DIR)/$$i $(PROTO_DIR)$(ECPREFIX)/lib/tomee15/ ; done )
 	( for i in LICENSE NOTICE RELEASE-NOTES RUNNING.txt ; \
-		do $(CP) $(SOURCE_DIR)/$$i $(PROTO_DIR)/$(ECPREFIX)/share/doc/tomee15/ ; done )
+		do $(CP) $(SOURCE_DIR)/$$i $(PROTO_DIR)$(ECPREFIX)/share/doc/tomee15/ ; done )
 	( for i in catalina.policy catalina.properties context.xml logging.properties server.xml \
 		system.properties tomcat-users.xml tomee.xml web.xml ; \
-		do $(CP) $(SOURCE_DIR)/conf/$$i $(PROTO_DIR)/$(ECPREFIX)/etc/tomee15/ ; done )
+		do $(CP) $(SOURCE_DIR)/conf/$$i $(PROTO_DIR)$(ECPREFIX)/etc/tomee15/ ; done )
 	$(TOUCH) $@
 
 build:          $(BUILD_32)

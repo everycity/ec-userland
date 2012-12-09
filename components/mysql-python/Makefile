@@ -27,7 +27,7 @@ include ../../make-rules/ips.mk
 
 # Ensure the 64bit mysql-config gets picked up on 64bit builds
 PATH.32=$(ECPREFIX)/bin:/usr/bin:/usr/ccs/bin
-PATH.64=$(ECPREFIX)/bin/$(MACH64):/$(ECPREFIX)/bin:/usr/bin:/usr/ccs/bin
+PATH.64=$(ECPREFIX)/bin/$(MACH64):$(ECPREFIX)/bin:/usr/bin:/usr/ccs/bin
 PATH=$(PATH.$(BITS))
 
 build:		$(BUILD_32_and_64)

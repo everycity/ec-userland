@@ -29,8 +29,8 @@ include ../../make-rules/ips.mk
 CONFIGURE_OPTIONS += --infodir=$(ECPREFIX)/share/info
 
 COMPONENT_POST_INSTALL_ACTION = ( strip \
-                $(PROTO_DIR)/$(ECPREFIX)/bin/* \
-                $(PROTO_DIR)/$(ECPREFIX)/lib/*so* \
+                $(PROTO_DIR)$(ECPREFIX)/bin/* \
+                $(PROTO_DIR)$(ECPREFIX)/lib/*so* \
                 >/dev/null 2>&1; true )
 
 build:		$(BUILD_32)

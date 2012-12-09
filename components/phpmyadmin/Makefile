@@ -24,9 +24,9 @@ COMPONENT_ARCHIVE_URL=	http://freefr.dl.sourceforge.net/project/phpmyadmin/$(COM
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
 
-PHPMYADMIN_DIR=      $(PROTO_DIR)/$(ECPREFIX)/share/phpmyadmin
-PHPMYADMIN_DOC_DIR=      $(PROTO_DIR)/$(ECPREFIX)/share/doc/phpmyadmin
-PHPMYADMIN_ETC_DIR=      $(PROTO_DIR)/$(ECPREFIX)/etc/phpmyadmin
+PHPMYADMIN_DIR=      $(PROTO_DIR)$(ECPREFIX)/share/phpmyadmin
+PHPMYADMIN_DOC_DIR=      $(PROTO_DIR)$(ECPREFIX)/share/doc/phpmyadmin
+PHPMYADMIN_ETC_DIR=      $(PROTO_DIR)$(ECPREFIX)/etc/phpmyadmin
 
 CLEAN_PATHS +=  $(BUILD_DIR)
 
