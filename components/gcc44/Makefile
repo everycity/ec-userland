@@ -23,6 +23,9 @@ COMPONENT_ARCHIVE_URL=	http://ftp.gnu.org/gnu/gcc/$(COMPONENT_NAME)-$(COMPONENT_
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
+
+CANONICAL_MANIFESTS =	gcc44-$(OS_VERSION).p5m gcc44-runtime-$(OS_VERSION).p5m
+
 include ../../make-rules/ips.mk
 
 CONFIGURE_ENV =
@@ -41,6 +44,12 @@ CONFIGURE_OPTIONS  +=           --enable-languages=c,c++,objc,fortran
 CONFIGURE_OPTIONS  +=           --with-stage1-ldflags=-R$(ECPREFIX)/lib
 CONFIGURE_OPTIONS  +=           --with-boot-ldflags=-R$(ECPREFIX)/lib
 
+COMPONENT_PRE_CONFIGURE_ACTION += ( $(RM) dummy.p5m && \
+	$(CP) $(COMPONENT_DIR)/manifests/gcc44-$(OS_VERSION)         \
+		$(COMPONENT_DIR)/gcc44-$(OS_VERSION).p5m &&          \
+	$(CP) $(COMPONENT_DIR)/manifests/gcc44-runtime-$(OS_VERSION) \
+		$(COMPONENT_DIR)/gcc44-runtime-$(OS_VERSION).p5m )
+
 COMPONENT_POST_INSTALL_ACTION = \
         ( strip $(PROTO_DIR)$(ECPREFIX)/bin/* \
                 $(PROTO_DIR)$(ECPREFIX)/lib/*so* \
@@ -55,13 +64,5 @@ COMPONENT_POST_INSTALL_ACTION = \
 
 build:		$(BUILD_32)
 
-$(BUILD_DIR_32)/.manifestsset:	$(INSTALL_32)
-	$(RM) dummy.p5m
-	$(CP) $(COMPONENT_DIR)/manifests/gcc44-$(OS_VERSION) \
-		$(COMPONENT_DIR)/gcc44-$(OS_VERSION).p5m
-	$(CP) $(COMPONENT_DIR)/manifests/gcc44-runtime-$(OS_VERSION) \
-		$(COMPONENT_DIR)/gcc44-runtime-$(OS_VERSION).p5m
-	$(TOUCH) $@
-
-install:	$(BUILD_DIR_32)/.manifestsset
+install:	$(INSTALL_32)
 

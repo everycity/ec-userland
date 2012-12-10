@@ -93,7 +93,7 @@ endif
 
 MANIFEST_BASE =		$(BUILD_DIR)/manifest-$(MACH)
 
-CANONICAL_MANIFESTS =	$(wildcard *.p5m)
+CANONICAL_MANIFESTS ?=	$(wildcard *.p5m)
 GENERATED =		$(MANIFEST_BASE)-generated
 COMBINED =		$(MANIFEST_BASE)-combined
 MANIFESTS =		$(CANONICAL_MANIFESTS:%=$(MANIFEST_BASE)-%)
