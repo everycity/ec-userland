@@ -24,6 +24,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+LINKER=	gcc
+
 # Apache Paths
 AP_PREFIX=$(ECPREFIX)/lib/apache/2.2
 AP_SYSCONFDIR=$(ECPREFIX)/etc/apache/2.2
@@ -33,13 +35,13 @@ PHP_PREFIX=$(ECPREFIX)/lib/php/5.3
 PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.3
 PHP_DATADIR=$(ECPREFIX)/var/php/5.3
 
-CFLAGS = -D_POSIX_PTHREAD_SEMANTICS
+CFLAGS = $(CC_BITS) -D_POSIX_PTHREAD_SEMANTICS
 
 # Configure Options
 
-CONFIGURE_OPTIONS	=	--prefix=$(PHP_PREFIX)
-CONFIGURE_OPTIONS.32	=	--bindir=$(PHP_PREFIX)/bin
-CONFIGURE_OPTIONS.64	=	--bindir=$(PHP_PREFIX)/bin/$(MACH64)
+CONFIGURE_OPTIONS      =	--prefix=$(PHP_PREFIX)
+CONFIGURE_OPTIONS.32   =	--bindir=$(PHP_PREFIX)/bin
+CONFIGURE_OPTIONS.64   =	--bindir=$(PHP_PREFIX)/bin/$(MACH64)
 CONFIGURE_OPTIONS.32  +=	--sbindir=$(PHP_PREFIX)/bin
 CONFIGURE_OPTIONS.64  +=	--sbindir=$(PHP_PREFIX)/bin/$(MACH64)
 CONFIGURE_OPTIONS.32  +=	--libdir=$(PHP_PREFIX)/lib
@@ -50,9 +52,6 @@ CONFIGURE_OPTIONS     +=	--includedir=$(PHP_PREFIX)/include
 CONFIGURE_OPTIONS     +=	--sysconfdir=$(PHP_SYSCONFDIR)
 CONFIGURE_OPTIONS     +=	--datadir=$(PHP_DATADIR)
 CONFIGURE_OPTIONS     +=	--mandir=$(PHP_PREFIX)/share/man
-
-#CONFIGURE_OPTIONS.32  +=	--with-apxs2=$(AP_PREFIX)/bin/apxs
-#CONFIGURE_OPTIONS.64  +=	--with-apxs2=$(AP_PREFIX)/bin/$(MACH64)/apxs
 
 CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris$(SOLARIS_VERSION)
 
