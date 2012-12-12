@@ -33,9 +33,7 @@ dir \
     path=$(ECPREFIX)/include/c++/$(COMPONENT_VERSION)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(MACH64)/bits
 dir \
     path=$(ECPREFIX)/include/c++/$(COMPONENT_VERSION)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bits
-dir path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/mps
 dir path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/netinet
-dir path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/openssl
 dir path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/sys/nsctl
 dir path=$(ECPREFIX)/include/c++/$(COMPONENT_VERSION)/backward
 dir path=$(ECPREFIX)/include/c++/$(COMPONENT_VERSION)/bits
@@ -1329,7 +1327,6 @@ file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/syslimits.h
 file \
     path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/wchar.h
-file path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/mps/secport.h
 file path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/netinet/ip_compat.h
 file path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/netinet/ip_fil.h
 file path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/netinet/ip_lookup.h
@@ -1337,7 +1334,6 @@ file path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPON
 file path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/netinet/ip_pool.h
 file path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/netinet/ip_proxy.h
 file path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/netinet/ip_state.h
-file path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/openssl/opensslconf.h
 file path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/string.h
 file path=$(ECPREFIX)/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/sys/nsctl/nsctl.h
 file \

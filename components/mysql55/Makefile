@@ -73,14 +73,14 @@ COMPONENT_POST_CONFIGURE_ACTION=$(COMPONENT_POST_CONFIGURE_ACTION.$(BITS))
 
 COMPONENT_POST_INSTALL_ACTION.32 =	( perl -pi -e \
 	"s/^ldata=.*/ldata=\'\/ec\/var\/mysql\/5.5\/data\'/" \
-	$(PROTO_DIR)/$(ECPREFIX)/$(CMAKE_BINDIR.32)/mysql_config ; \
+	$(PROTO_DIR)$(ECPREFIX)/$(CMAKE_BINDIR.32)/mysql_config ; \
 	perl -pi -e 's/-L\$$pkglibdir/-L\$$pkglibdir -R\$$pkglibdir/g' \
-	$(PROTO_DIR)/$(ECPREFIX)/$(CMAKE_BINDIR.32)/mysql_config )
+	$(PROTO_DIR)$(ECPREFIX)/$(CMAKE_BINDIR.32)/mysql_config )
 COMPONENT_POST_INSTALL_ACTION.64 =	( perl -pi -e \
 	"s/^ldata=.*/ldata=\'\/ec\/var\/mysql\/5.5\/data\'/" \
-	$(PROTO_DIR)/$(ECPREFIX)/$(CMAKE_BINDIR.64)/mysql_config ; \
+	$(PROTO_DIR)$(ECPREFIX)/$(CMAKE_BINDIR.64)/mysql_config ; \
 	perl -pi -e 's/-L\$$pkglibdir/-L\$$pkglibdir -R\$$pkglibdir/g' \
-	$(PROTO_DIR)/$(ECPREFIX)/$(CMAKE_BINDIR.64)/mysql_config )
+	$(PROTO_DIR)$(ECPREFIX)/$(CMAKE_BINDIR.64)/mysql_config )
 COMPONENT_POST_INSTALL_ACTION=$(COMPONENT_POST_INSTALL_ACTION.$(BITS))
 
 $(BUILD_DIR)/%/.configured:	$(SOURCE_DIR)/.prep

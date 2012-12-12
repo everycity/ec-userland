@@ -13,7 +13,8 @@
 #
 
 # Transforms
-<include ec-drop-common>
+# Don't drop .a files
+#<include ec-drop-common>
 
 set name=pkg.fmri value=pkg:/library/boost@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="Boost C++ Libraries"

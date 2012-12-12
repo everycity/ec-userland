@@ -50,7 +50,7 @@ CONFIGURE_OPTIONS     +=	--includedir=$(PHP_PREFIX)/include
 CONFIGURE_OPTIONS     +=	--sysconfdir=$(PHP_SYSCONFDIR)
 CONFIGURE_OPTIONS     +=	--datadir=$(PHP_DATADIR)
 CONFIGURE_OPTIONS     +=	--mandir=$(PHP_PREFIX)/share/man
-CONFIGURE_OPTIONS     +=        --with-libmemcached-dir=$(ECPREFIX)
+CONFIGURE_OPTIONS     +=	--with-zlib-dir=$(ECPREFIX)
 
 CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris2.10
 CONFIGURE_OPTIONS.32  +=	--with-php-config=$(PHP_PREFIX)/bin/php-config

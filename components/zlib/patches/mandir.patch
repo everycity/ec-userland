@@ -1,0 +1,11 @@
+--- zlib-1.2.7/configure.~1~	2012-11-29 11:27:20.748562868 +0000
++++ zlib-1.2.7/configure	2012-11-29 11:27:37.442800306 +0000
+@@ -64,7 +64,7 @@
+ libdir=${libdir-'${exec_prefix}/lib'}
+ sharedlibdir=${sharedlibdir-'${libdir}'}
+ includedir=${includedir-'${prefix}/include'}
+-mandir=${mandir-'${prefix}/share/man'}
++mandir=/ec/share/man
+ shared_ext='.so'
+ shared=1
+ solo=0

@@ -49,10 +49,10 @@ COMPONENT_BUILD_ENV.64 += 'CFLAGS=$(CC_BITS) -DBYTE_ORDER=LITTLE_ENDIAN -I$(ECPR
 COMPONENT_BUILD_ENV.64 += 'LDFLAGS=-L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64) -ldl -lnsl -lsocket -lm -lpthread'
 COMPONENT_INSTALL_ENV.64 += 'CC=$(ECPREFIX)/bin/gcc -m64'
 
-COMPONENT_INSTALL_TARGETS += os=solaris PREFIX=$(PROTO_DIR)/$(ECPREFIX)
+COMPONENT_INSTALL_TARGETS += os=solaris PREFIX=$(PROTO_DIR)$(ECPREFIX)
 COMPONENT_PRE_INSTALL_ACTION= \
         (for i in bin include lib sbin share/man/man8; do \
-        mkdir -p $(PROTO_DIR)/$(ECPREFIX)/$$i; done)
+        mkdir -p $(PROTO_DIR)$(ECPREFIX)/$$i; done)
 
 $(BUILD_DIR)/$(MACH32)/.configured:     BITS=32
 $(BUILD_DIR)/$(MACH64)/.configured:     BITS=64

@@ -34,34 +34,34 @@ CONFIGURE_OPTIONS += --disable-static --enable-shared
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/include/ZenLib
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/include/ZenLib/Base64
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/include/ZenLib/Format/Html
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/include/ZenLib/Format/Http
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/include/ZenLib/HTTP_Client
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/include/ZenLib/TinyXml
-	$(CP) $(SOURCE_DIR)/Source/ZenLib/*.h $(PROTO_DIR)/$(ECPREFIX)/include/ZenLib
-	$(CP) $(SOURCE_DIR)/Source/ZenLib/Base64/*.h $(PROTO_DIR)/$(ECPREFIX)/include/ZenLib/Base64
-	$(CP) $(SOURCE_DIR)/Source/ZenLib/Format/Html/*.h $(PROTO_DIR)/$(ECPREFIX)/include/ZenLib/Format/Html
-	$(CP) $(SOURCE_DIR)/Source/ZenLib/Format/Http/*.h $(PROTO_DIR)/$(ECPREFIX)/include/ZenLib/Format/Http
-	$(CP) $(SOURCE_DIR)/Source/ZenLib/HTTP_Client/*.h $(PROTO_DIR)/$(ECPREFIX)/include/ZenLib/HTTP_Client
-	$(CP) $(SOURCE_DIR)/Source/ZenLib/TinyXml/*.h $(PROTO_DIR)/$(ECPREFIX)/include/ZenLib/TinyXml
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/include/ZenLib
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/include/ZenLib/Base64
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/include/ZenLib/Format/Html
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/include/ZenLib/Format/Http
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/include/ZenLib/HTTP_Client
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/include/ZenLib/TinyXml
+	$(CP) $(SOURCE_DIR)/Source/ZenLib/*.h $(PROTO_DIR)$(ECPREFIX)/include/ZenLib
+	$(CP) $(SOURCE_DIR)/Source/ZenLib/Base64/*.h $(PROTO_DIR)$(ECPREFIX)/include/ZenLib/Base64
+	$(CP) $(SOURCE_DIR)/Source/ZenLib/Format/Html/*.h $(PROTO_DIR)$(ECPREFIX)/include/ZenLib/Format/Html
+	$(CP) $(SOURCE_DIR)/Source/ZenLib/Format/Http/*.h $(PROTO_DIR)$(ECPREFIX)/include/ZenLib/Format/Http
+	$(CP) $(SOURCE_DIR)/Source/ZenLib/HTTP_Client/*.h $(PROTO_DIR)$(ECPREFIX)/include/ZenLib/HTTP_Client
+	$(CP) $(SOURCE_DIR)/Source/ZenLib/TinyXml/*.h $(PROTO_DIR)$(ECPREFIX)/include/ZenLib/TinyXml
 
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/lib/pkgconfig
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/pkgconfig
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 	sed -e 's|Version: |Version: $(COMPONENT_VERSION)|g' $(BUILD_DIR)/$(MACH32)/libzen.pc > \
-	    $(PROTO_DIR)/$(ECPREFIX)/lib/pkgconfig/libzen.pc
+	    $(PROTO_DIR)$(ECPREFIX)/lib/pkgconfig/libzen.pc
 	sed -e 's|Version: |Version: $(COMPONENT_VERSION)|g' $(BUILD_DIR)/$(MACH64)/libzen.pc > \
-	    $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libzen.pc
+	    $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libzen.pc
 
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/bin $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
 
-	echo "#!/bin/sh" >$(PROTO_DIR)/$(ECPREFIX)/bin/libzen-config
+	echo "#!/bin/sh" >$(PROTO_DIR)$(ECPREFIX)/bin/libzen-config
 	cat $(BUILD_DIR)/$(MACH32)/libzen-config | sed s%\^echo.*\-lzen%echo\ \-lzen% | \
-	    sed s%\^echo.*\libzen\.a%echo\ $(ECPREFIX)/lib/libzen.a% >> $(PROTO_DIR)/$(ECPREFIX)/bin/libzen-config
+	    sed s%\^echo.*\libzen\.a%echo\ $(ECPREFIX)/lib/libzen.a% >> $(PROTO_DIR)$(ECPREFIX)/bin/libzen-config
 
-	echo "#!/bin/sh" >$(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)/libzen-config
+	echo "#!/bin/sh" >$(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/libzen-config
 	cat $(BUILD_DIR)/$(MACH32)/libzen-config | sed s%\^echo.*\-lzen%echo\ \-lzen% | \
 	    sed s%\^echo.*\libzen\.a%echo\ $(ECPREFIX)/lib/$(MACH64)/libzen.a% >> \
-	    $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)/libzen-config
+	    $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/libzen-config
 

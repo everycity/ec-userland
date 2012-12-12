@@ -37,7 +37,7 @@ build:		$(BUILD_32)
 
 $(BUILD_DIR)/%/.installed:      $(BUILD_DIR)/%/.built
 	$(COMPONENT_PRE_INSTALL_ACTION)
-	( cd $(@D) ; mkdir -p $(PROTO_DIR)/$(ECPREFIX)/bin ; cp whois $(PROTO_DIR)/$(ECPREFIX)/bin/whois )
+	( cd $(@D) ; mkdir -p $(PROTO_DIR)$(ECPREFIX)/bin ; cp whois $(PROTO_DIR)$(ECPREFIX)/bin/whois )
 	$(COMPONENT_POST_INSTALL_ACTION)
 	$(TOUCH) $@
 

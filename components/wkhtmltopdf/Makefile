@@ -27,9 +27,11 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
+COMPONENT_BUILD_TARGETS+= LDFLAGS="$(LDFLAGS)"
+
 COMPONENT_PRE_BUILD_ACTION+=	( cp -r $(SOURCE_DIR)/* $(@D) ; cd $(@D) ; \
 	$(ECPREFIX)/lib/wkhtmltopdf-qt/bin/qmake )
-COMPONENT_INSTALL_ENV+= INSTALL_ROOT=$(PROTO_DIR)/$(ECPREFIX)
+COMPONENT_INSTALL_ENV+= INSTALL_ROOT=$(PROTO_DIR)$(ECPREFIX)
 
 build:          $(BUILD_32)
 

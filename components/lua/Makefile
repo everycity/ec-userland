@@ -43,19 +43,19 @@ TO_MAN= lua.1 luac.1
 TO_LIB= liblua-$(COMPONENT_MJR_VERSION).so
 
 install:	build
-	$(MKDIR) -p $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)
-	$(MKDIR) -p $(PROTO_DIR)/$(ECPREFIX)/lib/pkgconfig
-	$(MKDIR) -p $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-	$(MKDIR) -p $(PROTO_DIR)/$(ECPREFIX)/include
-	$(MKDIR) -p $(PROTO_DIR)/$(ECPREFIX)/share/man/man1
-	( cd $(BUILD_DIR_32)/src && $(CP) $(TO_BIN) $(PROTO_DIR)/$(ECPREFIX)/bin/ && \
-	$(CP) $(TO_INC) $(PROTO_DIR)/$(ECPREFIX)/include/ && \
-	$(CP) $(TO_LIB) $(PROTO_DIR)/$(ECPREFIX)/lib/)
-	( cd $(BUILD_DIR_32)/doc && $(CP) $(TO_MAN) $(PROTO_DIR)/$(ECPREFIX)/share/man/man1/ )
-	( cd $(BUILD_DIR_64)/src && $(CP) $(TO_LIB) $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/ && \
-	$(CP) $(TO_BIN) $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)/)
+	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
+	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/lib/pkgconfig
+	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/include
+	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/share/man/man1
+	( cd $(BUILD_DIR_32)/src && $(CP) $(TO_BIN) $(PROTO_DIR)$(ECPREFIX)/bin/ && \
+	$(CP) $(TO_INC) $(PROTO_DIR)$(ECPREFIX)/include/ && \
+	$(CP) $(TO_LIB) $(PROTO_DIR)$(ECPREFIX)/lib/)
+	( cd $(BUILD_DIR_32)/doc && $(CP) $(TO_MAN) $(PROTO_DIR)$(ECPREFIX)/share/man/man1/ )
+	( cd $(BUILD_DIR_64)/src && $(CP) $(TO_LIB) $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/ && \
+	$(CP) $(TO_BIN) $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/)
 	cat $(COMPONENT_DIR)/files/lua.pc | sed -e s%LUA_VER%$(COMPONENT_VERSION)% -e \
-		s%LUA_LIBDIR%$(ECPREFIX)/lib% > $(PROTO_DIR)/$(ECPREFIX)/lib/pkgconfig/lua.pc
+		s%LUA_LIBDIR%$(ECPREFIX)/lib% > $(PROTO_DIR)$(ECPREFIX)/lib/pkgconfig/lua.pc
 	cat $(COMPONENT_DIR)/files/lua.pc | sed -e s%LUA_VER%$(COMPONENT_VERSION)% -e \
-		s%LUA_LIBDIR%$(ECPREFIX)/lib/$(MACH64)% > $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)/pkgconfig/lua.pc
+		s%LUA_LIBDIR%$(ECPREFIX)/lib/$(MACH64)% > $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig/lua.pc
 

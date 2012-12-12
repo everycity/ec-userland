@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011,2012 EveryCity Ltd. All rights reserved.
 # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
 #
 
@@ -19,7 +19,7 @@ COMPONENT_NAME=		unzip
 COMPONENT_VERSION=	6.0
 COMPONENT_SRC=		$(COMPONENT_NAME)60
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:abf7de8a4018a983590ed6f5cbd990d4740f8a22
+COMPONENT_ARCHIVE_HASH=	sha256:036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37
 COMPONENT_ARCHIVE_URL=	http://downloads.sourceforge.net/infozip/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -35,7 +35,7 @@ COMPONENT_BUILD_ENV += \
 
 # The Makefile we want is under unix/Makefile
 COMPONENT_BUILD_ARGS += -f unix/Makefile
-COMPONENT_BUILD_TARGETS += generic CC="$(CC)"
+COMPONENT_BUILD_TARGETS += generic CC="$(CC)" LDFLAGS="$(LDFLAGS)"
 COMPONENT_INSTALL_ARGS += -f unix/Makefile
 
 # This doesn't respect DESTDIR, so overload BINDIR and MANDIR when we install.

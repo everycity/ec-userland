@@ -40,7 +40,7 @@ DSOMODS4 = mod_quotatab_radius:mod_quotatab_sql:mod_radius:mod_ratio:mod_readme:
 DSOMODS5 = mod_sftp_sql:mod_shaper:mod_site_misc:mod_sql:mod_sql_mysql:mod_sql_odbc:mod_sql_passwd:mod_sql_postgres:
 DSOMODS6 = mod_sql_sqlite:mod_tls:mod_tls_memcache:mod_tls_shmcache:mod_unique_id:mod_wrap2:mod_wrap2_file:mod_wrap2_sql
 
-CONFIGURE_OPTIONS +=	CFLAGS="$(CFLAGS)"
+CONFIGURE_OPTIONS +=	CFLAGS="$(CFLAGS) -I$(ECPREFIX)/include/odbc"
 CONFIGURE_OPTIONS +=	LDFLAGS="$(LDFLAGS) -R$(ECPREFIX)/lib/postgres/9.1/lib -R$(ECPREFIX)/lib/mysql/5.5/lib"
 CONFIGURE_OPTIONS +=	CPPFLAGS="$(CPPFLAGS) -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_OPENSSL"
 CONFIGURE_OPTIONS +=	install_user=$(LOGNAME)

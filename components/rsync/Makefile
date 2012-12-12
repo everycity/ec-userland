@@ -38,8 +38,8 @@ build:		$(BUILD_32)
 include ../../make-rules/shared-targets.mk
 
 install:	$(INSTALL_32)
-	cp source/$(COMPONENT_SRC)/rsync.1 $(PROTO_DIR)/$(ECPREFIX)/share/man/man1
-	cp source/$(COMPONENT_SRC)/rsyncd.conf.5 $(PROTO_DIR)/$(ECPREFIX)/share/man/man5
+	cp source/$(COMPONENT_SRC)/rsync.1 $(PROTO_DIR)$(ECPREFIX)/share/man/man1
+	cp source/$(COMPONENT_SRC)/rsyncd.conf.5 $(PROTO_DIR)$(ECPREFIX)/share/man/man5
 
 BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
 

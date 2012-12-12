@@ -1,0 +1,29 @@
+--- gpac/Makefile.orig	2012-12-12 10:29:56.030259905 +0000
++++ gpac/Makefile	2012-12-12 10:31:40.315206481 +0000
+@@ -56,12 +56,12 @@
+ install:
+ 	$(INSTALL) -d "$(DESTDIR)$(prefix)"
+ 	$(INSTALL) -d "$(DESTDIR)$(prefix)/$(libdir)"
+-	$(INSTALL) -d "$(DESTDIR)$(prefix)/bin"
++	$(INSTALL) -d "$(DESTDIR)$(prefix)/$(bindir)"
+ ifeq ($(DISABLE_ISOFF), no)
+-	$(INSTALL) $(INSTFLAGS) -m 755 bin/gcc/MP4Box "$(DESTDIR)$(prefix)/bin"
++	$(INSTALL) $(INSTFLAGS) -m 755 bin/gcc/MP4Box "$(DESTDIR)$(prefix)/$(bindir)"
+ endif
+ ifeq ($(DISABLE_PLAYER), no)
+-	$(INSTALL) $(INSTFLAGS) -m 755 bin/gcc/MP4Client "$(DESTDIR)$(prefix)/bin"
++	$(INSTALL) $(INSTFLAGS) -m 755 bin/gcc/MP4Client "$(DESTDIR)$(prefix)/$(bindir)"
+ endif
+ 	if [ -d  $(DESTDIR)$(prefix)/$(libdir)/pkgconfig ] ; then \
+ 	$(INSTALL) $(INSTFLAGS) -m 644 gpac.pc "$(DESTDIR)$(prefix)/$(libdir)/pkgconfig" ; \
+@@ -97,8 +97,8 @@
+ 	rm -rf $(DESTDIR)$(moddir)
+ 	rm -rf $(DESTDIR)$(prefix)/$(libdir)/libgpac*
+ 	rm -rf $(DESTDIR)$(prefix)/$(libdir)/pkgconfig/gpac.pc
+-	rm -rf $(DESTDIR)$(prefix)/bin/MP4Box
+-	rm -rf $(DESTDIR)$(prefix)/bin/MP4Client
++	rm -rf $(DESTDIR)$(prefix)/$(bindir)/MP4Box
++	rm -rf $(DESTDIR)$(prefix)/$(bindir)/MP4Client
+ 	rm -rf $(DESTDIR)$(mandir)/man1/mp4box.1
+ 	rm -rf $(DESTDIR)$(mandir)/man1/mp4client.1
+ 	rm -rf $(DESTDIR)$(mandir)/man1/gpac.1

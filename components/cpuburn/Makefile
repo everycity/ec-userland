@@ -27,9 +27,9 @@ include ../../make-rules/ips.mk
 
 # install the built source into a prototype area
 $(BUILD_DIR)/%/.installed:      $(BUILD_DIR)/%/.built
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/bin ; \
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin ; \
 	$(CP) $(@D)/{burnP5,burnP6,burnK6,burnK7,burnBX,burnMMX} \
-	$(PROTO_DIR)/$(ECPREFIX)/bin/ ; \
+	$(PROTO_DIR)$(ECPREFIX)/bin/ ; \
 	$(TOUCH) $@
 
 build:          $(BUILD_32)

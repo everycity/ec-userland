@@ -27,7 +27,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_BUILD_ENV += CC="$(CC)" CXX="$(CXX)"
+COMPONENT_BUILD_ENV += CC="$(CC)" CXX="$(CXX)" LDFLAGS="$(LDFLAGS)"
 
 LIBDIR.32= $(ECPREFIX)/lib
 LIBDIR.64= $(ECPREFIX)/lib/$(MACH64)

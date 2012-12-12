@@ -32,4 +32,4 @@ CONFIGURE_OPTIONS+=	--disable-motif-check
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
-	cp $(COMPONENT_DIR)/vimrc $(PROTO_DIR)/$(ECPREFIX)/share/vim/
+	cp $(COMPONENT_DIR)/vimrc $(PROTO_DIR)$(ECPREFIX)/share/vim/

@@ -35,18 +35,17 @@ include ../../make-rules/ips.mk
 
 IPS_COMPONENT_VERSION=	0.2007.5
 
-COMPONENT_BUILD_TARGETS32+=	
-COMPONENT_BUILD_TARGETS64+=	EXTRACFLAGS='-m64' EXTRALDFLAGS='-m64'
-COMPONENT_BUILD_TARGETS+=	ec IP=6 SHLIBBASE=c-client SHLIBNAME=libc-client.so.1 $(COMPONENT_BUILD_TARGETS$(BITS))
+LDFLAGS.64+= -m64
+COMPONENT_BUILD_TARGETS+=	ec IP=6 SHLIBBASE=c-client SHLIBNAME=libc-client.so.1 EXTRACFLAGS="$(CFLAGS)" EXTRALDFLAGS="$(LDFLAGS)"
 
 build:		$(BUILD_32_and_64)
 
 install:        build
-	$(MKDIR) -p $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)
-	$(MKDIR) -p $(PROTO_DIR)/$(ECPREFIX)/include/c-client
-	$(CP) $(BUILD_DIR_32)/c-client/libc-client.so.1 $(PROTO_DIR)/$(ECPREFIX)/lib/
-	$(CP) $(BUILD_DIR_64)/c-client/libc-client.so.1 $(PROTO_DIR)/$(ECPREFIX)/lib/$(MACH64)
-	$(CP) $(SOURCE_DIR)/src/osdep/unix/*.h $(PROTO_DIR)/$(ECPREFIX)/include/c-client/
-	$(CP) $(SOURCE_DIR)/src/c-client/*.h $(PROTO_DIR)/$(ECPREFIX)/include/c-client/
-	$(CP) $(BUILD_DIR_32)/c-client/linkage.h $(PROTO_DIR)/$(ECPREFIX)/include/c-client/
+	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
+	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/include/c-client
+	$(CP) $(BUILD_DIR_32)/c-client/libc-client.so.1 $(PROTO_DIR)$(ECPREFIX)/lib/
+	$(CP) $(BUILD_DIR_64)/c-client/libc-client.so.1 $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
+	$(CP) $(SOURCE_DIR)/src/osdep/unix/*.h $(PROTO_DIR)$(ECPREFIX)/include/c-client/
+	$(CP) $(SOURCE_DIR)/src/c-client/*.h $(PROTO_DIR)$(ECPREFIX)/include/c-client/
+	$(CP) $(BUILD_DIR_32)/c-client/linkage.h $(PROTO_DIR)$(ECPREFIX)/include/c-client/
 

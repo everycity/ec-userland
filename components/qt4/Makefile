@@ -34,7 +34,7 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 PATH.32=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
-PATH.64=$(ECPREFIX)/bin/$(MACH64):/$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH.64=$(ECPREFIX)/bin/$(MACH64):$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 PATH=$(PATH.$(BITS))
 
 LDFLAGS.32 +=   -L$(ECPREFIX)/lib/postgres/9.1/lib -R$(ECPREFIX)/lib/postgres/9.1/lib
@@ -66,9 +66,9 @@ CONFIGURE_OPTIONS+=	-plugin-sql-mysql
 CONFIGURE_OPTIONS+=	-plugin-sql-psql
 CONFIGURE_OPTIONS+=	-system-sqlite
 
-COMPONENT_POST_INSTALL_ACTION.32= ( cd $(PROTO_DIR)/$(ECPREFIX)/lib/qt/4.7/mkspecs ; \
+COMPONENT_POST_INSTALL_ACTION.32= ( cd $(PROTO_DIR)$(ECPREFIX)/lib/qt/4.7/mkspecs ; \
 	mv qconfig.pri qconfig.pri.32 )
-COMPONENT_POST_INSTALL_ACTION.64= ( cd $(PROTO_DIR)/$(ECPREFIX)/lib/qt/4.7/mkspecs ; \
+COMPONENT_POST_INSTALL_ACTION.64= ( cd $(PROTO_DIR)$(ECPREFIX)/lib/qt/4.7/mkspecs ; \
 	mv qconfig.pri qconfig.pri.64 ; ln -s qconfig.pri.32 qconfig.pri )
 COMPONENT_POST_INSTALL_ACTION=$(COMPONENT_POST_INSTALL_ACTION.$(BITS))
 

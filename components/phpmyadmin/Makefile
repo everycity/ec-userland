@@ -18,15 +18,15 @@ COMPONENT_NAME=		phpMyAdmin
 COMPONENT_VERSION=	3.5.3
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)-all-languages
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha1:
+COMPONENT_ARCHIVE_HASH=	sha256:5fa3d687be8656e8eb6fc905adfba4c62e1b0748c15c65550a06c12e0e544f4f
 COMPONENT_ARCHIVE_URL=	http://freefr.dl.sourceforge.net/project/phpmyadmin/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
 
-PHPMYADMIN_DIR=      $(PROTO_DIR)/$(ECPREFIX)/share/phpmyadmin
-PHPMYADMIN_DOC_DIR=      $(PROTO_DIR)/$(ECPREFIX)/share/doc/phpmyadmin
-PHPMYADMIN_ETC_DIR=      $(PROTO_DIR)/$(ECPREFIX)/etc/phpmyadmin
+PHPMYADMIN_DIR=      $(PROTO_DIR)$(ECPREFIX)/share/phpmyadmin
+PHPMYADMIN_DOC_DIR=      $(PROTO_DIR)$(ECPREFIX)/share/doc/phpmyadmin
+PHPMYADMIN_ETC_DIR=      $(PROTO_DIR)$(ECPREFIX)/etc/phpmyadmin
 
 CLEAN_PATHS +=  $(BUILD_DIR)
 
