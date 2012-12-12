@@ -32,13 +32,13 @@ COMPONENT_PRE_CONFIGURE_ACTION = \
 CONFIGURE_SCRIPT = $(@D)/configure
 
 # can't build it as a shared module: mod_auth, mod_auth_unix, mod_cap, mod_core, mod_ctrls, mod_dso, mod_log, mod_ls, mod_site, mod_xfer
-# disabled: mod_sample
+# disabled: mod_sample, mod_wrap
 DSOMODS1 = mod_auth_file:mod_auth_pam:mod_ban:mod_copy:mod_ctrls_admin:
 DSOMODS2 = mod_deflate:mod_delay:mod_dynmasq:mod_exec:mod_facl:mod_facts:mod_ident:mod_ifsession:mod_ifversion:
 DSOMODS3 = mod_lang:mod_ldap:mod_load:mod_memcache:mod_qos:mod_quotatab:mod_quotatab_file:mod_quotatab_ldap:
 DSOMODS4 = mod_quotatab_radius:mod_quotatab_sql:mod_radius:mod_ratio:mod_readme:mod_rewrite:mod_sftp:mod_sftp_pam:
 DSOMODS5 = mod_sftp_sql:mod_shaper:mod_site_misc:mod_sql:mod_sql_mysql:mod_sql_odbc:mod_sql_passwd:mod_sql_postgres:
-DSOMODS6 = mod_sql_sqlite:mod_tls:mod_tls_memcache:mod_tls_shmcache:mod_unique_id:mod_wrap:mod_wrap2:mod_wrap2_file:mod_wrap2_sql
+DSOMODS6 = mod_sql_sqlite:mod_tls:mod_tls_memcache:mod_tls_shmcache:mod_unique_id:mod_wrap2:mod_wrap2_file:mod_wrap2_sql
 
 CONFIGURE_OPTIONS +=	CFLAGS="$(CFLAGS)"
 CONFIGURE_OPTIONS +=	LDFLAGS="$(LDFLAGS) -R$(ECPREFIX)/lib/postgres/9.1/lib -R$(ECPREFIX)/lib/mysql/5.5/lib"
