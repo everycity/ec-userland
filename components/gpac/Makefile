@@ -27,9 +27,7 @@ include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS=	--prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--mandir=$(ECPREFIX)/share/man
-CONFIGURE_OPTIONS.32+=	--bindir=bin
 CONFIGURE_OPTIONS.32+=	--libdir=lib
-CONFIGURE_OPTIONS.64+=	--bindir=bin/$(MACH64)
 CONFIGURE_OPTIONS.64+=	--libdir=lib/$(MACH64)
 
 CONFIGURE_OPTIONS.32+=	--extra-ldflags="-L$(ECPREFIX)/lib -R$(ECPREFIX)/lib"

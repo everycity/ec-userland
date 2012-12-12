@@ -25,6 +25,7 @@ license gpac.license license="LGPLv2.1"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/gpac
@@ -32,6 +33,8 @@ dir path=$(ECPREFIX)/lib/gpac
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/$(MACH64)/MP4Box
+file path=$(ECPREFIX)/bin/$(MACH64)/MP4Client
 file path=$(ECPREFIX)/bin/MP4Box
 file path=$(ECPREFIX)/bin/MP4Client
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_aac_in.so
