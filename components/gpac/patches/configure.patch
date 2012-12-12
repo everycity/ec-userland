@@ -1,0 +1,53 @@
+--- gpac/configure.~1~	2012-05-25 12:05:57.000000000 +0000
++++ gpac/configure	2012-12-12 10:41:57.412801195 +0000
+@@ -58,6 +58,7 @@
+ sdl_static="no"
+ xulsdk_path="/usr/lib/xulrunner/sdk/include"
+ xul_flags=""
++bindir="bin"
+ libdir="lib"
+ 
+ #GPAC module config
+@@ -349,6 +350,7 @@
+         case `uname -s` in
+             SunOS)
+                 canon_arch=`isainfo -n`
++                is_64="yes"
+                 ;;
+             *)
+                 canon_arch="`$cc -dumpmachine | sed -e 's,\([^-]*\)-.*,\1,'`"
+@@ -483,6 +485,7 @@
+         fi
+         if test "$is_64" = "yes"; then
+             if test "$cpu" = "x86_64"; then
++                bindir=bin/amd64
+                 libdir=lib/amd64
+             elif test "$cpu" = "sparc"; then
+                 libdir=lib/sparcv9
+@@ -1208,17 +1211,7 @@
+ int main( void ) { return 0; }
+ EOF
+ 
+-if $cc -o $TMPO $TMPC $ffmpeg_cflags $ffmpeg_lflags $LDFLAGS 2> /dev/null  ; then
+-    old_ffmpeg_inc="no"
+-else
+-    old_ffmpeg_inc="yes"
+-
+-    cat > $TMPC << EOF
+-#include <ffmpeg/avcodec.h>
+-int main( void ) { return 0; }
+-EOF
+-
+-fi
++old_ffmpeg_inc="no"
+ 
+ if test "$cross_prefix" = "" ; then 
+     if $cc -o $TMPO $TMPC -I$prefix/include -L$prefix/lib $ffmpeg_lflags $LDFLAGS 2> /dev/null  ; then
+@@ -2484,6 +2477,7 @@
+ echo "CPPFLAGS=$CPPFLAGS" >> config.mak
+ echo "LDFLAGS=$LDFLAGS" >> config.mak
+ echo "SHFLAGS=$SHFLAGS" >> config.mak
++echo "bindir=$bindir" >> config.mak
+ echo "libdir=$libdir" >> config.mak
+ 
+ 
