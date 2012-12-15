@@ -26,13 +26,13 @@
 # the configure and install of ruby
 
 # use gcc instead of build-system-specific  paths to cc
-s/CONFIG\[\"CC\"\].*$/CONFIG\[\"CC\"\] = \"\/ec\/bin\/gcc\"/
-s/CONFIG\[\"CFLAGS\"\].*$/CONFIG\[\"CFLAGS\"\] = \"-g -O3 -fPIC\"/
+#s/CONFIG\[\"CC\"\].*$/CONFIG\[\"CC\"\] = \"\/ec\/bin\/gcc\"/
+#s/CONFIG\[\"CFLAGS\"\].*$/CONFIG\[\"CFLAGS\"\] = \"-g -O3 -fPIC\"/
 # use gcc instead of build-system-specific paths to cc
-s/CONFIG\[\"CPP\"\].*$/CONFIG\[\"CPP\"\] = \"\/ec\/bin\/gcc -E\"/
-s/CONFIG\[\"LDSHARED\"\].*$/CONFIG\[\"LDSHARED"\] = \"$(CC) -G\" /
+#s/CONFIG\[\"CPP\"\].*$/CONFIG\[\"CPP\"\] = \"\/ec\/bin\/gcc -E\"/
+#s/CONFIG\[\"LDSHARED\"\].*$/CONFIG\[\"LDSHARED"\] = \"$(CC) -G\" /
 # use gcc LDFLAGS instead of cc
-s/CONFIG\[\"CCDLFLAGS\"\].*$/CONFIG\[\"CCDLFLAGS\"\] = \"-fPIC\"/
+#s/CONFIG\[\"CCDLFLAGS\"\].*$/CONFIG\[\"CCDLFLAGS\"\] = \"-fPIC\"/
 # add this line to the end of the file
 $a\
 ENV["GEM_HOME"] = "/ec/var/ruby/1.8/gem_home"

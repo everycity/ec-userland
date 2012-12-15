@@ -21,23 +21,24 @@
 
 #
 # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2012, EveryCity Ltd. All rights reserved.
 #
 
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ruby
 COMPONENT_VERSION=	1.8.7
-COMPONENT_PATCH_VERSION=	334
+COMPONENT_PATCH_VERSION=	358
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)-p$(COMPONENT_PATCH_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:4311ce257f2e54f247bfe07b48e799d293d041f2
+COMPONENT_ARCHIVE_HASH=	sha256:309ccd427e47ef41a70f96462bd3c2ef2e7911ce1b22432ab502f5bc6e949c1b
 COMPONENT_ARCHIVE_URL=	http://ftp.ruby-lang.org/pub/ruby/1.8/$(COMPONENT_ARCHIVE)
 IPS_COMPONENT_VERSION=	$(COMPONENT_VERSION).$(COMPONENT_PATCH_VERSION)
 
 # rubygems 
-COMPONENT_SRC_1=	rubygems-1.3.6
+COMPONENT_SRC_1=	rubygems-1.8.24
 COMPONENT_ARCHIVE_1=	$(COMPONENT_SRC_1).tgz
-COMPONENT_ARCHIVE_HASH_1=	sha1:ad6606d1eae82cb69381e4f5b2022d2f3f2733f3
+COMPONENT_ARCHIVE_HASH_1=	sha256:4b61fa51869b3027bcfe67184b42d2e8c23fa6ab17d47c5c438484b9be2821dd
 COMPONENT_ARCHIVE_URL_1=	http://production.cf.rubygems.org/rubygems/$(COMPONENT_ARCHIVE_1)
 
 SOURCE_DIR_1=$(COMPONENT_DIR)/source/$(COMPONENT_SRC_1)
@@ -47,22 +48,26 @@ include ../../../make-rules/prep.mk
 include ../../../make-rules/ips.mk
 include ../../../make-rules/configure.mk
 
+LINKER=	gcc
+
 # COMPONENT_VERSION <major>.<minor>.<teeny>
 # is transformed into <major>.<minor> for RUBY_VER.
 # First change the separator '.' to ' ', so we can use "word" to pull the 
 # first two space-separated words from the string.
-RUBY_VER_WORDS=	$(subst ., ,$(COMPONENT_VERSION))
-RUBY_VER=$(word 1,$(RUBY_VER_WORDS)).$(word 2,$(RUBY_VER_WORDS))
+RUBY_VER_WORDS =	$(subst ., ,$(COMPONENT_VERSION))
+RUBY_VER =	$(word 1,$(RUBY_VER_WORDS)).$(word 2,$(RUBY_VER_WORDS))
 
-GEMHOME=$(ECPREFIX)/var/ruby/$(RUBY_VER)/gem_home
-PROTORUBYDIR=$(PROTO_DIR)$(ECPREFIX)/lib/ruby/$(RUBY_VER)
-PROTOGEMHOME=$(PROTO_DIR)$(GEMHOME)
-RUBYGEMS_INSTALL_TARGET=$(PROTO_DIR)$(ECPREFIX)/bin/gem$(RUBY_VER)
+GEMHOME.32 =	$(ECPREFIX)/var/ruby/$(RUBY_VER)/gem_home
+GEMHOME.64 =	$(ECPREFIX)/var/ruby/$(RUBY_VER)/gem_home/$(MACH64)
+GEMHOME =	$(GEMHOME.$(BITS))
+PROTOGEMHOME =	$(PROTO_DIR)$(GEMHOME)
 
-PROTO_RBCONFIG_FILE=$(PROTO_DIR)$(ECPREFIX)/lib/ruby/$(RUBY_VER)/$(MACH)-solaris$(SOLARIS_VERSION)/rbconfig.rb
+PROTORUBYDIR.32 =	$(PROTO_DIR)$(ECPREFIX)/lib/ruby/$(RUBY_VER)
+PROTORUBYDIR.64 =	$(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/ruby/$(RUBY_VER)
 
-# these macros are used in the package manifest
-PKG_MACROS+=	RUBY_VER=$(RUBY_VER)
+PROTO_RBCONFIG_FILE.32=	$(PROTORUBYDIR.32)/$(MACH)-solaris$(SOLARIS_VERSION)/rbconfig.rb
+PROTO_RBCONFIG_FILE.64=	$(PROTORUBYDIR.64)/x86_64-solaris$(SOLARIS_VERSION)/rbconfig.rb
+PROTO_RBCONFIG_FILE =	$(PROTO_RBCONFIG_FILE.$(BITS))
 
 # Since configure.in is patched, we need to autoconf after the patch.
 # Also, unpack the 2nd archive for rubygems.
@@ -77,10 +82,31 @@ COMPONENT_PREP_ACTION = (cd $(@D) ; autoconf); \
 # to ruby.1 that occur before, the ruby installation does some 
 # formatting of ruby.1 that won't occur if the below changes
 # are applied.
-COMPONENT_POST_INSTALL_ACTION += \
+COMPONENT_POST_INSTALL_ACTION.32 += \
 	/bin/sed -f Solaris/ruby.1.sedscript \
 	$(PROTO_DIR)$(ECPREFIX)/share/man/man1/ruby$(RUBY_VER).1 > ruby$(RUBY_VER).1.mod ; \
-	$(MV) ruby$(RUBY_VER).1.mod $(PROTO_DIR)$(ECPREFIX)/share/man/man1/ruby$(RUBY_VER).1
+	$(MV) ruby$(RUBY_VER).1.mod $(PROTO_DIR)$(ECPREFIX)/share/man/man1/ruby$(RUBY_VER).1 ;
+
+# install rubygems using ruby installed in proto area
+RUBYGEMS_INSTALL_ACTION.32 += \
+	cd $(SOURCE_DIR_1); $(ENV) - \
+	"DESTDIR=$(PROTO_DIR)" \
+	LD_LIBRARY_PATH=$(PROTO_DIR)$(ECPREFIX)/lib \
+	GEM_HOME=$(PROTOGEMHOME) \
+	$(PROTO_DIR)$(ECPREFIX)/bin/ruby$(RUBY_VER) \
+	-I$(PROTO_DIR)$(ECPREFIX)/lib/ruby/$(RUBY_VER) \
+	-I$(PROTO_DIR)$(ECPREFIX)/lib/ruby/$(RUBY_VER)/$(MACH)-solaris$(SOLARIS_VERSION) \
+	setup.rb --vendor --destdir=$(PROTO_DIR) ;
+RUBYGEMS_INSTALL_ACTION.64 += \
+	cd $(SOURCE_DIR_1); $(ENV) - \
+	"DESTDIR=$(PROTO_DIR)" \
+	LD_LIBRARY_PATH=$(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64) \
+	GEM_HOME=$(PROTOGEMHOME) \
+	$(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/ruby$(RUBY_VER) \
+	-I$(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/ruby/$(RUBY_VER) \
+	-I$(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/ruby/$(RUBY_VER)/x86_64-solaris$(SOLARIS_VERSION) \
+	setup.rb --vendor --destdir=$(PROTO_DIR) ;
+RUBYGEMS_INSTALL_ACTION =	$(RUBYGEMS_INSTALL_ACTION.$(BITS))
 
 # Fix generated rbconfig.rb.
 # This should NOT occur until AFTER rubygems installs;
@@ -88,13 +114,31 @@ COMPONENT_POST_INSTALL_ACTION += \
 # to attempt (and fail) to install rubygems docs on the build system,
 # rather than in the proto area.
 # Also fix magic line of gem script.
-POST_RUBYGEMS_INSTALL_ACTION += \
+POST_RUBYGEMS_INSTALL_ACTION.32 += \
+	cd $(COMPONENT_DIR) ; \
 	/bin/sed -f Solaris/rbconfig.sedscript $(PROTO_RBCONFIG_FILE) \
 	> rbconfig.rb.mod ; \
 	$(MV) rbconfig.rb.mod $(PROTO_RBCONFIG_FILE) ; \
-	/bin/sed -e '1s;^\#!/.*;\#!$(ECPREFIX)/bin/ruby$(RUBY_VER);' $(PROTO_DIR)$(ECPREFIX)/bin/gem$(RUBY_VER) \
-	> gem.mod ; \
+	/bin/sed -e '1s;^\#!/.*;\#!$(ECPREFIX)/bin/ruby$(RUBY_VER);' \
+	$(PROTO_DIR)$(ECPREFIX)/bin/gem$(RUBY_VER) > gem.mod ; \
 	$(MV) gem.mod $(PROTO_DIR)$(ECPREFIX)/bin/gem$(RUBY_VER)
+POST_RUBYGEMS_INSTALL_ACTION.64 += \
+	cd $(COMPONENT_DIR) ; \
+	/bin/sed -f Solaris/rbconfig.sedscript $(PROTO_RBCONFIG_FILE) \
+	> rbconfig.rb.mod ; \
+	/bin/sed -e 's;gem_home;gem_home/$(MACH64);' rbconfig.rb.mod \
+	> $(PROTO_RBCONFIG_FILE) && $(RM) rbconfig.rb.mod; \
+	/bin/sed -e '1s;^\#!/.*;\#!$(ECPREFIX)/bin/$(MACH64)/ruby$(RUBY_VER);' \
+	$(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/gem$(RUBY_VER) > gem.mod ; \
+	$(MV) gem.mod $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/gem$(RUBY_VER) ; \
+        cd $(COMPONENT_DIR)/Solaris/scripts && for file in * ; do \
+	/bin/sed -e '1s;^\#!/.*;\#!$(ECPREFIX)/bin/$(MACH64)/ruby$(RUBY_VER);' $$file \
+	> $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/$$file\$(RUBY_VER) ; done
+POST_RUBYGEMS_INSTALL_ACTION +=	$(POST_RUBYGEMS_INSTALL_ACTION.$(BITS))
+
+COMPONENT_POST_INSTALL_ACTION += $(COMPONENT_POST_INSTALL_ACTION.$(BITS))
+COMPONENT_POST_INSTALL_ACTION += $(RUBYGEMS_INSTALL_ACTION)
+COMPONENT_POST_INSTALL_ACTION += $(POST_RUBYGEMS_INSTALL_ACTION)
 
 # dtrace only available for i386 at this time;
 # on sparc, a compiler bug (CR #6659110) prevents use of dtrace
@@ -103,7 +147,7 @@ DTRACE_FLAG =		$(DTRACE_FLAG_$(MACH))
 
 # dtrace.d, created in source dir during patch for dtrace,
 # is needed for building
-DTRACE_PRE_BUILD_i386 =	$(CP) $(SOURCE_DIR)/dtrace.d $(BUILD_DIR_32)
+DTRACE_PRE_BUILD_i386 =	$(CP) $(SOURCE_DIR)/dtrace.d $(BUILD_DIR_$(BITS))
 DTRACE_PRE_BUILD =	$(DTRACE_PRE_BUILD_$(MACH))
 COMPONENT_PRE_BUILD_ACTION =	$(DTRACE_PRE_BUILD)
 
@@ -129,29 +173,18 @@ CONFIGURE_OPTIONS += --with-openssl
 CONFIGURE_OPTIONS += --with-tk-dir=/usr
 CONFIGURE_OPTIONS += --with-curses-dir=$(ECPREFIX)
 CONFIGURE_OPTIONS += CFLAGS="$(CFLAGS)"
+CONFIGURE_OPTIONS += LDSHARED="$(CC) $(LD_BITS) -shared"
 
 include ../../../make-rules/shared-targets.mk
 
 # common targets
 
-build:		$(BUILD_32)
+build:		$(BUILD_32_and_64)
 
-install:	build $(INSTALL_32) $(RUBYGEMS_INSTALL_TARGET)
+install:	$(INSTALL_32_and_64)
 
 # one expected failure in TestHTTP::HTTPConnectionTest
-test:	$(TEST_32)
-
-# install rubygems using ruby installed in proto area
-$(RUBYGEMS_INSTALL_TARGET):	$(INSTALL_32)
-	( cd $(SOURCE_DIR_1); $(ENV) - \
-	"DESTDIR=$(PROTO_DIR)" \
-	LD_LIBRARY_PATH=$(PROTO_DIR)$(ECPREFIX)/lib \
-	GEM_HOME=$(PROTOGEMHOME) \
-	$(PROTO_DIR)$(ECPREFIX)/bin/ruby$(RUBY_VER) \
-	-I$(PROTO_DIR)$(ECPREFIX)/lib/ruby/$(RUBY_VER) \
-	-I$(PROTO_DIR)$(ECPREFIX)/lib/ruby/$(RUBY_VER)/$(MACH)-solaris$(SOLARIS_VERSION) \
-	setup.rb --vendor --destdir=$(PROTO_DIR) )
-	$(POST_RUBYGEMS_INSTALL_ACTION)
+#test:	$(TEST_32)
 
 BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
 
