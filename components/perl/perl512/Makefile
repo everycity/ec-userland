@@ -12,7 +12,7 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
-include ../../make-rules/shared-macros.mk
+include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		perl
 COMPONENT_VERSION=	5.12.4
@@ -23,9 +23,9 @@ COMPONENT_ARCHIVE_HASH=	sha1:b64a5d1fefe6db9c4144b4adba2c360afa9c29ea
 COMPONENT_ARCHIVE_URL=	http://www.cpan.org/src/5.0/$(COMPONENT_ARCHIVE)
 
 
-include ../../make-rules/prep.mk
-include ../../make-rules/justmake.mk
-include ../../make-rules/ips.mk
+include ../../../make-rules/prep.mk
+include ../../../make-rules/justmake.mk
+include ../../../make-rules/ips.mk
 
 #
 # The extra Configure parameters (cf_email, cf_by, myhostname) and
