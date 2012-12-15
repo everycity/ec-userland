@@ -20,7 +20,7 @@
 #
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
-include ../../make-rules/shared-macros.mk
+include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ruby
 COMPONENT_VERSION=	1.9.2-p180
@@ -29,9 +29,9 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:6a482bc07239b37bcadf68dda63c65d20dc19ebe
 COMPONENT_ARCHIVE_URL=	ftp://ftp.ruby-lang.org//pub/ruby/1.9/$(COMPONENT_ARCHIVE)
 
-include ../../make-rules/prep.mk
-include ../../make-rules/configure.mk
-include ../../make-rules/ips.mk
+include ../../../make-rules/prep.mk
+include ../../../make-rules/configure.mk
+include ../../../make-rules/ips.mk
 
 IPS_COMPONENT_VERSION= 1.9.2.180
 
@@ -41,8 +41,7 @@ IPS_COMPONENT_VERSION= 1.9.2.180
 
 build:		$(BUILD_32)
 
-include ../../make-rules/shared-targets.mk
+include ../../../make-rules/shared-targets.mk
 
 install:	$(INSTALL_32)
-
 
