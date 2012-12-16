@@ -50,6 +50,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+override COMPONENT_BUILD_GMAKE_ARGS=
+
 # IPS_COMPONENT_VERSION is by default set to $(COMPONENT_VERSION) but it is not
 # enough for us. We need to include the $(COMPONENT_SUBVERSION) somehow.
 # Because the IPS_COMPONENT_VERSION cannot contain letters we use mapping:
