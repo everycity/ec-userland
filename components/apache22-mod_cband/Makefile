@@ -25,9 +25,13 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-#CONFIGURE_OPTIONS += 
+LINKER=	gcc
 
-COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
+COMPONENT_PRE_CONFIGURE_ACTION.64 = ( sed -e 's/@DST_CLASS@/@DST_CLASS@ -Wl,-m64/' \
+	$(@D)/Makefile.in > Makefile.in.mod; $(MV) Makefile.in.mod $(@D)/Makefile.in );
+
+COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D)); \
+	$(COMPONENT_PRE_CONFIGURE_ACTION.$(BITS))
 
 CONFIGURE_OPTIONS.32    +=      --with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/apxs
 CONFIGURE_OPTIONS.64    +=      --with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/apxs
