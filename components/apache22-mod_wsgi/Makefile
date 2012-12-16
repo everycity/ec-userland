@@ -25,6 +25,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+LINKER=	gcc
+
 COMPONENT_BUILD_ENV+=	LTFLAGS="--tag=CC"
 
 $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
@@ -41,6 +43,8 @@ CONFIGURE_OPTIONS.64	+=	--with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/apx
 
 CONFIGURE_OPTIONS.32	+=	--with-python=$(ECPREFIX)/bin/python
 CONFIGURE_OPTIONS.64	+=	--with-python=$(ECPREFIX)/bin/$(MACH64)/python
+
+CONFIGURE_OPTIONS +=	LDFLAGS="$(LDFLAGS)"
 
 COMPONENT_POST_INSTALL_ACTION = ( strip \
                 $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/*so \
