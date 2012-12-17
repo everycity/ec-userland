@@ -30,7 +30,7 @@ LINKER=	gcc
 CONFIGURE_OPTIONS  = --prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS.32 = --sbin-path=$(ECPREFIX)/bin/nginx
 CONFIGURE_OPTIONS.64 = --sbin-path=$(ECPREFIX)/bin/$(MACH64)/nginx
-CONFIGURE_OPTIONS.64 = --with-ld-opt=$(LD_BITS)
+CONFIGURE_OPTIONS.64 += --with-ld-opt=$(LD_BITS)
 CONFIGURE_OPTIONS += --conf-path=$(ECPREFIX)/etc/nginx/nginx.conf
 CONFIGURE_OPTIONS += --http-log-path=$(ECPREFIX)/var/nginx/logs/access_log
 CONFIGURE_OPTIONS += --error-log-path=$(ECPREFIX)/var/nginx/logs/error_log
