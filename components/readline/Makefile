@@ -33,9 +33,12 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS  +=		--disable-static
-CONFIGURE_OPTIONS  +=		--enable-shared
-CONFIGURE_OPTIONS  +=		CFLAGS="$(CFLAGS)"
+LINKER=	gcc
+
+CONFIGURE_OPTIONS  +=	--disable-static
+CONFIGURE_OPTIONS  +=	--enable-shared
+CONFIGURE_OPTIONS  +=	CFLAGS="$(CFLAGS)"
+CONFIGURE_OPTIONS  +=	LDFLAGS="$(LDFLAGS)"
 
 # common targets
 build:		$(BUILD_32_and_64)
