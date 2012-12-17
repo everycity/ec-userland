@@ -17,12 +17,12 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=         smartos-ps
 COMPONENT_VERSION=      1.0
 
-include ../../make-rules/justmake.mk
-include ../../make-rules/ips.mk
-
 ifneq ($(SOLARIS_VERSION), 2.10)
 PUBLISH_STAMP=
 endif
+
+include ../../make-rules/justmake.mk
+include ../../make-rules/ips.mk
 
 PROTO_BIN_DIR=  $(PROTO_DIR)$(ECPREFIX)/bin
 
