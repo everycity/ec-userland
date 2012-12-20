@@ -1,0 +1,20 @@
+--- rabbitmq-server-3.0.1/Makefile.~1~	2012-12-20 17:24:57.926590842 +0000
++++ rabbitmq-server-3.0.1/Makefile	2012-12-20 17:25:32.661113069 +0000
+@@ -292,7 +292,7 @@
+ %.gz: %.xml $(DOCS_DIR)/examples-to-end.xsl
+ 	xmlto --version | grep -E '^xmlto version 0\.0\.([0-9]|1[1-8])$$' >/dev/null || opt='--stringparam man.indent.verbatims=0' ; \
+ 	    xsltproc --novalid $(DOCS_DIR)/examples-to-end.xsl $< > $<.tmp && \
+-	    xmlto -o $(DOCS_DIR) $$opt man $<.tmp && \
++	    xmlto --skip-validation -o $(DOCS_DIR) $$opt man $<.tmp && \
+ 	    gzip -f $(DOCS_DIR)/`basename $< .xml`
+ 	rm -f $<.tmp
+ 
+@@ -311,7 +311,7 @@
+ # the file to make internal links.
+ %.man.xml: %.xml $(DOCS_DIR)/html-to-website-xml.xsl
+ 	cp $< `basename $< .xml`.xml && \
+-		xmlto xhtml-nochunks `basename $< .xml`.xml ; rm `basename $< .xml`.xml
++		xmlto --skip-validation xhtml-nochunks `basename $< .xml`.xml ; rm `basename $< .xml`.xml
+ 	cat `basename $< .xml`.html | \
+ 	    xsltproc --novalid $(DOCS_DIR)/remove-namespaces.xsl - | \
+ 		xsltproc --novalid --stringparam original `basename $<` $(DOCS_DIR)/html-to-website-xml.xsl - | \

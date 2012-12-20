@@ -1,0 +1,115 @@
+#!/usr/xpg4/bin/sh
+
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012 EveryCity Ltd. All rights reserved.
+#
+
+. /lib/svc/share/smf_include.sh
+
+# Set a reasonable ulimit
+ulimit -n 65535
+
+# Allow more than 256 file descriptors on Solaris 10 32bit
+# See the following URL for a full description:
+# http://developers.sun.com/solaris/articles/stdio_256.html
+export LD_PRELOAD_32=/usr/lib/extendedFILE.so.1
+
+# Defaults, overidable via SMF
+allow_input=""
+config_file="/ec/etc/rabbitmq/rabbitmq-env.conf"
+enabled_plugins_file=""
+logs=""
+log_base="/ec/var/log/rabbitmq"
+mnesia_base="/ec/var/rabbitmq"
+mnesia_dir=""
+nodename=""
+node_ip_address=""
+node_only=""
+node_port=""
+pid_file="/ec/var/run/rabbitmq.pid"
+plugins_dir=""
+plugins_expand_dir=""
+sasl_logs=""
+server_erl_args=""
+server_start_args=""
+
+getprop() {
+    PROPVAL=""
+    svcprop -q -p $1 ${SMF_FMRI}
+    if [ $? -eq 0 ] ; then
+        PROPVAL=`svccfg -s ${SMF_FMRI} listprop $1 | \
+                /usr/bin/nawk '{ for (i = 3; i <= NF; i++) printf $i" " }' | \
+                /usr/bin/nawk '{ sub(/^\"/,""); sub(/\"[ \t]*$/,""); print }' | \
+                /usr/bin/sed 's/[ ]*$//g'`
+        if [ "${PROPVAL}" = "\"\"" ] ; then
+            PROPVAL=""
+        fi
+        return
+    fi
+    return
+}
+
+varprop() {
+  getprop rabbitmq/$1
+  if [ "${PROPVAL}" != "" ] ; then
+    propname=RABBITMQ_`echo $1 | /usr/bin/tr '[:lower:]' "[:upper:]"`
+    export ${propname}="${PROPVAL}"
+  fi
+}
+
+for i in allow_input config_file enabled_plugins_file logs log_base mnesia_base mnesia_dir nodename node_ip_address node_only node_port pid_file plugins_dir plugins_expand_dir sasl_logs server_erl_args server_start_args ; do
+  varprop $i
+done
+
+
+getprop rabbitmq/enable_64bit
+if [ "${PROPVAL}" != "" ] ; then
+  case ${PROPVAL} in
+  true|1)
+    # Check if the system architecture supports 64-bit applications
+    PLATFORM=`isainfo -b`
+    if [ "${PLATFORM}" != "64" ]; then
+       echo "This system is not capable of supporting 64-bit applications."
+       echo "Set \"enable_64bit\" property value to \"false\" to start the 32-bit server."
+       exit $SMF_EXIT_ERR_CONFIG
+    fi
+
+    # 64 bit
+    export PATH="/ec/lib/amd64/erlang/bin:${PATH}"
+    ;;
+  false|0)
+    # 32 bit
+    ;;
+  *)
+    # Invalid value for "bitness"
+    echo "\"bitness\" property value is invalid. Starting the server in 32-bit mode"
+    ;;
+  esac
+fi
+
+case "$1" in
+start)
+  /ec/bin/rabbitmq-server -detached
+  if [ $? -ne 0 ]; then
+    echo "Server failed to start. Check the tomcat error log for more information, if any."
+    exit $SMF_EXIT_ERR_FATAL
+  fi
+  ;;
+*)
+  echo "Usage: $0 {start}"
+  exit $SMF_EXIT_ERR_CONFIG
+  ;;
+esac
+
+exit $SMF_EXIT_OK
+
