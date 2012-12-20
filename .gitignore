@@ -9,8 +9,10 @@ components/geoip-db-city/GeoLiteCity-20111006.dat
 components/geoip-db-country/GeoIP-20111006.dat
 components/mc/mc-4.7.99.2-c819eb1fa3e179f237e9c30bb1e738c123da4e81.tar.gz
 components/mc/mc-4.7.99.2
+components/openssl/opensslconf.h
 components/ruby/stomp/stomp-1.1.8-v1.1.8.tar.gz
 components/ruby/stomp/stomp-1.1.8
+components/subversion/mkmf.log
 components/vsftpd/dirent-fixed.h
 i386
 tools/time-*o
