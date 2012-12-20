@@ -12,9 +12,6 @@
 # Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
 #
 
-# Transforms
-<include ec-drop-common>
-
 set name=pkg.fmri value=pkg:/runtime/ruby-18@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="Ruby & RubyGems"
 set name=info.upstream_url value=http://www.ruby-lang.org/
