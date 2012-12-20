@@ -1,0 +1,21 @@
+--- openssl-1.0.1c/Makefile.shared.~1~	2010-08-21 11:37:17.000000000 +0000
++++ openssl-1.0.1c/Makefile.shared	2012-12-20 13:27:49.076634153 +0000
+@@ -389,12 +389,17 @@
+ 		SHAREDFLAGS="$(CFLAGS) $(SHARED_LDFLAGS) -h $$SHLIB$$SHLIB_SOVER$$SHLIB_SUFFIX -Wl,-Bsymbolic"; \
+ 	fi; \
+ 	$(LINK_SO_A)
++# Make sure the apps have non-executable stacks and data (x86/x64 only).
+ link_app.solaris:
+ 	@ if $(DETECT_GNU_LD); then \
+ 		$(DO_GNU_APP); \
+ 	else \
+-		LDFLAGS="$(CFLAGS) -R $(LIBRPATH)"; \
++		LDFLAGS="$(CFLAGS)"; \
+ 	fi; \
++	if expr $(PLATFORM) : '.*x86.*' > /dev/null; then \
++		LDFLAGS="$${LDFLAGS} -M/usr/lib/ld/map.noexdata"; \
++	fi; \
++	LDFLAGS="$${LDFLAGS} -M/usr/lib/ld/map.noexstk -M/usr/lib/ld/map.pagealign"; \
+ 	$(LINK_APP)
+ 
+ # OpenServer 5 native compilers used

@@ -15,22 +15,27 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		openssl
-COMPONENT_VERSION=	1.0.0j
+COMPONENT_VERSION=	1.0.1c
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:31e6e8bbf1de2f59fbd53382c34214887ccc1318
+COMPONENT_ARCHIVE_HASH=	sha256:2a9eb3cd4e8b114eb9179c0d3884d61658e7d8e8bf4984798a5f5bd48e325ebe
 COMPONENT_ARCHIVE_URL=	http://openssl.org/source/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
-include ../../make-rules/justmake.mk
+include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-IPS_COMPONENT_VERSION=  1.0.0.10
+IPS_COMPONENT_VERSION=  1.0.1.3
 
 CLEAN_PATHS +=	opensslconf.h
 
+# test build stuff isn't thread safe
+override COMPONENT_BUILD_GMAKE_ARGS=
+
+# OpenSSL does not use autoconf but its own configure system.
+CONFIGURE_SCRIPT = $(SOURCE_DIR)/Configure
+
 CFLAGS = -DNO_WINDOWS_BRAINDEATH
-CFLAGS64 = $(CFLAGS)
 
 GENERIC_CONFIGURE_OPTIONS = \
         $(CFLAGS) \
@@ -55,22 +60,19 @@ GENERIC_CONFIGURE_OPTIONS = \
         threads \
         shared
 
-CONFIGURE_OPTIONS64_i386 = solaris64-x86_64-gcc
-CONFIGURE_OPTIONS64_sparc = solaris64-sparcv9-gcc
-CONFIGURE_OPTIONS64 = $(GENERIC_CONFIGURE_OPTIONS) \
-                $(CONFIGURE_OPTIONS64_$(MACH))
-
-CONFIGURE_OPTIONS_i386 = solaris-x86-gcc 386
-CONFIGURE_OPTIONS_sparc = solaris-sparcv8-gcc
+CONFIGURE_OPTIONS_i386_32 = solaris-x86-gcc 386
+CONFIGURE_OPTIONS_i386_64 = solaris64-x86_64-gcc
+CONFIGURE_OPTIONS_sparc_32 = solaris-sparcv8-gcc
+CONFIGURE_OPTIONS_sparc_64 = solaris64-sparcv9-gcc
 CONFIGURE_OPTIONS = $(GENERIC_CONFIGURE_OPTIONS) \
-                $(CONFIGURE_OPTIONS_$(MACH))
+	$(CONFIGURE_OPTIONS_$(MACH)_$(BITS))
 
 COMPONENT_BUILD_TARGETS+= LDFLAGS="$(LDFLAGS)"
 
-COMPONENT_PRE_BUILD_ACTION= \
-	(cd $(@D) ; \
-	    if [ $(BITS) = 32 ]; then ./Configure $(CONFIGURE_OPTIONS); \
-            else ./Configure $(CONFIGURE_OPTIONS64); fi )
+COMPONENT_PRE_CONFIGURE_ACTION = \
+	( $(CLONEY) $(SOURCE_DIR) $(BUILD_DIR)/$(MACH$(BITS)); )
+
+COMPONENT_POST_CONFIGURE_ACTION = ( cd $(@D); $(MAKE) depend; )
 
 build:		$(BUILD_32_and_64)
 
@@ -104,10 +106,7 @@ install:	build $(INSTALL_32)
 	/usr/bin/cat $(BUILD_DIR_32)/include/openssl/opensslconf.h >> $(COMPONENT_DIR)/opensslconf.h
 	/usr/bin/echo "\n#endif /* EC */" >> $(COMPONENT_DIR)/opensslconf.h
 
-# build does this always
-test:  build
-	@cd $(BUILD_DIR_32); $(MAKE) check
-	@cd $(BUILD_DIR_64); $(MAKE) check
+test:  $(NO_TESTS)
 
 BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
 
