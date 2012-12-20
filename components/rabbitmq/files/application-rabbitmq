@@ -36,7 +36,6 @@ nodename=""
 node_ip_address=""
 node_only=""
 node_port=""
-pid_file="/ec/var/run/rabbitmq.pid"
 plugins_dir=""
 plugins_expand_dir=""
 sasl_logs=""
@@ -67,7 +66,7 @@ varprop() {
   fi
 }
 
-for i in allow_input config_file enabled_plugins_file logs log_base mnesia_base mnesia_dir nodename node_ip_address node_only node_port pid_file plugins_dir plugins_expand_dir sasl_logs server_erl_args server_start_args ; do
+for i in allow_input config_file enabled_plugins_file logs log_base mnesia_base mnesia_dir nodename node_ip_address node_only node_port plugins_dir plugins_expand_dir sasl_logs server_erl_args server_start_args ; do
   varprop $i
 done
 
@@ -102,7 +101,7 @@ case "$1" in
 start)
   /ec/bin/rabbitmq-server -detached
   if [ $? -ne 0 ]; then
-    echo "Server failed to start. Check the tomcat error log for more information, if any."
+    echo "Server failed to start."
     exit $SMF_EXIT_ERR_FATAL
   fi
   ;;
