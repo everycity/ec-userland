@@ -21,12 +21,11 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:1df36cee76a9c4c7438f35ca3599a7bdd68a09b5
 COMPONENT_ARCHIVE_URL=	https://fedorahosted.org/releases/l/o/logrotate/$(COMPONENT_ARCHIVE)
 
-
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-#CONFIGURE_OPTIONS += 
+# PATCHES HAVE /ec HARDCODED
 
 COMPONENT_BUILD_ENV += CC=$(CC)
 COMPONENT_INSTALL_ENV += PREFIX=$(PROTO_DIR)
