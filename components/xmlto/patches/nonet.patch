@@ -1,0 +1,24 @@
+--- xmlto-0.0.25/xmlto.in.orig	2012-12-20 17:45:31.575335923 +0000
++++ xmlto-0.0.25/xmlto.in	2012-12-20 17:45:50.686126559 +0000
+@@ -209,7 +209,7 @@
+ export VERBOSE
+ 
+ # Disable network entities
+-XSLTOPTS="$XSLTOPTS --nonet"
++XSLTOPTS="$XSLTOPTS "
+ 
+ # The names parameter for the XSLT stylesheet
+ XSLTPARAMS=""
+@@ -532,10 +532,10 @@
+ 
+     [ "$VERBOSE" -ge 1 ] && \
+     echo >&2 \
+-	"\"${XMLLINT_PATH}\" --noout --nonet --xinclude --postvalid --noent ${SEARCHPATH_FORMATTED} \"${INPUT_FILE}\""
++	"\"${XMLLINT_PATH}\" --noout  --xinclude --postvalid --noent ${SEARCHPATH_FORMATTED} \"${INPUT_FILE}\""
+     # eval is for SEARCHPATH_FORMATTED's proper expansion
+     # make sure expansions are protected from eval
+-    eval "\"${XMLLINT_PATH}\" --noout --nonet --xinclude --postvalid --noent ${SEARCHPATH_FORMATTED} \"${INPUT_FILE}\"" 2>"${VALIDATION}"
++    eval "\"${XMLLINT_PATH}\" --noout  --xinclude --postvalid --noent ${SEARCHPATH_FORMATTED} \"${INPUT_FILE}\"" 2>"${VALIDATION}"
+     xmllint_status=$?
+ 
+     if [ $xmllint_status -ne 0 ]
