@@ -1,11 +1,11 @@
---- nginx-1.0.15/auto/install.~1~	2012-02-05 20:02:59.000000000 +0000
-+++ nginx-1.0.15/auto/install	2012-04-21 23:03:18.716321529 +0000
+--- nginx-1.2.6/auto/install.orig	2012-12-20 15:15:50.105449161 +0000
++++ nginx-1.2.6/auto/install	2012-12-20 15:17:38.253030245 +0000
 @@ -8,7 +8,7 @@
      cat << END                                                >> $NGX_MAKEFILE
  
  install_perl_modules:
--	cd $NGX_OBJS/src/http/modules/perl && make install
-+	cd $NGX_OBJS/src/http/modules/perl && make pure_install
+-	cd $NGX_OBJS/src/http/modules/perl && \$(MAKE) install
++	cd $NGX_OBJS/src/http/modules/perl && \$(MAKE) pure_install
  END
  
      NGX_INSTALL_PERL_MODULES=install_perl_modules

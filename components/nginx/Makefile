@@ -15,10 +15,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		nginx
-COMPONENT_VERSION=	1.0.15
+COMPONENT_VERSION=	1.2.6
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:1daf3950623c90b084e7eceb104071596060aca5c721bf890549fc2990b1ebe6
+COMPONENT_ARCHIVE_HASH=	sha256:0510af71adac4b90484ac8caf3b8bd519a0f7126250c2799554d7a751a2db388
 COMPONENT_ARCHIVE_URL=	http://nginx.org/download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -39,6 +39,8 @@ CONFIGURE_OPTIONS += --lock-path=$(ECPREFIX)/var/run/nginx
 CONFIGURE_OPTIONS += --user=webservd
 CONFIGURE_OPTIONS += --group=webservd
 CONFIGURE_OPTIONS += --with-http_ssl_module
+CONFIGURE_OPTIONS += --with-http_geoip_module
+CONFIGURE_OPTIONS += --with-http_realip_module
 CONFIGURE_OPTIONS += --with-http_secure_link_module
 CONFIGURE_OPTIONS += --with-http_stub_status_module
 CONFIGURE_OPTIONS += --with-ipv6
