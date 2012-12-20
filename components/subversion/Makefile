@@ -19,20 +19,22 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		subversion
-COMPONENT_VERSION=	1.6.16
+COMPONENT_VERSION=	1.7.7
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:e957da04252d4d7e0fff72fdcf72c715bfbaa393
-COMPONENT_ARCHIVE_URL=	http://subversion.tigris.org/downloads/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
+COMPONENT_ARCHIVE_HASH=	sha256:fc85a9341d1dc275b279e470776014b02328a028e48a7ac7868ac07d4a40a321
+COMPONENT_ARCHIVE_URL=	ftp://ftp.mirrorservice.org/sites/ftp.apache.org/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+LINKER=	gcc
 
 LDFLAGS+=		-lintl -liconv
 
@@ -41,14 +43,15 @@ CONFIGURE_OPTIONS+=	--with-ssl=openssl
 CONFIGURE_OPTIONS+=	--with-neon=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--disable-mod-activation
 CONFIGURE_OPTIONS.32+=	--with-apr=$(ECPREFIX)/bin/apr-1-config
+CONFIGURE_OPTIONS.64+=	--with-apr=$(ECPREFIX)/bin/$(MACH64)/apr-1-config
 CONFIGURE_OPTIONS.32+=	--with-apr-util=$(ECPREFIX)/bin/apu-1-config
+CONFIGURE_OPTIONS.64+=	--with-apr-util=$(ECPREFIX)/bin/$(MACH64)/apu-1-config
 CONFIGURE_OPTIONS.32+=	--with-swig=$(ECPREFIX)/bin/swig
 CONFIGURE_OPTIONS.64+=	--with-swig=$(ECPREFIX)/bin/$(MACH64)/swig
-CONFIGURE_OPTIONS.64+=	--with-apr=$(ECPREFIX)/bin/$(MACH64)/apr-1-config
-CONFIGURE_OPTIONS.64+=	--with-apr-util=$(ECPREFIX)/bin/$(MACH64)/apu-1-config
 CONFIGURE_OPTIONS.32+=	--with-apxs=$(ECPREFIX)/bin/apxs
 CONFIGURE_OPTIONS.64+=	--with-apxs=$(ECPREFIX)/bin/$(MACH64)/apxs
 CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))
+CONFIGURE_OPTIONS+=	JAVA_HOME="$(ECPREFIX)/java"
 
 COMPONENT_INSTALL_TARGETS.32+=	install-swig-py install-swig-rb
 COMPONENT_INSTALL_TARGETS.64+=	install-swig-py

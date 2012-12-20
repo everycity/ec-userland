@@ -29,7 +29,9 @@ dir path=$(ECPREFIX)/lib/apache/2.2/modules
 dir path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
 file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_authz_svn.so
 file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_dav_svn.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_dontdothat.so
 file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_authz_svn.so
 file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_dav_svn.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_dontdothat.so
 file subversion.conf path=$(ECPREFIX)/etc/apache/2.2/mods-available/subversion.conf preserve=true
 file subversion.load path=$(ECPREFIX)/etc/apache/2.2/mods-available/subversion.load preserve=true
