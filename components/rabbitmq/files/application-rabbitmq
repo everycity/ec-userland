@@ -89,6 +89,7 @@ if [ "${PROPVAL}" != "" ] ; then
     ;;
   false|0)
     # 32 bit
+    export PATH="/ec/lib/erlang/bin:${PATH}"
     ;;
   *)
     # Invalid value for "bitness"
