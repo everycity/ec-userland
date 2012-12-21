@@ -19,6 +19,7 @@
 <transform depend pkg.debug.depend.file=sh -> drop>
 <transform depend pkg.debug.depend.file=libadm\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libc\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libcontract.so.* -> drop>
 <transform depend pkg.debug.depend.file=libcrypt\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libcrypt_d\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libcrypto\.so.* -> drop>
@@ -48,10 +49,10 @@
 <transform depend pkg.debug.depend.file=libsecdb\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libsendfile\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libsocket\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libtermcap\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libthread\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libtsol\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libumem\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libuuid\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libwrap\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libxnet\.so.* -> drop>
-<transform depend pkg.debug.depend.file=libcontract.so.* -> drop>

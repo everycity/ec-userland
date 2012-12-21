@@ -42,7 +42,7 @@ file path=$(ECPREFIX)/include/readline/rlstdc.h
 file path=$(ECPREFIX)/include/readline/rltypedefs.h
 file path=$(ECPREFIX)/include/readline/tilde.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libhistory.so.6
-file path=$(ECPREFIX)/lib/$(MACH64)/libreadline.so.6 pkg.depend.bypass-generate=.*
+file path=$(ECPREFIX)/lib/$(MACH64)/libreadline.so.6
 file path=$(ECPREFIX)/lib/libhistory.so.6
 file path=$(ECPREFIX)/lib/libreadline.so.6
 file path=$(ECPREFIX)/share/info/history.info
