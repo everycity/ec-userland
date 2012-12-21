@@ -518,18 +518,17 @@ CXXFLAGS +=	$(CC_BITS)
 #
 
 # set the bittedness that we want to link
-ifeq ($(BITS),64)
-css.LD_BITS =  -$(BITS)
-endif
-gcc.LD_BITS =  -m$(BITS)
-LD_BITS =      $($(LINKER).LD_BITS)
+ccs.ld.64 = -64
+gcc.ld.32 = -m32
+gcc.ld.64 = -m64
+LD_BITS =      $($(LINKER).ld.$(BITS))
 LDFLAGS =      $(LD_BITS)
 
 ifndef CONFIGURE_PREFIX
 CONFIGURE_PREFIX=	$(ECPREFIX)
 endif
 
-ifeq (CONFIGURE_PREFIX, ECPREFIX)
+ifeq ($(CONFIGURE_PREFIX), $(ECPREFIX))
 	CFLAGS +=	-I$(ECPREFIX)/include
 	LDFLAGS.32 =	-L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
 	LDFLAGS.64 =	-L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)
