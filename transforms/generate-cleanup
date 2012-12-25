@@ -40,7 +40,12 @@
 
 #<transform set name=pkg.fmri -> edit value "@[^ \t\n\r\f\v]*" "@$!(IPS_COMPONENT_VERSION),$!(BUILD_VERSION)">
 
+<transform dir file link hardlink -> edit path "^ec/etc" "$!(CONFIGURE_SYSCONFDIR)">
+<transform dir file link hardlink -> edit path "^etc" "$!(CONFIGURE_SYSCONFDIR)">
+<transform dir file link hardlink -> edit path "^ec/var" "$!(CONFIGURE_LOCALSTATEDIR)">
+<transform dir file link hardlink -> edit path "^var" "$!(CONFIGURE_LOCALSTATEDIR)">
 <transform dir file link hardlink -> edit path "^ec" "$!(ECPREFIX)">
+<transform dir file link hardlink -> edit path "^usr" "$!(ECPREFIX)">
 
 <transform dir file link hardlink -> \
 	edit path "/(sparcv9|amd64)$" "/$!(MACH64)">
