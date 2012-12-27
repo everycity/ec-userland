@@ -4,7 +4,7 @@
  [ -f /usr/bin/cpp ] && CPP=/usr/bin/cpp
  [ -f /xenix ] && CPP="${CC} -E"
  [ -f /lynx.os ] && CPP="${CC} -E"
-+[ -f /ec/bin/gcc ] && CPP="/ec/bin/gcc -E"
++CPP="gcc -E"
  
  echo "#include <stdio.h>" > conftest.c
  $CPP conftest.c >/dev/null 2>/dev/null || CPP="${CC} -E"
