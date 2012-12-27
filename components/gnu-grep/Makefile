@@ -1,54 +1,38 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
-#
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011,2012 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		grep
-COMPONENT_VERSION=	2.7
+COMPONENT_VERSION=	2.14
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:8a5a4a14129d8f3f663b17e68e438881f5b95ac3
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
+COMPONENT_ARCHIVE_HASH=	sha256:e70e801d4fbb16e761654a58ae48bf5020621c95c8e35bd864742577685872e1
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-# We need to be able to return from void functions
-#CFLAGS	+=			$(studio_FEATURES_EXTENSIONS)
+LDFLAGS+=	-liconv
 
-LDFLAGS += -liconv
+CONFIGURE_OPTIONS+=	--program-prefix=g
 
-CONFIGURE_OPTIONS  +=		--program-prefix=g
-#CONFIGURE_OPTIONS  +=		--with-libiconv-prefix=$(ECPREFIX)
+PROGS=		egrep fgrep grep
+GNUPROGS=	$(PROGS)
+GNUMAN1=	$(PROGS:%=%.1)
+SFWPROGS=	$(PROGS:%=g%)
 
-PROGS =		egrep fgrep grep
-GNUPROGS = $(PROGS)
-GNUMAN1=   $(PROGS:%=%.1)
-SFWPROGS = $(PROGS:%=g%)
-
-include ../../make-rules/shared-targets.mk
-
-# common targets
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
@@ -58,6 +42,3 @@ test32:		$(BUILD_32)
 
 test:	test32
 
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
