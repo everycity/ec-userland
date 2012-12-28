@@ -28,7 +28,7 @@ PATH=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 
 # Default to looking for source archives on the internal mirror before we
 # hammer on the external repositories.
-export DOWNLOAD_SEARCH_PATH ?=	http://dlc-int.openindiana.org/s10-userland/source-archives
+export DOWNLOAD_SEARCH_PATH ?=	http://dlc.everycity.com/ec-userland/source-archives/
 
 # Calculate the workspace top with some make shiznitz, and tidy it up with realpath
 export WS_TOP ?=	$(realpath $(dir $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST)))..)
