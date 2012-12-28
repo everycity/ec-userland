@@ -35,8 +35,10 @@ CONFIGURE_OPTIONS+=	--with-pic
 CONFIGURE_OPTIONS+=	--enable-shared
 CONFIGURE_OPTIONS+=	--disable-static
 CONFIGURE_OPTIONS+=	--with-libidn=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-ca-bundle=$(ECPREFIX)/etc/openssl/cabundle.pem
+CONFIGURE_OPTIONS+=	--with-ca-bundle=$(CONFIGURE_SYSCONFDIR)/openssl/cabundle.pem
 CONFIGURE_OPTIONS+=	--without-librtmp
+CONFIGURE_OPTIONS+=	--disable-ldap
+CONFIGURE_OPTIONS+=	--disable-ldaps
 
 COMPONENT_POST_INSTALL_ACTION.32 =	( perl -pi -e \
 	's/CURLLIBDIR=.*/CURLLIBDIR="-L\/ec\/lib -R\/ec\/lib "/' \
