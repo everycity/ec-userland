@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/python/mysqldb@$(IPS_COMPONENT_VERSION),$(B
 set name=pkg.summary value="MySQLdb is an interface to the popular MySQL database server for Python."
 set name=info.upstream_url value="http://pypi.python.org/pypi/MySQL-python"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 #license .license license="GPL"
 

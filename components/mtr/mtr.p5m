@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/network/mtr@$(IPS_COMPONENT_VERSION),$(BUILD_VERSIO
 set name=pkg.summary value="MTR Traceroute Utility"
 set name=info.upstream_url value="http://www.bitwizard.nl/mtr/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license mtr.license license="GPLv2"
 

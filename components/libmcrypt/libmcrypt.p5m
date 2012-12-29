@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/libmcrypt@$(IPS_COMPONENT_VERSION),$(BUILD_
 set name=pkg.summary value="Libmcrypt Encryption Algorithms Library"
 set name=info.upstream_url value="http://mcrypt.sourceforge.net/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libmcrypt.license license="LGPLv2.1"
 

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/libmpeg2@$(IPS_COMPONENT_VERSION),$(BUILD_V
 set name=pkg.summary value="A free MPEG-2 video stream decoder"
 set name=info.upstream_url value="http://libmpeg2.sourceforge.net/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libmpeg2.license license="GPLv2"
 

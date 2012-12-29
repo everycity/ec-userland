@@ -28,7 +28,6 @@ set name=pkg.fmri value=pkg:/audio/lame@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION
 set name=pkg.summary value="LAME MP3 Encoder"
 set name=info.upstream_url value="http://lame.sourceforge.net/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license lame.license license="LGPL"
 

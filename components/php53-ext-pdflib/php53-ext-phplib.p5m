@@ -22,7 +22,6 @@ set name=pkg.fmri value=pkg:/web/php-53/extension/php-pdflib@$(IPS_COMPONENT_VER
 set name=pkg.summary value="PHP extension for creating PDFs on the fly with the PDFlib library"
 set name=info.upstream_url value="http://pecl.php.net/package/pdflib"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license php53-ext-phplib.license license="PHP"
 

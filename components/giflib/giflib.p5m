@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/giflib@$(IPS_COMPONENT_VERSION),$(BUILD_VER
 set name=pkg.summary value="giflib is a library for reading and writing gif images."
 set name=info.upstream_url value="http://sourceforge.net/projects/giflib/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license giflib.license license="BSD Style"
 

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/shell/mbuffer@$(IPS_COMPONENT_VERSION),$(BUILD_VERS
 set name=pkg.summary value="mbuffer - tool for buffering data streams"
 set name=info.upstream_url value="http://www.maier-komor.de/mbuffer.html"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license mbuffer.license license="GPLv3"
 

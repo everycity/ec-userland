@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/developer/build/autoconf/xorg-macros@$(IPS_COMPONEN
 set name=pkg.summary value="GNU autoconf macros for X.Org software packages"
 set name=info.upstream_url value="http://cgit.freedesktop.org/xorg/util/macros/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license xorg-macros.license license="xorg-macros"
 

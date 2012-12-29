@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/web/server/apache-22/module/apache-jk@$(IPS_COMPONE
 set name=pkg.summary value="mod_jk is the connector used to connect to the Tomcat servlet container with webservers"
 set name=info.upstream_url value="http://tomcat.apache.org/connectors-doc/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license mod_jk.license license="Apache"
 

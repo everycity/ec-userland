@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/web/php-52/extension/php-memcached@$(IPS_COMPONENT_
 set name=pkg.summary value="PHP extension for interfacing with memcached via libmemcached library"
 set name=info.upstream_url value="http://pecl.php.net/package/memcached"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license php52-ext-memcached.license license="PHP3.01"
 

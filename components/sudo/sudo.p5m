@@ -31,7 +31,6 @@ set name=pkg.fmri value=pkg:/security/sudo@$(IPS_COMPONENT_VERSION),$(BUILD_VERS
 set name=pkg.summary value="Sudo security authentication utility"
 set name=info.upstream_url value="http://www.sudo.ws"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license sudo.license license="SUDO"
 

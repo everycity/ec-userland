@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/perl-5/Tk@$(IPS_COMPONENT_VERSION),$(BUILD_
 set name=pkg.summary value="Tk Graphical User Interface Toolkit Perl Module"
 set name=info.upstream_url value="http://search.cpan.org/~srezic/Tk-804.030/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license p5-Tk.license license="pTk"
 

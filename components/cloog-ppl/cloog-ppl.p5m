@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/cloog-ppl@$(IPS_COMPONENT_VERSION),$(BUILD_
 set name=pkg.summary value="CLooG-PPL library"
 set name=info.upstream_url value="http://www.cloog.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license cloog-ppl.license license="GPLv2"
 

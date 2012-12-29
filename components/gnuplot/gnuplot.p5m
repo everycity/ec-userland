@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/image/gnuplot@$(IPS_COMPONENT_VERSION),$(BUILD_VERS
 set name=pkg.summary value="Gnuplot is a portable command-line driven graphing utility"
 set name=info.upstream_url value="http://www.gnuplot.info/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license Copyright license="4 clause BSD"
 

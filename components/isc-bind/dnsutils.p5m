@@ -18,6 +18,5 @@
 set name=pkg.fmri value=pkg:/network/dnsutils@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="DNS Utilities (dig, host, nslookup)"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 depend fmri=pkg:/network/bind-98/client type=require

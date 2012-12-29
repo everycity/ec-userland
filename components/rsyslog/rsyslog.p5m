@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/service/rsyslog@$(IPS_COMPONENT_VERSION),$(BUILD_VE
 set name=pkg.summary value="An enhanced syslog"
 set name=info.upstream_url value="http://www.rsyslog.com/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license rsyslog.license license="GPLv3 LGPLv3 ASL20"
 

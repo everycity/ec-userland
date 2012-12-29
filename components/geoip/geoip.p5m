@@ -26,7 +26,6 @@ set name=pkg.fmri value=pkg:/database/geoip@$(IPS_COMPONENT_VERSION),$(BUILD_VER
 set name=pkg.summary value="GeoIP IP address lookup database"
 set name=info.upstream_url value="http://www.maxmind.com/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license geoip.license license="GPL LGPLv2.1"
 

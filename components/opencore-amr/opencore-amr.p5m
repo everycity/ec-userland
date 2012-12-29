@@ -29,7 +29,6 @@ set name=pkg.fmri value=pkg:/library/opencore-amr@$(IPS_COMPONENT_VERSION),$(BUI
 set name=pkg.summary value="Opencore's Adaptive Multi-Rate"
 set name=info.upstream_url value="http://opencore-amr.sf.net"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license opencore-amr.license license="Apache V2"
 

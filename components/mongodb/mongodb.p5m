@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/database/mongodb@$(IPS_COMPONENT_VERSION),$(BUILD_V
 set name=pkg.summary value="An object/document-oriented database"
 set name=info.upstream_url value="http://www.mongodb.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license APACHE-2.0.txt license="APLv2"
 license GNU-AGPL-3.0.txt license="AGPLv3"

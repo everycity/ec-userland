@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/network/ftp/proftpd@$(IPS_COMPONENT_VERSION),$(BUIL
 set name=pkg.summary value="Highly configurable FTP server software"
 set name=info.upstream_url value="http://proftpd.open-source-solution.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license COPYING license="GPLv2"
 

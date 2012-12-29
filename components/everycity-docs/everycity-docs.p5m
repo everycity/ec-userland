@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/documentation/everycity/solaris-quickstart@1.0,$(BU
 set name=pkg.summary value="EveryCity Quickstart Documentation"
 #set name=info.upstream_url value=""
 #set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license everycity.license license="CDDL"
 

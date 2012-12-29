@@ -17,7 +17,6 @@ set name=pkg.summary value="Gifsicle is a powerful, simple command line tool for
 #set name=info.classification value="org.opensolaris.category.2008:
 set name=info.upstream_url value="http://www.lcdf.org/gifsicle/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license gifsicle.license license="GPLv2"
 

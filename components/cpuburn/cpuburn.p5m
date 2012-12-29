@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/benchmark/cpuburn@$(IPS_COMPONENT_VERSION),$(BUILD_
 set name=pkg.summary value="A collection of programs to put heavy load on CPU"
 set name=info.upstream_url value="http://unknown"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license cpuburn.license license="cpuburn"
 

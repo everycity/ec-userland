@@ -28,7 +28,6 @@ set name=pkg.summary value="GNU grep utilities"
 set name=pkg.description value="The grep command searches one or more input files for lines containing a match to a specified pattern."
 set name=info.upstream_url value="http://gnu.org/software/grep/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license gnu-grep.license license="GPLv3"
 

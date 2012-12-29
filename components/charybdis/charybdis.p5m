@@ -25,7 +25,6 @@ set name=pkg.fmri value=pkg:/irc/server/charybdis@$(IPS_COMPONENT_VERSION),$(BUI
 set name=pkg.summary value="A powerful IRC daemon, based on ircd-ratbox."
 set name=info.upstream_url value="http://www.atheme.org/project/charybdis"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license charybdis.license license="GPLv2"
 

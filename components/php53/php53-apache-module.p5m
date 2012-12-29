@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/web/server/apache-22/module/apache-php53@$(IPS_COMP
 set name=pkg.summary value="PHP Server 5.3"
 set name=info.upstream_url value="http://www.php.net"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license php53.license license="PHP53 License"
 

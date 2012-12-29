@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/web/php-53/extension/php-xmlrpc@$(IPS_COMPONENT_VER
 set name=pkg.summary value="PHP Server 5.3 (xmlrpc extension)"
 set name=info.upstream_url value="http://www.php.net"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license php53.license license="PHP53 License"
 

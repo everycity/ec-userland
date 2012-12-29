@@ -25,7 +25,6 @@ set name=pkg.fmri value=pkg:/library/python-2/pyopenssl-26@$(IPS_COMPONENT_VERSI
 set name=pkg.summary value="Python interface to the OpenSSL library"
 set name=info.upstream_url value="http://pyopenssl.sourceforge.net"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license pyopenssl.copyright license='LGPLv2.1'
 

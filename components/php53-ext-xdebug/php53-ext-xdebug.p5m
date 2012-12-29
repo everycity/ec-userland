@@ -22,7 +22,6 @@ set name=pkg.fmri value=pkg:/web/php-53/extension/php-xdebug@$(IPS_COMPONENT_VER
 set name=pkg.summary value="Provides functions for debugging your PHP script"
 set name=info.upstream_url value="http://pecl.php.net/package/xdebug"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license LICENSE license="PHP3.0"
 

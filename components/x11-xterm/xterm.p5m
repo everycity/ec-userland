@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/terminal/xterm@$(IPS_COMPONENT_VERSION),$(BUILD_VER
 set name=pkg.summary value="The xterm program is a terminal emulator for the X Window System. It provides DEC VT102 and Tektronix 4014 compatible terminals for programs that can't use the window system directly.  This version implements ISO/ANSI colors using the new color model (i.e., background color erase). It also implements most of the control sequences for VT220"
 set name=info.upstream_url value="http://invisible-island.net/xterm/xterm.html"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license xterm.license license="xterm"
 

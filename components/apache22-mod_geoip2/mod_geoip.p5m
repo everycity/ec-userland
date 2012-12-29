@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/web/server/apache-22/module/apache-geoip@$(IPS_COMP
 set name=pkg.summary value="GeoIP Apache Module"
 set name=info.upstream_url value="http://www.maxmind.com/app/mod_geoip"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 #license license="Apache"
 

@@ -20,7 +20,6 @@ set name=pkg.summary value="texinfo - GNU Texinfo"
 set name=pkg.description value="Texinfo is the official documentation format of the GNU project that uses a single source file to produce both on-line information and printed output."
 set name=info.upstream_url value="http://www.gnu.org/software/texinfo/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license texinfo.license license="GPLv3"
 

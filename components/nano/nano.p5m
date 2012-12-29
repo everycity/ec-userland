@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/editor/nano@$(IPS_COMPONENT_VERSION),$(BUILD_VERSIO
 set name=pkg.summary value="GNU nano"
 set name=info.upstream_url value="http://www.nano-editor.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license nano.license license="GPLv3"
 

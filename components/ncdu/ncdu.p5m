@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/file/ncdu@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="ncurses disk usage viewer"
 set name=info.upstream_url value="http://dev.yorhel.nl/ncdu"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license ncdu.license license="ncdu"
 

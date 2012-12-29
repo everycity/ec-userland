@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/crypto/ca-bundle@$(IPS_COMPONENT_VERSION),$(BUILD_V
 set name=pkg.summary value="Bundle of CA Root Certificates (From Mozilla)"
 set name=info.upstream_url value="http://curl.haxx.se/ca/cacert.pem"
 set name=info.source_url value="http://curl.haxx.se/ca/cacert.pem"
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license ca-bundle.license license="GPLv2 LGPLv2.1 MPL 1.1"
 

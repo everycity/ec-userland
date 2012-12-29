@@ -27,7 +27,6 @@ set name=pkg.fmri value=pkg:/library/python-2/setuptools-26@$(IPS_COMPONENT_VERS
 set name=pkg.summary value="Download, build, install, upgrade, and uninstall Python packages easily"
 set name=info.upstream_url value="http://pypi.python.org/pypi/setuptools"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license setuptools.license license="PSF,ZPL"
 

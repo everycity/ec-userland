@@ -20,7 +20,6 @@ set name=pkg.summary value="cronolog - logfile rotator for web servers"
 set name=info.classification value="org.opensolaris.category.2008:Applications/System Utilities"
 set name=info.upstream_url value="http://cronolog.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license COPYING license="GPLv2"
 

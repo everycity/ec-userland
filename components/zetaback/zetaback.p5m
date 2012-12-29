@@ -20,7 +20,6 @@ set name=pkg.summary value="Zetaback ZFS backup and recovery management system"
 set name=info.classification value="org.opensolaris.category.2008:Applications/System Utilities"
 set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license LICENSE license='Zetaback License'
 

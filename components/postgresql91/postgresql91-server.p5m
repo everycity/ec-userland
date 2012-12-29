@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/database/postgresql-91/server@$(IPS_COMPONENT_VERSI
 set name=pkg.summary value="PostgreSQL: The world's most advanced open source database."
 set name=info.upstream_url value="http://www.postgresql.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license postgresql91.license license="BSD Style"
 

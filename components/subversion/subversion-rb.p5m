@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/developer/versioning/subversion/bindings/ruby@$(IPS
 set name=pkg.summary value="The Subversion Source Control Management System"
 set name=info.upstream_url value="http://subversion.apache.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license subversion.license license="CollabNetSVN"
 

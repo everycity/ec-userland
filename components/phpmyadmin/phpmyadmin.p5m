@@ -21,7 +21,6 @@ set name=pkg.fmri value=pkg:/database/phpmyadmin@$(IPS_COMPONENT_VERSION),$(BUIL
 set name=pkg.summary value="A tool written in PHP intended to handle the administration of MySQL over the WWW"
 set name=info.upstream_url value="http://www.phpmyadmin.net/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license phpmyadmin.license license="GPLv2"
 

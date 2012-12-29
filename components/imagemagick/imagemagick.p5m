@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/multimedia/imagemagick@$(IPS_COMPONENT_VERSION),$(B
 set name=pkg.summary value="Convert, Edit, And Compose Images"
 set name=info.upstream_url value="http://www.imagemagick.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license imagemagick.license license="ImageMagick"
 

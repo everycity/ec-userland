@@ -21,7 +21,6 @@ set name=pkg.fmri value=pkg:/ftp/server/vsftpd@$(IPS_COMPONENT_VERSION),$(BUILD_
 set name=pkg.summary value="vsftpd is a GPL licensed FTP server for UNIX systems."
 set name=info.upstream_url value="https://security.appspot.com/vsftpd.html"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license vsftpd.license license="GPLv2 with OpenSSL linking exception"
 

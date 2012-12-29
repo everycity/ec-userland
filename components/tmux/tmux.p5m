@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/terminal/tmux@$(IPS_COMPONENT_VERSION),$(BUILD_VERS
 set name=pkg.summary value="tmux terminal multiplexer"
 set name=info.upstream_url value="http://tmux.sourceforge.net/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license tmux.license license="BSD"
 

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/developer/build/ant@$(IPS_COMPONENT_VERSION),$(BUIL
 set name=pkg.summary value="Apache Ant Java-based build tool"
 set name=info.upstream_url value="http://ant.apache.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license ant.license license="ant"
 

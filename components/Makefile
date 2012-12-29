@@ -79,17 +79,13 @@ clean:		$(COMPONENT_DIRS.nosetup)
 clobber:	$(COMPONENT_DIRS.nosetup) clean
 	$(RM) -r $(WS_REPO) $(WS_LOGS) $(WS_LINT_CACHE)
 
-setup:	$(WS_ARCHIVES) $(WS_LOGS) $(WS_REPO) tools $(WS_LINT_CACHE)
+setup:	$(WS_ARCHIVES) $(WS_LOGS) tools $(WS_LINT_CACHE)
 
 $(WS_ARCHIVES):
 	$(MKDIR) $@
 
 $(WS_LOGS):
 	$(MKDIR) $@
-
-$(WS_REPO):
-	$(PKGREPO) create $(PKG_REPO)
-	$(PKGREPO) add-publisher -s $(PKG_REPO) $(PUBLISHER)
 
 DUMMYPKG =  "set name=fmri value=pkg:/dummy@0,$(BUILD_VERSION)\n"
 DUMMYPKG += "set pkg.summary=dummy\n"
@@ -124,12 +120,12 @@ $(COMPONENT_DIRS):	$(WS_LOGS) setup FORCE
 publish:
 	$(PKGREPO) rebuild -s $(PKG_REPO)
 	$(WS_TOOLS)/userland-incorporator --repository $(PKG_REPO) \
-	  -p pkg:/consolidation/$(CONSOLIDATION)/$(CONSOLIDATION)-incorporation@0.$(OS_VERSION),$(BUILD_VERSION) \
-	  -s "$(CONSOLIDATION) consolidation incorporation" \
-	  -d "This incorporation constrains packages from the $(CONSOLIDATION) consolidation" \
-	  -c $(CONSOLIDATION) >$(WS_LOGS)/$(CONSOLIDATION)-incorporation.p5m
+	  -p pkg:/incorporations/entire@0.$(OS_VERSION),$(BUILD_VERSION) \
+	  -s "Entire incorporation" \
+	  -d "This incorporation constrains packages versions to ensure lockstep upgrades" \
+	  >$(WS_LOGS)/entire-incorporation.p5m
 	$(PKGSEND) -s $(PKG_REPO) publish --fmri-in-manifest \
-	  $(WS_LOGS)/$(CONSOLIDATION)-incorporation.p5m
+	  $(WS_LOGS)/entire-incorporation.p5m
 # pkglint all of the published manifests in one batch.
 ifdef CANONICAL_REPO
 	@echo 'pkglinting all package manifests...'

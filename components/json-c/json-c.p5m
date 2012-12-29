@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/json-c@$(IPS_COMPONENT_VERSION),$(BUILD_VER
 set name=pkg.summary value="A JSON parser library"
 set name=info.upstream_url value="https://github.com/json-c/json-c/wiki"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license json-c.license license="JSONC"
 

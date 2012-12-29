@@ -28,7 +28,6 @@ set name=pkg.fmri value=pkg:/compress/xz@$(IPS_COMPONENT_VERSION),$(BUILD_VERSIO
 set name=pkg.summary value="XZ Utils - general-purpose data compression software"
 set name=info.upstream_url value="http://tukaani.org/xz/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license xz.license license=$(ECPREFIX)/share/doc/xz/COPYING
 

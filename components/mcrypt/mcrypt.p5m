@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/developer/mcrypt@$(IPS_COMPONENT_VERSION),$(BUILD_V
 set name=pkg.summary value="MCrypt cryptographic functions"
 set name=info.upstream_url value="http://mcrypt.sourceforge.net/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license mcrypt.license license="GPLv3"
 

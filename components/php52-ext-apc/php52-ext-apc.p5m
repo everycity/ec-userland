@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/web/php-52/extension/php-apc@$(IPS_COMPONENT_VERSIO
 set name=pkg.summary value="APC is a free, open, and robust framework for caching and optimizing PHP intermediate code"
 set name=info.upstream_url value="http://pecl.php.net/package/APC"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license php52-ext-apc.license license="PHP3.01"
 

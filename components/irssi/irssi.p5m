@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/network/chat/irssi@$(IPS_COMPONENT_VERSION),$(BUILD
 set name=pkg.summary value="Irssi is a terminal based IRC client for UNIX systems"
 set name=info.upstream_url value="http://irssi.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license irssi.license license="GPLv2"
 

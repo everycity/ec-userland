@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/pdflib@$(IPS_COMPONENT_VERSION),$(BUILD_VER
 set name=pkg.summary value="library for generating and manipulating files in the Portable Document Format"
 set name=info.upstream_url value="http://www.pdflib.com/products/pdflib-family/pdflib/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license pdflib.license license="PDFlib Lite License"
 

@@ -20,7 +20,6 @@ set name=pkg.fmri value=pkg:/system/management/snmp/net-snmp@$(IPS_COMPONENT_VER
 set name=pkg.summary value="Net-SNMP Agent files and libraries"
 set name=info.upstream_url value="http://www.net-snmp.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license COPYING license="BSD, BSD-like"
 

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/libmad@$(IPS_COMPONENT_VERSION),$(BUILD_VER
 set name=pkg.summary value="libmad MPEG audio decoder library"
 set name=info.upstream_url value="http://www.underbit.com/products/mad/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libmad.license license="GPLv2-libmad"
 

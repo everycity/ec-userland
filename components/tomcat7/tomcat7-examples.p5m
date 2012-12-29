@@ -23,7 +23,6 @@ set name=pkg.summary value="Tomcat Servlet/JSP Container - examples"
 set name=info.classification value="org.opensolaris.category.2008:Web Services/Application and Web Servers"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=info.upstream_url value=http://tomcat.apache.org/
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license LICENSE license="Apache v2.0"
 

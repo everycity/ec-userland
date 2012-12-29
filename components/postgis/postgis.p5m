@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/database/postgresql-91/postgis@$(IPS_COMPONENT_VERS
 set name=pkg.summary value="PostGIS adds support for geographic objects to the PostgreSQL object-relational database."
 set name=info.upstream_url value="http://postgis.refractions.net/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license postgis.license license="GPLv2"
 

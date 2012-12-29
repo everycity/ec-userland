@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/editor/emacs@$(IPS_COMPONENT_VERSION),$(BUILD_VERSI
 set name=pkg.summary value="GNU Emacs is an extensible, customizable text editor - and more."
 set name=info.upstream_url value="http://www.gnu.org/software/emacs/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license emacs.license license="GPLv3"
 

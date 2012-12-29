@@ -28,7 +28,6 @@ set name=pkg.fmri value=pkg:/library/ppl@$(IPS_COMPONENT_VERSION),$(BUILD_VERSIO
 set name=pkg.summary value="PPL - Parma Polyhedra Library"
 set name=info.upstream_url value="http://www.cs.unipr.it/ppl/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license ppl.license license="GPLv3"
 

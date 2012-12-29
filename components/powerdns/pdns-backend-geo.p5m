@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/network/powerdns/backend/geo@$(IPS_COMPONENT_VERSIO
 set name=pkg.summary value="A high performance DNS Name Server - Geo Backend"
 set name=info.upstream_url value="http://www.powerdns.com/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license powerdns.license license="GPLv2"
 

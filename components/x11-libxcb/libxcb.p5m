@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/x11/library/xcb@$(IPS_COMPONENT_VERSION),$(BUILD_VE
 set name=pkg.summary value="The X protocol C-language Bindings"
 set name=info.upstream_url value="http://xcb.freedesktop.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libxcb.license license="MIT License (libxcb)"
 

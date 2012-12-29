@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/multimedia/mimms@$(IPS_COMPONENT_VERSION),$(BUILD_V
 set name=pkg.summary value="mimms is an mms stream downloader that uses libmms"
 set name=info.upstream_url value="https://launchpad.net/mimms/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license mimms.license license="GPLv3"
 

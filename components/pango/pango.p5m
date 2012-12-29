@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/pango@$(IPS_COMPONENT_VERSION),$(BUILD_VERS
 set name=pkg.summary value="Layout and rendering of internationalized text"
 set name=info.upstream_url value="http://www.pango.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license pango.license license="GPLv2"
 

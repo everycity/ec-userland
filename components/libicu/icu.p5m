@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/icu@$(IPS_COMPONENT_VERSION),$(BUILD_VERSIO
 set name=pkg.summary value="C/C++ and Java libraries providing Unicode and Globalization support for software applications."
 set name=info.upstream_url value="http://site.icu-project.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license license.html license="ICU License"
 

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/graphics/wkhtmltopdf/qt4@$(IPS_COMPONENT_VERSION),$
 set name=pkg.summary value="QT4 with wkhtmltopdf patches"
 set name=info.upstream_url value="http://code.google.com/p/wkhtmltopdf/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license wkhtmltopdf-qt.license license="QT4"
 

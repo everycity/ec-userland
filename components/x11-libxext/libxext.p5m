@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/x11/library/libxext@$(IPS_COMPONENT_VERSION),$(BUIL
 set name=pkg.summary value="libXext - X miscellaneous extensions library"
 set name=info.upstream_url value="http://xorg.freedesktop.org/releases/individual/lib/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libxext.license license="libXext"
 

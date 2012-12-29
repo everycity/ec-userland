@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/web/server/apache-22/module/apache-wsgi@$(IPS_COMPO
 set name=pkg.summary value="Python WSGI plugin for Apache Web Server"
 set name=info.upstream_url value="http://code.google.com/p/modwsgi/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license mod_wsgi.license license="APLv2"
 

@@ -20,7 +20,6 @@ set name=pkg.summary value="GNU readline"
 set name=pkg.description value="GNU readline library"
 set name=info.upstream_url value="http://www.gnu.org/software/readline/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license readline.license license="GPLv3"
 

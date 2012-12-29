@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/libmemcached@$(IPS_COMPONENT_VERSION),$(BUI
 set name=pkg.summary value="Client library and tools for the memcached server"
 set name=info.upstream_url value="http://launchpad.net/libmemcached/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libmemcached.license license="BSD"
 

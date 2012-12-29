@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/web/server/apache-22/module/apache-fastcgi@$(IPS_CO
 set name=pkg.summary value="Apache FastCGI module"
 set name=info.upstream_url value="http://www.fastcgi.com/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license docs/LICENSE.TERMS license="FastCGI License"
 

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/web/server/apache-22/module/apache-cband@$(IPS_COMP
 set name=pkg.summary value="mod_cband enables limiting users and virtualhost bandwidth usage in Apache 2"
 set name=info.upstream_url value="http://sysdesign.pl/mod_cband/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license mod_cband.license license="GPLv2"
 

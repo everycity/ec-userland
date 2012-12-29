@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/x11/library/libice@$(IPS_COMPONENT_VERSION),$(BUILD
 set name=pkg.summary value="Inter-Client Exchange library"
 set name=info.upstream_url value="http://cgit.freedesktop.org/xorg/lib/libICE"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libice.license license="libICE"
 

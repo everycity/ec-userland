@@ -29,7 +29,6 @@ set name=pkg.fmri value=pkg:/library/libogg@$(IPS_COMPONENT_VERSION),$(BUILD_VER
 set name=pkg.summary value="OGG Library"
 set name=info.upstream_url value="http://xiph.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libogg.license license="BSD"
 

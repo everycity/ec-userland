@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/libvpx@$(IPS_COMPONENT_VERSION),$(BUILD_VER
 set name=pkg.summary value="The VP8 Codec SDK"
 set name=info.upstream_url value="http://www.webmproject.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libvpx.license license="BSD"
 

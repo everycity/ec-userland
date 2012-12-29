@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/runtime/nodejs06@$(IPS_COMPONENT_VERSION),$(BUILD_V
 set name=pkg.summary value="Evented I/O for V8 JavaScript."
 set name=info.upstream_url value="http://nodejs.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license nodejs.license license="BSD-like"
 

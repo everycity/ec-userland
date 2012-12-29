@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/x11/header/xcb-protocols@$(IPS_COMPONENT_VERSION),$
 set name=pkg.summary value="XML-XCB protocol descriptions"
 set name=info.upstream_url value="http://xorg.freedesktop.org/releases/individual/xcb/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license xcb-proto.license license="MIT License (xcb-proto)"
 

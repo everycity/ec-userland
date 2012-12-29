@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/text/groff@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION
 set name=pkg.summary value="GNU Troff typesetting package which reads plain text mixed with formatting commands and produces formatted output"
 set name=info.upstream_url value="http://www.gnu.org/software/groff/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license groff.license license="GPLv3"
 

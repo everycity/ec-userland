@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/multimedia/mediainfo@$(IPS_COMPONENT_VERSION),$(BUI
 set name=pkg.summary value="MediaInfo supplies technical and tag information about a video or audio file."
 set name=info.upstream_url value="http://mediainfo.sourceforge.net/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license License.html license="GPL/LGPL"
 

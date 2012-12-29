@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/libsndfile@$(IPS_COMPONENT_VERSION),$(BUILD
 set name=pkg.summary value="Library for reading and writing audio files"
 set name=info.upstream_url value="http://www.mega-nerd.com/libsndfile/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libsndfile.license license="LGPLv2.1"
 

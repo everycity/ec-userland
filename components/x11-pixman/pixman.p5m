@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/x11/library/pixman@$(IPS_COMPONENT_VERSION),$(BUILD
 set name=pkg.summary value="Pixman: The pixel-manipulation library for X and Cairo."
 set name=info.upstream_url value="http://xorg.freedesktop.org/releases/individual/lib/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license pixman.license license="MIT License (pixman)"
 

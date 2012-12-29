@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/web/cache/varnish@$(IPS_COMPONENT_VERSION),$(BUILD_
 set name=pkg.summary value="Varnish Web Application Accelerator"
 set name=info.upstream_url value="https://www.varnish-cache.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license varnish.license license="Varnish"
 

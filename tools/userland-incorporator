@@ -62,14 +62,11 @@ sub print_incorporate {
 		$facet;
 }
 
-my ($repository, $fmri, $summary, $description, $consolidation) = ();
-
-$consolidation = 'userland';
+my ($repository, $fmri, $summary, $description) = ();
 
 GetOptions("R|repository=s" => \$repository, "v|version=s" => \$version,
 	   "s|summary=s" => \$summary, "d|description=s" => \$description,
-	   "p|package=s" => \$fmri, "f|fmri=s" => \@fmris,
-	   "c|consolidation=s" => \$consolidation);
+	   "p|package=s" => \$fmri, "f|fmri=s" => \@fmris;
 
 #
 # print the incorporation
@@ -77,11 +74,6 @@ GetOptions("R|repository=s" => \$repository, "v|version=s" => \$version,
 printf "set name=pkg.fmri value=%s\n", $fmri;
 printf "set name=pkg.summary value='%s'\n", $summary;
 printf "set name=pkg.description value='%s'\n", $description;
-printf "set name=org.opensolaris.consolidation value=%s\n",
-		$consolidation;
-printf "set name=pkg.depend.install-hold value=core-os.%s\n",
-		$consolidation;
-printf "set name=info.classification value='org.opensolaris.category.2008:Meta Packages/Incorporations'\n";
 
 @packages = enumerate_packages($repository, @fmris);
 for (@packages) {

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/libidn@$(IPS_COMPONENT_VERSION),$(BUILD_VER
 set name=pkg.summary value="GNU implementation of the Stringprep, Punycode and IDNA specifications"
 set name=info.upstream_url value="http://www.gnu.org/s/libidn/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license gnu-libidn.license license="GPLv3"
 

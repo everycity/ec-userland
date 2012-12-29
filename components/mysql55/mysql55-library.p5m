@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/database/mysql-55/library@$(IPS_COMPONENT_VERSION),
 set name=pkg.summary value="MySQL Database Management System - Library"
 set name=info.upstream_url value="http://www.mysql.com/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license mysql55.license license="GPLv2"
 

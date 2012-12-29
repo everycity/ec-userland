@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/developer/build/scons@$(IPS_COMPONENT_VERSION),$(BU
 set name=pkg.summary value="SCons is an Open Source software construction tool"
 set name=info.upstream_url value="http://www.scons.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license LICENSE.txt license="MIT"
 

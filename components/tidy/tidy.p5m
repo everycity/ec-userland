@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/text/html/tidy@$(IPS_COMPONENT_VERSION),$(BUILD_VER
 set name=pkg.summary value="HTML Tidy"
 set name=info.upstream_url value="http://tidy.sourceforge.net/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license tidy.license license="MIT-like (tidy)"
 

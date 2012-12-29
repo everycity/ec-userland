@@ -22,7 +22,6 @@ set name=pkg.fmri value=pkg:/web/server/nginx@$(IPS_COMPONENT_VERSION),$(BUILD_V
 set name=pkg.summary value="Nginx Webserver"
 set name=info.upstream_url value="http://nginx.net/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license nginx.license license="BSD"
 

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/perl-5/image-exiftool@$(IPS_COMPONENT_VERSI
 set name=pkg.summary value="Read, Write and Edit Meta Information!"
 set name=info.upstream_url value="http://owl.phy.queensu.ca/~phil/exiftool/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license exiftool.license license="Perl"
 

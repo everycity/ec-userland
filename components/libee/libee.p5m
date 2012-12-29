@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/libee@$(IPS_COMPONENT_VERSION),$(BUILD_VERS
 set name=pkg.summary value="An Event Expression Library inspired by CEE used by rsyslog"
 set name=info.upstream_url value="http://www.libee.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libee.license license="LGPLv2.1"
 

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/system/utility/getopt@$(IPS_COMPONENT_VERSION),$(BU
 set name=pkg.summary value="A program to help shell scripts parse command-line parameters"
 set name=info.upstream_url value="http://software.frodo.looijaard.name/getopt/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license getopt.license license="GPLv2"
 

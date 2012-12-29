@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/developer/build/automake-110@$(IPS_COMPONENT_VERSIO
 set name=pkg.summary value="GNU Automake 1.10.3"
 set name=info.upstream_url value="http://www.gnu.org/software/automake/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license automake-110.license license="GPLv2"
 

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/service/rabbitmq@$(IPS_COMPONENT_VERSION),$(BUILD_V
 set name=pkg.summary value="Message queue based on erlang"
 set name=info.upstream_url value="http://www.rabbitmq.com/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license rabbitmq.license license="RabbitMQ"
 

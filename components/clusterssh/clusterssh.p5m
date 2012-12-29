@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/terminal/clusterssh@$(IPS_COMPONENT_VERSION),$(BUIL
 set name=pkg.summary value="ClusterSSH controls a number of xterm windows via a single graphical console window"
 set name=info.upstream_url value="http://sourceforge.net/projects/clusterssh/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license clusterssh.license license="GPLv2"
 

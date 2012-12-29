@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/freetype2@$(IPS_COMPONENT_VERSION),$(BUILD_
 set name=pkg.summary value="FreeType 2 font engine"
 set name=info.upstream_url value="http://www.freetype.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license freetype2.license license="The FreeType Project License"
 

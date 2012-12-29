@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/games/frotz@$(IPS_COMPONENT_VERSION),$(BUILD_VERSIO
 set name=pkg.summary value="A Z-Machine interpreter for playing Infocom's interactive fiction games"
 set name=info.upstream_url value="http://frotz.sourceforge.net/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license frotz.license license="GPLv2"
 

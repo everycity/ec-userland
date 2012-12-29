@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/compress/unzip@$(IPS_COMPONENT_VERSION),$(BUILD_VER
 set name=pkg.summary value="The Info-Zip (unzip) decompression utility"
 set name=info.upstream_url value="http://www.info-zip.org/UnZip.html"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license info-zip.license license="Info-ZIP"
 

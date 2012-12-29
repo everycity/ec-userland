@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/x11/library/xi@$(IPS_COMPONENT_VERSION),$(BUILD_VER
 set name=pkg.summary value="X Input Extension"
 set name=info.upstream_url value="http://www.x.org/wiki/XI2"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libxi.license license="OpenGroup"
 

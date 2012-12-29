@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/multimedia/mplayer@$(IPS_COMPONENT_VERSION),$(BUILD
 set name=pkg.summary value="The Movie Player"
 set name=info.upstream_url value="http://www.mplayerhq.hu"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license mplayer.license license="GPLv2"
 

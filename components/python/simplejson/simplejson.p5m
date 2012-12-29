@@ -25,7 +25,6 @@ set name=pkg.fmri value=pkg:/library/python-2/simplejson-26@$(IPS_COMPONENT_VERS
 set name=pkg.summary value="JSON (Java Script Object Notation) encoder/decoder for Python 2.6"
 set name=info.upstream_url value="http://undefined.org/python/#simplejson"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license simplejson.license license="MIT"
 

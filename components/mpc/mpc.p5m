@@ -28,7 +28,6 @@ set name=pkg.fmri value=pkg:/library/mpc@$(IPS_COMPONENT_VERSION),$(BUILD_VERSIO
 set name=pkg.summary value="mpc - complex floating-point library with exact rounding"
 set name=info.upstream_url value="http://www.multiprecision.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license mpc.license license="LGPLv2.1"
 

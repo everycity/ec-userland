@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/libgd@$(IPS_COMPONENT_VERSION),$(BUILD_VERS
 set name=pkg.summary value="GD is an open source code library for the dynamic creation of images by programmers."
 set name=info.upstream_url value="http://www.libgd.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libgd.license license="BSD-like"
 

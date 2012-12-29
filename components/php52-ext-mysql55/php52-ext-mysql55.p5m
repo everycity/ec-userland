@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/web/php-52/extension/php-mysql55@$(IPS_COMPONENT_VE
 set name=pkg.summary value="PHP Server 5.2 (mysql 5.5 extension)"
 set name=info.upstream_url value="http://www.php.net"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license php52.license license="PHP52 License"
 

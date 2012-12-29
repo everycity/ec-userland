@@ -22,7 +22,6 @@ set name=pkg.fmri value=pkg:/database/geoip-geolite/country-database@$(IPS_COMPO
 set name=pkg.summary value="GeoIP - GeoLite Country Database"
 set name=info.upstream_url value="http://www.maxmind.com/app/geolitecountry"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license geoip-db-country.license license="Open Data License"
 

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/web/php-53/extension/php-mongodb@$(IPS_COMPONENT_VE
 set name=pkg.summary value="MongoDB database driver"
 set name=info.upstream_url value="http://pecl.php.net/package/mongo"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license php53-ext-mongo.license license="Apache"
 

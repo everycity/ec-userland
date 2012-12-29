@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/x11/utility/makedepend@$(IPS_COMPONENT_VERSION),$(B
 set name=pkg.summary value="A C-preprocessor like utility to determine build-time dependencies"
 set name=info.upstream_url value="http://xorg.freedesktop.org/releases/individual/util/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license makedepend.license license="OpenGroup"
 

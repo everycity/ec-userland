@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/web/php-52/extension/php-xsl@$(IPS_COMPONENT_VERSIO
 set name=pkg.summary value="PHP Server 5.2 (xsl extension)"
 set name=info.upstream_url value="http://www.php.net"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license php52.license license="PHP52 License"
 

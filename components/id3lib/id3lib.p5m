@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/id3lib@$(IPS_COMPONENT_VERSION),$(BUILD_VER
 set name=pkg.summary value="ID3v1 and ID3v2 audio tagging library"
 set name=info.upstream_url value="http://id3lib.sourceforge.net/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license id3lib.license license="LGPL"
 

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/xapian/bindings-php-52@$(IPS_COMPONENT_VERS
 set name=pkg.summary value="Xapian is an Open Source Search Engine Library"
 set name=info.upstream_url value="http://xapian.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license xapian.license license="GPLv2"
 

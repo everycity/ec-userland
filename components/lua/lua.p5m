@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/developer/lua@$(IPS_COMPONENT_VERSION),$(BUILD_VERS
 set name=pkg.summary value="The Lua embeddable scripting language"
 set name=info.upstream_url value="http://www.lua.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license lua.license license="MIT-lua"
 

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/multimedia/libmms@$(IPS_COMPONENT_VERSION),$(BUILD_
 set name=pkg.summary value="Library for downloading (streaming) media files using the mmst and mmsh protocols"
 set name=info.upstream_url value="http://sourceforge.net/projects/libmms/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libmms.license license="LGPLv2.1"
 

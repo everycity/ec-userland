@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/system/utility/gnu-bc@$(IPS_COMPONENT_VERSION),$(BU
 set name=pkg.summary value="bc is an arbitrary precision numeric processing language."
 set name=info.upstream_url value="http://www.gnu.org/software/bc/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license gnu-bc.license license="GPLv2"
 

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/system/utility/fping@$(IPS_COMPONENT_VERSION),$(BUI
 set name=pkg.summary value="An ICMP ping utility designed for use with scripts"
 set name=info.upstream_url value="http://fping.sourceforge.net/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license fping.license license="fping"
 

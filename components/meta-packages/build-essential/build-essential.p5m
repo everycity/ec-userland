@@ -14,7 +14,6 @@
 
 set name=pkg.fmri value=pkg:/metapackages/build-essential@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="A meta-package that installs development tools such as gcc"
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 # GNU Autotools
 depend fmri=developer/build/autoconf type=require

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/libpng@$(IPS_COMPONENT_VERSION),$(BUILD_VER
 set name=pkg.summary value="The official PNG reference library"
 set name=info.upstream_url value="http://www.libpng.org/pub/png/libpng.html"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libpng.license license="libpng"
 

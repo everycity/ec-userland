@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/text/pdftk@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION
 set name=pkg.summary value="Pdftk - The PDF Toolkit"
 set name=info.upstream_url value="http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license pdftk.license license="GPLv2+"
 

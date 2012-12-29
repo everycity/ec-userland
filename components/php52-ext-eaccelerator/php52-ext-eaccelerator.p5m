@@ -26,7 +26,6 @@ set name=pkg.fmri value=pkg:/web/php-52/extension/php-eaccelerator@$(IPS_COMPONE
 set name=pkg.summary value="eAccelerator is a PHP accelerator derived from the MMCache"
 set name=info.upstream_url value="http://sourceforge.net/projects/eaccelerator/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license COPYING license="GPLv2"
 

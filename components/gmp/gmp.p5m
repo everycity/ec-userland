@@ -28,7 +28,6 @@ set name=pkg.fmri value=pkg:/library/gmp@$(IPS_COMPONENT_VERSION),$(BUILD_VERSIO
 set name=pkg.summary value="The GNU Multiple Precision (Bignum) Library"
 set name=info.upstream_url value="http://www.gmplib.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license gmp.license license="LGPLv3"
 

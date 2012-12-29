@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/video/theora@$(IPS_COMPONENT_VERSION),$(BUI
 set name=pkg.summary value="Theora open video compression format"
 set name=info.upstream_url value="http://www.theora.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libtheora.license license="libtheora"
 

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/system/utility/pcp@$(IPS_COMPONENT_VERSION),$(BUILD
 set name=pkg.summary value="PCP shows in use TCP ports"
 set name=info.upstream_url value="http://www.unix.ms/pcp/"
 set name=info.source_url value="http://www.unix.ms/pcp/pcp.txt"
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin

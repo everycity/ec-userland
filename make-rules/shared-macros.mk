@@ -58,9 +58,6 @@ publish:	SHELLOPTS=pipefail
 
 SHELL=	/bin/bash
 
-CONSOLIDATION =	openwebstack
-PUBLISHER ?=	$(CONSOLIDATION)
-
 ROOT =			/
 
 OS_VERSION =		$(shell uname -r)

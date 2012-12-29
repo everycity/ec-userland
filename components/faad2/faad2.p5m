@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/audio/faad2@$(IPS_COMPONENT_VERSION),$(BUIL
 set name=pkg.summary value="FAAD2 open source MPEG-4 and MPEG-2 AAC decoder"
 set name=info.upstream_url value="http://www.audiocoding.com/faad2.html"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license faad2.license license="GPLv2"
 

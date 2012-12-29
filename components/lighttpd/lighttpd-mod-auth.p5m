@@ -16,7 +16,6 @@ set name=pkg.fmri value=pkg:/web/server/lighttpd-$(LIGHTTPD_MAJOR)/module/lightt
 set name=pkg.summary value="auth lighttpd module"
 set name=info.upstream_url value="http://www.lighttpd.net/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license lighttpd.license license="Revised BSD"
 

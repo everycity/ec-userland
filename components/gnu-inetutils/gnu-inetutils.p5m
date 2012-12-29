@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/network/gnu-inetutils@$(IPS_COMPONENT_VERSION),$(BU
 set name=pkg.summary value="GNU inetutils package (ships ping only)"
 set name=info.upstream_url value="http://www.gnu.org/software/inetutils/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license gnu-inetutils.license license="GPLv3"
 

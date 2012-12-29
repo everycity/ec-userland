@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/x11/library/libpthread-stubs@$(IPS_COMPONENT_VERSIO
 set name=pkg.summary value="pthread-stubs - pkg-config data file for building software using POSIX threads"
 set name=info.upstream_url value="http://xorg.freedesktop.org/releases/individual/xcb/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libpthread-stubs.license license="MIT License (libpthread-stubs)"
 

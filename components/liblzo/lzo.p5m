@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/lzo@$(IPS_COMPONENT_VERSION),$(BUILD_VERSIO
 set name=pkg.summary value="LZO is a portable lossless data compression library written in ANSI C."
 set name=info.upstream_url value="http://www.oberhumer.com/opensource/lzo/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license COPYING license="GPLv2"
 

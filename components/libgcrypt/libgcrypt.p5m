@@ -29,7 +29,6 @@ set name=pkg.fmri value=pkg:/library/libgcrypt@$(IPS_COMPONENT_VERSION),$(BUILD_
 set name=pkg.summary value="GnuPG libgcrypt library"
 set name=info.upstream_url value="http://www.gnupg.org"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libgcrypt.license license="LGPL"
 

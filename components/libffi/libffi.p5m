@@ -28,7 +28,6 @@ set name=pkg.fmri value=pkg:/library/libffi@$(IPS_COMPONENT_VERSION),$(BUILD_VER
 set name=pkg.summary value="Foreign Function Interface Library"
 set name=info.upstream_url value="http://sources.redhat.com/libffi/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libffi.license license="BSD"
 

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/developer/orc@$(IPS_COMPONENT_VERSION),$(BUILD_VERS
 set name=pkg.summary value="The Oil Runtime Compiler for SIMD array operations"
 set name=info.upstream_url value="http://code.entropywave.com/projects/orc/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license orc.license license="ORC"
 

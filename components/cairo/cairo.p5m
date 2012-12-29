@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/cairo@$(IPS_COMPONENT_VERSION),$(BUILD_VERS
 set name=pkg.summary value="The Cairo 2D vector graphics library"
 set name=info.upstream_url value="http://cairographics.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license cairo.license license="LGPLv2.1/MPLv1.1"
 

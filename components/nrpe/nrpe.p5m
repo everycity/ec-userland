@@ -21,7 +21,6 @@ set name=pkg.fmri value=pkg:/monitoring/nagios/nrpe@$(IPS_COMPONENT_VERSION),$(B
 set name=pkg.summary value="NRPE allows you to remotely execute Nagios plugins on other machines."
 set name=info.upstream_url value="http://www.nagios.org"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license nrpe.license license="GPL"
 

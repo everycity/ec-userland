@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/libuuid@$(IPS_COMPONENT_VERSION),$(BUILD_VE
 set name=pkg.summary value="DCE compatible Universally Unique Identifier library (from the e2fsprogs package)"
 set name=info.upstream_url value="http://e2fsprogs.sourceforge.net/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libuuid.license license="GPLv2"
 

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/games/zork-trilogy@$(IPS_COMPONENT_VERSION),$(BUILD
 set name=pkg.summary value="The Infocom text adventure Zork trilogy from the 1980s"
 set name=info.upstream_url value="http://www.csd.uwo.ca/Infocom/"
 set name=info.source_url value="http://www.csd.uwo.ca/Infocom/download.html"
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license zork-trilogy.license license="InfocomZork"
 

@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/audio/libao@$(IPS_COMPONENT_VERSION),$(BUIL
 set name=pkg.summary value="libao cross-platform audio library"
 set name=info.upstream_url value="http://www.xiph.org/ao/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license libao.license license="GPLv2"
 

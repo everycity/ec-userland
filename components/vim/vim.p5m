@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/editor/vim@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION
 set name=pkg.summary value="Vi IMproved Editor"
 set name=info.upstream_url value="http://www.vim.org"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license vim.license license="vim73"
 

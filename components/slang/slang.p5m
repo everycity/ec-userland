@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/slang@$(IPS_COMPONENT_VERSION),$(BUILD_VERS
 set name=pkg.summary value="S-Lang Library"
 set name=info.upstream_url value="http://www.s-lang.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license slang.license license="GPLv2"
 

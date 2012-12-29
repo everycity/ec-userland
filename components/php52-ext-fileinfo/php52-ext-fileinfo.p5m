@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/web/php-52/extension/php-fileinfo@$(IPS_COMPONENT_V
 set name=pkg.summary value="php fileinfo extension"
 set name=info.upstream_url value="http://pecl.php.net/package/fileinfo"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license php52-ext-fileinfo.license license="PHP3.01"
 

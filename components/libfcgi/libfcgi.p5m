@@ -19,7 +19,6 @@ set name=pkg.fmri value=pkg:/library/libfcgi@$(IPS_COMPONENT_VERSION),$(BUILD_VE
 set name=pkg.summary value="FastCGI - high performance extension to CGI"
 set name=info.upstream_url value="http://www.fastcgi.com/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license LICENSE.TERMS license="FastCGI License"
 
