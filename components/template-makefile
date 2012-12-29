@@ -15,7 +15,6 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		
-COMPONENT_VERSION=	
 COMPONENT_FMRI=         
 COMPONENT_VERSION=      
 COMPONENT_LICENSE=      
