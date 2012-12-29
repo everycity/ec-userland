@@ -25,3 +25,7 @@
 <transform file path=.+/perllocal.pod -> drop>
 <transform file path=.+/share/info/dir -> drop>
 <transform file path=.+/share/info/standards.info -> drop>
+
+#charset.alias
+<transform file path=.+/lib/charset.alias -> drop>
+<transform file path=.+/lib/$(MACH64)/charset.alias -> drop>
