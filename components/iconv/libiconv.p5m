@@ -1,0 +1,76 @@
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/library/gnu-libiconv@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="GNU libiconv - library used to convert between different character encodings"
+set name=info.upstream_url value="http://www.gnu.org/software/libiconv/"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license libiconv.license license="GPLv3"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/libiconv
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+dir path=$(ECPREFIX)/share/man/man3
+file path=$(ECPREFIX)/bin/$(MACH64)/iconv
+file path=$(ECPREFIX)/bin/iconv
+file path=$(ECPREFIX)/include/iconv.h
+file path=$(ECPREFIX)/include/libcharset.h
+file path=$(ECPREFIX)/include/localcharset.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libcharset.so.1.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libiconv.so.2.5.0
+file path=$(ECPREFIX)/lib/$(MACH64)/preloadable_libiconv.so
+file path=$(ECPREFIX)/lib/libcharset.so.1.0.0
+file path=$(ECPREFIX)/lib/libiconv.so.2.5.0
+file path=$(ECPREFIX)/lib/preloadable_libiconv.so
+file path=$(ECPREFIX)/share/doc/libiconv/iconv.1.html
+file path=$(ECPREFIX)/share/doc/libiconv/iconv.3.html
+file path=$(ECPREFIX)/share/doc/libiconv/iconv_close.3.html
+file path=$(ECPREFIX)/share/doc/libiconv/iconv_open.3.html
+file path=$(ECPREFIX)/share/doc/libiconv/iconv_open_into.3.html
+file path=$(ECPREFIX)/share/doc/libiconv/iconvctl.3.html
+file path=$(ECPREFIX)/share/man/man1/iconv.1
+file path=$(ECPREFIX)/share/man/man3/iconv.3
+file path=$(ECPREFIX)/share/man/man3/iconv_close.3
+file path=$(ECPREFIX)/share/man/man3/iconv_open.3
+file path=$(ECPREFIX)/share/man/man3/iconv_open_into.3
+file path=$(ECPREFIX)/share/man/man3/iconvctl.3
+link path=$(ECPREFIX)/lib/$(MACH64)/libcharset.so target=libcharset.so.1.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libcharset.so.1 target=libcharset.so.1.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libiconv.so target=libiconv.so.2.5.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libiconv.so.2 target=libiconv.so.2.5.0
+link path=$(ECPREFIX)/lib/libcharset.so target=libcharset.so.1.0.0
+link path=$(ECPREFIX)/lib/libcharset.so.1 target=libcharset.so.1.0.0
+link path=$(ECPREFIX)/lib/libiconv.so target=libiconv.so.2.5.0
+link path=$(ECPREFIX)/lib/libiconv.so.2 target=libiconv.so.2.5.0
