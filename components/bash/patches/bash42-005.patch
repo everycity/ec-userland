@@ -19,7 +19,7 @@ on systems that do not allow bash to supply a replacement for getenv(3).
 Patch (apply with `patch -p0'):
 
 *** ../bash-4.2-patched/variables.h	2010-12-02 20:22:01.000000000 -0500
---- bash-4.2/variables.h	2011-02-19 19:57:12.000000000 -0500
+--- variables.h	2011-02-19 19:57:12.000000000 -0500
 ***************
 *** 314,317 ****
 --- 314,318 ----
@@ -29,7 +29,7 @@ Patch (apply with `patch -p0'):
   extern void maybe_make_export_env __P((void));
   extern void update_export_env_inplace __P((char *, int, char *));
 *** ../bash-4.2-patched/variables.c	2011-01-24 20:07:48.000000000 -0500
---- bash-4.2/variables.c	2011-02-19 20:04:50.000000000 -0500
+--- variables.c	2011-02-19 20:04:50.000000000 -0500
 ***************
 *** 3654,3657 ****
 --- 3654,3673 ----
@@ -91,7 +91,7 @@ Patch (apply with `patch -p0'):
   }
   #endif
 *** ../bash-4.2-patched/parse.y	2011-01-02 15:48:11.000000000 -0500
---- bash-4.2/parse.y	2011-02-19 20:05:00.000000000 -0500
+--- parse.y	2011-02-19 20:05:00.000000000 -0500
 ***************
 *** 5136,5139 ****
 --- 5136,5142 ----
@@ -103,7 +103,7 @@ Patch (apply with `patch -p0'):
   	      tm = localtime (&the_time);
   
 *** ../bash-4.2-patched/builtins/printf.def	2010-11-23 10:02:55.000000000 -0500
---- bash-4.2/builtins/printf.def	2011-02-19 20:05:04.000000000 -0500
+--- builtins/printf.def	2011-02-19 20:05:04.000000000 -0500
 ***************
 *** 466,469 ****
 --- 466,472 ----
@@ -115,7 +115,7 @@ Patch (apply with `patch -p0'):
   		tm = localtime (&secs);
   		n = strftime (timebuf, sizeof (timebuf), timefmt, tm);
 *** ../bash-4.2-patched/patchlevel.h	Sat Jun 12 20:14:48 2010
---- bash-4.2/patchlevel.h	Thu Feb 24 21:41:34 2011
+--- patchlevel.h	Thu Feb 24 21:41:34 2011
 ***************
 *** 26,30 ****
      looks for to find the patch level (for the sccs version string). */

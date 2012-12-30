@@ -16,7 +16,7 @@ entire line.
 Patch (apply with `patch -p0'):
 
 *** ../bash-4.2-patched/lib/readline/vi_mode.c	2010-11-20 19:51:39.000000000 -0500
---- bash-4.2/lib/readline/vi_mode.c	2011-02-17 20:24:25.000000000 -0500
+--- lib/readline/vi_mode.c	2011-02-17 20:24:25.000000000 -0500
 ***************
 *** 1115,1119 ****
         _rl_vi_last_motion = c;
@@ -31,7 +31,7 @@ Patch (apply with `patch -p0'):
       }
   #if defined (READLINE_CALLBACKS)
 *** ../bash-4.2-patched/lib/readline/callback.c	2010-06-06 12:18:58.000000000 -0400
---- bash-4.2/lib/readline/callback.c	2011-02-17 20:43:28.000000000 -0500
+--- lib/readline/callback.c	2011-02-17 20:43:28.000000000 -0500
 ***************
 *** 149,152 ****
 --- 149,155 ----
@@ -43,7 +43,7 @@ Patch (apply with `patch -p0'):
   	  return;
   	}
 *** ../bash-4.2-patched/patchlevel.h	Sat Jun 12 20:14:48 2010
---- bash-4.2/patchlevel.h	Thu Feb 24 21:41:34 2011
+--- patchlevel.h	Thu Feb 24 21:41:34 2011
 ***************
 *** 26,30 ****
      looks for to find the patch level (for the sccs version string). */

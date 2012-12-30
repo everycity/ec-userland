@@ -16,7 +16,7 @@ side of a double-quoted word expansion containing single quotes.
 Patch (apply with `patch -p0'):
 
 *** ../bash-4.2-patched/subst.c	2011-01-02 16:12:51.000000000 -0500
---- bash-4.2/subst.c	2011-02-19 00:00:00.000000000 -0500
+--- subst.c	2011-02-19 00:00:00.000000000 -0500
 ***************
 *** 1380,1387 ****
   
@@ -52,7 +52,7 @@ Patch (apply with `patch -p0'):
         if (string[sindex] == RBRACE)
   	sindex++;
 *** ../bash-4.2-patched/subst.h	2010-12-02 20:21:29.000000000 -0500
---- bash-4.2/subst.h	2011-02-16 21:12:09.000000000 -0500
+--- subst.h	2011-02-16 21:12:09.000000000 -0500
 ***************
 *** 57,60 ****
 --- 57,61 ----
@@ -62,7 +62,7 @@ Patch (apply with `patch -p0'):
   
   /* Remove backslashes which are quoting backquotes from STRING.  Modifies
 *** ../bash-4.2-patched/patchlevel.h	Sat Jun 12 20:14:48 2010
---- bash-4.2/patchlevel.h	Thu Feb 24 21:41:34 2011
+--- patchlevel.h	Thu Feb 24 21:41:34 2011
 ***************
 *** 26,30 ****
      looks for to find the patch level (for the sccs version string). */

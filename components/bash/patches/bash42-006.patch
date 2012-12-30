@@ -15,7 +15,7 @@ A problem with bash42-005 caused it to dump core if TZ was unset.
 Patch (apply with `patch -p0'):
 
 *** ../bash-4.2-patched/variables.c	2011-02-25 12:07:41.000000000 -0500
---- bash-4.2/variables.c	2011-03-01 10:13:04.000000000 -0500
+--- variables.c	2011-03-01 10:13:04.000000000 -0500
 ***************
 *** 3661,3665 ****
   
@@ -30,7 +30,7 @@ Patch (apply with `patch -p0'):
       {
         array_needs_making = 1;
 *** ../bash-4.2-patched/patchlevel.h	Sat Jun 12 20:14:48 2010
---- bash-4.2/patchlevel.h	Thu Feb 24 21:41:34 2011
+--- patchlevel.h	Thu Feb 24 21:41:34 2011
 ***************
 *** 26,30 ****
      looks for to find the patch level (for the sccs version string). */

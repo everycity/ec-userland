@@ -24,7 +24,7 @@ The next version of bash will do this differently.
 Patch (apply with `patch -p0'):
 
 *** ../bash-4.2-patched/sig.c	Tue Nov 23 08:21:22 2010
---- bash-4.2/sig.c	Tue Mar  8 21:28:32 2011
+--- sig.c	Tue Mar  8 21:28:32 2011
 ***************
 *** 47,50 ****
 --- 47,51 ----
@@ -58,7 +58,7 @@ Patch (apply with `patch -p0'):
   #endif
         terminate_immediately = 0;
 *** ../bash-4.2-patched/patchlevel.h	Sat Jun 12 20:14:48 2010
---- bash-4.2/patchlevel.h	Thu Feb 24 21:41:34 2011
+--- patchlevel.h	Thu Feb 24 21:41:34 2011
 ***************
 *** 26,30 ****
      looks for to find the patch level (for the sccs version string). */

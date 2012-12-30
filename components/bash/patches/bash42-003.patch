@@ -18,7 +18,7 @@ the pattern.
 Patch (apply with `patch -p0'):
 
 *** ../bash-4.2-patched/lib/glob/gmisc.c	2011-02-05 16:11:17.000000000 -0500
---- bash-4.2/lib/glob/gmisc.c	2011-02-18 23:53:42.000000000 -0500
+--- lib/glob/gmisc.c	2011-02-18 23:53:42.000000000 -0500
 ***************
 *** 78,83 ****
        size_t wmax;
@@ -302,7 +302,7 @@ Patch (apply with `patch -p0'):
   	  break;
   	}
 *** ../bash-4.2-patched/patchlevel.h	Sat Jun 12 20:14:48 2010
---- bash-4.2/patchlevel.h	Thu Feb 24 21:41:34 2011
+--- patchlevel.h	Thu Feb 24 21:41:34 2011
 ***************
 *** 26,30 ****
      looks for to find the patch level (for the sccs version string). */

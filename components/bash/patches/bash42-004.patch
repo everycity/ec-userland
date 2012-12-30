@@ -18,7 +18,7 @@ null) were not matched correctly, resulting in failure.
 Patch (apply with `patch -p0'):
 
 *** ../bash-4.2-patched/subst.c	2011-01-02 16:12:51.000000000 -0500
---- bash-4.2/subst.c	2011-02-18 22:30:13.000000000 -0500
+--- subst.c	2011-02-18 22:30:13.000000000 -0500
 ***************
 *** 3373,3379 ****
     if (string == 0 || *string == '\0')
@@ -37,7 +37,7 @@ Patch (apply with `patch -p0'):
     tresult = call_expand_word_internal (&td, quoted, 1, dollar_at_p, has_dollar_at);
     return (tresult);
 *** ../bash-4.2-patched/patchlevel.h	Sat Jun 12 20:14:48 2010
---- bash-4.2/patchlevel.h	Thu Feb 24 21:41:34 2011
+--- patchlevel.h	Thu Feb 24 21:41:34 2011
 ***************
 *** 26,30 ****
      looks for to find the patch level (for the sccs version string). */
