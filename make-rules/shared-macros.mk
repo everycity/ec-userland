@@ -168,6 +168,9 @@ MACH32 =	$(MACH32_1:i386=i86)
 MACH64_1 =	$(MACH:sparc=sparcv9)
 MACH64 =	$(MACH64_1:i386=amd64)
 
+# GNU uses x86_64 instead of amd64
+MACH64_GNU =	$(MACH64:amd64=x86_64)
+
 PLAT_1 =	$(MACH:sparc=sun)
 PLAT =		$(PLAT_1:i386=pc)
 
