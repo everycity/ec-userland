@@ -25,8 +25,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LINKER=	gcc
-
 COMPONENT_PRE_CONFIGURE_ACTION.64 = ( sed -e 's/@DST_CLASS@/@DST_CLASS@ -Wl,-m64/' \
 	$(@D)/Makefile.in > Makefile.in.mod; $(MV) Makefile.in.mod $(@D)/Makefile.in );
 
