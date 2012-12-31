@@ -18,12 +18,14 @@ COMPONENT_NAME=		groff
 COMPONENT_VERSION=	1.21
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha256:
+COMPONENT_ARCHIVE_HASH=	sha256:344e6af5480e7ab4ec51e2a2ed10acd69ba3e062d285b6d5f6d49fb5ed2f9f7a
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+override COMPONENT_BUILD_GMAKE_ARGS=
 
 CONFIGURE_OPTIONS+=	--with-libiconv-prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--with-gs=$(ECPREFIX)/bin/gs
