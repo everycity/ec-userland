@@ -10,15 +10,15 @@
 
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2011,2012 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		git
-COMPONENT_VERSION=	1.8.0
+COMPONENT_VERSION=	1.8.0.3
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:ccc32f18ea12ea730a7d1d9d3d7bf51447439299a99d4d326f49f1f8bb488974
+COMPONENT_ARCHIVE_HASH=	sha256:48d8c0e845b47044c1f5d3c9b2797145727646bf9de35ab0136695844d63ff73
 COMPONENT_ARCHIVE_URL=	http://git-core.googlecode.com/files/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
