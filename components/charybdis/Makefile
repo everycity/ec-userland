@@ -9,16 +9,16 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=         charybdis
-COMPONENT_VERSION=      3.3.0
+COMPONENT_VERSION=      3.4.2
 COMPONENT_SRC=          $(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=      $(COMPONENT_SRC).tbz2
-COMPONENT_ARCHIVE_HASH= sha1:676f66d88403f61c0823a6a07f74fb63b742551c
+COMPONENT_ARCHIVE_HASH= sha256:8a38e67072d90147c40202918c82237765e339cbc849456da54994ce6e31b754
 COMPONENT_ARCHIVE_URL=  http://www.stack.nl/~jilles/irc/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -37,6 +37,7 @@ CONFIGURE_OPTIONS +=	--with-confdir=$(ECPREFIX)/etc/charybdis
 CONFIGURE_OPTIONS +=	--with-helpdir=$(ECPREFIX)/share/doc/charybdis
 CONFIGURE_OPTIONS +=	--with-moduledir=$(ECPREFIX)/lib/charybdis/modules
 CONFIGURE_OPTIONS +=	--with-logdir=$(ECPREFIX)/var/log/charybdis
+CONFIGURE_OPTIONS +=	--with-rundir=$(ECPREFIX)/var/run
 
 COMPONENT_PRE_INSTALL_ACTION  +=       ( \
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/var/log/charybdis )

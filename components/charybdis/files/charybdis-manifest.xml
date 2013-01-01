@@ -46,19 +46,31 @@
 		type='method'
 		name='start'
 		exec='/ec/var/svc/method/charybdis start'
-		timeout_seconds='60'/>
+		timeout_seconds='60'>
+		<method_context>
+			<method_credential user='ircd' group='ircd'/>
+		</method_context>
+	</exec_method>
 
 	<exec_method
 		type='method'
 		name='stop'
 		exec=':kill'
-		timeout_seconds='60'/>
+		timeout_seconds='60'>
+		<method_context>
+			<method_credential user='ircd' group='ircd'/>
+		</method_context>
+	</exec_method>
 
 	<exec_method
 		type='method'
 		name='refresh'
 		exec=':kill -HUP'
-		timeout_seconds='60'/>
+		timeout_seconds='60'>
+		<method_context>
+			<method_credential user='ircd' group='ircd'/>
+		</method_context>
+	</exec_method>
 
 	<instance name='default' enabled='false'>
 

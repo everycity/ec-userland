@@ -19,7 +19,6 @@
 <transform dir path=.+/modules-old -> drop>
 <transform file path=.+/modules-old/.* -> drop>
 <transform file path=.+\.old -> drop>
-#<transform file path=$(ECPREFIX)/etc/charybdis/example\.conf -> path=$(ECPREFIX)/etc/charybdis/ircd\.conf >
 
 set name=pkg.fmri value=pkg:/irc/server/charybdis@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="A powerful IRC daemon, based on ircd-ratbox."
@@ -29,8 +28,6 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 license charybdis.license license="GPLv2"
 
 dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/charybdis
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/charybdis
 dir path=$(ECPREFIX)/lib/charybdis/modules
@@ -44,17 +41,14 @@ dir path=$(ECPREFIX)/share/doc/charybdis/opers
 dir path=$(ECPREFIX)/share/doc/charybdis/users
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man8
-dir path=$(ECPREFIX)/var
-dir path=$(ECPREFIX)/var/log
-dir path=$(ECPREFIX)/var/log/charybdis
-file path=$(ECPREFIX)/etc/charybdis/dline.conf
-#file path=$(ECPREFIX)/etc/charybdis/example.conf
-file path=$(ECPREFIX)/etc/charybdis/ircd.conf
-file path=$(ECPREFIX)/etc/charybdis/ircd.motd
-file path=$(ECPREFIX)/etc/charybdis/kline.conf
-file path=$(ECPREFIX)/etc/charybdis/reference.conf
-file path=$(ECPREFIX)/etc/charybdis/resv.conf
-file path=$(ECPREFIX)/etc/charybdis/xline.conf
+dir path=$(LOCALSTATEDIR)
+dir path=$(LOCALSTATEDIR)/charybdis
+dir path=$(LOCALSTATEDIR)/log
+dir path=$(LOCALSTATEDIR)/log/charybdis
+dir path=$(LOCALSTATEDIR)/run
+dir path=$(LOCALSTATEDIR)/run/charybdis
+dir path=$(SYSCONFDIR)
+dir path=$(SYSCONFDIR)/charybdis
 file path=$(ECPREFIX)/lib/charybdis/bandb
 file path=$(ECPREFIX)/lib/charybdis/bantool
 file path=$(ECPREFIX)/lib/charybdis/convertilines
@@ -111,6 +105,7 @@ file path=$(ECPREFIX)/lib/charybdis/modules/autoload/m_svinfo.so
 file path=$(ECPREFIX)/lib/charybdis/modules/autoload/m_tb.so
 file path=$(ECPREFIX)/lib/charybdis/modules/autoload/m_testline.so
 file path=$(ECPREFIX)/lib/charybdis/modules/autoload/m_testmask.so
+file path=$(ECPREFIX)/lib/charybdis/modules/autoload/m_tginfo.so
 file path=$(ECPREFIX)/lib/charybdis/modules/autoload/m_time.so
 file path=$(ECPREFIX)/lib/charybdis/modules/autoload/m_topic.so
 file path=$(ECPREFIX)/lib/charybdis/modules/autoload/m_trace.so
@@ -143,6 +138,7 @@ file path=$(ECPREFIX)/lib/charybdis/modules/extensions/extb_oper.so
 file path=$(ECPREFIX)/lib/charybdis/modules/extensions/extb_realname.so
 file path=$(ECPREFIX)/lib/charybdis/modules/extensions/extb_server.so
 file path=$(ECPREFIX)/lib/charybdis/modules/extensions/extb_ssl.so
+file path=$(ECPREFIX)/lib/charybdis/modules/extensions/extb_usermode.so
 file path=$(ECPREFIX)/lib/charybdis/modules/extensions/force_user_invis.so
 file path=$(ECPREFIX)/lib/charybdis/modules/extensions/hurt.so
 file path=$(ECPREFIX)/lib/charybdis/modules/extensions/ip_cloaking.so
@@ -159,10 +155,13 @@ file path=$(ECPREFIX)/lib/charybdis/modules/extensions/m_okick.so
 file path=$(ECPREFIX)/lib/charybdis/modules/extensions/m_olist.so
 file path=$(ECPREFIX)/lib/charybdis/modules/extensions/m_omode.so
 file path=$(ECPREFIX)/lib/charybdis/modules/extensions/m_opme.so
+file path=$(ECPREFIX)/lib/charybdis/modules/extensions/m_remove.so
+file path=$(ECPREFIX)/lib/charybdis/modules/extensions/m_roleplay.so
 file path=$(ECPREFIX)/lib/charybdis/modules/extensions/m_sendbans.so
 file path=$(ECPREFIX)/lib/charybdis/modules/extensions/m_webirc.so
 file path=$(ECPREFIX)/lib/charybdis/modules/extensions/no_locops.so
 file path=$(ECPREFIX)/lib/charybdis/modules/extensions/no_oper_invis.so
+file path=$(ECPREFIX)/lib/charybdis/modules/extensions/override.so
 file path=$(ECPREFIX)/lib/charybdis/modules/extensions/sno_farconnect.so
 file path=$(ECPREFIX)/lib/charybdis/modules/extensions/sno_globalkline.so
 file path=$(ECPREFIX)/lib/charybdis/modules/extensions/sno_globaloper.so
@@ -285,8 +284,10 @@ file path=$(ECPREFIX)/share/doc/charybdis/users/privmsg
 file path=$(ECPREFIX)/share/doc/charybdis/users/stats
 file path=$(ECPREFIX)/share/doc/charybdis/users/umode
 file path=$(ECPREFIX)/share/man/man8/ircd.8
+file path=$(SYSCONFDIR)/charybdis/ircd.conf
+file path=$(SYSCONFDIR)/charybdis/ircd.motd
+file path=$(SYSCONFDIR)/charybdis/reference.conf
 hardlink path=$(ECPREFIX)/lib/charybdis/viconf target=vimotd
-hardlink path=$(ECPREFIX)/lib/charybdis/viklines target=vimotd
 link path=$(ECPREFIX)/share/doc/charybdis/users/accept \
     target=/ec/share/doc/charybdis/opers/accept
 link path=$(ECPREFIX)/share/doc/charybdis/users/admin \
@@ -368,8 +369,7 @@ link path=$(ECPREFIX)/share/doc/charybdis/users/whois \
 link path=$(ECPREFIX)/share/doc/charybdis/users/whowas \
     target=/ec/share/doc/charybdis/opers/whowas
 
-file files/charybdis-manifest.xml path=var/svc/manifest/site/charybdis/xml \
+file files/charybdis-manifest.xml path=var/svc/manifest/site/charybdis.xml \
     restart_fmri=svc:/system/manifest-import:default
 file files/charybdis-startup.sh \
     path=$(ECPREFIX)/var/svc/method/charybdis mode=0555
-
