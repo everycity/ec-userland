@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -29,7 +29,7 @@ include ../../make-rules/ips.mk
 
 COMPONENT_BUILD_ARGS=   solaris
 COMPONENT_BUILD_ENV+=	MYCFLAGS="$(CFLAGS) $(CC_PIC)"
-COMPONENT_BUILD_ENV+=	MYLDFLAGS="$(LDFLAGS) $(CC_PIC)"
+COMPONENT_BUILD_ENV+=	MYLDFLAGS="$(LDFLAGS) $(CC_PIC) -lm"
 COMPONENT_BUILD_ENV+=	MYLIBS="$(CC_BITS)"
 COMPONENT_BUILD_ENV+=	LUA_VER="$(COMPONENT_MJR_VERSION)"
 
