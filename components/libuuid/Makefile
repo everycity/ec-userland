@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -26,21 +26,16 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS.64+="-m64"
-CFLAGS.64+="-m64"
-LDFLAGS+=$(LDFLAGS.$(BITS))
-CFLAGS+=$(CFLAGS.$(BITS))
+LINKER=	gcc
+
+LDFLAGS+="-lsocket"
 
 COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; libtoolize --force --copy ; autoreconf )
-COMPONENT_BUILD_ENV+=      LDFLAGS="$(LDFLAGS)" CFLAGS="$(CFLAGS)"
 
 CONFIGURE_OPTIONS+=	--enable-libuuid
 CONFIGURE_OPTIONS+=	--enable-elf-shlibs
 CONFIGURE_OPTIONS+=	--disable-nls
 
 build:		$(BUILD_32_and_64)
-#build:		$(BUILD_64)
 
 install:	$(INSTALL_32_and_64)
-#install:	$(INSTALL_64)
-
