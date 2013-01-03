@@ -34,8 +34,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LINKER=	gcc
-
 CONFIGURE_ENV +=	NEON_LIBS="-lintl"
 
 CONFIGURE_OPTIONS+=	--with-ca-bundle=$(ECPREFIX)/etc/openssl/cabundle.pem

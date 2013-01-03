@@ -26,7 +26,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LINKER=	gcc
 LDFLAGS	+=	-lnsl -lsocket -lresolv
 
 CONFIGURE_OPTIONS+=	--disable-java

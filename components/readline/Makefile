@@ -33,8 +33,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LINKER=	gcc
-
 CONFIGURE_OPTIONS  +=	--disable-static
 CONFIGURE_OPTIONS  +=	--enable-shared
 CONFIGURE_OPTIONS  +=	CFLAGS="$(CFLAGS)"

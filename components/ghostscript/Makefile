@@ -26,8 +26,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LINKER=	gcc
-
 # make build isn't thread safe.
 override COMPONENT_BUILD_GMAKE_ARGS=
 

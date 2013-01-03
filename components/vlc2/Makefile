@@ -25,8 +25,6 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 include ../../make-rules/gnu-ld.mk
 
-LINKER=	gcc
-
 LDFLAGS.32+=	-L$(ECPREFIX)/lib -R$(ECPREFIX)/lib -L$(ECPREFIX)/lib/qt/4.7/lib -R$(ECPREFIX)/lib/qt/4.7/lib
 LDFLAGS.64+=	-L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64) -L$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64) -R$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)
 LDFLAGS+=	-lnsl

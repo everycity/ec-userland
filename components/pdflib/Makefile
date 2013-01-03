@@ -26,8 +26,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LINKER=gcc
-
 CONFIGURE_OPTIONS+=     LDFLAGS="$(LDFLAGS)"
 CONFIGURE_OPTIONS+=     --disable-static
 CONFIGURE_OPTIONS+=     --with-pic

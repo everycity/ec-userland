@@ -24,8 +24,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LINKER=	gcc
-
 # Apache Paths
 AP_PREFIX=$(ECPREFIX)/lib/apache/2.2
 AP_SYSCONFDIR=$(ECPREFIX)/etc/apache/2.2

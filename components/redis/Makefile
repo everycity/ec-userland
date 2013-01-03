@@ -35,8 +35,6 @@ include ../../make-rules/ips.mk
 
 include ../../make-rules/shared-targets.mk
 
-LINKER=	gcc
-
 CLEAN_PATHS +=	$(BUILD_DIR)
 
 COMPONENT_BUILD_ENV.32 += 'CC=$(ECPREFIX)/bin/gcc $(CC_BITS) -I$(ECPREFIX)/include -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib'

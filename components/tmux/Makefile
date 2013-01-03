@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -25,12 +25,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CFLAGS.32	+=	"-I$(ECPREFIX)/include -I$(ECPREFIX)/include/ncurses"
-CPPFLAGS.32	+=	"-I$(ECPREFIX)/include -I$(ECPREFIX)/include/ncurses"
-
-CONFIGURE_OPTIONS.32 += CFLAGS=$(CFLAGS.$(BITS))
-CONFIGURE_OPTIONS.32 += CPPFLAGS=$(CPPFLAGS.$(BITS))
-CONFIGURE_OPTIONS+=	LIBS="-L$(ECPREFIX)/lib -lncurses"
+CFLAGS +=	"-I$(ECPREFIX)/include/ncurses"
+CONFIGURE_OPTIONS +=	LIBS="-lncurses"
 
 build:		$(BUILD_32)
 

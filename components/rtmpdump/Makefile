@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -24,13 +24,9 @@ COMPONENT_ARCHIVE_URL=	http://$(COMPONENT_NAME).mplayerhq.hu/download/$(COMPONEN
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
-include ../../make-rules/gnu-ld.mk
 
-M64FLAG.32=$(LDFLAGS)
-M64FLAG.64=$(LDFLAGS) -m64
-
-COMPONENT_BUILD_ENV+=	LDFLAGS="$(M64FLAG.$(BITS))"
-COMPONENT_BUILD_ARGS+=	XCFLAGS="$(M64FLAG.$(BITS))" XLDFLAGS="$(M64FLAG.$(BITS))" XLIBS="$(M64FLAG.$(BITS))"
+COMPONENT_BUILD_ENV+=	LDFLAGS="$(LDFLAGS)"
+COMPONENT_BUILD_ARGS+=	XCFLAGS="$(LD_BITS)" XLDFLAGS="$(LD_BITS)"
 
 build:		$(BUILD_32_and_64)
 

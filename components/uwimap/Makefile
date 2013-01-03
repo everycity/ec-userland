@@ -35,7 +35,6 @@ include ../../make-rules/ips.mk
 
 IPS_COMPONENT_VERSION=	0.2007.5
 
-LDFLAGS.64+= -m64
 COMPONENT_BUILD_TARGETS+=	ec IP=6 SHLIBBASE=c-client SHLIBNAME=libc-client.so.1 EXTRACFLAGS="$(CFLAGS)" EXTRALDFLAGS="$(LDFLAGS)"
 
 build:		$(BUILD_32_and_64)

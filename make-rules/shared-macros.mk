@@ -64,7 +64,7 @@ OS_VERSION =		$(shell uname -r)
 SOLARIS_VERSION =	$(OS_VERSION:5.%=2.%)
 
 COMPILER =		gcc
-LINKER =		ccs
+LINKER =		gcc
 BITS =			32
 PYTHON_VERSION =	2.6
 PYTHON_VERSIONS =	2.6

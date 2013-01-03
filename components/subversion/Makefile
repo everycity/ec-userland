@@ -34,8 +34,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LINKER=	gcc
-
 LDFLAGS+=		-lintl -liconv
 
 CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic

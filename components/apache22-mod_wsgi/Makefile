@@ -25,8 +25,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LINKER=	gcc
-
 COMPONENT_BUILD_ENV+=	LTFLAGS="--tag=CC"
 
 $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep

@@ -25,8 +25,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LINKER=	gcc
-
 CONFIGURE_OPTIONS    +=        --without-normal
 CONFIGURE_OPTIONS    +=        --with-shared
 CONFIGURE_OPTIONS    +=        --without-debug

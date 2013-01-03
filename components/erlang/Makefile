@@ -69,13 +69,7 @@ CONFIGURE_OPTIONS += --enable-hipe
 CONFIGURE_OPTIONS += --with-ssl=$(ECPREFIX)
 CONFIGURE_OPTIONS += --enable-dynamic-ssl-lib
 
-CONFIGURE_OPTIONS.32 += LDFLAGS="$(LDFLAGS)"
-CONFIGURE_OPTIONS.64 += LDFLAGS="$(LDFLAGS) -m64"
-CONFIGURE_OPTIONS.64 += LIBS="-m64"
-
-LDBITZ.32=""
-LDBITZ.64="-m64"
-CONFIGURE_OPTIONS+= LD="$(CC) $(LDBITZ.$(BITS))"
+LD =	$(CC) $(LD_BITS)
 
 # Use cp(1) instead of cloney because erlang's 'install' target uses 'tar'
 # to copy files and our tar doesn't handle long links by default.  Between
@@ -86,8 +80,8 @@ COMPONENT_PRE_CONFIGURE_ACTION = \
 	($(CP) -rp $(SOURCE_DIR)/. $(@D))
 CONFIGURE_SCRIPT =	$(@D)/configure
 
-COMPONENT_INSTALL_ARGS += INSTALL_PREFIX=$(PROTO_DIR) LD="$(CC) $(LDBITZ.$(BITS))" LD_RUN_PATH="$(CONFIGURE_LIBDIR.$(BITS))" CPPFLAGS="$(CPPFLAGS)"
-COMPONENT_BUILD_ARGS += LD="$(CC) $(LDBITZ.$(BITS))" CPPFLAGS="$(CPPFLAGS)" 
+COMPONENT_INSTALL_ARGS += INSTALL_PREFIX=$(PROTO_DIR) LD="$(LD)" LD_RUN_PATH="$(CONFIGURE_LIBDIR.$(BITS))" CPPFLAGS="$(CPPFLAGS)"
+COMPONENT_BUILD_ARGS += LD="$(LD)" CPPFLAGS="$(CPPFLAGS)" 
 COMPONENT_BUILD_ARGS += LD_RUN_PATH="$(CONFIGURE_LIBDIR.$(BITS))"
 
 # common targets
@@ -113,6 +107,4 @@ install:	$(INSTALL_32_and_64)
 
 clean::
 	$(RM) -r documentation
-
-
 

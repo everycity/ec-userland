@@ -26,8 +26,6 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 include ../../make-rules/gnu-ld.mk
 
-LINKER=	gcc
-
 CONFIGURE_OPTIONS +=	--enable-xlib-xrender=no
 
 build:		$(BUILD_32_and_64)

@@ -25,8 +25,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LINKER=	gcc
-
 CONFIGURE_OPTIONS  = --prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS.32 = --sbin-path=$(ECPREFIX)/bin/nginx
 CONFIGURE_OPTIONS.64 = --sbin-path=$(ECPREFIX)/bin/$(MACH64)/nginx
