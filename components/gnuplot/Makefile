@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -26,6 +26,9 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 LDFLAGS +=	-lm -llua
+ifeq ($(SOLARIS_VERSION),2.10)
+LDFLAGS +=     -liconv
+endif
 
 build:		$(BUILD_32_and_64)
 
