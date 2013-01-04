@@ -1,6 +1,12 @@
---- rabbitmq-server-3.0.1/Makefile.~1~	2012-12-20 17:24:57.926590842 +0000
-+++ rabbitmq-server-3.0.1/Makefile	2012-12-20 17:25:32.661113069 +0000
-@@ -292,7 +292,7 @@
+--- rabbitmq-server-3.0.1/Makefile.~1~	2012-12-11 11:37:42.000000000 +0000
++++ rabbitmq-server-3.0.1/Makefile	2013-01-04 14:36:12.917385757 +0000
+@@ -1,3 +1,5 @@
++SHELL=/bin/bash
++
+ TMPDIR ?= /tmp
+ 
+ RABBITMQ_NODENAME ?= rabbit
+@@ -292,7 +294,7 @@
  %.gz: %.xml $(DOCS_DIR)/examples-to-end.xsl
  	xmlto --version | grep -E '^xmlto version 0\.0\.([0-9]|1[1-8])$$' >/dev/null || opt='--stringparam man.indent.verbatims=0' ; \
  	    xsltproc --novalid $(DOCS_DIR)/examples-to-end.xsl $< > $<.tmp && \
@@ -9,7 +15,7 @@
  	    gzip -f $(DOCS_DIR)/`basename $< .xml`
  	rm -f $<.tmp
  
-@@ -311,7 +311,7 @@
+@@ -311,7 +313,7 @@
  # the file to make internal links.
  %.man.xml: %.xml $(DOCS_DIR)/html-to-website-xml.xsl
  	cp $< `basename $< .xml`.xml && \
