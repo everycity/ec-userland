@@ -19,7 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -62,12 +62,16 @@ $(BUILD_DIR)/$(MACH64)/.installed:      BITS=64
 CONFIGURE_ENV += $(CONFIGURE_ENV.$(BITS))
 COMPONENT_INSTALL_ENV += $(COMPONENT_INSTALL_ENV.$(BITS))
 
+ifeq ($(SOLARIS_VERSION),2.10)
+COMPONENT_POST_CONFIGURE_ACTION = ( $(GPATCH) -d $(@D) $(GPATCH_FLAGS) < $(COMPONENT_DIR)/s10-config-h.patch ) ;
+endif
+
 build:		$(BUILD_32_and_64)
 
 $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
 	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
 	$(COMPONENT_PRE_CONFIGURE_ACTION)
-	(cp -r $(SOURCE_DIR)/* $(@D) ; cd $(@D)/src) \
+	(cp -r $(SOURCE_DIR)/* $(@D) ; cd $(@D)/src) ; \
 	$(COMPONENT_POST_CONFIGURE_ACTION)
 	$(TOUCH) $@
 
