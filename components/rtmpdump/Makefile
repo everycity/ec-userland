@@ -24,6 +24,7 @@ COMPONENT_ARCHIVE_URL=	http://$(COMPONENT_NAME).mplayerhq.hu/download/$(COMPONEN
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
+include ../../make-rules/gnu-ld.mk
 
 COMPONENT_BUILD_ENV+=	LDFLAGS="$(LDFLAGS)"
 COMPONENT_BUILD_ARGS+=	XCFLAGS="$(LD_BITS)" XLDFLAGS="$(LD_BITS)"
