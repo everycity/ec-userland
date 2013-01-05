@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -18,14 +18,15 @@ COMPONENT_NAME=		libSM
 COMPONENT_VERSION=	1.2.0
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:a6d2cc17a457028ffa7b238943eb3ce9a096567e
+COMPONENT_ARCHIVE_HASH=	sha256:3451707bcdb36157ff0ae4ff0af0654f81d10a4d4b2b0c1370bd327ab3e47ab4
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_XORG_LIB)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=     --enable-shared --disable-static --with-pic --with-sysroot=/ec
+CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic
+CONFIGURE_OPTIONS+=	--with-xmlto=no --with-sysroot=/ec
 
 build:		$(BUILD_32_and_64)
 
