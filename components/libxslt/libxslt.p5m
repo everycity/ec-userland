@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/library/libxslt@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="XSLT library"
-set name=info.upstream_url value="http://xmlsoft.org/XSLT/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license libxslt.license license="MIT"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -81,18 +81,24 @@ file path=$(ECPREFIX)/include/libxslt/xsltconfig.h
 file path=$(ECPREFIX)/include/libxslt/xsltexports.h
 file path=$(ECPREFIX)/include/libxslt/xsltlocale.h
 file path=$(ECPREFIX)/include/libxslt/xsltutils.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libexslt.so.0.8.15
+file path=$(ECPREFIX)/lib/$(MACH64)/libexslt.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libexslt.so.0.8.17
+file path=$(ECPREFIX)/lib/$(MACH64)/libxslt.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libxslt.so.$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libexslt.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libxslt.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/libxslt.py
+file path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/libxsltmod.la
 file path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/libxsltmod.so
 file path=$(ECPREFIX)/lib/$(MACH64)/xsltConf.sh
-file path=$(ECPREFIX)/lib/libexslt.so.0.8.15
+file path=$(ECPREFIX)/lib/libexslt.la
+file path=$(ECPREFIX)/lib/libexslt.so.0.8.17
+file path=$(ECPREFIX)/lib/libxslt.la
 file path=$(ECPREFIX)/lib/libxslt.so.$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/pkgconfig/libexslt.pc
 file path=$(ECPREFIX)/lib/pkgconfig/libxslt.pc
 file path=$(ECPREFIX)/lib/python2.6/site-packages/libxslt.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/libxsltmod.la
 file path=$(ECPREFIX)/lib/python2.6/site-packages/libxsltmod.so
 file path=$(ECPREFIX)/lib/xsltConf.sh
 file path=$(ECPREFIX)/share/aclocal/libxslt.m4
@@ -278,13 +284,13 @@ file \
 file path=$(ECPREFIX)/share/man/man1/xsltproc.1
 file path=$(ECPREFIX)/share/man/man3/libexslt.3
 file path=$(ECPREFIX)/share/man/man3/libxslt.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libexslt.so target=libexslt.so.0.8.15
-link path=$(ECPREFIX)/lib/$(MACH64)/libexslt.so.0 target=libexslt.so.0.8.15
+link path=$(ECPREFIX)/lib/$(MACH64)/libexslt.so target=libexslt.so.0.8.17
+link path=$(ECPREFIX)/lib/$(MACH64)/libexslt.so.0 target=libexslt.so.0.8.17
 link path=$(ECPREFIX)/lib/$(MACH64)/libxslt.so \
     target=libxslt.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/$(MACH64)/libxslt.so.1 \
     target=libxslt.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libexslt.so target=libexslt.so.0.8.15
-link path=$(ECPREFIX)/lib/libexslt.so.0 target=libexslt.so.0.8.15
+link path=$(ECPREFIX)/lib/libexslt.so target=libexslt.so.0.8.17
+link path=$(ECPREFIX)/lib/libexslt.so.0 target=libexslt.so.0.8.17
 link path=$(ECPREFIX)/lib/libxslt.so target=libxslt.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/libxslt.so.1 target=libxslt.so.$(COMPONENT_VERSION)
