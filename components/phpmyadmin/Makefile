@@ -9,20 +9,22 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		phpMyAdmin
-COMPONENT_VERSION=	3.5.3
+COMPONENT_VERSION=	3.5.5
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)-all-languages
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:5fa3d687be8656e8eb6fc905adfba4c62e1b0748c15c65550a06c12e0e544f4f
+COMPONENT_ARCHIVE_HASH=	sha256:1898197c7f1e45e5f12bc3491a848e1e827b43f3321981dd0b9848afa44f3010
 COMPONENT_ARCHIVE_URL=	http://freefr.dl.sourceforge.net/project/phpmyadmin/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
+
+CONFIGURE_SYSCONFDIR = $(CONFIGURE_PREFIX)/etc
 
 PHPMYADMIN_DIR=      $(PROTO_DIR)$(ECPREFIX)/share/phpmyadmin
 PHPMYADMIN_DOC_DIR=      $(PROTO_DIR)$(ECPREFIX)/share/doc/phpmyadmin
