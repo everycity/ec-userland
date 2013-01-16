@@ -1,0 +1,134 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2013 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/hal
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/lib/scripts
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/hal
+dir path=$(ECPREFIX)/share/hal/fdi
+dir path=$(ECPREFIX)/share/hal/fdi/policy
+dir path=$(ECPREFIX)/share/hal/fdi/policy/10osvendor
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+dir path=$(ECPREFIX)/share/man/man8
+dir path=$(LOCALSTATEDIR)
+dir path=$(LOCALSTATEDIR)/cache
+dir path=$(LOCALSTATEDIR)/cache/hald
+dir path=$(LOCALSTATEDIR)/run
+dir path=$(LOCALSTATEDIR)/run/hald
+dir path=$(LOCALSTATEDIR)/run/hald/hald-local
+dir path=$(LOCALSTATEDIR)/run/hald/hald-runner
+dir path=$(SYSCONFDIR)
+dir path=$(SYSCONFDIR)/dbus-1
+dir path=$(SYSCONFDIR)/dbus-1/system.d
+file path=$(ECPREFIX)/bin/hal-device
+file path=$(ECPREFIX)/bin/hal-disable-polling
+file path=$(ECPREFIX)/bin/hal-find-by-capability
+file path=$(ECPREFIX)/bin/hal-find-by-property
+file path=$(ECPREFIX)/bin/hal-get-property
+file path=$(ECPREFIX)/bin/hal-is-caller-locked-out
+file path=$(ECPREFIX)/bin/hal-lock
+file path=$(ECPREFIX)/bin/hal-set-property
+file path=$(ECPREFIX)/bin/hald
+file path=$(ECPREFIX)/bin/lshal
+file path=$(ECPREFIX)/include/hal/libhal-storage.h
+file path=$(ECPREFIX)/include/hal/libhal.h
+file path=$(ECPREFIX)/lib/hal-storage-cleanup-all-mountpoints
+file path=$(ECPREFIX)/lib/hal-storage-cleanup-mountpoint
+file path=$(ECPREFIX)/lib/hal-storage-closetray
+file path=$(ECPREFIX)/lib/hal-storage-eject
+file path=$(ECPREFIX)/lib/hal-storage-mount
+file path=$(ECPREFIX)/lib/hal-storage-unmount
+file path=$(ECPREFIX)/lib/hal-system-power-pm-is-supported
+file path=$(ECPREFIX)/lib/hal-system-power-pmu
+file path=$(ECPREFIX)/lib/hal-system-setserial
+file path=$(ECPREFIX)/lib/hald-addon-storage
+file path=$(ECPREFIX)/lib/hald-generate-fdi-cache
+file path=$(ECPREFIX)/lib/hald-probe-acpi
+file path=$(ECPREFIX)/lib/hald-probe-network-printer
+file path=$(ECPREFIX)/lib/hald-probe-printer
+file path=$(ECPREFIX)/lib/hald-probe-storage
+file path=$(ECPREFIX)/lib/hald-probe-volume
+file path=$(ECPREFIX)/lib/hald-probe-xkb
+file path=$(ECPREFIX)/lib/hald-runner
+file path=$(ECPREFIX)/lib/libhal-storage.a
+file path=$(ECPREFIX)/lib/libhal-storage.la
+file path=$(ECPREFIX)/lib/libhal-storage.so.$(COMPONENT_VERSION).0
+file path=$(ECPREFIX)/lib/libhal.a
+file path=$(ECPREFIX)/lib/libhal.la
+file path=$(ECPREFIX)/lib/libhal.so.$(COMPONENT_VERSION).0
+file path=$(ECPREFIX)/lib/pkgconfig/hal-storage.pc
+file path=$(ECPREFIX)/lib/pkgconfig/hal.pc
+file path=$(ECPREFIX)/lib/scripts/hal-dockstation-undock
+file path=$(ECPREFIX)/lib/scripts/hal-functions
+file path=$(ECPREFIX)/lib/scripts/hal-luks-remove
+file path=$(ECPREFIX)/lib/scripts/hal-luks-setup
+file path=$(ECPREFIX)/lib/scripts/hal-luks-teardown
+file path=$(ECPREFIX)/lib/scripts/hal-system-killswitch-get-power
+file path=$(ECPREFIX)/lib/scripts/hal-system-killswitch-set-power
+file path=$(ECPREFIX)/lib/scripts/hal-system-lcd-get-brightness
+file path=$(ECPREFIX)/lib/scripts/hal-system-lcd-set-brightness
+file path=$(ECPREFIX)/lib/scripts/hal-system-power-hibernate
+file path=$(ECPREFIX)/lib/scripts/hal-system-power-reboot
+file path=$(ECPREFIX)/lib/scripts/hal-system-power-set-power-save
+file path=$(ECPREFIX)/lib/scripts/hal-system-power-shutdown
+file path=$(ECPREFIX)/lib/scripts/hal-system-power-suspend
+file path=$(ECPREFIX)/lib/scripts/hal-system-power-suspend-hybrid
+file path=$(ECPREFIX)/lib/scripts/hal-system-wol-enable
+file path=$(ECPREFIX)/lib/scripts/hal-system-wol-enabled
+file path=$(ECPREFIX)/lib/scripts/hal-system-wol-supported
+file path=$(ECPREFIX)/share/hal/fdi/fdi.dtd
+file path=$(ECPREFIX)/share/hal/fdi/policy/10osvendor/10-dockstation.fdi
+file path=$(ECPREFIX)/share/hal/fdi/policy/10osvendor/10-input-policy.fdi
+file \
+    path=$(ECPREFIX)/share/hal/fdi/policy/10osvendor/10-laptop-panel-mgmt-policy.fdi
+file path=$(ECPREFIX)/share/hal/fdi/policy/10osvendor/10-leds.fdi
+file path=$(ECPREFIX)/share/hal/fdi/policy/10osvendor/10-power-mgmt-policy.fdi
+file path=$(ECPREFIX)/share/hal/fdi/policy/10osvendor/10-rfkill-switch.fdi
+file path=$(ECPREFIX)/share/hal/fdi/policy/10osvendor/10-tabletPCs.fdi
+file path=$(ECPREFIX)/share/hal/fdi/policy/10osvendor/10-x11-input.fdi
+file path=$(ECPREFIX)/share/hal/fdi/policy/10osvendor/15-storage-luks.fdi
+file path=$(ECPREFIX)/share/hal/fdi/policy/10osvendor/20-storage-methods.fdi
+file path=$(ECPREFIX)/share/hal/fdi/policy/10osvendor/30-wol.fdi
+file path=$(ECPREFIX)/share/man/man1/hal-disable-polling.1
+file path=$(ECPREFIX)/share/man/man1/hal-find-by-capability.1
+file path=$(ECPREFIX)/share/man/man1/hal-find-by-property.1
+file path=$(ECPREFIX)/share/man/man1/hal-get-property.1
+file path=$(ECPREFIX)/share/man/man1/hal-is-caller-locked-out.1
+file path=$(ECPREFIX)/share/man/man1/hal-lock.1
+file path=$(ECPREFIX)/share/man/man1/hal-set-property.1
+file path=$(ECPREFIX)/share/man/man1/lshal.1
+file path=$(ECPREFIX)/share/man/man8/hald.8
+file path=$(SYSCONFDIR)/dbus-1/system.d/hal.conf
+link path=$(ECPREFIX)/lib/libhal-storage.so \
+    target=libhal-storage.so.$(COMPONENT_VERSION).0
+link path=$(ECPREFIX)/lib/libhal-storage.so.1 \
+    target=libhal-storage.so.$(COMPONENT_VERSION).0
+link path=$(ECPREFIX)/lib/libhal.so target=libhal.so.$(COMPONENT_VERSION).0
+link path=$(ECPREFIX)/lib/libhal.so.1 target=libhal.so.$(COMPONENT_VERSION).0
