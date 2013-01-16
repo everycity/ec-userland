@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 <transform depend pkg.debug.depend.file=.*\.xml -> drop>
 <transform depend pkg.debug.depend.file=bash -> drop>
@@ -19,13 +19,17 @@
 <transform depend pkg.debug.depend.file=sh -> drop>
 <transform depend pkg.debug.depend.file=libadm\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libc\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libcfgadm\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libcontract.so.* -> drop>
 <transform depend pkg.debug.depend.file=libcrypt\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libcrypt_d\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libcrypto\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libcurses\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libdevinfo\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libdl\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libdoor\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libefi\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libfstyp\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libgen\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libGL\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libGLU\.so.* -> drop>
@@ -37,6 +41,7 @@
 <transform depend pkg.debug.depend.file=libmail\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libmd5\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libnsl\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libnvpair\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libpam\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libpkcs11\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libproject\.so.* -> drop>
@@ -48,7 +53,9 @@
 <transform depend pkg.debug.depend.file=libsec\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libsecdb\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libsendfile\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libbsm\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libsocket\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libsysevent\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libtermcap\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libthread\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libtsol\.so.* -> drop>
