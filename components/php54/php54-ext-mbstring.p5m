@@ -1,0 +1,65 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2013 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/web/php-54/extension/php-mbstring@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="PHP Server 5.4 (mbstring extension)"
+set name=info.upstream_url value="http://www.php.net"
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license php54.license license="PHP54 License"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/php
+dir path=$(ECPREFIX)/etc/php/5.4
+dir path=$(ECPREFIX)/etc/php/5.4/conf.d
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/php
+dir path=$(ECPREFIX)/lib/php/5.4
+dir path=$(ECPREFIX)/lib/php/5.4/include
+dir path=$(ECPREFIX)/lib/php/5.4/include/php
+dir path=$(ECPREFIX)/lib/php/5.4/include/php/ext
+dir path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring
+dir path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl
+dir path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl/mbfl
+dir path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/oniguruma
+dir path=$(ECPREFIX)/lib/php/5.4/extensions
+dir path=$(ECPREFIX)/lib/php/5.4/extensions/$(MACH64)
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl/config.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl/mbfl/eaw_table.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl/mbfl/mbfilter.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl/mbfl/mbfilter_8bit.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl/mbfl/mbfilter_pass.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl/mbfl/mbfilter_wchar.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl/mbfl/mbfl_allocators.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl/mbfl/mbfl_consts.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl/mbfl/mbfl_convert.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl/mbfl/mbfl_defs.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl/mbfl/mbfl_encoding.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl/mbfl/mbfl_filter_output.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl/mbfl/mbfl_ident.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl/mbfl/mbfl_language.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl/mbfl/mbfl_memory_device.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/libmbfl/mbfl/mbfl_string.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/mbstring.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/oniguruma/oniguruma.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/php_onig_compat.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/ext/mbstring/php_mbregex.h
+file files/mbstring.ini path=$(ECPREFIX)/etc/php/5.4/conf.d/mbstring.ini preserve=true
+file path=$(ECPREFIX)/lib/php/5.4/extensions/$(MACH64)/mbstring.so
+file path=$(ECPREFIX)/lib/php/5.4/extensions/mbstring.so
+depend fmri=pkg:/web/php-54/php-common type=require
