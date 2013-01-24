@@ -30,6 +30,8 @@ dir path=$(ECPREFIX)/lib/php
 dir path=$(ECPREFIX)/lib/php/5.4
 dir path=$(ECPREFIX)/lib/php/5.4/bin
 dir path=$(ECPREFIX)/lib/php/5.4/bin/$(MACH64)
+dir path=$(ECPREFIX)/lib/php/5.4/include/php/sapi
+dir path=$(ECPREFIX)/lib/php/5.4/include/php/sapi/cli
 dir path=$(ECPREFIX)/lib/php/5.4/share
 dir path=$(ECPREFIX)/lib/php/5.4/share/man
 dir path=$(ECPREFIX)/lib/php/5.4/share/man/man1
@@ -38,6 +40,7 @@ dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 file path=$(ECPREFIX)/lib/php/5.4/bin/$(MACH64)/php
 file path=$(ECPREFIX)/lib/php/5.4/bin/php
+file path=$(ECPREFIX)/lib/php/5.4/include/php/sapi/cli/cli.h
 file path=$(ECPREFIX)/lib/php/5.4/share/man/man1/php.1
 link path=$(ECPREFIX)/bin/php target=php-cli preserve=true pkg.linted=true
 link path=$(ECPREFIX)/bin/$(MACH64)/php target=php-cli preserve=true pkg.linted=true
