@@ -9,17 +9,17 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		yamdi
-COMPONENT_VERSION=	1.8
+COMPONENT_VERSION=	1.9
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:daea2b7262ba1278a62525dafd3e8366d72fe2c3
-COMPONENT_ARCHIVE_URL=	http://kent.dl.sourceforge.net/project/yamdi/yamdi/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:4a6630f27f6c22bcd95982bf3357747d19f40bd98297a569e9c77468b756f715
+COMPONENT_ARCHIVE_URL=	http://heanet.dl.sourceforge.net/project/yamdi/yamdi/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
