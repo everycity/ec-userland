@@ -9,34 +9,43 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		openssh
-COMPONENT_VERSION=	6.0p1
+COMPONENT_FMRI=         security/openssh
+COMPONENT_VERSION=	6.1p1
+IPS_COMPONENT_VERSION=	6.1.1
+COMPONENT_LICENSE=	OpenSSH
+COMPONENT_PROJECT_URL=	http://www.openssh.com/
+COMPONENT_SUMMARY=	OpenSSH Secure Shell
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:589d48e952d6c017e667873486b5df63222f9133d417d0002bd6429d9bd882de
+COMPONENT_ARCHIVE_HASH=	sha256:d1c157f6c0852e90c191cc7c9018a583b51e3db4035489cb262639d337a1c411
 COMPONENT_ARCHIVE_URL=	http://mirror.bytemark.co.uk/pub/OpenBSD/OpenSSH/portable/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-IPS_COMPONENT_VERSION=  6.0.1
+LDFLAGS+=	-z nolazyload
 
 CONFIGURE_OPTIONS+=	--sysconfdir=$(ECPREFIX)/etc/ssh
 CONFIGURE_OPTIONS+=	--sbindir=$(ECPREFIX)/bin
 CONFIGURE_OPTIONS+=	--libexecdir=$(ECPREFIX)/bin
+
 CONFIGURE_OPTIONS+=	--with-ssl-dir=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--with-default-path=$(ECPREFIX)/bin:$(ECPREFIX)/sbin:/usr/bin:/usr/sbin:/usr/ccs/bin
 CONFIGURE_OPTIONS+=	--with-pid-dir=$(ECPREFIX)/var/run
 CONFIGURE_OPTIONS+=	--with-privsep-path=$(ECPREFIX)/var/empty/sshd
 CONFIGURE_OPTIONS+=	--with-md5-passwords
 CONFIGURE_OPTIONS+=	--with-pam
+CONFIGURE_OPTIONS+=	--with-ssl-engine
+CONFIGURE_OPTIONS+=	--with-kerberos5=/usr
 CONFIGURE_OPTIONS+=	--with-solaris-contracts
+CONFIGURE_OPTIONS+=	--with-solaris-projects
 CONFIGURE_OPTIONS+=	--with-zlib=$(ECPREFIX)
 
 build:		$(BUILD_32)

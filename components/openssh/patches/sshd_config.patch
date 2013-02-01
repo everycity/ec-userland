@@ -1,7 +1,7 @@
---- openssh-6.0p1/sshd_config.~1~	2011-05-29 11:39:39.000000000 +0000
-+++ openssh-6.0p1/sshd_config	2012-04-25 16:13:06.644591477 +0000
+--- openssh-6.1p1/sshd_config.~1~	2012-07-31 02:21:34.000000000 +0000
++++ openssh-6.1p1/sshd_config	2012-12-30 00:54:20.965490385 +0000
 @@ -1,10 +1,6 @@
--#	$OpenBSD: sshd_config,v 1.84 2011/05/23 03:30:07 djm Exp $
+-#	$OpenBSD: sshd_config,v 1.87 2012/07/10 02:19:15 djm Exp $
 -
  # This is the sshd server system-wide configuration file.  See
  # sshd_config(5) for more information.
@@ -11,7 +11,7 @@
  # The strategy used for options in the default sshd_config shipped with
  # OpenSSH is to specify options with their default value where
  # possible, but leave them commented.  Uncommented options override the
-@@ -12,11 +8,11 @@
+@@ -12,7 +8,7 @@
  
  #Port 22
  #AddressFamily any
@@ -20,58 +20,12 @@
  #ListenAddress ::
  
  # The default requires explicit activation of protocol 1
--#Protocol 2
-+Protocol 2
- 
- # HostKey for protocol version 1
- #HostKey /etc/ssh/ssh_host_key
-@@ -37,7 +33,7 @@
- # Authentication:
- 
- #LoginGraceTime 2m
--#PermitRootLogin yes
-+PermitRootLogin no
- #StrictModes yes
- #MaxAuthTries 6
- #MaxSessions 10
-@@ -61,7 +57,7 @@
- 
- # To disable tunneled clear text passwords, change to no here!
- #PasswordAuthentication yes
--#PermitEmptyPasswords no
-+PermitEmptyPasswords no
- 
- # Change to no to disable s/key passwords
- #ChallengeResponseAuthentication yes
-@@ -93,23 +89,25 @@
- #X11Forwarding no
- #X11DisplayOffset 10
- #X11UseLocalhost yes
--#PrintMotd yes
-+PrintMotd no
- #PrintLastLog yes
- #TCPKeepAlive yes
- #UseLogin no
- #UsePrivilegeSeparation yes
- #PermitUserEnvironment no
--#Compression delayed
--#ClientAliveInterval 0
-+
-+# Compression cannot be enabled with privilege separation on Solaris
-+Compression no
-+
-+ClientAliveInterval 10
+@@ -104,7 +100,7 @@
+ #Compression delayed
+ #ClientAliveInterval 0
  #ClientAliveCountMax 3
 -#UseDNS yes
 +UseDNS no
  #PidFile /var/run/sshd.pid
  #MaxStartups 10
  #PermitTunnel no
- #ChrootDirectory none
- 
--# no default banner path
--#Banner none
-+Banner /ec/etc/ssh/banner
- 
- # override default of no subsystems
- Subsystem	sftp	/usr/libexec/sftp-server
