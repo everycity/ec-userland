@@ -9,16 +9,16 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		xterm
-COMPONENT_VERSION=	287
+COMPONENT_VERSION=	288
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:b5645b5963d01d15f62fb9071f743b58e4d158581f19f411bf14422519363956
+COMPONENT_ARCHIVE_HASH=	sha256:aaa1d9fab8da3010dced60b4fd41be5ec27c37ea5d5a0c1d5d8693b51ee75533
 COMPONENT_ARCHIVE_URL=	http://invisible-island.net/datafiles/release/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
