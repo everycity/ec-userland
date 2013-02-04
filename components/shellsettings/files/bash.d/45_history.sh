@@ -13,7 +13,7 @@
 #
 
 # Ignore unnecessary commands in the history
-export HISTIGNORE="&:ls:[bf]g:exit"
+export HISTIGNORE="&:ls:[bf]g:exit:history:rm:reboot*:halt*:init*:uadmin*:shutdown*:zpool destroy*:zpool offline*:zpool replace*:zpool detach*:zfs destroy*:zfs rollback*"
 
 # Set a reasonable history size
 export HISTSIZE=5000
