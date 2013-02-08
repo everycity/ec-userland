@@ -1,28 +1,28 @@
---- sox-14.3.2/src/formats.c.orig	2011-01-04 05:03:20.000000000 +0000
-+++ sox-14.3.2/src/formats.c	2011-03-24 14:56:25.403867936 +0000
-@@ -396,21 +396,21 @@ static void UNUSED rewind_pipe(FILE * fp
+--- sox-14.4.1/src/formats.c.orig	2013-02-08 23:08:21.632967117 +0000
++++ sox-14.4.1/src/formats.c	2013-02-08 23:09:39.180538119 +0000
+@@ -406,21 +406,21 @@
  {
  /* _FSTDIO is for Torek stdio (i.e. most BSD-derived libc's)
   * In theory, we no longer need to check _NEWLIB_VERSION or __APPLE__ */
 -#if defined _FSTDIO || defined _NEWLIB_VERSION || defined __APPLE__
--  fp->_p -= AUTO_DETECT_SIZE;
--  fp->_r += AUTO_DETECT_SIZE;
+-  fp->_p -= PIPE_AUTO_DETECT_SIZE;
+-  fp->_r += PIPE_AUTO_DETECT_SIZE;
 -#elif defined __GLIBC__
 -  fp->_IO_read_ptr = fp->_IO_read_base;
--#elif defined _MSC_VER || defined __MINGW_H || defined _ISO_STDIO_ISO_H
+-#elif defined _MSC_VER || defined _WIN32 || defined _WIN64 || defined _ISO_STDIO_ISO_H
 -  fp->_ptr = fp->_base;
 -#else
 +//#if defined _FSTDIO || defined _NEWLIB_VERSION || defined __APPLE__
-+//  fp->_p -= AUTO_DETECT_SIZE;
-+//  fp->_r += AUTO_DETECT_SIZE;
++//  fp->_p -= PIPE_AUTO_DETECT_SIZE;
++//  fp->_r += PIPE_AUTO_DETECT_SIZE;
 +//#elif defined __GLIBC__
 +//  fp->_IO_read_ptr = fp->_IO_read_base;
-+//#elif defined _MSC_VER || defined __MINGW_H || defined _ISO_STDIO_ISO_H
++//#elif defined _MSC_VER || defined _WIN32 || defined _WIN64 || defined _ISO_STDIO_ISO_H
 +//  fp->_ptr = fp->_base;
 +//#else
    /* To fix this #error, either simply remove the #error line and live without
     * file-type detection with pipes, or add support for your compiler in the
-    * lines above.  Test with cat monkey.au | ./sox --info - */
+    * lines above.  Test with cat monkey.wav | ./sox --info - */
 -  #error FIX NEEDED HERE
 +//  #error FIX NEEDED HERE
    #define NO_REWIND_PIPE

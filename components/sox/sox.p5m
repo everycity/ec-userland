@@ -29,9 +29,7 @@ dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/$(MACH64)/sox
 dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/lib/sox
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
@@ -41,10 +39,10 @@ file path=$(ECPREFIX)/bin/$(MACH64)/sox
 file path=$(ECPREFIX)/bin/sox
 file path=$(ECPREFIX)/include/sox.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libsox.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libsox.so.2.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libsox.so.2.0.1
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/sox.pc
 file path=$(ECPREFIX)/lib/libsox.la
-file path=$(ECPREFIX)/lib/libsox.so.2.0.0
+file path=$(ECPREFIX)/lib/libsox.so.2.0.1
 file path=$(ECPREFIX)/lib/pkgconfig/sox.pc
 file path=$(ECPREFIX)/share/man/man1/sox.1
 file path=$(ECPREFIX)/share/man/man1/soxi.1
@@ -56,10 +54,10 @@ link path=$(ECPREFIX)/bin/$(MACH64)/soxi target=sox
 link path=$(ECPREFIX)/bin/play target=sox
 link path=$(ECPREFIX)/bin/rec target=sox
 link path=$(ECPREFIX)/bin/soxi target=sox
-link path=$(ECPREFIX)/lib/$(MACH64)/libsox.so target=libsox.so.2.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libsox.so.2 target=libsox.so.2.0.0
-link path=$(ECPREFIX)/lib/libsox.so target=libsox.so.2.0.0
-link path=$(ECPREFIX)/lib/libsox.so.2 target=libsox.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsox.so target=libsox.so.2.0.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libsox.so.2 target=libsox.so.2.0.1
+link path=$(ECPREFIX)/lib/libsox.so target=libsox.so.2.0.1
+link path=$(ECPREFIX)/lib/libsox.so.2 target=libsox.so.2.0.1
 link path=$(ECPREFIX)/share/man/man1/play.1 target=sox.1
 link path=$(ECPREFIX)/share/man/man1/rec.1 target=sox.1
 link path=$(ECPREFIX)/share/man/man7/soxeffect.7 target=../man1/sox.1
