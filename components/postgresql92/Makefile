@@ -9,18 +9,18 @@
 #
 
 #
-# Copyright 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		postgresql
 COMPONENT_MJR_VERSION=	9.2
-COMPONENT_MNR_VERSION=	2
+COMPONENT_MNR_VERSION=	3
 COMPONENT_VERSION=	$(COMPONENT_MJR_VERSION).$(COMPONENT_MNR_VERSION)
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:e1a7a854a98896cb7fcd1696a76fca6f3bcac94d75e68a6154ffe2b69184f7f3
+COMPONENT_ARCHIVE_HASH=	sha256:c4f5a63290c0c32d8d9899edee8188d0c8ab124a7199b154fac75e62eec35f7f
 COMPONENT_ARCHIVE_URL=	http://ftp.postgresql.org/pub/source/v$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
