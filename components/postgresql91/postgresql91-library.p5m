@@ -939,9 +939,13 @@ file \
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES/libpq5-$(COMPONENT_MJR_VERSION).mo
 file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES/pg_basebackup-$(COMPONENT_MJR_VERSION).mo
+file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES/pg_config-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES/pg_controldata-$(COMPONENT_MJR_VERSION).mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES/pg_ctl-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES/pg_dump-$(COMPONENT_MJR_VERSION).mo
 file \
@@ -949,7 +953,13 @@ file \
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES/pgscripts-$(COMPONENT_MJR_VERSION).mo
 file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES/plperl-$(COMPONENT_MJR_VERSION).mo
+file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES/plpgsql-$(COMPONENT_MJR_VERSION).mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES/plpython-$(COMPONENT_MJR_VERSION).mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES/postgres-$(COMPONENT_MJR_VERSION).mo
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES/psql-$(COMPONENT_MJR_VERSION).mo
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ja/LC_MESSAGES/ecpg-$(COMPONENT_MJR_VERSION).mo
 file \
@@ -1171,6 +1181,8 @@ file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/zh_CN/LC_MESSAGES/pg_config-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/zh_CN/LC_MESSAGES/pg_controldata-$(COMPONENT_MJR_VERSION).mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/zh_CN/LC_MESSAGES/pg_ctl-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/zh_CN/LC_MESSAGES/pg_dump-$(COMPONENT_MJR_VERSION).mo
 file \
