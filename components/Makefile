@@ -80,13 +80,16 @@ clean:		$(COMPONENT_DIRS.nosetup)
 clobber:	$(COMPONENT_DIRS.nosetup) clean
 	$(RM) -r $(WS_REPO) $(WS_LOGS) $(WS_LINT_CACHE)
 
-setup:	$(WS_ARCHIVES) $(WS_LOGS) tools $(WS_LINT_CACHE)
+setup:	$(WS_ARCHIVES) $(WS_LOGS) tools $(WS_LINT_CACHE) $(WS_REPO)
 
 $(WS_ARCHIVES):
 	$(MKDIR) $@
 
 $(WS_LOGS):
 	$(MKDIR) $@
+
+$(WS_REPO):
+	( cd $(WS_TOP) && $(WS_TOP)/mkrepo.sh )
 
 DUMMYPKG =  "set name=fmri value=pkg:/dummy@0,$(BUILD_VERSION)\n"
 DUMMYPKG += "set pkg.summary=dummy\n"
