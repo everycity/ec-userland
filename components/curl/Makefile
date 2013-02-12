@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -21,15 +21,21 @@ include ../../make-rules/shared-macros.mk
 # time.
 
 COMPONENT_NAME=		curl
-COMPONENT_VERSION=	7.28.0
+COMPONENT_VERSION=	7.29.0
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:b7f510db60f520ba0bc8a39cccee7e913362205b4a7709e16af2cba14093099b
+COMPONENT_ARCHIVE_HASH=	sha256:9d78e8bac6fa101679ca82e72a24e55918c5d495d29acb1eff62610929d3832f
 COMPONENT_ARCHIVE_URL=	http://curl.haxx.se/download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+CPPFLAGS+=	-I$(ECPREFIX)/include
+
+CFLAGS=	$(CC_BITS) -O3
+
+CONFIGURE_ENV+=	CPPFLAGS="$(CPPFLAGS)"
 
 CONFIGURE_OPTIONS+=	--with-pic
 CONFIGURE_OPTIONS+=	--enable-shared
