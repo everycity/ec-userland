@@ -1,39 +1,28 @@
 <?xml version="1.0"?>
-<!--
-CDDL HEADER START
-
-The contents of this file are subject to the terms of the
-Common Development and Distribution License (the "License").
-You may not use this file except in compliance with the License.
-
-You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-or http://www.opensolaris.org/os/licensing.
-See the License for the specific language governing permissions
-and limitations under the License.
-
-When distributing Covered Code, include this CDDL HEADER in each
-file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-If applicable, add the following below this CDDL HEADER, with the
-fields enclosed by brackets "[]" replaced with your own identifying
-information: Portions Copyright [yyyy] [name of copyright owner]
-
-CDDL HEADER END
--->
-
 <!DOCTYPE service_bundle SYSTEM "/usr/share/lib/xml/dtd/service_bundle.dtd.1">
 <!--
-    Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+//
+// This file and its contents are supplied under the terms of the
+// Common Development and Distribution License ("CDDL)". You may
+// only use this file in accordance with the terms of the CDDL.
+//
+// A full copy of the text of the CDDL should have accompanied this
+// source. A copy of the CDDL is also available via the Internet at
+// http://www.illumos.org/license/CDDL.
+//
+//
+// Copyright 2011-2013 EveryCity Ltd. All rights reserved.
+//
 -->
-
 <service_bundle type='manifest' name='tomcat7'>
 
 <service
-	name='network/tomcat7'
+	name='network/http/tomcat7'
 	type='service'
 	version='1'>
 
 	<!--
-	  Because we may have multiple instances of network/http
+	  Because we may have multiple instances of network/http/tomcat7
 	  provided by different implementations, we keep dependencies
 	  and methods within the instance.
 	-->
@@ -73,6 +62,18 @@ CDDL HEADER END
 			value='svc:/system/filesystem/autofs:default'/>
 		</dependency>
 
+		<!--
+		  Wait for NFS to become available, as we may be
+		  serving data from NFS mountpoints.
+		-->
+		<dependency name='nfs'
+		    grouping='optional_all'
+		    restart_on='error'
+		    type='service'>
+		    <service_fmri
+			value='svc:/network/nfs/client:default'/>
+		</dependency>
+
 		<exec_method
 			type='method'
 			name='start'
@@ -80,7 +81,7 @@ CDDL HEADER END
 			timeout_seconds='60'>
 			<method_context>
 			<method_credential
-			  user='tomcat7' group='tomcat7'
+			  user='tomcat' group='tomcat'
 			  privileges='basic,net_privaddr'/>
 			</method_context>
 		</exec_method>
@@ -88,21 +89,30 @@ CDDL HEADER END
 		<exec_method
 			type='method'
 			name='stop'
-			exec='/ec/var/svc/method/http-tomcat7 stop'
-			timeout_seconds='60' />
+			exec=':kill'
+			timeout_seconds='90' />
 
-		<template>
-			<common_name>
-				<loctext xml:lang='C'>
-					Apache Tomcat 7
-				</loctext>
-			</common_name>
+		<property_group name='tomcat' type='application'>
+			<stability value='Evolving' />
+			<propval name='enable_64bit' type='boolean' value='false' />
+			<propval name='catalina_home' type='astring' value='/ec/lib/tomcat7' />
+			<propval name='catalina_base' type='astring' value='/ec/var/tomcat7' />
+			<propval name='jvm_extra_options' type='astring' value='-server' />
+			<propval name='jvm_gc_options' type='astring' value='-XX:+UseParallelGC -XX:+UseParallelOldGC -Xloggc:$CATALINA_BASE/logs/gc.log -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -verbose:gc' />
+			<propval name='jvm_heap_options' type='astring' value='-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$CATALINA_BASE/logs' />
+			<propval name='jvm_jmx_options' type='astring' value='-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.port=8001' />
+			<propval name='jvm_xms_options' type='astring' value='-Xms1024m' />
+			<propval name='jvm_xmx_options' type='astring' value='-Xmx1024m' />
+			<propval name='jvm_permsize_options' type='astring' value='-XX:PermSize=128m' />
+			<propval name='jvm_maxpermsize_options' type='astring' value='-XX:MaxPermSize=256m' />
+		</property_group>
 
-			<documentation>
-				<doc_link name='apache.org'
-					uri='http://tomcat.apache.org' />
-			</documentation>
-		</template>
+		<property_group name='startd' type='framework'>
+			<!-- sub-process core dumps shouldn't restart
+				session -->
+			<propval name='ignore_error' type='astring'
+				value='core,signal' />
+		</property_group>
 
 	</instance>
 

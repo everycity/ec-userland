@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -108,7 +108,7 @@ file path=$(ECPREFIX)/lib/tomcat7/lib/catalina-ant.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/catalina-ha.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/catalina-tribes.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/catalina.jar
-file path=$(ECPREFIX)/lib/tomcat7/lib/ecj-3.7.2.jar
+file path=$(ECPREFIX)/lib/tomcat7/lib/ecj-4.2.1.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/el-api.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/jasper-el.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/jasper.jar
