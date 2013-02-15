@@ -23,7 +23,6 @@
 <transform dir path=.*/var/tomcat7/.* -> default group tomcat>
 <transform dir path=.*/var/log/tomcat7.* -> default owner tomcat>
 <transform dir path=.*/var/log/tomcat7.* -> default group tomcat>
-<transform dir path=.*/lib/tomcat7/webapps.* -> default mode 0775>
 # Drop files from the admin package
 <transform file path=.*/lib/tomcat7/webapps/host-manager.*$ -> drop>
 <transform file path=.*/lib/tomcat7/webapps/manager.*$ -> drop>

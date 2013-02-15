@@ -16,7 +16,6 @@
 <include ec-drop-common>
 <transform dir path=.*/var/tomcat7/.* -> default owner tomcat>
 <transform dir path=.*/var/tomcat7/.* -> default group tomcat>
-<transform dir path=.*/lib/tomcat7/webapps.* -> default mode 0775>
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)/admin@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY) - management webapps"
