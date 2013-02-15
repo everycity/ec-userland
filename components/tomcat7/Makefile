@@ -16,6 +16,10 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tomcat
 COMPONENT_VERSION=	7.0.35
+COMPONENT_FMRI=         web/java-servlet/tomcat7
+COMPONENT_LICENSE=      Apache v2.0
+COMPONENT_SUMMARY=      Tomcat Servlet/JSP Container
+COMPONENT_PROJECT_URL=	http://tomcat.apache.org/
 COMPONENT_SRC=		apache-tomcat-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	apache-tomcat-$(COMPONENT_VERSION).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:5bb3825d1b5785b77761c9dde32776e56fa7a7362aab019a2578d00ffae2b0c1
@@ -26,7 +30,26 @@ include ../../make-rules/ips.mk
 
 CLEAN_PATHS += $(BUILD_DIR)
 
-build: prep
+$(BUILD_DIR)/%/.built:  $(SOURCE_DIR)/.prep
+	$(RM) -r $(@D) $(PROTO_DIR) ; $(MKDIR) -p $(@D)
+	$(TOUCH) $@
 
-install: build
+$(BUILD_DIR)/%/.installed:      $(BUILD_DIR)/%/.built
 	[ -d $(PROTO_DIR) ] || $(MKDIR) $(PROTO_DIR)
+	( for i in etc/tomcat7 lib/tomcat7 share/doc/tomcat7 var/tomcat7/common/classes \
+		var/tomcat7/server/classes var/tomcat7/shared/classes \
+		var/tomcat7/temp var/tomcat7/webapps var/tomcat7/work var/log/tomcat7 ; \
+		do $(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/$$i ; done )
+	( for i in bin lib webapps ; \
+		do $(CP) -R $(SOURCE_DIR)/$$i $(PROTO_DIR)$(ECPREFIX)/lib/tomcat7/ ; done )
+	( for i in LICENSE NOTICE RELEASE-NOTES RUNNING.txt ; \
+		do $(CP) $(SOURCE_DIR)/$$i $(PROTO_DIR)$(ECPREFIX)/share/doc/tomcat7/ ; done )
+	( for i in catalina.policy catalina.properties context.xml logging.properties server.xml \
+		tomcat-users.xml web.xml ; \
+		do $(CP) $(SOURCE_DIR)/conf/$$i $(PROTO_DIR)$(ECPREFIX)/etc/tomcat7/ ; done )
+	$(TOUCH) $@
+
+build:		$(BUILD_32)
+
+install:	$(INSTALL_32)
+
