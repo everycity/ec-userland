@@ -343,6 +343,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/search.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/semver.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/shrinkwrap.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/star.md
+file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/stars.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/start.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/stop.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/submodule.md
@@ -441,6 +442,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/search.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/semver.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/shrinkwrap.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/star.html
+file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/stars.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/start.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/stop.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/submodule.html
@@ -496,6 +498,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/lib/search.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/set.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/shrinkwrap.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/star.js
+file path=$(ECPREFIX)/lib/node_modules/npm/lib/stars.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/start.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/stop.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/submodule.js
@@ -585,6 +588,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/semver.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/set.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/shrinkwrap.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/star.1
+file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/stars.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/start.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/stop.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/submodule.1
@@ -1016,6 +1020,8 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/lib/star.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/lib/stars.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/lib/tag.js
 file \
