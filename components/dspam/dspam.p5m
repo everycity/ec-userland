@@ -1,0 +1,121 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2013 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/dspam
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/dspam
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/dspam
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+dir path=$(ECPREFIX)/share/man/man3
+dir path=$(LOCALSTATEDIR)
+dir path=$(LOCALSTATEDIR)/dspam
+dir path=$(LOCALSTATEDIR)/dspam/log
+dir path=$(SYSCONFDIR)
+file path=$(ECPREFIX)/bin/$(MACH64)/cssclean
+file path=$(ECPREFIX)/bin/$(MACH64)/csscompress
+file path=$(ECPREFIX)/bin/$(MACH64)/cssconvert
+file path=$(ECPREFIX)/bin/$(MACH64)/cssstat
+file path=$(ECPREFIX)/bin/$(MACH64)/dspam
+file path=$(ECPREFIX)/bin/$(MACH64)/dspam_2sql
+file path=$(ECPREFIX)/bin/$(MACH64)/dspam_admin
+file path=$(ECPREFIX)/bin/$(MACH64)/dspam_clean
+file path=$(ECPREFIX)/bin/$(MACH64)/dspam_crc
+file path=$(ECPREFIX)/bin/$(MACH64)/dspam_dump
+file path=$(ECPREFIX)/bin/$(MACH64)/dspam_logrotate
+file path=$(ECPREFIX)/bin/$(MACH64)/dspam_merge
+file path=$(ECPREFIX)/bin/$(MACH64)/dspam_notify
+file path=$(ECPREFIX)/bin/$(MACH64)/dspam_stats
+file path=$(ECPREFIX)/bin/$(MACH64)/dspam_train
+file path=$(ECPREFIX)/bin/$(MACH64)/dspamc
+file path=$(ECPREFIX)/bin/cssclean
+file path=$(ECPREFIX)/bin/csscompress
+file path=$(ECPREFIX)/bin/cssconvert
+file path=$(ECPREFIX)/bin/cssstat
+file path=$(ECPREFIX)/bin/dspam
+file path=$(ECPREFIX)/bin/dspam_2sql
+file path=$(ECPREFIX)/bin/dspam_admin
+file path=$(ECPREFIX)/bin/dspam_clean
+file path=$(ECPREFIX)/bin/dspam_crc
+file path=$(ECPREFIX)/bin/dspam_dump
+file path=$(ECPREFIX)/bin/dspam_logrotate
+file path=$(ECPREFIX)/bin/dspam_merge
+file path=$(ECPREFIX)/bin/dspam_notify
+file path=$(ECPREFIX)/bin/dspam_stats
+file path=$(ECPREFIX)/bin/dspam_train
+file path=$(ECPREFIX)/bin/dspamc
+file path=$(ECPREFIX)/include/dspam/buffer.h
+file path=$(ECPREFIX)/include/dspam/config.h
+file path=$(ECPREFIX)/include/dspam/config_shared.h
+file path=$(ECPREFIX)/include/dspam/decode.h
+file path=$(ECPREFIX)/include/dspam/diction.h
+file path=$(ECPREFIX)/include/dspam/error.h
+file path=$(ECPREFIX)/include/dspam/heap.h
+file path=$(ECPREFIX)/include/dspam/libdspam.h
+file path=$(ECPREFIX)/include/dspam/libdspam_objects.h
+file path=$(ECPREFIX)/include/dspam/nodetree.h
+file path=$(ECPREFIX)/include/dspam/pref.h
+file path=$(ECPREFIX)/include/dspam/read_config.h
+file path=$(ECPREFIX)/include/dspam/storage_driver.h
+file path=$(ECPREFIX)/include/dspam/tokenizer.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libdspam.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libdspam.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libdspam.so.7.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/dspam.pc
+file path=$(ECPREFIX)/lib/libdspam.a
+file path=$(ECPREFIX)/lib/libdspam.la
+file path=$(ECPREFIX)/lib/libdspam.so.7.0.0
+file path=$(ECPREFIX)/lib/pkgconfig/dspam.pc
+file path=$(ECPREFIX)/share/man/man1/dspam.1
+file path=$(ECPREFIX)/share/man/man1/dspam_admin.1
+file path=$(ECPREFIX)/share/man/man1/dspam_clean.1
+file path=$(ECPREFIX)/share/man/man1/dspam_crc.1
+file path=$(ECPREFIX)/share/man/man1/dspam_dump.1
+file path=$(ECPREFIX)/share/man/man1/dspam_logrotate.1
+file path=$(ECPREFIX)/share/man/man1/dspam_merge.1
+file path=$(ECPREFIX)/share/man/man1/dspam_stats.1
+file path=$(ECPREFIX)/share/man/man1/dspam_train.1
+file path=$(ECPREFIX)/share/man/man3/libdspam.3
+file path=$(SYSCONFDIR)/dspam.conf
+link path=$(ECPREFIX)/lib/$(MACH64)/libdspam.so target=libdspam.so.7.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libdspam.so.7 target=libdspam.so.7.0.0
+link path=$(ECPREFIX)/lib/libdspam.so target=libdspam.so.7.0.0
+link path=$(ECPREFIX)/lib/libdspam.so.7 target=libdspam.so.7.0.0
+link path=$(ECPREFIX)/share/man/man3/dspam_addattribute.3 target=libdspam.3
+link path=$(ECPREFIX)/share/man/man3/dspam_attach.3 target=libdspam.3
+link path=$(ECPREFIX)/share/man/man3/dspam_clearattributes.3 target=libdspam.3
+link path=$(ECPREFIX)/share/man/man3/dspam_create.3 target=libdspam.3
+link path=$(ECPREFIX)/share/man/man3/dspam_destroy.3 target=libdspam.3
+link path=$(ECPREFIX)/share/man/man3/dspam_detach.3 target=libdspam.3
+link path=$(ECPREFIX)/share/man/man3/dspam_getsource.3 target=libdspam.3
+link path=$(ECPREFIX)/share/man/man3/dspam_init.3 target=libdspam.3
+link path=$(ECPREFIX)/share/man/man3/dspam_process.3 target=libdspam.3
