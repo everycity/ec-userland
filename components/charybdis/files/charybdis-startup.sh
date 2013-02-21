@@ -19,7 +19,7 @@ case "$1" in
   start)
     echo "Starting charybdis: \c"
     /ec/lib/charybdis/ircd 
-    echo "lighttpd."
+    echo "charybdis."
     ;;
   *)
     echo "Usage: $0 {start}"
