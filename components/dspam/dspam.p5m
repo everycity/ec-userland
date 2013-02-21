@@ -28,6 +28,8 @@ dir path=path=$(LOCALSTATEDIR)/svc
 dir path=path=$(LOCALSTATEDIR)/svc/method
 file files/dspam-startup.sh path=$(ECPREFIX)/var/svc/method/dspam mode=555
 dir path=var
+dir path=var/run
+dir path=var/run/dspam
 dir path=var/svc
 dir path=var/svc/manifest
 dir path=var/svc/manifest/site
