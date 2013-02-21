@@ -18,16 +18,15 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		mbuffer
-COMPONENT_VERSION=	20121111
+COMPONENT_VERSION=	20130220
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH= \
-    sha256:38359fc57ffbb874c787f337033c833ebf835bc15f430c59b0481dd1bb653c72
+COMPONENT_ARCHIVE_HASH= sha256:1d549c3ac7e29c6064b63195141a61253095831cf5d16f419ae6cc342f12c512
 COMPONENT_ARCHIVE_URL=	http://www.maier-komor.de/software/mbuffer/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
