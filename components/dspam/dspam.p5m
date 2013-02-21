@@ -14,6 +14,8 @@
 
 # Transforms
 <include ec-drop-common>
+<transform file path=.+/etc/.+ -> default preserve true>
+<transform file path=.+/etc/.+ -> default mode 0644>
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
@@ -21,6 +23,16 @@ set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+dir path=path=$(LOCALSTATEDIR)/svc
+dir path=path=$(LOCALSTATEDIR)/svc/method
+file files/dspam-startup.sh path=$(ECPREFIX)/var/svc/method/dspam mode=555
+dir path=var
+dir path=var/svc
+dir path=var/svc/manifest
+dir path=var/svc/manifest/site
+file files/dspam-manifest.xml path=var/svc/manifest/site/dspam.xml \
+    restart_fmri=svc:/system/manifest-import:default
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -87,11 +99,9 @@ file path=$(ECPREFIX)/include/dspam/pref.h
 file path=$(ECPREFIX)/include/dspam/read_config.h
 file path=$(ECPREFIX)/include/dspam/storage_driver.h
 file path=$(ECPREFIX)/include/dspam/tokenizer.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libdspam.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libdspam.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libdspam.so.7.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/dspam.pc
-file path=$(ECPREFIX)/lib/libdspam.a
 file path=$(ECPREFIX)/lib/libdspam.la
 file path=$(ECPREFIX)/lib/libdspam.so.7.0.0
 file path=$(ECPREFIX)/lib/pkgconfig/dspam.pc

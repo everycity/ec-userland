@@ -1,0 +1,50 @@
+<?xml version='1.0'?>
+<!DOCTYPE service_bundle SYSTEM '/usr/share/lib/xml/dtd/service_bundle.dtd.1'>
+<!--
+//
+// This file and its contents are supplied under the terms of the
+// Common Development and Distribution License ("CDDL)". You may
+// only use this file in accordance with the terms of the CDDL.
+//
+// A full copy of the text of the CDDL should have accompanied this
+// source. A copy of the CDDL is also available via the Internet at
+// http://www.illumos.org/license/CDDL.
+//
+//
+// Copyright 2013 EveryCity Ltd. All rights reserved.
+//
+-->
+<service_bundle type='manifest' name='dspam'>
+<service name='network/dspam' type='service' version='0'>
+
+	<dependency name='network' grouping='require_all' restart_on='error' type='service'>
+		<service_fmri value='svc:/milestone/network:default'/>
+	</dependency>
+
+	<dependency name='filesystem-local' grouping='require_all' restart_on='none' type='service'>
+		<service_fmri value='svc:/system/filesystem/local:default'/>
+	</dependency>
+
+	<exec_method name='start' type='method' exec='/ec/var/svc/method/dspam start' timeout_seconds='60'>
+		<method_context/>
+	</exec_method>
+
+	<exec_method name='stop' type='method' exec=':kill' timeout_seconds='30'>
+		<method_context/>
+	</exec_method>
+
+	<exec_method name='refresh' type='method' exec=':kill -HUP' timeout_seconds='30'>
+		<method_context/>
+	</exec_method>
+
+	<instance name='default' enabled='false'>
+		<property_group name='dspam' type='application'>
+			<stability value='Evolving' />
+			<propval name='enable_64bit' type='boolean' value='false' />
+		</property_group>
+	</instance>
+
+	<stability value='Evolving' />
+
+</service>
+</service_bundle>

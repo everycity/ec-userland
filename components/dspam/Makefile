@@ -32,6 +32,12 @@ include ../../make-rules/ips.mk
 # Build not thread safe
 override COMPONENT_BUILD_GMAKE_ARGS=
 
+CONFIGURE_OPTIONS += --enable-debug
+CONFIGURE_OPTIONS += --enable-clamav
+CONFIGURE_OPTIONS += --enable-syslog
+CONFIGURE_OPTIONS += --enable-daemon
+CONFIGURE_OPTIONS += --disable-static
+
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
