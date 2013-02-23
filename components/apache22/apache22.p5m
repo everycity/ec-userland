@@ -1741,4 +1741,4 @@ link path=$(ECPREFIX)/bin/$(MACH64)/a2dissite \
 file files/apache22-postinstall.xml path=var/svc/manifest/site/apache22-postinstall.xml \
     restart_fmri=svc:/system/manifest-import:default
 link path=$(ECPREFIX)/lib/apache/2.2/logs \
-    target=$(ECPREFIX)/var/apache/2.2/logs
+    target=/$(ECPREFIX)/var/apache/2.2/logs
