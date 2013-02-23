@@ -30,9 +30,9 @@ dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/etc/bash.d
 
 # Deliver links inside /etc to help users find what they are looking for
-link path=etc/bash.d target=$(ECPREFIX)/etc/bash.d
-link path=etc/inputrc target=$(ECPREFIX)/etc/inputrc
-link path=etc/profile target=$(ECPREFIX)/etc/profile
+link path=etc/bash.d target=/$(ECPREFIX)/etc/bash.d
+link path=etc/inputrc target=/$(ECPREFIX)/etc/inputrc
+link path=etc/profile target=/$(ECPREFIX)/etc/profile
 
 # Set up our custom inputrc file
 file files/inputrc path=$(ECPREFIX)/etc/inputrc preserve=true
