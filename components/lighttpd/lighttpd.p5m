@@ -39,10 +39,10 @@ file path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)/share/man/man8/lighttpd.8
 
 # Symlinks
 link path=$(ECPREFIX)/lib/lighttpd/active target=$(LIGHTTPD_MAJOR)
-link path=$(ECPREFIX)/bin/lighttpd target=$(ECPREFIX)/lib/lighttpd/active/bin/lighttpd
-link path=$(ECPREFIX)/bin/lighttpd-angel target=$(ECPREFIX)/lib/lighttpd/active/bin/lighttpd-angel
-link path=$(ECPREFIX)/bin/$(MACH64)/lighttpd target=$(ECPREFIX)/lib/lighttpd/active/bin/$(MACH64)/lighttpd
-link path=$(ECPREFIX)/bin/$(MACH64)/lighttpd-angel target=$(ECPREFIX)/lib/lighttpd/active/bin/$(MACH64)/lighttpd-angel
+link path=$(ECPREFIX)/bin/lighttpd target=/$(ECPREFIX)/lib/lighttpd/active/bin/lighttpd
+link path=$(ECPREFIX)/bin/lighttpd-angel target=/$(ECPREFIX)/lib/lighttpd/active/bin/lighttpd-angel
+link path=$(ECPREFIX)/bin/$(MACH64)/lighttpd target=/$(ECPREFIX)/lib/lighttpd/active/bin/$(MACH64)/lighttpd
+link path=$(ECPREFIX)/bin/$(MACH64)/lighttpd-angel target=/$(ECPREFIX)/lib/lighttpd/active/bin/$(MACH64)/lighttpd-angel
 
 # Configuration
 dir path=$(ECPREFIX)/etc
