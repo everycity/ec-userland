@@ -29,4 +29,5 @@ dir path=$(ECPREFIX)/lib/php/5.2
 dir path=$(ECPREFIX)/lib/php/5.2/extensions
 file path=$(ECPREFIX)/lib/php/5.2/extensions/xapian.so
 
+depend fmri=pkg:/library/xapian/bindings-php-common type=require
 depend fmri=pkg:/library/xapian/bindings-php-docs type=require
