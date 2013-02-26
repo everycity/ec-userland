@@ -1,0 +1,78 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2013 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/stunnel
+dir path=$(ECPREFIX)/lib/stunnel
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/stunnel
+dir path=$(ECPREFIX)/share/doc/stunnel/examples
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man8
+dir path=$(ECPREFIX)/var
+dir path=$(ECPREFIX)/var/lib
+dir path=$(ECPREFIX)/var/lib/stunnel
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/stunnel
+file path=$(ECPREFIX)/bin/$(MACH64)/stunnel
+file path=$(ECPREFIX)/bin/$(MACH64)/stunnel3
+file path=$(ECPREFIX)/bin/stunnel
+file path=$(ECPREFIX)/bin/stunnel3
+file path=$(ECPREFIX)/lib/$(MACH64)/stunnel/libstunnel.la
+file path=$(ECPREFIX)/lib/$(MACH64)/stunnel/libstunnel.so
+file path=$(ECPREFIX)/lib/stunnel/libstunnel.la
+file path=$(ECPREFIX)/lib/stunnel/libstunnel.so
+file path=$(ECPREFIX)/share/doc/stunnel/AUTHORS
+file path=$(ECPREFIX)/share/doc/stunnel/BUGS
+file path=$(ECPREFIX)/share/doc/stunnel/COPYING
+file path=$(ECPREFIX)/share/doc/stunnel/COPYRIGHT.GPL
+file path=$(ECPREFIX)/share/doc/stunnel/CREDITS
+file path=$(ECPREFIX)/share/doc/stunnel/ChangeLog
+file path=$(ECPREFIX)/share/doc/stunnel/INSTALL
+file path=$(ECPREFIX)/share/doc/stunnel/INSTALL.FIPS
+file path=$(ECPREFIX)/share/doc/stunnel/INSTALL.W32
+file path=$(ECPREFIX)/share/doc/stunnel/INSTALL.WCE
+file path=$(ECPREFIX)/share/doc/stunnel/PORTS
+file path=$(ECPREFIX)/share/doc/stunnel/README
+file path=$(ECPREFIX)/share/doc/stunnel/TODO
+file path=$(ECPREFIX)/share/doc/stunnel/examples/ca.html
+file path=$(ECPREFIX)/share/doc/stunnel/examples/ca.pl
+file path=$(ECPREFIX)/share/doc/stunnel/examples/importCA.html
+file path=$(ECPREFIX)/share/doc/stunnel/examples/importCA.sh
+file path=$(ECPREFIX)/share/doc/stunnel/examples/script.sh
+file path=$(ECPREFIX)/share/doc/stunnel/examples/stunnel.init
+file path=$(ECPREFIX)/share/doc/stunnel/examples/stunnel.service
+file path=$(ECPREFIX)/share/doc/stunnel/examples/stunnel.spec
+file path=$(ECPREFIX)/share/doc/stunnel/stunnel.fr.html
+file path=$(ECPREFIX)/share/doc/stunnel/stunnel.html
+file path=$(ECPREFIX)/share/doc/stunnel/stunnel.pl.html
+file path=$(ECPREFIX)/share/man/man8/stunnel.8
+file path=$(ECPREFIX)/share/man/man8/stunnel.fr.8
+file path=$(ECPREFIX)/share/man/man8/stunnel.pl.8
+file path=$(ECPREFIX)/etc/stunnel/stunnel.conf-sample

@@ -1,0 +1,39 @@
+--- stunnel-4.54/tools/Makefile.in	2012-03-26 08:52:47.000000000 +0000
++++ stunnel-4.54/tools/Makefile.in.orig	2013-02-26 21:39:36.951745707 +0000
+@@ -441,21 +441,21 @@
+ 	uninstall-examplesDATA
+ 
+ install-data-local:
+-	if test ! -r $(DESTDIR)$(confdir)/stunnel.pem; then \
+-		if test -r "$(RANDOM_FILE)"; then \
+-			dd if="$(RANDOM_FILE)" of=stunnel.rnd bs=256 count=1; \
+-			RND="-rand stunnel.rnd"; \
+-		else \
+-			RND=""; \
+-		fi; \
+-		$(OPENSSL) req -new -x509 -days 365 $$RND \
+-			-config $(srcdir)/stunnel.cnf \
+-			-out stunnel.pem -keyout stunnel.pem; \
+-		$(OPENSSL) gendh $$RND 1024 >> stunnel.pem; \
+-		$(OPENSSL) x509 -subject -dates -fingerprint -noout -in stunnel.pem; \
+-		${INSTALL} -m 600 stunnel.pem $(DESTDIR)$(confdir)/stunnel.pem; \
+-		rm stunnel.pem; \
+-	fi
++#	if test ! -r $(DESTDIR)$(confdir)/stunnel.pem; then \
++#		if test -r "$(RANDOM_FILE)"; then \
++#			dd if="$(RANDOM_FILE)" of=stunnel.rnd bs=256 count=1; \
++#			RND="-rand stunnel.rnd"; \
++#		else \
++#			RND=""; \
++#		fi; \
++#		$(OPENSSL) req -new -x509 -days 365 $$RND \
++#			-config $(srcdir)/stunnel.cnf \
++#			-out stunnel.pem -keyout stunnel.pem; \
++#		$(OPENSSL) gendh $$RND 1024 >> stunnel.pem; \
++#		$(OPENSSL) x509 -subject -dates -fingerprint -noout -in stunnel.pem; \
++#		${INSTALL} -m 600 stunnel.pem $(DESTDIR)$(confdir)/stunnel.pem; \
++#		rm stunnel.pem; \
++#	fi
+ 	${INSTALL} -d -m 1770 $(DESTDIR)$(localstatedir)/lib/stunnel
+ 	-chgrp $(DEFAULT_GROUP) $(DESTDIR)$(localstatedir)/lib/stunnel
+ 
