@@ -138,7 +138,7 @@
 -# CFLAGS=-O -I/usr/local/include
 -# EXTRALIBS_EXIM=-L/usr/local/lib -liconv
 +HAVE_ICONV=yes
-+CFLAGS=-I/ec/include
++CFLAGS=-I/ec/include -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE
 +EXTRALIBS_EXIM=-L/ec/lib -liconv
  #
  # but of course there may need to be other things in CFLAGS and EXTRALIBS_EXIM
