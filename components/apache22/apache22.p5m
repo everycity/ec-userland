@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -1077,6 +1077,7 @@ file \
     path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_groupfile.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_host.html
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_host.html.en
+file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_host.html.fr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_host.html.ja.utf8
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_host.html.ko.euc-kr
 file path=$(ECPREFIX)/var/apache/2.2/manual/mod/mod_authz_owner.html

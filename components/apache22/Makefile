@@ -9,16 +9,16 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		httpd
-COMPONENT_VERSION=	2.2.23
+COMPONENT_VERSION=	2.2.24
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:14fe79bd6edd957c02cb41f4175e132c08e6ff74a7d08dc1858dd8224e351c34
+COMPONENT_ARCHIVE_HASH=	sha256:0453f5d2d7e3b1975a1c6a8a22b6d6ff768715a3b0a89b51e5f7b5851628fad7
 COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.apache.org/httpd/$(COMPONENT_ARCHIVE)
 #COMPONENT_ARCHIVE_URL=	http://archive.apache.org/dist/httpd/$(COMPONENT_ARCHIVE)
 
