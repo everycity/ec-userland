@@ -1,0 +1,51 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012 EveryCity Ltd. All rights reserved.
+#
+
+include ../../make-rules/shared-macros.mk
+
+COMPONENT_NAME=		haproxy
+COMPONENT_VERSION_MJR=	1.4
+COMPONENT_VERSION_MNR=	22
+COMPONENT_VERSION=	$(COMPONENT_VERSION_MJR).$(COMPONENT_VERSION_MNR)
+COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
+COMPONENT_ARCHIVE_HASH=	sha256:ba221b3eaa4d71233230b156c3000f5c2bd4dace94d9266235517fe42f917fc6
+COMPONENT_ARCHIVE_URL=	http://haproxy.1wt.eu/download/$(COMPONENT_VERSION_MJR)/src/$(COMPONENT_ARCHIVE)
+
+include ../../make-rules/prep.mk
+include ../../make-rules/justmake.mk
+include ../../make-rules/ips.mk
+
+COMPONENT_PRE_BUILD_ACTION+=    cp -r $(SOURCE_DIR)/* $(@D)
+
+SBINDIR.32=	$(ECPREFIX)/bin
+SBINDIR.64=	$(ECPREFIX)/bin/$(MACH64)
+
+COMPONENT_BUILD_ARGS+=		PREFIX=$(ECPREFIX)
+COMPONENT_BUILD_ARGS+=		SBINDIR=$(SBINDIR.$(BITS))
+COMPONENT_BUILD_ARGS+=		DOCDIR=$(ECPREFIX)/share/doc/haproxy
+COMPONENT_BUILD_ARGS+=		TARGET=solaris
+COMPONENT_BUILD_ARGS.32+=	ARCH=32
+COMPONENT_BUILD_ARGS.64+=	ARCH=x86_64
+COMPONENT_BUILD_ARGS+=		$(COMPONENT_BUILD_ARGS.$(BITS))
+COMPONENT_INSTALL_ARGS+=	$(COMPONENT_BUILD_ARGS)
+
+COMPONENT_POST_INSTALL_ACTION.32+= ( cd $(@D)/contrib/halog && $(GMAKE) $(COMPONENT_BUILD_ARGS) && \
+	cp halog $(PROTO_DIR)/$(SBINDIR.$(BITS)) )
+COMPONENT_POST_INSTALL_ACTION+=	$(COMPONENT_POST_INSTALL_ACTION.$(BITS))
+
+build:		$(BUILD_32_and_64)
+
+install:	$(INSTALL_32_and_64)
+
