@@ -35,4 +35,3 @@ file \
     path=$(ECPREFIX)/share/doc/xapian-bindings/php/examples/simplematchdecider.php5
 file path=$(ECPREFIX)/share/doc/xapian-bindings/php/examples/simplesearch.php5
 file path=$(ECPREFIX)/share/doc/xapian-bindings/php/index.html
-file path=$(ECPREFIX)/share/php5/xapian.php
