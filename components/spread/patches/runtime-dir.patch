@@ -1,0 +1,12 @@
+diff -ruN spread-src-3.17.4.orig/spread_params.h spread-src-3.17.4/spread_params.h
+--- spread-src-3.17.4.orig/spread_params.h	2006-11-20 21:17:29.000000000 +0000
++++ spread-src-3.17.4/spread_params.h	2013-03-11 11:27:40.458572979 +0000
+@@ -43,7 +43,7 @@
+ #define		DEFAULT_SPREAD_PORT	4803
+ 
+ #ifndef SP_RUNTIME_DIR
+-#define         SP_RUNTIME_DIR          "/var/run/spread"
++#define         SP_RUNTIME_DIR          "/ec/var/run/spread"
+ #endif
+ #ifndef SP_GROUP
+ #define         SP_GROUP                "spread"
