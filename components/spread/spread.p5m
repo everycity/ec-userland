@@ -77,7 +77,8 @@ link path=$(ECPREFIX)/lib/libtspread.so target=libtspread.so.1.0
 
 group gid=484 groupname=spread
 user gcos-field="Spread Account" group=spread uid=484 username=spread login-shell=/bin/false home-dir=$(ECPREFIX)/var/run
-dir path=$(ECPREFIX)/var/log/spread owner=spread group=spread
+dir path=$(ECPREFIX)/var/log/spread owner=spread group=spread preserve=true
+dir path=$(ECPREFIX)/var/run/spread owner=spread group=spread preserve=true
 
 dir path=var
 dir path=var/svc
