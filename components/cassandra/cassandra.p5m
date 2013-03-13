@@ -36,7 +36,7 @@ file files/cassandra-smf.xml path=var/svc/manifest/site/cassandra.xml \
         restart_fmri=svc:/system/manifest-import:default
 
 group gid=485 groupname=cassandra
-user gcos-field="Cassandra Account" group=spread uid=485 username=cassandra login-shell=/bin/false home-dir=$(ECPREFIX)/var/lib/cassandra pkg.linted=true
+user gcos-field="Cassandra Account" group=cassandra uid=485 username=cassandra login-shell=/bin/false home-dir=$(ECPREFIX)/var/lib/cassandra pkg.linted=true
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
