@@ -95,6 +95,7 @@
 		<property_group name='cassandra' type='application'>
 			<stability value='Evolving' />
 			<propval name='cassandra_conf' type='astring' value='/ec/etc/cassandra' />
+			<propval name='java_home' type='astring' value='' />
 			<propval name='jvm_extra_options' type='astring' value='' />
 			<propval name='enable_64bit' type='boolean' value='true' />
 		</property_group>

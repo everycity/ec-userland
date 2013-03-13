@@ -26,6 +26,7 @@ export LD_PRELOAD_32=/usr/lib/extendedFILE.so.1
 
 # Defaults, overidable via SMF
 cassandra_conf=/ec/etc/cassandra
+java_home=
 jvm_extra_options=
 enable_64bit=true
 
@@ -53,6 +54,7 @@ varprop() {
 }
 
 varprop cassandra_conf
+varprop java_home
 varprop jvm_extra_options
 
 getprop cassandra/enable_64bit
@@ -79,11 +81,15 @@ if [ "${PROPVAL}" != "" ] ; then
     esac
 fi
 
+echo CASSANDRA_CONF="$cassandra_conf"
+export CASSANDRA_CONF="$cassandra_conf"
+
+echo JAVA_HOME="$java_home"
+export JAVA_HOME="$java_home"
+
 echo JVM_EXTRA_OPTS="$jvm_extra_options"
 export JVM_EXTRA_OPTS="$jvm_extra_options"
 
-echo CASSANDRA_CONF="$cassandra_conf"
-export CASSANDRA_CONF="$cassandra_conf"
 
 case "$1" in
 start)
