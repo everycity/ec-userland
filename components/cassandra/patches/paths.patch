@@ -70,7 +70,7 @@ diff -ruN apache-cassandra-1.2.2.orig/bin/cassandra.in.sh apache-cassandra-1.2.2
  
 -for jar in $CASSANDRA_HOME/lib/*.jar; do
 +for jar in $CASSANDRA_HOME/lib/*.jar $CASSANDRA_HOME/*.jar \
-+  /ec/share/java/jna-*.jar; do
++  /ec/share/java/jna-*.jar /ec/share/java/snappy-java-*.jar; do
      CLASSPATH=$CLASSPATH:$jar
  done
 diff -ruN apache-cassandra-1.2.2.orig/bin/json2sstable apache-cassandra-1.2.2/bin/json2sstable
