@@ -1,6 +1,6 @@
 diff -ruN apache-cassandra-1.2.2.orig/bin/cassandra apache-cassandra-1.2.2/bin/cassandra
 --- apache-cassandra-1.2.2.orig/bin/cassandra	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/cassandra	2013-03-13 11:44:07.497620609 +0000
++++ apache-cassandra-1.2.2/bin/cassandra	2013-03-13 12:42:13.897387672 +0000
 @@ -67,7 +67,8 @@
  # If an include wasn't specified in the environment, then search for one...
  if [ "x$CASSANDRA_INCLUDE" = "x" ]; then
@@ -13,7 +13,7 @@ diff -ruN apache-cassandra-1.2.2.orig/bin/cassandra apache-cassandra-1.2.2/bin/c
                     "$HOME/.cassandra.in.sh" \
 diff -ruN apache-cassandra-1.2.2.orig/bin/cassandra-cli apache-cassandra-1.2.2/bin/cassandra-cli
 --- apache-cassandra-1.2.2.orig/bin/cassandra-cli	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/cassandra-cli	2013-03-13 11:44:07.497965246 +0000
++++ apache-cassandra-1.2.2/bin/cassandra-cli	2013-03-13 12:42:13.897656185 +0000
 @@ -17,7 +17,8 @@
  # limitations under the License.
  
@@ -26,7 +26,7 @@ diff -ruN apache-cassandra-1.2.2.orig/bin/cassandra-cli apache-cassandra-1.2.2/b
                     ~/.cassandra.in.sh \
 diff -ruN apache-cassandra-1.2.2.orig/bin/cassandra-shuffle apache-cassandra-1.2.2/bin/cassandra-shuffle
 --- apache-cassandra-1.2.2.orig/bin/cassandra-shuffle	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/cassandra-shuffle	2013-03-13 11:44:07.498246498 +0000
++++ apache-cassandra-1.2.2/bin/cassandra-shuffle	2013-03-13 12:42:13.897925175 +0000
 @@ -16,7 +16,8 @@
  # limitations under the License.
  
@@ -39,8 +39,8 @@ diff -ruN apache-cassandra-1.2.2.orig/bin/cassandra-shuffle apache-cassandra-1.2
                     `dirname $0`/cassandra.in.sh; do
 diff -ruN apache-cassandra-1.2.2.orig/bin/cassandra.in.sh apache-cassandra-1.2.2/bin/cassandra.in.sh
 --- apache-cassandra-1.2.2.orig/bin/cassandra.in.sh	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/cassandra.in.sh	2013-03-13 11:44:07.498535067 +0000
-@@ -15,27 +15,17 @@
++++ apache-cassandra-1.2.2/bin/cassandra.in.sh	2013-03-13 12:43:42.970505662 +0000
+@@ -15,27 +15,18 @@
  # limitations under the License.
  
  if [ "x$CASSANDRA_HOME" = "x" ]; then
@@ -69,12 +69,13 @@ diff -ruN apache-cassandra-1.2.2.orig/bin/cassandra.in.sh apache-cassandra-1.2.2
 +CLASSPATH=$CASSANDRA_CONF
  
 -for jar in $CASSANDRA_HOME/lib/*.jar; do
-+for jar in $CASSANDRA_HOME/lib/*.jar $CASSANDRA_HOME/*.jar; do
++for jar in $CASSANDRA_HOME/lib/*.jar $CASSANDRA_HOME/*.jar \
++  /ec/share/java/jna-*.jar; do
      CLASSPATH=$CLASSPATH:$jar
  done
 diff -ruN apache-cassandra-1.2.2.orig/bin/json2sstable apache-cassandra-1.2.2/bin/json2sstable
 --- apache-cassandra-1.2.2.orig/bin/json2sstable	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/json2sstable	2013-03-13 11:44:07.498812940 +0000
++++ apache-cassandra-1.2.2/bin/json2sstable	2013-03-13 12:42:13.898419357 +0000
 @@ -17,7 +17,8 @@
  # limitations under the License.
  
@@ -87,7 +88,7 @@ diff -ruN apache-cassandra-1.2.2.orig/bin/json2sstable apache-cassandra-1.2.2/bi
                     ~/.cassandra.in.sh \
 diff -ruN apache-cassandra-1.2.2.orig/bin/nodetool apache-cassandra-1.2.2/bin/nodetool
 --- apache-cassandra-1.2.2.orig/bin/nodetool	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/nodetool	2013-03-13 11:44:07.499097781 +0000
++++ apache-cassandra-1.2.2/bin/nodetool	2013-03-13 12:42:13.898658263 +0000
 @@ -22,7 +22,8 @@
  fi
  
@@ -100,7 +101,7 @@ diff -ruN apache-cassandra-1.2.2.orig/bin/nodetool apache-cassandra-1.2.2/bin/no
                     `dirname $0`/cassandra.in.sh; do
 diff -ruN apache-cassandra-1.2.2.orig/bin/sstable2json apache-cassandra-1.2.2/bin/sstable2json
 --- apache-cassandra-1.2.2.orig/bin/sstable2json	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/sstable2json	2013-03-13 11:44:07.499371504 +0000
++++ apache-cassandra-1.2.2/bin/sstable2json	2013-03-13 12:42:13.898910357 +0000
 @@ -17,7 +17,8 @@
  # limitations under the License.
  
@@ -113,7 +114,7 @@ diff -ruN apache-cassandra-1.2.2.orig/bin/sstable2json apache-cassandra-1.2.2/bi
                     ~/.cassandra.in.sh \
 diff -ruN apache-cassandra-1.2.2.orig/bin/sstablekeys apache-cassandra-1.2.2/bin/sstablekeys
 --- apache-cassandra-1.2.2.orig/bin/sstablekeys	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/sstablekeys	2013-03-13 11:44:07.499648540 +0000
++++ apache-cassandra-1.2.2/bin/sstablekeys	2013-03-13 12:42:13.899151825 +0000
 @@ -17,7 +17,8 @@
  # limitations under the License.
  
@@ -126,7 +127,7 @@ diff -ruN apache-cassandra-1.2.2.orig/bin/sstablekeys apache-cassandra-1.2.2/bin
                     ~/.cassandra.in.sh \
 diff -ruN apache-cassandra-1.2.2.orig/bin/sstableloader apache-cassandra-1.2.2/bin/sstableloader
 --- apache-cassandra-1.2.2.orig/bin/sstableloader	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/sstableloader	2013-03-13 11:44:07.499928208 +0000
++++ apache-cassandra-1.2.2/bin/sstableloader	2013-03-13 12:42:13.899393756 +0000
 @@ -17,7 +17,8 @@
  # limitations under the License.
  
@@ -139,7 +140,7 @@ diff -ruN apache-cassandra-1.2.2.orig/bin/sstableloader apache-cassandra-1.2.2/b
                     ~/.cassandra.in.sh \
 diff -ruN apache-cassandra-1.2.2.orig/bin/sstablescrub apache-cassandra-1.2.2/bin/sstablescrub
 --- apache-cassandra-1.2.2.orig/bin/sstablescrub	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/sstablescrub	2013-03-13 11:44:07.500212596 +0000
++++ apache-cassandra-1.2.2/bin/sstablescrub	2013-03-13 12:42:13.899609227 +0000
 @@ -17,7 +17,8 @@
  # limitations under the License.
  
@@ -152,7 +153,7 @@ diff -ruN apache-cassandra-1.2.2.orig/bin/sstablescrub apache-cassandra-1.2.2/bi
                     ~/.cassandra.in.sh \
 diff -ruN apache-cassandra-1.2.2.orig/conf/cassandra-env.sh apache-cassandra-1.2.2/conf/cassandra-env.sh
 --- apache-cassandra-1.2.2.orig/conf/cassandra-env.sh	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/conf/cassandra-env.sh	2013-03-13 11:44:07.500565489 +0000
++++ apache-cassandra-1.2.2/conf/cassandra-env.sh	2013-03-13 12:42:13.899940285 +0000
 @@ -215,7 +215,7 @@
  # JVM_OPTS="$JVM_OPTS -XX:+PrintGCApplicationStoppedTime"
  # JVM_OPTS="$JVM_OPTS -XX:+PrintPromotionFailure"
@@ -164,7 +165,7 @@ diff -ruN apache-cassandra-1.2.2.orig/conf/cassandra-env.sh apache-cassandra-1.2
  # JVM_OPTS="$JVM_OPTS -Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=1414"
 diff -ruN apache-cassandra-1.2.2.orig/conf/cassandra.yaml apache-cassandra-1.2.2/conf/cassandra.yaml
 --- apache-cassandra-1.2.2.orig/conf/cassandra.yaml	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/conf/cassandra.yaml	2013-03-13 11:44:07.501092717 +0000
++++ apache-cassandra-1.2.2/conf/cassandra.yaml	2013-03-13 12:42:13.900420471 +0000
 @@ -104,10 +104,10 @@
  
  # directories where Cassandra should store data on disk.
@@ -189,7 +190,7 @@ diff -ruN apache-cassandra-1.2.2.orig/conf/cassandra.yaml apache-cassandra-1.2.2
  # When in batch mode, Cassandra won't ack writes until the commit log
 diff -ruN apache-cassandra-1.2.2.orig/conf/log4j-server.properties apache-cassandra-1.2.2/conf/log4j-server.properties
 --- apache-cassandra-1.2.2.orig/conf/log4j-server.properties	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/conf/log4j-server.properties	2013-03-13 11:44:43.158238974 +0000
++++ apache-cassandra-1.2.2/conf/log4j-server.properties	2013-03-13 12:42:13.900642590 +0000
 @@ -32,7 +32,7 @@
  log4j.appender.R.layout=org.apache.log4j.PatternLayout
  log4j.appender.R.layout.ConversionPattern=%5p [%t] %d{ISO8601} %F (line %L) %m%n
@@ -201,7 +202,7 @@ diff -ruN apache-cassandra-1.2.2.orig/conf/log4j-server.properties apache-cassan
  #log4j.logger.org.apache.cassandra=DEBUG
 diff -ruN apache-cassandra-1.2.2.orig/tools/bin/cassandra-stress apache-cassandra-1.2.2/tools/bin/cassandra-stress
 --- apache-cassandra-1.2.2.orig/tools/bin/cassandra-stress	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/tools/bin/cassandra-stress	2013-03-13 11:44:07.501357474 +0000
++++ apache-cassandra-1.2.2/tools/bin/cassandra-stress	2013-03-13 12:42:13.900871003 +0000
 @@ -17,7 +17,8 @@
  # limitations under the License.
  

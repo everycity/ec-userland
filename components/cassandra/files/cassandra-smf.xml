@@ -82,7 +82,7 @@
 			<method_context>
 			<method_credential
 			  user='cassandra' group='cassandra'
-			  privileges='basic,net_privaddr'/>
+			  privileges='basic,net_privaddr,proc_lock_memory'/>
 			</method_context>
 		</exec_method>
 
