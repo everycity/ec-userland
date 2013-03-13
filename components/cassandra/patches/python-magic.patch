@@ -1,0 +1,9 @@
+diff -ruN apache-cassandra-1.2.2.orig/tools/bin/token-generator apache-cassandra-1.2.2/tools/bin/token-generator
+--- apache-cassandra-1.2.2.orig/tools/bin/token-generator	2013-02-20 23:16:49.000000000 +0000
++++ apache-cassandra-1.2.2/tools/bin/token-generator	2013-03-13 10:19:04.572579149 +0000
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/ec/bin/python2.6
+ 
+ # Licensed to the Apache Software Foundation (ASF) under one
+ # or more contributor license agreements.  See the NOTICE file
