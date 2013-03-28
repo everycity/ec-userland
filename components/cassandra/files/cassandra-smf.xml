@@ -27,7 +27,7 @@
 	  and methods within the instance.
 	-->
 
-	<instance name='default' enabled='true'>
+	<instance name='default' enabled='false'>
 		<!--
 		  Wait for network interfaces to be initialized.
 		-->
