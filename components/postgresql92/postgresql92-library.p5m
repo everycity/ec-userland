@@ -1132,6 +1132,8 @@ file \
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/sv/LC_MESSAGES/pg_config-$(COMPONENT_MJR_VERSION).mo
 file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/sv/LC_MESSAGES/pg_ctl-$(COMPONENT_MJR_VERSION).mo
+file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/sv/LC_MESSAGES/pgscripts-$(COMPONENT_MJR_VERSION).mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ta/LC_MESSAGES/pg_config-$(COMPONENT_MJR_VERSION).mo
