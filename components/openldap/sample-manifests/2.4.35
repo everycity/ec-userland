@@ -9,18 +9,18 @@
 #
 
 #
-# Copyright 2011, 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/library/openldap@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="OpenLDAP Software"
-set name=info.upstream_url value="http://www.openldap.org/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license openldap.license license="BSD"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -40,6 +40,7 @@ dir path=$(LOCALSTATEDIR)/run
 dir path=$(SYSCONFDIR)
 dir path=$(SYSCONFDIR)/openldap
 dir path=$(SYSCONFDIR)/openldap/schema
+dir path=$(SYSCONFDIR)/openldap/schema.64924
 file path=$(ECPREFIX)/bin/$(MACH64)/ldapcompare
 file path=$(ECPREFIX)/bin/$(MACH64)/ldapdelete
 file path=$(ECPREFIX)/bin/$(MACH64)/ldapexop
@@ -70,11 +71,23 @@ file path=$(ECPREFIX)/include/ldap_utf8.h
 file path=$(ECPREFIX)/include/ldif.h
 file path=$(ECPREFIX)/include/slapi-plugin.h
 file path=$(ECPREFIX)/lib/$(MACH64)/liblber-2.4.so.2.9.1
+file path=$(ECPREFIX)/lib/$(MACH64)/liblber.a
+file path=$(ECPREFIX)/lib/$(MACH64)/liblber.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libldap-2.4.so.2.9.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libldap.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libldap.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libldap_r-2.4.so.2.9.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libldap_r.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libldap_r.la
 file path=$(ECPREFIX)/lib/liblber-2.4.so.2.9.1
+file path=$(ECPREFIX)/lib/liblber.a
+file path=$(ECPREFIX)/lib/liblber.la
 file path=$(ECPREFIX)/lib/libldap-2.4.so.2.9.1
+file path=$(ECPREFIX)/lib/libldap.a
+file path=$(ECPREFIX)/lib/libldap.la
 file path=$(ECPREFIX)/lib/libldap_r-2.4.so.2.9.1
+file path=$(ECPREFIX)/lib/libldap_r.a
+file path=$(ECPREFIX)/lib/libldap_r.la
 file path=$(ECPREFIX)/share/man/man1/ldapcompare.1
 file path=$(ECPREFIX)/share/man/man1/ldapdelete.1
 file path=$(ECPREFIX)/share/man/man1/ldapexop.1
@@ -180,6 +193,33 @@ file path=$(LOCALSTATEDIR)/openldap-data/DB_CONFIG.example
 file path=$(SYSCONFDIR)/openldap/DB_CONFIG.example
 file path=$(SYSCONFDIR)/openldap/ldap.conf
 file path=$(SYSCONFDIR)/openldap/ldap.conf.default
+file path=$(SYSCONFDIR)/openldap/schema.64924/README
+file path=$(SYSCONFDIR)/openldap/schema.64924/collective.ldif
+file path=$(SYSCONFDIR)/openldap/schema.64924/collective.schema
+file path=$(SYSCONFDIR)/openldap/schema.64924/corba.ldif
+file path=$(SYSCONFDIR)/openldap/schema.64924/corba.schema
+file path=$(SYSCONFDIR)/openldap/schema.64924/core.ldif
+file path=$(SYSCONFDIR)/openldap/schema.64924/core.schema
+file path=$(SYSCONFDIR)/openldap/schema.64924/cosine.ldif
+file path=$(SYSCONFDIR)/openldap/schema.64924/cosine.schema
+file path=$(SYSCONFDIR)/openldap/schema.64924/duaconf.ldif
+file path=$(SYSCONFDIR)/openldap/schema.64924/duaconf.schema
+file path=$(SYSCONFDIR)/openldap/schema.64924/dyngroup.ldif
+file path=$(SYSCONFDIR)/openldap/schema.64924/dyngroup.schema
+file path=$(SYSCONFDIR)/openldap/schema.64924/inetorgperson.ldif
+file path=$(SYSCONFDIR)/openldap/schema.64924/inetorgperson.schema
+file path=$(SYSCONFDIR)/openldap/schema.64924/java.ldif
+file path=$(SYSCONFDIR)/openldap/schema.64924/java.schema
+file path=$(SYSCONFDIR)/openldap/schema.64924/misc.ldif
+file path=$(SYSCONFDIR)/openldap/schema.64924/misc.schema
+file path=$(SYSCONFDIR)/openldap/schema.64924/nis.ldif
+file path=$(SYSCONFDIR)/openldap/schema.64924/nis.schema
+file path=$(SYSCONFDIR)/openldap/schema.64924/openldap.ldif
+file path=$(SYSCONFDIR)/openldap/schema.64924/openldap.schema
+file path=$(SYSCONFDIR)/openldap/schema.64924/pmi.ldif
+file path=$(SYSCONFDIR)/openldap/schema.64924/pmi.schema
+file path=$(SYSCONFDIR)/openldap/schema.64924/ppolicy.ldif
+file path=$(SYSCONFDIR)/openldap/schema.64924/ppolicy.schema
 file path=$(SYSCONFDIR)/openldap/schema/README
 file path=$(SYSCONFDIR)/openldap/schema/collective.ldif
 file path=$(SYSCONFDIR)/openldap/schema/collective.schema
