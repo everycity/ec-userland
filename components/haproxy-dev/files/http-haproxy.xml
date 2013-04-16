@@ -1,0 +1,25 @@
+<?xml version='1.0'?>
+<!DOCTYPE service_bundle SYSTEM '/usr/share/lib/xml/dtd/service_bundle.dtd.1'>
+<service_bundle type='manifest' name='export'>
+  <service name='network/http/haproxy' type='service' version='0'>
+    <dependency name='network' grouping='require_all' restart_on='error' type='service'>
+      <service_fmri value='svc:/milestone/network:default'/>
+    </dependency>
+    <dependency name='filesystem-local' grouping='require_all' restart_on='none' type='service'>
+      <service_fmri value='svc:/system/filesystem/local:default'/>
+    </dependency>
+    <dependency name='autofs' grouping='optional_all' restart_on='error' type='service'>
+      <service_fmri value='svc:/system/filesystem/autofs:default'/>
+    </dependency>
+    <instance name='default' enabled='true'>
+      <exec_method name='start' type='method' exec='/ec/bin/amd64/haproxy-wrapper' timeout_seconds='60'/>
+      <exec_method name='stop' type='method' exec=':kill' timeout_seconds='90'/>
+      <exec_method name='refresh' type='method' exec=':kill -USR2' timeout_seconds='60'/>
+      <property_group name='startd' type='framework'>
+        <propval name='duration' type='astring' value='child'/>
+        <propval name='ignore_error' type='astring' value='core,signal'/>
+      </property_group>
+    </instance>
+    <stability value='Evolving'/>
+  </service>
+</service_bundle>
