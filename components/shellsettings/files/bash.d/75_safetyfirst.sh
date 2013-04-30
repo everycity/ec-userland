@@ -29,23 +29,23 @@ function safetyfirst() {
 }
 
 function shutdown() {
-  safetyfirst shutdown $@
+  safetyfirst /usr/sbin/shutdown $@
 }
 
 function reboot() {
-  safetyfirst reboot $@
+  safetyfirst /usr/sbin/reboot $@
 }
 
 function uadmin() {
-  safetyfirst uadmin $@
+  safetyfirst /usr/sbin/uadmin $@
 }
 
 function init() {
-  safetyfirst init $@
+  safetyfirst /usr/sbin/init $@
 }
 
 function poweroff() {
-  safetyfirst poweroff $@
+  safetyfirst /usr/sbin/poweroff $@
 }
 
 fi
