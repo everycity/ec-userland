@@ -25,6 +25,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
+LDFLAGS+=-z nolazyload
 CFLAGS += -I$(COMPONENT_DIR) -idirafter dummyinc
 
 COMPONENT_BUILD_ENV+= CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)" CC=gcc
