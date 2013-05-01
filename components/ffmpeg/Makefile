@@ -10,16 +10,16 @@
 
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ffmpeg
-COMPONENT_VERSION=	0.11.2
+COMPONENT_VERSION=	1.2
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:b7e58f5aa8e1657cec15f5da439b142e0cbf478a8d5e5be0304c203ecd27c893
+COMPONENT_ARCHIVE_HASH=	sha256:9a39fbc07dae0c893059e07491bcfb1e2409cc220f72b41eed23a04becea5aaf
 COMPONENT_ARCHIVE_URL=	http://www.ffmpeg.org/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -49,7 +49,6 @@ CONFIGURE_OPTIONS+=	--enable-gpl
 CONFIGURE_OPTIONS+=	--enable-sse
 CONFIGURE_OPTIONS+=	--enable-ssse3
 CONFIGURE_OPTIONS+=	--enable-mmx
-CONFIGURE_OPTIONS+=	--enable-mmx2
 CONFIGURE_OPTIONS+=	--enable-yasm
 
 CONFIGURE_OPTIONS+=	--enable-libfaac
@@ -81,8 +80,10 @@ COMPONENT_POST_BUILD_ACTION=	(cd $(@D) ; $(ENV) $(COMPONENT_BUILD_ENV) \
 BINDIR.32=      $(CONFIGURE_PREFIX)/bin
 BINDIR.64=      $(CONFIGURE_PREFIX)/bin/$(MACH64)
 
-COMPONENT_POST_INSTALL_ACTION=  ( cd $(@D) ; cp tools/cws2fws tools/graph2dot tools/lavfi-showfiltfmts \
-        tools/pktdumper tools/probetest tools/qt-faststart tools/trasher $(PROTO_DIR)$(BINDIR.$(BITS)) )
+COMPONENT_POST_INSTALL_ACTION=  ( cd $(@D) ; cp tools/aviocat tools/cws2fws \
+	tools/ffescape tools/ffeval tools/fourcc2pixfmt tools/graph2dot \
+	tools/ismindex tools/pktdumper tools/probetest tools/qt-faststart \
+	tools/seek_print tools/trasher $(PROTO_DIR)$(BINDIR.$(BITS)) )
 
 build:		$(BUILD_32_and_64)
 
