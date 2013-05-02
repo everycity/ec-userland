@@ -1,0 +1,20 @@
+--- procps-3.2.8/Makefile.1	2013-05-02 16:57:46.096513376 +0000
++++ procps-3.2.8/Makefile	2013-05-02 16:58:27.716083231 +0000
+@@ -105,7 +105,7 @@
+ CFLAGS       := -O2 -s
+ ALL_CFLAGS   := $(PKG_CFLAGS) $(CFLAGS)
+ 
+-PKG_LDFLAGS  := -Wl,-warn-common
++#PKG_LDFLAGS  := -Wl,-warn-common
+ LDFLAGS      :=
+ ALL_LDFLAGS  := $(PKG_LDFLAGS) $(LDFLAGS)
+ 
+@@ -128,7 +128,7 @@
+ # i386 and x86-64, mips and mips64, sparc and sparc64, and so on.
+ # Failure to do so will cause data corruption.
+ m64 := $(call check_gcc,-m64,$(call check_gcc,-mabi=64,))
+-ALL_CFLAGS += $(m64)
++#ALL_CFLAGS += $(m64)
+ 
+ ALL_CFLAGS += $(call check_gcc,-Wdeclaration-after-statement,)
+ ALL_CFLAGS += $(call check_gcc,-Wpadded,)
