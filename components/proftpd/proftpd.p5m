@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -37,6 +37,8 @@ dir path=$(ECPREFIX)/share/locale/bg_BG
 dir path=$(ECPREFIX)/share/locale/bg_BG/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/en_US
 dir path=$(ECPREFIX)/share/locale/en_US/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/es_ES
+dir path=$(ECPREFIX)/share/locale/es_ES/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/fr_FR
 dir path=$(ECPREFIX)/share/locale/fr_FR/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/it_IT
@@ -186,6 +188,7 @@ file path=$(ECPREFIX)/lib/proftpd/mod_wrap2_file.so
 file path=$(ECPREFIX)/lib/proftpd/mod_wrap2_sql.so
 file path=$(ECPREFIX)/share/locale/bg_BG/LC_MESSAGES/proftpd.mo
 file path=$(ECPREFIX)/share/locale/en_US/LC_MESSAGES/proftpd.mo
+file path=$(ECPREFIX)/share/locale/es_ES/LC_MESSAGES/proftpd.mo
 file path=$(ECPREFIX)/share/locale/fr_FR/LC_MESSAGES/proftpd.mo
 file path=$(ECPREFIX)/share/locale/it_IT/LC_MESSAGES/proftpd.mo
 file path=$(ECPREFIX)/share/locale/ja_JP/LC_MESSAGES/proftpd.mo
