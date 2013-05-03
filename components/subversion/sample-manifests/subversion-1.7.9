@@ -1,0 +1,521 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2013 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/subversion-1
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/python2.6
+dir path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages
+dir path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python
+dir path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn
+dir path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn
+dir path=$(ECPREFIX)/lib/apache
+dir path=$(ECPREFIX)/lib/apache/2.2
+dir path=$(ECPREFIX)/lib/apache/2.2/modules
+dir path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
+dir path=$(ECPREFIX)/lib/python2.6
+dir path=$(ECPREFIX)/lib/python2.6/site-packages
+dir path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python
+dir path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn
+dir path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn
+dir path=$(ECPREFIX)/lib/ruby
+dir path=$(ECPREFIX)/lib/ruby/site_ruby
+dir path=$(ECPREFIX)/lib/ruby/site_ruby/1.8
+dir path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)
+dir \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn
+dir \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn/ext
+dir path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/svn
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/locale
+dir path=$(ECPREFIX)/share/locale/de
+dir path=$(ECPREFIX)/share/locale/de/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/es
+dir path=$(ECPREFIX)/share/locale/es/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/fr
+dir path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/it
+dir path=$(ECPREFIX)/share/locale/it/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ja
+dir path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ko
+dir path=$(ECPREFIX)/share/locale/ko/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/nb
+dir path=$(ECPREFIX)/share/locale/nb/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/pl
+dir path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/pt_BR
+dir path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/sv
+dir path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/zh_CN
+dir path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/zh_TW
+dir path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+dir path=$(ECPREFIX)/share/man/man5
+dir path=$(ECPREFIX)/share/man/man8
+file path=$(ECPREFIX)/bin/$(MACH64)/svn
+file path=$(ECPREFIX)/bin/$(MACH64)/svnadmin
+file path=$(ECPREFIX)/bin/$(MACH64)/svndumpfilter
+file path=$(ECPREFIX)/bin/$(MACH64)/svnlook
+file path=$(ECPREFIX)/bin/$(MACH64)/svnrdump
+file path=$(ECPREFIX)/bin/$(MACH64)/svnserve
+file path=$(ECPREFIX)/bin/$(MACH64)/svnsync
+file path=$(ECPREFIX)/bin/$(MACH64)/svnversion
+file path=$(ECPREFIX)/bin/svn
+file path=$(ECPREFIX)/bin/svnadmin
+file path=$(ECPREFIX)/bin/svndumpfilter
+file path=$(ECPREFIX)/bin/svnlook
+file path=$(ECPREFIX)/bin/svnrdump
+file path=$(ECPREFIX)/bin/svnserve
+file path=$(ECPREFIX)/bin/svnsync
+file path=$(ECPREFIX)/bin/svnversion
+file path=$(ECPREFIX)/include/subversion-1/mod_authz_svn.h
+file path=$(ECPREFIX)/include/subversion-1/mod_dav_svn.h
+file path=$(ECPREFIX)/include/subversion-1/svn-revision.txt
+file path=$(ECPREFIX)/include/subversion-1/svn_auth.h
+file path=$(ECPREFIX)/include/subversion-1/svn_base64.h
+file path=$(ECPREFIX)/include/subversion-1/svn_cache_config.h
+file path=$(ECPREFIX)/include/subversion-1/svn_checksum.h
+file path=$(ECPREFIX)/include/subversion-1/svn_client.h
+file path=$(ECPREFIX)/include/subversion-1/svn_cmdline.h
+file path=$(ECPREFIX)/include/subversion-1/svn_compat.h
+file path=$(ECPREFIX)/include/subversion-1/svn_config.h
+file path=$(ECPREFIX)/include/subversion-1/svn_ctype.h
+file path=$(ECPREFIX)/include/subversion-1/svn_dav.h
+file path=$(ECPREFIX)/include/subversion-1/svn_delta.h
+file path=$(ECPREFIX)/include/subversion-1/svn_diff.h
+file path=$(ECPREFIX)/include/subversion-1/svn_dirent_uri.h
+file path=$(ECPREFIX)/include/subversion-1/svn_dso.h
+file path=$(ECPREFIX)/include/subversion-1/svn_error.h
+file path=$(ECPREFIX)/include/subversion-1/svn_error_codes.h
+file path=$(ECPREFIX)/include/subversion-1/svn_fs.h
+file path=$(ECPREFIX)/include/subversion-1/svn_hash.h
+file path=$(ECPREFIX)/include/subversion-1/svn_io.h
+file path=$(ECPREFIX)/include/subversion-1/svn_iter.h
+file path=$(ECPREFIX)/include/subversion-1/svn_md5.h
+file path=$(ECPREFIX)/include/subversion-1/svn_mergeinfo.h
+file path=$(ECPREFIX)/include/subversion-1/svn_nls.h
+file path=$(ECPREFIX)/include/subversion-1/svn_opt.h
+file path=$(ECPREFIX)/include/subversion-1/svn_path.h
+file path=$(ECPREFIX)/include/subversion-1/svn_pools.h
+file path=$(ECPREFIX)/include/subversion-1/svn_props.h
+file path=$(ECPREFIX)/include/subversion-1/svn_quoprint.h
+file path=$(ECPREFIX)/include/subversion-1/svn_ra.h
+file path=$(ECPREFIX)/include/subversion-1/svn_ra_svn.h
+file path=$(ECPREFIX)/include/subversion-1/svn_repos.h
+file path=$(ECPREFIX)/include/subversion-1/svn_sorts.h
+file path=$(ECPREFIX)/include/subversion-1/svn_string.h
+file path=$(ECPREFIX)/include/subversion-1/svn_subst.h
+file path=$(ECPREFIX)/include/subversion-1/svn_time.h
+file path=$(ECPREFIX)/include/subversion-1/svn_types.h
+file path=$(ECPREFIX)/include/subversion-1/svn_user.h
+file path=$(ECPREFIX)/include/subversion-1/svn_utf.h
+file path=$(ECPREFIX)/include/subversion-1/svn_version.h
+file path=$(ECPREFIX)/include/subversion-1/svn_wc.h
+file path=$(ECPREFIX)/include/subversion-1/svn_xml.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_client-1.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_client-1.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_delta-1.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_delta-1.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_diff-1.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_diff-1.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_fs-1.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_fs-1.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_fs_fs-1.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_fs_fs-1.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_fs_util-1.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_fs_util-1.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra-1.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra-1.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_local-1.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_local-1.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_neon-1.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_neon-1.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_svn-1.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_svn-1.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_repos-1.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_repos-1.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_subr-1.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_subr-1.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_swig_py-1.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_swig_py-1.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_wc-1.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_wc-1.so.0.0.0
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/__init__.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/__init__.pyc
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/_client.la
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/_client.so
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/_core.la
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/_core.so
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/_delta.la
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/_delta.so
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/_diff.la
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/_diff.so
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/_fs.la
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/_fs.so
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/_ra.la
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/_ra.so
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/_repos.la
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/_repos.so
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/_wc.la
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/_wc.so
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/client.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/client.pyc
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/core.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/core.pyc
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/delta.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/delta.pyc
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/diff.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/diff.pyc
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/fs.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/fs.pyc
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/ra.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/ra.pyc
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/repos.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/repos.pyc
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/wc.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/libsvn/wc.pyc
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/__init__.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/__init__.pyc
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/client.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/client.pyc
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/core.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/core.pyc
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/delta.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/delta.pyc
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/diff.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/diff.pyc
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/fs.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/fs.pyc
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/ra.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/ra.pyc
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/repos.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/repos.pyc
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/wc.py
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/svn-python/svn/wc.pyc
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_authz_svn.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_dav_svn.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_dontdothat.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_authz_svn.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_dav_svn.so
+file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_dontdothat.so
+file path=$(ECPREFIX)/lib/libsvn_client-1.la
+file path=$(ECPREFIX)/lib/libsvn_client-1.so.0.0.0
+file path=$(ECPREFIX)/lib/libsvn_delta-1.la
+file path=$(ECPREFIX)/lib/libsvn_delta-1.so.0.0.0
+file path=$(ECPREFIX)/lib/libsvn_diff-1.la
+file path=$(ECPREFIX)/lib/libsvn_diff-1.so.0.0.0
+file path=$(ECPREFIX)/lib/libsvn_fs-1.la
+file path=$(ECPREFIX)/lib/libsvn_fs-1.so.0.0.0
+file path=$(ECPREFIX)/lib/libsvn_fs_fs-1.la
+file path=$(ECPREFIX)/lib/libsvn_fs_fs-1.so.0.0.0
+file path=$(ECPREFIX)/lib/libsvn_fs_util-1.la
+file path=$(ECPREFIX)/lib/libsvn_fs_util-1.so.0.0.0
+file path=$(ECPREFIX)/lib/libsvn_ra-1.la
+file path=$(ECPREFIX)/lib/libsvn_ra-1.so.0.0.0
+file path=$(ECPREFIX)/lib/libsvn_ra_local-1.la
+file path=$(ECPREFIX)/lib/libsvn_ra_local-1.so.0.0.0
+file path=$(ECPREFIX)/lib/libsvn_ra_neon-1.la
+file path=$(ECPREFIX)/lib/libsvn_ra_neon-1.so.0.0.0
+file path=$(ECPREFIX)/lib/libsvn_ra_svn-1.la
+file path=$(ECPREFIX)/lib/libsvn_ra_svn-1.so.0.0.0
+file path=$(ECPREFIX)/lib/libsvn_repos-1.la
+file path=$(ECPREFIX)/lib/libsvn_repos-1.so.0.0.0
+file path=$(ECPREFIX)/lib/libsvn_subr-1.la
+file path=$(ECPREFIX)/lib/libsvn_subr-1.so.0.0.0
+file path=$(ECPREFIX)/lib/libsvn_swig_py-1.la
+file path=$(ECPREFIX)/lib/libsvn_swig_py-1.so.0.0.0
+file path=$(ECPREFIX)/lib/libsvn_swig_ruby-1.la
+file path=$(ECPREFIX)/lib/libsvn_swig_ruby-1.so.0.0.0
+file path=$(ECPREFIX)/lib/libsvn_wc-1.la
+file path=$(ECPREFIX)/lib/libsvn_wc-1.so.0.0.0
+file \
+    path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/__init__.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/__init__.pyc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/_client.la
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/_client.so
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/_core.la
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/_core.so
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/_delta.la
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/_delta.so
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/_diff.la
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/_diff.so
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/_fs.la
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/_fs.so
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/_ra.la
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/_ra.so
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/_repos.la
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/_repos.so
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/_wc.la
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/_wc.so
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/client.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/client.pyc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/core.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/core.pyc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/delta.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/delta.pyc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/diff.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/diff.pyc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/fs.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/fs.pyc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/ra.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/ra.pyc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/repos.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/repos.pyc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/wc.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/libsvn/wc.pyc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/__init__.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/__init__.pyc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/client.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/client.pyc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/core.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/core.pyc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/delta.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/delta.pyc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/diff.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/diff.pyc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/fs.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/fs.pyc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/ra.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/ra.pyc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/repos.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/repos.pyc
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/wc.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/svn-python/svn/wc.pyc
+file \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn/ext/client.la
+file \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn/ext/client.so
+file \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn/ext/core.la
+file \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn/ext/core.so
+file \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn/ext/delta.la
+file \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn/ext/delta.so
+file \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn/ext/diff.la
+file \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn/ext/diff.so
+file \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn/ext/fs.la
+file \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn/ext/fs.so
+file \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn/ext/ra.la
+file \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn/ext/ra.so
+file \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn/ext/repos.la
+file \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn/ext/repos.so
+file \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn/ext/wc.la
+file \
+    path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/$(MACH)-solaris$(SOLARIS_VERSION)/svn/ext/wc.so
+file path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/svn/client.rb
+file path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/svn/commit-mailer.rb
+file path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/svn/core.rb
+file path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/svn/delta.rb
+file path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/svn/error.rb
+file path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/svn/fs.rb
+file path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/svn/info.rb
+file path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/svn/ra.rb
+file path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/svn/repos.rb
+file path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/svn/synchronizer.rb
+file path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/svn/util.rb
+file path=$(ECPREFIX)/lib/ruby/site_ruby/1.8/svn/wc.rb
+file path=$(ECPREFIX)/share/locale/de/LC_MESSAGES/subversion.mo
+file path=$(ECPREFIX)/share/locale/es/LC_MESSAGES/subversion.mo
+file path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES/subversion.mo
+file path=$(ECPREFIX)/share/locale/it/LC_MESSAGES/subversion.mo
+file path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES/subversion.mo
+file path=$(ECPREFIX)/share/locale/ko/LC_MESSAGES/subversion.mo
+file path=$(ECPREFIX)/share/locale/nb/LC_MESSAGES/subversion.mo
+file path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES/subversion.mo
+file path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES/subversion.mo
+file path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES/subversion.mo
+file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/subversion.mo
+file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/subversion.mo
+file path=$(ECPREFIX)/share/man/man1/svn.1
+file path=$(ECPREFIX)/share/man/man1/svnadmin.1
+file path=$(ECPREFIX)/share/man/man1/svndumpfilter.1
+file path=$(ECPREFIX)/share/man/man1/svnlook.1
+file path=$(ECPREFIX)/share/man/man1/svnrdump.1
+file path=$(ECPREFIX)/share/man/man1/svnsync.1
+file path=$(ECPREFIX)/share/man/man1/svnversion.1
+file path=$(ECPREFIX)/share/man/man5/svnserve.conf.5
+file path=$(ECPREFIX)/share/man/man8/svnserve.8
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_client-1.so \
+    target=libsvn_client-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_client-1.so.0 \
+    target=libsvn_client-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_delta-1.so \
+    target=libsvn_delta-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_delta-1.so.0 \
+    target=libsvn_delta-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_diff-1.so \
+    target=libsvn_diff-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_diff-1.so.0 \
+    target=libsvn_diff-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_fs-1.so target=libsvn_fs-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_fs-1.so.0 \
+    target=libsvn_fs-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_fs_fs-1.so \
+    target=libsvn_fs_fs-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_fs_fs-1.so.0 \
+    target=libsvn_fs_fs-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_fs_util-1.so \
+    target=libsvn_fs_util-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_fs_util-1.so.0 \
+    target=libsvn_fs_util-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra-1.so target=libsvn_ra-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra-1.so.0 \
+    target=libsvn_ra-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_local-1.so \
+    target=libsvn_ra_local-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_local-1.so.0 \
+    target=libsvn_ra_local-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_neon-1.so \
+    target=libsvn_ra_neon-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_neon-1.so.0 \
+    target=libsvn_ra_neon-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_svn-1.so \
+    target=libsvn_ra_svn-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_svn-1.so.0 \
+    target=libsvn_ra_svn-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_repos-1.so \
+    target=libsvn_repos-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_repos-1.so.0 \
+    target=libsvn_repos-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_subr-1.so \
+    target=libsvn_subr-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_subr-1.so.0 \
+    target=libsvn_subr-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_swig_py-1.so \
+    target=libsvn_swig_py-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_swig_py-1.so.0 \
+    target=libsvn_swig_py-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_wc-1.so target=libsvn_wc-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_wc-1.so.0 \
+    target=libsvn_wc-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_client-1.so target=libsvn_client-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_client-1.so.0 target=libsvn_client-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_delta-1.so target=libsvn_delta-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_delta-1.so.0 target=libsvn_delta-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_diff-1.so target=libsvn_diff-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_diff-1.so.0 target=libsvn_diff-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_fs-1.so target=libsvn_fs-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_fs-1.so.0 target=libsvn_fs-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_fs_fs-1.so target=libsvn_fs_fs-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_fs_fs-1.so.0 target=libsvn_fs_fs-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_fs_util-1.so target=libsvn_fs_util-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_fs_util-1.so.0 \
+    target=libsvn_fs_util-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_ra-1.so target=libsvn_ra-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_ra-1.so.0 target=libsvn_ra-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_ra_local-1.so \
+    target=libsvn_ra_local-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_ra_local-1.so.0 \
+    target=libsvn_ra_local-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_ra_neon-1.so target=libsvn_ra_neon-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_ra_neon-1.so.0 \
+    target=libsvn_ra_neon-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_ra_svn-1.so target=libsvn_ra_svn-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_ra_svn-1.so.0 target=libsvn_ra_svn-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_repos-1.so target=libsvn_repos-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_repos-1.so.0 target=libsvn_repos-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_subr-1.so target=libsvn_subr-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_subr-1.so.0 target=libsvn_subr-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_swig_py-1.so target=libsvn_swig_py-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_swig_py-1.so.0 \
+    target=libsvn_swig_py-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_swig_ruby-1.so \
+    target=libsvn_swig_ruby-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_swig_ruby-1.so.0 \
+    target=libsvn_swig_ruby-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_wc-1.so target=libsvn_wc-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_wc-1.so.0 target=libsvn_wc-1.so.0.0.0
