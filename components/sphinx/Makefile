@@ -9,16 +9,16 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 # Copyright 2011 Audioboo Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		sphinx
-COMPONENT_VERSION=	2.0.6
+COMPONENT_VERSION=	2.0.8
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)-release
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:de943c397efda706661b3a12e12e9f8cc8a03bf6c02c5a6ba967a06384feede2
+COMPONENT_ARCHIVE_HASH=	sha256:bd699bf34635558e4d9d4d8bdcf5fcdd9c2e8f6c614824bec793b0010fa6cda3
 COMPONENT_ARCHIVE_URL=	http://sphinxsearch.com/files/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
