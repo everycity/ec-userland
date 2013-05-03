@@ -9,16 +9,16 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		nginx
-COMPONENT_VERSION=	1.2.6
+COMPONENT_VERSION=	1.2.8
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:0510af71adac4b90484ac8caf3b8bd519a0f7126250c2799554d7a751a2db388
+COMPONENT_ARCHIVE_HASH=	sha256:d2947c98c5bed311b1e6c04e35a730af92e40e2e6bfe9201fa7f404987457137
 COMPONENT_ARCHIVE_URL=	http://nginx.org/download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
