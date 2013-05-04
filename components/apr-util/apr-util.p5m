@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -107,14 +107,14 @@ file path=$(ECPREFIX)/lib/$(MACH64)/apr-util-1/apr_dbd_pgsql-1.so
 file path=$(ECPREFIX)/lib/$(MACH64)/apr-util-1/apr_dbd_sqlite3-1.so
 file path=$(ECPREFIX)/lib/$(MACH64)/apr-util-1/apr_ldap-1.so
 file path=$(ECPREFIX)/lib/$(MACH64)/aprutil.exp
-file path=$(ECPREFIX)/lib/$(MACH64)/libaprutil-1.so.0.5.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libaprutil-1.so.0.5.2
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/apr-util-1.pc
 file path=$(ECPREFIX)/lib/apr-util-1/apr_dbd_odbc-1.so
 file path=$(ECPREFIX)/lib/apr-util-1/apr_dbd_pgsql-1.so
 file path=$(ECPREFIX)/lib/apr-util-1/apr_dbd_sqlite3-1.so
 file path=$(ECPREFIX)/lib/apr-util-1/apr_ldap-1.so
 file path=$(ECPREFIX)/lib/aprutil.exp
-file path=$(ECPREFIX)/lib/libaprutil-1.so.0.5.1
+file path=$(ECPREFIX)/lib/libaprutil-1.so.0.5.2
 file path=$(ECPREFIX)/lib/pkgconfig/apr-util-1.pc
 link path=$(ECPREFIX)/lib/$(MACH64)/apr-util-1/apr_dbd_odbc.so \
     target=apr_dbd_odbc-1.so
@@ -125,14 +125,14 @@ link path=$(ECPREFIX)/lib/$(MACH64)/apr-util-1/apr_dbd_sqlite3.so \
 link path=$(ECPREFIX)/lib/$(MACH64)/apr-util-1/apr_ldap.so \
     target=apr_ldap-1.so
 link path=$(ECPREFIX)/lib/$(MACH64)/libaprutil-1.so \
-    target=libaprutil-1.so.0.5.1
+    target=libaprutil-1.so.0.5.2
 link path=$(ECPREFIX)/lib/$(MACH64)/libaprutil-1.so.0 \
-    target=libaprutil-1.so.0.5.1
+    target=libaprutil-1.so.0.5.2
 link path=$(ECPREFIX)/lib/apr-util-1/apr_dbd_odbc.so target=apr_dbd_odbc-1.so
 link path=$(ECPREFIX)/lib/apr-util-1/apr_dbd_pgsql.so \
     target=apr_dbd_pgsql-1.so
 link path=$(ECPREFIX)/lib/apr-util-1/apr_dbd_sqlite3.so \
     target=apr_dbd_sqlite3-1.so
 link path=$(ECPREFIX)/lib/apr-util-1/apr_ldap.so target=apr_ldap-1.so
-link path=$(ECPREFIX)/lib/libaprutil-1.so target=libaprutil-1.so.0.5.1
-link path=$(ECPREFIX)/lib/libaprutil-1.so.0 target=libaprutil-1.so.0.5.1
+link path=$(ECPREFIX)/lib/libaprutil-1.so target=libaprutil-1.so.0.5.2
+link path=$(ECPREFIX)/lib/libaprutil-1.so.0 target=libaprutil-1.so.0.5.2

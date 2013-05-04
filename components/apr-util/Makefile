@@ -9,16 +9,16 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		apr-util
-COMPONENT_VERSION=	1.5.1
+COMPONENT_VERSION=	1.5.2
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:296890939f968d167f980b17921ab035071e378a6383de20c4ffb40fd2626220
+COMPONENT_ARCHIVE_HASH=	sha256:9ace3d2e3129d5c244ef695a88b3b47897695e8e6ca2b96e92e4a635d9ed12a7
 #COMPONENT_ARCHIVE_URL=	http://apache.mirror.rbftpnetworks.com/apr/$(COMPONENT_ARCHIVE)
 COMPONENT_ARCHIVE_URL=	http://archive.apache.org/dist/apr/$(COMPONENT_ARCHIVE)
 
