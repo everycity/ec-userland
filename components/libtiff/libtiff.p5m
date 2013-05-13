@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -28,6 +28,8 @@ dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/doc
 dir path=$(ECPREFIX)/share/doc/tiffx
@@ -88,10 +90,16 @@ file path=$(ECPREFIX)/include/tiffconf.h
 file path=$(ECPREFIX)/include/tiffio.h
 file path=$(ECPREFIX)/include/tiffio.hxx
 file path=$(ECPREFIX)/include/tiffvers.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/libtiff.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/libtiffxx.so.$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/lib/$(MACH64)/libtiff.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so.5.2.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so.5.2.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libtiff-4.pc
+file path=$(ECPREFIX)/lib/libtiff.la
+file path=$(ECPREFIX)/lib/libtiff.so.5.2.0
+file path=$(ECPREFIX)/lib/libtiffxx.la
+file path=$(ECPREFIX)/lib/libtiffxx.so.5.2.0
+file path=$(ECPREFIX)/lib/pkgconfig/libtiff-4.pc
 file path=$(ECPREFIX)/share/doc/tiffx/COPYRIGHT
 file path=$(ECPREFIX)/share/doc/tiffx/ChangeLog
 file path=$(ECPREFIX)/share/doc/tiffx/README
@@ -129,6 +137,12 @@ file path=$(ECPREFIX)/share/doc/tiffx/html/libtiff.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFClose.3tiff.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFDataWidth.3tiff.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFError.3tiff.html
+file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFFieldDataType.3tiff.html
+file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFFieldName.3tiff.html
+file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFFieldPassCount.3tiff.html
+file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFFieldReadCount.3tiff.html
+file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFFieldTag.3tiff.html
+file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFFieldWriteCount.3tiff.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFFlush.3tiff.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFGetField.3tiff.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFOpen.3tiff.html
@@ -164,6 +178,7 @@ file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFsize.3tiff.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFstrip.3tiff.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFswab.3tiff.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFtile.3tiff.html
+file path=$(ECPREFIX)/share/doc/tiffx/html/man/bmp2tiff.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/fax2ps.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/fax2tiff.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/gif2tiff.1.html
@@ -229,6 +244,9 @@ file path=$(ECPREFIX)/share/doc/tiffx/html/v3.8.2.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/v3.9.0beta.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/v3.9.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/v3.9.2.html
+file path=$(ECPREFIX)/share/doc/tiffx/html/v4.0.0.html
+file path=$(ECPREFIX)/share/doc/tiffx/html/v4.0.1.html
+file path=$(ECPREFIX)/share/doc/tiffx/html/v4.0.2.html
 file path=$(ECPREFIX)/share/man/man1/bmp2tiff.1
 file path=$(ECPREFIX)/share/man/man1/fax2ps.1
 file path=$(ECPREFIX)/share/man/man1/fax2tiff.1
@@ -258,6 +276,12 @@ file path=$(ECPREFIX)/share/man/man1/tiffsv.1
 file path=$(ECPREFIX)/share/man/man3/TIFFClose.3tiff
 file path=$(ECPREFIX)/share/man/man3/TIFFDataWidth.3tiff
 file path=$(ECPREFIX)/share/man/man3/TIFFError.3tiff
+file path=$(ECPREFIX)/share/man/man3/TIFFFieldDataType.3tiff
+file path=$(ECPREFIX)/share/man/man3/TIFFFieldName.3tiff
+file path=$(ECPREFIX)/share/man/man3/TIFFFieldPassCount.3tiff
+file path=$(ECPREFIX)/share/man/man3/TIFFFieldReadCount.3tiff
+file path=$(ECPREFIX)/share/man/man3/TIFFFieldTag.3tiff
+file path=$(ECPREFIX)/share/man/man3/TIFFFieldWriteCount.3tiff
 file path=$(ECPREFIX)/share/man/man3/TIFFFlush.3tiff
 file path=$(ECPREFIX)/share/man/man3/TIFFGetField.3tiff
 file path=$(ECPREFIX)/share/man/man3/TIFFOpen.3tiff
@@ -293,17 +317,11 @@ file path=$(ECPREFIX)/share/man/man3/TIFFstrip.3tiff
 file path=$(ECPREFIX)/share/man/man3/TIFFswab.3tiff
 file path=$(ECPREFIX)/share/man/man3/TIFFtile.3tiff
 file path=$(ECPREFIX)/share/man/man3/libtiff.3tiff
-link path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so \
-    target=libtiff.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so.3 \
-    target=libtiff.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so \
-    target=libtiffxx.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so.3 \
-    target=libtiffxx.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libtiff.so target=libtiff.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libtiff.so.3 target=libtiff.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libtiffxx.so \
-    target=libtiffxx.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libtiffxx.so.3 \
-    target=libtiffxx.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so target=libtiff.so.5.2.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so.5 target=libtiff.so.5.2.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so target=libtiffxx.so.5.2.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so.5 target=libtiffxx.so.5.2.0
+link path=$(ECPREFIX)/lib/libtiff.so target=libtiff.so.5.2.0
+link path=$(ECPREFIX)/lib/libtiff.so.5 target=libtiff.so.5.2.0
+link path=$(ECPREFIX)/lib/libtiffxx.so target=libtiffxx.so.5.2.0
+link path=$(ECPREFIX)/lib/libtiffxx.so.5 target=libtiffxx.so.5.2.0
