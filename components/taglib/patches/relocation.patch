@@ -1,0 +1,23 @@
+--- taglib-1.8/CMakeLists.txt.orig	2013-05-16 13:32:29.025819921 +0000
++++ taglib-1.8/CMakeLists.txt	2013-05-16 13:39:34.353335934 +0000
+@@ -19,6 +19,9 @@
+ option(BUILD_TESTS "Build the test suite"  OFF)
+ option(BUILD_EXAMPLES "Build the examples"  OFF)
+ 
++option (INSTALL_BINDIR "bindir" ${EXEC_INSTALL_PREFIX}/bin)
++option (INSTALL_LIBDIR "libdir" ${EXEC_INSTALL_PREFIX}/lib)
++
+ option(NO_ITUNES_HACKS "Disable workarounds for iTunes bugs"  OFF)
+ 
+ add_definitions(-DHAVE_CONFIG_H)
+@@ -27,8 +30,8 @@
+ ## the following are directories where stuff will be installed to
+ set(LIB_SUFFIX "" CACHE STRING "Define suffix of directory name (32/64)")
+ set(EXEC_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}" CACHE PATH "Base directory for executables and libraries" FORCE)
+-set(BIN_INSTALL_DIR "${EXEC_INSTALL_PREFIX}/bin" CACHE PATH "The subdirectory to the binaries prefix (default prefix/bin)" FORCE)
+-set(LIB_INSTALL_DIR "${EXEC_INSTALL_PREFIX}/lib${LIB_SUFFIX}" CACHE PATH "The subdirectory relative to the install prefix where libraries will be installed (default is /lib${LIB_SUFFIX})" FORCE)
++set(BIN_INSTALL_DIR "${INSTALL_BINDIR}" CACHE PATH "The subdirectory to the binaries prefix (default prefix/bin)" FORCE)
++set(LIB_INSTALL_DIR "${INSTALL_LIBDIR}/${LIB_SUFFIX}" CACHE PATH "The subdirectory relative to the install prefix where libraries will be installed (default is /lib${LIB_SUFFIX})" FORCE)
+ set(INCLUDE_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/include" CACHE PATH "The subdirectory to the header prefix" FORCE)
+ 
+ if(APPLE)
