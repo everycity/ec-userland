@@ -1,29 +1,25 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
-#
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ca-bundle
-COMPONENT_VERSION=	2011.5.2
+COMPONENT_FMRI=		crypto/ca-bundle
+COMPONENT_VERSION=	2013.5.20
+COMPONENT_LICENSE=	GPLv2 LGPLv2.1 MPL 1.1
+COMPONENT_PROJECT_URL=	http://curl.haxx.se/ca/cacert.pem
+COMPONENT_ARCHIVE_URL=	http://curl.haxx.se/ca/cacert.pem
+COMPONENT_SUMMARY=	Bundle of CA Root Certificates (From Mozilla)
 
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
@@ -50,3 +46,4 @@ install:	$(INSTALL_32)
 
 clean::
 	$(RM) -r $(CLEAN_PATHS)
+
