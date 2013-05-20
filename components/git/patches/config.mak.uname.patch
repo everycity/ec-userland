@@ -1,0 +1,11 @@
+--- git-1.8.2.3/config.mak.uname.orig	2013-05-20 21:47:39.728669657 +0000
++++ git-1.8.2.3/config.mak.uname	2013-05-20 21:47:53.132751364 +0000
+@@ -144,7 +144,7 @@
+ 		NO_STRTOUMAX = YesPlease
+ 		GIT_TEST_CMP = cmp
+ 	endif
+-	INSTALL = /usr/ucb/install
++	INSTALL = install
+ 	TAR = gtar
+ 	BASIC_CFLAGS += -D__EXTENSIONS__ -D__sun__ -DHAVE_ALLOCA_H
+ endif

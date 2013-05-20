@@ -9,22 +9,21 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 <transform file path=ec/lib/git-core/.+ -> default mode 0555>
 
-set name=pkg.fmri value=pkg:/developer/versioning/git@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="git - Fast version control system"
-set name=info.upstream_url value="http://git-scm.com/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license COPYING license="GPLv2"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-# Note: .pyc files below have been removed
-# Note: Also watch out for git-p4
+# Note: Watch out for git-p4
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/lib
@@ -83,7 +82,6 @@ file path=$(ECPREFIX)/lib/git-core/git-add--interactive
 file path=$(ECPREFIX)/lib/git-core/git-am
 file path=$(ECPREFIX)/lib/git-core/git-archimport
 file path=$(ECPREFIX)/lib/git-core/git-bisect
-file path=$(ECPREFIX)/lib/git-core/git-citool
 file path=$(ECPREFIX)/lib/git-core/git-credential-cache
 file path=$(ECPREFIX)/lib/git-core/git-credential-cache--daemon
 file path=$(ECPREFIX)/lib/git-core/git-credential-store
@@ -94,7 +92,9 @@ file path=$(ECPREFIX)/lib/git-core/git-daemon
 file path=$(ECPREFIX)/lib/git-core/git-difftool
 file path=$(ECPREFIX)/lib/git-core/git-difftool--helper
 file path=$(ECPREFIX)/lib/git-core/git-fast-import
+file path=$(ECPREFIX)/lib/git-core/git-fetch
 file path=$(ECPREFIX)/lib/git-core/git-filter-branch
+file path=$(ECPREFIX)/lib/git-core/git-gui
 file path=$(ECPREFIX)/lib/git-core/git-gui--askpass
 file path=$(ECPREFIX)/lib/git-core/git-http-backend
 file path=$(ECPREFIX)/lib/git-core/git-http-fetch
@@ -116,11 +116,11 @@ file path=$(ECPREFIX)/lib/git-core/git-rebase--am
 file path=$(ECPREFIX)/lib/git-core/git-rebase--interactive
 file path=$(ECPREFIX)/lib/git-core/git-rebase--merge
 file path=$(ECPREFIX)/lib/git-core/git-relink
-file path=$(ECPREFIX)/lib/git-core/git-remote-https
-file path=$(ECPREFIX)/lib/git-core/git-remote-testgit
+file path=$(ECPREFIX)/lib/git-core/git-remote-http
+file path=$(ECPREFIX)/lib/git-core/git-remote-testpy
+file path=$(ECPREFIX)/lib/git-core/git-remote-testsvn
 file path=$(ECPREFIX)/lib/git-core/git-repack
 file path=$(ECPREFIX)/lib/git-core/git-request-pull
-file path=$(ECPREFIX)/lib/git-core/git-rerere
 file path=$(ECPREFIX)/lib/git-core/git-send-email
 file path=$(ECPREFIX)/lib/git-core/git-sh-i18n
 file path=$(ECPREFIX)/lib/git-core/git-sh-i18n--envsubst
@@ -135,11 +135,12 @@ file path=$(ECPREFIX)/lib/git-core/git-web--browse
 file path=$(ECPREFIX)/lib/git-core/mergetools/araxis
 file path=$(ECPREFIX)/lib/git-core/mergetools/bc3
 file path=$(ECPREFIX)/lib/git-core/mergetools/codecompare
-file path=$(ECPREFIX)/lib/git-core/mergetools/defaults
 file path=$(ECPREFIX)/lib/git-core/mergetools/deltawalker
 file path=$(ECPREFIX)/lib/git-core/mergetools/diffuse
 file path=$(ECPREFIX)/lib/git-core/mergetools/ecmerge
 file path=$(ECPREFIX)/lib/git-core/mergetools/emerge
+file path=$(ECPREFIX)/lib/git-core/mergetools/gvimdiff
+file path=$(ECPREFIX)/lib/git-core/mergetools/gvimdiff2
 file path=$(ECPREFIX)/lib/git-core/mergetools/kdiff3
 file path=$(ECPREFIX)/lib/git-core/mergetools/kompare
 file path=$(ECPREFIX)/lib/git-core/mergetools/meld
@@ -147,7 +148,8 @@ file path=$(ECPREFIX)/lib/git-core/mergetools/opendiff
 file path=$(ECPREFIX)/lib/git-core/mergetools/p4merge
 file path=$(ECPREFIX)/lib/git-core/mergetools/tkdiff
 file path=$(ECPREFIX)/lib/git-core/mergetools/tortoisemerge
-file path=$(ECPREFIX)/lib/git-core/mergetools/vim
+file path=$(ECPREFIX)/lib/git-core/mergetools/vimdiff
+file path=$(ECPREFIX)/lib/git-core/mergetools/vimdiff2
 file path=$(ECPREFIX)/lib/git-core/mergetools/xxdiff
 file path=$(ECPREFIX)/lib/i86pc-solaris-64int/perllocal.pod
 file \
@@ -155,18 +157,33 @@ file \
 file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/__init__.py
 file \
+    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/__init__.pyc
+file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/__init__.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/__init__.pyc
 file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/exporter.py
 file \
+    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/exporter.pyc
+file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/git.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/git.pyc
 file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/importer.py
 file \
+    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/importer.pyc
+file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/non_local.py
 file \
+    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/non_local.pyc
+file \
     path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/repo.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/git/repo.pyc
 file path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/util.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/git_remote_helpers/util.pyc
 file \
     path=$(ECPREFIX)/lib/site_perl/5.12.4/i86pc-solaris-64int/auto/Git/.packlist
 file path=$(ECPREFIX)/lib/site_perl/Error.pm
@@ -189,6 +206,7 @@ file path=$(ECPREFIX)/share/git-core/templates/hooks/commit-msg.sample
 file path=$(ECPREFIX)/share/git-core/templates/hooks/post-update.sample
 file path=$(ECPREFIX)/share/git-core/templates/hooks/pre-applypatch.sample
 file path=$(ECPREFIX)/share/git-core/templates/hooks/pre-commit.sample
+file path=$(ECPREFIX)/share/git-core/templates/hooks/pre-push.sample
 file path=$(ECPREFIX)/share/git-core/templates/hooks/pre-rebase.sample
 file path=$(ECPREFIX)/share/git-core/templates/hooks/prepare-commit-msg.sample
 file path=$(ECPREFIX)/share/git-core/templates/hooks/update.sample
@@ -278,125 +296,125 @@ file path=$(ECPREFIX)/share/man/man3/Git::SVN::Prompt.3
 file path=$(ECPREFIX)/share/man/man3/Git::SVN::Ra.3
 file path=$(ECPREFIX)/share/man/man3/Git::SVN::Utils.3
 file path=$(ECPREFIX)/share/man/man3/private-Error.3
-hardlink path=$(ECPREFIX)/bin/git target=../lib/git-core/git-rerere
+hardlink path=$(ECPREFIX)/bin/git target=../lib/git-core/git-fetch
 hardlink path=$(ECPREFIX)/bin/git-cvsserver \
     target=../lib/git-core/git-cvsserver
 hardlink path=$(ECPREFIX)/bin/git-receive-pack \
-    target=../lib/git-core/git-rerere
+    target=../lib/git-core/git-fetch
 hardlink path=$(ECPREFIX)/bin/git-shell target=../lib/git-core/git-shell
 hardlink path=$(ECPREFIX)/bin/git-upload-archive \
-    target=../lib/git-core/git-rerere
+    target=../lib/git-core/git-fetch
 hardlink path=$(ECPREFIX)/bin/git-upload-pack \
     target=../lib/git-core/git-upload-pack
-hardlink path=$(ECPREFIX)/lib/git-core/git target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-add target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-annotate target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-apply target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-archive target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-bisect--helper target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-blame target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-branch target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-bundle target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-cat-file target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-check-attr target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-check-ref-format target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-checkout target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-checkout-index target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-cherry target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-cherry-pick target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-clean target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-clone target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-column target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-commit target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-commit-tree target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-config target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-count-objects target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-credential target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-describe target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-diff target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-diff-files target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-diff-index target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-diff-tree target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-fast-export target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-fetch target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-fetch-pack target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-fmt-merge-msg target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-for-each-ref target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-format-patch target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-fsck target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-fsck-objects target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-gc target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-get-tar-commit-id target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-grep target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-gui target=git-citool
-hardlink path=$(ECPREFIX)/lib/git-core/git-hash-object target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-help target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-index-pack target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-init target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-init-db target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-log target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-ls-files target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-ls-remote target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-ls-tree target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-mailinfo target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-mailsplit target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-merge target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-merge-base target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-merge-file target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-merge-index target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-merge-ours target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-merge-recursive target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-merge-subtree target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-merge-tree target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-mktag target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-mktree target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-mv target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-name-rev target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-notes target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-pack-objects target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-pack-redundant target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-pack-refs target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-patch-id target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-peek-remote target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-prune target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-prune-packed target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-push target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-read-tree target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-receive-pack target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-reflog target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-remote target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ext target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-remote-fd target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ftp target=git-remote-https
-hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ftps target=git-remote-https
-hardlink path=$(ECPREFIX)/lib/git-core/git-remote-http target=git-remote-https
-hardlink path=$(ECPREFIX)/lib/git-core/git-replace target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-repo-config target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-reset target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-rev-list target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-rev-parse target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-revert target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-rm target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-send-pack target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-shortlog target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-show target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-show-branch target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-show-ref target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-stage target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-status target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-stripspace target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-symbolic-ref target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-tag target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-tar-tree target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-unpack-file target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-unpack-objects target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-update-index target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-update-ref target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-update-server-info \
-    target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-upload-archive target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-var target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-verify-pack target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-verify-tag target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-whatchanged target=git-rerere
-hardlink path=$(ECPREFIX)/lib/git-core/git-write-tree target=git-rerere
+hardlink path=$(ECPREFIX)/lib/git-core/git target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-add target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-annotate target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-apply target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-archive target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-bisect--helper target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-blame target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-branch target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-bundle target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-cat-file target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-check-attr target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-check-ignore target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-check-ref-format target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-checkout target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-checkout-index target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-cherry target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-cherry-pick target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-citool target=git-gui
+hardlink path=$(ECPREFIX)/lib/git-core/git-clean target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-clone target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-column target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-commit target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-commit-tree target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-config target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-count-objects target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-credential target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-describe target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-diff target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-diff-files target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-diff-index target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-diff-tree target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-fast-export target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-fetch-pack target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-fmt-merge-msg target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-for-each-ref target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-format-patch target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-fsck target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-fsck-objects target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-gc target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-get-tar-commit-id target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-grep target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-hash-object target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-help target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-index-pack target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-init target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-init-db target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-log target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-ls-files target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-ls-remote target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-ls-tree target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-mailinfo target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-mailsplit target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-merge target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-merge-base target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-merge-file target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-merge-index target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-merge-ours target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-merge-recursive target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-merge-subtree target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-merge-tree target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-mktag target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-mktree target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-mv target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-name-rev target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-notes target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-pack-objects target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-pack-redundant target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-pack-refs target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-patch-id target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-peek-remote target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-prune target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-prune-packed target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-push target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-read-tree target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-receive-pack target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-reflog target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-remote target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ext target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-remote-fd target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ftp target=git-remote-http
+hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ftps target=git-remote-http
+hardlink path=$(ECPREFIX)/lib/git-core/git-remote-https target=git-remote-http
+hardlink path=$(ECPREFIX)/lib/git-core/git-replace target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-repo-config target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-rerere target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-reset target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-rev-list target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-rev-parse target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-revert target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-rm target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-send-pack target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-shortlog target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-show target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-show-branch target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-show-ref target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-stage target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-status target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-stripspace target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-symbolic-ref target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-tag target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-tar-tree target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-unpack-file target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-unpack-objects target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-update-index target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-update-ref target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-update-server-info target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-upload-archive target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-var target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-verify-pack target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-verify-tag target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-whatchanged target=git-fetch
+hardlink path=$(ECPREFIX)/lib/git-core/git-write-tree target=git-fetch
