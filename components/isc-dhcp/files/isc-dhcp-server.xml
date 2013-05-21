@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service_bundle SYSTEM "/usr/share/lib/xml/dtd/service_bundle.dtd.1">
+<!--
+//
+// This file and its contents are supplied under the terms of the
+// Common Development and Distribution License ("CDDL)". You may
+// only use this file in accordance with the terms of the CDDL.
+//
+// A full copy of the text of the CDDL should have accompanied this
+// source. A copy of the CDDL is also available via the Internet at
+// http://www.illumos.org/license/CDDL.
+//
+//
+// Copyright 2013 EveryCity Ltd. All rights reserved.
+// Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+//
+-->
+<service_bundle type='manifest' name='isc-dhcp:server'>
+
+<service name='network/dhcp/server' type='service' version='1'>
+
+	<dependency name='multi-user'
+		grouping='require_all'
+		restart_on='refresh'
+		type='service'>
+		<service_fmri value='svc:/milestone/multi-user'/>
+	</dependency>
+
+	<exec_method type='method' name='start' 
+		exec='/ec/var/svc/method/isc-dhcp' timeout_seconds='60'>
+		<method_context>
+			<method_credential
+				user='netadm' group='netadm' 
+				privileges='basic,net_rawaccess,net_icmpaccess,net_privaddr,sys_ip_config'
+			/>
+		</method_context>
+	</exec_method>
+
+	<exec_method type='method' name='stop' exec=':kill' 
+		timeout_seconds='60'/>
+
+	<exec_method type='method' name='refresh' exec=':kill -HUP' 
+		timeout_seconds='60'/>
+
+	<instance name='ipv4' enabled='false'>
+		<property_group name='config' type='application'>
+			<propval name='debug' type='boolean' value='false'/>
+			<propval name='config_file' type='astring' 
+				value='/ec/etc/dhcp/dhcpd4.conf'/>
+			<propval name='lease_file' type='astring'
+				value='/ec/var/db/dhcp/dhcpd4.leases'/>
+			<property name='listen_ifnames' type='astring' >
+				<astring_list>
+					<value_node value='' />
+				</astring_list>
+			</property>
+		</property_group>
+	</instance>
+
+	<instance name='ipv6' enabled='false'>
+		<property_group name='config' type='application'>
+			<propval name='debug' type='boolean' value='false'/>
+			<propval name='config_file' type='astring'
+				value='/ec/etc/dhcp/dhcpd6.conf'/>
+			<propval name='lease_file' type='astring'
+				value='/ec/var/db/dhcp/dhcpd6.leases'/>
+			<property name='listen_ifnames' type='astring'>
+				<astring_list>
+					<value_node value='' />
+				</astring_list>
+			</property>
+		</property_group>
+	</instance>
+
+	<stability value='Unstable'/>
+
+	<template>
+		<common_name>
+			<loctext xml:lang='C'>
+				ISC DHCP Server
+			</loctext>
+		</common_name>
+		<description>
+			<loctext xml:lang='C'>
+ISC DHCP server provides DHCP and BOOTP protocol services to network clients.
+			</loctext>
+		</description>
+	</template>
+</service>
+
+</service_bundle>

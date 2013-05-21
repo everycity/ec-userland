@@ -1,0 +1,83 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2013 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)/server@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+# Manifiest and method
+dir path=var
+dir path=var/svc
+dir path=var/svc/manifest
+dir path=var/svc/manifest/site
+dir path=$(ECPREFIX)/var
+dir path=$(ECPREFIX)/var/svc
+dir path=$(ECPREFIX)/var/svc/method
+file files/isc-dhcp-server.xml path=var/svc/manifest/site/isc-dhcp-server.xml
+file files/isc-dhcp path=/ec/var/svc/method/isc-dhcp mode=0555
+
+# Leases file
+dir path=$(ECPREFIX)/var
+dir path=$(ECPREFIX)/var/db
+dir path=$(ECPREFIX)/var/db/dhcp mode=0755 group=netadm owner=netadm
+file files/dhcpd.leases path=$(ECPREFIX)/var/db/dhcp/dhcpd4.leases mode=0644 group=netadm owner=netadm preserve=true
+file files/dhcpd.leases path=$(ECPREFIX)/var/db/dhcp/dhcpd4.leases~ mode=0644 group=netadm owner=netadm preserve=true
+file files/dhcpd.leases path=$(ECPREFIX)/var/db/dhcp/dhcpd6.leases mode=0644 group=netadm owner=netadm preserve=true
+file files/dhcpd.leases path=$(ECPREFIX)/var/db/dhcp/dhcpd6.leases~ mode=0644 group=netadm owner=netadm preserve=true
+
+# Manually Generated Content
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/dhcpctl
+dir path=$(ECPREFIX)/include/isc-dhcp
+dir path=$(ECPREFIX)/include/omapip
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+dir path=$(ECPREFIX)/share/man/man3
+dir path=$(ECPREFIX)/share/man/man5
+dir path=$(ECPREFIX)/share/man/man8
+dir path=$(SYSCONFDIR)
+dir path=$(SYSCONFDIR)/dhcp
+file path=$(ECPREFIX)/bin/dhcpd
+file path=$(ECPREFIX)/bin/dhcrelay
+file path=$(ECPREFIX)/bin/omshell
+file path=$(ECPREFIX)/include/dhcpctl/dhcpctl.h
+file path=$(ECPREFIX)/include/isc-dhcp/dst.h
+file path=$(ECPREFIX)/include/omapip/alloc.h
+file path=$(ECPREFIX)/include/omapip/buffer.h
+file path=$(ECPREFIX)/include/omapip/convert.h
+file path=$(ECPREFIX)/include/omapip/hash.h
+file path=$(ECPREFIX)/include/omapip/isclib.h
+file path=$(ECPREFIX)/include/omapip/omapip.h
+file path=$(ECPREFIX)/include/omapip/omapip_p.h
+file path=$(ECPREFIX)/include/omapip/result.h
+file path=$(ECPREFIX)/include/omapip/trace.h
+file path=$(ECPREFIX)/share/man/man1/omshell.1
+file path=$(ECPREFIX)/share/man/man3/dhcpctl.3
+file path=$(ECPREFIX)/share/man/man3/omapi.3
+file path=$(ECPREFIX)/share/man/man5/dhcp-eval.5
+file path=$(ECPREFIX)/share/man/man5/dhcp-options.5
+file path=$(ECPREFIX)/share/man/man5/dhcpd.conf.5
+file path=$(ECPREFIX)/share/man/man5/dhcpd.leases.5
+file path=$(ECPREFIX)/share/man/man8/dhcpd.8
+file path=$(ECPREFIX)/share/man/man8/dhcrelay.8
+file path=$(SYSCONFDIR)/dhcp/dhcpd.conf.example
