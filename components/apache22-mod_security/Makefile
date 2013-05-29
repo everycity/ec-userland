@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		modsecurity-apache
 COMPONENT_FMRI=		web/server/apache-22/module/apache-security
-COMPONENT_VERSION=	2.7.3
+COMPONENT_VERSION=	2.7.4
 COMPONENT_LICENSE=	Apache
 COMPONENT_PROJECT_URL=	http://www.modsecurity.org/
 COMPONENT_SUMMARY=	mod_security provides in-line security filtering for Apache
 COMPONENT_SRC=		$(COMPONENT_NAME)_$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME)_$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:fa5b0a2fabe9cd6c7b35ae09a433a60da183b2cabcf26479ec40fc4a419693e4
+COMPONENT_ARCHIVE_HASH=	sha256:605d6f1b03e648001ef1c7db7b18d51c01edd443b57cbbd4e298770ffdcd0eb9
 COMPONENT_ARCHIVE_URL=	http://www.modsecurity.org/tarball/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
