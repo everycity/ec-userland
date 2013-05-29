@@ -507,7 +507,6 @@ file path=$(ECPREFIX)/share/apache/2.2/man/man8/httpd.8
 file path=$(ECPREFIX)/share/apache/2.2/man/man8/logresolve.8
 file path=$(ECPREFIX)/share/apache/2.2/man/man8/rotatelogs.8
 file path=$(ECPREFIX)/share/apache/2.2/man/man8/suexec.8
-file path=$(ECPREFIX)/var/apache/2.2/cgi-bin/printenv
 file path=$(ECPREFIX)/var/apache/2.2/error/HTTP_BAD_GATEWAY.html.var
 file path=$(ECPREFIX)/var/apache/2.2/error/HTTP_BAD_REQUEST.html.var
 file path=$(ECPREFIX)/var/apache/2.2/error/HTTP_FORBIDDEN.html.var
