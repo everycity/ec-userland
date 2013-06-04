@@ -41,7 +41,7 @@ COMPONENT_INSTALL_ARGS += $(COMPONENT_COMMON_ARGS)
 
 COMPONENT_PRE_BUILD_ACTION = cd $(@D); $(CP) Makefile.AP2 Makefile; 
 COMPONENT_PRE_BUILD_ACTION.64 = $(PERL) -pi -e \
-    's/\(include.*build\)\/special.mk/\1\/amd64\/special.mk/' \
+    's/(include.*build)\/special\.mk/\1\/amd64\/special.mk/' \
     Makefile
 COMPONENT_PRE_BUILD_ACTION += $(COMPONENT_PRE_BUILD_ACTION.$(BITS))
 
@@ -52,5 +52,5 @@ install: build
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
 	$(CP) $(BUILD_DIR_32)/.libs/mod_fastcgi.so \
 	    $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules
-	$(CP) $(BUILD_DIR_32)/.libs/mod_fastcgi.so \
+	$(CP) $(BUILD_DIR_64)/.libs/mod_fastcgi.so \
 	    $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
