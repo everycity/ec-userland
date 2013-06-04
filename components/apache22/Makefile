@@ -139,6 +139,8 @@ install:	$(BUILD_DIR)/$(MACH32).prefork/.installed \
 		$(PROTO_DIR)/$(AP_PREFIX)/bin/httpd.worker
 	$(INSTALL) -m 555 $(BUILD_DIR)/$(MACH64).worker/httpd \
 		$(PROTO_DIR)/$(AP_PREFIX)/bin/$(MACH64)/httpd.worker
+	$(PERL) -pi -e 's/\/build\/([a-zA-Z0-9_-]*\.mk)/\/build\/$(MACH64)\/\1/g' \
+		$(PROTO_DIR)/$(AP_SHAREDIR)/build/$(MACH64)/*.mk
 	(strip \
 	    $(PROTO_DIR)/$(AP_PREFIX)/bin/* \
 	    $(PROTO_DIR)/$(AP_PREFIX)/bin/$(MACH64)/* \
