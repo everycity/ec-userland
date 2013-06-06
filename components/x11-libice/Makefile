@@ -9,16 +9,20 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libICE
-COMPONENT_VERSION=	1.0.7
+COMPONENT_FMRI=		x11/library/libice
+COMPONENT_VERSION=	1.0.8
+COMPONENT_LICENSE=	libICE
+COMPONENT_SUMMARY=	Inter-Client Exchange library
+COMPONENT_PROJECT_URL=	http://cgit.freedesktop.org/xorg/lib/libICE
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:2b2e2bec017fbd2b28bc85ddf02667241e9e5dcc
+COMPONENT_ARCHIVE_HASH=	sha256:8332018b07ec38a4a35a360b39f7391c58d053ce5f676aa457b1a686b0277cc0
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_XORG_LIB)
 
 include ../../make-rules/prep.mk
