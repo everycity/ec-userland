@@ -29,7 +29,7 @@ include ../../../make-rules/ips.mk
 CLEAN_PATHS +=  $(BUILD_DIR)
 
 download::
-	$(COMPONENT_DIR)/generate-tarball.sh $(COMPONENT_ARCHIVE_URL) $(COMPONENT_SRC) $(GIT_ID)
+	$(COMPONENT_DIR)/generate-tarball.sh $(COMPONENT_ARCHIVE_URL) $(COMPONENT_SRC) $(GIT_ID) $(WS_ARCHIVES)
 
 build: prep
 
