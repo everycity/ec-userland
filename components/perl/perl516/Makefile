@@ -9,17 +9,17 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		perl
-COMPONENT_VERSION=	5.16.2
+COMPONENT_VERSION=	5.16.3
 PERL_VERSION=		5.16
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:8ef88b2feff1c925d7956670ce29059311de99f3c28e2d7f2cad6969f142d00e
+COMPONENT_ARCHIVE_HASH=	sha256:69cf08dca0565cec2c5c6c2f24b87f986220462556376275e5431cc2204dedb6
 COMPONENT_ARCHIVE_URL=	http://www.cpan.org/src/5.0/$(COMPONENT_ARCHIVE)
 
 
