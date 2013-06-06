@@ -39,7 +39,7 @@ COMPONENT_PREP_ACTION = (cd $(@D) ; ./autogen.sh; libtoolize; )
 CONFIGURE_OPTIONS += LIBS="-L$(ECPREFIX)/lib -lsocket"
 
 download::
-	$(COMPONENT_DIR)/generate-tarball.sh $(COMPONENT_ARCHIVE_URL) $(COMPONENT_SRC) $(GIT_ID)
+	$(COMPONENT_DIR)/generate-tarball.sh $(COMPONENT_ARCHIVE_URL) $(COMPONENT_SRC) $(GIT_ID) $(WS_ARCHIVES)
 
 build:		$(BUILD_32)
 
