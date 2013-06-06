@@ -9,18 +9,18 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/library/libpng@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="The official PNG reference library"
-set name=info.upstream_url value="http://www.libpng.org/pub/png/libpng.html"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license libpng.license license="libpng"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -41,10 +41,10 @@ file path=$(ECPREFIX)/include/libpng15/png.h
 file path=$(ECPREFIX)/include/libpng15/pngconf.h
 file path=$(ECPREFIX)/include/libpng15/pnglibconf.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libpng15.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libpng15.so.15.8.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libpng15.so.15.16.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpng15.pc
 file path=$(ECPREFIX)/lib/libpng15.la
-file path=$(ECPREFIX)/lib/libpng15.so.15.8.0
+file path=$(ECPREFIX)/lib/libpng15.so.15.16.0
 file path=$(ECPREFIX)/lib/pkgconfig/libpng15.pc
 file path=$(ECPREFIX)/share/man/man3/libpng.3
 file path=$(ECPREFIX)/share/man/man3/libpngpf.3
@@ -56,11 +56,11 @@ link path=$(ECPREFIX)/include/pngconf.h target=libpng15/pngconf.h
 link path=$(ECPREFIX)/include/pnglibconf.h target=libpng15/pnglibconf.h
 link path=$(ECPREFIX)/lib/$(MACH64)/libpng.la target=libpng15.la
 link path=$(ECPREFIX)/lib/$(MACH64)/libpng.so target=libpng15.so
-link path=$(ECPREFIX)/lib/$(MACH64)/libpng15.so target=libpng15.so.15.8.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libpng15.so.15 target=libpng15.so.15.8.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libpng15.so target=libpng15.so.15.16.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libpng15.so.15 target=libpng15.so.15.16.0
 link path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpng.pc target=libpng15.pc
 link path=$(ECPREFIX)/lib/libpng.la target=libpng15.la
 link path=$(ECPREFIX)/lib/libpng.so target=libpng15.so
-link path=$(ECPREFIX)/lib/libpng15.so target=libpng15.so.15.8.0
-link path=$(ECPREFIX)/lib/libpng15.so.15 target=libpng15.so.15.8.0
+link path=$(ECPREFIX)/lib/libpng15.so target=libpng15.so.15.16.0
+link path=$(ECPREFIX)/lib/libpng15.so.15 target=libpng15.so.15.16.0
 link path=$(ECPREFIX)/lib/pkgconfig/libpng.pc target=libpng15.pc
