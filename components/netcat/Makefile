@@ -27,7 +27,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-UNPACK_ARGS=	"-r$(COMPONENT_SRC)"	
+UNPACK_ARGS=	-r $(COMPONENT_SRC)
 
 COMPONENT_BUILD_ARGS=	solaris
 
