@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -233,18 +233,18 @@ file path=$(ECPREFIX)/lib/rabbitmq/plugins/rabbitmq_management-0.0.0.ez
 file path=$(ECPREFIX)/lib/rabbitmq/plugins/rabbitmq_management_agent-0.0.0.ez
 file \
     path=$(ECPREFIX)/lib/rabbitmq/plugins/rabbitmq_management_visualiser-0.0.0.ez
-file path=$(ECPREFIX)/lib/rabbitmq/plugins/rabbitmq_mochiweb-0.0.0.ez
 file path=$(ECPREFIX)/lib/rabbitmq/plugins/rabbitmq_mqtt-0.0.0.ez
 file path=$(ECPREFIX)/lib/rabbitmq/plugins/rabbitmq_old_federation-0.0.0.ez
 file path=$(ECPREFIX)/lib/rabbitmq/plugins/rabbitmq_shovel-0.0.0.ez
 file path=$(ECPREFIX)/lib/rabbitmq/plugins/rabbitmq_shovel_management-0.0.0.ez
 file path=$(ECPREFIX)/lib/rabbitmq/plugins/rabbitmq_stomp-0.0.0.ez
 file path=$(ECPREFIX)/lib/rabbitmq/plugins/rabbitmq_tracing-0.0.0.ez
+file path=$(ECPREFIX)/lib/rabbitmq/plugins/rabbitmq_web_dispatch-0.0.0.ez
 file path=$(ECPREFIX)/lib/rabbitmq/plugins/rabbitmq_web_stomp-0.0.0.ez
 file \
     path=$(ECPREFIX)/lib/rabbitmq/plugins/rabbitmq_web_stomp_examples-0.0.0.ez
 file path=$(ECPREFIX)/lib/rabbitmq/plugins/rfc4627_jsonrpc-0.0.0-git7ab174b.ez
-file path=$(ECPREFIX)/lib/rabbitmq/plugins/sockjs-0.3.3-rmq0.0.0-git92d4ba4.ez
+file path=$(ECPREFIX)/lib/rabbitmq/plugins/sockjs-0.3.4-rmq0.0.0-git3132eb9.ez
 file \
     path=$(ECPREFIX)/lib/rabbitmq/plugins/webmachine-1.9.1-rmq0.0.0-git52e62bc.ez
 file path=$(ECPREFIX)/lib/rabbitmq/sbin/rabbitmq-defaults

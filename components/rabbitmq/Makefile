@@ -9,16 +9,16 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		rabbitmq
-COMPONENT_VERSION=	3.0.1
+COMPONENT_VERSION=	3.0.3
 COMPONENT_SRC=		$(COMPONENT_NAME)-server-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:6cd27c374e216e2a789dcc6ed6d1414217a554df2f1023cf636785e7346a3b88
+COMPONENT_ARCHIVE_HASH=	sha256:68f8e59246afe9a40cf42db83365c36d1b755bcac9be8cf8a3b97dbdfb29b71e
 COMPONENT_ARCHIVE_URL=	http://www.rabbitmq.com/releases/rabbitmq-server/v$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
