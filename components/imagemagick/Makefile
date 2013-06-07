@@ -9,17 +9,21 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ImageMagick
-COMPONENT_VERSION=	6.8.0-7
-IPS_COMPONENT_VERSION=	6.8.0.7
+COMPONENT_FMRI=		multimedia/imagemagick
+COMPONENT_VERSION=	6.8.5-10
+IPS_COMPONENT_VERSION=	6.8.5.10
+COMPONENT_LICENSE=	ImageMagick
+COMPONENT_PROJECT_URL=	http://www.imagemagick.org/
+COMPONENT_SUMMARY=	Convert, Edit, And Compose Images
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:2ec09a54d037383e362af4b3cd0db929af4cc2825fcdf2c2be46dc8465f8bae5
+COMPONENT_ARCHIVE_HASH=	sha256:1fb8c0eaffb4f67e4f28e46754f3791ae1ffaedbdc7591b8588d618bf854cf45
 COMPONENT_ARCHIVE_URL=	ftp://ftp.imagemagick.org/pub/ImageMagick/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -33,13 +37,6 @@ CONFIGURE_OPTIONS+=	--without-modules
 CONFIGURE_OPTIONS.32+=	--with-perl=$(ECPREFIX)/bin/perl
 CONFIGURE_OPTIONS.32+=	--with-perl-options="INSTALLDIRS=vendor"
 CONFIGURE_OPTIONS.64+=	--without-perl
-
-# The archive contains pre-generated magick-config.h header, which is later on
-# being used and the build fails.  However, we want to use the header generated
-# by configure from BUILD_DIR_32 / BUILD_DIR_64 directory, so the pre-generated
-# header file needs to be deleted.
-#
-COMPONENT_PREP_ACTION= (cd $(@D) ; $(RM) magick/magick-config.h)
 
 # To get the Perl modules built it is necessary to copy the PerlMagick directory
 # to the build directory
