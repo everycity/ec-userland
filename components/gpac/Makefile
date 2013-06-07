@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -19,7 +19,7 @@ COMPONENT_VERSION=	0.5.0
 COMPONENT_SRC=		$(COMPONENT_NAME)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-$(COMPONENT_VERSION).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:42971ac39511a1b6d1db39af664ce887b38c8657328c88cd200d87a02de81c24
-COMPONENT_ARCHIVE_URL=	http://sourceforge.net/projects/gpac/files/GPAC/GPAC%200.5.0/$(COMPONENT_ARCHIVE)/download
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

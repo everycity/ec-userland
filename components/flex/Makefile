@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -18,9 +18,8 @@ COMPONENT_NAME=		flex
 COMPONENT_VERSION=	2.5.35
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:c507095833aaeef2d6502e12638e54bf7ad2f24a
-COMPONENT_ARCHIVE_URL=	http://downloads.sourceforge.net/project/flex/flex/$(COMPONENT_SRC)/$(COMPONENT_ARCHIVE)
-
+COMPONENT_ARCHIVE_HASH=	sha256:0becbd4b2b36b99c67f8c22ab98f7f80c9860aec70f0350a0018f29a88704e7b
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

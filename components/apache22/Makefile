@@ -20,7 +20,6 @@ COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
 COMPONENT_ARCHIVE_HASH=	sha256:0453f5d2d7e3b1975a1c6a8a22b6d6ff768715a3b0a89b51e5f7b5851628fad7
 COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.apache.org/httpd/$(COMPONENT_ARCHIVE)
-#COMPONENT_ARCHIVE_URL=	http://archive.apache.org/dist/httpd/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

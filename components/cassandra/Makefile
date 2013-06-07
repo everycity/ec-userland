@@ -18,13 +18,12 @@ COMPONENT_NAME=		cassandra
 COMPONENT_VERSION=	1.2.2
 COMPONENT_FMRI=		database/cassandra
 COMPONENT_SUMMARY=	Distributed storage system for structured data
-COMPONENT_PROJECT_URL=	http://cassandra.apache.org/
+COMPONENT_PROJECT_URL=	$(PROJECT_APACHE)
 COMPONENT_LICENSE=	APLv2.0
 COMPONENT_SRC=		apache-cassandra-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	apache-cassandra-$(COMPONENT_VERSION)-bin.tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:435c921864ec90ddb5be88af2f9023173a6f57c7bcb428f9ed0409a57484546f
-#COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.apache.org/cassandra/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
-COMPONENT_ARCHIVE_URL=	http://archive.apache.org/dist/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	$(APACHE_ARCHIVE)/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk

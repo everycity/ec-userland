@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -18,8 +18,9 @@ COMPONENT_NAME=		libzen
 COMPONENT_VERSION=	0.4.22
 COMPONENT_SRC=		ZenLib
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME)_$(COMPONENT_VERSION).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:38df560ca9d79af8f7edea26baae0df9e7bf0006
-COMPONENT_ARCHIVE_URL=	"http://kent.dl.sourceforge.net/project/zenlib/ZenLib%20-%20Sources/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)"
+COMPONENT_ARCHIVE_HASH=	sha256:5abb187deaaba772433134122e800f582b49b8d5b64b440f38911b53c8b618d8
+SF_PROJECT_NAME=	zenlib
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF_PROJECT)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

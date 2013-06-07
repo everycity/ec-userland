@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -18,8 +18,8 @@ COMPONENT_NAME=		freeglut
 COMPONENT_VERSION=	2.6.0
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:68306c4486c13d005a4e4d54035e0c0b1bdc220b
-COMPONENT_ARCHIVE_URL=	http://downloads.sourceforge.net/freeglut/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:615b41edc96c405ee6bb7e9a2942642140c3e57c1dd8c68e968a17ddfb59e98f
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

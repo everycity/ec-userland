@@ -19,19 +19,23 @@
 # CDDL HEADER END
 #
 # Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 
 ECPREFIX=/ec
 
 PATH=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 
-# Default to looking for source archives on the internal mirror before we
-# hammer on the external repositories.
-export DOWNLOAD_SEARCH_PATH ?=	http://dlc.everycity.com/ec-userland/source-archives
+# The workspace starts at the mercurial/git root
+HG_ROOT = $(shell hg root 2>/dev/null)
 
-# Calculate the workspace top with some make shiznitz, and tidy it up with realpath
-export WS_TOP ?=	$(realpath $(dir $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST)))..)
+ifneq (,$(HG_ROOT))
+WS_TOP = $(HG_ROOT)
+else
+WS_TOP = $(shell dirname $(shell cd $(shell git rev-parse --git-dir) && pwd))
+endif
+
+export WS_TOP
 
 WS_ARCHIVES =	$(WS_TOP)/archives
 WS_LOGS =	$(WS_TOP)/$(MACH)/logs
@@ -269,6 +273,7 @@ PERL_OPTIMIZE = $(shell $(PERL) -e 'use Config; print $$Config{optimize}')
 PKG_MACROS +=   PERL_ARCH=$(PERL_ARCH)
 PKG_MACROS +=   PERL_VERSION=$(PERL_VERSION)
 
+CMAKE =		$(ECPREFIX)/bin/cmake
 CCSMAKE =	/usr/ccs/bin/make
 GMAKE =		$(ECPREFIX)/bin/make
 GPATCH =	$(ECPREFIX)/bin/patch
@@ -615,14 +620,4 @@ NO_TESTS =	test-nothing
 test-nothing:
 	@echo "There are no tests available at this time."
 
-
-# Shared download URLs
-DOWNLOAD_GNU_FTP=	http://ftp.gnu.org/gnu/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
-DOWNLOAD_GNU_SAVANNAH=	http://download.savannah.gnu.org/releases/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
-DOWNLOAD_PHP_PECL=	http://pecl.php.net/get/$(COMPONENT_ARCHIVE)
-DOWNLOAD_SOURCEFORGE=	http://downloads.sourceforge.net/project/$(COMPONENT_NAME)/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
-DOWNLOAD_XIPH=		http://downloads.xiph.org/releases/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
-DOWNLOAD_XMLSOFT=	ftp://xmlsoft.org/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
-DOWNLOAD_XORG_LIB=	http://xorg.freedesktop.org/releases/individual/lib/$(COMPONENT_ARCHIVE)
-DOWNLOAD_XORG_PROTO=	http://xorg.freedesktop.org/releases/individual/proto/$(COMPONENT_ARCHIVE)
-DOWNLOAD_XORG_XCB=	http://xorg.freedesktop.org/releases/individual/xcb/$(COMPONENT_ARCHIVE)
+include $(WS_MAKE_RULES)/shared-urls.mk

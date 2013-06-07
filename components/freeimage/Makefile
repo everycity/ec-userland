@@ -19,6 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -26,8 +27,8 @@ COMPONENT_NAME=		freeimage
 COMPONENT_VERSION=	3.15.1
 COMPONENT_SRC=		FreeImage
 COMPONENT_ARCHIVE=	FreeImage3151.zip
-COMPONENT_ARCHIVE_HASH=	sha1:02ae98007fc64d72a8f15ec3ff24c36ac745fbc8
-COMPONENT_ARCHIVE_URL=	http://downloads.sourceforge.net/project/freeimage/Source%20Distribution/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:e0f0dd980b16ca2904e01896cd7a1f64a38ddf1896a91c5659de2816fd0bbaed
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk

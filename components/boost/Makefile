@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -19,9 +19,8 @@ COMPONENT_VERSION=	1.49.0
 COMPONENT_OTHER_VERSION= 1_49_0
 COMPONENT_SRC=		$(COMPONENT_NAME)_$(COMPONENT_OTHER_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:26a52840e9d12f829e3008589abf0a925ce88524
-COMPONENT_ARCHIVE_URL=	\
-    http://downloads.sourceforge.net/project/boost/boost/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:dd748a7f5507a7e7af74f452e1c52a64e651ed1f7263fce438a06641d2180d3c
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk

@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -18,10 +18,10 @@ COMPONENT_NAME=		nc
 COMPONENT_VERSION=	1.10
 COMPONENT_VERSION_DOWNLOAD=	110
 COMPONENT_SRC=		$(COMPONENT_NAME)$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_NAME)$(COMPONENT_VERSION_DOWNLOAD).tgz
-COMPONENT_ARCHIVE_HASH=	sha1:f8ec3a39796b141b6654d39b7957b863c7f79a95
-COMPONENT_ARCHIVE_URL=	"http://downloads.sourceforge.net/project/nc110/unix%20netcat%201.10%20by%20_Hobbit_/%5BUnnamed%20release%5D/$(COMPONENT_ARCHIVE)"
-
+COMPONENT_ARCHIVE=	$(SF_PROJECT_NAME).tgz
+COMPONENT_ARCHIVE_HASH=	sha256:5b3fda14e972d908896a605293f4634a72e2968278117410e12d8b3faf9a3976
+SF_PROJECT_NAME=	nc110
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF_PROJECT)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk

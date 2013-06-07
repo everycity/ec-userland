@@ -18,12 +18,12 @@ COMPONENT_NAME=		dspam
 COMPONENT_FMRI=         security/antispam/dspam
 COMPONENT_VERSION=      3.10.2
 COMPONENT_LICENSE=      AGPLv3
-COMPONENT_PROJECT_URL=  http://sourceforge.net/projects/dspam/
+COMPONENT_PROJECT_URL=  $(PROJECT_SOURCEFORGE2)
 COMPONENT_SUMMARY=	DSPAM is a scalable and open-source content-based spam filter designed for multi-user enterprise systems.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:ae76569604021f35b741fb95198a1e611a8c64c3838661973a6cf360bba593a9
-COMPONENT_ARCHIVE_URL=	http://sourceforge.net/projects/$(COMPONENT_NAME)/files/$(COMPONENT_NAME)/$(COMPONENT_SRC)/$(COMPONENT_ARCHIVE)/download
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -18,8 +18,9 @@ COMPONENT_NAME=		libmediainfo
 COMPONENT_VERSION=	0.7.50
 COMPONENT_SRC=		MediaInfoLib
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME)_$(COMPONENT_VERSION).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:a3cae3b1ae75d60a14fc7369f922602c48254d31
-COMPONENT_ARCHIVE_URL=	 http://switch.dl.sourceforge.net/project/mediainfo/source/libmediainfo/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:68faa49142a5a1951199d7c1d592163c23392931466749d7deb16243c1ecbdec
+SF_PROJECT_NAME=	mediainfo
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF_PROJECT)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

@@ -10,18 +10,17 @@
 
 #
 # Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		junit
 COMPONENT_VERSION=	4.10
-COMPONENT_PROJECT_URL=	http://sourceforge.net/projects/junit/
+COMPONENT_PROJECT_URL=	$(PROJECT_SOURCEFORGE2)
 COMPONENT_SRC=		$(COMPONENT_NAME)$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).zip
-COMPONENT_ARCHIVE_HASH=	\
-    sha256:df92699adbdf0716c19e9daf30118c65b82229d644594308b2a040dafe06a1f5
-COMPONENT_ARCHIVE_URL=  $(COMPONENT_PROJECT_URL)files/junit/4.10/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:df92699adbdf0716c19e9daf30118c65b82229d644594308b2a040dafe06a1f5
+COMPONENT_ARCHIVE_URL=  $(DOWNLOAD_SF)
 COMPONENT_BUGDB=	utility/junit
 
 include ../../make-rules/prep.mk

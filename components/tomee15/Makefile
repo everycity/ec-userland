@@ -15,12 +15,11 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tomee
-COMPONENT_VERSION=	1.5.0
-OPENEJB_VERSION=	4.5.0
+COMPONENT_VERSION=	1.5.2
 COMPONENT_SRC=		apache-tomee-webprofile-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	apache-tomee-$(COMPONENT_VERSION)-webprofile.tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:a97c47329eaf720ab9fb3374a76fee0d87fcc1b48557061208398afec2286a0a
-COMPONENT_ARCHIVE_URL=	http://mirrors.ukfast.co.uk/sites/ftp.apache.org/openejb/openejb-$(OPENEJB_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:52b39ff89e46cfc0eabbd9d0b1571022b166b7e7b4ea6c7d7e0e4cccde42ab5c
+COMPONENT_ARCHIVE_URL=	http://mirrors.ukfast.co.uk/sites/ftp.apache.org/$(COMPONENT_NAME)/$(COMPONENT_NAME)-$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk

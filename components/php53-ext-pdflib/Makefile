@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -18,9 +18,8 @@ COMPONENT_NAME=		pdflib
 COMPONENT_VERSION=	2.1.9
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH= \
-	sha256:a842e04cfa3ca051c2f053210dea9c40ecaa12cb22b5de39b3bcce5bf347e778
-COMPONENT_ARCHIVE_URL=	http://pecl.php.net/get/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH= sha256:a842e04cfa3ca051c2f053210dea9c40ecaa12cb22b5de39b3bcce5bf347e778
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_PECL)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -18,8 +18,9 @@ COMPONENT_NAME=		mod-cband
 COMPONENT_VERSION=	0.9.6.1
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH=	sha1:5fb61d0e0d2659974d081930638ba3a6f70f617f
-COMPONENT_ARCHIVE_URL=	http://sourceforge.net/projects/cband/files/mod-cband/$(COMPONENT_SRC)/$(COMPONENT_ARCHIVE)/download
+COMPONENT_ARCHIVE_HASH=	sha256:c1437ad881a3a82d5a8c1a3adf4e48843ae12c8a926e7aede960f7122720647e
+SF_PROJECT_NAME=	cband
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF_PROJECT)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

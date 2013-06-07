@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 
 # This version of mailx is intended for use without an MTA so although
@@ -23,8 +23,7 @@ COMPONENT_VERSION=	12.5
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:d7446ec2847a367b09aeedc2f38051f0ab1da846742160d2b21c78b74b8adb84
-COMPONENT_ARCHIVE_URL=	http://dummy
-
+COMPONENT_ARCHIVE_URL=	$(EC_ARCHIVE)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk

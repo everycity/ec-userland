@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011,2012 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -18,7 +18,7 @@ COMPONENT_VERSION=	1.6.6
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:2ef95b9922856ef5a4d8f9c589da5650b51b345b4f884b3d0bc207c6fab6a2f2
-COMPONENT_ARCHIVE_URL=	http://kent.dl.sourceforge.net/project/gaa/gaa/$(COMPONENT_NAME)-$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

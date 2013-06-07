@@ -29,7 +29,8 @@ COMPONENT_SUMMARY=	Distributed application toolkit
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:ee22b581bc150eeb358ac1a1e53776121a249383c6a68319c148ea51b4668c73
-COMPONENT_ARCHIVE_URL=	http://www.backhand.org/wackamole/download/download.cgi
+#COMPONENT_ARCHIVE_URL=	http://www.backhand.org/wackamole/download/download.cgi
+COMPONENT_ARCHIVE_URL=	$(EC_ARCHIVE)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

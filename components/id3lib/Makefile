@@ -18,7 +18,10 @@
 #
 # CDDL HEADER END
 #
+
+#
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -26,9 +29,8 @@ COMPONENT_NAME=		id3lib
 COMPONENT_VERSION=	3.8.3
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:c92c880da41d1ec0b242745a901702ae87970838
-COMPONENT_ARCHIVE_URL=	http://downloads.sourceforge.net/project/$(COMPONENT_NAME)/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
-
+COMPONENT_ARCHIVE_HASH=	sha256:2749cc3c0cd7280b299518b1ddf5a5bcfe2d1100614519b68702230e26c7d079
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

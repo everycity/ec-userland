@@ -25,7 +25,7 @@ COMPONENT_SUMMARY=	Freedesktop Hardware Abstraction Layer
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:d6b99496c698218a061e0b4c79b911fa2cad8438ed5f254a8c44e32fd270689b
-COMPONENT_ARCHIVE_URL=	http://dlc.everycity.com/ec-userland/source-archives/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	$(EC_ARCHIVE)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

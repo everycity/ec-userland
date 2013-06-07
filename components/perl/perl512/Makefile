@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../../make-rules/shared-macros.mk
@@ -19,9 +19,8 @@ COMPONENT_VERSION=	5.12.4
 PERL_VERSION=		5.12
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:b64a5d1fefe6db9c4144b4adba2c360afa9c29ea
-COMPONENT_ARCHIVE_URL=	http://www.cpan.org/src/5.0/$(COMPONENT_ARCHIVE)
-
+COMPONENT_ARCHIVE_HASH=	sha256:c2a35aa538fb22ec1423fc2bdea79686bae22e119a56b189e70a6ca2d9d4b5dd
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PERL5)
 
 include ../../../make-rules/prep.mk
 include ../../../make-rules/justmake.mk

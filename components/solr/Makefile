@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -18,8 +18,8 @@ COMPONENT_NAME=		solr
 COMPONENT_VERSION=	3.5.0
 COMPONENT_SRC=		apache-solr-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	apache-solr-$(COMPONENT_VERSION).tgz
-COMPONENT_ARCHIVE_HASH=	sha1:020fc86dfd2405212c0f706111d8576dbb8e54b4
-COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.apache.org/lucene/solr/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:804f3ba9d1296f81388605a79538b7362355693fbdd03b7b2dbf9a706bf1d1d0
+COMPONENT_ARCHIVE_URL=	$(APACHE_ARCHIVE)/lucene/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk

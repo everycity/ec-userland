@@ -7,6 +7,7 @@
 # source. A copy of the CDDL is also available via the Internet at
 # http://www.illumos.org/license/CDDL.
 #
+
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
 # Copyright 2011-2013 EveryCity Ltd. All rights reserved.
@@ -18,7 +19,7 @@ COMPONENT_VERSION=	14.4.1
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
 COMPONENT_ARCHIVE_HASH=	sha256:2cb40527f6957f2de27aea39fb5da3dda4ddf4aaef22812d643f40623dec0e40
-COMPONENT_ARCHIVE_URL=	http://downloads.sourceforge.net/project/$(COMPONENT_NAME)/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

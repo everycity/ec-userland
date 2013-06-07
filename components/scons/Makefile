@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -18,8 +18,8 @@ COMPONENT_NAME=		scons
 COMPONENT_VERSION=	2.1.0
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:69c4bddfcca498e25dcc29a462042907fc93b243
-COMPONENT_ARCHIVE_URL=	http://prdownloads.sourceforge.net/scons/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:4139ed14f60dd2ebcd47c59984d14705636180eb27b3d1b2949489e514b1921d
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/setup.py.mk

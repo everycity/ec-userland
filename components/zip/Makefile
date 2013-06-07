@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -19,8 +19,9 @@ COMPONENT_VERSION=	3.0
 COMPONENT_VERSION_DOWNLOAD=	30
 COMPONENT_SRC=		$(COMPONENT_NAME)$(COMPONENT_VERSION_DOWNLOAD)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:c9f4099ecf2772b53c2dd4a8e508064ce015d182
-COMPONENT_ARCHIVE_URL=	http://sourceforge.net/projects/infozip/files/Zip%203.x%20%28latest%29/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)/download
+COMPONENT_ARCHIVE_HASH=	sha256:f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369
+SF_PROJECT_NAME=	infozip
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF_PROJECT)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk

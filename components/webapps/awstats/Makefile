@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../../make-rules/shared-macros.mk
@@ -18,8 +18,8 @@ COMPONENT_NAME=		awstats
 COMPONENT_VERSION=	7.0
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:733fa7d6a540f4a54f52c69a5f271c789472b0b7
-COMPONENT_ARCHIVE_URL=	http://kent.dl.sourceforge.net/project/awstats/AWStats/7.0/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:e2651d4a5ff40e1d792b37cc13784d444cae479b4f98118aed27f46f5a18ce92
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../../make-rules/prep.mk
 include ../../../make-rules/ips.mk

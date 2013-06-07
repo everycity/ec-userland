@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -17,8 +17,8 @@ COMPONENT_NAME=		ffmpeg-php
 COMPONENT_VERSION=	0.6.0
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tbz2
-COMPONENT_ARCHIVE_HASH=	sha1:2978b5af51af3eda0639840634297eb584b394c1
-COMPONENT_ARCHIVE_URL=	http://sourceforge.net/projects/ffmpeg-php/files/ffmpeg-php/0.6.0/$(COMPONENT_ARCHIVE)/download
+COMPONENT_ARCHIVE_HASH=	sha256:ec8a9847e0f4d5101a5afedb7dac318e9a13f099865215ae99d08d56add9b141
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
