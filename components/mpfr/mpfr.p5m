@@ -1,35 +1,26 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
-#
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/library/mpfr@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="MPFR library - C library for multiple-precision floating-point computations with correct rounding"
-set name=info.upstream_url value="http://www.mpfr.org/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license mpfr.license license="LGPLv3"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/include
@@ -41,7 +32,8 @@ dir path=$(ECPREFIX)/share/doc/mpfr/examples
 dir path=$(ECPREFIX)/share/info
 file path=$(ECPREFIX)/include/mpf2mpfr.h
 file path=$(ECPREFIX)/include/mpfr.h
-file path=$(ECPREFIX)/lib/libmpfr.so.4.0.1
+file path=$(ECPREFIX)/lib/libmpfr.la
+file path=$(ECPREFIX)/lib/libmpfr.so.4.1.2
 file path=$(ECPREFIX)/share/doc/mpfr/AUTHORS
 file path=$(ECPREFIX)/share/doc/mpfr/BUGS
 file path=$(ECPREFIX)/share/doc/mpfr/COPYING
@@ -54,6 +46,7 @@ file path=$(ECPREFIX)/share/doc/mpfr/examples/divworst.c
 file path=$(ECPREFIX)/share/doc/mpfr/examples/rndo-add.c
 file path=$(ECPREFIX)/share/doc/mpfr/examples/sample.c
 file path=$(ECPREFIX)/share/doc/mpfr/examples/version.c
+file path=$(ECPREFIX)/share/info/dir
 file path=$(ECPREFIX)/share/info/mpfr.info
-link path=$(ECPREFIX)/lib/libmpfr.so target=libmpfr.so.4.0.1
-link path=$(ECPREFIX)/lib/libmpfr.so.4 target=libmpfr.so.4.0.1
+link path=$(ECPREFIX)/lib/libmpfr.so target=libmpfr.so.4.1.2
+link path=$(ECPREFIX)/lib/libmpfr.so.4 target=libmpfr.so.4.1.2
