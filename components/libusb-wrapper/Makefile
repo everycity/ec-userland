@@ -38,7 +38,7 @@ $(BUILD_DIR)/libusb-64.pc:	src/libusb-64.pc
 
 download:
 
-clobber:	clean
+clean::
 	$(RM) $(SOURCE_DIR)/.prep
 
 $(SOURCE_DIR)/.prep:

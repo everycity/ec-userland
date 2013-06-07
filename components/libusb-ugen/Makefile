@@ -35,7 +35,7 @@ COMPONENT_INSTALL_ARGS += BITS=$(BITS)
 
 download:
 
-clobber:	clean
+clean::
 	$(RM) $(SOURCE_DIR)/.prep
 
 $(SOURCE_DIR)/.prep:
