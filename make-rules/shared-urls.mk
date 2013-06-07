@@ -15,7 +15,7 @@
 
 # Default to looking for source archives on the internal mirror before we
 # hammer on the external repositories.
-#export DOWNLOAD_SEARCH_PATH ?=	http://dlc.everycity.com/ec-userland/source-archives
+export DOWNLOAD_SEARCH_PATH ?=	http://dlc.everycity.com/ec-userland/source-archives
 
 # URL roots
 APACHE_ARCHIVE=		http://archive.apache.org/dist
