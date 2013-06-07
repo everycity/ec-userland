@@ -9,26 +9,24 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		zetaback
-COMPONENT_VERSION=	1.0.5
+COMPONENT_VERSION=	1.0.6
+COMPONENT_PROJECT_URL=	http://labs.omniti.com/labs/$(COMPONENT_NAME)
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH= \
-    sha256:a26f83a0a851e3ef2924189533aebb1f3ed759607b32d5a74574f165a4065b5f
-COMPONENT_ARCHIVE_URL=	https://mirrors.omniti.com/zetaback/$(COMPONENT_ARCHIVE)
-COMPONENT_PROJECT_URL=	http://labs.omniti.com/labs/zetaback
+COMPONENT_ARCHIVE_HASH=	sha256:cdd077ee7844507e3f1a92a22a55da0d17bd582f2c62832fd55bf7b01e1bde1e
+COMPONENT_ARCHIVE_URL=	http://mirrors.omniti.com/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_PRE_CONFIGURE_ACTION = \
-    $(CLONEY) $(SOURCE_DIR) $(@D)
+COMPONENT_PRE_CONFIGURE_ACTION = $(CLONEY) $(SOURCE_DIR) $(@D)
 
 build:		$(BUILD_32)
 

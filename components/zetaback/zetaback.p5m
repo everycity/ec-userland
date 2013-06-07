@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -27,8 +27,6 @@ dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/zetaback
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 file $(ECPREFIX)/etc/zetaback.conf.sample path=$(ECPREFIX)/etc/zetaback.conf mode=0644 preserve=true
