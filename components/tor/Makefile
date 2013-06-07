@@ -9,16 +9,20 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tor
-COMPONENT_VERSION=	0.2.2.32
+COMPONENT_FMRI=		security/tor
+COMPONENT_VERSION=	0.2.3.25
+COMPONENT_LICENSE=	Tor
+COMPONENT_PROJECT_URL=	https://www.torproject.org/
+COMPONENT_SUMMARY=	Tor online anonymiser
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:4baddc836931b3e915974c261e405e111636b716
+COMPONENT_ARCHIVE_HASH=	sha256:bb2d6f1136f33e11d37e6e34184143bf191e59501613daf33ae3d6f78f3176a0
 COMPONENT_ARCHIVE_URL=	https://www.torproject.org/dist/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
