@@ -17,12 +17,12 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=		protobuf
 COMPONENT_FMRI=         library/protobuf
 COMPONENT_VERSION=      2.5.0
-COMPONENT_LICENSE=      
-COMPONENT_PROJECT_URL=  https://code.google.com/p/protobuf/
+COMPONENT_LICENSE=      BSD
+COMPONENT_PROJECT_URL=  $(PROJECT_CODE_GOOGLE_P)
 COMPONENT_SUMMARY=	protocol buffers C++ library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-#COMPONENT_ARCHIVE_HASH=	sha256:
+COMPONENT_ARCHIVE_HASH=	sha256:13bfc5ae543cf3aa180ac2485c0bc89495e3ae711fc6fab4f8ffe90dfb4bb677
 COMPONENT_ARCHIVE_URL=	https://protobuf.googlecode.com/files/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
