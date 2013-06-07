@@ -1,0 +1,20 @@
+--- nagios-3.5.0/configure.orig	2013-06-04 12:21:10.103884127 +0100
++++ nagios-3.5.0/configure	2013-06-04 12:22:14.661472652 +0100
+@@ -5666,7 +5666,7 @@
+ #define DEFAULT_NAGIOS_GROUP "$nagios_grp"
+ _ACEOF
+ 
+-INSTALL_OPTS="-o $nagios_user -g $nagios_grp"
++INSTALL_OPTS=""
+ 
+ 
+ 
+@@ -5687,7 +5687,7 @@
+ fi;
+ 
+ 
+-COMMAND_OPTS="-o $command_user -g $command_grp"
++COMMAND_OPTS=""
+ 
+ 
+ MAIL_PROG=no
