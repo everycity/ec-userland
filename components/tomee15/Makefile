@@ -21,6 +21,9 @@ COMPONENT_ARCHIVE=	apache-tomee-$(COMPONENT_VERSION)-webprofile.tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:52b39ff89e46cfc0eabbd9d0b1571022b166b7e7b4ea6c7d7e0e4cccde42ab5c
 COMPONENT_ARCHIVE_URL=	http://mirrors.ukfast.co.uk/sites/ftp.apache.org/$(COMPONENT_NAME)/$(COMPONENT_NAME)-$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
+CONFIGURE_LOCALSTATEDIR =	$(CONFIGURE_PREFIX)/var
+CONFIGURE_SYSCONFDIR =		$(CONFIGURE_PREFIX)/etc
+
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
 
