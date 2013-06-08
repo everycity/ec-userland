@@ -9,14 +9,18 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=			emacs
+COMPONENT_FMRI=			editor/emacs
 COMPONENT_VERSION=		23.3
 COMPONENT_ARCHIVE_VERSION=	23.3b
+COMPONENT_LICENSE=		GPLv3
+COMPONENT_PROJECT_URL=		http://www.gnu.org/software/emacs/
+COMPONENT_SUMMARY=		GNU Emacs is an extensible, customizable text editor - and more.
 COMPONENT_SRC=			$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=		$(COMPONENT_NAME)-$(COMPONENT_ARCHIVE_VERSION).tar.bz2
 COMPONENT_ARCHIVE_HASH=		sha256:86dcab9a3046ecb2bd1ebdb1f15157cc60e4ded6ef0d7950bbbfc027d7c2e6ee

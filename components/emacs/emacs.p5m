@@ -9,18 +9,18 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/editor/emacs@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="GNU Emacs is an extensible, customizable text editor - and more."
-set name=info.upstream_url value="http://www.gnu.org/software/emacs/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license emacs.license license="GPLv3"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -30,7 +30,7 @@ dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/emacs
 dir path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)
 dir \
-    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/x86_64-pc-solaris$(SOLARIS_VERSION)
+    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/$(MACH64_GNU)-$(PLAT)-solaris$(SOLARIS_VERSION)
 dir path=$(ECPREFIX)/lib/emacs
 dir path=$(ECPREFIX)/lib/emacs/$(COMPONENT_VERSION)
 dir \
@@ -152,13 +152,13 @@ dir path=$(ECPREFIX)/share/icons/hicolor/scalable/mimetypes
 dir path=$(ECPREFIX)/share/info
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
-dir path=$(ECPREFIX)/var
-dir path=$(ECPREFIX)/var/games
-dir path=$(ECPREFIX)/var/games/emacs
+dir path=$(LOCALSTATEDIR)
+dir path=$(LOCALSTATEDIR)/games
+dir path=$(LOCALSTATEDIR)/games/emacs
 file path=$(ECPREFIX)/bin/$(MACH64)/b2m
 file path=$(ECPREFIX)/bin/$(MACH64)/ctags
 file path=$(ECPREFIX)/bin/$(MACH64)/ebrowse
-file path=$(ECPREFIX)/bin/$(MACH64)/emacs-$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/bin/$(MACH64)/emacs
 file path=$(ECPREFIX)/bin/$(MACH64)/emacsclient
 file path=$(ECPREFIX)/bin/$(MACH64)/etags
 file path=$(ECPREFIX)/bin/$(MACH64)/grep-changelog
@@ -172,23 +172,23 @@ file path=$(ECPREFIX)/bin/etags
 file path=$(ECPREFIX)/bin/grep-changelog
 file path=$(ECPREFIX)/bin/rcs-checkin
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/x86_64-pc-solaris$(SOLARIS_VERSION)/digest-doc
+    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/$(MACH64_GNU)-$(PLAT)-solaris$(SOLARIS_VERSION)/digest-doc
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/x86_64-pc-solaris$(SOLARIS_VERSION)/fakemail
+    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/$(MACH64_GNU)-$(PLAT)-solaris$(SOLARIS_VERSION)/fakemail
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/x86_64-pc-solaris$(SOLARIS_VERSION)/hexl
+    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/$(MACH64_GNU)-$(PLAT)-solaris$(SOLARIS_VERSION)/hexl
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/x86_64-pc-solaris$(SOLARIS_VERSION)/movemail
+    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/$(MACH64_GNU)-$(PLAT)-solaris$(SOLARIS_VERSION)/movemail
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/x86_64-pc-solaris$(SOLARIS_VERSION)/profile
+    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/$(MACH64_GNU)-$(PLAT)-solaris$(SOLARIS_VERSION)/profile
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/x86_64-pc-solaris$(SOLARIS_VERSION)/rcs2log
+    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/$(MACH64_GNU)-$(PLAT)-solaris$(SOLARIS_VERSION)/rcs2log
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/x86_64-pc-solaris$(SOLARIS_VERSION)/sorted-doc
+    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/$(MACH64_GNU)-$(PLAT)-solaris$(SOLARIS_VERSION)/sorted-doc
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/x86_64-pc-solaris$(SOLARIS_VERSION)/update-game-score
+    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/$(MACH64_GNU)-$(PLAT)-solaris$(SOLARIS_VERSION)/update-game-score
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/x86_64-pc-solaris$(SOLARIS_VERSION)/vcdiff
+    path=$(ECPREFIX)/lib/$(MACH64)/emacs/$(COMPONENT_VERSION)/$(MACH64_GNU)-$(PLAT)-solaris$(SOLARIS_VERSION)/vcdiff
 file \
     path=$(ECPREFIX)/lib/emacs/$(COMPONENT_VERSION)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/digest-doc
 file \
@@ -451,14 +451,15 @@ file path=$(ECPREFIX)/share/emacs/$(COMPONENT_VERSION)/etc/grammars/README
 file \
     path=$(ECPREFIX)/share/emacs/$(COMPONENT_VERSION)/etc/grammars/bovine-grammar.el
 file path=$(ECPREFIX)/share/emacs/$(COMPONENT_VERSION)/etc/grammars/c.by
-file \
-    path=$(ECPREFIX)/share/emacs/$(COMPONENT_VERSION)/etc/grammars/fixes.patch
+file path=$(ECPREFIX)/share/emacs/$(COMPONENT_VERSION)/etc/grammars/grammar.wy
 file \
     path=$(ECPREFIX)/share/emacs/$(COMPONENT_VERSION)/etc/grammars/java-tags.wy
 file path=$(ECPREFIX)/share/emacs/$(COMPONENT_VERSION)/etc/grammars/js.wy
 file path=$(ECPREFIX)/share/emacs/$(COMPONENT_VERSION)/etc/grammars/make.by
 file path=$(ECPREFIX)/share/emacs/$(COMPONENT_VERSION)/etc/grammars/python.wy
 file path=$(ECPREFIX)/share/emacs/$(COMPONENT_VERSION)/etc/grammars/scheme.by
+file \
+    path=$(ECPREFIX)/share/emacs/$(COMPONENT_VERSION)/etc/grammars/srecode-template.wy
 file \
     path=$(ECPREFIX)/share/emacs/$(COMPONENT_VERSION)/etc/grammars/wisent-grammar.el
 file path=$(ECPREFIX)/share/emacs/$(COMPONENT_VERSION)/etc/grep.txt
@@ -5615,6 +5616,7 @@ file path=$(ECPREFIX)/share/info/ccmode-1
 file path=$(ECPREFIX)/share/info/ccmode-2
 file path=$(ECPREFIX)/share/info/cl
 file path=$(ECPREFIX)/share/info/dbus
+file path=$(ECPREFIX)/share/info/dir
 file path=$(ECPREFIX)/share/info/dired-x
 file path=$(ECPREFIX)/share/info/ebrowse
 file path=$(ECPREFIX)/share/info/ede
@@ -5699,11 +5701,8 @@ file path=$(ECPREFIX)/share/man/man1/emacsclient.1
 file path=$(ECPREFIX)/share/man/man1/etags.1
 file path=$(ECPREFIX)/share/man/man1/grep-changelog.1
 file path=$(ECPREFIX)/share/man/man1/rcs-checkin.1
-file path=$(ECPREFIX)/var/games/emacs/snake-scores
-file path=$(ECPREFIX)/var/games/emacs/tetris-scores
-hardlink path=$(ECPREFIX)/bin/$(MACH64)/emacs \
-    target=emacs-$(COMPONENT_VERSION)
+file path=$(LOCALSTATEDIR)/games/emacs/snake-scores
+file path=$(LOCALSTATEDIR)/games/emacs/tetris-scores
+hardlink path=$(ECPREFIX)/bin/$(MACH64)/emacs-$(COMPONENT_VERSION) \
+    target=emacs
 hardlink path=$(ECPREFIX)/bin/emacs target=emacs-$(COMPONENT_VERSION)
-link \
-    path=path=$(ECPREFIX)/share/emacs/$(COMPONENT_VERSION)/etc/DOC-$(COMPONENT_VERSION).2 \
-    target=DOC-$(COMPONENT_VERSION).1
