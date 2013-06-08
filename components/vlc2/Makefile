@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -18,7 +18,7 @@ COMPONENT_VERSION=	2.0.1
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
 COMPONENT_ARCHIVE_HASH=	sha256:7f485725c17487a77d70844cbd9acf528360d65cd6ff79d206657920f4fcbf4b
-COMPONENT_ARCHIVE_URL=	http://download.videolan.org/pub/videolan/vlc/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_VIDEOLAN)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
