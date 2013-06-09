@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -18,8 +18,8 @@ COMPONENT_NAME=		mediainfo
 COMPONENT_VERSION=	0.7.50
 COMPONENT_SRC=		$(COMPONENT_NAME)
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME)_$(COMPONENT_VERSION).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:62e6e9e7c4937f9cb863d2a370d2946e1a8c9bc4
-COMPONENT_ARCHIVE_URL=	http://downloads.sourceforge.net/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:c3038999ccd63fd8ace1340981c8d2717f6a31b4a24bf218d7baae76a2d57e38
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

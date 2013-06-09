@@ -22,7 +22,7 @@ COMPONENT_SUMMARY=	The official PNG reference library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:0eade3b039004603a801f9556e06f604bd1e73178104c5f750ea5041694992ff
-COMPONENT_ARCHIVE_URL=	http://kent.dl.sourceforge.net/project/libpng/libpng15/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

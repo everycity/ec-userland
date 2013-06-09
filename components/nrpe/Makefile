@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -18,8 +18,9 @@ COMPONENT_NAME=		nrpe
 COMPONENT_VERSION=	2.13
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:2d5ead0ff114329a0daf0778c4bb8364249aebbc
-COMPONENT_ARCHIVE_URL=	http://downloads.sourceforge.net/project/nagios/nrpe-2.x/$(COMPONENT_SRC)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:bac8f7eb9daddf96b732a59ffc5762b1cf073fb70f6881d95216ebcd1254a254
+SF_PROJECT_NAME=	nagios
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF_PROJECT)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

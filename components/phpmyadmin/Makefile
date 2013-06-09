@@ -14,12 +14,12 @@
 
 include ../../make-rules/shared-macros.mk
 
-COMPONENT_NAME=		phpMyAdmin
+COMPONENT_NAME=		phpmyadmin
 COMPONENT_VERSION=	3.5.5
-COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)-all-languages
+COMPONENT_SRC=		phpMyAdmin-$(COMPONENT_VERSION)-all-languages
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:1898197c7f1e45e5f12bc3491a848e1e827b43f3321981dd0b9848afa44f3010
-COMPONENT_ARCHIVE_URL=	http://freefr.dl.sourceforge.net/project/phpmyadmin/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
