@@ -35,7 +35,11 @@ file \
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/64/_psycopg.so
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/__init__.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/__init__.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/_json.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/_json.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/_psycopg.so
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/_range.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/_range.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/errorcodes.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/errorcodes.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/extensions.py
@@ -127,6 +131,10 @@ file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_types_extras.py
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_types_extras.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_with.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/test_with.pyc
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/psycopg2/tests/testconfig.py
 file \
