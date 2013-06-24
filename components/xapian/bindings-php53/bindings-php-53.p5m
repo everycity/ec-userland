@@ -9,13 +9,13 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/library/xapian/bindings-php-common@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.fmri value=pkg:/library/xapian/bindings-php-53@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="Xapian is an Open Source Search Engine Library"
 set name=info.upstream_url value="http://xapian.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
@@ -23,8 +23,13 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 license xapian.license license="GPLv2"
 
 dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/php5
-file path=$(ECPREFIX)/share/php5/xapian.php
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/php
+dir path=$(ECPREFIX)/lib/php/5.3
+dir path=$(ECPREFIX)/lib/php/5.3/extensions
+dir path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)
+file path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)/xapian.so
+file path=$(ECPREFIX)/lib/php/5.3/extensions/xapian.so
 
-depend fmri=pkg:/library/xapian/core type=require
+depend fmri=pkg:/library/xapian/bindings-php-common type=require
+depend fmri=pkg:/library/xapian/bindings-php-docs type=require

@@ -9,18 +9,18 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/library/xapian/core@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="Xapian is an Open Source Search Engine Library"
-set name=info.upstream_url value="http://xapian.org/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license xapian.license license="GPLv2"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -105,14 +105,12 @@ file path=$(ECPREFIX)/include/xapian/visibility.h
 file path=$(ECPREFIX)/include/xapian/weight.h
 file path=$(ECPREFIX)/lib/$(MACH64)/cmake/xapian/xapian-config-version.cmake
 file path=$(ECPREFIX)/lib/$(MACH64)/cmake/xapian/xapian-config.cmake
-file path=$(ECPREFIX)/lib/$(MACH64)/libxapian.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libxapian.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libxapian.so.22.4.3
+file path=$(ECPREFIX)/lib/$(MACH64)/libxapian.so.22.6.2
 file path=$(ECPREFIX)/lib/cmake/xapian/xapian-config-version.cmake
 file path=$(ECPREFIX)/lib/cmake/xapian/xapian-config.cmake
-file path=$(ECPREFIX)/lib/libxapian.a
 file path=$(ECPREFIX)/lib/libxapian.la
-file path=$(ECPREFIX)/lib/libxapian.so.22.4.3
+file path=$(ECPREFIX)/lib/libxapian.so.22.6.2
 file path=$(ECPREFIX)/share/aclocal/xapian.m4
 file path=$(ECPREFIX)/share/doc/xapian-core/admin_notes.html
 file path=$(ECPREFIX)/share/doc/xapian-core/apidoc.pdf
@@ -723,7 +721,7 @@ file path=$(ECPREFIX)/share/man/man1/xapian-progsrv.1
 file path=$(ECPREFIX)/share/man/man1/xapian-replicate-server.1
 file path=$(ECPREFIX)/share/man/man1/xapian-replicate.1
 file path=$(ECPREFIX)/share/man/man1/xapian-tcpsrv.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libxapian.so target=libxapian.so.22.4.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libxapian.so.22 target=libxapian.so.22.4.3
-link path=$(ECPREFIX)/lib/libxapian.so target=libxapian.so.22.4.3
-link path=$(ECPREFIX)/lib/libxapian.so.22 target=libxapian.so.22.4.3
+link path=$(ECPREFIX)/lib/$(MACH64)/libxapian.so target=libxapian.so.22.6.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libxapian.so.22 target=libxapian.so.22.6.2
+link path=$(ECPREFIX)/lib/libxapian.so target=libxapian.so.22.6.2
+link path=$(ECPREFIX)/lib/libxapian.so.22 target=libxapian.so.22.6.2

@@ -15,10 +15,10 @@
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=         xapian-bindings
-COMPONENT_VERSION=      1.2.9
+COMPONENT_VERSION=      1.2.15
 COMPONENT_SRC=          $(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=      $(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH= sha1:3cd457058ae89ff62588c56308fdba0c311afbc0
+COMPONENT_ARCHIVE_HASH= sha256:89d30cbd38dcfb9d9e0fccc8e4ba7d6452ffad45afb3f1e9614a3be0a3a33e77
 COMPONENT_ARCHIVE_URL=  http://oligarchy.co.uk/xapian/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../../make-rules/prep.mk
@@ -27,15 +27,25 @@ include ../../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS +=    --with-pic
 CONFIGURE_OPTIONS +=	--without-tcl --without-lua --without-csharp --without-java
-CONFIGURE_OPTIONS +=	--with-python
 CONFIGURE_OPTIONS +=	--with-ruby
 CONFIGURE_OPTIONS +=	--with-perl
 CONFIGURE_OPTIONS +=	--with-php
+CONFIGURE_OPTIONS_32 +=	--with-python
+#CONFIGURE_OPTIONS_64 +=
+CONFIGURE_OPTIONS +=	$(CONFIGURE_OPTIONS_$(BITS))
 
-CONFIGURE_ENV +=	PHP_CONFIG=$(ECPREFIX)/lib/php/5.3/bin/php-config
-CONFIGURE_ENV.64 +=     XAPIAN_CONFIG=$(ECPREFIX)/bin/$(MACH64)/xapian-config
+CONFIGURE_ENV_32 +=	XAPIAN_CONFIG=$(ECPREFIX)/bin/xapian-config
+CONFIGURE_ENV_32 +=	PHP_CONFIG=$(ECPREFIX)/lib/php/5.3/bin/php-config
+CONFIGURE_ENV_32 +=	PYTHON=$(ECPREFIX)/bin/python
+CONFIGURE_ENV_64 +=	XAPIAN_CONFIG=$(ECPREFIX)/bin/$(MACH64)/xapian-config
+CONFIGURE_ENV_64 +=	PHP_CONFIG=$(ECPREFIX)/lib/php/5.3/bin/$(MACH64)/php-config
+#CONFIGURE_ENV_64 +=	PYTHON=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages
+#CONFIGURE_ENV_64 +=	PYTHON_LIB=$(ECPREFIX)/lib/$(MACH64)/python
+CONFIGURE_ENV +=	$(CONFIGURE_ENV_$(BITS))
 
-build:          $(BUILD_32)
+build:          $(BUILD_32_and_64)
+#build:		$(BUILD_32)
 
-install:        $(INSTALL_32)
+install:        $(INSTALL_32_and_64)
+#install:	$(INSTALL_32)
 

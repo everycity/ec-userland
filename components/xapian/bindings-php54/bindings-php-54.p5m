@@ -1,0 +1,43 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2013 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/library/xapian/bindings-php-54@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/php
+dir path=$(ECPREFIX)/lib/php/5.4
+dir path=$(ECPREFIX)/lib/php/5.4/extensions
+dir path=$(ECPREFIX)/lib/php/5.4/extensions/$(MACH64)
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/xapian-bindings
+dir path=$(ECPREFIX)/share/doc/xapian-bindings/php
+dir path=$(ECPREFIX)/share/doc/xapian-bindings/php/examples
+file path=$(ECPREFIX)/lib/php/5.4/extensions/$(MACH64)/xapian.so
+file path=$(ECPREFIX)/lib/php/5.4/extensions/xapian.so
+file path=$(ECPREFIX)/share/doc/xapian-bindings/php/examples/simpleexpand.php5
+file path=$(ECPREFIX)/share/doc/xapian-bindings/php/examples/simpleindex.php5
+file \
+    path=$(ECPREFIX)/share/doc/xapian-bindings/php/examples/simplematchdecider.php5
+file path=$(ECPREFIX)/share/doc/xapian-bindings/php/examples/simplesearch.php5
+file path=$(ECPREFIX)/share/doc/xapian-bindings/php/index.html
