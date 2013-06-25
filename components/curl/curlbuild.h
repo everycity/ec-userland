@@ -1,10 +1,10 @@
-/* include/curl/curlbuild.h.  Generated from curlbuild.h.in by configure.  */
-
 /* EC: We combine both 32bit and 64bit curlbuild.h files into one using a
  * nice big ifdef
  */
 
 #if (defined (__x86_64__))
+
+/* include/curl/curlbuild.h.  Generated from curlbuild.h.in by configure.  */
 #ifndef __CURL_CURLBUILD_H
 #define __CURL_CURLBUILD_H
 /***************************************************************************
@@ -14,7 +14,7 @@
  *                            | (__| |_| |  _ <| |___
  *                             \___|\___/|_| \_\_____|
  *
- * Copyright (C) 1998 - 2011, Daniel Stenberg, <daniel@haxx.se>, et al.
+ * Copyright (C) 1998 - 2012, Daniel Stenberg, <daniel@haxx.se>, et al.
  *
  * This software is licensed as described in the file COPYING, which
  * you should have received as part of this distribution. The terms
@@ -158,6 +158,13 @@
 #  include <sys/socket.h>
 #endif
 
+/* Configure process defines this to 1 when it finds out that system  */
+/* header file sys/poll.h must be included by the external interface. */
+/* #undef CURL_PULL_SYS_POLL_H */
+#ifdef CURL_PULL_SYS_POLL_H
+#  include <sys/poll.h>
+#endif
+
 /* The size of `long', as computed by sizeof. */
 #define CURL_SIZEOF_LONG 8
 
@@ -195,11 +202,10 @@ typedef CURL_TYPEOF_CURL_OFF_T curl_off_t;
 #define CURL_SUFFIX_CURL_OFF_TU UL
 
 #endif /* __CURL_CURLBUILD_H */
-#else
-/* EC: This is the 32bit one now: */
+
+#else /* EC: This is the 32bit one now: */
 
 /* include/curl/curlbuild.h.  Generated from curlbuild.h.in by configure.  */
-
 #ifndef __CURL_CURLBUILD_H
 #define __CURL_CURLBUILD_H
 /***************************************************************************
@@ -209,7 +215,7 @@ typedef CURL_TYPEOF_CURL_OFF_T curl_off_t;
  *                            | (__| |_| |  _ <| |___
  *                             \___|\___/|_| \_\_____|
  *
- * Copyright (C) 1998 - 2011, Daniel Stenberg, <daniel@haxx.se>, et al.
+ * Copyright (C) 1998 - 2012, Daniel Stenberg, <daniel@haxx.se>, et al.
  *
  * This software is licensed as described in the file COPYING, which
  * you should have received as part of this distribution. The terms
@@ -353,6 +359,13 @@ typedef CURL_TYPEOF_CURL_OFF_T curl_off_t;
 #  include <sys/socket.h>
 #endif
 
+/* Configure process defines this to 1 when it finds out that system  */
+/* header file sys/poll.h must be included by the external interface. */
+/* #undef CURL_PULL_SYS_POLL_H */
+#ifdef CURL_PULL_SYS_POLL_H
+#  include <sys/poll.h>
+#endif
+
 /* The size of `long', as computed by sizeof. */
 #define CURL_SIZEOF_LONG 4
 
@@ -390,4 +403,5 @@ typedef CURL_TYPEOF_CURL_OFF_T curl_off_t;
 #define CURL_SUFFIX_CURL_OFF_TU ULL
 
 #endif /* __CURL_CURLBUILD_H */
-#endif
+
+#endif /* EC */
