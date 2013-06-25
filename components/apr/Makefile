@@ -9,16 +9,20 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		apr
-COMPONENT_VERSION=	1.4.6
+COMPONENT_FMRI=		library/apr-14
+COMPONENT_VERSION=	1.4.8
+COMPONENT_LICENSE=	APLv2
+COMPONENT_PROJECT_URL=	http://apr.apache.org/
+COMPONENT_SUMMARY=	Apache Portable Runtime (APR)
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:9b635e60feb163e6fc6c375721f71f44d7e26d6b9cd52f6b86b04e65d2481cbc
+COMPONENT_ARCHIVE_HASH=	sha256:61b8d2f8d321c6365ee3d71d0bb41f3a89c44da6124cc5b407a3b8319d660421
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_APACHE)
 
 include ../../make-rules/prep.mk
@@ -34,7 +38,6 @@ CONFIGURE_OPTIONS	+=	--enable-threads
 CONFIGURE_OPTIONS	+=	--enable-other-child
 CONFIGURE_OPTIONS	+=	--enable-nonportable-atomics
 CONFIGURE_OPTIONS	+=	--enable-shared
-
 
 COMPONENT_POST_INSTALL_ACTION = ( strip \
 		$(PROTO_DIR)$(ECPREFIX)/lib/*so* \
