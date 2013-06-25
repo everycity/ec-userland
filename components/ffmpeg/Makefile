@@ -17,13 +17,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ffmpeg
 COMPONENT_FMRI=		multimedia/ffmpeg
-COMPONENT_VERSION=	1.2
+COMPONENT_VERSION=	1.2.1
 COMPONENT_LICENSE=	FFmpeg
 COMPONENT_PROJECT_URL=	http://www.ffmpeg.org/
 COMPONENT_SUMMARY=	Cross-platform audio recorder, converter, and streamer
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:9a39fbc07dae0c893059e07491bcfb1e2409cc220f72b41eed23a04becea5aaf
+COMPONENT_ARCHIVE_HASH=	sha256:0302375c3a64e9c2facfa7cbeb1aa333a39fdf6bbacda228cd48e04bf9ee32ca
 COMPONENT_ARCHIVE_URL=	http://www.ffmpeg.org/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
