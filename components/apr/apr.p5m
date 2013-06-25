@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -121,12 +121,12 @@ file path=$(ECPREFIX)/lib/libapr-1.la
 file path=$(ECPREFIX)/lib/libapr-1.so.0.4.8
 file path=$(ECPREFIX)/lib/pkgconfig/apr-1.pc
 file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/apr_rules.mk
-file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/libtool
+file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/libtool mode=555
 file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/make_exports.awk
 file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/make_var_export.awk
-file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/mkdir.sh
+file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/mkdir.sh mode=555
 file path=$(ECPREFIX)/share/apr-1.0/build/apr_rules.mk
-file path=$(ECPREFIX)/share/apr-1.0/build/libtool
+file path=$(ECPREFIX)/share/apr-1.0/build/libtool mode=555
 file path=$(ECPREFIX)/share/apr-1.0/build/make_exports.awk
 file path=$(ECPREFIX)/share/apr-1.0/build/make_var_export.awk
 file path=$(ECPREFIX)/share/apr-1.0/build/mkdir.sh
