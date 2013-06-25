@@ -9,20 +9,29 @@
 #
 
 #
-# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
-COMPONENT_NAME=		ffmpeg-php
-COMPONENT_VERSION=	0.6.0
-COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tbz2
-COMPONENT_ARCHIVE_HASH=	sha256:ec8a9847e0f4d5101a5afedb7dac318e9a13f099865215ae99d08d56add9b141
-COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
+COMPONENT_NAME=         ffmpeg-php
+COMPONENT_FMRI=         web/php-53/extension/php-ffmpeg
+# Using unreleased source revision 678 from SF SVN
+# Version taken from source FFMPEG_PHP_VERSION in ffmpeg-php.c
+COMPONENT_VERSION=      0.7.0
+COMPONENT_PROJECT_URL=  http://ffmpeg-php.sourceforge.net/
+COMPONENT_SRC=          $(COMPONENT_NAME)
+COMPONENT_ARCHIVE_NAME= $(COMPONENT_NAME)-code-678-trunk
+COMPONENT_ARCHIVE=      $(COMPONENT_ARCHIVE_NAME).zip
+COMPONENT_ARCHIVE_HASH= sha256:9c73100f9837a44afa555442e6f0539cda7dbd120304855cf32066067fb19eb9
+COMPONENT_ARCHIVE_URL=  http://sourceforge.net/code-snapshots/svn/f/ff/$(COMPONENT_NAME)/code/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+COMPONENT_POST_UNPACK_ACTION = ( \
+        ${MV} source/$(COMPONENT_ARCHIVE_NAME)/$(COMPONENT_NAME) source/ ; \
+        ${RM} -r source/$(COMPONENT_ARCHIVE_NAME) ; )
 
 PHP_PREFIX=$(ECPREFIX)/lib/php/5.3
 PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.3
