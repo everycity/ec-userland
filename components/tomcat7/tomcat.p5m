@@ -258,6 +258,7 @@ file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/html-manager-howto.html
 file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/images/add.gif
 file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/images/asf-logo.gif
 file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/images/code.gif
+file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/images/cors-flowchart.png
 file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/images/design.gif
 file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/images/docs.gif
 file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/images/fix.gif
