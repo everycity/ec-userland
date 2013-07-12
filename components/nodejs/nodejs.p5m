@@ -115,19 +115,11 @@ dir \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/tools/emacs
 dir \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/tools/emacs/testdata
-dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/legacy
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/lib
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt/bin
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt/examples
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt/lib
-dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data
-dir \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/lib
-dir \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/node_modules
-dir \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/node_modules/github-url-from-git
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/lib
 dir \
@@ -598,6 +590,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/error-handler.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/fetch.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/find-prefix.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/gently-rm.js
+file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/is-git-url.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/lifecycle.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/link.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/tar.js
@@ -1074,8 +1067,6 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/tools/pretty_sln.py
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/tools/pretty_vcproj.py
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/legacy/common.gypi
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/lib/build.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/lib/clean.js
 file \
@@ -1097,42 +1088,6 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt/examples/my-program.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt/lib/nopt.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt/package.json
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/.npmignore
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/.travis.yml
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/AUTHORS
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/LICENSE
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/README.md
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/lib/extract_description.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/lib/fixer.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/lib/is_valid.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/lib/normalize.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/lib/typos.json
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/node_modules/github-url-from-git/.npmignore
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/node_modules/github-url-from-git/History.md
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/node_modules/github-url-from-git/Makefile
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/node_modules/github-url-from-git/Readme.md
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/node_modules/github-url-from-git/index.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/node_modules/github-url-from-git/package.json
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/node_modules/github-url-from-git/test.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/normalize-package-data/package.json
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/.npmignore
 file \
@@ -1249,8 +1204,6 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/extract_description.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/fixer.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/is_valid.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/normalize.js
 file \
@@ -1841,14 +1794,25 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/retry/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/rimraf/AUTHORS
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/rimraf/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/rimraf/README.md
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/rimraf/bin.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/rimraf/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/rimraf/rimraf.js
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/semver/.npmignore
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/semver/LICENSE
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/semver/Makefile
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/semver/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/semver/bin/semver
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/semver/foot.js
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/semver/head.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/semver/package.json
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/semver/semver.browser.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/semver/semver.browser.js.gz
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/semver/semver.js
-file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/semver/test.js
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/semver/semver.min.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/semver/semver.min.js.gz
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/.npmignore
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/index.js
