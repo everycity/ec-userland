@@ -1,0 +1,175 @@
+--- mariadb-5.5.31.orig/CMakeLists.txt	2013-07-10 12:49:03.661543798 +0000
++++ mariadb-5.5.31/CMakeLists.txt	2013-07-10 12:49:23.498193806 +0000
+@@ -156,6 +156,7 @@
+   SET(WITHOUT_DYNAMIC_PLUGINS 1)
+ ENDIF()
+ OPTION(ENABLED_PROFILING "Enable profiling" ON)
++OPTION(ENABLE_DTRACE "Include support for DTrace probes" OFF)
+ OPTION(CYBOZU "" OFF)
+ OPTION(BACKUP_TEST "" OFF)
+ OPTION(WITHOUT_SERVER OFF)
+--- mariadb-5.5.31.orig/cmake/dtrace.cmake	2013-07-10 12:49:03.684799135 +0000
++++ mariadb-5.5.31/cmake/dtrace.cmake	2013-07-10 12:51:56.220641556 +0000
+@@ -40,11 +40,11 @@
+  ENDIF()
+ 
+  # On FreeBSD, dtrace does not handle userland tracing yet
+- IF(DTRACE AND NOT CMAKE_SYSTEM_NAME MATCHES "FreeBSD"
+-     AND NOT BUGGY_GCC_NO_DTRACE_MODULES
+-     AND NOT BUGGY_LINUX_DTRACE) 
+-   SET(ENABLE_DTRACE ON CACHE BOOL "Enable dtrace")
++ IF(ENABLE_DTRACE AND (CMAKE_SYSTEM_NAME MATCHES "FreeBSD"
++    OR BUGGY_GCC_NO_DTRACE_MODULES OR NOT DTRACE))
++  MESSAGE(FATAL_ERROR "dtrace is not supported on this system")
+  ENDIF()
++
+  SET(HAVE_DTRACE ${ENABLE_DTRACE})
+  IF(CMAKE_SYSTEM_NAME MATCHES "SunOS")
+    IF(CMAKE_SIZEOF_VOID_P EQUAL 4)
+--- mariadb-5.5.31.orig/cmake/plugin.cmake	2013-07-10 12:49:03.684867566 +0000
++++ mariadb-5.5.31/cmake/plugin.cmake	2013-07-10 12:55:24.330105257 +0000
+@@ -21,6 +21,7 @@
+ # [STORAGE_ENGINE]
+ # [MANDATORY|DEFAULT]
+ # [STATIC_ONLY|DYNAMIC_ONLY]
++# [DTRACE_INSTRUMENTED]
+ # [MODULE_OUTPUT_NAME module_name]
+ # [STATIC_OUTPUT_NAME static_name]
+ # [RECOMPILE_FOR_EMBEDDED]
+@@ -47,7 +48,7 @@
+ MACRO(MYSQL_ADD_PLUGIN)
+   MYSQL_PARSE_ARGUMENTS(ARG
+     "LINK_LIBRARIES;DEPENDENCIES;MODULE_OUTPUT_NAME;STATIC_OUTPUT_NAME;COMPONENT"
+-    "STORAGE_ENGINE;STATIC_ONLY;MODULE_ONLY;MANDATORY;DEFAULT;DISABLED;RECOMPILE_FOR_EMBEDDED"
++    "STORAGE_ENGINE;STATIC_ONLY;MODULE_ONLY;MANDATORY;DEFAULT;DISABLED;RECOMPILE_FOR_EMBEDDED;DTRACE_INSTRUMENTED"
+     ${ARGN}
+   )
+   
+@@ -134,7 +135,9 @@
+     ENDIF()
+ 
+     ADD_LIBRARY(${target} STATIC ${SOURCES})
+-    DTRACE_INSTRUMENT(${target})
++    IF (ARG_DTRACE_INSTRUMENTED)
++      DTRACE_INSTRUMENT(${target})
++    ENDIF()
+     ADD_DEPENDENCIES(${target} GenError ${ARG_DEPENDENCIES})
+     RESTRICT_SYMBOL_EXPORTS(${target})
+     IF(WITH_EMBEDDED_SERVER)
+@@ -143,7 +146,9 @@
+       IF(ARG_RECOMPILE_FOR_EMBEDDED OR NOT _SKIP_PIC)
+         # Recompile some plugins for embedded
+         ADD_CONVENIENCE_LIBRARY(${target}_embedded ${SOURCES})
+-        DTRACE_INSTRUMENT(${target}_embedded)   
++        IF (ARG_DTRACE_INSTRUMENTED)
++          DTRACE_INSTRUMENT(${target}_embedded)
++        ENDIF()
+         IF(ARG_RECOMPILE_FOR_EMBEDDED)
+           SET_TARGET_PROPERTIES(${target}_embedded 
+             PROPERTIES COMPILE_DEFINITIONS "EMBEDDED_LIBRARY")
+@@ -182,7 +187,9 @@
+   
+     ADD_VERSION_INFO(${target} MODULE SOURCES)
+     ADD_LIBRARY(${target} MODULE ${SOURCES}) 
+-    DTRACE_INSTRUMENT(${target})
++    IF (ARG_DTRACE_INSTRUMENTED)
++      DTRACE_INSTRUMENT(${target})
++    ENDIF()
+     SET_TARGET_PROPERTIES (${target} PROPERTIES PREFIX ""
+       COMPILE_DEFINITIONS "MYSQL_DYNAMIC_PLUGIN")
+     TARGET_LINK_LIBRARIES (${target} mysqlservices)
+diff -ur mariadb-5.5.31.orig/storage/archive/CMakeLists.txt mariadb-5.5.31/storage/archive/CMakeLists.txt
+--- mariadb-5.5.31.orig/storage/archive/CMakeLists.txt	2013-07-10 12:49:03.443916246 +0000
++++ mariadb-5.5.31/storage/archive/CMakeLists.txt	2013-07-10 12:56:35.710307439 +0000
+@@ -14,5 +14,6 @@
+ # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+ 
+ SET(ARCHIVE_SOURCES  azio.c ha_archive.cc ha_archive.h)
+-MYSQL_ADD_PLUGIN(archive ${ARCHIVE_SOURCES} STORAGE_ENGINE LINK_LIBRARIES ${ZLIB_LIBRARY})
++MYSQL_ADD_PLUGIN(archive ${ARCHIVE_SOURCES} STORAGE_ENGINE
++                 LINK_LIBRARIES ${ZLIB_LIBRARY} DTRACE_INSTRUMENTED)
+ 
+diff -ur mariadb-5.5.31.orig/storage/blackhole/CMakeLists.txt mariadb-5.5.31/storage/blackhole/CMakeLists.txt
+--- mariadb-5.5.31.orig/storage/blackhole/CMakeLists.txt	2013-07-10 12:49:03.464410236 +0000
++++ mariadb-5.5.31/storage/blackhole/CMakeLists.txt	2013-07-10 12:57:13.599315523 +0000
+@@ -14,4 +14,6 @@
+ # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+ 
+ SET(BLACKHOLE_SOURCES  ha_blackhole.cc ha_blackhole.h)
+-MYSQL_ADD_PLUGIN(blackhole ${BLACKHOLE_SOURCES} STORAGE_ENGINE)
++MYSQL_ADD_PLUGIN(blackhole ${BLACKHOLE_SOURCES} STORAGE_ENGINE
++                 DTRACE_INSTRUMENTED)
++
+diff -ur mariadb-5.5.31.orig/storage/csv/CMakeLists.txt mariadb-5.5.31/storage/csv/CMakeLists.txt
+--- mariadb-5.5.31.orig/storage/csv/CMakeLists.txt	2013-07-10 12:49:03.451392997 +0000
++++ mariadb-5.5.31/storage/csv/CMakeLists.txt	2013-07-10 12:57:36.220973044 +0000
+@@ -14,4 +14,5 @@
+ # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+ 
+ SET(CSV_SOURCES  ha_tina.cc ha_tina.h transparent_file.cc transparent_file.h)
+-MYSQL_ADD_PLUGIN(csv ${CSV_SOURCES} STORAGE_ENGINE MANDATORY)
++MYSQL_ADD_PLUGIN(csv ${CSV_SOURCES} STORAGE_ENGINE
++                 MANDATORY DTRACE_INSTRUMENTED)
+diff -ur mariadb-5.5.31.orig/storage/example/CMakeLists.txt mariadb-5.5.31/storage/example/CMakeLists.txt
+--- mariadb-5.5.31.orig/storage/example/CMakeLists.txt	2013-07-10 12:49:03.486538127 +0000
++++ mariadb-5.5.31/storage/example/CMakeLists.txt	2013-07-10 12:58:28.979902634 +0000
+@@ -14,4 +14,5 @@
+ # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+ 
+ SET(EXAMPLE_SOURCES ha_example.cc)
+-MYSQL_ADD_PLUGIN(example ${EXAMPLE_SOURCES} STORAGE_ENGINE MODULE_ONLY COMPONENT Test)
++MYSQL_ADD_PLUGIN(example ${EXAMPLE_SOURCES} STORAGE_ENGINE MODULE_ONLY
++	COMPONENT Test DTRACE_INSTRUMENTED)
+diff -ur mariadb-5.5.31.orig/storage/federated/CMakeLists.txt mariadb-5.5.31/storage/federated/CMakeLists.txt
+--- mariadb-5.5.31.orig/storage/federated/CMakeLists.txt	2013-07-10 12:49:03.429653714 +0000
++++ mariadb-5.5.31/storage/federated/CMakeLists.txt	2013-07-10 12:58:59.770846435 +0000
+@@ -19,4 +19,5 @@
+  # mysqld and are optimized away by the linker.
+  SET(FEDERATED_SOURCES ${FEDERATED_SOURCES} ${CMAKE_SOURCE_DIR}/mysys/string.c)
+ ENDIF()
+-MYSQL_ADD_PLUGIN(federated ${FEDERATED_SOURCES} STORAGE_ENGINE MODULE_ONLY)
++MYSQL_ADD_PLUGIN(federated ${FEDERATED_SOURCES} STORAGE_ENGINE MODULE_ONLY
++		DTRACE_INSTRUMENTED)
+diff -ur mariadb-5.5.31.orig/storage/heap/CMakeLists.txt mariadb-5.5.31/storage/heap/CMakeLists.txt
+--- mariadb-5.5.31.orig/storage/heap/CMakeLists.txt	2013-07-10 12:49:03.482731437 +0000
++++ mariadb-5.5.31/storage/heap/CMakeLists.txt	2013-07-10 12:59:32.492100863 +0000
+@@ -19,7 +19,8 @@
+ 				hp_rename.c hp_rfirst.c hp_rkey.c hp_rlast.c hp_rnext.c hp_rprev.c
+ 				hp_rrnd.c hp_rsame.c hp_scan.c hp_static.c hp_update.c hp_write.c)
+ 
+-MYSQL_ADD_PLUGIN(heap ${HEAP_SOURCES} STORAGE_ENGINE MANDATORY RECOMPILE_FOR_EMBEDDED)
++MYSQL_ADD_PLUGIN(heap ${HEAP_SOURCES} STORAGE_ENGINE MANDATORY
++		RECOMPILE_FOR_EMBEDDED DTRACE_INSTRUMENTED)
+ 
+ IF(WITH_UNIT_TESTS)
+   ADD_EXECUTABLE(hp_test1 hp_test1.c)
+@@ -27,4 +28,4 @@
+ 
+   ADD_EXECUTABLE(hp_test2 hp_test2.c)
+   TARGET_LINK_LIBRARIES(hp_test2 heap mysys dbug strings)
+-ENDIF()
+\ No newline at end of file
++ENDIF()
+diff -ur mariadb-5.5.31.orig/storage/myisam/CMakeLists.txt mariadb-5.5.31/storage/myisam/CMakeLists.txt
+--- mariadb-5.5.31.orig/storage/myisam/CMakeLists.txt	2013-07-10 12:49:03.434412273 +0000
++++ mariadb-5.5.31/storage/myisam/CMakeLists.txt	2013-07-10 13:00:09.894928098 +0000
+@@ -30,7 +30,8 @@
+ MYSQL_ADD_PLUGIN(myisam ${MYISAM_SOURCES} 
+   STORAGE_ENGINE 
+   MANDATORY 
+-  RECOMPILE_FOR_EMBEDDED)
++  RECOMPILE_FOR_EMBEDDED
++  DTRACE_INSTRUMENTED)
+ 
+ TARGET_LINK_LIBRARIES(myisam mysys)
+ 
+diff -ur mariadb-5.5.31.orig/storage/myisammrg/CMakeLists.txt mariadb-5.5.31/storage/myisammrg/CMakeLists.txt
+--- mariadb-5.5.31.orig/storage/myisammrg/CMakeLists.txt	2013-07-10 12:49:03.450326835 +0000
++++ mariadb-5.5.31/storage/myisammrg/CMakeLists.txt	2013-07-10 13:00:41.064935559 +0000
+@@ -20,4 +20,5 @@
+ 				myrg_rprev.c myrg_rrnd.c myrg_rsame.c myrg_static.c myrg_update.c
+ 				myrg_write.c myrg_records.c)
+ 
+-MYSQL_ADD_PLUGIN(myisammrg ${MYISAMMRG_SOURCES} STORAGE_ENGINE MANDATORY RECOMPILE_FOR_EMBEDDED)
++MYSQL_ADD_PLUGIN(myisammrg ${MYISAMMRG_SOURCES} STORAGE_ENGINE MANDATORY
++		RECOMPILE_FOR_EMBEDDED DTRACE_INSTRUMENTED)

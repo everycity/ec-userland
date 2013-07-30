@@ -1,0 +1,19 @@
+# Alasdair Lumsden: 2013-07-30
+
+This package (and MySQL 5.5 as well) have omitted shipping
+various things such as the sql-bench and mysql-test parts
+due to CMAKE putting them in $(ECPREFIX)/ instead of under
+$(ECPREFIX)/mariadb/5.5. This was due to time constraints.
+They should probably also be in separate packages.
+
+Also the splitting up of the files into 3 separate packages
+has been done suboptimally - a "mask" of some description
+to send things to the right location may be in order.
+
+Finally, MariaDB is kind of in conflict with MySQL as far
+as $(ECPREFIX)/bin/XXXX ->
+    $(ECPREFIX)/lib/(mysql|mariadb)/active/bin/XXXX
+symlinks are concerned. A workaround however is to simply
+install the mysql-55/client package and symlink:
+$(ECPREFIX)/lib/mysql/active ->
+  $(ECPREFIX)/lib/mariadb/5.5
