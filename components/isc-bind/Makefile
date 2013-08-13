@@ -14,21 +14,21 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		bind
-COMPONENT_VERSION=	9.8.5
-IPS_COMPONENT_VERSION=	9.8.5
+COMPONENT_VERSION=	9.8.5-P2
+IPS_COMPONENT_VERSION=	9.8.5.2
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha256:
+COMPONENT_ARCHIVE_HASH=	sha256:4c0e25e69e6a4665295b2322df94647f020e93c86189c39f6860d7654a411f1e
 COMPONENT_ARCHIVE_URL=	ftp://ftp.isc.org/isc/bind9/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS	+=	--disable-static --enable-shared --with-pic --with-openssl=$(ECPREFIX)
-CONFIGURE_OPTIONS	+=	--with-libxml2=$(ECPREFIX) --with-libtool=$(ECPREFIX) --with-libiconv=$(ECPREFIX)
-CONFIGURE_OPTIONS.32	+=	--sbindir=$(ECPREFIX)/bin
-CONFIGURE_OPTIONS.64	+=	--sbindir=$(ECPREFIX)/bin/$(MACH64)
+CONFIGURE_OPTIONS+=	--with-openssl=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--with-libxml2=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--with-libtool=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--with-libiconv=$(ECPREFIX)
 
 build:		$(BUILD_32_and_64)
 
