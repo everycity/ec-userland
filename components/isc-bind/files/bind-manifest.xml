@@ -1,0 +1,38 @@
+<?xml version='1.0'?>
+<!DOCTYPE service_bundle SYSTEM '/usr/share/lib/xml/dtd/service_bundle.dtd.1'>
+<!--
+//
+// This file and its contents are supplied under the terms of the
+// Common Development and Distribution License ("CDDL)". You may
+// only use this file in accordance with the terms of the CDDL.
+//
+// A full copy of the text of the CDDL should have accompanied this
+// source. A copy of the CDDL is also available via the Internet at
+// http://www.illumos.org/license/CDDL.
+//
+//
+// Copyright 2013 EveryCity Ltd. All rights reserved.
+//
+-->
+<service_bundle type='manifest' name='isc-bind'>
+  <service name='network/isc-bind/server' type='service' version='0'>
+    <create_default_instance enabled='false'/>
+    <single_instance/>
+    <dependency name='usr' grouping='require_all' restart_on='none' type='service'>
+      <service_fmri value='svc:/system/filesystem/local'/>
+    </dependency>
+    <dependent name='multi-user' restart_on='none' grouping='optional_all'>
+      <service_fmri value='svc:/milestone/multi-user'/>
+    </dependent>
+    <exec_method name='start' type='method' exec='/ec/bin/named -c /ec/etc/bind/named.conf' timeout_seconds='60'>
+      <method_context>
+        <method_credential user='root' group='root'/>
+      </method_context>
+    </exec_method>
+    <exec_method name='stop' type='method' exec=':kill' timeout_seconds='60'/>
+    <property_group name='startd' type='framework'>
+      <propval name='ignore_error' type='astring' value='core,signal'/>
+    </property_group>
+    <stability value='Unstable'/>
+  </service>
+</service_bundle>
