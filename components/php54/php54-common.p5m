@@ -313,8 +313,17 @@ file path=$(ECPREFIX)/lib/php/5.4/lib/build/phpize.m4
 file path=$(ECPREFIX)/lib/php/5.4/lib/build/run-tests.php
 file path=$(ECPREFIX)/lib/php/5.4/lib/build/scan_makefile_in.awk
 file path=$(ECPREFIX)/lib/php/5.4/lib/build/shtool
+file path=$(ECPREFIX)/lib/php/5.4/share/man/man1/phar.1
+file path=$(ECPREFIX)/lib/php/5.4/share/man/man1/phar.phar.1
+file path=$(ECPREFIX)/lib/php/5.4/share/man/man1/php-cgi.1
 file path=$(ECPREFIX)/lib/php/5.4/share/man/man1/php-config.1
 file path=$(ECPREFIX)/lib/php/5.4/share/man/man1/phpize.1
+link path=$(ECPREFIX)/share/man/man1/phar.1 \
+    target=../../../lib/php/active/share/man/man1/phar.1 preserve=true
+link path=$(ECPREFIX)/share/man/man1/phar.phar.1 \
+    target=../../../lib/php/active/share/man/man1/phar.phar.1 preserve=true
+link path=$(ECPREFIX)/share/man/man1/php-cgi.1 \
+    target=../../../lib/php/active/share/man/man1/php-cgi.1 preserve=true
 link path=$(ECPREFIX)/share/man/man1/php-config.1 \
     target=../../../lib/php/active/share/man/man1/php-config.1 preserve=true
 link path=$(ECPREFIX)/share/man/man1/phpize.1 \
