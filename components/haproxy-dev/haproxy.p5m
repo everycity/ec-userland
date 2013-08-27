@@ -16,11 +16,11 @@
 <include ec-drop-common>
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="A reliable, high performance TCP/HTTP load balancer"
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
 set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license LICENSE license="GPL/LGPL with OpenSSL exception"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 # Custom entries
 dir path=$(ECPREFIX)/etc
