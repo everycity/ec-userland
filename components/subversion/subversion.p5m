@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -63,6 +63,7 @@ file path=$(ECPREFIX)/bin/$(MACH64)/svn
 file path=$(ECPREFIX)/bin/$(MACH64)/svnadmin
 file path=$(ECPREFIX)/bin/$(MACH64)/svndumpfilter
 file path=$(ECPREFIX)/bin/$(MACH64)/svnlook
+file path=$(ECPREFIX)/bin/$(MACH64)/svnmucc
 file path=$(ECPREFIX)/bin/$(MACH64)/svnrdump
 file path=$(ECPREFIX)/bin/$(MACH64)/svnserve
 file path=$(ECPREFIX)/bin/$(MACH64)/svnsync
@@ -71,6 +72,7 @@ file path=$(ECPREFIX)/bin/svn
 file path=$(ECPREFIX)/bin/svnadmin
 file path=$(ECPREFIX)/bin/svndumpfilter
 file path=$(ECPREFIX)/bin/svnlook
+file path=$(ECPREFIX)/bin/svnmucc
 file path=$(ECPREFIX)/bin/svnrdump
 file path=$(ECPREFIX)/bin/svnserve
 file path=$(ECPREFIX)/bin/svnsync
@@ -127,7 +129,6 @@ file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_fs_fs-1.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_fs_util-1.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra-1.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_local-1.so.0.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_neon-1.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_svn-1.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_repos-1.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_subr-1.so.0.0.0
@@ -140,7 +141,6 @@ file path=$(ECPREFIX)/lib/libsvn_fs_fs-1.so.0.0.0
 file path=$(ECPREFIX)/lib/libsvn_fs_util-1.so.0.0.0
 file path=$(ECPREFIX)/lib/libsvn_ra-1.so.0.0.0
 file path=$(ECPREFIX)/lib/libsvn_ra_local-1.so.0.0.0
-file path=$(ECPREFIX)/lib/libsvn_ra_neon-1.so.0.0.0
 file path=$(ECPREFIX)/lib/libsvn_ra_svn-1.so.0.0.0
 file path=$(ECPREFIX)/lib/libsvn_repos-1.so.0.0.0
 file path=$(ECPREFIX)/lib/libsvn_subr-1.so.0.0.0
@@ -161,6 +161,7 @@ file path=$(ECPREFIX)/share/man/man1/svn.1
 file path=$(ECPREFIX)/share/man/man1/svnadmin.1
 file path=$(ECPREFIX)/share/man/man1/svndumpfilter.1
 file path=$(ECPREFIX)/share/man/man1/svnlook.1
+file path=$(ECPREFIX)/share/man/man1/svnmucc.1
 file path=$(ECPREFIX)/share/man/man1/svnrdump.1
 file path=$(ECPREFIX)/share/man/man1/svnsync.1
 file path=$(ECPREFIX)/share/man/man1/svnversion.1
@@ -196,10 +197,6 @@ link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_local-1.so \
     target=libsvn_ra_local-1.so.0.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_local-1.so.0 \
     target=libsvn_ra_local-1.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_neon-1.so \
-    target=libsvn_ra_neon-1.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_neon-1.so.0 \
-    target=libsvn_ra_neon-1.so.0.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_svn-1.so \
     target=libsvn_ra_svn-1.so.0.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_svn-1.so.0 \
@@ -234,9 +231,6 @@ link path=$(ECPREFIX)/lib/libsvn_ra_local-1.so \
     target=libsvn_ra_local-1.so.0.0.0
 link path=$(ECPREFIX)/lib/libsvn_ra_local-1.so.0 \
     target=libsvn_ra_local-1.so.0.0.0
-link path=$(ECPREFIX)/lib/libsvn_ra_neon-1.so target=libsvn_ra_neon-1.so.0.0.0
-link path=$(ECPREFIX)/lib/libsvn_ra_neon-1.so.0 \
-    target=libsvn_ra_neon-1.so.0.0.0
 link path=$(ECPREFIX)/lib/libsvn_ra_svn-1.so target=libsvn_ra_svn-1.so.0.0.0
 link path=$(ECPREFIX)/lib/libsvn_ra_svn-1.so.0 target=libsvn_ra_svn-1.so.0.0.0
 link path=$(ECPREFIX)/lib/libsvn_repos-1.so target=libsvn_repos-1.so.0.0.0

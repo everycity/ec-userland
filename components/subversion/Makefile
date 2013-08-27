@@ -24,10 +24,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		subversion
-COMPONENT_VERSION=	1.7.10
+COMPONENT_VERSION=	1.8.1
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:c1df222bec83d014d17785e2ceba6bc80962f64b280967de0285836d8d77a8e7
+COMPONENT_ARCHIVE_HASH=	sha256:faaaaedba25777331e761884598af1dd9fe33631d6415b2e0ba5348867c4edb4
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_APACHE)
 
 include ../../make-rules/prep.mk
@@ -37,8 +37,6 @@ include ../../make-rules/ips.mk
 LDFLAGS+=		-lintl -liconv
 
 CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic
-CONFIGURE_OPTIONS+=	--with-ssl=openssl
-CONFIGURE_OPTIONS+=	--with-neon=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--disable-mod-activation
 CONFIGURE_OPTIONS.32+=	--with-apr=$(ECPREFIX)/bin/apr-1-config
 CONFIGURE_OPTIONS.64+=	--with-apr=$(ECPREFIX)/bin/$(MACH64)/apr-1-config
@@ -48,8 +46,12 @@ CONFIGURE_OPTIONS.32+=	--with-swig=$(ECPREFIX)/bin/swig
 CONFIGURE_OPTIONS.64+=	--with-swig=$(ECPREFIX)/bin/$(MACH64)/swig
 CONFIGURE_OPTIONS.32+=	--with-apxs=$(ECPREFIX)/bin/apxs
 CONFIGURE_OPTIONS.64+=	--with-apxs=$(ECPREFIX)/bin/$(MACH64)/apxs
+CONFIGURE_OPTIONS.32+=	--with-apache-libexecdir=$(ECPREFIX)/lib/apache/2.2/modules
+CONFIGURE_OPTIONS.64+=	--with-apache-libexecdir=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
 CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))
 CONFIGURE_OPTIONS+=	JAVA_HOME="$(ECPREFIX)/java"
+
+COMPONENT_BUILD_ENV+= EXTRA_CPPFLAGS=-D__EXTENSIONS__
 
 COMPONENT_INSTALL_TARGETS.32+=	install-swig-py install-swig-rb
 COMPONENT_INSTALL_TARGETS.64+=	install-swig-py
