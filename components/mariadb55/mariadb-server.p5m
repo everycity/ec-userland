@@ -99,6 +99,7 @@ dir path=$(ECPREFIX)/lib/mariadb/5.5/share/ukrainian
 dir path=$(ECPREFIX)/lib/mariadb/5.5/support-files
 dir path=$(ECPREFIX)/lib/mariadb/5.5/support-files/SELinux
 dir path=$(ECPREFIX)/lib/mariadb/5.5/support-files/SELinux/RHEL4
+dir path=$(ECPREFIX)/lib/mariadb/5.5/support-files/solaris
 file path=$(ECPREFIX)/lib/mariadb/5.5/bin/$(MACH64)/aria_chk
 file path=$(ECPREFIX)/lib/mariadb/5.5/bin/$(MACH64)/aria_dump_log
 file path=$(ECPREFIX)/lib/mariadb/5.5/bin/$(MACH64)/aria_ftdump
@@ -302,6 +303,7 @@ file $(ECPREFIX)/support-files/mysql-log-rotate path=$(ECPREFIX)/lib/mariadb/5.5
 file $(ECPREFIX)/support-files/mysql.server path=$(ECPREFIX)/lib/mariadb/5.5/support-files/mysql.server
 file $(ECPREFIX)/support-files/mysqld_multi.server path=$(ECPREFIX)/lib/mariadb/5.5/support-files/mysqld_multi.server
 file $(ECPREFIX)/support-files/ndb-config-2-node.ini path=$(ECPREFIX)/lib/mariadb/5.5/support-files/ndb-config-2-node.ini
+file $(ECPREFIX)/support-files/solaris/postinstall-solaris path=$(ECPREFIX)/lib/mariadb/5.5/support-files/solaris/postinstall-solaris
 link path=$(ECPREFIX)/lib/mariadb/5.5/lib/$(MACH64)/libmysqlclient.so target=libmysqlclient.so.18
 link path=$(ECPREFIX)/lib/mariadb/5.5/lib/$(MACH64)/libmysqlclient.so.18 target=libmysqlclient.so.18.0.0
 link path=$(ECPREFIX)/lib/mariadb/5.5/lib/$(MACH64)/libmysqlclient_r.a target=libmysqlclient.a
