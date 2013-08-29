@@ -23,7 +23,7 @@ COMPONENT_PROJECT_URL=	http://xerial.org/snappy-java/
 COMPONENT_SUMMARY=	Snappy for Java, a fast compressor/decompresser
 
 COMPONENT_ARCHIVE=	snappy-java-$(JAR_VERSION).jar
-#COMPONENT_ARCHIVE_HASH=	sha256:49f8ae77f5e1da6961ec8a35c05d4fd45a100e8742ca08a38f8c1860c426ed19
+COMPONENT_ARCHIVE_HASH=	sha256:1dbfd02262a7161e9da8942049d77798092e9b13838333efcf01e5dceb48ff7b
 #COMPONENT_ARCHIVE_URL=	http://xerial.org/snappy-java/downloads/snappy-java-$(JAR_VERSION).jar
 COMPONENT_ARCHIVE_URL=	http://linux01.everycity.co.uk/~aszeszo/$(COMPONENT_ARCHIVE)
 
