@@ -1,0 +1,19 @@
+--- gnosek-fcgiwrap-4b2151e/Makefile.in.~1~	2013-05-07 12:57:54.000000000 +0100
++++ gnosek-fcgiwrap-4b2151e/Makefile.in	2013-08-30 11:35:16.811119733 +0100
+@@ -1,5 +1,5 @@
+-targetdir = $(DESTDIR)@prefix@@sbindir@
+-man8dir = $(DESTDIR)@prefix@@mandir@/man8
++targetdir = $(DESTDIR)@sbindir@
++man8dir = $(DESTDIR)@mandir@/man8
+ datarootdir =
+ 
+ .PHONY:	clean distclean
+@@ -16,7 +16,7 @@
+ 	install -m 644 systemd/fcgiwrap.service $(DESTDIR)@systemdsystemunitdir@
+ endif
+ 
+-LDLIBS = -lfcgi @systemd_LIBS@
++LDLIBS = -lfcgi -lnsl -lsocket @systemd_LIBS@
+ CFLAGS = @AM_CFLAGS@
+ 
+ fcgiwrap: fcgiwrap.c
