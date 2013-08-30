@@ -1,0 +1,17 @@
+--- openssh-6.2p2/audit-bsm.c.orig	2013-08-30 13:05:06.397934252 +0000
++++ openssh-6.2p2/audit-bsm.c	2013-08-30 13:05:12.795597828 +0000
+@@ -282,14 +282,7 @@
+ 	(void) au_write(ad, au_to_text(string));
+ 	(void) au_write(ad, AUToReturnFunc(typ, rc));
+ 
+-#ifdef BROKEN_BSM_API
+-	/* The last argument is the event modifier flags. For
+-	   some seemingly undocumented reason it was added in
+-	   Solaris 11. */
+-	rc = au_close(ad, AU_TO_WRITE, event_no, 0);
+-#else
+ 	rc = au_close(ad, AU_TO_WRITE, event_no);
+-#endif
+ 
+ 	if (rc < 0)
+ 		error("BSM audit: %s failed to write \"%s\" record: %s",

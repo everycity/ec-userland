@@ -46,6 +46,7 @@ CONFIGURE_OPTIONS+=	--with-ssl-engine
 CONFIGURE_OPTIONS+=	--with-kerberos5=/usr
 CONFIGURE_OPTIONS+=	--with-solaris-contracts
 CONFIGURE_OPTIONS+=	--with-solaris-projects
+CONFIGURE_OPTIONS+=	--with-audit=bsm
 CONFIGURE_OPTIONS+=	--with-zlib=$(ECPREFIX)
 
 build:		$(BUILD_32)
