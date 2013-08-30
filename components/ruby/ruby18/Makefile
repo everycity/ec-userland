@@ -21,17 +21,21 @@
 
 #
 # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
-# Copyright (c) 2012, EveryCity Ltd. All rights reserved.
+# Copyright (c) 2012-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ruby
+COMPONENT_FMRI=		runtime/ruby-18
 COMPONENT_VERSION=	1.8.7
-COMPONENT_PATCH_VERSION=	358
+COMPONENT_PATCH_VERSION=	374
+COMPONENT_LICENSE=	GPLv2, LGPLv2.1, Artistic, BSD, PD
+COMPONENT_PROJECT_URL=	"http://www.ruby-lang.org/"
+COMPONENT_SUMMARY=	Ruby & RubyGems
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)-p$(COMPONENT_PATCH_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:309ccd427e47ef41a70f96462bd3c2ef2e7911ce1b22432ab502f5bc6e949c1b
+COMPONENT_ARCHIVE_HASH=	sha256:b4e34703137f7bfb8761c4ea474f7438d6ccf440b3d35f39cc5e4d4e239c07e3
 COMPONENT_ARCHIVE_URL=	http://ftp.ruby-lang.org/pub/ruby/1.8/$(COMPONENT_ARCHIVE)
 IPS_COMPONENT_VERSION=	$(COMPONENT_VERSION).$(COMPONENT_PATCH_VERSION)
 
