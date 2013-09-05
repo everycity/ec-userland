@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule evasive20_module modules/amd64/mod_evasive20.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule evasive20_module modules/mod_evasive20.so
+</IfDefine>
