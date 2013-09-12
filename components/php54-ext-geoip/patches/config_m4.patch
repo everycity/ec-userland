@@ -1,0 +1,11 @@
+--- geoip-1.0.8/config.m4.orig	2012-11-08 12:15:41.939467304 +0000
++++ geoip-1.0.8/config.m4	2012-11-08 12:16:02.603080787 +0000
+@@ -10,7 +10,7 @@
+ if test "$PHP_GEOIP" != "no"; then
+ 
+   # --with-geoip -> check with-path
+-  SEARCH_PATH="/usr/local /usr /sw /opt/local"
++  SEARCH_PATH="/ec"
+   SEARCH_FOR="/include/GeoIP.h"
+   if test -r $PHP_GEOIP/$SEARCH_FOR; then
+     GEOIP_DIR=$PHP_GEOIP
