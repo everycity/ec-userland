@@ -33,11 +33,11 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-build:		$(BUILD_32)
+build:		$(BUILD_32_and_64)
 
 include ../../make-rules/shared-targets.mk
 
-install:	$(INSTALL_32)
+install:	$(INSTALL_32_and_64)
 	cp source/$(COMPONENT_SRC)/rsync.1 $(PROTO_DIR)$(ECPREFIX)/share/man/man1
 	cp source/$(COMPONENT_SRC)/rsyncd.conf.5 $(PROTO_DIR)$(ECPREFIX)/share/man/man5
 

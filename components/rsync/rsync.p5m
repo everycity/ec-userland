@@ -33,10 +33,12 @@ license rsync.license license="GPLv3"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man5
+file path=$(ECPREFIX)/bin/$(MACH64)/rsync
 file path=$(ECPREFIX)/bin/rsync
 file path=$(ECPREFIX)/share/man/man1/rsync.1
 file path=$(ECPREFIX)/share/man/man5/rsyncd.conf.5
