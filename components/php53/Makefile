@@ -128,6 +128,7 @@ CONFIGURE_OPTIONS     +=	--enable-sysvshm
 CONFIGURE_OPTIONS     +=	--enable-simplexml
 CONFIGURE_OPTIONS     +=	--enable-hash
 CONFIGURE_OPTIONS     +=	--enable-session
+CONFIGURE_OPTIONS     +=	--enable-intl
 
 # Shared Extensions
 CONFIGURE_OPTIONS     +=	--enable-bcmath=shared
@@ -151,6 +152,12 @@ CONFIGURE_OPTIONS     +=	--enable-zip=shared
 CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
 
 CONFIGURE_OPTIONS += $(CONFIGURE_VARIANT_OPTIONS)
+
+COMPONENT_POST_CONFIGURE_ACTION_64= \
+	( cd $(@D) ; $(GSED) -i -e 's!-L[ ]*/ec/lib!-L/ec/lib/amd64!g' -e 's!-R[ ]*/ec/lib!-R/ec/lib/amd64!g' Makefile )
+COMPONENT_POST_CONFIGURE_ACTION= \
+	( cd $(@D) ; $(GSED) -i '/EXTRA_LIBS = /s|$$| -lstdc++|' Makefile ); \
+	$(COMPONENT_POST_CONFIGURE_ACTION_$(BITS))
 
 # Installation Arguments
 COMPONENT_INSTALL_ARGS  += INSTALL_ROOT=$(PROTO_DIR)
