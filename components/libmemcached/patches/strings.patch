@@ -1,0 +1,12 @@
+--- libmemcached-1.0.16/libtest/main.cc.orig	2013-09-13 12:41:38.886395311 +0100
++++ libmemcached-1.0.16/libtest/main.cc	2013-09-13 12:41:47.906679678 +0100
+@@ -43,6 +43,9 @@
+ #include <ctime>
+ #include <fnmatch.h>
+ #include <iostream>
++#ifdef HAVE_STRINGS_H
++#include <strings.h>
++#endif
+ #include <fstream>
+ #include <memory>
+ #include <sys/stat.h>
