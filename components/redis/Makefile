@@ -24,11 +24,11 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		redis
-COMPONENT_VERSION=	2.4.17
+COMPONENT_VERSION=	2.6.16
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:3fae7c47ef84886ff65073593c91586bb675babaf702eb6f3b37855ab3066ebd
-COMPONENT_ARCHIVE_URL=	http://redis.googlecode.com/files/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:81490918dcf82d124b36e48b0a9911bfba3f13abba04d8c89820324eff7df03a
+COMPONENT_ARCHIVE_URL=	http://download.redis.io/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
@@ -38,12 +38,12 @@ include ../../make-rules/shared-targets.mk
 CLEAN_PATHS +=	$(BUILD_DIR)
 
 COMPONENT_BUILD_ENV.32 += 'CC=$(ECPREFIX)/bin/gcc $(CC_BITS) -I$(ECPREFIX)/include -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib'
-COMPONENT_BUILD_ENV.32 += 'CFLAGS=$(CC_BITS) -I$(ECPREFIX)/include -std=c99 -pedantic -O3 -Wall -W -D__EXTENSIONS__ -D_XPG6'
+COMPONENT_BUILD_ENV.32 += 'CFLAGS=$(CC_BITS) -I$(ECPREFIX)/include -std=c99 -pedantic -O3 -Wall -W -D__EXTENSIONS__ -D_XPG6 -march=i686'
 COMPONENT_BUILD_ENV.32 += 'LDFLAGS=-L$(ECPREFIX)/lib -R$(ECPREFIX)/lib -ldl -lnsl -lsocket -lm -lpthread'
 COMPONENT_INSTALL_ENV.32 += 'CC=$(ECPREFIX)/bin/gcc -m32'
 
 COMPONENT_BUILD_ENV.64 += 'CC=$(ECPREFIX)/bin/gcc $(CC_BITS) -I$(ECPREFIX)/include/$(MACH64) -L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)'
-COMPONENT_BUILD_ENV.64 += 'CFLAGS=$(CC_BITS) -DBYTE_ORDER=LITTLE_ENDIAN -I$(ECPREFIX)/include/$(MACH64) -std=c99 -pedantic -O3 -Wall -W -D__EXTENSIONS__ -D_XPG6'
+COMPONENT_BUILD_ENV.64 += 'CFLAGS=$(CC_BITS) -DBYTE_ORDER=LITTLE_ENDIAN -I$(ECPREFIX)/include/$(MACH64) -std=c99 -pedantic -O3 -Wall -W -D__EXTENSIONS__ -D_XPG6 -march=athlon64-sse3'
 COMPONENT_BUILD_ENV.64 += 'LDFLAGS=-L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64) -ldl -lnsl -lsocket -lm -lpthread'
 COMPONENT_INSTALL_ENV.64 += 'CC=$(ECPREFIX)/bin/gcc -m64'
 
@@ -93,7 +93,7 @@ $(BUILD_DIR)/%/.installed:      $(BUILD_DIR)/%/.built
 
 install:	$(INSTALL_32_and_64)
 
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
+#BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
 
 include ../../make-rules/depend.mk
 
