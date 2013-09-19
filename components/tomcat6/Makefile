@@ -15,11 +15,11 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tomcat
-COMPONENT_VERSION=	6.0.33
+COMPONENT_VERSION=	6.0.37
 COMPONENT_SRC=		apache-tomcat-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	apache-tomcat-$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:36d68a81eaeb2accc843501967716e95dfe3e8bbd303ec4cf302be20cdb99517
-COMPONENT_ARCHIVE_URL=	$(EC_ARCHIVE)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:3e91abc752bf2b6ca19df9c8644bccdd92ba837397a8c1a745d72f58d5301b00
+COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.apache.org/tomcat/tomcat-6/v6.0.37/bin/apache-tomcat-6.0.37.tar.gz
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
