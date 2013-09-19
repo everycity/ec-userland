@@ -1,0 +1,26 @@
+--- libpam/pam_google_authenticator_unittest.c.orig	2013-09-18 10:13:11.510040521 +0000
++++ libpam/pam_google_authenticator_unittest.c	2013-09-18 10:14:57.517204445 +0000
+@@ -105,10 +105,10 @@
+ }
+ 
+ int pam_set_item(pam_handle_t *pamh, int item_type,
+-                 PAM_CONST void *item)
++                 const void *item)
+   __attribute__((visibility("default")));
+ int pam_set_item(pam_handle_t *pamh, int item_type,
+-                 PAM_CONST void *item) {
++                 const void *item) {
+   switch (item_type) {
+     case PAM_AUTHTOK:
+       if (strcmp((char *)item, pw)) {
+--- libpam/demo.c.orig	2013-09-18 10:12:52.919948707 +0000
++++ libpam/demo.c	2013-09-18 10:12:59.332831728 +0000
+@@ -104,7 +104,7 @@
+ }
+ 
+ int pam_set_item(pam_handle_t *pamh, int item_type,
+-                 PAM_CONST void *item) {
++                 const void *item) {
+   switch (item_type) {
+     case PAM_AUTHTOK:
+       return PAM_SUCCESS;
