@@ -97,6 +97,7 @@ file path=$(ECPREFIX)/lib/php/5.4/include/php/Zend/zend_config.w32.h
 file path=$(ECPREFIX)/lib/php/5.4/include/php/Zend/zend_constants.h
 file path=$(ECPREFIX)/lib/php/5.4/include/php/Zend/zend_closures.h
 file path=$(ECPREFIX)/lib/php/5.4/include/php/Zend/zend_dtrace.h
+file path=$(ECPREFIX)/lib/php/5.4/include/php/Zend/zend_dtrace_gen.h
 file path=$(ECPREFIX)/lib/php/5.4/include/php/Zend/zend_dynamic_array.h
 file path=$(ECPREFIX)/lib/php/5.4/include/php/Zend/zend_errors.h
 file path=$(ECPREFIX)/lib/php/5.4/include/php/Zend/zend_exceptions.h
