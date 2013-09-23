@@ -26,6 +26,9 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CC=
+ifeq ($(SOLARIS_VERSION), 2.10)
+LINKER=	ccs
+endif
 
 CONFIGURE_OPTIONS.32	+=	--with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/apxs
 CONFIGURE_OPTIONS.64	+=	--with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/apxs
