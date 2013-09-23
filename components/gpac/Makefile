@@ -15,15 +15,26 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gpac
+COMPONENT_FMRI=		multimedia/gpac
 COMPONENT_VERSION=	0.5.0
+COMPONENT_LICENSE=	LGPLv2.1
+COMPONENT_PROJECT_URL=	"http://gpac.wp.institut-telecom.fr/"
+COMPONENT_SUMMARY=	OpenSource multimedia framework
 COMPONENT_SRC=		$(COMPONENT_NAME)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:42971ac39511a1b6d1db39af664ce887b38c8657328c88cd200d87a02de81c24
-COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
+COMPONENT_ARCHIVE_NAME=	$(COMPONENT_NAME)-code-4774-trunk
+COMPONENT_ARCHIVE=	$(COMPONENT_ARCHIVE_NAME).zip
+COMPONENT_ARCHIVE_HASH=	sha256:b7f089efd5782acce746e5699ef6850b7dd49fe28c5e52801bb20ac321bcb035
+COMPONENT_ARCHIVE_URL=	http://sourceforge.net/code-snapshots/svn/g/gp/$(COMPONENT_NAME)/code/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+COMPONENT_POST_UNPACK_ACTION = ( \
+	${MV} source/$(COMPONENT_ARCHIVE_NAME)/$(COMPONENT_NAME) source/ ; \
+	${RM} -r source/$(COMPONENT_ARCHIVE_NAME) ; )
+
+COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 
 CONFIGURE_OPTIONS=	--prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--mandir=$(ECPREFIX)/share/man
@@ -39,6 +50,7 @@ CONFIGURE_OPTIONS+=	--extra-cflags="-I$(ECPREFIX)/include"
 CONFIGURE_OPTIONS+=	--extra-libs="-lrt"
 CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))
 
+CONFIGURE_OPTIONS+=	--verbose
 CONFIGURE_OPTIONS+=	--enable-pic
 CONFIGURE_OPTIONS+=	--enable-ssl
 #CONFIGURE_OPTIONS+=	--enable-amr

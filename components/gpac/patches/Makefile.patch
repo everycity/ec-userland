@@ -1,11 +1,19 @@
---- gpac/Makefile.orig	2012-12-12 10:29:56.030259905 +0000
-+++ gpac/Makefile	2012-12-12 10:31:40.315206481 +0000
-@@ -56,12 +56,12 @@
+--- gpac/Makefile.orig	2013-06-27 13:14:36.000000000 +0100
++++ gpac/Makefile	2013-09-23 13:43:05.977895142 +0100
+@@ -56,19 +56,19 @@
  install:
  	$(INSTALL) -d "$(DESTDIR)$(prefix)"
  	$(INSTALL) -d "$(DESTDIR)$(prefix)/$(libdir)"
 -	$(INSTALL) -d "$(DESTDIR)$(prefix)/bin"
 +	$(INSTALL) -d "$(DESTDIR)$(prefix)/$(bindir)"
+ ifeq ($(DISABLE_ISOFF), no) 
+ ifeq ($(CONFIG_LINUX), yes)
+ ifeq ($(CONFIG_FFMPEG), system)
+-	$(INSTALL) $(INSTFLAGS) -m 755 bin/gcc/DashCast "$(DESTDIR)$(prefix)/bin"
++	$(INSTALL) $(INSTFLAGS) -m 755 bin/gcc/DashCast "$(DESTDIR)$(prefix)/$(bindir)"
+ endif
+ endif
+ endif
  ifeq ($(DISABLE_ISOFF), no)
 -	$(INSTALL) $(INSTFLAGS) -m 755 bin/gcc/MP4Box "$(DESTDIR)$(prefix)/bin"
 +	$(INSTALL) $(INSTFLAGS) -m 755 bin/gcc/MP4Box "$(DESTDIR)$(prefix)/$(bindir)"
@@ -16,14 +24,16 @@
  endif
  	if [ -d  $(DESTDIR)$(prefix)/$(libdir)/pkgconfig ] ; then \
  	$(INSTALL) $(INSTFLAGS) -m 644 gpac.pc "$(DESTDIR)$(prefix)/$(libdir)/pkgconfig" ; \
-@@ -97,8 +97,8 @@
+@@ -104,9 +104,9 @@
  	rm -rf $(DESTDIR)$(moddir)
  	rm -rf $(DESTDIR)$(prefix)/$(libdir)/libgpac*
  	rm -rf $(DESTDIR)$(prefix)/$(libdir)/pkgconfig/gpac.pc
 -	rm -rf $(DESTDIR)$(prefix)/bin/MP4Box
 -	rm -rf $(DESTDIR)$(prefix)/bin/MP4Client
+-	rm -rf $(DESTDIR)$(prefix)/bin/DashCast
 +	rm -rf $(DESTDIR)$(prefix)/$(bindir)/MP4Box
 +	rm -rf $(DESTDIR)$(prefix)/$(bindir)/MP4Client
++	rm -rf $(DESTDIR)$(prefix)/$(bindir)/DashCast
  	rm -rf $(DESTDIR)$(mandir)/man1/mp4box.1
  	rm -rf $(DESTDIR)$(mandir)/man1/mp4client.1
  	rm -rf $(DESTDIR)$(mandir)/man1/gpac.1

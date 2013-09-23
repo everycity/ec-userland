@@ -1,0 +1,33 @@
+--- gpac/applications/mp4client/Makefile.orig	2013-09-23 12:05:49.911374509 +0100
++++ gpac/applications/mp4client/Makefile	2013-09-23 12:07:42.702700745 +0100
+@@ -36,7 +36,7 @@
+ all: $(PROG)
+ 
+ MP4Client$(EXE): $(OBJS)
+-	$(CC) $(LDFLAGS) -o ../../bin/gcc/$@ $(OBJS) -L../../bin/gcc -lgpac $(LINKLIBS)
++	$(CC) -L../../bin/gcc $(LDFLAGS) -o ../../bin/gcc/$@ $(OBJS) -lgpac $(LINKLIBS)
+ 
+ clean: 
+ 	rm -f $(OBJS) ../../bin/gcc/$(PROG)
+--- gpac/applications/mp4box/Makefile.orig	2013-09-23 12:38:01.486337823 +0100
++++ gpac/applications/mp4box/Makefile	2013-09-23 12:38:58.091803814 +0100
+@@ -60,7 +60,7 @@
+ all: $(PROG)
+ 
+ $(PROG): $(OBJS)
+-	$(CC) $(LDFLAGS) -o ../../bin/gcc/$@ $(OBJS) $(LINKFLAGS)
++	$(CC) $(LINKFLAGS) $(LDFLAGS) -o ../../bin/gcc/$@ $(OBJS)
+ 
+ clean: 
+ 	rm -f $(OBJS) ../../bin/gcc/$(PROG)
+--- gpac/applications/mp42ts/Makefile.orig	2013-09-23 12:42:33.587067951 +0100
++++ gpac/applications/mp42ts/Makefile	2013-09-23 12:43:01.730367902 +0100
+@@ -33,7 +33,7 @@
+ all: $(PROG)
+ 
+ $(PROG): $(OBJS)
+-	$(CC) $(LDFLAGS) -o ../../bin/gcc/$@ $(OBJS) $(LINKFLAGS)
++	$(CC) $(LINKFLAGS) $(LDFLAGS) -o ../../bin/gcc/$@ $(OBJS)
+ 
+ clean: 
+ 	rm -f $(OBJS) ../../bin/gcc/$(PROG)

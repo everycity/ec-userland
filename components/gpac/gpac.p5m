@@ -9,18 +9,18 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/multimedia/gpac@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="OpenSource multimedia framework"
-set name=info.upstream_url value="http://gpac.wp.institut-telecom.fr/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license gpac.license license="LGPLv2.1"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -30,6 +30,11 @@ dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/gpac
 dir path=$(ECPREFIX)/lib/gpac
 dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/gpac
+dir path=$(ECPREFIX)/share/gpac/gui
+dir path=$(ECPREFIX)/share/gpac/gui/extensions
+dir path=$(ECPREFIX)/share/gpac/gui/extensions/widget_manager
+dir path=$(ECPREFIX)/share/gpac/gui/icons
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 file path=$(ECPREFIX)/bin/$(MACH64)/MP4Box
@@ -59,9 +64,11 @@ file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_saf_in.so
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_soft_raster.so
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_svg_in.so
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_timedtext.so
+file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_vtt_in.so
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_widgetman.so
+file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_x11_out.so
 file path=$(ECPREFIX)/lib/$(MACH64)/gpac/gm_xvid_dec.so
-file path=$(ECPREFIX)/lib/$(MACH64)/libgpac.so.2.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libgpac.so.3.0.0
 file path=$(ECPREFIX)/lib/gpac/gm_aac_in.so
 file path=$(ECPREFIX)/lib/gpac/gm_ac3_in.so
 file path=$(ECPREFIX)/lib/gpac/gm_audio_filter.so
@@ -85,10 +92,84 @@ file path=$(ECPREFIX)/lib/gpac/gm_saf_in.so
 file path=$(ECPREFIX)/lib/gpac/gm_soft_raster.so
 file path=$(ECPREFIX)/lib/gpac/gm_svg_in.so
 file path=$(ECPREFIX)/lib/gpac/gm_timedtext.so
+file path=$(ECPREFIX)/lib/gpac/gm_vtt_in.so
 file path=$(ECPREFIX)/lib/gpac/gm_widgetman.so
+file path=$(ECPREFIX)/lib/gpac/gm_x11_out.so
 file path=$(ECPREFIX)/lib/gpac/gm_xvid_dec.so
-file path=$(ECPREFIX)/lib/libgpac.so.2.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libgpac.so target=libgpac.so.2.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libgpac.so.2 target=libgpac.so.2.0.0
-link path=$(ECPREFIX)/lib/libgpac.so target=libgpac.so.2.0.0
-link path=$(ECPREFIX)/lib/libgpac.so.2 target=libgpac.so.2.0.0
+file path=$(ECPREFIX)/lib/libgpac.so.3.0.0
+file path=$(ECPREFIX)/share/gpac/gpac.mp4
+file \
+    path=$(ECPREFIX)/share/gpac/gui/extensions/widget_manager/applications-system.svg
+file path=$(ECPREFIX)/share/gpac/gui/extensions/widget_manager/init.js
+file path=$(ECPREFIX)/share/gpac/gui/gui.bt
+file path=$(ECPREFIX)/share/gpac/gui/gui.js
+file path=$(ECPREFIX)/share/gpac/gui/gwlib.js
+file path=$(ECPREFIX)/share/gpac/gui/icons/applications-internet.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/applications-multimedia.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/applications-system.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/audio-volume-high.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/audio-volume-low.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/audio-volume-medium.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/audio-volume-muted.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/audio-x-generic.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/battery-caution.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/camera-photo.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/camera-video.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/dialog-error.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/dialog-information.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/dialog-warning.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/document-new.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/document-print-preview.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/document-print.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/document-save-as.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/document-save.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/edit-find.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/emblem-symbolic-link.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/emblem-unreadable.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/face-surprise.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/folder-open.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/folder.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/go-bottom.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/go-down.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/go-first.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/go-home.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/go-jump.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/go-last.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/go-next.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/go-previous.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/go-top.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/go-up.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/image-missing.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/left_arrow.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/list-add.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/list-remove.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/media-eject.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/media-playback-pause.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/media-playback-start.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/media-playback-stop.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/media-record.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/media-seek-backward.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/media-seek-forward.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/media-skip-backward.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/media-skip-forward.svg
+file \
+    path=$(ECPREFIX)/share/gpac/gui/icons/preferences-desktop-remote-desktop.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/preferences-system-windows.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/process-stop.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/right_arrow.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/tennis_ball.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/tennis_black.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/tennis_racket.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/tennis_racket_color.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/user-trash.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/video-display.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/video-x-generic.svg
+file path=$(ECPREFIX)/share/gpac/gui/icons/view-fullscreen.svg
+file path=$(ECPREFIX)/share/gpac/gui/mpegu-core.js
+file path=$(ECPREFIX)/share/man/man1/gpac.1
+file path=$(ECPREFIX)/share/man/man1/mp4box.1
+file path=$(ECPREFIX)/share/man/man1/mp4client.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libgpac.so target=libgpac.so.3.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libgpac.so.3 target=libgpac.so.3.0.0
+link path=$(ECPREFIX)/lib/libgpac.so target=libgpac.so.3.0.0
+link path=$(ECPREFIX)/lib/libgpac.so.3 target=libgpac.so.3.0.0
