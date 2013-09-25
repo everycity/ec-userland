@@ -1,0 +1,75 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2013 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/expect$(COMPONENT_VERSION)
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+dir path=$(ECPREFIX)/share/man/man3
+file path=$(ECPREFIX)/bin/autoexpect
+file path=$(ECPREFIX)/bin/autopasswd
+file path=$(ECPREFIX)/bin/cryptdir
+file path=$(ECPREFIX)/bin/decryptdir
+file path=$(ECPREFIX)/bin/dislocate
+file path=$(ECPREFIX)/bin/expect
+file path=$(ECPREFIX)/bin/ftp-rfc
+file path=$(ECPREFIX)/bin/kibitz
+file path=$(ECPREFIX)/bin/lpunlock
+file path=$(ECPREFIX)/bin/mkpasswd
+file path=$(ECPREFIX)/bin/multixterm
+file path=$(ECPREFIX)/bin/passmass
+file path=$(ECPREFIX)/bin/rftp
+file path=$(ECPREFIX)/bin/rlogin-cwd
+file path=$(ECPREFIX)/bin/timed-read
+file path=$(ECPREFIX)/bin/timed-run
+file path=$(ECPREFIX)/bin/tknewsbiff
+file path=$(ECPREFIX)/bin/tkpasswd
+file path=$(ECPREFIX)/bin/unbuffer
+file path=$(ECPREFIX)/bin/weather
+file path=$(ECPREFIX)/bin/xkibitz
+file path=$(ECPREFIX)/bin/xpstat
+file path=$(ECPREFIX)/include/expect.h
+file path=$(ECPREFIX)/include/expect_comm.h
+file path=$(ECPREFIX)/include/expect_tcl.h
+file path=$(ECPREFIX)/include/tcldbg.h
+file \
+    path=$(ECPREFIX)/lib/expect$(COMPONENT_VERSION)/libexpect$(COMPONENT_VERSION).so
+file path=$(ECPREFIX)/lib/expect$(COMPONENT_VERSION)/pkgIndex.tcl
+file path=$(ECPREFIX)/share/man/man1/autoexpect.1
+file path=$(ECPREFIX)/share/man/man1/cryptdir.1
+file path=$(ECPREFIX)/share/man/man1/decryptdir.1
+file path=$(ECPREFIX)/share/man/man1/dislocate.1
+file path=$(ECPREFIX)/share/man/man1/expect.1
+file path=$(ECPREFIX)/share/man/man1/kibitz.1
+file path=$(ECPREFIX)/share/man/man1/mkpasswd.1
+file path=$(ECPREFIX)/share/man/man1/multixterm.1
+file path=$(ECPREFIX)/share/man/man1/passmass.1
+file path=$(ECPREFIX)/share/man/man1/tknewsbiff.1
+file path=$(ECPREFIX)/share/man/man1/unbuffer.1
+file path=$(ECPREFIX)/share/man/man1/xkibitz.1
+file path=$(ECPREFIX)/share/man/man3/libexpect.3
