@@ -1,0 +1,28 @@
+--- ffmpeg-php/ffmpeg_movie.c.orig	2013-09-25 10:20:26.476637160 +0100
++++ ffmpeg-php/ffmpeg_movie.c	2013-09-25 10:21:39.241888391 +0100
+@@ -35,8 +35,9 @@
+ #include "ext/standard/info.h"
+ 
+ #include <avcodec.h>
++#include <version.h>
+ #include <avformat.h>
+-#include <pixfmt.h>
++#include <pixfmt.h>
+ #include <pixdesc.h>
+ 
+ #ifdef HAVE_CONFIG_H
+@@ -964,12 +965,14 @@
+     /* Copied from libavcodec/utils.c::avcodec_string */
+     if (p) {
+         codec_name = p->name;
++#ifdef FF_API_SUB_ID
+         if (decoder_ctx->codec_id == CODEC_ID_MP3) {
+             if (decoder_ctx->sub_id == 2)
+                 codec_name = "mp2";
+             else if (decoder_ctx->sub_id == 1)
+                 codec_name = "mp1";
+         }
++#endif
+     } else if (decoder_ctx->codec_id == CODEC_ID_MPEG2TS) {
+         /* fake mpeg2 transport stream codec (currently not registered) */
+         codec_name = "mpeg2ts";
