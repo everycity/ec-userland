@@ -157,16 +157,13 @@ dir \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data
 dir \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib
-dir \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/node_modules
-dir \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/node_modules/github-url-from-git
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read/example
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read/lib
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read/node_modules
 dir \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read/node_modules/mute-stream
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request
+dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/lib
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules
 dir \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/aws-sign
@@ -879,7 +876,10 @@ file \
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inherits/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inherits/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inherits/inherits.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inherits/inherits_browser.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inherits/package.json
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inherits/test.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ini/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ini/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ini/ini.js
@@ -922,10 +922,10 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/.npmignore
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/AUTHORS
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/README.md
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/bench.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/lib/lru-cache.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/package.json
-file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/s.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/minimatch/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/minimatch/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/minimatch/minimatch.js
@@ -1221,20 +1221,6 @@ file \
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/typos.json
 file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/node_modules/github-url-from-git/.npmignore
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/node_modules/github-url-from-git/History.md
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/node_modules/github-url-from-git/Makefile
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/node_modules/github-url-from-git/Readme.md
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/node_modules/github-url-from-git/index.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/node_modules/github-url-from-git/package.json
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/node_modules/github-url-from-git/test.js
-file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/package.json
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/package.json
@@ -1260,6 +1246,9 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/.npmignore
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/index.js
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/lib/copy.js
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/lib/debug.js
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/lib/getSafe.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/aws-sign/LICENSE
 file \
@@ -1613,6 +1602,8 @@ file \
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/node-uuid/benchmark/benchmark.js
 file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/node-uuid/component.json
+file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/node-uuid/package.json
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/node-uuid/uuid.js
@@ -1645,6 +1636,7 @@ file \
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tunnel-agent/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/package.json
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/request.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/googledoodle.jpg
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/run.js
@@ -1712,6 +1704,8 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-https-strict.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-https.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-isUrl.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-localAddress.js
 file \
@@ -1793,6 +1787,8 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/examples/typer-fsr.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/examples/typer.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/float.patch
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/fs.js
 file \
