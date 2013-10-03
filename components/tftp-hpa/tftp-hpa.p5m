@@ -22,6 +22,17 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
+# Manifiest and method
+dir path=var
+dir path=var/svc
+dir path=var/svc/manifest
+dir path=var/svc/manifest/site
+file files/network-tftp.xml path=var/svc/manifest/site/network-tftp.xml
+
+# TFTP root
+dir path=srv
+dir path=srv/tftp
+
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/share
