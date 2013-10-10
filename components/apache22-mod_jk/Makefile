@@ -25,9 +25,12 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CC=
 ifeq ($(SOLARIS_VERSION), 2.10)
+CC_32 = /ec/bin/gcc
+CC_64 = /ec/bin/gcc -m64
+CC =	$(CC_$(BITS))
 LINKER=	ccs
+COMPONENT_EXTRA_PATCH_ACTION=	($(GPATCH) -d $(@D) $(GPATCH_FLAGS) < s10brandz-linking.patch)
 endif
 
 CONFIGURE_OPTIONS.32	+=	--with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/apxs

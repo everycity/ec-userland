@@ -1,0 +1,22 @@
+--- tomcat-connectors-1.2.37-src/native/apache-2.0/Makefile.in.orig	2013-10-10 14:21:53.471991514 +0000
++++ tomcat-connectors-1.2.37-src/native/apache-2.0/Makefile.in	2013-10-10 14:22:29.909364051 +0000
+@@ -75,7 +75,7 @@
+ # APXS will compile every file, this is derived from apxs
+ 
+ mod_jk.la: mod_jk.lo $(APACHE_OBJECTS)
+-	$(LIBTOOL) --mode=link ${COMPILE} $(APXSLDFLAGS) -o $@ -module -rpath ${libexecdir} -avoid-version mod_jk.lo $(APACHE_OBJECTS)
++	$(LIBTOOL) --mode=link @CC@ $(APXSLDFLAGS) -o $@ -module -rpath ${libexecdir} -avoid-version mod_jk.lo $(APACHE_OBJECTS)
+ 
+ mod_jk.so: mod_jk.la
+ 	../scripts/build/instdso.sh SH_LIBTOOL='$(LIBTOOL)' mod_jk.la `pwd`
+--- tomcat-connectors-1.2.37-src/native/configure.orig	2013-10-10 14:27:24.977734124 +0000
++++ tomcat-connectors-1.2.37-src/native/configure	2013-10-10 14:29:34.537841079 +0000
+@@ -2505,7 +2505,7 @@
+                 APXSCC="`$APXS -q CC`"
+                 APXSCFLAGS="`${APXS} -q CFLAGS` `${APXS} -q EXTRA_CFLAGS` -DHAVE_APR ${APRINCLUDEDIR}"
+                 APXSCPPFLAGS="`${APXS} -q EXTRA_CPPFLAGS`"
+-                APXSLDFLAGS="`$APXS -q LDFLAGS`"
++                APXSLDFLAGS="`$APXS -q LDFLAGS | sed -e 's/-m[36][24] //'`"
+                 APACHE_CONFIG_VARS="`${APXS} -q exp_installbuilddir`/config_vars.mk"
+                 LIBTOOL=`$APXS -q LIBTOOL`
+             fi
