@@ -9,17 +9,20 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		unixODBC
-COMPONENT_VERSION=	2.3.1
+COMPONENT_FMRI=		library/libodbc
+COMPONENT_VERSION=	2.3.2
+COMPONENT_LICENSE=	LGPLv2.1
+COMPONENT_PROJECT_URL=	"http://www.unixodbc.org/"
+COMPONENT_SUMMARY=	unixODBC library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH= \
-    sha256:1f5be3edecff9e31072ef738ea1d8019594c4f0c2e3ab427e6eef153491db6a2
+COMPONENT_ARCHIVE_HASH= sha256:9c3459742f25df5aa3c10a61429bde51a6d4f11552c03095f1d33d7eb02b5c9a
 COMPONENT_ARCHIVE_URL=	ftp://ftp.unixodbc.org/pub/unixODBC/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
