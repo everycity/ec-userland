@@ -1,0 +1,24 @@
+--- mod_evasive/mod_evasive20.c.orig	2013-10-18 09:53:06.408701716 +0100
++++ mod_evasive/mod_evasive20.c	2013-10-18 09:54:25.523730700 +0100
+@@ -168,9 +168,9 @@
+             /* Reset our hit count list as necessary */
+             if (t-n->timestamp>=page_interval) {
+               n->count=0;
++              n->timestamp = t;
+             }
+           }
+-          n->timestamp = t;
+           n->count++;
+         } else {
+           ntt_insert(hit_list, hash_key, t);
+@@ -190,9 +190,9 @@
+             /* Reset our hit count list as necessary */
+             if (t-n->timestamp>=site_interval) {
+               n->count=0;
++              n->timestamp = t;
+             }
+           }
+-          n->timestamp = t;
+           n->count++;
+         } else {
+           ntt_insert(hit_list, hash_key, t);
