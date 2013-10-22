@@ -1,0 +1,70 @@
+#!/sbin/sh
+
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2013 EveryCity Ltd. All rights reserved.
+#
+
+. /lib/svc/share/smf_include.sh
+
+PATH=/usr/bin:/usr/sbin
+CONFIG_FILE=/ec/etc/nddtune.conf
+
+getprop() {
+    PROPVAL=""
+    svcprop -q -p $1 ${SMF_FMRI}
+    if [ $? -eq 0 ] ; then
+        PROPVAL=`svcprop -p $1 ${SMF_FMRI}`
+        if [ "${PROPVAL}" = "\"\"" ] ; then
+            PROPVAL=""
+        fi
+        return
+    fi
+    return
+}
+
+getprop nddtune/config_file
+if [ "${PROPVAL}" != "" ] ; then
+    CONFIG_FILE=$PROPVAL
+fi
+
+case "$1" in
+    start)
+        if [ -f $CONFIG_FILE ]; then
+            egrep -v "^(#|$)" $CONFIG_FILE | while read driver name value; do
+                CURVAL=`ndd -get /dev/$driver $name`
+                if [ -n $CURVAL ]; then
+                    if [ x$CURVAL != x$value ]; then
+                        echo "/dev/$driver $name: $CURVAL -> $value"
+                        ndd -set /dev/$driver $name $value
+                    else
+                        echo "/dev/$driver $name: $CURVAL (no change required)"
+                    fi
+                else
+                    echo "/dev/$driver $name: ignored"
+                fi
+            done
+        else
+            echo "Config file does not exist: \"$CONFIG_FILE\""
+            exit $SMF_EXIT_ERR_CONFIG
+        fi
+        exit $SMF_EXIT_OK
+        ;;
+    stop)
+        exit $SMF_EXIT_OK
+        ;;
+    *)
+        echo "Usage: $0 start|stop"
+        exit $SMF_EXIT_ERR_FATAL
+        ;;
+esac
+
