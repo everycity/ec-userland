@@ -38,7 +38,7 @@ if [ "${PROPVAL}" != "" ] ; then
 fi
 
 case "$1" in
-    start)
+    start|refresh|restart)
         if [ -f $CONFIG_FILE ]; then
             egrep -v "^(#|$)" $CONFIG_FILE | while read driver name value; do
                 CURVAL=`ndd -get /dev/$driver $name`
@@ -63,7 +63,7 @@ case "$1" in
         exit $SMF_EXIT_OK
         ;;
     *)
-        echo "Usage: $0 start|stop"
+        echo "Usage: $0 start|stop|refresh|restart"
         exit $SMF_EXIT_ERR_FATAL
         ;;
 esac
