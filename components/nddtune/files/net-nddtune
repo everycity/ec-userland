@@ -42,7 +42,7 @@ case "$1" in
         if [ -f $CONFIG_FILE ]; then
             egrep -v "^(#|$)" $CONFIG_FILE | while read driver name value; do
                 CURVAL=`ndd -get /dev/$driver $name`
-                if [ -n $CURVAL ]; then
+                if [ x$CURVAL != x ]; then
                     if [ x$CURVAL != x$value ]; then
                         echo "/dev/$driver $name: $CURVAL -> $value"
                         ndd -set /dev/$driver $name $value
