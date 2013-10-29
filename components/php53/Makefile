@@ -112,7 +112,8 @@ CONFIGURE_OPTIONS     +=	--without-t1lib
 
 # Enabled extensions
 CONFIGURE_OPTIONS     +=	--enable-cli
-CONFIGURE_OPTIONS     +=	--enable-cgi
+#CONFIGURE_OPTIONS     +=	--enable-cgi
+#CONFIGURE_OPTIONS     +=	--enable-fpm
 CONFIGURE_OPTIONS     +=	--enable-shared
 CONFIGURE_OPTIONS     +=	--enable-filter
 CONFIGURE_OPTIONS     +=	--enable-gd-jis-conv
@@ -185,18 +186,37 @@ $(BUILD_DIR_64)/.configured:	CONFIGURE_VARIANT_OPTIONS= \
 # CGI build
 $(BUILD_DIR)/$(MACH32).cgi/.configured:     BITS=32
 $(BUILD_DIR)/$(MACH64).cgi/.configured:     BITS=64
-#$(BUILD_DIR)/$(MACH32).cgi/.configured:     CONFIGURE_VARIANT_OPTIONS= 
-#$(BUILD_DIR)/$(MACH64).cgi/.configured:     CONFIGURE_VARIANT_OPTIONS= 
+$(BUILD_DIR)/$(MACH32).cgi/.configured:     CONFIGURE_VARIANT_OPTIONS= --enable-cgi
+$(BUILD_DIR)/$(MACH64).cgi/.configured:     CONFIGURE_VARIANT_OPTIONS= --enable-cgi
 $(BUILD_DIR)/$(MACH32).cgi/.built:          BITS=32
 $(BUILD_DIR)/$(MACH64).cgi/.built:          BITS=64
 $(BUILD_DIR)/$(MACH32).cgi/.installed:      BITS=32
 $(BUILD_DIR)/$(MACH64).cgi/.installed:      BITS=64
 
+# FPM build
+$(BUILD_DIR)/$(MACH32).fpm/.configured:     BITS=32
+$(BUILD_DIR)/$(MACH64).fpm/.configured:     BITS=64
+$(BUILD_DIR)/$(MACH32).fpm/.configured:     CONFIGURE_VARIANT_OPTIONS= --enable-fpm
+$(BUILD_DIR)/$(MACH64).fpm/.configured:     CONFIGURE_VARIANT_OPTIONS= --enable-fpm
+$(BUILD_DIR)/$(MACH32).fpm/.built:          BITS=32
+$(BUILD_DIR)/$(MACH64).fpm/.built:          BITS=64
+$(BUILD_DIR)/$(MACH32).fpm/.installed:      BITS=32
+$(BUILD_DIR)/$(MACH64).fpm/.installed:      BITS=64
+
 
 build:		$(BUILD_32_and_64) \
     $(BUILD_DIR)/$(MACH32).cgi/.built \
-    $(BUILD_DIR)/$(MACH64).cgi/.built
+    $(BUILD_DIR)/$(MACH64).cgi/.built \
+    $(BUILD_DIR)/$(MACH32).fpm/.built \
+    $(BUILD_DIR)/$(MACH64).fpm/.built
 
 install:	$(INSTALL_32_and_64)
 	$(CP) $(BUILD_DIR)/$(MACH32).cgi/sapi/cgi/php-cgi $(PROTO_DIR)$(PHP_PREFIX)/bin
 	$(CP) $(BUILD_DIR)/$(MACH64).cgi/sapi/cgi/php-cgi $(PROTO_DIR)$(PHP_PREFIX)/bin/$(MACH64)
+	$(CP) $(BUILD_DIR)/$(MACH32).fpm/sapi/fpm/php-fpm $(PROTO_DIR)$(PHP_PREFIX)/bin
+	$(CP) $(BUILD_DIR)/$(MACH64).fpm/sapi/fpm/php-fpm $(PROTO_DIR)$(PHP_PREFIX)/bin/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(PHP_PREFIX)/share/man/man8
+	$(CP) $(BUILD_DIR)/$(MACH32).fpm/sapi/fpm/php-fpm.8 $(PROTO_DIR)$(PHP_PREFIX)/share/man/man8
+	$(CP) $(BUILD_DIR)/$(MACH32).fpm/sapi/fpm/php-fpm.conf $(PROTO_DIR)$(PHP_SYSCONFDIR)/php-fpm.conf.default
+	$(MKDIR) $(PROTO_DIR)$(PHP_DATADIR)/fpm
+	$(CP) $(BUILD_DIR)/$(MACH32).fpm/sapi/fpm/status.html $(PROTO_DIR)$(PHP_DATADIR)/fpm
