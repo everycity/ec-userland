@@ -19,6 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd.  All rights reserved.
 #
 
 # Transforms
@@ -30,6 +31,9 @@ set name=info.upstream_url value="http://code.google.com/p/redis/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license redis.license license="BSD"
+
+file redis.xml path=var/svc/manifest/site/redis.xml \
+    restart_fmri=svc:/system/manifest-import:default
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin

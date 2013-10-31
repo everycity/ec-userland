@@ -18,10 +18,10 @@ include ../../make-rules/shared-macros.mk
 # a shared IP stack.
 
 COMPONENT_NAME=		mtr
-COMPONENT_VERSION=	0.82
+COMPONENT_VERSION=	0.85
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:f3b457c9623ae03565688a7ffd49d4843a5e2505ccaf3ba8d9fbd86e3ce9b6a0
+#COMPONENT_ARCHIVE_HASH=	sha256:
 COMPONENT_ARCHIVE_URL=	 ftp://ftp.bitwizard.nl/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -30,6 +30,8 @@ include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS+=	LIBS="-L$(ECPREFIX)/lib -lncurses"
 CONFIGURE_OPTIONS+=	--without-gtk
+
+COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) && ./bootstrap.sh )
 
 build:		$(BUILD_32)
 

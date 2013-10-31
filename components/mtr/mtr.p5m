@@ -27,5 +27,5 @@ dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man8
-file path=$(ECPREFIX)/bin/mtr
+file path=$(ECPREFIX)/bin/mtr mode=4755
 file path=$(ECPREFIX)/share/man/man8/mtr.8
