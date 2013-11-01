@@ -23,7 +23,9 @@ COMPONENT_SUMMARY=	The DBT2 Benchmark Tool can be used to run automated benchmar
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:e160ebab113594306ffd5d1b7b2c09fbd6d1731aa16916480b9d6656cf6fa681
-COMPONENT_ARCHIVE_URL=	$(COMPONENT_ARCHIVE)
+# mysql.com is hopeless for this file so using cache
+#COMPONENT_ARCHIVE_URL=	http://downloads.mysql.com/source/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_EC)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
