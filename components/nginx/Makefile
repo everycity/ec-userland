@@ -46,6 +46,16 @@ CONFIGURE_OPTIONS += --with-http_realip_module
 CONFIGURE_OPTIONS += --with-http_secure_link_module
 CONFIGURE_OPTIONS += --with-http_stub_status_module
 CONFIGURE_OPTIONS += --with-ipv6
+CONFIGURE_OPTIONS +=--with-http_addition_module
+CONFIGURE_OPTIONS +=--with-http_dav_module
+CONFIGURE_OPTIONS +=--with-http_flv_module
+CONFIGURE_OPTIONS +=--with-http_gzip_static_module
+CONFIGURE_OPTIONS +=--with-http_mp4_module
+CONFIGURE_OPTIONS +=--with-http_random_index_module
+CONFIGURE_OPTIONS +=--with-http_sub_module
+CONFIGURE_OPTIONS +=--with-mail
+CONFIGURE_OPTIONS +=--with-mail_ssl_module
+
 CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
