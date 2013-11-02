@@ -23,10 +23,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		memcached
-COMPONENT_VERSION=	1.0.2
+COMPONENT_VERSION=	2.1.0
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH=	sha1:50780eac37b664a239ea52a6634a4d2199c2e3c7
+COMPONENT_ARCHIVE_HASH=	sha256:bc4940015be74f47908d410d7b55e10a3d5bf65674036d944c73558227fcc4af
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_PECL)
 
 include ../../make-rules/prep.mk
@@ -51,6 +51,7 @@ CONFIGURE_OPTIONS     +=	--sysconfdir=$(PHP_SYSCONFDIR)
 CONFIGURE_OPTIONS     +=	--datadir=$(PHP_DATADIR)
 CONFIGURE_OPTIONS     +=	--mandir=$(PHP_PREFIX)/share/man
 CONFIGURE_OPTIONS     +=        --with-libmemcached-dir=$(ECPREFIX)
+CONFIGURE_OPTIONS     +=	--with-zlib-dir=$(ECPREFIX)
 
 CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris2.10
 CONFIGURE_OPTIONS.32  +=	--with-php-config=$(PHP_PREFIX)/bin/php-config
