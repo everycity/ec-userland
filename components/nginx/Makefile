@@ -25,9 +25,18 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:ae123885c923a6c3f5bab0a8b7296ef21c4fdf6087834667ebbc16338177de84
 COMPONENT_ARCHIVE_URL=	http://nginx.org/download/$(COMPONENT_ARCHIVE)
 
+MOD_WSGI_HG_TAG=6975f0ec7eeb
+COMPONENT_ARCHIVE_1= $(MOD_WSGI_HG_TAG).tar.bz2
+COMPONENT_ARCHIVE_URL_1= https://bitbucket.org/lifeeth/mod_wsgi/get/$(MOD_WSGI_HG_TAG).tar.bz2
+
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+COMPONENT_PREP_ACTION = cd $(@D); \
+	$(RM) -r mod_wsgi; \
+	$(UNPACK) $(UNPACK_ARGS) $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE_1); \
+	$(MV) lifeeth-mod_wsgi-$(MOD_WSGI_HG_TAG) mod_wsgi
 
 CONFIGURE_OPTIONS  = --prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS.32 = --sbin-path=$(ECPREFIX)/bin/nginx
@@ -55,6 +64,7 @@ CONFIGURE_OPTIONS +=--with-http_random_index_module
 CONFIGURE_OPTIONS +=--with-http_sub_module
 CONFIGURE_OPTIONS +=--with-mail
 CONFIGURE_OPTIONS +=--with-mail_ssl_module
+CONFIGURE_OPTIONS +=--add-module=mod_wsgi
 
 CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
 
