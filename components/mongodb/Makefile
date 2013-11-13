@@ -9,16 +9,20 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		mongodb
-COMPONENT_VERSION=	2.0.6
+COMPONENT_FMRI=		database/mongodb
+COMPONENT_VERSION=	2.2.6
+COMPONENT_LICENSE=	APLv2,AGPLv3
+COMPONENT_PROJECT_URL=	"http://www.mongodb.org/"
+COMPONENT_SUMMARY=	An object/document-oriented database
 COMPONENT_SRC=		$(COMPONENT_NAME)-src-r$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:bad1da30f8aeaa5d1ca7994e8f9def07725da7e5
+COMPONENT_ARCHIVE_HASH=	sha256:e6864ac5fe7dabee055abc5c5d1074fa826f53715211227aaac64abaf55bf6ee
 COMPONENT_ARCHIVE_URL=	http://downloads.mongodb.org/src/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -48,4 +52,12 @@ $(BUILD_DIR)/%/.installed:	GMAKE=scons
 
 build:		$(BUILD_32_and_64)
 
-install:	$(INSTALL_32_and_64)
+$(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
+	( for i in bsondump mongo mongod mongodump mongoexport mongofiles mongoimport mongooplog mongoperf mongorestore mongos mongostat mongotop; do \
+	$(RM) $(PROTO_DIR)$(ECPREFIX)/bin/$$i; \
+	$(CP) $(BUILD_DIR_32)/build/sunos5/32/cc__ec_bin_gcc/cxx__ec_bin_g++/extralib_rt/libpath__ec_lib/mongo/$$i $(PROTO_DIR)$(ECPREFIX)/bin; \
+	$(CP) $(BUILD_DIR_64)/build/sunos5/64/cc__ec_bin_gcc/cxx__ec_bin_g++/extralib_rt/libpath__ec_lib_amd64/mongo/$$i $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64); done )
+	$(TOUCH) $@
+
+install:	$(BUILD_DIR)/.installed
