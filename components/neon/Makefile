@@ -19,15 +19,19 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		neon
-COMPONENT_VERSION=	0.29.6
+COMPONENT_FMRI=		library/neon
+COMPONENT_VERSION=	0.30.0
+COMPONENT_LICENSE=	LGPLv3
+COMPONENT_PROJECT_URL=	"http://webdav.org/neon/"
+COMPONENT_SUMMARY=	neon is an HTTP and WebDAV client library, with a C interface.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:ae1109923303f67ed3421157927bc4bc29c58961
+COMPONENT_ARCHIVE_HASH=	sha256:2962cfcb5d30f3272e3d2fa0e473434419770a3801afe3d46e5d1650787990c2
 COMPONENT_ARCHIVE_URL=	http://www.webdav.org/neon/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

@@ -9,18 +9,18 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/library/neon@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="neon HTTP and WebDAV client library"
-set name=info.upstream_url value="http://www.webdav.org/neon/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license neon.license license="LGPLv2"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -83,9 +83,11 @@ file path=$(ECPREFIX)/include/neon/ne_uri.h
 file path=$(ECPREFIX)/include/neon/ne_utils.h
 file path=$(ECPREFIX)/include/neon/ne_xml.h
 file path=$(ECPREFIX)/include/neon/ne_xmlreq.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libneon.so.27.2.6
+file path=$(ECPREFIX)/lib/$(MACH64)/libneon.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libneon.so.27.3.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/neon.pc
-file path=$(ECPREFIX)/lib/libneon.so.27.2.6
+file path=$(ECPREFIX)/lib/libneon.la
+file path=$(ECPREFIX)/lib/libneon.so.27.3.0
 file path=$(ECPREFIX)/lib/pkgconfig/neon.pc
 file path=$(ECPREFIX)/share/doc/neon-$(COMPONENT_VERSION)/html/api.html
 file path=$(ECPREFIX)/share/doc/neon-$(COMPONENT_VERSION)/html/biblio.html
@@ -111,6 +113,7 @@ file path=$(ECPREFIX)/share/doc/neon-$(COMPONENT_VERSION)/html/refi18n.html
 file path=$(ECPREFIX)/share/doc/neon-$(COMPONENT_VERSION)/html/refiaddr.html
 file path=$(ECPREFIX)/share/doc/neon-$(COMPONENT_VERSION)/html/refneon.html
 file path=$(ECPREFIX)/share/doc/neon-$(COMPONENT_VERSION)/html/refopts.html
+file path=$(ECPREFIX)/share/doc/neon-$(COMPONENT_VERSION)/html/refproxy.html
 file path=$(ECPREFIX)/share/doc/neon-$(COMPONENT_VERSION)/html/refreq.html
 file path=$(ECPREFIX)/share/doc/neon-$(COMPONENT_VERSION)/html/refreqbody.html
 file \
@@ -199,6 +202,9 @@ file path=$(ECPREFIX)/share/man/man3/ne_response_header_iterate.3
 file path=$(ECPREFIX)/share/man/man3/ne_session_create.3
 file path=$(ECPREFIX)/share/man/man3/ne_session_destroy.3
 file path=$(ECPREFIX)/share/man/man3/ne_session_proxy.3
+file path=$(ECPREFIX)/share/man/man3/ne_session_socks_proxy.3
+file path=$(ECPREFIX)/share/man/man3/ne_session_system_proxy.3
+file path=$(ECPREFIX)/share/man/man3/ne_set_addrlist.3
 file path=$(ECPREFIX)/share/man/man3/ne_set_connect_timeout.3
 file path=$(ECPREFIX)/share/man/man3/ne_set_error.3
 file path=$(ECPREFIX)/share/man/man3/ne_set_proxy_auth.3
@@ -243,7 +249,7 @@ file path=$(ECPREFIX)/share/man/man3/ne_version_string.3
 file path=$(ECPREFIX)/share/man/man3/ne_xml_create.3
 file path=$(ECPREFIX)/share/man/man3/ne_xml_destroy.3
 file path=$(ECPREFIX)/share/man/man3/neon.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libneon.so target=libneon.so.27.2.6
-link path=$(ECPREFIX)/lib/$(MACH64)/libneon.so.27 target=libneon.so.27.2.6
-link path=$(ECPREFIX)/lib/libneon.so target=libneon.so.27.2.6
-link path=$(ECPREFIX)/lib/libneon.so.27 target=libneon.so.27.2.6
+link path=$(ECPREFIX)/lib/$(MACH64)/libneon.so target=libneon.so.27.3.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libneon.so.27 target=libneon.so.27.3.0
+link path=$(ECPREFIX)/lib/libneon.so target=libneon.so.27.3.0
+link path=$(ECPREFIX)/lib/libneon.so.27 target=libneon.so.27.3.0
