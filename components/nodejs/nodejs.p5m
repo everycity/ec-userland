@@ -58,7 +58,6 @@ dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/examples
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/examples/beep
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/examples/clear
-dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/examples/imgcat
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/examples/progress
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/lib
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/archy
@@ -82,6 +81,8 @@ dir \
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/fstream/examples
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/fstream/lib
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/github-url-from-git
+dir \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/github-url-from-username-repo
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/glob
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/glob/examples
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/graceful-fs
@@ -604,6 +605,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/lib/view.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/visnup.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/whoami.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/xmas.js
+file path=$(ECPREFIX)/lib/node_modules/npm/make.bat
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/npm-README.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/npm-adduser.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/npm-bin.1
@@ -712,16 +714,13 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/abbrev/lib/abbrev.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/abbrev/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/.npmignore
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/README.md
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/color-spaces.pl
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/examples/beep/index.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/examples/clear/index.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/examples/cursorPosition.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/examples/imgcat/index.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/examples/imgcat/yoshi.png
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/examples/progress/index.js
 file \
@@ -761,10 +760,12 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/chownr/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/chownr/chownr.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/chownr/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/cmd-shim/.npmignore
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/cmd-shim/.travis.yml
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/cmd-shim/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/cmd-shim/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/cmd-shim/index.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/cmd-shim/package.json
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/editor/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/editor/README.markdown
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/editor/example/beep.json
@@ -855,6 +856,18 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/github-url-from-git/package.json
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/github-url-from-git/test.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/github-url-from-username-repo/.npmignore
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/github-url-from-username-repo/.travis.yml
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/github-url-from-username-repo/LICENSE
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/github-url-from-username-repo/README.md
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/github-url-from-username-repo/index.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/github-url-from-username-repo/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/glob/.npmignore
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/glob/.travis.yml
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/glob/LICENSE
@@ -1212,6 +1225,8 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/LICENSE
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/README.md
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/core_module_names.json
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/extract_description.js
 file \
