@@ -64,7 +64,6 @@ file path=$(ECPREFIX)/lib/libcurl.so.4.3.0
 file path=$(ECPREFIX)/lib/pkgconfig/libcurl.pc
 file path=$(ECPREFIX)/share/man/man1/curl-config.1
 file path=$(ECPREFIX)/share/man/man1/curl.1
-file path=$(ECPREFIX)/share/man/man1/mk-ca-bundle.1
 file path=$(ECPREFIX)/share/man/man3/curl_easy_cleanup.3
 file path=$(ECPREFIX)/share/man/man3/curl_easy_duphandle.3
 file path=$(ECPREFIX)/share/man/man3/curl_easy_escape.3
