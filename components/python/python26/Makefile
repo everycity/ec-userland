@@ -25,10 +25,10 @@ include ../../../make-rules/shared-macros.mk
 PATH=$(ECPREFIX)/bin:/apps/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
 
 COMPONENT_NAME=		Python
-COMPONENT_VERSION=	2.6.6
+COMPONENT_VERSION=	2.6.9
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:a1daf2c2c7cffe0939c015260447572fe75c7e50
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
+COMPONENT_ARCHIVE_HASH=	sha256:7277b1285d8a82f374ef6ebaac85b003266f7939b3f2a24a3af52f9523ac94db
 COMPONENT_ARCHIVE_URL=	http://python.org/ftp/python/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../../make-rules/prep.mk
@@ -52,8 +52,13 @@ COMPONENT_POST_CONFIGURE_ACTION = \
 			pyconfig.h)
 
 # we don't want to leak $(CC_BITS) into BASECFLAGS as it causes problems with
-# python-config
-CC +=	$(CFLAGS)
+# python-config so reset FLAG variables without it.
+CC +=	$(CC_BITS)
+CFLAGS=		-O3 -I/ec/include
+CXXFLAGS=	-I/ec/include
+LDFLAGS_32=	-L/ec/lib -R/ec/lib
+LDFLAGS_64=	-L/ec/lib/$(MACH64) -R/ec/lib/$(MACH64)
+LDFLAGS=	$(LDFLAGS_$(BITS))
 
 C99MODE=
 CPPFLAGS +=	-IPython
@@ -65,7 +70,7 @@ CPPFLAGS +=	-D_LARGEFILE64_SOURCE
 # libffi for _ctypes
 CPPFLAGS +=	$(shell pkg-config --cflags-only-I libffi)
 
-CCFLAGS +=		-norunpath -compat=5
+CCFLAGS +=	-norunpath -compat=5
 
 CONFIGURE_OPTIONS  +=		--infodir=$(CONFIGURE_INFODIR)
 CONFIGURE_OPTIONS  +=		--enable-shared
@@ -85,6 +90,16 @@ COMPONENT_BUILD_ENV  +=		DFLAGS="-$(BITS)"
 
 # 64 bit shared objects need to go in a 64-bit directory
 COMPONENT_INSTALL_ARGS.64 += DESTSHARED=$(CONFIGURE_PREFIX)/lib/python2.6/lib-dynload
+
+# Setup pyconfig.h file to support 32 & 64 bit.
+# If the /usr/lib/python2.6/lib2to3/*.pickle files are older than the related
+# *.txt files in the same directory, it will rebuild them anytime you try to
+# build a Python module.  So here we also touch the pickle files to avoid this.
+#
+COMPONENT_POST_INSTALL_ACTION= \
+            (cd $(PROTO_DIR)$(ECPREFIX) ;  \
+             $(MV) include/python2.6/pyconfig.h include/python2.6/pyconfig-$(BITS).h ; \
+             $(TOUCH) lib/python2.6/lib2to3/*.pickle)
 
 # common targets
 build:		$(BUILD_32_and_64)
