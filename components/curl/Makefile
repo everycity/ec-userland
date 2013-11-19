@@ -37,7 +37,7 @@ include ../../make-rules/ips.mk
 
 CPPFLAGS+=	-I$(ECPREFIX)/include
 
-CFLAGS=	$(CC_BITS) -O3
+#CFLAGS=	$(CC_BITS) -O3
 
 CONFIGURE_ENV+=	CPPFLAGS="$(CPPFLAGS)"
 
