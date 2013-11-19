@@ -34,7 +34,6 @@ PKG_MACROS+=	COMPONENT_MJR_VERSION=$(COMPONENT_MJR_VERSION)
 
 PATH=	$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
 
-CFLAGS =	$(CC_BITS) $(CFLAGS.$(COMPILER)) -I$(ECPREFIX)/include
 CONFIGURE_OPTIONS +=	'LIBS=-lintl'
 
 # DTrace probes only build/work on newer Solaris
