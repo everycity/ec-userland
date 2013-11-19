@@ -35,7 +35,7 @@ override COMPONENT_BUILD_GMAKE_ARGS=
 # OpenSSL does not use autoconf but its own configure system.
 CONFIGURE_SCRIPT = $(SOURCE_DIR)/Configure
 
-CFLAGS = -DNO_WINDOWS_BRAINDEATH
+CFLAGS += -DNO_WINDOWS_BRAINDEATH
 
 GENERIC_CONFIGURE_OPTIONS = \
         $(CFLAGS) \
