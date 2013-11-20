@@ -50,7 +50,7 @@ CONFIGURE_OPTIONS.64  +=	--with-mysqli=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/m
 
 CONFIGURE_OPTIONS     +=	$(CONFIGURE_OPTIONS.$(BITS))
 
-CFLAGS			=	$(CC_BITS) -D_POSIX_PTHREAD_SEMANTICS
+CFLAGS			+=	-D_POSIX_PTHREAD_SEMANTICS
 CFLAGS.32		=	-I$(ECPREFIX)/lib/mysql/5.5/include
 CFLAGS.64		=	-I$(ECPREFIX)/lib/mysql/5.5/include/$(MACH64)
 CPPFLAGS.32		+=	-I$(ECPREFIX)/lib/mysql/5.5/include
