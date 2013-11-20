@@ -2,7 +2,7 @@
 <!DOCTYPE service_bundle SYSTEM '/usr/share/lib/xml/dtd/service_bundle.dtd.1'>
 <service_bundle type='manifest' name='export'>
   <service name='system/security/freshclam' type='service' version='0'>
-    <instance name='default' enabled='true'>
+    <instance name='default' enabled='false'>
       <dependency name='network' grouping='require_all' restart_on='error' type='service'>
         <service_fmri value='svc:/milestone/network:default'/>
       </dependency>
