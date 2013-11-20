@@ -29,6 +29,9 @@ include ../../../make-rules/prep.mk
 include ../../../make-rules/configure.mk
 include ../../../make-rules/ips.mk
 
+# Build weird when threaded.
+COMPONENT_BUILD_GMAKE_ARGS=
+
 # configure tries to be clever and guesses incorrectly
 CONFIGURE_OPTIONS+=    ac_cv_sys_file_offset_bits=32
 
