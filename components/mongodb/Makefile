@@ -33,15 +33,15 @@ LIBPATH.32=	$(ECPREFIX)/lib
 LIBPATH.64=	$(ECPREFIX)/lib/$(MACH64)
 LIBPATH=	$(LIBPATH.$(BITS))
 
-#COMPONENT_BUILD_ENV += LDFLAGS="$(LDFLAGS)"
-#COMPONENT_BUILD_ENV += LINKFLAGS="$(LDFLAGS)"
-
 COMPONENT_BUILD_ARGS += --prefix=$(PROTO_DIR)$(ECPREFIX)
 COMPONENT_BUILD_ARGS += --cc="$(CC)" --cxx="$(CXX)"
 COMPONENT_BUILD_ARGS += --libpath=$(LIBPATH)
 COMPONENT_BUILD_ARGS += --extralib=rt
 COMPONENT_BUILD_ARGS += --$(BITS)
-#COMPONENT_BUILD_ARGS += --use-system-sm --use-system-pcre
+COMPONENT_BUILD_ARGS += --use-system-pcre=USE-SYSTEM-PCRE
+COMPONENT_BUILD_ARGS += --use-system-boost=USE-SYSTEM-BOOST
+COMPONENT_BUILD_ARGS += --use-system-tcmalloc=USE-SYSTEM-TCMALLOC
+COMPONENT_BUILD_ARGS += --use-system-snappy=USE-SYSTEM-SNAPPY
 
 COMPONENT_INSTALL_ENV = $(COMPONENT_BUILD_ENV)
 COMPONENT_INSTALL_ARGS = $(COMPONENT_BUILD_ARGS)
@@ -56,8 +56,8 @@ $(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
 	( for i in bsondump mongo mongod mongodump mongoexport mongofiles mongoimport mongooplog mongoperf mongorestore mongos mongostat mongotop; do \
 	$(RM) $(PROTO_DIR)$(ECPREFIX)/bin/$$i; \
-	$(CP) $(BUILD_DIR_32)/build/sunos5/32/cc__ec_bin_gcc/cxx__ec_bin_g++/extralib_rt/libpath__ec_lib/mongo/$$i $(PROTO_DIR)$(ECPREFIX)/bin; \
-	$(CP) $(BUILD_DIR_64)/build/sunos5/64/cc__ec_bin_gcc/cxx__ec_bin_g++/extralib_rt/libpath__ec_lib_amd64/mongo/$$i $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64); done )
+	$(CP) $(BUILD_DIR_32)/build/sunos5/32/cc__ec_bin_gcc/cxx__ec_bin_g++/extralib_rt/libpath__ec_lib/use-system-boost/use-system-pcre/use-system-snappy/use-system-tcmalloc/mongo/$$i $(PROTO_DIR)$(ECPREFIX)/bin; strip $(PROTO_DIR)$(ECPREFIX)/bin/$$i; \
+	$(CP) $(BUILD_DIR_64)/build/sunos5/64/cc__ec_bin_gcc/cxx__ec_bin_g++/extralib_rt/libpath__ec_lib_amd64/use-system-boost/use-system-pcre/use-system-snappy/use-system-tcmalloc/mongo/$$i $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64); strip $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/$$i;done )
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed
