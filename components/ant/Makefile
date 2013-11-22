@@ -29,6 +29,9 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
+# Build script doesn't understand -j jobs
+COMPONENT_BUILD_GMAKE_ARGS=
+
 GMAKE=./build.sh
 
 ANT_ENV+=JAVA_HOME=$(JAVA_HOME)
