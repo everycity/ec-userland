@@ -44,6 +44,7 @@ file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_atomic.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_dso.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_env.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_errno.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_escape.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_file_info.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_file_io.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_fnmatch.h
@@ -63,6 +64,7 @@ file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_random.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_ring.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_shm.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_signal.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_skiplist.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_strings.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_support.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_tables.h
@@ -80,6 +82,7 @@ file path=$(ECPREFIX)/include/apr-1.0/apr_atomic.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_dso.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_env.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_errno.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_escape.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_file_info.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_file_io.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_fnmatch.h
@@ -99,6 +102,7 @@ file path=$(ECPREFIX)/include/apr-1.0/apr_random.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_ring.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_shm.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_signal.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_skiplist.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_strings.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_support.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_tables.h
@@ -113,12 +117,12 @@ file path=$(ECPREFIX)/include/apr-1.0/apr_want.h
 file path=$(ECPREFIX)/lib/$(MACH64)/apr.exp
 file path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so.0.4.8
+file path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so.0.5.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/apr-1.pc
 file path=$(ECPREFIX)/lib/apr.exp
 file path=$(ECPREFIX)/lib/libapr-1.a
 file path=$(ECPREFIX)/lib/libapr-1.la
-file path=$(ECPREFIX)/lib/libapr-1.so.0.4.8
+file path=$(ECPREFIX)/lib/libapr-1.so.0.5.0
 file path=$(ECPREFIX)/lib/pkgconfig/apr-1.pc
 file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/apr_rules.mk
 file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/libtool mode=0555
@@ -130,7 +134,7 @@ file path=$(ECPREFIX)/share/apr-1.0/build/libtool mode=0555
 file path=$(ECPREFIX)/share/apr-1.0/build/make_exports.awk
 file path=$(ECPREFIX)/share/apr-1.0/build/make_var_export.awk
 file path=$(ECPREFIX)/share/apr-1.0/build/mkdir.sh mode=0555
-link path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so target=libapr-1.so.0.4.8
-link path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so.0 target=libapr-1.so.0.4.8
-link path=$(ECPREFIX)/lib/libapr-1.so target=libapr-1.so.0.4.8
-link path=$(ECPREFIX)/lib/libapr-1.so.0 target=libapr-1.so.0.4.8
+link path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so target=libapr-1.so.0.5.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so.0 target=libapr-1.so.0.5.0
+link path=$(ECPREFIX)/lib/libapr-1.so target=libapr-1.so.0.5.0
+link path=$(ECPREFIX)/lib/libapr-1.so.0 target=libapr-1.so.0.5.0
