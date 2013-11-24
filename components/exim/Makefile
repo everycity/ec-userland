@@ -9,20 +9,27 @@
 #
 
 #
-# Copyright 2011, 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		exim
-COMPONENT_VERSION=	4.80.1
+COMPONENT_FMRI=		mailserver/exim
+COMPONENT_VERSION=	4.82
+COMPONENT_LICENSE=	GPLv2
+COMPONENT_PROJECT_URL=	"http://www.exim.org/"
+COMPONENT_SUMMARY=	The Exim SMTP Server
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:2cac05ce27a5d5b409ce5657957047233d36f9396d0203d240a5b7aed2a969de
+COMPONENT_ARCHIVE_HASH=	sha256:5ca6b2f94426541caba9794bca0f732471e3e0df065d011714642a8451dc735e
 COMPONENT_ARCHIVE_URL=	ftp://ftp.exim.org/pub/exim/exim4/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
+
+# Build isn't thread safe
+COMPONENT_BUILD_GMAKE_ARGS=
 
 COMPONENT_PREP_ACTION+= cp $(SOURCE_DIR)/src/EDITME $(SOURCE_DIR)/Local/Makefile
 COMPONENT_PRE_BUILD_ACTION+=	cp -r $(SOURCE_DIR)/* $(@D)
