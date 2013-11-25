@@ -16,18 +16,19 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		nginx
 COMPONENT_FMRI=		web/server/nginx
-COMPONENT_VERSION=	1.4.3
+COMPONENT_VERSION=	1.4.4
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	http://nginx.net/
 COMPONENT_SUMMARY=	Nginx Webserver
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:ae123885c923a6c3f5bab0a8b7296ef21c4fdf6087834667ebbc16338177de84
+COMPONENT_ARCHIVE_HASH=	sha256:7c989a58e5408c9593da0bebcd0e4ffc3d892d1316ba5042ddb0be5b0b4102b9
 COMPONENT_ARCHIVE_URL=	http://nginx.org/download/$(COMPONENT_ARCHIVE)
 
-MOD_WSGI_HG_TAG=6975f0ec7eeb
-COMPONENT_ARCHIVE_1= $(MOD_WSGI_HG_TAG).tar.bz2
-COMPONENT_ARCHIVE_URL_1= https://bitbucket.org/lifeeth/mod_wsgi/get/$(MOD_WSGI_HG_TAG).tar.bz2
+MOD_WSGI_HG_TAG=		6975f0ec7eeb
+COMPONENT_ARCHIVE_1=		$(MOD_WSGI_HG_TAG).tar.bz2
+COMPONENT_ARCHIVE_HASH_1=	sha256:84c5c041ddf84a648cee8d8f980d882a9239a2f6bfa2e73489cfbe28759a7b4c
+COMPONENT_ARCHIVE_URL_1=	https://bitbucket.org/lifeeth/mod_wsgi/get/$(MOD_WSGI_HG_TAG).tar.bz2
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
