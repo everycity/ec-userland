@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -26,7 +26,7 @@ dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/libpng15
+dir path=$(ECPREFIX)/include/libpng16
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
@@ -35,32 +35,36 @@ dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man3
 dir path=$(ECPREFIX)/share/man/man5
-file path=$(ECPREFIX)/bin/$(MACH64)/libpng15-config
-file path=$(ECPREFIX)/bin/libpng15-config
-file path=$(ECPREFIX)/include/libpng15/png.h
-file path=$(ECPREFIX)/include/libpng15/pngconf.h
-file path=$(ECPREFIX)/include/libpng15/pnglibconf.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libpng15.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libpng15.so.15.16.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpng15.pc
-file path=$(ECPREFIX)/lib/libpng15.la
-file path=$(ECPREFIX)/lib/libpng15.so.15.16.0
-file path=$(ECPREFIX)/lib/pkgconfig/libpng15.pc
+file path=$(ECPREFIX)/bin/$(MACH64)/libpng16-config
+file path=$(ECPREFIX)/bin/$(MACH64)/png-fix-itxt
+file path=$(ECPREFIX)/bin/$(MACH64)/pngfix
+file path=$(ECPREFIX)/bin/libpng16-config
+file path=$(ECPREFIX)/bin/png-fix-itxt
+file path=$(ECPREFIX)/bin/pngfix
+file path=$(ECPREFIX)/include/libpng16/png.h
+file path=$(ECPREFIX)/include/libpng16/pngconf.h
+file path=$(ECPREFIX)/include/libpng16/pnglibconf.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libpng16.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libpng16.so.16.7.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpng16.pc
+file path=$(ECPREFIX)/lib/libpng16.la
+file path=$(ECPREFIX)/lib/libpng16.so.16.7.0
+file path=$(ECPREFIX)/lib/pkgconfig/libpng16.pc
 file path=$(ECPREFIX)/share/man/man3/libpng.3
 file path=$(ECPREFIX)/share/man/man3/libpngpf.3
 file path=$(ECPREFIX)/share/man/man5/png.5
-link path=$(ECPREFIX)/bin/$(MACH64)/libpng-config target=libpng15-config
-link path=$(ECPREFIX)/bin/libpng-config target=libpng15-config
-link path=$(ECPREFIX)/include/png.h target=libpng15/png.h
-link path=$(ECPREFIX)/include/pngconf.h target=libpng15/pngconf.h
-link path=$(ECPREFIX)/include/pnglibconf.h target=libpng15/pnglibconf.h
-link path=$(ECPREFIX)/lib/$(MACH64)/libpng.la target=libpng15.la
-link path=$(ECPREFIX)/lib/$(MACH64)/libpng.so target=libpng15.so
-link path=$(ECPREFIX)/lib/$(MACH64)/libpng15.so target=libpng15.so.15.16.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libpng15.so.15 target=libpng15.so.15.16.0
-link path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpng.pc target=libpng15.pc
-link path=$(ECPREFIX)/lib/libpng.la target=libpng15.la
-link path=$(ECPREFIX)/lib/libpng.so target=libpng15.so
-link path=$(ECPREFIX)/lib/libpng15.so target=libpng15.so.15.16.0
-link path=$(ECPREFIX)/lib/libpng15.so.15 target=libpng15.so.15.16.0
-link path=$(ECPREFIX)/lib/pkgconfig/libpng.pc target=libpng15.pc
+link path=$(ECPREFIX)/bin/$(MACH64)/libpng-config target=libpng16-config
+link path=$(ECPREFIX)/bin/libpng-config target=libpng16-config
+link path=$(ECPREFIX)/include/png.h target=libpng16/png.h
+link path=$(ECPREFIX)/include/pngconf.h target=libpng16/pngconf.h
+link path=$(ECPREFIX)/include/pnglibconf.h target=libpng16/pnglibconf.h
+link path=$(ECPREFIX)/lib/$(MACH64)/libpng.la target=libpng16.la
+link path=$(ECPREFIX)/lib/$(MACH64)/libpng.so target=libpng16.so
+link path=$(ECPREFIX)/lib/$(MACH64)/libpng16.so target=libpng16.so.16.7.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libpng16.so.16 target=libpng16.so.16.7.0
+link path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpng.pc target=libpng16.pc
+link path=$(ECPREFIX)/lib/libpng.la target=libpng16.la
+link path=$(ECPREFIX)/lib/libpng.so target=libpng16.so
+link path=$(ECPREFIX)/lib/libpng16.so target=libpng16.so.16.7.0
+link path=$(ECPREFIX)/lib/libpng16.so.16 target=libpng16.so.16.7.0
+link path=$(ECPREFIX)/lib/pkgconfig/libpng.pc target=libpng16.pc
