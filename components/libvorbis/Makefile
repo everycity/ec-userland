@@ -19,15 +19,19 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libvorbis
-COMPONENT_VERSION=	1.3.2
+COMPONENT_FMRI=		library/libvorbis
+COMPONENT_VERSION=	1.3.3
+COMPONENT_LICENSE=	BSD
+COMPONENT_PROJECT_URL=	"http://xiph.org/"
+COMPONENT_SUMMARY=	Libvorbis audio library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:4b089ace4c8420c479b2fde9c5b01588cf86c959
+COMPONENT_ARCHIVE_HASH=	sha256:6d747efe7ac4ad249bf711527882cef79fb61d9194c45b5ca5498aa60f290762
 COMPONENT_ARCHIVE_URL=	http://downloads.xiph.org/releases/vorbis/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
