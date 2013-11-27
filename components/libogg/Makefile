@@ -19,14 +19,19 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libogg
-COMPONENT_VERSION=	1.2.2
+COMPONENT_FMRI=		library/libogg
+COMPONENT_VERSION=	1.3.1
+COMPONENT_LICENSE=	BSD
+COMPONENT_PROJECT_URL=	"http://xiph.org/"
+COMPONENT_SUMMARY=	OGG Library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:deeb1959f84de9277e74bca17ec66fa20ced9f08
+COMPONENT_ARCHIVE_HASH=	sha256:4e343f07aa5a1de8e0fa1107042d472186b3470d846b20b115b964eba5bae554
 COMPONENT_ARCHIVE_URL=	http://downloads.xiph.org/releases/ogg/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
