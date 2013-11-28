@@ -1,0 +1,93 @@
+diff -ruN htop-1.0.2.orig/Process.c htop-1.0.2/Process.c
+--- htop-1.0.2.orig/Process.c	2012-10-20 01:44:44.000000000 +0000
++++ htop-1.0.2/Process.c	2013-11-28 10:57:09.653959529 +0000
+@@ -603,17 +603,6 @@
+    return Process_setPriority(this, this->nice + delta);
+ }
+ 
+-IOPriority Process_updateIOPriority(Process* this) {
+-   IOPriority ioprio = syscall(SYS_ioprio_get, IOPRIO_WHO_PROCESS, this->pid);
+-   this->ioPriority = ioprio;
+-   return ioprio;
+-}
+-
+-bool Process_setIOPriority(Process* this, IOPriority ioprio) {
+-   syscall(SYS_ioprio_set, IOPRIO_WHO_PROCESS, this->pid, ioprio);
+-   return (Process_updateIOPriority(this) == ioprio);
+-}
+-
+ /*
+ [1] Note that before kernel 2.6.26 a process that has not asked for
+ an io priority formally uses "none" as scheduling class, but the
+diff -ruN htop-1.0.2.orig/Process.h htop-1.0.2/Process.h
+--- htop-1.0.2.orig/Process.h	2012-10-20 01:44:50.000000000 +0000
++++ htop-1.0.2/Process.h	2013-11-28 10:57:09.654503894 +0000
+@@ -180,10 +180,6 @@
+ 
+ bool Process_changePriorityBy(Process* this, size_t delta);
+ 
+-IOPriority Process_updateIOPriority(Process* this);
+-
+-bool Process_setIOPriority(Process* this, IOPriority ioprio);
+-
+ /*
+ [1] Note that before kernel 2.6.26 a process that has not asked for
+ an io priority formally uses "none" as scheduling class, but the
+diff -ruN htop-1.0.2.orig/ProcessList.c htop-1.0.2/ProcessList.c
+--- htop-1.0.2.orig/ProcessList.c	2012-10-20 00:41:15.000000000 +0000
++++ htop-1.0.2/ProcessList.c	2013-11-28 10:57:09.655287368 +0000
+@@ -685,7 +685,6 @@
+       unsigned long long int lasttimes = (process->utime + process->stime);
+       if (! ProcessList_readStatFile(process, dirname, name, command))
+          goto errorReadingProcess;
+-      Process_updateIOPriority(process);
+       float percent_cpu = (process->utime + process->stime - lasttimes) / period * 100.0;
+       process->percent_cpu = MAX(MIN(percent_cpu, cpus*100.0), 0.0);
+       if (isnan(process->percent_cpu)) process->percent_cpu = 0.0;
+diff -ruN htop-1.0.2.orig/htop.c htop-1.0.2/htop.c
+--- htop-1.0.2.orig/htop.c	2012-10-04 23:55:31.000000000 +0000
++++ htop-1.0.2/htop.c	2013-11-28 10:57:26.699228264 +0000
+@@ -126,7 +126,7 @@
+    mvaddstr(13, 0, "  Space: tag processes                      F: cursor follows process");
+    mvaddstr(14, 0, "      U: untag all processes              + -: expand/collapse tree");
+    mvaddstr(15, 0, "   F9 k: kill process/tagged processes  P M T: sort by CPU%, MEM% or TIME");
+-   mvaddstr(16, 0, "   ] F7: higher priority (root only)        i: set IO priority");
++   mvaddstr(16, 0, "   ] F7: higher priority (root only)");
+    mvaddstr(17, 0, "   [ F8: lower priority (+ nice)            I: invert sort order");
+ #if (HAVE_LIBHWLOC || HAVE_NATIVE_AFFINITY)
+    if (pl->cpuCount > 1)
+@@ -146,7 +146,7 @@
+    mvaddstr(13, 0, "  Space"); mvaddstr(13,40, "    F");
+    mvaddstr(14, 0, "      U"); mvaddstr(14,40, "  + -");
+    mvaddstr(15, 0, "   F9 k"); mvaddstr(15,40, "P M T");
+-   mvaddstr(16, 0, "   ] F7"); mvaddstr(16,40, "    i");
++   mvaddstr(16, 0, "   ] F7");
+    mvaddstr(17, 0, "   [ F8"); mvaddstr(17,40, "    I");
+                                mvaddstr(18,40, " F6 >");
+ #if (HAVE_LIBHWLOC || HAVE_NATIVE_AFFINITY)
+@@ -851,25 +851,6 @@
+          refreshTimeout = 0;
+          break;
+       }
+-      case 'i':
+-      {
+-         Process* p = (Process*) Panel_getSelected(panel);
+-         if (!p) break;
+-         IOPriority ioprio = p->ioPriority;
+-         Panel* ioprioPanel = IOPriorityPanel_new(ioprio);
+-         const char* fuFunctions[] = {"Set    ", "Cancel ", NULL};
+-         void* set = pickFromVector(panel, ioprioPanel, 21, headerHeight, fuFunctions, defaultBar, header);
+-         if (set) {
+-            IOPriority ioprio = IOPriorityPanel_getIOPriority(ioprioPanel);
+-            bool ok = foreachProcess(panel, (ForeachProcessFn) Process_setIOPriority, (size_t) ioprio, NULL);
+-            if (!ok)
+-               beep();
+-         }
+-         Panel_delete((Object*)ioprioPanel);
+-         ProcessList_printHeader(pl, Panel_getHeader(panel));
+-         refreshTimeout = 0;
+-         break;
+-      }
+       case 'I':
+       {
+          refreshTimeout = 0;
