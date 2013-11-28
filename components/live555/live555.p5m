@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -37,21 +37,27 @@ file path=$(ECPREFIX)/bin/$(MACH64)/live555MediaServer
 file path=$(ECPREFIX)/bin/$(MACH64)/live555ProxyServer
 file path=$(ECPREFIX)/bin/$(MACH64)/openRTSP
 file path=$(ECPREFIX)/bin/$(MACH64)/playSIP
+file path=$(ECPREFIX)/bin/$(MACH64)/registerRTSPStream
 file path=$(ECPREFIX)/bin/$(MACH64)/sapWatch
 file path=$(ECPREFIX)/bin/$(MACH64)/testAMRAudioStreamer
+file path=$(ECPREFIX)/bin/$(MACH64)/testDVVideoStreamer
+file path=$(ECPREFIX)/bin/$(MACH64)/testH264VideoStreamer
+file path=$(ECPREFIX)/bin/$(MACH64)/testH264VideoToTransportStream
 file path=$(ECPREFIX)/bin/$(MACH64)/testMP3Receiver
 file path=$(ECPREFIX)/bin/$(MACH64)/testMP3Streamer
 file path=$(ECPREFIX)/bin/$(MACH64)/testMPEG1or2AudioVideoStreamer
-file path=$(ECPREFIX)/bin/$(MACH64)/testMPEG1or2AudioVideoToDarwin
 file path=$(ECPREFIX)/bin/$(MACH64)/testMPEG1or2ProgramToTransportStream
 file path=$(ECPREFIX)/bin/$(MACH64)/testMPEG1or2Splitter
 file path=$(ECPREFIX)/bin/$(MACH64)/testMPEG1or2VideoReceiver
 file path=$(ECPREFIX)/bin/$(MACH64)/testMPEG1or2VideoStreamer
+file path=$(ECPREFIX)/bin/$(MACH64)/testMPEG2TransportReceiver
+file path=$(ECPREFIX)/bin/$(MACH64)/testMPEG2TransportStreamTrickPlay
 file path=$(ECPREFIX)/bin/$(MACH64)/testMPEG2TransportStreamer
 file path=$(ECPREFIX)/bin/$(MACH64)/testMPEG4VideoStreamer
-file path=$(ECPREFIX)/bin/$(MACH64)/testMPEG4VideoToDarwin
 file path=$(ECPREFIX)/bin/$(MACH64)/testOnDemandRTSPServer
+file path=$(ECPREFIX)/bin/$(MACH64)/testRTSPClient
 file path=$(ECPREFIX)/bin/$(MACH64)/testRelay
+file path=$(ECPREFIX)/bin/$(MACH64)/testReplicator
 file path=$(ECPREFIX)/bin/$(MACH64)/testWAVAudioStreamer
 file path=$(ECPREFIX)/bin/$(MACH64)/vobStreamer
 file path=$(ECPREFIX)/bin/MPEG2TransportStreamIndexer
@@ -59,21 +65,27 @@ file path=$(ECPREFIX)/bin/live555MediaServer
 file path=$(ECPREFIX)/bin/live555ProxyServer
 file path=$(ECPREFIX)/bin/openRTSP
 file path=$(ECPREFIX)/bin/playSIP
+file path=$(ECPREFIX)/bin/registerRTSPStream
 file path=$(ECPREFIX)/bin/sapWatch
 file path=$(ECPREFIX)/bin/testAMRAudioStreamer
+file path=$(ECPREFIX)/bin/testDVVideoStreamer
+file path=$(ECPREFIX)/bin/testH264VideoStreamer
+file path=$(ECPREFIX)/bin/testH264VideoToTransportStream
 file path=$(ECPREFIX)/bin/testMP3Receiver
 file path=$(ECPREFIX)/bin/testMP3Streamer
 file path=$(ECPREFIX)/bin/testMPEG1or2AudioVideoStreamer
-file path=$(ECPREFIX)/bin/testMPEG1or2AudioVideoToDarwin
 file path=$(ECPREFIX)/bin/testMPEG1or2ProgramToTransportStream
 file path=$(ECPREFIX)/bin/testMPEG1or2Splitter
 file path=$(ECPREFIX)/bin/testMPEG1or2VideoReceiver
 file path=$(ECPREFIX)/bin/testMPEG1or2VideoStreamer
+file path=$(ECPREFIX)/bin/testMPEG2TransportReceiver
+file path=$(ECPREFIX)/bin/testMPEG2TransportStreamTrickPlay
 file path=$(ECPREFIX)/bin/testMPEG2TransportStreamer
 file path=$(ECPREFIX)/bin/testMPEG4VideoStreamer
-file path=$(ECPREFIX)/bin/testMPEG4VideoToDarwin
 file path=$(ECPREFIX)/bin/testOnDemandRTSPServer
+file path=$(ECPREFIX)/bin/testRTSPClient
 file path=$(ECPREFIX)/bin/testRelay
+file path=$(ECPREFIX)/bin/testReplicator
 file path=$(ECPREFIX)/bin/testWAVAudioStreamer
 file path=$(ECPREFIX)/bin/vobStreamer
 file path=$(ECPREFIX)/include/BasicUsageEnvironment/BasicHashTable.hh
@@ -213,6 +225,7 @@ file path=$(ECPREFIX)/include/liveMedia/RTPSink.hh
 file path=$(ECPREFIX)/include/liveMedia/RTPSource.hh
 file path=$(ECPREFIX)/include/liveMedia/RTSPClient.hh
 file path=$(ECPREFIX)/include/liveMedia/RTSPCommon.hh
+file path=$(ECPREFIX)/include/liveMedia/RTSPRegisterSender.hh
 file path=$(ECPREFIX)/include/liveMedia/RTSPServer.hh
 file path=$(ECPREFIX)/include/liveMedia/RTSPServerSupportingHTTPStreaming.hh
 file path=$(ECPREFIX)/include/liveMedia/SIPClient.hh

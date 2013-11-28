@@ -15,16 +15,17 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		live555
 COMPONENT_FMRI=		multimedia/live555
-COMPONENT_VERSION=	2013.06.06
+COMPONENT_VERSION=	2013.11.25
 COMPONENT_LICENSE=	LGPLv2.1
 COMPONENT_PROJECT_URL=	http://www.live555.com/
 COMPONENT_SUMMARY=	Live555 Streaming Media Library
 COMPONENT_SRC=		live
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:fd0cc2551d5e1186a1f272bc29bfa0c0cc5eb58ec9a9c7f356ace33606c284f1
+COMPONENT_ARCHIVE_HASH=	sha256:16f1d67fe0b46feb3d697426da12621f4109984d2f16615cba23cdd6c5526eac
 COMPONENT_ARCHIVE_URL=	http://www.live555.com/liveMedia/public/$(COMPONENT_ARCHIVE)
 
-IPS_COMPONENT_VERSION=	2013.6.6
+# Must not contain any leading zeros present in the COMPONENT_VERSION
+IPS_COMPONENT_VERSION=	2013.11.25
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
@@ -32,12 +33,10 @@ include ../../make-rules/ips.mk
 
 COMPONENT_PRE_BUILD_ACTION+=	( $(CP) -R $(SOURCE_DIR)/* $(@D)/ ; cd $(@D) ; ./genMakefiles solaris-$(BITS)bit )
 
-CLEAN_PATHS+=	install
-
 build:		$(BUILD_32_and_64)
 
 # This recipe taken from http://ftp.de.debian.org/debian/pool/main/libl/liblivemedia/
-install:	build
+$(BUILD_DIR)/.installed:	build
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib
@@ -53,18 +52,32 @@ install:	build
 	$(CP) $(BUILD_DIR_32)/proxyServer/live555ProxyServer $(PROTO_DIR)$(ECPREFIX)/bin/
 	$(CP) $(BUILD_DIR_64)/mediaServer/live555MediaServer $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/
 	$(CP) $(BUILD_DIR_64)/proxyServer/live555ProxyServer $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/
-	for f in openRTSP playSIP sapWatch testAMRAudioStreamer \
-		testMP3Receiver testMP3Streamer \
-		testMPEG1or2AudioVideoStreamer \
-		testMPEG1or2AudioVideoToDarwin \
-		testMPEG1or2ProgramToTransportStream \
-		testMPEG1or2Splitter testMPEG1or2VideoReceiver \
-		testMPEG1or2VideoStreamer testMPEG2TransportStreamer \
-		testMPEG4VideoStreamer testMPEG4VideoToDarwin \
-		testOnDemandRTSPServer testRelay testWAVAudioStreamer \
+	for f in openRTSP playSIP registerRTSPStream sapWatch \
 		MPEG2TransportStreamIndexer \
+		testAMRAudioStreamer \
+		testDVVideoStreamer \
+		testH264VideoStreamer \
+		testH264VideoToTransportStream \
+		testMP3Receiver \
+		testMP3Streamer \
+		testMPEG1or2AudioVideoStreamer \
+		testMPEG1or2ProgramToTransportStream \
+		testMPEG1or2Splitter \
+		testMPEG1or2VideoReceiver \
+		testMPEG1or2VideoStreamer \
+		testMPEG2TransportReceiver \
+		testMPEG2TransportStreamTrickPlay \
+		testMPEG2TransportStreamer \
+		testMPEG4VideoStreamer \
+		testOnDemandRTSPServer \
+		testRTSPClient \
+		testRelay \
+		testReplicator \
+		testWAVAudioStreamer \
 		vobStreamer; do \
 	  $(CP) $(BUILD_DIR_32)/testProgs/$${f} $(PROTO_DIR)$(ECPREFIX)/bin/; \
 	  $(CP) $(BUILD_DIR_64)/testProgs/$${f} $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/; \
 	done
 	$(TOUCH) $@
+
+install:	$(BUILD_DIR)/.installed
