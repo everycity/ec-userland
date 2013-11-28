@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012-2013 EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -33,7 +33,6 @@ dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 dir path=$(ECPREFIX)/lib/$(MACH64)/vlc
 dir path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins
-dir path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/3dnow
 dir path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access
 dir path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access_output
 dir path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter
@@ -46,7 +45,6 @@ dir path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/gui
 dir path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/meta_engine
 dir path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc
 dir path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/mmx
-dir path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/mmxext
 dir path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/mux
 dir path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/packetizer
 dir path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/services_discovery
@@ -60,7 +58,6 @@ dir path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/visualization
 dir path=$(ECPREFIX)/lib/pkgconfig
 dir path=$(ECPREFIX)/lib/vlc
 dir path=$(ECPREFIX)/lib/vlc/plugins
-dir path=$(ECPREFIX)/lib/vlc/plugins/3dnow
 dir path=$(ECPREFIX)/lib/vlc/plugins/access
 dir path=$(ECPREFIX)/lib/vlc/plugins/access_output
 dir path=$(ECPREFIX)/lib/vlc/plugins/audio_filter
@@ -129,6 +126,8 @@ dir path=$(ECPREFIX)/share/locale/bn_IN
 dir path=$(ECPREFIX)/share/locale/bn_IN/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/br
 dir path=$(ECPREFIX)/share/locale/br/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/bs
+dir path=$(ECPREFIX)/share/locale/bs/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/ca
 dir path=$(ECPREFIX)/share/locale/ca/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/cgg
@@ -199,8 +198,6 @@ dir path=$(ECPREFIX)/share/locale/kk
 dir path=$(ECPREFIX)/share/locale/kk/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/km
 dir path=$(ECPREFIX)/share/locale/km/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/kmr
-dir path=$(ECPREFIX)/share/locale/kmr/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/kn
 dir path=$(ECPREFIX)/share/locale/kn/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/ko
@@ -235,8 +232,8 @@ dir path=$(ECPREFIX)/share/locale/nn
 dir path=$(ECPREFIX)/share/locale/nn/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/oc
 dir path=$(ECPREFIX)/share/locale/oc/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/or_IN
-dir path=$(ECPREFIX)/share/locale/or_IN/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/or
+dir path=$(ECPREFIX)/share/locale/or/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/pa
 dir path=$(ECPREFIX)/share/locale/pa/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/pl
@@ -292,11 +289,6 @@ dir path=$(ECPREFIX)/share/locale/zu/LC_MESSAGES
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/vlc
-dir path=$(ECPREFIX)/share/vlc/osdmenu
-dir path=$(ECPREFIX)/share/vlc/osdmenu/default
-dir path=$(ECPREFIX)/share/vlc/osdmenu/default/selected
-dir path=$(ECPREFIX)/share/vlc/osdmenu/default/selection
-dir path=$(ECPREFIX)/share/vlc/osdmenu/default/volume
 dir path=$(ECPREFIX)/share/vlc/utils
 file path=$(ECPREFIX)/bin/$(MACH64)/cvlc
 file path=$(ECPREFIX)/bin/$(MACH64)/nvlc
@@ -324,10 +316,8 @@ file path=$(ECPREFIX)/include/vlc/libvlc_version.h
 file path=$(ECPREFIX)/include/vlc/libvlc_vlm.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_about.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_access.h
-file path=$(ECPREFIX)/include/vlc/plugins/vlc_acl.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_aout.h
-file path=$(ECPREFIX)/include/vlc/plugins/vlc_aout_intf.h
-file path=$(ECPREFIX)/include/vlc/plugins/vlc_aout_mixer.h
+file path=$(ECPREFIX)/include/vlc/plugins/vlc_aout_volume.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_arrays.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_art_finder.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_atomic.h
@@ -349,6 +339,7 @@ file path=$(ECPREFIX)/include/vlc/plugins/vlc_es.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_es_out.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_events.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_filter.h
+file path=$(ECPREFIX)/include/vlc/plugins/vlc_fingerprinter.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_fourcc.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_fs.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_gcrypt.h
@@ -364,6 +355,7 @@ file path=$(ECPREFIX)/include/vlc/plugins/vlc_md5.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_media_library.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_messages.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_meta.h
+file path=$(ECPREFIX)/include/vlc/plugins/vlc_mime.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_modules.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_mouse.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_mtime.h
@@ -380,7 +372,6 @@ file path=$(ECPREFIX)/include/vlc/plugins/vlc_rand.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_services_discovery.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_sout.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_spu.h
-file path=$(ECPREFIX)/include/vlc/plugins/vlc_sql.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_stream.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_strings.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_subpicture.h
@@ -399,13 +390,13 @@ file path=$(ECPREFIX)/include/vlc/plugins/vlc_xlib.h
 file path=$(ECPREFIX)/include/vlc/plugins/vlc_xml.h
 file path=$(ECPREFIX)/include/vlc/vlc.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libvlc.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libvlc.so.5.3.2
+file path=$(ECPREFIX)/lib/$(MACH64)/libvlc.so.5.4.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libvlccore.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libvlccore.so.5.1.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libvlccore.so.7.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libvlc.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/vlc-plugin.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/3dnow/libmemcpy3dn_plugin.la
-file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/3dnow/libmemcpy3dn_plugin.so
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/libcompat.a
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/libcompat.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_attachment_plugin.la
 file \
@@ -430,8 +421,6 @@ file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_mms_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_mms_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_rar_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_rar_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_shm_plugin.la
-file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_shm_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_tcp_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_tcp_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_udp_plugin.la
@@ -446,10 +435,14 @@ file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/librtp_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/librtp_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libsdp_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libsdp_plugin.so
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libshm_plugin.la
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libshm_plugin.so
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libstream_filter_rar_plugin.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libstream_filter_rar_plugin.so
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libtimecode_plugin.la
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libtimecode_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libxcb_screen_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libxcb_screen_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libzip_plugin.la
@@ -466,10 +459,6 @@ file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access_output/libaccess_output_http_plugin.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access_output/libaccess_output_http_plugin.so
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access_output/libaccess_output_livehttp_plugin.la
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access_output/libaccess_output_livehttp_plugin.so
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access_output/libaccess_output_udp_plugin.la
 file \
@@ -495,10 +484,6 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libcompressor_plugin.so
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libconverter_fixed_plugin.la
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libconverter_fixed_plugin.so
-file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libdolby_surround_decoder_plugin.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libdolby_surround_decoder_plugin.so
@@ -510,6 +495,8 @@ file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libequalizer_plugin.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libequalizer_plugin.so
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libgain_plugin.la
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libgain_plugin.so
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libheadphone_channel_mixer_plugin.la
 file \
@@ -533,6 +520,10 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libparam_eq_plugin.so
 file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libremap_plugin.la
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libremap_plugin.so
+file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libsamplerate_plugin.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libsamplerate_plugin.so
@@ -553,6 +544,10 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libspeex_resampler_plugin.so
 file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libstereo_widen_plugin.la
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libstereo_widen_plugin.so
+file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libtrivial_channel_mixer_plugin.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libtrivial_channel_mixer_plugin.so
@@ -561,23 +556,23 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_filter/libugly_resampler_plugin.so
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_mixer/libfixed32_mixer_plugin.la
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_mixer/libfloat_mixer_plugin.la
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_mixer/libfixed32_mixer_plugin.so
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_mixer/libfloat_mixer_plugin.so
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_mixer/libfloat32_mixer_plugin.la
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_mixer/libinteger_mixer_plugin.la
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_mixer/libfloat32_mixer_plugin.so
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_mixer/libinteger_mixer_plugin.so
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_output/libadummy_plugin.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_output/libadummy_plugin.so
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_output/libafile_plugin.la
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_output/libafile_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_output/libamem_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_output/libamem_plugin.so
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_output/libaout_file_plugin.la
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/audio_output/libaout_file_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/liba52_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/liba52_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libadpcm_plugin.la
@@ -608,6 +603,8 @@ file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libfaad_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libfaad_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libflac_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libflac_plugin.so
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libg711_plugin.la
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libg711_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/liblibmpeg2_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/liblibmpeg2_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/liblpcm_plugin.la
@@ -624,6 +621,8 @@ file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libschroedinger_plugin.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libschroedinger_plugin.so
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libscte27_plugin.la
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libscte27_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libspeex_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libspeex_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libspudec_plugin.la
@@ -642,10 +641,18 @@ file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libtelx_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libtelx_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libtheora_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libtheora_plugin.so
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libuleaddvaudio_plugin.la
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libuleaddvaudio_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libvorbis_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libvorbis_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libx264_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libx264_plugin.so
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libxwd_plugin.la
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/codec/libxwd_plugin.so
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/control/libdbus_plugin.la
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/control/libdbus_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/control/libdummy_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/control/libdummy_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/control/libgestures_plugin.la
@@ -748,14 +755,14 @@ file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libaudioscrobbler_plugin.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libaudioscrobbler_plugin.so
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libdbus_screensaver_plugin.la
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libdbus_screensaver_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libexport_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libexport_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/liblogger_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/liblogger_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libmemcpy_plugin.la
-file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libmemcpy_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libosd_parser_plugin.la
-file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libosd_parser_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libstats_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libstats_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libvod_rtsp_plugin.la
@@ -766,20 +773,12 @@ file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libxdg_screensaver_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libxml_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libxml_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libxscreensaver_plugin.la
-file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libxscreensaver_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/mmx/libi420_rgb_mmx_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/mmx/libi420_rgb_mmx_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/mmx/libi420_yuy2_mmx_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/mmx/libi420_yuy2_mmx_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/mmx/libi422_yuy2_mmx_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/mmx/libi422_yuy2_mmx_plugin.so
-file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/mmx/libmemcpymmx_plugin.la
-file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/mmx/libmemcpymmx_plugin.so
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/mmxext/libmemcpymmxext_plugin.la
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/mmxext/libmemcpymmxext_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/mux/libmux_asf_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/mux/libmux_asf_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/mux/libmux_avi_plugin.la
@@ -852,17 +851,21 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/services_discovery/libxcb_apps_plugin.so
 file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_filter/libdash_plugin.la
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_filter/libdash_plugin.so
+file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_filter/libdecomp_plugin.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_filter/libdecomp_plugin.so
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_filter/libstream_filter_dash_plugin.la
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_filter/librecord_plugin.la
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_filter/libstream_filter_dash_plugin.so
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_filter/librecord_plugin.so
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_filter/libstream_filter_record_plugin.la
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_filter/libsmooth_plugin.la
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_filter/libstream_filter_record_plugin.so
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_filter/libsmooth_plugin.so
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_out/libstream_out_autodel_plugin.la
 file \
@@ -915,10 +918,6 @@ file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_out/libstream_out_rtp_plugin.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_out/libstream_out_rtp_plugin.so
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_out/libstream_out_select_plugin.la
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_out/libstream_out_select_plugin.so
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/stream_out/libstream_out_setid_plugin.la
 file \
@@ -981,6 +980,10 @@ file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/video_filter/libalphamask_plugin.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/video_filter/libalphamask_plugin.so
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/video_filter/libanaglyph_plugin.la
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/video_filter/libanaglyph_plugin.so
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/video_filter/libantiflicker_plugin.la
 file \
@@ -1088,10 +1091,6 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/video_filter/libmotiondetect_plugin.so
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/video_filter/libosdmenu_plugin.la
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/video_filter/libosdmenu_plugin.so
-file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/video_filter/libpanoramix_plugin.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/video_filter/libpanoramix_plugin.so
@@ -1183,13 +1182,13 @@ file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/visualization/libvisual_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/vlc-cache-gen
 file path=$(ECPREFIX)/lib/libvlc.la
-file path=$(ECPREFIX)/lib/libvlc.so.5.3.2
+file path=$(ECPREFIX)/lib/libvlc.so.5.4.0
 file path=$(ECPREFIX)/lib/libvlccore.la
-file path=$(ECPREFIX)/lib/libvlccore.so.5.1.1
+file path=$(ECPREFIX)/lib/libvlccore.so.7.0.0
 file path=$(ECPREFIX)/lib/pkgconfig/libvlc.pc
 file path=$(ECPREFIX)/lib/pkgconfig/vlc-plugin.pc
-file path=$(ECPREFIX)/lib/vlc/plugins/3dnow/libmemcpy3dn_plugin.la
-file path=$(ECPREFIX)/lib/vlc/plugins/3dnow/libmemcpy3dn_plugin.so
+file path=$(ECPREFIX)/lib/vlc/libcompat.a
+file path=$(ECPREFIX)/lib/vlc/libcompat.la
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_attachment_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_attachment_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_avio_plugin.la
@@ -1206,8 +1205,6 @@ file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_mms_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_mms_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_rar_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_rar_plugin.so
-file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_shm_plugin.la
-file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_shm_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_tcp_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_tcp_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_udp_plugin.la
@@ -1222,8 +1219,12 @@ file path=$(ECPREFIX)/lib/vlc/plugins/access/librtp_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/access/librtp_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libsdp_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libsdp_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/access/libshm_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/access/libshm_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libstream_filter_rar_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libstream_filter_rar_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/access/libtimecode_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/access/libtimecode_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libxcb_screen_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libxcb_screen_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libzip_plugin.la
@@ -1241,10 +1242,6 @@ file \
 file \
     path=$(ECPREFIX)/lib/vlc/plugins/access_output/libaccess_output_http_plugin.so
 file \
-    path=$(ECPREFIX)/lib/vlc/plugins/access_output/libaccess_output_livehttp_plugin.la
-file \
-    path=$(ECPREFIX)/lib/vlc/plugins/access_output/libaccess_output_livehttp_plugin.so
-file \
     path=$(ECPREFIX)/lib/vlc/plugins/access_output/libaccess_output_udp_plugin.la
 file \
     path=$(ECPREFIX)/lib/vlc/plugins/access_output/libaccess_output_udp_plugin.so
@@ -1261,10 +1258,6 @@ file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libchorus_flanger_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libcompressor_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libcompressor_plugin.so
 file \
-    path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libconverter_fixed_plugin.la
-file \
-    path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libconverter_fixed_plugin.so
-file \
     path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libdolby_surround_decoder_plugin.la
 file \
     path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libdolby_surround_decoder_plugin.so
@@ -1272,6 +1265,8 @@ file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libdtstospdif_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libdtstospdif_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libequalizer_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libequalizer_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libgain_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libgain_plugin.so
 file \
     path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libheadphone_channel_mixer_plugin.la
 file \
@@ -1286,6 +1281,8 @@ file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libnormvol_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libnormvol_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libparam_eq_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libparam_eq_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libremap_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libremap_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libsamplerate_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libsamplerate_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libscaletempo_plugin.la
@@ -1300,22 +1297,24 @@ file \
     path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libspeex_resampler_plugin.la
 file \
     path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libspeex_resampler_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libstereo_widen_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libstereo_widen_plugin.so
 file \
     path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libtrivial_channel_mixer_plugin.la
 file \
     path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libtrivial_channel_mixer_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libugly_resampler_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/audio_filter/libugly_resampler_plugin.so
-file path=$(ECPREFIX)/lib/vlc/plugins/audio_mixer/libfixed32_mixer_plugin.la
-file path=$(ECPREFIX)/lib/vlc/plugins/audio_mixer/libfixed32_mixer_plugin.so
-file path=$(ECPREFIX)/lib/vlc/plugins/audio_mixer/libfloat32_mixer_plugin.la
-file path=$(ECPREFIX)/lib/vlc/plugins/audio_mixer/libfloat32_mixer_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/audio_mixer/libfloat_mixer_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/audio_mixer/libfloat_mixer_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/audio_mixer/libinteger_mixer_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/audio_mixer/libinteger_mixer_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/audio_output/libadummy_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/audio_output/libadummy_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/audio_output/libafile_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/audio_output/libafile_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/audio_output/libamem_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/audio_output/libamem_plugin.so
-file path=$(ECPREFIX)/lib/vlc/plugins/audio_output/libaout_file_plugin.la
-file path=$(ECPREFIX)/lib/vlc/plugins/audio_output/libaout_file_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/liba52_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/liba52_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/libadpcm_plugin.la
@@ -1346,6 +1345,8 @@ file path=$(ECPREFIX)/lib/vlc/plugins/codec/libfaad_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/libfaad_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/libflac_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/libflac_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/codec/libg711_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/codec/libg711_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/liblibmpeg2_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/liblibmpeg2_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/liblpcm_plugin.la
@@ -1360,6 +1361,8 @@ file path=$(ECPREFIX)/lib/vlc/plugins/codec/librawvideo_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/librawvideo_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/libschroedinger_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/libschroedinger_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/codec/libscte27_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/codec/libscte27_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/libspeex_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/libspeex_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/libspudec_plugin.la
@@ -1378,10 +1381,16 @@ file path=$(ECPREFIX)/lib/vlc/plugins/codec/libtelx_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/libtelx_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/libtheora_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/libtheora_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/codec/libuleaddvaudio_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/codec/libuleaddvaudio_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/libvorbis_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/libvorbis_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/libx264_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/codec/libx264_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/codec/libxwd_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/codec/libxwd_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/control/libdbus_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/control/libdbus_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/control/libdummy_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/control/libdummy_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/control/libgestures_plugin.la
@@ -1478,14 +1487,12 @@ file path=$(ECPREFIX)/lib/vlc/plugins/meta_engine/libtaglib_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/meta_engine/libtaglib_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/libaudioscrobbler_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/libaudioscrobbler_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/misc/libdbus_screensaver_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/misc/libdbus_screensaver_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/libexport_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/libexport_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/liblogger_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/liblogger_plugin.so
-file path=$(ECPREFIX)/lib/vlc/plugins/misc/libmemcpy_plugin.la
-file path=$(ECPREFIX)/lib/vlc/plugins/misc/libmemcpy_plugin.so
-file path=$(ECPREFIX)/lib/vlc/plugins/misc/libosd_parser_plugin.la
-file path=$(ECPREFIX)/lib/vlc/plugins/misc/libosd_parser_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/libstats_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/libstats_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/libvod_rtsp_plugin.la
@@ -1494,8 +1501,6 @@ file path=$(ECPREFIX)/lib/vlc/plugins/misc/libxdg_screensaver_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/libxdg_screensaver_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/libxml_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/libxml_plugin.so
-file path=$(ECPREFIX)/lib/vlc/plugins/misc/libxscreensaver_plugin.la
-file path=$(ECPREFIX)/lib/vlc/plugins/misc/libxscreensaver_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/mux/libmux_asf_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/mux/libmux_asf_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/mux/libmux_avi_plugin.la
@@ -1549,16 +1554,14 @@ file path=$(ECPREFIX)/lib/vlc/plugins/services_discovery/libsap_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/services_discovery/libsap_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/services_discovery/libxcb_apps_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/services_discovery/libxcb_apps_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/stream_filter/libdash_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/stream_filter/libdash_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/stream_filter/libdecomp_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/stream_filter/libdecomp_plugin.so
-file \
-    path=$(ECPREFIX)/lib/vlc/plugins/stream_filter/libstream_filter_dash_plugin.la
-file \
-    path=$(ECPREFIX)/lib/vlc/plugins/stream_filter/libstream_filter_dash_plugin.so
-file \
-    path=$(ECPREFIX)/lib/vlc/plugins/stream_filter/libstream_filter_record_plugin.la
-file \
-    path=$(ECPREFIX)/lib/vlc/plugins/stream_filter/libstream_filter_record_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/stream_filter/librecord_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/stream_filter/librecord_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/stream_filter/libsmooth_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/stream_filter/libsmooth_plugin.so
 file \
     path=$(ECPREFIX)/lib/vlc/plugins/stream_out/libstream_out_autodel_plugin.la
 file \
@@ -1603,10 +1606,6 @@ file \
     path=$(ECPREFIX)/lib/vlc/plugins/stream_out/libstream_out_record_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/stream_out/libstream_out_rtp_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/stream_out/libstream_out_rtp_plugin.so
-file \
-    path=$(ECPREFIX)/lib/vlc/plugins/stream_out/libstream_out_select_plugin.la
-file \
-    path=$(ECPREFIX)/lib/vlc/plugins/stream_out/libstream_out_select_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/stream_out/libstream_out_setid_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/stream_out/libstream_out_setid_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/stream_out/libstream_out_smem_plugin.la
@@ -1643,6 +1642,8 @@ file path=$(ECPREFIX)/lib/vlc/plugins/video_filter/libadjust_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/video_filter/libadjust_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/video_filter/libalphamask_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/video_filter/libalphamask_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/video_filter/libanaglyph_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/video_filter/libanaglyph_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/video_filter/libantiflicker_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/video_filter/libantiflicker_plugin.so
 file \
@@ -1701,8 +1702,6 @@ file path=$(ECPREFIX)/lib/vlc/plugins/video_filter/libmotionblur_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/video_filter/libmotionblur_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/video_filter/libmotiondetect_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/video_filter/libmotiondetect_plugin.so
-file path=$(ECPREFIX)/lib/vlc/plugins/video_filter/libosdmenu_plugin.la
-file path=$(ECPREFIX)/lib/vlc/plugins/video_filter/libosdmenu_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/video_filter/libpanoramix_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/video_filter/libpanoramix_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/video_filter/libposterize_plugin.la
@@ -1795,6 +1794,7 @@ file path=$(ECPREFIX)/share/locale/bg/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/bn/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/bn_IN/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/br/LC_MESSAGES/vlc.mo
+file path=$(ECPREFIX)/share/locale/bs/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/ca/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/cgg/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/ckb/LC_MESSAGES/vlc.mo
@@ -1830,7 +1830,6 @@ file path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/ka/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/kk/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/km/LC_MESSAGES/vlc.mo
-file path=$(ECPREFIX)/share/locale/kmr/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/kn/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/ko/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/ky/LC_MESSAGES/vlc.mo
@@ -1848,7 +1847,7 @@ file path=$(ECPREFIX)/share/locale/ne/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/nn/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/oc/LC_MESSAGES/vlc.mo
-file path=$(ECPREFIX)/share/locale/or_IN/LC_MESSAGES/vlc.mo
+file path=$(ECPREFIX)/share/locale/or/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/pa/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/ps/LC_MESSAGES/vlc.mo
@@ -1877,44 +1876,15 @@ file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/locale/zu/LC_MESSAGES/vlc.mo
 file path=$(ECPREFIX)/share/man/man1/vlc-wrapper.1
 file path=$(ECPREFIX)/share/man/man1/vlc.1
-file path=$(ECPREFIX)/share/vlc/osdmenu/default.cfg
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/selected/bw.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/selected/esc.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/selected/fw.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/selected/next.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/selected/play_pause.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/selected/previous.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/selected/stop.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/selected/volume.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/selection/bw.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/selection/esc.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/selection/fw.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/selection/next.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/selection/play_pause.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/selection/previous.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/selection/stop.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/selection/volume.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/unselected.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/volume/volume_00.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/volume/volume_01.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/volume/volume_02.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/volume/volume_03.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/volume/volume_04.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/volume/volume_05.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/volume/volume_06.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/volume/volume_07.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/volume/volume_08.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/volume/volume_09.png
-file path=$(ECPREFIX)/share/vlc/osdmenu/default/volume/volume_10.png
 file path=$(ECPREFIX)/share/vlc/utils/audio-vlc-default.sh
 file path=$(ECPREFIX)/share/vlc/utils/gnome-vlc-default.sh
 file path=$(ECPREFIX)/share/vlc/utils/video-vlc-default.sh
 file path=$(ECPREFIX)/share/vlc/vlc.ico
-link path=$(ECPREFIX)/lib/$(MACH64)/libvlc.so target=libvlc.so.5.3.2
-link path=$(ECPREFIX)/lib/$(MACH64)/libvlc.so.5 target=libvlc.so.5.3.2
-link path=$(ECPREFIX)/lib/$(MACH64)/libvlccore.so target=libvlccore.so.5.1.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libvlccore.so.5 target=libvlccore.so.5.1.1
-link path=$(ECPREFIX)/lib/libvlc.so target=libvlc.so.5.3.2
-link path=$(ECPREFIX)/lib/libvlc.so.5 target=libvlc.so.5.3.2
-link path=$(ECPREFIX)/lib/libvlccore.so target=libvlccore.so.5.1.1
-link path=$(ECPREFIX)/lib/libvlccore.so.5 target=libvlccore.so.5.1.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libvlc.so target=libvlc.so.5.4.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libvlc.so.5 target=libvlc.so.5.4.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libvlccore.so target=libvlccore.so.7.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libvlccore.so.7 target=libvlccore.so.7.0.0
+link path=$(ECPREFIX)/lib/libvlc.so target=libvlc.so.5.4.0
+link path=$(ECPREFIX)/lib/libvlc.so.5 target=libvlc.so.5.4.0
+link path=$(ECPREFIX)/lib/libvlccore.so target=libvlccore.so.7.0.0
+link path=$(ECPREFIX)/lib/libvlccore.so.7 target=libvlccore.so.7.0.0

@@ -1,0 +1,14 @@
+--- vlc-2.1.1/src/posix/filesystem.c.orig	2013-11-28 11:46:05.355070781 +0000
++++ vlc-2.1.1/src/posix/filesystem.c	2013-11-28 11:47:35.717853040 +0000
+@@ -29,6 +29,11 @@
+ 
+ #include <stdio.h>
+ #include <limits.h> /* NAME_MAX */
++#if defined (__SVR4) && defined (__sun)
++#ifndef NAME_MAX
++#define NAME_MAX MAXNAMELEN
++#endif
++#endif
+ #include <errno.h>
+ 
+ #include <sys/types.h>

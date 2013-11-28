@@ -15,14 +15,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		vlc
 COMPONENT_FMRI=		multimedia/vlc
-COMPONENT_VERSION=	2.0.8
-IPS_COMPONENT_VERSION=	2.0.8.1
+COMPONENT_VERSION=	2.1.1
 COMPONENT_LICENSE=	GPLv2
 COMPONENT_PROJECT_URL=	http://www.videolan.org/vlc/
 COMPONENT_SUMMARY=	VLC Cross-platform Multimedia Player and Framework
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC)a.tar.xz
-COMPONENT_ARCHIVE_HASH=	sha256:05215f34c487723c84ebb54ab43b836fc70fb466326f7c601847141a499034d2
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
+COMPONENT_ARCHIVE_HASH=	sha256:339c92cfb939ef6517b42fce7db59e59f259476d79d15b9b39e9d7f2b966b992
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_VIDEOLAN)
 
 include ../../make-rules/prep.mk
@@ -32,7 +31,7 @@ include ../../make-rules/gnu-ld.mk
 
 LDFLAGS.32+=	-L$(ECPREFIX)/lib -R$(ECPREFIX)/lib -L$(ECPREFIX)/lib/qt/4.7/lib -R$(ECPREFIX)/lib/qt/4.7/lib
 LDFLAGS.64+=	-L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64) -L$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64) -R$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)
-LDFLAGS+=	-lnsl
+LDFLAGS+=	-lnsl -lumem
 CFLAGS+=	-D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__ -D __EC_SOLARIS_$(subst .,_,$(SOLARIS_VERSION)) -I$(ECPREFIX)/include -I$(ECPREFIX)/include/ncurses
 CXXFLAGS+=	$(CFLAGS)
 
@@ -54,7 +53,6 @@ CONFIGURE_OPTIONS+=	--enable-avcodec
 CONFIGURE_OPTIONS+=	--enable-avformat
 CONFIGURE_OPTIONS+=	--enable-x264
 CONFIGURE_OPTIONS+=	--enable-sout
-CONFIGURE_OPTIONS+=	--enable-qt4
 CONFIGURE_OPTIONS+=	--enable-dvbpsi
 CONFIGURE_OPTIONS+=	--enable-libmpeg2
 CONFIGURE_OPTIONS+=	--enable-live555
@@ -63,6 +61,7 @@ CONFIGURE_OPTIONS+=	--enable-ncurses
 CONFIGURE_OPTIONS+=	--enable-run-as-root
 CONFIGURE_OPTIONS+=	--enable-faad
 CONFIGURE_OPTIONS+=	--with-contrib=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	LIVE555_PREFIX=$(ECPREFIX)
 
 # Inline assembly optimisations are broken on 32bit (gcc segfault)
 CONFIGURE_OPTIONS.32+=	--disable-mmx
