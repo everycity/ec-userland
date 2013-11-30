@@ -1,0 +1,10 @@
+--- mongodb-src-r2.4.8/src/mongo/util/time_support.h.orig	2013-11-28 19:58:12.732224925 +0000
++++ mongodb-src-r2.4.8/src/mongo/util/time_support.h	2013-11-28 19:57:47.045805675 +0000
+@@ -19,6 +19,7 @@
+ 
+ #include <ctime>
+ #include <string>
++#include <boost/version.hpp>
+ #include <boost/thread/xtime.hpp>
+ #include <boost/date_time/posix_time/posix_time.hpp>
+ 
