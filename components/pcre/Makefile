@@ -30,6 +30,7 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS  +=	--disable-static
+CONFIGURE_OPTIONS  +=	--enable-utf
 
 build:		$(BUILD_32_and_64)
 
