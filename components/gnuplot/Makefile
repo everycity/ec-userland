@@ -25,10 +25,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS +=	-lm -llua
-ifeq ($(SOLARIS_VERSION),2.10)
-LDFLAGS +=     -liconv
-endif
+LDFLAGS +=	-lm -llua -liconv
 
 build:		$(BUILD_32_and_64)
 
