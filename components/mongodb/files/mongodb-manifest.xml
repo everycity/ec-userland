@@ -25,7 +25,13 @@ Copyright 2012 EveryCity Ltd. All rights reserved.
       <service_fmri value="svc:/system/filesystem/local:default"/>
     </dependency>
 
-    <exec_method type="method" name="start" exec="/ec/var/svc/method/mongodb start" timeout_seconds="60"/>
+    <exec_method type="method" name="start" exec="/ec/var/svc/method/mongodb start" timeout_seconds="60">
+      <method_context>
+        <method_environment>
+          <envvar name='LANG' value='C'/>
+        </method_environment>
+      </method_context>
+    </exec_method>
 
     <exec_method type="method" name="stop" exec=":kill" timeout_seconds="30"/>
 

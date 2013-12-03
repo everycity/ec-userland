@@ -22,6 +22,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
+file files/mongod.conf path=$(ECPREFIX)/etc/mongod.conf mode=0644 preserve=true
 file files/mongodb-manifest.xml path=var/svc/manifest/site/mongodb.xml \
     restart_fmri=svc:/system/manifest-import:default
 file files/mongodb-startup.sh path=$(ECPREFIX)/var/svc/method/mongodb mode=0555
@@ -29,6 +30,7 @@ file files/mongodb-startup.sh path=$(ECPREFIX)/var/svc/method/mongodb mode=0555
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/include/mongo
 dir path=$(ECPREFIX)/include/mongo/base
