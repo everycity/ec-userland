@@ -30,6 +30,9 @@ include ../../../make-rules/prep.mk
 include ../../../make-rules/justmake.mk
 include ../../../make-rules/ips.mk
 
+# Perl builds seem flakey since justmake.mk parallel enable.
+COMPONENT_BUILD_GMAKE_ARGS=
+
 #
 # The extra Configure parameters (cf_email, cf_by, myhostname) and
 # the gawk and sed that follow are attempting to sanatize the
