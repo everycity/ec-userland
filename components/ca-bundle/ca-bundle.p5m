@@ -26,3 +26,4 @@ dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/etc/openssl
 file path=$(ECPREFIX)/etc/openssl/cabundle.pem
+link path=$(ECPREFIX)/etc/openssl/cert.pem target=cabundle.pem
