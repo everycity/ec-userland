@@ -150,10 +150,10 @@ file path=$(ECPREFIX)/include/libswresample/swresample.h
 file path=$(ECPREFIX)/include/libswresample/version.h
 file path=$(ECPREFIX)/include/libswscale/swscale.h
 file path=$(ECPREFIX)/include/libswscale/version.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libavcodec.so.55.39.100
+file path=$(ECPREFIX)/lib/$(MACH64)/libavcodec.so.55.39.101
 file path=$(ECPREFIX)/lib/$(MACH64)/libavfilter.so.3.90.100
 file path=$(ECPREFIX)/lib/$(MACH64)/libavformat.so.55.19.104
-file path=$(ECPREFIX)/lib/$(MACH64)/libavutil.so.52.48.100
+file path=$(ECPREFIX)/lib/$(MACH64)/libavutil.so.52.48.101
 file path=$(ECPREFIX)/lib/$(MACH64)/libpostproc.so.52.3.100
 file path=$(ECPREFIX)/lib/$(MACH64)/libswresample.so.0.17.104
 file path=$(ECPREFIX)/lib/$(MACH64)/libswscale.so.2.5.101
@@ -164,10 +164,10 @@ file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libavutil.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpostproc.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libswresample.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libswscale.pc
-file path=$(ECPREFIX)/lib/libavcodec.so.55.39.100
+file path=$(ECPREFIX)/lib/libavcodec.so.55.39.101
 file path=$(ECPREFIX)/lib/libavfilter.so.3.90.100
 file path=$(ECPREFIX)/lib/libavformat.so.55.19.104
-file path=$(ECPREFIX)/lib/libavutil.so.52.48.100
+file path=$(ECPREFIX)/lib/libavutil.so.52.48.101
 file path=$(ECPREFIX)/lib/libpostproc.so.52.3.100
 file path=$(ECPREFIX)/lib/libswresample.so.0.17.104
 file path=$(ECPREFIX)/lib/libswscale.so.2.5.101
@@ -217,9 +217,9 @@ file path=$(ECPREFIX)/share/man/man3/libavutil.3
 file path=$(ECPREFIX)/share/man/man3/libswresample.3
 file path=$(ECPREFIX)/share/man/man3/libswscale.3
 link path=$(ECPREFIX)/lib/$(MACH64)/libavcodec.so \
-    target=libavcodec.so.55.39.100
+    target=libavcodec.so.55.39.101
 link path=$(ECPREFIX)/lib/$(MACH64)/libavcodec.so.55 \
-    target=libavcodec.so.55.39.100
+    target=libavcodec.so.55.39.101
 link path=$(ECPREFIX)/lib/$(MACH64)/libavfilter.so \
     target=libavfilter.so.3.90.100
 link path=$(ECPREFIX)/lib/$(MACH64)/libavfilter.so.3 \
@@ -228,9 +228,9 @@ link path=$(ECPREFIX)/lib/$(MACH64)/libavformat.so \
     target=libavformat.so.55.19.104
 link path=$(ECPREFIX)/lib/$(MACH64)/libavformat.so.55 \
     target=libavformat.so.55.19.104
-link path=$(ECPREFIX)/lib/$(MACH64)/libavutil.so target=libavutil.so.52.48.100
+link path=$(ECPREFIX)/lib/$(MACH64)/libavutil.so target=libavutil.so.52.48.101
 link path=$(ECPREFIX)/lib/$(MACH64)/libavutil.so.52 \
-    target=libavutil.so.52.48.100
+    target=libavutil.so.52.48.101
 link path=$(ECPREFIX)/lib/$(MACH64)/libpostproc.so \
     target=libpostproc.so.52.3.100
 link path=$(ECPREFIX)/lib/$(MACH64)/libpostproc.so.52 \
@@ -242,14 +242,14 @@ link path=$(ECPREFIX)/lib/$(MACH64)/libswresample.so.0 \
 link path=$(ECPREFIX)/lib/$(MACH64)/libswscale.so target=libswscale.so.2.5.101
 link path=$(ECPREFIX)/lib/$(MACH64)/libswscale.so.2 \
     target=libswscale.so.2.5.101
-link path=$(ECPREFIX)/lib/libavcodec.so target=libavcodec.so.55.39.100
-link path=$(ECPREFIX)/lib/libavcodec.so.55 target=libavcodec.so.55.39.100
+link path=$(ECPREFIX)/lib/libavcodec.so target=libavcodec.so.55.39.101
+link path=$(ECPREFIX)/lib/libavcodec.so.55 target=libavcodec.so.55.39.101
 link path=$(ECPREFIX)/lib/libavfilter.so target=libavfilter.so.3.90.100
 link path=$(ECPREFIX)/lib/libavfilter.so.3 target=libavfilter.so.3.90.100
 link path=$(ECPREFIX)/lib/libavformat.so target=libavformat.so.55.19.104
 link path=$(ECPREFIX)/lib/libavformat.so.55 target=libavformat.so.55.19.104
-link path=$(ECPREFIX)/lib/libavutil.so target=libavutil.so.52.48.100
-link path=$(ECPREFIX)/lib/libavutil.so.52 target=libavutil.so.52.48.100
+link path=$(ECPREFIX)/lib/libavutil.so target=libavutil.so.52.48.101
+link path=$(ECPREFIX)/lib/libavutil.so.52 target=libavutil.so.52.48.101
 link path=$(ECPREFIX)/lib/libpostproc.so target=libpostproc.so.52.3.100
 link path=$(ECPREFIX)/lib/libpostproc.so.52 target=libpostproc.so.52.3.100
 link path=$(ECPREFIX)/lib/libswresample.so target=libswresample.so.0.17.104
