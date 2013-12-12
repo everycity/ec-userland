@@ -1,0 +1,8 @@
+--- libvpx-v1.2.0/build/make/rtcd.sh.orig	2013-12-11 23:28:31.574594194 +0000
++++ libvpx-v1.2.0/build/make/rtcd.sh	2013-12-11 23:28:41.952654364 +0000
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ self=$0
+ 
+ usage() {

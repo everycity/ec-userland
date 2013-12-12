@@ -1,12 +1,11 @@
---- libvpx-v0.9.7-p1/build/make/Makefile.~1~	2011-08-15 22:02:45.000000000 +0100
-+++ libvpx-v0.9.7-p1/build/make/Makefile	2012-01-12 10:34:16.107510166 +0000
-@@ -228,8 +228,7 @@
- # This needs further abstraction for dealing with non-GNU linkers.
+--- libvpx-v1.2.0/build/make/Makefile.orig	2013-12-11 23:20:45.314190057 +0000
++++ libvpx-v1.2.0/build/make/Makefile	2013-12-11 23:22:18.688797541 +0000
+@@ -211,7 +211,7 @@
+ $(1): $(filter-out -%,$(2))
  $(1):
- 	$(if $(quiet),@echo "    [LD] $$@")
--	$(qexec)$$(LD) -shared $$(LDFLAGS) \
--            -Wl,--no-undefined -Wl,-soname,$$(SONAME) \
-+	$$(CC) -shared $$(LDFLAGS) -Wl,-soname,$$(SONAME) \
-             -Wl,--version-script,$$(SO_VERSION_SCRIPT) -o $$@ \
-             $$(filter %.o,$$?) $$(extralibs)
+ 	$(if $(quiet),@echo    "    [LD] $$@")
+-	$(qexec)$$(LD) $$(strip $$(INTERNAL_LDFLAGS) $$(LDFLAGS) -o $$@ $(2) $(3) $$(extralibs))
++	$$(CC) $$(strip $$(INTERNAL_LDFLAGS) $$(LDFLAGS) -o $$@ $(2) $(3) $$(extralibs))
  endef
+ define linkerxx_template
+ $(1): $(filter-out -%,$(2))

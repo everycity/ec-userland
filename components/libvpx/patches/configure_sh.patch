@@ -1,0 +1,10 @@
+--- libvpx-v1.2.0/build/make/configure.sh.orig	2013-12-12 11:04:38.879965488 +0000
++++ libvpx-v1.2.0/build/make/configure.sh	2013-12-12 11:07:25.297504396 +0000
+@@ -1011,6 +1011,7 @@
+                 CC=${CC:-${CROSS}gcc}
+                 CXX=${CXX:-${CROSS}g++}
+                 LD=${LD:-${CROSS}gcc}
++                AR=${AR:-${CROSS}ar}
+                 CROSS=${CROSS:-g}
+                 ;;
+             os2)
