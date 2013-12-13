@@ -1,0 +1,174 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2013 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/orbit-2.0
+dir path=$(ECPREFIX)/include/orbit-2.0/ORBitservices
+dir path=$(ECPREFIX)/include/orbit-2.0/orbit
+dir path=$(ECPREFIX)/include/orbit-2.0/orbit-idl
+dir path=$(ECPREFIX)/include/orbit-2.0/orbit/dynamic
+dir path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core
+dir path=$(ECPREFIX)/include/orbit-2.0/orbit/poa
+dir path=$(ECPREFIX)/include/orbit-2.0/orbit/util
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/orbit-2.0
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/orbit-2.0
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/aclocal
+dir path=$(ECPREFIX)/share/gtk-doc
+dir path=$(ECPREFIX)/share/gtk-doc/html
+dir path=$(ECPREFIX)/share/gtk-doc/html/ORBit2
+dir path=$(ECPREFIX)/share/idl
+dir path=$(ECPREFIX)/share/idl/orbit-2.0
+file path=$(ECPREFIX)/bin/$(MACH64)/ior-decode-2
+file path=$(ECPREFIX)/bin/$(MACH64)/linc-cleanup-sockets
+file path=$(ECPREFIX)/bin/$(MACH64)/orbit-idl-2
+file path=$(ECPREFIX)/bin/$(MACH64)/orbit2-config
+file path=$(ECPREFIX)/bin/$(MACH64)/typelib-dump
+file path=$(ECPREFIX)/bin/ior-decode-2
+file path=$(ECPREFIX)/bin/linc-cleanup-sockets
+file path=$(ECPREFIX)/bin/orbit-idl-2
+file path=$(ECPREFIX)/bin/orbit2-config
+file path=$(ECPREFIX)/bin/typelib-dump
+file path=$(ECPREFIX)/include/orbit-2.0/ORBitservices/CosNaming.h
+file path=$(ECPREFIX)/include/orbit-2.0/ORBitservices/CosNaming_impl.h
+file path=$(ECPREFIX)/include/orbit-2.0/ORBitservices/orbit-imodule.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit-idl/orbit-idl-backend.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/dynamic/dynamic-defs.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/dynamic/dynamic.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/allocators.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/corba-any-type.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/corba-any.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/corba-context-type.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/corba-context.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/corba-defs.h
+file \
+    path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/corba-environment-type.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/corba-environment.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/corba-nvlist.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/corba-object-type.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/corba-object.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/corba-orb-type.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/corba-orb.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/corba-pobj.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/corba-policy-type.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/corba-string.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/corba-typecode-type.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/corba-typecode.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/iop-defs.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/orb-core-types.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/orb-core.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/orb-types.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/orbit-interface.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/orbit-object.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orb-core/orbit-small.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orbit-config.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orbit-types.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/orbit.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/poa/orbit-adaptor.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/poa/poa-basics.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/poa/poa-defs.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/poa/poa-policy.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/poa/poa-types.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/poa/poa.h
+file \
+    path=$(ECPREFIX)/include/orbit-2.0/orbit/poa/portableserver-current-type.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/poa/portableserver-poa-type.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/util/basic_types.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/util/orbit-genrand.h
+file path=$(ECPREFIX)/include/orbit-2.0/orbit/util/orbit-util.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libORBit-2.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libORBit-2.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libORBit-2.so.0.1.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libORBit-imodule-2.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libORBit-imodule-2.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libORBit-imodule-2.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libORBitCosNaming-2.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libORBitCosNaming-2.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libORBitCosNaming-2.so.0.1.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libname-server-2.a
+file path=$(ECPREFIX)/lib/$(MACH64)/orbit-2.0/Everything_module.a
+file path=$(ECPREFIX)/lib/$(MACH64)/orbit-2.0/Everything_module.la
+file path=$(ECPREFIX)/lib/$(MACH64)/orbit-2.0/Everything_module.so
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/ORBit-2.0.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/ORBit-CosNaming-2.0.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/ORBit-idl-2.0.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/ORBit-imodule-2.0.pc
+file path=$(ECPREFIX)/lib/libORBit-2.a
+file path=$(ECPREFIX)/lib/libORBit-2.la
+file path=$(ECPREFIX)/lib/libORBit-2.so.0.1.0
+file path=$(ECPREFIX)/lib/libORBit-imodule-2.a
+file path=$(ECPREFIX)/lib/libORBit-imodule-2.la
+file path=$(ECPREFIX)/lib/libORBit-imodule-2.so.0.0.0
+file path=$(ECPREFIX)/lib/libORBitCosNaming-2.a
+file path=$(ECPREFIX)/lib/libORBitCosNaming-2.la
+file path=$(ECPREFIX)/lib/libORBitCosNaming-2.so.0.1.0
+file path=$(ECPREFIX)/lib/libname-server-2.a
+file path=$(ECPREFIX)/lib/orbit-2.0/Everything_module.a
+file path=$(ECPREFIX)/lib/orbit-2.0/Everything_module.la
+file path=$(ECPREFIX)/lib/orbit-2.0/Everything_module.so
+file path=$(ECPREFIX)/lib/pkgconfig/ORBit-2.0.pc
+file path=$(ECPREFIX)/lib/pkgconfig/ORBit-CosNaming-2.0.pc
+file path=$(ECPREFIX)/lib/pkgconfig/ORBit-idl-2.0.pc
+file path=$(ECPREFIX)/lib/pkgconfig/ORBit-imodule-2.0.pc
+file path=$(ECPREFIX)/share/aclocal/ORBit2.m4
+file path=$(ECPREFIX)/share/gtk-doc/html/ORBit2/ORBit2-orbit2-allocators.html
+file path=$(ECPREFIX)/share/gtk-doc/html/ORBit2/ORBit2-orbit2-small.html
+file path=$(ECPREFIX)/share/gtk-doc/html/ORBit2/ORBit2.devhelp
+file path=$(ECPREFIX)/share/gtk-doc/html/ORBit2/ORBit2.devhelp2
+file path=$(ECPREFIX)/share/gtk-doc/html/ORBit2/general.html
+file path=$(ECPREFIX)/share/gtk-doc/html/ORBit2/home.png
+file path=$(ECPREFIX)/share/gtk-doc/html/ORBit2/index.html
+file path=$(ECPREFIX)/share/gtk-doc/html/ORBit2/index.sgml
+file path=$(ECPREFIX)/share/gtk-doc/html/ORBit2/left.png
+file path=$(ECPREFIX)/share/gtk-doc/html/ORBit2/right.png
+file path=$(ECPREFIX)/share/gtk-doc/html/ORBit2/style.css
+file path=$(ECPREFIX)/share/gtk-doc/html/ORBit2/up.png
+file path=$(ECPREFIX)/share/idl/orbit-2.0/CosNaming.idl
+link path=$(ECPREFIX)/lib/$(MACH64)/libORBit-2.so target=libORBit-2.so.0.1.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libORBit-2.so.0 target=libORBit-2.so.0.1.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libORBit-imodule-2.so \
+    target=libORBit-imodule-2.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libORBit-imodule-2.so.0 \
+    target=libORBit-imodule-2.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libORBitCosNaming-2.so \
+    target=libORBitCosNaming-2.so.0.1.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libORBitCosNaming-2.so.0 \
+    target=libORBitCosNaming-2.so.0.1.0
+link path=$(ECPREFIX)/lib/libORBit-2.so target=libORBit-2.so.0.1.0
+link path=$(ECPREFIX)/lib/libORBit-2.so.0 target=libORBit-2.so.0.1.0
+link path=$(ECPREFIX)/lib/libORBit-imodule-2.so \
+    target=libORBit-imodule-2.so.0.0.0
+link path=$(ECPREFIX)/lib/libORBit-imodule-2.so.0 \
+    target=libORBit-imodule-2.so.0.0.0
+link path=$(ECPREFIX)/lib/libORBitCosNaming-2.so \
+    target=libORBitCosNaming-2.so.0.1.0
+link path=$(ECPREFIX)/lib/libORBitCosNaming-2.so.0 \
+    target=libORBitCosNaming-2.so.0.1.0
