@@ -60,6 +60,8 @@ dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/examples/beep
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/examples/clear
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/examples/progress
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/lib
+dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansicolors
+dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansistyles
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/archy
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/block-stream
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/block-stream/bench
@@ -90,6 +92,10 @@ dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inherits
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ini
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json
 dir \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/example
+dir \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/example/init
+dir \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/node_modules
 dir \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/node_modules/promzard
@@ -109,6 +115,7 @@ dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/mkdirp/examples
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/bin
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp
+dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/buildbot
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/data
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/data/win
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib
@@ -167,11 +174,7 @@ dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/lib
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules
 dir \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/aws-sign
-dir \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/cookie-jar
-dir \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/cookie-jar/tests
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/aws-sign2
 dir \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/forever-agent
 dir \
@@ -280,10 +283,25 @@ dir \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/oauth-sign
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/qs
 dir \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie
+dir \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/lib
+dir \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules
+dir \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode
+dir \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/vendor
+dir \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/vendor/docdown
+dir \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/vendor/docdown/doc
+dir \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/vendor/docdown/src
+dir \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/vendor/docdown/src/DocDown
+dir \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tunnel-agent
-dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests
-dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/ssl
-dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/ssl/ca
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/retry
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/retry/example
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/retry/lib
@@ -303,6 +321,8 @@ dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/slide/lib
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/tar
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/tar/examples
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/tar/lib
+dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/text-table
+dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/text-table/example
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/uid-number
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/which
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/which/bin
@@ -728,6 +748,18 @@ file \
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/lib/ansi.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/lib/newlines.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/package.json
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansicolors/LICENSE
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansicolors/README.md
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansicolors/ansicolors.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansicolors/package.json
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansistyles/LICENSE
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansistyles/README.md
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansistyles/ansistyles.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansistyles/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/archy/README.markdown
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/archy/index.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/archy/package.json
@@ -902,7 +934,13 @@ file \
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/default-input.js
 file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/example.js
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/example/example-basic.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/example/example-default.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/example/example-npm.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/example/init/basic-init.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/init-package-json.js
 file \
@@ -932,10 +970,9 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lockfile/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lockfile/lockfile.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lockfile/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/.npmignore
-file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/AUTHORS
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/CONTRIBUTORS
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/README.md
-file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/bench.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/lib/lru-cache.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/package.json
@@ -972,10 +1009,11 @@ file \
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/AUTHORS
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/DEPS
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/LICENSE
-file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/MANIFEST
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/OWNERS
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/PRESUBMIT.py
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/buildbot/buildbot_run.py
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/codereview.settings
 file \
@@ -984,6 +1022,8 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp.bat
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_dummy.c
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/gyptest.py
 file \
@@ -1003,8 +1043,6 @@ file \
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/MSVSVersion.py
 file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/SCons.py
-file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/__init__.py
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/common.py
@@ -1014,6 +1052,8 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/easy_xml.py
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/easy_xml_test.py
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/flock_tool.py
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/generator/__init__.py
 file \
@@ -1037,19 +1077,19 @@ file \
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/generator/ninja_test.py
 file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/generator/scons.py
-file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/generator/xcode.py
 file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/generator/xcode_test.py
+file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/input.py
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/input_test.py
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/mac_tool.py
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/msvs_emulation.py
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/ninja_syntax.py
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/sun_tool.py
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/win_tool.py
 file \
@@ -1258,6 +1298,7 @@ file \
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read/rs.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/.npmignore
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/.travis.yml
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/index.js
@@ -1265,29 +1306,15 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/lib/copy.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/lib/debug.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/lib/getSafe.js
 file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/aws-sign/LICENSE
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/lib/optional.js
 file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/aws-sign/README.md
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/aws-sign2/LICENSE
 file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/aws-sign/index.js
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/aws-sign2/README.md
 file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/aws-sign/package.json
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/aws-sign2/index.js
 file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/cookie-jar/LICENSE
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/cookie-jar/README.md
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/cookie-jar/index.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/cookie-jar/jar.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/cookie-jar/package.json
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/cookie-jar/tests/run.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/cookie-jar/tests/test-cookie.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/cookie-jar/tests/test-cookiejar.js
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/aws-sign2/package.json
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/forever-agent/LICENSE
 file \
@@ -1643,6 +1670,54 @@ file \
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/qs/package.json
 file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/.jshintrc
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/.npmignore
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/LICENSE
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/README.md
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/generate-pubsuffix.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/lib/cookie.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/lib/memstore.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/lib/pubsuffix.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/LICENSE-GPL.txt
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/LICENSE-MIT.txt
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/package.json
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/punycode.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/punycode.min.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/vendor/docdown/LICENSE.txt
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/vendor/docdown/README.md
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/vendor/docdown/doc/README.md
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/vendor/docdown/doc/parse.php
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/vendor/docdown/docdown.php
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/vendor/docdown/src/DocDown/Alias.php
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/vendor/docdown/src/DocDown/Entry.php
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/node_modules/punycode/vendor/docdown/src/DocDown/Generator.php
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/package.json
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/public-suffix.txt
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tough-cookie/test.js
+file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tunnel-agent/LICENSE
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tunnel-agent/README.md
@@ -1652,107 +1727,6 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/node_modules/tunnel-agent/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/request.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/googledoodle.jpg
-file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/run.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/server.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/squid.conf
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/ssl/ca/ca.cnf
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/ssl/ca/ca.crl
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/ssl/ca/ca.crt
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/ssl/ca/ca.csr
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/ssl/ca/ca.key
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/ssl/ca/ca.srl
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/ssl/ca/server.cnf
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/ssl/ca/server.crt
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/ssl/ca/server.csr
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/ssl/ca/server.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/ssl/ca/server.key
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/ssl/npm-ca.crt
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/ssl/test.crt
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/ssl/test.key
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-agentOptions.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-basic-auth.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-body.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-defaults.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-digest-auth.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-emptyBody.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-errors.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-follow-all-303.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-follow-all.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-form.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-hawk.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-headers.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-http-signature.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-httpModule.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-https-strict.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-https.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-isUrl.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-localAddress.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-oauth.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-onelineproxy.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-params.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-piped-redirect.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-pipes.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-pool.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-protocol-changing-redirect.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-proxy.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-qs.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-redirect.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-s3.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-timeout.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-toJSON.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/test-tunnel.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/request/tests/unicycle.jpg
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/retry/.npmignore
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/retry/License
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/retry/Makefile
@@ -1864,6 +1838,23 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/tar/lib/pack.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/tar/lib/parse.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/tar/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/tar/tar.js
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/text-table/.travis.yml
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/text-table/LICENSE
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/text-table/example/align.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/text-table/example/center.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/text-table/example/dotalign.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/text-table/example/doubledot.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/text-table/example/table.js
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/text-table/index.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/text-table/package.json
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/text-table/readme.markdown
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/uid-number/LICENCE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/uid-number/README.md
 file \
