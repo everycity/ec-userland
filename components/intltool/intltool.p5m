@@ -1,0 +1,49 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2013 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/aclocal
+dir path=$(ECPREFIX)/share/intltool
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man8
+file path=$(ECPREFIX)/bin/$(MACH64)/intltool-extract
+file path=$(ECPREFIX)/bin/$(MACH64)/intltool-merge
+file path=$(ECPREFIX)/bin/$(MACH64)/intltool-prepare
+file path=$(ECPREFIX)/bin/$(MACH64)/intltool-update
+file path=$(ECPREFIX)/bin/$(MACH64)/intltoolize
+file path=$(ECPREFIX)/bin/intltool-extract
+file path=$(ECPREFIX)/bin/intltool-merge
+file path=$(ECPREFIX)/bin/intltool-prepare
+file path=$(ECPREFIX)/bin/intltool-update
+file path=$(ECPREFIX)/bin/intltoolize
+file path=$(ECPREFIX)/share/aclocal/intltool.m4
+file path=$(ECPREFIX)/share/intltool/Makefile.in.in
+file path=$(ECPREFIX)/share/man/man8/intltool-extract.8
+file path=$(ECPREFIX)/share/man/man8/intltool-merge.8
+file path=$(ECPREFIX)/share/man/man8/intltool-prepare.8
+file path=$(ECPREFIX)/share/man/man8/intltool-update.8
+file path=$(ECPREFIX)/share/man/man8/intltoolize.8
