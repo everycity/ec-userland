@@ -252,20 +252,21 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 SUNSTUDIO_DIR="/opt/solarisstudio12.3/"
-PATH=$(COMPONENT_DIR)/build/bin:/opt/aoo-dmake/bin:$(SUNSTUDIO_DIR)/bin:/ec/bin:/usr/bin
+PATH=$(COMPONENT_DIR)/build/bin:/opt/aoo-dmake/bin:$(SUNSTUDIO_DIR)/bin:/ec/bin:/usr/bin:/usr/sbin
 
 CC=$(SUNSTUDIO_DIR)/bin/cc
 CXX=$(SUNSTUDIO_DIR)/bin/CC
-GNUMAKE=$(ECPREFIX)/bin/make
-TAR=$(ECPREFIX)/bin/tar
+GNUMAKE=$(ECPREFIX)/bin/gmake
+TAR=$(ECPREFIX)/bin/gtar
 
 COMPONENT_BUILD_ENV=	CONFIG_SHELL="$(CONFIG_SHELL)"
 COMPONENT_BUILD_ENV+=	PATH="$(PATH)"
 COMPONENT_BUILD_ENV+=	CC="$(CC)"
 COMPONENT_BUILD_ENV+=	CXX="$(CXX)"
-COMPONENT_BUILD_ENV+=	CFLAGS="-I$(ECPREFIX)/include"
 COMPONENT_BUILD_ENV+=	CPPFLAGS="-I$(ECPREFIX)/include"
-COMPONENT_BUILD_ENV+=	CXXFLAGS="-I$(ECPREFIX)/include"
+# Do not override CFLAGS or CXXFLAGS - they are used in the build
+#COMPONENT_BUILD_ENV+=	CFLAGS="-I$(ECPREFIX)/include"
+#COMPONENT_BUILD_ENV+=	CXXFLAGS="-I$(ECPREFIX)/include"
 COMPONENT_BUILD_ENV+=	LDFLAGS="-L/ec/lib -R/ec/lib"
 COMPONENT_BUILD_ENV+=	GNUMAKE=$(ECPREFIX)/bin/make
 COMPONENT_BUILD_ENV+=	TAR=$(ECPREFIX)/bin/tar
@@ -281,16 +282,18 @@ COMPONENT_BUILD_ENV += $(COMPONENT_BUILD_ENV.$(BITS))
 COMPONENT_PREP_ACTION= ( cd $(@D)/main && autoconf && \
 	mkdir -p $(@D)/ext_sources/ && \
 	for i in $(ARCHIVES) ; do rm -f $(@D)/ext_sources/$$i && \
-	 ln -s $(USERLAND_ARCHIVES)/$$i $(@D)/ext_sources/$$i ; done && \
-	pkg list library/icu > /dev/null 2>&1 ; if [ $? -eq 0 ] ; \
-	then echo Error: library/icu must not be installed to build OpenOffice ; fi )
+	ln -s $(USERLAND_ARCHIVES)/$$i $(@D)/ext_sources/$$i ; done )
+
+#	pkg list library/icu > /dev/null 2>&1 ; if [ $? -eq 0 ] ; \
+#	then echo "Error: library/icu must not be installed to build OpenOffice" ; fi )
 
 # Configure OpenOffice
 $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
 	($(RM) -rf $(@D) ; $(MKDIR) $(@D) && \
 	 $(CLONEY) $(SOURCE_DIR) $(@D) && \
-	 $(MKDIR) $(COMPONENT_DIR)/bin && \
-	 ln -s /usr/bin/strip $(COMPONENT_DIR)/bin/strip && \
+	 $(MKDIR) $(COMPONENT_DIR)/build/bin && \
+	 rm -f $(COMPONENT_DIR)/build/bin/strip && \
+	 ln -s /usr/bin/strip $(COMPONENT_DIR)/build/bin/strip && \
 	 cp $(COMPONENT_DIR)/files/unowinreg.dll $(@D)/main/external/unowinreg/)
 	(cd $(@D)/main && $(ENV) $(COMPONENT_BUILD_ENV) $(CONFIG_SHELL) \
 		./configure $(CONFIGURE_OPTIONS))
@@ -299,6 +302,7 @@ $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
 # Build OpenOffice
 $(BUILD_DIR)/%/.built:  $(BUILD_DIR)/%/.configured
 	(cd $(@D)/main/instsetoo_native && export $(COMPONENT_BUILD_ENV) && source ../SolarisX86Env.Set.sh && \
+		ulimit -s unlimited && \
 		../solenv/bin/build.pl --all -P4 -- -P4 -s )
 	$(TOUCH) $@
 
