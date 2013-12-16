@@ -73,7 +73,7 @@
 
 	<instance name='default' enabled='false'>
 
-		<property_group name='powerdns' type='application'>
+		<property_group name='proftpd' type='application'>
 			<stability value='Evolving'/>
 			<propval name='startup_options' type='astring' value=''/>
 
