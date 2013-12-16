@@ -1,0 +1,12 @@
+--- aoo-3.4.1/main/external_deps.lst.orig	2013-12-16 12:11:40.461867639 +0000
++++ aoo-3.4.1/main/external_deps.lst	2013-12-16 12:12:19.564724630 +0000
+@@ -25,7 +25,8 @@
+ # fallback server is used.
+ 
+ # The primary fallback site.
+-OOO_EXTRAS=http://ooo-extras.apache-extras.org.codespot.com/files/
++#OOO_EXTRAS=http://ooo-extras.apache-extras.org.codespot.com/files/
++OOO_EXTRAS=http://dlc.everycity.com/ec-userland/source-archives
+ 
+ # Secondary fallback for category-A libraries.
+ SVN_TRUNK=http://svn.apache.org/repos/asf/incubator/ooo/tags/AOO340/ext_sources/
