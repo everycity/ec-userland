@@ -9,16 +9,20 @@
 #
 
 #
-# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2013, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		flac
-COMPONENT_VERSION=	1.2.1
+COMPONENT_FMRI=		audio/flac
+COMPONENT_VERSION=	1.3.0
+COMPONENT_LICENSE=	BSD,GPL
+COMPONENT_PROJECT_URL=	"https://xiph.org/flac/"
+COMPONENT_SUMMARY=	Free Lossless Audio Codec
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:9635a44bceb478bbf2ee8a785cf6986fba525afb5fad1fd4bba73cf71f2d3edf
-COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
+COMPONENT_ARCHIVE_HASH=	sha256:fa2d64aac1f77e31dfbb270aeb08f5b32e27036a52ad15e69a77e309528010dc
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_XIPH)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
