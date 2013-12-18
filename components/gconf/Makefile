@@ -29,7 +29,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-#CONFIGURE_OPTIONS+=	
+# Build isn't thread safe
+COMPONENT_BUILD_GMAKE_ARGS=
 
 build:		$(BUILD_32_and_64)
 
