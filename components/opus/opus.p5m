@@ -37,14 +37,14 @@ file path=$(ECPREFIX)/include/opus/opus_multistream.h
 file path=$(ECPREFIX)/include/opus/opus_types.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libopus.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libopus.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libopus.so.0.3.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libopus.so.0.5.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/opus.pc
 file path=$(ECPREFIX)/lib/libopus.a
 file path=$(ECPREFIX)/lib/libopus.la
-file path=$(ECPREFIX)/lib/libopus.so.0.3.0
+file path=$(ECPREFIX)/lib/libopus.so.0.5.0
 file path=$(ECPREFIX)/lib/pkgconfig/opus.pc
 file path=$(ECPREFIX)/share/aclocal/opus.m4
-link path=$(ECPREFIX)/lib/$(MACH64)/libopus.so target=libopus.so.0.3.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libopus.so.0 target=libopus.so.0.3.0
-link path=$(ECPREFIX)/lib/libopus.so target=libopus.so.0.3.0
-link path=$(ECPREFIX)/lib/libopus.so.0 target=libopus.so.0.3.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libopus.so target=libopus.so.0.5.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libopus.so.0 target=libopus.so.0.5.0
+link path=$(ECPREFIX)/lib/libopus.so target=libopus.so.0.5.0
+link path=$(ECPREFIX)/lib/libopus.so.0 target=libopus.so.0.5.0
