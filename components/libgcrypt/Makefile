@@ -19,14 +19,15 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libgcrypt
-COMPONENT_VERSION=	1.4.6
+COMPONENT_VERSION=	1.6.0
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:445b9e158aaf91e24eae3d1040c6213e9d9f5ba6
+COMPONENT_ARCHIVE_HASH=	sha256:662d508600ad94cc334e665b7016137feedfcca5226998c65ddd56bdfca29708
 COMPONENT_ARCHIVE_URL=	ftp://ftp.gnupg.org/gcrypt/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -35,8 +36,7 @@ include ../../make-rules/ips.mk
 
 include ../../make-rules/shared-targets.mk
 
-CONFIGURE_OPTIONS	+=	--with-gnu-ld --with-gpg-error-prefix=/ec
-CONFIGURE_OPTIONS.64	+=	--disable-asm
+CONFIGURE_ENV.64 += PATH=$(ECPREFIX)/bin/$(MACH64):$(PATH)
 
 build:		$(BUILD_32_and_64)
 
