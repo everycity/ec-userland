@@ -19,14 +19,15 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gnupg
-COMPONENT_VERSION=	2.0.17
+COMPONENT_VERSION=	2.0.22
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:41ef5460417ca0a1131fc730849fe3afd49ad2de
+COMPONENT_ARCHIVE_HASH=	sha256:437d0ab259854359fc48aa8795af80cff4975e559c111c92c03d0bc91408e251
 COMPONENT_ARCHIVE_URL=	ftp://ftp.gnupg.org/gcrypt/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -35,7 +36,10 @@ include ../../make-rules/ips.mk
 
 include ../../make-rules/shared-targets.mk
 
-CONFIGURE_OPTIONS	+=	--libexecdir=$(ECPREFIX)/libexec
+CONFIGURE_ENV.64 += PATH=$(ECPREFIX)/bin/$(MACH64):$(PATH)
+
+CONFIGURE_OPTIONS.32+=	--libexecdir=$(ECPREFIX)/bin
+CONFIGURE_OPTIONS.64+=	--libexecdir=$(ECPREFIX)/bin/$(MACH64)
 
 build:		$(BUILD_32_and_64)
 

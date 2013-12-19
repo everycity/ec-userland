@@ -19,6 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -34,7 +35,6 @@ license gnupg2.license license="GPL"
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/libexec
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/doc
 dir path=$(ECPREFIX)/share/doc/gnupg
@@ -96,6 +96,8 @@ dir path=$(ECPREFIX)/share/locale/sv
 dir path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/tr
 dir path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/uk
+dir path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/zh_CN
 dir path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/zh_TW
@@ -105,9 +107,17 @@ dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man8
 file path=$(ECPREFIX)/bin/$(MACH64)/addgnupghome
 file path=$(ECPREFIX)/bin/$(MACH64)/applygnupgdefaults
+file path=$(ECPREFIX)/bin/$(MACH64)/gnupg-pcsc-wrapper
 file path=$(ECPREFIX)/bin/$(MACH64)/gpg-agent
+file path=$(ECPREFIX)/bin/$(MACH64)/gpg-check-pattern
 file path=$(ECPREFIX)/bin/$(MACH64)/gpg-connect-agent
+file path=$(ECPREFIX)/bin/$(MACH64)/gpg-preset-passphrase
+file path=$(ECPREFIX)/bin/$(MACH64)/gpg-protect-tool
 file path=$(ECPREFIX)/bin/$(MACH64)/gpg2
+file path=$(ECPREFIX)/bin/$(MACH64)/gpg2keys_curl
+file path=$(ECPREFIX)/bin/$(MACH64)/gpg2keys_finger
+file path=$(ECPREFIX)/bin/$(MACH64)/gpg2keys_hkp
+file path=$(ECPREFIX)/bin/$(MACH64)/gpg2keys_ldap
 file path=$(ECPREFIX)/bin/$(MACH64)/gpgconf
 file path=$(ECPREFIX)/bin/$(MACH64)/gpgkey2ssh
 file path=$(ECPREFIX)/bin/$(MACH64)/gpgparsemail
@@ -119,9 +129,17 @@ file path=$(ECPREFIX)/bin/$(MACH64)/scdaemon
 file path=$(ECPREFIX)/bin/$(MACH64)/watchgnupg
 file path=$(ECPREFIX)/bin/addgnupghome
 file path=$(ECPREFIX)/bin/applygnupgdefaults
+file path=$(ECPREFIX)/bin/gnupg-pcsc-wrapper
 file path=$(ECPREFIX)/bin/gpg-agent
+file path=$(ECPREFIX)/bin/gpg-check-pattern
 file path=$(ECPREFIX)/bin/gpg-connect-agent
+file path=$(ECPREFIX)/bin/gpg-preset-passphrase
+file path=$(ECPREFIX)/bin/gpg-protect-tool
 file path=$(ECPREFIX)/bin/gpg2
+file path=$(ECPREFIX)/bin/gpg2keys_curl
+file path=$(ECPREFIX)/bin/gpg2keys_finger
+file path=$(ECPREFIX)/bin/gpg2keys_hkp
+file path=$(ECPREFIX)/bin/gpg2keys_ldap
 file path=$(ECPREFIX)/bin/gpgconf
 file path=$(ECPREFIX)/bin/gpgkey2ssh
 file path=$(ECPREFIX)/bin/gpgparsemail
@@ -131,14 +149,6 @@ file path=$(ECPREFIX)/bin/gpgv2
 file path=$(ECPREFIX)/bin/kbxutil
 file path=$(ECPREFIX)/bin/scdaemon
 file path=$(ECPREFIX)/bin/watchgnupg
-file path=$(ECPREFIX)/libexec/gnupg-pcsc-wrapper
-file path=$(ECPREFIX)/libexec/gpg-check-pattern
-file path=$(ECPREFIX)/libexec/gpg-preset-passphrase
-file path=$(ECPREFIX)/libexec/gpg-protect-tool
-file path=$(ECPREFIX)/libexec/gpg2keys_curl
-file path=$(ECPREFIX)/libexec/gpg2keys_finger
-file path=$(ECPREFIX)/libexec/gpg2keys_hkp
-file path=$(ECPREFIX)/libexec/gpg2keys_ldap
 file path=$(ECPREFIX)/share/doc/gnupg/DETAILS
 file path=$(ECPREFIX)/share/doc/gnupg/FAQ
 file path=$(ECPREFIX)/share/doc/gnupg/HACKING
@@ -212,6 +222,7 @@ file path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES/gnupg2.mo
 file path=$(ECPREFIX)/share/locale/sk/LC_MESSAGES/gnupg2.mo
 file path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES/gnupg2.mo
 file path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES/gnupg2.mo
+file path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES/gnupg2.mo
 file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/gnupg2.mo
 file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/gnupg2.mo
 file path=$(ECPREFIX)/share/man/man1/gpg-agent.1
