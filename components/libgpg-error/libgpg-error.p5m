@@ -19,7 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -46,12 +46,18 @@ dir path=$(ECPREFIX)/share/common-lisp/source/gpg-error
 dir path=$(ECPREFIX)/share/locale
 dir path=$(ECPREFIX)/share/locale/cs
 dir path=$(ECPREFIX)/share/locale/cs/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/da
+dir path=$(ECPREFIX)/share/locale/da/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/de
 dir path=$(ECPREFIX)/share/locale/de/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/eo
+dir path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/fr
 dir path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/it
 dir path=$(ECPREFIX)/share/locale/it/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ja
+dir path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/nl
 dir path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/pl
@@ -60,6 +66,8 @@ dir path=$(ECPREFIX)/share/locale/ro
 dir path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/sv
 dir path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/uk
+dir path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/vi
 dir path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/zh_CN
@@ -69,8 +77,10 @@ file path=$(ECPREFIX)/bin/$(MACH64)/gpg-error-config
 file path=$(ECPREFIX)/bin/gpg-error
 file path=$(ECPREFIX)/bin/gpg-error-config
 file path=$(ECPREFIX)/include/gpg-error.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libgpg-error.so.0.8.0
-file path=$(ECPREFIX)/lib/libgpg-error.so.0.8.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libgpg-error.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libgpg-error.so.0.10.0
+file path=$(ECPREFIX)/lib/libgpg-error.la
+file path=$(ECPREFIX)/lib/libgpg-error.so.0.10.0
 file path=$(ECPREFIX)/share/aclocal/gpg-error.m4
 file path=$(ECPREFIX)/share/common-lisp/source/gpg-error/gpg-error-codes.lisp
 file \
@@ -78,18 +88,22 @@ file \
 file path=$(ECPREFIX)/share/common-lisp/source/gpg-error/gpg-error.asd
 file path=$(ECPREFIX)/share/common-lisp/source/gpg-error/gpg-error.lisp
 file path=$(ECPREFIX)/share/locale/cs/LC_MESSAGES/libgpg-error.mo
+file path=$(ECPREFIX)/share/locale/da/LC_MESSAGES/libgpg-error.mo
 file path=$(ECPREFIX)/share/locale/de/LC_MESSAGES/libgpg-error.mo
+file path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES/libgpg-error.mo
 file path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES/libgpg-error.mo
 file path=$(ECPREFIX)/share/locale/it/LC_MESSAGES/libgpg-error.mo
+file path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES/libgpg-error.mo
 file path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES/libgpg-error.mo
 file path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES/libgpg-error.mo
 file path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES/libgpg-error.mo
 file path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES/libgpg-error.mo
+file path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES/libgpg-error.mo
 file path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES/libgpg-error.mo
 file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/libgpg-error.mo
 link path=$(ECPREFIX)/lib/$(MACH64)/libgpg-error.so \
-    target=libgpg-error.so.0.8.0
+    target=libgpg-error.so.0.10.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libgpg-error.so.0 \
-    target=libgpg-error.so.0.8.0
-link path=$(ECPREFIX)/lib/libgpg-error.so target=libgpg-error.so.0.8.0
-link path=$(ECPREFIX)/lib/libgpg-error.so.0 target=libgpg-error.so.0.8.0
+    target=libgpg-error.so.0.10.0
+link path=$(ECPREFIX)/lib/libgpg-error.so target=libgpg-error.so.0.10.0
+link path=$(ECPREFIX)/lib/libgpg-error.so.0 target=libgpg-error.so.0.10.0
