@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012-2013 EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -21,10 +21,6 @@ set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
-
-# Including libcurl.m4
-dir path=$(ECPREFIX)/share/aclocal
-file docs/libcurl/libcurl.m4 path=$(ECPREFIX)/share/aclocal/libcurl.m4
 
 # Dependency on ca-bundle
 depend fmri=pkg:/crypto/ca-bundle type=require
@@ -40,6 +36,7 @@ dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 dir path=$(ECPREFIX)/lib/pkgconfig
 dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/aclocal
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man3
@@ -62,6 +59,7 @@ file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libcurl.pc
 file path=$(ECPREFIX)/lib/libcurl.la
 file path=$(ECPREFIX)/lib/libcurl.so.4.3.0
 file path=$(ECPREFIX)/lib/pkgconfig/libcurl.pc
+file path=$(ECPREFIX)/share/aclocal/libcurl.m4
 file path=$(ECPREFIX)/share/man/man1/curl-config.1
 file path=$(ECPREFIX)/share/man/man1/curl.1
 file path=$(ECPREFIX)/share/man/man3/curl_easy_cleanup.3
