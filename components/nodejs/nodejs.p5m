@@ -24,6 +24,10 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/node
+dir path=$(ECPREFIX)/include/node/openssl
+dir path=$(ECPREFIX)/include/node/uv-private
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/dtrace
 dir path=$(ECPREFIX)/lib/node_modules
@@ -156,6 +160,8 @@ dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npmlog
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/once
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/opener
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/osenv
+dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/path-is-inside
+dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/path-is-inside/lib
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-installed
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json
@@ -331,6 +337,34 @@ dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 file path=$(ECPREFIX)/bin/node
+file path=$(ECPREFIX)/include/node/ares.h
+file path=$(ECPREFIX)/include/node/ares_version.h
+file path=$(ECPREFIX)/include/node/config.gypi
+file path=$(ECPREFIX)/include/node/nameser.h
+file path=$(ECPREFIX)/include/node/node.h
+file path=$(ECPREFIX)/include/node/node_buffer.h
+file path=$(ECPREFIX)/include/node/node_internals.h
+file path=$(ECPREFIX)/include/node/node_object_wrap.h
+file path=$(ECPREFIX)/include/node/node_version.h
+file path=$(ECPREFIX)/include/node/openssl/opensslconf.h
+file path=$(ECPREFIX)/include/node/uv-private/ngx-queue.h
+file path=$(ECPREFIX)/include/node/uv-private/stdint-msvc2008.h
+file path=$(ECPREFIX)/include/node/uv-private/tree.h
+file path=$(ECPREFIX)/include/node/uv-private/uv-bsd.h
+file path=$(ECPREFIX)/include/node/uv-private/uv-darwin.h
+file path=$(ECPREFIX)/include/node/uv-private/uv-linux.h
+file path=$(ECPREFIX)/include/node/uv-private/uv-sunos.h
+file path=$(ECPREFIX)/include/node/uv-private/uv-unix.h
+file path=$(ECPREFIX)/include/node/uv-private/uv-win.h
+file path=$(ECPREFIX)/include/node/uv.h
+file path=$(ECPREFIX)/include/node/v8-debug.h
+file path=$(ECPREFIX)/include/node/v8-preparser.h
+file path=$(ECPREFIX)/include/node/v8-profiler.h
+file path=$(ECPREFIX)/include/node/v8-testing.h
+file path=$(ECPREFIX)/include/node/v8.h
+file path=$(ECPREFIX)/include/node/v8stdint.h
+file path=$(ECPREFIX)/include/node/zconf.h
+file path=$(ECPREFIX)/include/node/zlib.h
 file path=$(ECPREFIX)/lib/dtrace/node.d
 file path=$(ECPREFIX)/lib/node_modules/npm/.npmignore
 file path=$(ECPREFIX)/lib/node_modules/npm/.tern-project
@@ -976,6 +1010,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/README.md
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/lib/lru-cache.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/lru-cache/package.json
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/minimatch/.npmignore
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/minimatch/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/minimatch/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/minimatch/minimatch.js
@@ -1164,6 +1199,10 @@ file \
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/lib/adduser.js
 file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/lib/bugs.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/lib/deprecate.js
+file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/lib/get.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/lib/publish.js
@@ -1244,6 +1283,14 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/osenv/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/osenv/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/osenv/osenv.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/osenv/package.json
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/path-is-inside/LICENSE.txt
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/path-is-inside/README.md
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/path-is-inside/lib/path-is-inside.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/path-is-inside/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-installed/LICENSE
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-installed/README.md
