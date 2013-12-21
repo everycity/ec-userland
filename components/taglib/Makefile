@@ -15,14 +15,14 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		taglib
-COMPONENT_FMRI=	 multimedia/taglib
-COMPONENT_VERSION=      1.8
+COMPONENT_FMRI=	 	multimedia/taglib
+COMPONENT_VERSION=      1.9.1
 COMPONENT_LICENSE=      LGPLv2.1 MPL
 COMPONENT_PROJECT_URL=  http://taglib.github.io/
 COMPONENT_SUMMARY=	TagLib is a library for reading and editing the meta-data of several popular audio formats
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:66d33481703c90236a0a9d1c38fd81b584ca7109ded049225f5463dcaffc209a
+COMPONENT_ARCHIVE_HASH=	sha256:72d371cd1419a87ae200447a53bff2be219283071e80fd12337928cc967dc71a
 COMPONENT_ARCHIVE_URL=	http://taglib.github.io/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

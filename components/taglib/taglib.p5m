@@ -63,6 +63,7 @@ file path=$(ECPREFIX)/include/taglib/id3v2framefactory.h
 file path=$(ECPREFIX)/include/taglib/id3v2header.h
 file path=$(ECPREFIX)/include/taglib/id3v2synchdata.h
 file path=$(ECPREFIX)/include/taglib/id3v2tag.h
+file path=$(ECPREFIX)/include/taglib/infotag.h
 file path=$(ECPREFIX)/include/taglib/itfile.h
 file path=$(ECPREFIX)/include/taglib/itproperties.h
 file path=$(ECPREFIX)/include/taglib/modfile.h
@@ -84,6 +85,8 @@ file path=$(ECPREFIX)/include/taglib/oggfile.h
 file path=$(ECPREFIX)/include/taglib/oggflacfile.h
 file path=$(ECPREFIX)/include/taglib/oggpage.h
 file path=$(ECPREFIX)/include/taglib/oggpageheader.h
+file path=$(ECPREFIX)/include/taglib/opusfile.h
+file path=$(ECPREFIX)/include/taglib/opusproperties.h
 file path=$(ECPREFIX)/include/taglib/ownershipframe.h
 file path=$(ECPREFIX)/include/taglib/popularimeterframe.h
 file path=$(ECPREFIX)/include/taglib/privateframe.h
@@ -101,6 +104,7 @@ file path=$(ECPREFIX)/include/taglib/taglib_export.h
 file path=$(ECPREFIX)/include/taglib/tbytevector.h
 file path=$(ECPREFIX)/include/taglib/tbytevectorlist.h
 file path=$(ECPREFIX)/include/taglib/tbytevectorstream.h
+file path=$(ECPREFIX)/include/taglib/tdebuglistener.h
 file path=$(ECPREFIX)/include/taglib/textidentificationframe.h
 file path=$(ECPREFIX)/include/taglib/tfile.h
 file path=$(ECPREFIX)/include/taglib/tfilestream.h
@@ -110,6 +114,7 @@ file path=$(ECPREFIX)/include/taglib/tlist.tcc
 file path=$(ECPREFIX)/include/taglib/tmap.h
 file path=$(ECPREFIX)/include/taglib/tmap.tcc
 file path=$(ECPREFIX)/include/taglib/tpropertymap.h
+file path=$(ECPREFIX)/include/taglib/trefcounter.h
 file path=$(ECPREFIX)/include/taglib/trueaudiofile.h
 file path=$(ECPREFIX)/include/taglib/trueaudioproperties.h
 file path=$(ECPREFIX)/include/taglib/tstring.h
@@ -128,19 +133,19 @@ file path=$(ECPREFIX)/include/taglib/xingheader.h
 file path=$(ECPREFIX)/include/taglib/xiphcomment.h
 file path=$(ECPREFIX)/include/taglib/xmfile.h
 file path=$(ECPREFIX)/include/taglib/xmproperties.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libtag.so.1.12.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libtag.so.1.14.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libtag_c.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/taglib.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/taglib_c.pc
-file path=$(ECPREFIX)/lib/libtag.so.1.12.0
+file path=$(ECPREFIX)/lib/libtag.so.1.14.0
 file path=$(ECPREFIX)/lib/libtag_c.so.0.0.0
 file path=$(ECPREFIX)/lib/pkgconfig/taglib.pc
 file path=$(ECPREFIX)/lib/pkgconfig/taglib_c.pc
 link path=$(ECPREFIX)/lib/$(MACH64)/libtag.so target=libtag.so.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libtag.so.1 target=libtag.so.1.12.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libtag.so.1 target=libtag.so.1.14.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libtag_c.so target=libtag_c.so.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libtag_c.so.0 target=libtag_c.so.0.0.0
 link path=$(ECPREFIX)/lib/libtag.so target=libtag.so.1
-link path=$(ECPREFIX)/lib/libtag.so.1 target=libtag.so.1.12.0
+link path=$(ECPREFIX)/lib/libtag.so.1 target=libtag.so.1.14.0
 link path=$(ECPREFIX)/lib/libtag_c.so target=libtag_c.so.0
 link path=$(ECPREFIX)/lib/libtag_c.so.0 target=libtag_c.so.0.0.0
