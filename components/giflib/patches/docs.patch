@@ -1,0 +1,22 @@
+--- giflib-4.2.3/doc/Makefile.in.~1~	2013-09-03 14:47:52.000000000 +0100
++++ giflib-4.2.3/doc/Makefile.in	2013-09-16 13:46:41.114642593 +0100
+@@ -401,15 +401,15 @@
+ 
+ 
+ .xml.html:
+-	xmlto xhtml-nochunks $<
++#	xmlto xhtml-nochunks $<
+ 
+ .xml.1:
+-	xmlto man $<
++#	xmlto man $<
+ 
+ .xml.txt:
+-	xmlto txt $<
++#	xmlto txt $<
+ 
+-all: allhtml manpages
++all: manpages
+ 
+ allhtml: $(XMLALL:.xml=.html)
+ 

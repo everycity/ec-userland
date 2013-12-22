@@ -9,16 +9,20 @@
 #
 
 #
-# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		giflib
-COMPONENT_VERSION=	4.1.6
+COMPONENT_FMRI=		library/giflib
+COMPONENT_VERSION=	4.2.3
+COMPONENT_LICENSE=	BSD
+COMPONENT_PROJECT_URL=	"http://sourceforge.net/projects/giflib/"
+COMPONENT_SUMMARY=	giflib is a library for reading and writing gif images.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:e1c1ced9c5bc8f93ef0faf0a8c7717abf784d10a7b270d2285e8e1f3b93f2bed
+COMPONENT_ARCHIVE_HASH=	sha256:0ac8d56726f77c8bc9648c93bbb4d6185d32b15ba7bdb702415990f96f3cb766
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
