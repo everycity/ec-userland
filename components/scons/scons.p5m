@@ -9,18 +9,18 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/developer/build/scons@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="SCons is an Open Source software construction tool"
-set name=info.upstream_url value="http://www.scons.org/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license LICENSE.txt license="MIT"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -174,6 +174,10 @@ file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/FortranCommon.py
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/FortranCommon.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/GettextCommon.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/GettextCommon.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/JavaCommon.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/JavaCommon.pyc
 file \
@@ -265,6 +269,8 @@ file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gas.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gas.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gcc.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gcc.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gettext.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gettext.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gfortran.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gfortran.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gnulink.py
@@ -317,6 +323,12 @@ file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/midl.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/midl.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/mingw.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/mingw.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/msgfmt.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/msgfmt.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/msginit.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/msginit.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/msgmerge.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/msgmerge.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/mslib.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/mslib.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/mslink.py
@@ -387,6 +399,8 @@ file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/rpcgen.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/rpcgen.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/rpm.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/rpm.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/rpmutils.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/rpmutils.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/sgiar.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/sgiar.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/sgic++.py
@@ -421,6 +435,8 @@ file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/tlib.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/tlib.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/wix.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/wix.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/xgettext.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/xgettext.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/yacc.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/yacc.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/zip.py

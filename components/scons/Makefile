@@ -9,16 +9,20 @@
 #
 
 #
-# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		scons
-COMPONENT_VERSION=	2.1.0
+COMPONENT_FMRI=		developer/build/scons
+COMPONENT_VERSION=	2.3.0
+COMPONENT_LICENSE=	MIT
+COMPONENT_PROJECT_URL=	"http://www.scons.org/"
+COMPONENT_SUMMARY=	SCons is an Open Source software construction tool
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:4139ed14f60dd2ebcd47c59984d14705636180eb27b3d1b2949489e514b1921d
+COMPONENT_ARCHIVE_HASH=	sha256:9442069999cf4b2caa94a5886ab4c2c71de1718ed5e9176c18e2b6dbca463b4b
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
