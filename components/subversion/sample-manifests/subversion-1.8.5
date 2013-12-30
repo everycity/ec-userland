@@ -160,6 +160,8 @@ file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra-1.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra-1.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_local-1.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_local-1.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_serf-1.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_serf-1.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_svn-1.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_svn-1.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libsvn_repos-1.la
@@ -294,6 +296,8 @@ file path=$(ECPREFIX)/lib/libsvn_ra-1.la
 file path=$(ECPREFIX)/lib/libsvn_ra-1.so.0.0.0
 file path=$(ECPREFIX)/lib/libsvn_ra_local-1.la
 file path=$(ECPREFIX)/lib/libsvn_ra_local-1.so.0.0.0
+file path=$(ECPREFIX)/lib/libsvn_ra_serf-1.la
+file path=$(ECPREFIX)/lib/libsvn_ra_serf-1.so.0.0.0
 file path=$(ECPREFIX)/lib/libsvn_ra_svn-1.la
 file path=$(ECPREFIX)/lib/libsvn_ra_svn-1.so.0.0.0
 file path=$(ECPREFIX)/lib/libsvn_repos-1.la
@@ -456,6 +460,10 @@ link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_local-1.so \
     target=libsvn_ra_local-1.so.0.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_local-1.so.0 \
     target=libsvn_ra_local-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_serf-1.so \
+    target=libsvn_ra_serf-1.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_serf-1.so.0 \
+    target=libsvn_ra_serf-1.so.0.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_svn-1.so \
     target=libsvn_ra_svn-1.so.0.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libsvn_ra_svn-1.so.0 \
@@ -494,6 +502,9 @@ link path=$(ECPREFIX)/lib/libsvn_ra_local-1.so \
     target=libsvn_ra_local-1.so.0.0.0
 link path=$(ECPREFIX)/lib/libsvn_ra_local-1.so.0 \
     target=libsvn_ra_local-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_ra_serf-1.so target=libsvn_ra_serf-1.so.0.0.0
+link path=$(ECPREFIX)/lib/libsvn_ra_serf-1.so.0 \
+    target=libsvn_ra_serf-1.so.0.0.0
 link path=$(ECPREFIX)/lib/libsvn_ra_svn-1.so target=libsvn_ra_svn-1.so.0.0.0
 link path=$(ECPREFIX)/lib/libsvn_ra_svn-1.so.0 target=libsvn_ra_svn-1.so.0.0.0
 link path=$(ECPREFIX)/lib/libsvn_repos-1.so target=libsvn_repos-1.so.0.0.0
