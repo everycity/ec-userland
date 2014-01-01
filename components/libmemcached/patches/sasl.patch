@@ -1,0 +1,56 @@
+--- libmemcached-1.0.17/configure.orig	2014-01-01 16:07:49.856534625 +0000
++++ libmemcached-1.0.17/configure	2014-01-01 16:09:08.097555535 +0000
+@@ -21407,13 +21407,13 @@
+       ac_fn_c_check_header_mongrel "$LINENO" "sasl/sasl.h" "ac_cv_header_sasl_sasl_h" "$ac_includes_default"
+ if test "x$ac_cv_header_sasl_sasl_h" = xyes; then :
+ 
+-        { $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lsasl2" >&5
+-$as_echo_n "checking for main in -lsasl2... " >&6; }
+-if ${ac_cv_lib_sasl2_main+:} false; then :
++        { $as_echo "$as_me:${as_lineno-$LINENO}: checking for main in -lsasl" >&5
++$as_echo_n "checking for main in -lsasl... " >&6; }
++if ${ac_cv_lib_sasl_main+:} false; then :
+   $as_echo_n "(cached) " >&6
+ else
+   ac_check_lib_save_LIBS=$LIBS
+-LIBS="-lsasl2  $LIBS"
++LIBS="-lsasl  $LIBS"
+ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ 
+@@ -21427,17 +21427,17 @@
+ }
+ _ACEOF
+ if ac_fn_c_try_link "$LINENO"; then :
+-  ac_cv_lib_sasl2_main=yes
++  ac_cv_lib_sasl_main=yes
+ else
+-  ac_cv_lib_sasl2_main=no
++  ac_cv_lib_sasl_main=no
+ fi
+ rm -f core conftest.err conftest.$ac_objext \
+     conftest$ac_exeext conftest.$ac_ext
+ LIBS=$ac_check_lib_save_LIBS
+ fi
+-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_sasl2_main" >&5
+-$as_echo "$ac_cv_lib_sasl2_main" >&6; }
+-if test "x$ac_cv_lib_sasl2_main" = xyes; then :
++{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_sasl_main" >&5
++$as_echo "$ac_cv_lib_sasl_main" >&6; }
++if test "x$ac_cv_lib_sasl_main" = xyes; then :
+   ax_cv_have_LIBSASL=yes
+ else
+   ax_cv_have_LIBSASL=no
+@@ -21468,10 +21468,10 @@
+ 
+ 
+ 
+-        LIBSASL_LIB=-lsasl2
++        LIBSASL_LIB=-lsasl
+ 
+         ax_sasl_check=yes
+-      SASL_LIB=-lsasl2
++      SASL_LIB=-lsasl
+ 
+ 
+ else

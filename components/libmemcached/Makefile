@@ -15,13 +15,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libmemcached
 COMPONENT_FMRI=		library/libmemcached
-COMPONENT_VERSION=	1.0.16
+COMPONENT_VERSION=	1.0.17
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://launchpad.net/libmemcached/"
 COMPONENT_SUMMARY=	Client library and tools for the memcached server
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:2215d1766bff02b75403291d3d870fcd7d0735e4d018657d4d74fc44e92bdbfc
+COMPONENT_ARCHIVE_HASH=	sha256:7bb27b2589400f918df1cf5002cb01ef7ccac6e23f818604e2386de62c80bba5
 COMPONENT_ARCHIVE_URL=	https://launchpad.net/libmemcached/1.0/$(COMPONENT_VERSION)/+download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -30,9 +30,9 @@ include ../../make-rules/ips.mk
 
 PATH=	$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
 
-COMPONENT_POST_CONFIGURE_ACTION = \
-       (cd $(@D) ; \
-        perl -pi -e 's/(^\#define HAVE_HTONLL.*)/\/* $$0 *\//' mem_config.h )
+#COMPONENT_POST_CONFIGURE_ACTION = \
+#       (cd $(@D) ; \
+#        perl -pi -e 's/(^\#define HAVE_HTONLL.*)/\/* $$0 *\//' mem_config.h )
 
 LDFLAGS+=	-lnsl -lsocket
 
