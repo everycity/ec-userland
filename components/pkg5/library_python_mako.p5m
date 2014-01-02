@@ -21,7 +21,7 @@
 # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
 #
 
-set name=pkg.fmri value=pkg:/library/python-2/mako@0.2.2,$(BUILD_VERSION)
+set name=pkg.fmri value=pkg:/library/python-2/mako@0.3.6,$(BUILD_VERSION)
 set name=pkg.summary value="Template library written in Python"
 set name=pkg.description value="Mako is an embedded Python (i.e., Python Server Page) templating language."
 #set name=info.classification value=org.opensolaris.category.2008:Development/Python
@@ -33,14 +33,14 @@ dir path=ec
 dir path=ec/lib
 dir path=ec/lib/python2.6
 dir path=ec/lib/python2.6/vendor-packages
-dir path=ec/lib/python2.6/vendor-packages/Mako-0.2.2-py2.6.egg-info
-file path=ec/lib/python2.6/vendor-packages/Mako-0.2.2-py2.6.egg-info/PKG-INFO
-file path=ec/lib/python2.6/vendor-packages/Mako-0.2.2-py2.6.egg-info/SOURCES.txt
-file path=ec/lib/python2.6/vendor-packages/Mako-0.2.2-py2.6.egg-info/dependency_links.txt
-file path=ec/lib/python2.6/vendor-packages/Mako-0.2.2-py2.6.egg-info/entry_points.txt
-file path=ec/lib/python2.6/vendor-packages/Mako-0.2.2-py2.6.egg-info/not-zip-safe
-file path=ec/lib/python2.6/vendor-packages/Mako-0.2.2-py2.6.egg-info/requires.txt
-file path=ec/lib/python2.6/vendor-packages/Mako-0.2.2-py2.6.egg-info/top_level.txt
+dir path=ec/lib/python2.6/vendor-packages/Mako-0.3.6-py2.6.egg-info
+file path=ec/lib/python2.6/vendor-packages/Mako-0.3.6-py2.6.egg-info/PKG-INFO
+file path=ec/lib/python2.6/vendor-packages/Mako-0.3.6-py2.6.egg-info/SOURCES.txt
+file path=ec/lib/python2.6/vendor-packages/Mako-0.3.6-py2.6.egg-info/dependency_links.txt
+file path=ec/lib/python2.6/vendor-packages/Mako-0.3.6-py2.6.egg-info/entry_points.txt
+file path=ec/lib/python2.6/vendor-packages/Mako-0.3.6-py2.6.egg-info/not-zip-safe
+file path=ec/lib/python2.6/vendor-packages/Mako-0.3.6-py2.6.egg-info/requires.txt
+file path=ec/lib/python2.6/vendor-packages/Mako-0.3.6-py2.6.egg-info/top_level.txt
 dir path=ec/lib/python2.6/vendor-packages/mako
 file path=ec/lib/python2.6/vendor-packages/mako/__init__.py
 file path=ec/lib/python2.6/vendor-packages/mako/_ast_util.py
