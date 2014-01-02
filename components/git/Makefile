@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		git
 COMPONENT_FMRI=		developer/versioning/git
-COMPONENT_VERSION=	1.8.5.1
+COMPONENT_VERSION=	1.8.5.2
 COMPONENT_LICENSE=	GPLv2
 COMPONENT_PROJECT_URL=	http://git-scm.com/
 COMPONENT_SUMMARY=	git - Fast version control system
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:1559c4d7af0377ea3133c6dfccc2f32a25bcc8e3255464f4a36ab87416f8ee44
+COMPONENT_ARCHIVE_HASH=	sha256:024694524b8be91fe29afca65bc3a9e40de1322dd5ef2b2c0babb6849c913e8a
 COMPONENT_ARCHIVE_URL=	http://git-core.googlecode.com/files/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -41,7 +41,9 @@ CONFIGURE_OPTIONS+=	--with-editor=vim
 
 LDFLAGS+=	-lintl
 
-COMPONENT_BUILD_ENV+=	PERL_PATH=$(ECPREFIX)/bin/perl
+COMPONENT_BUILD_ENV+=		PERL_PATH=$(ECPREFIX)/bin/perl
+COMPONENT_BUILD_TARGETS+=	all man
+COMPONENT_INSTALL_TARGETS+=	install-man
 
 build:		$(BUILD_32)
 
