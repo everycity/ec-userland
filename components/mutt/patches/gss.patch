@@ -1,0 +1,25 @@
+--- mutt-1.5.22/configure.orig	2013-12-30 21:50:18.504501280 +0000
++++ mutt-1.5.22/configure	2013-12-30 21:50:46.490385552 +0000
+@@ -9285,8 +9285,8 @@
+ 
+   if test "$KRB5CFGPATH" != "none"
+   then
+-    GSSAPI_CFLAGS="$CPPFLAGS `$KRB5CFGPATH --cflags gssapi`"
+-    GSSAPI_LIBS="$MUTTLIBS `$KRB5CFGPATH --libs gssapi`"
++    GSSAPI_CFLAGS="$CPPFLAGS `$KRB5CFGPATH --cflags `"
++    GSSAPI_LIBS="$MUTTLIBS `$KRB5CFGPATH --libs` -lgss"
+     case "`$KRB5CFGPATH --version`" in
+       "Kerberos 5 "*)	GSSAPI_IMPL="MIT";;
+       ?eimdal*)		GSSAPI_IMPL="Heimdal";;
+--- mutt-1.5.22/imap/auth_gss.c.~1~	2010-02-21 22:10:41.000000000 +0000
++++ mutt-1.5.22/imap/auth_gss.c	2013-12-30 21:57:15.242624905 +0000
+@@ -33,7 +33,8 @@
+ #  define gss_nt_service_name GSS_C_NT_HOSTBASED_SERVICE
+ #else
+ #  include <gssapi/gssapi.h>
+-#  include <gssapi/gssapi_generic.h>
++#  include <gssapi/gssapi_ext.h>
++#  define gss_nt_service_name GSS_C_NT_HOSTBASED_SERVICE
+ #endif
+ 
+ #define GSS_BUFSIZE 8192

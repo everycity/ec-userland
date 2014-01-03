@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -29,7 +29,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS += --with-curses=$(ECPREFIX)
+CONFIGURE_OPTIONS += 	--enable-pop --enable-imap --enable-smtp --enable-hcache
+CONFIGURE_OPTIONS +=	--with-curses --with-gss --with-sasl --with-ssl --with-idn=$(ECPREFIX)
 
 build:		$(BUILD_32_and_64)
 
