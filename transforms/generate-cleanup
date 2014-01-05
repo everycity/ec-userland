@@ -32,8 +32,8 @@
 
 #<transform set name=pkg.fmri -> edit value "@[^ \t\n\r\f\v]*" "@$!(IPS_COMPONENT_VERSION),$!(BUILD_VERSION)">
 
-<transform dir file link hardlink -> edit path "^ec/etc" "$!(SYSCONFDIR)">
-<transform dir file link hardlink -> edit path "^etc" "$!(SYSCONFDIR)">
+#<transform dir file link hardlink -> edit path "^ec/etc" "$!(SYSCONFDIR)">
+#<transform dir file link hardlink -> edit path "^etc" "$!(SYSCONFDIR)">
 <transform dir file link hardlink -> edit path "^ec/var" "$!(LOCALSTATEDIR)">
 <transform dir file link hardlink -> edit path "^var" "$!(LOCALSTATEDIR)">
 <transform dir file link hardlink -> edit path "^ec" "$!(ECPREFIX)">
