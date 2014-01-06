@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		pcre
 COMPONENT_FMRI=		library/pcre
-COMPONENT_VERSION=	8.33
+COMPONENT_VERSION=	8.34
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	http://www.pcre.org/
 COMPONENT_SUMMARY=	Perl-Compatible Regular Expressions
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:0a8b84eed13ce4e28017d297a457fdd66ab1068b80b2d1e26e932bed688074d7
+COMPONENT_ARCHIVE_HASH=	sha256:1dd78994c81e44ac41cf30b2a21d4b4cc6d76ccde7fc6e77713ed51d7bddca47
 COMPONENT_ARCHIVE_URL=	ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
