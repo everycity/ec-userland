@@ -9,26 +9,35 @@
 #
 
 #
-# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/library/security/openssl@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="OpenSSL - a Toolkit for Secure Sockets Layer (SSL v2/v3) and Transport Layer (TLS v1) protocols and general purpose cryptographic library"
-set name=info.upstream_url value="http://www.openssl.org/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license openssl.license license="BSD"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+# Custom combined 32bit v 64bit opensslconf.h
+file opensslconf.h path=$(ECPREFIX)/include/openssl/opensslconf.h
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/openssl
+dir path=$(ECPREFIX)/etc/openssl/certs
+dir path=$(ECPREFIX)/etc/openssl/misc
+dir path=$(ECPREFIX)/etc/openssl/private
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/include/openssl
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/engines
 dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 dir path=$(ECPREFIX)/lib/engines
 dir path=$(ECPREFIX)/lib/pkgconfig
@@ -38,14 +47,17 @@ dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man3
 dir path=$(ECPREFIX)/share/man/man5
 dir path=$(ECPREFIX)/share/man/man7
-dir path=$(SYSCONFDIR)
-dir path=$(SYSCONFDIR)/openssl
-dir path=$(SYSCONFDIR)/openssl/certs
-dir path=$(SYSCONFDIR)/openssl/misc
-dir path=$(SYSCONFDIR)/openssl/private
 file path=$(ECPREFIX)/bin/$(MACH64)/openssl
 file path=$(ECPREFIX)/bin/c_rehash
 file path=$(ECPREFIX)/bin/openssl
+file path=$(ECPREFIX)/etc/openssl/misc/CA.pl
+file path=$(ECPREFIX)/etc/openssl/misc/CA.sh
+file path=$(ECPREFIX)/etc/openssl/misc/c_hash
+file path=$(ECPREFIX)/etc/openssl/misc/c_info
+file path=$(ECPREFIX)/etc/openssl/misc/c_issuer
+file path=$(ECPREFIX)/etc/openssl/misc/c_name
+file path=$(ECPREFIX)/etc/openssl/misc/tsget
+file path=$(ECPREFIX)/etc/openssl/openssl.cnf
 file path=$(ECPREFIX)/include/openssl/aes.h
 file path=$(ECPREFIX)/include/openssl/asn1.h
 file path=$(ECPREFIX)/include/openssl/asn1_mac.h
@@ -118,6 +130,18 @@ file path=$(ECPREFIX)/include/openssl/whrlpool.h
 file path=$(ECPREFIX)/include/openssl/x509.h
 file path=$(ECPREFIX)/include/openssl/x509_vfy.h
 file path=$(ECPREFIX)/include/openssl/x509v3.h
+file path=$(ECPREFIX)/lib/$(MACH64)/engines/lib4758cca.so
+file path=$(ECPREFIX)/lib/$(MACH64)/engines/libaep.so
+file path=$(ECPREFIX)/lib/$(MACH64)/engines/libatalla.so
+file path=$(ECPREFIX)/lib/$(MACH64)/engines/libcapi.so
+file path=$(ECPREFIX)/lib/$(MACH64)/engines/libchil.so
+file path=$(ECPREFIX)/lib/$(MACH64)/engines/libcswift.so
+file path=$(ECPREFIX)/lib/$(MACH64)/engines/libgmp.so
+file path=$(ECPREFIX)/lib/$(MACH64)/engines/libgost.so
+file path=$(ECPREFIX)/lib/$(MACH64)/engines/libnuron.so
+file path=$(ECPREFIX)/lib/$(MACH64)/engines/libpadlock.so
+file path=$(ECPREFIX)/lib/$(MACH64)/engines/libsureware.so
+file path=$(ECPREFIX)/lib/$(MACH64)/engines/libubsec.so
 file path=$(ECPREFIX)/lib/$(MACH64)/libcrypto.so.1.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libssl.so.1.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libcrypto.pc
@@ -476,18 +500,10 @@ file path=$(ECPREFIX)/share/man/man3/x509.3
 file path=$(ECPREFIX)/share/man/man5/config.5
 file path=$(ECPREFIX)/share/man/man5/x509v3_config.5
 file path=$(ECPREFIX)/share/man/man7/des_modes.7
-file path=$(SYSCONFDIR)/openssl/misc/CA.pl
-file path=$(SYSCONFDIR)/openssl/misc/CA.sh
-file path=$(SYSCONFDIR)/openssl/misc/c_hash
-file path=$(SYSCONFDIR)/openssl/misc/c_info
-file path=$(SYSCONFDIR)/openssl/misc/c_issuer
-file path=$(SYSCONFDIR)/openssl/misc/c_name
-file path=$(SYSCONFDIR)/openssl/misc/tsget
-file path=$(SYSCONFDIR)/openssl/openssl.cnf
-link path=$(ECPREFIX)/lib/libcrypto.so target=libcrypto.so.1.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libcrypto.so target=libcrypto.so.1.0.0
-link path=$(ECPREFIX)/lib/libssl.so target=libssl.so.1.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libssl.so target=libssl.so.1.0.0
+link path=$(ECPREFIX)/lib/libcrypto.so target=libcrypto.so.1.0.0
+link path=$(ECPREFIX)/lib/libssl.so target=libssl.so.1.0.0
 link path=$(ECPREFIX)/share/man/man1/md2.1 target=dgst.1
 link path=$(ECPREFIX)/share/man/man1/md4.1 target=dgst.1
 link path=$(ECPREFIX)/share/man/man1/md5.1 target=dgst.1
@@ -1822,6 +1838,3 @@ link path=$(ECPREFIX)/share/man/man3/lh_node_usage_stats_bio.3 \
     target=lh_stats.3
 link path=$(ECPREFIX)/share/man/man3/lh_retrieve.3 target=lhash.3
 link path=$(ECPREFIX)/share/man/man3/lh_stats_bio.3 target=lh_stats.3
-
-# Custom combined 32bit v 64bit opensslconf.h
-file opensslconf.h path=$(ECPREFIX)/include/openssl/opensslconf.h
