@@ -9,16 +9,16 @@
 #
 
 #
-# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		bind
-COMPONENT_VERSION=	9.8.6
-IPS_COMPONENT_VERSION=	9.8.6
+COMPONENT_VERSION=	9.8.6-P1
+IPS_COMPONENT_VERSION=	9.8.6.1
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:01cc3a0105b47833b99e61b69acd824be4eeefd6557fffa26eced8e03f1249cd
+COMPONENT_ARCHIVE_HASH=	sha256:79515c8dd99f3c600ea7ea1b890b469568e8796a513b41a2db75a402fc4910b0
 COMPONENT_ARCHIVE_URL=	ftp://ftp.isc.org/isc/bind9/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
