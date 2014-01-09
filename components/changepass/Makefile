@@ -9,19 +9,21 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
-COMPONENT_NAME=			cgipaf
-COMPONENT_VERSION=		1.3.3
-COMPONENT_SRC=			$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=		$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_URL=	http://www.wagemakers.be/downloads/cgipaf/$(COMPONENT_ARCHIVE)
+COMPONENT_NAME=		cgipaf
+COMPONENT_FMRI=		system/utility/changepass
+COMPONENT_VERSION=	1.3.3
+COMPONENT_LICENSE=	GPLv2
 COMPONENT_PROJECT_URL=	http://www.wagemakers.be/english/programs/cgipaf
-COMPONENT_FMRI=			system/utility/changepass
-COMPONENT_SUMMARY=		Utility for changing system passwords
+COMPONENT_SUMMARY=	Utility for changing system passwords
+COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
+COMPONENT_ARCHIVE_HASH=	sha256:ad6485610ff9e1978ad92da98a782e809f6b3a7600e7dc0970ea8f4e37c57fa7
+COMPONENT_ARCHIVE_URL=	http://www.wagemakers.be/downloads/cgipaf/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

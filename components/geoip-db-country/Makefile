@@ -26,6 +26,7 @@ COMPONENT_NAME=		geoip-db-country
 COMPONENT_VERSION=	20111006
 COMPONENT_FILE=		GeoIP-$(COMPONENT_VERSION).dat
 COMPONENT_ARCHIVE=      $(COMPONENT_FILE).gz
+COMPONENT_ARCHIVE_HASH=	sha256:f301799434e8492a461f1992b422b9dc367bf78d2ad15d08b30606cad9a1224c
 COMPONENT_ARCHIVE_URL=	http://svn.everycity.co.uk/public/solaris/misc/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/ips.mk
@@ -37,7 +38,7 @@ IPS_COMPONENT_VERSION=	2011.10.6
 GEOIP_DIR =	$(PROTO_DIR)$(ECPREFIX)/share/GeoIP
 
 download::
-	$(WS_TOOLS)/userland-fetch --url $(COMPONENT_ARCHIVE_URL)
+	$(WS_TOOLS)/userland-fetch --url $(COMPONENT_ARCHIVE_URL) --hash $(COMPONENT_ARCHIVE_HASH)
 	gunzip -f $(COMPONENT_ARCHIVE)
 
 $(BUILD_DIR)/%/.built:	prep
