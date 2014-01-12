@@ -9,16 +9,20 @@
 #
 
 #
-# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		xterm
-COMPONENT_VERSION=	293
+COMPONENT_FMRI=		terminal/xterm
+COMPONENT_VERSION=	300
+COMPONENT_LICENSE=	xterm
+COMPONENT_PROJECT_URL=	"http://invisible-island.net/xterm/"
+COMPONENT_SUMMARY=	The xterm program is a terminal emulator for the X Window System.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:64e9c41137eac4277d0cfe04312b12dc5d11224f49fc999ff7f6b9597bf55b7b
+COMPONENT_ARCHIVE_HASH=	sha256:615095640cc357405ecae3521b00d8027b3016d21ea235e337f3bed0083e17cd
 COMPONENT_ARCHIVE_URL=	http://invisible-island.net/datafiles/release/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
