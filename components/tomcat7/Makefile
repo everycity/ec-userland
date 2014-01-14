@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2011-2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tomcat
-COMPONENT_VERSION=	7.0.47
+COMPONENT_VERSION=	7.0.50
 COMPONENT_FMRI=         web/java-servlet/tomcat7
 COMPONENT_LICENSE=      Apache v2.0
 COMPONENT_SUMMARY=      Tomcat Servlet/JSP Container
 COMPONENT_PROJECT_URL=	$(PROJECT_APACHE)
 COMPONENT_SRC=		apache-tomcat-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	apache-tomcat-$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:46dc31b08c120ffc2e38dccc119b9df02662a9fb297fa3fc6d90902c2f86057a
+COMPONENT_ARCHIVE_HASH=	sha256:7be7b2d9e6626c81f2aa3d39a7e5b0e52e025d773cd29c4a0cf9e71b0d4c11e9
 COMPONENT_ARCHIVE_URL=	http://mirror.ox.ac.uk/sites/rsync.apache.org/tomcat/tomcat-7/v$(COMPONENT_VERSION)/bin/$(COMPONENT_ARCHIVE)
 #COMPONENT_ARCHIVE_URL=	$(APACHE_ARCHIVE)/tomcat/tomcat-7/v$(COMPONENT_VERSION)/bin/$(COMPONENT_ARCHIVE)
 
