@@ -46,19 +46,15 @@ file path=$(ECPREFIX)/include/jerror.h
 file path=$(ECPREFIX)/include/jmorecfg.h
 file path=$(ECPREFIX)/include/jpeglib.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libjpeg.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libjpeg.so.$(COMPONENT_VERSION).0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libjpeg.so.8.4.0
 file path=$(ECPREFIX)/lib/libjpeg.la
-file path=$(ECPREFIX)/lib/libjpeg.so.$(COMPONENT_VERSION).0.0
+file path=$(ECPREFIX)/lib/libjpeg.so.8.4.0
 file path=$(ECPREFIX)/share/man/man1/cjpeg.1
 file path=$(ECPREFIX)/share/man/man1/djpeg.1
 file path=$(ECPREFIX)/share/man/man1/jpegtran.1
 file path=$(ECPREFIX)/share/man/man1/rdjpgcom.1
 file path=$(ECPREFIX)/share/man/man1/wrjpgcom.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libjpeg.so \
-    target=libjpeg.so.$(COMPONENT_VERSION).0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libjpeg.so.$(COMPONENT_VERSION) \
-    target=libjpeg.so.$(COMPONENT_VERSION).0.0
-link path=$(ECPREFIX)/lib/libjpeg.so \
-    target=libjpeg.so.$(COMPONENT_VERSION).0.0
-link path=$(ECPREFIX)/lib/libjpeg.so.$(COMPONENT_VERSION) \
-    target=libjpeg.so.$(COMPONENT_VERSION).0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libjpeg.so target=libjpeg.so.8.4.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libjpeg.so.8 target=libjpeg.so.8.4.0
+link path=$(ECPREFIX)/lib/libjpeg.so target=libjpeg.so.8.4.0
+link path=$(ECPREFIX)/lib/libjpeg.so.8 target=libjpeg.so.8.4.0
