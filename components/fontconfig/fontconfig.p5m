@@ -9,25 +9,24 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/library/fontconfig@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="Fontconfig is a library for configuring and customizing font access"
-set name=info.upstream_url value="http://www.freedesktop.org/wiki/Software/fontconfig"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license fontconfig.license license="FontConfig"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/etc/fonts
-dir path=$(ECPREFIX)/etc/fonts/conf.avail
 dir path=$(ECPREFIX)/etc/fonts/conf.d
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/include/fontconfig
@@ -39,61 +38,46 @@ dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/doc
 dir path=$(ECPREFIX)/share/doc/fontconfig
 dir path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel
+dir path=$(ECPREFIX)/share/fontconfig
+dir path=$(ECPREFIX)/share/fontconfig/conf.avail
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man3
 dir path=$(ECPREFIX)/share/man/man5
-dir path=$(ECPREFIX)/var
-dir path=$(ECPREFIX)/var/cache
-dir path=$(ECPREFIX)/var/cache/fontconfig
+dir path=$(ECPREFIX)/share/xml
+dir path=$(ECPREFIX)/share/xml/fontconfig
+dir path=$(LOCALSTATEDIR)
+dir path=$(LOCALSTATEDIR)/cache
+dir path=$(LOCALSTATEDIR)/cache/fontconfig
 file path=$(ECPREFIX)/bin/$(MACH64)/fc-cache
 file path=$(ECPREFIX)/bin/$(MACH64)/fc-cat
 file path=$(ECPREFIX)/bin/$(MACH64)/fc-list
 file path=$(ECPREFIX)/bin/$(MACH64)/fc-match
+file path=$(ECPREFIX)/bin/$(MACH64)/fc-pattern
 file path=$(ECPREFIX)/bin/$(MACH64)/fc-query
 file path=$(ECPREFIX)/bin/$(MACH64)/fc-scan
+file path=$(ECPREFIX)/bin/$(MACH64)/fc-validate
 file path=$(ECPREFIX)/bin/fc-cache
 file path=$(ECPREFIX)/bin/fc-cat
 file path=$(ECPREFIX)/bin/fc-list
 file path=$(ECPREFIX)/bin/fc-match
+file path=$(ECPREFIX)/bin/fc-pattern
 file path=$(ECPREFIX)/bin/fc-query
 file path=$(ECPREFIX)/bin/fc-scan
-file path=$(ECPREFIX)/etc/fonts/conf.avail/10-autohint.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/10-no-sub-pixel.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/10-sub-pixel-bgr.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/10-sub-pixel-rgb.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/10-sub-pixel-vbgr.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/10-sub-pixel-vrgb.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/10-unhinted.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/20-fix-globaladvance.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/20-unhint-small-vera.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/25-unhint-nonlatin.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/30-metric-aliases.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/30-urw-aliases.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/40-nonlatin.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/45-latin.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/49-sansserif.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/50-user.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/51-local.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/60-latin.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/65-fonts-persian.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/65-khmer.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/65-nonlatin.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/69-unifont.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/70-no-bitmaps.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/70-yes-bitmaps.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/80-delicious.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/conf.avail/90-synthetic.conf preserve=true
+file path=$(ECPREFIX)/bin/fc-validate
 file path=$(ECPREFIX)/etc/fonts/conf.d/README
-file path=$(ECPREFIX)/etc/fonts/fonts.conf preserve=true
-file path=$(ECPREFIX)/etc/fonts/fonts.conf.bak preserve=true
-file path=$(ECPREFIX)/etc/fonts/fonts.dtd
+file path=$(ECPREFIX)/etc/fonts/fonts.conf
+file path=$(ECPREFIX)/etc/fonts/fonts.conf.bak
 file path=$(ECPREFIX)/include/fontconfig/fcfreetype.h
 file path=$(ECPREFIX)/include/fontconfig/fcprivate.h
 file path=$(ECPREFIX)/include/fontconfig/fontconfig.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libfontconfig.so.1.4.4
+file path=$(ECPREFIX)/lib/$(MACH64)/libfontconfig.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libfontconfig.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libfontconfig.so.1.8.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/fontconfig.pc
-file path=$(ECPREFIX)/lib/libfontconfig.so.1.4.4
+file path=$(ECPREFIX)/lib/libfontconfig.a
+file path=$(ECPREFIX)/lib/libfontconfig.la
+file path=$(ECPREFIX)/lib/libfontconfig.so.1.8.0
 file path=$(ECPREFIX)/lib/pkgconfig/fontconfig.pc
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel.pdf
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel.txt
@@ -121,6 +105,8 @@ file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcblanksismember.html
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fccachecopyset.html
+file \
+    path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fccachecreatetagfile.html
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fccachedir.html
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fccachenumfont.html
@@ -136,6 +122,8 @@ file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fccharsetcoverage.html
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fccharsetcreate.html
+file \
+    path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fccharsetdelchar.html
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fccharsetdestroy.html
 file \
@@ -195,6 +183,8 @@ file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcconfiggetfonts.html
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcconfiggetrescaninterval.html
+file \
+    path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcconfiggetsysroot.html
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcconfighome.html
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcconfigparseandload.html
@@ -205,6 +195,8 @@ file \
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcconfigsetrescaninterval.html
 file \
+    path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcconfigsetsysroot.html
+file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcconfigsubstitute.html
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcconfigsubstitutewithpat.html
@@ -212,6 +204,8 @@ file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcconfiguptodate.html
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcdefaultsubstitute.html
+file \
+    path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcdircacheclean.html
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcdircacheload.html
 file \
@@ -257,6 +251,8 @@ file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcfreetypequery.html
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcfreetypequeryface.html
+file \
+    path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcgetdefaultlangs.html
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcgetlangs.html
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcgetversion.html
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcinit.html
@@ -272,6 +268,8 @@ file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcislower.html
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcisupper.html
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fclanggetcharset.html
+file \
+    path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fclangnormalize.html
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fclangsetadd.html
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fclangsetcompare.html
@@ -280,15 +278,18 @@ file \
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fclangsetcopy.html
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fclangsetcreate.html
+file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fclangsetdel.html
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fclangsetdestroy.html
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fclangsetequal.html
-file \
-    path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fclangsetgetlangs.html
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fclangsethash.html
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fclangsethaslang.html
+file \
+    path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fclangsetsubtract.html
+file \
+    path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fclangsetunion.html
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcmatrixcopy.html
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcmatrixequal.html
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcmatrixinit.html
@@ -367,6 +368,8 @@ file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcstrfree.html
 file \
     path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcstrlistcreate.html
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcstrlistdone.html
+file \
+    path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcstrlistfirst.html
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcstrlistnext.html
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcstrplus.html
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/fcstrsetadd.html
@@ -402,12 +405,43 @@ file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-devel/x31.html
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-user.html
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-user.pdf
 file path=$(ECPREFIX)/share/doc/fontconfig/fontconfig-user.txt
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/10-autohint.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/10-no-sub-pixel.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/10-scale-bitmap-fonts.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/10-sub-pixel-bgr.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/10-sub-pixel-rgb.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/10-sub-pixel-vbgr.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/10-sub-pixel-vrgb.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/10-unhinted.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/11-lcdfilter-default.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/11-lcdfilter-legacy.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/11-lcdfilter-light.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/20-unhint-small-vera.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/25-unhint-nonlatin.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/30-metric-aliases.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/30-urw-aliases.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/40-nonlatin.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/45-latin.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/49-sansserif.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/50-user.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/51-local.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/60-latin.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/65-fonts-persian.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/65-khmer.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/65-nonlatin.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/69-unifont.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/70-no-bitmaps.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/70-yes-bitmaps.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/80-delicious.conf
+file path=$(ECPREFIX)/share/fontconfig/conf.avail/90-synthetic.conf
 file path=$(ECPREFIX)/share/man/man1/fc-cache.1
 file path=$(ECPREFIX)/share/man/man1/fc-cat.1
 file path=$(ECPREFIX)/share/man/man1/fc-list.1
 file path=$(ECPREFIX)/share/man/man1/fc-match.1
+file path=$(ECPREFIX)/share/man/man1/fc-pattern.1
 file path=$(ECPREFIX)/share/man/man1/fc-query.1
 file path=$(ECPREFIX)/share/man/man1/fc-scan.1
+file path=$(ECPREFIX)/share/man/man1/fc-validate.1
 file path=$(ECPREFIX)/share/man/man3/FcAtomicCreate.3
 file path=$(ECPREFIX)/share/man/man3/FcAtomicDeleteNew.3
 file path=$(ECPREFIX)/share/man/man3/FcAtomicDestroy.3
@@ -421,6 +455,7 @@ file path=$(ECPREFIX)/share/man/man3/FcBlanksCreate.3
 file path=$(ECPREFIX)/share/man/man3/FcBlanksDestroy.3
 file path=$(ECPREFIX)/share/man/man3/FcBlanksIsMember.3
 file path=$(ECPREFIX)/share/man/man3/FcCacheCopySet.3
+file path=$(ECPREFIX)/share/man/man3/FcCacheCreateTagFile.3
 file path=$(ECPREFIX)/share/man/man3/FcCacheDir.3
 file path=$(ECPREFIX)/share/man/man3/FcCacheNumFont.3
 file path=$(ECPREFIX)/share/man/man3/FcCacheNumSubdir.3
@@ -430,6 +465,7 @@ file path=$(ECPREFIX)/share/man/man3/FcCharSetCopy.3
 file path=$(ECPREFIX)/share/man/man3/FcCharSetCount.3
 file path=$(ECPREFIX)/share/man/man3/FcCharSetCoverage.3
 file path=$(ECPREFIX)/share/man/man3/FcCharSetCreate.3
+file path=$(ECPREFIX)/share/man/man3/FcCharSetDelChar.3
 file path=$(ECPREFIX)/share/man/man3/FcCharSetDestroy.3
 file path=$(ECPREFIX)/share/man/man3/FcCharSetEqual.3
 file path=$(ECPREFIX)/share/man/man3/FcCharSetFirstPage.3
@@ -460,15 +496,18 @@ file path=$(ECPREFIX)/share/man/man3/FcConfigGetCurrent.3
 file path=$(ECPREFIX)/share/man/man3/FcConfigGetFontDirs.3
 file path=$(ECPREFIX)/share/man/man3/FcConfigGetFonts.3
 file path=$(ECPREFIX)/share/man/man3/FcConfigGetRescanInterval.3
+file path=$(ECPREFIX)/share/man/man3/FcConfigGetSysRoot.3
 file path=$(ECPREFIX)/share/man/man3/FcConfigHome.3
 file path=$(ECPREFIX)/share/man/man3/FcConfigParseAndLoad.3
 file path=$(ECPREFIX)/share/man/man3/FcConfigReference.3
 file path=$(ECPREFIX)/share/man/man3/FcConfigSetCurrent.3
 file path=$(ECPREFIX)/share/man/man3/FcConfigSetRescanInterval.3
+file path=$(ECPREFIX)/share/man/man3/FcConfigSetSysRoot.3
 file path=$(ECPREFIX)/share/man/man3/FcConfigSubstitute.3
 file path=$(ECPREFIX)/share/man/man3/FcConfigSubstituteWithPat.3
 file path=$(ECPREFIX)/share/man/man3/FcConfigUptoDate.3
 file path=$(ECPREFIX)/share/man/man3/FcDefaultSubstitute.3
+file path=$(ECPREFIX)/share/man/man3/FcDirCacheClean.3
 file path=$(ECPREFIX)/share/man/man3/FcDirCacheLoad.3
 file path=$(ECPREFIX)/share/man/man3/FcDirCacheLoadFile.3
 file path=$(ECPREFIX)/share/man/man3/FcDirCacheRead.3
@@ -497,6 +536,7 @@ file path=$(ECPREFIX)/share/man/man3/FcFreeTypeCharSet.3
 file path=$(ECPREFIX)/share/man/man3/FcFreeTypeCharSetAndSpacing.3
 file path=$(ECPREFIX)/share/man/man3/FcFreeTypeQuery.3
 file path=$(ECPREFIX)/share/man/man3/FcFreeTypeQueryFace.3
+file path=$(ECPREFIX)/share/man/man3/FcGetDefaultLangs.3
 file path=$(ECPREFIX)/share/man/man3/FcGetLangs.3
 file path=$(ECPREFIX)/share/man/man3/FcGetVersion.3
 file path=$(ECPREFIX)/share/man/man3/FcInit.3
@@ -507,16 +547,19 @@ file path=$(ECPREFIX)/share/man/man3/FcInitReinitialize.3
 file path=$(ECPREFIX)/share/man/man3/FcIsLower.3
 file path=$(ECPREFIX)/share/man/man3/FcIsUpper.3
 file path=$(ECPREFIX)/share/man/man3/FcLangGetCharSet.3
+file path=$(ECPREFIX)/share/man/man3/FcLangNormalize.3
 file path=$(ECPREFIX)/share/man/man3/FcLangSetAdd.3
 file path=$(ECPREFIX)/share/man/man3/FcLangSetCompare.3
 file path=$(ECPREFIX)/share/man/man3/FcLangSetContains.3
 file path=$(ECPREFIX)/share/man/man3/FcLangSetCopy.3
 file path=$(ECPREFIX)/share/man/man3/FcLangSetCreate.3
+file path=$(ECPREFIX)/share/man/man3/FcLangSetDel.3
 file path=$(ECPREFIX)/share/man/man3/FcLangSetDestroy.3
 file path=$(ECPREFIX)/share/man/man3/FcLangSetEqual.3
-file path=$(ECPREFIX)/share/man/man3/FcLangSetGetLangs.3
 file path=$(ECPREFIX)/share/man/man3/FcLangSetHasLang.3
 file path=$(ECPREFIX)/share/man/man3/FcLangSetHash.3
+file path=$(ECPREFIX)/share/man/man3/FcLangSetSubtract.3
+file path=$(ECPREFIX)/share/man/man3/FcLangSetUnion.3
 file path=$(ECPREFIX)/share/man/man3/FcMatrixCopy.3
 file path=$(ECPREFIX)/share/man/man3/FcMatrixEqual.3
 file path=$(ECPREFIX)/share/man/man3/FcMatrixInit.3
@@ -565,6 +608,7 @@ file path=$(ECPREFIX)/share/man/man3/FcStrDowncase.3
 file path=$(ECPREFIX)/share/man/man3/FcStrFree.3
 file path=$(ECPREFIX)/share/man/man3/FcStrListCreate.3
 file path=$(ECPREFIX)/share/man/man3/FcStrListDone.3
+file path=$(ECPREFIX)/share/man/man3/FcStrListFirst.3
 file path=$(ECPREFIX)/share/man/man3/FcStrListNext.3
 file path=$(ECPREFIX)/share/man/man3/FcStrPlus.3
 file path=$(ECPREFIX)/share/man/man3/FcStrSetAdd.3
@@ -587,39 +631,40 @@ file path=$(ECPREFIX)/share/man/man3/FcValueEqual.3
 file path=$(ECPREFIX)/share/man/man3/FcValuePrint.3
 file path=$(ECPREFIX)/share/man/man3/FcValueSave.3
 file path=$(ECPREFIX)/share/man/man5/fonts-conf.5
-link path=$(ECPREFIX)/etc/fonts/conf.d/20-fix-globaladvance.conf \
-    target=../conf.avail/20-fix-globaladvance.conf
+file path=$(ECPREFIX)/share/xml/fontconfig/fonts.dtd
+link path=$(ECPREFIX)/etc/fonts/conf.d/10-scale-bitmap-fonts.conf \
+    target=/ec/share/fontconfig/conf.avail/10-scale-bitmap-fonts.conf
 link path=$(ECPREFIX)/etc/fonts/conf.d/20-unhint-small-vera.conf \
-    target=../conf.avail/20-unhint-small-vera.conf
+    target=/ec/share/fontconfig/conf.avail/20-unhint-small-vera.conf
 link path=$(ECPREFIX)/etc/fonts/conf.d/30-metric-aliases.conf \
-    target=../conf.avail/30-metric-aliases.conf
+    target=/ec/share/fontconfig/conf.avail/30-metric-aliases.conf
 link path=$(ECPREFIX)/etc/fonts/conf.d/30-urw-aliases.conf \
-    target=../conf.avail/30-urw-aliases.conf
+    target=/ec/share/fontconfig/conf.avail/30-urw-aliases.conf
 link path=$(ECPREFIX)/etc/fonts/conf.d/40-nonlatin.conf \
-    target=../conf.avail/40-nonlatin.conf
+    target=/ec/share/fontconfig/conf.avail/40-nonlatin.conf
 link path=$(ECPREFIX)/etc/fonts/conf.d/45-latin.conf \
-    target=../conf.avail/45-latin.conf
+    target=/ec/share/fontconfig/conf.avail/45-latin.conf
 link path=$(ECPREFIX)/etc/fonts/conf.d/49-sansserif.conf \
-    target=../conf.avail/49-sansserif.conf
+    target=/ec/share/fontconfig/conf.avail/49-sansserif.conf
 link path=$(ECPREFIX)/etc/fonts/conf.d/50-user.conf \
-    target=../conf.avail/50-user.conf
+    target=/ec/share/fontconfig/conf.avail/50-user.conf
 link path=$(ECPREFIX)/etc/fonts/conf.d/51-local.conf \
-    target=../conf.avail/51-local.conf
+    target=/ec/share/fontconfig/conf.avail/51-local.conf
 link path=$(ECPREFIX)/etc/fonts/conf.d/60-latin.conf \
-    target=../conf.avail/60-latin.conf
+    target=/ec/share/fontconfig/conf.avail/60-latin.conf
 link path=$(ECPREFIX)/etc/fonts/conf.d/65-fonts-persian.conf \
-    target=../conf.avail/65-fonts-persian.conf
+    target=/ec/share/fontconfig/conf.avail/65-fonts-persian.conf
 link path=$(ECPREFIX)/etc/fonts/conf.d/65-nonlatin.conf \
-    target=../conf.avail/65-nonlatin.conf
+    target=/ec/share/fontconfig/conf.avail/65-nonlatin.conf
 link path=$(ECPREFIX)/etc/fonts/conf.d/69-unifont.conf \
-    target=../conf.avail/69-unifont.conf
+    target=/ec/share/fontconfig/conf.avail/69-unifont.conf
 link path=$(ECPREFIX)/etc/fonts/conf.d/80-delicious.conf \
-    target=../conf.avail/80-delicious.conf
+    target=/ec/share/fontconfig/conf.avail/80-delicious.conf
 link path=$(ECPREFIX)/etc/fonts/conf.d/90-synthetic.conf \
-    target=../conf.avail/90-synthetic.conf
+    target=/ec/share/fontconfig/conf.avail/90-synthetic.conf
 link path=$(ECPREFIX)/lib/$(MACH64)/libfontconfig.so \
-    target=libfontconfig.so.1.4.4
+    target=libfontconfig.so.1.8.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libfontconfig.so.1 \
-    target=libfontconfig.so.1.4.4
-link path=$(ECPREFIX)/lib/libfontconfig.so target=libfontconfig.so.1.4.4
-link path=$(ECPREFIX)/lib/libfontconfig.so.1 target=libfontconfig.so.1.4.4
+    target=libfontconfig.so.1.8.0
+link path=$(ECPREFIX)/lib/libfontconfig.so target=libfontconfig.so.1.8.0
+link path=$(ECPREFIX)/lib/libfontconfig.so.1 target=libfontconfig.so.1.8.0
