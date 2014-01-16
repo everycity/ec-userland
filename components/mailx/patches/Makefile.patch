@@ -34,7 +34,7 @@
  
 -SHELL		= /bin/sh
 +INCLUDES	= -I$(PREFIX)/include
-+LDFLAGS	= -L$(PREFIX)/lib -R$(PREFIX)/lib
++LDFLAGS	= -L$(PREFIX)/lib -R$(PREFIX)/lib -liconv
 +
 +SHELL		= /ec/bin/bash
  

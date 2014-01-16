@@ -29,8 +29,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS+=	-liconv
-
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
