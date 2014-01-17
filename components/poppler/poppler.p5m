@@ -1,0 +1,140 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2014 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/poppler
+dir path=$(ECPREFIX)/include/poppler/cpp
+dir path=$(ECPREFIX)/include/poppler/glib
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/$(MACH64)/pdfdetach
+file path=$(ECPREFIX)/bin/$(MACH64)/pdffonts
+file path=$(ECPREFIX)/bin/$(MACH64)/pdfimages
+file path=$(ECPREFIX)/bin/$(MACH64)/pdfinfo
+file path=$(ECPREFIX)/bin/$(MACH64)/pdfseparate
+file path=$(ECPREFIX)/bin/$(MACH64)/pdftocairo
+file path=$(ECPREFIX)/bin/$(MACH64)/pdftohtml
+file path=$(ECPREFIX)/bin/$(MACH64)/pdftoppm
+file path=$(ECPREFIX)/bin/$(MACH64)/pdftops
+file path=$(ECPREFIX)/bin/$(MACH64)/pdftotext
+file path=$(ECPREFIX)/bin/$(MACH64)/pdfunite
+file path=$(ECPREFIX)/bin/pdfdetach
+file path=$(ECPREFIX)/bin/pdffonts
+file path=$(ECPREFIX)/bin/pdfimages
+file path=$(ECPREFIX)/bin/pdfinfo
+file path=$(ECPREFIX)/bin/pdfseparate
+file path=$(ECPREFIX)/bin/pdftocairo
+file path=$(ECPREFIX)/bin/pdftohtml
+file path=$(ECPREFIX)/bin/pdftoppm
+file path=$(ECPREFIX)/bin/pdftops
+file path=$(ECPREFIX)/bin/pdftotext
+file path=$(ECPREFIX)/bin/pdfunite
+file path=$(ECPREFIX)/include/poppler/cpp/poppler-document.h
+file path=$(ECPREFIX)/include/poppler/cpp/poppler-embedded-file.h
+file path=$(ECPREFIX)/include/poppler/cpp/poppler-font.h
+file path=$(ECPREFIX)/include/poppler/cpp/poppler-global.h
+file path=$(ECPREFIX)/include/poppler/cpp/poppler-image.h
+file path=$(ECPREFIX)/include/poppler/cpp/poppler-page-renderer.h
+file path=$(ECPREFIX)/include/poppler/cpp/poppler-page-transition.h
+file path=$(ECPREFIX)/include/poppler/cpp/poppler-page.h
+file path=$(ECPREFIX)/include/poppler/cpp/poppler-rectangle.h
+file path=$(ECPREFIX)/include/poppler/cpp/poppler-toc.h
+file path=$(ECPREFIX)/include/poppler/cpp/poppler-version.h
+file path=$(ECPREFIX)/include/poppler/glib/poppler-action.h
+file path=$(ECPREFIX)/include/poppler/glib/poppler-annot.h
+file path=$(ECPREFIX)/include/poppler/glib/poppler-attachment.h
+file path=$(ECPREFIX)/include/poppler/glib/poppler-date.h
+file path=$(ECPREFIX)/include/poppler/glib/poppler-document.h
+file path=$(ECPREFIX)/include/poppler/glib/poppler-enums.h
+file path=$(ECPREFIX)/include/poppler/glib/poppler-features.h
+file path=$(ECPREFIX)/include/poppler/glib/poppler-form-field.h
+file path=$(ECPREFIX)/include/poppler/glib/poppler-layer.h
+file path=$(ECPREFIX)/include/poppler/glib/poppler-media.h
+file path=$(ECPREFIX)/include/poppler/glib/poppler-movie.h
+file path=$(ECPREFIX)/include/poppler/glib/poppler-page.h
+file path=$(ECPREFIX)/include/poppler/glib/poppler.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libpoppler-cpp.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libpoppler-cpp.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libpoppler-cpp.so.0.2.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libpoppler-glib.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libpoppler-glib.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libpoppler-glib.so.8.6.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libpoppler.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libpoppler.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libpoppler.so.44.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/poppler-cairo.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/poppler-cpp.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/poppler-glib.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/poppler-splash.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/poppler.pc
+file path=$(ECPREFIX)/lib/libpoppler-cpp.a
+file path=$(ECPREFIX)/lib/libpoppler-cpp.la
+file path=$(ECPREFIX)/lib/libpoppler-cpp.so.0.2.0
+file path=$(ECPREFIX)/lib/libpoppler-glib.a
+file path=$(ECPREFIX)/lib/libpoppler-glib.la
+file path=$(ECPREFIX)/lib/libpoppler-glib.so.8.6.0
+file path=$(ECPREFIX)/lib/libpoppler.a
+file path=$(ECPREFIX)/lib/libpoppler.la
+file path=$(ECPREFIX)/lib/libpoppler.so.44.0.0
+file path=$(ECPREFIX)/lib/pkgconfig/poppler-cairo.pc
+file path=$(ECPREFIX)/lib/pkgconfig/poppler-cpp.pc
+file path=$(ECPREFIX)/lib/pkgconfig/poppler-glib.pc
+file path=$(ECPREFIX)/lib/pkgconfig/poppler-splash.pc
+file path=$(ECPREFIX)/lib/pkgconfig/poppler.pc
+file path=$(ECPREFIX)/share/man/man1/pdfdetach.1
+file path=$(ECPREFIX)/share/man/man1/pdffonts.1
+file path=$(ECPREFIX)/share/man/man1/pdfimages.1
+file path=$(ECPREFIX)/share/man/man1/pdfinfo.1
+file path=$(ECPREFIX)/share/man/man1/pdfseparate.1
+file path=$(ECPREFIX)/share/man/man1/pdftocairo.1
+file path=$(ECPREFIX)/share/man/man1/pdftohtml.1
+file path=$(ECPREFIX)/share/man/man1/pdftoppm.1
+file path=$(ECPREFIX)/share/man/man1/pdftops.1
+file path=$(ECPREFIX)/share/man/man1/pdftotext.1
+file path=$(ECPREFIX)/share/man/man1/pdfunite.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libpoppler-cpp.so \
+    target=libpoppler-cpp.so.0.2.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libpoppler-cpp.so.0 \
+    target=libpoppler-cpp.so.0.2.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libpoppler-glib.so \
+    target=libpoppler-glib.so.8.6.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libpoppler-glib.so.8 \
+    target=libpoppler-glib.so.8.6.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libpoppler.so target=libpoppler.so.44.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libpoppler.so.44 \
+    target=libpoppler.so.44.0.0
+link path=$(ECPREFIX)/lib/libpoppler-cpp.so target=libpoppler-cpp.so.0.2.0
+link path=$(ECPREFIX)/lib/libpoppler-cpp.so.0 target=libpoppler-cpp.so.0.2.0
+link path=$(ECPREFIX)/lib/libpoppler-glib.so target=libpoppler-glib.so.8.6.0
+link path=$(ECPREFIX)/lib/libpoppler-glib.so.8 target=libpoppler-glib.so.8.6.0
+link path=$(ECPREFIX)/lib/libpoppler.so target=libpoppler.so.44.0.0
+link path=$(ECPREFIX)/lib/libpoppler.so.44 target=libpoppler.so.44.0.0
