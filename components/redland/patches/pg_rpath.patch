@@ -1,0 +1,11 @@
+--- redland-1.0.17/configure.orig	2014-01-16 19:54:00.199198925 +0000
++++ redland-1.0.17/configure	2014-01-16 19:54:33.774264385 +0000
+@@ -16960,7 +16960,7 @@
+ fi
+ if test $postgresql_storage  = yes; then
+   POSTGRESQL_CPPFLAGS="-I`$PG_CONFIG --includedir`"
+-  POSTGRESQL_LIBS="-L`$PG_CONFIG --libdir` -lpq"
++  POSTGRESQL_LIBS="-L`$PG_CONFIG --libdir` -R`$PG_CONFIG --libdir` -lpq"
+ fi
+ if test $virtuoso_storage  = yes; then
+   VIRTUOSO_CPPFLAGS="$ODBC_CFLAGS"
