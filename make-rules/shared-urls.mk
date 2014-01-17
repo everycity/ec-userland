@@ -42,6 +42,7 @@ DOWNLOAD_EC=		$(EC_ARCHIVE)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_GITHUB=	https://github.com/downloads/$(COMPONENT_NAME)/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_GNU_FTP=	http://ftp.gnu.org/gnu/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_GNU_SAVANNAH=	http://download.savannah.gnu.org/releases/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
+DOWNLOAD_LIBRDF=	http://download.librdf.org/source/$(COMPONENT_ARCHIVE)
 DOWNLOAD_PERL5=		http://www.cpan.org/src/5.0/$(COMPONENT_ARCHIVE)
 DOWNLOAD_PHP_PECL=	http://pecl.php.net/get/$(COMPONENT_ARCHIVE)
 DOWNLOAD_PHP_UK3=	http://uk3.php.net/get/$(COMPONENT_ARCHIVE)/from/this/mirror
