@@ -29,6 +29,7 @@
 <transform depend pkg.debug.depend.file=libdl\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libdoor\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libefi\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libelf\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libfstyp\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libgen\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libGL\.so.* -> drop>
