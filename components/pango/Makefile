@@ -9,24 +9,25 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		pango
-COMPONENT_VERSION=	1.17.5
+COMPONENT_FMRI=		library/pango
+COMPONENT_VERSION=	1.36.1
+COMPONENT_LICENSE=	GPLv2
+COMPONENT_PROJECT_URL=	"http://www.pango.org/"
+COMPONENT_SUMMARY=	Layout and rendering of internationalized text
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:068d03ca2b69a7bb7f221282ca2903d5d601e490
-COMPONENT_ARCHIVE_URL=	http://ftp.gnome.org/pub/GNOME/sources/pango/1.17/$(COMPONENT_ARCHIVE)
-
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
+COMPONENT_ARCHIVE_HASH=	sha256:42e4b51cdc99e6878a9ea2a5ef2b31b79c1033f8518726df738a3c54c90e59f8
+COMPONENT_ARCHIVE_URL=	http://ftp.gnome.org/pub/GNOME/sources/pango/1.36/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-
-#CONFIGURE_OPTIONS += 
 
 build:		$(BUILD_32_and_64)
 
