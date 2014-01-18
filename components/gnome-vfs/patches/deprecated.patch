@@ -1,0 +1,52 @@
+--- gnome-vfs-2.24.4/daemon/Makefile.in.orig	2014-01-17 21:42:12.397971246 +0000
++++ gnome-vfs-2.24.4/daemon/Makefile.in	2014-01-17 21:43:18.784734784 +0000
+@@ -337,7 +337,6 @@
+ 	-D_LARGEFILE64_SOURCE                   \
+ 	-D_POSIX_PTHREAD_SEMANTICS		\
+ 	-D_REENTRANT				\
+-	-DG_DISABLE_DEPRECATED			\
+ 	-DGNOME_VFS_PREFIX=\"$(prefix)\"	\
+ 	-DGNOME_VFS_DATADIR=\"$(datadir)\"	\
+ 	-DGNOME_VFS_LIBDIR=\"$(libdir)\"	\
+--- gnome-vfs-2.24.4/libgnomevfs/Makefile.in.orig	2014-01-17 21:42:23.605367068 +0000
++++ gnome-vfs-2.24.4/libgnomevfs/Makefile.in	2014-01-17 21:43:28.932289121 +0000
+@@ -430,7 +430,6 @@
+ 	-D_LARGEFILE64_SOURCE                   \
+ 	-D_POSIX_PTHREAD_SEMANTICS		\
+ 	-D_REENTRANT				\
+-	-DG_DISABLE_DEPRECATED			\
+ 	-DGNOME_VFS_PREFIX=\"$(prefix)\"	\
+ 	-DGNOME_VFS_BINDIR=\"$(bindir)\"	\
+ 	-DGNOME_VFS_DATADIR=\"$(datadir)\"	\
+--- gnome-vfs-2.24.4/modules/Makefile.in.orig	2014-01-17 21:42:32.301252808 +0000
++++ gnome-vfs-2.24.4/modules/Makefile.in	2014-01-17 21:43:39.095123589 +0000
+@@ -468,7 +468,6 @@
+ 	-D_POSIX_PTHREAD_SEMANTICS		\
+ 	-D_REENTRANT				\
+ 	-DSSH_PROGRAM=\"$(SSH_PROGRAM)\"	\
+-	-DG_DISABLE_DEPRECATED			\
+ 	-DGNOME_VFS_PREFIX=\"$(prefix)\"	\
+ 	-DGNOME_VFS_DATADIR=\"$(datadir)\"	\
+ 	-DGNOME_VFS_LIBDIR=\"$(libdir)\"	\
+--- gnome-vfs-2.24.4/programs/Makefile.in.orig	2014-01-17 21:42:39.187252244 +0000
++++ gnome-vfs-2.24.4/programs/Makefile.in	2014-01-17 21:43:57.497407639 +0000
+@@ -344,8 +344,7 @@
+ 	-I$(top_srcdir)				\
+ 	-I$(top_builddir)			\
+ 	$(TEST_CFLAGS)				\
+-	$(VFS_CFLAGS)				\
+-	-DG_DISABLE_DEPRECATED
++	$(VFS_CFLAGS)
+ 
+ libraries = \
+ 	$(top_builddir)/libgnomevfs/libgnomevfs-2.la	\
+--- gnome-vfs-2.24.4/test/Makefile.in.orig	2014-01-17 21:42:46.365587446 +0000
++++ gnome-vfs-2.24.4/test/Makefile.in	2014-01-17 21:44:07.985819565 +0000
+@@ -471,7 +471,6 @@
+ 	-I$(top_builddir)/libgnomevfs           \
+ 	$(TEST_CFLAGS)				\
+ 	$(VFS_CFLAGS)				\
+-	-DG_DISABLE_DEPRECATED			\
+ 	-DMODULES_PATH=\"$(libdir)/vfs/modules\"
+ 
+ @OS_WIN32_FALSE@platform_only_programs = test-dns-sd test-symlinks test-parse-ls-lga

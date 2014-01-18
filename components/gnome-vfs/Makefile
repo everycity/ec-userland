@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -28,10 +28,6 @@ COMPONENT_ARCHIVE_URL=	http://ftp.gnome.org/pub/GNOME/sources/gnome-vfs/2.24/$(C
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-
-#CONFIGURE_OPTIONS+=	
-
-COMPONENT_PREP_ACTION = ( cd $(@D) && rm -f configure && autoconf )
 
 build:		$(BUILD_32_and_64)
 

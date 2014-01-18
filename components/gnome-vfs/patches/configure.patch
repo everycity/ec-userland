@@ -1,0 +1,20 @@
+--- a/configure.orig	2010-09-28 09:35:20.000000000 +0000
++++ b/configure
+@@ -15717,9 +15719,14 @@ fi
+
+
+ if test "x$KRB5_CONFIG" != "xnone"; then
+-   GSSAPI_LIBS="`${KRB5_CONFIG} --libs gssapi`"
+-   GSSAPI_CFLAGS="`${KRB5_CONFIG} --cflags gssapi`"
+-
++	# make sure krb5-config supports gssapi option
++	if $KRB5_CONFIG --libs gssapi 2>&1 | grep "Unknown option" > /dev/null ; then
++		GSSAPI_LIBS="`${KRB5_CONFIG} --libs` -lgss"
++   	GSSAPI_CFLAGS="`${KRB5_CONFIG} --cflags`"
++	else
++		GSSAPI_LIBS="`${KRB5_CONFIG} --libs gssapi`"
++   	GSSAPI_CFLAGS="`${KRB5_CONFIG} --cflags gssapi`"
++	fi
+    saved_CPPFLAGS="$CPPFLAGS"
+    saved_LIBS="$LIBS"
+    LIBS="$LIBS $GSSAPI_LIBS"
