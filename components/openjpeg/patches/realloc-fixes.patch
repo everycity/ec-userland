@@ -1,0 +1,169 @@
+diff -ur openjpeg-1.5.1.old/applications/mj2/wrap_j2k_in_mj2.c openjpeg-1.5.1/applications/mj2/wrap_j2k_in_mj2.c
+--- openjpeg-1.5.1.old/applications/mj2/wrap_j2k_in_mj2.c	2012-09-13 08:58:39.000000000 +0100
++++ openjpeg-1.5.1/applications/mj2/wrap_j2k_in_mj2.c	2013-12-14 16:52:27.425216517 +0000
+@@ -396,10 +396,17 @@
+     
+     fclose(j2kfile);
+     snum++;
+-    movie->tk[0].sample = (mj2_sample_t*)
++    mj2_sample_t * new_sample = (mj2_sample_t*)
+ 		realloc(movie->tk[0].sample, (snum+1) * sizeof(mj2_sample_t));
+-    movie->tk[0].chunk = (mj2_chunk_t*)
++    mj2_chunk_t * new_chunk = (mj2_chunk_t*)
+ 		realloc(movie->tk[0].chunk, (snum+1) * sizeof(mj2_chunk_t));
++    if (new_sample && new_chunk) {
++        movie->tk[0].sample = new_sample;
++        movie->tk[0].chunk = new_chunk;
++    } else {
++       fprintf(stderr, "Failed to allocate enough memory to read %s\n", j2kfilename);
++       return 1;
++    }
+     free(frame_codestream);
+   }/* while(1) */
+   
+diff -ur openjpeg-1.5.1.old/libopenjpeg/jpwl/jpwl.h openjpeg-1.5.1/libopenjpeg/jpwl/jpwl.h
+--- openjpeg-1.5.1.old/libopenjpeg/jpwl/jpwl.h	2012-09-13 08:58:39.000000000 +0100
++++ openjpeg-1.5.1/libopenjpeg/jpwl/jpwl.h	2013-12-14 17:36:54.331508488 +0000
+@@ -334,7 +334,7 @@
+ 
+ opj_bool jpwl_epb_fill(opj_j2k_t *j2k, jpwl_epb_ms_t *epbmark, unsigned char *buf, unsigned char *post_buf);
+ 
+-void j2k_add_marker(opj_codestream_info_t *cstr_info, unsigned short int type, int pos, int len);
++opj_bool j2k_add_marker(opj_codestream_info_t *cstr_info, unsigned short int type, int pos, int len);
+ 
+ /** corrects the data in the JPWL codestream
+ @param j2k J2K compressor handle
+--- openjpeg-1.5.1/libopenjpeg/jpwl/jpwl.c.~1~	2012-09-13 08:58:39.000000000 +0100
++++ openjpeg-1.5.1/libopenjpeg/jpwl/jpwl.c	2013-12-14 18:25:31.920251904 +0000
+@@ -161,15 +161,24 @@
+ 
+ }
+ 
+-void j2k_add_marker(opj_codestream_info_t *cstr_info, unsigned short int type, int pos, int len) {
++opj_bool j2k_add_marker(opj_codestream_info_t *cstr_info, unsigned short int type, int pos, int len) {
+ 
+ 	if (!cstr_info)
+-		return;
++		return OPJ_FALSE;
+ 
+ 	/* expand the list? */
+ 	if ((cstr_info->marknum + 1) > cstr_info->maxmarknum) {
++		opj_marker_info_t* new_marker;
+ 		cstr_info->maxmarknum += 100;
+-		cstr_info->marker = (opj_marker_info_t*)opj_realloc(cstr_info->marker, cstr_info->maxmarknum * sizeof(opj_marker_info_t));
++		new_marker = (opj_marker_info_t*)opj_realloc(cstr_info->marker, cstr_info->maxmarknum * sizeof(opj_marker_info_t));
++		if (!new_marker) {
++			opj_free(cstr_info->marker);
++			cstr_info->marker = 0;
++			cstr_info->marknum = 0;
++			cstr_info->maxmarknum = 0;
++			return OPJ_FALSE;
++		}
++		cstr_info->marker = new_marker;
+ 	}
+ 
+ 	/* add the marker */
+@@ -177,6 +187,7 @@
+ 	cstr_info->marker[cstr_info->marknum].pos = pos;
+ 	cstr_info->marker[cstr_info->marknum].len = len;
+ 	cstr_info->marknum++;
++	return OPJ_TRUE;
+ 
+ }
+ 
+diff -ur openjpeg-1.5.1/libopenjpeg/mqc.c openjpeg-1.5.1-new/libopenjpeg/mqc.c
+--- openjpeg-1.5.1/libopenjpeg/mqc.c	2012-09-13 08:58:39.000000000 +0100
++++ openjpeg-1.5.1-new/libopenjpeg/mqc.c	2013-12-14 18:40:40.546446371 +0000
+@@ -508,7 +508,7 @@
+ 	}
+ }
+ 
+-void mqc_init_dec(opj_mqc_t *mqc, unsigned char *bp, int len) {
++opj_bool mqc_init_dec(opj_mqc_t *mqc, unsigned char *bp, int len) {
+ 	mqc_setcurctx(mqc, 0);
+ 	mqc->start = bp;
+ 	mqc->end = bp + len;
+@@ -521,7 +521,13 @@
+ 		unsigned int c;
+ 		unsigned int *ip;
+ 		unsigned char *end = mqc->end - 1;
+-		mqc->buffer = opj_realloc(mqc->buffer, (len + 1) * sizeof(unsigned int));
++		void* new_buffer = opj_realloc(mqc->buffer, (len + 1) * sizeof(unsigned int));
++		if (! new_buffer) {
++			opj_free(mqc->buffer);
++			mqc->buffer = NULL;
++			return OPJ_FALSE;
++		}
++		mqc->buffer = new_buffer;
+ 		ip = (unsigned int *) mqc->buffer;
+ 
+ 		while (bp < end) {
+@@ -557,6 +563,7 @@
+ 	mqc->c <<= 7;
+ 	mqc->ct -= 7;
+ 	mqc->a = 0x8000;
++	return OPJ_TRUE;
+ }
+ 
+ int mqc_decode(opj_mqc_t *const mqc) {
+diff -ur openjpeg-1.5.1/libopenjpeg/mqc.h openjpeg-1.5.1-new/libopenjpeg/mqc.h
+--- openjpeg-1.5.1/libopenjpeg/mqc.h	2012-09-13 08:58:39.000000000 +0100
++++ openjpeg-1.5.1-new/libopenjpeg/mqc.h	2013-12-14 18:41:08.140727359 +0000
+@@ -185,7 +185,7 @@
+ @param bp Pointer to the start of the buffer from which the bytes will be read
+ @param len Length of the input buffer
+ */
+-void mqc_init_dec(opj_mqc_t *mqc, unsigned char *bp, int len);
++opj_bool mqc_init_dec(opj_mqc_t *mqc, unsigned char *bp, int len);
+ /**
+ Decode a symbol
+ @param mqc MQC handle
+diff -ur openjpeg-1.5.1-old/libopenjpeg/t1.c openjpeg-1.5.1/libopenjpeg/t1.c
+--- openjpeg-1.5.1-old/libopenjpeg/t1.c	2012-09-13 08:58:39.000000000 +0100
++++ openjpeg-1.5.1/libopenjpeg/t1.c	2013-12-14 18:54:24.256259136 +0000
+@@ -263,7 +263,7 @@
+ @param roishift Region of interest shifting value
+ @param cblksty Code-block style
+ */
+-static void t1_decode_cblk(
++static opj_bool t1_decode_cblk(
+ 		opj_t1_t *t1,
+ 		opj_tcd_cblk_dec_t* cblk,
+ 		int orient,
+@@ -1277,7 +1277,7 @@
+ 	}
+ }
+ 
+-static void t1_decode_cblk(
++static opj_bool t1_decode_cblk(
+ 		opj_t1_t *t1,
+ 		opj_tcd_cblk_dec_t* cblk,
+ 		int orient,
+@@ -1296,7 +1296,7 @@
+ 				cblk->x1 - cblk->x0,
+ 				cblk->y1 - cblk->y0))
+ 	{
+-		return;
++		return OPJ_FALSE;
+ 	}
+ 
+ 	bpno = roishift + cblk->numbps - 1;
+@@ -1319,7 +1319,9 @@
+ 		if (type == T1_TYPE_RAW) {
+ 			raw_init_dec(raw, (*seg->data) + seg->dataindex, seg->len);
+ 		} else {
+-			mqc_init_dec(mqc, (*seg->data) + seg->dataindex, seg->len);
++			if (OPJ_FALSE == mqc_init_dec(mqc, (*seg->data) + seg->dataindex, seg->len)) {
++				return OPJ_FALSE;
++			}
+ 		}
+ 		
+ 		for (passno = 0; passno < seg->numpasses; ++passno) {
+@@ -1363,6 +1365,7 @@
+ 			}
+ 		}
+ 	}
++	return OPJ_TRUE;
+ }
+ 
+ /* ----------------------------------------------------------------------- */

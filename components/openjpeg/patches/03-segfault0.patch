@@ -1,0 +1,22 @@
+Index: openjpeg-1.5.1/libopenjpeg/j2k.c
+===================================================================
+--- openjpeg-1.5.1.orig/libopenjpeg/j2k.c	2013-01-01 01:01:01.000000000 +0000
++++ openjpeg-1.5.1/libopenjpeg/j2k.c	2013-01-01 01:01:01.000000000 +0000
+@@ -1051,6 +1051,17 @@ static void j2k_read_poc(opj_j2k_t *j2k)
+ 	tcp->POC = 1;
+ 	len = cio_read(cio, 2);		/* Lpoc */
+ 	numpchgs = (len - 2) / (5 + 2 * (numcomps <= 256 ? 1 : 2));
++
++	{
++		/* old_poc < 0 "just in case" */
++		int maxpocs = (sizeof(tcp->pocs)/sizeof(tcp->pocs[0]));
++		if ((old_poc < 0) || ((numpchgs + old_poc) >= maxpocs)) {
++			opj_event_msg(j2k->cinfo, EVT_ERROR,
++				"JPWL: bad number of progression order changes (%d out of a maximum of %d)\n",
++				(numpchgs + old_poc), maxpocs);
++			return;
++		}
++	}
+ 	
+ 	for (i = old_poc; i < numpchgs + old_poc; i++) {
+ 		opj_poc_t *poc;

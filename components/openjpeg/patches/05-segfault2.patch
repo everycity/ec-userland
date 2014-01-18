@@ -1,0 +1,24 @@
+Index: openjpeg-1.5.1/libopenjpeg/j2k.c
+===================================================================
+--- openjpeg-1.5.1.orig/libopenjpeg/j2k.c	2013-01-01 01:01:01.000000000 +0000
++++ openjpeg-1.5.1/libopenjpeg/j2k.c	2013-01-01 01:01:01.000000000 +0000
+@@ -1004,8 +1004,18 @@ static void j2k_read_qcc(opj_j2k_t *j2k)
+ 
+ 		/* keep your private count of tiles */
+ 		backup_compno++;
+-	};
++	}
++	else
+ #endif /* USE_JPWL */
++	{
++		/* compno is negative or larger than the number of components!!! */
++		if ((compno < 0) || (compno >= numcomp)) {
++			opj_event_msg(j2k->cinfo, EVT_ERROR,
++				"JPWL: bad component number in QCC (%d out of a maximum of %d)\n",
++				compno, numcomp);
++			return;
++		}
++	}
+ 
+ 	j2k_read_qcx(j2k, compno, len - 2 - (numcomp <= 256 ? 1 : 2));
+ }

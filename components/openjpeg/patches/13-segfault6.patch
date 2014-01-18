@@ -1,0 +1,16 @@
+Index: openjpeg-1.5.1/libopenjpeg/j2k.c
+===================================================================
+--- openjpeg-1.5.1.orig/libopenjpeg/j2k.c	2013-01-01 01:01:01.000000000 +0000
++++ openjpeg-1.5.1/libopenjpeg/j2k.c	2013-01-01 01:01:01.000000000 +0000
+@@ -2007,6 +2007,11 @@ opj_image_t* j2k_decode(opj_j2k_t *j2k,
+ 	}
+ 	if (j2k->state == J2K_STATE_NEOC) {
+ 		j2k_read_eoc(j2k);
++		/* Check one last time for errors during decoding before returning */
++		if (j2k->state & J2K_STATE_ERR) {
++			opj_image_destroy(image);
++			return NULL;
++		}
+ 	}
+ 
+ 	if (j2k->state != J2K_STATE_MT) {

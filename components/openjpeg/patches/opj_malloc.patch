@@ -1,0 +1,748 @@
+diff -ur openjpeg-1.5.1.orig/libopenjpeg/CMakeLists.txt openjpeg-1.5.1/libopenjpeg/CMakeLists.txt
+--- openjpeg-1.5.1.orig/libopenjpeg/CMakeLists.txt	2012-09-13 08:58:39.000000000 +0100
++++ openjpeg-1.5.1/libopenjpeg/CMakeLists.txt	2013-12-07 20:19:31.606278003 +0000
+@@ -13,6 +13,7 @@
+   ${CMAKE_CURRENT_SOURCE_DIR}/mct.c
+   ${CMAKE_CURRENT_SOURCE_DIR}/mqc.c
+   ${CMAKE_CURRENT_SOURCE_DIR}/openjpeg.c
++  ${CMAKE_CURRENT_SOURCE_DIR}/opj_malloc.c
+   ${CMAKE_CURRENT_SOURCE_DIR}/pi.c
+   ${CMAKE_CURRENT_SOURCE_DIR}/raw.c
+   ${CMAKE_CURRENT_SOURCE_DIR}/t1.c
+diff -ur openjpeg-1.5.1.orig/libopenjpeg/Makefile.in openjpeg-1.5.1/libopenjpeg/Makefile.in
+--- openjpeg-1.5.1.orig/libopenjpeg/Makefile.in	2012-09-13 08:58:39.000000000 +0100
++++ openjpeg-1.5.1/libopenjpeg/Makefile.in	2013-12-07 20:19:25.510245830 +0000
+@@ -90,7 +90,7 @@
+ 	libopenjpeg_la-tcd.lo libopenjpeg_la-tgt.lo \
+ 	libopenjpeg_la-cidx_manager.lo libopenjpeg_la-phix_manager.lo \
+ 	libopenjpeg_la-ppix_manager.lo libopenjpeg_la-thix_manager.lo \
+-	libopenjpeg_la-tpix_manager.lo
++	libopenjpeg_la-tpix_manager.lo libopenjpeg_la-opj_malloc.lo
+ libopenjpeg_la_OBJECTS = $(am_libopenjpeg_la_OBJECTS)
+ AM_V_lt = $(am__v_lt_$(V))
+ am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
+@@ -375,7 +375,8 @@
+ t2.h \
+ tcd.h \
+ tgt.h \
+-cidx_manager.h
++cidx_manager.h \
++opj_malloc.c
+ 
+ EXTRA_DIST = \
+ CMakeLists.txt
+@@ -478,6 +479,7 @@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libopenjpeg_la-mct.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libopenjpeg_la-mqc.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libopenjpeg_la-openjpeg.Plo@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libopenjpeg_la-opj_malloc.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libopenjpeg_la-phix_manager.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libopenjpeg_la-pi.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libopenjpeg_la-ppix_manager.Plo@am__quote@
+@@ -610,6 +612,14 @@
+ @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+ @am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libopenjpeg_la_CPPFLAGS) $(CPPFLAGS) $(libopenjpeg_la_CFLAGS) $(CFLAGS) -c -o libopenjpeg_la-openjpeg.lo `test -f 'openjpeg.c' || echo '$(srcdir)/'`openjpeg.c
+ 
++libopenjpeg_la-opj_malloc.lo: opj_malloc.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libopenjpeg_la_CPPFLAGS) $(CPPFLAGS) $(libopenjpeg_la_CFLAGS) $(CFLAGS) -MT libopenjpeg_la-opj_malloc.lo -MD -MP -MF $(DEPDIR)/libopenjpeg_la-opj_malloc.Tpo -c -o libopenjpeg_la-opj_malloc.lo `test -f 'opj_malloc.c' || echo '$(srcdir)/'`opj_malloc.c
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libopenjpeg_la-opj_malloc.Tpo $(DEPDIR)/libopenjpeg_la-opj_malloc.Plo
++@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='opj_malloc.c' object='libopenjpeg_la-opj_malloc.lo' libtool=yes @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libopenjpeg_la_CPPFLAGS) $(CPPFLAGS) $(libopenjpeg_la_CFLAGS) $(CFLAGS) -c -o libopenjpeg_la-opj_malloc.lo `test -f 'opj_malloc.c' || echo '$(srcdir)/'`opj_malloc.c
++
+ libopenjpeg_la-pi.lo: pi.c
+ @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libopenjpeg_la_CPPFLAGS) $(CPPFLAGS) $(libopenjpeg_la_CFLAGS) $(CFLAGS) -MT libopenjpeg_la-pi.lo -MD -MP -MF $(DEPDIR)/libopenjpeg_la-pi.Tpo -c -o libopenjpeg_la-pi.lo `test -f 'pi.c' || echo '$(srcdir)/'`pi.c
+ @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libopenjpeg_la-pi.Tpo $(DEPDIR)/libopenjpeg_la-pi.Plo
+diff -ur openjpeg-1.5.1.orig/libopenjpeg/cio.c openjpeg-1.5.1/libopenjpeg/cio.c
+--- openjpeg-1.5.1.orig/libopenjpeg/cio.c	2012-09-13 08:58:39.000000000 +0100
++++ openjpeg-1.5.1/libopenjpeg/cio.c	2013-12-07 20:19:31.606663262 +0000
+@@ -59,8 +59,8 @@
+ 				opj_free(cio);
+ 				return NULL;
+ 		}
+-		cio->length = (unsigned int) (0.1625 * cp->img_size + 2000); /* 0.1625 = 1.3/8 and 2000 bytes as a minimum for headers */
+-		cio->buffer = (unsigned char *)opj_malloc(cio->length);
++		cio->length = (0.1625 * cp->img_size + 2000); /* 0.1625 = 1.3/8 and 2000 bytes as a minimum for headers */
++		cio->buffer = opj_malloc((size_t)cio->length);
+ 		if(!cio->buffer) {
+ 			opj_event_msg(cio->cinfo, EVT_ERROR, "Error allocating memory for compressed bitstream\n");
+ 			opj_free(cio);
+Only in openjpeg-1.5.1/libopenjpeg: cio.c.orig
+diff -ur openjpeg-1.5.1.orig/libopenjpeg/openjpeg.h openjpeg-1.5.1/libopenjpeg/openjpeg.h
+--- openjpeg-1.5.1.orig/libopenjpeg/openjpeg.h	2012-09-13 08:58:39.000000000 +0100
++++ openjpeg-1.5.1/libopenjpeg/openjpeg.h	2013-12-07 20:21:33.265642922 +0000
+@@ -199,6 +199,7 @@
+ /**
+ Progression order changes
+ */
++#define PROGORDER_LEN 5
+ typedef struct opj_poc {
+ 	/** Resolution num start, Component num start, given by POC */
+ 	int resno0, compno0;
+@@ -209,7 +210,7 @@
+ 	/** Progression order enum*/
+ 	OPJ_PROG_ORDER prg1,prg;
+ 	/** Progression order string*/
+-	char progorder[5];
++	char progorder[PROGORDER_LEN];
+ 	/** Tile number */
+ 	int tile;
+ 	/** Start and end values for Tile width and height*/
+@@ -428,7 +429,13 @@
+  * opj_common_struct_t, only of opj_cinfo_t and opj_dinfo_t.
+  */
+ typedef struct opj_common_struct {
+-  opj_common_fields;		/* Fields common to both master struct types */
++	opj_event_mgr_t *event_mgr;	/**< pointer to the event manager */\
++	void * client_data;		/**< Available for use by application */\
++	opj_bool is_decompressor;	/**< So common code can tell which is which */\
++	OPJ_CODEC_FORMAT codec_format;	/**< selected codec */\
++	void *j2k_handle;		/**< pointer to the J2K codec */\
++	void *jp2_handle;		/**< pointer to the JP2 codec */\
++	void *mj2_handle;		/* Fields common to both master struct types */
+   /* Additional fields follow in an actual opj_cinfo_t or
+    * opj_dinfo_t.  All three structs must agree on these
+    * initial fields!  (This would be a lot cleaner in C++.)
+@@ -436,13 +443,21 @@
+ } opj_common_struct_t;
+ 
+ typedef opj_common_struct_t * opj_common_ptr;
+-
++//typedef opj_common_struct_t opj_cinfo_t;
++//typedef opj_common_struct_t opj_dinfo_t;
+ /**
+ Compression context info
+ */
+ typedef struct opj_cinfo {
+ 	/** Fields shared with opj_dinfo_t */
+-	opj_common_fields;	
++	opj_event_mgr_t *event_mgr;	/**< pointer to the event manager */\
++	void * client_data;			/**< Available for use by application */\
++	opj_bool is_decompressor;		/**< So common code can tell which is which */\
++	/*OPJ_CODEC_FORMAT codec_format;	*//**< selected codec */\
++	int codec_format;	/**< selected codec */\
++	void *j2k_handle;			/**< pointer to the J2K codec */\
++	void *jp2_handle;			/**< pointer to the JP2 codec */\
++	void *mj2_handle;
+ 	/* other specific fields go here */
+ } opj_cinfo_t;
+ 
+@@ -451,7 +466,13 @@
+ */
+ typedef struct opj_dinfo {
+ 	/** Fields shared with opj_cinfo_t */
+-	opj_common_fields;	
++	opj_event_mgr_t *event_mgr;	/**< pointer to the event manager */\
++	void * client_data;			/**< Available for use by application */\
++	opj_bool is_decompressor;		/**< So common code can tell which is which */\
++	OPJ_CODEC_FORMAT codec_format;	/**< selected codec */\
++	void *j2k_handle;			/**< pointer to the J2K codec */\
++	void *jp2_handle;			/**< pointer to the JP2 codec */\
++	void *mj2_handle;
+ 	/* other specific fields go here */
+ } opj_dinfo_t;
+ 
+@@ -591,7 +612,7 @@
+ 	int end_ph_pos;
+ 	/** packet end position */
+ 	int end_pos;
+-	/** packet distorsion */
++	/** packet distortion */
+ 	double disto;
+ } opj_packet_info_t;
+ 
+diff -r 4d37051a49ef -r 4e7218730b9c openjpeg-1.3+dfsg.orig/libopenjpeg/opj_malloc.c
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/libopenjpeg/opj_malloc.c	Fri Nov 15 11:35:10 2013 +1300
+@@ -0,0 +1,80 @@
++/*
++ * opj_malloc.c
++ *
++ *  Created on: 11/11/2013
++ *      Author: Bart Milne (milne.bje@gmail.com)
++ *
++ *  PURPOSE: A replacement for the macro-based memory allocation functions in
++ *  opj_malloc.h . This eases debugging and development.
++ */
++
++#include "opj_malloc.h"
++
++/*
++ * OpenJPEG malloc, calloc, realloc and free functions. Works in the same way
++ * as the library functions in <stdlib.h>.
++ */
++void * opj_malloc (size_t size)
++{
++	return malloc(size);
++}
++
++void * opj_calloc (size_t num, size_t size)
++{
++	return calloc(num, size);
++}
++
++void* opj_realloc (void * ptr, size_t size)
++{
++	return realloc(ptr, size);
++}
++
++void opj_free (void* ptr)
++{
++	free(ptr);
++}
++
++
++/*
++ * Aligned malloc. This is intended to align memory on 16-byte boundaries.
++ * Note that the exact function for both allocating and freeing used depends
++ * on the operating system environment.
++ * Please note this code has ONLY been tested for when HAVE_MEMALIGN macro is
++ * active. The other cases have not been tested.
++ */
++void* __attribute__ ((malloc)) opj_aligned_malloc(size_t size)
++{
++	void *mem = NULL;
++
++#ifdef HAVE_MM_MALLOC
++	mem = _mm_malloc(size, OPJ_MM_MALLOC_BYTE_ALIGN);
++
++#elif defined (HAVE_MEMALIGN)
++	mem = memalign(OPJ_MM_MALLOC_BYTE_ALIGN, size);
++
++#elif defined (HAVE_POSIX_MEMALIGN)
++	int rval;
++	rval = posix_memalign(&mem, OPJ_MM_MALLOC_BYTE_ALIGN, size);
++	if (rval){
++		mem = NULL;
++	}
++
++#else
++	mem = malloc(size);
++#endif
++
++	return mem;
++}
++
++void opj_aligned_free(void *ptr)
++{
++#ifdef HAVE_MM_MALLOC
++	_mm_free(ptr);
++#else
++	free(ptr);
++#endif
++}
++
++
++/***** END OF FILE *****/
++
+diff -ur openjpeg-1.5.1.orig/libopenjpeg/opj_malloc.h openjpeg-1.5.1/libopenjpeg/opj_malloc.h
+--- openjpeg-1.5.1.orig/libopenjpeg/opj_malloc.h	2012-09-13 08:58:39.000000000 +0100
++++ openjpeg-1.5.1/libopenjpeg/opj_malloc.h	2013-12-07 20:19:35.518275376 +0000
+@@ -26,6 +26,9 @@
+  */
+ #ifndef __OPJ_MALLOC_H
+ #define __OPJ_MALLOC_H
++
++#include <stdlib.h>
++
+ /**
+ @file opj_malloc.h
+ @brief Internal functions
+@@ -33,6 +36,9 @@
+ The functions in opj_malloc.h are internal utilities used for memory management.
+ */
+ 
++#define OPJ_MM_MALLOC_BYTE_ALIGN 16
++
++
+ /** @defgroup MISC MISC - Miscellaneous internal functions */
+ /*@{*/
+ 
+@@ -48,7 +54,8 @@
+ #ifdef ALLOC_PERF_OPT
+ void * OPJ_CALLCONV opj_malloc(size_t size);
+ #else
+-#define opj_malloc(size) malloc(size)
++//#define opj_malloc(size) malloc(size)
++void * opj_malloc(size_t size) __attribute__((malloc));
+ #endif
+ 
+ /**
+@@ -60,11 +67,12 @@
+ #ifdef ALLOC_PERF_OPT
+ void * OPJ_CALLCONV opj_calloc(size_t _NumOfElements, size_t _SizeOfElements);
+ #else
+-#define opj_calloc(num, size) calloc(num, size)
++//#define opj_calloc(num, size) calloc(num, size)
++void * opj_calloc(size_t num, size_t size);
+ #endif
+ 
+ /**
+-Allocate memory aligned to a 16 byte boundry
++Allocate memory aligned to a 16 byte boundary
+ @param size Bytes to allocate
+ @return Returns a void pointer to the allocated space, or NULL if there is insufficient memory available
+ */
+@@ -92,36 +100,14 @@
+ 	#endif
+ #endif
+ 
+-#define opj_aligned_malloc(size) malloc(size)
+-#define opj_aligned_free(m) free(m)
+-
+-#ifdef HAVE_MM_MALLOC
+-	#undef opj_aligned_malloc
+-	#define opj_aligned_malloc(size) _mm_malloc(size, 16)
+-	#undef opj_aligned_free
+-	#define opj_aligned_free(m) _mm_free(m)
+-#endif
+ 
+ #ifdef HAVE_MEMALIGN
+-	extern void* memalign(size_t, size_t);
+-	#undef opj_aligned_malloc
+-	#define opj_aligned_malloc(size) memalign(16, (size))
+-	#undef opj_aligned_free
+-	#define opj_aligned_free(m) free(m)
+-#endif
++extern void* memalign(size_t, size_t);
++#endif /* HAVE_MEMALIGN */
+ 
+ #ifdef HAVE_POSIX_MEMALIGN
+-	#undef opj_aligned_malloc
+-	extern int posix_memalign(void**, size_t, size_t);
+-
+-	static INLINE void* __attribute__ ((malloc)) opj_aligned_malloc(size_t size){
+-		void* mem = NULL;
+-		posix_memalign(&mem, 16, size);
+-		return mem;
+-	}
+-	#undef opj_aligned_free
+-	#define opj_aligned_free(m) free(m)
+-#endif
++extern int posix_memalign(void**, size_t, size_t);
++#endif /* HAVE_POSIX_MEMALIGN */
+ 
+ #ifdef ALLOC_PERF_OPT
+ 	#undef opj_aligned_malloc
+@@ -139,7 +125,8 @@
+ #ifdef ALLOC_PERF_OPT
+ void * OPJ_CALLCONV opj_realloc(void * m, size_t s);
+ #else
+-#define opj_realloc(m, s) realloc(m, s)
++//#define opj_realloc(m, s) realloc(m, s)
++void* opj_realloc (void * ptr, size_t size);
+ #endif
+ 
+ /**
+@@ -149,12 +136,16 @@
+ #ifdef ALLOC_PERF_OPT
+ void OPJ_CALLCONV opj_free(void * m);
+ #else
+-#define opj_free(m) free(m)
++//#define opj_free(m) free(m)
++void opj_free (void* ptr);
+ #endif
+ 
+-#ifdef __GNUC__
+-#pragma GCC poison malloc calloc realloc free
+-#endif
++void* opj_aligned_malloc(size_t size) __attribute__ ((malloc));
++void opj_aligned_free(void *ptr);
++
++//#ifdef __GNUC__
++//#pragma GCC poison malloc calloc realloc free
++//#endif
+ 
+ /* ----------------------------------------------------------------------- */
+ /*@}*/
+diff -ur openjpeg-1.5.1.orig/libopenjpeg/tcd.c openjpeg-1.5.1/libopenjpeg/tcd.c
+--- openjpeg-1.5.1.orig/libopenjpeg/tcd.c	2012-09-13 08:58:39.000000000 +0100
++++ openjpeg-1.5.1/libopenjpeg/tcd.c	2013-12-07 20:19:31.608638549 +0000
+@@ -32,6 +32,7 @@
+ 
+ #define _ISOC99_SOURCE /* lrintf is C99 */
+ #include "opj_includes.h"
++#include <assert.h>
+ 
+ void tcd_dump(FILE *fd, opj_tcd_t *tcd, opj_tcd_image_t * img) {
+ 	int tileno, compno, resno, bandno, precno;/*, cblkno;*/
+@@ -99,14 +100,21 @@
+ */
+ opj_tcd_t* tcd_create(opj_common_ptr cinfo) {
+ 	/* create the tcd structure */
+-	opj_tcd_t *tcd = (opj_tcd_t*)opj_malloc(sizeof(opj_tcd_t));
+-	if(!tcd) return NULL;
++	opj_tcd_t *tcd = (opj_tcd_t*)opj_malloc(sizeof *tcd);
++
++	if(tcd == NULL) return NULL;
++
+ 	tcd->cinfo = cinfo;
+-	tcd->tcd_image = (opj_tcd_image_t*)opj_malloc(sizeof(opj_tcd_image_t));
++
++	/*
++	bytes = sizeof(opj_tcd_image_t);
++	tcd->tcd_image = (opj_tcd_image_t*)opj_malloc(bytes);
+ 	if(!tcd->tcd_image) {
+ 		opj_free(tcd);
+ 		return NULL;
+ 	}
++*/
++	tcd->tcd_image = &tcd->tcd_image_data;
+ 
+ 	return tcd;
+ }
+@@ -115,16 +123,30 @@
+ Destroy a previously created TCD handle
+ */
+ void tcd_destroy(opj_tcd_t *tcd) {
++	/*
+ 	if(tcd) {
+ 		opj_free(tcd->tcd_image);
+ 		opj_free(tcd);
+ 	}
++	*/
++	/* Changed free algorithm as we now no
++	 * longer have to free tcd_image member
++	 * explicitly by default.
++	 */
++	if (tcd != NULL && (tcd->tcd_image != &tcd->tcd_image_data))
++	{
++		opj_free(tcd->tcd_image);
++	}
++
++	opj_free(tcd);
+ }
+ 
+ /* ----------------------------------------------------------------------- */
+ 
+ void tcd_malloc_encode(opj_tcd_t *tcd, opj_image_t * image, opj_cp_t * cp, int curtileno) {
+ 	int tileno, compno, resno, bandno, precno, cblkno;
++	size_t bytes;
++	size_t bytes_total = 0;
+ 
+ 	tcd->image = image;
+ 	tcd->cp = cp;
+@@ -182,8 +204,9 @@
+ 			}
+ 		}
+ 		/* << Modification of the RATE */
+-		
+-		tile->comps = (opj_tcd_tilecomp_t *) opj_malloc(image->numcomps * sizeof(opj_tcd_tilecomp_t));
++		bytes = image->numcomps * sizeof(opj_tcd_tilecomp_t);
++		bytes_total += bytes;
++		tile->comps = (opj_tcd_tilecomp_t *) opj_malloc(bytes);
+ 		for (compno = 0; compno < tile->numcomps; compno++) {
+ 			opj_tccp_t *tccp = &tcp->tccps[compno];
+ 
+@@ -195,10 +218,14 @@
+ 			tilec->x1 = int_ceildiv(tile->x1, image->comps[compno].dx);
+ 			tilec->y1 = int_ceildiv(tile->y1, image->comps[compno].dy);
+ 			
+-			tilec->data = (int *) opj_aligned_malloc((tilec->x1 - tilec->x0) * (tilec->y1 - tilec->y0) * sizeof(int));
++			bytes = (tilec->x1 - tilec->x0) * (tilec->y1 - tilec->y0) * sizeof(int);
++			bytes_total += bytes;
++			tilec->data = (int *) opj_aligned_malloc(bytes);
+ 			tilec->numresolutions = tccp->numresolutions;
+ 
+-			tilec->resolutions = (opj_tcd_resolution_t *) opj_malloc(tilec->numresolutions * sizeof(opj_tcd_resolution_t));
++			bytes = tilec->numresolutions * sizeof(opj_tcd_resolution_t);
++			bytes_total += bytes;
++			tilec->resolutions = (opj_tcd_resolution_t *) opj_malloc(bytes);
+ 			
+ 			for (resno = 0; resno < tilec->numresolutions; resno++) {
+ 				int pdx, pdy;
+@@ -286,7 +313,9 @@
+ 					band->stepsize = (float)((1.0 + ss->mant / 2048.0) * pow(2.0, numbps - ss->expn));
+ 					band->numbps = ss->expn + tccp->numgbits - 1;	/* WHY -1 ? */
+ 					
+-					band->precincts = (opj_tcd_precinct_t *) opj_malloc(3 * res->pw * res->ph * sizeof(opj_tcd_precinct_t));
++					bytes = 3 * res->pw * res->ph * sizeof(opj_tcd_precinct_t);
++					bytes_total += bytes;
++					band->precincts = (opj_tcd_precinct_t *) opj_malloc(bytes);
+ 					
+ 					for (i = 0; i < res->pw * res->ph * 3; i++) {
+ 						band->precincts[i].imsbtree = NULL;
+@@ -294,7 +323,9 @@
+ 						band->precincts[i].cblks.enc = NULL;
+ 					}
+ 					
+-					for (precno = 0; precno < res->pw * res->ph; precno++) {
++
++					int precno_max = res->pw * res->ph;
++					for (precno = 0; precno < precno_max; precno++) {
+ 						int tlcblkxstart, tlcblkystart, brcblkxend, brcblkyend;
+ 
+ 						int cbgxstart = tlcbgxstart + (precno % res->pw) * (1 << cbgwidthexpn);
+@@ -317,11 +348,14 @@
+ 						prc->cw = (brcblkxend - tlcblkxstart) >> cblkwidthexpn;
+ 						prc->ch = (brcblkyend - tlcblkystart) >> cblkheightexpn;
+ 
++						bytes = (prc->cw * prc->ch) * sizeof(opj_tcd_cblk_enc_t);
++						bytes_total += bytes;
+ 						prc->cblks.enc = (opj_tcd_cblk_enc_t*) opj_calloc((prc->cw * prc->ch), sizeof(opj_tcd_cblk_enc_t));
+ 						prc->incltree = tgt_create(prc->cw, prc->ch);
+ 						prc->imsbtree = tgt_create(prc->cw, prc->ch);
+ 						
+-						for (cblkno = 0; cblkno < prc->cw * prc->ch; cblkno++) {
++						int cblk_max = prc->cw * prc->ch;
++						for (cblkno = 0; cblkno < cblk_max; cblkno++) {
+ 							int cblkxstart = tlcblkxstart + (cblkno % prc->cw) * (1 << cblkwidthexpn);
+ 							int cblkystart = tlcblkystart + (cblkno / prc->cw) * (1 << cblkheightexpn);
+ 							int cblkxend = cblkxstart + (1 << cblkwidthexpn);
+@@ -334,13 +368,26 @@
+ 							cblk->y0 = int_max(cblkystart, prc->y0);
+ 							cblk->x1 = int_min(cblkxend, prc->x1);
+ 							cblk->y1 = int_min(cblkyend, prc->y1);
++
++							bytes = (9728+2) * sizeof(unsigned char);
++							bytes_total += bytes;
+ 							cblk->data = (unsigned char*) opj_calloc(9728+2, sizeof(unsigned char));
+ 							/* FIXME: mqc_init_enc and mqc_byteout underrun the buffer if we don't do this. Why? */
+ 							cblk->data[0] = 0;
+ 							cblk->data[1] = 0;
+ 							cblk->data += 2;
++
++							bytes = 100 * sizeof(opj_tcd_layer_t);
++							bytes_total += bytes;
+ 							cblk->layers = (opj_tcd_layer_t*) opj_calloc(100, sizeof(opj_tcd_layer_t));
++
++							bytes = 100 * sizeof(opj_tcd_pass_t);
++							bytes_total += bytes;
++
+ 							cblk->passes = (opj_tcd_pass_t*) opj_calloc(100, sizeof(opj_tcd_pass_t));
++
++							assert(bytes_total <= (1 << 29));
++
+ 						}
+ 					}
+ 				}
+Only in openjpeg-1.5.1/libopenjpeg: tcd.c.orig
+diff -ur openjpeg-1.5.1.orig/libopenjpeg/tcd.h openjpeg-1.5.1/libopenjpeg/tcd.h
+--- openjpeg-1.5.1.orig/libopenjpeg/tcd.h	2012-09-13 08:58:39.000000000 +0100
++++ openjpeg-1.5.1/libopenjpeg/tcd.h	2013-12-07 20:19:31.608949190 +0000
+@@ -198,6 +198,11 @@
+ 	int tcd_tileno;
+ 	/** Time taken to encode a tile*/
+ 	double encoding_time;
++
++	/* Add a statically allocated opj_tcd_image_t struct here.
++	 * Eliminates a malloc call for data of size 12 bytes.
++	 */
++	opj_tcd_image_t tcd_image_data;
+ } opj_tcd_t;
+ 
+ /** @name Exported functions */
+--- openjpeg-1.5.1/libopenjpeg/jpwl/Makefile.in.~1~	2012-09-13 08:58:39.000000000 +0100
++++ openjpeg-1.5.1/libopenjpeg/jpwl/Makefile.in	2013-12-08 00:21:36.612798950 +0000
+@@ -81,6 +81,7 @@
+ 	libopenjpeg_JPWL_la-j2k_lib.lo libopenjpeg_JPWL_la-jp2.lo \
+ 	libopenjpeg_JPWL_la-jpt.lo libopenjpeg_JPWL_la-mct.lo \
+ 	libopenjpeg_JPWL_la-mqc.lo libopenjpeg_JPWL_la-openjpeg.lo \
++	libopenjpeg_JPWL_la-opj_malloc.lo \
+ 	libopenjpeg_JPWL_la-pi.lo libopenjpeg_JPWL_la-raw.lo \
+ 	libopenjpeg_JPWL_la-t1.lo \
+ 	libopenjpeg_JPWL_la-t1_generate_luts.lo \
+@@ -292,6 +293,7 @@
+ ../mct.c \
+ ../mqc.c \
+ ../openjpeg.c \
++../opj_malloc.c \
+ ../pi.c \
+ ../raw.c \
+ ../t1.c \
+@@ -427,6 +429,7 @@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libopenjpeg_JPWL_la-mct.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libopenjpeg_JPWL_la-mqc.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libopenjpeg_JPWL_la-openjpeg.Plo@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libopenjpeg_JPWL_la-opj_malloc.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libopenjpeg_JPWL_la-phix_manager.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libopenjpeg_JPWL_la-pi.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libopenjpeg_JPWL_la-ppix_manager.Plo@am__quote@
+@@ -560,6 +563,14 @@
+ @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+ @am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libopenjpeg_JPWL_la_CPPFLAGS) $(CPPFLAGS) $(libopenjpeg_JPWL_la_CFLAGS) $(CFLAGS) -c -o libopenjpeg_JPWL_la-openjpeg.lo `test -f '../openjpeg.c' || echo '$(srcdir)/'`../openjpeg.c
+ 
++libopenjpeg_JPWL_la-opj_malloc.lo: ../opj_malloc.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libopenjpeg_JPWL_la_CPPFLAGS) $(CPPFLAGS) $(libopenjpeg_JPWL_la_CFLAGS) $(CFLAGS) -MT libopenjpeg_JPWL_la-opj_malloc.lo -MD -MP -MF $(DEPDIR)/libopenjpeg_JPWL_la-opj_malloc.Tpo -c -o libopenjpeg_JPWL_la-opj_malloc.lo `test -f '../opj_malloc.c' || echo '$(srcdir)/'`../opj_malloc.c
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libopenjpeg_JPWL_la-opj_malloc.Tpo $(DEPDIR)/libopenjpeg_JPWL_la-opj_malloc.Plo
++@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../opj_malloc.c' object='libopenjpeg_JPWL_la-opj_malloc.lo' libtool=yes @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libopenjpeg_JPWL_la_CPPFLAGS) $(CPPFLAGS) $(libopenjpeg_JPWL_la_CFLAGS) $(CFLAGS) -c -o libopenjpeg_JPWL_la-opj_malloc.lo `test -f '../opj_malloc.c' || echo '$(srcdir)/'`../opj_malloc.c
++
+ libopenjpeg_JPWL_la-pi.lo: ../pi.c
+ @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libopenjpeg_JPWL_la_CPPFLAGS) $(CPPFLAGS) $(libopenjpeg_JPWL_la_CFLAGS) $(CFLAGS) -MT libopenjpeg_JPWL_la-pi.lo -MD -MP -MF $(DEPDIR)/libopenjpeg_JPWL_la-pi.Tpo -c -o libopenjpeg_JPWL_la-pi.lo `test -f '../pi.c' || echo '$(srcdir)/'`../pi.c
+ @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libopenjpeg_JPWL_la-pi.Tpo $(DEPDIR)/libopenjpeg_JPWL_la-pi.Plo
+--- openjpeg-1.5.1/applications/mj2/Makefile.in.orig	2013-12-08 00:24:16.208539751 +0000
++++ openjpeg-1.5.1/applications/mj2/Makefile.in	2013-12-08 00:45:12.173612692 +0000
+@@ -67,6 +67,7 @@
+ 	extract_j2k_from_mj2-mct.$(OBJEXT) \
+ 	extract_j2k_from_mj2-mqc.$(OBJEXT) \
+ 	extract_j2k_from_mj2-openjpeg.$(OBJEXT) \
++	extract_j2k_from_mj2-opj_malloc.$(OBJEXT) \
+ 	extract_j2k_from_mj2-pi.$(OBJEXT) \
+ 	extract_j2k_from_mj2-raw.$(OBJEXT) \
+ 	extract_j2k_from_mj2-t1.$(OBJEXT) \
+@@ -96,7 +97,9 @@
+ 	frames_to_mj2-j2k.$(OBJEXT) frames_to_mj2-j2k_lib.$(OBJEXT) \
+ 	frames_to_mj2-jp2.$(OBJEXT) frames_to_mj2-jpt.$(OBJEXT) \
+ 	frames_to_mj2-mct.$(OBJEXT) frames_to_mj2-mqc.$(OBJEXT) \
+-	frames_to_mj2-openjpeg.$(OBJEXT) frames_to_mj2-pi.$(OBJEXT) \
++	frames_to_mj2-openjpeg.$(OBJEXT) \
++	frames_to_mj2-opj_malloc.$(OBJEXT) \
++	frames_to_mj2-pi.$(OBJEXT) \
+ 	frames_to_mj2-raw.$(OBJEXT) frames_to_mj2-t1.$(OBJEXT) \
+ 	frames_to_mj2-t2.$(OBJEXT) frames_to_mj2-tcd.$(OBJEXT) \
+ 	frames_to_mj2-tgt.$(OBJEXT) \
+@@ -121,7 +124,9 @@
+ 	mj2_to_frames-j2k.$(OBJEXT) mj2_to_frames-j2k_lib.$(OBJEXT) \
+ 	mj2_to_frames-jp2.$(OBJEXT) mj2_to_frames-jpt.$(OBJEXT) \
+ 	mj2_to_frames-mct.$(OBJEXT) mj2_to_frames-mqc.$(OBJEXT) \
+-	mj2_to_frames-openjpeg.$(OBJEXT) mj2_to_frames-pi.$(OBJEXT) \
++	mj2_to_frames-openjpeg.$(OBJEXT) \
++	mj2_to_frames-opj_malloc.$(OBJEXT) \
++	mj2_to_frames-pi.$(OBJEXT) \
+ 	mj2_to_frames-raw.$(OBJEXT) mj2_to_frames-t1.$(OBJEXT) \
+ 	mj2_to_frames-t2.$(OBJEXT) mj2_to_frames-tcd.$(OBJEXT) \
+ 	mj2_to_frames-tgt.$(OBJEXT) \
+@@ -149,6 +154,7 @@
+ 	wrap_j2k_in_mj2-jp2.$(OBJEXT) wrap_j2k_in_mj2-jpt.$(OBJEXT) \
+ 	wrap_j2k_in_mj2-mct.$(OBJEXT) wrap_j2k_in_mj2-mqc.$(OBJEXT) \
+ 	wrap_j2k_in_mj2-openjpeg.$(OBJEXT) \
++	wrap_j2k_in_mj2-opj_malloc.$(OBJEXT) \
+ 	wrap_j2k_in_mj2-pi.$(OBJEXT) wrap_j2k_in_mj2-raw.$(OBJEXT) \
+ 	wrap_j2k_in_mj2-t1.$(OBJEXT) wrap_j2k_in_mj2-t2.$(OBJEXT) \
+ 	wrap_j2k_in_mj2-tcd.$(OBJEXT) wrap_j2k_in_mj2-tgt.$(OBJEXT) \
+@@ -359,6 +365,7 @@
+ ../../libopenjpeg/mct.c \
+ ../../libopenjpeg/mqc.c \
+ ../../libopenjpeg/openjpeg.c \
++../../libopenjpeg/opj_malloc.c \
+ ../../libopenjpeg/pi.c \
+ ../../libopenjpeg/raw.c \
+ ../../libopenjpeg/t1.c \
+@@ -558,6 +565,7 @@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/extract_j2k_from_mj2-mj2.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/extract_j2k_from_mj2-mqc.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/extract_j2k_from_mj2-openjpeg.Po@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/extract_j2k_from_mj2-opj_malloc.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/extract_j2k_from_mj2-phix_manager.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/extract_j2k_from_mj2-pi.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/extract_j2k_from_mj2-ppix_manager.Po@am__quote@
+@@ -584,6 +592,7 @@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/frames_to_mj2-mj2_convert.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/frames_to_mj2-mqc.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/frames_to_mj2-openjpeg.Po@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/frames_to_mj2-opj_malloc.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/frames_to_mj2-opj_getopt.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/frames_to_mj2-phix_manager.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/frames_to_mj2-pi.Po@am__quote@
+@@ -612,6 +621,7 @@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mj2_to_frames-mj2_to_frames.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mj2_to_frames-mqc.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mj2_to_frames-openjpeg.Po@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mj2_to_frames-opj_malloc.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mj2_to_frames-opj_getopt.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mj2_to_frames-phix_manager.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mj2_to_frames-pi.Po@am__quote@
+@@ -637,6 +647,7 @@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wrap_j2k_in_mj2-mj2.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wrap_j2k_in_mj2-mqc.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wrap_j2k_in_mj2-openjpeg.Po@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wrap_j2k_in_mj2-opj_malloc.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wrap_j2k_in_mj2-phix_manager.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wrap_j2k_in_mj2-pi.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wrap_j2k_in_mj2-ppix_manager.Po@am__quote@
+@@ -865,6 +876,22 @@
+ @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+ @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(extract_j2k_from_mj2_CPPFLAGS) $(CPPFLAGS) $(extract_j2k_from_mj2_CFLAGS) $(CFLAGS) -c -o extract_j2k_from_mj2-openjpeg.obj `if test -f '../../libopenjpeg/openjpeg.c'; then $(CYGPATH_W) '../../libopenjpeg/openjpeg.c'; else $(CYGPATH_W) '$(srcdir)/../../libopenjpeg/openjpeg.c'; fi`
+ 
++extract_j2k_from_mj2-opj_malloc.o: ../../libopenjpeg/opj_malloc.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(extract_j2k_from_mj2_CPPFLAGS) $(CPPFLAGS) $(extract_j2k_from_mj2_CFLAGS) $(CFLAGS) -MT extract_j2k_from_mj2-opj_malloc.o -MD -MP -MF $(DEPDIR)/extract_j2k_from_mj2-opj_malloc.Tpo -c -o extract_j2k_from_mj2-opj_malloc.o `test -f '../../libopenjpeg/opj_malloc.c' || echo '$(srcdir)/'`../../libopenjpeg/opj_malloc.c
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/extract_j2k_from_mj2-opj_malloc.Tpo $(DEPDIR)/extract_j2k_from_mj2-opj_malloc.Po
++@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../../libopenjpeg/opj_malloc.c' object='extract_j2k_from_mj2-opj_malloc.o' libtool=no @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(extract_j2k_from_mj2_CPPFLAGS) $(CPPFLAGS) $(extract_j2k_from_mj2_CFLAGS) $(CFLAGS) -c -o extract_j2k_from_mj2-opj_malloc.o `test -f '../../libopenjpeg/opj_malloc.c' || echo '$(srcdir)/'`../../libopenjpeg/opj_malloc.c
++
++extract_j2k_from_mj2-opj_malloc.obj: ../../libopenjpeg/opj_malloc.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(extract_j2k_from_mj2_CPPFLAGS) $(CPPFLAGS) $(extract_j2k_from_mj2_CFLAGS) $(CFLAGS) -MT extract_j2k_from_mj2-opj_malloc.obj -MD -MP -MF $(DEPDIR)/extract_j2k_from_mj2-opj_malloc.Tpo -c -o extract_j2k_from_mj2-opj_malloc.obj `if test -f '../../libopenjpeg/opj_malloc.c'; then $(CYGPATH_W) '../../libopenjpeg/opj_malloc.c'; else $(CYGPATH_W) '$(srcdir)/../../libopenjpeg/opj_malloc.c'; fi`
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/extract_j2k_from_mj2-opj_malloc.Tpo $(DEPDIR)/extract_j2k_from_mj2-opj_malloc.Po
++@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../../libopenjpeg/opj_malloc.c' object='extract_j2k_from_mj2-opj_malloc.obj' libtool=no @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(extract_j2k_from_mj2_CPPFLAGS) $(CPPFLAGS) $(extract_j2k_from_mj2_CFLAGS) $(CFLAGS) -c -o extract_j2k_from_mj2-opj_malloc.obj `if test -f '../../libopenjpeg/opj_malloc.c'; then $(CYGPATH_W) '../../libopenjpeg/opj_malloc.c'; else $(CYGPATH_W) '$(srcdir)/../../libopenjpeg/opj_malloc.c'; fi`
++
+ extract_j2k_from_mj2-pi.o: ../../libopenjpeg/pi.c
+ @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(extract_j2k_from_mj2_CPPFLAGS) $(CPPFLAGS) $(extract_j2k_from_mj2_CFLAGS) $(CFLAGS) -MT extract_j2k_from_mj2-pi.o -MD -MP -MF $(DEPDIR)/extract_j2k_from_mj2-pi.Tpo -c -o extract_j2k_from_mj2-pi.o `test -f '../../libopenjpeg/pi.c' || echo '$(srcdir)/'`../../libopenjpeg/pi.c
+ @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/extract_j2k_from_mj2-pi.Tpo $(DEPDIR)/extract_j2k_from_mj2-pi.Po
+@@ -1265,6 +1292,22 @@
+ @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+ @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(frames_to_mj2_CPPFLAGS) $(CPPFLAGS) $(frames_to_mj2_CFLAGS) $(CFLAGS) -c -o frames_to_mj2-openjpeg.obj `if test -f '../../libopenjpeg/openjpeg.c'; then $(CYGPATH_W) '../../libopenjpeg/openjpeg.c'; else $(CYGPATH_W) '$(srcdir)/../../libopenjpeg/openjpeg.c'; fi`
+ 
++frames_to_mj2-opj_malloc.o: ../../libopenjpeg/opj_malloc.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(frames_to_mj2_CPPFLAGS) $(CPPFLAGS) $(frames_to_mj2_CFLAGS) $(CFLAGS) -MT frames_to_mj2-opj_malloc.o -MD -MP -MF $(DEPDIR)/frames_to_mj2-opj_malloc.Tpo -c -o frames_to_mj2-opj_malloc.o `test -f '../../libopenjpeg/opj_malloc.c' || echo '$(srcdir)/'`../../libopenjpeg/opj_malloc.c
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/frames_to_mj2-opj_malloc.Tpo $(DEPDIR)/frames_to_mj2-opj_malloc.Po
++@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../../libopenjpeg/opj_malloc.c' object='frames_to_mj2-opj_malloc.o' libtool=no @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(frames_to_mj2_CPPFLAGS) $(CPPFLAGS) $(frames_to_mj2_CFLAGS) $(CFLAGS) -c -o frames_to_mj2-opj_malloc.o `test -f '../../libopenjpeg/opj_malloc.c' || echo '$(srcdir)/'`../../libopenjpeg/opj_malloc.c
++
++frames_to_mj2-opj_malloc.obj: ../../libopenjpeg/opj_malloc.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(frames_to_mj2_CPPFLAGS) $(CPPFLAGS) $(frames_to_mj2_CFLAGS) $(CFLAGS) -MT frames_to_mj2-opj_malloc.obj -MD -MP -MF $(DEPDIR)/frames_to_mj2-opj_malloc.Tpo -c -o frames_to_mj2-opj_malloc.obj `if test -f '../../libopenjpeg/opj_malloc.c'; then $(CYGPATH_W) '../../libopenjpeg/opj_malloc.c'; else $(CYGPATH_W) '$(srcdir)/../../libopenjpeg/opj_malloc.c'; fi`
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/frames_to_mj2-opj_malloc.Tpo $(DEPDIR)/frames_to_mj2-opj_malloc.Po
++@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../../libopenjpeg/opj_malloc.c' object='frames_to_mj2-opj_malloc.obj' libtool=no @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(frames_to_mj2_CPPFLAGS) $(CPPFLAGS) $(frames_to_mj2_CFLAGS) $(CFLAGS) -c -o frames_to_mj2-opj_malloc.obj `if test -f '../../libopenjpeg/opj_malloc.c'; then $(CYGPATH_W) '../../libopenjpeg/opj_malloc.c'; else $(CYGPATH_W) '$(srcdir)/../../libopenjpeg/opj_malloc.c'; fi`
++
+ frames_to_mj2-pi.o: ../../libopenjpeg/pi.c
+ @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(frames_to_mj2_CPPFLAGS) $(CPPFLAGS) $(frames_to_mj2_CFLAGS) $(CFLAGS) -MT frames_to_mj2-pi.o -MD -MP -MF $(DEPDIR)/frames_to_mj2-pi.Tpo -c -o frames_to_mj2-pi.o `test -f '../../libopenjpeg/pi.c' || echo '$(srcdir)/'`../../libopenjpeg/pi.c
+ @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/frames_to_mj2-pi.Tpo $(DEPDIR)/frames_to_mj2-pi.Po
+@@ -1697,6 +1740,22 @@
+ @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+ @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mj2_to_frames_CPPFLAGS) $(CPPFLAGS) $(mj2_to_frames_CFLAGS) $(CFLAGS) -c -o mj2_to_frames-openjpeg.obj `if test -f '../../libopenjpeg/openjpeg.c'; then $(CYGPATH_W) '../../libopenjpeg/openjpeg.c'; else $(CYGPATH_W) '$(srcdir)/../../libopenjpeg/openjpeg.c'; fi`
+ 
++mj2_to_frames-opj_malloc.o: ../../libopenjpeg/opj_malloc.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mj2_to_frames_CPPFLAGS) $(CPPFLAGS) $(mj2_to_frames_CFLAGS) $(CFLAGS) -MT mj2_to_frames-opj_malloc.o -MD -MP -MF $(DEPDIR)/mj2_to_frames-opj_malloc.Tpo -c -o mj2_to_frames-opj_malloc.o `test -f '../../libopenjpeg/opj_malloc.c' || echo '$(srcdir)/'`../../libopenjpeg/opj_malloc.c
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/mj2_to_frames-opj_malloc.Tpo $(DEPDIR)/mj2_to_frames-opj_malloc.Po
++@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../../libopenjpeg/opj_malloc.c' object='mj2_to_frames-opj_malloc.o' libtool=no @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mj2_to_frames_CPPFLAGS) $(CPPFLAGS) $(mj2_to_frames_CFLAGS) $(CFLAGS) -c -o mj2_to_frames-opj_malloc.o `test -f '../../libopenjpeg/opj_malloc.c' || echo '$(srcdir)/'`../../libopenjpeg/opj_malloc.c
++
++mj2_to_frames-opj_malloc.obj: ../../libopenjpeg/opj_malloc.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mj2_to_frames_CPPFLAGS) $(CPPFLAGS) $(mj2_to_frames_CFLAGS) $(CFLAGS) -MT mj2_to_frames-opj_malloc.obj -MD -MP -MF $(DEPDIR)/mj2_to_frames-opj_malloc.Tpo -c -o mj2_to_frames-opj_malloc.obj `if test -f '../../libopenjpeg/opj_malloc.c'; then $(CYGPATH_W) '../../libopenjpeg/opj_malloc.c'; else $(CYGPATH_W) '$(srcdir)/../../libopenjpeg/opj_malloc.c'; fi`
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/mj2_to_frames-opj_malloc.Tpo $(DEPDIR)/mj2_to_frames-opj_malloc.Po
++@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../../libopenjpeg/opj_malloc.c' object='mj2_to_frames-opj_malloc.obj' libtool=no @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mj2_to_frames_CPPFLAGS) $(CPPFLAGS) $(mj2_to_frames_CFLAGS) $(CFLAGS) -c -o mj2_to_frames-opj_malloc.obj `if test -f '../../libopenjpeg/opj_malloc.c'; then $(CYGPATH_W) '../../libopenjpeg/opj_malloc.c'; else $(CYGPATH_W) '$(srcdir)/../../libopenjpeg/opj_malloc.c'; fi`
++
+ mj2_to_frames-pi.o: ../../libopenjpeg/pi.c
+ @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mj2_to_frames_CPPFLAGS) $(CPPFLAGS) $(mj2_to_frames_CFLAGS) $(CFLAGS) -MT mj2_to_frames-pi.o -MD -MP -MF $(DEPDIR)/mj2_to_frames-pi.Tpo -c -o mj2_to_frames-pi.o `test -f '../../libopenjpeg/pi.c' || echo '$(srcdir)/'`../../libopenjpeg/pi.c
+ @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/mj2_to_frames-pi.Tpo $(DEPDIR)/mj2_to_frames-pi.Po
+@@ -2145,6 +2204,22 @@
+ @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+ @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wrap_j2k_in_mj2_CPPFLAGS) $(CPPFLAGS) $(wrap_j2k_in_mj2_CFLAGS) $(CFLAGS) -c -o wrap_j2k_in_mj2-openjpeg.obj `if test -f '../../libopenjpeg/openjpeg.c'; then $(CYGPATH_W) '../../libopenjpeg/openjpeg.c'; else $(CYGPATH_W) '$(srcdir)/../../libopenjpeg/openjpeg.c'; fi`
+ 
++wrap_j2k_in_mj2-opj_malloc.o: ../../libopenjpeg/opj_malloc.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wrap_j2k_in_mj2_CPPFLAGS) $(CPPFLAGS) $(wrap_j2k_in_mj2_CFLAGS) $(CFLAGS) -MT wrap_j2k_in_mj2-opj_malloc.o -MD -MP -MF $(DEPDIR)/wrap_j2k_in_mj2-opj_malloc.Tpo -c -o wrap_j2k_in_mj2-opj_malloc.o `test -f '../../libopenjpeg/opj_malloc.c' || echo '$(srcdir)/'`../../libopenjpeg/opj_malloc.c
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/wrap_j2k_in_mj2-opj_malloc.Tpo $(DEPDIR)/wrap_j2k_in_mj2-opj_malloc.Po
++@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../../libopenjpeg/opj_malloc.c' object='wrap_j2k_in_mj2-opj_malloc.o' libtool=no @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wrap_j2k_in_mj2_CPPFLAGS) $(CPPFLAGS) $(wrap_j2k_in_mj2_CFLAGS) $(CFLAGS) -c -o wrap_j2k_in_mj2-opj_malloc.o `test -f '../../libopenjpeg/opj_malloc.c' || echo '$(srcdir)/'`../../libopenjpeg/opj_malloc.c
++
++wrap_j2k_in_mj2-opj_malloc.obj: ../../libopenjpeg/opj_malloc.c
++@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wrap_j2k_in_mj2_CPPFLAGS) $(CPPFLAGS) $(wrap_j2k_in_mj2_CFLAGS) $(CFLAGS) -MT wrap_j2k_in_mj2-opj_malloc.obj -MD -MP -MF $(DEPDIR)/wrap_j2k_in_mj2-opj_malloc.Tpo -c -o wrap_j2k_in_mj2-opj_malloc.obj `if test -f '../../libopenjpeg/opj_malloc.c'; then $(CYGPATH_W) '../../libopenjpeg/opj_malloc.c'; else $(CYGPATH_W) '$(srcdir)/../../libopenjpeg/opj_malloc.c'; fi`
++@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/wrap_j2k_in_mj2-opj_malloc.Tpo $(DEPDIR)/wrap_j2k_in_mj2-opj_malloc.Po
++@am__fastdepCC_FALSE@	$(AM_V_CC) @AM_BACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../../libopenjpeg/opj_malloc.c' object='wrap_j2k_in_mj2-opj_malloc.obj' libtool=no @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wrap_j2k_in_mj2_CPPFLAGS) $(CPPFLAGS) $(wrap_j2k_in_mj2_CFLAGS) $(CFLAGS) -c -o wrap_j2k_in_mj2-opj_malloc.obj `if test -f '../../libopenjpeg/opj_malloc.c'; then $(CYGPATH_W) '../../libopenjpeg/opj_malloc.c'; else $(CYGPATH_W) '$(srcdir)/../../libopenjpeg/opj_malloc.c'; fi`
++
+ wrap_j2k_in_mj2-pi.o: ../../libopenjpeg/pi.c
+ @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wrap_j2k_in_mj2_CPPFLAGS) $(CPPFLAGS) $(wrap_j2k_in_mj2_CFLAGS) $(CFLAGS) -MT wrap_j2k_in_mj2-pi.o -MD -MP -MF $(DEPDIR)/wrap_j2k_in_mj2-pi.Tpo -c -o wrap_j2k_in_mj2-pi.o `test -f '../../libopenjpeg/pi.c' || echo '$(srcdir)/'`../../libopenjpeg/pi.c
+ @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/wrap_j2k_in_mj2-pi.Tpo $(DEPDIR)/wrap_j2k_in_mj2-pi.Po

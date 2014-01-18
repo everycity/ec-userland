@@ -1,0 +1,15 @@
+Index: openjpeg-1.5.1/libopenjpeg/tcd.c
+===================================================================
+--- openjpeg-1.5.1.orig/libopenjpeg/tcd.c	2013-01-01 01:01:01.000000000 +0000
++++ openjpeg-1.5.1/libopenjpeg/tcd.c	2013-01-01 01:01:01.000000000 +0000
+@@ -667,8 +667,8 @@ void tcd_malloc_decode(opj_tcd_t *tcd, o
+ 			y1 = j == 0 ? tilec->y1 : int_max(y1,	(unsigned int) tilec->y1);
+ 		}
+ 
+-		w = int_ceildivpow2(x1 - x0, image->comps[i].factor);
+-		h = int_ceildivpow2(y1 - y0, image->comps[i].factor);
++		w = int_ceildivpow2((long)(x1) - (long)(x0), image->comps[i].factor);
++		h = int_ceildivpow2((long)(y1) - (long)(y0), image->comps[i].factor);
+ 
+ 		image->comps[i].w = w;
+ 		image->comps[i].h = h;

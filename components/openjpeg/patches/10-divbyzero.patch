@@ -1,0 +1,45 @@
+The code from the first chunk is optimised away when using -O > 0
+
+Index: openjpeg-1.5.1/libopenjpeg/j2k.c
+===================================================================
+--- openjpeg-1.5.1.orig/libopenjpeg/j2k.c	2013-01-01 01:01:01.000000000 +0000
++++ openjpeg-1.5.1/libopenjpeg/j2k.c	2013-01-01 01:01:01.000000000 +0000
+@@ -470,7 +470,7 @@ static void j2k_read_siz(opj_j2k_t *j2k)
+ 
+ 	image->comps = (opj_image_comp_t*) opj_calloc(image->numcomps, sizeof(opj_image_comp_t));
+ 	for (i = 0; i < image->numcomps; i++) {
+-		int tmp, w, h;
++		int tmp/*, w, h*/;
+ 		tmp = cio_read(cio, 1);		/* Ssiz_i */
+ 		image->comps[i].prec = (tmp & 0x7f) + 1;
+ 		image->comps[i].sgnd = tmp >> 7;
+@@ -507,8 +507,8 @@ static void j2k_read_siz(opj_j2k_t *j2k)
+ #endif /* USE_JPWL */
+ 
+ 		/* TODO: unused ? */
+-		w = int_ceildiv(image->x1 - image->x0, image->comps[i].dx);
+-		h = int_ceildiv(image->y1 - image->y0, image->comps[i].dy);
++/*		w = int_ceildiv(image->x1 - image->x0, image->comps[i].dx);
++		h = int_ceildiv(image->y1 - image->y0, image->comps[i].dy);*/
+ 
+ 		image->comps[i].resno_decoded = 0;	/* number of resolution decoded */
+ 		image->comps[i].factor = cp->reduce; /* reducing factor per component */
+Index: openjpeg-1.5.1/libopenjpeg/j2k.c
+===================================================================
+--- openjpeg-1.5.1.orig/libopenjpeg/j2k.c	2013-01-01 01:01:01.000000000 +0000
++++ openjpeg-1.5.1/libopenjpeg/j2k.c	2013-01-01 01:01:01.000000000 +0000
+@@ -505,6 +505,14 @@ static void j2k_read_siz(opj_j2k_t *j2k)
+ 			
+ 		}
+ #endif /* USE_JPWL */
++		{
++			if (!(image->comps[i].dx * image->comps[i].dy)) {
++				opj_event_msg(j2k->cinfo, EVT_ERROR,
++					"JPWL: bad XRsiz_%d/YRsiz_%d (%d x %d)\n",
++					i, i, image->comps[i].dx, image->comps[i].dy);
++					return;
++			}
++		}
+ 
+ 		/* TODO: unused ? */
+ /*		w = int_ceildiv(image->x1 - image->x0, image->comps[i].dx);

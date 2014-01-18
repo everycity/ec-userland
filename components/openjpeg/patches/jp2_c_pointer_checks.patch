@@ -1,0 +1,64 @@
+--- openjpeg-1.5.1/libopenjpeg/jp2.c.orig	2013-12-07 23:25:46.190310479 +0000
++++ openjpeg-1.5.1/libopenjpeg/jp2.c	2013-12-07 23:25:54.333885174 +0000
+@@ -656,6 +656,7 @@
+         opj_event_msg(cinfo, EVT_ERROR, "Expected JP2H Marker\n");
+         return OPJ_FALSE;
+         }
++	if (box.length <= 8) return OPJ_FALSE;
+       cio_skip(cio, box.length - 8);
+ 
+       if(cio->bp >= cio->end) return OPJ_FALSE;
+@@ -692,6 +693,7 @@
+       {
+       if( !jp2_read_colr(jp2, cio, &box, color))
+         {
++	if (box.length <= 8) return OPJ_FALSE;
+         cio_seek(cio, box.init_pos + 8);
+         cio_skip(cio, box.length - 8);
+         }
+@@ -702,6 +704,7 @@
+       {
+       if( !jp2_read_cdef(jp2, cio, &box, color))
+         {
++	if (box.length <= 8) return OPJ_FALSE;
+         cio_seek(cio, box.init_pos + 8);
+         cio_skip(cio, box.length - 8);
+         }
+@@ -712,6 +715,7 @@
+       {
+       if( !jp2_read_pclr(jp2, cio, &box, color))
+         {
++	if (box.length <= 8) return OPJ_FALSE;
+         cio_seek(cio, box.init_pos + 8);
+         cio_skip(cio, box.length - 8);
+         }
+@@ -722,12 +726,14 @@
+       {
+       if( !jp2_read_cmap(jp2, cio, &box, color))
+         {
++	if (box.length <= 8) return OPJ_FALSE;
+         cio_seek(cio, box.init_pos + 8);
+         cio_skip(cio, box.length - 8);
+         }
+       if( jp2_read_boxhdr(cinfo, cio, &box) == OPJ_FALSE ) return OPJ_FALSE;
+       continue;
+       }
++	if (box.length <= 8) return OPJ_FALSE;
+     cio_seek(cio, box.init_pos + 8);
+     cio_skip(cio, box.length - 8);
+     if( jp2_read_boxhdr(cinfo, cio, &box) == OPJ_FALSE ) return OPJ_FALSE;
+@@ -930,12 +936,14 @@
+   }
+ 	do {
+ 		if(JP2_JP2C != box.type) {
++			if (box.length <= 8) return OPJ_FALSE;
+ 			cio_skip(cio, box.length - 8);
+ 			if( jp2_read_boxhdr(cinfo, cio, &box) == OPJ_FALSE ) return OPJ_FALSE;
+ 		}
+ 	} while(JP2_JP2C != box.type);
+ 
+ 	*j2k_codestream_offset = cio_tell(cio);
++	if (box.length <= 8) return OPJ_FALSE;
+ 	*j2k_codestream_length = box.length - 8;
+ 
+ 	return OPJ_TRUE;

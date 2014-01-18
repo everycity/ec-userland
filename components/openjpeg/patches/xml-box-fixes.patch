@@ -1,0 +1,320 @@
+--- openjpeg-branch15-r2315-1/libopenjpeg/jp2.c.orig	2013-03-18 11:55:53.755127155 +0100
++++ openjpeg-branch15-r2315-1/libopenjpeg/jp2.c	2013-03-18 14:51:16.993711793 +0100
+@@ -161,22 +161,24 @@
+ 	box->init_pos = cio_tell(cio);
+ 	box->length = cio_read(cio, 4);
+ 	box->type = cio_read(cio, 4);
+-	if (box->length == 1) {
+-		if (cio_read(cio, 4) != 0) {
+-			opj_event_msg(cinfo, EVT_ERROR, "Cannot handle box sizes higher than 2^32\n");
+-			return OPJ_FALSE;
+-		}
+-		box->length = cio_read(cio, 4);
+-		if (box->length == 0) 
+-			box->length = cio_numbytesleft(cio) + 12;
+-	}
+-	else if (box->length == 0) {
+-		box->length = cio_numbytesleft(cio) + 8;
+-	} else if (box->length < 0) {
+-		opj_event_msg(cinfo, EVT_ERROR, "Invalid, negative, size of box\n");
+-		return OPJ_FALSE;
+-	}
+-	
++	if(box->length == 0) /* last box */
++   {
++	box->length = cio_numbytesleft(cio);
++	return OPJ_TRUE;
++   }
++	if(box->length == 1) /* extended length: XLBox */
++   {
++	int len = cio_read(cio, 4);
++
++	if(len != 0)
++  {
++	opj_event_msg(cinfo, EVT_ERROR, "187:Cannot handle box sizes higher than 2^32\n");
++	return OPJ_FALSE;
++  }
++
++	box->length = cio_read(cio, 4);
++   }
++
+ 	return OPJ_TRUE;
+ }
+ 
+@@ -482,6 +484,12 @@
+   }
+    }
+ 
++	if(cio_tell(cio) - box->init_pos != box->length)
++   {
++	opj_event_msg(jp2->cinfo, EVT_ERROR, "Error with PCLR box size: box not used.\n");
++	jp2_free_pclr(color);
++	return OPJ_FALSE;
++   }
+ 	return OPJ_TRUE;
+ }/* jp2_read_pclr() */
+ 
+@@ -513,6 +521,12 @@
+ 	cmap[i].pcol = cio_read(cio, 1);
+ 
+    }
++	if(cio_tell(cio) - box->init_pos != box->length)
++   {
++	opj_event_msg(jp2->cinfo, EVT_ERROR, "Error with CMAP box size: box not used.\n");
++	opj_free(cmap);
++	return OPJ_FALSE;
++   }
+ 	color->jp2_pclr->cmap = cmap;
+ 
+ 	return OPJ_TRUE;
+@@ -582,6 +596,16 @@
+ 	info[i].asoc = (unsigned short)cio_read(cio, 2);
+ 
+    }
++	if (cio_tell(cio) - box->init_pos != box->length)
++   {
++	opj_event_msg(jp2->cinfo, EVT_ERROR, "Error with CDEF box size: box not used.\n");
++
++	opj_free(color->jp2_cdef->info);
++	opj_free(color->jp2_cdef);
++	color->jp2_cdef = NULL;
++
++	return OPJ_FALSE;
++   }
+ 	return OPJ_TRUE;
+ }/* jp2_read_cdef() */
+ 
+@@ -629,10 +653,23 @@
+ 	memcpy(color->icc_profile_buf, start, skip_len);
+   }
+    }
++	else
++	if(jp2->meth > 2)
++   {
++/*  ISO/IEC 15444-1:2004 (E), Table I.9 ­ Legal METH values:
++    conforming JP2 reader shall ignore the entire Colour Specification box.
++*/
++	return OPJ_FALSE;
++   }
+ 
+ 	if (cio_tell(cio) - box->init_pos != box->length) 
+    {
+-	opj_event_msg(cinfo, EVT_ERROR, "Error with COLR Box\n");
++	opj_event_msg(cinfo, EVT_ERROR, "Error with COLR box size: box not used.\n");
++	if(color->icc_profile_buf)
++  {
++	opj_free(color->icc_profile_buf); color->icc_profile_buf = NULL;
++	color->icc_profile_len = 0;
++  }
+ 	return OPJ_FALSE;
+    }
+ 	color->jp2_has_colr = 1;
+@@ -657,7 +694,8 @@
+         return OPJ_FALSE;
+         }
+ 	if (box.length <= 8) return OPJ_FALSE;
+-      cio_skip(cio, box.length - 8);
++      cio_seek(cio, box.init_pos);
++      cio_skip(cio, box.length);
+ 
+       if(cio->bp >= cio->end) return OPJ_FALSE;
+ 
+@@ -694,10 +732,14 @@
+       if( !jp2_read_colr(jp2, cio, &box, color))
+         {
+ 	if (box.length <= 8) return OPJ_FALSE;
+-        cio_seek(cio, box.init_pos + 8);
+-        cio_skip(cio, box.length - 8);
++        cio_seek(cio, box.init_pos);
++        cio_skip(cio, box.length);
+         }
++
++      if(cio_tell(cio) >= jp2h_end) break;
++
+       if( jp2_read_boxhdr(cinfo, cio, &box) == OPJ_FALSE ) return OPJ_FALSE;
++
+       continue;
+       }
+     if(box.type == JP2_CDEF && !jp2->ignore_pclr_cmap_cdef)
+@@ -705,10 +747,14 @@
+       if( !jp2_read_cdef(jp2, cio, &box, color))
+         {
+ 	if (box.length <= 8) return OPJ_FALSE;
+-        cio_seek(cio, box.init_pos + 8);
+-        cio_skip(cio, box.length - 8);
++        cio_seek(cio, box.init_pos);
++        cio_skip(cio, box.length);
+         }
++
++      if(cio_tell(cio) >= jp2h_end) break;
++
+       if( jp2_read_boxhdr(cinfo, cio, &box) == OPJ_FALSE ) return OPJ_FALSE;
++
+       continue;
+       }
+     if(box.type == JP2_PCLR && !jp2->ignore_pclr_cmap_cdef)
+@@ -716,10 +762,14 @@
+       if( !jp2_read_pclr(jp2, cio, &box, color))
+         {
+ 	if (box.length <= 8) return OPJ_FALSE;
+-        cio_seek(cio, box.init_pos + 8);
+-        cio_skip(cio, box.length - 8);
++        cio_seek(cio, box.init_pos);
++        cio_skip(cio, box.length);
+         }
++
++      if(cio_tell(cio) >= jp2h_end) break;
++
+       if( jp2_read_boxhdr(cinfo, cio, &box) == OPJ_FALSE ) return OPJ_FALSE;
++
+       continue;
+       }
+     if(box.type == JP2_CMAP && !jp2->ignore_pclr_cmap_cdef)
+@@ -727,23 +777,30 @@
+       if( !jp2_read_cmap(jp2, cio, &box, color))
+         {
+ 	if (box.length <= 8) return OPJ_FALSE;
+-        cio_seek(cio, box.init_pos + 8);
+-        cio_skip(cio, box.length - 8);
++        cio_seek(cio, box.init_pos);
++        cio_skip(cio, box.length);
+         }
++
++      if(cio_tell(cio) >= jp2h_end) break;
++
+       if( jp2_read_boxhdr(cinfo, cio, &box) == OPJ_FALSE ) return OPJ_FALSE;
++
+       continue;
+       }
+ 	if (box.length <= 8) return OPJ_FALSE;
+-    cio_seek(cio, box.init_pos + 8);
+-    cio_skip(cio, box.length - 8);
++    cio_seek(cio, box.init_pos);
++    cio_skip(cio, box.length);
++
++	if(cio_tell(cio) >= jp2h_end) break;
++
+     if( jp2_read_boxhdr(cinfo, cio, &box) == OPJ_FALSE ) return OPJ_FALSE;
+ 
+-    }/* while(cio_tell(cio) < box_end) */
++    }/* while(cio_tell(cio) < jp2h_end) */
+ 
+-  cio_seek(cio, jp2h_end);
++	 cio_seek(cio, jp2h_end);
+ 
+   /* Part 1, I.5.3.3 : 'must contain at least one' */
+-  return (color->jp2_has_colr == 1);
++  return (color->jp2_has_colr == 1 || jp2->meth > 2);
+ 
+ }/* jp2_read_jp2h() */
+ 
+@@ -930,17 +987,24 @@
+ 
+ 	opj_common_ptr cinfo = jp2->cinfo;
+ 
+-  if( jp2_read_boxhdr(cinfo, cio, &box) == OPJ_FALSE ) {
+-    opj_event_msg(cinfo, EVT_ERROR, "Failed to read boxhdr\n");
+-    return OPJ_FALSE;
++	if( jp2_read_boxhdr(cinfo, cio, &box) == OPJ_FALSE ) 
++   {
++	opj_event_msg(cinfo, EVT_ERROR, "Failed to read boxhdr\n");
++	return OPJ_FALSE;
++   }
++
++	do 
++   {
++	if(JP2_JP2C != box.type) 
++  {
++	if (box.length <= 8) return OPJ_FALSE;
++
++	cio_seek(cio, box.init_pos);
++	cio_skip(cio, box.length);
++
++	if( jp2_read_boxhdr(cinfo, cio, &box) == OPJ_FALSE ) return OPJ_FALSE;
+   }
+-	do {
+-		if(JP2_JP2C != box.type) {
+-			if (box.length <= 8) return OPJ_FALSE;
+-			cio_skip(cio, box.length - 8);
+-			if( jp2_read_boxhdr(cinfo, cio, &box) == OPJ_FALSE ) return OPJ_FALSE;
+-		}
+-	} while(JP2_JP2C != box.type);
++   } while(JP2_JP2C != box.type);
+ 
+ 	*j2k_codestream_offset = cio_tell(cio);
+ 	if (box.length <= 8) return OPJ_FALSE;
+--- openjpeg-branch15-r2315-1/libopenjpeg/j2k.c.orig	2013-03-18 11:55:53.754127155 +0100
++++ openjpeg-branch15-r2315-1/libopenjpeg/j2k.c	2013-03-18 11:58:23.303135464 +0100
+@@ -1413,7 +1413,7 @@
+ 	numparts = cio_read(cio, 1);
+   
+   if (partno >= numparts) {
+-    opj_event_msg(j2k->cinfo, EVT_WARNING, "SOT marker inconsistency in tile %d: tile-part index greater (%d) than number of tile-parts (%d)\n", tileno, partno, numparts);
++    opj_event_msg(j2k->cinfo, EVT_WARNING, "SOT marker inconsistency in tile %d:\n\ttile-part index (%d) greater_equal than number of tile-parts (%d)\n", tileno, partno, numparts); 
+     numparts = partno+1;
+   }
+ 	
+@@ -1555,24 +1555,6 @@
+ 		truncate = 1;		/* Case of a truncate codestream */
+ 	}	
+ 
+-   {/* chop padding bytes: */
+-    unsigned char *s, *e; 
+-
+-    s = cio_getbp(cio);
+-    e = s + len;
+-
+-  if(len > 8) s = e - 8;
+-
+-  if(e[-2] == 0x00 && e[-1] == 0x00) /* padding bytes */
+-  {
+-	while(e > s)
+- {
+-	if(e[-2] == 0xff && e[-1] == 0xd9)	break;
+-  --len; --e; truncate = 1;
+- }
+-  }
+-   }
+-
+ 	data = j2k->tile_data[curtileno];
+ 	data = (unsigned char*) opj_realloc(data, (j2k->tile_len[curtileno] + len) * sizeof(unsigned char));
+ 
+--- openjpeg-branch15-r2315-1/applications/codec/convert.c.orig	2013-03-18 11:55:52.284127074 +0100
++++ openjpeg-branch15-r2315-1/applications/codec/convert.c	2013-03-18 11:58:23.312135464 +0100
+@@ -3817,6 +3817,9 @@
+ 	 color_type,
+ 	 PNG_INTERLACE_NONE,
+ 	 PNG_COMPRESSION_TYPE_BASE,  PNG_FILTER_TYPE_BASE);
++
++	png_set_gamma(png, 2.2, 1./2.2);
++	png_set_sRGB(png, info, PNG_sRGB_INTENT_PERCEPTUAL);
+ /*=============================*/
+ 	png_write_info(png, info);
+ /*=============================*/
+@@ -3933,6 +3936,8 @@
+      PNG_COMPRESSION_TYPE_BASE,  PNG_FILTER_TYPE_BASE);
+ 
+ 	png_set_sBIT(png, info, &sig_bit);
++	png_set_gamma(png, 2.2, 1./2.2);
++	png_set_sRGB(png, info, PNG_sRGB_INTENT_PERCEPTUAL);
+ /*=============================*/
+ 	png_write_info(png, info);
+ /*=============================*/
+--- openjpeg-branch15-r2315-1/applications/codec/j2k_to_image.c.orig	2013-03-18 11:55:52.286127074 +0100
++++ openjpeg-branch15-r2315-1/applications/codec/j2k_to_image.c	2013-03-18 11:58:23.312135464 +0100
+@@ -748,6 +748,15 @@
+ 		free(src);
+ 		src = NULL;
+ 
++    if(image->color_space != CLRSPC_SYCC
++    && image->numcomps == 3
++    && image->comps[0].dx == image->comps[0].dy
++    && image->comps[1].dx != 1)
++	 image->color_space = CLRSPC_SYCC;
++	else
++	if(image->numcomps <= 2)
++	 image->color_space = CLRSPC_GRAY;
++
+ 	if(image->color_space == CLRSPC_SYCC)
+    {
+ 	color_sycc_to_rgb(image);

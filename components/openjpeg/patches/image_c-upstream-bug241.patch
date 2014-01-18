@@ -1,0 +1,11 @@
+--- openjpeg-1.5.1/libopenjpeg/image.c.~1~	2012-09-13 08:58:39.000000000 +0100
++++ openjpeg-1.5.1/libopenjpeg/image.c	2013-12-07 23:29:04.630781502 +0000
+@@ -40,7 +40,7 @@
+ 		image->color_space = clrspc;
+ 		image->numcomps = numcmpts;
+ 		/* allocate memory for the per-component information */
+-		image->comps = (opj_image_comp_t*)opj_malloc(image->numcomps * sizeof(opj_image_comp_t));
++		image->comps = (opj_image_comp_t*)opj_calloc(1, image->numcomps * sizeof(opj_image_comp_t));
+ 		if(!image->comps) {
+ 			fprintf(stderr,"Unable to allocate memory for image.\n");
+ 			opj_image_destroy(image);

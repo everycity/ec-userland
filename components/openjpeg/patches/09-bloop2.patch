@@ -1,0 +1,58 @@
+Index: openjpeg-1.5.1/libopenjpeg/cio.c
+===================================================================
+--- openjpeg-1.5.1.orig/libopenjpeg/cio.c	2013-01-01 01:01:01.000000000 +0000
++++ openjpeg-1.5.1/libopenjpeg/cio.c	2013-01-01 01:01:01.000000000 +0000
+@@ -107,6 +107,11 @@ int OPJ_CALLCONV cio_tell(opj_cio_t *cio
+  * pos : position, in number of bytes, from the beginning of the stream
+  */
+ void OPJ_CALLCONV cio_seek(opj_cio_t *cio, int pos) {
++	if ((cio->start + pos) > cio->end) {
++		opj_event_msg(cio->cinfo, EVT_ERROR, "error: trying to seek past the end of the codestream (start = %d, change = %d, end = %d\n", cio->start, pos, cio->end);
++		cio->bp = cio->end;
++		return;
++	}
+ 	cio->bp = cio->start + pos;
+ }
+ 
+@@ -114,6 +119,7 @@ void OPJ_CALLCONV cio_seek(opj_cio_t *ci
+  * Number of bytes left before the end of the stream.
+  */
+ int cio_numbytesleft(opj_cio_t *cio) {
++	assert((cio->end - cio->bp) >= 0);
+ 	return cio->end - cio->bp;
+ }
+ 
+@@ -191,6 +197,11 @@ unsigned int cio_read(opj_cio_t *cio, in
+  */
+ void cio_skip(opj_cio_t *cio, int n) {
+ 	assert((cio->bp + n) >= cio->bp);
++	if (((cio->bp + n) < cio->start) || ((cio->bp + n) > cio->end)) {
++		opj_event_msg(cio->cinfo, EVT_ERROR, "error: trying to skip bytes past the end of the codestream (current = %d, change = %d, end = %d\n", cio->bp, n, cio->end);
++		cio->bp = cio->end;
++		return;
++	}
+ 	cio->bp += n;
+ }
+ 
+Index: openjpeg-1.5.1/libopenjpeg/jp2.c
+===================================================================
+--- openjpeg-1.5.1.orig/libopenjpeg/jp2.c	2013-01-01 01:01:01.000000000 +0000
++++ openjpeg-1.5.1/libopenjpeg/jp2.c	2013-01-01 01:01:01.000000000 +0000
+@@ -667,6 +667,17 @@
+
+ 	if (!jp2_read_ihdr(jp2, cio))
+ 		return OPJ_FALSE;
++	{
++		int curpos = cio_tell(cio);
++		cio_seek(cio, box.init_pos);
++		cio_skip(cio, box.length);
++		if ((cio_tell(cio) - box.init_pos) != box.length) {
++			opj_event_msg(cinfo, EVT_ERROR, "Box size exceeds size of codestream (expected: %d, real: %d)\n", box.length, (cio_tell(cio) - box.init_pos));
++			return OPJ_FALSE;
++		}
++		cio_seek(cio, curpos);
++	}
++
+ 	jp2h_end = box.init_pos + box.length;
+ 
+ 	if (jp2->bpc == 255) {

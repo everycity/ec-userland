@@ -1,0 +1,47 @@
+diff -ur openjpeg-1.5.1-old/libopenjpeg/jp2.c openjpeg-1.5.1/libopenjpeg/jp2.c
+--- openjpeg-1.5.1-old/libopenjpeg/jp2.c	2013-12-14 21:20:05.707799859 +0000
++++ openjpeg-1.5.1/libopenjpeg/jp2.c	2013-12-14 21:23:04.514834892 +0000
+@@ -528,25 +528,24 @@
+ 	info = color->jp2_cdef->info;
+ 	n = color->jp2_cdef->n;
+ 
+-	for(i = 0; i < n; ++i)
+-   {
+-/* WATCH: acn = asoc - 1 ! */
+-	if((asoc = info[i].asoc) == 0) continue;
+-
+-	cn = info[i].cn; typ = info[i].typ; acn = asoc - 1;
+-
+-	if(cn != acn)
+-  {
+-	opj_image_comp_t saved;
+-
+-	memcpy(&saved, &image->comps[cn], sizeof(opj_image_comp_t));
+-	memcpy(&image->comps[cn], &image->comps[acn], sizeof(opj_image_comp_t));
+-	memcpy(&image->comps[acn], &saved, sizeof(opj_image_comp_t));
+-
+-	info[i].asoc = cn + 1;
+-	info[acn].asoc = info[acn].cn + 1;
+-  }
+-   }
++	for(i = 0; i < n; ++i) {
++		/* WATCH: acn = asoc - 1 ! */
++		asoc = info[i].asoc;
++		if(asoc == 0 || asoc == 65535) continue;
++
++		cn = info[i].cn; typ = info[i].typ; acn = asoc - 1;
++
++		if(cn != acn) {
++			opj_image_comp_t saved;
++
++			memcpy(&saved, &image->comps[cn], sizeof(opj_image_comp_t));
++			memcpy(&image->comps[cn], &image->comps[acn], sizeof(opj_image_comp_t));
++			memcpy(&image->comps[acn], &saved, sizeof(opj_image_comp_t));
++
++			info[i].asoc = cn + 1;
++			info[acn].asoc = info[acn].cn + 1;
++		}
++	}
+ 	if(color->jp2_cdef->info) opj_free(color->jp2_cdef->info);
+ 
+ 	opj_free(color->jp2_cdef); color->jp2_cdef = NULL;

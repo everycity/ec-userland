@@ -1,0 +1,13 @@
+--- openjpeg-1.5.1/applications/mj2/mj2.c.orig	2013-12-08 16:07:50.215917652 +0000
++++ openjpeg-1.5.1/applications/mj2/mj2.c	2013-12-08 16:10:22.768630809 +0000
+@@ -1169,7 +1169,9 @@
+     return 1;
+  }
+ 
+-  tk->jp2_struct.comps = (opj_jp2_comps_t*) opj_malloc(tk->jp2_struct.numcomps * sizeof(opj_jp2_comps_t));
++  /* tk->jp2_struct.comps has been allocated in jp2_read_ihdr() called from
++   * jp2_read_jp2h() above. */
++
+   tk->jp2_struct.cl = (unsigned int*) opj_malloc(sizeof(unsigned int));
+ 
+   tk->num_br = 0;

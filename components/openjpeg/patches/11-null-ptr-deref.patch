@@ -1,0 +1,28 @@
+Index: openjpeg-1.5.1/libopenjpeg/t2.c
+===================================================================
+--- openjpeg-1.5.1.orig/libopenjpeg/t2.c	2012-09-13 09:58:39.000000000 +0000
++++ openjpeg-1.5.1/libopenjpeg/t2.c	2013-01-01 01:01:01.000000000 +0000
+@@ -340,6 +340,11 @@ static int t2_decode_packet(opj_t2_t* t2
+ 	int precno = pi->precno;	/* precinct value */
+ 	int layno  = pi->layno;		/* quality layer value */
+ 
++	if (!&(tile->comps[compno])) {
++		opj_event_msg(t2->cinfo, EVT_ERROR, "Trying to decode tile with no components!\n");
++		return -999;
++	}
++
+ 	opj_tcd_resolution_t* res = &tile->comps[compno].resolutions[resno];
+ 
+ 	unsigned char *hd = NULL;
+Index: openjpeg-1.5.1/libopenjpeg/tcd.c
+===================================================================
+--- openjpeg-1.5.1.orig/libopenjpeg/tcd.c	2013-01-01 01:01:01.000000000 +0000
++++ openjpeg-1.5.1/libopenjpeg/tcd.c	2013-01-01 01:01:01.000000000 +0000
+@@ -1381,6 +1381,7 @@ opj_bool tcd_decode_tile(opj_tcd_t *tcd,
+ 	if (l == -999) {
+ 		eof = 1;
+ 		opj_event_msg(tcd->cinfo, EVT_ERROR, "tcd_decode: incomplete bistream\n");
++		return OPJ_FALSE;
+ 	}
+ 	
+ 	/*------------------TIER1-----------------*/

@@ -1,0 +1,30 @@
+From 7ca50298aea94c95ecd934735d3d623a27a1d156 Mon Sep 17 00:00:00 2001
+From: "mathieu.malaterre"
+ <mathieu.malaterre@974d547c-b4cf-11dd-89c7-03d08fec6209>
+Date: Tue, 2 Oct 2012 07:09:57 +0000
+Subject: [PATCH] [1.5] division by zero in j2k_read_siz
+
+Fixes issue 169
+---
+ libopenjpeg/j2k.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/libopenjpeg/j2k.c b/libopenjpeg/j2k.c
+index 3f8e279..2900e91 100644
+--- a/libopenjpeg/j2k.c
++++ b/libopenjpeg/j2k.c
+@@ -468,6 +468,12 @@ static void j2k_read_siz(opj_j2k_t *j2k) {
+ 	}
+ #endif /* USE_JPWL */
+ 
++  /* prevent division by zero */
++  if (!(cp->tdx * cp->tdy)) {
++    opj_event_msg(j2k->cinfo, EVT_ERROR, "JPWL: invalid tile size (tdx: %d, tdy: %d)\n", cp->tdx, cp->tdy);
++    return;
++  }
++
+ 	image->comps = (opj_image_comp_t*) opj_calloc(image->numcomps, sizeof(opj_image_comp_t));
+ 	for (i = 0; i < image->numcomps; i++) {
+ 		int tmp/*, w, h*/;
+-- 
+1.8.5.1

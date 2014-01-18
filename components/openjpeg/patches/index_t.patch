@@ -1,0 +1,78 @@
+--- openjpeg-1.5.1/applications/jpip/libopenjpip/openjpip.c.orig	2013-12-08 00:52:37.286035334 +0000
++++ openjpeg-1.5.1/applications/jpip/libopenjpip/openjpip.c	2013-12-08 00:54:20.314175149 +0000
+@@ -409,7 +409,7 @@
+   free( *dec);
+ }
+ 
+-index_t * get_index_from_JP2file( int fd)
++index_param_t * get_index_from_JP2file( int fd)
+ {
+   char *data;
+  
+@@ -437,12 +437,12 @@
+   return parse_jp2file( fd);
+ }
+ 
+-void destroy_index( index_t **idx)
++void destroy_index( index_param_t **idx)
+ {
+   delete_index( idx);
+ }
+ 
+-void output_index( index_t *index)
++void output_index( index_param_t *index)
+ {
+   print_index( *index);
+ }
+--- openjpeg-1.5.1/applications/jpip/libopenjpip/openjpip.h.orig	2013-12-08 00:52:43.302113656 +0000
++++ openjpeg-1.5.1/applications/jpip/libopenjpip/openjpip.h	2013-12-08 00:53:49.249296431 +0000
+@@ -273,27 +273,20 @@
+  */
+ void output_log( bool messages, bool metadata, bool ihdrbox, jpip_dec_param_t *dec);
+ 
+-/*
+- *  test the format of index (cidx) box in JP2 file
+- */
+-
+-/** Redefinition of index parameters*/
+-typedef index_param_t index_t;
+-
+ /**
+  * Parse JP2 file and get index information from cidx box inside
+  * 
+  * @param[in] fd file descriptor of the JP2 file
+  * @return       pointer to the generated structure of index parameters
+  */
+-index_t * get_index_from_JP2file( int fd);
++index_param_t * get_index_from_JP2file( int fd);
+ 
+ /**
+  * Destroy index parameters
+  *
+  * @param[in,out] idx addressof the index pointer
+  */
+-void destroy_index( index_t **idx);
++void destroy_index( index_param_t **idx);
+ 
+ 
+ /**
+@@ -301,7 +294,7 @@
+  *
+  * @param[in] index index parameters
+  */
+-void output_index( index_t *index);
++void output_index( index_param_t *index);
+ 
+ #endif /*SERVER*/
+ 
+--- openjpeg-1.5.1/applications/jpip/util/test_index.c.orig	2013-12-08 01:02:16.420801340 +0000
++++ openjpeg-1.5.1/applications/jpip/util/test_index.c	2013-12-08 01:02:53.335670432 +0000
+@@ -52,7 +52,7 @@
+ main(int argc, char *argv[])
+ {
+   int fd;
+-  index_t *jp2idx;
++  index_param_t *jp2idx;
+   if( argc < 2 ) return 1;
+   
+   if( (fd = open( argv[1], O_RDONLY)) == -1){

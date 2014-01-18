@@ -1,0 +1,17 @@
+Index: openjpeg-1.5.1/libopenjpeg/j2k.c
+===================================================================
+--- openjpeg-1.5.1.orig/libopenjpeg/j2k.c	2013-01-01 01:01:01.000000000 +0000
++++ openjpeg-1.5.1/libopenjpeg/j2k.c	2013-01-01 01:01:01.000000000 +0000
+@@ -823,6 +823,12 @@ static void j2k_read_coc(opj_j2k_t *j2k)
+ 	
+ 	len = cio_read(cio, 2);		/* Lcoc */
+ 	compno = cio_read(cio, image->numcomps <= 256 ? 1 : 2);	/* Ccoc */
++	if ((compno < 0) || (compno >= image->numcomps)) {
++		opj_event_msg(j2k->cinfo, EVT_ERROR ,
++				"bad component number in COC (%d out of a maximum of %d)\n",
++				compno, image->numcomps);
++		return;
++	}
+ 	tcp->tccps[compno].csty = cio_read(cio, 1);	/* Scoc */
+ 	j2k_read_cox(j2k, compno);
+ }

@@ -1,0 +1,22 @@
+--- openjpeg-1.5.1/libopenjpeg/j2k.c.orig	2013-12-14 22:19:08.751397265 +0000
++++ openjpeg-1.5.1/libopenjpeg/j2k.c	2013-12-14 22:22:55.017935852 +0000
+@@ -1080,7 +1080,8 @@
+ 	old_poc = tcp->POC ? tcp->numpocs + 1 : 0;
+ 	tcp->POC = 1;
+ 	len = cio_read(cio, 2);		/* Lpoc */
+-	numpchgs = (len - 2) / (5 + 2 * (numcomps <= 256 ? 1 : 2));
++	/* cf. http://code.google.com/p/openjpeg/issues/detail?id=165 */
++	numpchgs = int_min((len - 2) / (5 + 2 * (numcomps <= 256 ? 1 : 2)), 32 - old_poc);
+ 
+ 	{
+ 		/* old_poc < 0 "just in case" */
+@@ -2317,7 +2318,8 @@
+ 		if (parameters->numpocs) {
+ 			/* initialisation of POC */
+ 			tcp->POC = 1;
+-			for (i = 0; i < parameters->numpocs; i++) {
++			/* cf. http://code.google.com/p/openjpeg/issues/detail?id=165 */
++			for (i = 0; i < int_min(parameters->numpocs, 32); i++) {
+ 				if((tileno == parameters->POC[i].tile - 1) || (parameters->POC[i].tile == -1)) {
+ 					opj_poc_t *tcp_poc = &tcp->pocs[numpocs_tile];
+ 					tcp_poc->resno0		= parameters->POC[numpocs_tile].resno0;
