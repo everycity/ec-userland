@@ -10,20 +10,20 @@
 
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ffmpeg
 COMPONENT_FMRI=		multimedia/ffmpeg
-COMPONENT_VERSION=	2.1.1
+COMPONENT_VERSION=	2.1.3
 COMPONENT_LICENSE=	FFmpeg
 COMPONENT_PROJECT_URL=	http://www.ffmpeg.org/
 COMPONENT_SUMMARY=	Cross-platform audio recorder, converter, and streamer
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:bef95e5b9aac45adec7ef434537504a63b4bbc22a8ce6a96a68e19c5efbadae2
+COMPONENT_ARCHIVE_HASH=	sha256:1d332e7fd35f87e1ffb6c9b0405cbfda085ef712ede0133a213793a4e66d13a3
 COMPONENT_ARCHIVE_URL=	http://www.ffmpeg.org/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
