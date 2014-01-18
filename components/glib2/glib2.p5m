@@ -1,47 +1,37 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
-#
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/library/glib2@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="GNOME core libraries"
-set name=info.upstream_url value="http://www.gtk.org/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license glib2.license license="GPLv3"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/bash_completion.d
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/include/gio-unix-2.0
 dir path=$(ECPREFIX)/include/gio-unix-2.0/gio
 dir path=$(ECPREFIX)/include/glib-2.0
 dir path=$(ECPREFIX)/include/glib-2.0/gio
 dir path=$(ECPREFIX)/include/glib-2.0/glib
+dir path=$(ECPREFIX)/include/glib-2.0/glib/deprecated
 dir path=$(ECPREFIX)/include/glib-2.0/gobject
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
@@ -57,26 +47,26 @@ dir path=$(ECPREFIX)/lib/glib-2.0/include
 dir path=$(ECPREFIX)/lib/pkgconfig
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/aclocal
+dir path=$(ECPREFIX)/share/bash-completion
+dir path=$(ECPREFIX)/share/bash-completion/completions
 dir path=$(ECPREFIX)/share/gdb
 dir path=$(ECPREFIX)/share/gdb/auto-load
 dir path=$(ECPREFIX)/share/gdb/auto-load/ec
 dir path=$(ECPREFIX)/share/gdb/auto-load/ec/lib
 dir path=$(ECPREFIX)/share/gdb/auto-load/ec/lib/$(MACH64)
 dir path=$(ECPREFIX)/share/glib-2.0
+dir path=$(ECPREFIX)/share/glib-2.0/codegen
 dir path=$(ECPREFIX)/share/glib-2.0/gdb
 dir path=$(ECPREFIX)/share/glib-2.0/gettext
 dir path=$(ECPREFIX)/share/glib-2.0/gettext/po
 dir path=$(ECPREFIX)/share/glib-2.0/schemas
-dir path=$(ECPREFIX)/share/gtk-doc
-dir path=$(ECPREFIX)/share/gtk-doc/html
-dir path=$(ECPREFIX)/share/gtk-doc/html/gio
-dir path=$(ECPREFIX)/share/gtk-doc/html/glib
-dir path=$(ECPREFIX)/share/gtk-doc/html/gobject
 dir path=$(ECPREFIX)/share/locale
 dir path=$(ECPREFIX)/share/locale/af
 dir path=$(ECPREFIX)/share/locale/af/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/am
 dir path=$(ECPREFIX)/share/locale/am/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/an
+dir path=$(ECPREFIX)/share/locale/an/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/ar
 dir path=$(ECPREFIX)/share/locale/ar/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/as
@@ -235,6 +225,8 @@ dir path=$(ECPREFIX)/share/locale/ta
 dir path=$(ECPREFIX)/share/locale/ta/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/te
 dir path=$(ECPREFIX)/share/locale/te/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/tg
+dir path=$(ECPREFIX)/share/locale/tg/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/th
 dir path=$(ECPREFIX)/share/locale/th/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/tl
@@ -261,30 +253,34 @@ dir path=$(ECPREFIX)/share/locale/zh_HK
 dir path=$(ECPREFIX)/share/locale/zh_HK/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/zh_TW
 dir path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/$(MACH64)/gapplication
 file path=$(ECPREFIX)/bin/$(MACH64)/gdbus
+file path=$(ECPREFIX)/bin/$(MACH64)/gdbus-codegen pkg.depend.bypass-generate=.*
 file path=$(ECPREFIX)/bin/$(MACH64)/gio-querymodules
+file path=$(ECPREFIX)/bin/$(MACH64)/glib-compile-resources
 file path=$(ECPREFIX)/bin/$(MACH64)/glib-compile-schemas
 file path=$(ECPREFIX)/bin/$(MACH64)/glib-genmarshal
 file path=$(ECPREFIX)/bin/$(MACH64)/glib-gettextize
 file path=$(ECPREFIX)/bin/$(MACH64)/glib-mkenums
 file path=$(ECPREFIX)/bin/$(MACH64)/gobject-query
+file path=$(ECPREFIX)/bin/$(MACH64)/gresource
 file path=$(ECPREFIX)/bin/$(MACH64)/gsettings
 file path=$(ECPREFIX)/bin/$(MACH64)/gtester
-#file path=$(ECPREFIX)/bin/$(MACH64)/gtester-report
+file path=$(ECPREFIX)/bin/$(MACH64)/gtester-report pkg.depend.bypass-generate=.*
+file path=$(ECPREFIX)/bin/gapplication
 file path=$(ECPREFIX)/bin/gdbus
+file path=$(ECPREFIX)/bin/gdbus-codegen pkg.depend.bypass-generate=.*
 file path=$(ECPREFIX)/bin/gio-querymodules
+file path=$(ECPREFIX)/bin/glib-compile-resources
 file path=$(ECPREFIX)/bin/glib-compile-schemas
 file path=$(ECPREFIX)/bin/glib-genmarshal
 file path=$(ECPREFIX)/bin/glib-gettextize
 file path=$(ECPREFIX)/bin/glib-mkenums
 file path=$(ECPREFIX)/bin/gobject-query
+file path=$(ECPREFIX)/bin/gresource
 file path=$(ECPREFIX)/bin/gsettings
 file path=$(ECPREFIX)/bin/gtester
-#file path=$(ECPREFIX)/bin/gtester-report
-file path=$(ECPREFIX)/etc/bash_completion.d/gdbus-bash-completion.sh
-file path=$(ECPREFIX)/etc/bash_completion.d/gsettings-bash-completion.sh
+file path=$(ECPREFIX)/bin/gtester-report pkg.depend.bypass-generate=.*
 file path=$(ECPREFIX)/include/gio-unix-2.0/gio/gdesktopappinfo.h
 file path=$(ECPREFIX)/include/gio-unix-2.0/gio/gfiledescriptorbased.h
 file path=$(ECPREFIX)/include/gio-unix-2.0/gio/gunixconnection.h
@@ -297,6 +293,8 @@ file path=$(ECPREFIX)/include/gio-unix-2.0/gio/gunixoutputstream.h
 file path=$(ECPREFIX)/include/gio-unix-2.0/gio/gunixsocketaddress.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gaction.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gactiongroup.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gactiongroupexporter.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gactionmap.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gappinfo.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gapplication.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gapplicationcommandline.h
@@ -304,6 +302,7 @@ file path=$(ECPREFIX)/include/glib-2.0/gio/gasyncinitable.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gasyncresult.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gbufferedinputstream.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gbufferedoutputstream.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gbytesicon.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gcancellable.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gcharsetconverter.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gcontenttype.h
@@ -313,15 +312,25 @@ file path=$(ECPREFIX)/include/glib-2.0/gio/gconverteroutputstream.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gcredentials.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gdatainputstream.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gdataoutputstream.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusactiongroup.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusaddress.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusauthobserver.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusconnection.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gdbuserror.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusinterface.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusinterfaceskeleton.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusintrospection.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusmenumodel.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusmessage.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusmethodinvocation.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusnameowning.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusnamewatching.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusobject.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusobjectmanager.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusobjectmanagerclient.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusobjectmanagerserver.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusobjectproxy.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusobjectskeleton.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusproxy.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusserver.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gdbusutils.h
@@ -342,6 +351,7 @@ file path=$(ECPREFIX)/include/glib-2.0/gio/gfilterinputstream.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gfilteroutputstream.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gicon.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/ginetaddress.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/ginetaddressmask.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/ginetsocketaddress.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/ginitable.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/ginputstream.h
@@ -356,27 +366,39 @@ file path=$(ECPREFIX)/include/glib-2.0/gio/giotypes.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gloadableicon.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gmemoryinputstream.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gmemoryoutputstream.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gmenu.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gmenuexporter.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gmenumodel.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gmount.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gmountoperation.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gnativevolumemonitor.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gnetworkaddress.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gnetworking.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gnetworkmonitor.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gnetworkservice.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gnotification.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/goutputstream.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gpermission.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gpollableinputstream.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gpollableoutputstream.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gpollableutils.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gpropertyaction.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gproxy.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gproxyaddress.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gproxyaddressenumerator.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gproxyresolver.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gremoteactiongroup.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gresolver.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gresource.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gseekable.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gsettings.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gsettingsbackend.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gsettingsschema.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gsimpleaction.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gsimpleactiongroup.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gsimpleasyncresult.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gsimplepermission.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gsimpleproxyresolver.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gsocket.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gsocketaddress.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gsocketaddressenumerator.h
@@ -387,14 +409,22 @@ file path=$(ECPREFIX)/include/glib-2.0/gio/gsocketcontrolmessage.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gsocketlistener.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gsocketservice.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gsrvtarget.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gsubprocess.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gsubprocesslauncher.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gtask.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gtcpconnection.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gtcpwrapperconnection.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gtestdbus.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gthemedicon.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gthreadedsocketservice.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gtlsbackend.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gtlscertificate.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gtlsclientconnection.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gtlsconnection.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gtlsdatabase.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gtlsfiledatabase.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gtlsinteraction.h
+file path=$(ECPREFIX)/include/glib-2.0/gio/gtlspassword.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gtlsserverconnection.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gvfs.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gvolume.h
@@ -402,7 +432,14 @@ file path=$(ECPREFIX)/include/glib-2.0/gio/gvolumemonitor.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gzlibcompressor.h
 file path=$(ECPREFIX)/include/glib-2.0/gio/gzlibdecompressor.h
 file path=$(ECPREFIX)/include/glib-2.0/glib-object.h
+file path=$(ECPREFIX)/include/glib-2.0/glib-unix.h
 file path=$(ECPREFIX)/include/glib-2.0/glib.h
+file path=$(ECPREFIX)/include/glib-2.0/glib/deprecated/gallocator.h
+file path=$(ECPREFIX)/include/glib-2.0/glib/deprecated/gcache.h
+file path=$(ECPREFIX)/include/glib-2.0/glib/deprecated/gcompletion.h
+file path=$(ECPREFIX)/include/glib-2.0/glib/deprecated/gmain.h
+file path=$(ECPREFIX)/include/glib-2.0/glib/deprecated/grel.h
+file path=$(ECPREFIX)/include/glib-2.0/glib/deprecated/gthread.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/galloca.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/garray.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gasyncqueue.h
@@ -411,17 +448,20 @@ file path=$(ECPREFIX)/include/glib-2.0/glib/gbacktrace.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gbase64.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gbitlock.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gbookmarkfile.h
-file path=$(ECPREFIX)/include/glib-2.0/glib/gcache.h
+file path=$(ECPREFIX)/include/glib-2.0/glib/gbytes.h
+file path=$(ECPREFIX)/include/glib-2.0/glib/gcharset.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gchecksum.h
-file path=$(ECPREFIX)/include/glib-2.0/glib/gcompletion.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gconvert.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gdataset.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gdate.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gdatetime.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gdir.h
+file path=$(ECPREFIX)/include/glib-2.0/glib/genviron.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gerror.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gfileutils.h
+file path=$(ECPREFIX)/include/glib-2.0/glib/ggettext.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/ghash.h
+file path=$(ECPREFIX)/include/glib-2.0/glib/ghmac.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/ghook.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/ghostutils.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gi18n-lib.h
@@ -446,7 +486,6 @@ file path=$(ECPREFIX)/include/glib-2.0/glib/gquark.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gqueue.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/grand.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gregex.h
-file path=$(ECPREFIX)/include/glib-2.0/glib/grel.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gscanner.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gsequence.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gshell.h
@@ -456,11 +495,13 @@ file path=$(ECPREFIX)/include/glib-2.0/glib/gspawn.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gstdio.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gstrfuncs.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gstring.h
+file path=$(ECPREFIX)/include/glib-2.0/glib/gstringchunk.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gtestutils.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gthread.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gthreadpool.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gtimer.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gtimezone.h
+file path=$(ECPREFIX)/include/glib-2.0/glib/gtrashstack.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gtree.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gtypes.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gunicode.h
@@ -468,12 +509,15 @@ file path=$(ECPREFIX)/include/glib-2.0/glib/gurifuncs.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gutils.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gvariant.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gvarianttype.h
+file path=$(ECPREFIX)/include/glib-2.0/glib/gversion.h
+file path=$(ECPREFIX)/include/glib-2.0/glib/gversionmacros.h
 file path=$(ECPREFIX)/include/glib-2.0/glib/gwin32.h
 file path=$(ECPREFIX)/include/glib-2.0/gmodule.h
 file path=$(ECPREFIX)/include/glib-2.0/gobject/gbinding.h
 file path=$(ECPREFIX)/include/glib-2.0/gobject/gboxed.h
 file path=$(ECPREFIX)/include/glib-2.0/gobject/gclosure.h
 file path=$(ECPREFIX)/include/glib-2.0/gobject/genums.h
+file path=$(ECPREFIX)/include/glib-2.0/gobject/glib-types.h
 file path=$(ECPREFIX)/include/glib-2.0/gobject/gmarshal.h
 file path=$(ECPREFIX)/include/glib-2.0/gobject/gobject.h
 file path=$(ECPREFIX)/include/glib-2.0/gobject/gobjectnotifyqueue.c
@@ -488,12 +532,18 @@ file path=$(ECPREFIX)/include/glib-2.0/gobject/gvalue.h
 file path=$(ECPREFIX)/include/glib-2.0/gobject/gvaluearray.h
 file path=$(ECPREFIX)/include/glib-2.0/gobject/gvaluecollector.h
 file path=$(ECPREFIX)/include/glib-2.0/gobject/gvaluetypes.h
+file path=$(ECPREFIX)/lib/$(MACH64)/charset.alias
 file path=$(ECPREFIX)/lib/$(MACH64)/glib-2.0/include/glibconfig.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libgio-2.0.so.0.2800.2
-file path=$(ECPREFIX)/lib/$(MACH64)/libglib-2.0.so.0.2800.2
-file path=$(ECPREFIX)/lib/$(MACH64)/libgmodule-2.0.so.0.2800.2
-file path=$(ECPREFIX)/lib/$(MACH64)/libgobject-2.0.so.0.2800.2
-file path=$(ECPREFIX)/lib/$(MACH64)/libgthread-2.0.so.0.2800.2
+file path=$(ECPREFIX)/lib/$(MACH64)/libgio-2.0.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libgio-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libglib-2.0.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libglib-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libgmodule-2.0.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libgmodule-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libgobject-2.0.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libgobject-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libgthread-2.0.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libgthread-2.0.so.0.3903.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/gio-2.0.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/gio-unix-2.0.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/glib-2.0.pc
@@ -502,12 +552,18 @@ file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/gmodule-export-2.0.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/gmodule-no-export-2.0.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/gobject-2.0.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/gthread-2.0.pc
+file path=$(ECPREFIX)/lib/charset.alias
 file path=$(ECPREFIX)/lib/glib-2.0/include/glibconfig.h
-file path=$(ECPREFIX)/lib/libgio-2.0.so.0.2800.2
-file path=$(ECPREFIX)/lib/libglib-2.0.so.0.2800.2
-file path=$(ECPREFIX)/lib/libgmodule-2.0.so.0.2800.2
-file path=$(ECPREFIX)/lib/libgobject-2.0.so.0.2800.2
-file path=$(ECPREFIX)/lib/libgthread-2.0.so.0.2800.2
+file path=$(ECPREFIX)/lib/libgio-2.0.la
+file path=$(ECPREFIX)/lib/libgio-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/libglib-2.0.la
+file path=$(ECPREFIX)/lib/libglib-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/libgmodule-2.0.la
+file path=$(ECPREFIX)/lib/libgmodule-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/libgobject-2.0.la
+file path=$(ECPREFIX)/lib/libgobject-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/libgthread-2.0.la
+file path=$(ECPREFIX)/lib/libgthread-2.0.so.0.3903.0
 file path=$(ECPREFIX)/lib/pkgconfig/gio-2.0.pc
 file path=$(ECPREFIX)/lib/pkgconfig/gio-unix-2.0.pc
 file path=$(ECPREFIX)/lib/pkgconfig/glib-2.0.pc
@@ -519,417 +575,49 @@ file path=$(ECPREFIX)/lib/pkgconfig/gthread-2.0.pc
 file path=$(ECPREFIX)/share/aclocal/glib-2.0.m4
 file path=$(ECPREFIX)/share/aclocal/glib-gettext.m4
 file path=$(ECPREFIX)/share/aclocal/gsettings.m4
+file path=$(ECPREFIX)/share/bash-completion/completions/gapplication
+file path=$(ECPREFIX)/share/bash-completion/completions/gdbus
+file path=$(ECPREFIX)/share/bash-completion/completions/gresource
+file path=$(ECPREFIX)/share/bash-completion/completions/gsettings
 file \
-    path=$(ECPREFIX)/share/gdb/auto-load/ec/lib/$(MACH64)/libglib-2.0.so.0.2800.2-gdb.py
+    path=$(ECPREFIX)/share/gdb/auto-load/ec/lib/$(MACH64)/libglib-2.0.so.0.3903.0-gdb.py
 file \
-    path=$(ECPREFIX)/share/gdb/auto-load/ec/lib/$(MACH64)/libgobject-2.0.so.0.2800.2-gdb.py
+    path=$(ECPREFIX)/share/gdb/auto-load/ec/lib/$(MACH64)/libgobject-2.0.so.0.3903.0-gdb.py
 file \
-    path=$(ECPREFIX)/share/gdb/auto-load/ec/lib/libglib-2.0.so.0.2800.2-gdb.py
+    path=$(ECPREFIX)/share/gdb/auto-load/ec/lib/libglib-2.0.so.0.3903.0-gdb.py
 file \
-    path=$(ECPREFIX)/share/gdb/auto-load/ec/lib/libgobject-2.0.so.0.2800.2-gdb.py
+    path=$(ECPREFIX)/share/gdb/auto-load/ec/lib/libgobject-2.0.so.0.3903.0-gdb.py
+file path=$(ECPREFIX)/share/glib-2.0/codegen/__init__.py
+file path=$(ECPREFIX)/share/glib-2.0/codegen/__init__.pyc
+file path=$(ECPREFIX)/share/glib-2.0/codegen/__init__.pyo
+file path=$(ECPREFIX)/share/glib-2.0/codegen/codegen.py
+file path=$(ECPREFIX)/share/glib-2.0/codegen/codegen.pyc
+file path=$(ECPREFIX)/share/glib-2.0/codegen/codegen.pyo
+file path=$(ECPREFIX)/share/glib-2.0/codegen/codegen_docbook.py
+file path=$(ECPREFIX)/share/glib-2.0/codegen/codegen_docbook.pyc
+file path=$(ECPREFIX)/share/glib-2.0/codegen/codegen_docbook.pyo
+file path=$(ECPREFIX)/share/glib-2.0/codegen/codegen_main.py
+file path=$(ECPREFIX)/share/glib-2.0/codegen/codegen_main.pyc
+file path=$(ECPREFIX)/share/glib-2.0/codegen/codegen_main.pyo
+file path=$(ECPREFIX)/share/glib-2.0/codegen/config.py
+file path=$(ECPREFIX)/share/glib-2.0/codegen/config.pyc
+file path=$(ECPREFIX)/share/glib-2.0/codegen/config.pyo
+file path=$(ECPREFIX)/share/glib-2.0/codegen/dbustypes.py
+file path=$(ECPREFIX)/share/glib-2.0/codegen/dbustypes.pyc
+file path=$(ECPREFIX)/share/glib-2.0/codegen/dbustypes.pyo
+file path=$(ECPREFIX)/share/glib-2.0/codegen/parser.py
+file path=$(ECPREFIX)/share/glib-2.0/codegen/parser.pyc
+file path=$(ECPREFIX)/share/glib-2.0/codegen/parser.pyo
+file path=$(ECPREFIX)/share/glib-2.0/codegen/utils.py
+file path=$(ECPREFIX)/share/glib-2.0/codegen/utils.pyc
+file path=$(ECPREFIX)/share/glib-2.0/codegen/utils.pyo
 file path=$(ECPREFIX)/share/glib-2.0/gdb/glib.py
 file path=$(ECPREFIX)/share/glib-2.0/gdb/gobject.py
-file path=$(ECPREFIX)/share/glib-2.0/gettext/mkinstalldirs
 file path=$(ECPREFIX)/share/glib-2.0/gettext/po/Makefile.in.in
 file path=$(ECPREFIX)/share/glib-2.0/schemas/gschema.dtd
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GAction.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GActionGroup.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GAppInfo.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GApplication.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GApplicationCommandLine.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GAsyncInitable.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GAsyncResult.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GBufferedInputStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GBufferedOutputStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GCancellable.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GCharsetConverter.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GConverter.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GCredentials.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GDBusAuthObserver.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GDBusConnection.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GDBusError.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GDBusMessage.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GDBusMethodInvocation.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GDBusProxy.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GDBusServer.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GDataInputStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GDataOutputStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GDrive.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GEmblem.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GEmblemedIcon.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GFile.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GFileDescriptorBased.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GFileEnumerator.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GFileIOStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GFileIcon.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GFileInfo.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GFileInputStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GFileMonitor.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GFileOutputStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GFilenameCompleter.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GFilterInputStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GFilterOutputStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GIOModule.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GIOStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GIcon.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GInetAddress.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GInetSocketAddress.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GInitable.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GInputStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GLoadableIcon.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GMemoryInputStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GMemoryOutputStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GMount.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GMountOperation.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GNetworkAddress.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GNetworkService.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GOutputStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GPermission.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GPollableInputStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GPollableOutputStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GProxy.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GProxyAddress.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GProxyResolver.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GResolver.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GSeekable.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GSettings.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GSettingsBackend.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GSimpleAction.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GSimpleActionGroup.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GSimpleAsyncResult.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GSimplePermission.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GSocket.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GSocketAddress.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GSocketClient.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GSocketConnectable.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GSocketConnection.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GSocketControlMessage.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GSocketListener.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GSocketService.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GSrvTarget.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GTcpConnection.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GTcpWrapperConnection.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GThemedIcon.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GThreadedSocketService.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GTlsBackend.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GTlsCertificate.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GTlsClientConnection.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GTlsConnection.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GTlsServerConnection.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GUnixConnection.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GUnixCredentialsMessage.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GUnixFDList.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GUnixFDMessage.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GUnixInputStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GUnixOutputStream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GUnixSocketAddress.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GVfs.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GVolume.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GVolumeMonitor.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GZlibCompressor.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/GZlibDecompressor.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/annotation-glossary.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/api-index-2-18.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/api-index-2-20.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/api-index-2-22.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/api-index-2-24.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/api-index-2-26.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/api-index-2-28.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/api-index-deprecated.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/api-index-full.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/application.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/async.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch01.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch02.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch03.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch26.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch27.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch27s02.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch27s03.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch28.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch28s02.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch28s03.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch28s04.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch28s05.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch28s06.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch28s07.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch29.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch29s02.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch29s03.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch29s04.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch29s05.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/ch29s06.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/conversion.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/extending-gio.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/extending.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/failable_initialization.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/file_mon.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/file_ops.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gdbus-convenience.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gdbus-lowlevel.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gdbus.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio-D-Bus-Addresses.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio-D-Bus-Introspection-Data.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio-D-Bus-Utilities.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/gio/gio-Desktop-file-based-GAppInfo.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio-Extension-Points.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio-GContentType.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio-GConverterInputstream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio-GConverterOutputstream.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio-GFileAttribute.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio-GIOError.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio-GIOScheduler.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio-Owning-Bus-Names.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio-TLS-Overview.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio-Unix-Mounts.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio-Watching-Bus-Names.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio-hierarchy.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio-querymodules.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio.devhelp
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gio.devhelp2
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/glib-compile-schemas.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gsettings-tool.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/gvfs-overview.png
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/highlevel-socket.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/home.png
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/icons.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/index.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/index.sgml
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/left.png
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/migrating.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/networking.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/permissions.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/pt01.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/pt02.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/resolver.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/right.png
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/settings.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/streaming.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/style.css
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/tls.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/tools.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/types.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/up.png
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/utils.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gio/volume_mon.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/annotation-glossary.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/api-index-2-10.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/api-index-2-12.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/api-index-2-14.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/api-index-2-16.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/api-index-2-18.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/api-index-2-2.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/api-index-2-20.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/api-index-2-22.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/api-index-2-24.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/api-index-2-26.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/api-index-2-28.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/api-index-2-4.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/api-index-2-6.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/api-index-2-8.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/api-index-deprecated.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/api-index-full.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/file-name-encodings.png
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Arrays.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Asynchronous-Queues.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Atomic-Operations.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Automatic-String-Completion.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Balanced-Binary-Trees.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Base64-Encoding.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Basic-Types.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Bookmark-file-parser.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Byte-Arrays.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Byte-Order-Macros.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Caches.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Character-Set-Conversion.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Commandline-option-parser.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Data-Checksums.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Datasets.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Date-and-Time-Functions.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Double-ended-Queues.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Doubly-Linked-Lists.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Dynamic-Loading-of-Modules.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Error-Reporting.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-File-Utilities.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-GDateTime.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-GTimeZone.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-GVariant.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-GVariantType.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Glob-style-pattern-matching.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Hash-Tables.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Hook-Functions.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Hostname-Utilities.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-I18N.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-IO-Channels.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Key-value-file-parser.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Keyed-Data-Lists.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Lexical-Scanner.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Limits-of-Basic-Types.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Memory-Allocation.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Memory-Allocators.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Memory-Chunks.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Memory-Slices.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Message-Logging.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Miscellaneous-Macros.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Miscellaneous-Utility-Functions.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-N-ary-Trees.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Numerical-Definitions.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Perl-compatible-regular-expressions.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Pointer-Arrays.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Quarks.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Random-Numbers.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Relations-and-Tuples.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Sequences.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Shell-related-Utilities.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Simple-XML-Subset-Parser.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Singly-Linked-Lists.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Spawning-Processes.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Standard-Macros.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-String-Chunks.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-String-Utility-Functions.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Strings.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Testing.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Thread-Pools.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Threads.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Timers.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Trash-Stacks.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Type-Conversion-Macros.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-URI-Functions.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Unicode-Manipulation.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Version-Information.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Warnings-and-Assertions.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-Windows-Compatibility-Functions.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-building.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-changes.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-compiling.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-core.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-cross-compiling.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-data-types.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-fundamentals.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-gettextize.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-regex-syntax.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-resources.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-running.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib-utilities.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib.devhelp
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib.devhelp2
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/glib.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/gtester-report.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/gtester.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/gvariant-format-strings.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/gvariant-text.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/home.png
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/index.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/index.sgml
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/left.png
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/mainloop-states.gif
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/right.png
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/style.css
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/tools.html
-file path=$(ECPREFIX)/share/gtk-doc/html/glib/up.png
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/GBinding.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/GTypeModule.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/GTypePlugin.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/annotation-glossary.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/api-index-2-10.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/api-index-2-12.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/api-index-2-14.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/api-index-2-18.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/api-index-2-2.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/api-index-2-22.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/api-index-2-24.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/api-index-2-26.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/api-index-2-28.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/api-index-2-4.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/api-index-2-6.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/api-index-2-8.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/api-index-deprecated.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/api-index-full.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/ch01s02.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/ch06s03.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/chapter-gobject.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/chapter-gtype.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/chapter-intro.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/chapter-signal.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/glib-genmarshal.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/glib-mkenums.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/glue.png
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/gobject-Boxed-Types.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/gobject-Closures.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/gobject/gobject-Enumeration-and-Flag-Types.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/gobject-GParamSpec.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/gobject-Generic-values.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/gobject-Signals.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/gobject-Type-Information.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/gobject-Value-arrays.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/gobject/gobject-Varargs-Value-Collection.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/gobject-memory.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/gobject-properties.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/gobject-query.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/gobject.devhelp
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/gobject.devhelp2
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/gtype-conventions.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/gobject/gtype-instantiable-classed.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/gobject/gtype-non-instantiable-classed.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/gtype-non-instantiable.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/home.png
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/howto-gobject-chainup.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/howto-gobject-code.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/gobject/howto-gobject-construction.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/gobject/howto-gobject-destruction.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/howto-gobject-methods.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/howto-gobject.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/gobject/howto-interface-implement.html
-file \
-    path=$(ECPREFIX)/share/gtk-doc/html/gobject/howto-interface-properties.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/howto-interface.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/howto-signals.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/index.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/index.sgml
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/left.png
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/pr01.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/pt01.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/pt02.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/pt03.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/right.png
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/rn01.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/rn02.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/signal.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/style.css
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/tools-ginspector.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/tools-gob.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/tools-gtkdoc.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/tools-refdb.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/tools-vala.html
-file path=$(ECPREFIX)/share/gtk-doc/html/gobject/up.png
 file path=$(ECPREFIX)/share/locale/af/LC_MESSAGES/glib20.mo
 file path=$(ECPREFIX)/share/locale/am/LC_MESSAGES/glib20.mo
+file path=$(ECPREFIX)/share/locale/an/LC_MESSAGES/glib20.mo
 file path=$(ECPREFIX)/share/locale/ar/LC_MESSAGES/glib20.mo
 file path=$(ECPREFIX)/share/locale/as/LC_MESSAGES/glib20.mo
 file path=$(ECPREFIX)/share/locale/ast/LC_MESSAGES/glib20.mo
@@ -1009,6 +697,7 @@ file path=$(ECPREFIX)/share/locale/sr@latin/LC_MESSAGES/glib20.mo
 file path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES/glib20.mo
 file path=$(ECPREFIX)/share/locale/ta/LC_MESSAGES/glib20.mo
 file path=$(ECPREFIX)/share/locale/te/LC_MESSAGES/glib20.mo
+file path=$(ECPREFIX)/share/locale/tg/LC_MESSAGES/glib20.mo
 file path=$(ECPREFIX)/share/locale/th/LC_MESSAGES/glib20.mo
 file path=$(ECPREFIX)/share/locale/tl/LC_MESSAGES/glib20.mo
 file path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES/glib20.mo
@@ -1022,46 +711,36 @@ file path=$(ECPREFIX)/share/locale/yi/LC_MESSAGES/glib20.mo
 file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/glib20.mo
 file path=$(ECPREFIX)/share/locale/zh_HK/LC_MESSAGES/glib20.mo
 file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/glib20.mo
-file path=$(ECPREFIX)/share/man/man1/gdbus.1
-file path=$(ECPREFIX)/share/man/man1/gio-querymodules.1
-file path=$(ECPREFIX)/share/man/man1/glib-compile-schemas.1
-file path=$(ECPREFIX)/share/man/man1/glib-genmarshal.1
-file path=$(ECPREFIX)/share/man/man1/glib-gettextize.1
-file path=$(ECPREFIX)/share/man/man1/glib-mkenums.1
-file path=$(ECPREFIX)/share/man/man1/gobject-query.1
-file path=$(ECPREFIX)/share/man/man1/gsettings.1
-file path=$(ECPREFIX)/share/man/man1/gtester-report.1
-file path=$(ECPREFIX)/share/man/man1/gtester.1
 link path=$(ECPREFIX)/lib/$(MACH64)/libgio-2.0.so \
-    target=libgio-2.0.so.0.2800.2
+    target=libgio-2.0.so.0.3903.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libgio-2.0.so.0 \
-    target=libgio-2.0.so.0.2800.2
+    target=libgio-2.0.so.0.3903.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libglib-2.0.so \
-    target=libglib-2.0.so.0.2800.2
+    target=libglib-2.0.so.0.3903.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libglib-2.0.so.0 \
-    target=libglib-2.0.so.0.2800.2
+    target=libglib-2.0.so.0.3903.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libgmodule-2.0.so \
-    target=libgmodule-2.0.so.0.2800.2
+    target=libgmodule-2.0.so.0.3903.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libgmodule-2.0.so.0 \
-    target=libgmodule-2.0.so.0.2800.2
+    target=libgmodule-2.0.so.0.3903.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libgobject-2.0.so \
-    target=libgobject-2.0.so.0.2800.2
+    target=libgobject-2.0.so.0.3903.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libgobject-2.0.so.0 \
-    target=libgobject-2.0.so.0.2800.2
+    target=libgobject-2.0.so.0.3903.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libgthread-2.0.so \
-    target=libgthread-2.0.so.0.2800.2
+    target=libgthread-2.0.so.0.3903.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libgthread-2.0.so.0 \
-    target=libgthread-2.0.so.0.2800.2
-link path=$(ECPREFIX)/lib/libgio-2.0.so target=libgio-2.0.so.0.2800.2
-link path=$(ECPREFIX)/lib/libgio-2.0.so.0 target=libgio-2.0.so.0.2800.2
-link path=$(ECPREFIX)/lib/libglib-2.0.so target=libglib-2.0.so.0.2800.2
-link path=$(ECPREFIX)/lib/libglib-2.0.so.0 target=libglib-2.0.so.0.2800.2
-link path=$(ECPREFIX)/lib/libgmodule-2.0.so target=libgmodule-2.0.so.0.2800.2
+    target=libgthread-2.0.so.0.3903.0
+link path=$(ECPREFIX)/lib/libgio-2.0.so target=libgio-2.0.so.0.3903.0
+link path=$(ECPREFIX)/lib/libgio-2.0.so.0 target=libgio-2.0.so.0.3903.0
+link path=$(ECPREFIX)/lib/libglib-2.0.so target=libglib-2.0.so.0.3903.0
+link path=$(ECPREFIX)/lib/libglib-2.0.so.0 target=libglib-2.0.so.0.3903.0
+link path=$(ECPREFIX)/lib/libgmodule-2.0.so target=libgmodule-2.0.so.0.3903.0
 link path=$(ECPREFIX)/lib/libgmodule-2.0.so.0 \
-    target=libgmodule-2.0.so.0.2800.2
-link path=$(ECPREFIX)/lib/libgobject-2.0.so target=libgobject-2.0.so.0.2800.2
+    target=libgmodule-2.0.so.0.3903.0
+link path=$(ECPREFIX)/lib/libgobject-2.0.so target=libgobject-2.0.so.0.3903.0
 link path=$(ECPREFIX)/lib/libgobject-2.0.so.0 \
-    target=libgobject-2.0.so.0.2800.2
-link path=$(ECPREFIX)/lib/libgthread-2.0.so target=libgthread-2.0.so.0.2800.2
+    target=libgobject-2.0.so.0.3903.0
+link path=$(ECPREFIX)/lib/libgthread-2.0.so target=libgthread-2.0.so.0.3903.0
 link path=$(ECPREFIX)/lib/libgthread-2.0.so.0 \
-    target=libgthread-2.0.so.0.2800.2
+    target=libgthread-2.0.so.0.3903.0
