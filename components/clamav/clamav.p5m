@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -25,25 +25,26 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 group gid=465 groupname=clamav
 user gcos-field="Clam AntiVirus" group=clamav uid=465 username=clamav login-shell=/bin/false
 
+dir path=$(ECPREFIX)/share/clamav owner=clamav group=clamav mode=0755
+dir path=/var
+dir path=/var/log
+file files/freshclam.log path=/var/log/freshclam.log owner=clamav mode=0600
 file files/freshclam.xml path=var/svc/manifest/site/freshclam.xml
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 dir path=$(ECPREFIX)/lib/pkgconfig
 dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/clamav owner=clamav group=clamav mode=0755
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man5
 dir path=$(ECPREFIX)/share/man/man8
-dir path=$(SYSCONFDIR)
-dir path=/var
-dir path=/var/log
 file path=$(ECPREFIX)/bin/$(MACH64)/clamav-config
 file path=$(ECPREFIX)/bin/$(MACH64)/clambc
 file path=$(ECPREFIX)/bin/$(MACH64)/clamconf
@@ -62,20 +63,22 @@ file path=$(ECPREFIX)/bin/clamdtop
 file path=$(ECPREFIX)/bin/clamscan
 file path=$(ECPREFIX)/bin/freshclam
 file path=$(ECPREFIX)/bin/sigtool
+file path=$(ECPREFIX)/etc/clamd.conf.sample
+file path=$(ECPREFIX)/etc/freshclam.conf.sample
 file path=$(ECPREFIX)/include/clamav.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libclamav.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.6.1.18
+file path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.6.1.20
 file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so.6.1.18
+file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so.6.1.20
 file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so.6.1.18
+file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so.6.1.20
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libclamav.pc
 file path=$(ECPREFIX)/lib/libclamav.la
-file path=$(ECPREFIX)/lib/libclamav.so.6.1.18
+file path=$(ECPREFIX)/lib/libclamav.so.6.1.20
 file path=$(ECPREFIX)/lib/libclamunrar.la
-file path=$(ECPREFIX)/lib/libclamunrar.so.6.1.18
+file path=$(ECPREFIX)/lib/libclamunrar.so.6.1.20
 file path=$(ECPREFIX)/lib/libclamunrar_iface.la
-file path=$(ECPREFIX)/lib/libclamunrar_iface.so.6.1.18
+file path=$(ECPREFIX)/lib/libclamunrar_iface.so.6.1.20
 file path=$(ECPREFIX)/lib/pkgconfig/libclamav.pc
 file path=$(ECPREFIX)/share/man/man1/clambc.1
 file path=$(ECPREFIX)/share/man/man1/clamconf.1
@@ -89,24 +92,21 @@ file path=$(ECPREFIX)/share/man/man5/clamd.conf.5
 file path=$(ECPREFIX)/share/man/man5/freshclam.conf.5
 file path=$(ECPREFIX)/share/man/man8/clamav-milter.8
 file path=$(ECPREFIX)/share/man/man8/clamd.8
-file path=$(SYSCONFDIR)/clamd.conf.sample
-file path=$(SYSCONFDIR)/freshclam.conf.sample
-file files/freshclam.log path=/var/log/freshclam.log owner=clamav mode=0600
-link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so target=libclamav.so.6.1.18
-link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.6 target=libclamav.so.6.1.18
+link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so target=libclamav.so.6.1.20
+link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.6 target=libclamav.so.6.1.20
 link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so \
-    target=libclamunrar.so.6.1.18
+    target=libclamunrar.so.6.1.20
 link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so.6 \
-    target=libclamunrar.so.6.1.18
+    target=libclamunrar.so.6.1.20
 link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so \
-    target=libclamunrar_iface.so.6.1.18
+    target=libclamunrar_iface.so.6.1.20
 link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so.6 \
-    target=libclamunrar_iface.so.6.1.18
-link path=$(ECPREFIX)/lib/libclamav.so target=libclamav.so.6.1.18
-link path=$(ECPREFIX)/lib/libclamav.so.6 target=libclamav.so.6.1.18
-link path=$(ECPREFIX)/lib/libclamunrar.so target=libclamunrar.so.6.1.18
-link path=$(ECPREFIX)/lib/libclamunrar.so.6 target=libclamunrar.so.6.1.18
+    target=libclamunrar_iface.so.6.1.20
+link path=$(ECPREFIX)/lib/libclamav.so target=libclamav.so.6.1.20
+link path=$(ECPREFIX)/lib/libclamav.so.6 target=libclamav.so.6.1.20
+link path=$(ECPREFIX)/lib/libclamunrar.so target=libclamunrar.so.6.1.20
+link path=$(ECPREFIX)/lib/libclamunrar.so.6 target=libclamunrar.so.6.1.20
 link path=$(ECPREFIX)/lib/libclamunrar_iface.so \
-    target=libclamunrar_iface.so.6.1.18
+    target=libclamunrar_iface.so.6.1.20
 link path=$(ECPREFIX)/lib/libclamunrar_iface.so.6 \
-    target=libclamunrar_iface.so.6.1.18
+    target=libclamunrar_iface.so.6.1.20
