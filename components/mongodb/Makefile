@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		mongodb
 COMPONENT_FMRI=		database/mongodb
-COMPONENT_VERSION=	2.4.8
+COMPONENT_VERSION=	2.4.9
 COMPONENT_LICENSE=	APLv2,AGPLv3
 COMPONENT_PROJECT_URL=	"http://www.mongodb.org/"
 COMPONENT_SUMMARY=	An object/document-oriented database
 COMPONENT_SRC=		$(COMPONENT_NAME)-src-r$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:fd703ce5e53ddfa0cca9c7fba9a0c4cea4179d38972a98c675f45d9f15b4cfdc
+COMPONENT_ARCHIVE_HASH=	sha256:40755d66419a5c9f0d9909a079b092195825773ded188ded3faf07025d02600f
 COMPONENT_ARCHIVE_URL=	http://downloads.mongodb.org/src/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
