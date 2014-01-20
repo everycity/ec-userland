@@ -9,16 +9,20 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		memcache
-COMPONENT_VERSION=	2.2.6
+COMPONENT_FMRI=		web/php-54/extension/php-memcache
+COMPONENT_VERSION=	2.2.7
+COMPONENT_LICENSE=	PHP3.01
+COMPONENT_PROJECT_URL=	"http://pecl.php.net/package/memcache"
+COMPONENT_SUMMARY=	PHP memcache extension
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH=	sha256:c6d1aef326d8d0d9425d7e19e61e51bb578fdd5e979eb13cae562918009748bf
+COMPONENT_ARCHIVE_HASH=	sha256:73006c02194a5a7c196c6488d449e5f8c75573a73568fe1a94b15157c147305d
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_PECL)
 
 include ../../make-rules/prep.mk
