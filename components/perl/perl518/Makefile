@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		perl
 COMPONENT_FMRI=		runtime/perl-518
-COMPONENT_VERSION=	5.18.0
+COMPONENT_VERSION=	5.18.2
 PERL_VERSION=		5.18
 COMPONENT_LICENSE=	Artistic
 COMPONENT_PROJECT_URL=	http://www.perl.org/
 COMPONENT_SUMMARY=	The Perl Programming Language
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:e56698de4ad3e3d54e8ed25d2e91ddffd6758c32b72a0de89c38a763e2f783b7
+COMPONENT_ARCHIVE_HASH=	sha256:7cbed5ef11900e8f68041215eea0de5e443d53393f84c41d5c9c69c150a4982f
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PERL5)
 
 include ../../../make-rules/prep.mk

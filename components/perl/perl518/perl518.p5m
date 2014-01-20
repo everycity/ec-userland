@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -371,6 +371,7 @@ dir path=$(ECPREFIX)/lib/perl/site_perl
 dir path=$(ECPREFIX)/lib/perl/site_perl/5.18
 dir path=$(ECPREFIX)/lib/perl/site_perl/5.18/i86pc-solaris-64int
 file path=$(ECPREFIX)/lib/perl/5.18/bin/a2p
+file path=$(ECPREFIX)/lib/perl/5.18/bin/c2ph
 file path=$(ECPREFIX)/lib/perl/5.18/bin/config_data
 file path=$(ECPREFIX)/lib/perl/5.18/bin/corelist
 file path=$(ECPREFIX)/lib/perl/5.18/bin/cpan
@@ -384,7 +385,7 @@ file path=$(ECPREFIX)/lib/perl/5.18/bin/h2xs
 file path=$(ECPREFIX)/lib/perl/5.18/bin/instmodsh
 file path=$(ECPREFIX)/lib/perl/5.18/bin/json_pp
 file path=$(ECPREFIX)/lib/perl/5.18/bin/libnetcfg
-file path=$(ECPREFIX)/lib/perl/5.18/bin/perl
+file path=$(ECPREFIX)/lib/perl/5.18/bin/perl$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/perl/5.18/bin/perlbug
 file path=$(ECPREFIX)/lib/perl/5.18/bin/perldoc
 file path=$(ECPREFIX)/lib/perl/5.18/bin/perlivp
@@ -398,11 +399,10 @@ file path=$(ECPREFIX)/lib/perl/5.18/bin/pod2usage
 file path=$(ECPREFIX)/lib/perl/5.18/bin/podchecker
 file path=$(ECPREFIX)/lib/perl/5.18/bin/podselect
 file path=$(ECPREFIX)/lib/perl/5.18/bin/prove
-file path=$(ECPREFIX)/lib/perl/5.18/bin/pstruct
+file path=$(ECPREFIX)/lib/perl/5.18/bin/psed
 file path=$(ECPREFIX)/lib/perl/5.18/bin/ptar
 file path=$(ECPREFIX)/lib/perl/5.18/bin/ptardiff
 file path=$(ECPREFIX)/lib/perl/5.18/bin/ptargrep
-file path=$(ECPREFIX)/lib/perl/5.18/bin/s2p
 file path=$(ECPREFIX)/lib/perl/5.18/bin/shasum
 file path=$(ECPREFIX)/lib/perl/5.18/bin/splain
 file path=$(ECPREFIX)/lib/perl/5.18/bin/xsubpp
@@ -789,6 +789,7 @@ file path=$(ECPREFIX)/lib/perl/5.18/lib/Module/Build/YAML.pm
 file path=$(ECPREFIX)/lib/perl/5.18/lib/Module/CoreList.pm
 file path=$(ECPREFIX)/lib/perl/5.18/lib/Module/CoreList.pod
 file path=$(ECPREFIX)/lib/perl/5.18/lib/Module/CoreList/TieHashDelta.pm
+file path=$(ECPREFIX)/lib/perl/5.18/lib/Module/CoreList/Utils.pm
 file path=$(ECPREFIX)/lib/perl/5.18/lib/Module/Load.pm
 file path=$(ECPREFIX)/lib/perl/5.18/lib/Module/Load/Conditional.pm
 file path=$(ECPREFIX)/lib/perl/5.18/lib/Module/Loaded.pm
@@ -1548,6 +1549,8 @@ file path=$(ECPREFIX)/lib/perl/5.18/lib/pod/perl5161delta.pod
 file path=$(ECPREFIX)/lib/perl/5.18/lib/pod/perl5162delta.pod
 file path=$(ECPREFIX)/lib/perl/5.18/lib/pod/perl5163delta.pod
 file path=$(ECPREFIX)/lib/perl/5.18/lib/pod/perl5180delta.pod
+file path=$(ECPREFIX)/lib/perl/5.18/lib/pod/perl5181delta.pod
+file path=$(ECPREFIX)/lib/perl/5.18/lib/pod/perl5182delta.pod
 file path=$(ECPREFIX)/lib/perl/5.18/lib/pod/perl561delta.pod
 file path=$(ECPREFIX)/lib/perl/5.18/lib/pod/perl56delta.pod
 file path=$(ECPREFIX)/lib/perl/5.18/lib/pod/perl581delta.pod
@@ -1664,6 +1667,7 @@ file path=$(ECPREFIX)/lib/perl/5.18/lib/pod/perlrecharclass.pod
 file path=$(ECPREFIX)/lib/perl/5.18/lib/pod/perlref.pod
 file path=$(ECPREFIX)/lib/perl/5.18/lib/pod/perlreftut.pod
 file path=$(ECPREFIX)/lib/perl/5.18/lib/pod/perlreguts.pod
+file path=$(ECPREFIX)/lib/perl/5.18/lib/pod/perlrepository.pod
 file path=$(ECPREFIX)/lib/perl/5.18/lib/pod/perlrequick.pod
 file path=$(ECPREFIX)/lib/perl/5.18/lib/pod/perlreref.pod
 file path=$(ECPREFIX)/lib/perl/5.18/lib/pod/perlretut.pod
@@ -2599,6 +2603,7 @@ file path=$(ECPREFIX)/lib/perl/5.18/lib/vmsish.pm
 file path=$(ECPREFIX)/lib/perl/5.18/lib/warnings.pm
 file path=$(ECPREFIX)/lib/perl/5.18/lib/warnings/register.pm
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/a2p.1
+file path=$(ECPREFIX)/lib/perl/5.18/man/man1/c2ph.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/config_data.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/corelist.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/cpan.1
@@ -2632,6 +2637,8 @@ file path=$(ECPREFIX)/lib/perl/5.18/man/man1/perl5161delta.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/perl5162delta.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/perl5163delta.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/perl5180delta.1
+file path=$(ECPREFIX)/lib/perl/5.18/man/man1/perl5181delta.1
+file path=$(ECPREFIX)/lib/perl/5.18/man/man1/perl5182delta.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/perl561delta.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/perl56delta.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/perl581delta.1
@@ -2750,6 +2757,7 @@ file path=$(ECPREFIX)/lib/perl/5.18/man/man1/perlrecharclass.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/perlref.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/perlreftut.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/perlreguts.1
+file path=$(ECPREFIX)/lib/perl/5.18/man/man1/perlrepository.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/perlrequick.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/perlreref.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/perlretut.1
@@ -2795,7 +2803,6 @@ file path=$(ECPREFIX)/lib/perl/5.18/man/man1/podchecker.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/podselect.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/prove.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/psed.1
-file path=$(ECPREFIX)/lib/perl/5.18/man/man1/pstruct.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/ptar.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/ptardiff.1
 file path=$(ECPREFIX)/lib/perl/5.18/man/man1/ptargrep.1
@@ -3174,6 +3181,7 @@ file path=$(ECPREFIX)/lib/perl/5.18/man/man3/Module::Build::Platform::os2.3
 file path=$(ECPREFIX)/lib/perl/5.18/man/man3/Module::Build::Version.3
 file path=$(ECPREFIX)/lib/perl/5.18/man/man3/Module::Build::YAML.3
 file path=$(ECPREFIX)/lib/perl/5.18/man/man3/Module::CoreList.3
+file path=$(ECPREFIX)/lib/perl/5.18/man/man3/Module::CoreList::Utils.3
 file path=$(ECPREFIX)/lib/perl/5.18/man/man3/Module::Load.3
 file path=$(ECPREFIX)/lib/perl/5.18/man/man3/Module::Load::Conditional.3
 file path=$(ECPREFIX)/lib/perl/5.18/man/man3/Module::Loaded.3
@@ -3432,11 +3440,11 @@ file path=$(ECPREFIX)/lib/perl/5.18/man/man3/version::Internals.3
 file path=$(ECPREFIX)/lib/perl/5.18/man/man3/vmsish.3
 file path=$(ECPREFIX)/lib/perl/5.18/man/man3/warnings.3
 file path=$(ECPREFIX)/lib/perl/5.18/man/man3/warnings::register.3
-hardlink path=$(ECPREFIX)/lib/perl/5.18/bin/c2ph target=pstruct
-hardlink path=$(ECPREFIX)/lib/perl/5.18/bin/perl$(COMPONENT_VERSION) \
-    target=perl
+hardlink path=$(ECPREFIX)/lib/perl/5.18/bin/perl \
+    target=perl$(COMPONENT_VERSION)
 hardlink path=$(ECPREFIX)/lib/perl/5.18/bin/perlthanks target=perlbug
-hardlink path=$(ECPREFIX)/lib/perl/5.18/bin/psed target=s2p
-hardlink path=$(ECPREFIX)/lib/perl/5.18/man/man1/c2ph.1 target=pstruct.1
+hardlink path=$(ECPREFIX)/lib/perl/5.18/bin/pstruct target=c2ph
+hardlink path=$(ECPREFIX)/lib/perl/5.18/bin/s2p target=psed
 hardlink path=$(ECPREFIX)/lib/perl/5.18/man/man1/perlthanks.1 target=perlbug.1
+hardlink path=$(ECPREFIX)/lib/perl/5.18/man/man1/pstruct.1 target=c2ph.1
 hardlink path=$(ECPREFIX)/lib/perl/5.18/man/man1/s2p.1 target=psed.1
