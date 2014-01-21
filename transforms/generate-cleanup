@@ -34,8 +34,8 @@
 
 #<transform dir file link hardlink -> edit path "^ec/etc" "$!(SYSCONFDIR)">
 #<transform dir file link hardlink -> edit path "^etc" "$!(SYSCONFDIR)">
-<transform dir file link hardlink -> edit path "^ec/var" "$!(LOCALSTATEDIR)">
-<transform dir file link hardlink -> edit path "^var" "$!(LOCALSTATEDIR)">
+#<transform dir file link hardlink -> edit path "^ec/var" "$!(LOCALSTATEDIR)">
+#<transform dir file link hardlink -> edit path "^var" "$!(LOCALSTATEDIR)">
 <transform dir file link hardlink -> edit path "^ec" "$!(ECPREFIX)">
 <transform dir file link hardlink -> edit path "^usr" "$!(ECPREFIX)">
 
