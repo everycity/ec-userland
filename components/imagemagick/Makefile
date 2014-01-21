@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ImageMagick
 COMPONENT_FMRI=		multimedia/imagemagick
-COMPONENT_VERSION=	6.8.5-10
-IPS_COMPONENT_VERSION=	6.8.5.10
+COMPONENT_VERSION=	6.8.8-2
+IPS_COMPONENT_VERSION=	6.8.8.2
 COMPONENT_LICENSE=	ImageMagick
 COMPONENT_PROJECT_URL=	http://www.imagemagick.org/
 COMPONENT_SUMMARY=	Convert, Edit, And Compose Images
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:1fb8c0eaffb4f67e4f28e46754f3791ae1ffaedbdc7591b8588d618bf854cf45
+COMPONENT_ARCHIVE_HASH=	sha256:e99bf6fb540762fe00e2280425581c85418eeb8204f6b9b39b10b735ada9f2d9
 COMPONENT_ARCHIVE_URL=	ftp://ftp.imagemagick.org/pub/ImageMagick/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
