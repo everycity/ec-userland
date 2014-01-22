@@ -1,32 +1,28 @@
-diff -ruN apache-cassandra-1.2.2.orig/bin/cassandra apache-cassandra-1.2.2/bin/cassandra
---- apache-cassandra-1.2.2.orig/bin/cassandra	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/cassandra	2013-03-13 12:42:13.897387672 +0000
-@@ -67,7 +67,8 @@
- # If an include wasn't specified in the environment, then search for one...
- if [ "x$CASSANDRA_INCLUDE" = "x" ]; then
+diff -ur apache-cassandra-2.0.4-orig/bin/cassandra apache-cassandra-2.0.4/bin/cassandra
+--- apache-cassandra-2.0.4-orig/bin/cassandra	2014-01-21 12:59:28.313545672 +0000
++++ apache-cassandra-2.0.4/bin/cassandra	2014-01-21 13:05:25.599347303 +0000
+@@ -69,6 +69,7 @@
      # Locations (in order) to use when searching for an include file.
--    for include in /usr/share/cassandra/cassandra.in.sh \
-+    for include in /ec/share/cassandra/cassandra.in.sh \
-+                   /usr/share/cassandra/cassandra.in.sh \
-                    /usr/local/share/cassandra/cassandra.in.sh \
-                    /opt/cassandra/cassandra.in.sh \
+     for include in "`dirname "$0"`/cassandra.in.sh" \
                     "$HOME/.cassandra.in.sh" \
-diff -ruN apache-cassandra-1.2.2.orig/bin/cassandra-cli apache-cassandra-1.2.2/bin/cassandra-cli
---- apache-cassandra-1.2.2.orig/bin/cassandra-cli	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/cassandra-cli	2013-03-13 12:42:13.897656185 +0000
-@@ -17,7 +17,8 @@
- # limitations under the License.
- 
- if [ "x$CASSANDRA_INCLUDE" = "x" ]; then
--    for include in /usr/share/cassandra/cassandra.in.sh \
-+    for include in /ec/share/cassandra/cassandra.in.sh \
-+                   /usr/share/cassandra/cassandra.in.sh \
++                   /ec/share/cassandra/cassandra.in.sh \
+                    /usr/share/cassandra/cassandra.in.sh \
                     /usr/local/share/cassandra/cassandra.in.sh \
-                    /opt/cassandra/cassandra.in.sh \
-                    ~/.cassandra.in.sh \
-diff -ruN apache-cassandra-1.2.2.orig/bin/cassandra-shuffle apache-cassandra-1.2.2/bin/cassandra-shuffle
---- apache-cassandra-1.2.2.orig/bin/cassandra-shuffle	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/cassandra-shuffle	2013-03-13 12:42:13.897925175 +0000
+                    /opt/cassandra/cassandra.in.sh; do
+diff -ur apache-cassandra-2.0.4-orig/bin/cassandra-cli apache-cassandra-2.0.4/bin/cassandra-cli
+--- apache-cassandra-2.0.4-orig/bin/cassandra-cli	2013-12-27 18:53:08.000000000 +0000
++++ apache-cassandra-2.0.4/bin/cassandra-cli	2014-01-21 13:05:37.998250502 +0000
+@@ -19,6 +19,7 @@
+ if [ "x$CASSANDRA_INCLUDE" = "x" ]; then
+     for include in "`dirname "$0"`/cassandra.in.sh" \
+                    "$HOME/.cassandra.in.sh" \
++                   /ec/share/cassandra/cassandra.in.sh \
+                    /usr/share/cassandra/cassandra.in.sh \
+                    /usr/local/share/cassandra/cassandra.in.sh \
+                    /opt/cassandra/cassandra.in.sh; do
+diff -ur apache-cassandra-2.0.4-orig/bin/cassandra-shuffle apache-cassandra-2.0.4/bin/cassandra-shuffle
+--- apache-cassandra-2.0.4-orig/bin/cassandra-shuffle	2013-12-27 18:53:08.000000000 +0000
++++ apache-cassandra-2.0.4/bin/cassandra-shuffle	2014-01-21 13:06:10.862927183 +0000
 @@ -16,7 +16,8 @@
  # limitations under the License.
  
@@ -36,46 +32,122 @@ diff -ruN apache-cassandra-1.2.2.orig/bin/cassandra-shuffle apache-cassandra-1.2
 +                   /usr/share/cassandra/cassandra.in.sh \
                     /usr/local/share/cassandra/cassandra.in.sh \
                     /opt/cassandra/cassandra.in.sh \
-                    `dirname $0`/cassandra.in.sh; do
-diff -ruN apache-cassandra-1.2.2.orig/bin/cassandra.in.sh apache-cassandra-1.2.2/bin/cassandra.in.sh
---- apache-cassandra-1.2.2.orig/bin/cassandra.in.sh	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/cassandra.in.sh	2013-03-13 12:43:42.970505662 +0000
-@@ -15,27 +15,18 @@
+                    "`dirname "$0"`/cassandra.in.sh"; do
+diff -ur apache-cassandra-2.0.4-orig/bin/cassandra.in.sh apache-cassandra-2.0.4/bin/cassandra.in.sh
+--- apache-cassandra-2.0.4-orig/bin/cassandra.in.sh	2013-12-27 18:53:08.000000000 +0000
++++ apache-cassandra-2.0.4/bin/cassandra.in.sh	2014-01-21 13:07:54.719271755 +0000
+@@ -15,28 +15,19 @@
  # limitations under the License.
  
  if [ "x$CASSANDRA_HOME" = "x" ]; then
--    CASSANDRA_HOME=`dirname $0`/..
+-    CASSANDRA_HOME="`dirname "$0"`/.."
 +    CASSANDRA_HOME=/ec/share/cassandra
  fi
  
  # The directory where Cassandra's configs live (required)
  if [ "x$CASSANDRA_CONF" = "x" ]; then
--    CASSANDRA_CONF=$CASSANDRA_HOME/conf
+-    CASSANDRA_CONF="$CASSANDRA_HOME/conf"
 +    CASSANDRA_CONF=/ec/etc/cassandra
  fi
  
 -# This can be the path to a jar file, or a directory containing the 
 -# compiled classes. NOTE: This isn't needed by the startup script,
 -# it's just used here in constructing the classpath.
--cassandra_bin=$CASSANDRA_HOME/build/classes/main
--cassandra_bin=$cassandra_bin:$CASSANDRA_HOME/build/classes/thrift
--#cassandra_bin=$cassandra_home/build/cassandra.jar
+-cassandra_bin="$CASSANDRA_HOME/build/classes/main"
+-cassandra_bin="$cassandra_bin:$CASSANDRA_HOME/build/classes/thrift"
+-#cassandra_bin="$cassandra_home/build/cassandra.jar"
 -
 -# JAVA_HOME can optionally be set here
 -#JAVA_HOME=/usr/local/jdk6
 -
  # The java classpath (required)
--CLASSPATH=$CASSANDRA_CONF:$cassandra_bin
-+CLASSPATH=$CASSANDRA_CONF
+-CLASSPATH="$CASSANDRA_CONF:$cassandra_bin"
++CLASSPATH="$CASSANDRA_CONF"
  
--for jar in $CASSANDRA_HOME/lib/*.jar; do
-+for jar in $CASSANDRA_HOME/lib/*.jar $CASSANDRA_HOME/*.jar \
+-for jar in "$CASSANDRA_HOME"/lib/*.jar; do
++for jar in "$CASSANDRA_HOME"/lib/*.jar $CASSANDRA_HOME/*.jar \
 +  /ec/share/java/jna-*.jar /ec/share/java/snappy-java-*.jar; do
-     CLASSPATH=$CLASSPATH:$jar
+     CLASSPATH="$CLASSPATH:$jar"
  done
-diff -ruN apache-cassandra-1.2.2.orig/bin/json2sstable apache-cassandra-1.2.2/bin/json2sstable
---- apache-cassandra-1.2.2.orig/bin/json2sstable	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/json2sstable	2013-03-13 12:42:13.898419357 +0000
+ 
+@@ -45,4 +36,4 @@
+       || [ "$JVM_VERSION" = "1.6.0" -a "$JVM_PATCH_VERSION" -ge 23 ]
+ then
+     JAVA_AGENT="$JAVA_AGENT -javaagent:$CASSANDRA_HOME/lib/jamm-0.2.5.jar"
+-fi
+\ No newline at end of file
++fi
+diff -ur apache-cassandra-2.0.4-orig/bin/debug-cql apache-cassandra-2.0.4/bin/debug-cql
+--- apache-cassandra-2.0.4-orig/bin/debug-cql	2013-12-27 18:53:08.000000000 +0000
++++ apache-cassandra-2.0.4/bin/debug-cql	2014-01-21 13:12:51.366777563 +0000
+@@ -17,7 +17,8 @@
+ 
+ if [ "x$CASSANDRA_INCLUDE" = "x" ]; then
+     # Locations (in order) to use when searching for an include file.
+-    for include in /usr/share/cassandra/cassandra.in.sh \
++    for include in /ec/share/cassandra/cassandra.in.sh \
++                   /usr/share/cassandra/cassandra.in.sh \
+                    /usr/local/share/cassandra/cassandra.in.sh \
+                    /opt/cassandra/cassandra.in.sh \
+                    "$HOME/.cassandra.in.sh" \
+diff -ur apache-cassandra-2.0.4-orig/bin/json2sstable apache-cassandra-2.0.4/bin/json2sstable
+--- apache-cassandra-2.0.4-orig/bin/json2sstable	2013-12-27 18:53:08.000000000 +0000
++++ apache-cassandra-2.0.4/bin/json2sstable	2014-01-21 13:03:58.501642658 +0000
+@@ -19,6 +19,7 @@
+ if [ "x$CASSANDRA_INCLUDE" = "x" ]; then
+     for include in "`dirname "$0"`/cassandra.in.sh" \
+                    "$HOME/.cassandra.in.sh" \
++                   /ec/share/cassandra/cassandra.in.sh \
+                    /usr/share/cassandra/cassandra.in.sh \
+                    /usr/local/share/cassandra/cassandra.in.sh \
+                    /opt/cassandra/cassandra.in.sh; do
+diff -ur apache-cassandra-2.0.4-orig/bin/nodetool apache-cassandra-2.0.4/bin/nodetool
+--- apache-cassandra-2.0.4-orig/bin/nodetool	2013-12-27 18:53:08.000000000 +0000
++++ apache-cassandra-2.0.4/bin/nodetool	2014-01-21 13:08:19.365421332 +0000
+@@ -24,6 +24,7 @@
+ if [ "x$CASSANDRA_INCLUDE" = "x" ]; then
+     for include in "`dirname "$0"`/cassandra.in.sh" \
+                    "$HOME/.cassandra.in.sh" \
++                   /ec/share/cassandra/cassandra.in.sh \
+                    /usr/share/cassandra/cassandra.in.sh \
+                    /usr/local/share/cassandra/cassandra.in.sh \
+                    /opt/cassandra/cassandra.in.sh; do
+diff -ur apache-cassandra-2.0.4-orig/bin/sstable2json apache-cassandra-2.0.4/bin/sstable2json
+--- apache-cassandra-2.0.4-orig/bin/sstable2json	2013-12-27 18:53:08.000000000 +0000
++++ apache-cassandra-2.0.4/bin/sstable2json	2014-01-21 13:08:37.290769268 +0000
+@@ -19,6 +19,7 @@
+ if [ "x$CASSANDRA_INCLUDE" = "x" ]; then
+     for include in "`dirname "$0"`/cassandra.in.sh" \
+                    "$HOME/.cassandra.in.sh" \
++                   /ec/share/cassandra/cassandra.in.sh \
+                    /usr/share/cassandra/cassandra.in.sh \
+                    /usr/local/share/cassandra/cassandra.in.sh \
+                    /opt/cassandra/cassandra.in.sh; do
+diff -ur apache-cassandra-2.0.4-orig/bin/sstablekeys apache-cassandra-2.0.4/bin/sstablekeys
+--- apache-cassandra-2.0.4-orig/bin/sstablekeys	2013-12-27 18:53:08.000000000 +0000
++++ apache-cassandra-2.0.4/bin/sstablekeys	2014-01-21 13:08:51.075441340 +0000
+@@ -19,6 +19,7 @@
+ if [ "x$CASSANDRA_INCLUDE" = "x" ]; then
+     for include in "`dirname "$0"`/cassandra.in.sh" \
+                    "$HOME/.cassandra.in.sh" \
++                   /ec/share/cassandra/cassandra.in.sh \
+                    /usr/share/cassandra/cassandra.in.sh \
+                    /usr/local/share/cassandra/cassandra.in.sh \
+                    /opt/cassandra/cassandra.in.sh; do
+diff -ur apache-cassandra-2.0.4-orig/bin/sstableloader apache-cassandra-2.0.4/bin/sstableloader
+--- apache-cassandra-2.0.4-orig/bin/sstableloader	2013-12-27 18:53:08.000000000 +0000
++++ apache-cassandra-2.0.4/bin/sstableloader	2014-01-21 13:09:03.943031502 +0000
+@@ -19,6 +19,7 @@
+ if [ "x$CASSANDRA_INCLUDE" = "x" ]; then
+     for include in "`dirname "$0"`/cassandra.in.sh" \
+                    "$HOME/.cassandra.in.sh" \
++                   /ec/share/cassandra/cassandra.in.sh \
+                    /usr/share/cassandra/cassandra.in.sh \
+                    /usr/local/share/cassandra/cassandra.in.sh \
+                    /opt/cassandra/cassandra.in.sh; do
+diff -ur apache-cassandra-2.0.4-orig/bin/sstablescrub apache-cassandra-2.0.4/bin/sstablescrub
+--- apache-cassandra-2.0.4-orig/bin/sstablescrub	2013-12-27 18:53:08.000000000 +0000
++++ apache-cassandra-2.0.4/bin/sstablescrub	2014-01-21 13:10:04.558999354 +0000
 @@ -17,7 +17,8 @@
  # limitations under the License.
  
@@ -86,22 +158,9 @@ diff -ruN apache-cassandra-1.2.2.orig/bin/json2sstable apache-cassandra-1.2.2/bi
                     /usr/local/share/cassandra/cassandra.in.sh \
                     /opt/cassandra/cassandra.in.sh \
                     ~/.cassandra.in.sh \
-diff -ruN apache-cassandra-1.2.2.orig/bin/nodetool apache-cassandra-1.2.2/bin/nodetool
---- apache-cassandra-1.2.2.orig/bin/nodetool	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/nodetool	2013-03-13 12:42:13.898658263 +0000
-@@ -22,7 +22,8 @@
- fi
- 
- if [ "x$CASSANDRA_INCLUDE" = "x" ]; then
--    for include in /usr/share/cassandra/cassandra.in.sh \
-+    for include in /ec/share/cassandra/cassandra.in.sh \
-+                   /usr/share/cassandra/cassandra.in.sh \
-                    /usr/local/share/cassandra/cassandra.in.sh \
-                    /opt/cassandra/cassandra.in.sh \
-                    `dirname $0`/cassandra.in.sh; do
-diff -ruN apache-cassandra-1.2.2.orig/bin/sstable2json apache-cassandra-1.2.2/bin/sstable2json
---- apache-cassandra-1.2.2.orig/bin/sstable2json	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/sstable2json	2013-03-13 12:42:13.898910357 +0000
+diff -ur apache-cassandra-2.0.4-orig/bin/sstablesplit apache-cassandra-2.0.4/bin/sstablesplit
+--- apache-cassandra-2.0.4-orig/bin/sstablesplit	2013-12-27 18:53:08.000000000 +0000
++++ apache-cassandra-2.0.4/bin/sstablesplit	2014-01-21 13:09:43.084635500 +0000
 @@ -17,7 +17,8 @@
  # limitations under the License.
  
@@ -112,9 +171,9 @@ diff -ruN apache-cassandra-1.2.2.orig/bin/sstable2json apache-cassandra-1.2.2/bi
                     /usr/local/share/cassandra/cassandra.in.sh \
                     /opt/cassandra/cassandra.in.sh \
                     ~/.cassandra.in.sh \
-diff -ruN apache-cassandra-1.2.2.orig/bin/sstablekeys apache-cassandra-1.2.2/bin/sstablekeys
---- apache-cassandra-1.2.2.orig/bin/sstablekeys	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/sstablekeys	2013-03-13 12:42:13.899151825 +0000
+diff -ur apache-cassandra-2.0.4-orig/bin/sstableupgrade apache-cassandra-2.0.4/bin/sstableupgrade
+--- apache-cassandra-2.0.4-orig/bin/sstableupgrade	2013-12-27 18:53:08.000000000 +0000
++++ apache-cassandra-2.0.4/bin/sstableupgrade	2014-01-21 13:09:21.366285113 +0000
 @@ -17,7 +17,8 @@
  # limitations under the License.
  
@@ -125,50 +184,12 @@ diff -ruN apache-cassandra-1.2.2.orig/bin/sstablekeys apache-cassandra-1.2.2/bin
                     /usr/local/share/cassandra/cassandra.in.sh \
                     /opt/cassandra/cassandra.in.sh \
                     ~/.cassandra.in.sh \
-diff -ruN apache-cassandra-1.2.2.orig/bin/sstableloader apache-cassandra-1.2.2/bin/sstableloader
---- apache-cassandra-1.2.2.orig/bin/sstableloader	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/sstableloader	2013-03-13 12:42:13.899393756 +0000
-@@ -17,7 +17,8 @@
- # limitations under the License.
- 
- if [ "x$CASSANDRA_INCLUDE" = "x" ]; then
--    for include in /usr/share/cassandra/cassandra.in.sh \
-+    for include in /ec/share/cassandra/cassandra.in.sh \
-+                   /usr/share/cassandra/cassandra.in.sh \
-                    /usr/local/share/cassandra/cassandra.in.sh \
-                    /opt/cassandra/cassandra.in.sh \
-                    ~/.cassandra.in.sh \
-diff -ruN apache-cassandra-1.2.2.orig/bin/sstablescrub apache-cassandra-1.2.2/bin/sstablescrub
---- apache-cassandra-1.2.2.orig/bin/sstablescrub	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/bin/sstablescrub	2013-03-13 12:42:13.899609227 +0000
-@@ -17,7 +17,8 @@
- # limitations under the License.
- 
- if [ "x$CASSANDRA_INCLUDE" = "x" ]; then
--    for include in /usr/share/cassandra/cassandra.in.sh \
-+    for include in /ec/share/cassandra/cassandra.in.sh \
-+                   /usr/share/cassandra/cassandra.in.sh \
-                    /usr/local/share/cassandra/cassandra.in.sh \
-                    /opt/cassandra/cassandra.in.sh \
-                    ~/.cassandra.in.sh \
-diff -ruN apache-cassandra-1.2.2.orig/conf/cassandra-env.sh apache-cassandra-1.2.2/conf/cassandra-env.sh
---- apache-cassandra-1.2.2.orig/conf/cassandra-env.sh	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/conf/cassandra-env.sh	2013-03-13 12:42:13.899940285 +0000
-@@ -215,7 +215,7 @@
- # JVM_OPTS="$JVM_OPTS -XX:+PrintGCApplicationStoppedTime"
- # JVM_OPTS="$JVM_OPTS -XX:+PrintPromotionFailure"
- # JVM_OPTS="$JVM_OPTS -XX:PrintFLSStatistics=1"
--# JVM_OPTS="$JVM_OPTS -Xloggc:/var/log/cassandra/gc-`date +%s`.log"
-+# JVM_OPTS="$JVM_OPTS -Xloggc:/ec/var/log/cassandra/gc-`date +%s`.log"
- 
- # uncomment to have Cassandra JVM listen for remote debuggers/profilers on port 1414
- # JVM_OPTS="$JVM_OPTS -Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=1414"
-diff -ruN apache-cassandra-1.2.2.orig/conf/cassandra.yaml apache-cassandra-1.2.2/conf/cassandra.yaml
---- apache-cassandra-1.2.2.orig/conf/cassandra.yaml	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/conf/cassandra.yaml	2013-03-13 12:42:13.900420471 +0000
-@@ -104,10 +104,10 @@
- 
- # directories where Cassandra should store data on disk.
+diff -ur apache-cassandra-2.0.4-orig/conf/cassandra.yaml apache-cassandra-2.0.4/conf/cassandra.yaml
+--- apache-cassandra-2.0.4-orig/conf/cassandra.yaml	2013-12-27 18:53:08.000000000 +0000
++++ apache-cassandra-2.0.4/conf/cassandra.yaml	2014-01-21 13:15:04.109627317 +0000
+@@ -103,10 +103,10 @@
+ # will spread data evenly across them, subject to the granularity of
+ # the configured compaction strategy.
  data_file_directories:
 -    - /var/lib/cassandra/data
 +    - /ec/var/lib/cassandra/data
@@ -179,8 +200,8 @@ diff -ruN apache-cassandra-1.2.2.orig/conf/cassandra.yaml apache-cassandra-1.2.2
  
  # policy for data disk failures:
  # stop: shut down gossip and Thrift, leaving the node effectively dead, but
-@@ -185,7 +185,7 @@
- row_cache_provider: SerializingCacheProvider
+@@ -181,7 +181,7 @@
+ # memory_allocator: NativeAllocator
  
  # saved caches
 -saved_caches_directory: /var/lib/cassandra/saved_caches
@@ -188,9 +209,9 @@ diff -ruN apache-cassandra-1.2.2.orig/conf/cassandra.yaml apache-cassandra-1.2.2
  
  # commitlog_sync may be either "periodic" or "batch." 
  # When in batch mode, Cassandra won't ack writes until the commit log
-diff -ruN apache-cassandra-1.2.2.orig/conf/log4j-server.properties apache-cassandra-1.2.2/conf/log4j-server.properties
---- apache-cassandra-1.2.2.orig/conf/log4j-server.properties	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/conf/log4j-server.properties	2013-03-13 12:42:13.900642590 +0000
+diff -ur apache-cassandra-2.0.4-orig/conf/log4j-server.properties apache-cassandra-2.0.4/conf/log4j-server.properties
+--- apache-cassandra-2.0.4-orig/conf/log4j-server.properties	2013-12-27 18:53:08.000000000 +0000
++++ apache-cassandra-2.0.4/conf/log4j-server.properties	2014-01-21 13:15:54.232316900 +0000
 @@ -32,7 +32,7 @@
  log4j.appender.R.layout=org.apache.log4j.PatternLayout
  log4j.appender.R.layout.ConversionPattern=%5p [%t] %d{ISO8601} %F (line %L) %m%n
@@ -200,16 +221,25 @@ diff -ruN apache-cassandra-1.2.2.orig/conf/log4j-server.properties apache-cassan
  
  # Application logging options
  #log4j.logger.org.apache.cassandra=DEBUG
-diff -ruN apache-cassandra-1.2.2.orig/tools/bin/cassandra-stress apache-cassandra-1.2.2/tools/bin/cassandra-stress
---- apache-cassandra-1.2.2.orig/tools/bin/cassandra-stress	2013-02-20 23:16:49.000000000 +0000
-+++ apache-cassandra-1.2.2/tools/bin/cassandra-stress	2013-03-13 12:42:13.900871003 +0000
-@@ -17,7 +17,8 @@
- # limitations under the License.
- 
+diff -ur apache-cassandra-2.0.4-orig/tools/bin/cassandra-stress apache-cassandra-2.0.4/tools/bin/cassandra-stress
+--- apache-cassandra-2.0.4-orig/tools/bin/cassandra-stress	2013-12-27 18:53:08.000000000 +0000
++++ apache-cassandra-2.0.4/tools/bin/cassandra-stress	2014-01-21 13:11:50.552991358 +0000
+@@ -19,6 +19,7 @@
  if [ "x$CASSANDRA_INCLUDE" = "x" ]; then
--    for include in /usr/share/cassandra/cassandra.in.sh \
-+    for include in /ec/share/cassandra/cassandra.in.sh \
-+                   /usr/share/cassandra/cassandra.in.sh \
+     for include in "`dirname $0`/cassandra.in.sh" \
+                    "$HOME/.cassandra.in.sh" \
++                   /ec/share/cassandra/cassandra.in.sh \
+                    /usr/share/cassandra/cassandra.in.sh \
                     /usr/local/share/cassandra/cassandra.in.sh \
-                    /opt/cassandra/cassandra.in.sh \
-                    `dirname $0`/cassandra.in.sh; do
+                    /opt/cassandra/cassandra.in.sh; do
+diff -ur apache-cassandra-2.0.4-orig/tools/bin/sstablelevelreset apache-cassandra-2.0.4/tools/bin/sstablelevelreset
+--- apache-cassandra-2.0.4-orig/tools/bin/sstablelevelreset	2013-12-27 18:53:08.000000000 +0000
++++ apache-cassandra-2.0.4/tools/bin/sstablelevelreset	2014-01-21 13:11:30.445353287 +0000
+@@ -19,6 +19,7 @@
+ if [ "x$CASSANDRA_INCLUDE" = "x" ]; then
+     for include in "`dirname $0`/cassandra.in.sh" \
+                    "$HOME/.cassandra.in.sh" \
++                   /ec/share/cassandra/cassandra.in.sh \
+                    /usr/share/cassandra/cassandra.in.sh \
+                    /usr/local/share/cassandra/cassandra.in.sh \
+                    /opt/cassandra/cassandra.in.sh; do

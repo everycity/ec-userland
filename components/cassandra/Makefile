@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		cassandra
-COMPONENT_VERSION=	1.2.2
+COMPONENT_VERSION=	2.0.4
 COMPONENT_FMRI=		database/cassandra
 COMPONENT_SUMMARY=	Distributed storage system for structured data
 COMPONENT_PROJECT_URL=	$(PROJECT_APACHE)
 COMPONENT_LICENSE=	APLv2.0
 COMPONENT_SRC=		apache-cassandra-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	apache-cassandra-$(COMPONENT_VERSION)-bin.tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:435c921864ec90ddb5be88af2f9023173a6f57c7bcb428f9ed0409a57484546f
+COMPONENT_ARCHIVE_HASH=	sha256:f0be26d5a6a4e41fc5c0fdff8ecc4e5250c4a5cf45497904566f795bea1a2c35
 COMPONENT_ARCHIVE_URL=	$(APACHE_ARCHIVE)/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -53,7 +53,7 @@ $(BUILD_DIR)/%/.installed: $(BUILD_DIR)/%/.built
 	$(RM) $(PROTO_DIR)$(ECPREFIX)/bin/{cassandra.in.sh,debug-cql,stop-server}
 
 	# etc/cassandra
-	$(CP) $(SOURCE_DIR)/conf/* $(PROTO_DIR)$(ECPREFIX)/etc/cassandra
+	$(CP) -r $(SOURCE_DIR)/conf/* $(PROTO_DIR)$(ECPREFIX)/etc/cassandra
 	$(RM) $(PROTO_DIR)$(ECPREFIX)/etc/cassandra/README.txt
 	$(RM) $(PROTO_DIR)$(ECPREFIX)/etc/cassandra/cqlshrc.sample
 
@@ -76,6 +76,9 @@ $(BUILD_DIR)/%/.installed: $(BUILD_DIR)/%/.built
 	$(CP) $(SOURCE_DIR)/*.txt $(PROTO_DIR)$(ECPREFIX)/share/doc/cassandra
 	$(CP) $(SOURCE_DIR)/conf/cqlshrc.sample $(PROTO_DIR)$(ECPREFIX)/share/doc/cassandra
 	$(CP) $(SOURCE_DIR)/lib/licenses/* $(PROTO_DIR)$(ECPREFIX)/share/doc/cassandra/licenses
+
+	# remove patch backup files
+	find $(PROTO_DIR) -type f -name "*.~[12]~" -exec rm {} \;
 
 	$(TOUCH) $@
 

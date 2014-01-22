@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -25,7 +25,7 @@ set name=pkg.summary value="$(COMPONENT_SUMMARY)"
 set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license LICENSE.txt license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 depend fmri=developer/java/jdk type=require
 depend fmri=library/java/java-jna type=require
@@ -42,6 +42,7 @@ dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/etc/cassandra
+dir path=$(ECPREFIX)/etc/cassandra/triggers
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/python2.6
 dir path=$(ECPREFIX)/lib/python2.6/vendor-packages
@@ -74,10 +75,23 @@ file path=$(ECPREFIX)/bin/json2sstable
 file path=$(ECPREFIX)/bin/nodetool
 file path=$(ECPREFIX)/bin/sstable2json
 file path=$(ECPREFIX)/bin/sstablekeys
+file path=$(ECPREFIX)/bin/sstablelevelreset
 file path=$(ECPREFIX)/bin/sstableloader
 file path=$(ECPREFIX)/bin/sstablemetadata
 file path=$(ECPREFIX)/bin/sstablescrub
+file path=$(ECPREFIX)/bin/sstablesplit
+file path=$(ECPREFIX)/bin/sstableupgrade
 file path=$(ECPREFIX)/bin/token-generator
+file path=$(ECPREFIX)/etc/cassandra/cassandra-env.sh
+file path=$(ECPREFIX)/etc/cassandra/cassandra-rackdc.properties
+file path=$(ECPREFIX)/etc/cassandra/cassandra-topology.properties
+file path=$(ECPREFIX)/etc/cassandra/cassandra-topology.yaml
+file path=$(ECPREFIX)/etc/cassandra/cassandra.yaml
+file path=$(ECPREFIX)/etc/cassandra/commitlog_archiving.properties
+file path=$(ECPREFIX)/etc/cassandra/log4j-server.properties
+file path=$(ECPREFIX)/etc/cassandra/log4j-tools.properties
+file path=$(ECPREFIX)/etc/cassandra/metrics-reporter-config-sample.yaml
+file path=$(ECPREFIX)/etc/cassandra/triggers/README.txt
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/cqlshlib/__init__.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/cqlshlib/cql3handling.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/cqlshlib/cqlhandling.py
@@ -95,8 +109,6 @@ file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/cqlshlib/test/cassconnect.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/cqlshlib/test/run_cqlsh.py
 file \
-    path=$(ECPREFIX)/lib/python2.6/vendor-packages/cqlshlib/test/table_arrangements.cql
-file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/cqlshlib/test/test_cql_parsing.py
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/cqlshlib/test/test_cqlsh_commands.py
@@ -107,9 +119,7 @@ file \
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/cqlshlib/test/test_cqlsh_output.py
 file \
-    path=$(ECPREFIX)/lib/python2.6/vendor-packages/cqlshlib/test/test_keyspace_init2.cql
-file \
-    path=$(ECPREFIX)/lib/python2.6/vendor-packages/cqlshlib/test/test_keyspace_init3.cql
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/cqlshlib/test/test_keyspace_init.cql
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/cqlshlib/tfactory.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/cqlshlib/tracing.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/cqlshlib/util.py
@@ -120,15 +130,14 @@ file \
     path=$(ECPREFIX)/share/cassandra/apache-cassandra-thrift-$(COMPONENT_VERSION).jar
 file path=$(ECPREFIX)/share/cassandra/cassandra.in.sh
 file path=$(ECPREFIX)/share/cassandra/lib/antlr-3.2.jar
-file path=$(ECPREFIX)/share/cassandra/lib/avro-1.4.0-fixes.jar
-file path=$(ECPREFIX)/share/cassandra/lib/avro-1.4.0-sources-fixes.jar
 file path=$(ECPREFIX)/share/cassandra/lib/commons-cli-1.1.jar
 file path=$(ECPREFIX)/share/cassandra/lib/commons-codec-1.2.jar
-file path=$(ECPREFIX)/share/cassandra/lib/commons-lang-2.6.jar
+file path=$(ECPREFIX)/share/cassandra/lib/commons-lang3-3.1.jar
 file path=$(ECPREFIX)/share/cassandra/lib/compress-lzf-0.8.4.jar
 file path=$(ECPREFIX)/share/cassandra/lib/concurrentlinkedhashmap-lru-1.3.jar
-file path=$(ECPREFIX)/share/cassandra/lib/cql-internal-only-1.4.0.zip
-file path=$(ECPREFIX)/share/cassandra/lib/guava-13.0.1.jar
+file path=$(ECPREFIX)/share/cassandra/lib/cql-internal-only-1.4.1.zip
+file path=$(ECPREFIX)/share/cassandra/lib/disruptor-3.0.1.jar
+file path=$(ECPREFIX)/share/cassandra/lib/guava-15.0.jar
 file path=$(ECPREFIX)/share/cassandra/lib/high-scale-lib-1.1.2.jar
 file path=$(ECPREFIX)/share/cassandra/lib/jackson-core-asl-1.9.2.jar
 file path=$(ECPREFIX)/share/cassandra/lib/jackson-mapper-asl-1.9.2.jar
@@ -136,19 +145,21 @@ file path=$(ECPREFIX)/share/cassandra/lib/jamm-0.2.5.jar
 file path=$(ECPREFIX)/share/cassandra/lib/jbcrypt-0.3m.jar
 file path=$(ECPREFIX)/share/cassandra/lib/jline-1.0.jar
 file path=$(ECPREFIX)/share/cassandra/lib/json-simple-1.1.jar
-file path=$(ECPREFIX)/share/cassandra/lib/libthrift-0.7.0.jar
+file path=$(ECPREFIX)/share/cassandra/lib/libthrift-0.9.1.jar
 file path=$(ECPREFIX)/share/cassandra/lib/log4j-1.2.16.jar
-file path=$(ECPREFIX)/share/cassandra/lib/lz4-1.1.0.jar
-file path=$(ECPREFIX)/share/cassandra/lib/metrics-core-2.0.3.jar
-file path=$(ECPREFIX)/share/cassandra/lib/netty-3.5.9.Final.jar
+file path=$(ECPREFIX)/share/cassandra/lib/lz4-1.2.0.jar
+file path=$(ECPREFIX)/share/cassandra/lib/metrics-core-2.2.0.jar
+file path=$(ECPREFIX)/share/cassandra/lib/netty-3.6.6.Final.jar
+file path=$(ECPREFIX)/share/cassandra/lib/reporter-config-2.1.0.jar
 file path=$(ECPREFIX)/share/cassandra/lib/servlet-api-2.5-20081211.jar
 file path=$(ECPREFIX)/share/cassandra/lib/slf4j-api-1.7.2.jar
 file path=$(ECPREFIX)/share/cassandra/lib/slf4j-log4j12-1.7.2.jar
-file path=$(ECPREFIX)/share/cassandra/lib/snakeyaml-1.6.jar
-file path=$(ECPREFIX)/share/cassandra/lib/snappy-java-1.0.4.1.jar
+file path=$(ECPREFIX)/share/cassandra/lib/snakeyaml-1.11.jar
+file path=$(ECPREFIX)/share/cassandra/lib/snappy-java-1.0.5.jar
 file path=$(ECPREFIX)/share/cassandra/lib/snaptree-0.1.jar
 file \
-    path=$(ECPREFIX)/share/cassandra/lib/thrift-python-internal-only-0.7.0.zip
+    path=$(ECPREFIX)/share/cassandra/lib/thrift-python-internal-only-0.9.1.zip
+file path=$(ECPREFIX)/share/cassandra/lib/thrift-server-0.3.2.jar
 file path=$(ECPREFIX)/share/cassandra/stress.jar
 file path=$(ECPREFIX)/share/doc/cassandra/CHANGES.txt
 file path=$(ECPREFIX)/share/doc/cassandra/LICENSE.txt
@@ -157,43 +168,36 @@ file path=$(ECPREFIX)/share/doc/cassandra/NOTICE.txt
 file path=$(ECPREFIX)/share/doc/cassandra/README.txt
 file path=$(ECPREFIX)/share/doc/cassandra/cqlshrc.sample
 file path=$(ECPREFIX)/share/doc/cassandra/licenses/antlr-3.2.txt
-file path=$(ECPREFIX)/share/doc/cassandra/licenses/avro-1.4.0.txt
 file path=$(ECPREFIX)/share/doc/cassandra/licenses/commons-cli-1.1.txt
 file path=$(ECPREFIX)/share/doc/cassandra/licenses/commons-codec-1.2.txt
-file \
-    path=$(ECPREFIX)/share/doc/cassandra/licenses/commons-collections-3.2.1.txt
-file path=$(ECPREFIX)/share/doc/cassandra/licenses/commons-lang-2.6.txt
+file path=$(ECPREFIX)/share/doc/cassandra/licenses/commons-lang3-3.1.txt
 file path=$(ECPREFIX)/share/doc/cassandra/licenses/compress-lzf-0.8.4.txt
 file \
     path=$(ECPREFIX)/share/doc/cassandra/licenses/concurrentlinkedhashmap-lru-1.3.txt
-file path=$(ECPREFIX)/share/doc/cassandra/licenses/cql-1.2.0.txt
-file path=$(ECPREFIX)/share/doc/cassandra/licenses/guava-13.0.1.txt
+file path=$(ECPREFIX)/share/doc/cassandra/licenses/cql-1.4.0.txt
+file path=$(ECPREFIX)/share/doc/cassandra/licenses/disruptor-3.0.1.txt
+file path=$(ECPREFIX)/share/doc/cassandra/licenses/guava-15.0.txt
 file path=$(ECPREFIX)/share/doc/cassandra/licenses/high-scale-lib-1.1.2.txt
 file path=$(ECPREFIX)/share/doc/cassandra/licenses/jackson-core-asl-1.9.2.txt
 file \
     path=$(ECPREFIX)/share/doc/cassandra/licenses/jackson-mapper-asl-1.9.2.txt
 file path=$(ECPREFIX)/share/doc/cassandra/licenses/jamm-0.2.5.txt
 file path=$(ECPREFIX)/share/doc/cassandra/licenses/jbcrypt-0.3m.txt
-file path=$(ECPREFIX)/share/doc/cassandra/licenses/jetty-6.1.21.txt
-file path=$(ECPREFIX)/share/doc/cassandra/licenses/jetty-util-6.1.21.txt
 file path=$(ECPREFIX)/share/doc/cassandra/licenses/jline-1.0.txt
 file path=$(ECPREFIX)/share/doc/cassandra/licenses/json-simple-1.1.txt
-file path=$(ECPREFIX)/share/doc/cassandra/licenses/libthrift-0.7.txt
+file path=$(ECPREFIX)/share/doc/cassandra/licenses/libthrift-0.9.1.txt
 file path=$(ECPREFIX)/share/doc/cassandra/licenses/log4j-1.2.16.txt
-file path=$(ECPREFIX)/share/doc/cassandra/licenses/lz4-1.1.0.txt
-file path=$(ECPREFIX)/share/doc/cassandra/licenses/netty-3.5.2.txt
+file path=$(ECPREFIX)/share/doc/cassandra/licenses/lz4-1.2.0.txt
+file path=$(ECPREFIX)/share/doc/cassandra/licenses/metrics-core-2.2.0.txt
+file path=$(ECPREFIX)/share/doc/cassandra/licenses/netty-3.5.9.txt
+file path=$(ECPREFIX)/share/doc/cassandra/licenses/netty-3.6.6.txt
+file path=$(ECPREFIX)/share/doc/cassandra/licenses/reporter-config-2.1.0.txt
 file \
     path=$(ECPREFIX)/share/doc/cassandra/licenses/servlet-api-2.5-20081211.txt
-file path=$(ECPREFIX)/share/doc/cassandra/licenses/slf4j-api-1.6.1.txt
-file path=$(ECPREFIX)/share/doc/cassandra/licenses/slf4j-log4j12-1.6.1.txt
-file path=$(ECPREFIX)/share/doc/cassandra/licenses/snakeyaml-1.6.txt
-file path=$(ECPREFIX)/share/doc/cassandra/licenses/snappy-java-1.0.4.1.txt
+file path=$(ECPREFIX)/share/doc/cassandra/licenses/slf4j-api-1.7.2.txt
+file path=$(ECPREFIX)/share/doc/cassandra/licenses/slf4j-log4j12-1.7.2.txt
+file path=$(ECPREFIX)/share/doc/cassandra/licenses/snakeyaml-1.11.txt
+file path=$(ECPREFIX)/share/doc/cassandra/licenses/snappy-java-1.0.5.txt
 file path=$(ECPREFIX)/share/doc/cassandra/licenses/snaptree-0.1.txt
-file path=$(ECPREFIX)/share/doc/cassandra/licenses/thrift-python-0.7.0.txt
-file path=$(ECPREFIX)/etc/cassandra/cassandra-env.sh
-file path=$(ECPREFIX)/etc/cassandra/cassandra-rackdc.properties
-file path=$(ECPREFIX)/etc/cassandra/cassandra-topology.properties
-file path=$(ECPREFIX)/etc/cassandra/cassandra.yaml
-file path=$(ECPREFIX)/etc/cassandra/commitlog_archiving.properties
-file path=$(ECPREFIX)/etc/cassandra/log4j-server.properties
-file path=$(ECPREFIX)/etc/cassandra/log4j-tools.properties
+file path=$(ECPREFIX)/share/doc/cassandra/licenses/thrift-python-0.9.1.txt
+file path=$(ECPREFIX)/share/doc/cassandra/licenses/thrift-server-0.3.0.txt
