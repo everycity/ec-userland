@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -73,6 +73,7 @@ dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/child-process-close
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/chmodr
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/chownr
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/cmd-shim
+dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/columnify
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/editor
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/editor/example
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/fstream
@@ -319,8 +320,6 @@ dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules
 dir \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream
 dir \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/examples
-dir \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/lib
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/slide
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/slide/lib
@@ -339,6 +338,7 @@ dir path=$(ECPREFIX)/share/man/man1
 file path=$(ECPREFIX)/bin/node
 file path=$(ECPREFIX)/include/node/ares.h
 file path=$(ECPREFIX)/include/node/ares_version.h
+file path=$(ECPREFIX)/include/node/common.gypi
 file path=$(ECPREFIX)/include/node/config.gypi
 file path=$(ECPREFIX)/include/node/nameser.h
 file path=$(ECPREFIX)/include/node/node.h
@@ -401,6 +401,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm-prefix.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm-prune.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm-publish.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm-rebuild.md
+file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm-repo.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm-restart.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm-root.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm-run-script.md
@@ -418,7 +419,6 @@ file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm-version.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm-view.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm-whoami.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm.md
-file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/repo.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/npm-adduser.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/npm-bin.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/npm-bugs.md
@@ -445,6 +445,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/npm-prefix.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/npm-prune.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/npm-publish.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/npm-rebuild.md
+file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/npm-repo.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/npm-restart.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/npm-rm.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/npm-root.md
@@ -465,7 +466,6 @@ file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/npm-version.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/npm-view.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/npm-whoami.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/npm.md
-file path=$(ECPREFIX)/lib/node_modules/npm/doc/cli/repo.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/files/npm-folders.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/files/npmrc.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/files/package.json.md
@@ -501,6 +501,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm-prefix.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm-prune.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm-publish.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm-rebuild.html
+file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm-repo.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm-restart.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm-root.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm-run-script.html
@@ -545,6 +546,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/cli/npm-prefix.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/cli/npm-prune.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/cli/npm-publish.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/cli/npm-rebuild.html
+file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/cli/npm-repo.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/cli/npm-restart.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/cli/npm-rm.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/cli/npm-root.html
@@ -687,6 +689,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/npm-prefix.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/npm-prune.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/npm-publish.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/npm-rebuild.1
+file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/npm-repo.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/npm-restart.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/npm-rm.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/npm-root.1
@@ -729,6 +732,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-prefix.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-prune.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-publish.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-rebuild.3
+file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-repo.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-restart.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-root.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-run-script.3
@@ -831,6 +835,10 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/cmd-shim/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/cmd-shim/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/cmd-shim/index.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/cmd-shim/package.json
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/columnify/Readme.md
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/columnify/index.js
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/columnify/package.json
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/columnify/utils.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/editor/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/editor/README.markdown
 file \
@@ -979,6 +987,8 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/init-package-json.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/node_modules/promzard/.npmignore
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/node_modules/promzard/LICENSE
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/node_modules/promzard/README.md
 file \
@@ -1812,21 +1822,15 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/index.js
 file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/.npmignore
+file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/LICENSE
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/README.md
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/duplex.js
 file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/examples/CAPSLOCKTYPER.JS
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/examples/typer-fsr.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/examples/typer.js
-file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/float.patch
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/fs.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/lib/_stream_duplex.js
 file \
@@ -1847,8 +1851,6 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/transform.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/writable.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/zlib.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/slide/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/slide/README.md
