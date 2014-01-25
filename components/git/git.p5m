@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -78,10 +78,6 @@ dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man3
 dir path=$(ECPREFIX)/share/man/man5
 dir path=$(ECPREFIX)/share/man/man7
-file path=$(ECPREFIX)/bin/git
-file path=$(ECPREFIX)/bin/git-cvsserver
-file path=$(ECPREFIX)/bin/git-shell
-file path=$(ECPREFIX)/bin/git-upload-pack
 file path=$(ECPREFIX)/bin/gitk
 file path=$(ECPREFIX)/lib/git-core/git-add--interactive
 file path=$(ECPREFIX)/lib/git-core/git-am
@@ -93,6 +89,7 @@ file path=$(ECPREFIX)/lib/git-core/git-credential-cache--daemon
 file path=$(ECPREFIX)/lib/git-core/git-credential-store
 file path=$(ECPREFIX)/lib/git-core/git-cvsexportcommit
 file path=$(ECPREFIX)/lib/git-core/git-cvsimport
+file path=$(ECPREFIX)/lib/git-core/git-cvsserver
 file path=$(ECPREFIX)/lib/git-core/git-daemon
 file path=$(ECPREFIX)/lib/git-core/git-difftool
 file path=$(ECPREFIX)/lib/git-core/git-difftool--helper
@@ -122,14 +119,17 @@ file path=$(ECPREFIX)/lib/git-core/git-relink
 file path=$(ECPREFIX)/lib/git-core/git-remote-ftp
 file path=$(ECPREFIX)/lib/git-core/git-remote-testsvn
 file path=$(ECPREFIX)/lib/git-core/git-request-pull
+file path=$(ECPREFIX)/lib/git-core/git-rev-list
 file path=$(ECPREFIX)/lib/git-core/git-send-email
 file path=$(ECPREFIX)/lib/git-core/git-sh-i18n
 file path=$(ECPREFIX)/lib/git-core/git-sh-i18n--envsubst
 file path=$(ECPREFIX)/lib/git-core/git-sh-setup
+file path=$(ECPREFIX)/lib/git-core/git-shell
 file path=$(ECPREFIX)/lib/git-core/git-show-index
 file path=$(ECPREFIX)/lib/git-core/git-stash
 file path=$(ECPREFIX)/lib/git-core/git-submodule
 file path=$(ECPREFIX)/lib/git-core/git-svn
+file path=$(ECPREFIX)/lib/git-core/git-upload-pack
 file path=$(ECPREFIX)/lib/git-core/git-web--browse
 file path=$(ECPREFIX)/lib/git-core/mergetools/araxis
 file path=$(ECPREFIX)/lib/git-core/mergetools/bc3
@@ -435,129 +435,130 @@ file path=$(ECPREFIX)/share/man/man7/gitrevisions.7
 file path=$(ECPREFIX)/share/man/man7/gittutorial-2.7
 file path=$(ECPREFIX)/share/man/man7/gittutorial.7
 file path=$(ECPREFIX)/share/man/man7/gitworkflows.7
-hardlink path=$(ECPREFIX)/bin/git-receive-pack target=git
-hardlink path=$(ECPREFIX)/bin/git-upload-archive target=git
-hardlink path=$(ECPREFIX)/lib/git-core/git target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-add target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-annotate target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-apply target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-archive target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-bisect--helper target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-blame target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-branch target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-bundle target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-cat-file target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-check-attr target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-check-ignore target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-check-mailmap target=../../bin/git
+hardlink path=$(ECPREFIX)/bin/git target=../lib/git-core/git-rev-list
+hardlink path=$(ECPREFIX)/bin/git-cvsserver \
+    target=../lib/git-core/git-cvsserver
+hardlink path=$(ECPREFIX)/bin/git-receive-pack \
+    target=../lib/git-core/git-rev-list
+hardlink path=$(ECPREFIX)/bin/git-shell target=../lib/git-core/git-shell
+hardlink path=$(ECPREFIX)/bin/git-upload-archive \
+    target=../lib/git-core/git-rev-list
+hardlink path=$(ECPREFIX)/bin/git-upload-pack \
+    target=../lib/git-core/git-upload-pack
+hardlink path=$(ECPREFIX)/lib/git-core/git target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-add target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-annotate target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-apply target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-archive target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-bisect--helper target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-blame target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-branch target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-bundle target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-cat-file target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-check-attr target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-check-ignore target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-check-mailmap target=git-rev-list
 hardlink path=$(ECPREFIX)/lib/git-core/git-check-ref-format \
-    target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-checkout target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-checkout-index target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-cherry target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-cherry-pick target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-clean target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-clone target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-column target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-commit target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-commit-tree target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-config target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-count-objects target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-credential target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-cvsserver \
-    target=../../bin/git-cvsserver
-hardlink path=$(ECPREFIX)/lib/git-core/git-describe target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-diff target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-diff-files target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-diff-index target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-diff-tree target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-fast-export target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-fetch target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-fetch-pack target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-fmt-merge-msg target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-for-each-ref target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-format-patch target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-fsck target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-fsck-objects target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-gc target=../../bin/git
+    target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-checkout target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-checkout-index target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-cherry target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-cherry-pick target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-clean target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-clone target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-column target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-commit target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-commit-tree target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-config target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-count-objects target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-credential target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-describe target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-diff target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-diff-files target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-diff-index target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-diff-tree target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-fast-export target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-fetch target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-fetch-pack target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-fmt-merge-msg target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-for-each-ref target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-format-patch target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-fsck target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-fsck-objects target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-gc target=git-rev-list
 hardlink path=$(ECPREFIX)/lib/git-core/git-get-tar-commit-id \
-    target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-grep target=../../bin/git
+    target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-grep target=git-rev-list
 hardlink path=$(ECPREFIX)/lib/git-core/git-gui target=git-citool
-hardlink path=$(ECPREFIX)/lib/git-core/git-hash-object target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-help target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-index-pack target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-init target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-init-db target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-log target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-ls-files target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-ls-remote target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-ls-tree target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-mailinfo target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-mailsplit target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-merge target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-merge-base target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-merge-file target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-merge-index target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-merge-ours target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-merge-recursive \
-    target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-merge-subtree target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-merge-tree target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-mktag target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-mktree target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-mv target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-name-rev target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-notes target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-pack-objects target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-pack-redundant target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-pack-refs target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-patch-id target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-peek-remote target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-prune target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-prune-packed target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-push target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-read-tree target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-receive-pack target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-reflog target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-remote target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ext target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-remote-fd target=../../bin/git
+hardlink path=$(ECPREFIX)/lib/git-core/git-hash-object target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-help target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-index-pack target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-init target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-init-db target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-log target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-ls-files target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-ls-remote target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-ls-tree target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-mailinfo target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-mailsplit target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-merge target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-merge-base target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-merge-file target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-merge-index target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-merge-ours target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-merge-recursive target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-merge-subtree target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-merge-tree target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-mktag target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-mktree target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-mv target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-name-rev target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-notes target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-pack-objects target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-pack-redundant target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-pack-refs target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-patch-id target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-peek-remote target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-prune target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-prune-packed target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-push target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-read-tree target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-receive-pack target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-reflog target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-remote target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ext target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-remote-fd target=git-rev-list
 hardlink path=$(ECPREFIX)/lib/git-core/git-remote-ftps target=git-remote-ftp
 hardlink path=$(ECPREFIX)/lib/git-core/git-remote-http target=git-remote-ftp
 hardlink path=$(ECPREFIX)/lib/git-core/git-remote-https target=git-remote-ftp
-hardlink path=$(ECPREFIX)/lib/git-core/git-repack target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-replace target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-repo-config target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-rerere target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-reset target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-rev-list target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-rev-parse target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-revert target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-rm target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-send-pack target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-shell target=../../bin/git-shell
-hardlink path=$(ECPREFIX)/lib/git-core/git-shortlog target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-show target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-show-branch target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-show-ref target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-stage target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-status target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-stripspace target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-symbolic-ref target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-tag target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-tar-tree target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-unpack-file target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-unpack-objects target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-update-index target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-update-ref target=../../bin/git
+hardlink path=$(ECPREFIX)/lib/git-core/git-repack target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-replace target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-repo-config target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-rerere target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-reset target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-rev-parse target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-revert target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-rm target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-send-pack target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-shortlog target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-show target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-show-branch target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-show-ref target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-stage target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-status target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-stripspace target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-symbolic-ref target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-tag target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-tar-tree target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-unpack-file target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-unpack-objects target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-update-index target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-update-ref target=git-rev-list
 hardlink path=$(ECPREFIX)/lib/git-core/git-update-server-info \
-    target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-upload-archive target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-upload-pack \
-    target=../../bin/git-upload-pack
-hardlink path=$(ECPREFIX)/lib/git-core/git-var target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-verify-pack target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-verify-tag target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-whatchanged target=../../bin/git
-hardlink path=$(ECPREFIX)/lib/git-core/git-write-tree target=../../bin/git
+    target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-upload-archive target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-var target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-verify-pack target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-verify-tag target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-whatchanged target=git-rev-list
+hardlink path=$(ECPREFIX)/lib/git-core/git-write-tree target=git-rev-list
