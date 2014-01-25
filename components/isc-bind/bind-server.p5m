@@ -23,6 +23,10 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 license bind.license license="BINDv98"
 
 # Manifest
+dir path=var
+dir path=var/svc
+dir path=var/svc/manifest
+dir path=var/svc/manifest/site
 file files/bind-manifest.xml path=var/svc/manifest/site/isc-bind.xml restart_fmri=svc:/system/manifest-import:default
 
 # Cache dir
