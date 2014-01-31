@@ -1,7 +1,7 @@
---- openssh-6.4p1/sshd_config.orig	2013-11-10 19:05:11.961287809 +0000
-+++ openssh-6.4p1/sshd_config	2013-11-10 19:06:01.947468946 +0000
+--- openssh-6.5p1/sshd_config.orig	2014-01-31 16:36:24.133613309 +0000
++++ openssh-6.5p1/sshd_config	2014-01-31 16:37:44.063297381 +0000
 @@ -1,10 +1,6 @@
--#	$OpenBSD: sshd_config,v 1.90 2013/05/16 04:09:14 dtucker Exp $
+-#	$OpenBSD: sshd_config,v 1.93 2014/01/10 05:59:19 djm Exp $
 -
  # This is the sshd server system-wide configuration file.  See
  # sshd_config(5) for more information.
@@ -20,7 +20,7 @@
  #ListenAddress ::
  
  # The default requires explicit activation of protocol 1
-@@ -110,7 +106,7 @@
+@@ -112,7 +108,7 @@
  #Compression delayed
  #ClientAliveInterval 0
  #ClientAliveCountMax 3
