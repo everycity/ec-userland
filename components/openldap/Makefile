@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		openldap
 COMPONENT_FMRI=		library/openldap
-COMPONENT_VERSION=	2.4.38
+COMPONENT_VERSION=	2.4.39
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://www.openldap.org/"
 COMPONENT_SUMMARY=	OpenLDAP Software
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH=	sha256:88209a3599ec5d9354fc09bbe29b99db1ffa1b612127c06bad0c5265d0b31fd1
+COMPONENT_ARCHIVE_HASH=	sha256:8267c87347103fef56b783b24877c0feda1063d3cb85d070e503d076584bf8a7
 COMPONENT_ARCHIVE_URL=	ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

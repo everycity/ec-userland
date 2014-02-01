@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -25,6 +25,9 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/openldap
+dir path=$(ECPREFIX)/etc/openldap/schema
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
@@ -34,12 +37,9 @@ dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man3
 dir path=$(ECPREFIX)/share/man/man5
 dir path=$(ECPREFIX)/share/man/man8
-dir path=$(LOCALSTATEDIR)
-dir path=$(LOCALSTATEDIR)/openldap-data
-dir path=$(LOCALSTATEDIR)/run
-dir path=$(SYSCONFDIR)
-dir path=$(SYSCONFDIR)/openldap
-dir path=$(SYSCONFDIR)/openldap/schema
+dir path=$(ECPREFIX)/var
+dir path=$(ECPREFIX)/var/openldap-data
+dir path=$(ECPREFIX)/var/run
 file path=$(ECPREFIX)/bin/$(MACH64)/ldapcompare
 file path=$(ECPREFIX)/bin/$(MACH64)/ldapdelete
 file path=$(ECPREFIX)/bin/$(MACH64)/ldapexop
@@ -60,6 +60,40 @@ file path=$(ECPREFIX)/bin/ldapsearch
 file path=$(ECPREFIX)/bin/ldapurl
 file path=$(ECPREFIX)/bin/ldapwhoami
 file path=$(ECPREFIX)/bin/slapd
+file path=$(ECPREFIX)/etc/openldap/DB_CONFIG.example
+file path=$(ECPREFIX)/etc/openldap/ldap.conf
+file path=$(ECPREFIX)/etc/openldap/ldap.conf.default
+file path=$(ECPREFIX)/etc/openldap/schema/README
+file path=$(ECPREFIX)/etc/openldap/schema/collective.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/collective.schema
+file path=$(ECPREFIX)/etc/openldap/schema/corba.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/corba.schema
+file path=$(ECPREFIX)/etc/openldap/schema/core.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/core.schema
+file path=$(ECPREFIX)/etc/openldap/schema/cosine.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/cosine.schema
+file path=$(ECPREFIX)/etc/openldap/schema/duaconf.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/duaconf.schema
+file path=$(ECPREFIX)/etc/openldap/schema/dyngroup.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/dyngroup.schema
+file path=$(ECPREFIX)/etc/openldap/schema/inetorgperson.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/inetorgperson.schema
+file path=$(ECPREFIX)/etc/openldap/schema/java.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/java.schema
+file path=$(ECPREFIX)/etc/openldap/schema/misc.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/misc.schema
+file path=$(ECPREFIX)/etc/openldap/schema/nis.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/nis.schema
+file path=$(ECPREFIX)/etc/openldap/schema/openldap.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/openldap.schema
+file path=$(ECPREFIX)/etc/openldap/schema/pmi.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/pmi.schema
+file path=$(ECPREFIX)/etc/openldap/schema/ppolicy.ldif
+file path=$(ECPREFIX)/etc/openldap/schema/ppolicy.schema
+file path=$(ECPREFIX)/etc/openldap/slapd.conf
+file path=$(ECPREFIX)/etc/openldap/slapd.conf.default
+file path=$(ECPREFIX)/etc/openldap/slapd.ldif
+file path=$(ECPREFIX)/etc/openldap/slapd.ldif.default
 file path=$(ECPREFIX)/include/lber.h
 file path=$(ECPREFIX)/include/lber_types.h
 file path=$(ECPREFIX)/include/ldap.h
@@ -69,22 +103,22 @@ file path=$(ECPREFIX)/include/ldap_schema.h
 file path=$(ECPREFIX)/include/ldap_utf8.h
 file path=$(ECPREFIX)/include/ldif.h
 file path=$(ECPREFIX)/include/slapi-plugin.h
-file path=$(ECPREFIX)/lib/$(MACH64)/liblber-2.4.so.2.10.1
+file path=$(ECPREFIX)/lib/$(MACH64)/liblber-2.4.so.2.10.2
 file path=$(ECPREFIX)/lib/$(MACH64)/liblber.a
 file path=$(ECPREFIX)/lib/$(MACH64)/liblber.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libldap-2.4.so.2.10.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libldap-2.4.so.2.10.2
 file path=$(ECPREFIX)/lib/$(MACH64)/libldap.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libldap.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libldap_r-2.4.so.2.10.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libldap_r-2.4.so.2.10.2
 file path=$(ECPREFIX)/lib/$(MACH64)/libldap_r.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libldap_r.la
-file path=$(ECPREFIX)/lib/liblber-2.4.so.2.10.1
+file path=$(ECPREFIX)/lib/liblber-2.4.so.2.10.2
 file path=$(ECPREFIX)/lib/liblber.a
 file path=$(ECPREFIX)/lib/liblber.la
-file path=$(ECPREFIX)/lib/libldap-2.4.so.2.10.1
+file path=$(ECPREFIX)/lib/libldap-2.4.so.2.10.2
 file path=$(ECPREFIX)/lib/libldap.a
 file path=$(ECPREFIX)/lib/libldap.la
-file path=$(ECPREFIX)/lib/libldap_r-2.4.so.2.10.1
+file path=$(ECPREFIX)/lib/libldap_r-2.4.so.2.10.2
 file path=$(ECPREFIX)/lib/libldap_r.a
 file path=$(ECPREFIX)/lib/libldap_r.la
 file path=$(ECPREFIX)/share/man/man1/ldapcompare.1
@@ -188,41 +222,7 @@ file path=$(ECPREFIX)/share/man/man8/slapindex.8
 file path=$(ECPREFIX)/share/man/man8/slappasswd.8
 file path=$(ECPREFIX)/share/man/man8/slapschema.8
 file path=$(ECPREFIX)/share/man/man8/slaptest.8
-file path=$(LOCALSTATEDIR)/openldap-data/DB_CONFIG.example
-file path=$(SYSCONFDIR)/openldap/DB_CONFIG.example
-file path=$(SYSCONFDIR)/openldap/ldap.conf
-file path=$(SYSCONFDIR)/openldap/ldap.conf.default
-file path=$(SYSCONFDIR)/openldap/schema/README
-file path=$(SYSCONFDIR)/openldap/schema/collective.ldif
-file path=$(SYSCONFDIR)/openldap/schema/collective.schema
-file path=$(SYSCONFDIR)/openldap/schema/corba.ldif
-file path=$(SYSCONFDIR)/openldap/schema/corba.schema
-file path=$(SYSCONFDIR)/openldap/schema/core.ldif
-file path=$(SYSCONFDIR)/openldap/schema/core.schema
-file path=$(SYSCONFDIR)/openldap/schema/cosine.ldif
-file path=$(SYSCONFDIR)/openldap/schema/cosine.schema
-file path=$(SYSCONFDIR)/openldap/schema/duaconf.ldif
-file path=$(SYSCONFDIR)/openldap/schema/duaconf.schema
-file path=$(SYSCONFDIR)/openldap/schema/dyngroup.ldif
-file path=$(SYSCONFDIR)/openldap/schema/dyngroup.schema
-file path=$(SYSCONFDIR)/openldap/schema/inetorgperson.ldif
-file path=$(SYSCONFDIR)/openldap/schema/inetorgperson.schema
-file path=$(SYSCONFDIR)/openldap/schema/java.ldif
-file path=$(SYSCONFDIR)/openldap/schema/java.schema
-file path=$(SYSCONFDIR)/openldap/schema/misc.ldif
-file path=$(SYSCONFDIR)/openldap/schema/misc.schema
-file path=$(SYSCONFDIR)/openldap/schema/nis.ldif
-file path=$(SYSCONFDIR)/openldap/schema/nis.schema
-file path=$(SYSCONFDIR)/openldap/schema/openldap.ldif
-file path=$(SYSCONFDIR)/openldap/schema/openldap.schema
-file path=$(SYSCONFDIR)/openldap/schema/pmi.ldif
-file path=$(SYSCONFDIR)/openldap/schema/pmi.schema
-file path=$(SYSCONFDIR)/openldap/schema/ppolicy.ldif
-file path=$(SYSCONFDIR)/openldap/schema/ppolicy.schema
-file path=$(SYSCONFDIR)/openldap/slapd.conf
-file path=$(SYSCONFDIR)/openldap/slapd.conf.default
-file path=$(SYSCONFDIR)/openldap/slapd.ldif
-file path=$(SYSCONFDIR)/openldap/slapd.ldif.default
+file path=$(ECPREFIX)/var/openldap-data/DB_CONFIG.example
 link path=$(ECPREFIX)/bin/$(MACH64)/ldapadd target=ldapmodify
 link path=$(ECPREFIX)/bin/$(MACH64)/slapacl target=slapd
 link path=$(ECPREFIX)/bin/$(MACH64)/slapadd target=slapd
@@ -244,21 +244,21 @@ link path=$(ECPREFIX)/bin/slappasswd target=slapd
 link path=$(ECPREFIX)/bin/slapschema target=slapd
 link path=$(ECPREFIX)/bin/slaptest target=slapd
 link path=$(ECPREFIX)/lib/$(MACH64)/liblber-2.4.so.2 \
-    target=liblber-2.4.so.2.10.1
-link path=$(ECPREFIX)/lib/$(MACH64)/liblber.so target=liblber-2.4.so.2.10.1
+    target=liblber-2.4.so.2.10.2
+link path=$(ECPREFIX)/lib/$(MACH64)/liblber.so target=liblber-2.4.so.2.10.2
 link path=$(ECPREFIX)/lib/$(MACH64)/libldap-2.4.so.2 \
-    target=libldap-2.4.so.2.10.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libldap.so target=libldap-2.4.so.2.10.1
+    target=libldap-2.4.so.2.10.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libldap.so target=libldap-2.4.so.2.10.2
 link path=$(ECPREFIX)/lib/$(MACH64)/libldap_r-2.4.so.2 \
-    target=libldap_r-2.4.so.2.10.1
+    target=libldap_r-2.4.so.2.10.2
 link path=$(ECPREFIX)/lib/$(MACH64)/libldap_r.so \
-    target=libldap_r-2.4.so.2.10.1
-link path=$(ECPREFIX)/lib/liblber-2.4.so.2 target=liblber-2.4.so.2.10.1
-link path=$(ECPREFIX)/lib/liblber.so target=liblber-2.4.so.2.10.1
-link path=$(ECPREFIX)/lib/libldap-2.4.so.2 target=libldap-2.4.so.2.10.1
-link path=$(ECPREFIX)/lib/libldap.so target=libldap-2.4.so.2.10.1
-link path=$(ECPREFIX)/lib/libldap_r-2.4.so.2 target=libldap_r-2.4.so.2.10.1
-link path=$(ECPREFIX)/lib/libldap_r.so target=libldap_r-2.4.so.2.10.1
+    target=libldap_r-2.4.so.2.10.2
+link path=$(ECPREFIX)/lib/liblber-2.4.so.2 target=liblber-2.4.so.2.10.2
+link path=$(ECPREFIX)/lib/liblber.so target=liblber-2.4.so.2.10.2
+link path=$(ECPREFIX)/lib/libldap-2.4.so.2 target=libldap-2.4.so.2.10.2
+link path=$(ECPREFIX)/lib/libldap.so target=libldap-2.4.so.2.10.2
+link path=$(ECPREFIX)/lib/libldap_r-2.4.so.2 target=libldap_r-2.4.so.2.10.2
+link path=$(ECPREFIX)/lib/libldap_r.so target=libldap_r-2.4.so.2.10.2
 link path=$(ECPREFIX)/share/man/man1/ldapadd.1 target=ldapmodify.1
 link path=$(ECPREFIX)/share/man/man3/ber_alloc_t.3 target=lber-encode.3
 link path=$(ECPREFIX)/share/man/man3/ber_bvarray_add.3 target=lber-types.3
