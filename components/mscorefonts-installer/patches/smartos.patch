@@ -1,0 +1,101 @@
+diff -ruN msttcorefonts.orig/update-ms-fonts msttcorefonts/update-ms-fonts
+--- msttcorefonts.orig/update-ms-fonts	2013-02-16 14:46:43.000000000 +0000
++++ msttcorefonts/update-ms-fonts	2014-02-06 16:16:49.153702965 +0000
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ # Download and install the Microsoft Core Fonts for the Web
+ #
+ # (C) 2000,2001 Eric Sharkey.
+@@ -6,23 +6,24 @@
+ # Public License, version 2 or later.
+ 
+ #abort if anything goes wrong
+-#set -e
+-FONTDIR=/usr/share/fonts/truetype/msttcorefonts
++set -e
++FONTDIR=/ec/share/fonts/truetype/msttcorefonts
++
++if [ `id -u` != 0 ] ; then
++  echo "mscorefonts-installer can only be run as root."
++  exit -1
++fi
++
++for opt in "$@"; do
++    case "$opt" in
++        -q) QUIET_MODE=1 ;;
++        -c) CHECK_ONLY=1 ;;
++        -s*) SAVEDIR=${opt#-s} ;;
++        -u*) URLOVERRIDE=${opt#-u} ;;
++        *) LOCALCOPY=$opt ;;
++    esac
++done
+ 
+-#if [ `id -u` != 0 ] ; then
+-#  echo "update-ms-fonts can only be run as root."
+-#  exit -1
+-#fi
+-#
+-#for opt in "$@"; do
+-#    case "$opt" in
+-#        -q) QUIET_MODE=1 ;;
+-#        -c) CHECK_ONLY=1 ;;
+-#        -s*) SAVEDIR=${opt#-s} ;;
+-#        -u*) URLOVERRIDE=${opt#-u} ;;
+-#        *) LOCALCOPY=$opt ;;
+-#    esac
+-#done
+ if [ "`echo $LOCALCOPY | tr '[:upper:]' '[:lower:]'`" = "none" ] ; then
+   exit 0
+ fi
+@@ -34,7 +35,7 @@
+ mstt_exit_with_error() {
+     echo "$1"
+     echo "The fonts are NOT installed."
+-    echo "Please run 'dpkg-reconfigure ttf-mscorefonts-installer' to perform the installation again"
++    echo "Please run 'mscorefonts-installer' to perform the installation again"
+     exit 0 # still install the Debian package
+ }
+ 
+@@ -56,7 +57,7 @@
+     URLROOTS="$URLOVERRIDE"
+ fi
+ 
+-SCRATCHDIR=`mktemp -t -d ttf-mscorefonts-installer.XXXXXX`
++SCRATCHDIR=`mktemp -t -d mscorefonts-installer.XXXXXX`
+ chmod 0755 $SCRATCHDIR
+ cd $SCRATCHDIR
+ 
+@@ -162,7 +163,7 @@
+ 
+     for ff in $FONTFILES; do
+         # verify checksum before unpacking, to be safe
+-        if grep "$ff\$" /var/lib/msttcorefonts/cabfiles.sha256sums | sha256sum -c ; then
++        if grep "$ff\$" /ec/share/mscorefonts/cabfiles.sha256sums | sha256sum -c ; then
+                 cabextract $ff 1>&2
+                 FFDONE="$FFDONE $ff"
+         else
+@@ -190,10 +191,9 @@
+   # Give sane names. These are nearly the same names MS uses for the
+   # Macintosh versions
+     
+-    mkdir -p /usr/share/doc/ttf-mscorefonts-installer $FONTDIR
++    mkdir -p /ec/share/doc/mscorefonts $FONTDIR
+     if [ -e licen.txt ] ; then
+-        mv licen.txt '/usr/share/doc/ttf-mscorefonts-installer/READ_ME!'
+-        gzip -f -9 '/usr/share/doc/ttf-mscorefonts-installer/READ_ME!'
++        mv licen.txt '/ec/share/doc/mscorefonts/license.txt'
+     fi
+     for ff in $FONTFILES; do
+         for ttf in `grep $ff msfonts.info | awk '{print $4}'`; do
+@@ -204,8 +204,8 @@
+     done
+     
+   # Make a note of what we installed so we can uninstall it later
+-    awk '{print $2}' msfonts.info > /var/lib/msttcorefonts/ms-fonts
+-    awk '{print $4}' msfonts.info >> /var/lib/msttcorefonts/ms-fonts
++  #  awk '{print $2}' msfonts.info > /var/lib/msttcorefonts/ms-fonts
++  #  awk '{print $4}' msfonts.info >> /var/lib/msttcorefonts/ms-fonts
+ fi
+ 
+ cd /
