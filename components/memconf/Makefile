@@ -15,7 +15,7 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		memconf
-COMPONENT_VERSION=	2.22
+COMPONENT_VERSION=	3.0.3
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
