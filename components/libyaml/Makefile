@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		yaml
 COMPONENT_FMRI=         library/libyaml
-COMPONENT_VERSION=      0.1.4
+COMPONENT_VERSION=      0.1.5
 COMPONENT_LICENSE=      yaml
 COMPONENT_PROJECT_URL=  http://pyyaml.org/wiki/LibYAML
 COMPONENT_SUMMARY=	A YAML 1.1 parser and emitter written in C
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:7bf81554ae5ab2d9b6977da398ea789722e0db75b86bffdaeb4e66d961de6a37
+COMPONENT_ARCHIVE_HASH=	sha256:fa87ee8fb7b936ec04457bc044cd561155e1000a4d25029867752e543c2d3bef
 COMPONENT_ARCHIVE_URL=	http://pyyaml.org/download/libyaml/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
