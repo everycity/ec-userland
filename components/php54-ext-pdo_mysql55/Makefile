@@ -9,15 +9,15 @@
 #
 
 #
-# Copyright 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	5.4.24
+COMPONENT_VERSION=	5.4.25
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:c64d6e3b428e78b44760167557e26cd16a9f83f449a255e69d5e035bdd7057ed
+COMPONENT_ARCHIVE_HASH=	sha256:0c66cec73bfbd31f68c96e5a4d8454599271f0b0462c2ff7dedce4262fda8fe3
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_UK3)
 
 include ../../make-rules/prep.mk
