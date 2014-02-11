@@ -1,0 +1,12 @@
+diff -ruN ssmtp-2.64.orig/configure.in ssmtp-2.64/configure.in
+--- ssmtp-2.64.orig/configure.in	2014-02-11 11:48:52.640115277 +0000
++++ ssmtp-2.64/configure.in	2008-03-06 19:34:46.000000000 +0000
+@@ -52,7 +52,7 @@
+ [  --enable-ssl           support for secure connection to mail server])
+ if test x$enableval = xyes ; then
+ 	AC_DEFINE(HAVE_SSL)
+-	LIBS="$LIBS -lssl"
++	LIBS="$LIBS -lssl -lcrypto"
+ fi
+ enableval=""
+ 
