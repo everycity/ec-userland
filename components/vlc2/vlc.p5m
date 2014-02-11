@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -938,6 +938,8 @@ file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/text_renderer/libfreetype_plugin.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/text_renderer/libfreetype_plugin.so
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/text_renderer/libsvg_plugin.la
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/text_renderer/libsvg_plugin.so
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/text_renderer/libtdummy_plugin.la
 file \
@@ -1620,6 +1622,8 @@ file \
     path=$(ECPREFIX)/lib/vlc/plugins/stream_out/libstream_out_transcode_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/text_renderer/libfreetype_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/text_renderer/libfreetype_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/text_renderer/libsvg_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/text_renderer/libsvg_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/text_renderer/libtdummy_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/text_renderer/libtdummy_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/video_chroma/libgrey_yuv_plugin.la

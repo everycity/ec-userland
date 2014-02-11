@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		vlc
 COMPONENT_FMRI=		multimedia/vlc
-COMPONENT_VERSION=	2.1.2
+COMPONENT_VERSION=	2.1.3
 COMPONENT_LICENSE=	GPLv2
 COMPONENT_PROJECT_URL=	http://www.videolan.org/vlc/
 COMPONENT_SUMMARY=	VLC Cross-platform Multimedia Player and Framework
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
-COMPONENT_ARCHIVE_HASH=	sha256:219b812be1bc2eba40faa86419d0aa2c479a7380af8af216e8bfa22eb6fc8ec4
+COMPONENT_ARCHIVE_HASH=	sha256:e03662fec900944eeea08d271d9c2e3d473d32079278998f3902e74e4fa6a111
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_VIDEOLAN)
 
 include ../../make-rules/prep.mk
