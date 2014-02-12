@@ -72,7 +72,9 @@ CONFIGURE_OPTIONS     +=	--with-kerberos
 CONFIGURE_OPTIONS     +=	--with-pcre-regex
 
 # Shared Extensions
-CONFIGURE_OPTIONS     +=	--with-curlwrappers
+
+# Don't enable curlwrappers as it apparently breaks Github HTTP auth
+#CONFIGURE_OPTIONS     +=	--with-curlwrappers
 CONFIGURE_OPTIONS     +=	--with-gettext=shared
 CONFIGURE_OPTIONS     +=	--with-xmlrpc=shared
 CONFIGURE_OPTIONS     +=	--with-gd=shared
