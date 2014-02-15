@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -2150,14 +2150,14 @@ dir path=$(ECPREFIX)/share/ri/2.0.0/system/lib/racc
 dir path=$(ECPREFIX)/share/ri/2.0.0/system/lib/racc/rdoc
 dir path=$(ECPREFIX)/share/ri/2.0.0/system/lib/rubygems
 dir path=$(ECPREFIX)/share/ri/2.0.0/system/syntax
-file path=$(ECPREFIX)/bin/erb
-file path=$(ECPREFIX)/bin/gem
-file path=$(ECPREFIX)/bin/irb
-file path=$(ECPREFIX)/bin/rake
-file path=$(ECPREFIX)/bin/rdoc
-file path=$(ECPREFIX)/bin/ri
-file path=$(ECPREFIX)/bin/ruby
-file path=$(ECPREFIX)/bin/testrb
+file path=$(ECPREFIX)/bin/erb2.0
+file path=$(ECPREFIX)/bin/gem2.0
+file path=$(ECPREFIX)/bin/irb2.0
+file path=$(ECPREFIX)/bin/rake2.0
+file path=$(ECPREFIX)/bin/rdoc2.0
+file path=$(ECPREFIX)/bin/ri2.0
+file path=$(ECPREFIX)/bin/ruby2.0
+file path=$(ECPREFIX)/bin/testrb2.0
 file \
     path=$(ECPREFIX)/include/ruby-2.0.0/$(MACH)-solaris$(SOLARIS_VERSION)/ruby/config.h
 file path=$(ECPREFIX)/include/ruby-2.0.0/ruby.h
@@ -2184,7 +2184,8 @@ file path=$(ECPREFIX)/include/ruby-2.0.0/ruby/thread.h
 file path=$(ECPREFIX)/include/ruby-2.0.0/ruby/util.h
 file path=$(ECPREFIX)/include/ruby-2.0.0/ruby/version.h
 file path=$(ECPREFIX)/include/ruby-2.0.0/ruby/vm.h
-file path=$(ECPREFIX)/lib/libruby-static.a
+file path=$(ECPREFIX)/lib/libruby2.0-static.a
+file path=$(ECPREFIX)/lib/libruby2.0.so.2
 file path=$(ECPREFIX)/lib/pkgconfig/ruby-2.0.pc
 file \
     path=$(ECPREFIX)/lib/ruby/2.0.0/$(MACH)-solaris$(SOLARIS_VERSION)/bigdecimal.so
@@ -3180,11 +3181,11 @@ file \
     path=$(ECPREFIX)/lib/ruby/gems/2.0.0/specifications/default/rdoc-4.0.0.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.0.0/specifications/default/test-unit-2.0.0.0.gemspec
-file path=$(ECPREFIX)/share/man/man1/erb.1
-file path=$(ECPREFIX)/share/man/man1/irb.1
-file path=$(ECPREFIX)/share/man/man1/rake.1
-file path=$(ECPREFIX)/share/man/man1/ri.1
-file path=$(ECPREFIX)/share/man/man1/ruby.1
+file path=$(ECPREFIX)/share/man/man1/erb2.0.1
+file path=$(ECPREFIX)/share/man/man1/irb2.0.1
+file path=$(ECPREFIX)/share/man/man1/rake2.0.1
+file path=$(ECPREFIX)/share/man/man1/ri2.0.1
+file path=$(ECPREFIX)/share/man/man1/ruby2.0.1
 file path=$(ECPREFIX)/share/ri/2.0.0/system/ACL/ACLEntry/cdesc-ACLEntry.ri
 file path=$(ECPREFIX)/share/ri/2.0.0/system/ACL/ACLEntry/dot_pat-i.ri
 file path=$(ECPREFIX)/share/ri/2.0.0/system/ACL/ACLEntry/dot_pat_str-i.ri
@@ -21582,3 +21583,5 @@ file \
     path=$(ECPREFIX)/share/ri/2.0.0/system/syntax/page-modules_and_classes_rdoc.ri
 file path=$(ECPREFIX)/share/ri/2.0.0/system/syntax/page-precedence_rdoc.ri
 file path=$(ECPREFIX)/share/ri/2.0.0/system/syntax/page-refinements_rdoc.ri
+link path=$(ECPREFIX)/lib/libruby2.0.so target=libruby2.0.so.2
+link path=$(ECPREFIX)/lib/libruby2.0.so.2.0.0 target=libruby2.0.so.2

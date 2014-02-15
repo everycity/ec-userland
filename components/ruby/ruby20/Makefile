@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 include ../../../make-rules/shared-macros.mk
 
@@ -29,11 +29,16 @@ include ../../../make-rules/prep.mk
 include ../../../make-rules/configure.mk
 include ../../../make-rules/ips.mk
 
+RUBY_VER=	2.0
+
 # Build weird when threaded.
 COMPONENT_BUILD_GMAKE_ARGS=
 
+CONFIGURE_OPTIONS+=	--with-soname=ruby$(RUBY_VER) --program-suffix=$(RUBY_VER)
+#--program-suffix=$(RUBY_VER)
+CONFIGURE_OPTIONS+=	--enable-shared
 # configure tries to be clever and guesses incorrectly
-CONFIGURE_OPTIONS+=    ac_cv_sys_file_offset_bits=32
+CONFIGURE_OPTIONS+=	ac_cv_sys_file_offset_bits=32
 
 build:		$(BUILD_32)
 
