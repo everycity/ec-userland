@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms deliberately commented out - don't drop libruby1.8-static.a
@@ -38,43 +38,6 @@ file Solaris/gemri.1 path=$(ECPREFIX)/share/man/man1/gemri1.8.1
 file Solaris/gemwhich.1 path=$(ECPREFIX)/share/man/man1/gemwhich1.8.1
 file Solaris/index_gem_repository.rb.1 path=$(ECPREFIX)/share/man/man1/index_gem_repository.rb1.8.1
 file Solaris/update_rubygems.1 path=$(ECPREFIX)/share/man/man1/update_rubygems1.8.1
-link path=$(ECPREFIX)/bin/$(MACH64)/erb target=erb1.8
-link path=$(ECPREFIX)/bin/$(MACH64)/gem target=gem1.8
-link path=$(ECPREFIX)/bin/$(MACH64)/gem_mirror target=gem_mirror1.8
-link path=$(ECPREFIX)/bin/$(MACH64)/gem_server target=gem_server1.8
-link path=$(ECPREFIX)/bin/$(MACH64)/gemlock target=gemlock1.8
-link path=$(ECPREFIX)/bin/$(MACH64)/gemri target=gemri1.8
-link path=$(ECPREFIX)/bin/$(MACH64)/gemwhich target=gemwhich1.8
-link path=$(ECPREFIX)/bin/$(MACH64)/index_gem_repository.rb target=index_gem_repository.rb1.8
-link path=$(ECPREFIX)/bin/$(MACH64)/irb target=irb1.8
-link path=$(ECPREFIX)/bin/$(MACH64)/rdoc target=rdoc1.8
-link path=$(ECPREFIX)/bin/$(MACH64)/ri target=ri1.8
-link path=$(ECPREFIX)/bin/$(MACH64)/ruby target=ruby1.8
-link path=$(ECPREFIX)/bin/$(MACH64)/testrb target=testrb1.8
-link path=$(ECPREFIX)/bin/$(MACH64)/update_rubygems target=update_rubygems1.8
-link path=$(ECPREFIX)/bin/erb target=erb1.8
-link path=$(ECPREFIX)/bin/gem target=gem1.8
-link path=$(ECPREFIX)/bin/gem_mirror target=gem_mirror1.8
-link path=$(ECPREFIX)/bin/gem_server target=gem_server1.8
-link path=$(ECPREFIX)/bin/gemlock target=gemlock1.8
-link path=$(ECPREFIX)/bin/gemri target=gemri1.8
-link path=$(ECPREFIX)/bin/gemwhich target=gemwhich1.8
-link path=$(ECPREFIX)/bin/index_gem_repository.rb target=index_gem_repository.rb1.8
-link path=$(ECPREFIX)/bin/irb target=irb1.8
-link path=$(ECPREFIX)/bin/rdoc target=rdoc1.8
-link path=$(ECPREFIX)/bin/ri target=ri1.8
-link path=$(ECPREFIX)/bin/ruby target=ruby1.8
-link path=$(ECPREFIX)/bin/testrb target=testrb1.8
-link path=$(ECPREFIX)/bin/update_rubygems target=update_rubygems1.8
-link path=$(ECPREFIX)/share/man/man1/gem.1 target=gem1.8.1
-link path=$(ECPREFIX)/share/man/man1/gem_mirror.1 target=gem_mirror1.8.1
-link path=$(ECPREFIX)/share/man/man1/gem_server.1 target=gem_server1.8.1
-link path=$(ECPREFIX)/share/man/man1/gemlock.1 target=gemlock1.8.1
-link path=$(ECPREFIX)/share/man/man1/gemri.1 target=gemri1.8.1
-link path=$(ECPREFIX)/share/man/man1/gemwhich.1 target=gemwhich1.8.1
-link path=$(ECPREFIX)/share/man/man1/index_gem_repository.rb.1 target=index_gem_repository.rb1.8.1
-link path=$(ECPREFIX)/share/man/man1/ruby.1 target=ruby1.8.1
-link path=$(ECPREFIX)/share/man/man1/update_rubygems.1 target=update_rubygems1.8.1
 
 # Auto-generated content
 dir path=$(ECPREFIX)
