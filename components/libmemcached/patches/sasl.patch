@@ -1,6 +1,6 @@
---- libmemcached-1.0.17/configure.orig	2014-01-01 16:07:49.856534625 +0000
-+++ libmemcached-1.0.17/configure	2014-01-01 16:09:08.097555535 +0000
-@@ -21407,13 +21407,13 @@
+--- libmemcached-1.0.18/configure.orig	2014-02-15 18:25:39.738015810 +0000
++++ libmemcached-1.0.18/configure	2014-02-15 19:02:05.558504311 +0000
+@@ -22870,13 +22870,13 @@
        ac_fn_c_check_header_mongrel "$LINENO" "sasl/sasl.h" "ac_cv_header_sasl_sasl_h" "$ac_includes_default"
  if test "x$ac_cv_header_sasl_sasl_h" = xyes; then :
  
@@ -18,7 +18,7 @@
  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
  /* end confdefs.h.  */
  
-@@ -21427,17 +21427,17 @@
+@@ -22890,17 +22890,17 @@
  }
  _ACEOF
  if ac_fn_c_try_link "$LINENO"; then :
@@ -41,16 +41,12 @@
    ax_cv_have_LIBSASL=yes
  else
    ax_cv_have_LIBSASL=no
-@@ -21468,10 +21468,10 @@
+@@ -22976,7 +22976,7 @@
  
  
- 
--        LIBSASL_LIB=-lsasl2
-+        LIBSASL_LIB=-lsasl
- 
-         ax_sasl_check=yes
--      SASL_LIB=-lsasl2
-+      SASL_LIB=-lsasl
- 
+                           ax_sasl_check=yes
+-                          SASL_LIB=-lsasl2
++                          SASL_LIB=-lsasl
  
  else
+ 

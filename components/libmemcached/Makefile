@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libmemcached
 COMPONENT_FMRI=		library/libmemcached
-COMPONENT_VERSION=	1.0.17
+COMPONENT_VERSION=	1.0.18
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://launchpad.net/libmemcached/"
 COMPONENT_SUMMARY=	Client library and tools for the memcached server
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:7bb27b2589400f918df1cf5002cb01ef7ccac6e23f818604e2386de62c80bba5
+COMPONENT_ARCHIVE_HASH=	sha256:e22c0bb032fde08f53de9ffbc5a128233041d9f33b5de022c0978a2149885f82
 COMPONENT_ARCHIVE_URL=	https://launchpad.net/libmemcached/1.0/$(COMPONENT_VERSION)/+download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
