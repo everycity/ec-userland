@@ -16,6 +16,7 @@
 <include ec-drop-common>
 <transform dir file path=ec/nagios.* -> default owner nagios>
 <transform dir file path=ec/nagios.* -> default group nagios>
+<transform file path=ec/nagios/lib.* -> default mode 0755>
 
 # Dependencies
 depend fmri=monitoring/nagios/core type=require
