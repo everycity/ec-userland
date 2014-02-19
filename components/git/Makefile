@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		git
 COMPONENT_FMRI=		developer/versioning/git
-COMPONENT_VERSION=	1.8.5.3
+COMPONENT_VERSION=	1.9.0
 COMPONENT_LICENSE=	GPLv2
 COMPONENT_PROJECT_URL=	http://git-scm.com/
 COMPONENT_SUMMARY=	git - Fast version control system
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:3148ee4eab459fe9caf145c1a9b8b27c6a81c66c1868f790f58896054cdfe3a7
+COMPONENT_ARCHIVE_HASH=	sha256:de3097fdc36d624ea6cf4bb853402fde781acdb860f12152c5eb879777389882
 COMPONENT_ARCHIVE_URL=	http://git-core.googlecode.com/files/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
