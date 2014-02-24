@@ -46,7 +46,6 @@ dir path=$(ECPREFIX)/lib/node_modules/npm/html/doc/cli
 dir path=$(ECPREFIX)/lib/node_modules/npm/html/doc/files
 dir path=$(ECPREFIX)/lib/node_modules/npm/html/doc/misc
 dir path=$(ECPREFIX)/lib/node_modules/npm/html/static
-dir path=$(ECPREFIX)/lib/node_modules/npm/html/static/webfonts
 dir path=$(ECPREFIX)/lib/node_modules/npm/lib
 dir path=$(ECPREFIX)/lib/node_modules/npm/lib/utils
 dir path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/completion
@@ -142,12 +141,9 @@ dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt/bin
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt/examples
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt/lib
+dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-install-checks
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/lib
-dir \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/node_modules
-dir \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/node_modules/couch-login
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-user-validate
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npmconf
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npmconf/node_modules
@@ -369,6 +365,7 @@ file path=$(ECPREFIX)/lib/dtrace/node.d
 file path=$(ECPREFIX)/lib/node_modules/npm/.npmignore
 file path=$(ECPREFIX)/lib/node_modules/npm/.tern-project
 file path=$(ECPREFIX)/lib/node_modules/npm/AUTHORS
+file path=$(ECPREFIX)/lib/node_modules/npm/CONTRIBUTING.md
 file path=$(ECPREFIX)/lib/node_modules/npm/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/Makefile
 file path=$(ECPREFIX)/lib/node_modules/npm/README.md
@@ -519,7 +516,6 @@ file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm-version.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm-view.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm-whoami.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm.html
-file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/repo.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/cli/npm-adduser.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/cli/npm-bin.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/cli/npm-bugs.html
@@ -567,7 +563,6 @@ file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/cli/npm-version.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/cli/npm-view.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/cli/npm-whoami.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/cli/npm.html
-file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/cli/repo.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/files/npm-folders.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/files/npm-global.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/files/npm-json.html
@@ -590,10 +585,6 @@ file path=$(ECPREFIX)/lib/node_modules/npm/html/dochead.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/favicon.ico
 file path=$(ECPREFIX)/lib/node_modules/npm/html/index.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/static/style.css
-file path=$(ECPREFIX)/lib/node_modules/npm/html/static/webfonts/23242D_3_0.eot
-file path=$(ECPREFIX)/lib/node_modules/npm/html/static/webfonts/23242D_3_0.ttf
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/html/static/webfonts/23242D_3_0.woff
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/adduser.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/bin.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/bugs.js
@@ -710,7 +701,6 @@ file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/npm-version.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/npm-view.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/npm-whoami.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/npm.1
-file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/repo.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-bin.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-bugs.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-commands.3
@@ -750,7 +740,6 @@ file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-version.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-view.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-whoami.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm.3
-file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/repo.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man5/npm-folders.5
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man5/npm-global.5
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man5/npm-json.5
@@ -1199,6 +1188,14 @@ file \
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt/lib/nopt.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt/package.json
 file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-install-checks/LICENSE
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-install-checks/README.md
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-install-checks/index.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-install-checks/package.json
+file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/.npmignore
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/LICENSE
@@ -1228,16 +1225,6 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/lib/unpublish.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/lib/upload.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/node_modules/couch-login/.npmignore
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/node_modules/couch-login/LICENSE
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/node_modules/couch-login/README.md
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/node_modules/couch-login/couch-login.js
-file \
-    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/node_modules/couch-login/package.json
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/package.json
 file \
@@ -1309,6 +1296,8 @@ file \
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-installed/read-installed.js
 file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/.npmignore
+file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/LICENSE
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/README.md
@@ -1331,7 +1320,11 @@ file \
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/normalize.js
 file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/safe_format.js
+file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/typos.json
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/warning_messages.json
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/package.json
 file \
