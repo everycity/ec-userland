@@ -20,7 +20,7 @@ set name=pkg.summary value="PostgreSQL: The world's most advanced open source da
 set name=info.upstream_url value="http://www.postgresql.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license postgresql92.license license="BSD Style"
+license COPYRIGHT license="BSD Style"
 
 # Symlinks
 link path=$(ECPREFIX)/lib/postgres/active target=$(COMPONENT_MJR_VERSION)
@@ -130,8 +130,8 @@ dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/zh_TW
 dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/zh_TW/LC_MESSAGES
 dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/timezonesets
 dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/tsearch_data
-file path=$(ECPREFIX)/bin/$(MACH64)/pg_config
-file path=$(ECPREFIX)/bin/pg_config
+file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pg_config
+file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_config
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/ecpg_config.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/ecpg_informix.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/ecpgerrno.h
