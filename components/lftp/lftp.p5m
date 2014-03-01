@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -25,6 +25,7 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/lftp
@@ -58,9 +59,9 @@ dir path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man5
-dir path=$(SYSCONFDIR)
 file path=$(ECPREFIX)/bin/lftp
 file path=$(ECPREFIX)/bin/lftpget
+file path=$(ECPREFIX)/etc/lftp.conf
 file path=$(ECPREFIX)/lib/charset.alias
 file path=$(ECPREFIX)/lib/liblftp-jobs.a
 file path=$(ECPREFIX)/lib/liblftp-jobs.la
@@ -87,4 +88,3 @@ file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/lftp.mo
 file path=$(ECPREFIX)/share/man/man1/lftp.1
 file path=$(ECPREFIX)/share/man/man1/lftpget.1
 file path=$(ECPREFIX)/share/man/man5/lftp.conf.5
-file path=$(SYSCONFDIR)/lftp.conf
