@@ -28,14 +28,14 @@ COMPONENT_ARCHIVE_URL=	ftp://ftp.gnutls.org/gcrypt/gnutls/v3.2/$(COMPONENT_ARCHI
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-include ../../make-rules/gnu-ld.mk
 
-CFLAGS+=-fPIC
+CFLAGS+=	$(CC_PIC)
 CONFIGURE_OPTIONS+=	--enable-shared
 CONFIGURE_OPTIONS+=	--disable-static
 CONFIGURE_OPTIONS+=	--with-pic
+CONFIGURE_OPTIONS+=	--disable-hardware-acceleration
 
-build:		$(BUILD_32)
+build:		$(BUILD_32_and_64)
 
-install:	$(INSTALL_32)
+install:	$(INSTALL_32_and_64)
 
