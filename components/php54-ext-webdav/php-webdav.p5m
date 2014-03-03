@@ -20,8 +20,6 @@ set name=pkg.summary value="$(COMPONENT_SUMMARY)"
 set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-depend fmri=library/neon type=require
-
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)

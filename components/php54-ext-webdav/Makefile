@@ -58,7 +58,7 @@ CFLAGS                +=	-I$(PHP_PREFIX)/include -I$(ECPREFIX)/include/neon
 CPPFLAGS              +=	$(CFLAGS)
 LDFLAGS.32            +=	-L$(PHP_PREFIX)/lib -R$(PHP_PREFIX)/lib
 LDFLAGS.64            +=	-L$(PHP_PREFIX)/lib/$(MACH64) -R$(PHP_PREFIX)/lib/$(MACH64)
-LDFLAGS               +=	$(LDFLAGS.$(BITS))
+LDFLAGS               +=	$(LDFLAGS.$(BITS)) -lneon
 
 CONFIGURE_ENV         +=	CC="$(CC)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
 CONFIGURE_SCRIPT       =	$(@D)/configure
