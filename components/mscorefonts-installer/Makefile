@@ -14,14 +14,14 @@
 
 include ../../make-rules/shared-macros.mk
 
-COMPONENT_NAME=        msttcorefonts
-COMPONENT_SUMMARY=     Microsoft Core fonts for the Web installer
-COMPONENT_FMRI=        font/truetype/mscorefonts-installer
-COMPONENT_VERSION=     3.5
-COMPONENT_SRC=         $(COMPONENT_NAME)
-COMPONENT_ARCHIVE=     $(COMPONENT_SRC)_$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH= 3ceabe1e8e6c888aab287add65e8c83c5c65c695f192978e66af3450f7066432
-COMPONENT_ARCHIVE_URL= http://ftp.de.debian.org/debian/pool/contrib/m/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
+COMPONENT_NAME=		msttcorefonts
+COMPONENT_SUMMARY=	Microsoft Core fonts for the Web installer
+COMPONENT_FMRI=		font/truetype/mscorefonts-installer
+COMPONENT_VERSION=	3.5
+COMPONENT_SRC=		$(COMPONENT_NAME)
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC)_$(COMPONENT_VERSION).tar.gz
+COMPONENT_ARCHIVE_HASH=	sha256:3ceabe1e8e6c888aab287add65e8c83c5c65c695f192978e66af3450f7066432
+COMPONENT_ARCHIVE_URL=	http://ftp.de.debian.org/debian/pool/contrib/m/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
