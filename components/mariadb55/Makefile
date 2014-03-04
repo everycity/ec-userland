@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -17,15 +17,15 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=		mariadb
 COMPONENT_FMRI=         database/mariadb-55
 COMPONENT_VERSION_MJR=	5.5
-COMPONENT_VERSION_MNR=	34
-IPS_COMPONENT_VERSION=	5.5.34
+COMPONENT_VERSION_MNR=	36
+IPS_COMPONENT_VERSION=	5.5.36
 COMPONENT_VERSION=	$(COMPONENT_VERSION_MJR).$(COMPONENT_VERSION_MNR)
 COMPONENT_LICENSE=      BSD, LGPL, GPL
 COMPONENT_PROJECT_URL=  https://mariadb.org/
 COMPONENT_SUMMARY=	An enhanced, drop-in replacement for MySQL
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:a4d8b54be0f5784924629a1e87dbbccc4c0aaf537c76951e265625deda322f89
+COMPONENT_ARCHIVE_HASH=	sha256:16f2cc9c219b4fbe0b3e97f14d1ed6fd8b7d377b22b95f31adae91965e36bb0c
 COMPONENT_ARCHIVE_URL=	https://downloads.mariadb.org/f/$(COMPONENT_SRC)/kvm-tarbake-jaunty-x86/$(COMPONENT_ARCHIVE)/from/http:/mirror.stshosting.co.uk/mariadb
 
 include ../../make-rules/prep.mk
@@ -62,7 +62,6 @@ CMAKE_OPTIONS+= -DINSTALL_SBINDIR=$(CMAKE_BINDIR.$(BITS))
 CMAKE_OPTIONS+= -DINSTALL_SCRIPTDIR=$(CMAKE_BINDIR.$(BITS))
 CMAKE_OPTIONS+= -DMYSQL_DATADIR=var/mariadb/$(COMPONENT_VERSION_MJR)/data
 CMAKE_OPTIONS+= -DSYSCONFDIR=$(ECPREFIX)/etc/mariadb/$(COMPONENT_VERSION_MJR)
-CMAKE_OPTIONS+=	-DWITHOUT_OQGRAPH_STORAGE_ENGINE=1
 
 LDFLAGS.32      +=      -L$(ECPREFIX)/lib/mariadb/$(COMPONENT_VERSION_MJR)/lib -R$(ECPREFIX)/lib/mariadb/$(COMPONENT_VERSION_MJR)/lib
 LDFLAGS.64      +=      -L$(ECPREFIX)/lib/mariadb/$(COMPONENT_VERSION_MJR)/lib/$(MACH64) -R$(ECPREFIX)/lib/mariadb/$(COMPONENT_VERSION_MJR)/lib/$(MACH64)
