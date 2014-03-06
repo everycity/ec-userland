@@ -24,10 +24,14 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		redis
-COMPONENT_VERSION=	2.6.17
+COMPONENT_FMRI=		database/redis
+COMPONENT_VERSION=	2.8.7
+COMPONENT_LICENSE=	BSD
+COMPONENT_PROJECT_URL=	"http://redis.io/"
+COMPONENT_SUMMARY=	Redis is an open source, BSD licensed, advanced key-value store.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:5a65b54bb6deef2a8a4fabd7bd6962654a5d35787e68f732f471bbf117f4768e
+COMPONENT_ARCHIVE_HASH=	sha256:a93e352e50bcc076e649174319c2a819306735c1a1ee83d498ced146eda78670
 COMPONENT_ARCHIVE_URL=	http://download.redis.io/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
