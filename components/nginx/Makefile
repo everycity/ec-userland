@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		nginx
 COMPONENT_FMRI=		web/server/nginx
-COMPONENT_VERSION=	1.4.4
+COMPONENT_VERSION=	1.4.6
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	http://nginx.net/
 COMPONENT_SUMMARY=	Nginx Webserver
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:7c989a58e5408c9593da0bebcd0e4ffc3d892d1316ba5042ddb0be5b0b4102b9
+COMPONENT_ARCHIVE_HASH=	sha256:7a8b5b15d708b5b9c61e723bd93faa247b06c8b90babb76f612c128edb5812c6
 COMPONENT_ARCHIVE_URL=	http://nginx.org/download/$(COMPONENT_ARCHIVE)
 
 MOD_WSGI_HG_TAG=		6975f0ec7eeb
