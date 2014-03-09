@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -34,6 +34,8 @@ dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 dir path=$(ECPREFIX)/lib/pkgconfig
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/aclocal
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
 file path=$(ECPREFIX)/bin/$(MACH64)/freetype-config
 file path=$(ECPREFIX)/bin/freetype-config
 file path=$(ECPREFIX)/include/freetype2/config/ftconfig.h
@@ -89,16 +91,17 @@ file path=$(ECPREFIX)/include/freetype2/tttags.h
 file path=$(ECPREFIX)/include/freetype2/ttunpat.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libfreetype.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libfreetype.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libfreetype.so.6.11.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libfreetype.so.6.11.2
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/freetype2.pc
 file path=$(ECPREFIX)/lib/libfreetype.a
 file path=$(ECPREFIX)/lib/libfreetype.la
-file path=$(ECPREFIX)/lib/libfreetype.so.6.11.1
+file path=$(ECPREFIX)/lib/libfreetype.so.6.11.2
 file path=$(ECPREFIX)/lib/pkgconfig/freetype2.pc
 file path=$(ECPREFIX)/share/aclocal/freetype2.m4
+file path=$(ECPREFIX)/share/man/man1/freetype-config.1
 link path=$(ECPREFIX)/lib/$(MACH64)/libfreetype.so \
-    target=libfreetype.so.6.11.1
+    target=libfreetype.so.6.11.2
 link path=$(ECPREFIX)/lib/$(MACH64)/libfreetype.so.6 \
-    target=libfreetype.so.6.11.1
-link path=$(ECPREFIX)/lib/libfreetype.so target=libfreetype.so.6.11.1
-link path=$(ECPREFIX)/lib/libfreetype.so.6 target=libfreetype.so.6.11.1
+    target=libfreetype.so.6.11.2
+link path=$(ECPREFIX)/lib/libfreetype.so target=libfreetype.so.6.11.2
+link path=$(ECPREFIX)/lib/libfreetype.so.6 target=libfreetype.so.6.11.2

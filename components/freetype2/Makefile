@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		freetype
 COMPONENT_FMRI=		library/freetype2
-COMPONENT_VERSION=	2.5.2
+COMPONENT_VERSION=	2.5.3
 COMPONENT_LICENSE=	Freetype
 COMPONENT_PROJECT_URL=	"http://www.freetype.org/"
 COMPONENT_SUMMARY=	FreeType 2 font engine
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:4ff4bd393aa01071ec7b849d035508a505a78f88b2bcf25ff11e58e43c0b9def
+COMPONENT_ARCHIVE_HASH=	sha256:c0848b29d52ef3ca27ad92e08351f023c5e24ce8cea7d8fe69fc96358e65f75e
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_SAVANNAH)
 
 include ../../make-rules/prep.mk
