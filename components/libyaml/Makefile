@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		yaml
 COMPONENT_FMRI=         library/libyaml
-COMPONENT_VERSION=      0.1.5
+COMPONENT_VERSION=      0.1.6
 COMPONENT_LICENSE=      yaml
 COMPONENT_PROJECT_URL=  http://pyyaml.org/wiki/LibYAML
 COMPONENT_SUMMARY=	A YAML 1.1 parser and emitter written in C
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:fa87ee8fb7b936ec04457bc044cd561155e1000a4d25029867752e543c2d3bef
+COMPONENT_ARCHIVE_HASH=	sha256:7da6971b4bd08a986dd2a61353bc422362bd0edcc67d7ebaac68c95f74182749
 COMPONENT_ARCHIVE_URL=	http://pyyaml.org/download/libyaml/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

@@ -29,15 +29,15 @@ dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 dir path=$(ECPREFIX)/lib/pkgconfig
 file path=$(ECPREFIX)/include/yaml.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libyaml-0.so.2.0.3
+file path=$(ECPREFIX)/lib/$(MACH64)/libyaml-0.so.2.0.4
 file path=$(ECPREFIX)/lib/$(MACH64)/libyaml.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libyaml.la
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/yaml-0.1.pc
-file path=$(ECPREFIX)/lib/libyaml-0.so.2.0.3
+file path=$(ECPREFIX)/lib/libyaml-0.so.2.0.4
 file path=$(ECPREFIX)/lib/libyaml.a
 file path=$(ECPREFIX)/lib/libyaml.la
 file path=$(ECPREFIX)/lib/pkgconfig/yaml-0.1.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libyaml-0.so.2 target=libyaml-0.so.2.0.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libyaml.so target=libyaml-0.so.2.0.3
-link path=$(ECPREFIX)/lib/libyaml-0.so.2 target=libyaml-0.so.2.0.3
-link path=$(ECPREFIX)/lib/libyaml.so target=libyaml-0.so.2.0.3
+link path=$(ECPREFIX)/lib/$(MACH64)/libyaml-0.so.2 target=libyaml-0.so.2.0.4
+link path=$(ECPREFIX)/lib/$(MACH64)/libyaml.so target=libyaml-0.so.2.0.4
+link path=$(ECPREFIX)/lib/libyaml-0.so.2 target=libyaml-0.so.2.0.4
+link path=$(ECPREFIX)/lib/libyaml.so target=libyaml-0.so.2.0.4
