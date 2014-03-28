@@ -16,14 +16,14 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		git
 COMPONENT_FMRI=		developer/versioning/git
-COMPONENT_VERSION=	1.9.0
+COMPONENT_VERSION=	1.9.1
 COMPONENT_LICENSE=	GPLv2
 COMPONENT_PROJECT_URL=	http://git-scm.com/
 COMPONENT_SUMMARY=	git - Fast version control system
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:de3097fdc36d624ea6cf4bb853402fde781acdb860f12152c5eb879777389882
-COMPONENT_ARCHIVE_URL=	http://git-core.googlecode.com/files/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:d57f3b6448eab0eb62fe3523ff36a8043aa42593f1ebb86324601aaa2217870d
+COMPONENT_ARCHIVE_URL=	https://www.kernel.org/pub/software/scm/git/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
