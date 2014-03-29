@@ -17,16 +17,19 @@ include ../../make-rules/shared-macros.mk
 CMAKE= cmake
 
 COMPONENT_NAME=		mysql
-COMPONENT_VERSION=	5.5.36
-IPS_COMPONENT_VERSION=	5.5.36
+COMPONENT_VERSION=	5.5.37
+IPS_COMPONENT_VERSION=	5.5.37
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:30f2cde5bf854cf1ef74ecd1ae2f6e5e9ec7d11eb5b50643e1aa91c911c75897
+COMPONENT_ARCHIVE_HASH=	sha256:da1ac0a3813d0b03a26618fcf003a5df16a4afc2dddc0c98b13f41923aab02a8
 COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.mysql.com/Downloads/MySQL-5.5/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
-include ../../make-rules/configure.mk
+include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
+
+CFLAGS+= -DHAVE_CURSES_H
+LDFLAGS+= -lpthread
 
 CMAKE_BINDIR.32 =	lib/mysql/5.5/bin
 CMAKE_BINDIR.64 =	lib/mysql/5.5/bin/$(MACH64)
@@ -37,13 +40,14 @@ CMAKE_PLUGINDIR.64 =	lib/mysql/5.5/plugins/$(MACH64)
 CMAKE_INCLUDEDIR.32 =	lib/mysql/5.5/include
 CMAKE_INCLUDEDIR.64 =	lib/mysql/5.5/include/$(MACH64)
 
-CMAKE_OPTIONS+= -DCMAKE_C_COMPILER=$(CC)
-CMAKE_OPTIONS+= -DCMAKE_CXX_COMPILER=$(CCC)
-CMAKE_OPTIONS+= -DCMAKE_C_FLAGS=$(CFLAGS)
-CMAKE_OPTIONS+= -DCMAKE_CXX_FLAGS=$(CFLAGS)
+CMAKE_OPTIONS+= -DCMAKE_C_COMPILER="$(CC)"
+CMAKE_OPTIONS+= -DCMAKE_CXX_COMPILER="$(CXX)"
+CMAKE_OPTIONS+= -DCMAKE_C_FLAGS="$(CFLAGS)"
+CMAKE_OPTIONS+= -DCMAKE_CXX_FLAGS="$(CFLAGS)"
 
-CMAKE_OPTIONS+=	-DWITH_SSL=system
+CMAKE_OPTIONS+= -DWITH_SSL=system
 
+CMAKE_OPTIONS+= -DBUILD_CONFIG=mysql_release
 CMAKE_OPTIONS+= -DINSTALL_LAYOUT=SVR4
 CMAKE_OPTIONS+= -DCMAKE_INSTALL_PREFIX=$(ECPREFIX)
 CMAKE_OPTIONS+= -DINSTALL_BINDIR=$(CMAKE_BINDIR.$(BITS))
@@ -58,37 +62,18 @@ CMAKE_OPTIONS+= -DINSTALL_SBINDIR=$(CMAKE_BINDIR.$(BITS))
 CMAKE_OPTIONS+= -DINSTALL_SCRIPTDIR=$(CMAKE_BINDIR.$(BITS))
 CMAKE_OPTIONS+= -DMYSQL_DATADIR=var/mysql/5.5/data
 CMAKE_OPTIONS+= -DSYSCONFDIR=$(ECPREFIX)/etc/mysql/5.5
+CMAKE_OPTIONS+= -DWITH_EXAMPLE_STORAGE_ENGINE=1
+CMAKE_OPTIONS+= -DWITH_INNOBASE_STORAGE_ENGINE=1
+CMAKE_OPTIONS+= -DWITH_LIBEDIT=OFF
+CMAKE_OPTIONS+= -DWITH_READLINE=OFF
+CMAKE_OPTIONS+= -DWITH_EXTRA_CHARSETS=all
 
 LDFLAGS.32	+=	-L$(ECPREFIX)/lib/mysql/5.5/lib -R$(ECPREFIX)/lib/mysql/5.5/lib
 LDFLAGS.64	+=	-L$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64) -R$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64)
 
-# gcc invocation in some link.txt file is missing -m$(BITS) parameter
-# and it makes 64-bit build to fail, this is a quick hack to make it build
-# for now, cmake build system needs a proper fix
-
-COMPONENT_POST_CONFIGURE_ACTION.32=
-COMPONENT_POST_CONFIGURE_ACTION.64= find $(@D) -type f -name link.txt \
-    -exec perl -pi -e 's/gcc\ \ -fPIC/\/gcc\ -m64\ -fPIC/' {} \;
-COMPONENT_POST_CONFIGURE_ACTION=$(COMPONENT_POST_CONFIGURE_ACTION.$(BITS))
-
-COMPONENT_POST_INSTALL_ACTION.32 =	( perl -pi -e \
-	"s/^ldata=.*/ldata=\'\/ec\/var\/mysql\/5.5\/data\'/" \
-	$(PROTO_DIR)$(ECPREFIX)/$(CMAKE_BINDIR.32)/mysql_config ; \
-	perl -pi -e 's/-L\$$pkglibdir/-L\$$pkglibdir -R\$$pkglibdir/g' \
-	$(PROTO_DIR)$(ECPREFIX)/$(CMAKE_BINDIR.32)/mysql_config )
-COMPONENT_POST_INSTALL_ACTION.64 =	( perl -pi -e \
-	"s/^ldata=.*/ldata=\'\/ec\/var\/mysql\/5.5\/data\'/" \
-	$(PROTO_DIR)$(ECPREFIX)/$(CMAKE_BINDIR.64)/mysql_config ; \
-	perl -pi -e 's/-L\$$pkglibdir/-L\$$pkglibdir -R\$$pkglibdir/g' \
-	$(PROTO_DIR)$(ECPREFIX)/$(CMAKE_BINDIR.64)/mysql_config )
-COMPONENT_POST_INSTALL_ACTION=$(COMPONENT_POST_INSTALL_ACTION.$(BITS))
-
-$(BUILD_DIR)/%/.configured:	$(SOURCE_DIR)/.prep
-	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
-	$(COMPONENT_PRE_CONFIGURE_ACTION)
-	(cd $(@D) ; $(ENV) $(CONFIGURE_ENV) $(CMAKE) $(CMAKE_OPTIONS) $(SOURCE_DIR))
-	$(COMPONENT_POST_CONFIGURE_ACTION)
-	$(TOUCH) $@
+COMPONENT_PRE_BUILD_ACTION += cd $(@D);
+COMPONENT_PRE_BUILD_ACTION += export LDFLAGS="$(LDFLAGS)";
+COMPONENT_PRE_BUILD_ACTION += $(CMAKE) . $(CMAKE_OPTIONS);
 
 build:		$(BUILD_32_and_64)
 

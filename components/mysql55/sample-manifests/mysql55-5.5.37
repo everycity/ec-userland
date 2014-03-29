@@ -3784,6 +3784,8 @@ file path=$(ECPREFIX)/mysql-test/suite/funcs_2/t/innodb_charset.test
 file path=$(ECPREFIX)/mysql-test/suite/funcs_2/t/memory_charset.test
 file path=$(ECPREFIX)/mysql-test/suite/funcs_2/t/myisam_charset.test
 file path=$(ECPREFIX)/mysql-test/suite/funcs_2/t/suite.opt
+file path=$(ECPREFIX)/mysql-test/suite/innodb/r/blob-update-debug.result
+file path=$(ECPREFIX)/mysql-test/suite/innodb/r/create-index.result
 file path=$(ECPREFIX)/mysql-test/suite/innodb/r/innodb-analyze.result
 file path=$(ECPREFIX)/mysql-test/suite/innodb/r/innodb-autoinc-18274.result
 file path=$(ECPREFIX)/mysql-test/suite/innodb/r/innodb-autoinc-44030.result
@@ -3802,6 +3804,7 @@ file path=$(ECPREFIX)/mysql-test/suite/innodb/r/innodb-semi-consistent.result
 file path=$(ECPREFIX)/mysql-test/suite/innodb/r/innodb-timeout.result
 file path=$(ECPREFIX)/mysql-test/suite/innodb/r/innodb-truncate.result
 file path=$(ECPREFIX)/mysql-test/suite/innodb/r/innodb-ucs2.result
+file path=$(ECPREFIX)/mysql-test/suite/innodb/r/innodb-update-insert.result
 file path=$(ECPREFIX)/mysql-test/suite/innodb/r/innodb-use-sys-malloc.result
 file path=$(ECPREFIX)/mysql-test/suite/innodb/r/innodb.result
 file \
@@ -3885,6 +3888,8 @@ file \
 file path=$(ECPREFIX)/mysql-test/suite/innodb/r/innodb_replace.result
 file path=$(ECPREFIX)/mysql-test/suite/innodb/r/innodb_timeout_rollback.result
 file path=$(ECPREFIX)/mysql-test/suite/innodb/r/innodb_trx_weight.result
+file path=$(ECPREFIX)/mysql-test/suite/innodb/t/blob-update-debug.test
+file path=$(ECPREFIX)/mysql-test/suite/innodb/t/create-index.test
 file path=$(ECPREFIX)/mysql-test/suite/innodb/t/disabled.def
 file path=$(ECPREFIX)/mysql-test/suite/innodb/t/innodb-analyze.test
 file path=$(ECPREFIX)/mysql-test/suite/innodb/t/innodb-autoinc-18274.test
@@ -3915,6 +3920,7 @@ file path=$(ECPREFIX)/mysql-test/suite/innodb/t/innodb-semi-consistent.test
 file path=$(ECPREFIX)/mysql-test/suite/innodb/t/innodb-timeout.test
 file path=$(ECPREFIX)/mysql-test/suite/innodb/t/innodb-truncate.test
 file path=$(ECPREFIX)/mysql-test/suite/innodb/t/innodb-ucs2.test
+file path=$(ECPREFIX)/mysql-test/suite/innodb/t/innodb-update-insert.test
 file \
     path=$(ECPREFIX)/mysql-test/suite/innodb/t/innodb-use-sys-malloc-master.opt
 file path=$(ECPREFIX)/mysql-test/suite/innodb/t/innodb-use-sys-malloc.test
@@ -8122,9 +8128,9 @@ link path=$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64)/libmysqlclient_r.a \
 link path=$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64)/libmysqlclient_r.so \
     target=libmysqlclient.so
 link path=$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64)/libmysqlclient_r.so.18 \
-    target=libmysqlclient.so
+    target=libmysqlclient.so.18
 link path=$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64)/libmysqlclient_r.so.18.0.0 \
-    target=libmysqlclient.so
+    target=libmysqlclient.so.18.0.0
 link path=$(ECPREFIX)/lib/mysql/5.5/lib/libmysqlclient.so \
     target=libmysqlclient.so.18
 link path=$(ECPREFIX)/lib/mysql/5.5/lib/libmysqlclient.so.18 \
@@ -8134,8 +8140,8 @@ link path=$(ECPREFIX)/lib/mysql/5.5/lib/libmysqlclient_r.a \
 link path=$(ECPREFIX)/lib/mysql/5.5/lib/libmysqlclient_r.so \
     target=libmysqlclient.so
 link path=$(ECPREFIX)/lib/mysql/5.5/lib/libmysqlclient_r.so.18 \
-    target=libmysqlclient.so
+    target=libmysqlclient.so.18
 link path=$(ECPREFIX)/lib/mysql/5.5/lib/libmysqlclient_r.so.18.0.0 \
-    target=libmysqlclient.so
+    target=libmysqlclient.so.18.0.0
 link path=$(ECPREFIX)/mysql-test/mtr target=./mysql-test-run.pl
 link path=$(ECPREFIX)/mysql-test/mysql-test-run target=./mysql-test-run.pl
