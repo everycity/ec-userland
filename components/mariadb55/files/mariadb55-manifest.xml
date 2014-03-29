@@ -64,20 +64,20 @@
 
 		<property_group name='mariadbd' type='application'>
 			<stability value='Evolving'/>
+			<propval name='additional_startup_options' type='astring' value=''/>
 			<propval name='config_file' type='astring' value='/ec/etc/mariadb/5.5/my.cnf'/>
-			<propval name='user' type='astring' value='mariadb'/>
 			<propval name='data_dir' type='astring' value='/ec/var/mariadb/5.5/data'/>
-			<propval name='unix_socket_file' type='astring' value='/tmp/mariadb.sock'/>
+			<propval name='enable_64bit' type='boolean' value='true'/>
+			<propval name='error_log' type='astring' value='/ec/var/mariadb/5.5/data/mariadbd.log'/>
+			<propval name='mariadbd_32_binary' type='astring' value='/ec/lib/mariadb/5.5/bin/mysqld'/>
+			<propval name='mariadbd_64_binary' type='astring' value='/ec/lib/mariadb/5.5/bin/amd64/mysqld'/>
+			<propval name='mariadbd_installdb_binary' type='astring' value='/ec/lib/mariadb/5.5/bin/mysql_install_db'/>
+			<propval name='pid_file' type='astring' value='/ec/var/mariadb/5.5/data/mariadbd.pid'/>
+			<propval name='skip_grant_tables' type='boolean' value='false'/>
 			<propval name='tcp_listen_address' type='astring' value='127.0.0.1'/>
 			<propval name='tcp_listen_port' type='astring' value='3306'/>
-			<propval name='error_log' type='astring' value='/ec/var/mariadb/5.5/data/mariadbd.log'/>
-			<propval name='pid_file' type='astring' value='/ec/var/mariadb/5.5/data/mariadbd.pid'/>
-			<propval name='mariadbd_32_binary' type='astring' value='/ec/lib/mariadb/5.5/bin/mariadbd'/>
-			<propval name='mariadbd_64_binary' type='astring' value='/ec/lib/mariadb/5.5/bin/amd64/mariadbd'/>
-			<propval name='mariadbd_installdb_binary' type='astring' value='/ec/lib/mariadb/5.5/bin/mariadb_install_db'/>
-			<propval name='additional_startup_options' type='astring' value=''/>
-			<propval name='enable_64bit' type='boolean' value='true'/>
-			<propval name='skip_grant_tables' type='boolean' value='false'/>
+			<propval name='unix_socket_file' type='astring' value='/tmp/mariadb.sock'/>
+			<propval name='user' type='astring' value='mariadb'/>
 		</property_group>
 
 	</instance>
