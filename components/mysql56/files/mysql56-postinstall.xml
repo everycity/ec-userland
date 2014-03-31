@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE service_bundle SYSTEM '/usr/share/lib/xml/dtd/service_bundle.dtd.1'>
+<!--
+	Copyright (C) EveryCity 2011
+-->
+<service_bundle type='manifest' name='mysql56-postinstall'>
+
+<service
+	name='tmp/postinstall/mysql56'
+	type='service'
+	version='1'>
+
+	<exec_method
+		type='method'
+		name='start'
+		exec='sh -c &quot;[ -h /ec/lib/mysql/active ] || ln -s 5.6 /ec/lib/mysql/active&quot; ; /usr/bin/ctrun svcadm disable tmp/postinstall/mysql56'
+		timeout_seconds='60'/>
+
+ 	<exec_method
+		type='method'
+		name='stop'
+		exec='/usr/bin/ctrun svccfg delete -f tmp/postinstall/mysql56'
+		timeout_seconds='30'/>
+
+	<instance name='default' enabled='true'/>
+
+	<stability value='Evolving'/>
+
+</service>
+
+</service_bundle>
