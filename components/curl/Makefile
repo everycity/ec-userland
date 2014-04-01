@@ -9,26 +9,19 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
-# Note: curlbuild.h comes in two flavours, 32bit and 64bit
-# These have been combined with a "#if (defined(__x86_64__))"
-# statement and is present in the build directory here.
-# If updating curl, you will need to re-combine these from the
-# build directory as curlbuild.h is generated during compile
-# time.
-
 COMPONENT_NAME=		curl
 COMPONENT_FMRI=		web/curl
-COMPONENT_VERSION=	7.35.0
+COMPONENT_VERSION=	7.36.0
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	http://curl.haxx.se/
 COMPONENT_SUMMARY=	The C-URL Wrappers Library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:d774d1701454f1b7d331c2075fc4f6dd972bddc2d171f43645ef3647c7fc0d83
+COMPONENT_ARCHIVE_HASH=	sha256:1fbe82b89bcd6b7ccda8cb0ff076edc60e911595030e27689f4abd5ef7f3cfcd
 COMPONENT_ARCHIVE_URL=	http://curl.haxx.se/download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -59,5 +52,14 @@ COMPONENT_POST_INSTALL_ACTION=$(COMPONENT_POST_INSTALL_ACTION.$(BITS))
 # common targets
 build:		$(BUILD_32_and_64)
 
-install:	$(INSTALL_32_and_64)
+$(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
+	# Note: curl generates a header file, include/curl/curlbuild.h, during the build
+	# This header file is different depending on 32bit or 64bit build
+	/usr/bin/echo "/* EC: combining 32 and 64bit headers */\n\n#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/curlbuild.h
+	/usr/bin/cat $(BUILD_DIR_64)/include/curl/curlbuild.h >> $(COMPONENT_DIR)/curlbuild.h
+	/usr/bin/echo "\n#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/curlbuild.h
+	/usr/bin/cat $(BUILD_DIR_32)/include/curl/curlbuild.h >> $(COMPONENT_DIR)/curlbuild.h
+	/usr/bin/echo "\n#endif /* EC */" >> $(COMPONENT_DIR)/curlbuild.h
+	$(TOUCH) $@
 
+install:	$(BUILD_DIR)/.installed

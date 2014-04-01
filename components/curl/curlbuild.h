@@ -1,6 +1,4 @@
-/* EC: We combine both 32bit and 64bit curlbuild.h files into one using a
- * nice big ifdef
- */
+/* EC: combining 32 and 64bit headers */
 
 #if (defined (__x86_64__))
 
@@ -203,7 +201,7 @@ typedef CURL_TYPEOF_CURL_OFF_T curl_off_t;
 
 #endif /* __CURL_CURLBUILD_H */
 
-#else /* EC: This is the 32bit one now: */
+#else /* EC: following is 32bit */
 
 /* include/curl/curlbuild.h.  Generated from curlbuild.h.in by configure.  */
 #ifndef __CURL_CURLBUILD_H
