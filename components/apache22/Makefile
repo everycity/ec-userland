@@ -9,16 +9,16 @@
 #
 
 #
-# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		httpd
-COMPONENT_VERSION=	2.2.26
+COMPONENT_VERSION=	2.2.27
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:af908e3dd5673f1c6f0ccc615e11d435e77517940af00e518e68ea25284b42b6
+COMPONENT_ARCHIVE_HASH=	sha256:205973ded6ca55c056ce9c84d73ab708f7829f330193bd39b651463b8d4f8147
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_APACHE)
 
 include ../../make-rules/prep.mk
@@ -119,7 +119,8 @@ build:		$(BUILD_DIR)/$(MACH32).prefork/.built \
 		$(BUILD_DIR)/$(MACH32).worker/.built \
 		$(BUILD_DIR)/$(MACH64).worker/.built
 
-install:	$(BUILD_DIR)/$(MACH32).prefork/.installed \
+$(BUILD_DIR)/.installed:	\
+		$(BUILD_DIR)/$(MACH32).prefork/.installed \
 		$(BUILD_DIR)/$(MACH64).prefork/.installed \
 		$(BUILD_DIR)/$(MACH32).worker/.built \
 		$(BUILD_DIR)/$(MACH64).worker/.built
@@ -152,3 +153,6 @@ install:	$(BUILD_DIR)/$(MACH32).prefork/.installed \
 	(cd $(PROTO_DIR)/$(AP_PREFIX)/../ ; rm -f active ; ln -s 2.2 active)
 	$(MKDIR) -p $(PROTO_DIR)/$(AP_SYSCONFDIR)/
 	rsync -a --delete $(COMPONENT_DIR)/conf/ $(PROTO_DIR)/$(AP_SYSCONFDIR)/
+	$(TOUCH) $@
+
+install:	$(BUILD_DIR)/.installed
