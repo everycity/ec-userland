@@ -9,35 +9,36 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		pigz
-COMPONENT_VERSION=	2.2.5
+COMPONENT_FMRI=		compress/pigz
+COMPONENT_VERSION=	2.3.1
+COMPONENT_LICENSE=	pigz
+COMPONENT_PROJECT_URL=	"http://zlib.net/pigz/"
+COMPONENT_SUMMARY=	Parallel GZIP Implementation
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha256:
+COMPONENT_ARCHIVE_HASH=	sha256:629b0ce5422a3978f31742bf8275d0be2f84987140d18f390f1e3b4e46e0af54
 COMPONENT_ARCHIVE_URL=	http://zlib.net/pigz/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-#CONFIGURE_OPTIONS+=	
-
-COMPONENT_BUILD_ENV.32+=LDFLAGS=-R$(ECPREFIX)/lib
-COMPONENT_BUILD_ENV.64+=LDFLAGS=-R$(ECPREFIX)/lib/$(MACH64)
-COMPONENT_BUILD_ENV+=$(COMPONENT_BUILD_ENV.$(BITS))
+COMPONENT_BUILD_ENV+=	CC="$(CC)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
 
 build:		$(BUILD_32_and_64)
 
-install:        build
+$(BUILD_DIR)/.installed:	$(BUILD_32_and_64)
 	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)
 	$(INSTALL) $(BUILD_DIR_32)/pigz $(PROTO_DIR)/$(ECPREFIX)/bin/
 	$(INSTALL) $(BUILD_DIR_32)/unpigz $(PROTO_DIR)/$(ECPREFIX)/bin/
 	$(INSTALL) $(BUILD_DIR_64)/pigz $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)/
 	$(INSTALL) $(BUILD_DIR_64)/unpigz $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)/
+	$(TOUCH) $@
 
-
+install:	$(BUILD_DIR)/.installed

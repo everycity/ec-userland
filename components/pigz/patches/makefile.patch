@@ -1,13 +1,10 @@
---- pigz-2.2.5/Makefile.~1~	2012-02-12 05:18:18.000000000 +0000
-+++ pigz-2.2.5/Makefile	2012-11-16 16:50:56.340423277 +0000
-@@ -1,8 +1,8 @@
+--- pigz-2.3.1/Makefile.orig	2014-04-02 14:08:26.418829331 +0100
++++ pigz-2.3.1/Makefile	2014-04-02 14:08:35.022245789 +0100
+@@ -1,5 +1,5 @@
 -CC=cc
-+CC=gcc
- CFLAGS=-O3 -Wall -Wextra
+-CFLAGS=-O3 -Wall -Wextra
++CC?=cc
++CFLAGS?=-O3 -Wall -Wextra
  
- pigz: pigz.o yarn.o
--	$(CC) -o pigz pigz.o yarn.o -lpthread -lz
-+	$(CC) -o pigz pigz.o yarn.o -lpthread -lz $(LDFLAGS)
- 	ln -f pigz unpigz
  
- pigz.o: pigz.c yarn.h
+ pigz: pigz.o yarn.o zopfli/deflate.o zopfli/blocksplitter.o zopfli/tree.o zopfli/lz77.o zopfli/cache.o zopfli/hash.o zopfli/util.o zopfli/squeeze.o zopfli/katajainen.o
