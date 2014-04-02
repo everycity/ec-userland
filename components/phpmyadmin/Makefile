@@ -15,10 +15,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		phpmyadmin
-COMPONENT_VERSION=	3.5.5
+COMPONENT_VERSION=	4.1.6
 COMPONENT_SRC=		phpMyAdmin-$(COMPONENT_VERSION)-all-languages
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:1898197c7f1e45e5f12bc3491a848e1e827b43f3321981dd0b9848afa44f3010
+COMPONENT_ARCHIVE_HASH=	sha256:22eab7f69cde89872b299778c3d0f28078139f555331744f5591d8d6b3972e54
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
@@ -40,7 +40,7 @@ $(BUILD_DIR)/%/.built:	prep
 $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
 	$(CP) -R $(SOURCE_DIR)/* $(PHPMYADMIN_DIR)/
 	( cd $(PHPMYADMIN_DIR) && \
-	  for i in Documentation.txt README* ChangeLog LICENSE examples ; do \
+	  for i in README* ChangeLog LICENSE examples ; do \
 	  mv $$i $(PHPMYADMIN_DOC_DIR)/ ; done && \
 	mv config.sample.inc.php $(PHPMYADMIN_ETC_DIR)/config.inc.php && \
 	ln -s $(ECPREFIX)/etc/phpmyadmin/config.inc.php config.inc.php )
