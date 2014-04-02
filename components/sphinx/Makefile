@@ -9,16 +9,20 @@
 #
 
 #
-# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
 # Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		sphinx
-COMPONENT_VERSION=	2.0.8
+COMPONENT_FMRI=		database/search/sphinx
+COMPONENT_VERSION=	2.1.7
+COMPONENT_LICENSE=	GPLv2
+COMPONENT_PROJECT_URL=	"http://sphinxsearch.com/"
+COMPONENT_SUMMARY=	Sphinx is an open source full text search server
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)-release
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:bd699bf34635558e4d9d4d8bdcf5fcdd9c2e8f6c614824bec793b0010fa6cda3
+COMPONENT_ARCHIVE_HASH=	sha256:3662f29ba74ec048d2031b4034af4c879b66fd10f082aa6d3dd85b0a49d95fa2
 COMPONENT_ARCHIVE_URL=	http://sphinxsearch.com/files/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -32,7 +36,6 @@ LDFLAGS.32+=	-L$(ECPREFIX)/lib/postgres/9.1/lib -R$(ECPREFIX)/lib/postgres/9.1/l
 LDFLAGS.64+=	-L$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64) -R$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64)
 
 CONFIGURE_OPTIONS+=	--with-iconv
-CONFIGURE_OPTIONS.64+=	--enable-id64
 CONFIGURE_OPTIONS+=	--with-mysql
 CONFIGURE_OPTIONS+=	--with-mysql-includes=$(ECPREFIX)/lib/mysql/5.5/include
 CONFIGURE_OPTIONS.32+=	--with-mysql-libs=$(ECPREFIX)/lib/mysql/5.5/lib

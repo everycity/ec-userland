@@ -1,0 +1,36 @@
+--- sphinx-2.1.7-release/src/sphinx.cpp.orig	2014-04-02 13:25:39.275004858 +0100
++++ sphinx-2.1.7-release/src/sphinx.cpp	2014-04-02 13:25:10.426479139 +0100
+@@ -220,13 +220,13 @@
+ 	float			GetIDF ( const CSphString & sWord, int iDocsLocal, int iQwords, bool bPlainIDF );
+ 
+ protected:
+-#pragma pack(push,4)
++#pragma pack(4)
+ 	struct IDFWord_t
+ 	{
+ 		uint64_t				m_uWordID;
+ 		DWORD					m_iDocs;
+ 	};
+-#pragma pack(pop)
++#pragma pack()
+ 	STATIC_SIZE_ASSERT			( IDFWord_t, 12 );
+ 
+ 	static const int			HASH_BITS = 16;
+--- sphinx-2.1.7-release/src/indextool.cpp.orig	2014-04-02 13:28:31.708958259 +0100
++++ sphinx-2.1.7-release/src/indextool.cpp	2014-04-02 13:28:46.159247591 +0100
+@@ -355,13 +355,13 @@
+ }
+ 
+ 
+-#pragma pack(push,4)
++#pragma pack(4)
+ struct IDFWord_t
+ {
+ 	uint64_t	m_uWordID;
+ 	DWORD		m_iDocs;
+ };
+-#pragma pack(pop)
++#pragma pack()
+ STATIC_SIZE_ASSERT	( IDFWord_t, 12 );
+ 
+ 
