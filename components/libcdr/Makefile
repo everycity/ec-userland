@@ -29,7 +29,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-#CONFIGURE_OPTIONS+=	
+CONFIGURE_OPTIONS+=	--disable-werror
 
 build:		$(BUILD_32_and_64)
 
