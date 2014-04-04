@@ -19,23 +19,28 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		freeimage
-COMPONENT_VERSION=	3.15.1
+COMPONENT_FMRI=		library/freeimage
+COMPONENT_VERSION=	3.15.4
+COMPONENT_LICENSE=	GPLv2
+COMPONENT_PROJECT_URL=	"http://freeimage.sourceforge.net/"
+COMPONENT_SUMMARY=	Open Source Image Library
 COMPONENT_SRC=		FreeImage
-COMPONENT_ARCHIVE=	FreeImage3151.zip
-COMPONENT_ARCHIVE_HASH=	sha256:e0f0dd980b16ca2904e01896cd7a1f64a38ddf1896a91c5659de2816fd0bbaed
+COMPONENT_ARCHIVE=	FreeImage3154.zip
+COMPONENT_ARCHIVE_HASH=	sha256:eb6361519d33131690a0e726b085a05825e5adf9fb72c752d8d39100e48dc829
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
-include ../../make-rules/gnu-ld.mk
 
-COMPONENT_BUILD_ENV	+=	CC="$(CC)" CFLAGS="$(CFLAGS) -DSHARED_OBJECT $(CC_PIC)" CXX="$(CXX)" CXXFLAGS="$(CXXFLAGS) -DSHARED_OBJECT $(CC_PIC)" LDFLAGS="$(LDFLAGS)"
+CFLAGS +=	-DSHARED_OBJECT $(CC_PIC)
+CXXFLAGS +=	-DSHARED_OBJECT $(CC_PIC)
+COMPONENT_BUILD_ENV	+=	CC="$(CC)" CFLAGS="$(CFLAGS)" CXX="$(CXX)" CXXFLAGS="$(CXXFLAGS)" LDFLAGS="$(LDFLAGS)"
 COMPONENT_BUILD_TARGETS	+=	OS=Solaris DESTDIR=$(PROTO_DIR)$(ECPREFIX)
 COMPONENT_INSTALL_ARGS	=	OS=Solaris DESTDIR=$(PROTO_DIR)$(ECPREFIX)
 COMPONENT_INSTALL_ARGS.32=	INSTALLLIBDIR=$(PROTO_DIR)$(ECPREFIX)/lib
