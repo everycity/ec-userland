@@ -9,13 +9,17 @@
 #
 
 #
-# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		rtmpdump
+COMPONENT_FMRI=		multimedia/rtmpdump
 COMPONENT_VERSION=	2.3
+COMPONENT_LICENSE=	GPLv2
+COMPONENT_PROJECT_URL=	"http://rtmpdump.mplayerhq.hu/"
+COMPONENT_SUMMARY=	rtmpdump is a toolkit for RTMP streams
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
 COMPONENT_ARCHIVE_HASH=	sha256:ef38b7a99d82ce6912063d21063aeaf28185341b3df486e24bffce5354224b2c
@@ -24,18 +28,18 @@ COMPONENT_ARCHIVE_URL=	http://$(COMPONENT_NAME).mplayerhq.hu/download/$(COMPONEN
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
-include ../../make-rules/gnu-ld.mk
 
 COMPONENT_BUILD_ENV+=	LDFLAGS="$(LDFLAGS)"
 COMPONENT_BUILD_ARGS+=	XCFLAGS="$(LD_BITS)" XLDFLAGS="$(LD_BITS)"
 
-build:		$(BUILD_32_and_64)
-
-build-pkgconfig:
+$(BUILD_DIR)/.pkgconfig_built:
 	(cd $(BUILD_DIR_32)/librtmp ; make librtmp.pc)
 	(cd $(BUILD_DIR_64)/librtmp ; make librtmp.pc)
+	$(TOUCH) $@
 
-install:	build build-pkgconfig
+build:		$(BUILD_32_and_64) $(BUILD_DIR)/.pkgconfig_built
+
+$(BUILD_DIR)/.installed:	$(BUILD_32_and_64) $(BUILD_DIR)/.pkgconfig_built
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/include/librtmp
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/pkgconfig
@@ -64,4 +68,6 @@ install:	build build-pkgconfig
 	$(INSTALL) $(BUILD_DIR_64)/rtmpsuck $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
 	$(INSTALL) $(BUILD_DIR_64)/librtmp/librtmp.so.0 $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
 	(cd $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64) ; ln -sf librtmp.so.0 librtmp.so)
+	$(TOUCH) $@
 
+install:	$(BUILD_DIR)/.installed
