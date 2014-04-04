@@ -19,85 +19,38 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		redis
 COMPONENT_FMRI=		database/redis
-COMPONENT_VERSION=	2.8.7
+COMPONENT_VERSION=	2.8.8
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://redis.io/"
 COMPONENT_SUMMARY=	Redis is an open source, BSD licensed, advanced key-value store.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:a93e352e50bcc076e649174319c2a819306735c1a1ee83d498ced146eda78670
+COMPONENT_ARCHIVE_HASH=	sha256:fd2be11b8d9300d35b6bbed6fcd6fa6d7ef1a72ccaeb0cc991ce44dc49908bc8
 COMPONENT_ARCHIVE_URL=	http://download.redis.io/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
+include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
 include ../../make-rules/shared-targets.mk
 
-CLEAN_PATHS +=	$(BUILD_DIR)
-
-COMPONENT_BUILD_ENV.32 += 'CC=$(ECPREFIX)/bin/gcc $(CC_BITS) -I$(ECPREFIX)/include -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib'
-COMPONENT_BUILD_ENV.32 += 'CFLAGS=$(CC_BITS) -I$(ECPREFIX)/include -std=c99 -pedantic -O3 -Wall -W -D__EXTENSIONS__ -D_XPG6 -march=i686'
-COMPONENT_BUILD_ENV.32 += 'LDFLAGS=-L$(ECPREFIX)/lib -R$(ECPREFIX)/lib -ldl -lnsl -lsocket -lm -lpthread'
-COMPONENT_INSTALL_ENV.32 += 'CC=$(ECPREFIX)/bin/gcc -m32'
-
-COMPONENT_BUILD_ENV.64 += 'CC=$(ECPREFIX)/bin/gcc $(CC_BITS) -I$(ECPREFIX)/include/$(MACH64) -L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)'
-COMPONENT_BUILD_ENV.64 += 'CFLAGS=$(CC_BITS) -DBYTE_ORDER=LITTLE_ENDIAN -I$(ECPREFIX)/include/$(MACH64) -std=c99 -pedantic -O3 -Wall -W -D__EXTENSIONS__ -D_XPG6 -march=athlon64-sse3'
-COMPONENT_BUILD_ENV.64 += 'LDFLAGS=-L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64) -ldl -lnsl -lsocket -lm -lpthread'
-COMPONENT_INSTALL_ENV.64 += 'CC=$(ECPREFIX)/bin/gcc -m64'
-
-COMPONENT_INSTALL_TARGETS += os=solaris PREFIX=$(PROTO_DIR)$(ECPREFIX)
-COMPONENT_PRE_INSTALL_ACTION= \
-        (for i in bin include lib sbin share/man/man8; do \
-        mkdir -p $(PROTO_DIR)$(ECPREFIX)/$$i; done)
-
-$(BUILD_DIR)/$(MACH32)/.configured:     BITS=32
-$(BUILD_DIR)/$(MACH64)/.configured:     BITS=64
-$(BUILD_DIR)/$(MACH32)/.built:          BITS=32
-$(BUILD_DIR)/$(MACH64)/.built:          BITS=64
-$(BUILD_DIR)/$(MACH32)/.installed:      BITS=32
-$(BUILD_DIR)/$(MACH64)/.installed:      BITS=64
-
-CONFIGURE_ENV += $(CONFIGURE_ENV.$(BITS))
-COMPONENT_INSTALL_ENV += $(COMPONENT_INSTALL_ENV.$(BITS))
-
 ifeq ($(SOLARIS_VERSION),2.10)
-COMPONENT_POST_CONFIGURE_ACTION = ( $(GPATCH) -d $(@D) $(GPATCH_FLAGS) < $(COMPONENT_DIR)/s10-config-h.patch ) ;
+COMPONENT_EXTRA_PATCH_ACTION = ( $(GPATCH) -d $(@D) $(GPATCH_FLAGS) < $(COMPONENT_DIR)/s10-config-h.patch ) ;
 endif
 
-build:		$(BUILD_32_and_64)
+COMPONENT_BUILD_GMAKE_ARGS+= CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)" V=1
 
-$(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
-	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
-	$(COMPONENT_PRE_CONFIGURE_ACTION)
-	(cp -r $(SOURCE_DIR)/* $(@D) ; cd $(@D)/src) ; \
-	$(COMPONENT_POST_CONFIGURE_ACTION)
-	$(TOUCH) $@
+COMPONENT_INSTALL_TARGETS += os=solaris PREFIX=$(PROTO_DIR)$(ECPREFIX)
+COMPONENT_PRE_INSTALL_ACTION=	( mkdir -p $(PROTO_DIR)$(ECPREFIX)/bin )
 
-# build the configured source
-$(BUILD_DIR)/%/.built:  $(BUILD_DIR)/%/.configured
-	$(COMPONENT_PRE_BUILD_ACTION)
-	(cd $(@D)/src ; $(ENV) $(COMPONENT_BUILD_ENV) \
-		$(GMAKE) $(COMPONENT_BUILD_TARGETS))
-	$(COMPONENT_POST_BUILD_ACTION)
-	$(TOUCH) $@
+build:		$(BUILD_64)
 
-# install the built source into a prototype area
-$(BUILD_DIR)/%/.installed:      $(BUILD_DIR)/%/.built
-	$(COMPONENT_PRE_INSTALL_ACTION)
-	(cd $(@D)/src ; $(ENV) $(COMPONENT_INSTALL_ENV) $(GMAKE) \
-		$(COMPONENT_INSTALL_ARGS) $(COMPONENT_INSTALL_TARGETS) install)
-	$(COMPONENT_POST_INSTALL_ACTION)
-	$(TOUCH) $@
-
-install:	$(INSTALL_32_and_64)
-
-#BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
+install:	$(INSTALL_64)
 
 include ../../make-rules/depend.mk
-
