@@ -15,23 +15,29 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		vlc
 COMPONENT_FMRI=		multimedia/vlc
-COMPONENT_VERSION=	2.1.3
+COMPONENT_VERSION=	2.1.4
 COMPONENT_LICENSE=	GPLv2
 COMPONENT_PROJECT_URL=	http://www.videolan.org/vlc/
 COMPONENT_SUMMARY=	VLC Cross-platform Multimedia Player and Framework
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
-COMPONENT_ARCHIVE_HASH=	sha256:e03662fec900944eeea08d271d9c2e3d473d32079278998f3902e74e4fa6a111
+COMPONENT_ARCHIVE_HASH=	sha256:3e566c7525478167e18cc53dc75d621e4af91eb40aabb6231e47db25d682d5d3
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_VIDEOLAN)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-include ../../make-rules/gnu-ld.mk
+
+PKG_CONFIG_PATH.32 = $(ECPREFIX)/lib/pkgconfig
+PKG_CONFIG_PATH.64 = $(ECPREFIX)/lib/$(MACH64)/pkgconfig
+PKG_CONFIG_PATH = $(PKG_CONFIG_PATH.$(BITS))
+PKG_CONFIG.32 = $(ECPREFIX)/bin/pkg-config
+PKG_CONFIG.64 = $(ECPREFIX)/bin/$(MACH64)/pkg-config
+PKG_CONFIG = $(PKG_CONFIG.$(BITS))
 
 LDFLAGS.32+=	-L$(ECPREFIX)/lib -R$(ECPREFIX)/lib -L$(ECPREFIX)/lib/qt/4.7/lib -R$(ECPREFIX)/lib/qt/4.7/lib
 LDFLAGS.64+=	-L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64) -L$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64) -R$(ECPREFIX)/lib/qt/4.7/lib/$(MACH64)
-LDFLAGS+=	-lnsl -lumem
+LDFLAGS+=	-lnsl
 CFLAGS+=	-D _XPG4_2 -D __SunOS -D __STDC_ISO_10646__ -D __EXTENSIONS__ -D __EC_SOLARIS_$(subst .,_,$(SOLARIS_VERSION)) -I$(ECPREFIX)/include -I$(ECPREFIX)/include/ncurses
 CXXFLAGS+=	$(CFLAGS)
 
@@ -61,13 +67,12 @@ CONFIGURE_OPTIONS+=	--enable-ncurses
 CONFIGURE_OPTIONS+=	--enable-run-as-root
 CONFIGURE_OPTIONS+=	--enable-faad
 CONFIGURE_OPTIONS+=	--with-contrib=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--disable-silent-rules
 CONFIGURE_OPTIONS+=	LIVE555_PREFIX=$(ECPREFIX)
 
 # Inline assembly optimisations are broken on 32bit (gcc segfault)
 CONFIGURE_OPTIONS.32+=	--disable-mmx
 CONFIGURE_OPTIONS.32+=	--disable-sse
-
-COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; libtoolize --force --copy ; autoreconf )
 
 build:		$(BUILD_32_and_64)
 

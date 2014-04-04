@@ -421,6 +421,10 @@ file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_mms_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_mms_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_rar_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_rar_plugin.so
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_sftp_plugin.la
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_sftp_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_tcp_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_tcp_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/access/libaccess_udp_plugin.la
@@ -761,6 +765,8 @@ file \
     path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libdbus_screensaver_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libexport_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libexport_plugin.so
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libgnutls_plugin.la
+file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libgnutls_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/liblogger_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/liblogger_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/misc/libstats_plugin.la
@@ -1207,6 +1213,8 @@ file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_mms_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_mms_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_rar_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_rar_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_sftp_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_sftp_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_tcp_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_tcp_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/access/libaccess_udp_plugin.la
@@ -1493,6 +1501,8 @@ file path=$(ECPREFIX)/lib/vlc/plugins/misc/libdbus_screensaver_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/libdbus_screensaver_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/libexport_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/libexport_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/misc/libgnutls_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/misc/libgnutls_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/liblogger_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/liblogger_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/misc/libstats_plugin.la
