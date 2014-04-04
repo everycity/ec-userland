@@ -48,7 +48,6 @@ file path=$(ECPREFIX)/lib/libreadline.so.6
 file path=$(ECPREFIX)/share/doc/readline/CHANGES
 file path=$(ECPREFIX)/share/doc/readline/INSTALL
 file path=$(ECPREFIX)/share/doc/readline/README
-file path=$(ECPREFIX)/share/info/dir
 file path=$(ECPREFIX)/share/info/history.info
 file path=$(ECPREFIX)/share/info/readline.info
 file path=$(ECPREFIX)/share/info/rluserman.info
