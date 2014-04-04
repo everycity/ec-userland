@@ -307,8 +307,11 @@ TEE =		/usr/bin/tee
 INS.dir=        $(INSTALL) -d $@
 INS.file=       $(INSTALL) -m 444 $< $(@D)
 
-PKG_CONFIG_PATH.32 = $(ECPREFIX)/bin/pkgconfig
-PKG_CONFIG_PATH.64 = $(ECPREFIX)/bin/$(MACH64)/pkgconfig
+PKG_CONFIG.32=	$(ECPREFIX)/bin/pkg-config
+PKG_CONFIG.64=	$(ECPREFIX)/bin/$(MACH64)/pkg-config
+PKG_CONFIG=	$(PKG_CONFIG.$(BITS))
+PKG_CONFIG_PATH.32 = $(ECPREFIX)/lib/pkgconfig
+PKG_CONFIG_PATH.64 = $(ECPREFIX)/lib/$(MACH64)/pkgconfig
 PKG_CONFIG_PATH = $(PKG_CONFIG_PATH.$(BITS))
 
 
@@ -516,6 +519,8 @@ CXXFLAGS +=	$($(COMPILER)_NORUNPATH)
 # Build 32 or 64 bit objects in C++ as well.
 CXXFLAGS +=	$(CC_BITS)
 
+CXXFLAGS +=	$(gcc_OPT)
+
 #
 # Solaris linker flag sets to ease feature selection.  Add the required
 # feature to your Makefile with LDFLAGS += $(FEATURE_MACRO) and add to the
@@ -535,16 +540,29 @@ endif
 
 ifeq ($(CONFIGURE_PREFIX), $(ECPREFIX))
 	CFLAGS +=	-I$(ECPREFIX)/include
+	CXXFLAGS +=	-I$(ECPREFIX)/include
 	LDFLAGS.32 =	-L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
 	LDFLAGS.64 =	-L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)
 else
 	CFLAGS +=	-I$(CONFIGURE_PREFIX)/include -I$(ECPREFIX)/include
+	CXXFLAGS +=	-I$(CONFIGURE_PREFIX)/include -I$(ECPREFIX)/include
 	LDFLAGS.32 =	-L$(CONFIGURE_PREFIX)/lib -R$(CONFIGURE_PREFIX)/lib -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
 	LDFLAGS.64 =	-L$(CONFIGURE_PREFIX)/lib/amd64 -R$(CONFIGURE_PREFIX)/lib/amd64 -L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)
 endif
 
-CXXFLAGS +=    -I$(ECPREFIX)/include
+
+# Generally create code for less ancient CPUs.
+# Also enables support for the GCC atomic builtins when requested.
+CFLAGS.32 =	-march=i686
+CXXFLAGS.32 =	-march=i686
+
+CFLAGS +=	$(CFLAGS.$(BITS))
+CXXFLAGS +=	$(CXXFLAGS.$(BITS))
+
 LDFLAGS +=	$(LDFLAGS.$(BITS))
+
+# Link with libumem by default
+LDFLAGS +=	-lumem
 
 # Reduce the symbol table size, effectively conflicting with -g.  We should
 # get linker guidance here.
