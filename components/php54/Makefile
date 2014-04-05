@@ -14,10 +14,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	5.4.26
+COMPONENT_VERSION=	5.4.27
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:ec3f902b5e8cbdd660e01e784b537f1210a12182d9bbd62164776075bc097eca
+COMPONENT_ARCHIVE_HASH=	sha256:a70dc68eeed902f8378fded473d53e4e37be645b941554dcf4237559cbda2bb3
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_UK)
 
 include ../../make-rules/prep.mk
@@ -69,7 +69,7 @@ CONFIGURE_OPTIONS     +=	--with-zend-vm=CALL
 
 CONFIGURE_OPTIONS     +=	--with-cdb
 CONFIGURE_OPTIONS     +=	--with-kerberos
-CONFIGURE_OPTIONS     +=	--with-pcre-regex
+CONFIGURE_OPTIONS     +=	--with-pcre-regex=$(ECPREFIX)
 
 # Shared Extensions
 
