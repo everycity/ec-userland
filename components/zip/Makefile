@@ -9,14 +9,18 @@
 #
 
 #
-# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		zip
+COMPONENT_FMRI=		compress/zip
 COMPONENT_VERSION=	3.0
 COMPONENT_VERSION_DOWNLOAD=	30
+COMPONENT_LICENSE=	Info-ZIP
+COMPONENT_PROJECT_URL=	"http://www.info-zip.org/"
+COMPONENT_SUMMARY=	The Info-Zip compression utility
 COMPONENT_SRC=		$(COMPONENT_NAME)$(COMPONENT_VERSION_DOWNLOAD)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369
@@ -26,7 +30,6 @@ COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF_PROJECT)
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
-include ../../make-rules/gnu-ld.mk
 
 # remove the unwanted file.
 COMPONENT_PREP_ACTION = $(RM) $(SOURCE_DIR)/crc_i386.S
@@ -40,8 +43,8 @@ COMPONENT_BUILD_TARGETS += generic CC="$(CC)"
 COMPONENT_INSTALL_ARGS += -f unix/Makefile
 
 # This doesn't respect DESTDIR, so overload BINDIR and MANDIR when we install.
-COMPONENT_INSTALL_ARGS += BINDIR=$(PROTOUSRBINDIR)
-COMPONENT_INSTALL_ARGS += MANDIR=$(PROTOUSRSHAREMAN1DIR)
+COMPONENT_INSTALL_ARGS += BINDIR=$(PROTO_DIR)$(ECPREFIX)/bin
+COMPONENT_INSTALL_ARGS += MANDIR=$(PROTO_DIR)$(ECPREFIX)/share/man/man1
 
 build:		$(BUILD_32)
 	
