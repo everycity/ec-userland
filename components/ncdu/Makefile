@@ -9,29 +9,27 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ncdu
-COMPONENT_VERSION=	1.8
+COMPONENT_FMRI=		file/ncdu
+COMPONENT_VERSION=	1.10
+COMPONENT_LICENSE=	ncdu
+COMPONENT_PROJECT_URL=	"http://dev.yorhel.nl/ncdu"
+COMPONENT_SUMMARY=	ncurses disk usage viewer
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:3d98e78cf7035e32333d263d301d12e9b4352598
+COMPONENT_ARCHIVE_HASH=	sha256:f5994a4848dbbca480d39729b021f057700f14ef72c0d739bbd82d862f2f0c67
 COMPONENT_ARCHIVE_URL=	http://dev.yorhel.nl/download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CFLAGS.32       +=      "-I$(ECPREFIX)/include -I$(ECPREFIX)/include/ncurses"
-CPPFLAGS.32     +=      "-I$(ECPREFIX)/include -I$(ECPREFIX)/include/ncurses"
-
-CONFIGURE_OPTIONS.32 += CFLAGS=$(CFLAGS.$(BITS))
-CONFIGURE_OPTIONS.32 += CPPFLAGS=$(CPPFLAGS.$(BITS))
-CONFIGURE_OPTIONS+=     LIBS="-L$(ECPREFIX)/lib -lncurses"
-
+CFLAGS +=	-I$(ECPREFIX)/include/ncurses
 
 build:		$(BUILD_32)
 
