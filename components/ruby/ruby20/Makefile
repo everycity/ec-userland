@@ -15,14 +15,14 @@ include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ruby
 COMPONENT_FMRI=		runtime/ruby-20
-COMPONENT_VERSION=	2.0.0-p353
-IPS_COMPONENT_VERSION=	2.0.0.353
+COMPONENT_VERSION=	2.0.0-p451
+IPS_COMPONENT_VERSION=	2.0.0.451
 COMPONENT_LICENSE=	2-clause BSDL
 COMPONENT_PROJECT_URL=	http://www.ruby-lang.org/
 COMPONENT_SUMMARY=	The Ruby Programming Language & RubyGems
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:465afc77d201b5815bb7ce3660a1f5a131f4429a3fa483c126ce66923e4726cc
+COMPONENT_ARCHIVE_HASH=	sha256:e6d6900eb4084053058349cfdbf63ad1414b6a8d75d58b47ed81010a9947e73b
 COMPONENT_ARCHIVE_URL=	ftp://ftp.ruby-lang.org//pub/ruby/2.0/$(COMPONENT_ARCHIVE)
 
 include ../../../make-rules/prep.mk
@@ -35,7 +35,6 @@ RUBY_VER=	2.0
 COMPONENT_BUILD_GMAKE_ARGS=
 
 CONFIGURE_OPTIONS+=	--with-soname=ruby$(RUBY_VER) --program-suffix=$(RUBY_VER)
-#--program-suffix=$(RUBY_VER)
 CONFIGURE_OPTIONS+=	--enable-shared
 # configure tries to be clever and guesses incorrectly
 CONFIGURE_OPTIONS.32+=	ac_cv_sys_file_offset_bits=32
