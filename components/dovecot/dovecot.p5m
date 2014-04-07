@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -246,6 +246,7 @@ file path=$(ECPREFIX)/include/dovecot/ioloop-iolist.h
 file path=$(ECPREFIX)/include/dovecot/ioloop-notify-fd.h
 file path=$(ECPREFIX)/include/dovecot/ioloop-private.h
 file path=$(ECPREFIX)/include/dovecot/ioloop.h
+file path=$(ECPREFIX)/include/dovecot/iostream-lz4.h
 file path=$(ECPREFIX)/include/dovecot/iostream-openssl.h
 file path=$(ECPREFIX)/include/dovecot/iostream-private.h
 file path=$(ECPREFIX)/include/dovecot/iostream-rawlog-private.h
@@ -592,7 +593,8 @@ file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-login.la
 file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-login.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-sql.a
 file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-sql.la
-file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-sql.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-sql.so.0.0.0 \
+    pkg.depend.runpath=ec/lib/mysql/5.5/lib/$(MACH64):ec/lib/postgres/9.1/lib/$(MACH64):ec/lib/$(MACH64)/dovecot:ec/lib/$(MACH64)
 file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-storage.a
 file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-storage.la
 file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-storage.so.0.0.0
@@ -698,7 +700,7 @@ file path=$(ECPREFIX)/lib/dovecot/libdovecot-login.la
 file path=$(ECPREFIX)/lib/dovecot/libdovecot-login.so.0.0.0
 file path=$(ECPREFIX)/lib/dovecot/libdovecot-sql.a
 file path=$(ECPREFIX)/lib/dovecot/libdovecot-sql.la
-file path=$(ECPREFIX)/lib/dovecot/libdovecot-sql.so.0.0.0
+file path=$(ECPREFIX)/lib/dovecot/libdovecot-sql.so.0.0.0 pkg.depend.runpath=ec/lib/mysql/5.5/lib:ec/lib/postgres/9.1/lib:ec/lib/dovecot:ec/lib
 file path=$(ECPREFIX)/lib/dovecot/libdovecot-storage.a
 file path=$(ECPREFIX)/lib/dovecot/libdovecot-storage.la
 file path=$(ECPREFIX)/lib/dovecot/libdovecot-storage.so.0.0.0
@@ -710,11 +712,13 @@ file path=$(ECPREFIX)/lib/dovecot/libssl_iostream_openssl.la
 file path=$(ECPREFIX)/lib/dovecot/libssl_iostream_openssl.so
 file path=$(ECPREFIX)/libexec/dovecot/aggregator
 file path=$(ECPREFIX)/libexec/dovecot/anvil
-file path=$(ECPREFIX)/libexec/dovecot/auth
+file path=$(ECPREFIX)/libexec/dovecot/auth \
+    pkg.depend.runpath=ec/lib/mysql/5.5/lib/$(MACH64):ec/lib/postgres/9.1/lib/$(MACH64):ec/lib/$(MACH64):ec/lib/$(MACH64)/dovecot
 file path=$(ECPREFIX)/libexec/dovecot/checkpassword-reply
 file path=$(ECPREFIX)/libexec/dovecot/config
 file path=$(ECPREFIX)/libexec/dovecot/decode2text.sh
-file path=$(ECPREFIX)/libexec/dovecot/dict
+file path=$(ECPREFIX)/libexec/dovecot/dict \
+    pkg.depend.runpath=ec/lib/mysql/5.5/lib/$(MACH64):ec/lib/postgres/9.1/lib/$(MACH64):ec/lib/$(MACH64):ec/lib/$(MACH64)/dovecot
 file path=$(ECPREFIX)/libexec/dovecot/director
 file path=$(ECPREFIX)/libexec/dovecot/dns-client
 file path=$(ECPREFIX)/libexec/dovecot/doveadm-server
@@ -792,6 +796,7 @@ file path=$(ECPREFIX)/share/doc/dovecot/solr-schema.xml
 file path=$(ECPREFIX)/share/doc/dovecot/thread-refs.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/ACL.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/AixPluginsSupport.txt
+file path=$(ECPREFIX)/share/doc/dovecot/wiki/AntiSpam.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/AuthDatabase.CheckPassword.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/AuthDatabase.Dict.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/AuthDatabase.LDAP.AuthBinds.txt
@@ -869,13 +874,19 @@ file path=$(ECPREFIX)/share/doc/dovecot/wiki/DomainLost.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Errors.ChgrpNoPerm.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/FindMailLocation.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/FinishBasicConfiguration.txt
+file path=$(ECPREFIX)/share/doc/dovecot/wiki/HowTo.ConvertPasswordSchemes.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/HowTo.EximAndDovecotSASL.txt
+file path=$(ECPREFIX)/share/doc/dovecot/wiki/HowTo.F5SLBTLSOffload.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/HowTo.ImapcProxy.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/HowTo.PopBSMTPAndDovecot.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/HowTo.PopRelay.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/HowTo.PostfixAndDovecotSASL.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/HowTo.Rootless.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/HowTo.SimpleVirtualInstall.txt
+file \
+    path=$(ECPREFIX)/share/doc/dovecot/wiki/HowTo.TriggerGetmailOnIMAPAccess.txt
+file \
+    path=$(ECPREFIX)/share/doc/dovecot/wiki/HowTo.Virtual(2b)Postfix(2b)Dspam(2b)Dovecot.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/HowTo.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/IndexFiles.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/LDA.Exim.txt
@@ -905,6 +916,7 @@ file path=$(ECPREFIX)/share/doc/dovecot/wiki/MailboxFormat.mbox.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/MailboxFormat.mbx.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/MailboxFormat.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/MailboxSettings.txt
+file path=$(ECPREFIX)/share/doc/dovecot/wiki/MainConfig.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/MboxChildFolders.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/MboxLocking.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/MboxProblems.txt

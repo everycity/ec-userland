@@ -10,19 +10,19 @@
 
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		dovecot
 COMPONENT_FMRI=		mail/dovecot
-COMPONENT_VERSION=	2.2.10
+COMPONENT_VERSION=	2.2.12
 COMPONENT_LICENSE=	MIT
 COMPONENT_PROJECT_URL=	"http://dovecot.org/"
 COMPONENT_SUMMARY=	Dovecot IMAP Server
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:75592483d40dc4f76cc3b41af40caa4be80478946a699d46846d5d03e4d2e09b
+COMPONENT_ARCHIVE_HASH=	sha256:f3de1cae5665ff202713c1489bc96b4d029760808bf3311d76c173d7f3e38c56
 COMPONENT_ARCHIVE_URL=	http://www.dovecot.org/releases/2.2/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
