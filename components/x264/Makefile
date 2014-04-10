@@ -9,18 +9,21 @@
 #
 
 #
-# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		x264
-COMPONENT_VERSION=	20120605-2245
-COMPONENT_SRC=		$(COMPONENT_NAME)-snapshot-$(COMPONENT_VERSION)
+COMPONENT_FMRI=		library/video/x264
+COMPONENT_VERSION=	20140409-2245
+IPS_COMPONENT_VERSION=	2014.4.9
+COMPONENT_LICENSE=	GPLv2
+COMPONENT_PROJECT_URL=	"http://www.videolan.org/developers/x264.html"
+COMPONENT_SUMMARY=	H.264/MPEG-4 AVC video encoder library
+COMPONENT_SRC=		$(COMPONENT_NAME)-snapshot-$(COMPONENT_VERSION)-stable
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:510307fa52dae7c7911dc3afbaae82820c4949fe233775742f9bb8d8a95fcef8
-COMPONENT_ARCHIVE_URL=	http://svn.everycity.co.uk/public/solaris/misc/$(COMPONENT_ARCHIVE)
-
-IPS_COMPONENT_VERSION=	2012.6.5
+COMPONENT_ARCHIVE_HASH=	sha256:d877d4eeb42ae549d4b0ea049a8ad89a816efea8f88891f06fa1e977b25f86e3
+COMPONENT_ARCHIVE_URL=	ftp://ftp.videolan.org/pub/x264/snapshots/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
