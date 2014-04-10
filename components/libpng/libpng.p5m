@@ -45,10 +45,10 @@ file path=$(ECPREFIX)/include/libpng16/png.h
 file path=$(ECPREFIX)/include/libpng16/pngconf.h
 file path=$(ECPREFIX)/include/libpng16/pnglibconf.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libpng16.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libpng16.so.16.9.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libpng16.so.16.10.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpng16.pc
 file path=$(ECPREFIX)/lib/libpng16.la
-file path=$(ECPREFIX)/lib/libpng16.so.16.9.0
+file path=$(ECPREFIX)/lib/libpng16.so.16.10.0
 file path=$(ECPREFIX)/lib/pkgconfig/libpng16.pc
 file path=$(ECPREFIX)/share/man/man3/libpng.3
 file path=$(ECPREFIX)/share/man/man3/libpngpf.3
@@ -60,11 +60,11 @@ link path=$(ECPREFIX)/include/pngconf.h target=libpng16/pngconf.h
 link path=$(ECPREFIX)/include/pnglibconf.h target=libpng16/pnglibconf.h
 link path=$(ECPREFIX)/lib/$(MACH64)/libpng.la target=libpng16.la
 link path=$(ECPREFIX)/lib/$(MACH64)/libpng.so target=libpng16.so
-link path=$(ECPREFIX)/lib/$(MACH64)/libpng16.so target=libpng16.so.16.9.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libpng16.so.16 target=libpng16.so.16.9.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libpng16.so target=libpng16.so.16.10.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libpng16.so.16 target=libpng16.so.16.10.0
 link path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpng.pc target=libpng16.pc
 link path=$(ECPREFIX)/lib/libpng.la target=libpng16.la
 link path=$(ECPREFIX)/lib/libpng.so target=libpng16.so
-link path=$(ECPREFIX)/lib/libpng16.so target=libpng16.so.16.9.0
-link path=$(ECPREFIX)/lib/libpng16.so.16 target=libpng16.so.16.9.0
+link path=$(ECPREFIX)/lib/libpng16.so target=libpng16.so.16.10.0
+link path=$(ECPREFIX)/lib/libpng16.so.16 target=libpng16.so.16.10.0
 link path=$(ECPREFIX)/lib/pkgconfig/libpng.pc target=libpng16.pc
