@@ -1,32 +1,28 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
-# CDDL HEADER END
-#
-# Copyright 2011 EveryCity Ltd. All rights reserved.
-#
+
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		yasm
-COMPONENT_VERSION=	1.1.0
+COMPONENT_FMRI=		developer/assembler/yasm
+COMPONENT_VERSION=	1.2.0
+COMPONENT_LICENSE=	BSD
+COMPONENT_PROJECT_URL=	"http://www.tortall.net/projects/yasm/"
+COMPONENT_SUMMARY=	The Yasm Modular Assembler
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:8b252d2a50f6d0d8fe13997183596c3cd7589db9
+COMPONENT_ARCHIVE_HASH=	sha256:768ffab457b90a20a6d895c39749adb547c1b7cb5c108e84b151a838a23ccf31
 COMPONENT_ARCHIVE_URL=	http://www.tortall.net/projects/yasm/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -34,8 +30,6 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 build:		$(BUILD_32_and_64)
-
-include ../../make-rules/shared-targets.mk
 
 install:	$(INSTALL_32_and_64)
 
