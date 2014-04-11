@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule authnz_ldap_module modules/amd64/mod_authnz_ldap.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule authnz_ldap_module modules/mod_authnz_ldap.so
+</IfDefine>

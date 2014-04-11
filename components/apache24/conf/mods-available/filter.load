@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule filter_module modules/amd64/mod_filter.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule filter_module modules/mod_filter.so
+</IfDefine>

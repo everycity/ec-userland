@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule log_forensic_module modules/amd64/mod_log_forensic.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule log_forensic_module modules/mod_log_forensic.so
+</IfDefine>

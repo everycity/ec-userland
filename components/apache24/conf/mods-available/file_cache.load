@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule file_cache_module modules/amd64/mod_file_cache.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule file_cache_module modules/mod_file_cache.so
+</IfDefine>

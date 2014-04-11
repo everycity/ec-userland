@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule headers_module modules/amd64/mod_headers.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule headers_module modules/mod_headers.so
+</IfDefine>

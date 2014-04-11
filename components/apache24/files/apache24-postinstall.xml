@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE service_bundle SYSTEM '/usr/share/lib/xml/dtd/service_bundle.dtd.1'>
+<!--
+	Copyright (C) EveryCity 2011
+-->
+<service_bundle type='manifest' name='apache24-postinstall'>
+
+<service
+	name='tmp/postinstall/apache24'
+	type='service'
+	version='1'>
+
+	<exec_method
+		type='method'
+		name='start'
+		exec='sh -c &quot;[ -h /ec/lib/apache/active ] || ln -s 2.4 /ec/lib/apache/active&quot; ; /usr/bin/ctrun svcadm disable tmp/postinstall/apache24'
+		timeout_seconds='60'/>
+
+ 	<exec_method
+		type='method'
+		name='stop'
+		exec='/usr/bin/ctrun svccfg delete -f tmp/postinstall/apache24'
+		timeout_seconds='30'/>
+
+	<instance name='default' enabled='true'/>
+
+	<stability value='Evolving'/>
+
+</service>
+
+</service_bundle>

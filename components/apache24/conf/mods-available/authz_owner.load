@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule authz_owner_module modules/amd64/mod_authz_owner.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule authz_owner_module modules/mod_authz_owner.so
+</IfDefine>

@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule cgid_module modules/amd64/mod_cgid.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule cgid_module modules/mod_cgid.so
+</IfDefine>

@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule negotiation_module modules/amd64/mod_negotiation.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule negotiation_module modules/mod_negotiation.so
+</IfDefine>

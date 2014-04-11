@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule authz_groupfile_module modules/amd64/mod_authz_groupfile.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule authz_groupfile_module modules/mod_authz_groupfile.so
+</IfDefine>

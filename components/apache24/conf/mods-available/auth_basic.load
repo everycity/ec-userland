@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule auth_basic_module modules/amd64/mod_auth_basic.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule auth_basic_module modules/mod_auth_basic.so
+</IfDefine>

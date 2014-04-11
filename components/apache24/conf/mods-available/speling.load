@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule speling_module modules/amd64/mod_speling.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule speling_module modules/mod_speling.so
+</IfDefine>

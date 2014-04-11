@@ -1,0 +1,2 @@
+# Define an access log for VirtualHosts that don't define their own logfile
+CustomLog ${APACHE_VAR_ROOT}/logs/other_vhosts_access_log vhost_combined
