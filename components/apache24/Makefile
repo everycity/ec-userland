@@ -15,7 +15,7 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		httpd
-COMPONENT_FMRI=		web/server/apache-22/httpd
+COMPONENT_FMRI=		web/server/apache-24/httpd
 COMPONENT_VERSION=	2.4.9
 COMPONENT_LICENSE=	Apachev2.0
 COMPONENT_PROJECT_URL=	"http://httpd.apache.org/"
