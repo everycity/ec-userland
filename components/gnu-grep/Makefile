@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		grep
 COMPONENT_FMRI=		text/gnu-grep
-COMPONENT_VERSION=	2.16
+COMPONENT_VERSION=	2.18
 COMPONENT_LICENSE=	GPLv3
 COMPONENT_PROJECT_URL=	"http://gnu.org/software/grep/"
 COMPONENT_SUMMARY=	GNU grep utilities
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
-COMPONENT_ARCHIVE_HASH=	sha256:16dfeb5013d8c9f21f40ccec0936f2c1c6a014c828d30488f0d5c6ef7b551162
+COMPONENT_ARCHIVE_HASH=	sha256:e6436e5077fa1497feccc8feaabd3f507b172369bf120fbc9e4874bba81be720
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include ../../make-rules/prep.mk
