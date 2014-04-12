@@ -17,13 +17,13 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=		haproxy
 COMPONENT_PROJECT_URL=	http://haproxy.1wt.eu/
 COMPONENT_FMRI=		web/loadbalancer/haproxy-dev
-COMPONENT_VERSION=	1.5-dev19
-IPS_COMPONENT_VERSION=	1.5.0.19
+COMPONENT_VERSION=	1.5-dev22
+IPS_COMPONENT_VERSION=	1.5.0.22
 COMPONENT_LICENSE=	GPL/LGPL with OpenSSL exception
 COMPONENT_SUMMARY=	A reliable, high performance TCP/HTTP load balancer
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:cb411f3dae1309d2ad848681bc7af1c4c60f102993bb2c22d5d4fd9f5d53d30f
+COMPONENT_ARCHIVE_HASH=	sha256:b0978b4802a48ee60ca79c01c0b020c5155ac8248af65d24a248ace91b87ac2e
 #COMPONENT_ARCHIVE_URL=	http://haproxy.1wt.eu/download/1.5/src/devel/${COMPONENT_ARCHIVE}
 COMPONENT_ARCHIVE_URL=	http://download.openpkg.org/components/cache/haproxy/${COMPONENT_ARCHIVE}
 
