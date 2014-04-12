@@ -9,18 +9,18 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/x11/header/xcb-protocols@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="XML-XCB protocol descriptions"
-set name=info.upstream_url value="http://xorg.freedesktop.org/releases/individual/xcb/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license xcb-proto.license license="MIT License (xcb-proto)"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/lib
@@ -35,23 +35,32 @@ dir path=$(ECPREFIX)/share/xcb
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-proto.pc
 file path=$(ECPREFIX)/lib/pkgconfig/xcb-proto.pc
 file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/__init__.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/__init__.pyc
 file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/__init__.pyo
 file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/error.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/error.pyc
 file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/error.pyo
 file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/expr.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/expr.pyc
 file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/expr.pyo
 file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/matcher.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/matcher.pyc
 file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/matcher.pyo
 file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/state.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/state.pyc
 file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/state.pyo
 file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/xtypes.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/xtypes.pyc
 file path=$(ECPREFIX)/lib/python2.6/site-packages/xcbgen/xtypes.pyo
 file path=$(ECPREFIX)/share/xcb/bigreq.xml
 file path=$(ECPREFIX)/share/xcb/composite.xml
 file path=$(ECPREFIX)/share/xcb/damage.xml
 file path=$(ECPREFIX)/share/xcb/dpms.xml
 file path=$(ECPREFIX)/share/xcb/dri2.xml
+file path=$(ECPREFIX)/share/xcb/dri3.xml
+file path=$(ECPREFIX)/share/xcb/ge.xml
 file path=$(ECPREFIX)/share/xcb/glx.xml
+file path=$(ECPREFIX)/share/xcb/present.xml
 file path=$(ECPREFIX)/share/xcb/randr.xml
 file path=$(ECPREFIX)/share/xcb/record.xml
 file path=$(ECPREFIX)/share/xcb/render.xml
@@ -64,9 +73,11 @@ file path=$(ECPREFIX)/share/xcb/xc_misc.xml
 file path=$(ECPREFIX)/share/xcb/xcb.xsd
 file path=$(ECPREFIX)/share/xcb/xevie.xml
 file path=$(ECPREFIX)/share/xcb/xf86dri.xml
+file path=$(ECPREFIX)/share/xcb/xf86vidmode.xml
 file path=$(ECPREFIX)/share/xcb/xfixes.xml
 file path=$(ECPREFIX)/share/xcb/xinerama.xml
 file path=$(ECPREFIX)/share/xcb/xinput.xml
+file path=$(ECPREFIX)/share/xcb/xkb.xml
 file path=$(ECPREFIX)/share/xcb/xprint.xml
 file path=$(ECPREFIX)/share/xcb/xproto.xml
 file path=$(ECPREFIX)/share/xcb/xselinux.xml
