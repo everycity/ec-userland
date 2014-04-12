@@ -1,0 +1,18 @@
+--- xcb-util-image-0.3.9/image/xcb_image.c.orig	2014-04-12 15:48:14.107541541 +0100
++++ xcb-util-image-0.3.9/image/xcb_image.c	2014-04-12 15:48:58.884511132 +0100
+@@ -187,6 +187,7 @@
+       assert(0);
+   }
+   assert(0);
++  return NULL;
+ }
+ 
+ 
+@@ -751,6 +752,7 @@
+   default:
+       assert(0);
+   }
++  return 0;
+ }
+ 
+ 
