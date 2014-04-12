@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		modsecurity-apache
 COMPONENT_FMRI=		web/server/apache-22/module/apache-security
-COMPONENT_VERSION=	2.7.5
+COMPONENT_VERSION=	2.7.7
 COMPONENT_LICENSE=	Apache
 COMPONENT_PROJECT_URL=	http://www.modsecurity.org/
 COMPONENT_SUMMARY=	mod_security provides in-line security filtering for Apache
 COMPONENT_SRC=		$(COMPONENT_NAME)_$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME)_$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:9e907536278d8da80d3dbb29aeffe9c4ec37ce9b641035b2da64e993135647a2
+COMPONENT_ARCHIVE_HASH=	sha256:11e05cfa6b363c2844c6412a40ff16f0021e302152b38870fd1f2f44b204379b
 COMPONENT_ARCHIVE_URL=	http://www.modsecurity.org/tarball/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
