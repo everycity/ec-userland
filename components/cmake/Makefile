@@ -9,24 +9,30 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		cmake
-COMPONENT_VERSION=	2.8.4
+COMPONENT_FMRI=		developer/build/cmake
+COMPONENT_VERSION=	2.8.12
+COMPONENT_LICENSE=	BSD
+COMPONENT_PROJECT_URL=	"http://www.cmake.org/"
+COMPONENT_SUMMARY=	CMake - A cross-platform, open-source make system.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:6c42699bd63fdfcc7743d4906e3208d051d7f19b
+COMPONENT_ARCHIVE_HASH=	sha256:d885ba10b2406ede59aa31a928df33c9d67fc01433202f7dd586999cfd0e0287
 COMPONENT_ARCHIVE_URL=	http://www.cmake.org/files/v2.8/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS +=	--docdir=/share/doc/cmake-2.8
-CONFIGURE_OPTIONS +=	--mandir=/share/man
+LDFLAGS+=	-lsocket -lnsl
+
+CONFIGURE_OPTIONS=	--prefix=$(ECPREFIX) --mandir=share/man
+CONFIGURE_OPTIONS+=	--docdir=share/doc/cmake-2.8
 
 build:		$(BUILD_32)
 

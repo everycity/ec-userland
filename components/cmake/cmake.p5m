@@ -9,36 +9,45 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/developer/build/cmake@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="CMake - A cross-platform, open-source make system."
-set name=info.upstream_url value="http://www.cmake.org/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license cmake.license license="BSD"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/aclocal
 dir path=$(ECPREFIX)/share/cmake-2.8
 dir path=$(ECPREFIX)/share/cmake-2.8/Modules
+dir path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeAddFortranSubdirectory
 dir path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler
+dir path=$(ECPREFIX)/share/cmake-2.8/Modules/CompilerId
 dir path=$(ECPREFIX)/share/cmake-2.8/Modules/FindCUDA
 dir path=$(ECPREFIX)/share/cmake-2.8/Modules/FortranCInterface
 dir path=$(ECPREFIX)/share/cmake-2.8/Modules/FortranCInterface/Verify
+dir path=$(ECPREFIX)/share/cmake-2.8/Modules/IntelVSImplicitPath
 dir path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform
 dir path=$(ECPREFIX)/share/cmake-2.8/Templates
+dir path=$(ECPREFIX)/share/cmake-2.8/completions
+dir path=$(ECPREFIX)/share/cmake-2.8/editors
+dir path=$(ECPREFIX)/share/cmake-2.8/editors/emacs
+dir path=$(ECPREFIX)/share/cmake-2.8/editors/vim
 dir path=$(ECPREFIX)/share/cmake-2.8/include
 dir path=$(ECPREFIX)/share/doc
 dir path=$(ECPREFIX)/share/doc/cmake-2.8
 dir path=$(ECPREFIX)/share/doc/cmake-2.8/cmcompress
 dir path=$(ECPREFIX)/share/doc/cmake-2.8/cmcurl
 dir path=$(ECPREFIX)/share/doc/cmake-2.8/cmexpat
+dir path=$(ECPREFIX)/share/doc/cmake-2.8/cmlibarchive
 dir path=$(ECPREFIX)/share/doc/cmake-2.8/cmsys
 dir path=$(ECPREFIX)/share/doc/cmake-2.8/cmzlib
 dir path=$(ECPREFIX)/share/man
@@ -47,7 +56,15 @@ file path=$(ECPREFIX)/bin/ccmake
 file path=$(ECPREFIX)/bin/cmake
 file path=$(ECPREFIX)/bin/cpack
 file path=$(ECPREFIX)/bin/ctest
+file path=$(ECPREFIX)/share/aclocal/cmake.m4
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/AddFileDependencies.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/AutomocInfo.cmake.in
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/BasicConfigVersion-ExactVersion.cmake.in
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/BasicConfigVersion-SameMajorVersion.cmake.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/BundleUtilities.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMake.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeASM-ATTInformation.cmake
@@ -55,6 +72,12 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeASMCompiler.cmake.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeASMInformation.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeASM_MASMInformation.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeASM_NASMInformation.cmake
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeAddFortranSubdirectory.cmake
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeAddFortranSubdirectory/build_mingw.cmake.in
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeAddFortranSubdirectory/config_mingw.cmake.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeAddNewLanguage.txt
 file \
     path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeBackwardCompatibilityC.cmake
@@ -70,6 +93,7 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeCXXCompiler.cmake.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeCXXCompilerId.cpp.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeCXXInformation.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeClDeps.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeCommonLanguageInclude.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeCompilerABI.h
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeConfigurableFile.in
@@ -83,6 +107,7 @@ file \
     path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeDetermineASM_NASMCompiler.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeDetermineCCompiler.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeDetermineCXXCompiler.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeDetermineCompiler.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeDetermineCompilerABI.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeDetermineCompilerId.cmake
 file \
@@ -92,12 +117,16 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeDetermineRCCompiler.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeDetermineSystem.cmake
 file \
     path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeDetermineVSServicePack.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeExpandImportedTargets.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeExportBuildSettings.cmake
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeFindBinUtils.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeFindCodeBlocks.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeFindEclipseCDT4.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeFindFrameworks.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeFindKDevelop3.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeFindPackageMode.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeFindWMake.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeFindXCode.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeForceCompiler.cmake
@@ -106,6 +135,7 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeFortranCompilerABI.F
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeFortranCompilerId.F.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeFortranInformation.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeGenericSystem.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeGraphVizOptions.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeImportBuildSettings.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeJOMFindMake.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeJavaCompiler.cmake.in
@@ -113,11 +143,15 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeJavaInformation.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeMSYSFindMake.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeMinGWFindMake.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeNMakeFindMake.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeNinjaFindMake.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakePackageConfigHelpers.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeParseArguments.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeParseImplicitLinkInfo.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakePlatformId.h.in
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakePrintHelpers.cmake
 file \
     path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakePrintSystemInformation.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakePushCheckState.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeRCCompiler.cmake.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeRCInformation.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeSystem.cmake.in
@@ -130,14 +164,15 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeTestASM_NASMCompiler.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeTestCCompiler.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeTestCXXCompiler.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeTestCompilerCommon.cmake
-file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeTestForFreeVC.cxx
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeTestFortranCompiler.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeTestGNU.c
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeTestJavaCompiler.cmake
-file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeTestNMakeCLVersion.c
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeTestRCCompiler.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeTestWatcomVersion.c
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeUnixFindMake.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeVS10FindMake.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeVS11FindMake.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeVS12FindMake.cmake
 file \
     path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeVS6BackwardCompatibility.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CMakeVS6FindMake.cmake
@@ -161,18 +196,27 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/CPack.VolumeIcon.icns.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CPack.background.png.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CPack.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CPack.distribution.dist.in
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CPackBundle.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CPackComponent.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CPackCygwin.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CPackDMG.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CPackDeb.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CPackNSIS.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CPackPackageMaker.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CPackRPM.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CPackWIX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CPackZIP.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CTest.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CTestScriptMode.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CTestTargets.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CTestUseLaunchers.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckCCompilerFlag.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckCSourceCompiles.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckCSourceRuns.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckCXXCompilerFlag.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckCXXSourceCompiles.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckCXXSourceRuns.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckCXXSymbolExists.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckForPthreads.c
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckFortranFunctionExists.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckFunctionExists.c
@@ -182,8 +226,11 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckIncludeFile.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckIncludeFile.cxx.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckIncludeFileCXX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckIncludeFiles.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckLanguage.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckLibraryExists.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckLibraryExists.lists.in
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckPrototypeDefinition.c.in
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckPrototypeDefinition.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckSizeOf.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckStructHasMember.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckSymbolExists.cmake
@@ -192,19 +239,29 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckTypeSize.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckTypeSizeMap.cmake.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckVariableExists.c
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/CheckVariableExists.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/Absoft-Fortran.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/Clang-ASM.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/Clang-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/Clang-CXX.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/Clang.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/Cray-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/Cray-CXX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/Cray-Fortran.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/G95-Fortran.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/GNU-ASM.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/GNU-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/GNU-CXX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/GNU-Fortran.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/GNU.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/HP-ASM.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/HP-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/HP-CXX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/HP-Fortran.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/IAR-ASM.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/IAR-C.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/IAR-CXX.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/IAR.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/Intel-ASM.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/Intel-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/Intel-CXX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/Intel-Fortran.cmake
@@ -223,25 +280,42 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/PathScale.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/SCO-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/SCO-CXX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/SCO.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/SunPro-ASM.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/SunPro-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/SunPro-CXX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/SunPro-Fortran.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/TI-ASM.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/TI-C.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/TI-CXX.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/TinyCC-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/VisualAge-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/VisualAge-CXX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/VisualAge-Fortran.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/XL-ASM.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/XL-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/XL-CXX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/XL-Fortran.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Compiler/XL.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CompilerId/VS-10.vcxproj.in
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CompilerId/VS-6.dsp.in
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CompilerId/VS-7.vcproj.in
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CompilerId/Xcode-1.pbxproj.in
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CompilerId/Xcode-2.pbxproj.in
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/CompilerId/Xcode-3.pbxproj.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Dart.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/DartConfiguration.tcl.in
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/DeployQt4.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Documentation.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/DummyCXXFile.cxx
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/ExternalData.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/ExternalData_config.cmake.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/ExternalProject.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FLTKCompatibility.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FeatureSummary.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindALSA.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindASPELL.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindAVIFile.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindArmadillo.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindBISON.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindBLAS.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindBZip2.cmake
@@ -271,6 +345,7 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindFreetype.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindGCCXML.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindGDAL.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindGIF.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindGLEW.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindGLU.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindGLUT.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindGTK.cmake
@@ -283,7 +358,9 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindGnuplot.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindHDF5.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindHSPELL.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindHTMLHelp.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindHg.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindITK.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindIcotool.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindImageMagick.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindJNI.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindJPEG.cmake
@@ -294,6 +371,7 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindKDE4.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindLAPACK.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindLATEX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindLibArchive.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindLibLZMA.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindLibXml2.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindLibXslt.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindLua50.cmake
@@ -361,7 +439,9 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindosgGA.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindosgIntrospection.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindosgManipulator.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindosgParticle.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindosgPresentation.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindosgProducer.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindosgQt.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindosgShadow.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindosgSim.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FindosgTerrain.cmake
@@ -399,25 +479,36 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/FortranCInterface/mymodule.f90
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FortranCInterface/mymodule_.c
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FortranCInterface/mysub.f
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/FortranCInterface/symbol.c.in
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/GNUInstallDirs.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/GenerateExportHeader.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/GetPrerequisites.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/ITKCompatibility.cmake
 file \
     path=$(ECPREFIX)/share/cmake-2.8/Modules/InstallRequiredSystemLibraries.cmake
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/IntelVSImplicitPath/CMakeLists.txt
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/IntelVSImplicitPath/detect.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/IntelVSImplicitPath/hello.f
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/KDE3Macros.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/MacOSXBundleInfo.plist.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/MacOSXFrameworkInfo.plist.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/MacroAddFileDependencies.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/NSIS.InstallOptions.ini.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/NSIS.template.in
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/AIX-GNU-ASM.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/AIX-GNU-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/AIX-GNU-CXX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/AIX-GNU-Fortran.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/AIX-GNU.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/AIX-VisualAge-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/AIX-VisualAge-CXX.cmake
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/AIX-VisualAge-Fortran.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/AIX-XL-ASM.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/AIX-XL-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/AIX-XL-CXX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/AIX-XL-Fortran.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/AIX-XL.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/AIX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/BSDOS.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/BeOS.cmake
@@ -449,6 +540,7 @@ file \
 file \
     path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/BlueGeneP-static-XL-Fortran.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/BlueGeneP-static.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/CYGWIN-CXX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/CYGWIN-GNU-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/CYGWIN-GNU-CXX.cmake
 file \
@@ -457,11 +549,19 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/CYGWIN-GNU.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/CYGWIN-windres.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/CYGWIN.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Catamount.cmake
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Darwin-Absoft-Fortran.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Darwin-CXX.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Darwin-Clang-C.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Darwin-Clang-CXX.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Darwin-Clang.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Darwin-GNU-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Darwin-GNU-CXX.cmake
 file \
     path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Darwin-GNU-Fortran.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Darwin-GNU.cmake
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Darwin-Intel-Fortran.cmake
 file \
     path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Darwin-NAG-Fortran.cmake
 file \
@@ -476,6 +576,8 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Darwin.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/DragonFly.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/FreeBSD.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/GNU.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/GNUtoMS_lib.bat.in
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/GNUtoMS_lib.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Generic-ADSP-ASM.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Generic-ADSP-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Generic-ADSP-CXX.cmake
@@ -487,10 +589,18 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/HP-UX-GNU-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/HP-UX-GNU-CXX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/HP-UX-GNU-Fortran.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/HP-UX-GNU.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/HP-UX-HP-ASM.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/HP-UX-HP-C.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/HP-UX-HP-CXX.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/HP-UX-HP-Fortran.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/HP-UX-HP.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/HP-UX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Haiku.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/IRIX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/IRIX64.cmake
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Linux-Absoft-Fortran.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Linux-CXX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Linux-Clang-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Linux-Clang-CXX.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Linux-GNU-C.cmake
@@ -514,6 +624,7 @@ file \
     path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Linux-PathScale-Fortran.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Linux-PathScale.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Linux-SunPro-CXX.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Linux-TinyCC-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Linux-VisualAge-C.cmake
 file \
     path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Linux-VisualAge-CXX.cmake
@@ -546,38 +657,58 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/UnixWare.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-Borland-C.cmake
 file \
     path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-Borland-CXX.cmake
-file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-Borland.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-CXX.cmake
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-Embarcadero-C.cmake
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-Embarcadero-CXX.cmake
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-Embarcadero.cmake
 file \
     path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-G95-Fortran.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-GNU-C-ABI.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-GNU-C.cmake
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-GNU-CXX-ABI.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-GNU-CXX.cmake
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-GNU-Fortran-ABI.cmake
 file \
     path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-GNU-Fortran.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-GNU.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-Intel-ASM.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-Intel-C.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-Intel-CXX.cmake
 file \
     path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-Intel-Fortran.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-Intel.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-MSVC-C.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-MSVC-CXX.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-MSVC.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-NMcl.cmake
-file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-cl.cmake
-file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-cl.cmake.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-df.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-wcl386.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows-windres.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Windows.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/WindowsCE-MSVC-C.cmake
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/WindowsCE-MSVC-CXX.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/WindowsCE-MSVC.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/WindowsCE.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/WindowsPaths.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/Xenix.cmake
-file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/cl.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/eCos.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/gas.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/kFreeBSD.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Platform/syllable.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/ProcessorCount.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Qt4ConfigDependentSettings.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Qt4Macros.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/RepositoryInfo.txt.in
 file \
     path=$(ECPREFIX)/share/cmake-2.8/Modules/SelectLibraryConfigurations.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Squish4RunTestCase.bat
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/Squish4RunTestCase.sh
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/SquishRunTestCase.bat
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/SquishRunTestCase.sh
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/SquishTestScript.cmake
@@ -595,6 +726,9 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/TestForSSTREAM.cxx
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/TestForSTDNamespace.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/TestForSTDNamespace.cxx
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/UseEcos.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/UseJava.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/UseJavaClassFilelist.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/UseJavaSymlinks.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/UsePkgConfig.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/UseQt4.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/UseSWIG.cmake
@@ -604,7 +738,11 @@ file path=$(ECPREFIX)/share/cmake-2.8/Modules/UseVTKConfig40.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/Use_wxWindows.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/UsewxWidgets.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/VTKCompatibility.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/WIX.template.in
+file \
+    path=$(ECPREFIX)/share/cmake-2.8/Modules/WriteBasicConfigVersionFile.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/ecos_clean.cmake
+file path=$(ECPREFIX)/share/cmake-2.8/Modules/exportheader.cmake.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/kde3init_dummy.cpp.in
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/kde3uic.cmake
 file path=$(ECPREFIX)/share/cmake-2.8/Modules/readme.txt
@@ -629,6 +767,13 @@ file path=$(ECPREFIX)/share/cmake-2.8/Templates/UtilityHeader.dsptemplate
 file path=$(ECPREFIX)/share/cmake-2.8/Templates/cygwin-package.sh.in
 file path=$(ECPREFIX)/share/cmake-2.8/Templates/staticLibFooter.dsptemplate
 file path=$(ECPREFIX)/share/cmake-2.8/Templates/staticLibHeader.dsptemplate
+file path=$(ECPREFIX)/share/cmake-2.8/completions/cmake
+file path=$(ECPREFIX)/share/cmake-2.8/completions/cpack
+file path=$(ECPREFIX)/share/cmake-2.8/completions/ctest
+file path=$(ECPREFIX)/share/cmake-2.8/editors/emacs/cmake-mode.el
+file path=$(ECPREFIX)/share/cmake-2.8/editors/vim/cmake-help.vim
+file path=$(ECPREFIX)/share/cmake-2.8/editors/vim/cmake-indent.vim
+file path=$(ECPREFIX)/share/cmake-2.8/editors/vim/cmake-syntax.vim
 file path=$(ECPREFIX)/share/cmake-2.8/include/cmCPluginAPI.h
 file path=$(ECPREFIX)/share/doc/cmake-2.8/Copyright.txt
 file path=$(ECPREFIX)/share/doc/cmake-2.8/ccmake.docbook
@@ -652,6 +797,7 @@ file path=$(ECPREFIX)/share/doc/cmake-2.8/cmake.txt
 file path=$(ECPREFIX)/share/doc/cmake-2.8/cmcompress/Copyright.txt
 file path=$(ECPREFIX)/share/doc/cmake-2.8/cmcurl/COPYING
 file path=$(ECPREFIX)/share/doc/cmake-2.8/cmexpat/COPYING
+file path=$(ECPREFIX)/share/doc/cmake-2.8/cmlibarchive/COPYING
 file path=$(ECPREFIX)/share/doc/cmake-2.8/cmsys/Copyright.txt
 file path=$(ECPREFIX)/share/doc/cmake-2.8/cmzlib/Copyright.txt
 file path=$(ECPREFIX)/share/doc/cmake-2.8/cpack.docbook
