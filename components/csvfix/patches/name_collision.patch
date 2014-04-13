@@ -1,0 +1,34 @@
+--- csvfix-44e113575fc4/alib/inc/a_str.h.orig	2014-04-11 23:49:40.718528977 +0100
++++ csvfix-44e113575fc4/alib/inc/a_str.h	2014-04-11 23:50:16.890939230 +0100
+@@ -307,13 +307,13 @@
+ // Class used for case insensitive maps etc.
+ //---------------------------------------------------------------------------
+ 
+-template <CaseSensitive CS> class Less {
++template <CaseSensitive CaS> class Less {
+ 
+ 	public:
+ 
+ 		bool operator()( const std::string & s1,
+ 						const std::string & s2 ) const {
+-			return Cmp( s1, s2, CS ) < 0;
++			return Cmp( s1, s2, CaS ) < 0;
+ 		}
+ 
+ };
+--- csvfix-44e113575fc4/alib/inc/a_dict.h.orig	2014-04-11 23:49:53.460199056 +0100
++++ csvfix-44e113575fc4/alib/inc/a_dict.h	2014-04-11 23:50:42.981173349 +0100
+@@ -26,11 +26,11 @@
+ 
+ //---------------------------------------------------------------------------
+ 
+-template <class TYPE, CaseSensitive CS = IgnoreCase> class Dictionary {
++template <class TYPE, CaseSensitive CaS = IgnoreCase> class Dictionary {
+ 
+ 	public:
+ 
+-		typedef std::map <std::string, TYPE, Less<CS> > MapType;
++		typedef std::map <std::string, TYPE, Less<CaS> > MapType;
+ 
+ 		// does dict contain any entries?
+ 		bool IsEmpty() {
