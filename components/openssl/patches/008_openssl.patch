@@ -1,0 +1,46 @@
+
+OpenBSD 5.4 errata 8, Apr 12, 2014:  A use-after-free race condition
+in OpenSSL's read buffer may permit an attacker to inject data from
+one connection into another.
+
+The advice in the previous OpenSSL errata also applies.
+
+Apply patch using:
+
+    cat 008_openssl.patch | (cd /usr/src && patch -p0)
+
+Then build and install libssl
+
+    cd /usr/src/lib/libssl/ssl
+    make obj
+    make
+    make install
+
+Also recompile any statically-linked binaries depending on it - in
+the base OS, this is just ftp(1):
+
+    cd /usr/src/usr.bin/ftp
+    make obj
+    make clean
+    make
+    make install
+
+Then restart services which depend on SSL.
+
+Index: lib/libssl/src/ssl/s3_pkt.c
+===================================================================
+RCS file: /cvs/src/lib/libssl/src/ssl/s3_pkt.c,v
+retrieving revision 1.19
+retrieving revision 1.19.4.1
+diff -u -p -u -r1.19 -r1.19.4.1
+--- a/ssl/s3_pkt.c	14 Feb 2013 15:11:43 -0000	1.19
++++ b/ssl/s3_pkt.c	12 Apr 2014 17:00:53 -0000	1.19.4.1
+@@ -1054,7 +1054,7 @@ start:
+ 				{
+ 				s->rstate=SSL_ST_READ_HEADER;
+ 				rr->off=0;
+-				if (s->mode & SSL_MODE_RELEASE_BUFFERS)
++				if (s->mode & SSL_MODE_RELEASE_BUFFERS && s->s3->rbuf.left == 0)
+ 					ssl3_release_read_buffer(s);
+ 				}
+ 			}
