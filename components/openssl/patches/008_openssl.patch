@@ -35,7 +35,7 @@ retrieving revision 1.19.4.1
 diff -u -p -u -r1.19 -r1.19.4.1
 --- a/ssl/s3_pkt.c	14 Feb 2013 15:11:43 -0000	1.19
 +++ b/ssl/s3_pkt.c	12 Apr 2014 17:00:53 -0000	1.19.4.1
-@@ -1054,7 +1054,7 @@ start:
+@@ -1055,7 +1055,7 @@ start:
  				{
  				s->rstate=SSL_ST_READ_HEADER;
  				rr->off=0;
