@@ -9,14 +9,18 @@
 #
 
 #
-# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		proftpd
+COMPONENT_FMRI=		network/ftp/proftpd
 COMPONENT_VERSION=	1.3.4c
 IPS_COMPONENT_VERSION=	1.3.4.3
+COMPONENT_LICENSE=	GPLv2
+COMPONENT_PROJECT_URL=	"http://www.proftpd.org/"
+COMPONENT_SUMMARY=	Highly configurable FTP server software
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:fb80dd422969b8c900920a30a56f5e272862275d244d3857a980f5f2386ea912
@@ -41,8 +45,8 @@ DSOMODS4 = mod_quotatab_radius:mod_quotatab_sql:mod_radius:mod_ratio:mod_readme:
 DSOMODS5 = mod_sftp_sql:mod_shaper:mod_site_misc:mod_sql:mod_sql_mysql:mod_sql_odbc:mod_sql_passwd:mod_sql_postgres:
 DSOMODS6 = mod_sql_sqlite:mod_tls:mod_tls_memcache:mod_tls_shmcache:mod_unique_id:mod_wrap2:mod_wrap2_file:mod_wrap2_sql
 
-CONFIGURE_OPTIONS +=	CFLAGS="$(CFLAGS) -I$(ECPREFIX)/include/odbc -I$(ECPREFIX)/lib/postgres/9.1/include"
-CONFIGURE_OPTIONS +=	LDFLAGS="$(LDFLAGS) -L$(ECPREFIX)/lib/postgres/9.1/lib -R$(ECPREFIX)/lib/postgres/9.1/lib -R$(ECPREFIX)/lib/mysql/5.5/lib"
+CONFIGURE_OPTIONS +=	CFLAGS="$(CFLAGS) -I$(ECPREFIX)/include/odbc -I$(ECPREFIX)/lib/postgres/9.3/include"
+CONFIGURE_OPTIONS +=	LDFLAGS="$(LDFLAGS) -L$(ECPREFIX)/lib/postgres/9.3/lib -R$(ECPREFIX)/lib/postgres/9.3/lib -R$(ECPREFIX)/lib/mysql/5.5/lib"
 CONFIGURE_OPTIONS +=	CPPFLAGS="$(CPPFLAGS) -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_OPENSSL"
 CONFIGURE_OPTIONS +=	install_user=$(LOGNAME)
 CONFIGURE_OPTIONS +=	install_group=`groups | cut -f 1 -d ' '`
@@ -65,5 +69,12 @@ CONFIGURE_OPTIONS +=	--with-shared=$(DSOMODS1)$(DSOMODS2)$(DSOMODS3)$(DSOMODS4)$
 
 build:		$(BUILD_32)
 
-install:	$(INSTALL_32)
+$(BUILD_DIR)/.installed:	$(INSTALL_32)
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/var/svc/method
+	$(MKDIR) $(PROTO_DIR)/var/svc/manifest/site
+	$(CP) $(COMPONENT_DIR)/files/proftpd-startup.sh $(PROTO_DIR)$(ECPREFIX)/var/svc/method/proftpd
+	$(CP) $(COMPONENT_DIR)/files/proftpd-manifest.xml $(PROTO_DIR)/var/svc/manifest/site/proftpd.xml
+	$(TOUCH) $@
+
+install:	$(BUILD_DIR)/.installed
 
