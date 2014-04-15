@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -24,10 +24,7 @@ license postgresql91.license license="BSD Style"
 
 # Dependencies
 depend fmri=pkg:/database/postgresql-91/client type=require
-
-# Users
-group gid=90 groupname=postgres
-user gcos-field="Postgresql Account" group=postgres uid=90 username=postgres login-shell=/usr/bin/bash home-dir=/ec/var/postgres
+depend fmri=pkg:/database/postgresql-common type=require
 
 # Symlinks
 # 32bit
