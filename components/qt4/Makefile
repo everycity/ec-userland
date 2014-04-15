@@ -1,61 +1,59 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
-# CDDL HEADER END
-#
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
-#
+
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		qt
-COMPONENT_VERSION=	4.7.3
+COMPONENT_FMRI=		library/qt4
+COMPONENT_VERSION=	4.8.5
+COMPONENT_VERSION_MJR=	4.8
+COMPONENT_LICENSE=	QT4
+COMPONENT_PROJECT_URL=	"http://qt.nokia.com/products/"
+COMPONENT_SUMMARY=	Qt cross-platform application and UI framework
 COMPONENT_SRC=		$(COMPONENT_NAME)-everywhere-opensource-src-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:765eb70d9779f93fefddddda5e6ddb33f4c0b71e
-COMPONENT_ARCHIVE_URL=	http://get.qt.nokia.com/qt/source/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:eb728f8268831dc4373be6403b7dd5d5dde03c169ad6882f9a8cb560df6aa138
+COMPONENT_ARCHIVE_URL=	http://download.qt-project.org/official_releases/qt/$(COMPONENT_VERSION_MJR)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-PATH.32=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
-PATH.64=$(ECPREFIX)/bin/$(MACH64):$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH.32=$(ECPREFIX)/lib/postgres/9.3/bin:$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH.64=$(ECPREFIX)/lib/postgres/9.3/bin/$(MACH64)$(ECPREFIX)/bin/$(MACH64):$(ECPREFIX)/bin/$(MACH64):/usr/bin:/usr/sfw/bin:/usr/ccs/bin:$(ECPREFIX)/bin
 PATH=$(PATH.$(BITS))
 
-LDFLAGS.32 +=   -L$(ECPREFIX)/lib/postgres/9.1/lib -R$(ECPREFIX)/lib/postgres/9.1/lib
-LDFLAGS.64 +=	-L$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64) -R$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64)
+LDFLAGS.32 +=   -L$(ECPREFIX)/lib/postgres/9.3/lib -R$(ECPREFIX)/lib/postgres/9.3/lib
+LDFLAGS.64 +=	-L$(ECPREFIX)/lib/postgres/9.3/lib/$(MACH64) -R$(ECPREFIX)/lib/postgres/9.3/lib/$(MACH64)
 
 COMPONENT_INSTALL_ENV+=	INSTALL_ROOT=$(PROTO_DIR)
 
-CONFIGURE_OPTIONS=	-prefix $(ECPREFIX)/lib/$(COMPONENT_NAME)/4.7
-CONFIGURE_OPTIONS.32=	-bindir $(ECPREFIX)/lib/$(COMPONENT_NAME)/4.7/bin
-CONFIGURE_OPTIONS.32+=	-libdir $(ECPREFIX)/lib/$(COMPONENT_NAME)/4.7/lib
-CONFIGURE_OPTIONS.32+=	-plugindir $(ECPREFIX)/lib/$(COMPONENT_NAME)/4.7/plugins
-CONFIGURE_OPTIONS.64=	-bindir $(ECPREFIX)/lib/$(COMPONENT_NAME)/4.7/bin/$(MACH64)
-CONFIGURE_OPTIONS.64+=	-libdir $(ECPREFIX)/lib/$(COMPONENT_NAME)/4.7/lib/$(MACH64)
-CONFIGURE_OPTIONS.64+=	-plugindir $(ECPREFIX)/lib/$(COMPONENT_NAME)/4.7/plugins/$(MACH64)
+CONFIGURE_OPTIONS=	-prefix $(ECPREFIX)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)
+CONFIGURE_OPTIONS.32=	-bindir $(ECPREFIX)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/bin
+CONFIGURE_OPTIONS.32+=	-libdir $(ECPREFIX)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/lib
+CONFIGURE_OPTIONS.32+=	-plugindir $(ECPREFIX)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/plugins
+CONFIGURE_OPTIONS.64=	-bindir $(ECPREFIX)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/bin/$(MACH64)
+CONFIGURE_OPTIONS.64+=	-libdir $(ECPREFIX)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/lib/$(MACH64)
+CONFIGURE_OPTIONS.64+=	-plugindir $(ECPREFIX)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/plugins/$(MACH64)
 CONFIGURE_OPTIONS.32+=	-platform solaris-g++
 CONFIGURE_OPTIONS.64+=	-platform solaris-g++-64
+CONFIGURE_OPTIONS+=	-verbose
 CONFIGURE_OPTIONS+=	-opensource
 CONFIGURE_OPTIONS+=	-confirm-license
 CONFIGURE_OPTIONS+=	-xmlpatterns
 CONFIGURE_OPTIONS+=	-webkit
-CONFIGURE_OPTIONS+=	-opengl
+CONFIGURE_OPTIONS+=	-no-opengl
 CONFIGURE_OPTIONS+=	-nomake examples
 CONFIGURE_OPTIONS+=	-nomake demos
 CONFIGURE_OPTIONS+=	-nomake translations
@@ -66,9 +64,9 @@ CONFIGURE_OPTIONS+=	-plugin-sql-mysql
 CONFIGURE_OPTIONS+=	-plugin-sql-psql
 CONFIGURE_OPTIONS+=	-system-sqlite
 
-COMPONENT_POST_INSTALL_ACTION.32= ( cd $(PROTO_DIR)$(ECPREFIX)/lib/qt/4.7/mkspecs ; \
+COMPONENT_POST_INSTALL_ACTION.32= ( cd $(PROTO_DIR)$(ECPREFIX)/lib/qt/$(COMPONENT_VERSION_MJR)/mkspecs ; \
 	mv qconfig.pri qconfig.pri.32 )
-COMPONENT_POST_INSTALL_ACTION.64= ( cd $(PROTO_DIR)$(ECPREFIX)/lib/qt/4.7/mkspecs ; \
+COMPONENT_POST_INSTALL_ACTION.64= ( cd $(PROTO_DIR)$(ECPREFIX)/lib/qt/$(COMPONENT_VERSION_MJR)/mkspecs ; \
 	mv qconfig.pri qconfig.pri.64 ; ln -s qconfig.pri.32 qconfig.pri )
 COMPONENT_POST_INSTALL_ACTION=$(COMPONENT_POST_INSTALL_ACTION.$(BITS))
 
