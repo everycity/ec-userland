@@ -29,8 +29,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-PATH.32 =	$(ECPREFIX)/lib/postgres/9.1/bin:$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
-PATH.64 =	$(ECPREFIX)/lib/postgres/9.1/bin/$(MACH64):$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH.32 =	$(ECPREFIX)/lib/postgres/9.3/bin:$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH.64 =	$(ECPREFIX)/lib/postgres/9.3/bin/$(MACH64):$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 PATH =	$(PATH.$(BITS))
 
 CONFIGURE_OPTIONS	+=	--with-ldap
