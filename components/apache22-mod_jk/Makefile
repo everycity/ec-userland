@@ -15,10 +15,14 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tomcat-connectors
-COMPONENT_VERSION=	1.2.39
+COMPONENT_FMRI=		web/server/apache-22/module/apache-jk
+COMPONENT_VERSION=	1.2.40
+COMPONENT_LICENSE=	Apache v2
+COMPONENT_PROJECT_URL=	"http://tomcat.apache.org/"
+COMPONENT_SUMMARY=	mod_jk is the connector used to connect to the Tomcat servlet container with webservers
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)-src
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME)-$(COMPONENT_VERSION)-src.tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:b053d422718457f7ba76b4805d06a064dcfe61cd3027acc44ef2b048caa72c65
+COMPONENT_ARCHIVE_HASH=	sha256:895e347c4dff74049a848603fb29958e6cf429ea0fc708d514b3a8958236705d
 COMPONENT_ARCHIVE_URL=	http://mirrors.ukfast.co.uk/sites/ftp.apache.org//tomcat/tomcat-connectors/jk/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -43,6 +47,8 @@ build:		$(BUILD_32_and_64)
 
 $(BUILD_DIR)/.installed:        build
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.2/mods-available
+	$(CP) $(COMPONENT_DIR)/files/jk.conf $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.2/mods-available
+	$(CP) $(COMPONENT_DIR)/files/jk.load $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.2/mods-available
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
 	$(CP) $(BUILD_DIR_32)/apache-2.0/mod_jk.so $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/
 	$(CP) $(BUILD_DIR_64)/apache-2.0/mod_jk.so $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
