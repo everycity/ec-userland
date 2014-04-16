@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule cache_disk_module modules/amd64/mod_cache_disk.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule cache_disk_module modules/mod_cache_disk.so
+</IfDefine>

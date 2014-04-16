@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule heartmonitor_module modules/amd64/mod_heartmonitor.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule heartmonitor_module modules/mod_heartmonitor.so
+</IfDefine>

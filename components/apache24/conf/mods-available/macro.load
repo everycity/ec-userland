@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule macro_module modules/amd64/mod_macro.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule macro_module modules/mod_macro.so
+</IfDefine>

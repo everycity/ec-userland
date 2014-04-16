@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule session_cookie_module modules/amd64/mod_session_cookie.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule session_cookie_module modules/mod_session_cookie.so
+</IfDefine>

@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule socache_memcache_module modules/amd64/mod_socache_memcache.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule socache_memcache_module modules/mod_socache_memcache.so
+</IfDefine>

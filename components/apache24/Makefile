@@ -68,8 +68,10 @@ CONFIGURE_OPTIONS.32  += --with-apr=$(ECPREFIX)/bin/apr-1-config
 CONFIGURE_OPTIONS.64  += --with-apr=$(ECPREFIX)/bin/$(MACH64)/apr-1-config
 CONFIGURE_OPTIONS.32  += --with-apr-util=$(ECPREFIX)/bin/apu-1-config
 CONFIGURE_OPTIONS.64  += --with-apr-util=$(ECPREFIX)/bin/$(MACH64)/apu-1-config
-
-CONFIGURE_OPTIONS  +=	$(CONFIGURE_OPTIONS.$(BITS))
+CONFIGURE_OPTIONS.32  += --with-z=$(ECPREFIX)/lib
+CONFIGURE_OPTIONS.64  += --with-z=$(ECPREFIX)/lib/$(MACH64)
+CONFIGURE_OPTIONS.32  += --with-libxml2=$(ECPREFIX)/lib
+CONFIGURE_OPTIONS.64  += --with-libxml2=$(ECPREFIX)/lib/$(MACH64)
 
 CONFIGURE_OPTIONS  +=	--enable-mods-shared=all
 CONFIGURE_OPTIONS  +=	--enable-so
@@ -80,6 +82,7 @@ CONFIGURE_OPTIONS  +=	--enable-proxy-connect
 CONFIGURE_OPTIONS  +=	--enable-proxy-ftp
 CONFIGURE_OPTIONS  +=	--enable-proxy-http
 CONFIGURE_OPTIONS  +=	--enable-proxy-ajp
+CONFIGURE_OPTIONS  +=	--enable-proxy-wstunnel
 CONFIGURE_OPTIONS  +=	--enable-proxy-balancer
 CONFIGURE_OPTIONS  +=	--enable-cache
 CONFIGURE_OPTIONS  +=	--enable-file-cache
@@ -92,9 +95,11 @@ CONFIGURE_OPTIONS  +=	--enable-authnz-ldap
 CONFIGURE_OPTIONS  +=	--enable-ldap
 CONFIGURE_OPTIONS  +=	--enable-ssl
 CONFIGURE_OPTIONS  +=	--enable-exception-hook
-
+CONFIGURE_OPTIONS  +=	--enable-unixd
+CONFIGURE_OPTIONS  +=	--enable-privileges
+CONFIGURE_OPTIONS  +=	--enable-dav
+CONFIGURE_OPTIONS  +=	--enable-rewrite
 CONFIGURE_OPTIONS  +=	--with-mpm=$(MPM)
-CONFIGURE_OPTIONS  +=	--with-z=$(ECPREFIX)/lib
 
 CONFIGURE_OPTIONS  +=	$(CONFIGURE_OPTIONS.$(BITS))
 

@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule authncache.so_module modules/amd64/mod_authncache.so.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule authncache.so_module modules/mod_authncache.so.so
+</IfDefine>

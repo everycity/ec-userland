@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule auth_form_module modules/amd64/mod_auth_form.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule auth_form_module modules/mod_auth_form.so
+</IfDefine>

@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule sed_module modules/amd64/mod_sed.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule sed_module modules/mod_sed.so
+</IfDefine>

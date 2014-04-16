@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule cachecache.so_module modules/amd64/mod_cachecache.so.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule cachecache.so_module modules/mod_cachecache.so.so
+</IfDefine>

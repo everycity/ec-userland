@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule log_debug_module modules/amd64/mod_log_debug.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule log_debug_module modules/mod_log_debug.so
+</IfDefine>

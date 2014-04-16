@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule watchdog_module modules/amd64/mod_watchdog.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule watchdog_module modules/mod_watchdog.so
+</IfDefine>

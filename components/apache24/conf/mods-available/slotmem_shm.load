@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule slotmem_shm_module modules/amd64/mod_slotmem_shm.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule slotmem_shm_module modules/mod_slotmem_shm.so
+</IfDefine>

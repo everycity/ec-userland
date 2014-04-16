@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule proxy_fcgi_module modules/amd64/mod_proxy_fcgi.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so
+</IfDefine>

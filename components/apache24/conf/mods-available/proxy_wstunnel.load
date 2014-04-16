@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule proxy_wstunnel_module modules/amd64/mod_proxy_wstunnel.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule proxy_wstunnel_module modules/mod_proxy_wstunnel.so
+</IfDefine>

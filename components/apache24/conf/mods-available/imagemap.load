@@ -1,6 +1,0 @@
-<IfDefine 64bit>
-LoadModule imagemap_module modules/amd64/mod_imagemap.so
-</IfDefine>
-<IfDefine !64bit>
-LoadModule imagemap_module modules/mod_imagemap.so
-</IfDefine>

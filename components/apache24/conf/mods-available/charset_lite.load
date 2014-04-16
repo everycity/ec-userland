@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule charset_lite_module modules/amd64/mod_charset_lite.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule charset_lite_module modules/mod_charset_lite.so
+</IfDefine>

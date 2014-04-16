@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule request_module modules/amd64/mod_request.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule request_module modules/mod_request.so
+</IfDefine>

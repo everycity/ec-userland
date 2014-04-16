@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule access_compat_module modules/amd64/mod_access_compat.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule access_compat_module modules/mod_access_compat.so
+</IfDefine>

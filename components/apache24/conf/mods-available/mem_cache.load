@@ -1,6 +1,0 @@
-<IfDefine 64bit>
-LoadModule mem_cache_module modules/amd64/mod_mem_cache.so
-</IfDefine>
-<IfDefine !64bit>
-LoadModule mem_cache_module modules/mod_mem_cache.so
-</IfDefine>

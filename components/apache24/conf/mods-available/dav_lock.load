@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule dav_lock_module modules/amd64/mod_dav_lock.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule dav_lock_module modules/mod_dav_lock.so
+</IfDefine>

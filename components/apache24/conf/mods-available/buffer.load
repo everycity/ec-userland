@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule buffer_module modules/amd64/mod_buffer.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule buffer_module modules/mod_buffer.so
+</IfDefine>
