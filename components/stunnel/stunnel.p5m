@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -36,6 +36,8 @@ file files/stunnel-manifest.xml path=var/svc/manifest/site/stunnel.xml \
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/stunnel
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/stunnel
@@ -49,12 +51,11 @@ dir path=$(ECPREFIX)/share/man/man8
 dir path=$(ECPREFIX)/var
 dir path=$(ECPREFIX)/var/lib
 dir path=$(ECPREFIX)/var/lib/stunnel
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/stunnel
 file path=$(ECPREFIX)/bin/$(MACH64)/stunnel
 file path=$(ECPREFIX)/bin/$(MACH64)/stunnel3
 file path=$(ECPREFIX)/bin/stunnel
 file path=$(ECPREFIX)/bin/stunnel3
+file path=$(ECPREFIX)/etc/stunnel/stunnel.conf-sample
 file path=$(ECPREFIX)/lib/$(MACH64)/stunnel/libstunnel.la
 file path=$(ECPREFIX)/lib/$(MACH64)/stunnel/libstunnel.so
 file path=$(ECPREFIX)/lib/stunnel/libstunnel.la
@@ -86,4 +87,3 @@ file path=$(ECPREFIX)/share/doc/stunnel/stunnel.pl.html
 file path=$(ECPREFIX)/share/man/man8/stunnel.8
 file path=$(ECPREFIX)/share/man/man8/stunnel.fr.8
 file path=$(ECPREFIX)/share/man/man8/stunnel.pl.8
-file path=$(ECPREFIX)/etc/stunnel/stunnel.conf-sample
