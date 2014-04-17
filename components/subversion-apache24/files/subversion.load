@@ -1,0 +1,17 @@
+
+<IfModule !mod_dav_svn.c>
+    <IfDefine 64bit>
+        # Subversion Apache Module
+        LoadModule dav_svn_module modules/amd64/mod_dav_svn.so
+
+        # Only needed if you decide to do "per-directory" access control.
+        #LoadModule authz_svn_module modules/amd64/mod_authz_svn.so
+    </IfDefine>
+    <IfDefine !64bit>
+        # Subversion Apache Module
+        LoadModule dav_svn_module modules/mod_dav_svn.so
+
+        # Only needed if you decide to do "per-directory" access control.
+        #LoadModule authz_svn_module modules/mod_authz_svn.so
+    </IfDefine>
+</IfModule>
