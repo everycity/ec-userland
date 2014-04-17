@@ -1,0 +1,10 @@
+--- postgis-2.1.2/liblwgeom/measures.c.orig	2014-04-17 12:21:58.112073417 +0100
++++ postgis-2.1.2/liblwgeom/measures.c	2014-04-17 12:22:05.457240356 +0100
+@@ -13,6 +13,7 @@
+ 
+ #include <string.h>
+ #include <stdlib.h>
++#include <math.h>
+ 
+ #include "measures.h"
+ #include "lwgeom_log.h"
