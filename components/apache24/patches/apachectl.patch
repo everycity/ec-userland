@@ -9,14 +9,14 @@
 +
 +# If APACHE_ETC_ROOT isn't set, attempt to get it via SMF
 +if [ ! -n "${APACHE_ETC_ROOT:+x}" ] ; then
-+  APACHE_ETC_ROOT=`svcprop -p httpd/config_dir svc:/network/http/apache22:default 2>/dev/null`
++  APACHE_ETC_ROOT=`svcprop -p httpd/config_dir svc:/network/http/apache24:default 2>/dev/null`
 +  [ $? -ne 0 ] && APACHE_ETC_ROOT=@exp_sysconfdir@
 +  export APACHE_ETC_ROOT
 +fi
 +
 +# If APACHE_VAR_ROOT isn't set, attempt to get it via SMF
 +if [ ! -n "${APACHE_VAR_ROOT:+x}" ] ; then
-+  APACHE_VAR_ROOT=`svcprop -p httpd/var_dir svc:/network/http/apache22:default 2>/dev/null`
++  APACHE_VAR_ROOT=`svcprop -p httpd/var_dir svc:/network/http/apache24:default 2>/dev/null`
 +  [ $? -ne 0 ] && APACHE_VAR_ROOT=@exp_datadir@
 +  export APACHE_VAR_ROOT
 +fi
