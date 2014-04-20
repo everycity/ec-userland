@@ -22,7 +22,8 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-depend fmri=web/server/apache-24/httpd type=require
+depend fmri=pkg:/web/server/apache-24/httpd type=require
+depend fmri=pkg:/web/php-54/php-common type=require
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/etc
@@ -45,4 +46,3 @@ link path=$(ECPREFIX)/etc/apache/2.4/mods-enabled/php54.load \
     target=../mods-available/php54.load preserve=true
 link path=$(ECPREFIX)/etc/apache/2.4/mods-enabled/php54.conf \
     target=../mods-available/php54.conf preserve=true
-depend fmri=pkg:/web/php-54/php-common type=require
