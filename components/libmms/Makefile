@@ -9,15 +9,20 @@
 #
 
 #
-# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
+
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libmms
-COMPONENT_VERSION=	0.6.2
+COMPONENT_FMRI=		multimedia/libmms
+COMPONENT_VERSION=	0.6.4
+COMPONENT_LICENSE=	LGPLv2.1
+COMPONENT_PROJECT_URL=	"http://sourceforge.net/projects/libmms/"
+COMPONENT_SUMMARY=	Library for downloading (streaming) media files using the mmst and mmsh protocols
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:01931b62172d7d7050fc9ef9b1b64162f3b6e9f6cc4415170192a32a0b7ea432
+COMPONENT_ARCHIVE_HASH=	sha256:3c05e05aebcbfcc044d9e8c2d4646cd8359be39a3f0ba8ce4e72a9094bee704f
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
