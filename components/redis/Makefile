@@ -25,13 +25,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		redis
 COMPONENT_FMRI=		database/redis
-COMPONENT_VERSION=	2.8.8
+COMPONENT_VERSION=	2.8.9
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://redis.io/"
 COMPONENT_SUMMARY=	Redis is an open source, BSD licensed, advanced key-value store.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:fd2be11b8d9300d35b6bbed6fcd6fa6d7ef1a72ccaeb0cc991ce44dc49908bc8
+COMPONENT_ARCHIVE_HASH=	sha256:7834c37f2ff186c46aef8e4a066dfbf1d6772a285aa31c19c58162f264f1007f
 COMPONENT_ARCHIVE_URL=	http://download.redis.io/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -47,6 +47,10 @@ COMPONENT_PRE_INSTALL_ACTION=	( mkdir -p $(PROTO_DIR)$(ECPREFIX)/bin )
 
 build:		$(BUILD_64)
 
-install:	$(INSTALL_64)
+$(BUILD_DIR)/.installed:	$(INSTALL_64)
+	for file in $(PROTO_DIR)$(ECPREFIX)/bin/redis*; do strip -x $$file; done
+	$(TOUCH) $@
+
+install:	$(BUILD_DIR)/.installed
 
 include ../../make-rules/depend.mk
