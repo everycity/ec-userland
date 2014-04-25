@@ -9,25 +9,29 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		MySQL-python
-COMPONENT_VERSION=	1.2.3
-COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
+COMPONENT_FMRI=		library/python/mysqldb
+COMPONENT_VERSION=	1.2.5
+COMPONENT_LICENSE=	GPLv2
+COMPONENT_PROJECT_URL=	"https://github.com/farcepest/MySQLdb1"
+COMPONENT_SUMMARY=	MySQLdb is an interface to the popular MySQL database server for Python
+COMPONENT_SRC=		MySQLdb1-MySQLdb-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:3511bb8c57c6016eeafa531d5c3ea4b548915e3c
-COMPONENT_ARCHIVE_URL=	http://pypi.python.org/packages/source/M/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:905dd8be887ff596641ace5411fed17cfd08dd33699ea627d3fb44f8a922c2f0
+COMPONENT_ARCHIVE_URL=	https://github.com/farcepest/MySQLdb1/archive/MySQLdb-$(COMPONENT_VERSION).tar.gz
 
 include ../../make-rules/prep.mk
 include ../../make-rules/setup.py.mk
 include ../../make-rules/ips.mk
 
 # Ensure the 64bit mysql-config gets picked up on 64bit builds
-PATH.32=$(ECPREFIX)/bin:/usr/bin:/usr/ccs/bin
-PATH.64=$(ECPREFIX)/bin/$(MACH64):$(ECPREFIX)/bin:/usr/bin:/usr/ccs/bin
+PATH.32=$(ECPREFIX)/lib/mysql/5.5/bin:$(ECPREFIX)/bin:/usr/bin:/usr/ccs/bin
+PATH.64=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64):$(ECPREFIX)/bin/$(MACH64):$(ECPREFIX)/bin:/usr/bin:/usr/ccs/bin
 PATH=$(PATH.$(BITS))
 
 build:		$(BUILD_32_and_64)
