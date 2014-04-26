@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		nginx
 COMPONENT_FMRI=		web/server/nginx
-COMPONENT_VERSION=	1.4.7
+COMPONENT_VERSION=	1.6.0
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	http://nginx.net/
 COMPONENT_SUMMARY=	Nginx Webserver
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:23b8ff4a76817090678f91b0efbfcef59a93492f6612dc8370c44c1f1ce1b626
+COMPONENT_ARCHIVE_HASH=	sha256:943ad757a1c3e8b3df2d5c4ddacc508861922e36fa10ea6f8e3a348fc9abfc1a
 COMPONENT_ARCHIVE_URL=	http://nginx.org/download/$(COMPONENT_ARCHIVE)
 
 MOD_WSGI_HG_TAG=		6975f0ec7eeb
@@ -42,7 +42,7 @@ COMPONENT_PREP_ACTION = cd $(@D); \
 CONFIGURE_OPTIONS  = --prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS.32 = --sbin-path=$(ECPREFIX)/bin/nginx
 CONFIGURE_OPTIONS.64 = --sbin-path=$(ECPREFIX)/bin/$(MACH64)/nginx
-CONFIGURE_OPTIONS.64 += --with-ld-opt=$(LD_BITS)
+CONFIGURE_OPTIONS += --with-ld-opt=$(LD_BITS)
 CONFIGURE_OPTIONS += --conf-path=$(ECPREFIX)/etc/nginx/nginx.conf
 CONFIGURE_OPTIONS += --http-log-path=$(ECPREFIX)/var/nginx/logs/access_log
 CONFIGURE_OPTIONS += --error-log-path=$(ECPREFIX)/var/nginx/logs/error_log
@@ -50,22 +50,22 @@ CONFIGURE_OPTIONS += --pid-path=$(ECPREFIX)/var/run/nginx
 CONFIGURE_OPTIONS += --lock-path=$(ECPREFIX)/var/run/nginx
 CONFIGURE_OPTIONS += --user=webservd
 CONFIGURE_OPTIONS += --group=webservd
-CONFIGURE_OPTIONS += --with-http_ssl_module
+CONFIGURE_OPTIONS += --with-http_addition_module
+CONFIGURE_OPTIONS += --with-http_dav_module
+CONFIGURE_OPTIONS += --with-http_flv_module
 CONFIGURE_OPTIONS += --with-http_geoip_module
+CONFIGURE_OPTIONS += --with-http_gzip_static_module
+CONFIGURE_OPTIONS += --with-http_mp4_module
+CONFIGURE_OPTIONS += --with-http_random_index_module
 CONFIGURE_OPTIONS += --with-http_realip_module
 CONFIGURE_OPTIONS += --with-http_secure_link_module
+CONFIGURE_OPTIONS += --with-http_ssl_module
+CONFIGURE_OPTIONS += --with-http_sub_module
 CONFIGURE_OPTIONS += --with-http_stub_status_module
 CONFIGURE_OPTIONS += --with-ipv6
-CONFIGURE_OPTIONS +=--with-http_addition_module
-CONFIGURE_OPTIONS +=--with-http_dav_module
-CONFIGURE_OPTIONS +=--with-http_flv_module
-CONFIGURE_OPTIONS +=--with-http_gzip_static_module
-CONFIGURE_OPTIONS +=--with-http_mp4_module
-CONFIGURE_OPTIONS +=--with-http_random_index_module
-CONFIGURE_OPTIONS +=--with-http_sub_module
-CONFIGURE_OPTIONS +=--with-mail
-CONFIGURE_OPTIONS +=--with-mail_ssl_module
-CONFIGURE_OPTIONS +=--add-module=mod_wsgi
+CONFIGURE_OPTIONS += --with-mail
+CONFIGURE_OPTIONS += --with-mail_ssl_module
+CONFIGURE_OPTIONS += --add-module=mod_wsgi
 
 CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
 
