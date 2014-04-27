@@ -9,27 +9,35 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		vim
-COMPONENT_VERSION=	7.3
-COMPONENT_SRC=		$(COMPONENT_NAME)73
+COMPONENT_FMRI=		editor/vim
+COMPONENT_VERSION=	7.4
+COMPONENT_LICENSE=	VimCharityware
+COMPONENT_PROJECT_URL=	"http://www.vim.org"
+COMPONENT_SUMMARY=	Vi IMproved
+COMPONENT_SRC=		$(COMPONENT_NAME)74
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME)-$(COMPONENT_VERSION).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:46faa96c5fab639899b1c655c23d8755b62f036f
+COMPONENT_ARCHIVE_HASH=	sha256:d0f5a6d2c439f02d97fa21bd9121f4c5abb1f6cd8b5a79d3ca82867495734ade
 COMPONENT_ARCHIVE_URL=	http://ftp.uk.vim.org/pub/vim/unix/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_PRE_CONFIGURE_ACTION += cp -r $(SOURCE_DIR)/* $(@D)
+COMPONENT_PRE_CONFIGURE_ACTION += ($(CLONEY) $(SOURCE_DIR) $(@D))
 
 CONFIGURE_OPTIONS+=	--disable-motif-check
 
 build:		$(BUILD_32)
 
-install:	$(INSTALL_32)
+$(BUILD_DIR)/.installed:	$(INSTALL_32)
 	cp $(COMPONENT_DIR)/vimrc $(PROTO_DIR)$(ECPREFIX)/share/vim/
+	( cd $(PROTO_DIR)$(ECPREFIX)/bin && $(SYMLINK) vim vi )
+	$(TOUCH) $@
+
+install:	$(BUILD_DIR)/.installed
