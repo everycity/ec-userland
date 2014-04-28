@@ -4322,8 +4322,7 @@ file path=$(ECPREFIX)/lib/qt/4.8/plugins/$(MACH64)/qmltooling/libqmldbg_tcp.so
 file path=$(ECPREFIX)/lib/qt/4.8/plugins/$(MACH64)/script/libqtscriptdbus.so
 file path=$(ECPREFIX)/lib/qt/4.8/plugins/$(MACH64)/sqldrivers/libqsqlite.so
 file path=$(ECPREFIX)/lib/qt/4.8/plugins/$(MACH64)/sqldrivers/libqsqlmysql.so
-file path=$(ECPREFIX)/lib/qt/4.8/plugins/$(MACH64)/sqldrivers/libqsqlpsql.so \
-    pkg.depend.runpath=$(ECPREFIX)/lib/qt/4.8/lib/$(MACH64):$(ECPREFIX)/lib/postgres/9.3/lib/$(MACH64):$(ECPREFIX)/lib/$(MACH64)
+file path=$(ECPREFIX)/lib/qt/4.8/plugins/$(MACH64)/sqldrivers/libqsqlpsql.so
 file \
     path=$(ECPREFIX)/lib/qt/4.8/plugins/accessible/libqtaccessiblecompatwidgets.so
 file path=$(ECPREFIX)/lib/qt/4.8/plugins/accessible/libqtaccessiblewidgets.so
@@ -4351,8 +4350,7 @@ file path=$(ECPREFIX)/lib/qt/4.8/plugins/qmltooling/libqmldbg_tcp.so
 file path=$(ECPREFIX)/lib/qt/4.8/plugins/script/libqtscriptdbus.so
 file path=$(ECPREFIX)/lib/qt/4.8/plugins/sqldrivers/libqsqlite.so
 file path=$(ECPREFIX)/lib/qt/4.8/plugins/sqldrivers/libqsqlmysql.so
-file path=$(ECPREFIX)/lib/qt/4.8/plugins/sqldrivers/libqsqlpsql.so \
-    pkg.depend.runpath=$(ECPREFIX)/lib/qt/4.8/lib:$(ECPREFIX)/lib/postgres/9.3/lib:$(ECPREFIX)/lib
+file path=$(ECPREFIX)/lib/qt/4.8/plugins/sqldrivers/libqsqlpsql.so
 file path=$(ECPREFIX)/lib/qt/4.8/q3porting.xml
 file path=$(ECPREFIX)/lib/qt/4.8/tests/qt4/tst_hybridPixmap/hybridPixmap
 file path=$(ECPREFIX)/lib/qt/4.8/tests/qt4/tst_loading/tst_loading
@@ -4611,168 +4609,3 @@ link path=$(ECPREFIX)/lib/qt/4.8/lib/libjscore.so.4.8 \
     target=libjscore.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/qt/4.8/mkspecs/default target=solaris-g++-64
 link path=$(ECPREFIX)/lib/qt/4.8/mkspecs/qconfig.pri target=qconfig.pri.32
-
-# Custom Stuff
-
-link path=$(ECPREFIX)/bin/assistant \
-    target=../lib/qt/active/bin/assistant
-link path=$(ECPREFIX)/bin/amd64/assistant \
-    target=../../lib/qt/active/bin/amd64/assistant
-link path=$(ECPREFIX)/bin/designer \
-    target=../lib/qt/active/bin/designer
-link path=$(ECPREFIX)/bin/amd64/designer \
-    target=../../lib/qt/active/bin/amd64/designer
-link path=$(ECPREFIX)/bin/lconvert \
-    target=../lib/qt/active/bin/lconvert
-link path=$(ECPREFIX)/bin/amd64/lconvert \
-    target=../../lib/qt/active/bin/amd64/lconvert
-link path=$(ECPREFIX)/bin/linguist \
-    target=../lib/qt/active/bin/linguist
-link path=$(ECPREFIX)/bin/amd64/linguist \
-    target=../../lib/qt/active/bin/amd64/linguist
-link path=$(ECPREFIX)/bin/lrelease \
-    target=../lib/qt/active/bin/lrelease
-link path=$(ECPREFIX)/bin/amd64/lrelease \
-    target=../../lib/qt/active/bin/amd64/lrelease
-link path=$(ECPREFIX)/bin/lupdate \
-    target=../lib/qt/active/bin/lupdate
-link path=$(ECPREFIX)/bin/amd64/lupdate \
-    target=../../lib/qt/active/bin/amd64/lupdate
-link path=$(ECPREFIX)/bin/moc \
-    target=../lib/qt/active/bin/moc
-link path=$(ECPREFIX)/bin/amd64/moc \
-    target=../../lib/qt/active/bin/amd64/moc
-link path=$(ECPREFIX)/bin/pixeltool \
-    target=../lib/qt/active/bin/pixeltool
-link path=$(ECPREFIX)/bin/amd64/pixeltool \
-    target=../../lib/qt/active/bin/amd64/pixeltool
-link path=$(ECPREFIX)/bin/qcollectiongenerator \
-    target=../lib/qt/active/bin/qcollectiongenerator
-link path=$(ECPREFIX)/bin/amd64/qcollectiongenerator \
-    target=../../lib/qt/active/bin/amd64/qcollectiongenerator
-link path=$(ECPREFIX)/bin/qdoc3 \
-    target=../lib/qt/active/bin/qdoc3
-link path=$(ECPREFIX)/bin/amd64/qdoc3 \
-    target=../../lib/qt/active/bin/amd64/qdoc3
-link path=$(ECPREFIX)/bin/qhelpconverter \
-    target=../lib/qt/active/bin/qhelpconverter
-link path=$(ECPREFIX)/bin/amd64/qhelpconverter \
-    target=../../lib/qt/active/bin/amd64/qhelpconverter
-link path=$(ECPREFIX)/bin/qhelpgenerator \
-    target=../lib/qt/active/bin/qhelpgenerator
-link path=$(ECPREFIX)/bin/amd64/qhelpgenerator \
-    target=../../lib/qt/active/bin/amd64/qhelpgenerator
-link path=$(ECPREFIX)/bin/qmake \
-    target=../lib/qt/active/bin/qmake
-link path=$(ECPREFIX)/bin/amd64/qmake \
-    target=../../lib/qt/active/bin/amd64/qmake
-link path=$(ECPREFIX)/bin/qmlviewer \
-    target=../lib/qt/active/bin/qmlviewer
-link path=$(ECPREFIX)/bin/amd64/qmlviewer \
-    target=../../lib/qt/active/bin/amd64/qmlviewer
-link path=$(ECPREFIX)/bin/qt3to4 \
-    target=../lib/qt/active/bin/qt3to4
-link path=$(ECPREFIX)/bin/amd64/qt3to4 \
-    target=../../lib/qt/active/bin/amd64/qt3to4
-link path=$(ECPREFIX)/bin/qtconfig \
-    target=../lib/qt/active/bin/qtconfig
-link path=$(ECPREFIX)/bin/amd64/qtconfig \
-    target=../../lib/qt/active/bin/amd64/qtconfig
-link path=$(ECPREFIX)/bin/qttracereplay \
-    target=../lib/qt/active/bin/qttracereplay
-link path=$(ECPREFIX)/bin/amd64/qttracereplay \
-    target=../../lib/qt/active/bin/amd64/qttracereplay
-link path=$(ECPREFIX)/bin/rcc \
-    target=../lib/qt/active/bin/rcc
-link path=$(ECPREFIX)/bin/amd64/rcc \
-    target=../../lib/qt/active/bin/amd64/rcc
-link path=$(ECPREFIX)/bin/uic \
-    target=../lib/qt/active/bin/uic
-link path=$(ECPREFIX)/bin/amd64/uic \
-    target=../../lib/qt/active/bin/amd64/uic
-link path=$(ECPREFIX)/bin/uic3 \
-    target=../lib/qt/active/bin/uic3
-link path=$(ECPREFIX)/bin/amd64/uic3 \
-    target=../../lib/qt/active/bin/amd64/uic3
-link path=$(ECPREFIX)/bin/xmlpatterns \
-    target=../lib/qt/active/bin/xmlpatterns
-link path=$(ECPREFIX)/bin/amd64/xmlpatterns \
-    target=../../lib/qt/active/bin/amd64/xmlpatterns
-link path=$(ECPREFIX)/bin/xmlpatternsvalidator \
-    target=../lib/qt/active/bin/xmlpatternsvalidator
-link path=$(ECPREFIX)/bin/amd64/xmlpatternsvalidator \
-    target=../../lib/qt/active/bin/amd64/xmlpatternsvalidator
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/Qt3Support.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/Qt3Support.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/Qt3Support.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/Qt3Support.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/QtCLucene.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/QtCLucene.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtCLucene.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtCLucene.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/QtCore.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/QtCore.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtCore.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtCore.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/QtDeclarative.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/QtDeclarative.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtDeclarative.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtDeclarative.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/QtDesigner.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/QtDesigner.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtDesigner.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtDesigner.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/QtDesignerComponents.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/QtDesignerComponents.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtDesignerComponents.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtDesignerComponents.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/QtGui.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/QtGui.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtGui.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtGui.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/QtHelp.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/QtHelp.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtHelp.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtHelp.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/QtMultimedia.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/QtMultimedia.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtMultimedia.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtMultimedia.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/QtNetwork.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/QtNetwork.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtNetwork.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtNetwork.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/QtScript.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/QtScript.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtScript.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtScript.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/QtScriptTools.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/QtScriptTools.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtScriptTools.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtScriptTools.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/QtSql.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/QtSql.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtSql.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtSql.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/QtSvg.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/QtSvg.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtSvg.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtSvg.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/QtTest.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/QtTest.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtTest.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtTest.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/QtUiTools.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/QtUiTools.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtUiTools.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtUiTools.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/QtXml.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/QtXml.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtXml.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtXml.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/pkgconfig/QtXmlPatterns.pc \
-    path=$(ECPREFIX)/lib/pkgconfig/QtXmlPatterns.pc
-file $(ECPREFIX)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtXmlPatterns.pc \
-    path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/QtXmlPatterns.pc

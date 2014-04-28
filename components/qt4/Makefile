@@ -16,14 +16,14 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		qt
 COMPONENT_FMRI=		library/qt4
-COMPONENT_VERSION=	4.8.5
+COMPONENT_VERSION=	4.8.6
 COMPONENT_VERSION_MJR=	4.8
 COMPONENT_LICENSE=	QT4
 COMPONENT_PROJECT_URL=	"http://qt.nokia.com/products/"
 COMPONENT_SUMMARY=	Qt cross-platform application and UI framework
 COMPONENT_SRC=		$(COMPONENT_NAME)-everywhere-opensource-src-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:eb728f8268831dc4373be6403b7dd5d5dde03c169ad6882f9a8cb560df6aa138
+COMPONENT_ARCHIVE_HASH=	sha256:8b14dd91b52862e09b8e6a963507b74bc2580787d171feda197badfa7034032c
 COMPONENT_ARCHIVE_URL=	http://download.qt-project.org/official_releases/qt/$(COMPONENT_VERSION_MJR)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
