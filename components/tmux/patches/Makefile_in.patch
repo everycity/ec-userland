@@ -1,0 +1,12 @@
+--- tmux-1.9a/Makefile.in.orig	2014-04-29 10:32:36.967044857 +0100
++++ tmux-1.9a/Makefile.in	2014-04-29 10:34:01.090345680 +0100
+@@ -1222,7 +1222,8 @@
+ 			>$(srcdir)/tmux.1.mdoc; \
+ 	else \
+ 		sed -e "s|@SYSCONFDIR@|$(sysconfdir)|g" $(srcdir)/tmux.1| \
+-			$(AWK) -fmdoc2man.awk >$(srcdir)/tmux.1.man; \
++			$(AWK) -f $(srcdir)/mdoc2man.awk \
++			>$(srcdir)/tmux.1.man; \
+ 	fi
+ 	$(MKDIR_P) $(DESTDIR)$(mandir)/man1
+ 	$(INSTALL_DATA) $(srcdir)/tmux.1.@MANFORMAT@ \

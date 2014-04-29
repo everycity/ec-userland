@@ -9,31 +9,29 @@
 #
 
 #
-# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tmux
 COMPONENT_FMRI=		terminal/tmux
-COMPONENT_VERSION=	1.8
+COMPONENT_VERSION=	1.9a
+IPS_COMPONENT_VERSION=	1.9.1
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	$(PROJECT_SOURCEFORGE1)
 COMPONENT_SUMMARY=	tmux terminal multiplexer
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:f265401ca890f8223e09149fcea5abcd6dfe75d597ab106e172b01e9d0c9cd44
+COMPONENT_ARCHIVE_HASH=	sha256:c5e3b22b901cf109b20dab54a4a651f0471abd1f79f6039d79b250d21c2733f5
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CFLAGS +=	"-I$(ECPREFIX)/include/ncurses"
-CONFIGURE_OPTIONS +=	LIBS="-lncurses"
+build:		$(BUILD_32_and_64)
 
-build:		$(BUILD_32)
-
-install:	$(INSTALL_32)
+install:	$(INSTALL_32_and_64)
 
 include ../../make-rules/depend.mk
