@@ -535,15 +535,15 @@ file path=$(ECPREFIX)/include/glib-2.0/gobject/gvaluetypes.h
 file path=$(ECPREFIX)/lib/$(MACH64)/charset.alias
 file path=$(ECPREFIX)/lib/$(MACH64)/glib-2.0/include/glibconfig.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libgio-2.0.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libgio-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libgio-2.0.so.0.4000.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libglib-2.0.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libglib-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libglib-2.0.so.0.4000.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libgmodule-2.0.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libgmodule-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libgmodule-2.0.so.0.4000.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libgobject-2.0.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libgobject-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libgobject-2.0.so.0.4000.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libgthread-2.0.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libgthread-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libgthread-2.0.so.0.4000.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/gio-2.0.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/gio-unix-2.0.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/glib-2.0.pc
@@ -555,15 +555,15 @@ file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/gthread-2.0.pc
 file path=$(ECPREFIX)/lib/charset.alias
 file path=$(ECPREFIX)/lib/glib-2.0/include/glibconfig.h
 file path=$(ECPREFIX)/lib/libgio-2.0.la
-file path=$(ECPREFIX)/lib/libgio-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/libgio-2.0.so.0.4000.0
 file path=$(ECPREFIX)/lib/libglib-2.0.la
-file path=$(ECPREFIX)/lib/libglib-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/libglib-2.0.so.0.4000.0
 file path=$(ECPREFIX)/lib/libgmodule-2.0.la
-file path=$(ECPREFIX)/lib/libgmodule-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/libgmodule-2.0.so.0.4000.0
 file path=$(ECPREFIX)/lib/libgobject-2.0.la
-file path=$(ECPREFIX)/lib/libgobject-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/libgobject-2.0.so.0.4000.0
 file path=$(ECPREFIX)/lib/libgthread-2.0.la
-file path=$(ECPREFIX)/lib/libgthread-2.0.so.0.3903.0
+file path=$(ECPREFIX)/lib/libgthread-2.0.so.0.4000.0
 file path=$(ECPREFIX)/lib/pkgconfig/gio-2.0.pc
 file path=$(ECPREFIX)/lib/pkgconfig/gio-unix-2.0.pc
 file path=$(ECPREFIX)/lib/pkgconfig/glib-2.0.pc
@@ -580,13 +580,13 @@ file path=$(ECPREFIX)/share/bash-completion/completions/gdbus
 file path=$(ECPREFIX)/share/bash-completion/completions/gresource
 file path=$(ECPREFIX)/share/bash-completion/completions/gsettings
 file \
-    path=$(ECPREFIX)/share/gdb/auto-load/ec/lib/$(MACH64)/libglib-2.0.so.0.3903.0-gdb.py
+    path=$(ECPREFIX)/share/gdb/auto-load/ec/lib/$(MACH64)/libglib-2.0.so.0.4000.0-gdb.py
 file \
-    path=$(ECPREFIX)/share/gdb/auto-load/ec/lib/$(MACH64)/libgobject-2.0.so.0.3903.0-gdb.py
+    path=$(ECPREFIX)/share/gdb/auto-load/ec/lib/$(MACH64)/libgobject-2.0.so.0.4000.0-gdb.py
 file \
-    path=$(ECPREFIX)/share/gdb/auto-load/ec/lib/libglib-2.0.so.0.3903.0-gdb.py
+    path=$(ECPREFIX)/share/gdb/auto-load/ec/lib/libglib-2.0.so.0.4000.0-gdb.py
 file \
-    path=$(ECPREFIX)/share/gdb/auto-load/ec/lib/libgobject-2.0.so.0.3903.0-gdb.py
+    path=$(ECPREFIX)/share/gdb/auto-load/ec/lib/libgobject-2.0.so.0.4000.0-gdb.py
 file path=$(ECPREFIX)/share/glib-2.0/codegen/__init__.py
 file path=$(ECPREFIX)/share/glib-2.0/codegen/__init__.pyc
 file path=$(ECPREFIX)/share/glib-2.0/codegen/__init__.pyo
@@ -712,35 +712,35 @@ file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/glib20.mo
 file path=$(ECPREFIX)/share/locale/zh_HK/LC_MESSAGES/glib20.mo
 file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/glib20.mo
 link path=$(ECPREFIX)/lib/$(MACH64)/libgio-2.0.so \
-    target=libgio-2.0.so.0.3903.0
+    target=libgio-2.0.so.0.4000.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libgio-2.0.so.0 \
-    target=libgio-2.0.so.0.3903.0
+    target=libgio-2.0.so.0.4000.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libglib-2.0.so \
-    target=libglib-2.0.so.0.3903.0
+    target=libglib-2.0.so.0.4000.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libglib-2.0.so.0 \
-    target=libglib-2.0.so.0.3903.0
+    target=libglib-2.0.so.0.4000.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libgmodule-2.0.so \
-    target=libgmodule-2.0.so.0.3903.0
+    target=libgmodule-2.0.so.0.4000.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libgmodule-2.0.so.0 \
-    target=libgmodule-2.0.so.0.3903.0
+    target=libgmodule-2.0.so.0.4000.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libgobject-2.0.so \
-    target=libgobject-2.0.so.0.3903.0
+    target=libgobject-2.0.so.0.4000.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libgobject-2.0.so.0 \
-    target=libgobject-2.0.so.0.3903.0
+    target=libgobject-2.0.so.0.4000.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libgthread-2.0.so \
-    target=libgthread-2.0.so.0.3903.0
+    target=libgthread-2.0.so.0.4000.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libgthread-2.0.so.0 \
-    target=libgthread-2.0.so.0.3903.0
-link path=$(ECPREFIX)/lib/libgio-2.0.so target=libgio-2.0.so.0.3903.0
-link path=$(ECPREFIX)/lib/libgio-2.0.so.0 target=libgio-2.0.so.0.3903.0
-link path=$(ECPREFIX)/lib/libglib-2.0.so target=libglib-2.0.so.0.3903.0
-link path=$(ECPREFIX)/lib/libglib-2.0.so.0 target=libglib-2.0.so.0.3903.0
-link path=$(ECPREFIX)/lib/libgmodule-2.0.so target=libgmodule-2.0.so.0.3903.0
+    target=libgthread-2.0.so.0.4000.0
+link path=$(ECPREFIX)/lib/libgio-2.0.so target=libgio-2.0.so.0.4000.0
+link path=$(ECPREFIX)/lib/libgio-2.0.so.0 target=libgio-2.0.so.0.4000.0
+link path=$(ECPREFIX)/lib/libglib-2.0.so target=libglib-2.0.so.0.4000.0
+link path=$(ECPREFIX)/lib/libglib-2.0.so.0 target=libglib-2.0.so.0.4000.0
+link path=$(ECPREFIX)/lib/libgmodule-2.0.so target=libgmodule-2.0.so.0.4000.0
 link path=$(ECPREFIX)/lib/libgmodule-2.0.so.0 \
-    target=libgmodule-2.0.so.0.3903.0
-link path=$(ECPREFIX)/lib/libgobject-2.0.so target=libgobject-2.0.so.0.3903.0
+    target=libgmodule-2.0.so.0.4000.0
+link path=$(ECPREFIX)/lib/libgobject-2.0.so target=libgobject-2.0.so.0.4000.0
 link path=$(ECPREFIX)/lib/libgobject-2.0.so.0 \
-    target=libgobject-2.0.so.0.3903.0
-link path=$(ECPREFIX)/lib/libgthread-2.0.so target=libgthread-2.0.so.0.3903.0
+    target=libgobject-2.0.so.0.4000.0
+link path=$(ECPREFIX)/lib/libgthread-2.0.so target=libgthread-2.0.so.0.4000.0
 link path=$(ECPREFIX)/lib/libgthread-2.0.so.0 \
-    target=libgthread-2.0.so.0.3903.0
+    target=libgthread-2.0.so.0.4000.0
