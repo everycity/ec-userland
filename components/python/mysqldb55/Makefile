@@ -12,7 +12,7 @@
 # Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
-include ../../make-rules/shared-macros.mk
+include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		MySQL-python
 COMPONENT_FMRI=		library/python/mysqldb
@@ -25,9 +25,9 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:905dd8be887ff596641ace5411fed17cfd08dd33699ea627d3fb44f8a922c2f0
 COMPONENT_ARCHIVE_URL=	https://github.com/farcepest/MySQLdb1/archive/MySQLdb-$(COMPONENT_VERSION).tar.gz
 
-include ../../make-rules/prep.mk
-include ../../make-rules/setup.py.mk
-include ../../make-rules/ips.mk
+include ../../../make-rules/prep.mk
+include ../../../make-rules/setup.py.mk
+include ../../../make-rules/ips.mk
 
 # Ensure the 64bit mysql-config gets picked up on 64bit builds
 PATH.32=$(ECPREFIX)/lib/mysql/5.5/bin:$(ECPREFIX)/bin:/usr/bin:/usr/ccs/bin
