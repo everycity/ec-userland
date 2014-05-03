@@ -9,19 +9,18 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/web/loadbalancer/haproxy@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="A reliable, high performance TCP/HTTP load balancer"
-set name=info.upstream_url value="http://haproxy.1wt.eu/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
-license haproxy.license license="HAPROXY"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 # Custom entries
 dir path=$(ECPREFIX)/etc
