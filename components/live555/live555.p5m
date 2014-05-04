@@ -9,11 +9,11 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
-<include ec-drop-common>
+#<include ec-drop-common>
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
@@ -156,6 +156,16 @@ file path=$(ECPREFIX)/include/liveMedia/H264VideoRTPSink.hh
 file path=$(ECPREFIX)/include/liveMedia/H264VideoRTPSource.hh
 file path=$(ECPREFIX)/include/liveMedia/H264VideoStreamDiscreteFramer.hh
 file path=$(ECPREFIX)/include/liveMedia/H264VideoStreamFramer.hh
+file path=$(ECPREFIX)/include/liveMedia/H264or5VideoFileSink.hh
+file path=$(ECPREFIX)/include/liveMedia/H264or5VideoRTPSink.hh
+file path=$(ECPREFIX)/include/liveMedia/H264or5VideoStreamDiscreteFramer.hh
+file path=$(ECPREFIX)/include/liveMedia/H264or5VideoStreamFramer.hh
+file path=$(ECPREFIX)/include/liveMedia/H265VideoFileServerMediaSubsession.hh
+file path=$(ECPREFIX)/include/liveMedia/H265VideoFileSink.hh
+file path=$(ECPREFIX)/include/liveMedia/H265VideoRTPSink.hh
+file path=$(ECPREFIX)/include/liveMedia/H265VideoRTPSource.hh
+file path=$(ECPREFIX)/include/liveMedia/H265VideoStreamDiscreteFramer.hh
+file path=$(ECPREFIX)/include/liveMedia/H265VideoStreamFramer.hh
 file path=$(ECPREFIX)/include/liveMedia/InputFile.hh
 file path=$(ECPREFIX)/include/liveMedia/JPEGVideoRTPSink.hh
 file path=$(ECPREFIX)/include/liveMedia/JPEGVideoRTPSource.hh
@@ -212,6 +222,9 @@ file path=$(ECPREFIX)/include/liveMedia/MediaSink.hh
 file path=$(ECPREFIX)/include/liveMedia/MediaSource.hh
 file path=$(ECPREFIX)/include/liveMedia/MultiFramedRTPSink.hh
 file path=$(ECPREFIX)/include/liveMedia/MultiFramedRTPSource.hh
+file path=$(ECPREFIX)/include/liveMedia/OggFile.hh
+file path=$(ECPREFIX)/include/liveMedia/OggFileServerDemux.hh
+file path=$(ECPREFIX)/include/liveMedia/OggFileSink.hh
 file path=$(ECPREFIX)/include/liveMedia/OnDemandServerMediaSubsession.hh
 file path=$(ECPREFIX)/include/liveMedia/OutputFile.hh
 file path=$(ECPREFIX)/include/liveMedia/PassiveServerMediaSubsession.hh
@@ -236,6 +249,8 @@ file path=$(ECPREFIX)/include/liveMedia/StreamReplicator.hh
 file path=$(ECPREFIX)/include/liveMedia/T140TextRTPSink.hh
 file path=$(ECPREFIX)/include/liveMedia/TCPStreamSink.hh
 file path=$(ECPREFIX)/include/liveMedia/TextRTPSink.hh
+file path=$(ECPREFIX)/include/liveMedia/TheoraVideoRTPSink.hh
+file path=$(ECPREFIX)/include/liveMedia/TheoraVideoRTPSource.hh
 file path=$(ECPREFIX)/include/liveMedia/VP8VideoRTPSink.hh
 file path=$(ECPREFIX)/include/liveMedia/VP8VideoRTPSource.hh
 file path=$(ECPREFIX)/include/liveMedia/VideoRTPSink.hh

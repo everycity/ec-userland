@@ -9,23 +9,21 @@
 #
 
 #
-# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		live555
 COMPONENT_FMRI=		multimedia/live555
-COMPONENT_VERSION=	2013.11.25
+COMPONENT_VERSION=	2014.04.23
+IPS_COMPONENT_VERSION=	2014.4.23
 COMPONENT_LICENSE=	LGPLv2.1
 COMPONENT_PROJECT_URL=	http://www.live555.com/
 COMPONENT_SUMMARY=	Live555 Streaming Media Library
 COMPONENT_SRC=		live
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:16f1d67fe0b46feb3d697426da12621f4109984d2f16615cba23cdd6c5526eac
+COMPONENT_ARCHIVE_HASH=	sha256:72bf8c2c0c0ad022322f35599769a92a2794199aee9656f2e00519731bb3e981
 COMPONENT_ARCHIVE_URL=	http://www.live555.com/liveMedia/public/$(COMPONENT_ARCHIVE)
-
-# Must not contain any leading zeros present in the COMPONENT_VERSION
-IPS_COMPONENT_VERSION=	2013.11.25
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
