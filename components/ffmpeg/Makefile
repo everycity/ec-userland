@@ -17,13 +17,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ffmpeg
 COMPONENT_FMRI=		multimedia/ffmpeg
-COMPONENT_VERSION=	2.1.4
+COMPONENT_VERSION=	2.2.1
 COMPONENT_LICENSE=	FFmpeg
 COMPONENT_PROJECT_URL=	http://www.ffmpeg.org/
 COMPONENT_SUMMARY=	Cross-platform audio recorder, converter, and streamer
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:7fb46cbd686830db192968e2f117744b1e9cd23f2fcf5ee63e6cbeaa089a8101
+COMPONENT_ARCHIVE_HASH=	sha256:e17f99fa7b319166476490ec43fc6e25992ad60964e60c46eadde59fd1747394
 COMPONENT_ARCHIVE_URL=	http://www.ffmpeg.org/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -73,7 +73,6 @@ CONFIGURE_OPTIONS+=	--enable-libvo-amrwbenc
 CONFIGURE_OPTIONS+=	--enable-librtmp
 
 CONFIGURE_OPTIONS+=	--disable-ffplay
-CONFIGURE_OPTIONS+=	--disable-avdevice
 
 CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))
 
