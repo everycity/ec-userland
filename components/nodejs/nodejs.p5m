@@ -161,6 +161,10 @@ dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/path-is-inside
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/path-is-inside/lib
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-installed
+dir \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-installed/node_modules
+dir \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-installed/node_modules/util-extend
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json
 dir \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules
@@ -319,6 +323,8 @@ dir \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sha/node_modules/readable-stream/lib
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/slide
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/slide/lib
+dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sorted-object
+dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sorted-object/lib
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/tar
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/tar/examples
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/tar/lib
@@ -364,6 +370,7 @@ file path=$(ECPREFIX)/include/node/zlib.h
 file path=$(ECPREFIX)/lib/dtrace/node.d
 file path=$(ECPREFIX)/lib/node_modules/npm/.npmignore
 file path=$(ECPREFIX)/lib/node_modules/npm/.tern-project
+file path=$(ECPREFIX)/lib/node_modules/npm/.travis.yml
 file path=$(ECPREFIX)/lib/node_modules/npm/AUTHORS
 file path=$(ECPREFIX)/lib/node_modules/npm/CONTRIBUTING.md
 file path=$(ECPREFIX)/lib/node_modules/npm/LICENSE
@@ -579,12 +586,12 @@ file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/misc/npm-registry.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/misc/npm-scripts.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/misc/removing-npm.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/misc/semver.html
-file path=$(ECPREFIX)/lib/node_modules/npm/html/docfoot-script.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/docfoot.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/dochead.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/favicon.ico
 file path=$(ECPREFIX)/lib/node_modules/npm/html/index.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/static/style.css
+file path=$(ECPREFIX)/lib/node_modules/npm/html/static/toc.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/adduser.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/bin.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/bugs.js
@@ -961,6 +968,8 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ini/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ini/ini.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ini/package.json
 file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/LICENSE
+file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/README.md
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json/default-input.js
@@ -1093,6 +1102,8 @@ file \
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/generator/android.py
 file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/generator/cmake.py
+file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/generator/dump_dependency_json.py
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/generator/eclipse.py
@@ -1124,6 +1135,8 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/msvs_emulation.py
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/ninja_syntax.py
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/ordered_dict.py
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/win_tool.py
 file \
@@ -1288,9 +1301,19 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/path-is-inside/lib/path-is-inside.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/path-is-inside/package.json
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-installed/.npmignore
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-installed/LICENSE
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-installed/README.md
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-installed/node_modules/util-extend/README.md
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-installed/node_modules/util-extend/extend.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-installed/node_modules/util-extend/package.json
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-installed/node_modules/util-extend/test.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-installed/package.json
 file \
@@ -1317,6 +1340,8 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/extract_description.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/fixer.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/make_warning.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/normalize.js
 file \
@@ -1856,6 +1881,14 @@ file \
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/slide/lib/chain.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/slide/lib/slide.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/slide/package.json
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sorted-object/LICENSE.txt
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sorted-object/README.md
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sorted-object/lib/sorted-object.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/sorted-object/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/tar/.npmignore
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/tar/.travis.yml
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/tar/LICENCE
@@ -1898,6 +1931,7 @@ file \
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/text-table/readme.markdown
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/uid-number/LICENCE
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/uid-number/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/uid-number/README.md
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/uid-number/get-uid-gid.js
@@ -1917,5 +1951,6 @@ file path=$(ECPREFIX)/lib/node_modules/npm/scripts/index-build.js
 file path=$(ECPREFIX)/lib/node_modules/npm/scripts/install.sh
 file path=$(ECPREFIX)/lib/node_modules/npm/scripts/release.sh
 file path=$(ECPREFIX)/lib/node_modules/npm/scripts/relocate.sh
+file path=$(ECPREFIX)/lib/node_modules/npm/wercker.yml
 file path=$(ECPREFIX)/share/man/man1/node.1
 link path=$(ECPREFIX)/bin/npm target=../lib/node_modules/npm/bin/npm-cli.js
