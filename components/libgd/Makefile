@@ -9,27 +9,25 @@
 #
 
 #
-# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libgd
-COMPONENT_VERSION=	2.0.33
-COMPONENT_SRC=		GD_2_0_33
+COMPONENT_FMRI=		library/libgd
+COMPONENT_VERSION=	2.1.0
+COMPONENT_LICENSE=	BSD
+COMPONENT_PROJECT_URL=	"http://libgd.bitbucket.org/"
+COMPONENT_SUMMARY=	GD is an open source code library for the dynamic creation of images by programmers.
+COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:7cadca0bf389c38d90795516a7995473b749bb4138d00feaf7d3df242bea2b7b
-COMPONENT_ARCHIVE_URL=	https://bitbucket.org/libgd/gd-libgd/get/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:3ceef69d5454a392e8793ae90b5f0d632dd3e20879c12856aa1d1d3d063a51c8
+COMPONENT_ARCHIVE_URL=	https://bitbucket.org/libgd/gd-libgd/downloads/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-
-COMPONENT_POST_UNPACK_ACTION = ( \
-	${MV} source/$(COMPONENT_NAME)-gd-$(COMPONENT_NAME)-486e81dea984/src source/$(COMPONENT_SRC) ; \
-	${RM} -r source/$(COMPONENT_NAME)-gd-$(COMPONENT_NAME)-$(COMPONENT_SRC) )
-
-LDFLAGS += -liconv
 
 build:		$(BUILD_32_and_64)
 
