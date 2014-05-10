@@ -124,6 +124,8 @@ $(BUILD_DIR)/.installed:	$(BUILD_32_and_64) $(INSTALL_32)
 	/usr/bin/echo "\n#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/opensslconf.h
 	/usr/bin/cat $(BUILD_DIR_32)/include/openssl/opensslconf.h >> $(COMPONENT_DIR)/opensslconf.h
 	/usr/bin/echo "\n#endif /* EC */" >> $(COMPONENT_DIR)/opensslconf.h
+	$(RM) $(PROTO_DIR)$(ECPREFIX)/include/openssl/opensslconf.h
+	$(INSTALL) $(COMPONENT_DIR)/opensslconf.h $(PROTO_DIR)$(ECPREFIX)/include/openssl/opensslconf.h
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed

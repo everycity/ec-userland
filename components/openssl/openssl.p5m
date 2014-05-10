@@ -22,9 +22,6 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-# Custom combined 32bit v 64bit opensslconf.h
-file opensslconf.h path=$(ECPREFIX)/include/openssl/opensslconf.h
-
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
@@ -98,6 +95,7 @@ file path=$(ECPREFIX)/include/openssl/modes.h
 file path=$(ECPREFIX)/include/openssl/obj_mac.h
 file path=$(ECPREFIX)/include/openssl/objects.h
 file path=$(ECPREFIX)/include/openssl/ocsp.h
+file path=$(ECPREFIX)/include/openssl/opensslconf.h
 file path=$(ECPREFIX)/include/openssl/opensslv.h
 file path=$(ECPREFIX)/include/openssl/ossl_typ.h
 file path=$(ECPREFIX)/include/openssl/pem.h
