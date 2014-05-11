@@ -9,18 +9,18 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/audio/wavpack@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="WavPack (.WV) free open source audio codec"
-set name=info.upstream_url value="http://www.wavpack.com/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license wavpack.license license="WavPack"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -41,14 +41,16 @@ file path=$(ECPREFIX)/bin/wavpack
 file path=$(ECPREFIX)/bin/wvgain
 file path=$(ECPREFIX)/bin/wvunpack
 file path=$(ECPREFIX)/include/wavpack/wavpack.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libwavpack.so.1.1.4
+file path=$(ECPREFIX)/lib/$(MACH64)/libwavpack.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libwavpack.so.1.1.5
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/wavpack.pc
-file path=$(ECPREFIX)/lib/libwavpack.so.1.1.4
+file path=$(ECPREFIX)/lib/libwavpack.la
+file path=$(ECPREFIX)/lib/libwavpack.so.1.1.5
 file path=$(ECPREFIX)/lib/pkgconfig/wavpack.pc
 file path=$(ECPREFIX)/share/man/man1/wavpack.1
 file path=$(ECPREFIX)/share/man/man1/wvgain.1
 file path=$(ECPREFIX)/share/man/man1/wvunpack.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libwavpack.so target=libwavpack.so.1.1.4
-link path=$(ECPREFIX)/lib/$(MACH64)/libwavpack.so.1 target=libwavpack.so.1.1.4
-link path=$(ECPREFIX)/lib/libwavpack.so target=libwavpack.so.1.1.4
-link path=$(ECPREFIX)/lib/libwavpack.so.1 target=libwavpack.so.1.1.4
+link path=$(ECPREFIX)/lib/$(MACH64)/libwavpack.so target=libwavpack.so.1.1.5
+link path=$(ECPREFIX)/lib/$(MACH64)/libwavpack.so.1 target=libwavpack.so.1.1.5
+link path=$(ECPREFIX)/lib/libwavpack.so target=libwavpack.so.1.1.5
+link path=$(ECPREFIX)/lib/libwavpack.so.1 target=libwavpack.so.1.1.5
