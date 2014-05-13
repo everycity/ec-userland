@@ -16,14 +16,14 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		sqlite3
 COMPONENT_FMRI=		database/sqlite-3
-COMPONENT_VERSION=	3.8.2
+COMPONENT_VERSION=	3.8.4.3
 COMPONENT_LICENSE=	Public Domain
 COMPONENT_PROJECT_URL=	"http://www.sqlite.org/"
 COMPONENT_SUMMARY=	SQL database engine library
-COMPONENT_SRC=		sqlite-autoconf-3080200
+COMPONENT_SRC=		sqlite-autoconf-3080403
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:a0851d06092c8208e4dd947f569f40db476b472b22e3e10e2f52f3c5e94fef92
-COMPONENT_ARCHIVE_URL=	http://www.sqlite.org/2013/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:e0e995e23a324a5d6ae95d8a836240382a4d7475d09707fc469c8cafcbd48d65
+COMPONENT_ARCHIVE_URL=	http://www.sqlite.org/2014/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
