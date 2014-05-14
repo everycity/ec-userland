@@ -18,28 +18,23 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		mc
-COMPONENT_VERSION=	4.7.99.2
-GIT_ID=			c819eb1fa3e179f237e9c30bb1e738c123da4e81
+COMPONENT_VERSION=	4.8.12
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-$(GIT_ID).tar.gz
-#COMPONENT_ARCHIVE_URL=	git://midnight-commander.org/git/mc.git
-COMPONENT_ARCHIVE_URL=	git://repo.or.cz/midnight-commander.git
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
+COMPONENT_ARCHIVE_HASH=	\
+	sha256:1054fcc27a488771cbe5b85d7c10135fa1cd1b7682a19930d44b51a023e39396
+COMPONENT_ARCHIVE_URL=	http://ftp.midnight-commander.org/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_PREP_ACTION = (cd $(@D) ; ./autogen.sh; libtoolize; )
-
 CONFIGURE_OPTIONS += LIBS="-L$(ECPREFIX)/lib -lsocket"
-
-download::
-	$(COMPONENT_DIR)/generate-tarball.sh $(COMPONENT_ARCHIVE_URL) $(COMPONENT_SRC) $(GIT_ID) $(WS_ARCHIVES)
 
 build:		$(BUILD_32)
 

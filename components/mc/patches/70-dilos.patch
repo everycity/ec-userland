@@ -1,0 +1,14 @@
+Index: mc-4.8.10/lib/tty/tty.c
+===================================================================
+--- mc-4.8.10/lib/tty/tty.c.orig
++++ mc-4.8.10/lib/tty/tty.c
+@@ -46,6 +46,9 @@
+ #include "tty-internal.h"
+ #include "mouse.h"              /* use_mouse_p */
+ #include "win.h"
++#if defined (__sun)
++#include <termios.h>
++#endif
+ 
+ /*** global variables ****************************************************************************/
+ 
