@@ -1,35 +1,26 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
-#
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/library/libxml2@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="The XML library"
-set name=info.upstream_url value="http://xmlsoft.org/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license libxml2.license license="MIT"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -118,16 +109,24 @@ file path=$(ECPREFIX)/include/libxml2/libxml/xmlwriter.h
 file path=$(ECPREFIX)/include/libxml2/libxml/xpath.h
 file path=$(ECPREFIX)/include/libxml2/libxml/xpathInternals.h
 file path=$(ECPREFIX)/include/libxml2/libxml/xpointer.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libxml2.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libxml2.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libxml2.so.$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libxml-2.0.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/drv_libxml2.py
 file path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/libxml2.py
+file path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/libxml2mod.a
+file path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/libxml2mod.la
 file path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/libxml2mod.so
 file path=$(ECPREFIX)/lib/$(MACH64)/xml2Conf.sh
+file path=$(ECPREFIX)/lib/libxml2.a
+file path=$(ECPREFIX)/lib/libxml2.la
 file path=$(ECPREFIX)/lib/libxml2.so.$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/pkgconfig/libxml-2.0.pc
 file path=$(ECPREFIX)/lib/python2.6/site-packages/drv_libxml2.py
 file path=$(ECPREFIX)/lib/python2.6/site-packages/libxml2.py
+file path=$(ECPREFIX)/lib/python2.6/site-packages/libxml2mod.a
+file path=$(ECPREFIX)/lib/python2.6/site-packages/libxml2mod.la
 file path=$(ECPREFIX)/lib/python2.6/site-packages/libxml2mod.so
 file path=$(ECPREFIX)/lib/xml2Conf.sh
 file path=$(ECPREFIX)/share/aclocal/libxml.m4
@@ -255,8 +254,11 @@ file \
 file \
     path=$(ECPREFIX)/share/doc/libxml2-$(COMPONENT_VERSION)/html/html/libxml-xpointer.html
 file \
+    path=$(ECPREFIX)/share/doc/libxml2-$(COMPONENT_VERSION)/html/html/libxml-xzlib.html
+file \
     path=$(ECPREFIX)/share/doc/libxml2-$(COMPONENT_VERSION)/html/html/right.png
 file path=$(ECPREFIX)/share/doc/libxml2-$(COMPONENT_VERSION)/html/html/up.png
+file path=$(ECPREFIX)/share/doc/libxml2-$(COMPONENT_VERSION)/html/index.html
 file path=$(ECPREFIX)/share/doc/libxml2-$(COMPONENT_VERSION)/html/io1.c
 file path=$(ECPREFIX)/share/doc/libxml2-$(COMPONENT_VERSION)/html/io1.res
 file path=$(ECPREFIX)/share/doc/libxml2-$(COMPONENT_VERSION)/html/io2.c
@@ -413,6 +415,8 @@ file \
     path=$(ECPREFIX)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/inbuf.py
 file \
     path=$(ECPREFIX)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/indexes.py
+file \
+    path=$(ECPREFIX)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/input_callback.py
 file \
     path=$(ECPREFIX)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/invalid.xml
 file \
