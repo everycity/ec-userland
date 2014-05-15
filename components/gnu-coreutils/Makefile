@@ -18,15 +18,16 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		coreutils
-COMPONENT_VERSION=	8.15
+COMPONENT_VERSION=	8.22
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
-COMPONENT_ARCHIVE_HASH=	sha1:d5d2035ff6443ff63dc507420b52f54cf7a89545
+COMPONENT_ARCHIVE_HASH=	\
+	sha256:5b3e94998152c017e6c75d56b9b994188eb71bf46d4038a642cb9141f6ff1212
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include ../../make-rules/prep.mk
@@ -37,12 +38,3 @@ include ../../make-rules/shared-targets.mk
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
-
-test32:		$(BUILD_32)
-	(cd $(BUILD_DIR_32); env - $(GMAKE) check)
-
-test:	test32
-
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
