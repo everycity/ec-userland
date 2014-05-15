@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -20,7 +20,7 @@ set name=pkg.summary value="coreutils - GNU core utilities"
 set name=info.upstream_url value="http://www.gnu.org/software/coreutils/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license gnu-coreutils.license license="GPLv3"
+license COPYING license="GPLv3"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -77,9 +77,15 @@ dir path=$(ECPREFIX)/share/locale/ga/LC_TIME
 dir path=$(ECPREFIX)/share/locale/gl
 dir path=$(ECPREFIX)/share/locale/gl/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/gl/LC_TIME
+dir path=$(ECPREFIX)/share/locale/hr
+dir path=$(ECPREFIX)/share/locale/hr/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/hr/LC_TIME
 dir path=$(ECPREFIX)/share/locale/hu
 dir path=$(ECPREFIX)/share/locale/hu/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/hu/LC_TIME
+dir path=$(ECPREFIX)/share/locale/ia
+dir path=$(ECPREFIX)/share/locale/ia/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/ia/LC_TIME
 dir path=$(ECPREFIX)/share/locale/id
 dir path=$(ECPREFIX)/share/locale/id/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/id/LC_TIME
@@ -201,6 +207,7 @@ file path=$(ECPREFIX)/bin/nice
 file path=$(ECPREFIX)/bin/nl
 file path=$(ECPREFIX)/bin/nohup
 file path=$(ECPREFIX)/bin/nproc
+file path=$(ECPREFIX)/bin/numfmt
 file path=$(ECPREFIX)/bin/od
 file path=$(ECPREFIX)/bin/paste
 file path=$(ECPREFIX)/bin/pathchk
@@ -273,7 +280,9 @@ file path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES/coreutils.mo
 file path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES/coreutils.mo
 file path=$(ECPREFIX)/share/locale/ga/LC_MESSAGES/coreutils.mo
 file path=$(ECPREFIX)/share/locale/gl/LC_MESSAGES/coreutils.mo
+file path=$(ECPREFIX)/share/locale/hr/LC_MESSAGES/coreutils.mo
 file path=$(ECPREFIX)/share/locale/hu/LC_MESSAGES/coreutils.mo
+file path=$(ECPREFIX)/share/locale/ia/LC_MESSAGES/coreutils.mo
 file path=$(ECPREFIX)/share/locale/id/LC_MESSAGES/coreutils.mo
 file path=$(ECPREFIX)/share/locale/it/LC_MESSAGES/coreutils.mo
 file path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES/coreutils.mo
@@ -346,6 +355,7 @@ file path=$(ECPREFIX)/share/man/man1/nice.1
 file path=$(ECPREFIX)/share/man/man1/nl.1
 file path=$(ECPREFIX)/share/man/man1/nohup.1
 file path=$(ECPREFIX)/share/man/man1/nproc.1
+file path=$(ECPREFIX)/share/man/man1/numfmt.1
 file path=$(ECPREFIX)/share/man/man1/od.1
 file path=$(ECPREFIX)/share/man/man1/paste.1
 file path=$(ECPREFIX)/share/man/man1/pathchk.1
@@ -430,7 +440,11 @@ link path=$(ECPREFIX)/share/locale/ga/LC_TIME/coreutils.mo \
     target=../LC_MESSAGES/coreutils.mo
 link path=$(ECPREFIX)/share/locale/gl/LC_TIME/coreutils.mo \
     target=../LC_MESSAGES/coreutils.mo
+link path=$(ECPREFIX)/share/locale/hr/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 link path=$(ECPREFIX)/share/locale/hu/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
+link path=$(ECPREFIX)/share/locale/ia/LC_TIME/coreutils.mo \
     target=../LC_MESSAGES/coreutils.mo
 link path=$(ECPREFIX)/share/locale/id/LC_TIME/coreutils.mo \
     target=../LC_MESSAGES/coreutils.mo
