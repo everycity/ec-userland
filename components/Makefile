@@ -93,7 +93,8 @@ $(WS_LOGS):
 	$(MKDIR) $@
 
 $(WS_REPO):
-	( cd $(WS_TOP) && $(WS_TOP)/mkrepo.sh )
+	$(PKGREPO) create $(PKG_REPO)
+	$(PKGREPO) add-publisher -s $(PKG_REPO) $(PUBLISHER)
 
 DUMMYPKG =  "set name=fmri value=pkg:/dummy@0,$(BUILD_VERSION)\n"
 DUMMYPKG += "set pkg.summary=dummy\n"

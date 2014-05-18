@@ -62,6 +62,8 @@ publish:	SHELLOPTS=pipefail
 
 SHELL=	/bin/bash
 
+PUBLISHER ?= sngl.pkg.ec
+
 ROOT =			/
 
 OS_VERSION =		$(shell uname -r)
