@@ -232,7 +232,7 @@ BUILD_TOOLS =	/ws/onnv-tools
 SPRO_ROOT =	$(BUILD_TOOLS)/SUNWspro
 SPRO_VROOT =	$(SPRO_ROOT)/sunstudio12.1
 
-GCC_ROOT =	$(ECPREFIX)
+GCC_ROOT =	$(USRDIR)
 
 CC.studio.32 =	$(SPRO_VROOT)/bin/cc
 CXX.studio.32 =	$(SPRO_VROOT)/bin/CC
@@ -260,8 +260,8 @@ PYTHON_VENDOR_PACKAGES.32 = /usr/lib/python$(PYTHON_VERSION)/vendor-packages
 PYTHON_VENDOR_PACKAGES.64 = /usr/lib/python$(PYTHON_VERSION)/vendor-packages/64
 PYTHON_VENDOR_PACKAGES = $(PYTHON_VENDOR_PACKAGES.$(BITS))
 
-PYTHON.2.6.32 =	$(ECPREFIX)/bin/python2.6
-PYTHON.2.6.64 =	$(ECPREFIX)/bin/$(MACH64)/python2.6
+PYTHON.2.6.32 =	$(USRBINDIR)/python2.6
+PYTHON.2.6.64 =	$(USRBINDIR)/$(MACH64)/python2.6
 
 PYTHON.32 =	$(PYTHON.$(PYTHON_VERSION).32)
 PYTHON.64 =	$(PYTHON.$(PYTHON_VERSION).64)
@@ -272,13 +272,13 @@ PYTHON =	$(PYTHON.$(PYTHON_VERSION).$(BITS))
 # belong in vendor-packages.
 PYTHON_LIB= /usr/lib/python$(PYTHON_VERSION)/vendor-packages
 
-JAVA_HOME =	$(ECPREFIX)/java
+JAVA_HOME =	$(USRDIR)/java
 
 PERL_VERSION =	5.12
 PERL_VERSIONS =	5.12
-PERL.5.12 =	$(ECPREFIX)/lib/perl/5.12/bin/perl
+PERL.5.12 =	$(USRLIBDIR)/perl/5.12/bin/perl
 
-PERL =		$(ECPREFIX)/bin/perl
+PERL =		$(USRBINDIR)/perl
 
 PERL_ARCH =     $(shell $(PERL) -e 'use Config; print $$Config{archname}')
 # Optimally we should ask perl which C compiler was used but it doesn't
@@ -291,24 +291,24 @@ PERL_OPTIMIZE = $(shell $(PERL) -e 'use Config; print $$Config{optimize}')
 PKG_MACROS +=   PERL_ARCH=$(PERL_ARCH)
 PKG_MACROS +=   PERL_VERSION=$(PERL_VERSION)
 
-CMAKE =		$(ECPREFIX)/bin/cmake
+CMAKE =		$(USRBIN)/bin/cmake
 CCSMAKE =	/usr/ccs/bin/make
-GMAKE =		$(ECPREFIX)/bin/make
-GPATCH =	$(ECPREFIX)/bin/patch
+GMAKE =		$(USRBINDIR)/make
+GPATCH =	$(USRBINDIR)/patch
 PATCH_LEVEL =	1
 GPATCH_BACKUP =	--backup --version-control=numbered
 GPATCH_FLAGS =	-p$(PATCH_LEVEL) $(GPATCH_BACKUP)
-GSED =		$(ECPREFIX)/bin/sed
+GSED =		$(USRBINDIR)/sed
 
 PKGREPO =	pkgrepo
 PKGSEND =	pkgsend
 PKGLINT =	pkglint
 
-ACLOCAL =	/ec/bin/aclocal-1.10
-AUTOMAKE =	/ec/bin/automake-1.10
-AUTORECONF = 	/ec/bin/autoreconf
+ACLOCAL =	$(USRBINDIR)/aclocal-1.10
+AUTOMAKE =	$(USRBINDIR)/automake-1.10
+AUTORECONF = 	$(USRBINDIR)/autoreconf
 
-TOUCH =		$(ECPREFIX)/bin/touch
+TOUCH =		$(USRBINDIR)/touch
 MKDIR =		/bin/mkdir -p
 RM =		/bin/rm -f
 CP =		/bin/cp -f
@@ -316,7 +316,7 @@ MV =		/bin/mv -f
 LN =		/bin/ln
 SYMLINK =	/bin/ln -s
 ENV =		/usr/bin/env
-INSTALL =	$(ECPREFIX)/bin/install
+INSTALL =	$(USRBINDIR)/install
 CHMOD =		/usr/bin/chmod
 NAWK =		/usr/bin/nawk
 TEE =		/usr/bin/tee
@@ -325,11 +325,11 @@ TEE =		/usr/bin/tee
 INS.dir=        $(INSTALL) -d $@
 INS.file=       $(INSTALL) -m 444 $< $(@D)
 
-PKG_CONFIG.32=	$(ECPREFIX)/bin/pkg-config
-PKG_CONFIG.64=	$(ECPREFIX)/bin/$(MACH64)/pkg-config
+PKG_CONFIG.32=	$(USRBINDIR)/pkg-config
+PKG_CONFIG.64=	$(USRBINDIR)/$(MACH64)/pkg-config
 PKG_CONFIG=	$(PKG_CONFIG.$(BITS))
-PKG_CONFIG_PATH.32 = $(ECPREFIX)/lib/pkgconfig
-PKG_CONFIG_PATH.64 = $(ECPREFIX)/lib/$(MACH64)/pkgconfig
+PKG_CONFIG_PATH.32 = $(USRLIBDIR)/pkgconfig
+PKG_CONFIG_PATH.64 = $(USRLIBDIR)/$(MACH64)/pkgconfig
 PKG_CONFIG_PATH = $(PKG_CONFIG_PATH.$(BITS))
 
 
@@ -552,20 +552,20 @@ gcc.ld.64 = -m64
 LD_BITS =      $($(LINKER).ld.$(BITS))
 LDFLAGS =      $(LD_BITS)
 
-ifndef CONFIGURE_PREFIX
-CONFIGURE_PREFIX=	$(ECPREFIX)
-endif
+CONFIGURE_PREFIX?=	$(USRDIR)
 
-ifeq ($(CONFIGURE_PREFIX), $(ECPREFIX))
-	CFLAGS +=	-I$(ECPREFIX)/include
-	CXXFLAGS +=	-I$(ECPREFIX)/include
-	LDFLAGS.32 =	-L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
-	LDFLAGS.64 =	-L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)
+ifeq ($(CONFIGURE_PREFIX), /usr)
+	LDFLAGS.64 =	-L$(USRLIBDIR64) -R$(USRLIBDIR64)
+else ifeq ($(CONFIGURE_PREFIX), $(USRDIR))
+	CFLAGS +=	-I$(USRINCDIR)
+	CXXFLAGS +=	-I$(USRINCDIR)
+	LDFLAGS.32 =	-L$(USRLIBDIR) -R$(USRLIBDIR)
+	LDFLAGS.64 =	-L$(USRLIBDIR64) -R$(USRLIBDIR64)
 else
-	CFLAGS +=	-I$(CONFIGURE_PREFIX)/include -I$(ECPREFIX)/include
-	CXXFLAGS +=	-I$(CONFIGURE_PREFIX)/include -I$(ECPREFIX)/include
-	LDFLAGS.32 =	-L$(CONFIGURE_PREFIX)/lib -R$(CONFIGURE_PREFIX)/lib -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
-	LDFLAGS.64 =	-L$(CONFIGURE_PREFIX)/lib/amd64 -R$(CONFIGURE_PREFIX)/lib/amd64 -L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)
+	CFLAGS +=	-I$(CONFIGURE_PREFIX)/include -I$(USRINCDIR)
+	CXXFLAGS +=	-I$(CONFIGURE_PREFIX)/include -I$(USRINCDIR)
+	LDFLAGS.32 =	-L$(CONFIGURE_PREFIX)/lib -R$(CONFIGURE_PREFIX)/lib -L$(USRLIBDIR) -R$(USRLIBDIR)
+	LDFLAGS.64 =	-L$(CONFIGURE_PREFIX)/lib/$(MACH64) -R$(CONFIGURE_PREFIX)/lib/$(MACH64) -L$(USRLIBDIR64) -R$(USRLIBDIR64)
 endif
 
 
