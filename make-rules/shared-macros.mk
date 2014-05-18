@@ -19,7 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
-# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2011-2014, EveryCity Ltd. All rights reserved.
 #
 
 ECPREFIX=/ec
@@ -67,6 +67,18 @@ ROOT =			/
 OS_VERSION =		$(shell uname -r)
 SOLARIS_VERSION =	$(OS_VERSION:5.%=2.%)
 
+ifeq ($(OS_VERSION),5.10)
+  BRAND=solaris10
+else ifeq ($(OS_VERSION),5.11)
+  ifeq ($(shell [[ -d /system/usr ]] && echo sngl),sngl)
+    BRAND=sngl
+  else
+    BRAND=smartos
+  endif
+else
+  BRAND=unknown
+endif
+
 COMPILER =		gcc
 LINKER =		gcc
 BITS =			32
@@ -87,7 +99,13 @@ BUILD_DIR =	$(COMPONENT_DIR)/build
 PROTO_DIR =	$(BUILD_DIR)/prototype/$(MACH)
 
 ETCDIR =	/etc
-USRDIR =	/usr
+
+ifneq (,$(filter $(BRAND),solaris10 smartos))
+  USRDIR =	/ec
+else
+  USRDIR =	/usr
+endif
+
 BINDIR =	/bin
 SBINDIR =	/sbin
 LIBDIR =	/lib
