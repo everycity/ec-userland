@@ -36,7 +36,35 @@
 # This set of rules makes the "publish" target the default target for make(1)
 #
 
-BUILD_VERSION =                $(OS_VERSION)-0.162
+# The package branch version scheme is:
+#
+#       release_major.release_minor.update.component_revision
+#
+
+#
+# Release major number: 2014, 2015, etc.
+#
+RELEASE_MAJOR ?= 2014
+
+#
+# Release minor number: 0, 1, 2, etc.
+#
+RELEASE_MINOR ?= 0
+
+#
+# Release update number: 0, 1, 2, etc.
+#
+UPDATENUM ?= 0
+
+#
+# Component revision. Should be specified in the component's Makefile
+#
+
+COMPONENT_REVISION ?= 0
+
+BRANCHID ?= $(RELEASE_MAJOR).$(RELEASE_MINOR).$(UPDATENUM).$(COMPONENT_REVISION)
+
+BUILD_VERSION =                $(OS_VERSION)-$(BRANCHID)
 
 PKGDEPEND =	pkgdepend
 PKGFMT =	pkgfmt
@@ -67,6 +95,13 @@ PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/publish-cleanup
 
 PKGDEPEND_TRANSFORMS +=	$(WS_TOP)/transforms/drop-os-dependencies
 
+
+ifeq   ($(strip $(COMPONENT_AUTOGEN_MANIFEST)),yes)
+AUTOGEN_MANIFEST_TRANSFORMS +=		$(WS_TOP)/transforms/generate-cleanup
+else
+AUTOGEN_MANIFEST_TRANSFORMS +=		$(WS_TOP)/transforms/drop-all
+endif
+
 PKG_MACROS +=		MACH=$(MACH)
 PKG_MACROS +=		MACH32=$(MACH32)
 PKG_MACROS +=		MACH64=$(MACH64)
@@ -75,12 +110,15 @@ PKG_MACROS +=		PUBLISHER=$(PUBLISHER)
 PKG_MACROS +=		BUILD_VERSION=$(BUILD_VERSION)
 PKG_MACROS +=		SOLARIS_VERSION=$(SOLARIS_VERSION)
 PKG_MACROS +=		OS_VERSION=$(OS_VERSION)
+PKG_MACROS +=		HUMAN_VERSION=$(HUMAN_VERSION)
 PKG_MACROS +=		IPS_COMPONENT_VERSION=$(IPS_COMPONENT_VERSION)
 PKG_MACROS +=		COMPONENT_NAME=$(COMPONENT_NAME)
 PKG_MACROS +=		COMPONENT_FMRI=$(COMPONENT_FMRI)
 PKG_MACROS +=		COMPONENT_VERSION=$(COMPONENT_VERSION)
 PKG_MACROS +=		COMPONENT_PROJECT_URL=$(COMPONENT_PROJECT_URL)
 PKG_MACROS +=		COMPONENT_ARCHIVE_URL=$(COMPONENT_ARCHIVE_URL)
+PKG_MACROS +=		COMPONENT_LICENSE="$(COMPONENT_LICENSE)"
+PKG_MACROS +=		COMPONENT_LICENSE_FILE=$(COMPONENT_LICENSE_FILE)
 PKG_MACROS +=		ECPREFIX=$(shell echo $(ECPREFIX) | sed 's/^\///g')
 PKG_MACROS +=		SYSCONFDIR=$(shell echo $(CONFIGURE_SYSCONFDIR) | sed 's/^\///g')
 PKG_MACROS +=		LOCALSTATEDIR=$(shell echo $(CONFIGURE_LOCALSTATEDIR) | sed 's/^\///g')
@@ -109,6 +147,7 @@ FIXED=$(CANONICAL_MANIFESTS:%.p5m=$(MANIFEST_BASE)-%.depend.fixed)
 RESOLVED=$(CANONICAL_MANIFESTS:%.p5m=$(MANIFEST_BASE)-%.depend.fixed.res)
 PUBLISHED=$(RESOLVED:%.depend.fixed.res=%.published)
 
+COMPONENT_LICENSE_FILE ?= COPYING
 COPYRIGHT_FILE ?=	$(COMPONENT_NAME)-$(COMPONENT_VERSION).copyright
 IPS_COMPONENT_VERSION ?=	$(COMPONENT_VERSION)
 
@@ -134,11 +173,26 @@ $(GENERATED).p5m:	install
 $(MANIFEST_BASE)-%.generate:	%.p5m canonical-manifests
 	cat $(METADATA_TEMPLATE) $< >$@
 
+ifeq ($(strip $(COMPONENT_AUTOGEN_MANIFEST)),yes)
+# auto-generate file/directory list
+$(MANIFEST_BASE)-%.generated:	%.p5m $(BUILD_DIR)
+	(cat $(METADATA_TEMPLATE); \
+	$(PKGSEND) generate $(PKG_HARDLINKS:%=--target %) $(PROTO_DIR)) | \
+	$(PKGMOGRIFY) $(PKG_OPTIONS) /dev/fd/0 $(AUTOGEN_MANIFEST_TRANSFORMS) | \
+		sed -e '/^$$/d' -e '/^#.*$$/d' | $(PKGFMT) | \
+		cat $< - >$@
+# mogrify the manifest
+$(MANIFEST_BASE)-%.mogrified:	%.generated
+	$(PKGMOGRIFY) $(PKG_OPTIONS) $< \
+		$(PUBLISH_TRANSFORMS) | \
+		sed -e '/^$$/d' -e '/^#.*$$/d' | uniq >$@
+else
 # mogrify the manifest
 $(MANIFEST_BASE)-%.mogrified:	%.p5m canonical-manifests
 	$(PKGMOGRIFY) $(PKG_OPTIONS) $< \
 		$(PUBLISH_TRANSFORMS) | \
 		sed -e '/^$$/d' -e '/^#.*$$/d' | uniq >$@
+endif
 
 # mangle the file contents
 $(BUILD_DIR):
