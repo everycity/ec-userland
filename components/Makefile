@@ -128,13 +128,14 @@ $(COMPONENT_DIRS):	$(WS_LOGS) setup FORCE
 
 publish:
 	$(PKGREPO) rebuild -s $(PKG_REPO)
-	$(WS_TOOLS)/userland-incorporator --repository $(PKG_REPO) \
-	  -p pkg:/incorporations/entire@0.$(OS_VERSION),$(BUILD_VERSION) \
-	  -s "Entire incorporation" \
-	  -d "This incorporation constrains packages versions to ensure lockstep upgrades" \
-	  >$(WS_LOGS)/entire-incorporation.p5m
-	$(PKGSEND) -s $(PKG_REPO) publish --fmri-in-manifest \
-	  $(WS_LOGS)/entire-incorporation.p5m
+# No need for incorporation package for now
+#	$(WS_TOOLS)/userland-incorporator --repository $(PKG_REPO) \
+#	  -p pkg:/incorporations/entire@0.$(OS_VERSION),$(BUILD_VERSION) \
+#	  -s "Entire incorporation" \
+#	  -d "This incorporation constrains packages versions to ensure lockstep upgrades" \
+#	  >$(WS_LOGS)/entire-incorporation.p5m
+#	$(PKGSEND) -s $(PKG_REPO) publish --fmri-in-manifest \
+#	  $(WS_LOGS)/entire-incorporation.p5m
 # pkglint all of the published manifests in one batch.
 ifdef CANONICAL_REPO
 	@echo 'pkglinting all package manifests...'
