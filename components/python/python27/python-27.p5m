@@ -45,15 +45,11 @@ file usr/bin/pydoc path=usr/bin/pydoc-2.7
 file usr/bin/python2.7           path=usr/bin/$(MACH32)/isapython2.7
 file usr/bin/$(MACH64)/python2.7 path=usr/bin/$(MACH64)/isapython2.7
 
-hardlink path=usr/bin/isapython2.7 target=../lib/isaexec pkg.linted=true
+hardlink path=usr/bin/isapython2.7 target=../lib/isaexec pkg.depend.bypass-generate=.*
 
 link path=usr/bin/$(MACH32)/python2.7 target=isapython2.7
 link path=usr/bin/$(MACH64)/python2.7 target=isapython2.7
 link path=usr/bin/python2.7 target=$(MACH32)/isapython2.7
-
-file files/pyconfig.h path=usr/include/python2.7/pyconfig.h
-file path=usr/include/python2.7/pyconfig-32.h
-file path=usr/include/python2.7/pyconfig-64.h
 
 #file path=$(USRDIR)/bin/$(MACH64)/2to3
 #file path=$(USRDIR)/bin/$(MACH64)/check_offset
@@ -79,6 +75,7 @@ file path=$(USRDIR)/bin/$(MACH64)/python2.7-config
 file path=$(USRDIR)/bin/python2.7-config
 #file path=$(USRDIR)/bin/smtpd.py
 
+file files/pyconfig.h path=usr/include/python2.7/pyconfig.h
 file path=$(USRDIR)/include/python2.7/Python-ast.h
 file path=$(USRDIR)/include/python2.7/Python.h
 file path=$(USRDIR)/include/python2.7/abstract.h
@@ -177,14 +174,14 @@ link path=$(USRDIR)/lib/$(MACH64)/libpython2.7.so target=libpython2.7.so.1.0
 file path=$(USRDIR)/lib/$(MACH64)/libpython2.7.so.1.0
 file path=$(USRDIR)/lib/$(MACH64)/libpython2.7_db.so.1.0
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/python-2.7.pc
-link path=$(USRDIR)/lib/$(MACH64)/pkgconfig/python.pc target=python2.pc
-link path=$(USRDIR)/lib/$(MACH64)/pkgconfig/python2.pc target=python-2.7.pc
+#link path=$(USRDIR)/lib/$(MACH64)/pkgconfig/python.pc target=python2.pc
+#link path=$(USRDIR)/lib/$(MACH64)/pkgconfig/python2.pc target=python-2.7.pc
 link path=$(USRDIR)/lib/libpython2.7.so target=libpython2.7.so.1.0
 file path=$(USRDIR)/lib/libpython2.7.so.1.0
 file path=$(USRDIR)/lib/libpython2.7_db.so.1.0
 file path=$(USRDIR)/lib/pkgconfig/python-2.7.pc
-link path=$(USRDIR)/lib/pkgconfig/python.pc target=python2.pc
-link path=$(USRDIR)/lib/pkgconfig/python2.pc target=python-2.7.pc
+#link path=$(USRDIR)/lib/pkgconfig/python.pc target=python2.pc
+#link path=$(USRDIR)/lib/pkgconfig/python2.pc target=python-2.7.pc
 file path=$(USRDIR)/lib/python2.7/BaseHTTPServer.py
 file path=$(USRDIR)/lib/python2.7/Bastion.py
 file path=$(USRDIR)/lib/python2.7/CGIHTTPServer.py
