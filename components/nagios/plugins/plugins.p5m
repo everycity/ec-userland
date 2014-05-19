@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -17,9 +17,6 @@
 <transform dir file path=ec/nagios.* -> default owner nagios>
 <transform dir file path=ec/nagios.* -> default group nagios>
 <transform file path=ec/nagios/lib.* -> default mode 0755>
-
-# Dependencies
-depend fmri=monitoring/nagios/core type=require
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"

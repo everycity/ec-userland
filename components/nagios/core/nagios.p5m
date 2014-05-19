@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -17,9 +17,7 @@
 <transform dir file path=ec/nagios.* -> default owner nagios>
 <transform dir file path=ec/nagios.* -> default group nagios>
 
-# Accounts
-group gid=455 groupname=nagios
-user gcos-field="Nagios Account" group=nagios uid=455 username=nagios login-shell=/bin/false home-dir=/tmp
+depend fmri=monitoring/nagios/nagios-common type=require
 
 # SMF
 file files/nagios-manifest.xml path=var/svc/manifest/site/nagios.xml \
