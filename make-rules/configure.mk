@@ -1,16 +1,25 @@
 #
-# This file and its contents are supplied under the terms of the
-# Common Development and Distribution License ("CDDL)". You may
-# only use this file in accordance with the terms of the CDDL.
+# CDDL HEADER START
 #
-# A full copy of the text of the CDDL should have accompanied this
-# source. A copy of the CDDL is also available via the Internet at
-# http://www.illumos.org/license/CDDL.
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
 #
-
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
 #
 # Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
-# Copyright 2011-2013 EveryCity Ltd. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 #
@@ -22,6 +31,16 @@
 # To use these rules, include ../make-rules/configure.mk in your Makefile
 # and define "build", "install", and "test" targets appropriate to building
 # your component.
+# Ex:
+#
+# 	build:		$(SOURCE_DIR)/build/$(MACH32)/.built \
+#	 		$(SOURCE_DIR)/build/$(MACH64)/.built
+#
+#	install:	$(SOURCE_DIR)/build/$(MACH32)/.installed \
+#	 		$(SOURCE_DIR)/build/$(MACH64)/.installed
+#
+#	test:		$(SOURCE_DIR)/build/$(MACH32)/.tested \
+#	 		$(SOURCE_DIR)/build/$(MACH64)/.tested
 #
 # Any additional pre/post configure, build, or install actions can be specified
 # in your make file by setting them in on of the following macros:
@@ -36,133 +55,78 @@
 #	COMPONENT_TEST_TARGETS
 #
 
-# We may want to relocate software to an alternative path, such as $(USRDIR)
-CONFIGURE_PREFIX=	$(APPLICATION_PREFIX)
-CONFIGURE_SYSCONFDIR=	$(APPLICATION_ETCDIR)
-CONFIGURE_BINDIR=	$(APPLICATION_BINDIR)
-CONFIGURE_LIBDIR=	$(APPLICATION_LIBDIR)
-CONFIGURE_LIBEXECDIR=	$(APPLICATION_LIBDIR)
-CONFIGURE_SBINDIR=	$(APPLICATION_SBINDIR)
-CONFIGURE_MANDIR=	$(APPLICATION_MANDIR)
-CONFIGURE_LOCALEDIR=	$(APPLICATION_LOCALEDIR)
-CONFIGURE_LOCALSTATEDIR=	$(APPLICATION_VARDIR)
-CONFIGURE_INFODIR=	$(APPLICATION_INFODIR)
-CONFIGURE_INCLUDEDIR=	$(APPLICATION_INCDIR)
+CONFIGURE_PREFIX =	$(ECPREFIX)
 
-CONFIGURE_DEFAULT_ENV ?= yes
-CONFIGURE_DEFAULT_DIRS ?= yes
-CONFIGURE_DEFAULT_HOST ?= yes
-CONFIGURE_DEFAULT_COMPILERS ?= yes
-CONFIGURE_DEFAULT_SHAREDLIB ?= yes
-CONFIGURE_DEFAULT_CPPFLAGS ?= no
-CONFIGURE_DEFAULT_LDFLAGS ?= no
+CONFIGURE_BINDIR.32 =	$(CONFIGURE_PREFIX)/bin
+CONFIGURE_BINDIR.64 =	$(CONFIGURE_PREFIX)/bin/$(MACH64)
+CONFIGURE_SYSCONFDIR =	$(CONFIGURE_PREFIX)/etc
+CONFIGURE_LIBDIR.32 =	$(CONFIGURE_PREFIX)/lib
+CONFIGURE_LIBDIR.64 =	$(CONFIGURE_PREFIX)/lib/$(MACH64)
+CONFIGURE_SBINDIR.32 =	$(CONFIGURE_PREFIX)/bin
+CONFIGURE_SBINDIR.64 =	$(CONFIGURE_PREFIX)/bin/$(MACH64)
+CONFIGURE_MANDIR =	$(CONFIGURE_PREFIX)/share/man
+CONFIGURE_LOCALEDIR =	$(CONFIGURE_PREFIX)/share/locale
+CONFIGURE_LOCALSTATEDIR =	$(CONFIGURE_PREFIX)/var
+CONFIGURE_INFODIR =	$(CONFIGURE_PREFIX)/share/info
+# all texinfo documentation seems to go to /usr/share/info no matter what
+#CONFIGURE_INFODIR =	/usr/share/info
+CONFIGURE_INCLUDEDIR =	/usr/include
 
-ifeq ($(CONFIGURE_DEFAULT_ENV),yes)
-CONFIGURE_ENV=  CONFIG_SHELL="$(CONFIG_SHELL)"
-CONFIGURE_ENV+= PATH="$(PATH)"
-CONFIGURE_ENV+= CC="$(CC)" 
-CONFIGURE_ENV+= CXX="$(CXX)" 
-CONFIGURE_ENV+= CFLAGS="$(CFLAGS)" 
-CONFIGURE_ENV+= CXXFLAGS="$(CXXFLAGS)" 
-#CONFIGURE_ENV+= LIBS="$(LIBS)" 
-CONFIGURE_ENV+= MAKE="$(GMAKE)"
-CONFIGURE_ENV+= M4="$(GM4)"
-CONFIGURE_ENV+= SED="$(GSED)"
-CONFIGURE_ENV+= PERL="$(PERL)"
-CONFIGURE_ENV+= PYTHON="$(PYTHON)"
-CONFIGURE_ENV+= PYTHONMODULEDIR="$(PYTHON_VENDOR_PACKAGES)"
-CONFIGURE_ENV+= INSTALL="$(INSTALL)"
-CONFIGURE_ENV+= PKG_CONFIG="$(PKG_CONFIG)"
-CONFIGURE_ENV+= PKG_CONFIG_PATH="$(PKG_CONFIG_PATH)"
-endif
+CONFIGURE_ENV	=	CONFIG_SHELL="$(CONFIG_SHELL)"
+CONFIGURE_ENV	+=	CC="$(CC)"
+CONFIGURE_ENV	+=	CXX="$(CXX)"
+CONFIGURE_ENV	+=	CFLAGS="$(CFLAGS)"
+CONFIGURE_ENV	+=	CXXFLAGS="$(CXXFLAGS)"
+CONFIGURE_ENV	+=	LDFLAGS="$(LDFLAGS)"
 
-CONFIGURE_DEFAULT_CPPFLAGS ?= yes
-ifeq ($(CONFIGURE_DEFAULT_CPPFLAGS),yes)
-CPPFLAGS += $(CPPFLAGS.$(BITS))
-CPPFLAGS += $(CPPFLAGS.$(MACH))
-CONFIGURE_ENV+= CPPFLAGS="$(CPPFLAGS)"
-endif
+# Set up PKG_CONFIG to use correct version
+CONFIGURE_ENV	+=	PKG_CONFIG="$(PKG_CONFIG)" PKG_CONFIG_PATH="$(PKG_CONFIG_PATH)"
 
-CONFIGURE_DEFAULT_LDFLAGS ?= yes
-ifeq ($(CONFIGURE_DEFAULT_LDFLAGS),yes)
-LDFLAGS += $(LDFLAGS.$(MACH))
-LDFLAGS += $(LDFLAGS.$(BITS))
-CONFIGURE_ENV+= LDFLAGS="$(LDFLAGS)" 
-endif
+CONFIGURE_ENV	+=	$(CONFIGURE_ENV.$(BITS))
 
-ifeq ($(CONFIGURE_DEFAULT_COMPILERS),yes)
-CONFIGURE_OPTIONS+= CC="$(CC)"
-CONFIGURE_OPTIONS+= CXX="$(CXX)"
-endif
+# Tell autoconf about 64bit builds
+CONFIGURE_OPTIONS.64 += --build=x86_64-pc-solaris$(SOLARIS_VERSION)
 
-ifeq ($(CONFIGURE_DEFAULT_HOST),yes)
-CONFIGURE_OPTIONS.32+= --build=$(GNU_ARCH)
-CONFIGURE_OPTIONS.64+= --build=$(GNU_ARCH_64)
-endif
+CONFIGURE_OPTIONS += --prefix=$(CONFIGURE_PREFIX)
+CONFIGURE_OPTIONS += --mandir=$(CONFIGURE_MANDIR)
+CONFIGURE_OPTIONS += --infodir=$(CONFIGURE_INFODIR)
+CONFIGURE_OPTIONS += --bindir=$(CONFIGURE_BINDIR.$(BITS))
+CONFIGURE_OPTIONS += --libdir=$(CONFIGURE_LIBDIR.$(BITS))
+CONFIGURE_OPTIONS += --libexecdir=$(CONFIGURE_LIBDIR.$(BITS))
+CONFIGURE_OPTIONS += --sbindir=$(CONFIGURE_SBINDIR.$(BITS))
+CONFIGURE_OPTIONS += --sysconfdir=$(CONFIGURE_SYSCONFDIR)
+CONFIGURE_OPTIONS += --localstatedir=$(CONFIGURE_LOCALSTATEDIR)
 
-CONFIGURE_OPTIONS+= --prefix=$(CONFIGURE_PREFIX)
-
-ifeq ($(CONFIGURE_DEFAULT_DIRS),yes)
-CONFIGURE_OPTIONS+= --infodir=$(CONFIGURE_INFODIR)
-CONFIGURE_OPTIONS+= --mandir=$(CONFIGURE_MANDIR)
-CONFIGURE_OPTIONS+= --bindir=$(CONFIGURE_BINDIR)
-CONFIGURE_OPTIONS+= --libdir=$(CONFIGURE_LIBDIR)
-CONFIGURE_OPTIONS+= --sbindir=$(CONFIGURE_SBINDIR)
-#CONFIGURE_OPTIONS+= --sysconfdir=$(CONFIGURE_SYSCONFDIR)
-#CONFIGURE_OPTIONS+= --localstatedir=$(CONFIGURE_LOCALSTATEDIR)
-#CONFIGURE_OPTIONS+= --includedir=$(CONFIGURE_INCLUDEDIR)
-#CONFIGURE_OPTIONS+= --libexecdir=$(CONFIGURE_LIBEXECDIR)
-endif
-
-#ifeq ($(CONFIGURE_DEFAULT_SHAREDLIB),yes)
-#CONFIGURE_OPTIONS+= --enable-shared
-#CONFIGURE_OPTIONS+= --disable-static
-#CONFIGURE_OPTIONS+= --with-pic
-#endif
-
-COMPONENT_INSTALL_ARGS+=       DESTDIR=$(PROTO_DIR)
-
-# If we are installing into a non-default location, we need to ensure that
-# includes and libraries get found
-#ifneq ($(CONFIGURE_PREFIX), $(USRDIR))
-#	RELOC_INCLUDES+=	-I$(CONFIGURE_INCLUDEDIR)
-#	RELOC_LDFLAGS+=		-L$(CONFIGURE_LIBDIR) -R$(CONFIGURE_LIBDIR)
-#endif
+COMPONENT_INSTALL_ARGS +=	DESTDIR=$(PROTO_DIR)
 
 $(BUILD_DIR_32)/.configured:	BITS=32
 $(BUILD_DIR_64)/.configured:	BITS=64
 
-CONFIGURE_ENV+= $(CONFIGURE_ENV.$(BITS))
-
-CONFIGURE_OPTIONS+= $(CONFIGURE_OPTIONS.$(BITS))
+CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
 
 # configure the unpacked source for building 32 and 64 bit version
-CONFIGURE_SCRIPT=	$(SOURCE_DIR)/configure
-COMPONENT_CONFIGURE_ROOT = $(@D)
+CONFIGURE_SCRIPT =	$(SOURCE_DIR)/configure
 $(BUILD_DIR)/%/.configured:	$(SOURCE_DIR)/.prep
 	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
 	$(COMPONENT_PRE_CONFIGURE_ACTION)
-	(cd $(COMPONENT_CONFIGURE_ROOT) ; $(ENV) $(CONFIGURE_ENV) $(CONFIG_SHELL) \
+	(cd $(@D) ; $(ENV) $(CONFIGURE_ENV) $(CONFIG_SHELL) \
 		$(CONFIGURE_SCRIPT) $(CONFIGURE_OPTIONS))
 	$(COMPONENT_POST_CONFIGURE_ACTION)
 	$(TOUCH) $@
 
-COMPONENT_BUILD_ARGS += -j$(BUILD_JOBS)
 # build the configured source
-COMPONENT_BUILD_ROOT = $(@D)
 $(BUILD_DIR)/%/.built:	$(BUILD_DIR)/%/.configured
 	$(COMPONENT_PRE_BUILD_ACTION)
-	(cd $(COMPONENT_BUILD_ROOT) ; $(ENV) $(COMPONENT_BUILD_ENV) \
-		$(GMAKE) $(COMPONENT_BUILD_ARGS) \
+	(cd $(@D) ; $(ENV) $(COMPONENT_BUILD_ENV) \
+		$(GMAKE) $(COMPONENT_BUILD_GMAKE_ARGS) $(COMPONENT_BUILD_ARGS) \
 		$(COMPONENT_BUILD_TARGETS))
 	$(COMPONENT_POST_BUILD_ACTION)
 	$(TOUCH) $@
 
 # install the built source into a prototype area
-COMPONENT_INSTALL_ROOT = $(@D)
 $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
 	$(COMPONENT_PRE_INSTALL_ACTION)
-	(cd $(COMPONENT_INSTALL_ROOT) ; $(ENV) $(COMPONENT_INSTALL_ENV) $(GMAKE) \
+	(cd $(@D) ; $(ENV) $(COMPONENT_INSTALL_ENV) $(GMAKE) \
 			$(COMPONENT_INSTALL_ARGS) $(COMPONENT_INSTALL_TARGETS))
 	$(COMPONENT_POST_INSTALL_ACTION)
 	$(TOUCH) $@
