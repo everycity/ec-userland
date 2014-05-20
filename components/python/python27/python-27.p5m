@@ -172,7 +172,7 @@ file path=$(USRDIR)/include/python2.7/weakrefobject.h
 
 link path=$(USRDIR)/lib/$(MACH64)/libpython2.7.so target=libpython2.7.so.1.0
 file path=$(USRDIR)/lib/$(MACH64)/libpython2.7.so.1.0 pkg.depend.bypass-generate=.*
-file path=$(USRDIR)/lib/$(MACH64)/libpython2.7_db.so.1.0
+file path=$(USRDIR)/lib/$(MACH64)/libpython2.7_db.so.1.0 pkg.depend.bypass-generate=.*
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/python-2.7.pc
 #link path=$(USRDIR)/lib/$(MACH64)/pkgconfig/python.pc target=python2.pc
 #link path=$(USRDIR)/lib/$(MACH64)/pkgconfig/python2.pc target=python-2.7.pc
@@ -630,7 +630,7 @@ file path=$(USRDIR)/lib/python2.7/lib-dynload/64/_heapq.so
 file path=$(USRDIR)/lib/python2.7/lib-dynload/64/_hotshot.so
 file path=$(USRDIR)/lib/python2.7/lib-dynload/64/_io.so
 file path=$(USRDIR)/lib/python2.7/lib-dynload/64/_json.so
-file path=$(USRDIR)/lib/python2.7/lib-dynload/64/_locale.so pkg.depend.bypass-generate=.*
+#file path=$(USRDIR)/lib/python2.7/lib-dynload/64/_locale.so pkg.depend.bypass-generate=.*
 file path=$(USRDIR)/lib/python2.7/lib-dynload/64/_lsprof.so
 file path=$(USRDIR)/lib/python2.7/lib-dynload/64/_multibytecodec.so
 file path=$(USRDIR)/lib/python2.7/lib-dynload/64/_multiprocessing.so
@@ -696,7 +696,7 @@ file path=$(USRDIR)/lib/python2.7/lib-dynload/_heapq.so
 file path=$(USRDIR)/lib/python2.7/lib-dynload/_hotshot.so
 file path=$(USRDIR)/lib/python2.7/lib-dynload/_io.so
 file path=$(USRDIR)/lib/python2.7/lib-dynload/_json.so
-file path=$(USRDIR)/lib/python2.7/lib-dynload/_locale.so pkg.depend.bypass-generate=.*
+#file path=$(USRDIR)/lib/python2.7/lib-dynload/_locale.so pkg.depend.bypass-generate=.*
 file path=$(USRDIR)/lib/python2.7/lib-dynload/_lsprof.so
 file path=$(USRDIR)/lib/python2.7/lib-dynload/_multibytecodec.so
 file path=$(USRDIR)/lib/python2.7/lib-dynload/_multiprocessing.so
