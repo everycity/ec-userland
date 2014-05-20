@@ -88,7 +88,7 @@ COMPONENT_INSTALL_ARGS.64 += DESTSHARED=$(CONFIGURE_PREFIX)/lib/python2.7/lib-dy
 # build a Python module.  So here we also touch the pickle files to avoid this.
 #
 COMPONENT_POST_INSTALL_ACTION= \
-            (cd $(PROTO_PREFIX) ;  \
+            (cd $(PROTOUSRDIR) ;  \
              $(MV) include/python2.7/pyconfig.h include/python2.7/pyconfig-$(BITS).h ; \
              $(TOUCH) lib/python2.7/lib2to3/*.pickle)
 
