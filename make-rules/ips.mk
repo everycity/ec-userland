@@ -1,25 +1,16 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
-#
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
+
 #
 # Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2013 EveryCity Ltd. All rights reserved.
 #
 
 #
@@ -36,110 +27,108 @@
 # This set of rules makes the "publish" target the default target for make(1)
 #
 
-# The package branch version scheme is:
-#
-#       release_major.release_minor.update.component_revision
-#
+BUILD_VERSION=	$(OS_VERSION)-0.162
 
-#
-# Release major number: 2014, 2015, etc.
-#
-RELEASE_MAJOR ?= 2014
-
-#
-# Release minor number: 0, 1, 2, etc.
-#
-RELEASE_MINOR ?= 0
-
-#
-# Release update number: 0, 1, 2, etc.
-#
-UPDATENUM ?= 0
-
-#
-# Component revision. Should be specified in the component's Makefile
-#
-
-COMPONENT_REVISION ?= 0
-
-BRANCHID ?= $(RELEASE_MAJOR).$(RELEASE_MINOR).$(UPDATENUM).$(COMPONENT_REVISION)
-
-BUILD_VERSION =                $(OS_VERSION)-$(BRANCHID)
-
-PKGDEPEND =	pkgdepend
-PKGFMT =	pkgfmt
-PKGMOGRIFY =	pkgmogrify
-PKGSEND =	pkgsend
-PKGLINT =	pkglint
-PKGMANGLE =	$(WS_TOOLS)/userland-mangler
+PKGDEPEND=	pkgdepend
+PKGFMT=		pkgfmt -u
+PKGMOGRIFY=	pkgmogrify
+PKGSEND=	pkgsend
+PKGLINT=	pkglint
+PKGMANGLE=	$(WS_TOOLS)/userland-mangler
+PKG_REPO=	file:$(WS_REPO)
 
 # Package headers should all pretty much follow the same format
-METADATA_TEMPLATE =		$(WS_TOP)/transforms/manifest-metadata-template
-COPYRIGHT_TEMPLATE =		$(WS_TOP)/transforms/copyright-template
+METADATA_TEMPLATE=	$(WS_TRANSFORMS)/manifest-metadata-template
+COPYRIGHT_TEMPLATE=	$(WS_TRANSFORMS)/copyright-template
 
 # order is important
-GENERATE_TRANSFORMS +=		$(WS_TOP)/transforms/generate-cleanup
+GENERATE_TRANSFORMS+=	$(WS_TRANSFORMS)/generate-cleanup
 
-COMPARISON_TRANSFORMS +=	$(WS_TOP)/transforms/comparison-cleanup
-COMPARISON_TRANSFORMS +=	$(PKGMOGRIFY_TRANSFORMS)
+COMPARISON_TRANSFORMS+=	$(WS_TRANSFORMS)/comparison-cleanup
+COMPARISON_TRANSFORMS+=	$(PKGMOGRIFY_TRANSFORMS)
 
 # order is important
-PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/variant-cleanup
-PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/defaults
-PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/actuators
-PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/devel
-PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/docs
-PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/locale
-PUBLISH_TRANSFORMS +=	$(PKGMOGRIFY_TRANSFORMS)
-PUBLISH_TRANSFORMS +=	$(WS_TOP)/transforms/publish-cleanup
+PUBLISH_TRANSFORMS+=	$(WS_TRANSFORMS)/variant-cleanup
+PUBLISH_TRANSFORMS+=	$(WS_TRANSFORMS)/defaults
+PUBLISH_TRANSFORMS+=	$(WS_TRANSFORMS)/actuators
+PUBLISH_TRANSFORMS+=	$(WS_TRANSFORMS)/devel
+PUBLISH_TRANSFORMS+=	$(WS_TRANSFORMS)/docs
+PUBLISH_TRANSFORMS+=	$(WS_TRANSFORMS)/locale
+PUBLISH_TRANSFORMS+=	$(PKGMOGRIFY_TRANSFORMS)
+PUBLISH_TRANSFORMS+=	$(WS_TRANSFORMS)/publish-cleanup
 
-PKGDEPEND_TRANSFORMS +=	$(WS_TOP)/transforms/drop-os-dependencies
+PKGDEPEND_TRANSFORMS+=	$(WS_TRANSFORMS)/drop-os-dependencies
 
+PKG_MACROS+=		PLAT=$(PLAT)
+PKG_MACROS+=		MACH=$(MACH)
+PKG_MACROS+=		MACH32=$(MACH32)
+PKG_MACROS+=		MACH64=$(MACH64)
+PKG_MACROS+=		MACH64_GNU=$(MACH64_GNU)
+PKG_MACROS+=		GNU_ARCH=$(GNU_ARCH)
+PKG_MACROS+=		GNU_ARCH_64=$(GNU_ARCH_64)
+PKG_MACROS+=		PUBLISHER=$(PUBLISHER)
+PKG_MACROS+=		BUILD_VERSION=$(BUILD_VERSION)
+PKG_MACROS+=		SOLARIS_VERSION=$(SOLARIS_VERSION)
+PKG_MACROS+=		OS_VERSION=$(OS_VERSION)
+PKG_MACROS+=		IPS_COMPONENT_VERSION=$(IPS_COMPONENT_VERSION)
+PKG_MACROS+=		COMPONENT_NAME=$(COMPONENT_NAME)
+PKG_MACROS+=		COMPONENT_FMRI=$(COMPONENT_FMRI)
+PKG_MACROS+=		COMPONENT_VERSION=$(COMPONENT_VERSION)
+PKG_MACROS+=		COMPONENT_MJR_VERSION=$(COMPONENT_MJR_VERSION)
+PKG_MACROS+=		COMPONENT_MNR_VERSION=$(COMPONENT_MNR_VERSION)
+PKG_MACROS+=		COMPONENT_PROJECT_URL=$(COMPONENT_PROJECT_URL)
+PKG_MACROS+=		COMPONENT_ARCHIVE_URL=$(COMPONENT_ARCHIVE_URL)
+PKG_MACROS+=		COMPONENT_HG_URL=$(COMPONENT_HG_URL)
+PKG_MACROS+=		COMPONENT_HG_REV=$(COMPONENT_HG_REV)
+PKG_MACROS+=		ECPREFIX=$(shell echo $(ECPREFIX) | sed 's;^/;;')
+PKG_MACROS+=		SYSCONFDIR=$(shell echo $(CONFIGURE_SYSCONFDIR) | sed 's;^/;;')
+PKG_MACROS+=		LOCALSTATEDIR=$(shell echo $(CONFIGURE_LOCALSTATEDIR) | sed 's;^/;;')
+PKG_MACROS+=		APPLICATION_PREFIX=$(shell echo $(APPLICATION_PREFIX) | sed 's;^/;;')
+PKG_MACROS+=		APPLICATION_ETCDIR=$(shell echo $(APPLICATION_ETCDIR) | sed 's;^/;;')
+PKG_MACROS+=		APPLICATION_VARDIR=$(shell echo $(APPLICATION_VARDIR) | sed 's;^/;;')
+PKG_MACROS+=		APPLICATION_BINDIR.32=$(shell echo $(APPLICATION_BINDIR.32) | sed 's;^/;;')
+PKG_MACROS+=		APPLICATION_BINDIR.64=$(shell echo $(APPLICATION_BINDIR.64) | sed 's;^/;;')
+PKG_MACROS+=		APPLICATION_LIBDIR.32=$(shell echo $(APPLICATION_LIBDIR.32) | sed 's;^/;;')
+PKG_MACROS+=		APPLICATION_LIBDIR.64=$(shell echo $(APPLICATION_LIBDIR.64) | sed 's;^/;;')
+PKG_MACROS+=		APPLICATION_SHAREDIR=$(shell echo $(APPLICATION_SHAREDIR) | sed 's;^/;;')
+PKG_MACROS+=		APPLICATION_INCDIR=$(shell echo $(APPLICATION_INCDIR) | sed 's;^/;;')
+PKG_MACROS+=		APPLICATION_LOCALEDIR=$(shell echo $(APPLICATION_LOCALEDIR) | sed 's;^/;;')
+PKG_MACROS+=		APPLICATION_MANDIR=$(shell echo $(APPLICATION_MANDIR) | sed 's;^/;;')
+PKG_MACROS+=		APPLICATION_DOCDIR=$(shell echo $(APPLICATION_DOCDIR) | sed 's;^/;;')
+PKG_MACROS+=		APPLICATION_INFODIR=$(shell echo $(APPLICATION_INFODIR) | sed 's;^/;;')
+PKG_MACROS+=		APPLICATION_SHARELIBDIR=$(shell echo $(APPLICATION_SHARELIBDIR) | sed 's;^/;;')
+PKG_MACROS+=		USRDIR=$(shell echo $(USRDIR) | sed 's;^/;;')
+PKG_MACROS+=		APPDIR=$(shell echo $(USRDIR) | sed 's;^/;;')
+PKG_MACROS+=		ETCDIR=$(shell echo $(ETCDIR) | sed 's;^/;;')
+PKG_MACROS+=		VARDIR=$(shell echo $(VARDIR) | sed 's;^/;;')
+PKG_MACROS+=		BINDIR.32=$(shell echo $(BINDIR.32) | sed 's;^/;;')
+PKG_MACROS+=		BINDIR.64=$(shell echo $(BINDIR.64) | sed 's;^/;;')
+PKG_MACROS+=		LIBDIR.32=$(shell echo $(LIBDIR.32) | sed 's;^/;;')
+PKG_MACROS+=		LIBDIR.64=$(shell echo $(LIBDIR.64) | sed 's;^/;;')
+PKG_MACROS+=		SHAREDIR=$(shell echo $(SHAREDIR) | sed 's;^/;;')
+PKG_MACROS+=		INCDIR=$(shell echo $(INCDIR) | sed 's;^/;;')
+PKG_MACROS+=		LOCALEDIR=$(shell echo $(LOCALEDIR) | sed 's;^/;;')
+PKG_MACROS+=		MANDIR=$(shell echo $(MANDIR) | sed 's;^/;;')
+PKG_MACROS+=		DOCDIR=$(shell echo $(DOCDIR) | sed 's;^/;;')
+PKG_MACROS+=		INFODIR=$(shell echo $(INFODIR) | sed 's;^/;;')
+PKG_MACROS+=		SHARELIBDIR=$(shell echo $(SHARELIBDIR) | sed 's;^/;;')
+PKG_MACROS+=		MANIFESTDIR=$(shell echo $(MANIFESTDIR) | sed 's;^/;;')
+PKG_MACROS+=		METHODDIR=$(shell echo $(METHODDIR) | sed 's;^/;;')
 
-ifeq   ($(strip $(COMPONENT_AUTOGEN_MANIFEST)),yes)
-AUTOGEN_MANIFEST_TRANSFORMS +=		$(WS_TOP)/transforms/generate-cleanup
-else
-AUTOGEN_MANIFEST_TRANSFORMS +=		$(WS_TOP)/transforms/drop-all
-endif
+PKG_OPTIONS+=		$(PKG_MACROS:%=-D %) -D COMPONENT_SUMMARY="$(COMPONENT_SUMMARY)" \
+				-D COMPONENT_LICENSE="$(COMPONENT_LICENSE)"  -I$(WS_TRANSFORMS)
 
-PKG_MACROS +=		MACH=$(MACH)
-PKG_MACROS +=		MACH32=$(MACH32)
-PKG_MACROS +=		MACH64=$(MACH64)
-PKG_MACROS +=		MACH64_GNU=$(MACH64_GNU)
-PKG_MACROS +=		PUBLISHER=$(PUBLISHER)
-PKG_MACROS +=		BUILD_VERSION=$(BUILD_VERSION)
-PKG_MACROS +=		SOLARIS_VERSION=$(SOLARIS_VERSION)
-PKG_MACROS +=		OS_VERSION=$(OS_VERSION)
-PKG_MACROS +=		HUMAN_VERSION=$(HUMAN_VERSION)
-PKG_MACROS +=		IPS_COMPONENT_VERSION=$(IPS_COMPONENT_VERSION)
-PKG_MACROS +=		COMPONENT_NAME=$(COMPONENT_NAME)
-PKG_MACROS +=		COMPONENT_FMRI=$(COMPONENT_FMRI)
-PKG_MACROS +=		COMPONENT_VERSION=$(COMPONENT_VERSION)
-PKG_MACROS +=		COMPONENT_PROJECT_URL=$(COMPONENT_PROJECT_URL)
-PKG_MACROS +=		COMPONENT_ARCHIVE_URL=$(COMPONENT_ARCHIVE_URL)
-PKG_MACROS +=		COMPONENT_LICENSE="$(COMPONENT_LICENSE)"
-PKG_MACROS +=		COMPONENT_LICENSE_FILE=$(COMPONENT_LICENSE_FILE)
-PKG_MACROS +=		ECPREFIX=$(shell echo $(ECPREFIX) | sed 's/^\///g')
-PKG_MACROS +=		SYSCONFDIR=$(shell echo $(CONFIGURE_SYSCONFDIR) | sed 's/^\///g')
-PKG_MACROS +=		LOCALSTATEDIR=$(shell echo $(CONFIGURE_LOCALSTATEDIR) | sed 's/^\///g')
-PKG_MACROS +=		PLAT=$(PLAT)
-PKG_MACROS +=		COMPONENT_HG_URL=$(COMPONENT_HG_URL)
-PKG_MACROS +=		COMPONENT_HG_REV=$(COMPONENT_HG_REV)
-
-PKG_OPTIONS +=		$(PKG_MACROS:%=-D %) -D COMPONENT_SUMMARY="$(COMPONENT_SUMMARY)" \
-				-D COMPONENT_LICENSE="$(COMPONENT_LICENSE)"  -I$(WS_TOP)/transforms
-
-PKG_PROTO_DIRS += $(PROTO_DIR) $(@D) $(COMPONENT_DIR)
+PKG_PROTO_DIRS+=	$(PROTO_DIR) $(@D) $(COMPONENT_DIR)
 ifdef COMPONENT_SRC
 	PKG_PROTO_DIRS += source/$(COMPONENT_SRC)
 endif
 
-MANIFEST_BASE =		$(BUILD_DIR)/manifest-$(MACH)
+MANIFEST_BASE=		$(BUILD_DIR)/manifest-$(MACH)
 
-CANONICAL_MANIFESTS ?=	$(wildcard *.p5m)
-GENERATED =		$(MANIFEST_BASE)-generated
-COMBINED =		$(MANIFEST_BASE)-combined
-MANIFESTS =		$(CANONICAL_MANIFESTS:%=$(MANIFEST_BASE)-%)
+CANONICAL_MANIFESTS?=	$(wildcard *.p5m)
+GENERATED=		$(MANIFEST_BASE)-generated
+COMBINED=		$(MANIFEST_BASE)-combined
+MANIFESTS=		$(CANONICAL_MANIFESTS:%=$(MANIFEST_BASE)-%)
 
 
 DEPENDED=$(CANONICAL_MANIFESTS:%.p5m=$(MANIFEST_BASE)-%.depend)
@@ -147,9 +136,8 @@ FIXED=$(CANONICAL_MANIFESTS:%.p5m=$(MANIFEST_BASE)-%.depend.fixed)
 RESOLVED=$(CANONICAL_MANIFESTS:%.p5m=$(MANIFEST_BASE)-%.depend.fixed.res)
 PUBLISHED=$(RESOLVED:%.depend.fixed.res=%.published)
 
-COMPONENT_LICENSE_FILE ?= COPYING
-COPYRIGHT_FILE ?=	$(COMPONENT_NAME)-$(COMPONENT_VERSION).copyright
-IPS_COMPONENT_VERSION ?=	$(COMPONENT_VERSION)
+COPYRIGHT_FILE?=	$(COMPONENT_NAME)-$(COMPONENT_VERSION).copyright
+IPS_COMPONENT_VERSION?=	$(COMPONENT_VERSION)
 
 .DEFAULT:		publish
 
@@ -157,7 +145,7 @@ IPS_COMPONENT_VERSION ?=	$(COMPONENT_VERSION)
 
 # allow publishing to be overridden, such as when
 # a package is for one architecture only.
-PUBLISH_STAMP ?= $(BUILD_DIR)/.published-$(MACH)
+PUBLISH_STAMP?=		$(BUILD_DIR)/.published-$(MACH)
 
 publish:		build install $(PUBLISH_STAMP)
 
@@ -173,33 +161,18 @@ $(GENERATED).p5m:	install
 $(MANIFEST_BASE)-%.generate:	%.p5m canonical-manifests
 	cat $(METADATA_TEMPLATE) $< >$@
 
-ifeq ($(strip $(COMPONENT_AUTOGEN_MANIFEST)),yes)
-# auto-generate file/directory list
-$(MANIFEST_BASE)-%.generated:	%.p5m $(BUILD_DIR)
-	(cat $(METADATA_TEMPLATE); \
-	$(PKGSEND) generate $(PKG_HARDLINKS:%=--target %) $(PROTO_DIR)) | \
-	$(PKGMOGRIFY) $(PKG_OPTIONS) /dev/fd/0 $(AUTOGEN_MANIFEST_TRANSFORMS) | \
-		sed -e '/^$$/d' -e '/^#.*$$/d' | $(PKGFMT) | \
-		cat $< - >$@
-# mogrify the manifest
-$(MANIFEST_BASE)-%.mogrified:	%.generated
-	$(PKGMOGRIFY) $(PKG_OPTIONS) $< \
-		$(PUBLISH_TRANSFORMS) | \
-		sed -e '/^$$/d' -e '/^#.*$$/d' | uniq >$@
-else
 # mogrify the manifest
 $(MANIFEST_BASE)-%.mogrified:	%.p5m canonical-manifests
 	$(PKGMOGRIFY) $(PKG_OPTIONS) $< \
 		$(PUBLISH_TRANSFORMS) | \
 		sed -e '/^$$/d' -e '/^#.*$$/d' | uniq >$@
-endif
 
 # mangle the file contents
 $(BUILD_DIR):
 	$(MKDIR) $@
 
 # generate dependencies
-PKGDEPEND_GENERATE_OPTIONS = -m $(PKG_PROTO_DIRS:%=-d %)
+PKGDEPEND_GENERATE_OPTIONS= -m $(PKG_PROTO_DIRS:%=-d %)
 $(MANIFEST_BASE)-%.depend:	$(MANIFEST_BASE)-%.mogrified
 	$(PKGDEPEND) generate $(PKGDEPEND_GENERATE_OPTIONS) $< >$@
 
@@ -222,9 +195,9 @@ $(BUILD_DIR)/.linted-$(MACH):	$(BUILD_DIR)/.resolved-$(MACH)
 	$(TOUCH) $@
 
 # published
-PKGSEND_PUBLISH_OPTIONS = -s $(PKG_REPO) publish --fmri-in-manifest
-PKGSEND_PUBLISH_OPTIONS += $(PKG_PROTO_DIRS:%=-d %)
-PKGSEND_PUBLISH_OPTIONS += -T \*.py
+PKGSEND_PUBLISH_OPTIONS= -s $(PKG_REPO) publish --fmri-in-manifest
+PKGSEND_PUBLISH_OPTIONS+= $(PKG_PROTO_DIRS:%=-d %)
+PKGSEND_PUBLISH_OPTIONS+= -T \*.py
 $(MANIFEST_BASE)-%.published:	$(MANIFEST_BASE)-%.depend.fixed.res $(BUILD_DIR)/.linted-$(MACH)
 	$(PKGSEND) $(PKGSEND_PUBLISH_OPTIONS) $<
 	$(PKGFMT) <$< >$@
@@ -233,18 +206,18 @@ $(BUILD_DIR)/.published-$(MACH):	$(PUBLISHED)
 	$(TOUCH) $@
 
 print-package-names:	canonical-manifests
-	@cat $(CANONICAL_MANIFESTS) $(WS_TOP)/transforms/print-pkgs | \
+	@cat $(CANONICAL_MANIFESTS) $(WS_TRANSFORMS)/print-pkgs | \
 		$(PKGMOGRIFY) $(PKG_OPTIONS) /dev/fd/0 | \
  		sed -e '/^$$/d' -e '/^#.*$$/d' | sort -u
 
 print-package-paths:	canonical-manifests
-	@cat $(CANONICAL_MANIFESTS) $(WS_TOP)/transforms/print-paths | \
+	@cat $(CANONICAL_MANIFESTS) $(WS_TRANSFORMS)/print-paths | \
 		$(PKGMOGRIFY) $(PKG_OPTIONS) /dev/fd/0 | \
  		sed -e '/^$$/d' -e '/^#.*$$/d' | sort -u
 
 install-packages:	publish
 	@if [ $(IS_GLOBAL_ZONE) = 0 -o x$(ROOT) != x ]; then \
-	    cat $(CANONICAL_MANIFESTS) $(WS_TOP)/transforms/print-paths | \
+	    cat $(CANONICAL_MANIFESTS) $(WS_TRANSFORMS)/print-paths | \
 		$(PKGMOGRIFY) $(PKG_OPTIONS) /dev/fd/0 | \
  		sed -e '/^$$/d' -e '/^#.*$$/d' -e 's;/;;' | sort -u | \
 		(cd $(PROTO_DIR) ; pfexec /bin/cpio -dump $(ROOT)) ; \
@@ -275,4 +248,5 @@ required-pkgs.mk:	Makefile
 pre-prep:	required-pkgs.mk
 
 
-CLEAN_PATHS +=	required-pkgs.mk
+CLEAN_PATHS+=	required-pkgs.mk
+

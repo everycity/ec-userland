@@ -25,6 +25,7 @@
 VARIANT_584 = $(BUILD_DIR)/$(MACH32)-5.8.4
 VARIANT_510 = $(BUILD_DIR)/$(MACH32)-5.10.0
 VARIANT_512 = $(BUILD_DIR)/$(MACH32)-5.12.3
+VARIANT_516 = $(BUILD_DIR)/$(MACH32)-5.16
 
 # List all variants here. You can override this variable locally to build given
 # module with just selected perl revision
@@ -51,3 +52,8 @@ $(VARIANT_512)/.built:  PERL=$(P512)
 $(VARIANT_512)/.prep:  PERL=$(P512)
 $(VARIANT_512)/.configured:  PERL=$(P512)
 $(VARIANT_512)/.installed:  PERL=$(P512)
+
+$(VARIANT_516)/.built:  PERL=$(P516)
+$(VARIANT_516)/.prep:  PERL=$(P516)
+$(VARIANT_516)/.configured:  PERL=$(P516)
+$(VARIANT_516)/.installed:  PERL=$(P516)

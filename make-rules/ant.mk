@@ -8,12 +8,12 @@
 # http://www.illumos.org/license/CDDL.
 #
 # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
-# Copyright (c) 2012, Every City Ltd. All rights reserved.
+# Copyright (c) 2012,2013 Every City Ltd. All rights reserved.
 #
 
 ANT=/ec/bin/ant
 
-COMPONENT_BUILD_ENV += JAVA_HOME="$(JAVA_HOME)"
+COMPONENT_BUILD_ENV+= JAVA_HOME="$(JAVA_HOME)"
 # build the configured source
 $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
 	$(RM) -r $(@D) ; $(MKDIR) $(@D)
@@ -24,7 +24,7 @@ $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
 	$(COMPONENT_POST_BUILD_ACTION)
 	$(TOUCH) $@
 
-COMPONENT_INSTALL_ENV += JAVA_HOME="$(JAVA_HOME)"
+COMPONENT_INSTALL_ENV+= JAVA_HOME="$(JAVA_HOME)"
 # install the built source into a prototype area
 $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
 	$(COMPONENT_PRE_INSTALL_ACTION)
