@@ -22,10 +22,6 @@
 # Copyright 2011-2014, EveryCity Ltd. All rights reserved.
 #
 
-ECPREFIX=/ec
-
-PATH=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
-
 # The workspace starts at the mercurial/git root
 HG_ROOT = $(shell hg root 2>/dev/null)
 
@@ -107,6 +103,9 @@ ifneq (,$(filter $(BRAND),solaris10 smartos))
 else
   USRDIR =	/usr
 endif
+ECPREFIX=$(USRDIR)
+
+PATH=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 
 BINDIR =	/bin
 SBINDIR =	/sbin
@@ -198,6 +197,9 @@ MACH64_GNU =	$(MACH64:amd64=x86_64)
 PLAT_1 =	$(MACH:sparc=sun)
 PLAT =		$(PLAT_1:i386=pc)
 
+GNU_ARCH    =   $(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)
+GNU_ARCH_64=   $(MACH64:amd64=x86_64)-$(PLAT)-solaris$(SOLARIS_VERSION)
+
 CONFIGURE_32 =		$(BUILD_DIR_32)/.configured
 CONFIGURE_64 =		$(BUILD_DIR_64)/.configured
 
@@ -234,7 +236,9 @@ BUILD_TOOLS =	/ws/onnv-tools
 SPRO_ROOT =	$(BUILD_TOOLS)/SUNWspro
 SPRO_VROOT =	$(SPRO_ROOT)/sunstudio12.1
 
-GCC_ROOT =	$(USRDIR)
+GCC_VERSION = 	4.8
+#GCC_ROOT =	$(USRDIR)
+GCC_ROOT =	$(USRDIR)/gcc/$(GCC_VERSION)
 
 CC.studio.32 =	$(SPRO_VROOT)/bin/cc
 CXX.studio.32 =	$(SPRO_VROOT)/bin/CC
@@ -293,7 +297,7 @@ PERL_OPTIMIZE = $(shell $(PERL) -e 'use Config; print $$Config{optimize}')
 PKG_MACROS +=   PERL_ARCH=$(PERL_ARCH)
 PKG_MACROS +=   PERL_VERSION=$(PERL_VERSION)
 
-CMAKE =		$(USRBIN)/bin/cmake
+CMAKE =		$(USRBINDIR)/cmake
 CCSMAKE =	/usr/ccs/bin/make
 GMAKE =		$(USRBINDIR)/make
 GPATCH =	$(USRBINDIR)/patch
@@ -556,19 +560,19 @@ LDFLAGS =      $(LD_BITS)
 
 CONFIGURE_PREFIX?=	$(USRDIR)
 
-ifeq ($(CONFIGURE_PREFIX), /usr)
-	LDFLAGS.64 =	-L$(USRLIBDIR64) -R$(USRLIBDIR64)
-else ifeq ($(CONFIGURE_PREFIX), $(USRDIR))
-	CFLAGS +=	-I$(USRINCDIR)
-	CXXFLAGS +=	-I$(USRINCDIR)
-	LDFLAGS.32 =	-L$(USRLIBDIR) -R$(USRLIBDIR)
-	LDFLAGS.64 =	-L$(USRLIBDIR64) -R$(USRLIBDIR64)
-else
-	CFLAGS +=	-I$(CONFIGURE_PREFIX)/include -I$(USRINCDIR)
-	CXXFLAGS +=	-I$(CONFIGURE_PREFIX)/include -I$(USRINCDIR)
-	LDFLAGS.32 =	-L$(CONFIGURE_PREFIX)/lib -R$(CONFIGURE_PREFIX)/lib -L$(USRLIBDIR) -R$(USRLIBDIR)
-	LDFLAGS.64 =	-L$(CONFIGURE_PREFIX)/lib/$(MACH64) -R$(CONFIGURE_PREFIX)/lib/$(MACH64) -L$(USRLIBDIR64) -R$(USRLIBDIR64)
-endif
+#ifeq ($(CONFIGURE_PREFIX), /usr)
+#	LDFLAGS.64 =	-L$(USRLIBDIR64) -R$(USRLIBDIR64)
+#else ifeq ($(CONFIGURE_PREFIX), $(USRDIR))
+#	CFLAGS +=	-I$(USRINCDIR)
+#	CXXFLAGS +=	-I$(USRINCDIR)
+#	LDFLAGS.32 =	-L$(USRLIBDIR) -R$(USRLIBDIR)
+#	LDFLAGS.64 =	-L$(USRLIBDIR64) -R$(USRLIBDIR64)
+#else
+#	CFLAGS +=	-I$(CONFIGURE_PREFIX)/include -I$(USRINCDIR)
+#	CXXFLAGS +=	-I$(CONFIGURE_PREFIX)/include -I$(USRINCDIR)
+#	LDFLAGS.32 =	-L$(CONFIGURE_PREFIX)/lib -R$(CONFIGURE_PREFIX)/lib -L$(USRLIBDIR) -R$(USRLIBDIR)
+#	LDFLAGS.64 =	-L$(CONFIGURE_PREFIX)/lib/$(MACH64) -R$(CONFIGURE_PREFIX)/lib/$(MACH64) -L$(USRLIBDIR64) -R$(USRLIBDIR64)
+#endif
 
 
 # Generally create code for less ancient CPUs.
@@ -649,6 +653,15 @@ COMPONENT_BUILD_ENV += $(COMPONENT_BUILD_ENV.$(BITS))
 COMPONENT_BUILD_ARGS += $(COMPONENT_BUILD_ARGS.$(BITS))
 COMPONENT_INSTALL_ENV += $(COMPONENT_INSTALL_ENV.$(BITS))
 COMPONENT_INSTALL_ARGS += $(COMPONENT_INSTALL_ARGS.$(BITS))
+
+# define build jobs for parallel builds
+DEF_JOBS ?= yes
+JOBS ?= 1
+ifeq ($(DEF_JOBS),yes)
+    BUILD_JOBS = $(JOBS)
+else
+    BUILD_JOBS = 1
+endif
 
 # declare these phony so that we avoid filesystem conflicts.
 .PHONY:	prep build install publish test clean clobber
