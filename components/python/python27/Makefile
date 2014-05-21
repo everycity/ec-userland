@@ -22,7 +22,8 @@
 # Copyright (c) 2011, 2013, Oracle and/or its affiliates. All rights reserved.
 
 #
-#CONFIGURE_DEFAULT_LDFLAGS = no
+CONFIGURE_DEFAULT_CPPFLAGS = yes
+CONFIGURE_DEFAULT_LDFLAGS = yes
 include ../../../make-rules/shared-macros.mk
 
 PATH=/usr/bin:/usr/gnu/bin:/usr/sbin
