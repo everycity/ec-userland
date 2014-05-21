@@ -27,8 +27,10 @@ COMPONENT_ARCHIVE_HASH=	sha256:7cbed5ef11900e8f68041215eea0de5e443d53393f84c41d5
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PERL5)
 
 include ../../../make-rules/prep.mk
-include ../../../make-rules/justmake.mk
+include ../../../make-rules/configure.mk
 include ../../../make-rules/ips.mk
+
+BITS = 64
 
 # Perl builds seem flakey since justmake.mk parallel enable.
 COMPONENT_BUILD_GMAKE_ARGS=
@@ -47,38 +49,58 @@ COMPONENT_BUILD_GMAKE_ARGS=
 #			    -Doptimize="$(CFLAGS.gcc)" \
 #			    -Duseshrplib \
 
-COMPONENT_PRE_BUILD_ACTION= \
-	(cd $(@D); $(ENV) -i \
-		MAKE=$(GMAKE) \
-		PATH=$(dir $(CC.studio.32)):$(PATH) \
-		$(CONFIG_SHELL) ./Configure \
-			    -Dprefix=$(ECPREFIX)/lib/perl/$(PERL_VERSION) \
-			    -Dprivlib=$(ECPREFIX)/lib/perl/$(PERL_VERSION)/lib \
-			    -Dsitelib=$(ECPREFIX)/lib/perl/site_perl/$(PERL_VERSION) \
-			    -Dvendorprefix=$(ECPREFIX)/lib/perl/$(PERL_VERSION) \
-			    -Dvendorlib=$(ECPREFIX)/lib/perl/vendor_perl/$(PERL_VERSION) \
-			    -Dcc="gcc" \
-			    -Duse64bitint \
-			    -Dusedtrace \
-			    -Dlibperl=libperl.so \
-			    -Dcf_email="support@everycity.com" \
-			    -Dcf_by="perl-bugs" \
-			    -Dmyhostname="localhost" \
-			    -O \
-			    -de ) ; \
+CONFIGURE_SCRIPT = $(SOURCE_DIR)/Configure
+CONFIGURE_ENV += MAKE=$(GMAKE)
+CONFIGURE_ENV += PATH="$(dir $(CC)):$(PATH)"
+
+CONFIGURE_OPTIONS = \
+			-de \
+			-Dmksymlinks \
+			-Ulocincpth= \
+			-Uloclibpth= \
+                        -Dbin=$(USRDIR)/lib/perl/$(PERL_VERSION)/bin \
+			-Dcc="$(CC) -B/usr/bin/" \
+			-Accflags="-fno-stack-protector" \
+			-Dcf_email="userland-discuss@opensolaris.org" \
+			-Dcf_by="perl-bugs" \
+			-Dlibperl=libperl.so.$(PERL_VERSION) \
+			-Dmyhostname="localhost" \
+			-Dperl_static_inline="static" \
+			-Dprefix=$(USRDIR)/lib/perl/$(PERL_VERSION) \
+                        -Dprivlib=$(USRDIR)/lib/perl/$(PERL_VERSION)/lib \
+			-Dsitelib=$(USRDIR)/lib/perl/site_perl/$(PERL_VERSION) \
+			-Dsiteprefix=$(USRDIR)/lib/perl/$(PERL_VERSION) \
+			-Dvendorlib=$(USRDIR)/lib/perl/vendor_perl/$(PERL_VERSION) \
+			-Dvendorprefix=$(USRDIR)/lib/perl/$(PERL_VERSION) \
+			-Duseshrplib \
+			-Duse64bitall \
+			-Uuselargefiles \
+			-Dman1dir=$(USRDIR)/lib/perl/$(PERL_VERSION)/man/man1 \
+			-Dman1ext=1 \
+			-Dman3dir=$(USRDIR)/lib/perl/$(PERL_VERSION)/man/man3 \
+			-Dman3ext=3
+
+#			-Dusedtrace \
+
+CONFIGURE_THREAD_OPTIONS =  -Dusethreads \
+			    -Duseithreads
+
+CONFIGURE_OPTIONS += $(CONFIGURE_THREAD_OPTIONS)
+
+COMPONENT_POST_UNPACK_ACTION = \
+	( cd $(SOURCE_DIR) \
+	&& gfind . -type f -name "*" | xargs chmod 0644 )
+
+COMPONENT_POST_CONFIGURE_ACTION = \
 	(cd $(@D); \
 	    cp config.sh config.sh_orig ; \
 	    gawk \
 	    '/^myuname=/{print $$1" localhost "$$3" "$$5" "$$6" "$$7"\047"} ; \
 	    		!/^myuname=/ {print}' config.sh_orig \
 		| \
-		sed -e 's/[^ ]*SUNWspro[^ ]*//g' > config.sh )
+		sed -e "s/[^ ']*SUNWspro[^ ']*//g" > config.sh )
 
 COMPONENT_INSTALL_ENV	+=	DESTDIR="$(PROTO_DIR)"
-
-LDFLAGS +=	-lssp
-
-COMPONENT_BUILD_TARGETS+= LDFLAGS="$(LDFLAGS)"
 
 #
 # perl's install path for sparc is based off the value of the
@@ -88,7 +110,7 @@ PKG_MACROS		+=	PERL_ARCH=$(shell arch)
 PKG_MACROS		+=	PERL_VERSION=$(PERL_VERSION)
 
 
-build:		$(BUILD_32)
+build:		$(BUILD_64)
 
-install:	$(INSTALL_32)
+install:	$(INSTALL_64)
 
