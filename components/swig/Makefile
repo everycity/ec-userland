@@ -29,7 +29,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=	--with-x
+#CONFIGURE_OPTIONS+=	--with-x
+CONFIGURE_OPTIONS+=	--without-tcl
 CONFIGURE_OPTIONS+=	--without-python3
 CONFIGURE_OPTIONS.32+=	--with-python=$(ECPREFIX)/bin/python
 CONFIGURE_OPTIONS.64+=	--with-python=$(ECPREFIX)/bin/$(MACH64)/python
