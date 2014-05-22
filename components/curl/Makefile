@@ -11,6 +11,8 @@
 #
 # Copyright 2014 EveryCity Ltd. All rights reserved.
 #
+CONFIGURE_DEFAULT_CPPFLAGS = yes
+
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		curl
@@ -28,38 +30,44 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CPPFLAGS+=	-I$(ECPREFIX)/include
+GSSAPI_LIBDIR_32 = /usr/lib
+GSSAPI_LIBDIR_64 = /usr/lib/$(MACH64)
 
-CONFIGURE_ENV+=	CPPFLAGS="$(CPPFLAGS)"
+CFLAGS += $(CPP_LARGEFILES)
+CFLAGS += `pkg-config --cflags libidn`
+CPPFLAGS += `pkg-config --cflags libidn`
 
-CONFIGURE_OPTIONS+=	--with-pic
-CONFIGURE_OPTIONS+=	--enable-shared
-CONFIGURE_OPTIONS+=	--disable-static
-CONFIGURE_OPTIONS+=	--with-libidn=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-ca-bundle=$(CONFIGURE_SYSCONFDIR)/openssl/cabundle.pem
-CONFIGURE_OPTIONS+=	--without-librtmp
-CONFIGURE_OPTIONS+=	--disable-ldap
-CONFIGURE_OPTIONS+=	--disable-ldaps
+CPPFLAGS+= -I$(ECPREFIX)/include
 
-COMPONENT_POST_INSTALL_ACTION.32 =	( perl -pi -e \
-	's/CURLLIBDIR=.*/CURLLIBDIR="-L\/ec\/lib -R\/ec\/lib "/' \
-	$(PROTO_DIR)$(ECPREFIX)/bin/curl-config )
-COMPONENT_POST_INSTALL_ACTION.64 =	( perl -pi -e \
-	's/CURLLIBDIR=.*/CURLLIBDIR="-L\/ec\/lib\/$(MACH64) -R\/ec\/lib\/$(MACH64) "/' \
-	$(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/curl-config )
-COMPONENT_POST_INSTALL_ACTION=$(COMPONENT_POST_INSTALL_ACTION.$(BITS))
+CONFIGURE_OPTIONS += --with-pic
+CONFIGURE_OPTIONS += --enable-shared
+CONFIGURE_OPTIONS += --disable-static
+CONFIGURE_OPTIONS += --with-libidn=$(ECPREFIX)
+CONFIGURE_OPTIONS += --with-ca-bundle=$(CONFIGURE_SYSCONFDIR)/openssl/cabundle.pem
+CONFIGURE_OPTIONS += --without-librtmp
+CONFIGURE_OPTIONS += --disable-ldap
+CONFIGURE_OPTIONS += --disable-ldaps
+
+CONFIGURE_OPTIONS += --with-gssapi-includes=/usr/include/gssapi
+CONFIGURE_OPTIONS += --with-gssapi-libs=$(GSSAPI_LIBDIR_$(BITS))
+CONFIGURE_OPTIONS += --with-gssapi=/usr
+CONFIGURE_OPTIONS += "curl_disallow_getifaddrs=yes"
+
+#COMPONENT_POST_INSTALL_ACTION.32 =	( perl -pi -e \
+#	's/CURLLIBDIR=.*/CURLLIBDIR="-L$(ECPREFIX)\/lib -R$(ECPREFIX)\/lib "/' \
+#	$(PROTO_DIR)$(ECPREFIX)/bin/curl-config )
+#COMPONENT_POST_INSTALL_ACTION.64 =	( perl -pi -e \
+#	's/CURLLIBDIR=.*/CURLLIBDIR="-L$(ECPREFIX)\/lib\/$(MACH64) -R$(ECPREFIX)\/lib\/$(MACH64) "/' \
+#	$(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/curl-config )
+#COMPONENT_POST_INSTALL_ACTION=$(COMPONENT_POST_INSTALL_ACTION.$(BITS))
 
 # common targets
 build:		$(BUILD_32_and_64)
 
-$(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
-	# Note: curl generates a header file, include/curl/curlbuild.h, during the build
-	# This header file is different depending on 32bit or 64bit build
-	/usr/bin/echo "/* EC: combining 32 and 64bit headers */\n\n#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/curlbuild.h
-	/usr/bin/cat $(BUILD_DIR_64)/include/curl/curlbuild.h >> $(COMPONENT_DIR)/curlbuild.h
-	/usr/bin/echo "\n#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/curlbuild.h
-	/usr/bin/cat $(BUILD_DIR_32)/include/curl/curlbuild.h >> $(COMPONENT_DIR)/curlbuild.h
-	/usr/bin/echo "\n#endif /* EC */" >> $(COMPONENT_DIR)/curlbuild.h
-	$(TOUCH) $@
+install: 	$(INSTALL_32_and_64)
 
-install:	$(BUILD_DIR)/.installed
+test: 		$(TEST_32_and_64)
+
+BUILD_PKG_DEPENDENCIES = $(BUILD_TOOLS)
+
+include ../../make-rules/depend.mk
