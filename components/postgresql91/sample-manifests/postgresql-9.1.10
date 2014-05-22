@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -28,6 +28,7 @@ dir path=$(ECPREFIX)/lib/postgres
 dir path=$(ECPREFIX)/lib/postgres/9.1
 dir path=$(ECPREFIX)/lib/postgres/9.1/bin
 dir path=$(ECPREFIX)/lib/postgres/9.1/bin/$(MACH64)
+dir path=$(ECPREFIX)/lib/postgres/9.1/extension
 dir path=$(ECPREFIX)/lib/postgres/9.1/include
 dir path=$(ECPREFIX)/lib/postgres/9.1/include/informix
 dir path=$(ECPREFIX)/lib/postgres/9.1/include/informix/esql
@@ -163,6 +164,10 @@ file path=$(ECPREFIX)/lib/postgres/9.1/bin/postgres
 file path=$(ECPREFIX)/lib/postgres/9.1/bin/psql
 file path=$(ECPREFIX)/lib/postgres/9.1/bin/reindexdb
 file path=$(ECPREFIX)/lib/postgres/9.1/bin/vacuumdb
+file path=$(ECPREFIX)/lib/postgres/9.1/extension/tablefunc--1.0.sql
+file \
+    path=$(ECPREFIX)/lib/postgres/9.1/extension/tablefunc--unpackaged--1.0.sql
+file path=$(ECPREFIX)/lib/postgres/9.1/extension/tablefunc.control
 file path=$(ECPREFIX)/lib/postgres/9.1/include/ecpg_config.h
 file path=$(ECPREFIX)/lib/postgres/9.1/include/ecpg_informix.h
 file path=$(ECPREFIX)/lib/postgres/9.1/include/ecpgerrno.h
@@ -772,6 +777,7 @@ file \
     path=$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64)/pgxs/src/test/regress/pg_regress
 file path=$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64)/plpgsql.so
 file path=$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64)/plpython2.so
+file path=$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64)/tablefunc.so
 file path=$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64)/utf8_and_ascii.so
 file path=$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64)/utf8_and_big5.so
 file path=$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64)/utf8_and_cyrillic.so
@@ -818,6 +824,7 @@ file path=$(ECPREFIX)/lib/postgres/9.1/lib/pgxs/src/nls-global.mk
 file path=$(ECPREFIX)/lib/postgres/9.1/lib/pgxs/src/test/regress/pg_regress
 file path=$(ECPREFIX)/lib/postgres/9.1/lib/plpgsql.so
 file path=$(ECPREFIX)/lib/postgres/9.1/lib/plpython2.so
+file path=$(ECPREFIX)/lib/postgres/9.1/lib/tablefunc.so
 file path=$(ECPREFIX)/lib/postgres/9.1/lib/utf8_and_ascii.so
 file path=$(ECPREFIX)/lib/postgres/9.1/lib/utf8_and_big5.so
 file path=$(ECPREFIX)/lib/postgres/9.1/lib/utf8_and_cyrillic.so
