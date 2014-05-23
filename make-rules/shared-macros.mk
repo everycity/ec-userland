@@ -100,8 +100,12 @@ ETCDIR =	/etc
 
 ifneq (,$(filter $(BRAND),solaris10 smartos))
   USRDIR =	/ec
+  CONFIGURE_SYSCONFDIR = /ec/etc
+  CONFIGURE_LOCALSTATEDIR = /ec/var
 else
   USRDIR =	/usr
+  CONFIGURE_SYSCONFDIR = /etc
+  CONFIGURE_LOCALSTATEDIR = /var
 endif
 ECPREFIX=$(USRDIR)
 
@@ -306,7 +310,7 @@ GPATCH =	$(USRBINDIR)/patch
 PATCH_LEVEL =	1
 GPATCH_BACKUP =	--backup --version-control=numbered
 GPATCH_FLAGS =	-p$(PATCH_LEVEL) $(GPATCH_BACKUP)
-GSED =		$(USRBINDIR)/sed
+GSED =		$(USRBINDIR)/gsed
 
 PKGREPO =	pkgrepo
 PKGSEND =	pkgsend
@@ -325,9 +329,12 @@ LN =		/bin/ln
 SYMLINK =	/bin/ln -s
 ENV =		/usr/bin/env
 INSTALL =	$(USRBINDIR)/install
-CHMOD =		/usr/bin/chmod
-NAWK =		/usr/bin/nawk
-TEE =		/usr/bin/tee
+CHMOD =		$(USRBINDIR)/chmod
+NAWK =		$(USRBINDIR)/nawk
+TEE =		$(USRBINDIR)/tee
+GUNZIP =	$(USRBINDIR)/gunzip
+GTAR =		$(USRBINDIR)/gtar
+GFIND =		$(USRBINDIR)/gfind
 
 
 INS.dir=        $(INSTALL) -d $@
