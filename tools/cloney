@@ -20,7 +20,6 @@
 # CDDL HEADER END
 #
 # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
-# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 # clone a directory to another using symlinks, in a very clunky way
 
@@ -32,5 +31,26 @@ fi
 srcdir=$1
 destdir=$2
 
-echo cloning $srcdir to $destdir
-/ec/bin/rsync -a --exclude *.~1~ $srcdir/ $destdir/
+PATH=/usr/bin
+
+echo symlink cloning $srcdir to $destdir
+
+cd ${srcdir}
+gfind . -type d | \
+    ggrep -v '^.$' | ggrep -v '\/.svn' | ggrep -v '/\.git' | ggrep -v '/\.hg' | \
+    gsed -e 's,^\./,,' | \
+    while read i;
+do
+	mkdir -p "${destdir}/$i"
+done
+
+# Copy files and symlinks, making sure we ignore the gnu-patch backup
+# files, too.
+gfind . -type f -o -type l | \
+    egrep -v '~[0-9]+~' | ggrep -v '\/.svn' | ggrep -v '/\.git' | ggrep -v '/\.hg' | \
+    gsed -e 's,^\./,,' | \
+    while read i;
+do
+	rm -f "${destdir}/$i"
+	ln -s "${srcdir}/$i" "${destdir}/$i"
+done
