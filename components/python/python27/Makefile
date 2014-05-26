@@ -18,23 +18,21 @@
 #
 # CDDL HEADER END
 #
-# Copyright (c) 2012, Igor Kozhukhov <ikozhukhov@gmail.com>. All rights reserved.
-# Copyright (c) 2011, 2013, Oracle and/or its affiliates. All rights reserved.
+# Copyright 2014, Igor Kozhukhov <ikozhukhov@gmail.com>
+# Copyright (c) 2011, 2014, Oracle and/or its affiliates. All rights reserved.
 
 #
-CONFIGURE_DEFAULT_CPPFLAGS = yes
-CONFIGURE_DEFAULT_LDFLAGS = yes
 include ../../../make-rules/shared-macros.mk
 
-PATH=/usr/bin:/usr/gnu/bin:/usr/sbin
+PATH=/usr/bin:/sbin:/usr/sbin
 
 COMPONENT_NAME=		Python
-COMPONENT_VERSION=	2.7.3
+COMPONENT_VERSION=	2.7.6
 COMPONENT_PROJECT_URL=	http://python.org/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
 COMPONENT_ARCHIVE_HASH=	\
-    sha256:726457e11cb153adc3f428aaf1901fc561a374c30e5e7da6742c0742a338663c
+    sha256:1fd68e81f8bf7386ff239b7faee9ba387129d2cf34eab13350bd8503a0bff6a1
 COMPONENT_ARCHIVE_URL=	$(COMPONENT_PROJECT_URL)ftp/python/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 COMPONENT_BUGDB=	utility/python
 
