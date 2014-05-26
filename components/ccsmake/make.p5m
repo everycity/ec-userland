@@ -1,0 +1,130 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+# XXX: manifest needs SPARC support
+
+set name=pkg.fmri value=pkg:/developer/build/make@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Solaris Bundled tools"
+set name=info.classification value="org.opensolaris.category.2008:Development/Source Code Management"
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license SUNWsprot.copyright license=SUNWsprot.copyright
+
+dir  path=usr
+dir  path=usr/bin
+file path=usr/bin/admin
+file path=usr/bin/as
+file path=usr/bin/cdc
+file path=usr/bin/comb
+file path=usr/bin/delta
+file path=usr/bin/get
+file path=usr/bin/make
+file path=usr/bin/prs
+file path=usr/bin/prt
+file path=usr/bin/rmdel
+file path=usr/bin/sact
+file path=usr/bin/sccs
+file path=usr/bin/sccsdiff
+file path=usr/bin/sccshelp
+file path=usr/bin/unget
+file path=usr/bin/val
+file path=usr/bin/vc
+file path=usr/bin/what
+dir  path=usr/ccs
+dir  path=usr/ccs/bin
+file path=usr/ccs/bin/admin
+file path=usr/ccs/bin/as
+file path=usr/ccs/bin/cdc
+file path=usr/ccs/bin/comb
+file path=usr/ccs/bin/delta
+file path=usr/ccs/bin/get
+file path=usr/ccs/bin/help
+file path=usr/ccs/bin/make
+file path=usr/ccs/bin/prs
+file path=usr/ccs/bin/prt
+file path=usr/ccs/bin/rmdel
+file path=usr/ccs/bin/sact
+file path=usr/ccs/bin/sccs
+file path=usr/ccs/bin/sccsdiff
+file path=usr/ccs/bin/sccshelp
+file path=usr/ccs/bin/unget
+file path=usr/ccs/bin/val
+file path=usr/ccs/bin/vc
+file path=usr/ccs/bin/what
+dir  path=usr/ccs/lib
+file path=usr/ccs/lib/cm4defs
+dir  path=usr/ccs/lib/help
+dir  path=usr/ccs/lib/help/lib
+file path=usr/ccs/lib/help/lib/help2
+dir  path=usr/ccs/lib/help/locale
+dir  path=usr/ccs/lib/help/locale/C
+file path=usr/ccs/lib/help/locale/C/ad
+file path=usr/ccs/lib/help/locale/C/bd
+file path=usr/ccs/lib/help/locale/C/cb
+file path=usr/ccs/lib/help/locale/C/cm
+file path=usr/ccs/lib/help/locale/C/cmds
+file path=usr/ccs/lib/help/locale/C/co
+file path=usr/ccs/lib/help/locale/C/de
+file path=usr/ccs/lib/help/locale/C/default
+file path=usr/ccs/lib/help/locale/C/ge
+file path=usr/ccs/lib/help/locale/C/he
+file path=usr/ccs/lib/help/locale/C/prs
+file path=usr/ccs/lib/help/locale/C/rc
+file path=usr/ccs/lib/help/locale/C/un
+file path=usr/ccs/lib/help/locale/C/ut
+file path=usr/ccs/lib/help/locale/C/vc
+file path=usr/ccs/lib/svr4.make
+dir  path=usr/lib
+dir  path=usr/lib/$(MACH64)
+file path=usr/lib/$(MACH64)/libmakestate.so.1
+file path=usr/lib/$(MACH64)/libtdf.so
+file path=usr/lib/$(MACH64)/libtdf.so.1
+file path=usr/lib/$(MACH64)/libxprof.so pkg.linted=true
+file path=usr/lib/$(MACH64)/libxprof.so.1 pkg.linted=true
+file path=usr/lib/$(MACH64)/libxprof_audit.so pkg.linted=true
+file path=usr/lib/$(MACH64)/libxprof_audit.so.1 pkg.linted=true
+file path=usr/lib/cm4defs
+dir  path=usr/lib/help
+dir  path=usr/lib/help/lib
+file path=usr/lib/help/lib/help2
+dir  path=usr/lib/help/locale
+dir  path=usr/lib/help/locale/C
+file path=usr/lib/help/locale/C/ad
+file path=usr/lib/help/locale/C/bd
+file path=usr/lib/help/locale/C/cb
+file path=usr/lib/help/locale/C/cm
+file path=usr/lib/help/locale/C/cmds
+file path=usr/lib/help/locale/C/co
+file path=usr/lib/help/locale/C/de
+file path=usr/lib/help/locale/C/default
+file path=usr/lib/help/locale/C/ge
+file path=usr/lib/help/locale/C/he
+file path=usr/lib/help/locale/C/prs
+file path=usr/lib/help/locale/C/rc
+file path=usr/lib/help/locale/C/un
+file path=usr/lib/help/locale/C/ut
+file path=usr/lib/help/locale/C/vc
+file path=usr/lib/libmakestate.so.1
+file path=usr/lib/libtdf.so
+file path=usr/lib/libtdf.so.1 pkg.linted=true
+file path=usr/lib/libxprof.so pkg.linted=true
+file path=usr/lib/libxprof.so.1 pkg.linted=true
+file path=usr/lib/libxprof_audit.so pkg.linted=true
+file path=usr/lib/libxprof_audit.so.1 pkg.linted=true
+file path=usr/lib/svr4.make
+dir  path=usr/share
+dir  path=usr/share/lib
+dir  path=usr/share/lib/make
+file path=usr/share/lib/make/make.rules
+file path=usr/share/lib/make/svr4.make.rules
