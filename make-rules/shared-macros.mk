@@ -335,7 +335,7 @@ TEE =		$(USRBINDIR)/tee
 GUNZIP =	$(USRBINDIR)/gunzip
 GTAR =		$(USRBINDIR)/gtar
 GFIND =		$(USRBINDIR)/gfind
-
+IPS2TGZ =	$(WS_TOOLS)/ips2tgz
 
 INS.dir=        $(INSTALL) -d $@
 INS.file=       $(INSTALL) -m 444 $< $(@D)
