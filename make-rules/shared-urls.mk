@@ -10,7 +10,7 @@
 
 #
 # Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
-# Copyright 2011-2013 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2014 EveryCity Ltd. All rights reserved.
 #
 
 # Default to looking for source archives on the internal mirror before we
