@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		exim
 COMPONENT_FMRI=		mailserver/exim
-COMPONENT_VERSION=	4.82
+COMPONENT_VERSION=	4.82.1
 COMPONENT_LICENSE=	GPLv2
 COMPONENT_PROJECT_URL=	"http://www.exim.org/"
 COMPONENT_SUMMARY=	The Exim SMTP Server
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:5ca6b2f94426541caba9794bca0f732471e3e0df065d011714642a8451dc735e
+COMPONENT_ARCHIVE_HASH=	sha256:b8935b31b842cfd77afb345390c07d7b8524a7083fa1963ca7577a66d83d8df0
 COMPONENT_ARCHIVE_URL=	ftp://ftp.exim.org/pub/exim/exim4/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
