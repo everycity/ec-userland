@@ -21,8 +21,6 @@ set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license SUNWsprot.copyright license=SUNWsprot.copyright
 
-dir  path=usr
-dir  path=usr/bin
 file path=usr/bin/admin pkg.depend.bypass-generate=.*
 file path=usr/bin/as
 file path=usr/bin/cdc pkg.depend.bypass-generate=.*
@@ -41,21 +39,17 @@ file path=usr/bin/unget pkg.depend.bypass-generate=.*
 file path=usr/bin/val pkg.depend.bypass-generate=.*
 file path=usr/bin/vc pkg.depend.bypass-generate=.*
 file path=usr/bin/what pkg.depend.bypass-generate=.*
-dir  path=usr/lib
-dir  path=usr/lib/$(MACH64)
+
 file path=usr/lib/$(MACH64)/libmakestate.so.1
-file path=usr/lib/$(MACH64)/libtdf.so
+link path=usr/lib/$(MACH64)/libtdf.so target=libtdf.so.1
 file path=usr/lib/$(MACH64)/libtdf.so.1
-file path=usr/lib/$(MACH64)/libxprof.so pkg.linted=true
+link path=usr/lib/$(MACH64)/libxprof.so target=libxprof.so.1
 file path=usr/lib/$(MACH64)/libxprof.so.1 pkg.linted=true
-file path=usr/lib/$(MACH64)/libxprof_audit.so pkg.linted=true
+link path=usr/lib/$(MACH64)/libxprof_audit.so target=libxprof_audit.so.1
 file path=usr/lib/$(MACH64)/libxprof_audit.so.1 pkg.linted=true
 file path=usr/lib/cm4defs
-dir  path=usr/lib/help
-dir  path=usr/lib/help/lib
+
 file path=usr/lib/help/lib/help2 mode=0555 pkg.depend.bypass-generate=.*
-dir  path=usr/lib/help/locale
-dir  path=usr/lib/help/locale/C
 file path=usr/lib/help/locale/C/ad
 file path=usr/lib/help/locale/C/bd
 file path=usr/lib/help/locale/C/cb
@@ -72,15 +66,13 @@ file path=usr/lib/help/locale/C/un
 file path=usr/lib/help/locale/C/ut
 file path=usr/lib/help/locale/C/vc
 file path=usr/lib/libmakestate.so.1
-file path=usr/lib/libtdf.so
+link path=usr/lib/libtdf.so target=libtdf.so.1
 file path=usr/lib/libtdf.so.1 pkg.linted=true
-file path=usr/lib/libxprof.so pkg.linted=true
+link path=usr/lib/libxprof.so target=libxprof.so.1
 file path=usr/lib/libxprof.so.1 pkg.linted=true
-file path=usr/lib/libxprof_audit.so pkg.linted=true
+link path=usr/lib/libxprof_audit.so target=libxprof_audit.so.1
 file path=usr/lib/libxprof_audit.so.1 pkg.linted=true
 file path=usr/lib/svr4.make mode=0555 pkg.depend.bypass-generate=.*
-dir  path=usr/share
-dir  path=usr/share/lib
-dir  path=usr/share/lib/make
+
 file path=usr/share/lib/make/make.rules
 file path=usr/share/lib/make/svr4.make.rules

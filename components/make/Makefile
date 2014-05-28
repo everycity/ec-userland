@@ -32,7 +32,7 @@ include ../../make-rules/ips.mk
 build:	prep
 
 install:	build
-	@[[ -d $(PROTO_DIR) ]] && $(RM) -r $(PROTO_DIR)
+	@$(RM) -r $(PROTO_DIR)
 	@$(MKDIR) $(PROTO_DIR)
 	@$(CP) -RP $(SOURCE_DIR)/$(MACH)/* $(PROTO_DIR) 
 
