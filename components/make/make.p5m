@@ -15,7 +15,7 @@
 # XXX: manifest needs SPARC support
 
 set name=pkg.fmri value=pkg:/developer/build/make@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="Solaris Bundled tools"
+set name=pkg.summary value="Sun Solaris version of make"
 set name=info.classification value="org.opensolaris.category.2008:Development/Source Code Management"
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
@@ -23,68 +23,24 @@ license SUNWsprot.copyright license=SUNWsprot.copyright
 
 dir  path=usr
 dir  path=usr/bin
-file path=usr/bin/admin
+file path=usr/bin/admin pkg.depend.bypass-generate=.*
 file path=usr/bin/as
-file path=usr/bin/cdc
-file path=usr/bin/comb
-file path=usr/bin/delta
-file path=usr/bin/get
-file path=usr/bin/make
-file path=usr/bin/prs
-file path=usr/bin/prt
-file path=usr/bin/rmdel
-file path=usr/bin/sact
-file path=usr/bin/sccs
+file path=usr/bin/cdc pkg.depend.bypass-generate=.*
+file path=usr/bin/comb pkg.depend.bypass-generate=.*
+file path=usr/bin/delta pkg.depend.bypass-generate=.*
+file path=usr/bin/get pkg.depend.bypass-generate=.*
+file usr/bin/make path=usr/bin/sunmake pkg.depend.bypass-generate=.*
+file path=usr/bin/prs pkg.depend.bypass-generate=.*
+file path=usr/bin/prt pkg.depend.bypass-generate=.*
+file path=usr/bin/rmdel pkg.depend.bypass-generate=.*
+file path=usr/bin/sact pkg.depend.bypass-generate=.*
+file path=usr/bin/sccs pkg.depend.bypass-generate=.*
 file path=usr/bin/sccsdiff
-file path=usr/bin/sccshelp
-file path=usr/bin/unget
-file path=usr/bin/val
-file path=usr/bin/vc
-file path=usr/bin/what
-dir  path=usr/ccs
-dir  path=usr/ccs/bin
-file path=usr/ccs/bin/admin
-file path=usr/ccs/bin/as
-file path=usr/ccs/bin/cdc
-file path=usr/ccs/bin/comb
-file path=usr/ccs/bin/delta
-file path=usr/ccs/bin/get
-file path=usr/ccs/bin/help
-file path=usr/ccs/bin/make
-file path=usr/ccs/bin/prs
-file path=usr/ccs/bin/prt
-file path=usr/ccs/bin/rmdel
-file path=usr/ccs/bin/sact
-file path=usr/ccs/bin/sccs
-file path=usr/ccs/bin/sccsdiff
-file path=usr/ccs/bin/sccshelp
-file path=usr/ccs/bin/unget
-file path=usr/ccs/bin/val
-file path=usr/ccs/bin/vc
-file path=usr/ccs/bin/what
-dir  path=usr/ccs/lib
-file path=usr/ccs/lib/cm4defs
-dir  path=usr/ccs/lib/help
-dir  path=usr/ccs/lib/help/lib
-file path=usr/ccs/lib/help/lib/help2
-dir  path=usr/ccs/lib/help/locale
-dir  path=usr/ccs/lib/help/locale/C
-file path=usr/ccs/lib/help/locale/C/ad
-file path=usr/ccs/lib/help/locale/C/bd
-file path=usr/ccs/lib/help/locale/C/cb
-file path=usr/ccs/lib/help/locale/C/cm
-file path=usr/ccs/lib/help/locale/C/cmds
-file path=usr/ccs/lib/help/locale/C/co
-file path=usr/ccs/lib/help/locale/C/de
-file path=usr/ccs/lib/help/locale/C/default
-file path=usr/ccs/lib/help/locale/C/ge
-file path=usr/ccs/lib/help/locale/C/he
-file path=usr/ccs/lib/help/locale/C/prs
-file path=usr/ccs/lib/help/locale/C/rc
-file path=usr/ccs/lib/help/locale/C/un
-file path=usr/ccs/lib/help/locale/C/ut
-file path=usr/ccs/lib/help/locale/C/vc
-file path=usr/ccs/lib/svr4.make
+file path=usr/bin/sccshelp pkg.depend.bypass-generate=.*
+file path=usr/bin/unget pkg.depend.bypass-generate=.*
+file path=usr/bin/val pkg.depend.bypass-generate=.*
+file path=usr/bin/vc pkg.depend.bypass-generate=.*
+file path=usr/bin/what pkg.depend.bypass-generate=.*
 dir  path=usr/lib
 dir  path=usr/lib/$(MACH64)
 file path=usr/lib/$(MACH64)/libmakestate.so.1
@@ -97,7 +53,7 @@ file path=usr/lib/$(MACH64)/libxprof_audit.so.1 pkg.linted=true
 file path=usr/lib/cm4defs
 dir  path=usr/lib/help
 dir  path=usr/lib/help/lib
-file path=usr/lib/help/lib/help2
+file path=usr/lib/help/lib/help2 mode=0555 pkg.depend.bypass-generate=.*
 dir  path=usr/lib/help/locale
 dir  path=usr/lib/help/locale/C
 file path=usr/lib/help/locale/C/ad
@@ -122,7 +78,7 @@ file path=usr/lib/libxprof.so pkg.linted=true
 file path=usr/lib/libxprof.so.1 pkg.linted=true
 file path=usr/lib/libxprof_audit.so pkg.linted=true
 file path=usr/lib/libxprof_audit.so.1 pkg.linted=true
-file path=usr/lib/svr4.make
+file path=usr/lib/svr4.make mode=0555 pkg.depend.bypass-generate=.*
 dir  path=usr/share
 dir  path=usr/share/lib
 dir  path=usr/share/lib/make

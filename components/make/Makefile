@@ -17,12 +17,13 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=		make
 COMPONENT_VERSION=	0.5.11
 COMPONENT_SRC=		$(COMPONENT_NAME)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-osol.tar.gz
 # below is required for userland-fetch to bahave
 COMPONENT_ARCHIVE_URL=blah
 
 download::
-	$(IPS2TGZ) $(COMPONENT_SRC) http://pkg.openindiana.org/legacy \
+	$(IPS2TGZ) $(COMPONENT_SRC) $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE) \
+	http://pkg.openindiana.org/legacy \
 	pkg:/developer/build/make@0.5.11,5.11-0.134:20100302T014001Z
 
 include ../../make-rules/prep.mk
@@ -31,8 +32,9 @@ include ../../make-rules/ips.mk
 build:	prep
 
 install:	build
+	@[[ -d $(PROTO_DIR) ]] && $(RM) -r $(PROTO_DIR)
 	@$(MKDIR) $(PROTO_DIR)
-	@$(CP) -RP $(COMPONENT_SRC)/$(MACH)/* $(PROTO_DIR)
+	@$(CP) -RP $(SOURCE_DIR)/$(MACH)/* $(PROTO_DIR) 
 
 clean::
 	$(RM) -r $(SOURCE_DIR) $(BUILD_DIR)
