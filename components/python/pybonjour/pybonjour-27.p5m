@@ -31,7 +31,7 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license pybonjour.copyright license=BSD
 
-depend fmri=service/network/dns/mdns type=require
+#depend fmri=service/network/dns/mdns type=require
 
 # force a dependency on the Python 2.7 runtime
 depend fmri=__TBD pkg.debug.depend.file=python2.7 \
