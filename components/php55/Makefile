@@ -14,10 +14,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	5.5.12
+COMPONENT_VERSION=	5.5.13
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:a10c6e6ce1145762d6c15ca7ce1aeaab69662c197d24e1294c2519aa85c97bd6
+COMPONENT_ARCHIVE_HASH=	sha256:15e34eb7c45e66963cbece29fb41e53cc6c6e3ec4a54c291a53cf6a1527771b6
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_UK)
 
 include ../../make-rules/prep.mk
@@ -124,6 +124,7 @@ CONFIGURE_OPTIONS     +=	--enable-dtrace
 CONFIGURE_OPTIONS     +=	--enable-shared
 CONFIGURE_OPTIONS     +=	--enable-filter
 CONFIGURE_OPTIONS     +=	--enable-gd-jis-conv
+CONFIGURE_OPTIONS     +=	--enable-gd-native-ttf
 CONFIGURE_OPTIONS     +=	--enable-short-tags
 CONFIGURE_OPTIONS     +=	--enable-pcntl
 CONFIGURE_OPTIONS     +=	--enable-shmop
