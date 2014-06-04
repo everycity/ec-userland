@@ -1,0 +1,13 @@
+Index: binutils-2.19.1/bfd/elf32-i386.c
+===================================================================
+--- binutils-2.19.1.orig/bfd/elf32-i386.c	2011-06-09 22:59:38.891864643 +0400
++++ binutils-2.19.1/bfd/elf32-i386.c	2011-06-09 22:59:53.028966227 +0400
+@@ -504,7 +504,7 @@
+ /* The name of the dynamic interpreter.  This is put in the .interp
+    section.  */
+ 
+-#define ELF_DYNAMIC_INTERPRETER "/usr/lib/libc.so.1"
++#define ELF_DYNAMIC_INTERPRETER "/lib/ld.so.1"
+ 
+ /* If ELIMINATE_COPY_RELOCS is non-zero, the linker will try to avoid
+    copying dynamic variables from a shared lib into an app's dynbss
