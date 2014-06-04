@@ -14,26 +14,25 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ca-bundle
-COMPONENT_FMRI=		crypto/ca-bundle
-COMPONENT_VERSION=	2013.5.20
+COMPONENT_FMRI=		crypto/ca-certificates
+COMPONENT_VERSION=	$(shell date "+%Y.%-m.%-d")
 COMPONENT_LICENSE=	GPLv2 LGPLv2.1 MPL 1.1
-COMPONENT_PROJECT_URL=	http://curl.haxx.se/ca/cacert.pem
+COMPONENT_PROJECT_URL=	http://curl.haxx.se/ca/
 COMPONENT_ARCHIVE_URL=	http://curl.haxx.se/ca/cacert.pem
 COMPONENT_SUMMARY=	Bundle of CA Root Certificates (From Mozilla)
 
-include ../../make-rules/justmake.mk
-include ../../make-rules/ips.mk
+include $(WS_TOP)/make-rules/justmake.mk
+include $(WS_TOP)/make-rules/ips.mk
 
-CABUNDLE_DIR=	$(PROTO_DIR)$(ECPREFIX)/etc/openssl
+CABUNDLE_DIR=	$(PROTO_DIR)$(ETCDIR)/openssl
 CABUNDLE_FILE=	$(CABUNDLE_DIR)/cabundle.pem
-CABUNDLE_URL=	http://curl.haxx.se/ca/cacert.pem
 
 $(BUILD_DIR)/%/.built: 
 	$(RM) -r $(@D) $(PROTO_DIR) ; $(MKDIR) -p $(@D) $(CABUNDLE_DIR)
 	$(TOUCH) $@
 
 $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
-	( wget -O $(CABUNDLE_FILE) $(CABUNDLE_URL) )
+	( wget -O $(CABUNDLE_FILE) $(COMPONENT_ARCHIVE_URL) )
 	$(TOUCH) $@
 
 download:
