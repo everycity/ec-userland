@@ -81,7 +81,7 @@ COMPILER =		gcc
 LINKER =		gcc
 BITS =			32
 PYTHON_VERSION =	2.7
-PYTHON_VERSIONS =	2.7
+PYTHON_VERSIONS =	2.7 2.6
 
 BASS_O_MATIC =	$(WS_TOOLS)/bass-o-matic
 
@@ -241,7 +241,6 @@ SPRO_ROOT =	$(BUILD_TOOLS)/SUNWspro
 SPRO_VROOT =	$(SPRO_ROOT)/sunstudio12.1
 
 GCC_VERSION = 	4.7
-#GCC_ROOT =	$(USRDIR)
 GCC_ROOT =	$(USRDIR)/gcc/$(GCC_VERSION)
 
 CC.studio.32 =	$(SPRO_VROOT)/bin/cc
@@ -264,7 +263,15 @@ lint.64 =	$(SPRO_VROOT)/bin/lint -m64
 
 LINT =		$(lint.$(BITS))
 
-LD =		/usr/ccs/bin/ld
+LD =		/usr/bin/ld
+
+PYTHON.2.6.VENDOR_PACKAGES.32 = /usr/lib/python2.6/vendor-packages
+PYTHON.2.6.VENDOR_PACKAGES.64 = /usr/lib/python2.6/vendor-packages/64
+PYTHON.2.6.VENDOR_PACKAGES = $(PYTHON.2.6.VENDOR_PACKAGES.$(BITS))
+
+PYTHON.2.7.VENDOR_PACKAGES.32 = /usr/lib/python2.7/vendor-packages
+PYTHON.2.7.VENDOR_PACKAGES.64 = /usr/lib/python2.7/vendor-packages/64
+PYTHON.2.7.VENDOR_PACKAGES = $(PYTHON.2.7.VENDOR_PACKAGES.$(BITS))
 
 PYTHON_VENDOR_PACKAGES.32 = /usr/lib/python$(PYTHON_VERSION)/vendor-packages
 PYTHON_VENDOR_PACKAGES.64 = /usr/lib/python$(PYTHON_VERSION)/vendor-packages/64

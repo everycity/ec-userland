@@ -23,22 +23,49 @@
 #
 
 $(BUILD_DIR)/%-2.6/.built:		PYTHON_VERSION=2.6
+$(BUILD_DIR)/%-2.7/.built:		PYTHON_VERSION=2.7
 $(BUILD_DIR)/$(MACH32)-%/.built:	BITS=32
 $(BUILD_DIR)/$(MACH64)-%/.built:	BITS=64
 
 $(BUILD_DIR)/%-2.6/.installed:		PYTHON_VERSION=2.6
+$(BUILD_DIR)/%-2.7/.installed:		PYTHON_VERSION=2.7
 $(BUILD_DIR)/$(MACH32)-%/.installed:	BITS=32
 $(BUILD_DIR)/$(MACH64)-%/.installed:	BITS=64
 
 BUILD_32 = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH32)-%/.built)
 BUILD_64 = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH64)-%/.built)
+BUILD_NO_ARCH = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH)-%/.built)
 
 INSTALL_32 = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH32)-%/.installed)
 INSTALL_64 = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH64)-%/.installed)
+INSTALL_NO_ARCH = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH)-%/.installed)
+
+TEST_NO_ARCH = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH)-%/.tested)
 
 PYTHON_ENV =	CC="$(CC)"
 PYTHON_ENV +=	CFLAGS="$(CFLAGS)"
 PYTHON_ENV +=	LDFLAGS="$(LDFLAGS)"
+
+COMPONENT_BUILD_ENV += $(PYTHON_ENV)
+COMPONENT_INSTALL_ENV += $(PYTHON_ENV)
+COMPONENT_TEST_ENV += $(PYTHON_ENV)
+
+# if we are building python 2.7 support, build it and install it first
+# so that python 2.6 is installed last and is the canonical version.
+# when we switch to 2.7 as the default, it should go last.
+ifneq ($(findstring 2.7,$(PYTHON_VERSIONS)),)
+$(BUILD_DIR)/%-2.6/.build:	$(BUILD_DIR)/%-2.7/.build
+$(BUILD_DIR)/%-2.6/.installed:	$(BUILD_DIR)/%-2.7/.installed
+endif
+
+# Create a distutils config file specific to the combination of build
+# characteristics (bittedness x Python version), and put it in its own
+# directory.  We can set $HOME to point distutils at it later, allowing
+# the install phase to find the temporary build directories.
+CFG=.pydistutils.cfg
+$(BUILD_DIR)/config-%/$(CFG):
+	$(MKDIR) $(@D)
+	echo "[build]\nbuild_base = $(BUILD_DIR)/$*" > $@
 
 # build the configured source
 $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
@@ -55,9 +82,14 @@ $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
 # Modules which are shipped by the OS but not with the core Python distribution
 # belong in vendor-packages.
 PYTHON_LIB= $(ECPREFIX)/lib/python$(PYTHON_VERSION)/vendor-packages
+PYTHON_DATA= $(PYTHON_LIB)
 
 COMPONENT_INSTALL_ARGS +=	--root $(PROTO_DIR) 
 COMPONENT_INSTALL_ARGS +=	--install-lib=$(PYTHON_LIB)
+COMPONENT_INSTALL_ARGS +=	--install-purelib=$(PYTHON_LIB)
+COMPONENT_INSTALL_ARGS +=	--install-platlib=$(PYTHON_LIB)
+COMPONENT_INSTALL_ARGS +=	--install-data=$(PYTHON_DATA)
+COMPONENT_INSTALL_ARGS +=	--force
 
 # install the built source into a prototype area
 $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
@@ -85,3 +117,7 @@ $(BUILD_DIR)/%/.tested:	$(COMPONENT_TEST_DEP)
 
 clean::
 	$(RM) -r $(SOURCE_DIR) $(BUILD_DIR)
+
+# Make it easy to construct a URL for a pypi source download.
+PYPI_BASE = http://pypi.python.org/packages/source
+pypi_url = $(PYPI_BASE)/$(shell echo $(COMPONENT_NAME) | cut -c1)/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
