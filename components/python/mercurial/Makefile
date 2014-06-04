@@ -18,21 +18,51 @@
 #
 # CDDL HEADER END
 #
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2012, Igor Kozhukhov <ikozhukhov@gmail.com>.  All rights reserved.
+# Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
 include ../../../make-rules/shared-macros.mk
 
+PATH=/usr/bin:/usr/gnu/bin:/usr/sbin
+
 COMPONENT_NAME=		mercurial
-COMPONENT_VERSION=	1.9.1
+COMPONENT_VERSION=	2.2.1
+COMPONENT_PROJECT_URL=	http://mercurial.selenic.com/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:555fc13756c8e9a75b653a5337791e8ebf1319cd
-COMPONENT_ARCHIVE_URL=	http://mercurial.selenic.com/release/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:ab4ffe751553f852813c21ad73907530ffbc5aa39b0cf962f61fe70f196cbb81
+COMPONENT_ARCHIVE_URL=	http://www.selenic.com/mercurial/release/$(COMPONENT_ARCHIVE)
+COMPONENT_BUGDB=	utility/hg
 
-include ../../../make-rules/prep.mk
-include ../../../make-rules/setup.py.mk
-include ../../../make-rules/ips.mk
+include $(WS_TOP)/make-rules/prep.mk
+include $(WS_TOP)/make-rules/setup.py.mk
+include $(WS_TOP)/make-rules/ips.mk
 
-build:		$(BUILD_32)
+#CFLAGS += $(CC_PIC)
 
-install:	$(INSTALL_32)
+COMPONENT_POST_INSTALL_ACTION += \
+	(cd $(PROTO_DIR)/usr/bin ; $(MV) -f hg hg-$(PYTHON_VERSION))
+
+PKG_PROTO_DIRS +=	$(SOURCE_DIR)/contrib
+PKG_PROTO_DIRS +=	$(SOURCE_DIR)/doc
+
+# Set mod time of patched file from patch.  Use this to ensure that the .py
+# file consistently gets the same timestamp.
+$(SOURCE_DIR)/.https_proxy.patched: GPATCH_FLAGS += -Z
+
+# common targets
+build:		$(BUILD_32_and_64)
+
+install:	$(INSTALL_32_and_64)
+	( $(MV) $(PROTOUSRBINDIR)/hg-2.7 $(PROTOUSRBINDIR)/hg-2.7.old \
+	&& $(GSED) -e 's;#!/usr/bin/$(MACH64)/python2.7;#!/usr/bin/python2.7;' $(PROTOUSRBINDIR)/hg-2.7.old > $(PROTOUSRBINDIR)/hg-2.7 )
+
+test:	$(INSTALL_32_and_64)
+	(cd $(COMPONENT_SRC)/tests ; \
+	 PYTHONPATH=$(PROTO_DIR)/$(PYTHON_LIB) TERM=dumb \
+	 $(PYTHON) ./run-tests.py --shell /bin/bash)
+
+BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
+
+include $(WS_TOP)/make-rules/depend.mk
