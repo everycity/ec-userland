@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -22,31 +22,27 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/info
-file path=$(ECPREFIX)/include/gmp.h
-file path=$(ECPREFIX)/include/gmpxx.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libgmp.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libgmp.so.10.1.2
-file path=$(ECPREFIX)/lib/$(MACH64)/libgmpxx.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libgmpxx.so.4.3.2
-file path=$(ECPREFIX)/lib/libgmp.la
-file path=$(ECPREFIX)/lib/libgmp.so.10.1.2
-file path=$(ECPREFIX)/lib/libgmpxx.la
-file path=$(ECPREFIX)/lib/libgmpxx.so.4.3.2
-file path=$(ECPREFIX)/share/info/dir
-file path=$(ECPREFIX)/share/info/gmp.info
-file path=$(ECPREFIX)/share/info/gmp.info-1
-file path=$(ECPREFIX)/share/info/gmp.info-2
-link path=$(ECPREFIX)/lib/$(MACH64)/libgmp.so target=libgmp.so.10.1.2
-link path=$(ECPREFIX)/lib/$(MACH64)/libgmp.so.10 target=libgmp.so.10.1.2
-link path=$(ECPREFIX)/lib/$(MACH64)/libgmpxx.so target=libgmpxx.so.4.3.2
-link path=$(ECPREFIX)/lib/$(MACH64)/libgmpxx.so.4 target=libgmpxx.so.4.3.2
-link path=$(ECPREFIX)/lib/libgmp.so target=libgmp.so.10.1.2
-link path=$(ECPREFIX)/lib/libgmp.so.10 target=libgmp.so.10.1.2
-link path=$(ECPREFIX)/lib/libgmpxx.so target=libgmpxx.so.4.3.2
-link path=$(ECPREFIX)/lib/libgmpxx.so.4 target=libgmpxx.so.4.3.2
+file path=$(USRDIR)/include/gmp.h
+file path=$(USRDIR)/include/gmpxx.h
+
+link path=$(USRDIR)/lib/$(MACH64)/libgmp.so target=libgmp.so.10.1.2
+link path=$(USRDIR)/lib/$(MACH64)/libgmp.so.10 target=libgmp.so.10.1.2
+file path=$(USRDIR)/lib/$(MACH64)/libgmp.so.10.1.2
+link path=$(USRDIR)/lib/$(MACH64)/libgmpxx.so target=libgmpxx.so.4.3.2
+link path=$(USRDIR)/lib/$(MACH64)/libgmpxx.so.4 target=libgmpxx.so.4.3.2
+file path=$(USRDIR)/lib/$(MACH64)/libgmpxx.so.4.3.2
+link path=$(USRDIR)/lib/libgmp.so target=libgmp.so.10.1.2
+link path=$(USRDIR)/lib/libgmp.so.10 target=libgmp.so.10.1.2
+file path=$(USRDIR)/lib/libgmp.so.10.1.2
+link path=$(USRDIR)/lib/libgmpxx.so target=libgmpxx.so.4.3.2
+link path=$(USRDIR)/lib/libgmpxx.so.4 target=libgmpxx.so.4.3.2
+file path=$(USRDIR)/lib/libgmpxx.so.4.3.2
+
+file path=$(USRDIR)/share/info/gmp.info
+file path=$(USRDIR)/share/info/gmp.info-1
+file path=$(USRDIR)/share/info/gmp.info-2
+
+file Solaris/libgmp.pc path=$(ECPREFIX)/lib/pkgconfig/libgmp.pc
+file Solaris/libgmpxx.pc path=$(ECPREFIX)/lib/pkgconfig/libgmpxx.pc
+file Solaris/libgmp-64.pc path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libgmp.pc
+file Solaris/libgmpxx-64.pc path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libgmpxx.pc
