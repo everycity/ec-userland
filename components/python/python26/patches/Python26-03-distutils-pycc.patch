@@ -17,8 +17,8 @@ diff -ruN Python-2.6.6.02/Lib/distutils/sysconfig.py Python-2.6.6.03/Lib/distuti
 -            cpp = cc + " -E"           # not always
 +        # On Solaris, we must always use pycc/pyCC, which will then look up
 +        # $CC and $CXX
-+        cc = '/ec/lib/python2.6/pycc'
-+        cxx = '/ec/lib/python2.6/pyCC'
++        cc = '/usr/lib/python2.6/pycc'
++        cxx = '/usr/lib/python2.6/pyCC'
 +        cpp = cc + " -E"
 +
          if 'LDFLAGS' in os.environ:

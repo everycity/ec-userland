@@ -20,6 +20,7 @@
 #
 # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
 #
+CONFIGURE_DEFAULT_CPPFLAGS = yes
 include ../../../make-rules/shared-macros.mk
 
 PATH=$(ECPREFIX)/bin:/apps/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
@@ -54,17 +55,18 @@ COMPONENT_POST_CONFIGURE_ACTION = \
 # we don't want to leak $(CC_BITS) into BASECFLAGS as it causes problems with
 # python-config so reset FLAG variables without it.
 CC +=	$(CC_BITS)
-CFLAGS=		-O3 -I/ec/include
-CXXFLAGS=	-I/ec/include
-LDFLAGS_32=	-L/ec/lib -R/ec/lib
-LDFLAGS_64=	-L/ec/lib/$(MACH64) -R/ec/lib/$(MACH64)
-LDFLAGS=	$(LDFLAGS_$(BITS))
+CFLAGS=		-O3 -I$(USRDIR)/include
+CXXFLAGS=	-I$(USRDIR)/include
+#LDFLAGS_32=	-L$(USRDIR)/lib -R$(USRDIR)/lib
+#LDFLAGS_64=	-L$(USRDIR)/lib/$(MACH64) -R$(USRDIR)/lib/$(MACH64)
+#LDFLAGS=	$(LDFLAGS_$(BITS))
+#LDFLAGS += -ltinfo
 
 C99MODE=
 CPPFLAGS +=	-IPython
 
 # so we find the ncurses headers
-CPPFLAGS +=	-I$(ECPREFIX)/include/ncurses
+CPPFLAGS +=	-I$(ECPREFIX)/include/ncursesw
 # enable large files how they did in JDS
 CPPFLAGS +=	-D_LARGEFILE64_SOURCE
 # libffi for _ctypes
@@ -86,6 +88,7 @@ CONFIGURE_OPTIONS  +=		CXX="$(CCC)"
 CONFIGURE_OPTIONS  +=		CXXFLAGS="$(CCFLAGS)"
 CONFIGURE_OPTIONS  +=		LDFLAGS="$(LDFLAGS)"
 CONFIGURE_OPTIONS  +=		DFLAGS="-$(BITS)"
+
 COMPONENT_BUILD_ENV  +=		DFLAGS="-$(BITS)"
 
 # 64 bit shared objects need to go in a 64-bit directory

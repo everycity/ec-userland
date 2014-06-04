@@ -583,7 +583,7 @@ diff -ruN Python-2.6.6.00/Lib/site-packages/vendor-packages.pth Python-2.6.6.01/
 --- Python-2.6.6.00/Lib/site-packages/vendor-packages.pth	1970-01-01 01:00:00.000000000 +0100
 +++ Python-2.6.6.01/Lib/site-packages/vendor-packages.pth	2011-03-07 11:09:10.555034844 +0000
 @@ -0,0 +1 @@
-+import site; site.addsitedir('/ec/lib/python2.6/vendor-packages')
++import site; site.addsitedir('/usr/lib/python2.6/vendor-packages')
 diff -ruN Python-2.6.6.00/Modules/_multiprocessing/multiprocessing.h Python-2.6.6.01/Modules/_multiprocessing/multiprocessing.h
 --- Python-2.6.6.00/Modules/_multiprocessing/multiprocessing.h	2009-04-01 21:50:07.000000000 +0100
 +++ Python-2.6.6.01/Modules/_multiprocessing/multiprocessing.h	2011-03-07 11:09:10.553099671 +0000
@@ -637,7 +637,7 @@ diff -ruN Python-2.6.6.00/setup.py Python-2.6.6.01/setup.py
          # Detect SSL support for the socket module (via _ssl)
          search_for_ssl_incs_in = [
 -                              '/usr/local/ssl/include',
-+                              '/ec/include',
++                              '/usr/include',
                                '/usr/contrib/ssl/include/'
                               ]
          ssl_incs = find_file('openssl/ssl.h', inc_dirs,
@@ -646,9 +646,9 @@ diff -ruN Python-2.6.6.00/setup.py Python-2.6.6.01/setup.py
              if krb5_h:
                  ssl_incs += krb5_h
 +        if sys.maxint == 2147483647L:
-+            sfw_libdir = '/ec/lib';
++            sfw_libdir = '/usr/lib';
 +        else:
-+            sfw_libdir = '/ec/lib/64';
++            sfw_libdir = '/usr/lib/64';
          ssl_libs = find_library_file(self.compiler, 'ssl',lib_dirs,
 -                                     ['/usr/local/ssl/lib',
 +                                     [sfw_libdir,
@@ -670,11 +670,11 @@ diff -ruN Python-2.6.6.00/setup.py Python-2.6.6.01/setup.py
 +        curses_lib_dirs = []
 +        curses_inc_dirs = []
 +        if platform == 'sunos5':
-+            # look for ncurses in /ec/include/ncurses on Solaris
-+            curses_inc_dirs.append('/ec/include/ncurses')
-+            curses_lib_dirs.append('/ec/lib')
-+            curses_lib_dirs.append('/ec/lib/amd64')
-+            curses_lib_dirs.append('/ec/lib/sparcv9')
++            # look for ncurses in /usr/include/ncurses on Solaris
++            curses_inc_dirs.append('/usr/include/ncursesw')
++            curses_lib_dirs.append('/usr/lib')
++            curses_lib_dirs.append('/usr/lib/amd64')
++            curses_lib_dirs.append('/usr/lib/sparcv9')
          panel_library = 'panel'
          if curses_library.startswith('ncurses'):
              if curses_library == 'ncursesw':
@@ -711,8 +711,8 @@ diff -ruN Python-2.6.6.00/setup.py Python-2.6.6.01/setup.py
          # The versions with dots are used on Unix, and the versions without
          # dots on Windows, for detection by cygwin.
 +        added_lib_dirs = []
-+        tcl_tk_lib_dirs = ['/ec/lib']
-+        tcl_tk_inc_dirs = ['/ec/include']
++        tcl_tk_lib_dirs = ['/usr/lib']
++        tcl_tk_inc_dirs = ['/usr/include']
          tcllib = tklib = tcl_includes = tk_includes = None
          for version in ['8.5', '85', '8.4', '84', '8.3', '83', '8.2',
                          '82', '8.1', '81', '8.0', '80']:
