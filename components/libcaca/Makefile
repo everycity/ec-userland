@@ -9,17 +9,21 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libcaca
-COMPONENT_VERSION=	0.99.beta18
-IPS_COMPONENT_VERSION=	0.99.18
+COMPONENT_FMRI=		library/libcaca
+COMPONENT_VERSION=	0.99.beta19
+IPS_COMPONENT_VERSION=	0.99.19
+COMPONENT_LICENSE=	DWTFYWTPL,GPLv2,ISC,LGPLv2.1
+COMPONENT_PROJECT_URL=	"http://caca.zoy.org/wiki/libcaca"
+COMPONENT_SUMMARY=	Library that outputs text instead of pixels
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:77ea06633f4a6022dccd4f76c1823e167a40cb05308fc1c7ea0fa1f80f6c33a1
+COMPONENT_ARCHIVE_HASH=	sha256:128b467c4ed03264c187405172a4e83049342cc8cc2f655f53a2d0ee9d3772f4
 COMPONENT_ARCHIVE_URL=	http://caca.zoy.org/files/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -27,9 +31,6 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 LDFLAGS	+=	-lnsl -lsocket -lresolv
-
-CONFIGURE_OPTIONS+=	--disable-java
-CONFIGURE_OPTIONS+=	--disable-ruby
 
 build:		$(BUILD_32_and_64)
 
