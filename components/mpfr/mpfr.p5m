@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -22,17 +22,9 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/mpfr
-dir path=$(ECPREFIX)/share/doc/mpfr/examples
-dir path=$(ECPREFIX)/share/info
 file path=$(ECPREFIX)/include/mpf2mpfr.h
 file path=$(ECPREFIX)/include/mpfr.h
-file path=$(ECPREFIX)/lib/libmpfr.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libmpfr.so.4.1.2
 file path=$(ECPREFIX)/lib/libmpfr.so.4.1.2
 file path=$(ECPREFIX)/share/doc/mpfr/AUTHORS
 file path=$(ECPREFIX)/share/doc/mpfr/BUGS
@@ -46,7 +38,11 @@ file path=$(ECPREFIX)/share/doc/mpfr/examples/divworst.c
 file path=$(ECPREFIX)/share/doc/mpfr/examples/rndo-add.c
 file path=$(ECPREFIX)/share/doc/mpfr/examples/sample.c
 file path=$(ECPREFIX)/share/doc/mpfr/examples/version.c
-file path=$(ECPREFIX)/share/info/dir
 file path=$(ECPREFIX)/share/info/mpfr.info
+link path=$(ECPREFIX)/lib/$(MACH64)/libmpfr.so target=libmpfr.so.4.1.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libmpfr.so.4 target=libmpfr.so.4.1.2
 link path=$(ECPREFIX)/lib/libmpfr.so target=libmpfr.so.4.1.2
 link path=$(ECPREFIX)/lib/libmpfr.so.4 target=libmpfr.so.4.1.2
+
+file Solaris/libmpfr.pc path=$(ECPREFIX)/lib/pkgconfig/libmpfr.pc
+file Solaris/libmpfr-64.pc path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libmpfr-64.pc

@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2011-2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -21,22 +21,48 @@ COMPONENT_PROJECT_URL=	http://www.mpfr.org/
 COMPONENT_SUMMARY=	MPFR library - C library for multiple-precision floating-point computations with correct rounding
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:79c73f60af010a30a5c27a955a1d2d01ba095b72537dab0ecaad57f5a7bb1b6b
+COMPONENT_ARCHIVE_HASH= \
+    sha256:79c73f60af010a30a5c27a955a1d2d01ba095b72537dab0ecaad57f5a7bb1b6b
 COMPONENT_ARCHIVE_URL=	http://www.mpfr.org/mpfr-current/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS  +=           --disable-static
+CFLAGS += $($CC_PIC)
+LDFLAGS += $(LD_Z_REDLOCSYM) $(LD_Z_RESCAN_NOW)
+LDFLAGS += -nodefaultlibs -lc
 
-include ../../make-rules/shared-targets.mk
+MPN32_i386 = x86/pentium x86 generic
+MPN64_i386 = x86_64/pentium4 x86_64 generic
+MPN32_sparc = sparc32/v9 sparc32 generic
+MPN64_sparc = sparc64 generic
+MPN32 = $(MPN32_$(MACH))
+MPN64 = $(MPN64_$(MACH))
 
-build:		$(BUILD_32)
+MPFRMULHIGH = 2048
 
-install:	$(INSTALL_32)
+CONFIGURE_ENV += LD="$(CC) $(CFLAGS) $(LDFLAGS)"
+CONFIGURE_ENV += CPP="$(CC) $(CPPFLAGS) $(CFLAGS) -E"
+CONFIGURE_ENV += ABI="$(BITS)"
+CONFIGURE_ENV += MPN_PATH="$(MPN_$(BITS))"
 
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
+CONFIGURE_OPTIONS += --localstatedir=/var
+CONFIGURE_OPTIONS += --enable-shared
+CONFIGURE_OPTIONS += --disable-static
+CONFIGURE_OPTIONS += --disable-libtool-lock
+CONFIGURE_OPTIONS += --enable-thread-safe
+CONFIGURE_OPTIONS += --enable-tests-timeout=0
+CONFIGURE_OPTIONS += --with-mulhigh-size=$(MPFRMULHIGH)
+CONFIGURE_OPTIONS += --with-pic
+
+# common targets
+build: $(BUILD_32_and_64)
+
+install: $(INSTALL_32_and_64)
+
+test: $(TEST_32_and_64)
+
+BUILD_PKG_DEPENDENCIES = $(BUILD_TOOLS)
 
 include ../../make-rules/depend.mk
-
