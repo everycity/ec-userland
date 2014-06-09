@@ -1,296 +1,184 @@
 #
-# This file and its contents are supplied under the terms of the
-# Common Development and Distribution License ("CDDL)". You may
-# only use this file in accordance with the terms of the CDDL.
+# CDDL HEADER START
 #
-# A full copy of the text of the CDDL should have accompanied this
-# source. A copy of the CDDL is also available via the Internet at
-# http://www.illumos.org/license/CDDL.
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright (c) 2011, 2013, Oracle and/or its affiliates. All rights reserved.
 #
 
-#
-# Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
-#
+<transform file path=usr.*/man/.+ -> default mangler.man.stability uncommitted>
+set name=pkg.fmri \
+    value=pkg:/library/libxslt@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="The XSLT library"
+set name=com.oracle.info.description value="the XSLT library"
+set name=com.oracle.info.tpno value=5303
+set name=info.classification \
+    value=org.opensolaris.category.2008:System/Libraries
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=org.opensolaris.arc-caseid \
+    value=PSARC/2002/244
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+file path=usr/bin/xslt-config facet.devel=true
+file path=usr/bin/xsltproc
+file path=usr/include/libexslt/exslt.h
+file path=usr/include/libexslt/exsltconfig.h
+file path=usr/include/libexslt/exsltexports.h
+file path=usr/include/libxslt/attributes.h
+file path=usr/include/libxslt/documents.h
+file path=usr/include/libxslt/extensions.h
+file path=usr/include/libxslt/extra.h
+file path=usr/include/libxslt/functions.h
+file path=usr/include/libxslt/imports.h
+file path=usr/include/libxslt/keys.h
+file path=usr/include/libxslt/namespaces.h
+file path=usr/include/libxslt/numbersInternals.h
+file path=usr/include/libxslt/pattern.h
+file path=usr/include/libxslt/preproc.h
+file path=usr/include/libxslt/security.h
+file path=usr/include/libxslt/templates.h
+file path=usr/include/libxslt/transform.h
+file path=usr/include/libxslt/variables.h
+file path=usr/include/libxslt/xslt.h
+file path=usr/include/libxslt/xsltInternals.h
+file path=usr/include/libxslt/xsltconfig.h
+file path=usr/include/libxslt/xsltexports.h
+file path=usr/include/libxslt/xsltlocale.h
+file path=usr/include/libxslt/xsltutils.h
+file path=usr/lib/$(MACH64)/libexslt.so.0
+file path=usr/lib/$(MACH64)/libxslt.so.1
+#file path=usr/lib/$(MACH64)/llib-lexslt.ln
+#file path=usr/lib/$(MACH64)/llib-lxslt.ln
+file path=usr/lib/$(MACH64)/pkgconfig/libexslt.pc
+file path=usr/lib/$(MACH64)/pkgconfig/libxslt.pc
+file path=usr/lib/libexslt.so.0
+file path=usr/lib/libxslt.so.1
+#file llib-lexslt path=usr/lib/llib-lexslt
+#file path=usr/lib/llib-lexslt.ln
+#file llib-lexslt path=usr/lib/llib-lxslt
+#file path=usr/lib/llib-lxslt.ln
+file path=usr/lib/pkgconfig/libexslt.pc
+file path=usr/lib/pkgconfig/libxslt.pc
+file path=usr/share/aclocal/libxslt.m4
+file path=usr/share/lib/xslt/doc/html/API.html
+file path=usr/share/lib/xslt/doc/html/APIchunk0.html
+file path=usr/share/lib/xslt/doc/html/APIchunk1.html
+file path=usr/share/lib/xslt/doc/html/APIchunk10.html
+file path=usr/share/lib/xslt/doc/html/APIchunk11.html
+file path=usr/share/lib/xslt/doc/html/APIchunk12.html
+file path=usr/share/lib/xslt/doc/html/APIchunk13.html
+file path=usr/share/lib/xslt/doc/html/APIchunk2.html
+file path=usr/share/lib/xslt/doc/html/APIchunk3.html
+file path=usr/share/lib/xslt/doc/html/APIchunk4.html
+file path=usr/share/lib/xslt/doc/html/APIchunk5.html
+file path=usr/share/lib/xslt/doc/html/APIchunk6.html
+file path=usr/share/lib/xslt/doc/html/APIchunk7.html
+file path=usr/share/lib/xslt/doc/html/APIchunk8.html
+file path=usr/share/lib/xslt/doc/html/APIchunk9.html
+file path=usr/share/lib/xslt/doc/html/APIconstructors.html
+file path=usr/share/lib/xslt/doc/html/APIfiles.html
+file path=usr/share/lib/xslt/doc/html/APIfunctions.html
+file path=usr/share/lib/xslt/doc/html/APIsymbols.html
+file path=usr/share/lib/xslt/doc/html/EXSLT/APIchunk0.html
+file path=usr/share/lib/xslt/doc/html/EXSLT/APIconstructors.html
+file path=usr/share/lib/xslt/doc/html/EXSLT/APIfiles.html
+file path=usr/share/lib/xslt/doc/html/EXSLT/APIfunctions.html
+file path=usr/share/lib/xslt/doc/html/EXSLT/APIsymbols.html
+file path=usr/share/lib/xslt/doc/html/EXSLT/bugs.html
+file path=usr/share/lib/xslt/doc/html/EXSLT/docs.html
+file path=usr/share/lib/xslt/doc/html/EXSLT/downloads.html
+file path=usr/share/lib/xslt/doc/html/EXSLT/exslt.html
+file path=usr/share/lib/xslt/doc/html/EXSLT/help.html
+file path=usr/share/lib/xslt/doc/html/EXSLT/index.html
+file path=usr/share/lib/xslt/doc/html/EXSLT/intro.html
+file path=usr/share/lib/xslt/doc/html/FAQ.html
+file path=usr/share/lib/xslt/doc/html/Libxslt-Logo-180x168.gif
+file path=usr/share/lib/xslt/doc/html/Libxslt-Logo-90x34.gif
+file path=usr/share/lib/xslt/doc/html/bugs.html
+file path=usr/share/lib/xslt/doc/html/contexts.gif
+file path=usr/share/lib/xslt/doc/html/contribs.html
+file path=usr/share/lib/xslt/doc/html/docbook.html
+file path=usr/share/lib/xslt/doc/html/docs.html
+file path=usr/share/lib/xslt/doc/html/downloads.html
+file path=usr/share/lib/xslt/doc/html/extensions.html
+file path=usr/share/lib/xslt/doc/html/help.html
+file path=usr/share/lib/xslt/doc/html/html/book1.html
+file path=usr/share/lib/xslt/doc/html/html/home.png
+file path=usr/share/lib/xslt/doc/html/html/index.html
+file path=usr/share/lib/xslt/doc/html/html/left.png
+file path=usr/share/lib/xslt/doc/html/html/libxslt-attributes.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-documents.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-extensions.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-extra.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-functions.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-imports.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-keys.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-lib.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-namespaces.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-numbersInternals.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-pattern.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-preproc.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-security.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-templates.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-transform.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-variables.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-xslt.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-xsltInternals.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-xsltexports.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-xsltlocale.html
+file path=usr/share/lib/xslt/doc/html/html/libxslt-xsltutils.html
+file path=usr/share/lib/xslt/doc/html/html/right.png
+file path=usr/share/lib/xslt/doc/html/html/up.png
+file path=usr/share/lib/xslt/doc/html/index.html
+file path=usr/share/lib/xslt/doc/html/internals.html
+file path=usr/share/lib/xslt/doc/html/intro.html
+file path=usr/share/lib/xslt/doc/html/news.html
+file path=usr/share/lib/xslt/doc/html/node.gif
+file path=usr/share/lib/xslt/doc/html/object.gif
+file path=usr/share/lib/xslt/doc/html/processing.gif
+file path=usr/share/lib/xslt/doc/html/python.html
+file path=usr/share/lib/xslt/doc/html/smallfootonly.gif
+file path=usr/share/lib/xslt/doc/html/stylesheet.gif
+file path=usr/share/lib/xslt/doc/html/templates.gif
+file path=usr/share/lib/xslt/doc/html/tutorial/libxslt_tutorial.c
+file path=usr/share/lib/xslt/doc/html/tutorial/libxslttutorial.html
+file path=usr/share/lib/xslt/doc/html/tutorial/libxslttutorial.xml
+file path=usr/share/lib/xslt/doc/html/tutorial2/libxslt_pipes.c
+file path=usr/share/lib/xslt/doc/html/tutorial2/libxslt_pipes.html
+file path=usr/share/lib/xslt/doc/html/tutorial2/libxslt_pipes.xml
+file path=usr/share/lib/xslt/doc/html/xslt.html
+file path=usr/share/lib/xslt/doc/html/xsltproc.html
+file path=usr/share/lib/xslt/doc/html/xsltproc2.html
+file xslt-config.1 path=usr/share/man/man1/xslt-config.1 facet.devel=all
+file path=usr/share/man/man1/xsltproc.1
+file path=usr/share/man/man3/libexslt.3
+file path=usr/share/man/man3/libxslt.3
+legacy pkg=SUNWlxsl desc="The XSLT library" name="The XSLT library"
+license xsl.license license=SUNWlxsl.copyright
+link path=usr/lib/$(MACH64)/libexslt.so target=libexslt.so.0
+link path=usr/lib/$(MACH64)/libxslt.so target=libxslt.so.1
+link path=usr/lib/libexslt.so target=./libexslt.so.0
+link path=usr/lib/libxslt.so target=./libxslt.so.1
 
-# Transforms
-<include ec-drop-common>
+depend fmri=library/python-2/libxsl-26 \
+    predicate=runtime/python-26 \
+    type=conditional
 
-set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
-
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/libexslt
-dir path=$(ECPREFIX)/include/libxslt
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/libxslt-plugins
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/$(MACH64)/python2.6
-dir path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages
-dir path=$(ECPREFIX)/lib/libxslt-plugins
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/lib/python2.6
-dir path=$(ECPREFIX)/lib/python2.6/site-packages
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/aclocal
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)
-dir path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html
-dir path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/EXSLT
-dir path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html
-dir path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/tutorial
-dir path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/tutorial2
-dir path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)
-dir path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/examples
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-dir path=$(ECPREFIX)/share/man/man3
-file path=$(ECPREFIX)/bin/$(MACH64)/xslt-config
-file path=$(ECPREFIX)/bin/$(MACH64)/xsltproc
-file path=$(ECPREFIX)/bin/xslt-config
-file path=$(ECPREFIX)/bin/xsltproc
-file path=$(ECPREFIX)/include/libexslt/exslt.h
-file path=$(ECPREFIX)/include/libexslt/exsltconfig.h
-file path=$(ECPREFIX)/include/libexslt/exsltexports.h
-file path=$(ECPREFIX)/include/libxslt/attributes.h
-file path=$(ECPREFIX)/include/libxslt/documents.h
-file path=$(ECPREFIX)/include/libxslt/extensions.h
-file path=$(ECPREFIX)/include/libxslt/extra.h
-file path=$(ECPREFIX)/include/libxslt/functions.h
-file path=$(ECPREFIX)/include/libxslt/imports.h
-file path=$(ECPREFIX)/include/libxslt/keys.h
-file path=$(ECPREFIX)/include/libxslt/namespaces.h
-file path=$(ECPREFIX)/include/libxslt/numbersInternals.h
-file path=$(ECPREFIX)/include/libxslt/pattern.h
-file path=$(ECPREFIX)/include/libxslt/preproc.h
-file path=$(ECPREFIX)/include/libxslt/security.h
-file path=$(ECPREFIX)/include/libxslt/templates.h
-file path=$(ECPREFIX)/include/libxslt/transform.h
-file path=$(ECPREFIX)/include/libxslt/variables.h
-file path=$(ECPREFIX)/include/libxslt/xslt.h
-file path=$(ECPREFIX)/include/libxslt/xsltInternals.h
-file path=$(ECPREFIX)/include/libxslt/xsltconfig.h
-file path=$(ECPREFIX)/include/libxslt/xsltexports.h
-file path=$(ECPREFIX)/include/libxslt/xsltlocale.h
-file path=$(ECPREFIX)/include/libxslt/xsltutils.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libexslt.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libexslt.so.0.8.17
-file path=$(ECPREFIX)/lib/$(MACH64)/libxslt.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libxslt.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libexslt.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libxslt.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/libxslt.py
-file path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/libxsltmod.la
-file path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/libxsltmod.so
-file path=$(ECPREFIX)/lib/$(MACH64)/xsltConf.sh
-file path=$(ECPREFIX)/lib/libexslt.la
-file path=$(ECPREFIX)/lib/libexslt.so.0.8.17
-file path=$(ECPREFIX)/lib/libxslt.la
-file path=$(ECPREFIX)/lib/libxslt.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/pkgconfig/libexslt.pc
-file path=$(ECPREFIX)/lib/pkgconfig/libxslt.pc
-file path=$(ECPREFIX)/lib/python2.6/site-packages/libxslt.py
-file path=$(ECPREFIX)/lib/python2.6/site-packages/libxsltmod.la
-file path=$(ECPREFIX)/lib/python2.6/site-packages/libxsltmod.so
-file path=$(ECPREFIX)/lib/xsltConf.sh
-file path=$(ECPREFIX)/share/aclocal/libxslt.m4
-file path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/API.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk0.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk1.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk10.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk11.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk12.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk13.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk2.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk3.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk4.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk5.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk6.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk7.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk8.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk9.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIconstructors.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIfiles.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIfunctions.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIsymbols.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/EXSLT/APIchunk0.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/EXSLT/APIconstructors.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/EXSLT/APIfiles.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/EXSLT/APIfunctions.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/EXSLT/APIsymbols.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/EXSLT/bugs.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/EXSLT/docs.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/EXSLT/downloads.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/EXSLT/exslt.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/EXSLT/help.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/EXSLT/index.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/EXSLT/intro.html
-file path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/FAQ.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/Libxslt-Logo-180x168.gif
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/Libxslt-Logo-90x34.gif
-file path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/bugs.html
-file path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/contexts.gif
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/contribs.html
-file path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/docbook.html
-file path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/docs.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/downloads.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/extensions.html
-file path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/help.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/book1.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/home.png
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/index.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/left.png
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-attributes.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-documents.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-extensions.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-extra.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-functions.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-imports.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-keys.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-lib.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-namespaces.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-numbersInternals.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-pattern.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-preproc.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-security.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-templates.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-transform.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-variables.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-xslt.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-xsltInternals.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-xsltexports.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-xsltlocale.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/libxslt-xsltutils.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/right.png
-file path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/html/up.png
-file path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/index.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/internals.html
-file path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/intro.html
-file path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/news.html
-file path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/node.gif
-file path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/object.gif
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/processing.gif
-file path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/python.html
-file path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/redhat.gif
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/smallfootonly.gif
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/stylesheet.gif
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/templates.gif
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/tutorial/libxslt_tutorial.c
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/tutorial/libxslttutorial.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/tutorial/libxslttutorial.xml
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/tutorial2/libxslt_pipes.c
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/tutorial2/libxslt_pipes.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/tutorial2/libxslt_pipes.xml
-file path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/xslt.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/xsltproc.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/xsltproc2.html
-file path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/TODO
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/examples/basic.py
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/examples/exslt.py
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/examples/extelem.py
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/examples/extfunc.py
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/examples/pyxsltproc.py
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/examples/test.xml
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/examples/test.xsl
-file path=$(ECPREFIX)/share/man/man1/xsltproc.1
-file path=$(ECPREFIX)/share/man/man3/libexslt.3
-file path=$(ECPREFIX)/share/man/man3/libxslt.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libexslt.so target=libexslt.so.0.8.17
-link path=$(ECPREFIX)/lib/$(MACH64)/libexslt.so.0 target=libexslt.so.0.8.17
-link path=$(ECPREFIX)/lib/$(MACH64)/libxslt.so \
-    target=libxslt.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libxslt.so.1 \
-    target=libxslt.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libexslt.so target=libexslt.so.0.8.17
-link path=$(ECPREFIX)/lib/libexslt.so.0 target=libexslt.so.0.8.17
-link path=$(ECPREFIX)/lib/libxslt.so target=libxslt.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libxslt.so.1 target=libxslt.so.$(COMPONENT_VERSION)
+depend fmri=library/python-2/libxsl-27 \
+    predicate=runtime/python-27 \
+    type=conditional
