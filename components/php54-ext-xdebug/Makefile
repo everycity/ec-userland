@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		xdebug
 COMPONENT_FMRI=		web/php-54/extension/php-xdebug
-COMPONENT_VERSION=	2.2.3
+COMPONENT_VERSION=	2.2.5
 COMPONENT_LICENSE=	Xdebug1.01
 COMPONENT_PROJECT_URL=	"http://xdebug.org/"
 COMPONENT_SUMMARY=	XDEBUG EXTENSION FOR PHP
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH=	sha256:b351872da46ed8378dff90a87673f5ec1e0bdd94324558ebc898e1d115e9d71c
+COMPONENT_ARCHIVE_HASH=	sha256:adc6fe92dcff2368be94d20a5997aadb4d46d74551e2dd6602a704a35a195a6f
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_PECL)
 
 include ../../make-rules/prep.mk
