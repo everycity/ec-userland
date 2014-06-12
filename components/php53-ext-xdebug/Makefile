@@ -1,32 +1,28 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
-# CDDL HEADER END
-#
-# Copyright 2011 EveryCity Ltd. All rights reserved.
-#
+
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		xdebug
-COMPONENT_VERSION=	2.1.2
+COMPONENT_FMRI=		web/php-53/extension/php-xdebug
+COMPONENT_VERSION=	2.2.5
+COMPONENT_LICENSE=	Xdebug1.01
+COMPONENT_PROJECT_URL=	"http://xdebug.org/"
+COMPONENT_SUMMARY=	Provides functions for debugging your PHP script
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH=	sha1:d2b9b5db43ffc26bed2a731bf50b78e8f5d05dd1
+COMPONENT_ARCHIVE_HASH=	sha256:adc6fe92dcff2368be94d20a5997aadb4d46d74551e2dd6602a704a35a195a6f
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_PECL)
 
 include ../../make-rules/prep.mk

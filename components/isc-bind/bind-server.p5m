@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -71,11 +71,13 @@ dir path=$(ECPREFIX)/var/run
 file path=$(ECPREFIX)/bin/$(MACH64)/arpaname
 file path=$(ECPREFIX)/bin/$(MACH64)/ddns-confgen
 file path=$(ECPREFIX)/bin/$(MACH64)/dnssec-dsfromkey
+file path=$(ECPREFIX)/bin/$(MACH64)/dnssec-importkey
 file path=$(ECPREFIX)/bin/$(MACH64)/dnssec-keyfromlabel
 file path=$(ECPREFIX)/bin/$(MACH64)/dnssec-keygen
 file path=$(ECPREFIX)/bin/$(MACH64)/dnssec-revoke
 file path=$(ECPREFIX)/bin/$(MACH64)/dnssec-settime
 file path=$(ECPREFIX)/bin/$(MACH64)/dnssec-signzone
+file path=$(ECPREFIX)/bin/$(MACH64)/dnssec-verify
 file path=$(ECPREFIX)/bin/$(MACH64)/genrandom
 file path=$(ECPREFIX)/bin/$(MACH64)/isc-config.sh
 file path=$(ECPREFIX)/bin/$(MACH64)/isc-hmac-fixup
@@ -89,11 +91,13 @@ file path=$(ECPREFIX)/bin/$(MACH64)/rndc-confgen
 file path=$(ECPREFIX)/bin/arpaname
 file path=$(ECPREFIX)/bin/ddns-confgen
 file path=$(ECPREFIX)/bin/dnssec-dsfromkey
+file path=$(ECPREFIX)/bin/dnssec-importkey
 file path=$(ECPREFIX)/bin/dnssec-keyfromlabel
 file path=$(ECPREFIX)/bin/dnssec-keygen
 file path=$(ECPREFIX)/bin/dnssec-revoke
 file path=$(ECPREFIX)/bin/dnssec-settime
 file path=$(ECPREFIX)/bin/dnssec-signzone
+file path=$(ECPREFIX)/bin/dnssec-verify
 file path=$(ECPREFIX)/bin/genrandom
 file path=$(ECPREFIX)/bin/isc-config.sh
 file path=$(ECPREFIX)/bin/isc-hmac-fixup
@@ -115,6 +119,7 @@ file path=$(ECPREFIX)/include/dns/cache.h
 file path=$(ECPREFIX)/include/dns/callbacks.h
 file path=$(ECPREFIX)/include/dns/cert.h
 file path=$(ECPREFIX)/include/dns/client.h
+file path=$(ECPREFIX)/include/dns/clientinfo.h
 file path=$(ECPREFIX)/include/dns/compress.h
 file path=$(ECPREFIX)/include/dns/db.h
 file path=$(ECPREFIX)/include/dns/dbiterator.h
@@ -264,6 +269,7 @@ file path=$(ECPREFIX)/include/isc/taskpool.h
 file path=$(ECPREFIX)/include/isc/thread.h
 file path=$(ECPREFIX)/include/isc/time.h
 file path=$(ECPREFIX)/include/isc/timer.h
+file path=$(ECPREFIX)/include/isc/tm.h
 file path=$(ECPREFIX)/include/isc/types.h
 file path=$(ECPREFIX)/include/isc/util.h
 file path=$(ECPREFIX)/include/isc/version.h

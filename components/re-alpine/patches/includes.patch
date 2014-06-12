@@ -1,0 +1,11 @@
+--- re-alpine-2.03/pico/Makefile.in.orig	2014-06-06 17:14:28.506352947 +0100
++++ re-alpine-2.03/pico/Makefile.in	2014-06-06 17:14:47.838902584 +0100
+@@ -310,7 +310,7 @@
+ 	fileio.c line.c pico.c random.c region.c search.c window.c word.c \
+ 	ebind.h edef.h efunc.h estruct.h headers.h keydefs.h mode.h pico.h
+ 
+-AM_CPPFLAGS = -I@top_srcdir@/include
++AM_CPPFLAGS = -I@top_builddir@/include -I@top_srcdir@/include
+ all: all-recursive
+ 
+ .SUFFIXES:
