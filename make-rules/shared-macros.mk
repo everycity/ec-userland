@@ -56,7 +56,7 @@ test:		SHELLOPTS=
 install:	SHELLOPTS=
 publish:	SHELLOPTS=pipefail
 
-SHELL=	/bin/bash
+SHELL=	/usr/bin/bash
 
 PUBLISHER ?= sngl.pkg.ec
 
@@ -293,21 +293,28 @@ PYTHON_LIB= /usr/lib/python$(PYTHON_VERSION)/vendor-packages
 
 JAVA_HOME =	$(USRDIR)/java
 
-PERL_VERSION =	5.12
-PERL_VERSIONS =	5.12
+PERL_VERSION =	5.18
+PERL_VERSIONS =	5.18 5.12
 PERL.5.12 =	$(USRLIBDIR)/perl/5.12/bin/perl
+PERL.5.18 =	$(USRLIBDIR)/perl/5.18/bin/perl
 
-PERL =		$(USRBINDIR)/perl
+#PERL =		$(USRBINDIR)/perl
+PERL =		$(PERL.$(PERL_VERSION))
 
-PERL_ARCH =     $(shell $(PERL) -e 'use Config; print $$Config{archname}')
+PERL_ARCH.5.12 =     $(shell $(PERL.5.12) -e 'use Config; print $$Config{archname}')
+PERL_ARCH.5.18 =     $(shell $(PERL.5.18) -e 'use Config; print $$Config{archname}')
+PERL_ARCH = $(PERL_ARCH.$(PERL_VERSION))
 # Optimally we should ask perl which C compiler was used but it doesn't
 # result in a full path name.  Only "c" is being recorded
 # inside perl builds while we actually need a full path to
 # the studio compiler.
 #PERL_CC =      $(shell $(PERL) -e 'use Config; print $$Config{cc}')
-PERL_OPTIMIZE = $(shell $(PERL) -e 'use Config; print $$Config{optimize}')
+PERL_OPTIMIZE.5.12 = $(shell $(PERL.5.12) -e 'use Config; print $$Config{optimize}')
+PERL_OPTIMIZE.5.18 = $(shell $(PERL.5.18) -e 'use Config; print $$Config{optimize}')
+PERL_OPTIMIZE = $(PERL_OPTIMIZE.$(PERL_VERSION))
 
-PKG_MACROS +=   PERL_ARCH=$(PERL_ARCH)
+PKG_MACROS +=   PERL_ARCH.5.12=$(PERL_ARCH.5.12)
+PKG_MACROS +=   PERL_ARCH.5.18=$(PERL_ARCH.5.18)
 PKG_MACROS +=   PERL_VERSION=$(PERL_VERSION)
 
 CMAKE =		$(USRBINDIR)/cmake
