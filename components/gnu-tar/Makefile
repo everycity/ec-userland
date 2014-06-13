@@ -37,8 +37,8 @@ ifeq ($(SOLARIS_VERSION),2.10)
 COMPONENT_POST_UNPACK_ACTION=	($(GPATCH) -d $(@D) $(GPATCH_FLAGS) < gnulib-s10u9.patch)
 endif
 
-CONFIGURE_OPTIONS +=	--with-gzip=$(ECPREFIX)/bin/gzip
-CONFIGURE_OPTIONS +=	--with-bzip2=$(ECPREFIX)/bin/bzip2
+CONFIGURE_OPTIONS +=	--with-gzip=$(USRDIR)/bin/gzip
+CONFIGURE_OPTIONS +=	--with-bzip2=$(USRDIR)/bin/bzip2
 
 build:		$(BUILD_32_and_64)
 
