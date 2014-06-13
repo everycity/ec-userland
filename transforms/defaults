@@ -108,3 +108,7 @@
 # This is set to the final version number delivered as SVR4 format
 <transform legacy -> default version "11.11.0,REV=2010.05.25.01.00">
 
+<transform link mediator=python mediator-version=2.7 -> default mediator-priority vendor>
+<transform link mediator=gcc mediator-version=4.8 -> default mediator-priority vendor>
+#<transform link mediator=make mediator-version=1.0 -> default mediator-priority vendor>
+<transform link mediator=perl mediator-version=518 -> default mediator-priority vendor>
