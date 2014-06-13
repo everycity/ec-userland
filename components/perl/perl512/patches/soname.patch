@@ -1,0 +1,19 @@
+--- 1/Makefile.SH	2011-01-09 23:20:52.000000000 +0300
++++ 2/Makefile.SH	2011-11-16 12:34:23.647196983 +0300
+@@ -42,7 +42,7 @@
+ 
+ linklibperl='$(LIBPERL)'
+ linklibperl_nonshr=''
+-shrpldflags='$(LDDLFLAGS)'
++shrpldflags='$(LDDLFLAGS) -Wl,-soname,libperl.so.5.12'
+ ldlibpth=''
+ DPERL_EXTERNAL_GLOB='-DPERL_EXTERNAL_GLOB'
+ DPERL_IS_MINIPERL='-DPERL_IS_MINIPERL'
+@@ -755,6 +755,7 @@
+ 		$spitshell >>$Makefile <<'!NO!SUBS!'
+ 	rm -f $@
+ 	$(LD) -o $@ $(SHRPLDFLAGS) $(obj) $(DYNALOADER) $(libs)
++	rm -f libperl.so; ln -s $@ libperl.so
+ !NO!SUBS!
+ 		case "$osname" in
+ 		aix)
