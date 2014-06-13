@@ -37,7 +37,7 @@
 #<transform dir file link hardlink -> edit path "^ec/var" "$!(LOCALSTATEDIR)">
 #<transform dir file link hardlink -> edit path "^var" "$!(LOCALSTATEDIR)">
 <transform dir file link hardlink -> edit path "^ec" "$!(ECPREFIX)">
-<transform dir file link hardlink -> edit path "^usr" "$!(ECPREFIX)">
+<transform dir file link hardlink -> edit path "^usr" "$!(USRDIR)">
 
 <transform dir file link hardlink -> \
 	edit path "/(sparcv9|amd64)$" "/$!(MACH64)">
@@ -105,3 +105,5 @@
 <transform dir file link hardlink -> edit target "\$!\((.*)\)" "$(\1)">
 <transform dir file link hardlink -> edit path "\$!\((.*)\)" "$(\1)">
 <transform dir file link hardlink -> edit target "\$!\((.*)\)" "$(\1)">
+
+<transform file path=.+\.pyc -> drop>
