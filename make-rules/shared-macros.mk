@@ -240,7 +240,7 @@ BUILD_TOOLS =	/ws/onnv-tools
 SPRO_ROOT =	$(BUILD_TOOLS)/SUNWspro
 SPRO_VROOT =	$(SPRO_ROOT)/sunstudio12.1
 
-GCC_VERSION = 	4.7
+GCC_VERSION = 	4.8
 GCC_ROOT =	$(USRDIR)/gcc/$(GCC_VERSION)
 
 CC.studio.32 =	$(SPRO_VROOT)/bin/cc
