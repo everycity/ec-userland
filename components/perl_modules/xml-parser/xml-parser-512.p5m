@@ -23,50 +23,50 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license xml-parser.license license='Artistic'
 
-file path=$(ECPREFIX)/lib/perl/5.12/man/man3/XML::Parser.3
-file path=$(ECPREFIX)/lib/perl/5.12/man/man3/XML::Parser::Expat.3
-file path=$(ECPREFIX)/lib/perl/5.12/man/man3/XML::Parser::Style::Debug.3
-file path=$(ECPREFIX)/lib/perl/5.12/man/man3/XML::Parser::Style::Objects.3
-file path=$(ECPREFIX)/lib/perl/5.12/man/man3/XML::Parser::Style::Stream.3
-file path=$(ECPREFIX)/lib/perl/5.12/man/man3/XML::Parser::Style::Subs.3
-file path=$(ECPREFIX)/lib/perl/5.12/man/man3/XML::Parser::Style::Tree.3
+file path=$(USRDIR)/lib/perl/5.12/man/man3/XML::Parser.3
+file path=$(USRDIR)/lib/perl/5.12/man/man3/XML::Parser::Expat.3
+file path=$(USRDIR)/lib/perl/5.12/man/man3/XML::Parser::Style::Debug.3
+file path=$(USRDIR)/lib/perl/5.12/man/man3/XML::Parser::Style::Objects.3
+file path=$(USRDIR)/lib/perl/5.12/man/man3/XML::Parser::Style::Stream.3
+file path=$(USRDIR)/lib/perl/5.12/man/man3/XML::Parser::Style::Subs.3
+file path=$(USRDIR)/lib/perl/5.12/man/man3/XML::Parser::Style::Tree.3
 
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser.pm
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/Japanese_Encodings.msg
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/README
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/big5.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/euc-kr.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/ibm866.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/iso-8859-2.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/iso-8859-3.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/iso-8859-4.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/iso-8859-5.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/iso-8859-7.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/iso-8859-8.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/iso-8859-9.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/koi8-r.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/windows-1250.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/windows-1251.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/windows-1252.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/windows-1255.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/x-euc-jp-jisx0221.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/x-euc-jp-unicode.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/x-sjis-cp932.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/x-sjis-jdk117.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/x-sjis-jisx0221.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/x-sjis-unicode.enc
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Expat.pm
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/LWPExternEnt.pl
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Style/Debug.pm
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Style/Objects.pm
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Style/Stream.pm
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Style/Subs.pm
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Style/Tree.pm
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/auto/XML/Parser/.packlist
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/auto/XML/Parser/Expat/Expat.bs
-file path=$(ECPREFIX)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/auto/XML/Parser/Expat/Expat.so
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/Japanese_Encodings.msg
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/README
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/big5.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/euc-kr.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/ibm866.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/iso-8859-2.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/iso-8859-3.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/iso-8859-4.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/iso-8859-5.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/iso-8859-7.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/iso-8859-8.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/iso-8859-9.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/koi8-r.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/windows-1250.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/windows-1251.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/windows-1252.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/windows-1255.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/x-euc-jp-jisx0221.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/x-euc-jp-unicode.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/x-sjis-cp932.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/x-sjis-jdk117.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/x-sjis-jisx0221.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Encodings/x-sjis-unicode.enc
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Expat.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/LWPExternEnt.pl
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Style/Debug.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Style/Objects.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Style/Stream.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Style/Subs.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/XML/Parser/Style/Tree.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/auto/XML/Parser/.packlist
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/auto/XML/Parser/Expat/Expat.bs
+file path=$(USRDIR)/lib/perl/vendor_perl/5.12/i86pc-solaris-thread-multi-64int/auto/XML/Parser/Expat/Expat.so
 
 #depend type=optional fmri=library/perl-5/xml-parser
 # force a dependency on the Perl runtime
 depend fmri=__TBD pkg.debug.depend.file=perl \
-	pkg.debug.depend.path=usr/perl5/5.12/bin type=require
+	pkg.debug.depend.path=$(USRDIR)/lib/perl/5.12/bin type=require
