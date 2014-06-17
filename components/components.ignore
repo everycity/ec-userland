@@ -262,7 +262,6 @@
 /^pdftk$/d
 /^perl\/perl512$/d
 /^perl\/perl516$/d
-/^perl\/perl518$/d
 /^perl_modules\/encode-locale$/d
 /^perl_modules\/file-listing$/d
 /^perl_modules\/html-parser$/d
