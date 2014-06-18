@@ -1,0 +1,66 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2013-2014 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+hardlink path=$(USRDIR)/bin/$(MACH64)/gunzip target=uncompress
+file path=$(USRDIR)/bin/$(MACH64)/gzexe
+file path=$(USRDIR)/bin/$(MACH64)/gzip
+file path=$(USRDIR)/bin/$(MACH64)/uncompress
+file path=$(USRDIR)/bin/$(MACH64)/zcat
+file path=$(USRDIR)/bin/$(MACH64)/zcmp
+file path=$(USRDIR)/bin/$(MACH64)/zdiff
+file path=$(USRDIR)/bin/$(MACH64)/zegrep
+file path=$(USRDIR)/bin/$(MACH64)/zfgrep
+file path=$(USRDIR)/bin/$(MACH64)/zforce
+file path=$(USRDIR)/bin/$(MACH64)/zgrep
+file path=$(USRDIR)/bin/$(MACH64)/zless
+file path=$(USRDIR)/bin/$(MACH64)/zmore
+file path=$(USRDIR)/bin/$(MACH64)/znew
+hardlink path=$(USRDIR)/bin/gunzip target=uncompress
+file path=$(USRDIR)/bin/gzexe
+file path=$(USRDIR)/bin/gzip
+file path=$(USRDIR)/bin/uncompress
+file path=$(USRDIR)/bin/zcat
+file path=$(USRDIR)/bin/zcmp
+file path=$(USRDIR)/bin/zdiff
+file path=$(USRDIR)/bin/zegrep
+file path=$(USRDIR)/bin/zfgrep
+file path=$(USRDIR)/bin/zforce
+file path=$(USRDIR)/bin/zgrep
+file path=$(USRDIR)/bin/zless
+file path=$(USRDIR)/bin/zmore
+file path=$(USRDIR)/bin/znew
+
+file path=$(USRDIR)/share/info/gzip.info
+
+file path=$(USRDIR)/share/man/man1/gunzip.1
+file path=$(USRDIR)/share/man/man1/gzexe.1
+file path=$(USRDIR)/share/man/man1/gzip.1
+file path=$(USRDIR)/share/man/man1/zcat.1
+file path=$(USRDIR)/share/man/man1/zcmp.1
+file path=$(USRDIR)/share/man/man1/zdiff.1
+file path=$(USRDIR)/share/man/man1/zforce.1
+file path=$(USRDIR)/share/man/man1/zgrep.1
+file path=$(USRDIR)/share/man/man1/zless.1
+file path=$(USRDIR)/share/man/man1/zmore.1
+file path=$(USRDIR)/share/man/man1/znew.1
