@@ -262,7 +262,6 @@
 /^pdftk$/d
 /^perl\/perl512$/d
 /^perl\/perl516$/d
-/^perl\/perl518$/d
 /^perl_modules\/encode-locale$/d
 /^perl_modules\/file-listing$/d
 /^perl_modules\/html-parser$/d
@@ -280,6 +279,7 @@
 /^perl_modules\/net-ssleay$/d
 /^perl_modules\/uri$/d
 /^perl_modules\/xml-parser$/d
+/^perl_modules\/xml-simple$/d
 /^php52$/d
 /^php52-ext-apc$/d
 /^php52-ext-eaccelerator$/d
