@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -22,11 +22,11 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-file path=$(ECPREFIX)/include/mpc.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libmpc.so.3.0.0
-file path=$(ECPREFIX)/lib/libmpc.so.3.0.0
-file path=$(ECPREFIX)/share/info/mpc.info
-link path=$(ECPREFIX)/lib/$(MACH64)/libmpc.so target=libmpc.so.3.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libmpc.so.3 target=libmpc.so.3.0.0
-link path=$(ECPREFIX)/lib/libmpc.so target=libmpc.so.3.0.0
-link path=$(ECPREFIX)/lib/libmpc.so.3 target=libmpc.so.3.0.0
+file path=$(USRDIR)/include/mpc.h
+file path=$(USRDIR)/lib/$(MACH64)/libmpc.so.3.0.0
+file path=$(USRDIR)/lib/libmpc.so.3.0.0
+file path=$(USRDIR)/share/info/mpc.info
+link path=$(USRDIR)/lib/$(MACH64)/libmpc.so target=libmpc.so.3.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libmpc.so.3 target=libmpc.so.3.0.0
+link path=$(USRDIR)/lib/libmpc.so target=libmpc.so.3.0.0
+link path=$(USRDIR)/lib/libmpc.so.3 target=libmpc.so.3.0.0
