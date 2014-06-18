@@ -18,12 +18,10 @@
 /^apr-util$/d
 /^asciidoc$/d
 /^aspell$/d
-/^autoconf$/d
 /^automake-112$/d
 /^bash$/d
 /^bdb51$/d
 /^bdb60$/d
-/^binutils$/d
 /^bison$/d
 /^bitlbee$/d
 /^boost$/d
@@ -91,7 +89,6 @@
 /^gifsicle$/d
 /^git$/d
 /^glib2$/d
-/^gmp$/d
 /^gnome-mime-data$/d
 /^gnome-vfs$/d
 /^gnu-awk$/d
@@ -102,8 +99,6 @@
 /^gnu-grep$/d
 /^gnu-inetutils$/d
 /^gnu-libidn$/d
-/^gnu-m4$/d
-/^gnu-make$/d
 /^gnu-patch$/d
 /^gnu-pth$/d
 /^gnu-sed$/d
