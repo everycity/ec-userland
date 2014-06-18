@@ -30,7 +30,6 @@
 /^bison$/d
 /^bitlbee$/d
 /^boost$/d
-/^bzip2$/d
 /^ca-certificates$/d
 /^cabextract$/d
 /^cairo$/d
