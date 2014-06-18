@@ -1,0 +1,13 @@
+diff --git a/t/tap-realtime.sh b/t/tap-realtime.sh
+index e9b2b0c..3e8ca2f 100644
+--- a/t/tap-realtime.sh
++++ b/t/tap-realtime.sh
+@@ -24,6 +24,8 @@
+ 
+ . test-init.sh
+ 
++skip_ "Broken in Debian"
++
+ cat >expect-check <<'END'
+ eval spawn $env(SHELL) -c ":"
+ expect eof
