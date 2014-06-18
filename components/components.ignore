@@ -19,10 +19,7 @@
 /^asciidoc$/d
 /^aspell$/d
 /^autoconf$/d
-/^automake-110$/d
-/^automake-111$/d
 /^automake-112$/d
-/^automake-19$/d
 /^bash$/d
 /^bdb51$/d
 /^bdb60$/d
