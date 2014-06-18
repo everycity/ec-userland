@@ -264,3 +264,4 @@ file path=$(USRDIR)/share/man/man1/strings.1
 file $(USRDIR)/share/man/man1/strip.1 path=$(USRDIR)/share/man/man1/gstrip.1
 file path=$(USRDIR)/share/man/man1/windmc.1
 file path=$(USRDIR)/share/man/man1/windres.1
+
