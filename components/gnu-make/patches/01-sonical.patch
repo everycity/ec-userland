@@ -1,0 +1,20 @@
+-- make-3.82/remake.c	Tue Jan 28 14:52:57 2014
++++ make-3.82/remake.c	Tue Jan 28 14:53:31 2014
+@@ -301,7 +301,7 @@
+       /* Check for the case where a target has been tried and failed but
+          the diagnostics hasn't been issued. If we need the diagnostics
+          then we will have to continue. */
+-      if (!(f->updated && f->update_status > 0 && !f->dontcare && f->no_diag))
++      if (!(f->updated && f->update_status > 0 && !f->dontcare && f->no_diag) && f->command_state!=cs_not_started )
+         {
+           DBF (DB_VERBOSE, _("Pruning file `%s'.\n"));
+           return f->command_state == cs_finished ? f->update_status : 0;
+@@ -614,6 +614,7 @@
+                 d->file->dontcare = file->dontcare;
+               }
+ 
++            d->file->considered = !considered;
+ 
+ 	    dep_status |= update_file (d->file, depth);
+ 
+
