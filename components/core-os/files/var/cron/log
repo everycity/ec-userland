@@ -1,0 +1,190 @@
+! *** cron started ***   pid = 6026 Sun May  5 00:54:45 2013
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 7883 c Sun May  5 02:01:00 2013
+<  root 7883 c Sun May  5 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 9469 c Sun May  5 03:10:00 2013
+<  root 9469 c Sun May  5 03:10:00 2013
+>  CMD: /usr/lib/fs/nfs/nfsfind
+>  root 9644 c Sun May  5 03:15:00 2013
+<  root 9644 c Sun May  5 03:15:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 9958 c Sun May  5 03:30:00 2013
+<  root 9958 c Sun May  5 03:30:00 2013 rc=1
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 42183 c Mon May  6 02:01:00 2013
+<  root 42183 c Mon May  6 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 43814 c Mon May  6 03:10:00 2013
+<  root 43814 c Mon May  6 03:10:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 44337 c Mon May  6 03:30:00 2013
+<  root 44337 c Mon May  6 03:30:00 2013 rc=1
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 28876 c Tue May  7 02:01:01 2013
+<  root 28876 c Tue May  7 02:01:01 2013
+>  CMD: /usr/sbin/logadm
+>  root 30508 c Tue May  7 03:10:00 2013
+<  root 30508 c Tue May  7 03:10:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 31023 c Tue May  7 03:30:00 2013
+<  root 31023 c Tue May  7 03:30:00 2013 rc=1
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 25452 c Wed May  8 02:01:00 2013
+<  root 25452 c Wed May  8 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 27418 c Wed May  8 03:10:00 2013
+<  root 27418 c Wed May  8 03:10:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 28112 c Wed May  8 03:30:00 2013
+<  root 28112 c Wed May  8 03:30:00 2013 rc=1
+! *** cron started ***   pid = 15567 Sat May 11 19:14:00 2013
+! SIGTERM Sat May 11 22:00:09 2013
+! ******* CRON ABORTED ******** Sat May 11 22:00:09 2013
+! *** cron started ***   pid = 72583 Sat May 11 22:00:48 2013
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 53518 c Sun May 12 02:01:00 2013
+<  root 53518 c Sun May 12 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 75424 c Sun May 12 03:10:00 2013
+<  root 75424 c Sun May 12 03:10:00 2013
+>  CMD: /usr/lib/fs/nfs/nfsfind
+>  root 77080 c Sun May 12 03:15:00 2013
+<  root 77080 c Sun May 12 03:15:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 82230 c Sun May 12 03:30:00 2013
+<  root 82230 c Sun May 12 03:30:00 2013 rc=1
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 46440 c Mon May 13 02:01:00 2013
+<  root 46440 c Mon May 13 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 68266 c Mon May 13 03:10:00 2013
+<  root 68266 c Mon May 13 03:10:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 75113 c Mon May 13 03:30:00 2013
+<  root 75113 c Mon May 13 03:30:00 2013 rc=1
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 17921 c Tue May 14 02:01:00 2013
+<  root 17921 c Tue May 14 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 52673 c Tue May 14 03:10:00 2013
+<  root 52673 c Tue May 14 03:10:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 59574 c Tue May 14 03:30:00 2013
+<  root 59574 c Tue May 14 03:30:00 2013 rc=1
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 71403 c Wed May 15 02:01:00 2013
+<  root 71403 c Wed May 15 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 92684 c Wed May 15 03:10:00 2013
+<  root 92684 c Wed May 15 03:10:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 99153 c Wed May 15 03:30:00 2013
+<  root 99153 c Wed May 15 03:30:00 2013 rc=1
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 73749 c Thu May 16 02:01:00 2013
+<  root 73749 c Thu May 16 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 30453 c Thu May 16 03:10:00 2013
+<  root 30453 c Thu May 16 03:10:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 46889 c Thu May 16 03:30:00 2013
+<  root 46889 c Thu May 16 03:30:00 2013 rc=1
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 71915 c Fri May 17 02:01:00 2013
+<  root 71915 c Fri May 17 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 94147 c Fri May 17 03:10:00 2013
+<  root 94147 c Fri May 17 03:10:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 953 c Fri May 17 03:30:00 2013
+<  root 953 c Fri May 17 03:30:00 2013 rc=1
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 91069 c Sat May 18 02:01:00 2013
+<  root 91069 c Sat May 18 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 76457 c Sat May 18 03:10:00 2013
+<  root 76457 c Sat May 18 03:10:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 17971 c Sat May 18 03:30:00 2013
+<  root 17971 c Sat May 18 03:30:00 2013 rc=1
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 15681 c Sun May 19 02:01:00 2013
+<  root 15681 c Sun May 19 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 42856 c Sun May 19 03:10:00 2013
+<  root 42856 c Sun May 19 03:10:00 2013
+>  CMD: /usr/lib/fs/nfs/nfsfind
+>  root 44833 c Sun May 19 03:15:00 2013
+<  root 44833 c Sun May 19 03:15:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 50259 c Sun May 19 03:30:00 2013
+<  root 50259 c Sun May 19 03:30:00 2013 rc=1
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 33364 c Mon May 20 02:01:00 2013
+<  root 33364 c Mon May 20 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 55447 c Mon May 20 03:10:00 2013
+<  root 55447 c Mon May 20 03:10:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 62510 c Mon May 20 03:30:00 2013
+<  root 62510 c Mon May 20 03:30:00 2013 rc=1
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 23457 c Tue May 21 02:01:00 2013
+<  root 23457 c Tue May 21 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 47485 c Tue May 21 03:10:00 2013
+<  root 47485 c Tue May 21 03:10:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 54309 c Tue May 21 03:30:00 2013
+<  root 54309 c Tue May 21 03:30:00 2013 rc=1
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 44100 c Wed May 22 02:01:00 2013
+<  root 44100 c Wed May 22 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 66131 c Wed May 22 03:10:00 2013
+<  root 66131 c Wed May 22 03:10:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 72764 c Wed May 22 03:30:00 2013
+<  root 72764 c Wed May 22 03:30:00 2013 rc=1
+! *** cron started ***   pid = 17057 Wed May 22 12:57:56 2013
+! *** cron started ***   pid = 15655 Wed May 22 16:28:07 2013
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 20927 c Thu May 23 02:01:00 2013
+<  root 20927 c Thu May 23 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 42895 c Thu May 23 03:10:00 2013
+<  root 42895 c Thu May 23 03:10:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 49730 c Thu May 23 03:30:00 2013
+<  root 49730 c Thu May 23 03:30:00 2013 rc=1
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 11871 c Fri May 24 02:01:00 2013
+<  root 11871 c Fri May 24 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 34666 c Fri May 24 03:10:00 2013
+<  root 34666 c Fri May 24 03:10:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 41414 c Fri May 24 03:30:00 2013
+<  root 41414 c Fri May 24 03:30:00 2013 rc=1
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 30529 c Sat May 25 02:01:00 2013
+<  root 30529 c Sat May 25 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 53265 c Sat May 25 03:10:00 2013
+<  root 53265 c Sat May 25 03:10:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 60661 c Sat May 25 03:30:00 2013
+<  root 60661 c Sat May 25 03:30:00 2013 rc=1
+>  CMD: [ -x /usr/sbin/rtc ] && /usr/sbin/rtc -c > /dev/null 2>&1
+>  root 89355 c Sun May 26 02:01:00 2013
+<  root 89355 c Sun May 26 02:01:00 2013
+>  CMD: /usr/sbin/logadm
+>  root 32966 c Sun May 26 03:10:00 2013
+<  root 32966 c Sun May 26 03:10:00 2013
+>  CMD: /usr/lib/fs/nfs/nfsfind
+>  root 35004 c Sun May 26 03:15:00 2013
+<  root 35004 c Sun May 26 03:15:00 2013
+>  CMD: [ -x /usr/lib/gss/gsscred_clean ] && /usr/lib/gss/gsscred_clean
+>  root 40014 c Sun May 26 03:30:00 2013
+<  root 40014 c Sun May 26 03:30:00 2013 rc=1

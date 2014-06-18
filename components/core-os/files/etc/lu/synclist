@@ -1,0 +1,60 @@
+################################################################################
+#
+#	Copyright 2004 Sun Microsystems, Inc. All Rights Reserved.
+#	Copyright 1992-95 AT&T Global Information Solutions
+#
+# ident "@(#)synclist 5.4     03/12/22 SMI"
+#
+# These are files that will be synchronized up if we change from one BE to
+# another.
+#
+# The entries can be files or directories. If a directory is given, all
+# of the contents of that directory (including subdirectories) will be copied.
+# The second field is the method of update. There are 3 choices:
+#
+# OVERWRITE	The sync process will completely overwrite the contents
+#		of the new BE file (on startup of activated BE) with the
+#		contents of the same file of the previously booted BE.
+#		OVERWRITE is the default action if no action is
+#		specified in the second field. Directories and files
+#		can be listed as OVERWRITE. For directories, every file in
+# 		a listed directory will be overwritten. The new BE
+#		file will have the same date, mode, and ownership as
+#		the same file on the previous BE.
+#
+# APPEND	The sync process will append the contents
+#		of the previously booted BE file to new BE file
+#		(on startup of activated BE). Be aware that this may
+#		lead to duplicate entries in the file.
+#		Directories can not be listed as APPEND.
+# 		The new BE file will have the modified date/time.
+# 		The new BE file will maintain its mode and ownership.
+#		ownership as the same file on the previous BE.
+#
+# PREPEND	The sync process will prepend the contents
+#		of the previously booted BE file to new BE file
+#		(on startup of activated BE). Be aware that this may
+#		lead to duplicate entries in the file.
+#		Directories can not be listed as PREPEND.
+# 		The new BE file will have the modified date/time.
+# 		The new BE file will maintain its mode and ownership.
+#		ownership as the same file on the previous BE.
+#
+# It is important to fully understand that adding other files not
+# listed here could cause a system to become unbootable.
+################################################################################
+
+/var/mail			OVERWRITE
+/var/spool/mqueue		OVERWRITE
+/var/spool/cron/crontabs	OVERWRITE
+/var/dhcp			OVERWRITE
+/etc/passwd			OVERWRITE
+/etc/shadow			OVERWRITE
+/etc/opasswd			OVERWRITE
+/etc/oshadow			OVERWRITE
+/etc/group			OVERWRITE
+/etc/pwhist			OVERWRITE
+/etc/default/passwd		OVERWRITE
+/etc/dfs			OVERWRITE
+/var/log/syslog			APPEND
+/var/adm/messages		APPEND

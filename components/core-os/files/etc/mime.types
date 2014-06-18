@@ -1,0 +1,4 @@
+#--Netscape Communications Corporation MIME Information
+#Do not delete the above line. It is used to identify the file type.
+#mime types added by Netscape Helper
+type=application/x-java-jnlp-file desc="Java Web Start" exts="jnlp"

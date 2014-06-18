@@ -1,0 +1,1962 @@
+Sun Nov 11 04:57:36 2007; 21863;  
+Sun Nov 11 04:57:36 2007; 21863; ********** ttymon starting **********
+Sun Nov 11 04:57:36 2007; 21863; PMTAG: zsmon
+Sun Nov 11 04:57:36 2007; 21863; Starting state: enabled
+Sun Nov 11 04:57:36 2007; 21863; Got SC_ENABLE message
+Sun Nov 11 04:57:36 2007; 21863; max open files = 65536
+Sun Nov 11 04:57:36 2007; 21863; max ports ttymon can monitor = 65529
+Sun Nov 11 04:57:36 2007; 21863; Processing pmtab line #2
+Sun Nov 11 04:57:36 2007; 21863; error -- device "/dev/term/a" does not exist
+Sun Nov 11 04:57:36 2007; 21863; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Sun Nov 11 04:57:36 2007; 21863; -------------------------------------------
+Sun Nov 11 04:57:36 2007; 21863; Processing pmtab line #3
+Sun Nov 11 04:57:36 2007; 21863; error -- device "/dev/term/b" does not exist
+Sun Nov 11 04:57:36 2007; 21863; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Sun Nov 11 04:57:36 2007; 21863; -------------------------------------------
+Sun Nov 11 04:57:36 2007; 21863; Initialization Completed
+Sun Nov 11 06:56:53 2007; 22722;  
+Sun Nov 11 06:56:53 2007; 22722; ********** ttymon starting **********
+Sun Nov 11 06:56:53 2007; 22722; PMTAG: zsmon
+Sun Nov 11 06:56:53 2007; 22722; Starting state: enabled
+Sun Nov 11 06:56:53 2007; 22722; Got SC_ENABLE message
+Sun Nov 11 06:56:53 2007; 22722; max open files = 65536
+Sun Nov 11 06:56:53 2007; 22722; max ports ttymon can monitor = 65529
+Sun Nov 11 06:56:53 2007; 22722; Processing pmtab line #2
+Sun Nov 11 06:56:53 2007; 22722; error -- device "/dev/term/a" does not exist
+Sun Nov 11 06:56:53 2007; 22722; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Sun Nov 11 06:56:53 2007; 22722; -------------------------------------------
+Sun Nov 11 06:56:53 2007; 22722; Processing pmtab line #3
+Sun Nov 11 06:56:53 2007; 22722; error -- device "/dev/term/b" does not exist
+Sun Nov 11 06:56:53 2007; 22722; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Sun Nov 11 06:56:53 2007; 22722; -------------------------------------------
+Sun Nov 11 06:56:53 2007; 22722; Initialization Completed
+Mon Nov 12 12:44:41 2007; 26198;  
+Mon Nov 12 12:44:41 2007; 26198; ********** ttymon starting **********
+Mon Nov 12 12:44:41 2007; 26198; PMTAG: zsmon
+Mon Nov 12 12:44:41 2007; 26198; Starting state: enabled
+Mon Nov 12 12:44:41 2007; 26198; Got SC_ENABLE message
+Mon Nov 12 12:44:41 2007; 26198; max open files = 65536
+Mon Nov 12 12:44:41 2007; 26198; max ports ttymon can monitor = 65529
+Mon Nov 12 12:44:41 2007; 26198; Processing pmtab line #2
+Mon Nov 12 12:44:41 2007; 26198; error -- device "/dev/term/a" does not exist
+Mon Nov 12 12:44:41 2007; 26198; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Mon Nov 12 12:44:41 2007; 26198; -------------------------------------------
+Mon Nov 12 12:44:41 2007; 26198; Processing pmtab line #3
+Mon Nov 12 12:44:41 2007; 26198; error -- device "/dev/term/b" does not exist
+Mon Nov 12 12:44:41 2007; 26198; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Mon Nov 12 12:44:41 2007; 26198; -------------------------------------------
+Mon Nov 12 12:44:41 2007; 26198; Initialization Completed
+Mon Nov 12 20:22:13 2007; 20336;  
+Mon Nov 12 20:22:13 2007; 20336; ********** ttymon starting **********
+Mon Nov 12 20:22:13 2007; 20336; PMTAG: zsmon
+Mon Nov 12 20:22:13 2007; 20336; Starting state: enabled
+Mon Nov 12 20:22:13 2007; 20336; Got SC_ENABLE message
+Mon Nov 12 20:22:13 2007; 20336; max open files = 65536
+Mon Nov 12 20:22:13 2007; 20336; max ports ttymon can monitor = 65529
+Mon Nov 12 20:22:13 2007; 20336; Processing pmtab line #2
+Mon Nov 12 20:22:13 2007; 20336; error -- device "/dev/term/a" does not exist
+Mon Nov 12 20:22:13 2007; 20336; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Mon Nov 12 20:22:13 2007; 20336; -------------------------------------------
+Mon Nov 12 20:22:13 2007; 20336; Processing pmtab line #3
+Mon Nov 12 20:22:13 2007; 20336; error -- device "/dev/term/b" does not exist
+Mon Nov 12 20:22:13 2007; 20336; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Mon Nov 12 20:22:13 2007; 20336; -------------------------------------------
+Mon Nov 12 20:22:13 2007; 20336; Initialization Completed
+Tue Nov 13 09:47:34 2007; 2878;  
+Tue Nov 13 09:47:34 2007; 2878; ********** ttymon starting **********
+Tue Nov 13 09:47:34 2007; 2878; PMTAG: zsmon
+Tue Nov 13 09:47:34 2007; 2878; Starting state: enabled
+Tue Nov 13 09:47:34 2007; 2878; Got SC_ENABLE message
+Tue Nov 13 09:47:34 2007; 2878; max open files = 65536
+Tue Nov 13 09:47:34 2007; 2878; max ports ttymon can monitor = 65529
+Tue Nov 13 09:47:34 2007; 2878; Processing pmtab line #2
+Tue Nov 13 09:47:34 2007; 2878; error -- device "/dev/term/a" does not exist
+Tue Nov 13 09:47:34 2007; 2878; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Nov 13 09:47:34 2007; 2878; -------------------------------------------
+Tue Nov 13 09:47:34 2007; 2878; Processing pmtab line #3
+Tue Nov 13 09:47:34 2007; 2878; error -- device "/dev/term/b" does not exist
+Tue Nov 13 09:47:34 2007; 2878; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Nov 13 09:47:34 2007; 2878; -------------------------------------------
+Tue Nov 13 09:47:34 2007; 2878; Initialization Completed
+Wed Nov 14 21:32:07 2007; 6040;  
+Wed Nov 14 21:32:07 2007; 6040; ********** ttymon starting **********
+Wed Nov 14 21:32:07 2007; 6040; PMTAG: zsmon
+Wed Nov 14 21:32:07 2007; 6040; Starting state: enabled
+Wed Nov 14 21:32:07 2007; 6040; Got SC_ENABLE message
+Wed Nov 14 21:32:07 2007; 6040; max open files = 65536
+Wed Nov 14 21:32:07 2007; 6040; max ports ttymon can monitor = 65529
+Wed Nov 14 21:32:07 2007; 6040; Processing pmtab line #2
+Wed Nov 14 21:32:07 2007; 6040; error -- device "/dev/term/a" does not exist
+Wed Nov 14 21:32:07 2007; 6040; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed Nov 14 21:32:07 2007; 6040; -------------------------------------------
+Wed Nov 14 21:32:07 2007; 6040; Processing pmtab line #3
+Wed Nov 14 21:32:07 2007; 6040; error -- device "/dev/term/b" does not exist
+Wed Nov 14 21:32:07 2007; 6040; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed Nov 14 21:32:07 2007; 6040; -------------------------------------------
+Wed Nov 14 21:32:07 2007; 6040; Initialization Completed
+Wed Nov 14 21:38:00 2007; 6416;  
+Wed Nov 14 21:38:00 2007; 6416; ********** ttymon starting **********
+Wed Nov 14 21:38:00 2007; 6416; PMTAG: zsmon
+Wed Nov 14 21:38:00 2007; 6416; Starting state: enabled
+Wed Nov 14 21:38:00 2007; 6416; Got SC_ENABLE message
+Wed Nov 14 21:38:00 2007; 6416; max open files = 65536
+Wed Nov 14 21:38:00 2007; 6416; max ports ttymon can monitor = 65529
+Wed Nov 14 21:38:00 2007; 6416; Processing pmtab line #2
+Wed Nov 14 21:38:00 2007; 6416; error -- device "/dev/term/a" does not exist
+Wed Nov 14 21:38:00 2007; 6416; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed Nov 14 21:38:00 2007; 6416; -------------------------------------------
+Wed Nov 14 21:38:00 2007; 6416; Processing pmtab line #3
+Wed Nov 14 21:38:00 2007; 6416; error -- device "/dev/term/b" does not exist
+Wed Nov 14 21:38:00 2007; 6416; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed Nov 14 21:38:00 2007; 6416; -------------------------------------------
+Wed Nov 14 21:38:00 2007; 6416; Initialization Completed
+Fri Nov 16 13:15:14 2007; 20565;  
+Fri Nov 16 13:15:14 2007; 20565; ********** ttymon starting **********
+Fri Nov 16 13:15:14 2007; 20565; PMTAG: zsmon
+Fri Nov 16 13:15:14 2007; 20565; Starting state: enabled
+Fri Nov 16 13:15:14 2007; 20565; Got SC_ENABLE message
+Fri Nov 16 13:15:14 2007; 20565; max open files = 65536
+Fri Nov 16 13:15:14 2007; 20565; max ports ttymon can monitor = 65529
+Fri Nov 16 13:15:14 2007; 20565; Processing pmtab line #2
+Fri Nov 16 13:15:14 2007; 20565; error -- device "/dev/term/a" does not exist
+Fri Nov 16 13:15:14 2007; 20565; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Nov 16 13:15:14 2007; 20565; -------------------------------------------
+Fri Nov 16 13:15:14 2007; 20565; Processing pmtab line #3
+Fri Nov 16 13:15:14 2007; 20565; error -- device "/dev/term/b" does not exist
+Fri Nov 16 13:15:14 2007; 20565; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Nov 16 13:15:14 2007; 20565; -------------------------------------------
+Fri Nov 16 13:15:14 2007; 20565; Initialization Completed
+Fri Nov 16 22:05:11 2007; 13349;  
+Fri Nov 16 22:05:11 2007; 13349; ********** ttymon starting **********
+Fri Nov 16 22:05:11 2007; 13349; PMTAG: zsmon
+Fri Nov 16 22:05:11 2007; 13349; Starting state: enabled
+Fri Nov 16 22:05:11 2007; 13349; Got SC_ENABLE message
+Fri Nov 16 22:05:11 2007; 13349; max open files = 65536
+Fri Nov 16 22:05:11 2007; 13349; max ports ttymon can monitor = 65529
+Fri Nov 16 22:05:11 2007; 13349; Processing pmtab line #2
+Fri Nov 16 22:05:11 2007; 13349; error -- device "/dev/term/a" does not exist
+Fri Nov 16 22:05:11 2007; 13349; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Nov 16 22:05:11 2007; 13349; -------------------------------------------
+Fri Nov 16 22:05:11 2007; 13349; Processing pmtab line #3
+Fri Nov 16 22:05:11 2007; 13349; error -- device "/dev/term/b" does not exist
+Fri Nov 16 22:05:11 2007; 13349; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Nov 16 22:05:11 2007; 13349; -------------------------------------------
+Fri Nov 16 22:05:11 2007; 13349; Initialization Completed
+Thu Jan 31 20:19:28 2008; 18342;  
+Thu Jan 31 20:19:28 2008; 18342; ********** ttymon starting **********
+Thu Jan 31 20:19:28 2008; 18342; PMTAG: zsmon
+Thu Jan 31 20:19:28 2008; 18342; Starting state: enabled
+Thu Jan 31 20:19:28 2008; 18342; Got SC_ENABLE message
+Thu Jan 31 20:19:28 2008; 18342; max open files = 65536
+Thu Jan 31 20:19:28 2008; 18342; max ports ttymon can monitor = 65529
+Thu Jan 31 20:19:28 2008; 18342; Processing pmtab line #2
+Thu Jan 31 20:19:28 2008; 18342; error -- device "/dev/term/a" does not exist
+Thu Jan 31 20:19:28 2008; 18342; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Thu Jan 31 20:19:28 2008; 18342; -------------------------------------------
+Thu Jan 31 20:19:28 2008; 18342; Processing pmtab line #3
+Thu Jan 31 20:19:28 2008; 18342; error -- device "/dev/term/b" does not exist
+Thu Jan 31 20:19:28 2008; 18342; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Thu Jan 31 20:19:28 2008; 18342; -------------------------------------------
+Thu Jan 31 20:19:28 2008; 18342; Initialization Completed
+Thu Jan 31 20:20:09 2008; 18342; caught SIGTERM
+Thu Jan 31 20:20:09 2008; 18342; ********** ttymon exiting ***********
+Thu Jan 31 20:20:17 2008; 18599;  
+Thu Jan 31 20:20:17 2008; 18599; ********** ttymon starting **********
+Thu Jan 31 20:20:17 2008; 18599; PMTAG: zsmon
+Thu Jan 31 20:20:17 2008; 18599; Starting state: enabled
+Thu Jan 31 20:20:17 2008; 18599; Got SC_ENABLE message
+Thu Jan 31 20:20:17 2008; 18599; max open files = 65536
+Thu Jan 31 20:20:17 2008; 18599; max ports ttymon can monitor = 65529
+Thu Jan 31 20:20:17 2008; 18599; Processing pmtab line #2
+Thu Jan 31 20:20:17 2008; 18599; error -- device "/dev/term/a" does not exist
+Thu Jan 31 20:20:17 2008; 18599; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Thu Jan 31 20:20:17 2008; 18599; -------------------------------------------
+Thu Jan 31 20:20:17 2008; 18599; Processing pmtab line #3
+Thu Jan 31 20:20:17 2008; 18599; error -- device "/dev/term/b" does not exist
+Thu Jan 31 20:20:17 2008; 18599; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Thu Jan 31 20:20:17 2008; 18599; -------------------------------------------
+Thu Jan 31 20:20:17 2008; 18599; Initialization Completed
+Mon Feb 25 08:45:50 2008; 18599; caught SIGTERM
+Mon Feb 25 08:45:50 2008; 18599; ********** ttymon exiting ***********
+Mon Feb 25 08:53:13 2008; 1099;  
+Mon Feb 25 08:53:13 2008; 1099; ********** ttymon starting **********
+Mon Feb 25 08:53:13 2008; 1099; PMTAG: zsmon
+Mon Feb 25 08:53:13 2008; 1099; Starting state: enabled
+Mon Feb 25 08:53:13 2008; 1099; Got SC_ENABLE message
+Mon Feb 25 08:53:13 2008; 1099; max open files = 65536
+Mon Feb 25 08:53:13 2008; 1099; max ports ttymon can monitor = 65529
+Mon Feb 25 08:53:13 2008; 1099; Processing pmtab line #2
+Mon Feb 25 08:53:14 2008; 1099; error -- device "/dev/term/a" does not exist
+Mon Feb 25 08:53:14 2008; 1099; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Mon Feb 25 08:53:14 2008; 1099; -------------------------------------------
+Mon Feb 25 08:53:14 2008; 1099; Processing pmtab line #3
+Mon Feb 25 08:53:14 2008; 1099; error -- device "/dev/term/b" does not exist
+Mon Feb 25 08:53:14 2008; 1099; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Mon Feb 25 08:53:14 2008; 1099; -------------------------------------------
+Mon Feb 25 08:53:14 2008; 1099; Initialization Completed
+Fri Feb 29 03:05:33 2008; 1099; caught SIGTERM
+Fri Feb 29 03:05:33 2008; 1099; ********** ttymon exiting ***********
+Fri Feb 29 03:06:43 2008; 23262;  
+Fri Feb 29 03:06:43 2008; 23262; ********** ttymon starting **********
+Fri Feb 29 03:06:43 2008; 23262; PMTAG: zsmon
+Fri Feb 29 03:06:43 2008; 23262; Starting state: enabled
+Fri Feb 29 03:06:43 2008; 23262; Got SC_ENABLE message
+Fri Feb 29 03:06:43 2008; 23262; max open files = 65536
+Fri Feb 29 03:06:43 2008; 23262; max ports ttymon can monitor = 65529
+Fri Feb 29 03:06:43 2008; 23262; Processing pmtab line #2
+Fri Feb 29 03:06:43 2008; 23262; error -- device "/dev/term/a" does not exist
+Fri Feb 29 03:06:43 2008; 23262; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Feb 29 03:06:43 2008; 23262; -------------------------------------------
+Fri Feb 29 03:06:43 2008; 23262; Processing pmtab line #3
+Fri Feb 29 03:06:43 2008; 23262; error -- device "/dev/term/b" does not exist
+Fri Feb 29 03:06:43 2008; 23262; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Feb 29 03:06:43 2008; 23262; -------------------------------------------
+Fri Feb 29 03:06:43 2008; 23262; Initialization Completed
+Fri Feb 29 03:20:04 2008; 23262; caught SIGTERM
+Fri Feb 29 03:20:04 2008; 23262; ********** ttymon exiting ***********
+Fri Feb 29 20:52:16 2008; 9286;  
+Fri Feb 29 20:52:16 2008; 9286; ********** ttymon starting **********
+Fri Feb 29 20:52:16 2008; 9286; PMTAG: zsmon
+Fri Feb 29 20:52:16 2008; 9286; Starting state: enabled
+Fri Feb 29 20:52:16 2008; 9286; max open files = 65536
+Fri Feb 29 20:52:16 2008; 9286; max ports ttymon can monitor = 65529
+Fri Feb 29 20:52:16 2008; 9286; Processing pmtab line #2
+Fri Feb 29 20:52:16 2008; 9286; error -- device "/dev/term/a" does not exist
+Fri Feb 29 20:52:16 2008; 9286; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Feb 29 20:52:16 2008; 9286; -------------------------------------------
+Fri Feb 29 20:52:16 2008; 9286; Processing pmtab line #3
+Fri Feb 29 20:52:16 2008; 9286; error -- device "/dev/term/b" does not exist
+Fri Feb 29 20:52:16 2008; 9286; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Feb 29 20:52:16 2008; 9286; -------------------------------------------
+Fri Feb 29 20:52:16 2008; 9286; Initialization Completed
+Fri Feb 29 20:52:16 2008; 9286; Got SC_ENABLE message
+Sat Mar  1 20:03:10 2008; 9286; caught SIGTERM
+Sat Mar  1 20:03:10 2008; 9286; ********** ttymon exiting ***********
+Tue Mar  4 21:37:25 2008; 9739;  
+Tue Mar  4 21:37:25 2008; 9739; ********** ttymon starting **********
+Tue Mar  4 21:37:25 2008; 9739; PMTAG: zsmon
+Tue Mar  4 21:37:25 2008; 9739; Starting state: enabled
+Tue Mar  4 21:37:25 2008; 9739; Got SC_ENABLE message
+Tue Mar  4 21:37:25 2008; 9739; max open files = 65536
+Tue Mar  4 21:37:25 2008; 9739; max ports ttymon can monitor = 65529
+Tue Mar  4 21:37:25 2008; 9739; Processing pmtab line #2
+Tue Mar  4 21:37:25 2008; 9739; error -- device "/dev/term/a" does not exist
+Tue Mar  4 21:37:25 2008; 9739; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Mar  4 21:37:25 2008; 9739; -------------------------------------------
+Tue Mar  4 21:37:25 2008; 9739; Processing pmtab line #3
+Tue Mar  4 21:37:25 2008; 9739; error -- device "/dev/term/b" does not exist
+Tue Mar  4 21:37:25 2008; 9739; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Mar  4 21:37:25 2008; 9739; -------------------------------------------
+Tue Mar  4 21:37:25 2008; 9739; Initialization Completed
+Tue Mar  4 22:41:49 2008; 14887;  
+Tue Mar  4 22:41:49 2008; 14887; ********** ttymon starting **********
+Tue Mar  4 22:41:49 2008; 14887; PMTAG: zsmon
+Tue Mar  4 22:41:49 2008; 14887; Starting state: enabled
+Tue Mar  4 22:41:49 2008; 14887; Got SC_ENABLE message
+Tue Mar  4 22:41:49 2008; 14887; max open files = 65536
+Tue Mar  4 22:41:49 2008; 14887; max ports ttymon can monitor = 65529
+Tue Mar  4 22:41:49 2008; 14887; Processing pmtab line #2
+Tue Mar  4 22:41:49 2008; 14887; error -- device "/dev/term/a" does not exist
+Tue Mar  4 22:41:49 2008; 14887; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Mar  4 22:41:49 2008; 14887; -------------------------------------------
+Tue Mar  4 22:41:49 2008; 14887; Processing pmtab line #3
+Tue Mar  4 22:41:49 2008; 14887; error -- device "/dev/term/b" does not exist
+Tue Mar  4 22:41:49 2008; 14887; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Mar  4 22:41:49 2008; 14887; -------------------------------------------
+Tue Mar  4 22:41:49 2008; 14887; Initialization Completed
+Tue Mar  4 22:50:23 2008; 14887; caught SIGTERM
+Tue Mar  4 22:50:23 2008; 14887; ********** ttymon exiting ***********
+Tue Mar  4 22:50:52 2008; 15296;  
+Tue Mar  4 22:50:52 2008; 15296; ********** ttymon starting **********
+Tue Mar  4 22:50:52 2008; 15296; PMTAG: zsmon
+Tue Mar  4 22:50:52 2008; 15296; Starting state: enabled
+Tue Mar  4 22:50:52 2008; 15296; Got SC_ENABLE message
+Tue Mar  4 22:50:52 2008; 15296; max open files = 65536
+Tue Mar  4 22:50:52 2008; 15296; max ports ttymon can monitor = 65529
+Tue Mar  4 22:50:52 2008; 15296; Processing pmtab line #2
+Tue Mar  4 22:50:52 2008; 15296; error -- device "/dev/term/a" does not exist
+Tue Mar  4 22:50:52 2008; 15296; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Mar  4 22:50:52 2008; 15296; -------------------------------------------
+Tue Mar  4 22:50:52 2008; 15296; Processing pmtab line #3
+Tue Mar  4 22:50:52 2008; 15296; error -- device "/dev/term/b" does not exist
+Tue Mar  4 22:50:52 2008; 15296; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Mar  4 22:50:52 2008; 15296; -------------------------------------------
+Tue Mar  4 22:50:52 2008; 15296; Initialization Completed
+Tue Mar 11 07:17:08 2008; 15296; caught SIGTERM
+Tue Mar 11 07:17:08 2008; 15296; ********** ttymon exiting ***********
+Wed Mar 12 02:57:21 2008; 1014;  
+Wed Mar 12 02:57:21 2008; 1014; ********** ttymon starting **********
+Wed Mar 12 02:57:21 2008; 1014; PMTAG: zsmon
+Wed Mar 12 02:57:21 2008; 1014; Starting state: enabled
+Wed Mar 12 02:57:21 2008; 1014; Got SC_ENABLE message
+Wed Mar 12 02:57:21 2008; 1014; max open files = 65536
+Wed Mar 12 02:57:21 2008; 1014; max ports ttymon can monitor = 65529
+Wed Mar 12 02:57:21 2008; 1014; Processing pmtab line #2
+Wed Mar 12 02:57:21 2008; 1014; error -- device "/dev/term/a" does not exist
+Wed Mar 12 02:57:21 2008; 1014; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed Mar 12 02:57:21 2008; 1014; -------------------------------------------
+Wed Mar 12 02:57:21 2008; 1014; Processing pmtab line #3
+Wed Mar 12 02:57:21 2008; 1014; error -- device "/dev/term/b" does not exist
+Wed Mar 12 02:57:21 2008; 1014; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed Mar 12 02:57:21 2008; 1014; -------------------------------------------
+Wed Mar 12 02:57:21 2008; 1014; Initialization Completed
+Wed Mar 12 03:28:44 2008; 3161;  
+Wed Mar 12 03:28:44 2008; 3161; ********** ttymon starting **********
+Wed Mar 12 03:28:44 2008; 3161; PMTAG: zsmon
+Wed Mar 12 03:28:44 2008; 3161; Starting state: enabled
+Wed Mar 12 03:28:44 2008; 3161; Got SC_ENABLE message
+Wed Mar 12 03:28:44 2008; 3161; max open files = 65536
+Wed Mar 12 03:28:44 2008; 3161; max ports ttymon can monitor = 65529
+Wed Mar 12 03:28:44 2008; 3161; Processing pmtab line #2
+Wed Mar 12 03:28:44 2008; 3161; error -- device "/dev/term/a" does not exist
+Wed Mar 12 03:28:44 2008; 3161; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed Mar 12 03:28:44 2008; 3161; -------------------------------------------
+Wed Mar 12 03:28:44 2008; 3161; Processing pmtab line #3
+Wed Mar 12 03:28:44 2008; 3161; error -- device "/dev/term/b" does not exist
+Wed Mar 12 03:28:44 2008; 3161; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed Mar 12 03:28:44 2008; 3161; -------------------------------------------
+Wed Mar 12 03:28:44 2008; 3161; Initialization Completed
+Tue Mar 18 17:48:37 2008; 3161; caught SIGTERM
+Tue Mar 18 17:48:37 2008; 3161; ********** ttymon exiting ***********
+Tue Mar 18 21:31:02 2008; 14751;  
+Tue Mar 18 21:31:02 2008; 14751; ********** ttymon starting **********
+Tue Mar 18 21:31:02 2008; 14751; PMTAG: zsmon
+Tue Mar 18 21:31:02 2008; 14751; Starting state: enabled
+Tue Mar 18 21:31:02 2008; 14751; max open files = 65536
+Tue Mar 18 21:31:02 2008; 14751; max ports ttymon can monitor = 65529
+Tue Mar 18 21:31:02 2008; 14751; Processing pmtab line #2
+Tue Mar 18 21:31:02 2008; 14751; error -- device "/dev/term/a" does not exist
+Tue Mar 18 21:31:02 2008; 14751; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Mar 18 21:31:02 2008; 14751; -------------------------------------------
+Tue Mar 18 21:31:02 2008; 14751; Processing pmtab line #3
+Tue Mar 18 21:31:02 2008; 14751; error -- device "/dev/term/b" does not exist
+Tue Mar 18 21:31:02 2008; 14751; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Mar 18 21:31:02 2008; 14751; -------------------------------------------
+Tue Mar 18 21:31:02 2008; 14751; Initialization Completed
+Tue Mar 18 21:31:02 2008; 14751; Got SC_ENABLE message
+Sun Mar 30 18:49:09 2008; 14751; caught SIGTERM
+Sun Mar 30 18:49:09 2008; 14751; ********** ttymon exiting ***********
+Sun Mar 30 20:12:59 2008; 29888;  
+Sun Mar 30 20:12:59 2008; 29888; ********** ttymon starting **********
+Sun Mar 30 20:12:59 2008; 29888; PMTAG: zsmon
+Sun Mar 30 20:12:59 2008; 29888; Starting state: enabled
+Sun Mar 30 20:12:59 2008; 29888; Got SC_ENABLE message
+Sun Mar 30 20:12:59 2008; 29888; max open files = 65536
+Sun Mar 30 20:12:59 2008; 29888; max ports ttymon can monitor = 65529
+Sun Mar 30 20:12:59 2008; 29888; Processing pmtab line #2
+Sun Mar 30 20:12:59 2008; 29888; error -- device "/dev/term/a" does not exist
+Sun Mar 30 20:12:59 2008; 29888; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Sun Mar 30 20:12:59 2008; 29888; -------------------------------------------
+Sun Mar 30 20:12:59 2008; 29888; Processing pmtab line #3
+Sun Mar 30 20:12:59 2008; 29888; error -- device "/dev/term/b" does not exist
+Sun Mar 30 20:12:59 2008; 29888; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Sun Mar 30 20:12:59 2008; 29888; -------------------------------------------
+Sun Mar 30 20:12:59 2008; 29888; Initialization Completed
+Sun Mar 30 21:51:57 2008; 29888; caught SIGTERM
+Sun Mar 30 21:51:57 2008; 29888; ********** ttymon exiting ***********
+Mon Mar 31 16:48:13 2008; 6339;  
+Mon Mar 31 16:48:13 2008; 6339; ********** ttymon starting **********
+Mon Mar 31 16:48:13 2008; 6339; PMTAG: zsmon
+Mon Mar 31 16:48:13 2008; 6339; Starting state: enabled
+Mon Mar 31 16:48:13 2008; 6339; Got SC_ENABLE message
+Mon Mar 31 16:48:13 2008; 6339; max open files = 65536
+Mon Mar 31 16:48:13 2008; 6339; max ports ttymon can monitor = 65529
+Mon Mar 31 16:48:13 2008; 6339; Processing pmtab line #2
+Mon Mar 31 16:48:13 2008; 6339; error -- device "/dev/term/a" does not exist
+Mon Mar 31 16:48:13 2008; 6339; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Mon Mar 31 16:48:13 2008; 6339; -------------------------------------------
+Mon Mar 31 16:48:13 2008; 6339; Processing pmtab line #3
+Mon Mar 31 16:48:13 2008; 6339; error -- device "/dev/term/b" does not exist
+Mon Mar 31 16:48:13 2008; 6339; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Mon Mar 31 16:48:13 2008; 6339; -------------------------------------------
+Mon Mar 31 16:48:13 2008; 6339; Initialization Completed
+Mon Mar 31 18:39:47 2008; 6339; caught SIGTERM
+Mon Mar 31 18:39:47 2008; 6339; ********** ttymon exiting ***********
+Tue Apr  1 21:08:21 2008; 17692;  
+Tue Apr  1 21:08:21 2008; 17692; ********** ttymon starting **********
+Tue Apr  1 21:08:21 2008; 17692; PMTAG: zsmon
+Tue Apr  1 21:08:21 2008; 17692; Starting state: enabled
+Tue Apr  1 21:08:21 2008; 17692; Got SC_ENABLE message
+Tue Apr  1 21:08:21 2008; 17692; max open files = 65536
+Tue Apr  1 21:08:21 2008; 17692; max ports ttymon can monitor = 65529
+Tue Apr  1 21:08:21 2008; 17692; Processing pmtab line #2
+Tue Apr  1 21:08:21 2008; 17692; error -- device "/dev/term/a" does not exist
+Tue Apr  1 21:08:21 2008; 17692; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Apr  1 21:08:21 2008; 17692; -------------------------------------------
+Tue Apr  1 21:08:21 2008; 17692; Processing pmtab line #3
+Tue Apr  1 21:08:21 2008; 17692; error -- device "/dev/term/b" does not exist
+Tue Apr  1 21:08:21 2008; 17692; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Apr  1 21:08:21 2008; 17692; -------------------------------------------
+Tue Apr  1 21:08:21 2008; 17692; Initialization Completed
+Tue Apr  1 21:14:32 2008; 17692; caught SIGTERM
+Tue Apr  1 21:14:32 2008; 17692; ********** ttymon exiting ***********
+Wed Apr  2 00:51:43 2008; 5792;  
+Wed Apr  2 00:51:43 2008; 5792; ********** ttymon starting **********
+Wed Apr  2 00:51:43 2008; 5792; PMTAG: zsmon
+Wed Apr  2 00:51:43 2008; 5792; Starting state: enabled
+Wed Apr  2 00:51:43 2008; 5792; Got SC_ENABLE message
+Wed Apr  2 00:51:43 2008; 5792; max open files = 65536
+Wed Apr  2 00:51:43 2008; 5792; max ports ttymon can monitor = 65529
+Wed Apr  2 00:51:43 2008; 5792; Processing pmtab line #2
+Wed Apr  2 00:51:43 2008; 5792; error -- device "/dev/term/a" does not exist
+Wed Apr  2 00:51:43 2008; 5792; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed Apr  2 00:51:43 2008; 5792; -------------------------------------------
+Wed Apr  2 00:51:43 2008; 5792; Processing pmtab line #3
+Wed Apr  2 00:51:43 2008; 5792; error -- device "/dev/term/b" does not exist
+Wed Apr  2 00:51:43 2008; 5792; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed Apr  2 00:51:43 2008; 5792; -------------------------------------------
+Wed Apr  2 00:51:43 2008; 5792; Initialization Completed
+Wed Apr  2 17:06:59 2008; 5792; caught SIGTERM
+Wed Apr  2 17:06:59 2008; 5792; ********** ttymon exiting ***********
+Thu Apr  3 06:12:28 2008; 24570;  
+Thu Apr  3 06:12:28 2008; 24570; ********** ttymon starting **********
+Thu Apr  3 06:12:28 2008; 24570; PMTAG: zsmon
+Thu Apr  3 06:12:28 2008; 24570; Starting state: enabled
+Thu Apr  3 06:12:28 2008; 24570; Got SC_ENABLE message
+Thu Apr  3 06:12:28 2008; 24570; max open files = 65536
+Thu Apr  3 06:12:28 2008; 24570; max ports ttymon can monitor = 65529
+Thu Apr  3 06:12:28 2008; 24570; Processing pmtab line #2
+Thu Apr  3 06:12:28 2008; 24570; error -- device "/dev/term/a" does not exist
+Thu Apr  3 06:12:28 2008; 24570; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Thu Apr  3 06:12:28 2008; 24570; -------------------------------------------
+Thu Apr  3 06:12:28 2008; 24570; Processing pmtab line #3
+Thu Apr  3 06:12:28 2008; 24570; error -- device "/dev/term/b" does not exist
+Thu Apr  3 06:12:28 2008; 24570; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Thu Apr  3 06:12:28 2008; 24570; -------------------------------------------
+Thu Apr  3 06:12:28 2008; 24570; Initialization Completed
+Mon Apr  7 16:16:02 2008; 24570; caught SIGTERM
+Mon Apr  7 16:16:02 2008; 24570; ********** ttymon exiting ***********
+Fri Apr 25 08:15:34 2008; 26282;  
+Fri Apr 25 08:15:34 2008; 26282; ********** ttymon starting **********
+Fri Apr 25 08:15:34 2008; 26282; PMTAG: zsmon
+Fri Apr 25 08:15:34 2008; 26282; Starting state: enabled
+Fri Apr 25 08:15:34 2008; 26282; Got SC_ENABLE message
+Fri Apr 25 08:15:34 2008; 26282; max open files = 65536
+Fri Apr 25 08:15:34 2008; 26282; max ports ttymon can monitor = 65529
+Fri Apr 25 08:15:34 2008; 26282; Processing pmtab line #2
+Fri Apr 25 08:15:34 2008; 26282; error -- device "/dev/term/a" does not exist
+Fri Apr 25 08:15:34 2008; 26282; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Apr 25 08:15:34 2008; 26282; -------------------------------------------
+Fri Apr 25 08:15:34 2008; 26282; Processing pmtab line #3
+Fri Apr 25 08:15:34 2008; 26282; error -- device "/dev/term/b" does not exist
+Fri Apr 25 08:15:34 2008; 26282; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Apr 25 08:15:34 2008; 26282; -------------------------------------------
+Fri Apr 25 08:15:34 2008; 26282; Initialization Completed
+Fri Apr 25 19:01:10 2008; 26282; caught SIGTERM
+Fri Apr 25 19:01:10 2008; 26282; ********** ttymon exiting ***********
+Wed May 14 16:43:15 2008; 18070;  
+Wed May 14 16:43:15 2008; 18070; ********** ttymon starting **********
+Wed May 14 16:43:15 2008; 18070; PMTAG: zsmon
+Wed May 14 16:43:15 2008; 18070; Starting state: enabled
+Wed May 14 16:43:15 2008; 18070; Got SC_ENABLE message
+Wed May 14 16:43:15 2008; 18070; max open files = 65536
+Wed May 14 16:43:15 2008; 18070; max ports ttymon can monitor = 65529
+Wed May 14 16:43:15 2008; 18070; Processing pmtab line #2
+Wed May 14 16:43:15 2008; 18070; error -- device "/dev/term/a" does not exist
+Wed May 14 16:43:15 2008; 18070; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed May 14 16:43:15 2008; 18070; -------------------------------------------
+Wed May 14 16:43:15 2008; 18070; Processing pmtab line #3
+Wed May 14 16:43:15 2008; 18070; error -- device "/dev/term/b" does not exist
+Wed May 14 16:43:15 2008; 18070; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed May 14 16:43:15 2008; 18070; -------------------------------------------
+Wed May 14 16:43:15 2008; 18070; Initialization Completed
+Wed May 14 23:31:50 2008; 18070; caught SIGTERM
+Wed May 14 23:31:50 2008; 18070; ********** ttymon exiting ***********
+Thu Jul 31 10:58:54 2008; 18959;  
+Thu Jul 31 10:58:54 2008; 18959; ********** ttymon starting **********
+Thu Jul 31 10:58:54 2008; 18959; PMTAG: zsmon
+Thu Jul 31 10:58:54 2008; 18959; Starting state: enabled
+Thu Jul 31 10:58:54 2008; 18959; Got SC_ENABLE message
+Thu Jul 31 10:58:54 2008; 18959; max open files = 65536
+Thu Jul 31 10:58:54 2008; 18959; max ports ttymon can monitor = 65529
+Thu Jul 31 10:58:54 2008; 18959; Processing pmtab line #2
+Thu Jul 31 10:58:54 2008; 18959; error -- device "/dev/term/a" does not exist
+Thu Jul 31 10:58:54 2008; 18959; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Thu Jul 31 10:58:54 2008; 18959; -------------------------------------------
+Thu Jul 31 10:58:54 2008; 18959; Processing pmtab line #3
+Thu Jul 31 10:58:54 2008; 18959; error -- device "/dev/term/b" does not exist
+Thu Jul 31 10:58:54 2008; 18959; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Thu Jul 31 10:58:54 2008; 18959; -------------------------------------------
+Thu Jul 31 10:58:54 2008; 18959; Initialization Completed
+Wed Aug  6 16:03:02 2008; 20133;  
+Wed Aug  6 16:03:02 2008; 20133; ********** ttymon starting **********
+Wed Aug  6 16:03:02 2008; 20133; PMTAG: zsmon
+Wed Aug  6 16:03:02 2008; 20133; Starting state: enabled
+Wed Aug  6 16:03:02 2008; 20133; Got SC_ENABLE message
+Wed Aug  6 16:03:02 2008; 20133; max open files = 65536
+Wed Aug  6 16:03:02 2008; 20133; max ports ttymon can monitor = 65529
+Wed Aug  6 16:03:02 2008; 20133; Processing pmtab line #2
+Wed Aug  6 16:03:02 2008; 20133; error -- device "/dev/term/a" does not exist
+Wed Aug  6 16:03:02 2008; 20133; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed Aug  6 16:03:02 2008; 20133; -------------------------------------------
+Wed Aug  6 16:03:02 2008; 20133; Processing pmtab line #3
+Wed Aug  6 16:03:02 2008; 20133; error -- device "/dev/term/b" does not exist
+Wed Aug  6 16:03:02 2008; 20133; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed Aug  6 16:03:02 2008; 20133; -------------------------------------------
+Wed Aug  6 16:03:02 2008; 20133; Initialization Completed
+Fri Aug 15 23:44:13 2008; 20133; caught SIGTERM
+Fri Aug 15 23:44:13 2008; 20133; ********** ttymon exiting ***********
+Fri Aug 15 23:44:21 2008; 1101;  
+Fri Aug 15 23:44:21 2008; 1101; ********** ttymon starting **********
+Fri Aug 15 23:44:21 2008; 1101; PMTAG: zsmon
+Fri Aug 15 23:44:21 2008; 1101; Starting state: enabled
+Fri Aug 15 23:44:21 2008; 1101; Got SC_ENABLE message
+Fri Aug 15 23:44:21 2008; 1101; max open files = 65536
+Fri Aug 15 23:44:21 2008; 1101; max ports ttymon can monitor = 65529
+Fri Aug 15 23:44:21 2008; 1101; Processing pmtab line #2
+Fri Aug 15 23:44:21 2008; 1101; error -- device "/dev/term/a" does not exist
+Fri Aug 15 23:44:21 2008; 1101; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Aug 15 23:44:21 2008; 1101; -------------------------------------------
+Fri Aug 15 23:44:21 2008; 1101; Processing pmtab line #3
+Fri Aug 15 23:44:21 2008; 1101; error -- device "/dev/term/b" does not exist
+Fri Aug 15 23:44:21 2008; 1101; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Aug 15 23:44:21 2008; 1101; -------------------------------------------
+Fri Aug 15 23:44:21 2008; 1101; Initialization Completed
+Wed Aug 20 14:20:43 2008; 1101; caught SIGTERM
+Wed Aug 20 14:20:43 2008; 1101; ********** ttymon exiting ***********
+Tue Aug 26 19:18:40 2008; 858;  
+Tue Aug 26 19:18:40 2008; 858; ********** ttymon starting **********
+Tue Aug 26 19:18:40 2008; 858; PMTAG: zsmon
+Tue Aug 26 19:18:40 2008; 858; Starting state: enabled
+Tue Aug 26 19:18:40 2008; 858; Got SC_ENABLE message
+Tue Aug 26 19:18:40 2008; 858; max open files = 65536
+Tue Aug 26 19:18:40 2008; 858; max ports ttymon can monitor = 65529
+Tue Aug 26 19:18:40 2008; 858; Processing pmtab line #2
+Tue Aug 26 19:18:40 2008; 858; error -- device "/dev/term/a" does not exist
+Tue Aug 26 19:18:40 2008; 858; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Aug 26 19:18:40 2008; 858; -------------------------------------------
+Tue Aug 26 19:18:40 2008; 858; Processing pmtab line #3
+Tue Aug 26 19:18:40 2008; 858; error -- device "/dev/term/b" does not exist
+Tue Aug 26 19:18:40 2008; 858; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Aug 26 19:18:40 2008; 858; -------------------------------------------
+Tue Aug 26 19:18:40 2008; 858; Initialization Completed
+Mon Sep 15 17:32:53 2008; 858; caught SIGTERM
+Mon Sep 15 17:32:53 2008; 858; ********** ttymon exiting ***********
+Wed Sep 17 07:15:34 2008; 17123;  
+Wed Sep 17 07:15:34 2008; 17123; ********** ttymon starting **********
+Wed Sep 17 07:15:34 2008; 17123; PMTAG: zsmon
+Wed Sep 17 07:15:34 2008; 17123; Starting state: enabled
+Wed Sep 17 07:15:34 2008; 17123; Got SC_ENABLE message
+Wed Sep 17 07:15:34 2008; 17123; max open files = 65536
+Wed Sep 17 07:15:34 2008; 17123; max ports ttymon can monitor = 65529
+Wed Sep 17 07:15:34 2008; 17123; Processing pmtab line #2
+Wed Sep 17 07:15:34 2008; 17123; error -- device "/dev/term/a" does not exist
+Wed Sep 17 07:15:34 2008; 17123; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed Sep 17 07:15:34 2008; 17123; -------------------------------------------
+Wed Sep 17 07:15:34 2008; 17123; Processing pmtab line #3
+Wed Sep 17 07:15:34 2008; 17123; error -- device "/dev/term/b" does not exist
+Wed Sep 17 07:15:34 2008; 17123; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed Sep 17 07:15:34 2008; 17123; -------------------------------------------
+Wed Sep 17 07:15:34 2008; 17123; Initialization Completed
+Thu Sep 18 07:31:56 2008; 17123; caught SIGTERM
+Thu Sep 18 07:31:56 2008; 17123; ********** ttymon exiting ***********
+Thu Sep 18 08:11:56 2008; 17150;  
+Thu Sep 18 08:11:56 2008; 17150; ********** ttymon starting **********
+Thu Sep 18 08:11:56 2008; 17150; PMTAG: zsmon
+Thu Sep 18 08:11:56 2008; 17150; Starting state: enabled
+Thu Sep 18 08:11:56 2008; 17150; Got SC_ENABLE message
+Thu Sep 18 08:11:56 2008; 17150; max open files = 65536
+Thu Sep 18 08:11:56 2008; 17150; max ports ttymon can monitor = 65529
+Thu Sep 18 08:11:56 2008; 17150; Processing pmtab line #2
+Thu Sep 18 08:11:56 2008; 17150; error -- device "/dev/term/a" does not exist
+Thu Sep 18 08:11:56 2008; 17150; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Thu Sep 18 08:11:56 2008; 17150; -------------------------------------------
+Thu Sep 18 08:11:56 2008; 17150; Processing pmtab line #3
+Thu Sep 18 08:11:56 2008; 17150; error -- device "/dev/term/b" does not exist
+Thu Sep 18 08:11:56 2008; 17150; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Thu Sep 18 08:11:56 2008; 17150; -------------------------------------------
+Thu Sep 18 08:11:56 2008; 17150; Initialization Completed
+Thu Sep 18 08:12:27 2008; 17150; caught SIGTERM
+Thu Sep 18 08:12:27 2008; 17150; ********** ttymon exiting ***********
+Thu Sep 18 08:43:20 2008; 21417;  
+Thu Sep 18 08:43:20 2008; 21417; ********** ttymon starting **********
+Thu Sep 18 08:43:20 2008; 21417; PMTAG: zsmon
+Thu Sep 18 08:43:20 2008; 21417; Starting state: enabled
+Thu Sep 18 08:43:20 2008; 21417; Got SC_ENABLE message
+Thu Sep 18 08:43:20 2008; 21417; max open files = 65536
+Thu Sep 18 08:43:20 2008; 21417; max ports ttymon can monitor = 65529
+Thu Sep 18 08:43:20 2008; 21417; Processing pmtab line #2
+Thu Sep 18 08:43:20 2008; 21417; error -- device "/dev/term/a" does not exist
+Thu Sep 18 08:43:20 2008; 21417; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Thu Sep 18 08:43:20 2008; 21417; -------------------------------------------
+Thu Sep 18 08:43:20 2008; 21417; Processing pmtab line #3
+Thu Sep 18 08:43:20 2008; 21417; error -- device "/dev/term/b" does not exist
+Thu Sep 18 08:43:20 2008; 21417; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Thu Sep 18 08:43:20 2008; 21417; -------------------------------------------
+Thu Sep 18 08:43:20 2008; 21417; Initialization Completed
+Thu Sep 18 08:47:44 2008; 21417; caught SIGTERM
+Thu Sep 18 08:47:44 2008; 21417; ********** ttymon exiting ***********
+Thu Sep 18 12:07:54 2008; 21623;  
+Thu Sep 18 12:07:54 2008; 21623; ********** ttymon starting **********
+Thu Sep 18 12:07:54 2008; 21623; PMTAG: zsmon
+Thu Sep 18 12:07:54 2008; 21623; Starting state: enabled
+Thu Sep 18 12:07:54 2008; 21623; Got SC_ENABLE message
+Thu Sep 18 12:07:54 2008; 21623; max open files = 65536
+Thu Sep 18 12:07:54 2008; 21623; max ports ttymon can monitor = 65529
+Thu Sep 18 12:07:54 2008; 21623; Processing pmtab line #2
+Thu Sep 18 12:07:54 2008; 21623; error -- device "/dev/term/a" does not exist
+Thu Sep 18 12:07:54 2008; 21623; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Thu Sep 18 12:07:54 2008; 21623; -------------------------------------------
+Thu Sep 18 12:07:54 2008; 21623; Processing pmtab line #3
+Thu Sep 18 12:07:54 2008; 21623; error -- device "/dev/term/b" does not exist
+Thu Sep 18 12:07:54 2008; 21623; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Thu Sep 18 12:07:54 2008; 21623; -------------------------------------------
+Thu Sep 18 12:07:54 2008; 21623; Initialization Completed
+Tue Sep 23 07:28:52 2008; 21623; caught SIGTERM
+Tue Sep 23 07:28:52 2008; 21623; ********** ttymon exiting ***********
+Tue Sep 23 07:38:26 2008; 18964;  
+Tue Sep 23 07:38:26 2008; 18964; ********** ttymon starting **********
+Tue Sep 23 07:38:26 2008; 18964; PMTAG: zsmon
+Tue Sep 23 07:38:26 2008; 18964; Starting state: enabled
+Tue Sep 23 07:38:26 2008; 18964; Got SC_ENABLE message
+Tue Sep 23 07:38:26 2008; 18964; max open files = 65536
+Tue Sep 23 07:38:26 2008; 18964; max ports ttymon can monitor = 65529
+Tue Sep 23 07:38:26 2008; 18964; Processing pmtab line #2
+Tue Sep 23 07:38:26 2008; 18964; error -- device "/dev/term/a" does not exist
+Tue Sep 23 07:38:26 2008; 18964; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Sep 23 07:38:26 2008; 18964; -------------------------------------------
+Tue Sep 23 07:38:26 2008; 18964; Processing pmtab line #3
+Tue Sep 23 07:38:26 2008; 18964; error -- device "/dev/term/b" does not exist
+Tue Sep 23 07:38:26 2008; 18964; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Sep 23 07:38:26 2008; 18964; -------------------------------------------
+Tue Sep 23 07:38:26 2008; 18964; Initialization Completed
+Tue Sep 23 07:48:45 2008; 18964; caught SIGTERM
+Tue Sep 23 07:48:45 2008; 18964; ********** ttymon exiting ***********
+Tue Sep 23 08:01:40 2008; 23123;  
+Tue Sep 23 08:01:40 2008; 23123; ********** ttymon starting **********
+Tue Sep 23 08:01:40 2008; 23123; PMTAG: zsmon
+Tue Sep 23 08:01:40 2008; 23123; Starting state: enabled
+Tue Sep 23 08:01:40 2008; 23123; Got SC_ENABLE message
+Tue Sep 23 08:01:40 2008; 23123; max open files = 65536
+Tue Sep 23 08:01:40 2008; 23123; max ports ttymon can monitor = 65529
+Tue Sep 23 08:01:40 2008; 23123; Processing pmtab line #2
+Tue Sep 23 08:01:40 2008; 23123; error -- device "/dev/term/a" does not exist
+Tue Sep 23 08:01:40 2008; 23123; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Sep 23 08:01:40 2008; 23123; -------------------------------------------
+Tue Sep 23 08:01:40 2008; 23123; Processing pmtab line #3
+Tue Sep 23 08:01:40 2008; 23123; error -- device "/dev/term/b" does not exist
+Tue Sep 23 08:01:40 2008; 23123; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Sep 23 08:01:40 2008; 23123; -------------------------------------------
+Tue Sep 23 08:01:40 2008; 23123; Initialization Completed
+Tue Sep 23 08:13:42 2008; 24878;  
+Tue Sep 23 08:13:42 2008; 24878; ********** ttymon starting **********
+Tue Sep 23 08:13:42 2008; 24878; PMTAG: zsmon
+Tue Sep 23 08:13:42 2008; 24878; Starting state: enabled
+Tue Sep 23 08:13:42 2008; 24878; Got SC_ENABLE message
+Tue Sep 23 08:13:42 2008; 24878; max open files = 65536
+Tue Sep 23 08:13:42 2008; 24878; max ports ttymon can monitor = 65529
+Tue Sep 23 08:13:42 2008; 24878; Processing pmtab line #2
+Tue Sep 23 08:13:42 2008; 24878; error -- device "/dev/term/a" does not exist
+Tue Sep 23 08:13:42 2008; 24878; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Sep 23 08:13:42 2008; 24878; -------------------------------------------
+Tue Sep 23 08:13:42 2008; 24878; Processing pmtab line #3
+Tue Sep 23 08:13:42 2008; 24878; error -- device "/dev/term/b" does not exist
+Tue Sep 23 08:13:42 2008; 24878; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Sep 23 08:13:42 2008; 24878; -------------------------------------------
+Tue Sep 23 08:13:42 2008; 24878; Initialization Completed
+Tue Sep 23 09:05:15 2008; 29979;  
+Tue Sep 23 09:05:15 2008; 29979; ********** ttymon starting **********
+Tue Sep 23 09:05:15 2008; 29979; PMTAG: zsmon
+Tue Sep 23 09:05:15 2008; 29979; Starting state: enabled
+Tue Sep 23 09:05:15 2008; 29979; Got SC_ENABLE message
+Tue Sep 23 09:05:15 2008; 29979; max open files = 65536
+Tue Sep 23 09:05:15 2008; 29979; max ports ttymon can monitor = 65529
+Tue Sep 23 09:05:15 2008; 29979; Processing pmtab line #2
+Tue Sep 23 09:05:15 2008; 29979; error -- device "/dev/term/a" does not exist
+Tue Sep 23 09:05:15 2008; 29979; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Sep 23 09:05:15 2008; 29979; -------------------------------------------
+Tue Sep 23 09:05:15 2008; 29979; Processing pmtab line #3
+Tue Sep 23 09:05:15 2008; 29979; error -- device "/dev/term/b" does not exist
+Tue Sep 23 09:05:15 2008; 29979; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Sep 23 09:05:15 2008; 29979; -------------------------------------------
+Tue Sep 23 09:05:15 2008; 29979; Initialization Completed
+Tue Sep 23 09:06:22 2008; 376;  
+Tue Sep 23 09:06:22 2008; 376; ********** ttymon starting **********
+Tue Sep 23 09:06:22 2008; 376; PMTAG: zsmon
+Tue Sep 23 09:06:22 2008; 376; Starting state: enabled
+Tue Sep 23 09:06:22 2008; 376; Got SC_ENABLE message
+Tue Sep 23 09:06:22 2008; 376; max open files = 65536
+Tue Sep 23 09:06:22 2008; 376; max ports ttymon can monitor = 65529
+Tue Sep 23 09:06:22 2008; 376; Processing pmtab line #2
+Tue Sep 23 09:06:22 2008; 376; error -- device "/dev/term/a" does not exist
+Tue Sep 23 09:06:22 2008; 376; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Sep 23 09:06:22 2008; 376; -------------------------------------------
+Tue Sep 23 09:06:22 2008; 376; Processing pmtab line #3
+Tue Sep 23 09:06:22 2008; 376; error -- device "/dev/term/b" does not exist
+Tue Sep 23 09:06:22 2008; 376; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Sep 23 09:06:22 2008; 376; -------------------------------------------
+Tue Sep 23 09:06:22 2008; 376; Initialization Completed
+Tue Oct  7 20:30:34 2008; 376; caught SIGTERM
+Tue Oct  7 20:30:34 2008; 376; ********** ttymon exiting ***********
+Tue Oct  7 20:55:37 2008; 3367;  
+Tue Oct  7 20:55:37 2008; 3367; ********** ttymon starting **********
+Tue Oct  7 20:55:37 2008; 3367; PMTAG: zsmon
+Tue Oct  7 20:55:37 2008; 3367; Starting state: enabled
+Tue Oct  7 20:55:37 2008; 3367; Got SC_ENABLE message
+Tue Oct  7 20:55:37 2008; 3367; max open files = 65536
+Tue Oct  7 20:55:37 2008; 3367; max ports ttymon can monitor = 65529
+Tue Oct  7 20:55:37 2008; 3367; Processing pmtab line #2
+Tue Oct  7 20:55:37 2008; 3367; error -- device "/dev/term/a" does not exist
+Tue Oct  7 20:55:37 2008; 3367; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Oct  7 20:55:37 2008; 3367; -------------------------------------------
+Tue Oct  7 20:55:37 2008; 3367; Processing pmtab line #3
+Tue Oct  7 20:55:37 2008; 3367; error -- device "/dev/term/b" does not exist
+Tue Oct  7 20:55:37 2008; 3367; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Oct  7 20:55:37 2008; 3367; -------------------------------------------
+Tue Oct  7 20:55:37 2008; 3367; Initialization Completed
+Wed Oct 15 20:42:32 2008; 3367; caught SIGTERM
+Wed Oct 15 20:42:32 2008; 3367; ********** ttymon exiting ***********
+Wed Oct 15 20:46:41 2008; 22650;  
+Wed Oct 15 20:46:41 2008; 22650; ********** ttymon starting **********
+Wed Oct 15 20:46:41 2008; 22650; PMTAG: zsmon
+Wed Oct 15 20:46:41 2008; 22650; Starting state: enabled
+Wed Oct 15 20:46:41 2008; 22650; Got SC_ENABLE message
+Wed Oct 15 20:46:41 2008; 22650; max open files = 65536
+Wed Oct 15 20:46:41 2008; 22650; max ports ttymon can monitor = 65529
+Wed Oct 15 20:46:41 2008; 22650; Processing pmtab line #2
+Wed Oct 15 20:46:41 2008; 22650; error -- device "/dev/term/a" does not exist
+Wed Oct 15 20:46:41 2008; 22650; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed Oct 15 20:46:41 2008; 22650; -------------------------------------------
+Wed Oct 15 20:46:41 2008; 22650; Processing pmtab line #3
+Wed Oct 15 20:46:41 2008; 22650; error -- device "/dev/term/b" does not exist
+Wed Oct 15 20:46:41 2008; 22650; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed Oct 15 20:46:41 2008; 22650; -------------------------------------------
+Wed Oct 15 20:46:41 2008; 22650; Initialization Completed
+Wed Oct 15 20:49:18 2008; 22650; caught SIGTERM
+Wed Oct 15 20:49:18 2008; 22650; ********** ttymon exiting ***********
+Wed Oct 15 20:49:26 2008; 23318;  
+Wed Oct 15 20:49:26 2008; 23318; ********** ttymon starting **********
+Wed Oct 15 20:49:26 2008; 23318; PMTAG: zsmon
+Wed Oct 15 20:49:26 2008; 23318; Starting state: enabled
+Wed Oct 15 20:49:26 2008; 23318; Got SC_ENABLE message
+Wed Oct 15 20:49:26 2008; 23318; max open files = 65536
+Wed Oct 15 20:49:26 2008; 23318; max ports ttymon can monitor = 65529
+Wed Oct 15 20:49:26 2008; 23318; Processing pmtab line #2
+Wed Oct 15 20:49:26 2008; 23318; error -- device "/dev/term/a" does not exist
+Wed Oct 15 20:49:26 2008; 23318; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed Oct 15 20:49:26 2008; 23318; -------------------------------------------
+Wed Oct 15 20:49:26 2008; 23318; Processing pmtab line #3
+Wed Oct 15 20:49:26 2008; 23318; error -- device "/dev/term/b" does not exist
+Wed Oct 15 20:49:26 2008; 23318; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed Oct 15 20:49:26 2008; 23318; -------------------------------------------
+Wed Oct 15 20:49:26 2008; 23318; Initialization Completed
+Wed Oct 15 22:26:06 2008; 23318; caught SIGTERM
+Wed Oct 15 22:26:06 2008; 23318; ********** ttymon exiting ***********
+Sat Oct 18 04:27:10 2008; 2734;  
+Sat Oct 18 04:27:10 2008; 2734; ********** ttymon starting **********
+Sat Oct 18 04:27:10 2008; 2734; PMTAG: zsmon
+Sat Oct 18 04:27:10 2008; 2734; Starting state: enabled
+Sat Oct 18 04:27:10 2008; 2734; Got SC_ENABLE message
+Sat Oct 18 04:27:10 2008; 2734; max open files = 65536
+Sat Oct 18 04:27:10 2008; 2734; max ports ttymon can monitor = 65529
+Sat Oct 18 04:27:10 2008; 2734; Processing pmtab line #2
+Sat Oct 18 04:27:10 2008; 2734; error -- device "/dev/term/a" does not exist
+Sat Oct 18 04:27:10 2008; 2734; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Sat Oct 18 04:27:10 2008; 2734; -------------------------------------------
+Sat Oct 18 04:27:10 2008; 2734; Processing pmtab line #3
+Sat Oct 18 04:27:10 2008; 2734; error -- device "/dev/term/b" does not exist
+Sat Oct 18 04:27:10 2008; 2734; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Sat Oct 18 04:27:10 2008; 2734; -------------------------------------------
+Sat Oct 18 04:27:10 2008; 2734; Initialization Completed
+Fri Oct 24 20:27:42 2008; 2734; caught SIGTERM
+Fri Oct 24 20:27:42 2008; 2734; ********** ttymon exiting ***********
+Mon Oct 27 18:24:33 2008; 6288;  
+Mon Oct 27 18:24:33 2008; 6288; ********** ttymon starting **********
+Mon Oct 27 18:24:33 2008; 6288; PMTAG: zsmon
+Mon Oct 27 18:24:33 2008; 6288; Starting state: enabled
+Mon Oct 27 18:24:33 2008; 6288; Got SC_ENABLE message
+Mon Oct 27 18:24:33 2008; 6288; max open files = 65536
+Mon Oct 27 18:24:33 2008; 6288; max ports ttymon can monitor = 65529
+Mon Oct 27 18:24:33 2008; 6288; Processing pmtab line #2
+Mon Oct 27 18:24:33 2008; 6288; error -- device "/dev/term/a" does not exist
+Mon Oct 27 18:24:33 2008; 6288; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Mon Oct 27 18:24:33 2008; 6288; -------------------------------------------
+Mon Oct 27 18:24:33 2008; 6288; Processing pmtab line #3
+Mon Oct 27 18:24:33 2008; 6288; error -- device "/dev/term/b" does not exist
+Mon Oct 27 18:24:33 2008; 6288; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Mon Oct 27 18:24:33 2008; 6288; -------------------------------------------
+Mon Oct 27 18:24:33 2008; 6288; Initialization Completed
+Tue Mar 17 20:38:30 2009; 6288; caught SIGTERM
+Tue Mar 17 20:38:30 2009; 6288; ********** ttymon exiting ***********
+Mon Apr 27 10:23:52 2009; 10968;  
+Mon Apr 27 10:23:52 2009; 10968; ********** ttymon starting **********
+Mon Apr 27 10:23:52 2009; 10968; PMTAG: zsmon
+Mon Apr 27 10:23:52 2009; 10968; Starting state: enabled
+Mon Apr 27 10:23:52 2009; 10968; Got SC_ENABLE message
+Mon Apr 27 10:23:52 2009; 10968; max open files = 65536
+Mon Apr 27 10:23:52 2009; 10968; max ports ttymon can monitor = 65529
+Mon Apr 27 10:23:52 2009; 10968; Processing pmtab line #2
+Mon Apr 27 10:23:52 2009; 10968; error -- device "/dev/term/a" does not exist
+Mon Apr 27 10:23:52 2009; 10968; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Mon Apr 27 10:23:52 2009; 10968; -------------------------------------------
+Mon Apr 27 10:23:52 2009; 10968; Processing pmtab line #3
+Mon Apr 27 10:23:52 2009; 10968; error -- device "/dev/term/b" does not exist
+Mon Apr 27 10:23:52 2009; 10968; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Mon Apr 27 10:23:52 2009; 10968; -------------------------------------------
+Mon Apr 27 10:23:52 2009; 10968; Initialization Completed
+Wed May 13 13:18:33 2009; 25172;  
+Wed May 13 13:18:33 2009; 25172; ********** ttymon starting **********
+Wed May 13 13:18:33 2009; 25172; PMTAG: zsmon
+Wed May 13 13:18:33 2009; 25172; Starting state: enabled
+Wed May 13 13:18:33 2009; 25172; Got SC_ENABLE message
+Wed May 13 13:18:33 2009; 25172; max open files = 65536
+Wed May 13 13:18:33 2009; 25172; max ports ttymon can monitor = 65529
+Wed May 13 13:18:33 2009; 25172; Processing pmtab line #2
+Wed May 13 13:18:33 2009; 25172; error -- device "/dev/term/a" does not exist
+Wed May 13 13:18:33 2009; 25172; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed May 13 13:18:33 2009; 25172; -------------------------------------------
+Wed May 13 13:18:33 2009; 25172; Processing pmtab line #3
+Wed May 13 13:18:33 2009; 25172; error -- device "/dev/term/b" does not exist
+Wed May 13 13:18:33 2009; 25172; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed May 13 13:18:33 2009; 25172; -------------------------------------------
+Wed May 13 13:18:33 2009; 25172; Initialization Completed
+Thu May 28 14:05:46 2009; 1065;  
+Thu May 28 14:05:46 2009; 1065; ********** ttymon starting **********
+Thu May 28 14:05:46 2009; 1065; PMTAG: zsmon
+Thu May 28 14:05:46 2009; 1065; Starting state: enabled
+Thu May 28 14:05:46 2009; 1065; Got SC_ENABLE message
+Thu May 28 14:05:46 2009; 1065; max open files = 65536
+Thu May 28 14:05:46 2009; 1065; max ports ttymon can monitor = 65529
+Thu May 28 14:05:46 2009; 1065; Processing pmtab line #2
+Thu May 28 14:05:46 2009; 1065; error -- device "/dev/term/a" does not exist
+Thu May 28 14:05:46 2009; 1065; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Thu May 28 14:05:46 2009; 1065; -------------------------------------------
+Thu May 28 14:05:46 2009; 1065; Processing pmtab line #3
+Thu May 28 14:05:46 2009; 1065; error -- device "/dev/term/b" does not exist
+Thu May 28 14:05:46 2009; 1065; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Thu May 28 14:05:46 2009; 1065; -------------------------------------------
+Thu May 28 14:05:46 2009; 1065; Initialization Completed
+Mon Jun 22 08:51:09 2009; 5252;  
+Mon Jun 22 08:51:09 2009; 5252; ********** ttymon starting **********
+Mon Jun 22 08:51:09 2009; 5252; PMTAG: zsmon
+Mon Jun 22 08:51:09 2009; 5252; Starting state: enabled
+Mon Jun 22 08:51:09 2009; 5252; Got SC_ENABLE message
+Mon Jun 22 08:51:09 2009; 5252; max open files = 65536
+Mon Jun 22 08:51:09 2009; 5252; max ports ttymon can monitor = 65529
+Mon Jun 22 08:51:09 2009; 5252; Processing pmtab line #2
+Mon Jun 22 08:51:09 2009; 5252; error -- device "/dev/term/a" does not exist
+Mon Jun 22 08:51:09 2009; 5252; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Mon Jun 22 08:51:09 2009; 5252; -------------------------------------------
+Mon Jun 22 08:51:09 2009; 5252; Processing pmtab line #3
+Mon Jun 22 08:51:09 2009; 5252; error -- device "/dev/term/b" does not exist
+Mon Jun 22 08:51:09 2009; 5252; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Mon Jun 22 08:51:09 2009; 5252; -------------------------------------------
+Mon Jun 22 08:51:09 2009; 5252; Initialization Completed
+Mon Jun 29 20:42:53 2009; 5252; caught SIGTERM
+Mon Jun 29 20:42:53 2009; 5252; ********** ttymon exiting ***********
+Mon Jun 29 20:43:01 2009; 29768;  
+Mon Jun 29 20:43:01 2009; 29768; ********** ttymon starting **********
+Mon Jun 29 20:43:01 2009; 29768; PMTAG: zsmon
+Mon Jun 29 20:43:01 2009; 29768; Starting state: enabled
+Mon Jun 29 20:43:01 2009; 29768; Got SC_ENABLE message
+Mon Jun 29 20:43:01 2009; 29768; max open files = 65536
+Mon Jun 29 20:43:01 2009; 29768; max ports ttymon can monitor = 65529
+Mon Jun 29 20:43:01 2009; 29768; Processing pmtab line #2
+Mon Jun 29 20:43:01 2009; 29768; error -- device "/dev/term/a" does not exist
+Mon Jun 29 20:43:01 2009; 29768; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Mon Jun 29 20:43:01 2009; 29768; -------------------------------------------
+Mon Jun 29 20:43:01 2009; 29768; Processing pmtab line #3
+Mon Jun 29 20:43:01 2009; 29768; error -- device "/dev/term/b" does not exist
+Mon Jun 29 20:43:01 2009; 29768; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Mon Jun 29 20:43:01 2009; 29768; -------------------------------------------
+Mon Jun 29 20:43:01 2009; 29768; Initialization Completed
+Mon Jun 29 20:47:20 2009; 29768; caught SIGTERM
+Mon Jun 29 20:47:20 2009; 29768; ********** ttymon exiting ***********
+Fri Jul 31 08:45:30 2009; 8559;  
+Fri Jul 31 08:45:30 2009; 8559; ********** ttymon starting **********
+Fri Jul 31 08:45:30 2009; 8559; PMTAG: zsmon
+Fri Jul 31 08:45:30 2009; 8559; Starting state: enabled
+Fri Jul 31 08:45:30 2009; 8559; Got SC_ENABLE message
+Fri Jul 31 08:45:30 2009; 8559; max open files = 65536
+Fri Jul 31 08:45:30 2009; 8559; max ports ttymon can monitor = 65529
+Fri Jul 31 08:45:30 2009; 8559; Processing pmtab line #2
+Fri Jul 31 08:45:30 2009; 8559; error -- device "/dev/term/a" does not exist
+Fri Jul 31 08:45:30 2009; 8559; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Jul 31 08:45:30 2009; 8559; -------------------------------------------
+Fri Jul 31 08:45:30 2009; 8559; Processing pmtab line #3
+Fri Jul 31 08:45:30 2009; 8559; error -- device "/dev/term/b" does not exist
+Fri Jul 31 08:45:30 2009; 8559; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Jul 31 08:45:30 2009; 8559; -------------------------------------------
+Fri Jul 31 08:45:30 2009; 8559; Initialization Completed
+Fri Jul 31 18:30:51 2009; 8559; caught SIGTERM
+Fri Jul 31 18:30:51 2009; 8559; ********** ttymon exiting ***********
+Sat Aug  1 15:13:22 2009; 16692;  
+Sat Aug  1 15:13:22 2009; 16692; ********** ttymon starting **********
+Sat Aug  1 15:13:22 2009; 16692; PMTAG: zsmon
+Sat Aug  1 15:13:22 2009; 16692; Starting state: enabled
+Sat Aug  1 15:13:22 2009; 16692; Got SC_ENABLE message
+Sat Aug  1 15:13:22 2009; 16692; max open files = 65536
+Sat Aug  1 15:13:22 2009; 16692; max ports ttymon can monitor = 65529
+Sat Aug  1 15:13:22 2009; 16692; Processing pmtab line #2
+Sat Aug  1 15:13:22 2009; 16692; error -- device "/dev/term/a" does not exist
+Sat Aug  1 15:13:22 2009; 16692; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Sat Aug  1 15:13:22 2009; 16692; -------------------------------------------
+Sat Aug  1 15:13:22 2009; 16692; Processing pmtab line #3
+Sat Aug  1 15:13:22 2009; 16692; error -- device "/dev/term/b" does not exist
+Sat Aug  1 15:13:22 2009; 16692; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Sat Aug  1 15:13:22 2009; 16692; -------------------------------------------
+Sat Aug  1 15:13:22 2009; 16692; Initialization Completed
+Fri Aug 14 09:13:01 2009; 6117;  
+Fri Aug 14 09:13:01 2009; 6117; ********** ttymon starting **********
+Fri Aug 14 09:13:01 2009; 6117; PMTAG: zsmon
+Fri Aug 14 09:13:01 2009; 6117; Starting state: enabled
+Fri Aug 14 09:13:01 2009; 6117; Got SC_ENABLE message
+Fri Aug 14 09:13:01 2009; 6117; max open files = 65536
+Fri Aug 14 09:13:01 2009; 6117; max ports ttymon can monitor = 65529
+Fri Aug 14 09:13:01 2009; 6117; Processing pmtab line #2
+Fri Aug 14 09:13:01 2009; 6117; error -- device "/dev/term/a" does not exist
+Fri Aug 14 09:13:01 2009; 6117; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Aug 14 09:13:01 2009; 6117; -------------------------------------------
+Fri Aug 14 09:13:01 2009; 6117; Processing pmtab line #3
+Fri Aug 14 09:13:01 2009; 6117; error -- device "/dev/term/b" does not exist
+Fri Aug 14 09:13:01 2009; 6117; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Aug 14 09:13:01 2009; 6117; -------------------------------------------
+Fri Aug 14 09:13:01 2009; 6117; Initialization Completed
+Mon Sep  7 12:46:31 2009; 6117; caught SIGTERM
+Mon Sep  7 12:46:31 2009; 6117; ********** ttymon exiting ***********
+Tue Sep  8 09:43:08 2009; 25814;  
+Tue Sep  8 09:43:08 2009; 25814; ********** ttymon starting **********
+Tue Sep  8 09:43:08 2009; 25814; PMTAG: zsmon
+Tue Sep  8 09:43:08 2009; 25814; Starting state: enabled
+Tue Sep  8 09:43:08 2009; 25814; Got SC_ENABLE message
+Tue Sep  8 09:43:08 2009; 25814; max open files = 65536
+Tue Sep  8 09:43:08 2009; 25814; max ports ttymon can monitor = 65529
+Tue Sep  8 09:43:08 2009; 25814; Processing pmtab line #2
+Tue Sep  8 09:43:08 2009; 25814; error -- device "/dev/term/a" does not exist
+Tue Sep  8 09:43:08 2009; 25814; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Sep  8 09:43:08 2009; 25814; -------------------------------------------
+Tue Sep  8 09:43:08 2009; 25814; Processing pmtab line #3
+Tue Sep  8 09:43:08 2009; 25814; error -- device "/dev/term/b" does not exist
+Tue Sep  8 09:43:08 2009; 25814; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Sep  8 09:43:08 2009; 25814; -------------------------------------------
+Tue Sep  8 09:43:08 2009; 25814; Initialization Completed
+Tue Sep  8 13:28:55 2009; 25814; caught SIGTERM
+Tue Sep  8 13:28:55 2009; 25814; ********** ttymon exiting ***********
+Wed Sep  9 11:09:55 2009; 389;  
+Wed Sep  9 11:09:55 2009; 389; ********** ttymon starting **********
+Wed Sep  9 11:09:55 2009; 389; PMTAG: zsmon
+Wed Sep  9 11:09:55 2009; 389; Starting state: enabled
+Wed Sep  9 11:09:55 2009; 389; Got SC_ENABLE message
+Wed Sep  9 11:09:55 2009; 389; max open files = 65536
+Wed Sep  9 11:09:55 2009; 389; max ports ttymon can monitor = 65529
+Wed Sep  9 11:09:55 2009; 389; Processing pmtab line #2
+Wed Sep  9 11:09:55 2009; 389; error -- device "/dev/term/a" does not exist
+Wed Sep  9 11:09:55 2009; 389; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed Sep  9 11:09:55 2009; 389; -------------------------------------------
+Wed Sep  9 11:09:55 2009; 389; Processing pmtab line #3
+Wed Sep  9 11:09:55 2009; 389; error -- device "/dev/term/b" does not exist
+Wed Sep  9 11:09:55 2009; 389; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed Sep  9 11:09:55 2009; 389; -------------------------------------------
+Wed Sep  9 11:09:55 2009; 389; Initialization Completed
+Tue Sep 22 12:24:39 2009; 389; caught SIGTERM
+Tue Sep 22 12:24:39 2009; 389; ********** ttymon exiting ***********
+Tue Sep 22 13:22:38 2009; 5242;  
+Tue Sep 22 13:22:38 2009; 5242; ********** ttymon starting **********
+Tue Sep 22 13:22:38 2009; 5242; PMTAG: zsmon
+Tue Sep 22 13:22:38 2009; 5242; Starting state: enabled
+Tue Sep 22 13:22:38 2009; 5242; Got SC_ENABLE message
+Tue Sep 22 13:22:38 2009; 5242; max open files = 65536
+Tue Sep 22 13:22:38 2009; 5242; max ports ttymon can monitor = 65529
+Tue Sep 22 13:22:38 2009; 5242; Processing pmtab line #2
+Tue Sep 22 13:22:38 2009; 5242; error -- device "/dev/term/a" does not exist
+Tue Sep 22 13:22:38 2009; 5242; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Sep 22 13:22:38 2009; 5242; -------------------------------------------
+Tue Sep 22 13:22:38 2009; 5242; Processing pmtab line #3
+Tue Sep 22 13:22:38 2009; 5242; error -- device "/dev/term/b" does not exist
+Tue Sep 22 13:22:38 2009; 5242; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Sep 22 13:22:38 2009; 5242; -------------------------------------------
+Tue Sep 22 13:22:38 2009; 5242; Initialization Completed
+Tue Sep 22 13:23:26 2009; 5242; caught SIGTERM
+Tue Sep 22 13:23:26 2009; 5242; ********** ttymon exiting ***********
+Tue Sep 22 19:27:10 2009; 16553;  
+Tue Sep 22 19:27:10 2009; 16553; ********** ttymon starting **********
+Tue Sep 22 19:27:10 2009; 16553; PMTAG: zsmon
+Tue Sep 22 19:27:10 2009; 16553; Starting state: enabled
+Tue Sep 22 19:27:10 2009; 16553; max open files = 65536
+Tue Sep 22 19:27:10 2009; 16553; max ports ttymon can monitor = 65529
+Tue Sep 22 19:27:10 2009; 16553; Processing pmtab line #2
+Tue Sep 22 19:27:10 2009; 16553; error -- device "/dev/term/a" does not exist
+Tue Sep 22 19:27:10 2009; 16553; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Sep 22 19:27:10 2009; 16553; -------------------------------------------
+Tue Sep 22 19:27:10 2009; 16553; Processing pmtab line #3
+Tue Sep 22 19:27:10 2009; 16553; error -- device "/dev/term/b" does not exist
+Tue Sep 22 19:27:10 2009; 16553; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Sep 22 19:27:10 2009; 16553; -------------------------------------------
+Tue Sep 22 19:27:10 2009; 16553; Initialization Completed
+Tue Sep 22 19:27:10 2009; 16553; Got SC_ENABLE message
+Wed Oct 21 12:58:00 2009; 16553; caught SIGTERM
+Wed Oct 21 12:58:00 2009; 16553; ********** ttymon exiting ***********
+Sat Oct 24 07:49:57 2009; 16013;  
+Sat Oct 24 07:49:57 2009; 16013; ********** ttymon starting **********
+Sat Oct 24 07:49:57 2009; 16013; PMTAG: zsmon
+Sat Oct 24 07:49:57 2009; 16013; Starting state: enabled
+Sat Oct 24 07:49:57 2009; 16013; Got SC_ENABLE message
+Sat Oct 24 07:49:57 2009; 16013; max open files = 65536
+Sat Oct 24 07:49:57 2009; 16013; max ports ttymon can monitor = 65529
+Sat Oct 24 07:49:57 2009; 16013; Processing pmtab line #2
+Sat Oct 24 07:49:57 2009; 16013; error -- device "/dev/term/a" does not exist
+Sat Oct 24 07:49:57 2009; 16013; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Sat Oct 24 07:49:57 2009; 16013; -------------------------------------------
+Sat Oct 24 07:49:57 2009; 16013; Processing pmtab line #3
+Sat Oct 24 07:49:57 2009; 16013; error -- device "/dev/term/b" does not exist
+Sat Oct 24 07:49:57 2009; 16013; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Sat Oct 24 07:49:57 2009; 16013; -------------------------------------------
+Sat Oct 24 07:49:57 2009; 16013; Initialization Completed
+Mon Oct 26 13:59:17 2009; 16013; caught SIGTERM
+Mon Oct 26 13:59:17 2009; 16013; ********** ttymon exiting ***********
+Sun Nov  1 10:09:59 2009; 13358;  
+Sun Nov  1 10:09:59 2009; 13358; ********** ttymon starting **********
+Sun Nov  1 10:09:59 2009; 13358; PMTAG: zsmon
+Sun Nov  1 10:09:59 2009; 13358; Starting state: enabled
+Sun Nov  1 10:09:59 2009; 13358; Got SC_ENABLE message
+Sun Nov  1 10:09:59 2009; 13358; max open files = 65536
+Sun Nov  1 10:09:59 2009; 13358; max ports ttymon can monitor = 65529
+Sun Nov  1 10:09:59 2009; 13358; Processing pmtab line #2
+Sun Nov  1 10:09:59 2009; 13358; error -- device "/dev/term/a" does not exist
+Sun Nov  1 10:09:59 2009; 13358; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Sun Nov  1 10:09:59 2009; 13358; -------------------------------------------
+Sun Nov  1 10:09:59 2009; 13358; Processing pmtab line #3
+Sun Nov  1 10:09:59 2009; 13358; error -- device "/dev/term/b" does not exist
+Sun Nov  1 10:09:59 2009; 13358; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Sun Nov  1 10:09:59 2009; 13358; -------------------------------------------
+Sun Nov  1 10:09:59 2009; 13358; Initialization Completed
+Fri Jan 22 23:40:04 2010; 28982;  
+Fri Jan 22 23:40:04 2010; 28982; ********** ttymon starting **********
+Fri Jan 22 23:40:04 2010; 28982; PMTAG: zsmon
+Fri Jan 22 23:40:04 2010; 28982; Starting state: enabled
+Fri Jan 22 23:40:04 2010; 28982; Got SC_ENABLE message
+Fri Jan 22 23:40:04 2010; 28982; max open files = 65536
+Fri Jan 22 23:40:04 2010; 28982; max ports ttymon can monitor = 65529
+Fri Jan 22 23:40:04 2010; 28982; Processing pmtab line #2
+Fri Jan 22 23:40:04 2010; 28982; error -- device "/dev/term/a" does not exist
+Fri Jan 22 23:40:04 2010; 28982; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Jan 22 23:40:04 2010; 28982; -------------------------------------------
+Fri Jan 22 23:40:04 2010; 28982; Processing pmtab line #3
+Fri Jan 22 23:40:04 2010; 28982; error -- device "/dev/term/b" does not exist
+Fri Jan 22 23:40:04 2010; 28982; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Jan 22 23:40:04 2010; 28982; -------------------------------------------
+Fri Jan 22 23:40:04 2010; 28982; Initialization Completed
+Fri Jan 22 23:56:31 2010; 28982; caught SIGTERM
+Fri Jan 22 23:56:31 2010; 28982; ********** ttymon exiting ***********
+Fri Jan 22 23:57:01 2010; 11085;  
+Fri Jan 22 23:57:01 2010; 11085; ********** ttymon starting **********
+Fri Jan 22 23:57:01 2010; 11085; PMTAG: zsmon
+Fri Jan 22 23:57:01 2010; 11085; Starting state: enabled
+Fri Jan 22 23:57:01 2010; 11085; Got SC_ENABLE message
+Fri Jan 22 23:57:01 2010; 11085; max open files = 65536
+Fri Jan 22 23:57:01 2010; 11085; max ports ttymon can monitor = 65529
+Fri Jan 22 23:57:01 2010; 11085; Processing pmtab line #2
+Fri Jan 22 23:57:01 2010; 11085; error -- device "/dev/term/a" does not exist
+Fri Jan 22 23:57:01 2010; 11085; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Jan 22 23:57:01 2010; 11085; -------------------------------------------
+Fri Jan 22 23:57:01 2010; 11085; Processing pmtab line #3
+Fri Jan 22 23:57:01 2010; 11085; error -- device "/dev/term/b" does not exist
+Fri Jan 22 23:57:01 2010; 11085; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Jan 22 23:57:01 2010; 11085; -------------------------------------------
+Fri Jan 22 23:57:01 2010; 11085; Initialization Completed
+Fri Jan 22 23:57:23 2010; 11085; caught SIGTERM
+Fri Jan 22 23:57:23 2010; 11085; ********** ttymon exiting ***********
+Tue Mar  2 11:05:43 2010; 17093;  
+Tue Mar  2 11:05:43 2010; 17093; ********** ttymon starting **********
+Tue Mar  2 11:05:43 2010; 17093; PMTAG: zsmon
+Tue Mar  2 11:05:43 2010; 17093; Starting state: enabled
+Tue Mar  2 11:05:43 2010; 17093; Got SC_ENABLE message
+Tue Mar  2 11:05:43 2010; 17093; max open files = 65536
+Tue Mar  2 11:05:43 2010; 17093; max ports ttymon can monitor = 65529
+Tue Mar  2 11:05:43 2010; 17093; Processing pmtab line #2
+Tue Mar  2 11:05:43 2010; 17093; error -- device "/dev/term/a" does not exist
+Tue Mar  2 11:05:43 2010; 17093; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Mar  2 11:05:43 2010; 17093; -------------------------------------------
+Tue Mar  2 11:05:43 2010; 17093; Processing pmtab line #3
+Tue Mar  2 11:05:43 2010; 17093; error -- device "/dev/term/b" does not exist
+Tue Mar  2 11:05:43 2010; 17093; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Mar  2 11:05:43 2010; 17093; -------------------------------------------
+Tue Mar  2 11:05:43 2010; 17093; Initialization Completed
+Tue Mar  2 12:39:25 2010; 17093; caught SIGTERM
+Tue Mar  2 12:39:25 2010; 17093; ********** ttymon exiting ***********
+Sat Mar 13 21:20:10 2010; 8205;  
+Sat Mar 13 21:20:10 2010; 8205; ********** ttymon starting **********
+Sat Mar 13 21:20:10 2010; 8205; PMTAG: zsmon
+Sat Mar 13 21:20:10 2010; 8205; Starting state: enabled
+Sat Mar 13 21:20:10 2010; 8205; Got SC_ENABLE message
+Sat Mar 13 21:20:10 2010; 8205; max open files = 65536
+Sat Mar 13 21:20:10 2010; 8205; max ports ttymon can monitor = 65529
+Sat Mar 13 21:20:10 2010; 8205; Processing pmtab line #2
+Sat Mar 13 21:20:10 2010; 8205; error -- device "/dev/term/a" does not exist
+Sat Mar 13 21:20:10 2010; 8205; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Sat Mar 13 21:20:10 2010; 8205; -------------------------------------------
+Sat Mar 13 21:20:10 2010; 8205; Processing pmtab line #3
+Sat Mar 13 21:20:10 2010; 8205; error -- device "/dev/term/b" does not exist
+Sat Mar 13 21:20:10 2010; 8205; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Sat Mar 13 21:20:10 2010; 8205; -------------------------------------------
+Sat Mar 13 21:20:10 2010; 8205; Initialization Completed
+Fri Mar 19 20:40:07 2010; 8205; caught SIGTERM
+Fri Mar 19 20:40:07 2010; 8205; ********** ttymon exiting ***********
+Tue May 11 11:19:16 2010; 8528;  
+Tue May 11 11:19:16 2010; 8528; ********** ttymon starting **********
+Tue May 11 11:19:16 2010; 8528; PMTAG: zsmon
+Tue May 11 11:19:16 2010; 8528; Starting state: enabled
+Tue May 11 11:19:16 2010; 8528; Got SC_ENABLE message
+Tue May 11 11:19:16 2010; 8528; max open files = 65536
+Tue May 11 11:19:16 2010; 8528; max ports ttymon can monitor = 65529
+Tue May 11 11:19:16 2010; 8528; Processing pmtab line #2
+Tue May 11 11:19:16 2010; 8528; error -- device "/dev/term/a" does not exist
+Tue May 11 11:19:16 2010; 8528; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue May 11 11:19:16 2010; 8528; -------------------------------------------
+Tue May 11 11:19:16 2010; 8528; Processing pmtab line #3
+Tue May 11 11:19:16 2010; 8528; error -- device "/dev/term/b" does not exist
+Tue May 11 11:19:16 2010; 8528; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue May 11 11:19:16 2010; 8528; -------------------------------------------
+Tue May 11 11:19:16 2010; 8528; Initialization Completed
+Tue May 11 11:20:44 2010; 8528; caught SIGTERM
+Tue May 11 11:20:44 2010; 8528; ********** ttymon exiting ***********
+Thu May 13 07:37:14 2010; 16119;  
+Thu May 13 07:37:14 2010; 16119; ********** ttymon starting **********
+Thu May 13 07:37:14 2010; 16119; PMTAG: zsmon
+Thu May 13 07:37:14 2010; 16119; Starting state: enabled
+Thu May 13 07:37:14 2010; 16119; Got SC_ENABLE message
+Thu May 13 07:37:14 2010; 16119; max open files = 65536
+Thu May 13 07:37:14 2010; 16119; max ports ttymon can monitor = 65529
+Thu May 13 07:37:14 2010; 16119; Processing pmtab line #2
+Thu May 13 07:37:14 2010; 16119; error -- device "/dev/term/a" does not exist
+Thu May 13 07:37:14 2010; 16119; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Thu May 13 07:37:14 2010; 16119; -------------------------------------------
+Thu May 13 07:37:14 2010; 16119; Processing pmtab line #3
+Thu May 13 07:37:14 2010; 16119; error -- device "/dev/term/b" does not exist
+Thu May 13 07:37:14 2010; 16119; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Thu May 13 07:37:14 2010; 16119; -------------------------------------------
+Thu May 13 07:37:14 2010; 16119; Initialization Completed
+Thu Jun 24 21:01:02 2010; 4849;  
+Thu Jun 24 21:01:02 2010; 4849; ********** ttymon starting **********
+Thu Jun 24 21:01:02 2010; 4849; PMTAG: zsmon
+Thu Jun 24 21:01:02 2010; 4849; Starting state: enabled
+Thu Jun 24 21:01:02 2010; 4849; Got SC_ENABLE message
+Thu Jun 24 21:01:02 2010; 4849; max open files = 65536
+Thu Jun 24 21:01:02 2010; 4849; max ports ttymon can monitor = 65529
+Thu Jun 24 21:01:02 2010; 4849; Processing pmtab line #2
+Thu Jun 24 21:01:02 2010; 4849; error -- device "/dev/term/a" does not exist
+Thu Jun 24 21:01:02 2010; 4849; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Thu Jun 24 21:01:02 2010; 4849; -------------------------------------------
+Thu Jun 24 21:01:02 2010; 4849; Processing pmtab line #3
+Thu Jun 24 21:01:02 2010; 4849; error -- device "/dev/term/b" does not exist
+Thu Jun 24 21:01:02 2010; 4849; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Thu Jun 24 21:01:02 2010; 4849; -------------------------------------------
+Thu Jun 24 21:01:02 2010; 4849; Initialization Completed
+Fri Jun 25 08:02:35 2010; 21961;  
+Fri Jun 25 08:02:35 2010; 21961; ********** ttymon starting **********
+Fri Jun 25 08:02:35 2010; 21961; PMTAG: zsmon
+Fri Jun 25 08:02:35 2010; 21961; Starting state: enabled
+Fri Jun 25 08:02:35 2010; 21961; Got SC_ENABLE message
+Fri Jun 25 08:02:35 2010; 21961; max open files = 65536
+Fri Jun 25 08:02:35 2010; 21961; max ports ttymon can monitor = 65529
+Fri Jun 25 08:02:35 2010; 21961; Processing pmtab line #2
+Fri Jun 25 08:02:35 2010; 21961; error -- device "/dev/term/a" does not exist
+Fri Jun 25 08:02:35 2010; 21961; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Jun 25 08:02:35 2010; 21961; -------------------------------------------
+Fri Jun 25 08:02:35 2010; 21961; Processing pmtab line #3
+Fri Jun 25 08:02:35 2010; 21961; error -- device "/dev/term/b" does not exist
+Fri Jun 25 08:02:35 2010; 21961; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Jun 25 08:02:35 2010; 21961; -------------------------------------------
+Fri Jun 25 08:02:35 2010; 21961; Initialization Completed
+Fri Jun 25 08:03:32 2010; 21961; caught SIGTERM
+Fri Jun 25 08:03:32 2010; 21961; ********** ttymon exiting ***********
+Fri Jun 25 09:12:38 2010; 23800;  
+Fri Jun 25 09:12:38 2010; 23800; ********** ttymon starting **********
+Fri Jun 25 09:12:38 2010; 23800; PMTAG: zsmon
+Fri Jun 25 09:12:38 2010; 23800; Starting state: enabled
+Fri Jun 25 09:12:38 2010; 23800; Got SC_ENABLE message
+Fri Jun 25 09:12:38 2010; 23800; max open files = 65536
+Fri Jun 25 09:12:38 2010; 23800; max ports ttymon can monitor = 65529
+Fri Jun 25 09:12:38 2010; 23800; Processing pmtab line #2
+Fri Jun 25 09:12:38 2010; 23800; error -- device "/dev/term/a" does not exist
+Fri Jun 25 09:12:38 2010; 23800; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Jun 25 09:12:38 2010; 23800; -------------------------------------------
+Fri Jun 25 09:12:38 2010; 23800; Processing pmtab line #3
+Fri Jun 25 09:12:38 2010; 23800; error -- device "/dev/term/b" does not exist
+Fri Jun 25 09:12:38 2010; 23800; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Jun 25 09:12:38 2010; 23800; -------------------------------------------
+Fri Jun 25 09:12:38 2010; 23800; Initialization Completed
+Fri Jun 25 09:13:57 2010; 23800; caught SIGTERM
+Fri Jun 25 09:13:57 2010; 23800; ********** ttymon exiting ***********
+Fri Jul 16 17:09:04 2010; 26093;  
+Fri Jul 16 17:09:04 2010; 26093; ********** ttymon starting **********
+Fri Jul 16 17:09:04 2010; 26093; PMTAG: zsmon
+Fri Jul 16 17:09:04 2010; 26093; Starting state: enabled
+Fri Jul 16 17:09:04 2010; 26093; Got SC_ENABLE message
+Fri Jul 16 17:09:04 2010; 26093; max open files = 65536
+Fri Jul 16 17:09:04 2010; 26093; max ports ttymon can monitor = 65529
+Fri Jul 16 17:09:04 2010; 26093; Processing pmtab line #2
+Fri Jul 16 17:09:04 2010; 26093; error -- device "/dev/term/a" does not exist
+Fri Jul 16 17:09:04 2010; 26093; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Jul 16 17:09:04 2010; 26093; -------------------------------------------
+Fri Jul 16 17:09:04 2010; 26093; Processing pmtab line #3
+Fri Jul 16 17:09:04 2010; 26093; error -- device "/dev/term/b" does not exist
+Fri Jul 16 17:09:04 2010; 26093; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Jul 16 17:09:04 2010; 26093; -------------------------------------------
+Fri Jul 16 17:09:04 2010; 26093; Initialization Completed
+Fri Jul 16 19:33:04 2010; 26093; caught SIGTERM
+Fri Jul 16 19:33:04 2010; 26093; ********** ttymon exiting ***********
+Fri Jul 16 19:33:39 2010; 19825;  
+Fri Jul 16 19:33:39 2010; 19825; ********** ttymon starting **********
+Fri Jul 16 19:33:39 2010; 19825; PMTAG: zsmon
+Fri Jul 16 19:33:39 2010; 19825; Starting state: enabled
+Fri Jul 16 19:33:39 2010; 19825; Got SC_ENABLE message
+Fri Jul 16 19:33:39 2010; 19825; max open files = 65536
+Fri Jul 16 19:33:39 2010; 19825; max ports ttymon can monitor = 65529
+Fri Jul 16 19:33:39 2010; 19825; Processing pmtab line #2
+Fri Jul 16 19:33:39 2010; 19825; error -- device "/dev/term/a" does not exist
+Fri Jul 16 19:33:39 2010; 19825; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Jul 16 19:33:39 2010; 19825; -------------------------------------------
+Fri Jul 16 19:33:39 2010; 19825; Processing pmtab line #3
+Fri Jul 16 19:33:39 2010; 19825; error -- device "/dev/term/b" does not exist
+Fri Jul 16 19:33:39 2010; 19825; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Jul 16 19:33:39 2010; 19825; -------------------------------------------
+Fri Jul 16 19:33:39 2010; 19825; Initialization Completed
+Fri Jul 16 20:45:26 2010; 19825; caught SIGTERM
+Fri Jul 16 20:45:26 2010; 19825; ********** ttymon exiting ***********
+Sat Jul 17 23:54:48 2010; 24539;  
+Sat Jul 17 23:54:48 2010; 24539; ********** ttymon starting **********
+Sat Jul 17 23:54:48 2010; 24539; PMTAG: zsmon
+Sat Jul 17 23:54:48 2010; 24539; Starting state: enabled
+Sat Jul 17 23:54:48 2010; 24539; Got SC_ENABLE message
+Sat Jul 17 23:54:48 2010; 24539; max open files = 65536
+Sat Jul 17 23:54:48 2010; 24539; max ports ttymon can monitor = 65529
+Sat Jul 17 23:54:48 2010; 24539; Processing pmtab line #2
+Sat Jul 17 23:54:48 2010; 24539; error -- device "/dev/term/a" does not exist
+Sat Jul 17 23:54:48 2010; 24539; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Sat Jul 17 23:54:48 2010; 24539; -------------------------------------------
+Sat Jul 17 23:54:48 2010; 24539; Processing pmtab line #3
+Sat Jul 17 23:54:48 2010; 24539; error -- device "/dev/term/b" does not exist
+Sat Jul 17 23:54:48 2010; 24539; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Sat Jul 17 23:54:48 2010; 24539; -------------------------------------------
+Sat Jul 17 23:54:48 2010; 24539; Initialization Completed
+Thu Jul 29 20:05:10 2010; 18939;  
+Thu Jul 29 20:05:10 2010; 18939; ********** ttymon starting **********
+Thu Jul 29 20:05:10 2010; 18939; PMTAG: zsmon
+Thu Jul 29 20:05:10 2010; 18939; Starting state: enabled
+Thu Jul 29 20:05:10 2010; 18939; Got SC_ENABLE message
+Thu Jul 29 20:05:10 2010; 18939; max open files = 65536
+Thu Jul 29 20:05:10 2010; 18939; max ports ttymon can monitor = 65529
+Thu Jul 29 20:05:10 2010; 18939; Processing pmtab line #2
+Thu Jul 29 20:05:10 2010; 18939; error -- device "/dev/term/a" does not exist
+Thu Jul 29 20:05:10 2010; 18939; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Thu Jul 29 20:05:10 2010; 18939; -------------------------------------------
+Thu Jul 29 20:05:10 2010; 18939; Processing pmtab line #3
+Thu Jul 29 20:05:10 2010; 18939; error -- device "/dev/term/b" does not exist
+Thu Jul 29 20:05:10 2010; 18939; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Thu Jul 29 20:05:10 2010; 18939; -------------------------------------------
+Thu Jul 29 20:05:10 2010; 18939; Initialization Completed
+Fri Jul 30 08:46:32 2010; 4118;  
+Fri Jul 30 08:46:32 2010; 4118; ********** ttymon starting **********
+Fri Jul 30 08:46:32 2010; 4118; PMTAG: zsmon
+Fri Jul 30 08:46:32 2010; 4118; Starting state: enabled
+Fri Jul 30 08:46:32 2010; 4118; Got SC_ENABLE message
+Fri Jul 30 08:46:32 2010; 4118; max open files = 65536
+Fri Jul 30 08:46:32 2010; 4118; max ports ttymon can monitor = 65529
+Fri Jul 30 08:46:32 2010; 4118; Processing pmtab line #2
+Fri Jul 30 08:46:32 2010; 4118; error -- device "/dev/term/a" does not exist
+Fri Jul 30 08:46:32 2010; 4118; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Jul 30 08:46:32 2010; 4118; -------------------------------------------
+Fri Jul 30 08:46:32 2010; 4118; Processing pmtab line #3
+Fri Jul 30 08:46:32 2010; 4118; error -- device "/dev/term/b" does not exist
+Fri Jul 30 08:46:32 2010; 4118; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Jul 30 08:46:32 2010; 4118; -------------------------------------------
+Fri Jul 30 08:46:32 2010; 4118; Initialization Completed
+Wed Aug 25 10:35:09 2010; 2671;  
+Wed Aug 25 10:35:09 2010; 2671; ********** ttymon starting **********
+Wed Aug 25 10:35:09 2010; 2671; PMTAG: zsmon
+Wed Aug 25 10:35:09 2010; 2671; Starting state: enabled
+Wed Aug 25 10:35:09 2010; 2671; Got SC_ENABLE message
+Wed Aug 25 10:35:09 2010; 2671; max open files = 65536
+Wed Aug 25 10:35:09 2010; 2671; max ports ttymon can monitor = 65529
+Wed Aug 25 10:35:09 2010; 2671; Processing pmtab line #2
+Wed Aug 25 10:35:09 2010; 2671; error -- device "/dev/term/a" does not exist
+Wed Aug 25 10:35:09 2010; 2671; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed Aug 25 10:35:09 2010; 2671; -------------------------------------------
+Wed Aug 25 10:35:09 2010; 2671; Processing pmtab line #3
+Wed Aug 25 10:35:09 2010; 2671; error -- device "/dev/term/b" does not exist
+Wed Aug 25 10:35:09 2010; 2671; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed Aug 25 10:35:09 2010; 2671; -------------------------------------------
+Wed Aug 25 10:35:09 2010; 2671; Initialization Completed
+Wed Aug 25 11:09:55 2010; 2671; caught SIGTERM
+Wed Aug 25 11:09:55 2010; 2671; ********** ttymon exiting ***********
+Fri Aug 27 12:13:59 2010; 15457;  
+Fri Aug 27 12:13:59 2010; 15457; ********** ttymon starting **********
+Fri Aug 27 12:13:59 2010; 15457; PMTAG: zsmon
+Fri Aug 27 12:13:59 2010; 15457; Starting state: enabled
+Fri Aug 27 12:13:59 2010; 15457; Got SC_ENABLE message
+Fri Aug 27 12:13:59 2010; 15457; max open files = 65536
+Fri Aug 27 12:13:59 2010; 15457; max ports ttymon can monitor = 65529
+Fri Aug 27 12:13:59 2010; 15457; Processing pmtab line #2
+Fri Aug 27 12:13:59 2010; 15457; error -- device "/dev/term/a" does not exist
+Fri Aug 27 12:13:59 2010; 15457; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Aug 27 12:13:59 2010; 15457; -------------------------------------------
+Fri Aug 27 12:13:59 2010; 15457; Processing pmtab line #3
+Fri Aug 27 12:13:59 2010; 15457; error -- device "/dev/term/b" does not exist
+Fri Aug 27 12:13:59 2010; 15457; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Aug 27 12:13:59 2010; 15457; -------------------------------------------
+Fri Aug 27 12:13:59 2010; 15457; Initialization Completed
+Fri Aug 27 13:02:29 2010; 15457; caught SIGTERM
+Fri Aug 27 13:02:29 2010; 15457; ********** ttymon exiting ***********
+Fri Aug 27 13:51:09 2010; 25951;  
+Fri Aug 27 13:51:09 2010; 25951; ********** ttymon starting **********
+Fri Aug 27 13:51:09 2010; 25951; PMTAG: zsmon
+Fri Aug 27 13:51:09 2010; 25951; Starting state: enabled
+Fri Aug 27 13:51:09 2010; 25951; Got SC_ENABLE message
+Fri Aug 27 13:51:09 2010; 25951; max open files = 65536
+Fri Aug 27 13:51:09 2010; 25951; max ports ttymon can monitor = 65529
+Fri Aug 27 13:51:09 2010; 25951; Processing pmtab line #2
+Fri Aug 27 13:51:09 2010; 25951; error -- device "/dev/term/a" does not exist
+Fri Aug 27 13:51:09 2010; 25951; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Aug 27 13:51:09 2010; 25951; -------------------------------------------
+Fri Aug 27 13:51:09 2010; 25951; Processing pmtab line #3
+Fri Aug 27 13:51:09 2010; 25951; error -- device "/dev/term/b" does not exist
+Fri Aug 27 13:51:09 2010; 25951; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Aug 27 13:51:09 2010; 25951; -------------------------------------------
+Fri Aug 27 13:51:09 2010; 25951; Initialization Completed
+Fri Aug 27 13:53:08 2010; 25951; caught SIGTERM
+Fri Aug 27 13:53:08 2010; 25951; ********** ttymon exiting ***********
+Wed Sep  1 07:56:02 2010; 27454;  
+Wed Sep  1 07:56:02 2010; 27454; ********** ttymon starting **********
+Wed Sep  1 07:56:02 2010; 27454; PMTAG: zsmon
+Wed Sep  1 07:56:02 2010; 27454; Starting state: enabled
+Wed Sep  1 07:56:02 2010; 27454; Got SC_ENABLE message
+Wed Sep  1 07:56:02 2010; 27454; max open files = 65536
+Wed Sep  1 07:56:02 2010; 27454; max ports ttymon can monitor = 65529
+Wed Sep  1 07:56:02 2010; 27454; Processing pmtab line #2
+Wed Sep  1 07:56:02 2010; 27454; error -- device "/dev/term/a" does not exist
+Wed Sep  1 07:56:02 2010; 27454; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed Sep  1 07:56:02 2010; 27454; -------------------------------------------
+Wed Sep  1 07:56:02 2010; 27454; Processing pmtab line #3
+Wed Sep  1 07:56:02 2010; 27454; error -- device "/dev/term/b" does not exist
+Wed Sep  1 07:56:02 2010; 27454; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed Sep  1 07:56:02 2010; 27454; -------------------------------------------
+Wed Sep  1 07:56:02 2010; 27454; Initialization Completed
+Wed Sep  1 08:06:35 2010; 27454; caught SIGTERM
+Wed Sep  1 08:06:35 2010; 27454; ********** ttymon exiting ***********
+Wed Sep  1 08:06:44 2010; 1157;  
+Wed Sep  1 08:06:44 2010; 1157; ********** ttymon starting **********
+Wed Sep  1 08:06:44 2010; 1157; PMTAG: zsmon
+Wed Sep  1 08:06:44 2010; 1157; Starting state: enabled
+Wed Sep  1 08:06:44 2010; 1157; Got SC_ENABLE message
+Wed Sep  1 08:06:44 2010; 1157; max open files = 65536
+Wed Sep  1 08:06:44 2010; 1157; max ports ttymon can monitor = 65529
+Wed Sep  1 08:06:44 2010; 1157; Processing pmtab line #2
+Wed Sep  1 08:06:44 2010; 1157; error -- device "/dev/term/a" does not exist
+Wed Sep  1 08:06:44 2010; 1157; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed Sep  1 08:06:44 2010; 1157; -------------------------------------------
+Wed Sep  1 08:06:44 2010; 1157; Processing pmtab line #3
+Wed Sep  1 08:06:44 2010; 1157; error -- device "/dev/term/b" does not exist
+Wed Sep  1 08:06:44 2010; 1157; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed Sep  1 08:06:44 2010; 1157; -------------------------------------------
+Wed Sep  1 08:06:44 2010; 1157; Initialization Completed
+Wed Sep  1 08:08:37 2010; 1157; caught SIGTERM
+Wed Sep  1 08:08:37 2010; 1157; ********** ttymon exiting ***********
+Wed Sep  1 08:08:46 2010; 1852;  
+Wed Sep  1 08:08:46 2010; 1852; ********** ttymon starting **********
+Wed Sep  1 08:08:46 2010; 1852; PMTAG: zsmon
+Wed Sep  1 08:08:46 2010; 1852; Starting state: enabled
+Wed Sep  1 08:08:46 2010; 1852; Got SC_ENABLE message
+Wed Sep  1 08:08:46 2010; 1852; max open files = 65536
+Wed Sep  1 08:08:46 2010; 1852; max ports ttymon can monitor = 65529
+Wed Sep  1 08:08:46 2010; 1852; Processing pmtab line #2
+Wed Sep  1 08:08:46 2010; 1852; error -- device "/dev/term/a" does not exist
+Wed Sep  1 08:08:46 2010; 1852; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed Sep  1 08:08:46 2010; 1852; -------------------------------------------
+Wed Sep  1 08:08:46 2010; 1852; Processing pmtab line #3
+Wed Sep  1 08:08:46 2010; 1852; error -- device "/dev/term/b" does not exist
+Wed Sep  1 08:08:46 2010; 1852; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed Sep  1 08:08:46 2010; 1852; -------------------------------------------
+Wed Sep  1 08:08:46 2010; 1852; Initialization Completed
+Wed Sep  1 08:58:43 2010; 1852; caught SIGTERM
+Wed Sep  1 08:58:43 2010; 1852; ********** ttymon exiting ***********
+Tue Sep  7 10:14:35 2010; 28266;  
+Tue Sep  7 10:14:35 2010; 28266; ********** ttymon starting **********
+Tue Sep  7 10:14:35 2010; 28266; PMTAG: zsmon
+Tue Sep  7 10:14:35 2010; 28266; Starting state: enabled
+Tue Sep  7 10:14:35 2010; 28266; Got SC_ENABLE message
+Tue Sep  7 10:14:35 2010; 28266; max open files = 65536
+Tue Sep  7 10:14:35 2010; 28266; max ports ttymon can monitor = 65529
+Tue Sep  7 10:14:35 2010; 28266; Processing pmtab line #2
+Tue Sep  7 10:14:35 2010; 28266; error -- device "/dev/term/a" does not exist
+Tue Sep  7 10:14:35 2010; 28266; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Sep  7 10:14:35 2010; 28266; -------------------------------------------
+Tue Sep  7 10:14:35 2010; 28266; Processing pmtab line #3
+Tue Sep  7 10:14:35 2010; 28266; error -- device "/dev/term/b" does not exist
+Tue Sep  7 10:14:35 2010; 28266; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Sep  7 10:14:35 2010; 28266; -------------------------------------------
+Tue Sep  7 10:14:35 2010; 28266; Initialization Completed
+Sat Sep 11 08:35:14 2010; 21986;  
+Sat Sep 11 08:35:14 2010; 21986; ********** ttymon starting **********
+Sat Sep 11 08:35:14 2010; 21986; PMTAG: zsmon
+Sat Sep 11 08:35:14 2010; 21986; Starting state: enabled
+Sat Sep 11 08:35:14 2010; 21986; Got SC_ENABLE message
+Sat Sep 11 08:35:14 2010; 21986; max open files = 65536
+Sat Sep 11 08:35:14 2010; 21986; max ports ttymon can monitor = 65529
+Sat Sep 11 08:35:14 2010; 21986; Processing pmtab line #2
+Sat Sep 11 08:35:14 2010; 21986; error -- device "/dev/term/a" does not exist
+Sat Sep 11 08:35:14 2010; 21986; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Sat Sep 11 08:35:14 2010; 21986; -------------------------------------------
+Sat Sep 11 08:35:14 2010; 21986; Processing pmtab line #3
+Sat Sep 11 08:35:14 2010; 21986; error -- device "/dev/term/b" does not exist
+Sat Sep 11 08:35:14 2010; 21986; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Sat Sep 11 08:35:14 2010; 21986; -------------------------------------------
+Sat Sep 11 08:35:14 2010; 21986; Initialization Completed
+Wed Oct  6 12:43:21 2010; 21833;  
+Wed Oct  6 12:43:21 2010; 21833; ********** ttymon starting **********
+Wed Oct  6 12:43:21 2010; 21833; PMTAG: zsmon
+Wed Oct  6 12:43:21 2010; 21833; Starting state: enabled
+Wed Oct  6 12:43:21 2010; 21833; Got SC_ENABLE message
+Wed Oct  6 12:43:21 2010; 21833; max open files = 65536
+Wed Oct  6 12:43:21 2010; 21833; max ports ttymon can monitor = 65529
+Wed Oct  6 12:43:21 2010; 21833; Processing pmtab line #2
+Wed Oct  6 12:43:21 2010; 21833; error -- device "/dev/term/a" does not exist
+Wed Oct  6 12:43:21 2010; 21833; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed Oct  6 12:43:21 2010; 21833; -------------------------------------------
+Wed Oct  6 12:43:21 2010; 21833; Processing pmtab line #3
+Wed Oct  6 12:43:21 2010; 21833; error -- device "/dev/term/b" does not exist
+Wed Oct  6 12:43:21 2010; 21833; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed Oct  6 12:43:21 2010; 21833; -------------------------------------------
+Wed Oct  6 12:43:21 2010; 21833; Initialization Completed
+Wed Oct  6 13:42:08 2010; 21833; caught SIGTERM
+Wed Oct  6 13:42:08 2010; 21833; ********** ttymon exiting ***********
+Thu Oct 14 00:55:06 2010; 11774;  
+Thu Oct 14 00:55:06 2010; 11774; ********** ttymon starting **********
+Thu Oct 14 00:55:06 2010; 11774; PMTAG: zsmon
+Thu Oct 14 00:55:06 2010; 11774; Starting state: enabled
+Thu Oct 14 00:55:06 2010; 11774; Got SC_ENABLE message
+Thu Oct 14 00:55:06 2010; 11774; max open files = 65536
+Thu Oct 14 00:55:06 2010; 11774; max ports ttymon can monitor = 65529
+Thu Oct 14 00:55:06 2010; 11774; Processing pmtab line #2
+Thu Oct 14 00:55:06 2010; 11774; error -- device "/dev/term/a" does not exist
+Thu Oct 14 00:55:06 2010; 11774; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Thu Oct 14 00:55:06 2010; 11774; -------------------------------------------
+Thu Oct 14 00:55:06 2010; 11774; Processing pmtab line #3
+Thu Oct 14 00:55:06 2010; 11774; error -- device "/dev/term/b" does not exist
+Thu Oct 14 00:55:06 2010; 11774; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Thu Oct 14 00:55:06 2010; 11774; -------------------------------------------
+Thu Oct 14 00:55:06 2010; 11774; Initialization Completed
+Thu Oct 14 17:47:04 2010; 24510;  
+Thu Oct 14 17:47:04 2010; 24510; ********** ttymon starting **********
+Thu Oct 14 17:47:04 2010; 24510; PMTAG: zsmon
+Thu Oct 14 17:47:04 2010; 24510; Starting state: enabled
+Thu Oct 14 17:47:04 2010; 24510; Got SC_ENABLE message
+Thu Oct 14 17:47:04 2010; 24510; max open files = 65536
+Thu Oct 14 17:47:04 2010; 24510; max ports ttymon can monitor = 65529
+Thu Oct 14 17:47:04 2010; 24510; Processing pmtab line #2
+Thu Oct 14 17:47:04 2010; 24510; error -- device "/dev/term/a" does not exist
+Thu Oct 14 17:47:04 2010; 24510; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Thu Oct 14 17:47:04 2010; 24510; -------------------------------------------
+Thu Oct 14 17:47:04 2010; 24510; Processing pmtab line #3
+Thu Oct 14 17:47:04 2010; 24510; error -- device "/dev/term/b" does not exist
+Thu Oct 14 17:47:04 2010; 24510; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Thu Oct 14 17:47:04 2010; 24510; -------------------------------------------
+Thu Oct 14 17:47:04 2010; 24510; Initialization Completed
+Thu Oct 14 22:49:14 2010; 24510; caught SIGTERM
+Thu Oct 14 22:49:14 2010; 24510; ********** ttymon exiting ***********
+Sat Oct 16 07:05:10 2010; 23227;  
+Sat Oct 16 07:05:10 2010; 23227; ********** ttymon starting **********
+Sat Oct 16 07:05:10 2010; 23227; PMTAG: zsmon
+Sat Oct 16 07:05:10 2010; 23227; Starting state: enabled
+Sat Oct 16 07:05:10 2010; 23227; Got SC_ENABLE message
+Sat Oct 16 07:05:10 2010; 23227; max open files = 65536
+Sat Oct 16 07:05:10 2010; 23227; max ports ttymon can monitor = 65529
+Sat Oct 16 07:05:10 2010; 23227; Processing pmtab line #2
+Sat Oct 16 07:05:10 2010; 23227; error -- device "/dev/term/a" does not exist
+Sat Oct 16 07:05:10 2010; 23227; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Sat Oct 16 07:05:10 2010; 23227; -------------------------------------------
+Sat Oct 16 07:05:10 2010; 23227; Processing pmtab line #3
+Sat Oct 16 07:05:10 2010; 23227; error -- device "/dev/term/b" does not exist
+Sat Oct 16 07:05:10 2010; 23227; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Sat Oct 16 07:05:10 2010; 23227; -------------------------------------------
+Sat Oct 16 07:05:10 2010; 23227; Initialization Completed
+Mon Nov 29 10:31:43 2010; 1885;  
+Mon Nov 29 10:31:43 2010; 1885; ********** ttymon starting **********
+Mon Nov 29 10:31:43 2010; 1885; PMTAG: zsmon
+Mon Nov 29 10:31:43 2010; 1885; Starting state: enabled
+Mon Nov 29 10:31:43 2010; 1885; Got SC_ENABLE message
+Mon Nov 29 10:31:43 2010; 1885; max open files = 65536
+Mon Nov 29 10:31:43 2010; 1885; max ports ttymon can monitor = 65529
+Mon Nov 29 10:31:43 2010; 1885; Processing pmtab line #2
+Mon Nov 29 10:31:43 2010; 1885; error -- device "/dev/term/a" does not exist
+Mon Nov 29 10:31:43 2010; 1885; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Mon Nov 29 10:31:43 2010; 1885; -------------------------------------------
+Mon Nov 29 10:31:43 2010; 1885; Processing pmtab line #3
+Mon Nov 29 10:31:43 2010; 1885; error -- device "/dev/term/b" does not exist
+Mon Nov 29 10:31:43 2010; 1885; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Mon Nov 29 10:31:43 2010; 1885; -------------------------------------------
+Mon Nov 29 10:31:43 2010; 1885; Initialization Completed
+Wed Dec  1 13:25:35 2010; 1885; caught SIGTERM
+Wed Dec  1 13:25:35 2010; 1885; ********** ttymon exiting ***********
+Wed Dec  1 20:03:11 2010; 17093;  
+Wed Dec  1 20:03:11 2010; 17093; ********** ttymon starting **********
+Wed Dec  1 20:03:11 2010; 17093; PMTAG: zsmon
+Wed Dec  1 20:03:11 2010; 17093; Starting state: enabled
+Wed Dec  1 20:03:11 2010; 17093; Got SC_ENABLE message
+Wed Dec  1 20:03:11 2010; 17093; max open files = 65536
+Wed Dec  1 20:03:11 2010; 17093; max ports ttymon can monitor = 65529
+Wed Dec  1 20:03:11 2010; 17093; Processing pmtab line #2
+Wed Dec  1 20:03:11 2010; 17093; error -- device "/dev/term/a" does not exist
+Wed Dec  1 20:03:11 2010; 17093; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed Dec  1 20:03:11 2010; 17093; -------------------------------------------
+Wed Dec  1 20:03:11 2010; 17093; Processing pmtab line #3
+Wed Dec  1 20:03:11 2010; 17093; error -- device "/dev/term/b" does not exist
+Wed Dec  1 20:03:11 2010; 17093; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed Dec  1 20:03:11 2010; 17093; -------------------------------------------
+Wed Dec  1 20:03:11 2010; 17093; Initialization Completed
+Tue Dec  7 14:01:58 2010; 17093; caught SIGTERM
+Tue Dec  7 14:01:58 2010; 17093; ********** ttymon exiting ***********
+Tue Dec 14 12:05:49 2010; 8918;  
+Tue Dec 14 12:05:49 2010; 8918; ********** ttymon starting **********
+Tue Dec 14 12:05:49 2010; 8918; PMTAG: zsmon
+Tue Dec 14 12:05:49 2010; 8918; Starting state: enabled
+Tue Dec 14 12:05:49 2010; 8918; Got SC_ENABLE message
+Tue Dec 14 12:05:49 2010; 8918; max open files = 65536
+Tue Dec 14 12:05:49 2010; 8918; max ports ttymon can monitor = 65529
+Tue Dec 14 12:05:49 2010; 8918; Processing pmtab line #2
+Tue Dec 14 12:05:49 2010; 8918; error -- device "/dev/term/a" does not exist
+Tue Dec 14 12:05:49 2010; 8918; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Dec 14 12:05:49 2010; 8918; -------------------------------------------
+Tue Dec 14 12:05:49 2010; 8918; Processing pmtab line #3
+Tue Dec 14 12:05:49 2010; 8918; error -- device "/dev/term/b" does not exist
+Tue Dec 14 12:05:49 2010; 8918; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Dec 14 12:05:49 2010; 8918; -------------------------------------------
+Tue Dec 14 12:05:49 2010; 8918; Initialization Completed
+Tue Dec 21 12:21:13 2010; 19873;  
+Tue Dec 21 12:21:13 2010; 19873; ********** ttymon starting **********
+Tue Dec 21 12:21:13 2010; 19873; PMTAG: zsmon
+Tue Dec 21 12:21:13 2010; 19873; Starting state: enabled
+Tue Dec 21 12:21:13 2010; 19873; Got SC_ENABLE message
+Tue Dec 21 12:21:13 2010; 19873; max open files = 65536
+Tue Dec 21 12:21:13 2010; 19873; max ports ttymon can monitor = 65529
+Tue Dec 21 12:21:13 2010; 19873; Processing pmtab line #2
+Tue Dec 21 12:21:13 2010; 19873; error -- device "/dev/term/a" does not exist
+Tue Dec 21 12:21:13 2010; 19873; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Dec 21 12:21:13 2010; 19873; -------------------------------------------
+Tue Dec 21 12:21:13 2010; 19873; Processing pmtab line #3
+Tue Dec 21 12:21:13 2010; 19873; error -- device "/dev/term/b" does not exist
+Tue Dec 21 12:21:13 2010; 19873; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Dec 21 12:21:13 2010; 19873; -------------------------------------------
+Tue Dec 21 12:21:13 2010; 19873; Initialization Completed
+Mon Jan 10 10:02:13 2011; 21951;  
+Mon Jan 10 10:02:13 2011; 21951; ********** ttymon starting **********
+Mon Jan 10 10:02:13 2011; 21951; PMTAG: zsmon
+Mon Jan 10 10:02:13 2011; 21951; Starting state: enabled
+Mon Jan 10 10:02:13 2011; 21951; Got SC_ENABLE message
+Mon Jan 10 10:02:13 2011; 21951; max open files = 65536
+Mon Jan 10 10:02:13 2011; 21951; max ports ttymon can monitor = 65529
+Mon Jan 10 10:02:13 2011; 21951; Processing pmtab line #2
+Mon Jan 10 10:02:13 2011; 21951; error -- device "/dev/term/a" does not exist
+Mon Jan 10 10:02:13 2011; 21951; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Mon Jan 10 10:02:13 2011; 21951; -------------------------------------------
+Mon Jan 10 10:02:13 2011; 21951; Processing pmtab line #3
+Mon Jan 10 10:02:13 2011; 21951; error -- device "/dev/term/b" does not exist
+Mon Jan 10 10:02:13 2011; 21951; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Mon Jan 10 10:02:13 2011; 21951; -------------------------------------------
+Mon Jan 10 10:02:13 2011; 21951; Initialization Completed
+Thu Jan 13 10:32:37 2011; 1817;  
+Thu Jan 13 10:32:37 2011; 1817; ********** ttymon starting **********
+Thu Jan 13 10:32:37 2011; 1817; PMTAG: zsmon
+Thu Jan 13 10:32:37 2011; 1817; Starting state: enabled
+Thu Jan 13 10:32:37 2011; 1817; Got SC_ENABLE message
+Thu Jan 13 10:32:37 2011; 1817; max open files = 65536
+Thu Jan 13 10:32:37 2011; 1817; max ports ttymon can monitor = 65529
+Thu Jan 13 10:32:37 2011; 1817; Processing pmtab line #2
+Thu Jan 13 10:32:37 2011; 1817; error -- device "/dev/term/a" does not exist
+Thu Jan 13 10:32:37 2011; 1817; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Thu Jan 13 10:32:37 2011; 1817; -------------------------------------------
+Thu Jan 13 10:32:37 2011; 1817; Processing pmtab line #3
+Thu Jan 13 10:32:37 2011; 1817; error -- device "/dev/term/b" does not exist
+Thu Jan 13 10:32:37 2011; 1817; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Thu Jan 13 10:32:37 2011; 1817; -------------------------------------------
+Thu Jan 13 10:32:37 2011; 1817; Initialization Completed
+Thu Jan 13 10:35:27 2011; 1817; caught SIGTERM
+Thu Jan 13 10:35:27 2011; 1817; ********** ttymon exiting ***********
+Thu Jan 13 19:30:15 2011; 15041;  
+Thu Jan 13 19:30:15 2011; 15041; ********** ttymon starting **********
+Thu Jan 13 19:30:15 2011; 15041; PMTAG: zsmon
+Thu Jan 13 19:30:15 2011; 15041; Starting state: enabled
+Thu Jan 13 19:30:15 2011; 15041; Got SC_ENABLE message
+Thu Jan 13 19:30:15 2011; 15041; max open files = 65536
+Thu Jan 13 19:30:15 2011; 15041; max ports ttymon can monitor = 65529
+Thu Jan 13 19:30:15 2011; 15041; Processing pmtab line #2
+Thu Jan 13 19:30:15 2011; 15041; error -- device "/dev/term/a" does not exist
+Thu Jan 13 19:30:15 2011; 15041; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Thu Jan 13 19:30:15 2011; 15041; -------------------------------------------
+Thu Jan 13 19:30:15 2011; 15041; Processing pmtab line #3
+Thu Jan 13 19:30:15 2011; 15041; error -- device "/dev/term/b" does not exist
+Thu Jan 13 19:30:15 2011; 15041; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Thu Jan 13 19:30:15 2011; 15041; -------------------------------------------
+Thu Jan 13 19:30:15 2011; 15041; Initialization Completed
+Fri Jan 14 10:23:17 2011; 6503;  
+Fri Jan 14 10:23:17 2011; 6503; ********** ttymon starting **********
+Fri Jan 14 10:23:17 2011; 6503; PMTAG: zsmon
+Fri Jan 14 10:23:17 2011; 6503; Starting state: enabled
+Fri Jan 14 10:23:17 2011; 6503; Got SC_ENABLE message
+Fri Jan 14 10:23:17 2011; 6503; max open files = 65536
+Fri Jan 14 10:23:17 2011; 6503; max ports ttymon can monitor = 65529
+Fri Jan 14 10:23:17 2011; 6503; Processing pmtab line #2
+Fri Jan 14 10:23:17 2011; 6503; error -- device "/dev/term/a" does not exist
+Fri Jan 14 10:23:17 2011; 6503; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Jan 14 10:23:17 2011; 6503; -------------------------------------------
+Fri Jan 14 10:23:17 2011; 6503; Processing pmtab line #3
+Fri Jan 14 10:23:17 2011; 6503; error -- device "/dev/term/b" does not exist
+Fri Jan 14 10:23:17 2011; 6503; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Jan 14 10:23:17 2011; 6503; -------------------------------------------
+Fri Jan 14 10:23:17 2011; 6503; Initialization Completed
+Fri Feb 25 18:15:08 2011; 11615;  
+Fri Feb 25 18:15:08 2011; 11615; ********** ttymon starting **********
+Fri Feb 25 18:15:08 2011; 11615; PMTAG: zsmon
+Fri Feb 25 18:15:08 2011; 11615; Starting state: enabled
+Fri Feb 25 18:15:08 2011; 11615; Got SC_ENABLE message
+Fri Feb 25 18:15:08 2011; 11615; max open files = 65536
+Fri Feb 25 18:15:08 2011; 11615; max ports ttymon can monitor = 65529
+Fri Feb 25 18:15:08 2011; 11615; Processing pmtab line #2
+Fri Feb 25 18:15:08 2011; 11615; error -- device "/dev/term/a" does not exist
+Fri Feb 25 18:15:08 2011; 11615; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Fri Feb 25 18:15:08 2011; 11615; -------------------------------------------
+Fri Feb 25 18:15:08 2011; 11615; Processing pmtab line #3
+Fri Feb 25 18:15:08 2011; 11615; error -- device "/dev/term/b" does not exist
+Fri Feb 25 18:15:08 2011; 11615; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Fri Feb 25 18:15:08 2011; 11615; -------------------------------------------
+Fri Feb 25 18:15:08 2011; 11615; Initialization Completed
+Fri Feb 25 18:19:53 2011; 11615; caught SIGTERM
+Fri Feb 25 18:19:53 2011; 11615; ********** ttymon exiting ***********
+Tue Feb 19 19:21:28 2013; 89932;  
+Tue Feb 19 19:21:28 2013; 89932; ********** ttymon starting **********
+Tue Feb 19 19:21:28 2013; 89932; PMTAG: zsmon
+Tue Feb 19 19:21:28 2013; 89932; Starting state: enabled
+Tue Feb 19 19:21:28 2013; 89932; Got SC_ENABLE message
+Tue Feb 19 19:21:28 2013; 89932; max open files = 65536
+Tue Feb 19 19:21:28 2013; 89932; max ports ttymon can monitor = 65529
+Tue Feb 19 19:21:28 2013; 89932; Processing pmtab line #2
+Tue Feb 19 19:21:28 2013; 89932; error -- device "/dev/term/a" does not exist
+Tue Feb 19 19:21:28 2013; 89932; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Feb 19 19:21:28 2013; 89932; -------------------------------------------
+Tue Feb 19 19:21:28 2013; 89932; Processing pmtab line #3
+Tue Feb 19 19:21:28 2013; 89932; error -- device "/dev/term/b" does not exist
+Tue Feb 19 19:21:28 2013; 89932; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Feb 19 19:21:28 2013; 89932; -------------------------------------------
+Tue Feb 19 19:21:28 2013; 89932; Initialization Completed
+Tue Feb 19 19:22:02 2013; 89932; caught SIGTERM
+Tue Feb 19 19:22:02 2013; 89932; ********** ttymon exiting ***********
+Tue Feb 19 19:22:17 2013; 90519;  
+Tue Feb 19 19:22:17 2013; 90519; ********** ttymon starting **********
+Tue Feb 19 19:22:17 2013; 90519; PMTAG: zsmon
+Tue Feb 19 19:22:17 2013; 90519; Starting state: enabled
+Tue Feb 19 19:22:17 2013; 90519; Got SC_ENABLE message
+Tue Feb 19 19:22:17 2013; 90519; max open files = 65536
+Tue Feb 19 19:22:17 2013; 90519; max ports ttymon can monitor = 65529
+Tue Feb 19 19:22:17 2013; 90519; Processing pmtab line #2
+Tue Feb 19 19:22:17 2013; 90519; error -- device "/dev/term/a" does not exist
+Tue Feb 19 19:22:17 2013; 90519; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Feb 19 19:22:17 2013; 90519; -------------------------------------------
+Tue Feb 19 19:22:17 2013; 90519; Processing pmtab line #3
+Tue Feb 19 19:22:17 2013; 90519; error -- device "/dev/term/b" does not exist
+Tue Feb 19 19:22:17 2013; 90519; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Feb 19 19:22:17 2013; 90519; -------------------------------------------
+Tue Feb 19 19:22:17 2013; 90519; Initialization Completed
+Tue Feb 19 19:27:52 2013; 91202;  
+Tue Feb 19 19:27:52 2013; 91202; ********** ttymon starting **********
+Tue Feb 19 19:27:52 2013; 91202; PMTAG: zsmon
+Tue Feb 19 19:27:52 2013; 91202; Starting state: enabled
+Tue Feb 19 19:27:52 2013; 91202; max open files = 65536
+Tue Feb 19 19:27:52 2013; 91202; max ports ttymon can monitor = 65529
+Tue Feb 19 19:27:52 2013; 91202; Processing pmtab line #2
+Tue Feb 19 19:27:52 2013; 91202; error -- device "/dev/term/a" does not exist
+Tue Feb 19 19:27:52 2013; 91202; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Tue Feb 19 19:27:52 2013; 91202; -------------------------------------------
+Tue Feb 19 19:27:52 2013; 91202; Processing pmtab line #3
+Tue Feb 19 19:27:52 2013; 91202; error -- device "/dev/term/b" does not exist
+Tue Feb 19 19:27:52 2013; 91202; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Tue Feb 19 19:27:52 2013; 91202; -------------------------------------------
+Tue Feb 19 19:27:52 2013; 91202; Initialization Completed
+Tue Feb 19 19:27:52 2013; 91202; Got SC_ENABLE message
+Tue Feb 19 19:40:17 2013; 91202; caught SIGTERM
+Tue Feb 19 19:40:17 2013; 91202; ********** ttymon exiting ***********
+Sun May  5 00:54:45 2013; 6039;  
+Sun May  5 00:54:45 2013; 6039; ********** ttymon starting **********
+Sun May  5 00:54:45 2013; 6039; PMTAG: zsmon
+Sun May  5 00:54:45 2013; 6039; Starting state: enabled
+Sun May  5 00:54:45 2013; 6039; Got SC_ENABLE message
+Sun May  5 00:54:45 2013; 6039; max open files = 65536
+Sun May  5 00:54:45 2013; 6039; max ports ttymon can monitor = 65529
+Sun May  5 00:54:45 2013; 6039; Processing pmtab line #2
+Sun May  5 00:54:45 2013; 6039; error -- device "/dev/term/a" does not exist
+Sun May  5 00:54:45 2013; 6039; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Sun May  5 00:54:45 2013; 6039; -------------------------------------------
+Sun May  5 00:54:45 2013; 6039; Processing pmtab line #3
+Sun May  5 00:54:45 2013; 6039; error -- device "/dev/term/b" does not exist
+Sun May  5 00:54:45 2013; 6039; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Sun May  5 00:54:45 2013; 6039; -------------------------------------------
+Sun May  5 00:54:45 2013; 6039; Initialization Completed
+Sat May 11 19:14:00 2013; 15588;  
+Sat May 11 19:14:00 2013; 15588; ********** ttymon starting **********
+Sat May 11 19:14:00 2013; 15588; PMTAG: zsmon
+Sat May 11 19:14:00 2013; 15588; Starting state: enabled
+Sat May 11 19:14:00 2013; 15588; Got SC_ENABLE message
+Sat May 11 19:14:00 2013; 15588; max open files = 65536
+Sat May 11 19:14:00 2013; 15588; max ports ttymon can monitor = 65529
+Sat May 11 19:14:00 2013; 15588; Processing pmtab line #2
+Sat May 11 19:14:00 2013; 15588; error -- device "/dev/term/a" does not exist
+Sat May 11 19:14:00 2013; 15588; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Sat May 11 19:14:00 2013; 15588; -------------------------------------------
+Sat May 11 19:14:00 2013; 15588; Processing pmtab line #3
+Sat May 11 19:14:00 2013; 15588; error -- device "/dev/term/b" does not exist
+Sat May 11 19:14:00 2013; 15588; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Sat May 11 19:14:00 2013; 15588; -------------------------------------------
+Sat May 11 19:14:00 2013; 15588; Initialization Completed
+Sat May 11 22:00:08 2013; 15588; caught SIGTERM
+Sat May 11 22:00:08 2013; 15588; ********** ttymon exiting ***********
+Sat May 11 22:00:48 2013; 72614;  
+Sat May 11 22:00:48 2013; 72614; ********** ttymon starting **********
+Sat May 11 22:00:48 2013; 72614; PMTAG: zsmon
+Sat May 11 22:00:48 2013; 72614; Starting state: enabled
+Sat May 11 22:00:48 2013; 72614; Got SC_ENABLE message
+Sat May 11 22:00:48 2013; 72614; max open files = 65536
+Sat May 11 22:00:48 2013; 72614; max ports ttymon can monitor = 65529
+Sat May 11 22:00:48 2013; 72614; Processing pmtab line #2
+Sat May 11 22:00:48 2013; 72614; error -- device "/dev/term/a" does not exist
+Sat May 11 22:00:48 2013; 72614; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Sat May 11 22:00:48 2013; 72614; -------------------------------------------
+Sat May 11 22:00:48 2013; 72614; Processing pmtab line #3
+Sat May 11 22:00:48 2013; 72614; error -- device "/dev/term/b" does not exist
+Sat May 11 22:00:48 2013; 72614; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Sat May 11 22:00:48 2013; 72614; -------------------------------------------
+Sat May 11 22:00:48 2013; 72614; Initialization Completed
+Wed May 22 12:57:56 2013; 17117;  
+Wed May 22 12:57:56 2013; 17117; ********** ttymon starting **********
+Wed May 22 12:57:56 2013; 17117; PMTAG: zsmon
+Wed May 22 12:57:56 2013; 17117; Starting state: enabled
+Wed May 22 12:57:56 2013; 17117; Got SC_ENABLE message
+Wed May 22 12:57:56 2013; 17117; max open files = 65536
+Wed May 22 12:57:56 2013; 17117; max ports ttymon can monitor = 65529
+Wed May 22 12:57:56 2013; 17117; Processing pmtab line #2
+Wed May 22 12:57:56 2013; 17117; error -- device "/dev/term/a" does not exist
+Wed May 22 12:57:56 2013; 17117; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed May 22 12:57:56 2013; 17117; -------------------------------------------
+Wed May 22 12:57:56 2013; 17117; Processing pmtab line #3
+Wed May 22 12:57:56 2013; 17117; error -- device "/dev/term/b" does not exist
+Wed May 22 12:57:56 2013; 17117; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed May 22 12:57:56 2013; 17117; -------------------------------------------
+Wed May 22 12:57:56 2013; 17117; Initialization Completed
+Wed May 22 16:28:07 2013; 16326;  
+Wed May 22 16:28:07 2013; 16326; ********** ttymon starting **********
+Wed May 22 16:28:07 2013; 16326; PMTAG: zsmon
+Wed May 22 16:28:07 2013; 16326; Starting state: enabled
+Wed May 22 16:28:07 2013; 16326; Got SC_ENABLE message
+Wed May 22 16:28:07 2013; 16326; max open files = 65536
+Wed May 22 16:28:07 2013; 16326; max ports ttymon can monitor = 65529
+Wed May 22 16:28:07 2013; 16326; Processing pmtab line #2
+Wed May 22 16:28:07 2013; 16326; error -- device "/dev/term/a" does not exist
+Wed May 22 16:28:07 2013; 16326; Parsing failure for entry: 
+ttya:u:root:reserved:reserved:reserved:/dev/term/a:I::/usr/bin/login::9600:ldterm,ttcompat:ttya login\: ::tvi925:y:
+Wed May 22 16:28:07 2013; 16326; -------------------------------------------
+Wed May 22 16:28:07 2013; 16326; Processing pmtab line #3
+Wed May 22 16:28:07 2013; 16326; error -- device "/dev/term/b" does not exist
+Wed May 22 16:28:07 2013; 16326; Parsing failure for entry: 
+ttyb:u:root:reserved:reserved:reserved:/dev/term/b:I::/usr/bin/login::9600:ldterm,ttcompat:ttyb login\: ::tvi925:y:
+Wed May 22 16:28:07 2013; 16326; -------------------------------------------
+Wed May 22 16:28:07 2013; 16326; Initialization Completed

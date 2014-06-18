@@ -1,0 +1,17 @@
+* @(#)holidays	January 1, 2011
+*
+* Prime/Nonprime Table for UNIX Accounting System
+*
+* Curr	Prime	Non-Prime
+* Year	Start	Start
+*
+  2007	0800	1800
+*
+* only the first column (month/day) is significiant.
+*
+* month/day	Company
+* 		Holiday
+*
+1/1		New Years Day
+7/4		Indep. Day
+12/25		Christmas

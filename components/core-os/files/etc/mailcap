@@ -1,0 +1,3 @@
+
+# Java Web Start
+application/x-java-jnlp-file; /usr/bin/javaws %s

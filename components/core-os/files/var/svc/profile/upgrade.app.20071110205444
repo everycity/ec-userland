@@ -1,0 +1,211 @@
+	/usr/sbin/svcadm clear svc:/system/sysidtool:net
+	/usr/sbin/svcadm clear svc:/system/sysidtool:system
+	obs_se=/usr/sbin/in.named
+	cur_se=`svcprop -p start/exec svc:/network/dns/server 2>/dev/null`
+	if [ "$obs_se" = "$cur_se" ]; then
+		svcadm disable -s svc:/network/dns/server:default
+		svccfg delete svc:/network/dns/server:default
+		# If this was the only instance, delete the service also
+		svcs network/dns/server >/dev/null 2>&1 || \
+		    svccfg delete svc:/network/dns/server
+	fi
+	svcs svc:/network/tname > /dev/null 2>&1
+	if [ "$?" = 0 ]; then
+		svccfg delete -f svc:/network/tname
+	fi
+	if [ -f /etc/inet/ike/config ]; then
+		/usr/sbin/svcadm enable svc:/network/ipsec/ike:default
+	fi
+	if [ -f /etc/inet/secret/ipseckeys ]; then
+		/usr/sbin/svcadm enable svc:/network/ipsec/manual-key:default
+	fi
+	if [ ! -f /etc/defaultdomain ]; then
+		svcadm disable network/rpc/keyserv
+	fi
+#
+# apply the generic_limit_net profile selected at install
+# time, and set the accompanying properties since they can't
+# be readily set in the profile as of yet.
+#
+apply_limited_net()
+{
+	/usr/sbin/netservices limited
+}
+
+# apply_limited_net as last action of this upgrade script
+trap apply_limited_net 0
+
+/usr/sbin/auditconfig -getcond 2> /dev/null
+if [ $? -eq 0 ]; then
+	if [ `/sbin/zonename` = global ]; then
+		/usr/sbin/svcadm enable system/auditd
+	else
+		echo `/usr/sbin/auditconfig -getpolicy` | grep perzone > /dev/null
+		if [ $? -eq 0 ]; then
+			/usr/sbin/svcadm enable system/auditd
+		fi
+	fi
+fi
+	/usr/sbin/sysidconfig -b "${PKG_INSTALL_ROOT}" -l |\
+		/usr/bin/grep -s net-nwam >/dev/null
+
+	if [ $? -ne 0 ]; then
+		/usr/sbin/sysidconfig -b "${PKG_INSTALL_ROOT}" \
+			-a /lib/svc/method/net-nwam
+	fi
+if [ `/sbin/zonename` = global ]; then
+	svcadm disable -s svc:/network/pfil:default >/dev/null 2>&1
+	svccfg delete svc:/network/pfil:default >/dev/null 2>&1
+fi
+
+cl="svc:/network/nfs/client:default"
+if [ `/usr/bin/svcprop -p general/enabled $cl` = "true" ]; then
+	/usr/sbin/svcadm enable svc:/network/nfs/status:default
+	/usr/sbin/svcadm enable svc:/network/nfs/nlockmgr:default
+fi
+
+svc="svc:network/dns/server"
+if [ -z "$TMP" ]; then
+    TMP="/tmp"
+fi
+
+# fupdate is a dynamically created script which is used to
+# update the repository after the manifest is imported.
+fupdate="$TMP/BIND_UPDATE"
+rm -f $fupdate
+
+# fdefault is a svccfg(1m) input file that adds new properties
+# to each instance.
+fdefault=$TMP/BIND_OPTIONS
+echo "addpg options application" > $fdefault
+echo 'setprop options/chroot_dir = astring: ("")' >> $fdefault
+echo 'setprop options/configuration_file = astring: ("")' >> $fdefault
+echo 'setprop options/debug_level = integer: ("0")' >> $fdefault
+echo 'setprop options/ip_interfaces = astring: ("all")' >> $fdefault
+echo 'setprop options/listen_on_port = integer: ("0")' >> $fdefault
+echo 'setprop options/server = astring: ("")' >> $fdefault
+echo 'setprop options/threads = integer: ("0")' >> $fdefault
+
+oset=$@ # Remember current options if any.
+privileges='basic,!proc_session,!proc_info,!file_link_any,net_privaddr'
+privileges="$privileges,file_dac_read,file_dac_search,sys_resource,proc_chroot"
+
+# For each instance.
+for inst in `svcs -H -o INST $svc`
+do
+    # Config may default, be set from config_data, or from command line option.
+    unset config
+
+    # After import check if this instance needs updating with new properties.
+    echo "svcadm refresh $svc:$inst" >> $fupdate
+    echo "if svcprop -q -p options $svc:$inst; then" >> $fupdate
+    echo '    :' >> $fupdate
+    echo 'else' >> $fupdate
+    echo "    svccfg -s $svc:$inst -f $fdefault" >> $fupdate
+    echo "    svcadm refresh $svc:$inst" >> $fupdate
+    echo 'fi' >> $fupdate
+
+    # fopt is a dynamically created instance specific input
+    # file for svccfg(1M).
+    fopt=$TMP/BIND_UPDATE.$inst
+    rm -f $fopt
+
+    # Retrieve current exec string for this instance, removing
+    # quote characters.
+    cmd=`svcprop -p start/exec $svc:$inst | sed -e 's/\\\\//g'`
+    if [ $? -eq 0 -a -n "$cmd" ]; then
+set -- $cmd
+
+if [ "$1" = "/lib/svc/method/dns-server" ]; then
+    # No need to convert the converted.
+    continue
+elif [ "$1" != "/usr/sbin/named" ]; then
+    echo "setprop options/server=$1" >> $fopt
+fi
+
+# Update exec and privilileges.
+echo 'setprop start/exec="/lib/svc/method/dns-server %m %i"' >> $fopt
+echo "setprop start/privileges=\"$privileges\"" >> $fopt
+shift # dispose of command ready to check for options.
+
+# Retrieve current configuration file.
+if fmri=`svcprop -p config_data/entities $svc:$inst`; then
+    # Remove leading string,  file://localhost.
+    config=`echo $fmri | sed -e 's.^file://localhost..'`
+    # These should no longer be identical if sed worked.
+    if [ "$config" = "$fmri" ]; then
+# fmri is not of supported type, so ignore it.
+unset config
+    fi
+fi
+
+# Remove configuration file dependency.
+if svcprop -q -p config_data $svc:$inst; then
+    svccfg -s $svc:$inst delpg config_data
+fi
+
+# Convert command line options to supported properties.
+# Other named(1M) options are inappropriate for bind within SMF.
+while getopts :c:t:n:d:p:46 arg; do
+    case $arg in
+    c) config="$OPTARG";; # cmd line opt overrides.
+    t) echo "setprop options/chroot_dir=$OPTARG" >> $fopt;;
+    n) echo "setprop options/threads=$OPTARG" >> $fopt;;
+    d) echo "setprop options/debug_level=$OPTARG" >> $fopt;;
+    p) echo "setprop options/listen_on_port=$OPTARG" >> $fopt;;
+    4) echo "setprop options/ip_interfaces=IPv4" >> $fopt;;
+    6) echo "setprop options/ip_interfaces=IPv6" >> $fopt;;
+    esac
+done
+if [ -n "$config" -a "$config" != "/etc/named.conf"  ]; then
+    echo "setprop options/configuration_file=$config" >> $fopt
+fi
+    fi # start/exec prop
+
+    # Apply changed properties using svccfg(1M) command after import.
+    if [ -f $fopt ]; then
+echo "svccfg -s $svc:$inst -f $fopt" >> $fupdate
+# Must refresh for changes to take effect
+echo "svcadm refresh $svc:$inst" >> $fupdate
+echo "rm $fopt" >> $fupdate
+    fi
+done
+# Restore previous command line args.
+if [ -n "$oset" ]; then
+    set -- $oset
+fi
+echo "rm -f $fdefault" >> $fupdate
+
+if svcprop -q -p usr network/dns/server; then
+svccfg -s network/dns/server delpg usr
+fi
+
+if svcprop -q -p physical network/dns/server; then
+svccfg -s network/dns/server delpg physical
+fi
+
+if svcprop -q -p start network/dns/server; then
+svccfg -s network/dns/server delpg start
+fi
+
+# Delete the stale single_instance restriction.
+if svcprop -q -p general/single_instance $svc; then
+    svccfg -s network/dns/server delprop general/single_instance
+fi
+
+# Delete the common_name.
+if svcprop -q -p tm_common_name/C $svc; then
+    svccfg -s network/dns/server delprop tm_common_name/C
+fi
+
+# Import service manifest into the repository.
+svccfg import /var/svc/manifest/network/dns/server.xml
+
+# Apply BIND 9.3.4 conversion if applicable.
+if [ -f $fupdate ]; then
+    . $fupdate
+    rm $fupdate
+fi
+
+rndc-confgen -a
+/usr/sbin/svcadm disable svc:/network/nfs/server

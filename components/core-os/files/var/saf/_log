@@ -1,0 +1,24 @@
+Tue Feb 19 19:21:28 2013; 89925; *** SAC starting ***
+Tue Feb 19 19:21:28 2013; 89932; starting port monitor <zsmon>
+Tue Feb 19 19:21:28 2013; 89925; port monitor <zsmon> changed state from STARTING to ENABLED
+Tue Feb 19 19:22:17 2013; 90517; *** SAC starting ***
+Tue Feb 19 19:22:17 2013; 90519; starting port monitor <zsmon>
+Tue Feb 19 19:22:17 2013; 90517; port monitor <zsmon> changed state from STARTING to ENABLED
+Tue Feb 19 19:27:52 2013; 91200; *** SAC starting ***
+Tue Feb 19 19:27:52 2013; 91202; starting port monitor <zsmon>
+Tue Feb 19 19:27:52 2013; 91200; port monitor <zsmon> changed state from STARTING to ENABLED
+Sun May  5 00:54:45 2013; 6032; *** SAC starting ***
+Sun May  5 00:54:45 2013; 6039; starting port monitor <zsmon>
+Sun May  5 00:54:45 2013; 6032; port monitor <zsmon> changed state from STARTING to ENABLED
+Sat May 11 19:14:00 2013; 15582; *** SAC starting ***
+Sat May 11 19:14:00 2013; 15588; starting port monitor <zsmon>
+Sat May 11 19:14:00 2013; 15582; port monitor <zsmon> changed state from STARTING to ENABLED
+Sat May 11 22:00:48 2013; 72598; *** SAC starting ***
+Sat May 11 22:00:48 2013; 72614; starting port monitor <zsmon>
+Sat May 11 22:00:48 2013; 72598; port monitor <zsmon> changed state from STARTING to ENABLED
+Wed May 22 12:57:56 2013; 17089; *** SAC starting ***
+Wed May 22 12:57:56 2013; 17117; starting port monitor <zsmon>
+Wed May 22 12:57:56 2013; 17089; port monitor <zsmon> changed state from STARTING to ENABLED
+Wed May 22 16:28:07 2013; 16110; *** SAC starting ***
+Wed May 22 16:28:07 2013; 16326; starting port monitor <zsmon>
+Wed May 22 16:28:07 2013; 16110; port monitor <zsmon> changed state from STARTING to ENABLED

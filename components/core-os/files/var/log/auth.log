@@ -1,0 +1,2 @@
+Feb 19 19:40:17 sngl-2012.4.0 reboot: [ID 500860 auth.crit] initiated by root
+Feb 19 19:40:17 sngl-2012.4.0 sshd[91232]: [ID 800047 auth.info] Received signal 15; terminating.

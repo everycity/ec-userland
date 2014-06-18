@@ -1,0 +1,7 @@
+# This file holds internal data for logadm(1M).
+# Do not edit.
+/var/adm/messages -P 'Fri Feb 18 03:10:00 2011'
+/var/cron/log -P 'Mon Feb 21 03:10:00 2011'
+/var/log/syslog -P 'Mon Nov 12 03:10:00 2007'
+/var/log/auth.log -P 'Tue Aug 25 03:10:00 2009'
+/var/log/postfix.log -P 'Tue Aug 25 03:10:00 2009'

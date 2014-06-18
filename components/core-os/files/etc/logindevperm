@@ -1,0 +1,35 @@
+#
+# Copyright 2006 Sun Microsystems, Inc.  All rights reserved.
+# Use is subject to license terms.
+#
+#pragma ident	"@(#)logindevperm	1.10	06/12/22 SMI"
+#
+# /etc/logindevperm - login-based device permissions
+#
+# If the user is logging in on a device specified in the "console" field
+# of any entry in this file, the owner/group of the devices listed in the
+# "devices" field will be set to that of the user.  Similarly, the mode
+# will be set to the mode specified in the "mode" field.
+#
+# "devices" is a colon-separated list of device names.  A device name
+# ending in "/*", such as "/dev/fbs/*", specifies all entries (except "."
+# and "..") in a directory.  A '#' begins a comment and may appear
+# anywhere in an entry.
+# In addition, regular expressions may be used. Refer to logindevperm(4)
+# man page.
+# Note that any changes in this file should be made when logged in as
+# root as devfs provides persistence on minor node attributes.
+#
+# console	mode	devices
+#
+/dev/console	0600	/dev/mouse:/dev/kbd
+/dev/console	0600	/dev/sound/*		# audio devices
+/dev/console	0600	/dev/fbs/*		# frame buffers
+/dev/console	0600	/dev/dri/*		# dri devices
+/dev/console	0400	/dev/removable-media/dsk/*	# removable media
+/dev/console	0400	/dev/removable-media/rdsk/*	# removable media
+/dev/console	0400	/dev/hotpluggable/dsk/*		# hotpluggable storage
+/dev/console	0400	/dev/hotpluggable/rdsk/*	# hotpluggable storage
+/dev/console	0600	/dev/video[0-9]+	# video devices
+/dev/console	0600	/dev/usb/hid[0-9]+	# hid devices should have the same permission with conskbd and consms
+/dev/console	0600	/dev/usb/[0-9a-f]+[.][0-9a-f]+/[0-9]+/* driver=scsa2usb,usb_mid,usbprn,ugen	#libusb/ugen devices

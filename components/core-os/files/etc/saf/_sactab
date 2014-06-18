@@ -1,0 +1,3 @@
+# VERSION=1
+
+zsmon:ttymon::0:/usr/lib/saf/ttymon	# 

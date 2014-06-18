@@ -1,0 +1,326 @@
+################################################################################
+#
+#	Copyright 2006 Sun Microsystems, Inc.  All rights reserved.
+#	Use is subject to license terms.
+#	Copyright 1992-95 AT&T Global Information Solutions
+#
+# ident	"@(#)default_lu	5.23	06/11/17 SMI"
+#
+# This file contains default settings used by Live Upgrade.
+#
+# This file must contain only the following:
+#   1. Comment lines that begin with '#'
+#   2. Variable setting lines that contain name=value
+#   3. Blank lines
+#
+# If any line in this file cannot be interpreted by the shell as a variable
+# setting or as a comment, then the Live Upgrade product will not function 
+# properly.
+################################################################################
+
+################################################################################
+#
+# The following settings control the behavior of Live Upgrade.
+# The settings must only be changed to the described values.
+#
+################################################################################
+
+# The LU_SYNC_FILES option controls the automatic synchronization of files and 
+# directories when a boot environment is activated for the first time.
+#
+# If LU_SYNC_FILES is set to 'YES' or 'yes', when switching boot environments,
+# Live Upgrade automatically synchronizes the files and directories from the
+# previously active boot environment to the newly activated boot environment.
+# The file "/etc/lu/synclist" defines the files and directories to synchronize.
+#
+# The synchronization is done only when a boot environment is activated for
+# the first time. The "-s" option to luactivate enables synchronization to be
+# done on demand for subsequent activations.
+#
+# If LU_SYNC_FILES is NOT set to either 'YES' or 'yes', automatic file
+# or directory synchronization is not performed.
+LU_SYNC_FILES=YES
+export LU_SYNC_FILES
+
+# The LU_DEBUG option sets the debug level for Live Upgrade. If set to 0, 
+# no debug output is produced. If set to a value from 1 to 10, various levels of
+# debug information is output to standard error. The higher the level, the
+# more debug output that is produced.
+#
+# Live Upgrade commands accept the '-x debug_level' option. The '-x' option
+# overrides the value set in this file.
+LU_DEBUG=0
+export LU_DEBUG
+
+# The MAILLOGTO option defines the email address for a recipient of all Live 
+# Upgrade Create/Copy and Solaris Upgrade logs. If set, the recipient must be a
+# single e-mail address that /bin/mailx understands as a "recipient". If
+# not set, no emails with logs are sent.
+MAILLOGTO=""
+export MAILLOGTO
+
+# The CREATECOMPARE option controls creation of the compare databases which 
+# enables comparing of one boot environment against another using lucompare.  
+# The compare databases can be quite large, containing an entry for each file
+# and directory in the Solaris system file systems.
+#
+# If CREATECOMPARE is set to either 'YES' or 'yes', the compare databases are
+# created.
+#
+# If CREATECOMPARE is NOT set to either 'YES' or 'yes', the compare databases
+# are NOT created.
+CREATECOMPARE=YES
+export CREATECOMPARE
+
+# LU_SESSION_LOG_FILE is an optional file. If defined, Live Upgrade appends
+# information to the file regarding all operations that Live Upgrade is 
+# requested to perform.
+LU_SESSION_LOG_FILE=""
+export LU_SESSION_LOG_FILE
+
+# LU_ERROR_LOG_FILE is an optional file. If defined, Live Upgrade appends 
+# information to the file regarding errors or problems that occur during all 
+# operations that Live Upgrade is requested to perform.
+LU_ERROR_LOG_FILE=""
+export LU_ERROR_LOG_FILE
+
+# LU_SYSLOG_FACILITY is an optional string. If defined, LU_SYSLOG_FACILITY
+# provides the facility, either a symbolic name or a numeric code, that Live 
+# Upgrade uses when writing messages to the system log.
+#
+# The value must be exactly one of kern, user, mail, daemon, auth,
+# security, syslog, lpr, news, uucp, cron, local0, local1, local2, local3,
+# local4, local5, local6, or local7. The default value is "local0".
+#
+# See the logger(1) man page for more details.
+LU_SYSLOG_FACILITY=local0
+export LU_SYSLOG_FACILITY
+
+# LU_SYSLOG_PRIORITY is an optional string. If defined, LU_SYSLOG_PRIORITY
+# provides the priority, either a symbolic name or a numeric code that Live 
+# Upgrade uses when writing messages to the system log.
+#
+# The value must be exactly one of emerg, alert, crit, error, warning,
+# notice, info, or debug". If not specified, the default value is "notice".
+#
+# See the logger(1) man page for more details.
+LU_SYSLOG_PRIORITY=notice
+export LU_SYSLOG_PRIORITY
+
+# The LU_KEEP_ALTERNATIVE_BOOT option controls how boot devices are overwritten 
+# in the boot device list. Live Upgrade expects the system boot device
+# list to contain two boot device names, one is the primary boot device and
+# the other is the alternative boot device. As boot environments are activated,
+# the newly activated boot device becomes the primary boot device and the 
+# alternative boot device is replaced by the former primary boot device. 
+# This provides for a single boot device that can be used to fallback to the 
+# previous boot environment.
+#
+# If LU_KEEP_ALTERNATIVE_BOOT is set to either 'YES' or 'yes', Live Upgrade 
+# preserves the alternative boot device name. The alternative boot device 
+# is now a fixed name that Live Upgrade never changes.
+#
+# If LU_KEEP_ALTERNATIVE_BOOT is NOT set to either 'YES' or 'yes', Live Upgrade
+# sets the alternative boot device as the fallback device.
+LU_KEEP_ALTERNATIVE_BOOT=NO
+export LU_KEEP_ALTERNATIVE_BOOT
+
+# The LU_ALLOW_ANY_SOLARIS_VERSION_UPGRADE option controls whether or not 
+# luupgrade restricts the version of the Solaris software to which a boot 
+# environment can be upgraded. Different releases of the Solaris software might
+# have different installation requirements. Install the version of Live Upgrade
+# that is distributed with the version of the Solaris software to which you
+# plan to upgrade the boot environment.
+#
+# If LU_ALLOW_ANY_SOLARIS_VERSION_UPGRADE is set to either 'YES' or 'yes', 
+# luupgrade allows you to upgrade to any version of the Solaris software.
+#
+# If LU_ALLOW_ANY_SOLARIS_VERSION_UPGRADE is NOT set to either 'YES' or 'yes', 
+# luupgrade allows you to upgrade only to the version of the Solaris software
+# that was delivered with the version of Live Upgrade that you are using.
+LU_ALLOW_ANY_SOLARIS_VERSION_UPGRADE=NO
+export LU_ALLOW_ANY_SOLARIS_VERSION_UPGRADE
+
+# The LU_MESSAGE_PROGRAM_PREFIX option controls if and when a message generated
+# by Live Upgrade is prefixed by the name of the program that generated
+# the message.
+#
+# If LU_MESSAGE_PROGRAM_PREFIX is set to 'always' or 'always', Live Upgrade 
+# always prefixes every message output with the the name of the program that
+# generated the message.
+#
+# If LU_MESSAGE_PROGRAM_PREFIX is set to 'never' or 'NEVER', Live Upgrade
+# never prefixes any message output with the name of the program that
+# generated the message.
+#
+# If LU_MESSAGE_PROGRAM_PREFIX is set to 'debug' or 'DEBUG', Live Upgrade
+# only prefixes a message output with the name of the program that 
+# generated the message if LU_DEBUG is set to a value from 1 to 10.
+#
+# The default value for LU_MESSAGE_PROGRAM_PREFIX is 'debug'.
+LU_MESSAGE_PROGRAM_PREFIX="debug"
+export LU_MESSAGE_PROGRAM_PREFIX
+
+# The LU_SCHEDULING_PRIORITY option controls the scheduling priority of all 
+# Live Upgrade operations. Use LU_SCHEDULING_PRIORITY to control how much of 
+# the system's available resources are used when Live Upgrade commands are run.
+#
+# The values for LU_SCHEDULING_PRIORITY are the same as the values for the 
+# renice command:
+#
+# -n increment - Specifies how the scheduling priority is adjusted.
+#   The increment is a positive or negative decimal integer.
+#
+#   Positive increment values (for example, "19") cause Live Upgrade
+#   to be less likely to impact the system's performance.
+#
+#   Negative increment values (for example, "-5") cause Live Upgrade
+#   to be more likely to impact the system's performance.
+#
+#   "increment" must be in the range -19 to 19.
+#
+# priority - The value specified is taken as the actual system
+#   scheduling priority, rather than as an increment to the existing
+#   system scheduling priority.
+#
+#   priority must be an integer value in the range -20 to 19. Useful
+#   priorities are: 19 (Live Upgrade is run only when nothing else in
+#   the system needs to run); 0 (the "base" scheduling priority assigned to
+#   all regular processes); and any negative value (to make things go
+#   very fast).
+#
+# See the renice(1) man page for more details.
+#
+# To have Live Upgrade run at normal priority (the same priority as
+# all other processes in the system), set this LU_SCHEDULING_PRIORITY to "0".
+#
+# IfLU_SCHEDULING_PRIORITY  is not set, or is set to an empty string
+# (that is, ""), Live Upgrade adjusts the scheduling priority to cause the 
+# least impact on system performance (equivalent to "-n 19").
+#
+# If LU_SCHEDULING_PRIORITY is set to a value that is not recognized, the
+# scheduling priority of Live Upgrade operations is not affected.
+LU_SCHEDULING_PRIORITY=""
+export LU_SCHEDULING_PRIORITY
+
+# The LU_BE_POPULATE_CONTENT_CONTROL_FILE option defines a file that controls
+# the content of all new boot environments.  In particular, this option enables
+# you to include or exclude specific files and directories in each new boot
+# environment.
+#
+# The file format is identical to the format accepted by the "-z" option of
+# lucreate. Please see the description of -z <filter_list> in lucreate(1M).
+#
+# If LU_BE_POPULATE_CONTENT_CONTROL_FILE is set to the path of an existing
+# file, the file is used to control the content of all boot environments when
+# they are created. The directives in this file are applied before any
+# directives you might apply with lucreate -z.
+LU_BE_POPULATE_CONTENT_CONTROL_FILE=
+export LU_BE_POPULATE_CONTENT_CONTROL_FILE
+
+################################################################################
+#
+# CAUTION: DO NOT EDIT THE FOLLOWING SECTION OF THIS FILE BY HAND.
+# -------  The following section of this file is not a public interface.
+# -------  Any user modification to the following section of this file may
+# -------  result in the incorrect or unpredictable operation of Live Upgrade.
+# -------  Changes here will be discarded on upgrade.
+#
+################################################################################
+
+# LUBIN specifies the directory where all Live Upgrade internal interface
+# modules are located.
+LUBIN=/usr/lib/lu
+
+# OBJ_DIR specifies the directory where the FMLI interface files are located.
+OBJ_DIR=/usr/lib/lu/menu
+
+# PATH specifies the path to be used by all Live Upgrade programs. All Live
+# Upgrade programs that are accessible to the system administrator are in /sbin
+# or /usr/sbin. All system utilities used by Live Upgrade programs reside in
+# /etc, /usr/sbin, or /usr/bin. Ensure that these paths are in the path before 
+# all other directories set in the current PATH.
+PATH=$LUBIN:/usr/bin:/usr/sbin:/sbin:/etc:$PATH
+export PATH
+
+# The /etc/lu/COPY_LOCK file contains Live Upgrade boot environment lock 
+# information.  The presence of this file indicates that a Live Upgrade 
+# operation is either scheduled or is currently in progress. This file is used 
+# to prevent conflicting operations from being done concurrently.
+COPYLOCK=/etc/lu/COPY_LOCK
+
+# The /etc/lu/.CURR_VARS file contains the essential parameters of the boot
+# environment. The parameters are BEID, BEDISK, BEROOT. This file is used by 
+# fallback through maintenance flexes (maintained by luactivate).
+CURR_VARS=/etc/lu/.CURR_VARS
+
+# The /etc/lu/.NEXT_ACTIVE file contains the name of the boot environment that 
+# will be active upon the next reboot of the system.  This file is maintained by
+# luactivate and /etc/init.d lu scripts.
+NEXT_ACTIVE=/etc/lu/.NEXT_ACTIVE
+
+# The /etc/lu/.SYNCKEY file contains the name of the boot environment that was 
+# active before the reboot of the system. This file is maintained by luactivate,
+# lucreate, and /etc/init.d lu scripts.
+SYNCKEY=/etc/lu/.SYNCKEY
+
+# The LU_PLATFORM option defines hardware platforms, either kernel architectures
+# or machine hardware classes, that are no longer supported. Each platform that
+# is no longer supported must have a variable defined of the following form:
+#   LU_PLATFORM_<platform>_UNSUPPORTED_AFTER=<SunosVersion>
+# <platform> is a value that may be returned by the 'uname -m' command.
+# <SunosVersion> is a value that may be returned by the 'uname -r' command.
+# The following example indicates that the sun4c platform was last 
+# supported by SunOS 5.7.
+#   LU_PLATFORM_sun4c_UNSUPPORTED_AFTER=5.7
+LU_PLATFORM_sun4c_UNSUPPORTED_AFTER=5.7
+LU_PLATFORM_sun4d_UNSUPPORTED_AFTER=5.8
+LU_PLATFORM_sun4m_UNSUPPORTED_AFTER=5.9
+
+#
+# The following filesystems are currently supported for the GRUB slice
+# (GRUB only knows how to read the following filesystems)
+#
+LU_GRUB_SUPPORTED_FILE_SYSTEM_TYPES="ufs pcfs"
+export LU_GRUB_SUPPORTED_FILE_SYSTEM_TYPES
+
+# LU_SUPPORTED_FILE_SYSTEM_TYPES is a list of file system types that are
+# supported to be copied or created by Live Upgrade.
+#
+# When cloning a boot environment, each file system that is part of the source
+# boot environment to be cloned is processed to determine if it should be
+# copied. File system types in this list are considered part of any source boot
+# environment and may be copied to the cloned boot environment if not explicitly
+# excluded via copy selection or other similar options.
+#
+# Only local file systems are supported by Live Upgrade. All remote file system
+# types are unsupported. A file system is considered "local" if it is not a
+# distributed (remote) file system type. See the fstypes(4) manual page.
+LU_SUPPORTED_FILE_SYSTEM_TYPES="ufs vxfs"
+
+# LU_UNSUPPORTED_FILE_SYSTEM_TYPES is a list of file system types that
+# are not supported to be copied or created by Live Upgrade. 
+#
+# When cloning a boot environment, each file system that is part of the source
+# boot environment to be cloned is processed to determine if it should be
+# copied. File system types in this list are never considered part of any source
+# boot environment and are ignored (not copied to the cloned boot environment).
+#
+# All remote file system types are unsupported. A file system is considered
+# "remote" if it is a distributed (remote) file system type. See the fstypes(4)
+# manual page.
+LU_UNSUPPORTED_FILE_SYSTEM_TYPES="fd hsfs lofs mntfs pcfs proc tmpfs cachefs autofs zfs"
+
+# LU_PLUGIN_ROOTPATH limits the scope from which plugin modules can be loaded.
+# If a plugin is not referenced by an absolute path, Live Upgrade looks for the
+# plugin in LU_PLUGIN_ROOTPATH, if defined.
+#
+# LU_PLUGIN_ROOTPATH restricts where a plugin can be loaded from to the
+# directory at or beneath LU_PLUGIN_ROOTPATH.
+LU_PLUGIN_ROOTPATH="/etc/lib/lu/plugins"
+
+# LU_PLUGIN_EXEC_* defines plugins that are available for Live Upgrade to load
+# and use. Any variable that begins with LU_PLUGIN_EXEC_* defines a single
+# plugin module. Any number of plugin modules can be defined.
+LU_PLUGIN_EXEC_BEBASIC="lupi_bebasic"
+LU_PLUGIN_EXEC_SVMIO="lupi_svmio"

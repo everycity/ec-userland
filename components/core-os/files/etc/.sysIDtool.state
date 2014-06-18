@@ -1,0 +1,11 @@
+1	# System previously configured?
+0	# Bootparams succeeded?
+1	# System is on a network?
+0	# Extended network information gathered?
+1	# Autobinder succeeded?
+1	# Network has subnets?
+1	# root password prompted for?
+1	# locale and term prompted for?
+1	# security policy in place
+1	# NFSv4 domain configured
+vt100

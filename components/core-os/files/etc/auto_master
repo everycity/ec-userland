@@ -1,0 +1,4 @@
+# Sample auto_master for autofs
+#+auto_master
+#/net -hosts -nosuid,nobrowse
+#/home auto_home -nobrowse
