@@ -20,6 +20,8 @@
 
 #Compiled python files
 <transform file path=.+/lib/python2\.6/.+\.pyc$ -> drop>
+<transform file path=.+/lib/python2\.7/.+\.pyc$ -> drop>
+<transform file path=.+/lib/python2\.7/.+\.pyo$ -> drop>
 
 #Shared documentation files
 <transform file path=.+/perllocal.pod -> drop>
