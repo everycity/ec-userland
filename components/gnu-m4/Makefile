@@ -28,8 +28,6 @@ include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/configure.mk
 include $(WS_TOP)/make-rules/ips.mk
 
-GCC_VERSION = 4.8
-
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
