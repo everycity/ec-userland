@@ -46,3 +46,4 @@ file Solaris/libgmp.pc path=$(ECPREFIX)/lib/pkgconfig/libgmp.pc
 file Solaris/libgmpxx.pc path=$(ECPREFIX)/lib/pkgconfig/libgmpxx.pc
 file Solaris/libgmp-64.pc path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libgmp.pc
 file Solaris/libgmpxx-64.pc path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libgmpxx.pc
+
