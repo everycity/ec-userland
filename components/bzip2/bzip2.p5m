@@ -18,7 +18,7 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -31,57 +31,46 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license bzip2.license license="bzip2"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/bzdiff
-file path=$(ECPREFIX)/bin/$(MACH64)/bzgrep
-file path=$(ECPREFIX)/bin/$(MACH64)/bzip2
-file path=$(ECPREFIX)/bin/$(MACH64)/bzip2recover
-file path=$(ECPREFIX)/bin/$(MACH64)/bzmore
-file path=$(ECPREFIX)/bin/bzdiff
-file path=$(ECPREFIX)/bin/bzgrep
-file path=$(ECPREFIX)/bin/bzip2
-file path=$(ECPREFIX)/bin/bzip2recover
-file path=$(ECPREFIX)/bin/bzmore
-file path=$(ECPREFIX)/include/bzlib.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libbz2.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/bzip2.pc
-file path=$(ECPREFIX)/lib/libbz2.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/pkgconfig/bzip2.pc
-file path=$(ECPREFIX)/share/man/man1/bunzip2.1
-file path=$(ECPREFIX)/share/man/man1/bzcat.1
-file path=$(ECPREFIX)/share/man/man1/bzcmp.1
-file path=$(ECPREFIX)/share/man/man1/bzdiff.1
-file path=$(ECPREFIX)/share/man/man1/bzegrep.1
-file path=$(ECPREFIX)/share/man/man1/bzfgrep.1
-file path=$(ECPREFIX)/share/man/man1/bzgrep.1
-file path=$(ECPREFIX)/share/man/man1/bzip2.1
-file path=$(ECPREFIX)/share/man/man1/bzless.1
-file path=$(ECPREFIX)/share/man/man1/bzmore.1
-link path=$(ECPREFIX)/bin/$(MACH64)/bunzip2 target=bzip2
-link path=$(ECPREFIX)/bin/$(MACH64)/bzcat target=bzip2
-link path=$(ECPREFIX)/bin/$(MACH64)/bzcmp target=bzdiff
-link path=$(ECPREFIX)/bin/$(MACH64)/bzegrep target=bzgrep
-link path=$(ECPREFIX)/bin/$(MACH64)/bzfgrep target=bzgrep
-link path=$(ECPREFIX)/bin/$(MACH64)/bzless target=bzmore
-link path=$(ECPREFIX)/bin/bunzip2 target=bzip2
-link path=$(ECPREFIX)/bin/bzcat target=bzip2
-link path=$(ECPREFIX)/bin/bzcmp target=bzdiff
-link path=$(ECPREFIX)/bin/bzegrep target=bzgrep
-link path=$(ECPREFIX)/bin/bzfgrep target=bzgrep
-link path=$(ECPREFIX)/bin/bzless target=bzmore
-link path=$(ECPREFIX)/lib/$(MACH64)/libbz2.so \
+file path=$(USRDIR)/bin/$(MACH64)/bzdiff
+file path=$(USRDIR)/bin/$(MACH64)/bzgrep
+file path=$(USRDIR)/bin/$(MACH64)/bzip2
+file path=$(USRDIR)/bin/$(MACH64)/bzip2recover
+file path=$(USRDIR)/bin/$(MACH64)/bzmore
+file path=$(USRDIR)/bin/bzdiff
+file path=$(USRDIR)/bin/bzgrep
+file path=$(USRDIR)/bin/bzip2
+file path=$(USRDIR)/bin/bzip2recover
+file path=$(USRDIR)/bin/bzmore
+file path=$(USRDIR)/include/bzlib.h
+file path=$(USRDIR)/lib/$(MACH64)/libbz2.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/bzip2.pc
+file path=$(USRDIR)/lib/libbz2.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/pkgconfig/bzip2.pc
+file path=$(USRDIR)/share/man/man1/bunzip2.1
+file path=$(USRDIR)/share/man/man1/bzcat.1
+file path=$(USRDIR)/share/man/man1/bzcmp.1
+file path=$(USRDIR)/share/man/man1/bzdiff.1
+file path=$(USRDIR)/share/man/man1/bzegrep.1
+file path=$(USRDIR)/share/man/man1/bzfgrep.1
+file path=$(USRDIR)/share/man/man1/bzgrep.1
+file path=$(USRDIR)/share/man/man1/bzip2.1
+file path=$(USRDIR)/share/man/man1/bzless.1
+file path=$(USRDIR)/share/man/man1/bzmore.1
+link path=$(USRDIR)/bin/$(MACH64)/bunzip2 target=bzip2
+link path=$(USRDIR)/bin/$(MACH64)/bzcat target=bzip2
+link path=$(USRDIR)/bin/$(MACH64)/bzcmp target=bzdiff
+link path=$(USRDIR)/bin/$(MACH64)/bzegrep target=bzgrep
+link path=$(USRDIR)/bin/$(MACH64)/bzfgrep target=bzgrep
+link path=$(USRDIR)/bin/$(MACH64)/bzless target=bzmore
+link path=$(USRDIR)/bin/bunzip2 target=bzip2
+link path=$(USRDIR)/bin/bzcat target=bzip2
+link path=$(USRDIR)/bin/bzcmp target=bzdiff
+link path=$(USRDIR)/bin/bzegrep target=bzgrep
+link path=$(USRDIR)/bin/bzfgrep target=bzgrep
+link path=$(USRDIR)/bin/bzless target=bzmore
+link path=$(USRDIR)/lib/$(MACH64)/libbz2.so \
     target=libbz2.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libbz2.so.1 \
+link path=$(USRDIR)/lib/$(MACH64)/libbz2.so.1 \
     target=libbz2.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libbz2.so target=libbz2.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libbz2.so.1 target=libbz2.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libbz2.so target=libbz2.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libbz2.so.1 target=libbz2.so.$(COMPONENT_VERSION)
