@@ -349,6 +349,7 @@ GUNZIP =	$(USRBINDIR)/gunzip
 GTAR =		$(USRBINDIR)/gtar
 GFIND =		$(USRBINDIR)/gfind
 IPS2TGZ =	$(WS_TOOLS)/ips2tgz
+MAKEISA_SH =	$(WS_TOOLS)/makeisa.sh
 
 INS.dir=        $(INSTALL) -d $@
 INS.file=       $(INSTALL) -m 444 $< $(@D)
