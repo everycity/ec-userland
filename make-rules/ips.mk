@@ -176,26 +176,18 @@ $(GENERATED).p5m:	install
 $(MANIFEST_BASE)-%.generate:	%.p5m canonical-manifests
 	cat $(METADATA_TEMPLATE) $< >$@
 
-ifeq ($(strip $(COMPONENT_AUTOGEN_MANIFEST)),yes)
-# auto-generate file/directory list
-$(MANIFEST_BASE)-%.generated:	%.p5m $(BUILD_DIR)
+# mogrify the manifest
+$(MANIFEST_BASE)-%.generated:	%.p5m canonical-manifests
 	(cat $(METADATA_TEMPLATE); \
-	$(PKGSEND) generate $(PKG_HARDLINKS:%=--target %) $(PROTO_DIR)) | \
-	$(PKGMOGRIFY) $(PKG_OPTIONS) /dev/fd/0 $(AUTOGEN_MANIFEST_TRANSFORMS) | \
-		sed -e '/^$$/d' -e '/^#.*$$/d' | $(PKGFMT) | \
-		cat $< - >$@
-# mogrify the manifest
-$(MANIFEST_BASE)-%.mogrified:	%.generated
+		$(PKGSEND) generate $(PKG_HARDLINKS:%=--target %) $(PROTO_DIR)) | \
+		$(PKGMOGRIFY) $(PKG_OPTIONS) /dev/fd/0 $(AUTOGEN_MANIFEST_TRANSFORMS) | \
+		sed -e '/^$$/d' -e '/^#.*$$/d' >$@;
+	cat $< >>$@
+
+$(MANIFEST_BASE)-%.mogrified:	$(MANIFEST_BASE)-%.generated
 	$(PKGMOGRIFY) $(PKG_OPTIONS) $< \
 		$(PUBLISH_TRANSFORMS) | \
 		sed -e '/^$$/d' -e '/^#.*$$/d' | uniq >$@
-else
-# mogrify the manifest
-$(MANIFEST_BASE)-%.mogrified:	%.p5m canonical-manifests
-	$(PKGMOGRIFY) $(PKG_OPTIONS) $< \
-		$(PUBLISH_TRANSFORMS) | \
-		sed -e '/^$$/d' -e '/^#.*$$/d' | uniq >$@
-endif
 
 # mangle the file contents
 $(BUILD_DIR):
