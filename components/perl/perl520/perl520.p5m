@@ -1,0 +1,2 @@
+<transform link path=$(USRDIR)/bin/.+ -> set mediator perl>
+<transform link path=$(USRDIR)/bin/.+ -> set mediator-version $(PERL_VERSION)>
