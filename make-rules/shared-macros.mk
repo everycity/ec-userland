@@ -81,7 +81,7 @@ COMPILER =		gcc
 LINKER =		gcc
 BITS =			32
 PYTHON_VERSION =	2.7
-PYTHON_VERSIONS =	2.7 2.6
+PYTHON_VERSIONS =	2.7
 
 BASS_O_MATIC =	$(WS_TOOLS)/bass-o-matic
 
@@ -294,11 +294,10 @@ PYTHON_LIB= /usr/lib/python$(PYTHON_VERSION)/vendor-packages
 JAVA_HOME =	$(USRDIR)/java
 
 PERL_VERSION =	5.18
-PERL_VERSIONS =	5.18 5.12
+PERL_VERSIONS =	5.18
 PERL.5.12 =	$(USRLIBDIR)/perl/5.12/bin/perl
 PERL.5.18 =	$(USRLIBDIR)/perl/5.18/bin/perl
 
-#PERL =		$(USRBINDIR)/perl
 PERL =		$(PERL.$(PERL_VERSION))
 
 PERL_ARCH.5.12 =     $(shell $(PERL.5.12) -e 'use Config; print $$Config{archname}')
