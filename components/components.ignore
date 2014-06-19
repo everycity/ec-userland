@@ -19,7 +19,6 @@
 /^asciidoc$/d
 /^aspell$/d
 /^automake-112$/d
-/^bash$/d
 /^bdb51$/d
 /^bdb60$/d
 /^bison$/d
@@ -72,7 +71,6 @@
 /^frotz$/d
 /^gaa$/d
 /^gcc47$/d
-/^gcc48$/d
 /^gconf$/d
 /^gdal$/d
 /^gdb$/d
@@ -430,7 +428,6 @@
 /^top$/d
 /^tor$/d
 /^unixodbc$/d
-/^unzip$/d
 /^uriparser$/d
 /^uwimap$/d
 /^varnish$/d
@@ -494,6 +491,5 @@
 /^zenlib$/d
 /^zetaback$/d
 /^zfs-auto-snapshot$/d
-/^zip$/d
 /^zlib$/d
 /^zork-trilogy$/d
