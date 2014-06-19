@@ -42,10 +42,6 @@ include ../../../make-rules/ips.mk
 # If that changes the sed filter needs to change.
 #
 
-# Disabling these two flags, one of them breaks cpan:
-#			    -Doptimize="$(CFLAGS.gcc)" \
-#			    -Duseshrplib \
-
 CONFIGURE_SCRIPT = $(SOURCE_DIR)/Configure
 CONFIGURE_ENV += MAKE=$(GMAKE)
 CONFIGURE_ENV += PATH="$(dir $(CC)):$(PATH)"
@@ -62,7 +58,6 @@ CONFIGURE_OPTIONS = \
                         -Dld=/usr/bin/ld \
 			-Dcf_email="support@everycity.co.uk" \
 			-Dcf_by="support" \
-			-Dlibperl=libperl.so.$(PERL_VERSION) \
 			-Dmyhostname="localhost" \
 			-Dperl_static_inline="static" \
 			-Dprefix=$(PERL_PREFIX) \
@@ -127,13 +122,8 @@ COMPONENT_POST_INSTALL_ACTION = \
 			[[ -L $(PROTO_DIR)$(USRBINDIR)/$$i ]] || \
 				ln -s ../../lib/perl/$(PERL_VERSION)/bin/$$i $(PROTO_DIR)$(USRBINDIR)/$$i; \
 		done
-#
-# perl's install path for sparc is based off the value of the
-# "arch" command.  So we must package that way also.
-#
-PKG_MACROS		+=	PERL_ARCH=$(shell arch)
-PKG_MACROS		+=	PERL_VERSION=$(PERL_VERSION)
 
+PKG_MACROS		+=	PERL_VERSION=$(PERL_VERSION)
 
 build:		$(BUILD_32_and_64)
 
