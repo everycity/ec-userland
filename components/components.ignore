@@ -20,7 +20,6 @@
 /^aspell$/d
 /^automake-112$/d
 /^bdb51$/d
-/^bdb60$/d
 /^bison$/d
 /^bitlbee$/d
 /^boost$/d
@@ -379,7 +378,6 @@
 /^redis$/d
 /^redland$/d
 /^rrdtool$/d
-/^rsync$/d
 /^rsyslog$/d
 /^rtmpdump$/d
 /^ruby\/ec-mcollective$/d
@@ -481,7 +479,6 @@
 /^xapian\/core$/d
 /^xmlto$/d
 /^xvidcore$/d
-/^xz$/d
 /^yamdi$/d
 /^yasm$/d
 /^yubico-libyubikey$/d
