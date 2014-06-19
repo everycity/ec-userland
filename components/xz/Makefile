@@ -17,13 +17,15 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=		xz
 COMPONENT_FMRI=		compress/xz
 COMPONENT_VERSION=	5.0.5
-COMPONENT_LICENSE=	Public Domain,LGPLv2.1,GPLv2
+COMPONENT_LICENSE=	Public Domain,LGPLv2.1,GPLv2,GPLv3
 COMPONENT_PROJECT_URL=	"http://tukanni.org/xz"
 COMPONENT_SUMMARY=	XZ Utils - general-purpose data compression software
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:5dcffe6a3726d23d1711a65288de2e215b4960da5092248ce63c99d50093b93a
 COMPONENT_ARCHIVE_URL=	http://tukaani.org/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
+COMPONENT_AUTOGEN_MANIFEST=	yes
+COMPONENT_LICENSE_FILE=	COPYING
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
