@@ -37,12 +37,12 @@ CFLAGS += $(CPP_LARGEFILES)
 CFLAGS += `pkg-config --cflags libidn`
 CPPFLAGS += `pkg-config --cflags libidn`
 
-CPPFLAGS+= -I$(ECPREFIX)/include
+CPPFLAGS+= -I$(USRDIR)/include
 
 CONFIGURE_OPTIONS += --with-pic
 CONFIGURE_OPTIONS += --enable-shared
 CONFIGURE_OPTIONS += --disable-static
-CONFIGURE_OPTIONS += --with-libidn=$(ECPREFIX)
+CONFIGURE_OPTIONS += --with-libidn=$(USRDIR)
 CONFIGURE_OPTIONS += --with-ca-bundle=$(CONFIGURE_SYSCONFDIR)/openssl/cabundle.pem
 CONFIGURE_OPTIONS += --without-librtmp
 CONFIGURE_OPTIONS += --disable-ldap
@@ -50,15 +50,15 @@ CONFIGURE_OPTIONS += --disable-ldaps
 
 CONFIGURE_OPTIONS += --with-gssapi-includes=/usr/include/gssapi
 CONFIGURE_OPTIONS += --with-gssapi-libs=$(GSSAPI_LIBDIR_$(BITS))
-CONFIGURE_OPTIONS += --with-gssapi=/usr
+CONFIGURE_OPTIONS += --with-gssapi=$(USRDIR)
 CONFIGURE_OPTIONS += "curl_disallow_getifaddrs=yes"
 
 #COMPONENT_POST_INSTALL_ACTION.32 =	( perl -pi -e \
-#	's/CURLLIBDIR=.*/CURLLIBDIR="-L$(ECPREFIX)\/lib -R$(ECPREFIX)\/lib "/' \
-#	$(PROTO_DIR)$(ECPREFIX)/bin/curl-config )
+#	's/CURLLIBDIR=.*/CURLLIBDIR="-L$(USRDIR)\/lib -R$(USRDIR)\/lib "/' \
+#	$(PROTO_DIR)$(USRDIR)/bin/curl-config )
 #COMPONENT_POST_INSTALL_ACTION.64 =	( perl -pi -e \
-#	's/CURLLIBDIR=.*/CURLLIBDIR="-L$(ECPREFIX)\/lib\/$(MACH64) -R$(ECPREFIX)\/lib\/$(MACH64) "/' \
-#	$(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/curl-config )
+#	's/CURLLIBDIR=.*/CURLLIBDIR="-L$(USRDIR)\/lib\/$(MACH64) -R$(USRDIR)\/lib\/$(MACH64) "/' \
+#	$(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/curl-config )
 #COMPONENT_POST_INSTALL_ACTION=$(COMPONENT_POST_INSTALL_ACTION.$(BITS))
 
 # common targets
