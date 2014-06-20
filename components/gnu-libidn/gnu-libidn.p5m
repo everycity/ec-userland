@@ -16,9 +16,11 @@
 <include ec-drop-common>
 
 set name=pkg.fmri value=pkg:/library/libidn@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="GNU implementation of the Stringprep, Punycode and IDNA specifications"
-set name=info.upstream_url value="http://www.gnu.org/s/libidn/"
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=pkg.summary value="IDN - The Internationalized Domains Library"
+set name=pkg.description value="A fully documented implementation of the Stringprep, Punycode and IDNA specifications for the purpose of encoding and decoding internationalized domain names"
+set name=info.classification value="org.opensolaris.category.2008:System/Libraries"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license gnu-libidn.license license="GPLv3"
 
