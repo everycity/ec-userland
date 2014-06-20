@@ -94,7 +94,6 @@
 /^gnu-findutils$/d
 /^gnu-grep$/d
 /^gnu-inetutils$/d
-/^gnu-libidn$/d
 /^gnu-patch$/d
 /^gnu-pth$/d
 /^gnu-sed$/d
