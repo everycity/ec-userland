@@ -18,7 +18,8 @@
 #
 # CDDL HEADER END
 #
-# Copyright (c) 2012, Igor Kozhukhov <ikozhukhov@gmail.com>.  All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2012, Igor Kozhukhov <ikozhukhov@gmail.com>.
 # Copyright (c) 2012, Oracle and/or its affiliates. All rights reserved.
 #
 include ../../../make-rules/shared-macros.mk

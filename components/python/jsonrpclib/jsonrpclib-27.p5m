@@ -35,10 +35,10 @@ license jsonrpclib.license license='Apache v2.0'
 #    type=require
 
 file \
-    path=usr/lib/python2.7/vendor-packages/jsonrpclib-$(COMPONENT_VERSION)-py2.7.egg-info
-file path=usr/lib/python2.7/vendor-packages/jsonrpclib/__init__.py
-file path=usr/lib/python2.7/vendor-packages/jsonrpclib/config.py
-file path=usr/lib/python2.7/vendor-packages/jsonrpclib/history.py
-file path=usr/lib/python2.7/vendor-packages/jsonrpclib/jsonclass.py
-file path=usr/lib/python2.7/vendor-packages/jsonrpclib/jsonrpc.py
-file path=usr/lib/python2.7/vendor-packages/jsonrpclib/SimpleJSONRPCServer.py
+    path=$(USRDIR)/lib/python2.7/vendor-packages/jsonrpclib-$(COMPONENT_VERSION)-py2.7.egg-info
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonrpclib/__init__.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonrpclib/config.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonrpclib/history.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonrpclib/jsonclass.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonrpclib/jsonrpc.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonrpclib/SimpleJSONRPCServer.py
