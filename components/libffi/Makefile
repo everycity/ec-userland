@@ -17,6 +17,7 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=		libffi
 COMPONENT_VERSION=	3.0.13
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
+COMPONENT_PROJECT_URL=	http://sources.redhat.com/libffi/
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:1dddde1400c3bcb7749d398071af88c3e4754058d2d4c0b3696c2f82dc5cf11c
 COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/sources.redhat.com/pub/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
