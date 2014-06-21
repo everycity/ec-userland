@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2012-2014 EveryCity Ltd. All rights reserved.
 #
 
 <include ec-drop-common>
@@ -17,107 +17,107 @@
 set name=pkg.fmri value=pkg:/library/ncurses-wide@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="A CRT screen handling and optimization package - wide character support variant."
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=info.upstream_url value=http://www.gnu.org/software/ncurses/
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 
 license ncurses.license license=MIT
 
-file path=$(ECPREFIX)/bin/$(MACH64)/ncursesw5-config
-file path=$(ECPREFIX)/bin/ncursesw5-config
+file path=$(USRDIR)/bin/$(MACH64)/ncursesw5-config
+file path=$(USRDIR)/bin/ncursesw5-config
 
-file path=$(ECPREFIX)/include/ncursesw/curses.h
-file path=$(ECPREFIX)/include/ncursesw/cursesapp.h
-file path=$(ECPREFIX)/include/ncursesw/cursesf.h
-file path=$(ECPREFIX)/include/ncursesw/cursesm.h
-file path=$(ECPREFIX)/include/ncursesw/cursesp.h
-file path=$(ECPREFIX)/include/ncursesw/cursesw.h
-file path=$(ECPREFIX)/include/ncursesw/cursslk.h
-file path=$(ECPREFIX)/include/ncursesw/eti.h
-file path=$(ECPREFIX)/include/ncursesw/etip.h
-file path=$(ECPREFIX)/include/ncursesw/form.h
-file path=$(ECPREFIX)/include/ncursesw/menu.h
-file path=$(ECPREFIX)/include/ncursesw/nc_tparm.h
-link path=$(ECPREFIX)/include/ncursesw/ncurses.h target=curses.h
-file path=$(ECPREFIX)/include/ncursesw/ncurses_dll.h
-file path=$(ECPREFIX)/include/ncursesw/panel.h
-file path=$(ECPREFIX)/include/ncursesw/term.h
-file path=$(ECPREFIX)/include/ncursesw/term_entry.h
-file path=$(ECPREFIX)/include/ncursesw/termcap.h
-file path=$(ECPREFIX)/include/ncursesw/tic.h
-file path=$(ECPREFIX)/include/ncursesw/unctrl.h
+file path=$(USRDIR)/include/ncursesw/curses.h
+file path=$(USRDIR)/include/ncursesw/cursesapp.h
+file path=$(USRDIR)/include/ncursesw/cursesf.h
+file path=$(USRDIR)/include/ncursesw/cursesm.h
+file path=$(USRDIR)/include/ncursesw/cursesp.h
+file path=$(USRDIR)/include/ncursesw/cursesw.h
+file path=$(USRDIR)/include/ncursesw/cursslk.h
+file path=$(USRDIR)/include/ncursesw/eti.h
+file path=$(USRDIR)/include/ncursesw/etip.h
+file path=$(USRDIR)/include/ncursesw/form.h
+file path=$(USRDIR)/include/ncursesw/menu.h
+file path=$(USRDIR)/include/ncursesw/nc_tparm.h
+link path=$(USRDIR)/include/ncursesw/ncurses.h target=curses.h
+file path=$(USRDIR)/include/ncursesw/ncurses_dll.h
+file path=$(USRDIR)/include/ncursesw/panel.h
+file path=$(USRDIR)/include/ncursesw/term.h
+file path=$(USRDIR)/include/ncursesw/term_entry.h
+file path=$(USRDIR)/include/ncursesw/termcap.h
+file path=$(USRDIR)/include/ncursesw/tic.h
+file path=$(USRDIR)/include/ncursesw/unctrl.h
 
-file path=$(ECPREFIX)/lib/$(MACH64)/libformw.a
-link path=$(ECPREFIX)/lib/$(MACH64)/libformw.so target=libformw.so.5
-file path=$(ECPREFIX)/lib/$(MACH64)/libformw.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libformw.so.5 \
+file path=$(USRDIR)/lib/$(MACH64)/libformw.a
+link path=$(USRDIR)/lib/$(MACH64)/libformw.so target=libformw.so.5
+file path=$(USRDIR)/lib/$(MACH64)/libformw.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/$(MACH64)/libformw.so.5 \
     target=libformw.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/libmenuw.a
-link path=$(ECPREFIX)/lib/$(MACH64)/libmenuw.so target=libmenuw.so.5
-file path=$(ECPREFIX)/lib/$(MACH64)/libmenuw.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libmenuw.so.5 \
+file path=$(USRDIR)/lib/$(MACH64)/libmenuw.a
+link path=$(USRDIR)/lib/$(MACH64)/libmenuw.so target=libmenuw.so.5
+file path=$(USRDIR)/lib/$(MACH64)/libmenuw.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/$(MACH64)/libmenuw.so.5 \
     target=libmenuw.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/libncurses++w.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libncursesw.a
-link path=$(ECPREFIX)/lib/$(MACH64)/libncursesw.so target=libncursesw.so.5
-file path=$(ECPREFIX)/lib/$(MACH64)/libncursesw.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libncursesw.so.5 \
+file path=$(USRDIR)/lib/$(MACH64)/libncurses++w.a
+file path=$(USRDIR)/lib/$(MACH64)/libncursesw.a
+link path=$(USRDIR)/lib/$(MACH64)/libncursesw.so target=libncursesw.so.5
+file path=$(USRDIR)/lib/$(MACH64)/libncursesw.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/$(MACH64)/libncursesw.so.5 \
     target=libncursesw.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/libpanelw.a
-link path=$(ECPREFIX)/lib/$(MACH64)/libpanelw.so target=libpanelw.so.5
-file path=$(ECPREFIX)/lib/$(MACH64)/libpanelw.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libpanelw.so.5 \
+file path=$(USRDIR)/lib/$(MACH64)/libpanelw.a
+link path=$(USRDIR)/lib/$(MACH64)/libpanelw.so target=libpanelw.so.5
+file path=$(USRDIR)/lib/$(MACH64)/libpanelw.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/$(MACH64)/libpanelw.so.5 \
     target=libpanelw.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/libtic.a
-link path=$(ECPREFIX)/lib/$(MACH64)/libtic.so target=libtic.so.5
-file path=$(ECPREFIX)/lib/$(MACH64)/libtic.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libtic.so.5 \
+file path=$(USRDIR)/lib/$(MACH64)/libtic.a
+link path=$(USRDIR)/lib/$(MACH64)/libtic.so target=libtic.so.5
+file path=$(USRDIR)/lib/$(MACH64)/libtic.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/$(MACH64)/libtic.so.5 \
     target=libtic.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/libtinfo.a
-link path=$(ECPREFIX)/lib/$(MACH64)/libtinfo.so target=libtinfo.so.5
-file path=$(ECPREFIX)/lib/$(MACH64)/libtinfo.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libtinfo.so.5 \
+file path=$(USRDIR)/lib/$(MACH64)/libtinfo.a
+link path=$(USRDIR)/lib/$(MACH64)/libtinfo.so target=libtinfo.so.5
+file path=$(USRDIR)/lib/$(MACH64)/libtinfo.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/$(MACH64)/libtinfo.so.5 \
     target=libtinfo.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/formw.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/menuw.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/ncurses++w.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/ncursesw.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/panelw.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/tic.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/tinfo.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/formw.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/menuw.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/ncurses++w.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/ncursesw.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/panelw.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/tic.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/tinfo.pc
 
-file path=$(ECPREFIX)/lib/libformw.a
-link path=$(ECPREFIX)/lib/libformw.so target=libformw.so.5
-file path=$(ECPREFIX)/lib/libformw.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libformw.so.5 target=libformw.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/libmenuw.a
-link path=$(ECPREFIX)/lib/libmenuw.so target=libmenuw.so.5
-file path=$(ECPREFIX)/lib/libmenuw.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libmenuw.so.5 target=libmenuw.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/libncurses++w.a
-file path=$(ECPREFIX)/lib/libncursesw.a
-link path=$(ECPREFIX)/lib/libncursesw.so target=libncursesw.so.5
-file path=$(ECPREFIX)/lib/libncursesw.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libncursesw.so.5 \
+file path=$(USRDIR)/lib/libformw.a
+link path=$(USRDIR)/lib/libformw.so target=libformw.so.5
+file path=$(USRDIR)/lib/libformw.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libformw.so.5 target=libformw.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/libmenuw.a
+link path=$(USRDIR)/lib/libmenuw.so target=libmenuw.so.5
+file path=$(USRDIR)/lib/libmenuw.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libmenuw.so.5 target=libmenuw.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/libncurses++w.a
+file path=$(USRDIR)/lib/libncursesw.a
+link path=$(USRDIR)/lib/libncursesw.so target=libncursesw.so.5
+file path=$(USRDIR)/lib/libncursesw.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libncursesw.so.5 \
     target=libncursesw.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/libpanelw.a
-link path=$(ECPREFIX)/lib/libpanelw.so target=libpanelw.so.5
-file path=$(ECPREFIX)/lib/libpanelw.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libpanelw.so.5 \
+file path=$(USRDIR)/lib/libpanelw.a
+link path=$(USRDIR)/lib/libpanelw.so target=libpanelw.so.5
+file path=$(USRDIR)/lib/libpanelw.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libpanelw.so.5 \
     target=libpanelw.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/libtic.a
-link path=$(ECPREFIX)/lib/libtic.so target=libtic.so.5
-file path=$(ECPREFIX)/lib/libtic.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libtic.so.5 target=libtic.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/libtinfo.a
-link path=$(ECPREFIX)/lib/libtinfo.so target=libtinfo.so.5
-file path=$(ECPREFIX)/lib/libtinfo.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libtinfo.so.5 target=libtinfo.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/libtic.a
+link path=$(USRDIR)/lib/libtic.so target=libtic.so.5
+file path=$(USRDIR)/lib/libtic.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libtic.so.5 target=libtic.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/libtinfo.a
+link path=$(USRDIR)/lib/libtinfo.so target=libtinfo.so.5
+file path=$(USRDIR)/lib/libtinfo.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libtinfo.so.5 target=libtinfo.so.$(COMPONENT_VERSION)
 
-file path=$(ECPREFIX)/lib/pkgconfig/formw.pc
-file path=$(ECPREFIX)/lib/pkgconfig/menuw.pc
-file path=$(ECPREFIX)/lib/pkgconfig/ncurses++w.pc
-file path=$(ECPREFIX)/lib/pkgconfig/ncursesw.pc
-file path=$(ECPREFIX)/lib/pkgconfig/panelw.pc
-file path=$(ECPREFIX)/lib/pkgconfig/tic.pc
-file path=$(ECPREFIX)/lib/pkgconfig/tinfo.pc
+file path=$(USRDIR)/lib/pkgconfig/formw.pc
+file path=$(USRDIR)/lib/pkgconfig/menuw.pc
+file path=$(USRDIR)/lib/pkgconfig/ncurses++w.pc
+file path=$(USRDIR)/lib/pkgconfig/ncursesw.pc
+file path=$(USRDIR)/lib/pkgconfig/panelw.pc
+file path=$(USRDIR)/lib/pkgconfig/tic.pc
+file path=$(USRDIR)/lib/pkgconfig/tinfo.pc
 
-file path=$(ECPREFIX)/share/man/man1/ncursesw5-config.1
+file path=$(USRDIR)/share/man/man1/ncursesw5-config.1

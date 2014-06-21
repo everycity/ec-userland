@@ -18,6 +18,7 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=		ncurses
 COMPONENT_VERSION=	5.9
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
+COMPONENT_PROJECT_URL=	http://www.gnu.org/software/ncurses/
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:9046298fb440324c9d4135ecea7879ffed8546dd1b58e59430ea07a4633f563b
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
@@ -28,13 +29,13 @@ include ../../make-rules/ips.mk
 
 CPPFLAGS += -D_REENTRANT
 
-CONFIGURE_OPTIONS    +=        --with-normal
-CONFIGURE_OPTIONS    +=        --with-shared
-CONFIGURE_OPTIONS    +=        --without-debug
-CONFIGURE_OPTIONS    +=        --enable-pc-files
-CONFIGURE_OPTIONS.32 +=        --with-pkg-config=$(ECPREFIX)/bin/pkgconfig
-CONFIGURE_OPTIONS.64 +=        --with-pkg-config=$(ECPREFIX)/bin/$(MACH64)/pkgconfig
-CONFIGURE_OPTIONS    +=        --with-default-terminfo-dir=$(ECPREFIX)/share/terminfo
+CONFIGURE_OPTIONS    += --with-normal
+CONFIGURE_OPTIONS    += --with-shared
+CONFIGURE_OPTIONS    += --without-debug
+CONFIGURE_OPTIONS    += --enable-pc-files
+CONFIGURE_OPTIONS.32 += --with-pkg-config=$(USRDIR)/bin/pkgconfig
+CONFIGURE_OPTIONS.64 += --with-pkg-config=$(USRDIR)/bin/$(MACH64)/pkgconfig
+CONFIGURE_OPTIONS    += --with-default-terminfo-dir=$(USRDIR)/share/terminfo
 CONFIGURE_OPTIONS    += --without-profile
 CONFIGURE_OPTIONS    += --enable-echo
 CONFIGURE_OPTIONS    += --enable-const
@@ -79,12 +80,12 @@ $(VARIANT_WIDE)/%/.configured: CONFIGURE_OPTIONS += $(CFG_WIDE)
 $(VARIANT_NONWIDE)/%/.configured: CONFIGURE_OPTIONS += $(CFG_NONWIDE)
 
 COMPONENT_POST_INSTALL_ACTION+= (                                          \
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig &&        \
-	cd $(PROTO_DIR)$(ECPREFIX)/lib/pkgconfig &&                        \
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/pkgconfig &&        \
+	cd $(PROTO_DIR)$(USRDIR)/lib/pkgconfig &&                        \
 	for file in *.pc ; do                                              \
 		cat $$file | $(GSED) -e 's/\$(USRDIR)\/lib$$/\$(USRDIR)\/lib\/$(MACH64)/'  \
 		-e 's/-L\$${libdir} -l/-L\$${libdir} -R\$${libdir} -l/'    \
-		> $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig/$$file ; \
+		> $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/pkgconfig/$$file ; \
 	done )
 
 build:          $(BUILD_32_and_64)
