@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2011-2014, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -22,34 +22,21 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license libffi.license license="BSD"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/libffi-$(COMPONENT_VERSION)
-dir path=$(ECPREFIX)/lib/$(MACH64)/libffi-$(COMPONENT_VERSION)/include
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/libffi-$(COMPONENT_VERSION)
-dir path=$(ECPREFIX)/lib/libffi-$(COMPONENT_VERSION)/include
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/info
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man3
-file path=$(ECPREFIX)/lib/$(MACH64)/libffi-$(COMPONENT_VERSION)/include/ffi.h
+file path=$(USRDIR)/lib/$(MACH64)/libffi-$(COMPONENT_VERSION)/include/ffi.h
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/libffi-$(COMPONENT_VERSION)/include/ffitarget.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libffi.so.6.0.1
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libffi.pc
-file path=$(ECPREFIX)/lib/libffi-$(COMPONENT_VERSION)/include/ffi.h
-file path=$(ECPREFIX)/lib/libffi-$(COMPONENT_VERSION)/include/ffitarget.h
-file path=$(ECPREFIX)/lib/libffi.so.6.0.1
-file path=$(ECPREFIX)/lib/pkgconfig/libffi.pc
-file path=$(ECPREFIX)/share/info/libffi.info
-file path=$(ECPREFIX)/share/man/man3/ffi.3
-file path=$(ECPREFIX)/share/man/man3/ffi_call.3
-file path=$(ECPREFIX)/share/man/man3/ffi_prep_cif.3
-file path=$(ECPREFIX)/share/man/man3/ffi_prep_cif_var.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libffi.so target=libffi.so.6.0.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libffi.so.6 target=libffi.so.6.0.1
-link path=$(ECPREFIX)/lib/libffi.so target=libffi.so.6.0.1
-link path=$(ECPREFIX)/lib/libffi.so.6 target=libffi.so.6.0.1
+    path=$(USRDIR)/lib/$(MACH64)/libffi-$(COMPONENT_VERSION)/include/ffitarget.h
+file path=$(USRDIR)/lib/$(MACH64)/libffi.so.6.0.1
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libffi.pc
+file path=$(USRDIR)/lib/libffi-$(COMPONENT_VERSION)/include/ffi.h
+file path=$(USRDIR)/lib/libffi-$(COMPONENT_VERSION)/include/ffitarget.h
+file path=$(USRDIR)/lib/libffi.so.6.0.1
+file path=$(USRDIR)/lib/pkgconfig/libffi.pc
+file path=$(USRDIR)/share/info/libffi.info
+file path=$(USRDIR)/share/man/man3/ffi.3
+file path=$(USRDIR)/share/man/man3/ffi_call.3
+file path=$(USRDIR)/share/man/man3/ffi_prep_cif.3
+file path=$(USRDIR)/share/man/man3/ffi_prep_cif_var.3
+link path=$(USRDIR)/lib/$(MACH64)/libffi.so target=libffi.so.6.0.1
+link path=$(USRDIR)/lib/$(MACH64)/libffi.so.6 target=libffi.so.6.0.1
+link path=$(USRDIR)/lib/libffi.so target=libffi.so.6.0.1
+link path=$(USRDIR)/lib/libffi.so.6 target=libffi.so.6.0.1

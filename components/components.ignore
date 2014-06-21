@@ -141,7 +141,6 @@
 /^libestr$/d
 /^libevent$/d
 /^libfcgi$/d
-/^libffi$/d
 /^libgcrypt$/d
 /^libgd$/d
 /^libgpg-error$/d
@@ -352,8 +351,6 @@
 /^proftpd$/d
 /^proj$/d
 /^protobuf$/d
-/^python\/cherrypy$/d
-/^python\/coverage$/d
 /^python\/jsonrpclib$/d
 /^python\/m2crypto$/d
 /^python\/mako$/d
