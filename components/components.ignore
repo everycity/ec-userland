@@ -216,7 +216,6 @@
 /^nano$/d
 /^nasm$/d
 /^ncdu$/d
-/^ncurses$/d
 /^nddtune$/d
 /^neon$/d
 /^net-snmp$/d
