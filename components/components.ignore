@@ -353,7 +353,6 @@
 /^python\/mysqldb55$/d
 /^python\/psycopg2-pg91$/d
 /^python\/psycopg2-pg93$/d
-/^python\/pycurl$/d
 /^python\/pyopenssl$/d
 /^python\/python26$/d
 /^python\/setuptools$/d
