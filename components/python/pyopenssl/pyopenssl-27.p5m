@@ -29,26 +29,26 @@ set name=info.classification \
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 
-file path=usr/lib/python2.7/vendor-packages/OpenSSL/64/SSL.so
-file path=usr/lib/python2.7/vendor-packages/OpenSSL/64/crypto.so
-file path=usr/lib/python2.7/vendor-packages/OpenSSL/64/rand.so
-file path=usr/lib/python2.7/vendor-packages/OpenSSL/SSL.so
-file path=usr/lib/python2.7/vendor-packages/OpenSSL/__init__.py
-file path=usr/lib/python2.7/vendor-packages/OpenSSL/crypto.so
-file path=usr/lib/python2.7/vendor-packages/OpenSSL/rand.so
-file path=usr/lib/python2.7/vendor-packages/OpenSSL/test/__init__.py
-file path=usr/lib/python2.7/vendor-packages/OpenSSL/test/test_crypto.py
-file path=usr/lib/python2.7/vendor-packages/OpenSSL/test/test_rand.py
-file path=usr/lib/python2.7/vendor-packages/OpenSSL/test/test_ssl.py
-file path=usr/lib/python2.7/vendor-packages/OpenSSL/test/util.py
-file path=usr/lib/python2.7/vendor-packages/OpenSSL/tsafe.py
-file path=usr/lib/python2.7/vendor-packages/OpenSSL/version.py
-file path=usr/lib/python2.7/vendor-packages/pyOpenSSL-$(COMPONENT_VERSION)-py2.7.egg-info
+file path=$(USRDIR)/lib/python2.7/vendor-packages/OpenSSL/64/SSL.so
+file path=$(USRDIR)/lib/python2.7/vendor-packages/OpenSSL/64/crypto.so
+file path=$(USRDIR)/lib/python2.7/vendor-packages/OpenSSL/64/rand.so
+file path=$(USRDIR)/lib/python2.7/vendor-packages/OpenSSL/SSL.so
+file path=$(USRDIR)/lib/python2.7/vendor-packages/OpenSSL/__init__.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/OpenSSL/crypto.so
+file path=$(USRDIR)/lib/python2.7/vendor-packages/OpenSSL/rand.so
+file path=$(USRDIR)/lib/python2.7/vendor-packages/OpenSSL/test/__init__.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/OpenSSL/test/test_crypto.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/OpenSSL/test/test_rand.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/OpenSSL/test/test_ssl.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/OpenSSL/test/util.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/OpenSSL/tsafe.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/OpenSSL/version.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/pyOpenSSL-$(COMPONENT_VERSION)-py2.7.egg-info
 license LICENSE license=Apache2
 
 # force a dependency on the Python runtime
 depend type=require fmri=__TBD pkg.debug.depend.file=python2.7 \
-    pkg.debug.depend.path=usr/bin
+    pkg.debug.depend.path=$(USRDIR)/bin
 
 # force a dependency on the pyopenssl package
 #depend fmri=library/python-2/pyopenssl@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION) \
