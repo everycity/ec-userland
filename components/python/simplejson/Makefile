@@ -20,6 +20,7 @@
 #
 
 #
+# Copyright 2014, Igor Kozhukhov <ikozhukhov@gmail.com>.
 # Copyright (c) 2013, 2014, Oracle and/or its affiliates. All rights reserved.
 #
 
@@ -35,14 +36,9 @@ COMPONENT_ARCHIVE_HASH= \
 COMPONENT_ARCHIVE_URL=	http://pypi.python.org/packages/source/s/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 COMPONENT_BUGDB=	python-mod/simplejson
 
-# Syntax issues: not Python 3 ready.
-PYTHON_VERSIONS = 2.7 2.6
-
 include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/setup.py.mk
 include $(WS_TOP)/make-rules/ips.mk
-
-ASLR_MODE = $(ASLR_NOT_APPLICABLE)
 
 # Needed to get around a broken /usr/lib/python2.7/config/Makefile
 # See CR #16837431.

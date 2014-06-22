@@ -354,7 +354,6 @@
 /^python\/psycopg2-pg91$/d
 /^python\/psycopg2-pg93$/d
 /^python\/python26$/d
-/^python\/simplejson$/d
 /^qt4$/d
 /^rabbitmq$/d
 /^raptor2$/d
