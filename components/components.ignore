@@ -350,7 +350,6 @@
 /^proftpd$/d
 /^proj$/d
 /^protobuf$/d
-/^python\/jsonrpclib$/d
 /^python\/m2crypto$/d
 /^python\/mako$/d
 /^python\/mercurial$/d
@@ -401,7 +400,6 @@
 /^subversion$/d
 /^subversion-apache24$/d
 /^sudo$/d
-/^swig$/d
 /^sysbench$/d
 /^syslog-ng$/d
 /^taglib$/d
