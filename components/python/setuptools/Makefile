@@ -18,6 +18,7 @@
 #
 # CDDL HEADER END
 #
+# Copyright 2014, Igor Kozhukhov <ikozhukhov@gmail.com>.
 # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
 #
 include ../../../make-rules/shared-macros.mk
@@ -26,6 +27,7 @@ include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		setuptools
 COMPONENT_VERSION=	0.6c11
+COMPONENT_PROJECT_URL=	http://pypi.python.org/pypi/setuptools
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:8d1ad6384d358c547c50c60f1bfdb3362c6c4a7d
@@ -39,10 +41,8 @@ include ../../../make-rules/ips.mk
 IPS_COMPONENT_VERSION=  0.6.3.11
 
 # common targets
-#build:		$(BUILD_32_and_64)
 build:		$(BUILD_32)
 
-#install:	$(INSTALL_32_and_64)
 install:	$(INSTALL_32)
 
 test:
