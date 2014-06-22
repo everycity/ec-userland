@@ -30,82 +30,82 @@ set name=info.classification \
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 
-file path=usr/lib/$(MACH64)/libxml2.so.2
-file path=usr/lib/libxml2.so.2
+file path=$(USRDIR)/lib/$(MACH64)/libxml2.so.2
+file path=$(USRDIR)/lib/libxml2.so.2
 
-file path=$(ECPREFIX)/bin/$(MACH64)/xml2-config
-file path=$(ECPREFIX)/bin/$(MACH64)/xmlcatalog
-file path=$(ECPREFIX)/bin/$(MACH64)/xmllint
-file path=$(ECPREFIX)/bin/xml2-config
-file path=$(ECPREFIX)/bin/xmlcatalog
-file path=$(ECPREFIX)/bin/xmllint
+file path=$(USRDIR)/bin/$(MACH64)/xml2-config
+file path=$(USRDIR)/bin/$(MACH64)/xmlcatalog
+file path=$(USRDIR)/bin/$(MACH64)/xmllint
+file path=$(USRDIR)/bin/xml2-config
+file path=$(USRDIR)/bin/xmlcatalog
+file path=$(USRDIR)/bin/xmllint
 
-file path=usr/include/libxml2/libxml/DOCBparser.h
-file path=usr/include/libxml2/libxml/HTMLparser.h
-file path=usr/include/libxml2/libxml/HTMLtree.h
-file path=usr/include/libxml2/libxml/SAX.h
-file path=usr/include/libxml2/libxml/SAX2.h
-file path=usr/include/libxml2/libxml/c14n.h
-file path=usr/include/libxml2/libxml/catalog.h
-file path=usr/include/libxml2/libxml/chvalid.h
-file path=usr/include/libxml2/libxml/debugXML.h
-file path=usr/include/libxml2/libxml/dict.h
-file path=usr/include/libxml2/libxml/encoding.h
-file path=usr/include/libxml2/libxml/entities.h
-file path=usr/include/libxml2/libxml/globals.h
-file path=usr/include/libxml2/libxml/hash.h
-file path=usr/include/libxml2/libxml/list.h
-file path=usr/include/libxml2/libxml/nanoftp.h
-file path=usr/include/libxml2/libxml/nanohttp.h
-file path=usr/include/libxml2/libxml/parser.h
-file path=usr/include/libxml2/libxml/parserInternals.h
-file path=usr/include/libxml2/libxml/pattern.h
-file path=usr/include/libxml2/libxml/relaxng.h
-file path=usr/include/libxml2/libxml/schemasInternals.h
-file path=usr/include/libxml2/libxml/schematron.h
-file path=usr/include/libxml2/libxml/threads.h
-file path=usr/include/libxml2/libxml/tree.h
-file path=usr/include/libxml2/libxml/uri.h
-file path=usr/include/libxml2/libxml/valid.h
-file path=usr/include/libxml2/libxml/xinclude.h
-file path=usr/include/libxml2/libxml/xlink.h
-file path=usr/include/libxml2/libxml/xmlIO.h
-file path=usr/include/libxml2/libxml/xmlautomata.h
-file path=usr/include/libxml2/libxml/xmlerror.h
-file path=usr/include/libxml2/libxml/xmlexports.h
-file path=usr/include/libxml2/libxml/xmlmemory.h
-file path=usr/include/libxml2/libxml/xmlmodule.h
-file path=usr/include/libxml2/libxml/xmlreader.h
-file path=usr/include/libxml2/libxml/xmlregexp.h
-file path=usr/include/libxml2/libxml/xmlsave.h
-file path=usr/include/libxml2/libxml/xmlschemas.h
-file path=usr/include/libxml2/libxml/xmlschemastypes.h
-file path=usr/include/libxml2/libxml/xmlstring.h
-file path=usr/include/libxml2/libxml/xmlunicode.h
-file path=usr/include/libxml2/libxml/xmlversion.h
-file path=usr/include/libxml2/libxml/xmlwriter.h
-file path=usr/include/libxml2/libxml/xpath.h
-file path=usr/include/libxml2/libxml/xpathInternals.h
-file path=usr/include/libxml2/libxml/xpointer.h
+file path=$(USRDIR)/include/libxml2/libxml/DOCBparser.h
+file path=$(USRDIR)/include/libxml2/libxml/HTMLparser.h
+file path=$(USRDIR)/include/libxml2/libxml/HTMLtree.h
+file path=$(USRDIR)/include/libxml2/libxml/SAX.h
+file path=$(USRDIR)/include/libxml2/libxml/SAX2.h
+file path=$(USRDIR)/include/libxml2/libxml/c14n.h
+file path=$(USRDIR)/include/libxml2/libxml/catalog.h
+file path=$(USRDIR)/include/libxml2/libxml/chvalid.h
+file path=$(USRDIR)/include/libxml2/libxml/debugXML.h
+file path=$(USRDIR)/include/libxml2/libxml/dict.h
+file path=$(USRDIR)/include/libxml2/libxml/encoding.h
+file path=$(USRDIR)/include/libxml2/libxml/entities.h
+file path=$(USRDIR)/include/libxml2/libxml/globals.h
+file path=$(USRDIR)/include/libxml2/libxml/hash.h
+file path=$(USRDIR)/include/libxml2/libxml/list.h
+file path=$(USRDIR)/include/libxml2/libxml/nanoftp.h
+file path=$(USRDIR)/include/libxml2/libxml/nanohttp.h
+file path=$(USRDIR)/include/libxml2/libxml/parser.h
+file path=$(USRDIR)/include/libxml2/libxml/parserInternals.h
+file path=$(USRDIR)/include/libxml2/libxml/pattern.h
+file path=$(USRDIR)/include/libxml2/libxml/relaxng.h
+file path=$(USRDIR)/include/libxml2/libxml/schemasInternals.h
+file path=$(USRDIR)/include/libxml2/libxml/schematron.h
+file path=$(USRDIR)/include/libxml2/libxml/threads.h
+file path=$(USRDIR)/include/libxml2/libxml/tree.h
+file path=$(USRDIR)/include/libxml2/libxml/uri.h
+file path=$(USRDIR)/include/libxml2/libxml/valid.h
+file path=$(USRDIR)/include/libxml2/libxml/xinclude.h
+file path=$(USRDIR)/include/libxml2/libxml/xlink.h
+file path=$(USRDIR)/include/libxml2/libxml/xmlIO.h
+file path=$(USRDIR)/include/libxml2/libxml/xmlautomata.h
+file path=$(USRDIR)/include/libxml2/libxml/xmlerror.h
+file path=$(USRDIR)/include/libxml2/libxml/xmlexports.h
+file path=$(USRDIR)/include/libxml2/libxml/xmlmemory.h
+file path=$(USRDIR)/include/libxml2/libxml/xmlmodule.h
+file path=$(USRDIR)/include/libxml2/libxml/xmlreader.h
+file path=$(USRDIR)/include/libxml2/libxml/xmlregexp.h
+file path=$(USRDIR)/include/libxml2/libxml/xmlsave.h
+file path=$(USRDIR)/include/libxml2/libxml/xmlschemas.h
+file path=$(USRDIR)/include/libxml2/libxml/xmlschemastypes.h
+file path=$(USRDIR)/include/libxml2/libxml/xmlstring.h
+file path=$(USRDIR)/include/libxml2/libxml/xmlunicode.h
+file path=$(USRDIR)/include/libxml2/libxml/xmlversion.h
+file path=$(USRDIR)/include/libxml2/libxml/xmlwriter.h
+file path=$(USRDIR)/include/libxml2/libxml/xpath.h
+file path=$(USRDIR)/include/libxml2/libxml/xpathInternals.h
+file path=$(USRDIR)/include/libxml2/libxml/xpointer.h
 
-file path=usr/lib/$(MACH64)/pkgconfig/libxml-2.0.pc
-file path=usr/lib/pkgconfig/libxml-2.0.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libxml-2.0.pc
+file path=$(USRDIR)/lib/pkgconfig/libxml-2.0.pc
 
-file path=usr/share/aclocal/libxml.m4
-file path=usr/share/man/man1/xml2-config.1 facet.devel=all
-file path=usr/share/man/man1/xmlcatalog.1
-file path=usr/share/man/man1/xmllint.1
-file path=usr/share/man/man3/libxml.3
-file libxml2.3 path=usr/share/man/man3/libxml2.3
+file path=$(USRDIR)/share/aclocal/libxml.m4
+file path=$(USRDIR)/share/man/man1/xml2-config.1 facet.devel=all
+file path=$(USRDIR)/share/man/man1/xmlcatalog.1
+file path=$(USRDIR)/share/man/man1/xmllint.1
+file path=$(USRDIR)/share/man/man3/libxml.3
+file libxml2.3 path=$(USRDIR)/share/man/man3/libxml2.3
 
 license COPYING license="libxml license"
 
-link path=usr/lib/$(MACH64)/libxml2.so target=libxml2.so.2
-link path=usr/lib/libxml2.so target=libxml2.so.2
+link path=$(USRDIR)/lib/$(MACH64)/libxml2.so target=libxml2.so.2
+link path=$(USRDIR)/lib/libxml2.so target=libxml2.so.2
 
-depend fmri=library/python-2/libxml2-26 \
-    predicate=runtime/python-26 \
-    type=conditional
+#depend fmri=library/python-2/libxml2-26 \
+#    predicate=runtime/python-26 \
+#    type=conditional
 
 depend fmri=library/python-2/libxml2-27 \
     predicate=runtime/python-27 \
