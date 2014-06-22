@@ -48,7 +48,7 @@ CONFIGURE_OPTIONS += --without-librtmp
 CONFIGURE_OPTIONS += --disable-ldap
 CONFIGURE_OPTIONS += --disable-ldaps
 
-CONFIGURE_OPTIONS += --with-gssapi-includes=/usr/include/gssapi
+CONFIGURE_OPTIONS += --with-gssapi-includes=$(USRDIR)/include/gssapi
 CONFIGURE_OPTIONS += --with-gssapi-libs=$(GSSAPI_LIBDIR_$(BITS))
 CONFIGURE_OPTIONS += --with-gssapi=$(USRDIR)
 CONFIGURE_OPTIONS += "curl_disallow_getifaddrs=yes"
