@@ -349,7 +349,6 @@
 /^proftpd$/d
 /^proj$/d
 /^protobuf$/d
-/^python\/mako$/d
 /^python\/mercurial$/d
 /^python\/mysqldb55$/d
 /^python\/ply$/d
