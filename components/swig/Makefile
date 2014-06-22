@@ -32,19 +32,19 @@ include ../../make-rules/ips.mk
 #CONFIGURE_OPTIONS+=	--with-x
 CONFIGURE_OPTIONS+=	--without-tcl
 CONFIGURE_OPTIONS+=	--without-python3
-CONFIGURE_OPTIONS.32+=	--with-python=$(ECPREFIX)/bin/python
-CONFIGURE_OPTIONS.64+=	--with-python=$(ECPREFIX)/bin/$(MACH64)/python
-CONFIGURE_OPTIONS.32+=	--with-java=$(ECPREFIX)/bin/java
-CONFIGURE_OPTIONS.64+=	--with-java=$(ECPREFIX)/bin/$(MACH64)/java
-CONFIGURE_OPTIONS.32+=	--with-javac=$(ECPREFIX)/bin/javac
-CONFIGURE_OPTIONS.64+=	--with-javac=$(ECPREFIX)/bin/$(MACH64)/javac
-CONFIGURE_OPTIONS+=	--with-javaincl=$(ECPREFIX)/jdk/active/include
-CONFIGURE_OPTIONS.32+=	--with-ruby=$(ECPREFIX)/bin/ruby1.8
-CONFIGURE_OPTIONS.64+=	--with-ruby=$(ECPREFIX)/bin/$(MACH64)/ruby1.8
-CONFIGURE_OPTIONS.32+=	--with-php=$(ECPREFIX)/lib/php/5.3/bin/php-cli
-CONFIGURE_OPTIONS.64+=	--with-php=$(ECPREFIX)/lib/php/5.3/bin/$(MACH64)/php-cli
-CONFIGURE_OPTIONS.32+=	--with-tclconfig=$(ECPREFIX)/lib
-CONFIGURE_OPTIONS.64+=	--with-tclconfig=$(ECPREFIX)/lib/$(MACH64)
+CONFIGURE_OPTIONS.32+=	--with-python=$(USRDIR)/bin/python
+CONFIGURE_OPTIONS.64+=	--with-python=$(USRDIR)/bin/$(MACH64)/python
+CONFIGURE_OPTIONS.32+=	--with-java=$(USRDIR)/bin/java
+CONFIGURE_OPTIONS.64+=	--with-java=$(USRDIR)/bin/$(MACH64)/java
+CONFIGURE_OPTIONS.32+=	--with-javac=$(USRDIR)/bin/javac
+CONFIGURE_OPTIONS.64+=	--with-javac=$(USRDIR)/bin/$(MACH64)/javac
+CONFIGURE_OPTIONS+=	--with-javaincl=$(USRDIR)/jdk/active/include
+CONFIGURE_OPTIONS.32+=	--with-ruby=$(USRDIR)/bin/ruby1.8
+CONFIGURE_OPTIONS.64+=	--with-ruby=$(USRDIR)/bin/$(MACH64)/ruby1.8
+CONFIGURE_OPTIONS.32+=	--with-php=$(USRDIR)/lib/php/5.3/bin/php-cli
+CONFIGURE_OPTIONS.64+=	--with-php=$(USRDIR)/lib/php/5.3/bin/$(MACH64)/php-cli
+CONFIGURE_OPTIONS.32+=	--with-tclconfig=$(USRDIR)/lib
+CONFIGURE_OPTIONS.64+=	--with-tclconfig=$(USRDIR)/lib/$(MACH64)
 
 build:		$(BUILD_32_and_64)
 
