@@ -1,0 +1,140 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2014 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/python2.6
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/64
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/gridfs
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo
+dir \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo-$(COMPONENT_VERSION)-py2.6.egg-info
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/64
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/64/_cbson.so
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/__init__.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/__init__.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/_cbson.so
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/binary.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/binary.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/code.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/code.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/dbref.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/dbref.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/errors.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/errors.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/json_util.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/json_util.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/max_key.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/max_key.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/min_key.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/min_key.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/objectid.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/objectid.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/py3compat.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/py3compat.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/regex.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/regex.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/son.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/son.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/timestamp.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/timestamp.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/tz_util.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/bson/tz_util.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/gridfs/__init__.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/gridfs/__init__.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/gridfs/errors.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/gridfs/errors.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/gridfs/grid_file.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/gridfs/grid_file.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo-$(COMPONENT_VERSION)-py2.6.egg-info/PKG-INFO
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo-$(COMPONENT_VERSION)-py2.6.egg-info/SOURCES.txt
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo-$(COMPONENT_VERSION)-py2.6.egg-info/dependency_links.txt
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo-$(COMPONENT_VERSION)-py2.6.egg-info/top_level.txt
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/64/_cmessage.so
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/__init__.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/__init__.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/_cmessage.so
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/auth.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/auth.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/bulk.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/bulk.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/collection.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/collection.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/command_cursor.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/command_cursor.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/common.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/common.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/connection.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/connection.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/cursor.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/cursor.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/cursor_manager.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/cursor_manager.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/database.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/database.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/errors.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/errors.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/helpers.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/helpers.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/master_slave_connection.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/master_slave_connection.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/member.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/member.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/message.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/message.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/mongo_client.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/mongo_client.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/mongo_replica_set_client.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/mongo_replica_set_client.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/pool.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/pool.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/read_preferences.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/read_preferences.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/replica_set_connection.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/replica_set_connection.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/son_manipulator.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/son_manipulator.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/ssl_match_hostname.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/ssl_match_hostname.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/thread_util.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/thread_util.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/uri_parser.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/pymongo/uri_parser.pyc
