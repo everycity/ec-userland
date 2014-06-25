@@ -97,8 +97,10 @@ PKGDEPEND_TRANSFORMS +=	$(WS_TOP)/transforms/drop-os-dependencies
 
 
 ifeq   ($(strip $(COMPONENT_AUTOGEN_MANIFEST)),yes)
+AUTOGEN_MANIFEST_TEMPLATE    =          $(METADATA_TEMPLATE)
 AUTOGEN_MANIFEST_TRANSFORMS +=		$(WS_TOP)/transforms/generate-cleanup
 else
+AUTOGEN_MANIFEST_TEMPLATE    =          /dev/null
 AUTOGEN_MANIFEST_TRANSFORMS +=		$(WS_TOP)/transforms/drop-all
 endif
 
@@ -178,7 +180,7 @@ $(MANIFEST_BASE)-%.generate:	%.p5m canonical-manifests
 
 # mogrify the manifest
 $(MANIFEST_BASE)-%.generated:	%.p5m canonical-manifests
-	(cat $(METADATA_TEMPLATE); \
+	(cat $(AUTOGEN_MANIFEST_TEMPLATE); \
 		$(PKGSEND) generate $(PKG_HARDLINKS:%=--target %) $(PROTO_DIR)) | \
 		$(PKGMOGRIFY) $(PKG_OPTIONS) /dev/fd/0 $(AUTOGEN_MANIFEST_TRANSFORMS) | \
 		sed -e '/^$$/d' -e '/^#.*$$/d' >$@;
