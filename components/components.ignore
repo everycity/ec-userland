@@ -97,7 +97,6 @@
 /^gnu-pth$/d
 /^gnu-sed$/d
 #/^gnu-tar$/d
-/^gnu-wget$/d
 /^gnupg$/d
 /^gnupg2$/d
 /^gnuplot$/d
