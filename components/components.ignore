@@ -90,7 +90,6 @@
 /^gnu-coreutils$/d
 /^gnu-diffutils$/d
 /^gnu-findutils$/d
-/^gnu-grep$/d
 /^gnu-inetutils$/d
 /^gnu-pth$/d
 #/^gnu-tar$/d
