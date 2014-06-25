@@ -92,7 +92,6 @@
 /^gnu-findutils$/d
 /^gnu-grep$/d
 /^gnu-inetutils$/d
-/^gnu-patch$/d
 /^gnu-pth$/d
 #/^gnu-tar$/d
 /^gnupg$/d
