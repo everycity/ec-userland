@@ -356,7 +356,6 @@
 /^rabbitmq$/d
 /^raptor2$/d
 /^rasqal$/d
-/^readline$/d
 /^redis$/d
 /^redland$/d
 /^rrdtool$/d

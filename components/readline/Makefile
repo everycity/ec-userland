@@ -29,9 +29,13 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+CFLAGS += -I/usr/include/ncursesw
+LDFLAGS += -ltinfo
+
 CONFIGURE_OPTIONS  +=	--disable-static
 CONFIGURE_OPTIONS  +=	--enable-shared
 CONFIGURE_OPTIONS  +=	--enable-multibyte
+CONFIGURE_OPTIONS  +=	--with-curses
 
 build:		$(BUILD_32_and_64)
 
