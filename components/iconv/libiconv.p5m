@@ -1,76 +1,95 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
-#
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2013 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/library/gnu-libiconv@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="GNU libiconv - library used to convert between different character encodings"
-set name=info.upstream_url value="http://www.gnu.org/software/libiconv/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license libiconv.license license="GPLv3"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/libiconv
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-dir path=$(ECPREFIX)/share/man/man3
-file path=$(ECPREFIX)/bin/$(MACH64)/iconv
-file path=$(ECPREFIX)/bin/iconv
-file path=$(ECPREFIX)/include/iconv.h
-file path=$(ECPREFIX)/include/libcharset.h
-file path=$(ECPREFIX)/include/localcharset.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libcharset.so.1.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/libiconv.so.2.5.0
-file path=$(ECPREFIX)/lib/$(MACH64)/preloadable_libiconv.so
-file path=$(ECPREFIX)/lib/libcharset.so.1.0.0
-file path=$(ECPREFIX)/lib/libiconv.so.2.5.0
-file path=$(ECPREFIX)/lib/preloadable_libiconv.so
-file path=$(ECPREFIX)/share/doc/libiconv/iconv.1.html
-file path=$(ECPREFIX)/share/doc/libiconv/iconv.3.html
-file path=$(ECPREFIX)/share/doc/libiconv/iconv_close.3.html
-file path=$(ECPREFIX)/share/doc/libiconv/iconv_open.3.html
-file path=$(ECPREFIX)/share/doc/libiconv/iconv_open_into.3.html
-file path=$(ECPREFIX)/share/doc/libiconv/iconvctl.3.html
-file path=$(ECPREFIX)/share/man/man1/iconv.1
-file path=$(ECPREFIX)/share/man/man3/iconv.3
-file path=$(ECPREFIX)/share/man/man3/iconv_close.3
-file path=$(ECPREFIX)/share/man/man3/iconv_open.3
-file path=$(ECPREFIX)/share/man/man3/iconv_open_into.3
-file path=$(ECPREFIX)/share/man/man3/iconvctl.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libcharset.so target=libcharset.so.1.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libcharset.so.1 target=libcharset.so.1.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libiconv.so target=libiconv.so.2.5.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libiconv.so.2 target=libiconv.so.2.5.0
-link path=$(ECPREFIX)/lib/libcharset.so target=libcharset.so.1.0.0
-link path=$(ECPREFIX)/lib/libcharset.so.1 target=libcharset.so.1.0.0
-link path=$(ECPREFIX)/lib/libiconv.so target=libiconv.so.2.5.0
-link path=$(ECPREFIX)/lib/libiconv.so.2 target=libiconv.so.2.5.0
+file path=$(USRDIR)/bin/$(MACH64)/iconv
+file path=$(USRDIR)/bin/iconv
+
+file path=$(USRDIR)/include/iconv.h
+file path=$(USRDIR)/include/libcharset.h
+file path=$(USRDIR)/include/localcharset.h
+
+link path=$(USRDIR)/lib/$(MACH64)/libcharset.so target=libcharset.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libcharset.so.1 target=libcharset.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libcharset.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libiconv.so target=libiconv.so.2.5.1
+link path=$(USRDIR)/lib/$(MACH64)/libiconv.so.2 target=libiconv.so.2.5.1
+file path=$(USRDIR)/lib/$(MACH64)/libiconv.so.2.5.1
+file path=$(USRDIR)/lib/$(MACH64)/preloadable_libiconv.so
+link path=$(USRDIR)/lib/libcharset.so target=libcharset.so.1.0.0
+link path=$(USRDIR)/lib/libcharset.so.1 target=libcharset.so.1.0.0
+file path=$(USRDIR)/lib/libcharset.so.1.0.0
+link path=$(USRDIR)/lib/libiconv.so target=libiconv.so.2.5.1
+link path=$(USRDIR)/lib/libiconv.so.2 target=libiconv.so.2.5.1
+file path=$(USRDIR)/lib/libiconv.so.2.5.1
+file path=$(USRDIR)/lib/preloadable_libiconv.so
+
+file path=$(USRDIR)/share/doc/libiconv/iconv.1.html
+file path=$(USRDIR)/share/doc/libiconv/iconv.3.html
+file path=$(USRDIR)/share/doc/libiconv/iconv_close.3.html
+file path=$(USRDIR)/share/doc/libiconv/iconv_open.3.html
+file path=$(USRDIR)/share/doc/libiconv/iconv_open_into.3.html
+file path=$(USRDIR)/share/doc/libiconv/iconvctl.3.html
+file path=$(USRDIR)/share/locale/af/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/bg/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/ca/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/cs/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/da/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/de/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/el/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/eo/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/es/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/et/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/fi/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/fr/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/ga/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/gl/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/hr/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/hu/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/id/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/it/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/ja/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/nl/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/pl/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/pt_BR/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/rm/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/ro/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/ru/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/sk/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/sl/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/sq/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/sr/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/sv/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/tr/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/uk/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/vi/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/wa/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/zh_CN/LC_MESSAGES/libiconv.mo
+file path=$(USRDIR)/share/locale/zh_TW/LC_MESSAGES/libiconv.mo
+
+file path=$(USRDIR)/share/man/man1/iconv.1
+file path=$(USRDIR)/share/man/man3/iconv.3
+file path=$(USRDIR)/share/man/man3/iconv_close.3
+file path=$(USRDIR)/share/man/man3/iconv_open.3
+file path=$(USRDIR)/share/man/man3/iconv_open_into.3
+file path=$(USRDIR)/share/man/man3/iconvctl.3

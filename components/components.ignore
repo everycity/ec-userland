@@ -102,7 +102,6 @@
 /^haproxy-dev$/d
 /^harfbuzz$/d
 /^htop$/d
-/^iconv$/d
 /^id3lib$/d
 /^illumos-hal$/d
 /^imagemagick$/d
