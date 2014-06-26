@@ -72,7 +72,6 @@
 /^gconf$/d
 /^gdal$/d
 /^gdb$/d
-/^gdbm$/d
 /^gdk-pixbuf$/d
 /^geoip$/d
 /^geoip-db-city$/d

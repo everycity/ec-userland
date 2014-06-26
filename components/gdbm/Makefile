@@ -35,7 +35,7 @@ include ../../make-rules/ips.mk
 
 COMPONENT_INSTALL_ARGS  += INSTALL_ROOT=$(PROTO_DIR)
 
-CONFIGURE_OPTIONS  +=     --infodir=$(ECPREFIX)/share/info
+CONFIGURE_OPTIONS  +=     --infodir=$(USRDIR)/share/info
 
 include ../../make-rules/shared-targets.mk
 
