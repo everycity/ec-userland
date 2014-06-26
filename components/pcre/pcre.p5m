@@ -22,281 +22,266 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/pcre
-dir path=$(ECPREFIX)/share/doc/pcre/html
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-dir path=$(ECPREFIX)/share/man/man3
-file path=$(ECPREFIX)/bin/$(MACH64)/pcre-config
-file path=$(ECPREFIX)/bin/$(MACH64)/pcregrep
-file path=$(ECPREFIX)/bin/$(MACH64)/pcretest
-file path=$(ECPREFIX)/bin/pcre-config
-file path=$(ECPREFIX)/bin/pcregrep
-file path=$(ECPREFIX)/bin/pcretest
-file path=$(ECPREFIX)/include/pcre.h
-file path=$(ECPREFIX)/include/pcre_scanner.h
-file path=$(ECPREFIX)/include/pcre_stringpiece.h
-file path=$(ECPREFIX)/include/pcrecpp.h
-file path=$(ECPREFIX)/include/pcrecpparg.h
-file path=$(ECPREFIX)/include/pcreposix.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libpcre.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libpcre.so.1.2.3
-file path=$(ECPREFIX)/lib/$(MACH64)/libpcre16.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libpcre16.so.0.2.3
-file path=$(ECPREFIX)/lib/$(MACH64)/libpcre32.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libpcre32.so.0.0.3
-file path=$(ECPREFIX)/lib/$(MACH64)/libpcrecpp.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libpcrecpp.so.0.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/libpcreposix.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libpcreposix.so.0.0.2
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpcre.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpcre16.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpcre32.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpcrecpp.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpcreposix.pc
-file path=$(ECPREFIX)/lib/libpcre.la
-file path=$(ECPREFIX)/lib/libpcre.so.1.2.3
-file path=$(ECPREFIX)/lib/libpcre16.la
-file path=$(ECPREFIX)/lib/libpcre16.so.0.2.3
-file path=$(ECPREFIX)/lib/libpcre32.la
-file path=$(ECPREFIX)/lib/libpcre32.so.0.0.3
-file path=$(ECPREFIX)/lib/libpcrecpp.la
-file path=$(ECPREFIX)/lib/libpcrecpp.so.0.0.0
-file path=$(ECPREFIX)/lib/libpcreposix.la
-file path=$(ECPREFIX)/lib/libpcreposix.so.0.0.2
-file path=$(ECPREFIX)/lib/pkgconfig/libpcre.pc
-file path=$(ECPREFIX)/lib/pkgconfig/libpcre16.pc
-file path=$(ECPREFIX)/lib/pkgconfig/libpcre32.pc
-file path=$(ECPREFIX)/lib/pkgconfig/libpcrecpp.pc
-file path=$(ECPREFIX)/lib/pkgconfig/libpcreposix.pc
-file path=$(ECPREFIX)/share/doc/pcre/AUTHORS
-file path=$(ECPREFIX)/share/doc/pcre/COPYING
-file path=$(ECPREFIX)/share/doc/pcre/ChangeLog
-file path=$(ECPREFIX)/share/doc/pcre/LICENCE
-file path=$(ECPREFIX)/share/doc/pcre/NEWS
-file path=$(ECPREFIX)/share/doc/pcre/README
-file path=$(ECPREFIX)/share/doc/pcre/html/NON-AUTOTOOLS-BUILD.txt
-file path=$(ECPREFIX)/share/doc/pcre/html/README.txt
-file path=$(ECPREFIX)/share/doc/pcre/html/index.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre-config.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre16.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre32.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_assign_jit_stack.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_compile.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_compile2.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_config.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_copy_named_substring.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_copy_substring.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_dfa_exec.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_exec.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_free_study.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_free_substring.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_free_substring_list.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_fullinfo.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_get_named_substring.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_get_stringnumber.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_get_stringtable_entries.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_get_substring.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_get_substring_list.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_jit_exec.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_jit_stack_alloc.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_jit_stack_free.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_maketables.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_pattern_to_host_byte_order.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_refcount.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_study.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_utf16_to_host_byte_order.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_utf32_to_host_byte_order.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcre_version.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcreapi.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcrebuild.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcrecallout.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcrecompat.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcrecpp.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcredemo.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcregrep.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcrejit.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcrelimits.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcrematching.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcrepartial.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcrepattern.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcreperform.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcreposix.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcreprecompile.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcresample.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcrestack.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcresyntax.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcretest.html
-file path=$(ECPREFIX)/share/doc/pcre/html/pcreunicode.html
-file path=$(ECPREFIX)/share/doc/pcre/pcre-config.txt
-file path=$(ECPREFIX)/share/doc/pcre/pcre.txt
-file path=$(ECPREFIX)/share/doc/pcre/pcregrep.txt
-file path=$(ECPREFIX)/share/doc/pcre/pcretest.txt
-file path=$(ECPREFIX)/share/man/man1/pcre-config.1
-file path=$(ECPREFIX)/share/man/man1/pcregrep.1
-file path=$(ECPREFIX)/share/man/man1/pcretest.1
-file path=$(ECPREFIX)/share/man/man3/pcre.3
-file path=$(ECPREFIX)/share/man/man3/pcre16.3
-file path=$(ECPREFIX)/share/man/man3/pcre32.3
-file path=$(ECPREFIX)/share/man/man3/pcre_assign_jit_stack.3
-file path=$(ECPREFIX)/share/man/man3/pcre_compile.3
-file path=$(ECPREFIX)/share/man/man3/pcre_compile2.3
-file path=$(ECPREFIX)/share/man/man3/pcre_config.3
-file path=$(ECPREFIX)/share/man/man3/pcre_copy_named_substring.3
-file path=$(ECPREFIX)/share/man/man3/pcre_copy_substring.3
-file path=$(ECPREFIX)/share/man/man3/pcre_dfa_exec.3
-file path=$(ECPREFIX)/share/man/man3/pcre_exec.3
-file path=$(ECPREFIX)/share/man/man3/pcre_free_study.3
-file path=$(ECPREFIX)/share/man/man3/pcre_free_substring.3
-file path=$(ECPREFIX)/share/man/man3/pcre_free_substring_list.3
-file path=$(ECPREFIX)/share/man/man3/pcre_fullinfo.3
-file path=$(ECPREFIX)/share/man/man3/pcre_get_named_substring.3
-file path=$(ECPREFIX)/share/man/man3/pcre_get_stringnumber.3
-file path=$(ECPREFIX)/share/man/man3/pcre_get_stringtable_entries.3
-file path=$(ECPREFIX)/share/man/man3/pcre_get_substring.3
-file path=$(ECPREFIX)/share/man/man3/pcre_get_substring_list.3
-file path=$(ECPREFIX)/share/man/man3/pcre_jit_exec.3
-file path=$(ECPREFIX)/share/man/man3/pcre_jit_stack_alloc.3
-file path=$(ECPREFIX)/share/man/man3/pcre_jit_stack_free.3
-file path=$(ECPREFIX)/share/man/man3/pcre_maketables.3
-file path=$(ECPREFIX)/share/man/man3/pcre_pattern_to_host_byte_order.3
-file path=$(ECPREFIX)/share/man/man3/pcre_refcount.3
-file path=$(ECPREFIX)/share/man/man3/pcre_study.3
-file path=$(ECPREFIX)/share/man/man3/pcre_utf16_to_host_byte_order.3
-file path=$(ECPREFIX)/share/man/man3/pcre_utf32_to_host_byte_order.3
-file path=$(ECPREFIX)/share/man/man3/pcre_version.3
-file path=$(ECPREFIX)/share/man/man3/pcreapi.3
-file path=$(ECPREFIX)/share/man/man3/pcrebuild.3
-file path=$(ECPREFIX)/share/man/man3/pcrecallout.3
-file path=$(ECPREFIX)/share/man/man3/pcrecompat.3
-file path=$(ECPREFIX)/share/man/man3/pcrecpp.3
-file path=$(ECPREFIX)/share/man/man3/pcredemo.3
-file path=$(ECPREFIX)/share/man/man3/pcrejit.3
-file path=$(ECPREFIX)/share/man/man3/pcrelimits.3
-file path=$(ECPREFIX)/share/man/man3/pcrematching.3
-file path=$(ECPREFIX)/share/man/man3/pcrepartial.3
-file path=$(ECPREFIX)/share/man/man3/pcrepattern.3
-file path=$(ECPREFIX)/share/man/man3/pcreperform.3
-file path=$(ECPREFIX)/share/man/man3/pcreposix.3
-file path=$(ECPREFIX)/share/man/man3/pcreprecompile.3
-file path=$(ECPREFIX)/share/man/man3/pcresample.3
-file path=$(ECPREFIX)/share/man/man3/pcrestack.3
-file path=$(ECPREFIX)/share/man/man3/pcresyntax.3
-file path=$(ECPREFIX)/share/man/man3/pcreunicode.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libpcre.so target=libpcre.so.1.2.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libpcre.so.1 target=libpcre.so.1.2.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libpcre16.so target=libpcre16.so.0.2.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libpcre16.so.0 target=libpcre16.so.0.2.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libpcre32.so target=libpcre32.so.0.0.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libpcre32.so.0 target=libpcre32.so.0.0.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libpcrecpp.so target=libpcrecpp.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libpcrecpp.so.0 target=libpcrecpp.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libpcreposix.so \
+file path=$(USRDIR)/bin/$(MACH64)/pcre-config
+file path=$(USRDIR)/bin/$(MACH64)/pcregrep
+file path=$(USRDIR)/bin/$(MACH64)/pcretest
+file path=$(USRDIR)/bin/pcre-config
+file path=$(USRDIR)/bin/pcregrep
+file path=$(USRDIR)/bin/pcretest
+file path=$(USRDIR)/include/pcre.h
+file path=$(USRDIR)/include/pcre_scanner.h
+file path=$(USRDIR)/include/pcre_stringpiece.h
+file path=$(USRDIR)/include/pcrecpp.h
+file path=$(USRDIR)/include/pcrecpparg.h
+file path=$(USRDIR)/include/pcreposix.h
+file path=$(USRDIR)/lib/$(MACH64)/libpcre.la
+file path=$(USRDIR)/lib/$(MACH64)/libpcre.so.1.2.3
+file path=$(USRDIR)/lib/$(MACH64)/libpcre16.la
+file path=$(USRDIR)/lib/$(MACH64)/libpcre16.so.0.2.3
+file path=$(USRDIR)/lib/$(MACH64)/libpcre32.la
+file path=$(USRDIR)/lib/$(MACH64)/libpcre32.so.0.0.3
+file path=$(USRDIR)/lib/$(MACH64)/libpcrecpp.la
+file path=$(USRDIR)/lib/$(MACH64)/libpcrecpp.so.0.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libpcreposix.la
+file path=$(USRDIR)/lib/$(MACH64)/libpcreposix.so.0.0.2
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libpcre.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libpcre16.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libpcre32.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libpcrecpp.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libpcreposix.pc
+file path=$(USRDIR)/lib/libpcre.la
+file path=$(USRDIR)/lib/libpcre.so.1.2.3
+file path=$(USRDIR)/lib/libpcre16.la
+file path=$(USRDIR)/lib/libpcre16.so.0.2.3
+file path=$(USRDIR)/lib/libpcre32.la
+file path=$(USRDIR)/lib/libpcre32.so.0.0.3
+file path=$(USRDIR)/lib/libpcrecpp.la
+file path=$(USRDIR)/lib/libpcrecpp.so.0.0.0
+file path=$(USRDIR)/lib/libpcreposix.la
+file path=$(USRDIR)/lib/libpcreposix.so.0.0.2
+file path=$(USRDIR)/lib/pkgconfig/libpcre.pc
+file path=$(USRDIR)/lib/pkgconfig/libpcre16.pc
+file path=$(USRDIR)/lib/pkgconfig/libpcre32.pc
+file path=$(USRDIR)/lib/pkgconfig/libpcrecpp.pc
+file path=$(USRDIR)/lib/pkgconfig/libpcreposix.pc
+file path=$(USRDIR)/share/doc/pcre/AUTHORS
+file path=$(USRDIR)/share/doc/pcre/COPYING
+file path=$(USRDIR)/share/doc/pcre/ChangeLog
+file path=$(USRDIR)/share/doc/pcre/LICENCE
+file path=$(USRDIR)/share/doc/pcre/NEWS
+file path=$(USRDIR)/share/doc/pcre/README
+file path=$(USRDIR)/share/doc/pcre/html/NON-AUTOTOOLS-BUILD.txt
+file path=$(USRDIR)/share/doc/pcre/html/README.txt
+file path=$(USRDIR)/share/doc/pcre/html/index.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre-config.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre16.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre32.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_assign_jit_stack.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_compile.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_compile2.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_config.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_copy_named_substring.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_copy_substring.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_dfa_exec.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_exec.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_free_study.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_free_substring.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_free_substring_list.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_fullinfo.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_get_named_substring.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_get_stringnumber.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_get_stringtable_entries.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_get_substring.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_get_substring_list.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_jit_exec.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_jit_stack_alloc.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_jit_stack_free.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_maketables.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_pattern_to_host_byte_order.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_refcount.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_study.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_utf16_to_host_byte_order.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_utf32_to_host_byte_order.html
+file path=$(USRDIR)/share/doc/pcre/html/pcre_version.html
+file path=$(USRDIR)/share/doc/pcre/html/pcreapi.html
+file path=$(USRDIR)/share/doc/pcre/html/pcrebuild.html
+file path=$(USRDIR)/share/doc/pcre/html/pcrecallout.html
+file path=$(USRDIR)/share/doc/pcre/html/pcrecompat.html
+file path=$(USRDIR)/share/doc/pcre/html/pcrecpp.html
+file path=$(USRDIR)/share/doc/pcre/html/pcredemo.html
+file path=$(USRDIR)/share/doc/pcre/html/pcregrep.html
+file path=$(USRDIR)/share/doc/pcre/html/pcrejit.html
+file path=$(USRDIR)/share/doc/pcre/html/pcrelimits.html
+file path=$(USRDIR)/share/doc/pcre/html/pcrematching.html
+file path=$(USRDIR)/share/doc/pcre/html/pcrepartial.html
+file path=$(USRDIR)/share/doc/pcre/html/pcrepattern.html
+file path=$(USRDIR)/share/doc/pcre/html/pcreperform.html
+file path=$(USRDIR)/share/doc/pcre/html/pcreposix.html
+file path=$(USRDIR)/share/doc/pcre/html/pcreprecompile.html
+file path=$(USRDIR)/share/doc/pcre/html/pcresample.html
+file path=$(USRDIR)/share/doc/pcre/html/pcrestack.html
+file path=$(USRDIR)/share/doc/pcre/html/pcresyntax.html
+file path=$(USRDIR)/share/doc/pcre/html/pcretest.html
+file path=$(USRDIR)/share/doc/pcre/html/pcreunicode.html
+file path=$(USRDIR)/share/doc/pcre/pcre-config.txt
+file path=$(USRDIR)/share/doc/pcre/pcre.txt
+file path=$(USRDIR)/share/doc/pcre/pcregrep.txt
+file path=$(USRDIR)/share/doc/pcre/pcretest.txt
+file path=$(USRDIR)/share/man/man1/pcre-config.1
+file path=$(USRDIR)/share/man/man1/pcregrep.1
+file path=$(USRDIR)/share/man/man1/pcretest.1
+file path=$(USRDIR)/share/man/man3/pcre.3
+file path=$(USRDIR)/share/man/man3/pcre16.3
+file path=$(USRDIR)/share/man/man3/pcre32.3
+file path=$(USRDIR)/share/man/man3/pcre_assign_jit_stack.3
+file path=$(USRDIR)/share/man/man3/pcre_compile.3
+file path=$(USRDIR)/share/man/man3/pcre_compile2.3
+file path=$(USRDIR)/share/man/man3/pcre_config.3
+file path=$(USRDIR)/share/man/man3/pcre_copy_named_substring.3
+file path=$(USRDIR)/share/man/man3/pcre_copy_substring.3
+file path=$(USRDIR)/share/man/man3/pcre_dfa_exec.3
+file path=$(USRDIR)/share/man/man3/pcre_exec.3
+file path=$(USRDIR)/share/man/man3/pcre_free_study.3
+file path=$(USRDIR)/share/man/man3/pcre_free_substring.3
+file path=$(USRDIR)/share/man/man3/pcre_free_substring_list.3
+file path=$(USRDIR)/share/man/man3/pcre_fullinfo.3
+file path=$(USRDIR)/share/man/man3/pcre_get_named_substring.3
+file path=$(USRDIR)/share/man/man3/pcre_get_stringnumber.3
+file path=$(USRDIR)/share/man/man3/pcre_get_stringtable_entries.3
+file path=$(USRDIR)/share/man/man3/pcre_get_substring.3
+file path=$(USRDIR)/share/man/man3/pcre_get_substring_list.3
+file path=$(USRDIR)/share/man/man3/pcre_jit_exec.3
+file path=$(USRDIR)/share/man/man3/pcre_jit_stack_alloc.3
+file path=$(USRDIR)/share/man/man3/pcre_jit_stack_free.3
+file path=$(USRDIR)/share/man/man3/pcre_maketables.3
+file path=$(USRDIR)/share/man/man3/pcre_pattern_to_host_byte_order.3
+file path=$(USRDIR)/share/man/man3/pcre_refcount.3
+file path=$(USRDIR)/share/man/man3/pcre_study.3
+file path=$(USRDIR)/share/man/man3/pcre_utf16_to_host_byte_order.3
+file path=$(USRDIR)/share/man/man3/pcre_utf32_to_host_byte_order.3
+file path=$(USRDIR)/share/man/man3/pcre_version.3
+file path=$(USRDIR)/share/man/man3/pcreapi.3
+file path=$(USRDIR)/share/man/man3/pcrebuild.3
+file path=$(USRDIR)/share/man/man3/pcrecallout.3
+file path=$(USRDIR)/share/man/man3/pcrecompat.3
+file path=$(USRDIR)/share/man/man3/pcrecpp.3
+file path=$(USRDIR)/share/man/man3/pcredemo.3
+file path=$(USRDIR)/share/man/man3/pcrejit.3
+file path=$(USRDIR)/share/man/man3/pcrelimits.3
+file path=$(USRDIR)/share/man/man3/pcrematching.3
+file path=$(USRDIR)/share/man/man3/pcrepartial.3
+file path=$(USRDIR)/share/man/man3/pcrepattern.3
+file path=$(USRDIR)/share/man/man3/pcreperform.3
+file path=$(USRDIR)/share/man/man3/pcreposix.3
+file path=$(USRDIR)/share/man/man3/pcreprecompile.3
+file path=$(USRDIR)/share/man/man3/pcresample.3
+file path=$(USRDIR)/share/man/man3/pcrestack.3
+file path=$(USRDIR)/share/man/man3/pcresyntax.3
+file path=$(USRDIR)/share/man/man3/pcreunicode.3
+link path=$(USRDIR)/lib/$(MACH64)/libpcre.so target=libpcre.so.1.2.3
+link path=$(USRDIR)/lib/$(MACH64)/libpcre.so.1 target=libpcre.so.1.2.3
+link path=$(USRDIR)/lib/$(MACH64)/libpcre16.so target=libpcre16.so.0.2.3
+link path=$(USRDIR)/lib/$(MACH64)/libpcre16.so.0 target=libpcre16.so.0.2.3
+link path=$(USRDIR)/lib/$(MACH64)/libpcre32.so target=libpcre32.so.0.0.3
+link path=$(USRDIR)/lib/$(MACH64)/libpcre32.so.0 target=libpcre32.so.0.0.3
+link path=$(USRDIR)/lib/$(MACH64)/libpcrecpp.so target=libpcrecpp.so.0.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libpcrecpp.so.0 target=libpcrecpp.so.0.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libpcreposix.so \
     target=libpcreposix.so.0.0.2
-link path=$(ECPREFIX)/lib/$(MACH64)/libpcreposix.so.0 \
+link path=$(USRDIR)/lib/$(MACH64)/libpcreposix.so.0 \
     target=libpcreposix.so.0.0.2
-link path=$(ECPREFIX)/lib/libpcre.so target=libpcre.so.1.2.3
-link path=$(ECPREFIX)/lib/libpcre.so.1 target=libpcre.so.1.2.3
-link path=$(ECPREFIX)/lib/libpcre16.so target=libpcre16.so.0.2.3
-link path=$(ECPREFIX)/lib/libpcre16.so.0 target=libpcre16.so.0.2.3
-link path=$(ECPREFIX)/lib/libpcre32.so target=libpcre32.so.0.0.3
-link path=$(ECPREFIX)/lib/libpcre32.so.0 target=libpcre32.so.0.0.3
-link path=$(ECPREFIX)/lib/libpcrecpp.so target=libpcrecpp.so.0.0.0
-link path=$(ECPREFIX)/lib/libpcrecpp.so.0 target=libpcrecpp.so.0.0.0
-link path=$(ECPREFIX)/lib/libpcreposix.so target=libpcreposix.so.0.0.2
-link path=$(ECPREFIX)/lib/libpcreposix.so.0 target=libpcreposix.so.0.0.2
-link path=$(ECPREFIX)/share/man/man3/pcre16_assign_jit_stack.3 \
+link path=$(USRDIR)/lib/libpcre.so target=libpcre.so.1.2.3
+link path=$(USRDIR)/lib/libpcre.so.1 target=libpcre.so.1.2.3
+link path=$(USRDIR)/lib/libpcre16.so target=libpcre16.so.0.2.3
+link path=$(USRDIR)/lib/libpcre16.so.0 target=libpcre16.so.0.2.3
+link path=$(USRDIR)/lib/libpcre32.so target=libpcre32.so.0.0.3
+link path=$(USRDIR)/lib/libpcre32.so.0 target=libpcre32.so.0.0.3
+link path=$(USRDIR)/lib/libpcrecpp.so target=libpcrecpp.so.0.0.0
+link path=$(USRDIR)/lib/libpcrecpp.so.0 target=libpcrecpp.so.0.0.0
+link path=$(USRDIR)/lib/libpcreposix.so target=libpcreposix.so.0.0.2
+link path=$(USRDIR)/lib/libpcreposix.so.0 target=libpcreposix.so.0.0.2
+link path=$(USRDIR)/share/man/man3/pcre16_assign_jit_stack.3 \
     target=pcre_assign_jit_stack.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_compile.3 target=pcre_compile.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_compile2.3 target=pcre_compile2.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_config.3 target=pcre_config.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_copy_named_substring.3 \
+link path=$(USRDIR)/share/man/man3/pcre16_compile.3 target=pcre_compile.3
+link path=$(USRDIR)/share/man/man3/pcre16_compile2.3 target=pcre_compile2.3
+link path=$(USRDIR)/share/man/man3/pcre16_config.3 target=pcre_config.3
+link path=$(USRDIR)/share/man/man3/pcre16_copy_named_substring.3 \
     target=pcre_copy_named_substring.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_copy_substring.3 \
+link path=$(USRDIR)/share/man/man3/pcre16_copy_substring.3 \
     target=pcre_copy_substring.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_dfa_exec.3 target=pcre_dfa_exec.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_exec.3 target=pcre_exec.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_free_study.3 \
+link path=$(USRDIR)/share/man/man3/pcre16_dfa_exec.3 target=pcre_dfa_exec.3
+link path=$(USRDIR)/share/man/man3/pcre16_exec.3 target=pcre_exec.3
+link path=$(USRDIR)/share/man/man3/pcre16_free_study.3 \
     target=pcre_free_study.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_free_substring.3 \
+link path=$(USRDIR)/share/man/man3/pcre16_free_substring.3 \
     target=pcre_free_substring.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_free_substring_list.3 \
+link path=$(USRDIR)/share/man/man3/pcre16_free_substring_list.3 \
     target=pcre_free_substring_list.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_fullinfo.3 target=pcre_fullinfo.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_get_named_substring.3 \
+link path=$(USRDIR)/share/man/man3/pcre16_fullinfo.3 target=pcre_fullinfo.3
+link path=$(USRDIR)/share/man/man3/pcre16_get_named_substring.3 \
     target=pcre_get_named_substring.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_get_stringnumber.3 \
+link path=$(USRDIR)/share/man/man3/pcre16_get_stringnumber.3 \
     target=pcre_get_stringnumber.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_get_stringtable_entries.3 \
+link path=$(USRDIR)/share/man/man3/pcre16_get_stringtable_entries.3 \
     target=pcre_get_stringtable_entries.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_get_substring.3 \
+link path=$(USRDIR)/share/man/man3/pcre16_get_substring.3 \
     target=pcre_get_substring.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_get_substring_list.3 \
+link path=$(USRDIR)/share/man/man3/pcre16_get_substring_list.3 \
     target=pcre_get_substring_list.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_jit_exec.3 target=pcre_jit_exec.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_jit_stack_alloc.3 \
+link path=$(USRDIR)/share/man/man3/pcre16_jit_exec.3 target=pcre_jit_exec.3
+link path=$(USRDIR)/share/man/man3/pcre16_jit_stack_alloc.3 \
     target=pcre_jit_stack_alloc.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_jit_stack_free.3 \
+link path=$(USRDIR)/share/man/man3/pcre16_jit_stack_free.3 \
     target=pcre_jit_stack_free.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_maketables.3 \
+link path=$(USRDIR)/share/man/man3/pcre16_maketables.3 \
     target=pcre_maketables.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_pattern_to_host_byte_order.3 \
+link path=$(USRDIR)/share/man/man3/pcre16_pattern_to_host_byte_order.3 \
     target=pcre_pattern_to_host_byte_order.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_refcount.3 target=pcre_refcount.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_study.3 target=pcre_study.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_utf16_to_host_byte_order.3 \
+link path=$(USRDIR)/share/man/man3/pcre16_refcount.3 target=pcre_refcount.3
+link path=$(USRDIR)/share/man/man3/pcre16_study.3 target=pcre_study.3
+link path=$(USRDIR)/share/man/man3/pcre16_utf16_to_host_byte_order.3 \
     target=pcre_utf16_to_host_byte_order.3
-link path=$(ECPREFIX)/share/man/man3/pcre16_version.3 target=pcre_version.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_assign_jit_stack.3 \
+link path=$(USRDIR)/share/man/man3/pcre16_version.3 target=pcre_version.3
+link path=$(USRDIR)/share/man/man3/pcre32_assign_jit_stack.3 \
     target=pcre_assign_jit_stack.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_compile.3 target=pcre_compile.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_compile2.3 target=pcre_compile2.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_config.3 target=pcre_config.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_copy_named_substring.3 \
+link path=$(USRDIR)/share/man/man3/pcre32_compile.3 target=pcre_compile.3
+link path=$(USRDIR)/share/man/man3/pcre32_compile2.3 target=pcre_compile2.3
+link path=$(USRDIR)/share/man/man3/pcre32_config.3 target=pcre_config.3
+link path=$(USRDIR)/share/man/man3/pcre32_copy_named_substring.3 \
     target=pcre_copy_named_substring.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_copy_substring.3 \
+link path=$(USRDIR)/share/man/man3/pcre32_copy_substring.3 \
     target=pcre_copy_substring.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_dfa_exec.3 target=pcre_dfa_exec.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_exec.3 target=pcre_exec.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_free_study.3 \
+link path=$(USRDIR)/share/man/man3/pcre32_dfa_exec.3 target=pcre_dfa_exec.3
+link path=$(USRDIR)/share/man/man3/pcre32_exec.3 target=pcre_exec.3
+link path=$(USRDIR)/share/man/man3/pcre32_free_study.3 \
     target=pcre_free_study.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_free_substring.3 \
+link path=$(USRDIR)/share/man/man3/pcre32_free_substring.3 \
     target=pcre_free_substring.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_free_substring_list.3 \
+link path=$(USRDIR)/share/man/man3/pcre32_free_substring_list.3 \
     target=pcre_free_substring_list.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_fullinfo.3 target=pcre_fullinfo.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_get_named_substring.3 \
+link path=$(USRDIR)/share/man/man3/pcre32_fullinfo.3 target=pcre_fullinfo.3
+link path=$(USRDIR)/share/man/man3/pcre32_get_named_substring.3 \
     target=pcre_get_named_substring.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_get_stringnumber.3 \
+link path=$(USRDIR)/share/man/man3/pcre32_get_stringnumber.3 \
     target=pcre_get_stringnumber.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_get_stringtable_entries.3 \
+link path=$(USRDIR)/share/man/man3/pcre32_get_stringtable_entries.3 \
     target=pcre_get_stringtable_entries.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_get_substring.3 \
+link path=$(USRDIR)/share/man/man3/pcre32_get_substring.3 \
     target=pcre_get_substring.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_get_substring_list.3 \
+link path=$(USRDIR)/share/man/man3/pcre32_get_substring_list.3 \
     target=pcre_get_substring_list.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_jit_exec.3 target=pcre_jit_exec.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_jit_stack_alloc.3 \
+link path=$(USRDIR)/share/man/man3/pcre32_jit_exec.3 target=pcre_jit_exec.3
+link path=$(USRDIR)/share/man/man3/pcre32_jit_stack_alloc.3 \
     target=pcre_jit_stack_alloc.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_jit_stack_free.3 \
+link path=$(USRDIR)/share/man/man3/pcre32_jit_stack_free.3 \
     target=pcre_jit_stack_free.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_maketables.3 \
+link path=$(USRDIR)/share/man/man3/pcre32_maketables.3 \
     target=pcre_maketables.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_pattern_to_host_byte_order.3 \
+link path=$(USRDIR)/share/man/man3/pcre32_pattern_to_host_byte_order.3 \
     target=pcre_pattern_to_host_byte_order.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_refcount.3 target=pcre_refcount.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_study.3 target=pcre_study.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_utf32_to_host_byte_order.3 \
+link path=$(USRDIR)/share/man/man3/pcre32_refcount.3 target=pcre_refcount.3
+link path=$(USRDIR)/share/man/man3/pcre32_study.3 target=pcre_study.3
+link path=$(USRDIR)/share/man/man3/pcre32_utf32_to_host_byte_order.3 \
     target=pcre_utf32_to_host_byte_order.3
-link path=$(ECPREFIX)/share/man/man3/pcre32_version.3 target=pcre_version.3
+link path=$(USRDIR)/share/man/man3/pcre32_version.3 target=pcre_version.3
