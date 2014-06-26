@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2011, 2014, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -35,8 +35,8 @@ build:		$(BUILD_32_and_64)
 include ../../make-rules/shared-targets.mk
 
 install:	$(INSTALL_32_and_64)
-	cp source/$(COMPONENT_SRC)/rsync.1 $(PROTO_DIR)$(ECPREFIX)/share/man/man1
-	cp source/$(COMPONENT_SRC)/rsyncd.conf.5 $(PROTO_DIR)$(ECPREFIX)/share/man/man5
+	cp source/$(COMPONENT_SRC)/rsync.1 $(PROTO_DIR)$(USRDIR)/share/man/man1
+	cp source/$(COMPONENT_SRC)/rsyncd.conf.5 $(PROTO_DIR)$(USRDIR)/share/man/man5
 
 BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
 
