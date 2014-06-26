@@ -31,20 +31,13 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license popt.license license="X11"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man3
-file path=$(ECPREFIX)/include/popt.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libpopt.so.0.0.0
-file path=$(ECPREFIX)/lib/libpopt.so.0.0.0
-file path=$(ECPREFIX)/lib/pkgconfig/popt.pc
-file path=$(ECPREFIX)/share/man/man3/popt.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libpopt.so target=libpopt.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libpopt.so.0 target=libpopt.so.0.0.0
-link path=$(ECPREFIX)/lib/libpopt.so target=libpopt.so.0.0.0
-link path=$(ECPREFIX)/lib/libpopt.so.0 target=libpopt.so.0.0.0
+file path=$(USRDIR)/include/popt.h
+file path=$(USRDIR)/lib/$(MACH64)/libpopt.so.0.0.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/popt.pc
+file path=$(USRDIR)/lib/libpopt.so.0.0.0
+file path=$(USRDIR)/lib/pkgconfig/popt.pc
+file path=$(USRDIR)/share/man/man3/popt.3
+link path=$(USRDIR)/lib/$(MACH64)/libpopt.so target=libpopt.so.0.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libpopt.so.0 target=libpopt.so.0.0.0
+link path=$(USRDIR)/lib/libpopt.so target=libpopt.so.0.0.0
+link path=$(USRDIR)/lib/libpopt.so.0 target=libpopt.so.0.0.0

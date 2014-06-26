@@ -18,7 +18,7 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -33,9 +33,10 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-#CONFIGURE_OPTIONS  +=		--disable-static
-#CONFIGURE_OPTIONS  +=		--enable-shared
-#CONFIGURE_OPTIONS  +=		CFLAGS="$(CFLAGS)"
+CONFIGURE_OPTIONS  +=		--enable-shared
+
+COMPONENT_INSTALL_ARGS += \
+	pkgconfigdir="$(CONFIGURE_LIBDIR.$(BITS))/pkgconfig"
 
 # common targets
 build:		$(BUILD_32_and_64)
@@ -43,9 +44,6 @@ build:		$(BUILD_32_and_64)
 include ../../make-rules/shared-targets.mk
 
 install:	$(INSTALL_32_and_64)
-
-#install:	$(PROTOUSRSHAREMAN3DIR) $(INSTALL_32_and_64)
-#	$(CP) -f $(COMPONENT_DIR)/man3/*.3 $(PROTOUSRSHAREMAN3DIR)
 
 # build does this always
 test: build
