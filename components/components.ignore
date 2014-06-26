@@ -87,7 +87,6 @@
 /^gnome-vfs$/d
 /^gnu-bc$/d
 /^gnu-coreutils$/d
-/^gnu-findutils$/d
 /^gnu-inetutils$/d
 /^gnu-pth$/d
 #/^gnu-tar$/d
