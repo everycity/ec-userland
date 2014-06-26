@@ -35,6 +35,10 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 include ../../make-rules/shared-targets.mk
 
+CFLAGS += -DSYSLOG_SUCCESS -DSYSLOG_FAILURE -DSYSLOG_NON_ROOT
+
+CONFIGURE_ENV += FORCE_UNSAFE_CONFIGURE=1
+
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
