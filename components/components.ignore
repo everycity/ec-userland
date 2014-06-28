@@ -31,7 +31,6 @@
 /^clamav$/d
 /^cloog-ppl$/d
 /^clusterssh$/d
-/^cmake$/d
 /^cpuburn$/d
 /^cronie$/d
 /^cronolog$/d

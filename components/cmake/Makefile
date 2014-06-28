@@ -29,9 +29,9 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS+=	-lsocket -lnsl
+LDFLAGS+=	-lsocket -lnsl -ltinfo
 
-CONFIGURE_OPTIONS=	--prefix=$(ECPREFIX) --mandir=share/man
+CONFIGURE_OPTIONS=	--prefix=$(USRDIR) --mandir=share/man
 CONFIGURE_OPTIONS+=	--docdir=share/doc/cmake-2.8
 
 build:		$(BUILD_32)
