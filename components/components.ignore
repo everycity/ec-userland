@@ -20,7 +20,6 @@
 /^aspell$/d
 /^automake-112$/d
 /^bdb51$/d
-/^bison$/d
 /^bitlbee$/d
 /^boost$/d
 /^cabextract$/d
