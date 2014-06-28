@@ -167,7 +167,6 @@
 /^live555$/d
 /^logrotate$/d
 /^lsof$/d
-/^lua$/d
 /^lucene$/d
 /^lz4$/d
 /^mDNSResponder$/d
