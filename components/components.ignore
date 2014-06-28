@@ -320,7 +320,6 @@
 /^php55-ext-ssh2$/d
 /^phpmyadmin$/d
 /^pigz$/d
-/^pkg-config$/d
 /^pkg5$/d
 /^pkg5-new$/d
 /^poppler$/d
