@@ -23,7 +23,6 @@
 /^bison$/d
 /^bitlbee$/d
 /^boost$/d
-/^ca-certificates$/d
 /^cabextract$/d
 /^cairo$/d
 /^cassandra$/d
