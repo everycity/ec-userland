@@ -25,11 +25,11 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS += --infodir=$(ECPREFIX)/share/info
+CONFIGURE_OPTIONS += --infodir=$(USRDIR)/share/info
 
 COMPONENT_POST_INSTALL_ACTION = ( strip \
-                $(PROTO_DIR)$(ECPREFIX)/bin/* \
-                $(PROTO_DIR)$(ECPREFIX)/lib/*so* \
+                $(PROTO_DIR)$(USRDIR)/bin/* \
+                $(PROTO_DIR)$(USRDIR)/lib/*so* \
                 >/dev/null 2>&1; true )
 
 build:		$(BUILD_32)
