@@ -1,0 +1,17 @@
+--- opencv-2.4.9/modules/ocl/src/gftt.cpp.orig	2014-06-30 11:03:19.248717471 +0100
++++ opencv-2.4.9/modules/ocl/src/gftt.cpp	2014-06-30 11:05:00.959992429 +0100
+@@ -73,10 +73,10 @@
+ static void sortCorners_caller(oclMat& corners, const int count)
+ {
+     Context * cxt = Context::getContext();
+-    int     GS = count/2;
+-    int     LS = min(255,GS);
+-    size_t  globalThreads[3] = {GS, 1, 1};
+-    size_t  localThreads[3]  = {LS, 1, 1};
++    int     GlobalS = count/2;
++    int     LocalS = min(255,GlobalS);
++    size_t  globalThreads[3] = {GlobalS, 1, 1};
++    size_t  localThreads[3]  = {LocalS, 1, 1};
+ 
+     // 2^numStages should be equal to count or the output is invalid
+     int numStages = 0;
