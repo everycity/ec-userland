@@ -1,0 +1,13 @@
+Index: vim74/src/Makefile
+===================================================================
+--- vim74/src/Makefile.orig
++++ vim74/src/Makefile
+@@ -1059,7 +1059,7 @@ INSTALL_PROG	= cp
+ 
+ # Program to install the data in the target directory.	Cannot be "mv"!
+ INSTALL_DATA	= cp
+-INSTALL_DATA_R	= cp -r
++INSTALL_DATA_R	= cp -Lr
+ 
+ ### Program to run on installed binary.  Use the second one to disable strip.
+ #STRIP = strip

@@ -389,7 +389,6 @@
 /^uriparser$/d
 /^uwimap$/d
 /^varnish$/d
-/^vim$/d
 /^vlc2$/d
 /^vo-aacenc$/d
 /^vo-amrwbenc$/d

@@ -32,12 +32,20 @@ include ../../make-rules/ips.mk
 COMPONENT_PRE_CONFIGURE_ACTION += ($(CLONEY) $(SOURCE_DIR) $(@D))
 
 CONFIGURE_OPTIONS+=	--disable-motif-check
+CONFIGURE_OPTIONS+=	--without-x
+CONFIGURE_OPTIONS+=	--disable-gui
+CONFIGURE_OPTIONS+=	--disable-gtktest
+
+CONFIGURE_OPTIONS +=	--with-features=huge
+CONFIGURE_OPTIONS +=	--enable-luainterp=dynamic
+CONFIGURE_OPTIONS +=	--enable-pythoninterp=dynamic
+CONFIGURE_OPTIONS +=	--enable-rubyinterp=dynamic
 
 build:		$(BUILD_32)
 
 $(BUILD_DIR)/.installed:	$(INSTALL_32)
-	cp $(COMPONENT_DIR)/vimrc $(PROTO_DIR)$(ECPREFIX)/share/vim/
-	( cd $(PROTO_DIR)$(ECPREFIX)/bin && $(SYMLINK) vim vi )
+	cp $(COMPONENT_DIR)/vimrc $(PROTO_DIR)$(USRDIR)/share/vim/
+	( cd $(PROTO_DIR)$(USRDIR)/bin && $(SYMLINK) vim vi )
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed
