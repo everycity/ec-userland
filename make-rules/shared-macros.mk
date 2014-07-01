@@ -202,6 +202,7 @@ PLAT_1 =	$(MACH:sparc=sun)
 PLAT =		$(PLAT_1:i386=pc)
 
 GNU_ARCH    =   $(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)
+GNU_ARCH_32 =   $(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)
 GNU_ARCH_64=   $(MACH64:amd64=x86_64)-$(PLAT)-solaris$(SOLARIS_VERSION)
 
 CONFIGURE_32 =		$(BUILD_DIR_32)/.configured

@@ -10,6 +10,7 @@
 #
 
 #
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 # Copyright 2014, Igor Kozhukhov <ikozhukhov@gmail.com>
 #
 
@@ -23,9 +24,9 @@ set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license COPYING license='GPLv3'
 
-file path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libgcc_s.so.1
-file path=$(USRDIR)/gcc/4.8/lib/libgcc_s.so.1
-link path=$(USRDIR)/gcc/4.8/lib/64 target=$(MACH64) pkg.linted.userland.action002.0=true
+file path=usr/gcc/4.8/lib/$(MACH64)/libgcc_s.so.1
+file path=usr/gcc/4.8/lib/libgcc_s.so.1
+link path=usr/gcc/4.8/lib/64 target=$(MACH64) pkg.linted.userland.action002.0=true
 
-link path=$(USRDIR)/lib/libgcc_s.so.1 target=../gcc/4.8/lib/libgcc_s.so.1 mediator=gcc mediator-version=4.8
-link path=$(USRDIR)/lib/$(MACH64)/libgcc_s.so.1 target=../../gcc/4.8/lib/$(MACH64)/libgcc_s.so.1 mediator=gcc mediator-version=4.8
+link path=usr/lib/libgcc_s.so.1 target=../gcc/4.8/lib/libgcc_s.so.1 mediator=gcc mediator-version=4.8
+link path=usr/lib/$(MACH64)/libgcc_s.so.1 target=../../gcc/4.8/lib/$(MACH64)/libgcc_s.so.1 mediator=gcc mediator-version=4.8

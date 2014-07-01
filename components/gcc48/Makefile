@@ -1,23 +1,16 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL"), version 1.0.
+# You may only use this file in accordance with the terms of version
+# 1.0 of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source.  A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
-#
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 # Copyright 2014, Igor Kozhukhov <ikozhukhov@gmail.com>
 #
 CONFIGURE_DEFAULT_LDFLAGS = no
@@ -26,12 +19,12 @@ CONFIGURE_DEFAULT_CPPFLAGS = no
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gcc
-COMPONENT_VERSION=	4.8.2
+COMPONENT_VERSION=	4.8.3
 COMPONENT_PROJECT_URL=	http://gcc.gnu.org/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH= \
-    sha256:2ea77114344a06c45dd5791275311e91d306545aa5ec9db31d24174f6965e880
+    sha256:5a46edbee29b6fed9006c02899db7cb7eff5f2d5837678484e1ff7da3b4beb6f
 COMPONENT_ARCHIVE_URL=	http://ftp.gnu.org/gnu/gcc/$(COMPONENT_SRC)/$(COMPONENT_ARCHIVE)
 COMPONENT_BUGDB=        utility/gnu-compiler
 
@@ -94,9 +87,9 @@ COMPONENT_BUILD_TARGETS=bootstrap
 #	$(PYTHON) -m compileall . ; \
 #      cd $(PROTOUSRDIR)/gcc/4.8/lib/$(MACH64) ; \
 #	$(PYTHON) -m compileall . ; \
-#      cd $(PROTOUSRDIR)/gcc/4.8/share/gcc-4.8.2/python/libstdcxx ; \
+#      cd $(PROTOUSRDIR)/gcc/4.8/share/gcc-$(COMPONENT_VERSION)/python/libstdcxx ; \
 #	$(PYTHON) -m compileall . ; \
-#      cd $(PROTOUSRDIR)/gcc/4.8/share/gcc-4.8.2/python/libstdcxx/v6 ; \
+#      cd $(PROTOUSRDIR)/gcc/4.8/share/gcc-$(COMPONENT_VERSION)/python/libstdcxx/v6 ; \
 #	$(PYTHON) -m compileall . )
 
 build:		$(BUILD_32)

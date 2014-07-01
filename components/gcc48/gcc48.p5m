@@ -10,6 +10,7 @@
 #
 
 #
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 # Copyright 2014, Igor Kozhukhov <ikozhukhov@gmail.com>
 #
 
@@ -24,90 +25,71 @@ set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license COPYING license='GPLv3'
 
-hardlink path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH)-c++ \
-    target=g++
-hardlink path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH)-g++ \
-    target=g++
-hardlink path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH)-gcc \
-    target=gcc variant.arch=i386
-hardlink \
-    path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH)-gcc-$(COMPONENT_VERSION) \
-    target=gcc variant.arch=i386
-hardlink path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH)-gcc-ar \
-    target=gcc-ar
-file path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH)-gcc-nm mode=0555
-hardlink \
-    path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH)-gcc-ranlib \
-    target=gcc-ranlib
-hardlink \
-    path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH)-gfortran \
-    target=gfortran variant.arch=i386
-hardlink path=$(USRDIR)/gcc/4.8/bin/c++ target=g++ variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/bin/cpp mode=0555
-file path=$(USRDIR)/gcc/4.8/bin/g++ mode=0555 variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/bin/gcc mode=0555 variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/bin/gcc-ar mode=0555
-hardlink path=$(USRDIR)/gcc/4.8/bin/gcc-nm target=$(GNU_ARCH)-gcc-nm
-file path=$(USRDIR)/gcc/4.8/bin/gcc-ranlib mode=0555
-file path=$(USRDIR)/gcc/4.8/bin/gcov mode=0555
-file path=$(USRDIR)/gcc/4.8/bin/gfortran mode=0555 variant.arch=i386
+hardlink path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH_32)-c++ target=c++
+hardlink path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH_32)-g++ target=c++
+file path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH_32)-gcc
+hardlink path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH_32)-gcc-$(COMPONENT_VERSION) \
+    target=$(GNU_ARCH_32)-gcc
+file path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH_32)-gcc-ar
+hardlink path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH_32)-gcc-nm target=gcc-nm
+file path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH_32)-gcc-ranlib
+file path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH_32)-gfortran
+file path=$(USRDIR)/gcc/4.8/bin/c++
+file path=$(USRDIR)/gcc/4.8/bin/cpp
+hardlink path=$(USRDIR)/gcc/4.8/bin/g++ target=c++
+hardlink path=$(USRDIR)/gcc/4.8/bin/gcc target=$(GNU_ARCH_32)-gcc
+hardlink path=$(USRDIR)/gcc/4.8/bin/gcc-ar target=$(GNU_ARCH_32)-gcc-ar
+file path=$(USRDIR)/gcc/4.8/bin/gcc-nm
+hardlink path=$(USRDIR)/gcc/4.8/bin/gcc-ranlib target=$(GNU_ARCH_32)-gcc-ranlib
+file path=$(USRDIR)/gcc/4.8/bin/gcov
+hardlink path=$(USRDIR)/gcc/4.8/bin/gfortran target=$(GNU_ARCH_32)-gfortran
 
-file path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH)-gcc mode=0555 variant.arch=sparc
-hardlink \
-    path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH)-gcc-$(COMPONENT_VERSION) \
-    target=$(GNU_ARCH)-gcc variant.arch=sparc
-file path=$(USRDIR)/gcc/4.8/bin/$(GNU_ARCH)-gfortran mode=0555 variant.arch=sparc
-file path=$(USRDIR)/gcc/4.8/bin/c++ mode=0555 variant.arch=sparc
-hardlink path=$(USRDIR)/gcc/4.8/bin/g++ target=c++ variant.arch=sparc
-hardlink path=$(USRDIR)/gcc/4.8/bin/gcc target=$(GNU_ARCH)-gcc variant.arch=sparc
-hardlink path=$(USRDIR)/gcc/4.8/bin/gfortran target=$(GNU_ARCH)-gfortran variant.arch=sparc
-
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/atomic_word.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/basic_file.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/c++allocator.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/c++config.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/c++io.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/c++locale.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/cpu_defines.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/ctype_base.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/ctype_inline.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/cxxabi_tweaks.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/error_constants.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/extc++.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/gthr-default.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/gthr-posix.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/gthr-single.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/gthr.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/messages_members.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/opt_random.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/os_defines.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/stdc++.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/stdtr1c++.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/bits/time_members.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/$(MACH64)/ext/opt_random.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/atomic_word.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/basic_file.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/c++allocator.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/c++config.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/c++io.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/c++locale.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/cpu_defines.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/ctype_base.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/ctype_inline.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/cxxabi_tweaks.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/error_constants.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/extc++.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/gthr-default.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/gthr-posix.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/gthr-single.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/gthr.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/messages_members.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/opt_random.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/os_defines.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/stdc++.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/stdtr1c++.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/bits/time_members.h
-file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH)/ext/opt_random.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/atomic_word.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/basic_file.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/c++allocator.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/c++config.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/c++io.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/c++locale.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/cpu_defines.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/ctype_base.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/ctype_inline.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/cxxabi_tweaks.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/error_constants.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/extc++.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/gthr-default.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/gthr-posix.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/gthr-single.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/gthr.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/messages_members.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/opt_random.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/os_defines.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/stdc++.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/stdtr1c++.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/bits/time_members.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/$(MACH64)/ext/opt_random.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/atomic_word.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/basic_file.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/c++allocator.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/c++config.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/c++io.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/c++locale.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/cpu_defines.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/ctype_base.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/ctype_inline.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/cxxabi_tweaks.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/error_constants.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/extc++.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/gthr-default.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/gthr-posix.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/gthr-single.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/gthr.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/messages_members.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/opt_random.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/os_defines.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/stdc++.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/stdtr1c++.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/bits/time_members.h
+file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/$(GNU_ARCH_32)/ext/opt_random.h
 file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/algorithm
 file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/array
 file path=$(USRDIR)/gcc/4.8/include/c++/$(COMPONENT_VERSION)/atomic
@@ -760,7 +742,8 @@ file path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libatomic.a
 link path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libatomic.so target=libatomic.so.1.0.0
 link path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libgcc_s.so target=libgcc_s.so.1
 file path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libgfortran.a
-link path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libgfortran.so target=libgfortran.so.3.0.0
+link path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libgfortran.so \
+    target=libgfortran.so.3.0.0
 file path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libgfortran.spec
 file path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libgomp.a
 link path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libgomp.so target=libgomp.so.1.0.0
@@ -770,310 +753,315 @@ link path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libitm.so target=libitm.so.1.0.0
 file path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libitm.spec
 file path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libobjc.a
 link path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libobjc.so target=libobjc.so.4.0.0
-file path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libquadmath.a variant.arch=i386
-link path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libquadmath.so target=libquadmath.so.0.0.0 variant.arch=i386
+file path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libquadmath.a
+link path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libquadmath.so \
+    target=libquadmath.so.0.0.0
+link path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libquadmath.so.0 \
+    target=libquadmath.so.0.0.0
 file path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libssp.a
 link path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libssp.so target=libssp.so.0.0.0
 file path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libssp_nonshared.a
 file path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libstdc++.a
-link path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libstdc++.so target=libstdc++.so.6.0.18
-file path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libstdc++.so.6.0.18-gdb.py
+link path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libstdc++.so \
+    target=libstdc++.so.6.0.19
+file path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libstdc++.so.6.0.19-gdb.py
 file path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libsupc++.a
 
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/$(MACH64)/crt1.o variant.arch=sparc
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/$(MACH64)/crtbegin.o
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/$(MACH64)/crtend.o
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/$(MACH64)/crtfastmath.o
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/$(MACH64)/crtprec32.o variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/$(MACH64)/crtprec64.o variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/$(MACH64)/crtprec80.o variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/$(MACH64)/gcrt1.o variant.arch=sparc
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/$(MACH64)/gmon.o
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/$(MACH64)/libcaf_single.a
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/$(MACH64)/libcaf_single.la
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/$(MACH64)/libgcc.a
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/$(MACH64)/libgcc_eh.a
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/$(MACH64)/libgcov.a
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/$(MACH64)/libgfortranbegin.a
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/$(MACH64)/libgfortranbegin.la
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/cc1 mode=0555
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/cc1obj mode=0555
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/cc1plus mode=0555
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/collect2 mode=0555
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/crt1.o  variant.arch=sparc
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/crtbegin.o
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/crtend.o
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/crtfastmath.o
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/crtprec32.o variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/crtprec64.o variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/crtprec80.o variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/f951 mode=0555
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/finclude/omp_lib.f90
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/finclude/omp_lib.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/finclude/omp_lib.mod
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/finclude/omp_lib_kinds.mod
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/gcrt1.o variant.arch=sparc
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/gmon.o
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include-fixed/README
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include-fixed/complex.h
-#file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include-fixed/curses.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include-fixed/iso/math_iso.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include-fixed/limits.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include-fixed/math.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include-fixed/spawn.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include-fixed/sys/feature_tests.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include-fixed/sys/int_const.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include-fixed/sys/int_limits.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include-fixed/sys/varargs.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include-fixed/syslimits.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include-fixed/wchar.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/adxintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/ammintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/avx2intrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/avxintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/bmi2intrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/bmiintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/bmmintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/cpuid.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/cross-stdarg.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/emmintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/f16cintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/float.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/fma4intrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/fmaintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/fxsrintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/ia32intrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/immintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/iso646.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/lwpintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/lzcntintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/mm3dnow.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/mm_malloc.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/mmintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/nmmintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/objc/NXConstStr.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/objc/Object.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/objc/Protocol.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/objc/message.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/objc/objc-decls.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/objc/objc-exception.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/objc/objc-sync.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/objc/objc.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/objc/runtime.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/objc/thr.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/omp.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/pmmintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/popcntintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/prfchwintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/quadmath.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/quadmath_weak.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/rdseedintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/rtmintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/smmintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/ssp/ssp.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/ssp/stdio.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/ssp/string.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/ssp/unistd.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/stdalign.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/stdarg.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/stdbool.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/stddef.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/stdfix.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/stdint-gcc.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/stdint.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/stdnoreturn.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/tbmintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/tgmath.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/tmmintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/unwind.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/varargs.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/wmmintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/x86intrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/xmmintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/xopintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/xsaveintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/xsaveoptintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/xtestintrin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/include/visintrin.h variant.arch=sparc
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/install-tools/fixinc.sh mode=0555
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/install-tools/fixinc_list
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/install-tools/fixincl mode=0555
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/install-tools/gsyslimits.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/install-tools/include/README
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/install-tools/include/limits.h
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/install-tools/macro_list
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/install-tools/mkheaders mode=0555
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/install-tools/mkheaders.conf
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/install-tools/mkinstalldirs mode=0555
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/libcaf_single.a
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/libgcc.a
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/libgcc_eh.a
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/libgcov.a
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/libgfortranbegin.a
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/$(MACH64)/crtbegin.o
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/$(MACH64)/crtend.o
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/$(MACH64)/crtfastmath.o
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/$(MACH64)/crtprec32.o
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/$(MACH64)/crtprec64.o
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/$(MACH64)/crtprec80.o
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/$(MACH64)/gmon.o
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/$(MACH64)/libcaf_single.a
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/$(MACH64)/libcaf_single.la
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/$(MACH64)/libgcc.a
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/$(MACH64)/libgcc_eh.a
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/$(MACH64)/libgcov.a
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/$(MACH64)/libgfortranbegin.a
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/$(MACH64)/libgfortranbegin.la
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/cc1 mode=0555
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/cc1obj mode=0555
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/cc1plus mode=0555
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/collect2 mode=0555
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/crtbegin.o
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/crtend.o
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/crtfastmath.o
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/crtprec32.o
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/crtprec64.o
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/crtprec80.o
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/f951 mode=0555
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/finclude/omp_lib.f90
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/finclude/omp_lib.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/finclude/omp_lib.mod
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/finclude/omp_lib_kinds.mod
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/gmon.o
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/README
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/complex.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/iso/math_c99.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/iso/math_iso.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/limits.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/math.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/netinet/ip_compat.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/netinet/ip_fil.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/netinet/ip_lookup.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/netinet/ip_nat.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/netinet/ip_proxy.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/netinet/ip_state.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/spawn.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/sys/feature_tests.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/sys/int_const.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/sys/int_limits.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/sys/varargs.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/syslimits.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include-fixed/wchar.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/adxintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/ammintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/avx2intrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/avxintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/bmi2intrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/bmiintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/bmmintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/cpuid.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/cross-stdarg.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/emmintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/f16cintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/float.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/fma4intrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/fmaintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/fxsrintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/ia32intrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/immintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/iso646.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/lwpintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/lzcntintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/mm3dnow.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/mm_malloc.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/mmintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/nmmintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/objc/NXConstStr.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/objc/Object.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/objc/Protocol.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/objc/message.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/objc/objc-decls.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/objc/objc-exception.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/objc/objc-sync.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/objc/objc.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/objc/runtime.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/objc/thr.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/omp.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/pmmintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/popcntintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/prfchwintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/quadmath.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/quadmath_weak.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/rdseedintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/rtmintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/smmintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/ssp/ssp.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/ssp/stdio.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/ssp/string.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/ssp/unistd.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/stdalign.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/stdarg.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/stdbool.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/stddef.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/stdfix.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/stdint-gcc.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/stdint.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/stdnoreturn.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/tbmintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/tgmath.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/tmmintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/unwind.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/varargs.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/wmmintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/x86intrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/xmmintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/xopintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/xsaveintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/xsaveoptintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/include/xtestintrin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/install-tools/fixinc.sh mode=0555
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/install-tools/fixinc_list
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/install-tools/fixincl mode=0555
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/install-tools/gsyslimits.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/install-tools/include/README
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/install-tools/include/limits.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/install-tools/macro_list
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/install-tools/mkheaders mode=0555
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/install-tools/mkheaders.conf
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/install-tools/mkinstalldirs mode=0555
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/libcaf_single.a
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/libgcc.a
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/libgcc_eh.a
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/libgcov.a
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/libgfortranbegin.a
 link \
-    path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/liblto_plugin.so \
+    path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/liblto_plugin.so \
     target=liblto_plugin.so.0.0.0
 link \
-    path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/liblto_plugin.so.0 \
+    path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/liblto_plugin.so.0 \
     target=liblto_plugin.so.0.0.0
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/liblto_plugin.so.0.0.0
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/lto-wrapper mode=055
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/lto1 mode=0555
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/gengtype mode=0555 variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/gtype.state variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/ada/gcc-interface/ada-tree.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/alias.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/all-tree.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/alloc-pool.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/ansidecl.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/auto-host.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/b-header-vars variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/basic-block.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/bitmap.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/builtins.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/bversion.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/c-family/c-common.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/c-family/c-common.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/c-family/c-objc.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/c-family/c-pragma.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/c-family/c-pretty-print.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/c-tree.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/cfg-flags.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/cfghooks.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/cfgloop.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/cgraph.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/cif-code.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/att.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/i386-opts.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/i386-protos.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/i386.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/sol2-bi.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/sol2.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/sysv4.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/unix.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/x86-64.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/dbxelf.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/elfos.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/initfini-array.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/sol2-10.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/sol2-bi.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/sol2-protos.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/sol2.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/usegas.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/config/vxworks-dummy.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/configargs.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/coretypes.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/cp/cp-tree.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/cp/cp-tree.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/cp/cxx-pretty-print.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/cp/name-lookup.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/cppdefault.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/cpplib.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/debug.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/defaults.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/diagnostic-core.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/diagnostic.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/diagnostic.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/double-int.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/dumpfile.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/emit-rtl.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/except.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/filenames.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/fixed-value.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/flag-types.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/flags.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/function.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/gcc-plugin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/genrtl.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/ggc.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/gimple-pretty-print.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/gimple.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/gimple.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/gsstruct.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/gtm-builtins.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/gtype-desc.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/hard-reg-set.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/hashtab.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/highlev-plugin-common.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/hwint.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/incpath.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/input.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/insn-constants.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/insn-flags.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/insn-modes.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/insn-notes.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/internal-fn.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/internal-fn.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/intl.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/ipa-prop.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/ipa-ref-inline.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/ipa-ref.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/ipa-reference.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/ipa-utils.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/is-a.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/java/java-tree.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/langhooks.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/libiberty.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/line-map.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/machmode.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/md5.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/mode-classes.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/objc/objc-tree.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/obstack.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/omp-builtins.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/options.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/opts.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/output.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/params.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/params.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/plugin-api.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/plugin-version.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/plugin.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/plugin.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/pointer-set.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/predict.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/predict.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/prefix.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/pretty-print.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/real.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/realmpfr.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/reg-notes.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/rtl.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/rtl.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/safe-ctype.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/sanitizer.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/sbitmap.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/splay-tree.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/statistics.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/symtab.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/sync-builtins.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/system.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/target-hooks-macros.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/target.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/target.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/timevar.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/timevar.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/tm-preds.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/tm.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/tm_p.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/toplev.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/tree-check.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/tree-dump.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/tree-flow-inline.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/tree-flow.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/tree-inline.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/tree-iterator.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/tree-pass.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/tree-pretty-print.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/tree-ssa-alias.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/tree-ssa-operands.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/tree-ssa-sccvn.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/tree.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/tree.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/treestruct.def variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/vec.h variant.arch=i386
-file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH)/$(COMPONENT_VERSION)/plugin/include/version.h variant.arch=i386
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/liblto_plugin.so.0.0.0
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/lto-wrapper mode=0555
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/lto1 mode=0555
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/gengtype mode=0555
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/gtype.state
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/ada/gcc-interface/ada-tree.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/alias.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/all-tree.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/alloc-pool.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/ansidecl.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/auto-host.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/b-header-vars
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/basic-block.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/bitmap.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/builtins.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/bversion.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/c-family/c-common.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/c-family/c-common.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/c-family/c-objc.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/c-family/c-pragma.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/c-family/c-pretty-print.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/c-tree.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/cfg-flags.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/cfghooks.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/cfgloop.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/cgraph.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/cif-code.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/att.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/i386-opts.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/i386-protos.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/i386.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/sol2-bi.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/sol2.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/sysv4.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/unix.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/$(MACH)/x86-64.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/dbxelf.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/elfos.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/initfini-array.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/sol2-10.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/sol2-bi.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/sol2-protos.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/sol2.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/usegas.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/config/vxworks-dummy.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/configargs.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/coretypes.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/cp/cp-tree.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/cp/cp-tree.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/cp/cxx-pretty-print.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/cp/name-lookup.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/cppdefault.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/cpplib.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/debug.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/defaults.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/diagnostic-core.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/diagnostic.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/diagnostic.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/double-int.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/dumpfile.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/emit-rtl.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/except.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/filenames.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/fixed-value.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/flag-types.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/flags.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/function.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/gcc-plugin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/genrtl.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/ggc.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/gimple-pretty-print.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/gimple.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/gimple.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/gsstruct.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/gtm-builtins.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/gtype-desc.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/hard-reg-set.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/hashtab.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/highlev-plugin-common.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/hwint.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/incpath.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/input.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/insn-constants.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/insn-flags.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/insn-modes.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/insn-notes.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/internal-fn.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/internal-fn.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/intl.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/ipa-prop.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/ipa-ref-inline.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/ipa-ref.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/ipa-reference.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/ipa-utils.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/is-a.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/java/java-tree.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/langhooks.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/libiberty.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/line-map.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/machmode.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/md5.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/mode-classes.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/objc/objc-tree.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/obstack.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/omp-builtins.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/options.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/opts.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/output.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/params.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/params.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/plugin-api.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/plugin-version.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/plugin.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/plugin.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/pointer-set.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/predict.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/predict.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/prefix.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/pretty-print.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/real.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/realmpfr.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/reg-notes.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/rtl.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/rtl.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/safe-ctype.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/sanitizer.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/sbitmap.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/splay-tree.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/statistics.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/symtab.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/sync-builtins.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/system.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/target-hooks-macros.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/target.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/target.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/timevar.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/timevar.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/tm-preds.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/tm.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/tm_p.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/toplev.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/tree-check.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/tree-dump.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/tree-flow-inline.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/tree-flow.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/tree-inline.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/tree-iterator.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/tree-pass.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/tree-pretty-print.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/tree-ssa-alias.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/tree-ssa-operands.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/tree-ssa-sccvn.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/tree.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/tree.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/treestruct.def
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/vec.h
+file path=$(USRDIR)/gcc/4.8/lib/gcc/$(GNU_ARCH_32)/$(COMPONENT_VERSION)/plugin/include/version.h
 
 file path=$(USRDIR)/gcc/4.8/lib/libatomic.a
 link path=$(USRDIR)/gcc/4.8/lib/libatomic.so target=libatomic.so.1.0.0
@@ -1091,22 +1079,22 @@ link path=$(USRDIR)/gcc/4.8/lib/libitm.so target=libitm.so.1.0.0
 file path=$(USRDIR)/gcc/4.8/lib/libitm.spec
 file path=$(USRDIR)/gcc/4.8/lib/libobjc.a
 link path=$(USRDIR)/gcc/4.8/lib/libobjc.so target=libobjc.so.4.0.0
-file path=$(USRDIR)/gcc/4.8/lib/libquadmath.a variant.arch=i386
-link path=$(USRDIR)/gcc/4.8/lib/libquadmath.so target=libquadmath.so.0.0.0 variant.arch=i386
+file path=$(USRDIR)/gcc/4.8/lib/libquadmath.a
+link path=$(USRDIR)/gcc/4.8/lib/libquadmath.so target=libquadmath.so.0.0.0
 file path=$(USRDIR)/gcc/4.8/lib/libssp.a
 link path=$(USRDIR)/gcc/4.8/lib/libssp.so target=libssp.so.0.0.0
 file path=$(USRDIR)/gcc/4.8/lib/libssp_nonshared.a
 file path=$(USRDIR)/gcc/4.8/lib/libstdc++.a
-link path=$(USRDIR)/gcc/4.8/lib/libstdc++.so target=libstdc++.so.6.0.18
-file path=$(USRDIR)/gcc/4.8/lib/libstdc++.so.6.0.18-gdb.py
+link path=$(USRDIR)/gcc/4.8/lib/libstdc++.so target=libstdc++.so.6.0.19
+file path=$(USRDIR)/gcc/4.8/lib/libstdc++.so.6.0.19-gdb.py
 file path=$(USRDIR)/gcc/4.8/lib/libsupc++.a
 
 file path=$(USRDIR)/gcc/4.8/share/gcc-$(COMPONENT_VERSION)/python/libstdcxx/__init__.py
 file path=$(USRDIR)/gcc/4.8/share/gcc-$(COMPONENT_VERSION)/python/libstdcxx/v6/__init__.py
 file path=$(USRDIR)/gcc/4.8/share/gcc-$(COMPONENT_VERSION)/python/libstdcxx/v6/printers.py
-
 file path=$(USRDIR)/gcc/4.8/share/info/cpp.info
 file path=$(USRDIR)/gcc/4.8/share/info/cppinternals.info
+file path=$(USRDIR)/gcc/4.8/share/info/dir
 file path=$(USRDIR)/gcc/4.8/share/info/gcc.info
 file path=$(USRDIR)/gcc/4.8/share/info/gccinstall.info
 file path=$(USRDIR)/gcc/4.8/share/info/gccint.info
@@ -1114,7 +1102,6 @@ file path=$(USRDIR)/gcc/4.8/share/info/gfortran.info
 file path=$(USRDIR)/gcc/4.8/share/info/libgomp.info
 file path=$(USRDIR)/gcc/4.8/share/info/libitm.info
 file path=$(USRDIR)/gcc/4.8/share/info/libquadmath.info
-
 file path=$(USRDIR)/gcc/4.8/share/locale/be/LC_MESSAGES/cpplib.mo
 file path=$(USRDIR)/gcc/4.8/share/locale/be/LC_MESSAGES/gcc.mo
 file path=$(USRDIR)/gcc/4.8/share/locale/ca/LC_MESSAGES/cpplib.mo
@@ -1138,6 +1125,7 @@ file path=$(USRDIR)/gcc/4.8/share/locale/ja/LC_MESSAGES/cpplib.mo
 file path=$(USRDIR)/gcc/4.8/share/locale/ja/LC_MESSAGES/gcc.mo
 file path=$(USRDIR)/gcc/4.8/share/locale/nl/LC_MESSAGES/cpplib.mo
 file path=$(USRDIR)/gcc/4.8/share/locale/nl/LC_MESSAGES/gcc.mo
+file path=$(USRDIR)/gcc/4.8/share/locale/pt_BR/LC_MESSAGES/cpplib.mo
 file path=$(USRDIR)/gcc/4.8/share/locale/ru/LC_MESSAGES/cpplib.mo
 file path=$(USRDIR)/gcc/4.8/share/locale/ru/LC_MESSAGES/gcc.mo
 file path=$(USRDIR)/gcc/4.8/share/locale/sr/LC_MESSAGES/cpplib.mo
@@ -1163,34 +1151,34 @@ file path=$(USRDIR)/gcc/4.8/share/man/man7/fsf-funding.7
 file path=$(USRDIR)/gcc/4.8/share/man/man7/gfdl.7
 file path=$(USRDIR)/gcc/4.8/share/man/man7/gpl.7
 
-link path=$(USRDIR)/bin/c++ target=../gcc/4.8/bin/c++ mediator=gcc mediator-version=4.8
-link path=$(USRDIR)/bin/g++ target=../gcc/4.8/bin/g++ mediator=gcc mediator-version=4.8
-link path=$(USRDIR)/bin/gcc target=../gcc/4.8/bin/gcc mediator=gcc mediator-version=4.8
-link path=$(USRDIR)/bin/gcov target=../gcc/4.8/bin/gcov mediator=gcc mediator-version=4.8
-link path=$(USRDIR)/bin/gfortran target=../gcc/4.8/bin/gfortran mediator=gcc mediator-version=4.8
-link path=$(USRDIR)/bin/$(GNU_ARCH)-c++ target=../gcc/4.8/bin/$(GNU_ARCH)-c++ mediator=gcc mediator-version=4.8
-link path=$(USRDIR)/bin/$(GNU_ARCH)-g++ target=../gcc/4.8/bin/$(GNU_ARCH)-g++ mediator=gcc mediator-version=4.8
-link path=$(USRDIR)/bin/$(GNU_ARCH)-gcc target=../gcc/4.8/bin/$(GNU_ARCH)-gcc mediator=gcc mediator-version=4.8
-link path=$(USRDIR)/bin/$(GNU_ARCH)-gcc-$(COMPONENT_VERSION) target=../gcc/4.8/bin/$(GNU_ARCH)-gcc-$(COMPONENT_VERSION) mediator=gcc mediator-version=4.8
-link path=$(USRDIR)/bin/$(GNU_ARCH)-gfortran target=../gcc/4.8/bin/$(GNU_ARCH)-gfortran mediator=gcc mediator-version=4.8
+link path=usr/bin/c++ target=../gcc/4.8/bin/c++ mediator=gcc mediator-version=4.8
+link path=usr/bin/g++ target=../gcc/4.8/bin/g++ mediator=gcc mediator-version=4.8
+link path=usr/bin/gcc target=../gcc/4.8/bin/gcc mediator=gcc mediator-version=4.8
+link path=usr/bin/gcov target=../gcc/4.8/bin/gcov mediator=gcc mediator-version=4.8
+link path=usr/bin/gfortran target=../gcc/4.8/bin/gfortran mediator=gcc mediator-version=4.8
+link path=usr/bin/$(GNU_ARCH_32)-c++ target=../gcc/4.8/bin/$(GNU_ARCH_32)-c++ mediator=gcc mediator-version=4.8
+link path=usr/bin/$(GNU_ARCH_32)-g++ target=../gcc/4.8/bin/$(GNU_ARCH_32)-g++ mediator=gcc mediator-version=4.8
+link path=usr/bin/$(GNU_ARCH_32)-gcc target=../gcc/4.8/bin/$(GNU_ARCH_32)-gcc mediator=gcc mediator-version=4.8
+link path=usr/bin/$(GNU_ARCH_32)-gcc-$(COMPONENT_VERSION) target=../gcc/4.8/bin/$(GNU_ARCH_32)-gcc-$(COMPONENT_VERSION) mediator=gcc mediator-version=4.8
+link path=usr/bin/$(GNU_ARCH_32)-gfortran target=../gcc/4.8/bin/$(GNU_ARCH_32)-gfortran mediator=gcc mediator-version=4.8
 
-depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/bin/gas type=require \
+depend fmri=__TBD pkg.debug.depend.file=usr/bin/gas type=require \
     variant.arch=i386
-#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/bin/as type=require \
+#depend fmri=__TBD pkg.debug.depend.file=usr/bin/as type=require \
 #    variant.arch=sparc
-#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/bin/ld type=require
-#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/crt1.o type=require \
+#depend fmri=__TBD pkg.debug.depend.file=usr/bin/ld type=require
+#depend fmri=__TBD pkg.debug.depend.file=usr/lib/crt1.o type=require \
 #    variant.arch=i386
-#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/crti.o type=require \
+#depend fmri=__TBD pkg.debug.depend.file=usr/lib/crti.o type=require \
 #    variant.arch=i386
-#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/crtn.o type=require \
+#depend fmri=__TBD pkg.debug.depend.file=usr/lib/crtn.o type=require \
 #    variant.arch=i386
-#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/values-Xa.o type=require
-#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/values-Xc.o type=require
-#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/values-Xs.o type=require
-#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/values-Xt.o type=require
-#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/values-xpg4.o type=require
-#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/values-xpg6.o type=require
+#depend fmri=__TBD pkg.debug.depend.file=usr/lib/values-Xa.o type=require
+#depend fmri=__TBD pkg.debug.depend.file=usr/lib/values-Xc.o type=require
+#depend fmri=__TBD pkg.debug.depend.file=usr/lib/values-Xs.o type=require
+#depend fmri=__TBD pkg.debug.depend.file=usr/lib/values-Xt.o type=require
+#depend fmri=__TBD pkg.debug.depend.file=usr/lib/values-xpg4.o type=require
+#depend fmri=__TBD pkg.debug.depend.file=usr/lib/values-xpg6.o type=require
 
 #depend fmri=system/header type=require
 
