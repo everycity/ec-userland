@@ -49,41 +49,41 @@ depend fmri=developer/versioning/mercurial-27 \
     predicate=runtime/python-27 \
     type=conditional
 
-file path=usr/demo/mercurial/bash_completion
-file path=usr/demo/mercurial/check-code.py mode=555
-file path=usr/demo/mercurial/convert-repo mode=555
-file path=usr/demo/mercurial/debugshell.py
-file path=usr/demo/mercurial/dumprevlog mode=555
-file path=usr/demo/mercurial/hg-ssh mode=555
-file path=usr/demo/mercurial/hgk mode=555
-file path=usr/demo/mercurial/hgsh/Makefile
-file path=usr/demo/mercurial/hgsh/hgsh.c
-file path=usr/demo/mercurial/hgweb.fcgi mode=555
-file path=usr/demo/mercurial/hgweb.wsgi
-file path=usr/demo/mercurial/logo-droplets.svg
-file path=usr/demo/mercurial/memory.py
-file path=usr/demo/mercurial/mercurial.el
-file path=usr/demo/mercurial/mergetools.hgrc
-file path=usr/demo/mercurial/mq.el
-file path=usr/demo/mercurial/perf.py
-file path=usr/demo/mercurial/pylintrc
-file path=usr/demo/mercurial/python-hook-examples.py
-file path=usr/demo/mercurial/sample.hgrc
-file path=usr/demo/mercurial/shrink-revlog.py
-file path=usr/demo/mercurial/simplemerge mode=555
-file path=usr/demo/mercurial/tcsh_completion
-file path=usr/demo/mercurial/tcsh_completion_build.sh mode=555
-file path=usr/demo/mercurial/tmplrewrite.py mode=555
-file path=usr/demo/mercurial/undumprevlog mode=555
-file path=usr/demo/mercurial/vim/HGAnnotate.vim
-file path=usr/demo/mercurial/vim/hg-menu.vim
-file path=usr/demo/mercurial/vim/hgcommand.vim
-file path=usr/demo/mercurial/vim/hgtest.vim
-file path=usr/demo/mercurial/vim/patchreview.txt
-file path=usr/demo/mercurial/vim/patchreview.vim
-file path=usr/demo/mercurial/xml.rnc
-file path=usr/demo/mercurial/zsh_completion
+file path=$(USRDIR)/demo/mercurial/bash_completion
+file path=$(USRDIR)/demo/mercurial/check-code.py mode=555
+file path=$(USRDIR)/demo/mercurial/convert-repo mode=555
+file path=$(USRDIR)/demo/mercurial/debugshell.py
+file path=$(USRDIR)/demo/mercurial/dumprevlog mode=555
+file path=$(USRDIR)/demo/mercurial/hg-ssh mode=555
+file path=$(USRDIR)/demo/mercurial/hgk mode=555
+file path=$(USRDIR)/demo/mercurial/hgsh/Makefile
+file path=$(USRDIR)/demo/mercurial/hgsh/hgsh.c
+file path=$(USRDIR)/demo/mercurial/hgweb.fcgi mode=555
+file path=$(USRDIR)/demo/mercurial/hgweb.wsgi
+file path=$(USRDIR)/demo/mercurial/logo-droplets.svg
+file path=$(USRDIR)/demo/mercurial/memory.py
+file path=$(USRDIR)/demo/mercurial/mercurial.el
+file path=$(USRDIR)/demo/mercurial/mergetools.hgrc
+file path=$(USRDIR)/demo/mercurial/mq.el
+file path=$(USRDIR)/demo/mercurial/perf.py
+file path=$(USRDIR)/demo/mercurial/pylintrc
+file path=$(USRDIR)/demo/mercurial/python-hook-examples.py
+file path=$(USRDIR)/demo/mercurial/sample.hgrc
+file path=$(USRDIR)/demo/mercurial/shrink-revlog.py
+file path=$(USRDIR)/demo/mercurial/simplemerge mode=555
+file path=$(USRDIR)/demo/mercurial/tcsh_completion
+file path=$(USRDIR)/demo/mercurial/tcsh_completion_build.sh mode=555
+file path=$(USRDIR)/demo/mercurial/tmplrewrite.py mode=555
+file path=$(USRDIR)/demo/mercurial/undumprevlog mode=555
+file path=$(USRDIR)/demo/mercurial/vim/HGAnnotate.vim
+file path=$(USRDIR)/demo/mercurial/vim/hg-menu.vim
+file path=$(USRDIR)/demo/mercurial/vim/hgcommand.vim
+file path=$(USRDIR)/demo/mercurial/vim/hgtest.vim
+file path=$(USRDIR)/demo/mercurial/vim/patchreview.txt
+file path=$(USRDIR)/demo/mercurial/vim/patchreview.vim
+file path=$(USRDIR)/demo/mercurial/xml.rnc
+file path=$(USRDIR)/demo/mercurial/zsh_completion
 
-file hg.1 path=usr/share/man/man1/hg.1
-file hgignore.5 path=usr/share/man/man5/hgignore.5
-file hgrc.5 path=usr/share/man/man5/hgrc.5
+file hg.1 path=$(USRDIR)/share/man/man1/hg.1
+file hgignore.5 path=$(USRDIR)/share/man/man5/hgignore.5
+file hgrc.5 path=$(USRDIR)/share/man/man5/hgrc.5
