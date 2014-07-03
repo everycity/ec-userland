@@ -109,7 +109,7 @@ $(BUILD_DIR)/$(MACH)/.published: $(BUILD_DIR)/$(MACH)/publish.transforms
 	for pkg in $$(echo $(@D)/pkgrecv.dir/*/*); do \
 	  pkgdir=`dirname $$pkg`; \
 	  if [ "$(@D)/pkgrecv.dir/package%2Fpkg" != "$$pkgdir" ]; then \
-	    echo "== $$pkgdir"; \
+	    echo "== $$pkgdir : skip it"; \
 	    continue; \
 	  fi; \
 	  pkgmogrify -O $$pkg/manifest $$pkg/manifest \
