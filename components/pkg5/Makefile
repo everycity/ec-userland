@@ -1,60 +1,128 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
-#
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
-#
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2013 Adam Stevko. All rights reserved.
 #
-
-# Note: One of the patches has /ec hardcoded
 
 include ../../make-rules/shared-macros.mk
 
-COMPONENT_NAME=		pkg-gate
-COMPONENT_VERSION=	20100311
+COMPONENT_NAME=		pkg
 COMPONENT_SRC=		$(COMPONENT_NAME)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-$(COMPONENT_VERSION).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:5389cb2db10cc6e2c33beb06fd9da03e29339fa5
-COMPONENT_ARCHIVE_URL= http://dlc-int.openindiana.org/aszeszo/$(COMPONENT_ARCHIVE)
 
-include ../../make-rules/prep.mk
-include ../../make-rules/justmake.mk
-include ../../make-rules/ips.mk
-include ../../make-rules/no-pkgdepend.mk
+COMPONENT_REVISION=$(shell cd $(SOURCE_DIR); git rev-list HEAD --count)
 
-# Don't deliver the standard manifests
-PUBLISH_TRANSFORMS+=	$(COMPONENT_DIR)/transform-drop-lib-svc
+#
+# Release major number: 2014, 2015, etc.
+#
+RELEASE_MAJOR ?= 2014
 
-PKGLINT = /bin/true
+#
+# Release minor number: 0, 1, 2, etc.
+#
+RELEASE_MINOR ?= 0
 
-IPS_COMPONENT_VERSION=  0.$(COMPONENT_VERSION)
+#
+# Release update number: 0, 1, 2, etc.
+#
+UPDATENUM ?= 0
 
-COMPONENT_BUILD_ENV= true; cd $(@D)/src; $(ENV)
-COMPONENT_INSTALL_ENV= true; cd $(@D)/src; $(ENV)
+#
+# Component revision. Should be specified in the component's Makefile
+#
 
-build:		$(BUILD_32)
+COMPONENT_REVISION ?= 0
 
-install:	$(INSTALL_32)	
-	$(MKDIR) -p $(PROTO_DIR)
-	$(CP) -R $(BUILD_DIR_32)/proto/root_$(MACH)/* $(PROTO_DIR)
-	sed "1s,^#!.*,#!$(PYTHON)," \
-	    < $(BUILD_DIR_32)/proto/root_$(MACH)$(ECPREFIX)/bin/cherryd \
-	    > $(PROTO_DIR)$(ECPREFIX)/bin/cherryd
+BRANCHID ?= $(RELEASE_MAJOR).$(RELEASE_MINOR).$(UPDATENUM).$(COMPONENT_REVISION)
 
+BUILD_VERSION =                $(OS_VERSION)-$(BRANCHID)
+
+GIT="git"
+GIT_REPO="https://github.com/everycity/pkg5.git"
+GIT_BRANCH="ec-py27"
+GIT_CHANGESET="HEAD"
+
+MAKE=/usr/bin/dmake
+
+PKG_REPO=$(SOURCE_DIR)/packages/$(MACH)/repo
+
+CLEAN_PATHS += $(BUILD_DIR)
+
+COMPONENT_ENV = CC=$(CC)
+COMPONENT_BUILD_ENV = $(COMPONENT_ENV)
+COMPONENT_INSTALL_ENV = $(COMPONENT_ENV)
+
+$(SOURCE_DIR)/.downloaded: $(ARCHIVES:%=$(USERLAND_ARCHIVES)%)
+	[ -d $(SOURCE_DIR) ] || \
+	$(GIT) clone -b $(GIT_BRANCH) $(GIT_REPO) $(SOURCE_DIR)
+	$(GIT) log -1 --format=%H > .downloaded
+
+update:
+	@[ -d $(SOURCE_DIR) ] || \
+	$(GIT) clone -b $(GIT_BRANCH) $(GIT_REPO) $(SOURCE_DIR)
+	cd $(SOURCE_DIR); $(GIT) pull; \
+	  [ $$($(GIT) log -1 --format=%H) == $$(cat .downloaded) ] || \
+	  $(GIT) log -1 --format=%H > .downloaded
+
+download:: $(SOURCE_DIR)/.downloaded
+
+$(BUILD_DIR)/$(MACH)/.built: $(SOURCE_DIR)/.downloaded 
+	$(MKDIR) $(@D) && \
+	cd $(SOURCE_DIR)/src && \
+	$(ENV) $(COMPONENT_BUILD_ENV) $(MAKE) && $(ENV) $(COMPONENT_INSTALL_ENV) $(MAKE) install && \
+	cd pkg && \
+	$(MAKE) BUILD_VERSION=$(BUILD_VERSION) && \
+	$(MAKE) publish-pkgs BUILD_VERSION=$(BUILD_VERSION) && \
+	$(MAKE) repository-metadata && \
+	$(TOUCH) $@
+
+build install: $(BUILD_DIR)/$(MACH)/.built
+
+$(BUILD_DIR)/$(MACH)/publish.transforms: $(BUILD_DIR)/$(MACH)/.built
+	echo "<transform set name=pkg.fmri -> edit value pkg://[^/]+/ pkg://$(PUBLISHER)/>" > \
+	  $(BUILD_DIR)/$(MACH)/publish.transforms
+	echo "<transform set name=pkg.fmri -> edit value ,.+: ,$(BUILD_VERSION):>" >> \
+	  $(BUILD_DIR)/$(MACH)/publish.transforms
+	echo "<transform set name=pkg.fmri -> emit set name=pkg5.info.git-remote value=$(GIT_REPO)>" >> \
+	  $(BUILD_DIR)/$(MACH)/publish.transforms
+	echo "<transform set name=pkg.fmri -> emit set name=pkg5.info.git-branch value=$(GIT_BRANCH)>" >> \
+	  $(BUILD_DIR)/$(MACH)/publish.transforms
+	echo "<transform set name=pkg.fmri -> emit set name=pkg5.info.git-rev value=$(shell cd $(COMPONENT_SRC); git rev-parse HEAD)>" >> \
+	  $(BUILD_DIR)/$(MACH)/publish.transforms
+
+
+$(BUILD_DIR)/$(MACH)/.published: $(BUILD_DIR)/$(MACH)/publish.transforms
+	if [ -d $(@D)/pkgrecv.dir ]; then $(RM) -r $(@D)/pkgrecv.dir; fi
+	$(MKDIR) $(@D)/pkgrecv.dir
+
+	pkgrecv -s $(PKG_REPO) -d $(@D)/pkgrecv.dir --raw \
+	  $$(pkgrecv -s $(PKG_REPO) --newest)
+
+	for pkg in $$(echo $(@D)/pkgrecv.dir/*/*); do \
+	  pkgmogrify -O $$pkg/manifest $$pkg/manifest \
+	  $(BUILD_DIR)/$(MACH)/publish.transforms; \
+	  pkgsend -s $(WS_REPO) publish --fmri-in-manifest \
+	  -d $(BUILD_DIR)/$(MACH)/overlay -d $$pkg $$pkg/manifest; \
+	done
+
+	$(TOUCH) $@
+
+.NOTPARALLEL:
+
+publish: update $(BUILD_DIR)/$(MACH)/.published
+
+clean:
+	$(RM) -r $(BUILD_DIR)
+	cd $(SOURCE_DIR)/src && \
+	$(ENV) $(COMPONENT_BUILD_ENV) $(MAKE) clean
+
+clobber: clean
+	$(RM) -r source
