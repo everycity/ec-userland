@@ -314,8 +314,6 @@
 /^php55-ext-ssh2$/d
 /^phpmyadmin$/d
 /^pigz$/d
-/^pkg5$/d
-/^pkg5-new$/d
 /^poppler$/d
 /^postgis-pg91$/d
 /^postgis-pg93$/d
