@@ -22,49 +22,36 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/libpng16
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man3
-dir path=$(ECPREFIX)/share/man/man5
-file path=$(ECPREFIX)/bin/$(MACH64)/libpng16-config
-file path=$(ECPREFIX)/bin/$(MACH64)/png-fix-itxt
-file path=$(ECPREFIX)/bin/$(MACH64)/pngfix
-file path=$(ECPREFIX)/bin/libpng16-config
-file path=$(ECPREFIX)/bin/png-fix-itxt
-file path=$(ECPREFIX)/bin/pngfix
-file path=$(ECPREFIX)/include/libpng16/png.h
-file path=$(ECPREFIX)/include/libpng16/pngconf.h
-file path=$(ECPREFIX)/include/libpng16/pnglibconf.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libpng16.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libpng16.so.16.10.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpng16.pc
-file path=$(ECPREFIX)/lib/libpng16.la
-file path=$(ECPREFIX)/lib/libpng16.so.16.10.0
-file path=$(ECPREFIX)/lib/pkgconfig/libpng16.pc
-file path=$(ECPREFIX)/share/man/man3/libpng.3
-file path=$(ECPREFIX)/share/man/man3/libpngpf.3
-file path=$(ECPREFIX)/share/man/man5/png.5
-link path=$(ECPREFIX)/bin/$(MACH64)/libpng-config target=libpng16-config
-link path=$(ECPREFIX)/bin/libpng-config target=libpng16-config
-link path=$(ECPREFIX)/include/png.h target=libpng16/png.h
-link path=$(ECPREFIX)/include/pngconf.h target=libpng16/pngconf.h
-link path=$(ECPREFIX)/include/pnglibconf.h target=libpng16/pnglibconf.h
-link path=$(ECPREFIX)/lib/$(MACH64)/libpng.la target=libpng16.la
-link path=$(ECPREFIX)/lib/$(MACH64)/libpng.so target=libpng16.so
-link path=$(ECPREFIX)/lib/$(MACH64)/libpng16.so target=libpng16.so.16.10.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libpng16.so.16 target=libpng16.so.16.10.0
-link path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpng.pc target=libpng16.pc
-link path=$(ECPREFIX)/lib/libpng.la target=libpng16.la
-link path=$(ECPREFIX)/lib/libpng.so target=libpng16.so
-link path=$(ECPREFIX)/lib/libpng16.so target=libpng16.so.16.10.0
-link path=$(ECPREFIX)/lib/libpng16.so.16 target=libpng16.so.16.10.0
-link path=$(ECPREFIX)/lib/pkgconfig/libpng.pc target=libpng16.pc
+file path=$(USRDIR)/bin/$(MACH64)/libpng16-config
+file path=$(USRDIR)/bin/$(MACH64)/png-fix-itxt
+file path=$(USRDIR)/bin/$(MACH64)/pngfix
+file path=$(USRDIR)/bin/libpng16-config
+file path=$(USRDIR)/bin/png-fix-itxt
+file path=$(USRDIR)/bin/pngfix
+file path=$(USRDIR)/include/libpng16/png.h
+file path=$(USRDIR)/include/libpng16/pngconf.h
+file path=$(USRDIR)/include/libpng16/pnglibconf.h
+file path=$(USRDIR)/lib/$(MACH64)/libpng16.la
+file path=$(USRDIR)/lib/$(MACH64)/libpng16.so.16.10.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libpng16.pc
+file path=$(USRDIR)/lib/libpng16.la
+file path=$(USRDIR)/lib/libpng16.so.16.10.0
+file path=$(USRDIR)/lib/pkgconfig/libpng16.pc
+file path=$(USRDIR)/share/man/man3/libpng.3
+file path=$(USRDIR)/share/man/man3/libpngpf.3
+file path=$(USRDIR)/share/man/man5/png.5
+link path=$(USRDIR)/bin/$(MACH64)/libpng-config target=libpng16-config
+link path=$(USRDIR)/bin/libpng-config target=libpng16-config
+link path=$(USRDIR)/include/png.h target=libpng16/png.h
+link path=$(USRDIR)/include/pngconf.h target=libpng16/pngconf.h
+link path=$(USRDIR)/include/pnglibconf.h target=libpng16/pnglibconf.h
+link path=$(USRDIR)/lib/$(MACH64)/libpng.la target=libpng16.la
+link path=$(USRDIR)/lib/$(MACH64)/libpng.so target=libpng16.so
+link path=$(USRDIR)/lib/$(MACH64)/libpng16.so target=libpng16.so.16.10.0
+link path=$(USRDIR)/lib/$(MACH64)/libpng16.so.16 target=libpng16.so.16.10.0
+link path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libpng.pc target=libpng16.pc
+link path=$(USRDIR)/lib/libpng.la target=libpng16.la
+link path=$(USRDIR)/lib/libpng.so target=libpng16.so
+link path=$(USRDIR)/lib/libpng16.so target=libpng16.so.16.10.0
+link path=$(USRDIR)/lib/libpng16.so.16 target=libpng16.so.16.10.0
+link path=$(USRDIR)/lib/pkgconfig/libpng.pc target=libpng16.pc
