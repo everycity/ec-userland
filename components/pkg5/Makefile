@@ -107,6 +107,11 @@ $(BUILD_DIR)/$(MACH)/.published: $(BUILD_DIR)/$(MACH)/publish.transforms
 	  $$(pkgrecv -s $(PKG_REPO) --newest)
 
 	for pkg in $$(echo $(@D)/pkgrecv.dir/*/*); do \
+	  pkgdir=`dirname $$pkg`; \
+	  if [ "$(@D)/pkgrecv.dir/package%2Fpkg" != "$$pkgdir" ]; then \
+	    echo "== $$pkgdir"; \
+	    continue; \
+	  fi; \
 	  pkgmogrify -O $$pkg/manifest $$pkg/manifest \
 	  $(BUILD_DIR)/$(MACH)/publish.transforms; \
 	  pkgsend -s $(WS_REPO) publish --fmri-in-manifest \
