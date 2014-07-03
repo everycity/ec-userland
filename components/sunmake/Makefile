@@ -22,7 +22,7 @@ COMPONENT_SRC=          $(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=      $(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH= \
     sha256:3ca1dd7873730086519edee98438cacd429d4724dd04202a9f5c9e92085ddac0
-COMPONENT_ARCHIVE_URL=  http://www.dilos.org/srcarch/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=  http://dlc.dilos.org/srcarch/$(COMPONENT_ARCHIVE)
 
 include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/ips.mk
