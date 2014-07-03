@@ -23,6 +23,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 license sunmake.license license='MIT'
 
 file path=$(USRDIR)/bin/dmake
+# need check it later with base-os package on SNGL zone
 #file path=$(USRDIR)/ccs/bin/make
 #file path=$(USRDIR)/ccs/lib/svr4.make
 file path=$(USRDIR)/lib/$(MACH64)/libmakestate.so.1
