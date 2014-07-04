@@ -111,5 +111,5 @@
 <transform link mediator=python mediator-version=2.7 -> default mediator-priority vendor>
 <transform link mediator=gcc mediator-version=4.8 -> default mediator-priority vendor>
 #<transform link mediator=make mediator-version=1.0 -> default mediator-priority vendor>
-<transform link mediator=perl mediator-version=518 -> default mediator-priority vendor>
+<transform link mediator=perl mediator-version=5.18 -> default mediator-priority vendor>
 <transform link mediator=automake mediator-version=1.14 -> default mediator-priority vendor>
