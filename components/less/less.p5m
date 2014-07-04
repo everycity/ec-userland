@@ -31,14 +31,9 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license less.license license="GPLv3"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/less
-file path=$(ECPREFIX)/bin/lessecho
-file path=$(ECPREFIX)/bin/lesskey
-file path=$(ECPREFIX)/share/man/man1/less.1
-file path=$(ECPREFIX)/share/man/man1/lessecho.1
-file path=$(ECPREFIX)/share/man/man1/lesskey.1
+file path=$(USRDIR)/bin/less
+file path=$(USRDIR)/bin/lessecho
+file path=$(USRDIR)/bin/lesskey
+file path=$(USRDIR)/share/man/man1/less.1
+file path=$(USRDIR)/share/man/man1/lessecho.1
+file path=$(USRDIR)/share/man/man1/lesskey.1
