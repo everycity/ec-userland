@@ -22,12 +22,6 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license makedepend.license license="OpenGroup"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/makedepend
-file path=$(ECPREFIX)/bin/makedepend
-file path=$(ECPREFIX)/share/man/man1/makedepend.1
+file path=$(USRDIR)/bin/$(MACH64)/makedepend
+file path=$(USRDIR)/bin/makedepend
+file path=$(USRDIR)/share/man/man1/makedepend.1
