@@ -36,8 +36,8 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 # perl 5.12
-depend fmri=library/perl-5/xml-parser-512 predicate=runtime/perl-512 \
-    type=conditional
+#depend fmri=library/perl-5/xml-parser-512 predicate=runtime/perl-512 \
+#    type=conditional
 
 # perl 5.18
 depend fmri=library/perl-5/xml-parser-518 predicate=runtime/perl-518 \
