@@ -368,7 +368,6 @@
 /^tcl$/d
 /^tcsh$/d
 /^test$/d
-/^texinfo$/d
 /^tftp-hpa$/d
 /^tidy$/d
 /^tmux$/d
