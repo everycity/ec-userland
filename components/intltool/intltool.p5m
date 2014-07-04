@@ -22,11 +22,11 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-file path=$(USRDIR)/bin/$(MACH64)/intltool-extract
-file path=$(USRDIR)/bin/$(MACH64)/intltool-merge
-file path=$(USRDIR)/bin/$(MACH64)/intltool-prepare
-file path=$(USRDIR)/bin/$(MACH64)/intltool-update
-file path=$(USRDIR)/bin/$(MACH64)/intltoolize
+#file path=$(USRDIR)/bin/$(MACH64)/intltool-extract
+#file path=$(USRDIR)/bin/$(MACH64)/intltool-merge
+#file path=$(USRDIR)/bin/$(MACH64)/intltool-prepare
+#file path=$(USRDIR)/bin/$(MACH64)/intltool-update
+#file path=$(USRDIR)/bin/$(MACH64)/intltoolize
 file path=$(USRDIR)/bin/intltool-extract
 file path=$(USRDIR)/bin/intltool-merge
 file path=$(USRDIR)/bin/intltool-prepare
