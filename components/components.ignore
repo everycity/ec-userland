@@ -72,7 +72,6 @@
 /^geoip-db-city$/d
 /^geoip-db-country$/d
 /^geos$/d
-/^getopt$/d
 /^ghostscript$/d
 /^giflib$/d
 /^gifsicle$/d

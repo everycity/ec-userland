@@ -25,10 +25,22 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_BUILD_ARGS+= LDFLAGS="-lintl"
-COMPONENT_INSTALL_ARGS+= DESTDIR=$(PROTO_DIR) prefix=$(ECPREFIX) mandir=$(ECPREFIX)/share/man
+COMPONENT_BUILD_ARGS+= CC="$(CC)"
+COMPONENT_BUILD_ARGS+= CFLAGS="$(CFLAGS)"
+COMPONENT_BUILD_ARGS+= LDFLAGS="$(LDFLAGS)"
+COMPONENT_BUILD_ARGS+= LIBCGETOPT=0
+
+COMPONENT_INSTALL_ARGS+= DESTDIR=$(PROTO_DIR)
+COMPONENT_INSTALL_ARGS+= prefix=$(ECPREFIX)
+COMPONENT_INSTALL_ARGS+= mandir=$(ECPREFIX)/share/man
+COMPONENT_INSTALL_ARGS+= CC="$(CC)"
+COMPONENT_INSTALL_ARGS+= CFLAGS="$(CFLAGS)"
+COMPONENT_INSTALL_ARGS+= LDFLAGS="$(LDFLAGS)"
+
+# Stupid source tarball distribution contains two .o files.
+COMPONENT_POST_UNPACK_ACTION= \
+	$(RM) $(SOURCE_DIR)/gnu/*.o
 
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
-
