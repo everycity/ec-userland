@@ -75,7 +75,6 @@
 /^giflib$/d
 /^gifsicle$/d
 /^git$/d
-/^glib2$/d
 /^gnome-mime-data$/d
 /^gnome-vfs$/d
 /^gnu-bc$/d

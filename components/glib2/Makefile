@@ -30,18 +30,45 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CFLAGS.32+=	-march=i686
-CFLAGS+=	$(CFLAGS.$(BITS))
+COMPONENT_PREP_ACTION = \
+		( cd $(@D) \
+		&& aclocal \
+		&& libtoolize --force --copy \
+		&& autoheader \
+		&& automake -a -c -f \
+		&& autoconf )
 
-CONFIGURE_OPTIONS+=	--with-libiconv=gnu
+#		&& gtkdocize \
+
+COMPONENT_PRE_CONFIGURE_ACTION = \
+	($(CLONEY) $(SOURCE_DIR) $(@D))
+
+LDFLAGS += -lsocket -lsecdb -lnsl
+
+CONFIGURE_ENV += PYTHON="$(PYTHON.$(BITS))"
+
+#CFLAGS.32+=	-march=i686
+#CFLAGS+=	$(CFLAGS.$(BITS))
+
+CONFIGURE_OPTIONS  += --with-libiconv=gnu
+
+CONFIGURE_OPTIONS  += --disable-fam
+CONFIGURE_OPTIONS  += --disable-selinux
+CONFIGURE_OPTIONS  += --enable-shared
+CONFIGURE_OPTIONS  += --disable-static
+CONFIGURE_OPTIONS  += --with-pcre
+CONFIGURE_OPTIONS  += --disable-gtk-doc
+CONFIGURE_OPTIONS  += --disable-gtk-doc-html
+CONFIGURE_OPTIONS  += --disable-gtk-doc-pdf
+CONFIGURE_OPTIONS  += --with-gio-module-dir=$(CONFIGURE_LIBDIR.$(BITS))/gio/modules
 
 build:		$(BUILD_32_and_64)
 
 $(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
-	$(GSED) -i -e 's!/ec/bin/python!/ec/bin/python2.6!' $(PROTO_DIR)$(ECPREFIX)/bin/gdbus-codegen
-	$(GSED) -i -e 's!/ec/bin/python!/ec/bin/python2.6!' $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/gdbus-codegen
-	$(GSED) -i -e 's!/ec/bin/python!/ec/bin/python2.6!' $(PROTO_DIR)$(ECPREFIX)/bin/gtester-report
-	$(GSED) -i -e 's!/ec/bin/python!/ec/bin/python2.6!' $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/gtester-report
+#	$(GSED) -i -e 's!$(USRDIR)/bin/python!$(USRDIR)/bin/python$(PYTHON_VERSION)!' $(PROTO_DIR)$(USRDIR)/bin/gdbus-codegen
+#	$(GSED) -i -e 's!$(USRDIR)/bin/python!$(USRDIR)/bin/python$(PYTHON_VERSION)!' $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/gdbus-codegen
+#	$(GSED) -i -e 's!$(USRDIR)/bin/python!$(USRDIR)/bin/python$(PYTHON_VERSION)!' $(PROTO_DIR)$(USRDIR)/bin/gtester-report
+#	$(GSED) -i -e 's!$(USRDIR)/bin/python!$(USRDIR)/bin/python$(PYTHON_VERSION)!' $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/gtester-report
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed
