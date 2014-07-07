@@ -16,7 +16,6 @@
 /^apachetop$/d
 /^apr$/d
 /^apr-util$/d
-/^asciidoc$/d
 /^aspell$/d
 /^automake-112$/d
 /^bdb51$/d

@@ -31,8 +31,8 @@ include ../../make-rules/ips.mk
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D) ; \
 	cd $(@D) ; \
-	$(GSED) -i -e 's!/usr/bin/env python!$(ECPREFIX)/bin/python2.6!' a2x.py ; \
-	$(GSED) -i -e 's!/usr/bin/env python!$(ECPREFIX)/bin/python2.6!' asciidoc.py ; )
+	$(GSED) -i -e 's!/usr/bin/env python!$(USRDIR)/bin/python$(PYTHON_VERSION)!' a2x.py ; \
+	$(GSED) -i -e 's!/usr/bin/env python!$(USRDIR)/bin/python$(PYTHON_VERSION)!' asciidoc.py ; )
 
 build:		$(BUILD_32)
 
