@@ -18,7 +18,7 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2014, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -33,7 +33,10 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic --with-sysroot=/ec
+CONFIGURE_OPTIONS +=	--enable-shared
+CONFIGURE_OPTIONS +=	--disable-static
+CONFIGURE_OPTIONS +=	--with-pic
+#CONFIGURE_OPTIONS +=	--with-sysroot=/
 
 build:		$(BUILD_32_and_64)
 
