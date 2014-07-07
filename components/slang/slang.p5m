@@ -1,173 +1,186 @@
 #
-# This file and its contents are supplied under the terms of the
-# Common Development and Distribution License ("CDDL)". You may
-# only use this file in accordance with the terms of the CDDL.
+# CDDL HEADER START
 #
-# A full copy of the text of the CDDL should have accompanied this
-# source. A copy of the CDDL is also available via the Internet at
-# http://www.illumos.org/license/CDDL.
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright (c) 2011, 2013, Oracle and/or its affiliates. All rights reserved.
 #
 
-#
-# Copyright 2011 EveryCity Ltd. All rights reserved.
-#
-
-# Transforms
-<include ec-drop-common>
+<transform file path=usr.*/man/.+ -> default mangler.man.stability volatile>
+<transform path=usr/bin/$(MACH64) -> drop>
+<transform file path=etc/slsh/slsh.rc$ -> default mode 0644>
+<transform file path=etc/slsh/slsh.rc$ -> default preserve renamenew>
+<transform file path=usr/share/slsh/scripts/.+ -> default mode 0555>
 
 set name=pkg.fmri value=pkg:/library/slang@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="S-Lang Library"
-set name=info.upstream_url value="http://www.s-lang.org/"
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=pkg.summary value="Library designed to allow a developer to create robust multi-platform software"
+set name=pkg.description value="S-Lang is a multi-platform programmer's library designed to allow a developer to create robust multi-platform software."
+set name=com.oracle.info.description value="the S-Lang library"
+set name=info.classification value="org.opensolaris.category.2008:Development/Other Languages"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license slang.license license="GPLv2"
+license slang.license license=GPLv2
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/slang
-dir path=$(ECPREFIX)/lib/$(MACH64)/slang/v2
-dir path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules
-dir path=$(ECPREFIX)/lib/slang
-dir path=$(ECPREFIX)/lib/slang/v2
-dir path=$(ECPREFIX)/lib/slang/v2/modules
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/slang
-dir path=$(ECPREFIX)/share/doc/slang/v2
-dir path=$(ECPREFIX)/share/doc/slsh
-dir path=$(ECPREFIX)/share/doc/slsh/html
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-dir path=$(ECPREFIX)/share/slsh
-dir path=$(ECPREFIX)/share/slsh/cmaps
-dir path=$(ECPREFIX)/share/slsh/help
-dir path=$(ECPREFIX)/share/slsh/local-packages
-dir path=$(ECPREFIX)/share/slsh/rline
-dir path=$(ECPREFIX)/share/slsh/scripts
-file path=$(ECPREFIX)/bin/$(MACH64)/slsh
-file path=$(ECPREFIX)/bin/slsh
-file path=$(ECPREFIX)/etc/slsh.rc
-file path=$(ECPREFIX)/include/slang.h
-file path=$(ECPREFIX)/include/slcurses.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libslang.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/fcntl-module.so
-file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/iconv-module.so
-file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/pcre-module.so
-file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/png-module.so
-file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/rand-module.so
-file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/select-module.so
-file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/slsmg-module.so
-file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/socket-module.so
-file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/termios-module.so
-file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/varray-module.so
-file path=$(ECPREFIX)/lib/libslang.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/slang/v2/modules/fcntl-module.so
-file path=$(ECPREFIX)/lib/slang/v2/modules/iconv-module.so
-file path=$(ECPREFIX)/lib/slang/v2/modules/pcre-module.so
-file path=$(ECPREFIX)/lib/slang/v2/modules/png-module.so
-file path=$(ECPREFIX)/lib/slang/v2/modules/rand-module.so
-file path=$(ECPREFIX)/lib/slang/v2/modules/select-module.so
-file path=$(ECPREFIX)/lib/slang/v2/modules/slsmg-module.so
-file path=$(ECPREFIX)/lib/slang/v2/modules/socket-module.so
-file path=$(ECPREFIX)/lib/slang/v2/modules/termios-module.so
-file path=$(ECPREFIX)/lib/slang/v2/modules/varray-module.so
-file path=$(ECPREFIX)/share/doc/slang/v2/COPYING
-file path=$(ECPREFIX)/share/doc/slang/v2/changes.txt
-file path=$(ECPREFIX)/share/doc/slang/v2/cref.txt
-file path=$(ECPREFIX)/share/doc/slang/v2/cslang.txt
-file path=$(ECPREFIX)/share/doc/slang/v2/slang.txt
-file path=$(ECPREFIX)/share/doc/slang/v2/slangdoc.html
-file path=$(ECPREFIX)/share/doc/slang/v2/slangfun.txt
-file path=$(ECPREFIX)/share/doc/slsh/html/slshfun-1.html
-file path=$(ECPREFIX)/share/doc/slsh/html/slshfun-2.html
-file path=$(ECPREFIX)/share/doc/slsh/html/slshfun-3.html
-file path=$(ECPREFIX)/share/doc/slsh/html/slshfun-4.html
-file path=$(ECPREFIX)/share/doc/slsh/html/slshfun-5.html
-file path=$(ECPREFIX)/share/doc/slsh/html/slshfun-6.html
-file path=$(ECPREFIX)/share/doc/slsh/html/slshfun-7.html
-file path=$(ECPREFIX)/share/doc/slsh/html/slshfun.html
-file path=$(ECPREFIX)/share/man/man1/slsh.1
-file path=$(ECPREFIX)/share/slsh/arrayfuns.sl
-file path=$(ECPREFIX)/share/slsh/autoload.sl
-file path=$(ECPREFIX)/share/slsh/cmaps/cool.map
-file path=$(ECPREFIX)/share/slsh/cmaps/copper.map
-file path=$(ECPREFIX)/share/slsh/cmaps/drywet.map
-file path=$(ECPREFIX)/share/slsh/cmaps/ds9b.map
-file path=$(ECPREFIX)/share/slsh/cmaps/ds9sls.map
-file path=$(ECPREFIX)/share/slsh/cmaps/gebco.map
-file path=$(ECPREFIX)/share/slsh/cmaps/globe.map
-file path=$(ECPREFIX)/share/slsh/cmaps/gray.map
-file path=$(ECPREFIX)/share/slsh/cmaps/haxby.map
-file path=$(ECPREFIX)/share/slsh/cmaps/hot.map
-file path=$(ECPREFIX)/share/slsh/cmaps/jet.map
-file path=$(ECPREFIX)/share/slsh/cmaps/no_green.map
-file path=$(ECPREFIX)/share/slsh/cmaps/ocean.map
-file path=$(ECPREFIX)/share/slsh/cmaps/polar.map
-file path=$(ECPREFIX)/share/slsh/cmaps/rainbow.map
-file path=$(ECPREFIX)/share/slsh/cmaps/red2green.map
-file path=$(ECPREFIX)/share/slsh/cmaps/relief.map
-file path=$(ECPREFIX)/share/slsh/cmaps/sealand.map
-file path=$(ECPREFIX)/share/slsh/cmaps/seis.map
-file path=$(ECPREFIX)/share/slsh/cmaps/split.map
-file path=$(ECPREFIX)/share/slsh/cmaps/topo.map
-file path=$(ECPREFIX)/share/slsh/cmaps/wysiwyg.map
-file path=$(ECPREFIX)/share/slsh/cmdopt.sl
-file path=$(ECPREFIX)/share/slsh/fcntl.sl
-file path=$(ECPREFIX)/share/slsh/glob.sl
-file path=$(ECPREFIX)/share/slsh/help/arrayfuns.hlp
-file path=$(ECPREFIX)/share/slsh/help/cmdopt.hlp
-file path=$(ECPREFIX)/share/slsh/help/glob.hlp
-file path=$(ECPREFIX)/share/slsh/help/onigfuns.hlp
-file path=$(ECPREFIX)/share/slsh/help/pcrefuns.hlp
-file path=$(ECPREFIX)/share/slsh/help/pngfuns.hlp
-file path=$(ECPREFIX)/share/slsh/help/print.hlp
-file path=$(ECPREFIX)/share/slsh/help/profile.hlp
-file path=$(ECPREFIX)/share/slsh/help/randfuns.hlp
-file path=$(ECPREFIX)/share/slsh/help/readascii.hlp
-file path=$(ECPREFIX)/share/slsh/help/require.hlp
-file path=$(ECPREFIX)/share/slsh/help/sockfuns.hlp
-file path=$(ECPREFIX)/share/slsh/help/structfuns.hlp
-file path=$(ECPREFIX)/share/slsh/iconv.sl
-file path=$(ECPREFIX)/share/slsh/onig.sl
-file path=$(ECPREFIX)/share/slsh/pcre.sl
-file path=$(ECPREFIX)/share/slsh/png.sl
-file path=$(ECPREFIX)/share/slsh/print.sl
-file path=$(ECPREFIX)/share/slsh/profile.sl
-file path=$(ECPREFIX)/share/slsh/rand.sl
-file path=$(ECPREFIX)/share/slsh/readascii.sl
-file path=$(ECPREFIX)/share/slsh/require.sl
-file path=$(ECPREFIX)/share/slsh/rline/complete.sl
-file path=$(ECPREFIX)/share/slsh/rline/editfuns.sl
-file path=$(ECPREFIX)/share/slsh/rline/emacskeys.sl
-file path=$(ECPREFIX)/share/slsh/rline/history.sl
-file path=$(ECPREFIX)/share/slsh/rline/slrline.rc
-file path=$(ECPREFIX)/share/slsh/rline/vikeys.sl
-file path=$(ECPREFIX)/share/slsh/scripts/jpegsize
-file path=$(ECPREFIX)/share/slsh/scripts/lsrpm
-file path=$(ECPREFIX)/share/slsh/scripts/sldb
-file path=$(ECPREFIX)/share/slsh/scripts/slprof
-file path=$(ECPREFIX)/share/slsh/scripts/svnsh
-file path=$(ECPREFIX)/share/slsh/select.sl
-file path=$(ECPREFIX)/share/slsh/sldb.sl
-file path=$(ECPREFIX)/share/slsh/sldbcore.sl
-file path=$(ECPREFIX)/share/slsh/sldbsock.sl
-file path=$(ECPREFIX)/share/slsh/slshhelp.sl
-file path=$(ECPREFIX)/share/slsh/slshrl.sl
-file path=$(ECPREFIX)/share/slsh/slsmg.sl
-file path=$(ECPREFIX)/share/slsh/socket.sl
-file path=$(ECPREFIX)/share/slsh/stkcheck.sl
-file path=$(ECPREFIX)/share/slsh/structfuns.sl
-file path=$(ECPREFIX)/share/slsh/termios.sl
-file path=$(ECPREFIX)/share/slsh/varray.sl
-link path=$(ECPREFIX)/lib/$(MACH64)/libslang.so \
+file path=etc/slsh/slsh.rc
+file path=$(USRDIR)/bin/$(MACH64)/slsh
+file path=$(USRDIR)/bin/slsh
+file path=$(USRDIR)/include/slang.h
+file path=$(USRDIR)/include/slcurses.h
+file path=$(USRDIR)/lib/$(MACH64)/libslang.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/slang.pc
+file path=$(USRDIR)/lib/$(MACH64)/slang/v2/modules/csv-module.so
+file path=$(USRDIR)/lib/$(MACH64)/slang/v2/modules/fcntl-module.so
+file path=$(USRDIR)/lib/$(MACH64)/slang/v2/modules/fork-module.so
+file path=$(USRDIR)/lib/$(MACH64)/slang/v2/modules/iconv-module.so
+file path=$(USRDIR)/lib/$(MACH64)/slang/v2/modules/pcre-module.so
+file path=$(USRDIR)/lib/$(MACH64)/slang/v2/modules/png-module.so
+file path=$(USRDIR)/lib/$(MACH64)/slang/v2/modules/rand-module.so
+file path=$(USRDIR)/lib/$(MACH64)/slang/v2/modules/select-module.so
+file path=$(USRDIR)/lib/$(MACH64)/slang/v2/modules/slsmg-module.so
+file path=$(USRDIR)/lib/$(MACH64)/slang/v2/modules/socket-module.so
+file path=$(USRDIR)/lib/$(MACH64)/slang/v2/modules/sysconf-module.so
+file path=$(USRDIR)/lib/$(MACH64)/slang/v2/modules/termios-module.so
+file path=$(USRDIR)/lib/$(MACH64)/slang/v2/modules/varray-module.so
+file path=$(USRDIR)/lib/$(MACH64)/slang/v2/modules/zlib-module.so
+file path=$(USRDIR)/lib/libslang.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/pkgconfig/slang.pc
+file path=$(USRDIR)/lib/slang/v2/modules/csv-module.so
+file path=$(USRDIR)/lib/slang/v2/modules/fcntl-module.so
+file path=$(USRDIR)/lib/slang/v2/modules/fork-module.so
+file path=$(USRDIR)/lib/slang/v2/modules/iconv-module.so
+file path=$(USRDIR)/lib/slang/v2/modules/pcre-module.so
+file path=$(USRDIR)/lib/slang/v2/modules/png-module.so
+file path=$(USRDIR)/lib/slang/v2/modules/rand-module.so
+file path=$(USRDIR)/lib/slang/v2/modules/select-module.so
+file path=$(USRDIR)/lib/slang/v2/modules/slsmg-module.so
+file path=$(USRDIR)/lib/slang/v2/modules/socket-module.so
+file path=$(USRDIR)/lib/slang/v2/modules/sysconf-module.so
+file path=$(USRDIR)/lib/slang/v2/modules/termios-module.so
+file path=$(USRDIR)/lib/slang/v2/modules/varray-module.so
+file path=$(USRDIR)/lib/slang/v2/modules/zlib-module.so
+file path=$(USRDIR)/share/doc/slang/v2/COPYING
+file path=$(USRDIR)/share/doc/slang/v2/changes.txt
+file path=$(USRDIR)/share/doc/slang/v2/cref.txt
+file path=$(USRDIR)/share/doc/slang/v2/cslang.txt
+file path=$(USRDIR)/share/doc/slang/v2/slang.txt
+file path=$(USRDIR)/share/doc/slang/v2/slangdoc.html
+file path=$(USRDIR)/share/doc/slang/v2/slangfun.txt
+file path=$(USRDIR)/share/doc/slsh/html/slshfun-1.html
+file path=$(USRDIR)/share/doc/slsh/html/slshfun-2.html
+file path=$(USRDIR)/share/doc/slsh/html/slshfun-3.html
+file path=$(USRDIR)/share/doc/slsh/html/slshfun-4.html
+file path=$(USRDIR)/share/doc/slsh/html/slshfun-5.html
+file path=$(USRDIR)/share/doc/slsh/html/slshfun-6.html
+file path=$(USRDIR)/share/doc/slsh/html/slshfun-7.html
+file path=$(USRDIR)/share/doc/slsh/html/slshfun-8.html
+file path=$(USRDIR)/share/doc/slsh/html/slshfun-9.html
+file path=$(USRDIR)/share/doc/slsh/html/slshfun.html
+file path=$(USRDIR)/share/man/man1/slsh.1
+file path=$(USRDIR)/share/slsh/arrayfuns.sl
+file path=$(USRDIR)/share/slsh/autoload.sl
+file path=$(USRDIR)/share/slsh/cmaps/cool.map
+file path=$(USRDIR)/share/slsh/cmaps/coolwarm.map
+file path=$(USRDIR)/share/slsh/cmaps/copper.map
+file path=$(USRDIR)/share/slsh/cmaps/drywet.map
+file path=$(USRDIR)/share/slsh/cmaps/ds9b.map
+file path=$(USRDIR)/share/slsh/cmaps/ds9sls.map
+file path=$(USRDIR)/share/slsh/cmaps/gebco.map
+file path=$(USRDIR)/share/slsh/cmaps/globe.map
+file path=$(USRDIR)/share/slsh/cmaps/gray.map
+file path=$(USRDIR)/share/slsh/cmaps/haxby.map
+file path=$(USRDIR)/share/slsh/cmaps/hot.map
+file path=$(USRDIR)/share/slsh/cmaps/jet.map
+file path=$(USRDIR)/share/slsh/cmaps/no_green.map
+file path=$(USRDIR)/share/slsh/cmaps/ocean.map
+file path=$(USRDIR)/share/slsh/cmaps/polar.map
+file path=$(USRDIR)/share/slsh/cmaps/rainbow.map
+file path=$(USRDIR)/share/slsh/cmaps/red2green.map
+file path=$(USRDIR)/share/slsh/cmaps/relief.map
+file path=$(USRDIR)/share/slsh/cmaps/sealand.map
+file path=$(USRDIR)/share/slsh/cmaps/seis.map
+file path=$(USRDIR)/share/slsh/cmaps/split.map
+file path=$(USRDIR)/share/slsh/cmaps/topo.map
+file path=$(USRDIR)/share/slsh/cmaps/wysiwyg.map
+file path=$(USRDIR)/share/slsh/cmdopt.sl
+file path=$(USRDIR)/share/slsh/csv.sl
+file path=$(USRDIR)/share/slsh/fcntl.sl
+file path=$(USRDIR)/share/slsh/fork.sl
+file path=$(USRDIR)/share/slsh/glob.sl
+file path=$(USRDIR)/share/slsh/help/arrayfuns.hlp
+file path=$(USRDIR)/share/slsh/help/cmdopt.hlp
+file path=$(USRDIR)/share/slsh/help/csvfuns.hlp
+file path=$(USRDIR)/share/slsh/help/forkfuns.hlp
+file path=$(USRDIR)/share/slsh/help/glob.hlp
+file path=$(USRDIR)/share/slsh/help/onigfuns.hlp
+file path=$(USRDIR)/share/slsh/help/pcrefuns.hlp
+file path=$(USRDIR)/share/slsh/help/pngfuns.hlp
+file path=$(USRDIR)/share/slsh/help/print.hlp
+file path=$(USRDIR)/share/slsh/help/process.hlp
+file path=$(USRDIR)/share/slsh/help/profile.hlp
+file path=$(USRDIR)/share/slsh/help/randfuns.hlp
+file path=$(USRDIR)/share/slsh/help/readascii.hlp
+file path=$(USRDIR)/share/slsh/help/require.hlp
+file path=$(USRDIR)/share/slsh/help/setfuns.hlp
+file path=$(USRDIR)/share/slsh/help/slsmg.hlp
+file path=$(USRDIR)/share/slsh/help/sockfuns.hlp
+file path=$(USRDIR)/share/slsh/help/structfuns.hlp
+file path=$(USRDIR)/share/slsh/iconv.sl
+file path=$(USRDIR)/share/slsh/onig.sl
+file path=$(USRDIR)/share/slsh/pcre.sl
+file path=$(USRDIR)/share/slsh/png.sl
+file path=$(USRDIR)/share/slsh/print.sl
+file path=$(USRDIR)/share/slsh/process.sl
+file path=$(USRDIR)/share/slsh/profile.sl
+file path=$(USRDIR)/share/slsh/rand.sl
+file path=$(USRDIR)/share/slsh/readascii.sl
+file path=$(USRDIR)/share/slsh/require.sl
+file path=$(USRDIR)/share/slsh/rline/complete.sl
+file path=$(USRDIR)/share/slsh/rline/editfuns.sl
+file path=$(USRDIR)/share/slsh/rline/editor.sl
+file path=$(USRDIR)/share/slsh/rline/emacskeys.sl
+file path=$(USRDIR)/share/slsh/rline/history.sl
+file path=$(USRDIR)/share/slsh/rline/histsrch.sl
+file path=$(USRDIR)/share/slsh/rline/slrline.rc
+file path=$(USRDIR)/share/slsh/rline/vikeys.sl
+file path=$(USRDIR)/share/slsh/scripts/jpegsize
+file path=$(USRDIR)/share/slsh/scripts/lsrpm
+file path=$(USRDIR)/share/slsh/scripts/sldb
+file path=$(USRDIR)/share/slsh/scripts/slprof
+file path=$(USRDIR)/share/slsh/scripts/slstkchk
+file path=$(USRDIR)/share/slsh/scripts/svnsh
+file path=$(USRDIR)/share/slsh/select.sl
+file path=$(USRDIR)/share/slsh/setfuns.sl
+file path=$(USRDIR)/share/slsh/sldb.sl
+file path=$(USRDIR)/share/slsh/sldbcore.sl
+file path=$(USRDIR)/share/slsh/sldbsock.sl
+file path=$(USRDIR)/share/slsh/slshhelp.sl
+file path=$(USRDIR)/share/slsh/slshrl.sl
+file path=$(USRDIR)/share/slsh/slsmg.sl
+file path=$(USRDIR)/share/slsh/socket.sl
+file path=$(USRDIR)/share/slsh/stkcheck.sl
+file path=$(USRDIR)/share/slsh/structfuns.sl
+file path=$(USRDIR)/share/slsh/sysconf.sl
+file path=$(USRDIR)/share/slsh/termios.sl
+file path=$(USRDIR)/share/slsh/varray.sl
+file path=$(USRDIR)/share/slsh/zlib.sl
+link path=$(USRDIR)/lib/$(MACH64)/libslang.so target=libslang.so.2
+link path=$(USRDIR)/lib/$(MACH64)/libslang.so.2 \
     target=libslang.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libslang.so.2 \
-    target=libslang.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libslang.so target=libslang.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libslang.so.2 \
-    target=libslang.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libslang.so target=libslang.so.2
+link path=$(USRDIR)/lib/libslang.so.2 target=libslang.so.$(COMPONENT_VERSION)

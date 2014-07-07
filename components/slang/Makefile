@@ -18,34 +18,57 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+
 #
+# Copyright (c) 2012, Igor Kozhukhov <ikozhukhov@gmail.com>.  All rights reserved.
+# Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
+#
+
+# we need JOBS=1 for this component
+DEF_JOBS := no
+
+#CONFIGURE_DEFAULT_LDFLAGS = no
+CONFIGURE_DEFAULT_CPPFLAGS = no
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		slang
-COMPONENT_VERSION=	2.1.4
+COMPONENT_VERSION=	2.2.4
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:8670420f870f3f5b92e72ec5962aefa52fd546a5
-COMPONENT_ARCHIVE_URL=	ftp://space.mit.edu/pub/davis/slang/v2.1/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:9a8257a9a2a55099af858b13338dc8f3a06dd2069f46f0df2c9c3bb84a01d5db
+COMPONENT_ARCHIVE_URL=	ftp://space.mit.edu/pub/davis/slang/v2.2/$(COMPONENT_ARCHIVE)
+COMPONENT_PROJECT_URL=	http://www.jedsoft.org/slang/
+COMPONENT_BUGDB=	utility/slang
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-# make build isn't thread safe.
-COMPONENT_BUILD_GMAKE_ARGS=
+COMPONENT_PRE_CONFIGURE_ACTION = \
+	( $(CLONEY) $(SOURCE_DIR) $(@D) )
 
-# configure the unpacked source for building 32 and 64 bit version
-$(BUILD_DIR)/%/.configured:	$(SOURCE_DIR)/.prep
-	mkdir -p $(@)
-	cp -R $(SOURCE_DIR)/* $(@D)/
-	(cd $(@D) ; $(ENV) $(CONFIGURE_ENV) $(CONFIG_SHELL) \
-		./configure $(CONFIGURE_OPTIONS))
-	$(TOUCH) $@
+COMPONENT_PREP_POST_ACTION = ( cd $(@D) \
+	&& libtoolize --copy --force \
+	&& aclocal -I .  \
+	&& autoheader \
+	&& automake -a -c -f \
+	&& autoconf )
 
+CONFIGURE_SCRIPT = $(@D)/configure
 
+LDFLAGS += $(CC_BITS)
+LDFLAGS += -nodefaultlibs -lc
+
+CONFIGURE_OPTIONS  +=		--sysconfdir=$(ETCDIR)/slsh
+
+# common targets
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
 
+test:		$(TEST_32_and_64)
+
+BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
+
+include ../../make-rules/depend.mk
