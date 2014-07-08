@@ -661,6 +661,10 @@ file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/control/libdummy_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/control/libdummy_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/control/libgestures_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/control/libgestures_plugin.so
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/control/libglobalhotkeys_plugin.la
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/control/libglobalhotkeys_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/control/libhotkeys_plugin.la
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/control/libhotkeys_plugin.so
 file path=$(ECPREFIX)/lib/$(MACH64)/vlc/plugins/control/libmotion_plugin.la
@@ -1405,6 +1409,8 @@ file path=$(ECPREFIX)/lib/vlc/plugins/control/libdummy_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/control/libdummy_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/control/libgestures_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/control/libgestures_plugin.so
+file path=$(ECPREFIX)/lib/vlc/plugins/control/libglobalhotkeys_plugin.la
+file path=$(ECPREFIX)/lib/vlc/plugins/control/libglobalhotkeys_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/control/libhotkeys_plugin.la
 file path=$(ECPREFIX)/lib/vlc/plugins/control/libhotkeys_plugin.so
 file path=$(ECPREFIX)/lib/vlc/plugins/control/libmotion_plugin.la
