@@ -12,18 +12,20 @@
 # Copyright 2014, EveryCity Ltd. All rights reserved.
 #
 
+# we need JOBS=1 for this component
+DEF_JOBS := no
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		openssl
 COMPONENT_FMRI=		library/security/openssl
-COMPONENT_VERSION=	1.0.1g
-IPS_COMPONENT_VERSION=  1.0.1.7
+COMPONENT_VERSION=	1.0.1h
+IPS_COMPONENT_VERSION=  1.0.1.8
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://www.openssl.org/"
 COMPONENT_SUMMARY=	OpenSSL - a Toolkit for Secure Sockets Layer (SSL v2/v3) and Transport Layer (TLS v1) protocols and general purpose cryptographic library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:53cb818c3b90e507a8348f4f5eaedb05d8bfe5358aabb508b7263cc670c3e028
+COMPONENT_ARCHIVE_HASH=	sha256:9d1c8a9836aa63e2c6adb684186cbd4371c9e9dcc01d6e3bb447abf2d4d3d093
 COMPONENT_ARCHIVE_URL=	http://www.openssl.org/source/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -42,8 +44,8 @@ CFLAGS += -DNO_WINDOWS_BRAINDEATH
 
 GENERIC_CONFIGURE_OPTIONS = \
         $(CFLAGS) \
-        --openssldir=$(ECPREFIX)/etc/openssl \
-        --prefix=$(ECPREFIX) \
+        --openssldir=/etc/openssl \
+        --prefix=$(USRDIR) \
         --install_prefix=$(PROTO_DIR) \
         no-rc3 \
         no-rc5 \
@@ -82,41 +84,41 @@ build:		$(BUILD_32_and_64)
 include ../../make-rules/shared-targets.mk
 
 $(BUILD_DIR)/.installed:	$(BUILD_32_and_64) $(INSTALL_32)
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share
-	([ -d $(PROTO_DIR)$(ECPREFIX)/etc/openssl/man ] && \
-	    $(CP) -RP $(PROTO_DIR)$(ECPREFIX)/etc/openssl/man \
-	    $(PROTO_DIR)$(ECPREFIX)/share || true)
-	([ -d $(PROTO_DIR)$(ECPREFIX)/etc/openssl/man ] && \
-	    $(RM) -rf $(PROTO_DIR)$(ECPREFIX)/etc/openssl/man || true)
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
-	$(INSTALL) $(BUILD_DIR_64)/apps/openssl $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
-	$(INSTALL) $(BUILD_DIR_64)/libcrypto.so.1.0.0 $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
-	$(INSTALL) $(BUILD_DIR_64)/libssl.so.1.0.0 $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
-	( cd $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64) && \
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/share
+	([ -d $(PROTO_DIR)/etc/openssl/man ] && \
+	    $(CP) -RP $(PROTO_DIR)/etc/openssl/man \
+	    $(PROTO_DIR)$(USRDIR)/share || true)
+	([ -d $(PROTO_DIR)/etc/openssl/man ] && \
+	    $(RM) -rf $(PROTO_DIR)/etc/openssl/man || true)
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)
+	$(INSTALL) $(BUILD_DIR_64)/apps/openssl $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
+	$(INSTALL) $(BUILD_DIR_64)/libcrypto.so.1.0.0 $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
+	$(INSTALL) $(BUILD_DIR_64)/libssl.so.1.0.0 $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
+	( cd $(PROTO_DIR)$(USRDIR)/lib/$(MACH64) && \
 		$(SYMLINK) libcrypto.so.1.0.0 libcrypto.so && \
 		$(SYMLINK) libssl.so.1.0.0 libssl.so )
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/engines
-	$(INSTALL) $(BUILD_DIR_64)/engines/lib4758cca.so $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/engines
-	$(INSTALL) $(BUILD_DIR_64)/engines/libaep.so $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/engines
-	$(INSTALL) $(BUILD_DIR_64)/engines/libatalla.so $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/engines
-	$(INSTALL) $(BUILD_DIR_64)/engines/libcapi.so $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/engines
-	$(INSTALL) $(BUILD_DIR_64)/engines/libchil.so $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/engines
-	$(INSTALL) $(BUILD_DIR_64)/engines/libcswift.so $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/engines
-	$(INSTALL) $(BUILD_DIR_64)/engines/libgmp.so $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/engines
-	$(INSTALL) $(BUILD_DIR_64)/engines/ccgost/libgost.so $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/engines
-	$(INSTALL) $(BUILD_DIR_64)/engines/libnuron.so $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/engines
-	$(INSTALL) $(BUILD_DIR_64)/engines/libpadlock.so $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/engines
-	$(INSTALL) $(BUILD_DIR_64)/engines/libsureware.so $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/engines
-	$(INSTALL) $(BUILD_DIR_64)/engines/libubsec.so $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/engines
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-	$(INSTALL) $(BUILD_DIR_64)/libcrypto.pc $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-	$(INSTALL) $(BUILD_DIR_64)/libssl.pc $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-	$(INSTALL) $(BUILD_DIR_64)/openssl.pc $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-	(chmod +w $(PROTO_DIR)$(ECPREFIX)/bin/openssl $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/openssl \
-		$(PROTO_DIR)$(ECPREFIX)/lib/*so.* $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/*so.*)
-	(strip $(PROTO_DIR)$(ECPREFIX)/bin/openssl $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/openssl \
-		$(PROTO_DIR)$(ECPREFIX)/lib/*so.* $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/*so.*)
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
+	$(INSTALL) $(BUILD_DIR_64)/engines/lib4758cca.so $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
+	$(INSTALL) $(BUILD_DIR_64)/engines/libaep.so $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
+	$(INSTALL) $(BUILD_DIR_64)/engines/libatalla.so $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
+	$(INSTALL) $(BUILD_DIR_64)/engines/libcapi.so $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
+	$(INSTALL) $(BUILD_DIR_64)/engines/libchil.so $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
+	$(INSTALL) $(BUILD_DIR_64)/engines/libcswift.so $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
+	$(INSTALL) $(BUILD_DIR_64)/engines/libgmp.so $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
+	$(INSTALL) $(BUILD_DIR_64)/engines/ccgost/libgost.so $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
+	$(INSTALL) $(BUILD_DIR_64)/engines/libnuron.so $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
+	$(INSTALL) $(BUILD_DIR_64)/engines/libpadlock.so $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
+	$(INSTALL) $(BUILD_DIR_64)/engines/libsureware.so $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
+	$(INSTALL) $(BUILD_DIR_64)/engines/libubsec.so $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/pkgconfig
+	$(INSTALL) $(BUILD_DIR_64)/libcrypto.pc $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/pkgconfig
+	$(INSTALL) $(BUILD_DIR_64)/libssl.pc $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/pkgconfig
+	$(INSTALL) $(BUILD_DIR_64)/openssl.pc $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/pkgconfig
+	(chmod +w $(PROTO_DIR)$(USRDIR)/bin/openssl $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/openssl \
+		$(PROTO_DIR)$(USRDIR)/lib/*so.* $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/*so.*)
+	(strip $(PROTO_DIR)$(USRDIR)/bin/openssl $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/openssl \
+		$(PROTO_DIR)$(USRDIR)/lib/*so.* $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/*so.*)
 	# Note: OpenSSL generates a header file, include/openssl/opensslconf.h
 	# This header file is different depending on 32bit or 64bit build
 	/usr/bin/echo "/* EC: combining 32 and 64bit versions */\n\n#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/opensslconf.h
@@ -124,8 +126,8 @@ $(BUILD_DIR)/.installed:	$(BUILD_32_and_64) $(INSTALL_32)
 	/usr/bin/echo "\n#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/opensslconf.h
 	/usr/bin/cat $(BUILD_DIR_32)/include/openssl/opensslconf.h >> $(COMPONENT_DIR)/opensslconf.h
 	/usr/bin/echo "\n#endif /* EC */" >> $(COMPONENT_DIR)/opensslconf.h
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/include/openssl/opensslconf.h
-	$(INSTALL) $(COMPONENT_DIR)/opensslconf.h $(PROTO_DIR)$(ECPREFIX)/include/openssl/opensslconf.h
+	$(RM) $(PROTO_DIR)$(USRDIR)/include/openssl/opensslconf.h
+	$(INSTALL) $(COMPONENT_DIR)/opensslconf.h $(PROTO_DIR)$(USRDIR)/include/openssl/opensslconf.h
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed

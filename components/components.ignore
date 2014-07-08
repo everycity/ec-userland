@@ -203,7 +203,6 @@
 /^openjpeg$/d
 /^openldap$/d
 /^openssh$/d
-/^openssl$/d
 /^opus$/d
 /^orbit2$/d
 /^orc$/d
