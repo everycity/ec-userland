@@ -124,7 +124,6 @@
 /^libgd$/d
 /^libgpg-error$/d
 /^libgsm$/d
-/^libicu$/d
 /^libid3tag$/d
 /^libjpeg$/d
 /^libksba$/d
