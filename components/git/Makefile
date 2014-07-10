@@ -31,17 +31,15 @@ include ../../make-rules/ips.mk
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 
-CONFIGURE_OPTIONS+=	--libexecdir=$(ECPREFIX)/lib
-CONFIGURE_OPTIONS+=	--with-gitconfig=$(ECPREFIX)/etc/gitconfig
-CONFIGURE_OPTIONS+=	--with-gitattributes=$(ECPREFIX)/etc/gitattributes
-CONFIGURE_OPTIONS+=	--with-python=$(ECPREFIX)/bin/python2.6
-CONFIGURE_OPTIONS+=	--with-perl=$(ECPREFIX)/bin/perl
-CONFIGURE_OPTIONS+=	--with-iconv=$(ECPREFIX)/lib
+CONFIGURE_OPTIONS+=	--libexecdir=$(USRDIR)/lib
+CONFIGURE_OPTIONS+=	--with-gitconfig=$(CONFIGURE_SYSCONFDIR)/gitconfig
+CONFIGURE_OPTIONS+=	--with-gitattributes=$(CONFIGURE_SYSCONFDIR)/gitattributes
+CONFIGURE_OPTIONS+=	--with-python=$(PYTHON)
+CONFIGURE_OPTIONS+=	--with-perl=$(USRDIR)/bin/perl
+CONFIGURE_OPTIONS+=	--with-iconv=$(USRDIR)/lib
 CONFIGURE_OPTIONS+=	--with-editor=vim
 
-LDFLAGS+=	-lintl
-
-COMPONENT_BUILD_ENV+=		PERL_PATH=$(ECPREFIX)/bin/perl
+COMPONENT_BUILD_ENV+=		PERL_PATH=$(USRDIR)/bin/perl
 COMPONENT_BUILD_TARGETS+=	all man
 COMPONENT_INSTALL_TARGETS+=	install-man
 
