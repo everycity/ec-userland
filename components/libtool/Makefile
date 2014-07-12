@@ -18,35 +18,33 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libtool
-COMPONENT_VERSION=	2.4
+COMPONENT_VERSION=	2.4.2
+COMPONENT_PROJECT_URL=	http://www.gnu.org/software/libtool/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:149e9d7a993b643d13149a94d07bbca1085e601c
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:b38de44862a987293cd3d8dfae1c409d514b6c4e794ebc93648febf9afc38918
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-M4=/apps/bin/m4
+COMPONENT_PREP_ACTION = (cd $(@D) ; ./bootstrap)
 
-#CPPFLAGS+= -fexceptions -I$(ECPREFIX)/include
-
-#CONFIGURE_OPTIONS  +=           CPPFLAGS="$(CPPFLAGS)"
-CONFIGURE_OPTIONS  +=           M4=$(M4)
-#CONFIGURE_OPTIONS  +=           ABI=32
-#CONFIGURE_OPTIONS  +=           --disable-static
+CONFIGURE_OPTIONS  +=           --infodir=$(CONFIGURE_INFODIR)
+CONFIGURE_OPTIONS  +=           --disable-static
 
 include ../../make-rules/shared-targets.mk
 
-build:		$(BUILD_32)
+build:		$(BUILD_32_and_64)
 
-install:	$(INSTALL_32)
+install:	$(INSTALL_32_and_64)
 
 test32:		$(BUILD_32)
 	(cd $(BUILD_DIR_32); env - $(GMAKE) check)
