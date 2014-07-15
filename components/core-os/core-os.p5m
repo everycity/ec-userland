@@ -3175,6 +3175,8 @@ link path=usr/lib/$(MACH64)/libmapmalloc.so.1 target=/system/usr/lib/$(MACH64)/l
 link path=usr/lib/$(MACH64)/libmapmalloc.so target=libmapmalloc.so.1
 link path=usr/lib/$(MACH64)/libmalloc.so.1 target=/system/usr/lib/$(MACH64)/libmalloc.so.1
 link path=usr/lib/$(MACH64)/libmalloc.so target=libmalloc.so.1
+link path=usr/lib/$(MACH64)/libmtmalloc.so.1 target=/system/usr/lib/$(MACH64)/libmtmalloc.so.1
+link path=usr/lib/$(MACH64)/libmtmalloc.so target=libmtmalloc.so.1
 link path=usr/lib/$(MACH64)/liby.so.1 target=/system/usr/lib/$(MACH64)/liby.so.1
 link path=usr/lib/$(MACH64)/liby.so target=liby.so.1
 link path=usr/lib/$(MACH64)/lddstub target=/system/usr/lib/$(MACH64)/lddstub
@@ -3317,6 +3319,8 @@ link path=usr/lib/libmapmalloc.so.1 target=/system/usr/lib/libmapmalloc.so.1
 link path=usr/lib/libmapmalloc.so target=libmapmalloc.so.1
 link path=usr/lib/libmalloc.so.1 target=/system/usr/lib/libmalloc.so.1
 link path=usr/lib/libmalloc.so target=libmalloc.so.1
+link path=usr/lib/libmtmalloc.so.1 target=/system/usr/lib/libmtmalloc.so.1
+link path=usr/lib/libmtmalloc.so target=libmtmalloc.so.1
 link path=usr/lib/liby.so.1 target=/system/usr/lib/liby.so.1
 link path=usr/lib/liby.so target=liby.so.1
 link path=usr/lib/dtrace target=/system/usr/lib/dtrace
