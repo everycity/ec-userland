@@ -22,18 +22,10 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license kbproto.license license="MIT License (kbproto)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/X11
-dir path=$(ECPREFIX)/include/X11/extensions
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-file path=$(ECPREFIX)/include/X11/extensions/XKB.h
-file path=$(ECPREFIX)/include/X11/extensions/XKBgeom.h
-file path=$(ECPREFIX)/include/X11/extensions/XKBproto.h
-file path=$(ECPREFIX)/include/X11/extensions/XKBsrv.h
-file path=$(ECPREFIX)/include/X11/extensions/XKBstr.h
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/kbproto.pc
-file path=$(ECPREFIX)/lib/pkgconfig/kbproto.pc
+file path=$(USRDIR)/include/X11/extensions/XKB.h
+file path=$(USRDIR)/include/X11/extensions/XKBgeom.h
+file path=$(USRDIR)/include/X11/extensions/XKBproto.h
+file path=$(USRDIR)/include/X11/extensions/XKBsrv.h
+file path=$(USRDIR)/include/X11/extensions/XKBstr.h
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/kbproto.pc
+file path=$(USRDIR)/lib/pkgconfig/kbproto.pc
