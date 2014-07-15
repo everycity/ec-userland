@@ -1,0 +1,10 @@
+$NetBSD$
+
+SunOS needs C99.
+--- a/src/mongoose/mongoose.pri.orig	2013-06-03 23:11:50.000000000 +0000
++++ b/src/mongoose/mongoose.pri
+@@ -5,3 +5,4 @@ SOURCES += mongoose.c
+ HEADERS += mongoose.h
+ linux*:LIBS += -ldl
+ win32:LIBS += -lWs2_32
++solaris*:QMAKE_CFLAGS += --std=c99
