@@ -22,11 +22,6 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license xorg-macros.license license="xorg-macros"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/aclocal
-dir path=$(ECPREFIX)/share/pkgconfig
-dir path=$(ECPREFIX)/share/xorg-macros
-file path=$(ECPREFIX)/share/aclocal/xorg-macros.m4
-file path=$(ECPREFIX)/share/pkgconfig/xorg-macros.pc
-file path=$(ECPREFIX)/share/util-macros/INSTALL
+file path=$(USRDIR)/share/aclocal/xorg-macros.m4
+file path=$(USRDIR)/share/pkgconfig/xorg-macros.pc
+file path=$(USRDIR)/share/util-macros/INSTALL
