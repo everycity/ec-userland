@@ -25,7 +25,7 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS +=	--enable-shared --disable-static --with-pic
-CONFIGURE_OPTIONS +=	--with-xmlto=no --with-sysroot=$(ECPREFIX)
+CONFIGURE_OPTIONS +=	--with-xmlto=no --with-sysroot=$(USRDIR)
 
 build:		$(BUILD_32_and_64)
 
