@@ -387,7 +387,6 @@
 /^x11-libxmu$/d
 /^x11-libxpm$/d
 /^x11-libxrender$/d
-/^x11-libxt$/d
 /^x11-pixman$/d
 /^x11-renderproto$/d
 /^x11-xcb-util$/d
