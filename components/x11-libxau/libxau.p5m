@@ -22,31 +22,21 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license libxau.license license="MIT License (libXau)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/X11
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man3
-file path=$(ECPREFIX)/include/X11/Xauth.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libXau.so.6.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xau.pc
-file path=$(ECPREFIX)/lib/libXau.so.6.0.0
-file path=$(ECPREFIX)/lib/pkgconfig/xau.pc
-file path=$(ECPREFIX)/share/man/man3/Xau.3
-file path=$(ECPREFIX)/share/man/man3/XauDisposeAuth.3
-file path=$(ECPREFIX)/share/man/man3/XauFileName.3
-file path=$(ECPREFIX)/share/man/man3/XauGetAuthByAddr.3
-file path=$(ECPREFIX)/share/man/man3/XauGetBestAuthByAddr.3
-file path=$(ECPREFIX)/share/man/man3/XauLockAuth.3
-file path=$(ECPREFIX)/share/man/man3/XauReadAuth.3
-file path=$(ECPREFIX)/share/man/man3/XauUnlockAuth.3
-file path=$(ECPREFIX)/share/man/man3/XauWriteAuth.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libXau.so target=libXau.so.6.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libXau.so.6 target=libXau.so.6.0.0
-link path=$(ECPREFIX)/lib/libXau.so target=libXau.so.6.0.0
-link path=$(ECPREFIX)/lib/libXau.so.6 target=libXau.so.6.0.0
+file path=$(USRDIR)/include/X11/Xauth.h
+file path=$(USRDIR)/lib/$(MACH64)/libXau.so.6.0.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xau.pc
+file path=$(USRDIR)/lib/libXau.so.6.0.0
+file path=$(USRDIR)/lib/pkgconfig/xau.pc
+file path=$(USRDIR)/share/man/man3/Xau.3
+file path=$(USRDIR)/share/man/man3/XauDisposeAuth.3
+file path=$(USRDIR)/share/man/man3/XauFileName.3
+file path=$(USRDIR)/share/man/man3/XauGetAuthByAddr.3
+file path=$(USRDIR)/share/man/man3/XauGetBestAuthByAddr.3
+file path=$(USRDIR)/share/man/man3/XauLockAuth.3
+file path=$(USRDIR)/share/man/man3/XauReadAuth.3
+file path=$(USRDIR)/share/man/man3/XauUnlockAuth.3
+file path=$(USRDIR)/share/man/man3/XauWriteAuth.3
+link path=$(USRDIR)/lib/$(MACH64)/libXau.so target=libXau.so.6.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libXau.so.6 target=libXau.so.6.0.0
+link path=$(USRDIR)/lib/libXau.so target=libXau.so.6.0.0
+link path=$(USRDIR)/lib/libXau.so.6 target=libXau.so.6.0.0
