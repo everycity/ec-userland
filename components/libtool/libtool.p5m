@@ -22,7 +22,7 @@ set name=info.classification \
 set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+license libtool.license license='GPLv3'
 
 file path=$(USRDIR)/bin/$(MACH64)/libtool
 file path=$(USRDIR)/bin/$(MACH64)/libtoolize

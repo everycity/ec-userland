@@ -40,6 +40,16 @@ COMPONENT_PREP_ACTION = (cd $(@D) ; ./bootstrap)
 CONFIGURE_OPTIONS  +=           --infodir=$(CONFIGURE_INFODIR)
 CONFIGURE_OPTIONS  +=           --disable-static
 
+# Remove the hard-wired compiler locations in the LTCC and two CC lines
+# in the two versions of the libtool script.
+COMPONENT_POST_INSTALL_ACTION += \
+	(for dir in $(PROTOUSRBINDIR) $(PROTOUSRBINDIR)/$(MACH64) ; do \
+		cd $$dir; \
+		$(GSED) -i \
+			-e 's|^LTCC="/.*$$|LTCC="gcc"|' \
+			-e 's|^CC="/.*$$|CC="gcc"|' libtool ; \
+	done)
+
 include ../../make-rules/shared-targets.mk
 
 build:		$(BUILD_32_and_64)
