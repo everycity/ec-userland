@@ -407,7 +407,6 @@
 /^x11-xcb-util-wm$/d
 /^x11-xorg-macros$/d
 /^x11-xterm$/d
-/^x11-xtrans$/d
 /^x264$/d
 /^xapian\/bindings-php52$/d
 /^xapian\/bindings-php53$/d
