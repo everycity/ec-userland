@@ -381,7 +381,6 @@
 /^whois$/d
 /^wkhtmltopdf$/d
 /^wkhtmltopdf-qt4$/d
-/^x11-inputproto$/d
 /^x11-libice$/d
 /^x11-libsm$/d
 /^x11-libx11$/d
