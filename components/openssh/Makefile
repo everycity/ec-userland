@@ -30,16 +30,26 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS+=	-z nolazyload
+CFLAGS += -fno-stack-protector
+CFLAGS += -DSET_USE_PAM
+CFLAGS += -DDEPRECATE_SUNSSH_OPT
+CFLAGS += -DLASTLOG_FIX
+CFLAGS += -DAUE_openssh=6172
+CFLAGS += -DDTRACE_SFTP
+CFLAGS += -DDISABLE_BANNER
+CFLAGS += -DPAM_ENHANCEMENT
+CFLAGS += -DPAM_BUGFIX
 
-CONFIGURE_OPTIONS+=	--sysconfdir=$(ECPREFIX)/etc/ssh
-CONFIGURE_OPTIONS+=	--sbindir=$(ECPREFIX)/bin
-CONFIGURE_OPTIONS+=	--libexecdir=$(ECPREFIX)/bin
+LDFLAGS += -B direct -z nolazyload
 
-CONFIGURE_OPTIONS+=	--with-ssl-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-default-path=$(ECPREFIX)/bin:$(ECPREFIX)/sbin:/usr/bin:/usr/sbin:/usr/ccs/bin
-CONFIGURE_OPTIONS+=	--with-pid-dir=$(ECPREFIX)/var/run
-CONFIGURE_OPTIONS+=	--with-privsep-path=$(ECPREFIX)/var/empty/sshd
+CONFIGURE_OPTIONS+=	--sysconfdir=/etc/ssh
+CONFIGURE_OPTIONS+=	--sbindir=$(USRDIR)/bin
+CONFIGURE_OPTIONS+=	--libexecdir=$(USRDIR)/bin
+
+CONFIGURE_OPTIONS+=	--with-ssl-dir=$(USRDIR)
+CONFIGURE_OPTIONS+=	--with-default-path=$(USRDIR)/bin:$(USRDIR)/sbin:/usr/bin:/usr/sbin:/usr/ccs/bin
+CONFIGURE_OPTIONS+=	--with-pid-dir=/var/run
+CONFIGURE_OPTIONS+=	--with-privsep-path=/var/empty/sshd
 CONFIGURE_OPTIONS+=	--with-md5-passwords
 CONFIGURE_OPTIONS+=	--with-pam
 CONFIGURE_OPTIONS+=	--with-ssl-engine
@@ -47,7 +57,7 @@ CONFIGURE_OPTIONS+=	--with-kerberos5=/usr
 CONFIGURE_OPTIONS+=	--with-solaris-contracts
 CONFIGURE_OPTIONS+=	--with-solaris-projects
 CONFIGURE_OPTIONS+=	--with-audit=bsm
-CONFIGURE_OPTIONS+=	--with-zlib=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--with-zlib=$(USRDIR)
 
 build:		$(BUILD_32)
 

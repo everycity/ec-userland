@@ -16,20 +16,20 @@
 
 . /lib/svc/share/smf_include.sh
 
-PREFIXDIR="/ec"
+PREFIXDIR="/usr"
 SSHDBINARY="${PREFIXDIR}/bin/sshd"
 
 case "$1" in
   start)
     # Preparing host ssh keys
-    if [ ! -f ${PREFIXDIR}/etc/ssh/ssh_host_rsa_key ] ; then
-      ${PREFIXDIR}/bin/ssh-keygen -N '' -t rsa -f ${PREFIXDIR}/etc/ssh/ssh_host_rsa_key
+    if [ ! -f /etc/ssh/ssh_host_rsa_key ] ; then
+      ${PREFIXDIR}/bin/ssh-keygen -N '' -t rsa -f /etc/ssh/ssh_host_rsa_key
 
       # Only generate the ecdsa key if no rsa key exists to avoid causing known_host warnings when people upgrade openssh
-      [ ! -f ${PREFIXDIR}/etc/ssh/ssh_host_ecdsa_key ] && ${PREFIXDIR}/bin/ssh-keygen -N '' -t ecdsa -f ${PREFIXDIR}/etc/ssh/ssh_host_ecdsa_key
+      [ ! -f /etc/ssh/ssh_host_ecdsa_key ] && ${PREFIXDIR}/bin/ssh-keygen -N '' -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key
     fi
 
-    [ -f ${PREFIXDIR}/etc/ssh/ssh_host_dsa_key ] || ${PREFIXDIR}/bin/ssh-keygen -N '' -t dsa -f ${PREFIXDIR}/etc/ssh/ssh_host_dsa_key
+    [ -f /etc/ssh/ssh_host_dsa_key ] || ${PREFIXDIR}/bin/ssh-keygen -N '' -t dsa -f /etc/ssh/ssh_host_dsa_key
 
     $SSHDBINARY
     ;;
