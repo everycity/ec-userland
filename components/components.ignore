@@ -387,7 +387,6 @@
 /^x11-libsm$/d
 /^x11-libx11$/d
 /^x11-libxaw$/d
-/^x11-libxcb$/d
 /^x11-libxext$/d
 /^x11-libxi$/d
 /^x11-libxmu$/d
