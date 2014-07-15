@@ -17,4 +17,4 @@ set name=pkg.summary value="MySQL Database Management System"
 set name=info.classification value="org.opensolaris.category.2008:System/Databases"
 
 group gid=477 groupname=mysql
-user gcos-field="MySQL Account" group=mysql uid=477 username=mysql login-shell=/bin/false home-dir=/ec/var/mysql
+user gcos-field="MySQL Account" group=mysql uid=477 username=mysql login-shell=/bin/false home-dir=/var/mysql

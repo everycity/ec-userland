@@ -36,9 +36,9 @@ server-id			= 1
 #character_set_server		= utf8
 
 innodb_file_per_table           = true
-innodb_data_home_dir            = /ec/var/mysql/5.6/data
+innodb_data_home_dir            = /var/mysql/5.6/data
 innodb_data_file_path           = ibdata1:100M:autoextend
-innodb_log_group_home_dir       = /ec/var/mysql/5.6/data
+innodb_log_group_home_dir       = /var/mysql/5.6/data
 innodb_buffer_pool_size         = 32M
 innodb_additional_mem_pool_size = 20M
 innodb_log_file_size            = 100M

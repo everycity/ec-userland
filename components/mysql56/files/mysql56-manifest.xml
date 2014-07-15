@@ -45,7 +45,7 @@
 	<exec_method
 		type='method'
 		name='start'
-		exec='/ec/var/svc/method/mysql56 start'
+		exec='/var/svc/method/mysql56 start'
 		timeout_seconds='60'/>
 
 	<exec_method
@@ -64,17 +64,17 @@
 
 		<property_group name='mysqld' type='application'>
 			<stability value='Evolving'/>
-			<propval name='config_file' type='astring' value='/ec/etc/mysql/5.6/my.cnf'/>
+			<propval name='config_file' type='astring' value='/etc/mysql/5.6/my.cnf'/>
 			<propval name='user' type='astring' value='mysql'/>
-			<propval name='data_dir' type='astring' value='/ec/var/mysql/5.6/data'/>
+			<propval name='data_dir' type='astring' value='/var/mysql/5.6/data'/>
 			<propval name='unix_socket_file' type='astring' value='/tmp/mysql.sock'/>
 			<propval name='tcp_listen_address' type='astring' value='127.0.0.1'/>
 			<propval name='tcp_listen_port' type='astring' value='3306'/>
-			<propval name='error_log' type='astring' value='/ec/var/mysql/5.6/data/mysqld.log'/>
-			<propval name='pid_file' type='astring' value='/ec/var/mysql/5.6/data/mysqld.pid'/>
-			<propval name='mysqld_32_binary' type='astring' value='/ec/lib/mysql/5.6/bin/mysqld'/>
-			<propval name='mysqld_64_binary' type='astring' value='/ec/lib/mysql/5.6/bin/amd64/mysqld'/>
-			<propval name='mysqld_installdb_binary' type='astring' value='/ec/lib/mysql/5.6/bin/mysql_install_db'/>
+			<propval name='error_log' type='astring' value='/var/mysql/5.6/data/mysqld.log'/>
+			<propval name='pid_file' type='astring' value='/var/mysql/5.6/data/mysqld.pid'/>
+			<propval name='mysqld_32_binary' type='astring' value='/usr/lib/mysql/5.6/bin/mysqld'/>
+			<propval name='mysqld_64_binary' type='astring' value='/usr/lib/mysql/5.6/bin/amd64/mysqld'/>
+			<propval name='mysqld_installdb_binary' type='astring' value='/usr/lib/mysql/5.6/bin/mysql_install_db'/>
 			<propval name='additional_startup_options' type='astring' value=''/>
 			<propval name='enable_64bit' type='boolean' value='true'/>
 			<propval name='skip_grant_tables' type='boolean' value='false'/>

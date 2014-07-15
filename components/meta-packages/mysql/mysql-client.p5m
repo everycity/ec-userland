@@ -16,4 +16,4 @@ set name=pkg.fmri value=pkg:/database/mysql/client@$(IPS_COMPONENT_VERSION),$(BU
 set name=pkg.summary value="MySQL Database Management System - Client meta-package"
 set name=info.classification value="org.opensolaris.category.2008:System/Databases"
 
-depend fmri=database/mysql-55/client type=require
+depend fmri=database/mysql-56/client type=require

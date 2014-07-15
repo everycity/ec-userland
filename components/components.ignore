@@ -170,7 +170,6 @@
 /^memconf$/d
 /^mesa$/d
 /^meta-packages\/build-essential$/d
-/^meta-packages\/mysql$/d
 /^meta-packages\/postgresql$/d
 /^mg$/d
 /^mhash$/d
@@ -181,7 +180,6 @@
 /^mscorefonts-installer$/d
 /^mutt$/d
 /^mysql55$/d
-/^mysql56$/d
 /^nagios\/core$/d
 /^nagios\/plugins$/d
 /^nano$/d
