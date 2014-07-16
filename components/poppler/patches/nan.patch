@@ -1,0 +1,12 @@
+--- poppler-0.26.0/glib/poppler-structure-element.cc.orig	2014-06-09 13:08:20.651750228 +0100
++++ poppler-0.26.0/glib/poppler-structure-element.cc	2014-06-09 13:08:34.487753299 +0100
+@@ -24,8 +24,8 @@
+ #include <StructElement.h>
+ #include <GlobalParams.h>
+ #include <UnicodeMap.h>
+-#include <math.h>
+ #endif /* !__GI_SCANNER__ */
++#include <math.h>
+ 
+ #include "poppler.h"
+ #include "poppler-private.h"
