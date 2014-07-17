@@ -27,9 +27,9 @@ include ../../make-rules/ips.mk
 
 override COMPONENT_BUILD_GMAKE_ARGS=
 
-CONFIGURE_OPTIONS+=	--with-libiconv-prefix=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-gs=$(ECPREFIX)/bin/gs
-CONFIGURE_OPTIONS+=	--with-awk=$(ECPREFIX)/bin/awk
+CONFIGURE_OPTIONS+=	--with-libiconv-prefix=$(USRDIR)
+CONFIGURE_OPTIONS+=	--with-gs=$(USRDIR)/bin/gs
+CONFIGURE_OPTIONS+=	--with-awk=$(USRDIR)/bin/awk
 
 build:		$(BUILD_32_and_64)
 
