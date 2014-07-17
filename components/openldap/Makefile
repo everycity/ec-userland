@@ -31,10 +31,10 @@ include ../../make-rules/ips.mk
 
 CONFIGURE_ENV +=    LIBS="$(LIBS) -lrt"
 
-CONFIGURE_OPTIONS.32 +=	--sbindir=$(ECPREFIX)/bin
-CONFIGURE_OPTIONS.64 +=	--sbindir=$(ECPREFIX)/bin/$(MACH64)
-CONFIGURE_OPTIONS.32 +=	--libexecdir=$(ECPREFIX)/bin
-CONFIGURE_OPTIONS.64 +=	--libexecdir=$(ECPREFIX)/bin/$(MACH64)
+CONFIGURE_OPTIONS.32 +=	--sbindir=$(USRDIR)/bin
+CONFIGURE_OPTIONS.64 +=	--sbindir=$(USRDIR)/bin/$(MACH64)
+CONFIGURE_OPTIONS.32 +=	--libexecdir=$(USRDIR)/bin
+CONFIGURE_OPTIONS.64 +=	--libexecdir=$(USRDIR)/bin/$(MACH64)
 
 build:		$(BUILD_32_and_64)
 

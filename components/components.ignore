@@ -195,7 +195,6 @@
 /^nrpe$/d
 /^opencore-amr$/d
 /^openjpeg$/d
-/^openldap$/d
 /^opus$/d
 /^orbit2$/d
 /^orc$/d
