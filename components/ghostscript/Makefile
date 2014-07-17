@@ -12,6 +12,8 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
+# we need JOBS=1 for this component
+DEF_JOBS := no
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ghostscript
@@ -36,7 +38,7 @@ CONFIGURE_OPTIONS +=	--without-omni
 CONFIGURE_OPTIONS +=	--with-jbig2dec
 CONFIGURE_OPTIONS +=	--with-jasper
 CONFIGURE_OPTIONS +=	--disable-compile-inits
-CONFIGURE_OPTIONS +=	--with-fontpath=$(ECPREFIX)/share/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/Resource:$(ECPREFIX)/share/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/Resource/Font:$(ECPREFIX)/share/$(COMPONENT_NAME)/fonts:/usr/openwin/lib/X11/fonts/Type1:/usr/openwin/lib/X11/fonts/TrueType:/usr/openwin/lib/X11/fonts/Type3:/usr/X11/lib/X11/fonts/Type1:/usr/X11/lib/fonts/TrueType:/usr/X11/lib/X11/fonts/Type3:/usr/X11/lib/X11/fonts/Resource:/usr/X11/lib/X11/Resource/Font
+CONFIGURE_OPTIONS +=	--with-fontpath=$(USRDIR)/share/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/Resource:$(USRDIR)/share/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/Resource/Font:$(USRDIR)/share/$(COMPONENT_NAME)/fonts:/usr/openwin/lib/X11/fonts/Type1:/usr/openwin/lib/X11/fonts/TrueType:/usr/openwin/lib/X11/fonts/Type3:/usr/X11/lib/X11/fonts/Type1:/usr/X11/lib/fonts/TrueType:/usr/X11/lib/X11/fonts/Type3:/usr/X11/lib/X11/fonts/Resource:/usr/X11/lib/X11/Resource/Font
 
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
