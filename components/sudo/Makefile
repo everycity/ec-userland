@@ -35,15 +35,13 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS+=	-lintl
-
 CONFIGURE_OPTIONS+=	--with-insults
 CONFIGURE_OPTIONS+=	--with-hal-insults
-CONFIGURE_OPTIONS+=	--with-editor=$(ECPREFIX)/bin/vim
-CONFIGURE_OPTIONS+=	--exec-prefix=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-timedir=$(ECPREFIX)/var/adm/sudo
-CONFIGURE_OPTIONS.32+=	--sbindir=$(ECPREFIX)/bin
-CONFIGURE_OPTIONS.64+=	--sbindir=$(ECPREFIX)/bin/$(MACH64)
+CONFIGURE_OPTIONS+=	--with-editor=$(USRDIR)/bin/vim
+CONFIGURE_OPTIONS+=	--exec-prefix=$(USRDIR)
+CONFIGURE_OPTIONS+=	--with-timedir=$(USRDIR)/var/adm/sudo
+CONFIGURE_OPTIONS.32+=	--sbindir=$(USRDIR)/bin
+CONFIGURE_OPTIONS.64+=	--sbindir=$(USRDIR)/bin/$(MACH64)
 
 COMPONENT_PRE_CONFIGURE_ACTION+=	$(CP) -R $(SOURCE_DIR)/* $(@D)/
 

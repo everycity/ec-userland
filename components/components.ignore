@@ -348,7 +348,6 @@
 /^stunnel$/d
 /^subversion$/d
 /^subversion-apache24$/d
-/^sudo$/d
 /^sysbench$/d
 /^syslog-ng$/d
 /^taglib$/d
