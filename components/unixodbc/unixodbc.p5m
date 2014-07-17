@@ -22,69 +22,56 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/odbc
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-dir path=$(ECPREFIX)/share/man/man5
-dir path=$(SYSCONFDIR)
-dir path=$(SYSCONFDIR)/ODBCDataSources
-file path=$(ECPREFIX)/bin/$(MACH64)/dltest
-file path=$(ECPREFIX)/bin/$(MACH64)/isql
-file path=$(ECPREFIX)/bin/$(MACH64)/iusql
-file path=$(ECPREFIX)/bin/$(MACH64)/odbc_config
-file path=$(ECPREFIX)/bin/$(MACH64)/odbcinst
-file path=$(ECPREFIX)/bin/$(MACH64)/slencheck
-file path=$(ECPREFIX)/bin/dltest
-file path=$(ECPREFIX)/bin/isql
-file path=$(ECPREFIX)/bin/iusql
-file path=$(ECPREFIX)/bin/odbc_config
-file path=$(ECPREFIX)/bin/odbcinst
-file path=$(ECPREFIX)/bin/slencheck
-file path=$(ECPREFIX)/include/odbc/autotest.h
-file path=$(ECPREFIX)/include/odbc/odbcinst.h
-file path=$(ECPREFIX)/include/odbc/odbcinstext.h
-file path=$(ECPREFIX)/include/odbc/sql.h
-file path=$(ECPREFIX)/include/odbc/sqlext.h
-file path=$(ECPREFIX)/include/odbc/sqltypes.h
-file path=$(ECPREFIX)/include/odbc/sqlucode.h
-file path=$(ECPREFIX)/include/odbc/unixodbc_conf.h
-file path=$(ECPREFIX)/include/odbc/uodbc_extras.h
-file path=$(ECPREFIX)/include/odbc/uodbc_stats.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libodbc.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libodbc.so.2.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/libodbccr.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libodbccr.so.2.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/libodbcinst.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libodbcinst.so.2.0.0
-file path=$(ECPREFIX)/lib/libodbc.la
-file path=$(ECPREFIX)/lib/libodbc.so.2.0.0
-file path=$(ECPREFIX)/lib/libodbccr.la
-file path=$(ECPREFIX)/lib/libodbccr.so.2.0.0
-file path=$(ECPREFIX)/lib/libodbcinst.la
-file path=$(ECPREFIX)/lib/libodbcinst.so.2.0.0
-file path=$(ECPREFIX)/share/man/man1/isql.1
-file path=$(ECPREFIX)/share/man/man1/odbcinst.1
-file path=$(ECPREFIX)/share/man/man5/odbc.ini.5
-file path=$(ECPREFIX)/share/man/man5/odbcinst.ini.5
+file path=$(USRDIR)/bin/$(MACH64)/dltest
+file path=$(USRDIR)/bin/$(MACH64)/isql
+file path=$(USRDIR)/bin/$(MACH64)/iusql
+file path=$(USRDIR)/bin/$(MACH64)/odbc_config
+file path=$(USRDIR)/bin/$(MACH64)/odbcinst
+file path=$(USRDIR)/bin/$(MACH64)/slencheck
+file path=$(USRDIR)/bin/dltest
+file path=$(USRDIR)/bin/isql
+file path=$(USRDIR)/bin/iusql
+file path=$(USRDIR)/bin/odbc_config
+file path=$(USRDIR)/bin/odbcinst
+file path=$(USRDIR)/bin/slencheck
+file path=$(USRDIR)/include/odbc/autotest.h
+file path=$(USRDIR)/include/odbc/odbcinst.h
+file path=$(USRDIR)/include/odbc/odbcinstext.h
+file path=$(USRDIR)/include/odbc/sql.h
+file path=$(USRDIR)/include/odbc/sqlext.h
+file path=$(USRDIR)/include/odbc/sqltypes.h
+file path=$(USRDIR)/include/odbc/sqlucode.h
+file path=$(USRDIR)/include/odbc/unixodbc_conf.h
+file path=$(USRDIR)/include/odbc/uodbc_extras.h
+file path=$(USRDIR)/include/odbc/uodbc_stats.h
+file path=$(USRDIR)/lib/$(MACH64)/libodbc.la
+file path=$(USRDIR)/lib/$(MACH64)/libodbc.so.2.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libodbccr.la
+file path=$(USRDIR)/lib/$(MACH64)/libodbccr.so.2.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libodbcinst.la
+file path=$(USRDIR)/lib/$(MACH64)/libodbcinst.so.2.0.0
+file path=$(USRDIR)/lib/libodbc.la
+file path=$(USRDIR)/lib/libodbc.so.2.0.0
+file path=$(USRDIR)/lib/libodbccr.la
+file path=$(USRDIR)/lib/libodbccr.so.2.0.0
+file path=$(USRDIR)/lib/libodbcinst.la
+file path=$(USRDIR)/lib/libodbcinst.so.2.0.0
+file path=$(USRDIR)/share/man/man1/isql.1
+file path=$(USRDIR)/share/man/man1/odbcinst.1
+file path=$(USRDIR)/share/man/man5/odbc.ini.5
+file path=$(USRDIR)/share/man/man5/odbcinst.ini.5
 file path=$(SYSCONFDIR)/odbc.ini mode=0644 preserve=true
 file path=$(SYSCONFDIR)/odbcinst.ini mode=0644 preserve=true
-link path=$(ECPREFIX)/lib/$(MACH64)/libodbc.so target=libodbc.so.2.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libodbc.so.2 target=libodbc.so.2.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libodbccr.so target=libodbccr.so.2.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libodbccr.so.2 target=libodbccr.so.2.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libodbcinst.so target=libodbcinst.so.2.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libodbcinst.so.2 \
+link path=$(USRDIR)/lib/$(MACH64)/libodbc.so target=libodbc.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libodbc.so.2 target=libodbc.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libodbccr.so target=libodbccr.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libodbccr.so.2 target=libodbccr.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libodbcinst.so target=libodbcinst.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libodbcinst.so.2 \
     target=libodbcinst.so.2.0.0
-link path=$(ECPREFIX)/lib/libodbc.so target=libodbc.so.2.0.0
-link path=$(ECPREFIX)/lib/libodbc.so.2 target=libodbc.so.2.0.0
-link path=$(ECPREFIX)/lib/libodbccr.so target=libodbccr.so.2.0.0
-link path=$(ECPREFIX)/lib/libodbccr.so.2 target=libodbccr.so.2.0.0
-link path=$(ECPREFIX)/lib/libodbcinst.so target=libodbcinst.so.2.0.0
-link path=$(ECPREFIX)/lib/libodbcinst.so.2 target=libodbcinst.so.2.0.0
+link path=$(USRDIR)/lib/libodbc.so target=libodbc.so.2.0.0
+link path=$(USRDIR)/lib/libodbc.so.2 target=libodbc.so.2.0.0
+link path=$(USRDIR)/lib/libodbccr.so target=libodbccr.so.2.0.0
+link path=$(USRDIR)/lib/libodbccr.so.2 target=libodbccr.so.2.0.0
+link path=$(USRDIR)/lib/libodbcinst.so target=libodbcinst.so.2.0.0
+link path=$(USRDIR)/lib/libodbcinst.so.2 target=libodbcinst.so.2.0.0

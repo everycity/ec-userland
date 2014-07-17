@@ -364,7 +364,6 @@
 /^tomee15$/d
 /^top$/d
 /^tor$/d
-/^unixodbc$/d
 /^uriparser$/d
 /^uwimap$/d
 /^varnish$/d
