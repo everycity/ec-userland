@@ -420,8 +420,8 @@ link path=usr/bin/ack target=/system/usr/bin/ack
 link path=usr/bin/addbadsec target=/system/usr/bin/addbadsec
 link path=usr/bin/addbib target=/system/usr/bin/addbib
 link path=usr/bin/alias target=/system/usr/bin/alias
-link path=usr/bin/neqn target=/system/usr/bin/neqn
-link path=usr/bin/tbl target=/system/usr/bin/tbl
+#link path=usr/bin/neqn target=/system/usr/bin/neqn
+#link path=usr/bin/tbl target=/system/usr/bin/tbl
 dir  path=usr/bin/amd64 owner=root group=bin mode=755
 link path=usr/bin/$(MACH64)/amt target=/system/usr/bin/$(MACH64)/amt
 link path=usr/bin/$(MACH64)/bzcmp target=bzdiff
