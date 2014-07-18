@@ -32,12 +32,9 @@ file files/mariadb55-manifest.xml path=var/svc/manifest/site/mariadb55.xml \
     restart_fmri=svc:/system/manifest-import:default
 file files/mariadb55-startup.sh  path=$(ECPREFIX)/var/svc/method/mariadb55 mode=0555
 
-# User/Group Accounts
-group gid=487 groupname=mariadb
-user gcos-field="MariaDB Account" group=mariadb uid=487 username=mariadb login-shell=/bin/false home-dir=/ec/var/mariadb
-
 # External Dependencies
 depend fmri=pkg:/database/mariadb-55/library type=require
+depend fmri=pkg:/database/mariadb-common type=require
 
 # var directory
 dir path=$(ECPREFIX)/var
