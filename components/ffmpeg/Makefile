@@ -30,6 +30,10 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+ifeq ($(SOLARIS_VERSION),2.10)
+CFLAGS+= -D__EXTENSIONS__
+endif
+
 CONFIGURE_OPTIONS=	--prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--mandir=$(ECPREFIX)/share/man
 CONFIGURE_OPTIONS.32=	--bindir=$(ECPREFIX)/bin
