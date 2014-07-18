@@ -17,4 +17,4 @@ set name=pkg.summary value="PostgreSQL: The world's most advanced open source da
 set name=info.classification value="org.opensolaris.category.2008:System/Databases"
 
 group gid=90 groupname=postgres
-user gcos-field="Postgresql Account" group=postgres uid=90 username=postgres login-shell=/usr/bin/bash home-dir=/ec/var/postgres
+user gcos-field="Postgresql Account" group=postgres uid=90 username=postgres login-shell=/usr/bin/bash home-dir=/var/postgres

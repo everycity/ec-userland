@@ -13,7 +13,7 @@
 	<exec_method
 		type='method'
 		name='start'
-		exec='sh -c &quot;[ -h /ec/lib/postgres/active ] || ln -s 9.3 /ec/lib/postgres/active&quot; ; /usr/bin/ctrun svcadm disable tmp/postinstall/postgresql93'
+		exec='sh -c &quot;[ -h /usr/lib/postgres/active ] || ln -s 9.3 /usr/lib/postgres/active&quot; ; /usr/bin/ctrun svcadm disable tmp/postinstall/postgresql93'
 		timeout_seconds='60'/>
 
  	<exec_method

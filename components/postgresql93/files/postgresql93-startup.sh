@@ -1,4 +1,4 @@
-#!/usr/xpg4/bin/sh
+#!/usr/bin/sh
 #
 # This file and its contents are supplied under the terms of the
 # Common Development and Distribution License ("CDDL)". You may
@@ -23,9 +23,9 @@
 # via SMF using "svccfg -s postgresql93:default" and setprop
 
 
-bin_dir="/ec/lib/postgres/9.3/bin"
-data_dir="/ec/var/postgres/9.3/data"
-config_file="/ec/etc/postgres/9.3/postgresql.conf"
+bin_dir="/usr/lib/postgres/9.3/bin"
+data_dir="/var/postgres/9.3/data"
+config_file="/etc/postgres/9.3/postgresql.conf"
 postgres_32_binary="${bin_dir}/pg_ctl"
 postgres_64_binary="${bin_dir}/amd64/pg_ctl"
 additional_startup_options=""
@@ -36,8 +36,8 @@ getprop() {
     svcprop -q -p $1 ${SMF_FMRI}
     if [ $? -eq 0 ] ; then
         PROPVAL=`svccfg -s ${SMF_FMRI} listprop $1 | \
-		/usr/bin/nawk '{ for (i = 3; i <= NF; i++) printf $i" " }' | \
-		/usr/bin/nawk '{ sub(/^\"/,""); sub(/\"[ \t]*$/,""); print }' | \
+		/usr/bin/awk '{ for (i = 3; i <= NF; i++) printf $i" " }' | \
+		/usr/bin/awk '{ sub(/^\"/,""); sub(/\"[ \t]*$/,""); print }' | \
 		/usr/bin/sed 's/[ ]*$//g'`
         if [ "${PROPVAL}" = "\"\"" ] ; then
             PROPVAL=""
