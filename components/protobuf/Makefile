@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -29,7 +29,11 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=--disable-static
+ifeq ($(SOLARIS_VERSION), 2.10)
+LDFLAGS+=	-lrt
+endif
+
+CONFIGURE_OPTIONS+=	--disable-static
 
 build:		$(BUILD_32_and_64)
 
