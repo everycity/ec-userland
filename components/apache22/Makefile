@@ -34,16 +34,16 @@ $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
 	$(COMPONENT_POST_CONFIGURE_ACTION)
 	$(TOUCH) $@
 
-CPPFLAGS.32=	-I$(ECPREFIX)/include/apr-1.0
-CPPFLAGS.64=	-I$(ECPREFIX)/include/apr-1.0/$(MACH64)
+CPPFLAGS.32=	-I$(USRDIR)/include/apr-1.0
+CPPFLAGS.64=	-I$(USRDIR)/include/apr-1.0/$(MACH64)
 CPPFLAGS=	$(CPPFLAGS.$(BITS))
 
 CONFIGURE_ENV += CPPFLAGS="$(CPPFLAGS)"
 
-AP_PREFIX=$(ECPREFIX)/lib/apache/2.2
-AP_SHAREDIR=$(ECPREFIX)/share/apache/2.2
-AP_SYSCONFDIR=$(ECPREFIX)/etc/apache/2.2
-AP_DATADIR=$(ECPREFIX)/var/apache/2.2
+AP_PREFIX=$(USRDIR)/lib/apache/2.2
+AP_SHAREDIR=$(USRDIR)/share/apache/2.2
+AP_SYSCONFDIR=/etc/apache/2.2
+AP_DATADIR=/var/apache/2.2
 
 # We patch sources differently depending on the flavour being built
 COMPONENT_PRE_CONFIGURE_ACTION += $(ENV) BITS=$(BITS) MACH=$(MACH$(BITS)) \
@@ -58,12 +58,12 @@ CONFIGURE_OPTIONS     += CXX="$(CCC)"
 
 CONFIGURE_OPTIONS     += --enable-layout=EveryCity
 
-CONFIGURE_OPTIONS.32   = --with-pcre=$(ECPREFIX)/bin/pcre-config
-CONFIGURE_OPTIONS.64   = --with-pcre=$(ECPREFIX)/bin/$(MACH64)/pcre-config
-CONFIGURE_OPTIONS.32  += --with-apr=$(ECPREFIX)/bin/apr-1-config
-CONFIGURE_OPTIONS.64  += --with-apr=$(ECPREFIX)/bin/$(MACH64)/apr-1-config
-CONFIGURE_OPTIONS.32  += --with-apr-util=$(ECPREFIX)/bin/apu-1-config
-CONFIGURE_OPTIONS.64  += --with-apr-util=$(ECPREFIX)/bin/$(MACH64)/apu-1-config
+CONFIGURE_OPTIONS.32   = --with-pcre=$(USRDIR)/bin/pcre-config
+CONFIGURE_OPTIONS.64   = --with-pcre=$(USRDIR)/bin/$(MACH64)/pcre-config
+CONFIGURE_OPTIONS.32  += --with-apr=$(USRDIR)/bin/apr-1-config
+CONFIGURE_OPTIONS.64  += --with-apr=$(USRDIR)/bin/$(MACH64)/apr-1-config
+CONFIGURE_OPTIONS.32  += --with-apr-util=$(USRDIR)/bin/apu-1-config
+CONFIGURE_OPTIONS.64  += --with-apr-util=$(USRDIR)/bin/$(MACH64)/apu-1-config
 
 CONFIGURE_OPTIONS  +=	$(CONFIGURE_OPTIONS.$(BITS))
 
@@ -90,7 +90,7 @@ CONFIGURE_OPTIONS  +=	--enable-ssl
 CONFIGURE_OPTIONS  +=	--enable-exception-hook
 
 CONFIGURE_OPTIONS  +=	--with-mpm=$(MPM)
-CONFIGURE_OPTIONS  +=	--with-z=$(ECPREFIX)/lib
+CONFIGURE_OPTIONS  +=	--with-z=$(USRDIR)/lib
 
 CONFIGURE_OPTIONS  +=	$(CONFIGURE_OPTIONS.$(BITS))
 

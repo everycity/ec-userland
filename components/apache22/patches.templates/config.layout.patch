@@ -7,25 +7,25 @@
 +
 +# EveryCity layout
 +<Layout EveryCity>
-+    prefix:        /ec/lib/apache/2.2
-+    exec_prefix:   /ec/lib/apache/2.2
++    prefix:        /usr/lib/apache/2.2
++    exec_prefix:   /usr/lib/apache/2.2
 +    bindir:        ${exec_prefix}/bin::ISAINFO::
 +    sbindir:       ${exec_prefix}/bin::ISAINFO::
 +    libdir:        ${exec_prefix}/lib::ISAINFO::
 +    libexecdir:    ${exec_prefix}/modules::ISAINFO::
-+    mandir:        /ec/share/apache/2.2/man
-+    sysconfdir:    /ec/etc/apache/2.2
-+    datadir:       /ec/var/apache/2.2
++    mandir:        /usr/share/apache/2.2/man
++    sysconfdir:    /etc/apache/2.2
++    datadir:       /var/apache/2.2
 +    iconsdir:      ${datadir}/icons
 +    htdocsdir:     ${datadir}/htdocs
 +    manualdir:     ${datadir}/manual
 +    cgidir:        ${datadir}/cgi-bin
-+    includedir:    /ec/include/apache/2.2::MPM::
-+    localstatedir: /ec/var/apache/2.2/run
-+    runtimedir:    /ec/var/apache/2.2/run
++    includedir:    /usr/include/apache/2.2::MPM::
++    localstatedir: /var/apache/2.2/run
++    runtimedir:    /var/apache/2.2/run
 +    logfiledir:    ${datadir}/logs
 +    proxycachedir: ${datadir}/proxy
 +    infodir:       ${exec_prefix}/info
-+    installbuilddir: /ec/share/apache/2.2/build::MPM::::ISAINFO::
++    installbuilddir: /usr/share/apache/2.2/build::MPM::::ISAINFO::
 +    errordir:      ${datadir}/error
 +</Layout>
