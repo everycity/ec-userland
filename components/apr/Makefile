@@ -15,7 +15,7 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		apr
-COMPONENT_FMRI=		library/apr-14
+COMPONENT_FMRI=		library/apr-15
 COMPONENT_VERSION=	1.5.1
 COMPONENT_LICENSE=	APLv2
 COMPONENT_PROJECT_URL=	http://apr.apache.org/
@@ -29,10 +29,10 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS.32	+=	--with-installbuilddir=$(ECPREFIX)/share/apr-1.0/build
-CONFIGURE_OPTIONS.64	+=	--with-installbuilddir=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)
-CONFIGURE_OPTIONS.32	+=	--includedir=$(ECPREFIX)/include/apr-1.0
-CONFIGURE_OPTIONS.64	+=	--includedir=$(ECPREFIX)/include/apr-1.0/$(MACH64)
+CONFIGURE_OPTIONS.32	+=	--with-installbuilddir=$(USRDIR)/share/apr-1.0/build
+CONFIGURE_OPTIONS.64	+=	--with-installbuilddir=$(USRDIR)/share/apr-1.0/build/$(MACH64)
+CONFIGURE_OPTIONS.32	+=	--includedir=$(USRDIR)/include/apr-1.0
+CONFIGURE_OPTIONS.64	+=	--includedir=$(USRDIR)/include/apr-1.0/$(MACH64)
 
 CONFIGURE_OPTIONS	+=	--enable-threads
 CONFIGURE_OPTIONS	+=	--enable-other-child
@@ -43,10 +43,10 @@ COMPONENT_PRE_CONFIGURE_ACTION= ( $(CLONEY) $(SOURCE_DIR) $(@D) );
 
 CONFIGURE_SCRIPT=       $(@D)/configure
 
-COMPONENT_POST_INSTALL_ACTION = ( strip \
-		$(PROTO_DIR)$(ECPREFIX)/lib/*so* \
-                $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/*so* \
-                >/dev/null 2>&1; true )
+#COMPONENT_POST_INSTALL_ACTION = ( strip \
+#		$(PROTO_DIR)$(USRDIR)/lib/*so* \
+#                $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/*so* \
+#                >/dev/null 2>&1; true )
 
 build:		$(BUILD_32_and_64)
 
