@@ -15,7 +15,7 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		apr-util
-COMPONENT_FMRI=		library/apr-util-13
+COMPONENT_FMRI=		library/apr-util-15
 COMPONENT_VERSION=	1.5.3
 COMPONENT_LICENSE=	APLv2
 COMPONENT_PROJECT_URL=	"http://apr.apache.org/"
@@ -29,20 +29,20 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-PATH.32 =	$(ECPREFIX)/lib/postgres/9.3/bin:$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
-PATH.64 =	$(ECPREFIX)/lib/postgres/9.3/bin/$(MACH64):$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH.32 =	$(USRDIR)/lib/postgres/9.3/bin:$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH.64 =	$(USRDIR)/lib/postgres/9.3/bin/$(MACH64):$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 PATH =	$(PATH.$(BITS))
 
 CONFIGURE_OPTIONS	+=	--with-ldap
-CONFIGURE_OPTIONS.32	+=	--includedir=$(ECPREFIX)/include/apr-1.0
-CONFIGURE_OPTIONS.64	+=	--includedir=$(ECPREFIX)/include/apr-1.0/$(MACH64)
-CONFIGURE_OPTIONS.32	+=	--with-apr=$(ECPREFIX)/bin/apr-1-config
-CONFIGURE_OPTIONS.64	+=	--with-apr=$(ECPREFIX)/bin/$(MACH64)/apr-1-config
+CONFIGURE_OPTIONS.32	+=	--includedir=$(USRDIR)/include/apr-1.0
+CONFIGURE_OPTIONS.64	+=	--includedir=$(USRDIR)/include/apr-1.0/$(MACH64)
+CONFIGURE_OPTIONS.32	+=	--with-apr=$(USRDIR)/bin/apr-1-config
+CONFIGURE_OPTIONS.64	+=	--with-apr=$(USRDIR)/bin/$(MACH64)/apr-1-config
 
-COMPONENT_POST_INSTALL_ACTION = ( strip \
-                $(PROTO_DIR)$(ECPREFIX)/lib/*so* \
-                $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/*so* \
-                >/dev/null 2>&1; true )
+#COMPONENT_POST_INSTALL_ACTION = ( strip \
+#                $(PROTO_DIR)$(USRDIR)/lib/*so* \
+#                $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/*so* \
+#                >/dev/null 2>&1; true )
 
 build:		$(BUILD_32_and_64)
 

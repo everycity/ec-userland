@@ -14,7 +14,6 @@
 /^apache24-mod_jk$/d
 /^apache24-mod_security$/d
 /^apachetop$/d
-/^apr-util$/d
 /^aspell$/d
 /^automake-112$/d
 /^bdb51$/d
