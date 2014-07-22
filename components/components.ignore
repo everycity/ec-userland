@@ -9,7 +9,6 @@
 /^apache22-mod_security$/d
 /^apache22-mod_wsgi$/d
 /^apache22-mod_xsendfile$/d
-/^apache24$/d
 /^apache24-mod_jk$/d
 /^apache24-mod_security$/d
 /^apachetop$/d

@@ -13,7 +13,7 @@
 	<exec_method
 		type='method'
 		name='start'
-		exec='sh -c &quot;[ -h /ec/lib/apache/active ] || ln -s 2.4 /ec/lib/apache/active&quot; ; /usr/bin/ctrun svcadm disable tmp/postinstall/apache24'
+		exec='sh -c &quot;[ -h /usr/lib/apache/active ] || ln -s 2.4 /usr/lib/apache/active&quot; ; /usr/bin/ctrun svcadm disable tmp/postinstall/apache24'
 		timeout_seconds='60'/>
 
  	<exec_method

@@ -77,25 +77,25 @@
 		<exec_method
 			type='method'
 			name='start'
-			exec='/ec/var/svc/method/http-apache24 start'
+			exec='/var/svc/method/http-apache24 start'
 			timeout_seconds='60' />
 
 		<exec_method
 			type='method'
 			name='stop'
-			exec='/ec/var/svc/method/http-apache24 stop'
+			exec='/var/svc/method/http-apache24 stop'
 			timeout_seconds='60' />
 
 		<exec_method
 			type='method'
 			name='refresh'
-			exec='/ec/var/svc/method/http-apache24 refresh'
+			exec='/var/svc/method/http-apache24 refresh'
 			timeout_seconds='60' />
 
 		<property_group name='httpd' type='application'>
 			<stability value='Evolving' />
-			<propval name='config_dir' type='astring' value='/ec/etc/apache/2.4' />
-			<propval name='var_dir' type='astring' value='/ec/var/apache/2.4' />
+			<propval name='config_dir' type='astring' value='/etc/apache/2.4' />
+			<propval name='var_dir' type='astring' value='/var/apache/2.4' />
 			<propval name='startup_options' type='astring' value='' />
 			<propval name='server_type' type='astring' value='prefork' />
 			<propval name='enable_64bit' type='boolean' value='false' />
@@ -123,7 +123,7 @@
 
 			<documentation>
 				<manpage title='httpd' section='8'
-					manpath='/ec/lib/apache/2.4/man' />
+					manpath='/usr/lib/apache/2.4/man' />
 				<doc_link name='apache.org'
 					uri='http://httpd.apache.org' />
 			</documentation>

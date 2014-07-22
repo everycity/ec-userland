@@ -28,7 +28,7 @@ my $env_file = $ENV{APACHE_ENVVARS}
     || (
     $ENV{APACHE_CONFDIR}
     ? "$ENV{APACHE_CONFDIR}/envvars"
-    : "/ec/etc/apache/2.4/envvars"
+    : "/etc/apache/2.4/envvars"
     );
 $ENV{LANG}='C';
 read_env_file($env_file);
@@ -48,7 +48,7 @@ else {
 }
 $name = ucfirst($obj);
 
-my $confdir  = $ENV{APACHE_CONFDIR}                  || "/ec/etc/apache/2.4";
+my $confdir  = $ENV{APACHE_CONFDIR}                  || "//etc/apache/2.4";
 my $availdir = $ENV{ uc("APACHE_${dir}_AVAILABLE") } || "$confdir/$dir-available";
 my $enabldir = $ENV{ uc("APACHE_${dir}_ENABLED") }   || "$confdir/$dir-enabled";
 

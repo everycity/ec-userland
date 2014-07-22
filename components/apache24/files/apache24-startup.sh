@@ -24,9 +24,9 @@ ulimit -n 65535
 # http://developers.sun.com/solaris/articles/stdio_256.html
 export LD_PRELOAD_32=/usr/lib/extendedFILE.so.1
 
-APACHE_USR_ROOT=/ec/lib/apache/2.4
-APACHE_ETC_ROOT=/ec/etc/apache/2.4
-APACHE_VAR_ROOT=/ec/var/apache/2.4
+APACHE_USR_ROOT=/usr/lib/apache/2.4
+APACHE_ETC_ROOT=/etc/apache/2.4
+APACHE_VAR_ROOT=/var/apache/2.4
 
 STARTUP_OPTIONS=
 
