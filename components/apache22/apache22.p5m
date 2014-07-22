@@ -1658,5 +1658,7 @@ link path=$(USRDIR)/bin/$(MACH64)/a2dissite \
 file files/apache22-postinstall.xml path=var/svc/manifest/site/apache22-postinstall.xml \
     restart_fmri=svc:/system/manifest-import:default
 dir path=var/apache/2.2/logs mode=0755 owner=webservd group=webservd preserve=true
+dir path=var/apache/2.2/run mode=0755 owner=webservd group=webservd preserve=true
 link path=$(USRDIR)/lib/apache/2.2/logs \
     target=var/apache/2.2/logs
+link path=$(USRDIR)/lib/apache/active target=2.2 mediator=apache mediator-version=2.2
