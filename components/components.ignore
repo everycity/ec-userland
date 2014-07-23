@@ -114,7 +114,6 @@
 /^libfcgi$/d
 /^libgcrypt$/d
 /^libgd$/d
-/^libgpg-error$/d
 /^libgsm$/d
 /^libid3tag$/d
 /^libksba$/d
