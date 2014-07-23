@@ -22,18 +22,6 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license libxpm.license license="MIT License (libxpm)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/X11
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
 file path=$(ECPREFIX)/bin/$(MACH64)/cxpm
 file path=$(ECPREFIX)/bin/cxpm
 file path=$(ECPREFIX)/include/X11/xpm.h

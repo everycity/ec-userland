@@ -34,7 +34,7 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic
-CONFIGURE_OPTIONS+=	--with-sysroot=/ec 'LIBS=-lintl'
+#CONFIGURE_OPTIONS+=	--with-sysroot=/ec 'LIBS=-lintl'
 
 build:		$(BUILD_32_and_64)
 
