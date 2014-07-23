@@ -1,0 +1,14 @@
+Index: guile-1.8.8/libguile/gc_os_dep.c
+===================================================================
+--- guile-1.8.8/libguile/gc_os_dep.c.orig
++++ guile-1.8.8/libguile/gc_os_dep.c
+@@ -715,9 +715,6 @@ scm_get_stack_base ()
+ /*      but reportedly breaks under 2.8.  It appears that the stack     */
+ /*      base is a property of the executable, so this should not break  */
+ /*      old executables.                                                */
+-/*      HEURISTIC2 probably works, but this appears to be preferable.   */
+-#       include <sys/vm.h>
+-#       define STACKBOTTOM ((ptr_t) USRSTACK)
+ #	ifndef USE_MMAP
+ #	    define USE_MMAP
+ #	endif
