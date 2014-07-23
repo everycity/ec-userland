@@ -1,0 +1,33 @@
+Index: autogen-5.18/autoopts/Makefile.in
+===================================================================
+--- autogen-5.18/autoopts/Makefile.in.orig
++++ autogen-5.18/autoopts/Makefile.in
+@@ -780,10 +780,10 @@ uninstall-m4dataDATA:
+ 	dir='$(DESTDIR)$(m4datadir)'; $(am__uninstall_files_from_dir)
+ install-nobase_dataDATA: $(nobase_data_DATA)
+ 	@$(NORMAL_INSTALL)
+-	@list='$(nobase_data_DATA)'; test -n "$(datadir)" || list=; \
++	@list='$(nobase_data_DATA)'; test -n "$(libdir)" || list=; \
+ 	if test -n "$$list"; then \
+-	  echo " $(MKDIR_P) '$(DESTDIR)$(datadir)'"; \
+-	  $(MKDIR_P) "$(DESTDIR)$(datadir)" || exit 1; \
++	  echo " $(MKDIR_P) '$(DESTDIR)$(libdir)'"; \
++	  $(MKDIR_P) "$(DESTDIR)$(libdir)" || exit 1; \
+ 	fi; \
+ 	$(am__nobase_list) | while read dir files; do \
+ 	  xfiles=; for file in $$files; do \
+@@ -791,10 +791,10 @@ install-nobase_dataDATA: $(nobase_data_D
+ 	    else xfiles="$$xfiles $(srcdir)/$$file"; fi; done; \
+ 	  test -z "$$xfiles" || { \
+ 	    test "x$$dir" = x. || { \
+-	      echo " $(MKDIR_P) '$(DESTDIR)$(datadir)/$$dir'"; \
+-	      $(MKDIR_P) "$(DESTDIR)$(datadir)/$$dir"; }; \
+-	    echo " $(INSTALL_DATA) $$xfiles '$(DESTDIR)$(datadir)/$$dir'"; \
+-	    $(INSTALL_DATA) $$xfiles "$(DESTDIR)$(datadir)/$$dir" || exit $$?; }; \
++	      echo " $(MKDIR_P) '$(DESTDIR)$(libdir)/$$dir'"; \
++	      $(MKDIR_P) "$(DESTDIR)$(libdir)/$$dir"; }; \
++	    echo " $(INSTALL_DATA) $$xfiles '$(DESTDIR)$(libdir)/$$dir'"; \
++	    $(INSTALL_DATA) $$xfiles "$(DESTDIR)$(libdir)/$$dir" || exit $$?; }; \
+ 	done
+ 
+ uninstall-nobase_dataDATA:

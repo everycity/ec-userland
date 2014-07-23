@@ -1,0 +1,133 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2014 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license='$(COMPONENT_LICENSE)'
+
+file path=$(USRDIR)/bin/$(MACH64)/autogen
+file path=$(USRDIR)/bin/$(MACH64)/autoopts-config
+file path=$(USRDIR)/bin/$(MACH64)/columns
+file path=$(USRDIR)/bin/$(MACH64)/getdefs
+file path=$(USRDIR)/bin/autogen
+file path=$(USRDIR)/bin/autoopts-config
+file path=$(USRDIR)/bin/columns
+file path=$(USRDIR)/bin/getdefs
+file path=$(USRDIR)/bin/xml2ag
+
+file path=$(USRDIR)/include/autoopts/options.h
+file path=$(USRDIR)/include/autoopts/usage-txt.h
+
+file path=$(USRDIR)/lib/$(MACH64)/libopts.a
+link path=$(USRDIR)/lib/$(MACH64)/libopts.so target=libopts.so.25.15.0
+link path=$(USRDIR)/lib/$(MACH64)/libopts.so.25 target=libopts.so.25.15.0
+file path=$(USRDIR)/lib/$(MACH64)/libopts.so.25.15.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/autoopts.pc
+file path=$(USRDIR)/lib/libopts.a
+link path=$(USRDIR)/lib/libopts.so target=libopts.so.25.15.0
+link path=$(USRDIR)/lib/libopts.so.25 target=libopts.so.25.15.0
+file path=$(USRDIR)/lib/libopts.so.25.15.0
+file path=$(USRDIR)/lib/pkgconfig/autoopts.pc
+
+file path=$(USRDIR)/share/aclocal/autoopts.m4
+file path=$(USRDIR)/share/autogen/aginfo.tpl
+file path=$(USRDIR)/share/autogen/aginfo3.tpl
+file path=$(USRDIR)/share/autogen/agman-cmd.tpl
+file path=$(USRDIR)/share/autogen/agman-file.tpl
+file path=$(USRDIR)/share/autogen/agman.tlib
+file path=$(USRDIR)/share/autogen/agman1.tpl
+file path=$(USRDIR)/share/autogen/agman3.tpl
+file path=$(USRDIR)/share/autogen/agmdoc-cmd.tpl
+file path=$(USRDIR)/share/autogen/agmdoc-file.tpl
+file path=$(USRDIR)/share/autogen/agpl.lic
+file path=$(USRDIR)/share/autogen/agtexi-cmd.tpl
+file path=$(USRDIR)/share/autogen/agtexi-file.tpl
+file path=$(USRDIR)/share/autogen/autoopts.m4
+file path=$(USRDIR)/share/autogen/bits.tpl
+file path=$(USRDIR)/share/autogen/cmd-doc.tlib
+file path=$(USRDIR)/share/autogen/confmacs.tlib
+file path=$(USRDIR)/share/autogen/conftest.tpl
+file path=$(USRDIR)/share/autogen/def2pot.tpl
+file path=$(USRDIR)/share/autogen/fsm-macro.tlib
+file path=$(USRDIR)/share/autogen/fsm-trans.tlib
+file path=$(USRDIR)/share/autogen/fsm.tpl
+file path=$(USRDIR)/share/autogen/getopt.tpl
+file path=$(USRDIR)/share/autogen/gpl.lic
+file path=$(USRDIR)/share/autogen/gplv2.lic
+file path=$(USRDIR)/share/autogen/lgpl.lic
+file path=$(USRDIR)/share/autogen/lgplv2.lic
+file path=$(USRDIR)/share/autogen/libopts-40.0.15.tar.gz
+file path=$(USRDIR)/share/autogen/liboptschk.m4
+file path=$(USRDIR)/share/autogen/man2man
+file path=$(USRDIR)/share/autogen/man2mdoc
+file path=$(USRDIR)/share/autogen/man2texi
+file path=$(USRDIR)/share/autogen/mbsd.lic
+file path=$(USRDIR)/share/autogen/mdoc2man
+file path=$(USRDIR)/share/autogen/mdoc2mdoc
+file path=$(USRDIR)/share/autogen/mdoc2texi
+file path=$(USRDIR)/share/autogen/optcode.tlib
+file path=$(USRDIR)/share/autogen/opthead.tlib
+file path=$(USRDIR)/share/autogen/options.tpl
+file path=$(USRDIR)/share/autogen/optlib.tlib
+file path=$(USRDIR)/share/autogen/optmain.tlib
+file path=$(USRDIR)/share/autogen/rc-sample.tpl
+file path=$(USRDIR)/share/autogen/stdoptions.def
+file path=$(USRDIR)/share/autogen/str2enum.tpl
+file path=$(USRDIR)/share/autogen/str2init.tlib
+file path=$(USRDIR)/share/autogen/str2mask.tpl
+file path=$(USRDIR)/share/autogen/strings.tpl
+file path=$(USRDIR)/share/autogen/texi2man
+file path=$(USRDIR)/share/autogen/texi2mdoc
+file path=$(USRDIR)/share/autogen/texi2texi
+file path=$(USRDIR)/share/autogen/tpl-config.tlib
+file path=$(USRDIR)/share/autogen/usage.tlib
+
+file path=$(USRDIR)/share/info/autogen.info
+file path=$(USRDIR)/share/info/autogen.info-1
+file path=$(USRDIR)/share/info/autogen.info-2
+file path=$(USRDIR)/share/info/autogen.info-3
+
+file path=$(USRDIR)/share/man/man1/autogen.1
+file path=$(USRDIR)/share/man/man1/autoopts-config.1
+file path=$(USRDIR)/share/man/man1/columns.1
+file path=$(USRDIR)/share/man/man1/getdefs.1
+file path=$(USRDIR)/share/man/man1/xml2ag.1
+file path=$(USRDIR)/share/man/man3/ao_string_tokenize.3
+file path=$(USRDIR)/share/man/man3/configFileLoad.3
+file path=$(USRDIR)/share/man/man3/optionFileLoad.3
+file path=$(USRDIR)/share/man/man3/optionFindNextValue.3
+file path=$(USRDIR)/share/man/man3/optionFindValue.3
+file path=$(USRDIR)/share/man/man3/optionFree.3
+file path=$(USRDIR)/share/man/man3/optionGetValue.3
+file path=$(USRDIR)/share/man/man3/optionLoadLine.3
+file path=$(USRDIR)/share/man/man3/optionMemberList.3
+file path=$(USRDIR)/share/man/man3/optionNextValue.3
+file path=$(USRDIR)/share/man/man3/optionOnlyUsage.3
+file path=$(USRDIR)/share/man/man3/optionProcess.3
+file path=$(USRDIR)/share/man/man3/optionRestore.3
+file path=$(USRDIR)/share/man/man3/optionSaveFile.3
+file path=$(USRDIR)/share/man/man3/optionSaveState.3
+file path=$(USRDIR)/share/man/man3/optionUnloadNested.3
+file path=$(USRDIR)/share/man/man3/optionVersion.3
+file path=$(USRDIR)/share/man/man3/strequate.3
+file path=$(USRDIR)/share/man/man3/streqvcmp.3
+file path=$(USRDIR)/share/man/man3/streqvmap.3
+file path=$(USRDIR)/share/man/man3/strneqvcmp.3
+file path=$(USRDIR)/share/man/man3/strtransform.3
