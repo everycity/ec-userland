@@ -391,7 +391,6 @@
 /^xapian\/core$/d
 /^xvidcore$/d
 /^yamdi$/d
-/^yasm$/d
 /^yubico-libyubikey$/d
 /^yubico-pam$/d
 /^yubico-ykclient$/d
