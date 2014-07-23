@@ -1092,6 +1092,7 @@ link path=usr/include/fcntl.h target=/system/usr/include/fcntl.h
 link path=usr/include/fenv.h target=/system/usr/include/fenv.h
 link path=usr/include/float.h target=/system/usr/include/float.h
 link path=usr/include/floatingpoint.h target=/system/usr/include/floatingpoint.h
+link path=usr/include/getopt.h target=/system/usr/include/getopt.h
 dir  path=usr/include/fm owner=root group=root mode=755
 link path=usr/include/fm/diagcode.h target=/system/usr/include/fm/diagcode.h
 link path=usr/include/fm/fmd_adm.h target=/system/usr/include/fm/fmd_adm.h
