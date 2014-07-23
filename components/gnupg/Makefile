@@ -25,13 +25,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gnupg
 COMPONENT_FMRI=		crypto/gnupg
-COMPONENT_VERSION=	1.4.17
+COMPONENT_VERSION=	1.4.18
 COMPONENT_LICENSE=	GPLv3
 COMPONENT_PROJECT_URL=	"http://www.gnupg.org/"
 COMPONENT_SUMMARY=	GnuPG - secure communication and data storage utility
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:e6dd9d19d62dc434d354076d1f7cea11e87934ff2a0912aa806f848dda0a7b5b
+COMPONENT_ARCHIVE_HASH=	sha256:b7b5fdda78849955e0cdbc5a085f3a08f8b7fba126c622085debb62def5d6388
 COMPONENT_ARCHIVE_URL=	ftp://ftp.gnupg.org/gcrypt/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
