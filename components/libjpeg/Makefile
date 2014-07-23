@@ -34,7 +34,8 @@ include ../../make-rules/ips.mk
 
 IPS_COMPONENT_VERSION=	0.8.4
 
-CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic --with-sysroot=/ec
+CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic
+# --with-sysroot=/ec
 
 build:		$(BUILD_32_and_64)
 

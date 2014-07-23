@@ -118,7 +118,6 @@
 /^libgpg-error$/d
 /^libgsm$/d
 /^libid3tag$/d
-/^libjpeg$/d
 /^libksba$/d
 /^liblzo$/d
 /^libmad$/d
