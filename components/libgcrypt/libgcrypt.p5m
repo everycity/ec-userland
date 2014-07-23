@@ -32,36 +32,26 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license libgcrypt.license license="LGPL"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/aclocal
-dir path=$(ECPREFIX)/share/info
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/dumpsexp
-file path=$(ECPREFIX)/bin/$(MACH64)/hmac256
-file path=$(ECPREFIX)/bin/$(MACH64)/libgcrypt-config
-file path=$(ECPREFIX)/bin/$(MACH64)/mpicalc
-file path=$(ECPREFIX)/bin/dumpsexp
-file path=$(ECPREFIX)/bin/hmac256
-file path=$(ECPREFIX)/bin/libgcrypt-config
-file path=$(ECPREFIX)/bin/mpicalc
-file path=$(ECPREFIX)/include/gcrypt.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libgcrypt.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libgcrypt.so.20.0.0
-file path=$(ECPREFIX)/lib/libgcrypt.la
-file path=$(ECPREFIX)/lib/libgcrypt.so.20.0.0
-file path=$(ECPREFIX)/share/aclocal/libgcrypt.m4
-file path=$(ECPREFIX)/share/info/gcrypt.info
-file path=$(ECPREFIX)/share/info/gcrypt.info-1
-file path=$(ECPREFIX)/share/info/gcrypt.info-2
-file path=$(ECPREFIX)/share/man/man1/hmac256.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libgcrypt.so target=libgcrypt.so.20.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libgcrypt.so.20 target=libgcrypt.so.20.0.0
-link path=$(ECPREFIX)/lib/libgcrypt.so target=libgcrypt.so.20.0.0
-link path=$(ECPREFIX)/lib/libgcrypt.so.20 target=libgcrypt.so.20.0.0
+file path=$(USRDIR)/bin/$(MACH64)/dumpsexp
+file path=$(USRDIR)/bin/$(MACH64)/hmac256
+file path=$(USRDIR)/bin/$(MACH64)/libgcrypt-config
+file path=$(USRDIR)/bin/$(MACH64)/mpicalc
+file path=$(USRDIR)/bin/dumpsexp
+file path=$(USRDIR)/bin/hmac256
+file path=$(USRDIR)/bin/libgcrypt-config
+file path=$(USRDIR)/bin/mpicalc
+
+file path=$(USRDIR)/include/gcrypt.h
+
+file path=$(USRDIR)/lib/$(MACH64)/libgcrypt.so.20.0.1
+file path=$(USRDIR)/lib/libgcrypt.so.20.0.1
+
+file path=$(USRDIR)/share/aclocal/libgcrypt.m4
+file path=$(USRDIR)/share/info/gcrypt.info
+file path=$(USRDIR)/share/info/gcrypt.info-1
+file path=$(USRDIR)/share/info/gcrypt.info-2
+file path=$(USRDIR)/share/man/man1/hmac256.1
+link path=$(USRDIR)/lib/$(MACH64)/libgcrypt.so target=libgcrypt.so.20.0.1
+link path=$(USRDIR)/lib/$(MACH64)/libgcrypt.so.20 target=libgcrypt.so.20.0.1
+link path=$(USRDIR)/lib/libgcrypt.so target=libgcrypt.so.20.0.1
+link path=$(USRDIR)/lib/libgcrypt.so.20 target=libgcrypt.so.20.0.1

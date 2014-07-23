@@ -24,10 +24,11 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libgcrypt
-COMPONENT_VERSION=	1.6.0
+COMPONENT_VERSION=	1.6.1
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:662d508600ad94cc334e665b7016137feedfcca5226998c65ddd56bdfca29708
+COMPONENT_ARCHIVE_HASH=	\
+	sha256:a1c3efea69f8ffe769f488b300ce190eeeb0c30de24a53f1c1b6e4202fdc2070
 COMPONENT_ARCHIVE_URL=	ftp://ftp.gnupg.org/gcrypt/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -36,7 +37,9 @@ include ../../make-rules/ips.mk
 
 include ../../make-rules/shared-targets.mk
 
-CONFIGURE_ENV.64 += PATH=$(ECPREFIX)/bin/$(MACH64):$(PATH)
+CONFIGURE_ENV.64 += PATH=$(USRDIR)/bin/$(MACH64):$(PATH)
+
+CONFIGURE_OPTIONS.64	+= --disable-amd64-as-feature-detection
 
 build:		$(BUILD_32_and_64)
 

@@ -112,7 +112,6 @@
 /^libestr$/d
 /^libevent$/d
 /^libfcgi$/d
-/^libgcrypt$/d
 /^libgd$/d
 /^libgsm$/d
 /^libid3tag$/d
