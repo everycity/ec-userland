@@ -1,0 +1,13 @@
+Index: libvpx-v1.2.0/build/make/Makefile
+===================================================================
+--- libvpx-v1.2.0/build/make/Makefile.orig
++++ libvpx-v1.2.0/build/make/Makefile
+@@ -253,7 +253,7 @@ $(1):
+ 	$(if $(quiet),@echo "    [LD] $$@")
+ 	$(qexec)$$(LD) -shared $$(LDFLAGS) \
+             -Wl,--no-undefined -Wl,-soname,$$(SONAME) \
+-            -Wl,--version-script,$$(SO_VERSION_SCRIPT) -o $$@ \
++            -Wl,-M,$$(SO_VERSION_SCRIPT) -o $$@ \
+             $$(filter %.o,$$?) $$(extralibs)
+ endef
+ 

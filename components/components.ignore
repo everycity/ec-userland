@@ -139,7 +139,6 @@
 /^libuuid$/d
 /^libv8$/d
 /^libvorbis$/d
-/^libvpx$/d
 /^libwpd$/d
 /^libwpg$/d
 /^libwps$/d

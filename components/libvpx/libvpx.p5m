@@ -22,33 +22,26 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/vpx
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-file path=$(ECPREFIX)/include/vpx/vp8.h
-file path=$(ECPREFIX)/include/vpx/vp8cx.h
-file path=$(ECPREFIX)/include/vpx/vp8dx.h
-file path=$(ECPREFIX)/include/vpx/vpx_codec.h
-file path=$(ECPREFIX)/include/vpx/vpx_codec_impl_bottom.h
-file path=$(ECPREFIX)/include/vpx/vpx_codec_impl_top.h
-file path=$(ECPREFIX)/include/vpx/vpx_decoder.h
-file path=$(ECPREFIX)/include/vpx/vpx_encoder.h
-file path=$(ECPREFIX)/include/vpx/vpx_image.h
-file path=$(ECPREFIX)/include/vpx/vpx_integer.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libvpx.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/vpx.pc
-file path=$(ECPREFIX)/lib/libvpx.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/pkgconfig/vpx.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libvpx.so \
+file path=$(USRDIR)/include/vpx/vp8.h
+file path=$(USRDIR)/include/vpx/vp8cx.h
+file path=$(USRDIR)/include/vpx/vp8dx.h
+file path=$(USRDIR)/include/vpx/vpx_codec.h
+file path=$(USRDIR)/include/vpx/vpx_codec_impl_bottom.h
+file path=$(USRDIR)/include/vpx/vpx_codec_impl_top.h
+file path=$(USRDIR)/include/vpx/vpx_decoder.h
+file path=$(USRDIR)/include/vpx/vpx_encoder.h
+file path=$(USRDIR)/include/vpx/vpx_image.h
+file path=$(USRDIR)/include/vpx/vpx_integer.h
+file path=$(USRDIR)/lib/$(MACH64)/libvpx.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/vpx.pc
+file path=$(USRDIR)/lib/libvpx.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/pkgconfig/vpx.pc
+link path=$(USRDIR)/lib/$(MACH64)/libvpx.so \
     target=libvpx.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libvpx.so.1 \
+link path=$(USRDIR)/lib/$(MACH64)/libvpx.so.1 \
     target=libvpx.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libvpx.so.1.2 \
+link path=$(USRDIR)/lib/$(MACH64)/libvpx.so.1.2 \
     target=libvpx.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libvpx.so target=libvpx.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libvpx.so.1 target=libvpx.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libvpx.so.1.2 target=libvpx.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libvpx.so target=libvpx.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libvpx.so.1 target=libvpx.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libvpx.so.1.2 target=libvpx.so.$(COMPONENT_VERSION)

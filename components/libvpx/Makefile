@@ -29,15 +29,17 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS.32 = -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
-LDFLAGS.64 = -m64 -L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)
-LDFLAGS = $(LDFLAGS.$(BITS)) -lc -lumem
+#LDFLAGS.32 = -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
+#LDFLAGS.64 = -m64 -L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)
+#LDFLAGS = $(LDFLAGS.$(BITS)) -lc -lumem
+
+LDFLAGS += $(CC_BITS)
 
 COMPONENT_CONFIGURE_ENV+=	AR=ar
 
-COMPONENT_BUILD_ENV.32+=        LD_ALTEXEC=$(ECPREFIX)/bin/ld
-COMPONENT_BUILD_ENV.64+=        LD_ALTEXEC=$(ECPREFIX)/bin/$(MACH64)/ld
-COMPONENT_BUILD_ENV+=           $(COMPONENT_BUILD_ENV.$(BITS))
+#COMPONENT_BUILD_ENV.32+=        LD_ALTEXEC=$(USRDIR)/bin/ld
+#COMPONENT_BUILD_ENV.64+=        LD_ALTEXEC=$(USRDIR)/bin/$(MACH64)/ld
+#COMPONENT_BUILD_ENV+=           $(COMPONENT_BUILD_ENV.$(BITS))
 
 CONFIGURE_OPTIONS.32 =	--target=x86-solaris-gcc
 CONFIGURE_OPTIONS.64 =	--target=x86_64-solaris-gcc
