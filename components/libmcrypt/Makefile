@@ -25,7 +25,12 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_PRE_CONFIGURE_ACTION += cd $(SOURCE_DIR) ; rm -f Makefile config.guess config.h config.sub config.status ; ./buildconf ; cp -r $(SOURCE_DIR)/* $(@D)
+COMPONENT_PRE_CONFIGURE_ACTION += \
+	( cd $(SOURCE_DIR) ; \
+	    rm -f Makefile config.guess config.h config.sub config.status ; \
+	    ./buildconf ; \
+	    cp -r $(SOURCE_DIR)/* $(@D) )
+
 CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic
 
 include ../../make-rules/shared-targets.mk
