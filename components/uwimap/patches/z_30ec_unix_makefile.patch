@@ -7,7 +7,7 @@
 +ec:	os_sol.h	# Solaris EveryCity
 +	$(BUILD) `$(CAT) SPECIALS` OS=sol \
 +	 SIGTYPE=psx CHECKPW=psx CRXTYPE=nfs \
-+	 SPOOLDIR=/ec/var/spool MAILSPOOL=/ec/var/mail \
++	 SPOOLDIR=/var/spool MAILSPOOL=/var/mail \
 +	 ACTIVEFILE=/usr/share/news/active \
 +	 RSHPATH=/usr/bin/rsh \
 +	 BASECFLAGS="$$CFLAGS" \
