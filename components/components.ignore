@@ -340,7 +340,6 @@
 /^tcsh$/d
 /^test$/d
 /^tftp-hpa$/d
-/^tidy$/d
 /^tmux$/d
 /^toilet$/d
 /^tomcat6$/d
