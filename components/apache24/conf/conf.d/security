@@ -49,3 +49,8 @@ ServerSignature On
 TraceEnable Off
 #TraceEnable On
 
+#
+# PCI compliance tests flag CVE-2003-1418
+#
+Header unset ETag
+FileETag MTime Size

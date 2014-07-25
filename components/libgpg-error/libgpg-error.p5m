@@ -19,7 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -78,9 +78,9 @@ file path=$(ECPREFIX)/bin/gpg-error
 file path=$(ECPREFIX)/bin/gpg-error-config
 file path=$(ECPREFIX)/include/gpg-error.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libgpg-error.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libgpg-error.so.0.10.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libgpg-error.so.0.11.0
 file path=$(ECPREFIX)/lib/libgpg-error.la
-file path=$(ECPREFIX)/lib/libgpg-error.so.0.10.0
+file path=$(ECPREFIX)/lib/libgpg-error.so.0.11.0
 file path=$(ECPREFIX)/share/aclocal/gpg-error.m4
 file path=$(ECPREFIX)/share/common-lisp/source/gpg-error/gpg-error-codes.lisp
 file \
@@ -102,8 +102,8 @@ file path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES/libgpg-error.mo
 file path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES/libgpg-error.mo
 file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/libgpg-error.mo
 link path=$(ECPREFIX)/lib/$(MACH64)/libgpg-error.so \
-    target=libgpg-error.so.0.10.0
+    target=libgpg-error.so.0.11.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libgpg-error.so.0 \
-    target=libgpg-error.so.0.10.0
-link path=$(ECPREFIX)/lib/libgpg-error.so target=libgpg-error.so.0.10.0
-link path=$(ECPREFIX)/lib/libgpg-error.so.0 target=libgpg-error.so.0.10.0
+    target=libgpg-error.so.0.11.0
+link path=$(ECPREFIX)/lib/libgpg-error.so target=libgpg-error.so.0.11.0
+link path=$(ECPREFIX)/lib/libgpg-error.so.0 target=libgpg-error.so.0.11.0
