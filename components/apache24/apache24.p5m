@@ -29,12 +29,13 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 file files/apache24-startup.sh path=var/svc/method/http-apache24 mode=555
 file files/apache24-manifest.xml path=var/svc/manifest/site/http-apache24.xml \
     restart_fmri=svc:/system/manifest-import:default
-file files/apache24-postinstall.xml path=var/svc/manifest/site/apache24-postinstall.xml \
-    restart_fmri=svc:/system/manifest-import:default
+#file files/apache24-postinstall.xml path=var/svc/manifest/site/apache24-postinstall.xml \
+#    restart_fmri=svc:/system/manifest-import:default
 link path=$(USRDIR)/lib/apache/2.4/logs target=var/apache/2.4/logs
 
 dir path=var/apache/2.4/logs mode=0755 owner=webservd group=webservd preserve=true
 dir path=var/apache/2.4/run mode=0755 owner=webservd group=webservd preserve=true
+file files/a2enmod path=$(USRDIR)/lib/apache/2.4/bin/a2enmod
 
 file path=etc/apache/2.4/conf.d/charset
 file path=etc/apache/2.4/conf.d/localized-error-pages
@@ -2030,4 +2031,82 @@ link path=etc/apache/2.4/mods-enabled/unixd.load \
     target=../mods-available/unixd.load
 link path=etc/apache/2.4/sites-enabled/000-default \
     target=../sites-available/default
-link path=$(USRDIR)/lib/apache/active target=2.4 mediator=apache mediator-version=2.4
+
+#link path=$(USRDIR)/lib/apache/active target=2.4 mediator=apache mediator-version=2.4
+
+link path=$(USRDIR)/bin/ab \
+    target=../lib/apache/2.4/bin/ab preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/ab \
+    target=../../lib/apache/2.4/bin/$(MACH64)/ab preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/apachectl \
+    target=../lib/apache/2.4/bin/apachectl preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/apachectl \
+    target=../../lib/apache/2.4/bin/$(MACH64)/apachectl preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/apxs \
+    target=../lib/apache/2.4/bin/apxs preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/apxs \
+    target=../../lib/apache/2.4/bin/$(MACH64)/apxs preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/apxs.worker \
+    target=../lib/apache/2.4/bin/apxs.worker preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/apxs.worker \
+    target=../../lib/apache/2.4/bin/$(MACH64)/apxs.worker preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/checkgid \
+    target=../lib/apache/2.4/bin/checkgid preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/checkgid \
+    target=../../lib/apache/2.4/bin/$(MACH64)/checkgid preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/dbmmanage \
+    target=../lib/apache/2.4/bin/dbmmanage preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/dbmmanage \
+    target=../../lib/apache/2.4/bin/$(MACH64)/dbmmanage preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/htcacheclean \
+    target=../lib/apache/2.4/bin/htcacheclean preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/htcacheclean \
+    target=../../lib/apache/2.4/bin/$(MACH64)/htcacheclean preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/htdbm \
+    target=../lib/apache/2.4/bin/htdbm preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/htdbm \
+    target=../../lib/apache/2.4/bin/$(MACH64)/htdbm preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/htdigest \
+    target=../lib/apache/2.4/bin/htdigest preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/htdigest \
+    target=../../lib/apache/2.4/bin/$(MACH64)/htdigest preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/htpasswd \
+    target=../lib/apache/2.4/bin/htpasswd preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/htpasswd \
+    target=../../lib/apache/2.4/bin/$(MACH64)/htpasswd preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/httpd \
+    target=../lib/apache/2.4/bin/httpd preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/httpd \
+    target=../../lib/apache/2.4/bin/$(MACH64)/httpd preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/httxt2dbm \
+    target=../lib/apache/2.4/bin/httxt2dbm preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/httxt2dbm \
+    target=../../lib/apache/2.4/bin/$(MACH64)/httxt2dbm preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/logresolve \
+    target=../lib/apache/2.4/bin/logresolve preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/logresolve \
+    target=../../lib/apache/2.4/bin/$(MACH64)/logresolve preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/rotatelogs \
+    target=../lib/apache/2.4/bin/rotatelogs preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/rotatelogs \
+    target=../../lib/apache/2.4/bin/$(MACH64)/rotatelogs preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/suexec \
+    target=../lib/apache/2.4/bin/suexec preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/suexec \
+    target=../../lib/apache/2.4/bin/$(MACH64)/suexec preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/a2enmod \
+    target=../lib/apache/2.4/bin/a2enmod preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/a2enmod \
+    target=../../lib/apache/2.4/bin/$(MACH64)/a2enmod preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/a2dismod \
+    target=../lib/apache/2.4/bin/a2dismod preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/a2dismod \
+    target=../../lib/apache/2.4/bin/$(MACH64)/a2dismod preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/a2ensite \
+    target=../lib/apache/2.4/bin/a2ensite preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/a2ensite \
+    target=../../lib/apache/2.4/bin/$(MACH64)/a2ensite preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/a2dissite \
+    target=../lib/apache/2.4/bin/a2dissite preserve=true pkg.linted=true mediator=apache mediator-version=2.4
+link path=$(USRDIR)/bin/$(MACH64)/a2dissite \
+    target=../../lib/apache/2.4/bin/$(MACH64)/a2dissite preserve=true pkg.linted=true mediator=apache mediator-version=2.4
