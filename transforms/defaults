@@ -115,4 +115,4 @@
 <transform link mediator=automake mediator-version=1.14 -> default mediator-priority vendor>
 <transform link mediator=mysql mediator-version=5.6 -> default mediator-priority vendor>
 <transform link mediator=pg mediator-version=9.3 -> default mediator-priority vendor>
-<transform link mediator=apache mediator-version=2.4 -> default mediator-priority vendor>
+<transform link mediator=apache mediator-version=2.2 -> default mediator-priority vendor>
