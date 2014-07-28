@@ -24,18 +24,23 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-PATH=   $(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
+PATH.32= $(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
+PATH.64= $(USRDIR)/bin/$(MACH64):$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
+PATH=$(PATH.$(BITS))
 
 # Apache Paths
-AP_PREFIX=$(ECPREFIX)/lib/apache/2.2
-AP_SYSCONFDIR=$(ECPREFIX)/etc/apache/2.2
+AP_PREFIX=$(USRDIR)/lib/apache/2.2
+AP_SYSCONFDIR=/etc/apache/2.2
 
 # PHP Paths
-PHP_PREFIX=$(ECPREFIX)/lib/php/5.5
-PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.5
-PHP_DATADIR=$(ECPREFIX)/var/php/5.5
+PHP_PREFIX=$(USRDIR)/lib/php/5.5
+PHP_SYSCONFDIR=/etc/php/5.5
+PHP_DATADIR=/var/php/5.5
 
 CFLAGS += -D_POSIX_PTHREAD_SEMANTICS
+LDFLAGS += -lz
+
+CONFIGURE_ENV += PATH="$(PATH)"
 
 # Configure Options
 
@@ -69,7 +74,7 @@ CONFIGURE_OPTIONS     +=	--with-zend-vm=CALL
 
 CONFIGURE_OPTIONS     +=	--with-cdb
 CONFIGURE_OPTIONS     +=	--with-kerberos
-CONFIGURE_OPTIONS     +=	--with-pcre-regex=$(ECPREFIX)
+CONFIGURE_OPTIONS     +=	--with-pcre-regex=$(USRDIR)
 
 # Shared Extensions
 #CONFIGURE_OPTIONS     +=	--with-curlwrappers
@@ -78,33 +83,33 @@ CONFIGURE_OPTIONS     +=	--with-xmlrpc=shared
 CONFIGURE_OPTIONS     +=	--with-gd=shared
 CONFIGURE_OPTIONS     +=	--with-zlib=shared
 CONFIGURE_OPTIONS     +=	--with-openssl=shared
-CONFIGURE_OPTIONS     +=	--with-sqlite3=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-pdo-sqlite=shared,$(ECPREFIX)
+CONFIGURE_OPTIONS     +=	--with-sqlite3=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-pdo-sqlite=shared,$(USRDIR)
 CONFIGURE_OPTIONS     +=	--with-ldap=shared
 
 # Shared Extensions
-CONFIGURE_OPTIONS     +=	--with-bz2=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-iconv=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-tidy=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-mhash=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-mcrypt=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-xsl=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-curl=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-readline=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-pspell=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-imap=shared,$(ECPREFIX)
+CONFIGURE_OPTIONS     +=	--with-bz2=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-iconv=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-tidy=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-mhash=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-mcrypt=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-xsl=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-curl=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-readline=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-pspell=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-imap=shared,$(USRDIR)
 CONFIGURE_OPTIONS     +=	--with-imap-ssl
 
 # Enabled Extensions
-CONFIGURE_OPTIONS     +=	--with-libxml-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-freetype-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-jpeg-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-png-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-zlib-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-xpm-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-libexpat-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-openssl-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-vpx-dir=$(ECPREFIX)
+CONFIGURE_OPTIONS     +=	--with-libxml-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-freetype-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-jpeg-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-png-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-zlib-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-xpm-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-libexpat-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-openssl-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-vpx-dir=$(USRDIR)
 
 # Disabled extensions & Options
 CONFIGURE_OPTIONS     +=	--disable-static
@@ -160,7 +165,7 @@ CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
 #CONFIGURE_OPTIONS += $(CONFIGURE_VARIANT_OPTIONS)
 
 COMPONENT_POST_CONFIGURE_ACTION_64= \
-	( cd $(@D) ; $(GSED) -i -e 's!-L[ ]*/ec/lib!-L/ec/lib/amd64!g' -e 's!-R[ ]*/ec/lib!-R/ec/lib/amd64!g' Makefile )
+	( cd $(@D) ; $(GSED) -i -e 's!-L[ ]*/usr/lib!-L/usr/lib/amd64!g' -e 's!-R[ ]*/usr/lib!-R/usr/lib/amd64!g' Makefile )
 COMPONENT_POST_CONFIGURE_ACTION=	$(COMPONENT_POST_CONFIGURE_ACTION_$(BITS))
 
 # Installation Arguments

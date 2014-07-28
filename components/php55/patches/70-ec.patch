@@ -1,0 +1,85 @@
+Index: php-5.5.12/configure
+===================================================================
+--- php-5.5.12/configure.orig
++++ php-5.5.12/configure
+@@ -22036,7 +22036,7 @@ else
+ 
+   for i in $PHP_LIBXML_DIR /usr/local /usr; do
+     if test -x "$i/bin/xml2-config"; then
+-      ac_cv_php_xml2_config_path="$i/bin/xml2-config"
++      ac_cv_php_xml2_config_path="`which xml2-config`"
+       break
+     fi
+   done
+@@ -33818,7 +33818,7 @@ else
+ 
+   for i in $PHP_LIBXML_DIR /usr/local /usr; do
+     if test -x "$i/bin/xml2-config"; then
+-      ac_cv_php_xml2_config_path="$i/bin/xml2-config"
++      ac_cv_php_xml2_config_path="`which xml2-config`"
+       break
+     fi
+   done
+@@ -82870,7 +82870,7 @@ else
+ 
+   for i in $PHP_LIBXML_DIR /usr/local /usr; do
+     if test -x "$i/bin/xml2-config"; then
+-      ac_cv_php_xml2_config_path="$i/bin/xml2-config"
++      ac_cv_php_xml2_config_path="`which xml2-config`"
+       break
+     fi
+   done
+@@ -84384,7 +84384,7 @@ else
+ 
+   for i in $PHP_LIBXML_DIR /usr/local /usr; do
+     if test -x "$i/bin/xml2-config"; then
+-      ac_cv_php_xml2_config_path="$i/bin/xml2-config"
++      ac_cv_php_xml2_config_path="`which xml2-config`"
+       break
+     fi
+   done
+@@ -94132,7 +94132,7 @@ else
+ 
+   for i in $PHP_LIBXML_DIR /usr/local /usr; do
+     if test -x "$i/bin/xml2-config"; then
+-      ac_cv_php_xml2_config_path="$i/bin/xml2-config"
++      ac_cv_php_xml2_config_path="`which xml2-config`"
+       break
+     fi
+   done
+@@ -94979,7 +94979,7 @@ else
+ 
+   for i in $PHP_LIBXML_DIR /usr/local /usr; do
+     if test -x "$i/bin/xml2-config"; then
+-      ac_cv_php_xml2_config_path="$i/bin/xml2-config"
++      ac_cv_php_xml2_config_path="`which xml2-config`"
+       break
+     fi
+   done
+@@ -95769,7 +95769,7 @@ else
+ 
+   for i in $PHP_LIBXML_DIR /usr/local /usr; do
+     if test -x "$i/bin/xml2-config"; then
+-      ac_cv_php_xml2_config_path="$i/bin/xml2-config"
++      ac_cv_php_xml2_config_path="`which xml2-config`"
+       break
+     fi
+   done
+@@ -96483,7 +96483,7 @@ else
+ 
+   for i in $PHP_LIBXML_DIR /usr/local /usr; do
+     if test -x "$i/bin/xml2-config"; then
+-      ac_cv_php_xml2_config_path="$i/bin/xml2-config"
++      ac_cv_php_xml2_config_path="`which xml2-config`"
+       break
+     fi
+   done
+@@ -98807,7 +98807,7 @@ else
+ 
+   for i in $PHP_LIBXML_DIR /usr/local /usr; do
+     if test -x "$i/bin/xml2-config"; then
+-      ac_cv_php_xml2_config_path="$i/bin/xml2-config"
++      ac_cv_php_xml2_config_path="`which xml2-config`"
+       break
+     fi
+   done
