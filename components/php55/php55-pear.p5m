@@ -242,7 +242,6 @@ file path=$(ECPREFIX)/lib/php/5.5/share/PEAR/pearcmd.php
 file path=$(ECPREFIX)/lib/php/5.5/share/PEAR/peclcmd.php
 file path=$(ECPREFIX)/lib/php/5.5/share/PEAR/test/Structures_Graph/tests/AllTests.php
 file path=$(ECPREFIX)/lib/php/5.5/share/PEAR/test/Structures_Graph/tests/testCase/BasicGraph.php
-file path=$(ECPREFIX)/lib/php/5.5/share/PEAR/test/XML_Util/tests/AllTests.php
 file path=$(ECPREFIX)/lib/php/5.5/share/PEAR/test/XML_Util/tests/testBasic_apiVersion.phpt
 file path=$(ECPREFIX)/lib/php/5.5/share/PEAR/test/XML_Util/tests/testBasic_attributesToString.phpt
 file path=$(ECPREFIX)/lib/php/5.5/share/PEAR/test/XML_Util/tests/testBasic_collapseEmptyTags.phpt
@@ -259,6 +258,7 @@ file path=$(ECPREFIX)/lib/php/5.5/share/PEAR/test/XML_Util/tests/testBasic_raise
 file path=$(ECPREFIX)/lib/php/5.5/share/PEAR/test/XML_Util/tests/testBasic_replaceEntities.phpt
 file path=$(ECPREFIX)/lib/php/5.5/share/PEAR/test/XML_Util/tests/testBasic_reverseEntities.phpt
 file path=$(ECPREFIX)/lib/php/5.5/share/PEAR/test/XML_Util/tests/testBasic_splitQualifiedName.phpt
+file path=$(ECPREFIX)/lib/php/5.5/share/PEAR/test/XML_Util/tests/testBug_18343.phpt
 file path=$(ECPREFIX)/lib/php/5.5/share/PEAR/test/XML_Util/tests/testBug_4950.phpt
 link path=$(ECPREFIX)/bin/pear target=../lib/php/active/bin/pear preserve=true pkg.linted=true
 link path=$(ECPREFIX)/bin/peardev target=../lib/php/active/bin/peardev preserve=true pkg.linted=true
