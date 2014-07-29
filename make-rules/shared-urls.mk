@@ -10,7 +10,7 @@
 
 #
 # Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
-# Copyright 2011-2013 EveryCity Ltd. All rights reserved.
+# Copyright 2011-2014 EveryCity Ltd. All rights reserved.
 #
 
 # Default to looking for source archives on the internal mirror before we
@@ -45,7 +45,7 @@ DOWNLOAD_GNU_SAVANNAH=	http://download.savannah.gnu.org/releases/$(COMPONENT_NAM
 DOWNLOAD_LIBRDF=	http://download.librdf.org/source/$(COMPONENT_ARCHIVE)
 DOWNLOAD_PERL5=		http://www.cpan.org/src/5.0/$(COMPONENT_ARCHIVE)
 DOWNLOAD_PHP_PECL=	http://pecl.php.net/get/$(COMPONENT_ARCHIVE)
-DOWNLOAD_PHP_UK=	http://uk.php.net/get/$(COMPONENT_ARCHIVE)/from/this/mirror
+DOWNLOAD_PHP_UK=	http://www.php.net/get/$(COMPONENT_ARCHIVE)/from/this/mirror
 DOWNLOAD_SF=		$(SF_ROOT)/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_SF_PROJECT=	$(SF_ROOT)/$(SF_PROJECT_NAME)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_VIDEOLAN=	http://download.videolan.org/pub/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)

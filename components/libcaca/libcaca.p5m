@@ -9,18 +9,18 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/library/libcaca@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="Library that outputs text instead of pixels"
-set name=info.upstream_url value="http://caca.zoy.org/wiki/libcaca"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license libcaca.license license="libcaca"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -61,20 +61,24 @@ file path=$(ECPREFIX)/include/caca.h
 file path=$(ECPREFIX)/include/caca0.h
 file path=$(ECPREFIX)/include/caca_conio.h
 file path=$(ECPREFIX)/include/caca_types.h
+file path=$(ECPREFIX)/lib/$(MACH64)/jni/libcaca-java.la
+file path=$(ECPREFIX)/lib/$(MACH64)/jni/libcaca-java.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libcaca++.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libcaca++.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libcaca++.so.0.99.18
+file path=$(ECPREFIX)/lib/$(MACH64)/libcaca++.so.0.99.19
 file path=$(ECPREFIX)/lib/$(MACH64)/libcaca.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libcaca.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libcaca.so.0.99.18
+file path=$(ECPREFIX)/lib/$(MACH64)/libcaca.so.0.99.19
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/caca++.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/caca.pc
+file path=$(ECPREFIX)/lib/jni/libcaca-java.la
+file path=$(ECPREFIX)/lib/jni/libcaca-java.so.0.0.0
 file path=$(ECPREFIX)/lib/libcaca++.a
 file path=$(ECPREFIX)/lib/libcaca++.la
-file path=$(ECPREFIX)/lib/libcaca++.so.0.99.18
+file path=$(ECPREFIX)/lib/libcaca++.so.0.99.19
 file path=$(ECPREFIX)/lib/libcaca.a
 file path=$(ECPREFIX)/lib/libcaca.la
-file path=$(ECPREFIX)/lib/libcaca.so.0.99.18
+file path=$(ECPREFIX)/lib/libcaca.so.0.99.19
 file path=$(ECPREFIX)/lib/pkgconfig/caca++.pc
 file path=$(ECPREFIX)/lib/pkgconfig/caca.pc
 file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/__init__.py
@@ -95,6 +99,7 @@ file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/dither.pyo
 file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/font.py
 file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/font.pyc
 file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/font.pyo
+file path=$(ECPREFIX)/share/java/libjava.jar
 file path=$(ECPREFIX)/share/libcaca/caca.txt
 file path=$(ECPREFIX)/share/man/man1/caca-config.1
 file path=$(ECPREFIX)/share/man/man1/cacafire.1
@@ -102,35 +107,18 @@ file path=$(ECPREFIX)/share/man/man1/cacaplay.1
 file path=$(ECPREFIX)/share/man/man1/cacaserver.1
 file path=$(ECPREFIX)/share/man/man1/cacaview.1
 file path=$(ECPREFIX)/share/man/man1/img2txt.1
-link path=$(ECPREFIX)/include/cucul.h target=caca.h
-link path=$(ECPREFIX)/lib/$(MACH64)/libcaca++.so target=libcaca++.so.0.99.18
-link path=$(ECPREFIX)/lib/$(MACH64)/libcaca++.so.0 target=libcaca++.so.0.99.18
-link path=$(ECPREFIX)/lib/$(MACH64)/libcaca.so target=libcaca.so.0.99.18
-link path=$(ECPREFIX)/lib/$(MACH64)/libcaca.so.0 target=libcaca.so.0.99.18
-link path=$(ECPREFIX)/lib/$(MACH64)/libcucul++.la target=libcaca++.la
-link path=$(ECPREFIX)/lib/$(MACH64)/libcucul++.so target=libcaca++.so
-link path=$(ECPREFIX)/lib/$(MACH64)/libcucul++.so.0 target=libcaca++.so.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libcucul++.so.0.99.18 \
-    target=libcaca++.so.0.99.18
-link path=$(ECPREFIX)/lib/$(MACH64)/libcucul.la target=libcaca.la
-link path=$(ECPREFIX)/lib/$(MACH64)/libcucul.so target=libcaca.so
-link path=$(ECPREFIX)/lib/$(MACH64)/libcucul.so.0 target=libcaca.so.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libcucul.so.0.99.18 \
-    target=libcaca.so.0.99.18
-link path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/cucul++.pc target=caca++.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/cucul.pc target=caca.pc
-link path=$(ECPREFIX)/lib/libcaca++.so target=libcaca++.so.0.99.18
-link path=$(ECPREFIX)/lib/libcaca++.so.0 target=libcaca++.so.0.99.18
-link path=$(ECPREFIX)/lib/libcaca.so target=libcaca.so.0.99.18
-link path=$(ECPREFIX)/lib/libcaca.so.0 target=libcaca.so.0.99.18
-link path=$(ECPREFIX)/lib/libcucul++.la target=libcaca++.la
-link path=$(ECPREFIX)/lib/libcucul++.so target=libcaca++.so
-link path=$(ECPREFIX)/lib/libcucul++.so.0 target=libcaca++.so.0
-link path=$(ECPREFIX)/lib/libcucul++.so.0.99.18 target=libcaca++.so.0.99.18
-link path=$(ECPREFIX)/lib/libcucul.la target=libcaca.la
-link path=$(ECPREFIX)/lib/libcucul.so target=libcaca.so
-link path=$(ECPREFIX)/lib/libcucul.so.0 target=libcaca.so.0
-link path=$(ECPREFIX)/lib/libcucul.so.0.99.18 target=libcaca.so.0.99.18
-link path=$(ECPREFIX)/lib/pkgconfig/cucul++.pc target=caca++.pc
-link path=$(ECPREFIX)/lib/pkgconfig/cucul.pc target=caca.pc
+link path=$(ECPREFIX)/lib/$(MACH64)/jni/libcaca-java.so \
+    target=libcaca-java.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/jni/libcaca-java.so.0 \
+    target=libcaca-java.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libcaca++.so target=libcaca++.so.0.99.19
+link path=$(ECPREFIX)/lib/$(MACH64)/libcaca++.so.0 target=libcaca++.so.0.99.19
+link path=$(ECPREFIX)/lib/$(MACH64)/libcaca.so target=libcaca.so.0.99.19
+link path=$(ECPREFIX)/lib/$(MACH64)/libcaca.so.0 target=libcaca.so.0.99.19
+link path=$(ECPREFIX)/lib/jni/libcaca-java.so target=libcaca-java.so.0.0.0
+link path=$(ECPREFIX)/lib/jni/libcaca-java.so.0 target=libcaca-java.so.0.0.0
+link path=$(ECPREFIX)/lib/libcaca++.so target=libcaca++.so.0.99.19
+link path=$(ECPREFIX)/lib/libcaca++.so.0 target=libcaca++.so.0.99.19
+link path=$(ECPREFIX)/lib/libcaca.so target=libcaca.so.0.99.19
+link path=$(ECPREFIX)/lib/libcaca.so.0 target=libcaca.so.0.99.19
 link path=$(ECPREFIX)/share/man/man1/cacademo.1 target=cacafire.1

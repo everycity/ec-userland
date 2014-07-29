@@ -29,6 +29,10 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+ifeq ($(SOLARIS_VERSION), 2.10)
+COMPONENT_EXTRA_PATCH_ACTION=   ($(GPATCH) -d $(@D) $(GPATCH_FLAGS) < librsvg-portability.patch)
+endif
+
 CONFIGURE_OPTIONS+=	--enable-introspection=no
 
 build:		$(BUILD_32_and_64)

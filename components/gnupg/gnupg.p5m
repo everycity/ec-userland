@@ -154,6 +154,5 @@ file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/gnupg.mo
 file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/gnupg.mo
 file path=$(ECPREFIX)/share/man/man1/gpg-zip.1
 file path=$(ECPREFIX)/share/man/man1/gpg.1
-file path=$(ECPREFIX)/share/man/man1/gpg.ru.1
 file path=$(ECPREFIX)/share/man/man1/gpgv.1
 file path=$(ECPREFIX)/share/man/man7/gnupg.7

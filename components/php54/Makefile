@@ -14,10 +14,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	5.4.28
+COMPONENT_VERSION=	5.4.31
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:5140292c94a0301db7a807e6b3aadf6ee966346d0005aa3d15464bd4c595a786
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
+COMPONENT_ARCHIVE_HASH=	sha256:5e8e491431fd1d99df925d762b05da05c80b02cb38c9b3db616e8894a307914d
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_UK)
 
 include ../../make-rules/prep.mk
@@ -114,7 +114,9 @@ CONFIGURE_OPTIONS     +=	--disable-libgcc
 #CONFIGURE_OPTIONS     +=	--disable-inline-optimization
 #CONFIGURE_OPTIONS     +=	--disable-libtool-lock
 #CONFIGURE_OPTIONS     +=	--disable-rpath
+ifeq ($(SOLARIS_VERSION), 2.11)
 CONFIGURE_OPTIONS     +=	--enable-dtrace
+endif
 CONFIGURE_OPTIONS     +=	--without-dbm
 CONFIGURE_OPTIONS     +=	--without-t1lib
 

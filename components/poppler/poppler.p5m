@@ -81,6 +81,7 @@ file path=$(ECPREFIX)/include/poppler/glib/poppler-layer.h
 file path=$(ECPREFIX)/include/poppler/glib/poppler-media.h
 file path=$(ECPREFIX)/include/poppler/glib/poppler-movie.h
 file path=$(ECPREFIX)/include/poppler/glib/poppler-page.h
+file path=$(ECPREFIX)/include/poppler/glib/poppler-structure-element.h
 file path=$(ECPREFIX)/include/poppler/glib/poppler.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libpoppler-cpp.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libpoppler-cpp.la
@@ -90,7 +91,7 @@ file path=$(ECPREFIX)/lib/$(MACH64)/libpoppler-glib.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libpoppler-glib.so.8.6.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libpoppler.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libpoppler.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libpoppler.so.44.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libpoppler.so.46.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/poppler-cairo.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/poppler-cpp.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/poppler-glib.pc
@@ -104,7 +105,7 @@ file path=$(ECPREFIX)/lib/libpoppler-glib.la
 file path=$(ECPREFIX)/lib/libpoppler-glib.so.8.6.0
 file path=$(ECPREFIX)/lib/libpoppler.a
 file path=$(ECPREFIX)/lib/libpoppler.la
-file path=$(ECPREFIX)/lib/libpoppler.so.44.0.0
+file path=$(ECPREFIX)/lib/libpoppler.so.46.0.0
 file path=$(ECPREFIX)/lib/pkgconfig/poppler-cairo.pc
 file path=$(ECPREFIX)/lib/pkgconfig/poppler-cpp.pc
 file path=$(ECPREFIX)/lib/pkgconfig/poppler-glib.pc
@@ -129,12 +130,12 @@ link path=$(ECPREFIX)/lib/$(MACH64)/libpoppler-glib.so \
     target=libpoppler-glib.so.8.6.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libpoppler-glib.so.8 \
     target=libpoppler-glib.so.8.6.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libpoppler.so target=libpoppler.so.44.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libpoppler.so.44 \
-    target=libpoppler.so.44.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libpoppler.so target=libpoppler.so.46.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libpoppler.so.46 \
+    target=libpoppler.so.46.0.0
 link path=$(ECPREFIX)/lib/libpoppler-cpp.so target=libpoppler-cpp.so.0.2.0
 link path=$(ECPREFIX)/lib/libpoppler-cpp.so.0 target=libpoppler-cpp.so.0.2.0
 link path=$(ECPREFIX)/lib/libpoppler-glib.so target=libpoppler-glib.so.8.6.0
 link path=$(ECPREFIX)/lib/libpoppler-glib.so.8 target=libpoppler-glib.so.8.6.0
-link path=$(ECPREFIX)/lib/libpoppler.so target=libpoppler.so.44.0.0
-link path=$(ECPREFIX)/lib/libpoppler.so.44 target=libpoppler.so.44.0.0
+link path=$(ECPREFIX)/lib/libpoppler.so target=libpoppler.so.46.0.0
+link path=$(ECPREFIX)/lib/libpoppler.so.46 target=libpoppler.so.46.0.0

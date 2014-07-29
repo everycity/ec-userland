@@ -47,6 +47,7 @@ dir path=$(ECPREFIX)/lib/node_modules/npm/html/doc/files
 dir path=$(ECPREFIX)/lib/node_modules/npm/html/doc/misc
 dir path=$(ECPREFIX)/lib/node_modules/npm/html/static
 dir path=$(ECPREFIX)/lib/node_modules/npm/lib
+dir path=$(ECPREFIX)/lib/node_modules/npm/lib/cache
 dir path=$(ECPREFIX)/lib/node_modules/npm/lib/utils
 dir path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/completion
 dir path=$(ECPREFIX)/lib/node_modules/npm/man
@@ -56,7 +57,6 @@ dir path=$(ECPREFIX)/lib/node_modules/npm/man/man5
 dir path=$(ECPREFIX)/lib/node_modules/npm/man/man7
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/abbrev
-dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/abbrev/lib
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/examples
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/examples/beep
@@ -68,6 +68,7 @@ dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansistyles
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/archy
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/block-stream
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/block-stream/bench
+dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/char-spinner
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/child-process-close
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/chmodr
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/chownr
@@ -92,6 +93,7 @@ dir \
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/glob
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/glob/examples
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/graceful-fs
+dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inflight
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inherits
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ini
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/init-package-json
@@ -141,11 +143,13 @@ dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt/bin
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt/examples
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt/lib
+dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-cache-filename
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-install-checks
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-registry-client/lib
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-user-validate
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npmconf
+dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npmconf/lib
 dir path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npmconf/node_modules
 dir \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npmconf/node_modules/config-chain
@@ -369,6 +373,7 @@ file path=$(ECPREFIX)/include/node/zconf.h
 file path=$(ECPREFIX)/include/node/zlib.h
 file path=$(ECPREFIX)/lib/dtrace/node.d
 file path=$(ECPREFIX)/lib/node_modules/npm/.npmignore
+file path=$(ECPREFIX)/lib/node_modules/npm/.npmrc
 file path=$(ECPREFIX)/lib/node_modules/npm/.tern-project
 file path=$(ECPREFIX)/lib/node_modules/npm/.travis.yml
 file path=$(ECPREFIX)/lib/node_modules/npm/AUTHORS
@@ -386,6 +391,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/cli.js
 file path=$(ECPREFIX)/lib/node_modules/npm/configure
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm-bin.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm-bugs.md
+file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm-cache.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm-commands.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm-config.md
 file path=$(ECPREFIX)/lib/node_modules/npm/doc/api/npm-deprecate.md
@@ -486,6 +492,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/doc/misc/semver.md
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/README.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm-bin.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm-bugs.html
+file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm-cache.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm-commands.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm-config.html
 file path=$(ECPREFIX)/lib/node_modules/npm/html/doc/api/npm-deprecate.html
@@ -597,6 +604,13 @@ file path=$(ECPREFIX)/lib/node_modules/npm/lib/bin.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/bugs.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/build.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/cache.js
+file path=$(ECPREFIX)/lib/node_modules/npm/lib/cache/add-local-tarball.js
+file path=$(ECPREFIX)/lib/node_modules/npm/lib/cache/add-local.js
+file path=$(ECPREFIX)/lib/node_modules/npm/lib/cache/add-named.js
+file path=$(ECPREFIX)/lib/node_modules/npm/lib/cache/add-remote-git.js
+file path=$(ECPREFIX)/lib/node_modules/npm/lib/cache/add-remote-tarball.js
+file path=$(ECPREFIX)/lib/node_modules/npm/lib/cache/get-stat.js
+file path=$(ECPREFIX)/lib/node_modules/npm/lib/cache/maybe-github.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/completion.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/config.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/dedupe.js
@@ -646,13 +660,14 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/completion/installed-deep.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/completion/installed-shallow.js
+file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/depr-check.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/error-handler.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/fetch.js
-file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/find-prefix.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/gently-rm.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/is-git-url.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/lifecycle.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/link.js
+file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/locker.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/utils/tar.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/version.js
 file path=$(ECPREFIX)/lib/node_modules/npm/lib/view.js
@@ -710,6 +725,7 @@ file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/npm-whoami.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man1/npm.1
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-bin.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-bugs.3
+file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-cache.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-commands.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-config.3
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man3/npm-deprecate.3
@@ -762,10 +778,12 @@ file path=$(ECPREFIX)/lib/node_modules/npm/man/man7/npm-registry.7
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man7/npm-scripts.7
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man7/removing-npm.7
 file path=$(ECPREFIX)/lib/node_modules/npm/man/man7/semver.7
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/abbrev/CONTRIBUTING.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/abbrev/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/abbrev/README.md
-file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/abbrev/lib/abbrev.js
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/abbrev/abbrev.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/abbrev/package.json
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/abbrev/test.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/.npmignore
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ansi/color-spaces.pl
@@ -811,6 +829,11 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/block-stream/block-stream.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/block-stream/package.json
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/char-spinner/LICENSE
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/char-spinner/README.md
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/char-spinner/package.json
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/char-spinner/spin.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/child-process-close/README.md
 file \
@@ -956,6 +979,11 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/graceful-fs/package.json
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inflight/LICENSE
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inflight/README.md
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inflight/inflight.js
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inflight/package.json
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inflight/test.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inherits/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inherits/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inherits/inherits.js
@@ -963,6 +991,7 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inherits/inherits_browser.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inherits/package.json
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/inherits/test.js
+file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ini/.npmignore
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ini/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ini/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/ini/ini.js
@@ -1201,6 +1230,16 @@ file \
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt/lib/nopt.js
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/nopt/package.json
 file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-cache-filename/LICENSE
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-cache-filename/README.md
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-cache-filename/index.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-cache-filename/package.json
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-cache-filename/test.js
+file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-install-checks/LICENSE
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npm-install-checks/README.md
@@ -1256,6 +1295,14 @@ file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npmconf/.npmignore
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npmconf/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npmconf/README.md
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npmconf/config-defs.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npmconf/lib/find-prefix.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npmconf/lib/load-prefix.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npmconf/lib/load-uid.js
+file \
+    path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npmconf/lib/set-user.js
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/npmconf/node_modules/config-chain/.npmignore
 file \
@@ -1930,7 +1977,6 @@ file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/text-table/package.json
 file \
     path=$(ECPREFIX)/lib/node_modules/npm/node_modules/text-table/readme.markdown
-file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/uid-number/LICENCE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/uid-number/LICENSE
 file path=$(ECPREFIX)/lib/node_modules/npm/node_modules/uid-number/README.md
 file \

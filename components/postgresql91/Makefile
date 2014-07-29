@@ -16,11 +16,11 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		postgresql
 COMPONENT_MJR_VERSION=	9.1
-COMPONENT_MNR_VERSION=	13
+COMPONENT_MNR_VERSION=	14
 COMPONENT_VERSION=	$(COMPONENT_MJR_VERSION).$(COMPONENT_MNR_VERSION)
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:20f8aa5dfcb47688ca6b6c41340cac61712d9cf87c34d58b0a75bb2f85d89b7f
+COMPONENT_ARCHIVE_HASH=	sha256:d0647ce563d18ae02bf68c5dd646a4c75e8b45b3a4fada64d481371fdc16f522
 COMPONENT_ARCHIVE_URL=	http://ftp.postgresql.org/pub/source/v$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -61,9 +61,20 @@ COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; autoreconf )
 
 build:		$(BUILD_32_and_64)
 
-install:	$(INSTALL_32_and_64)
+$(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
 	( cd $(BUILD_DIR_32)/contrib/pgbench && make && \
 		cp pgbench $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/bin/ )
 	( cd $(BUILD_DIR_64)/contrib/pgbench && make && \
 		cp pgbench $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/bin/$(MACH64) )
+	( cd $(BUILD_DIR_32)/contrib/tablefunc && make && \
+		cp tablefunc.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/ )
+	( cd $(BUILD_DIR_64)/contrib/tablefunc && make && \
+		cp tablefunc.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/$(MACH64) )
+	$(MKDIR) $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/extension
+	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/extension
+	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc--unpackaged--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/extension
+	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc.control $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/extension
+	$(TOUCH) $@
+
+install:	$(BUILD_DIR)/.installed
 

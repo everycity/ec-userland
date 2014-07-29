@@ -17,18 +17,22 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ffmpeg
 COMPONENT_FMRI=		multimedia/ffmpeg
-COMPONENT_VERSION=	2.2.1
+COMPONENT_VERSION=	2.2.5
 COMPONENT_LICENSE=	FFmpeg
 COMPONENT_PROJECT_URL=	http://www.ffmpeg.org/
 COMPONENT_SUMMARY=	Cross-platform audio recorder, converter, and streamer
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:e17f99fa7b319166476490ec43fc6e25992ad60964e60c46eadde59fd1747394
+COMPONENT_ARCHIVE_HASH=	sha256:c8587a1ac91599dd87fcfb53de6e32b9ab81449e7f22ff55044faf7815a68633
 COMPONENT_ARCHIVE_URL=	http://www.ffmpeg.org/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+ifeq ($(SOLARIS_VERSION),2.10)
+CFLAGS+= -D__EXTENSIONS__
+endif
 
 CONFIGURE_OPTIONS=	--prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--mandir=$(ECPREFIX)/share/man

@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -32,12 +32,9 @@ file files/mariadb55-manifest.xml path=var/svc/manifest/site/mariadb55.xml \
     restart_fmri=svc:/system/manifest-import:default
 file files/mariadb55-startup.sh  path=$(ECPREFIX)/var/svc/method/mariadb55 mode=0555
 
-# User/Group Accounts
-group gid=487 groupname=mariadb
-user gcos-field="MariaDB Account" group=mariadb uid=487 username=mariadb login-shell=/bin/false home-dir=/ec/var/mariadb
-
 # External Dependencies
 depend fmri=pkg:/database/mariadb-55/library type=require
+depend fmri=pkg:/database/mariadb-common type=require
 
 # var directory
 dir path=$(ECPREFIX)/var
@@ -166,7 +163,6 @@ file path=$(ECPREFIX)/lib/mariadb/5.5/man/man1/myisamlog.1
 file path=$(ECPREFIX)/lib/mariadb/5.5/man/man1/myisampack.1
 file path=$(ECPREFIX)/lib/mariadb/5.5/man/man1/mysql.server.1
 file path=$(ECPREFIX)/lib/mariadb/5.5/man/man1/mysql_convert_table_format.1
-file path=$(ECPREFIX)/lib/mariadb/5.5/man/man1/mysql_fix_privilege_tables.1
 file path=$(ECPREFIX)/lib/mariadb/5.5/man/man1/mysql_install_db.1
 file path=$(ECPREFIX)/lib/mariadb/5.5/man/man1/mysql_secure_installation.1
 file path=$(ECPREFIX)/lib/mariadb/5.5/man/man1/mysql_setpermission.1
@@ -284,9 +280,6 @@ file path=$(ECPREFIX)/lib/mariadb/5.5/share/ukrainian/errmsg.sys
 file $(ECPREFIX)/support-files/SELinux/RHEL4/mysql.fc path=$(ECPREFIX)/lib/mariadb/5.5/support-files/SELinux/RHEL4/mysql.fc
 file $(ECPREFIX)/support-files/SELinux/RHEL4/mysql.te path=$(ECPREFIX)/lib/mariadb/5.5/support-files/SELinux/RHEL4/mysql.te
 file $(ECPREFIX)/support-files/binary-configure path=$(ECPREFIX)/lib/mariadb/5.5/support-files/binary-configure
-file $(ECPREFIX)/support-files/config.huge.ini path=$(ECPREFIX)/lib/mariadb/5.5/support-files/config.huge.ini
-file $(ECPREFIX)/support-files/config.medium.ini path=$(ECPREFIX)/lib/mariadb/5.5/support-files/config.medium.ini
-file $(ECPREFIX)/support-files/config.small.ini path=$(ECPREFIX)/lib/mariadb/5.5/support-files/config.small.ini
 file $(ECPREFIX)/support-files/magic path=$(ECPREFIX)/lib/mariadb/5.5/support-files/magic
 file $(ECPREFIX)/support-files/my-huge.cnf path=$(ECPREFIX)/lib/mariadb/5.5/support-files/my-huge.cnf
 file $(ECPREFIX)/support-files/my-innodb-heavy-4G.cnf path=$(ECPREFIX)/lib/mariadb/5.5/support-files/my-innodb-heavy-4G.cnf
@@ -296,7 +289,6 @@ file $(ECPREFIX)/support-files/my-small.cnf path=$(ECPREFIX)/lib/mariadb/5.5/sup
 file $(ECPREFIX)/support-files/mysql-log-rotate path=$(ECPREFIX)/lib/mariadb/5.5/support-files/mysql-log-rotate
 file $(ECPREFIX)/support-files/mysql.server path=$(ECPREFIX)/lib/mariadb/5.5/support-files/mysql.server
 file $(ECPREFIX)/support-files/mysqld_multi.server path=$(ECPREFIX)/lib/mariadb/5.5/support-files/mysqld_multi.server
-file $(ECPREFIX)/support-files/ndb-config-2-node.ini path=$(ECPREFIX)/lib/mariadb/5.5/support-files/ndb-config-2-node.ini
 file $(ECPREFIX)/support-files/solaris/postinstall-solaris path=$(ECPREFIX)/lib/mariadb/5.5/support-files/solaris/postinstall-solaris
 link path=$(ECPREFIX)/lib/mariadb/5.5/lib/$(MACH64)/libmysqlclient.so target=libmysqlclient.so.18
 link path=$(ECPREFIX)/lib/mariadb/5.5/lib/$(MACH64)/libmysqlclient.so.18 target=libmysqlclient.so.18.0.0

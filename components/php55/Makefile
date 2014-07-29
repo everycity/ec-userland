@@ -14,10 +14,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	5.5.12
+COMPONENT_VERSION=	5.5.15
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:a10c6e6ce1145762d6c15ca7ce1aeaab69662c197d24e1294c2519aa85c97bd6
+COMPONENT_ARCHIVE_HASH=	sha256:578febd686018401c4857699b29502b1aecaf82bf43525d810867f583961ac6e
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_UK)
 
 include ../../make-rules/prep.mk
@@ -125,10 +125,13 @@ CONFIGURE_OPTIONS     +=	--without-t1lib
 # Enabled extensions
 CONFIGURE_OPTIONS     +=	--enable-cli
 CONFIGURE_OPTIONS     +=	--enable-cgi
+ifeq ($(SOLARIS_VERSION),2.11)
 CONFIGURE_OPTIONS     +=	--enable-dtrace
+endif
 CONFIGURE_OPTIONS     +=	--enable-shared
 CONFIGURE_OPTIONS     +=	--enable-filter
 CONFIGURE_OPTIONS     +=	--enable-gd-jis-conv
+CONFIGURE_OPTIONS     +=	--enable-gd-native-ttf
 CONFIGURE_OPTIONS     +=	--enable-short-tags
 CONFIGURE_OPTIONS     +=	--enable-pcntl
 CONFIGURE_OPTIONS     +=	--enable-shmop

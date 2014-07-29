@@ -29,12 +29,15 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-#CONFIGURE_OPTIONS+=	
 COMPONENT_PREP_ACTION+=	( cd $(SOURCE_DIR)/unix && autoconf )
 CONFIGURE_SCRIPT=	$(SOURCE_DIR)/unix/configure
 CONFIGURE_OPTIONS.64+=	--enable-64bit
 
+ifeq ($(SOLARIS_VERSION), 2.10)
+build:		$(BUILD_32)
+install:	$(INSTALL_32)
+endif
+ifeq ($(SOLARIS_VERSION),2.11)
 build:		$(BUILD_32_and_64)
-
 install:	$(INSTALL_32_and_64)
-
+endif

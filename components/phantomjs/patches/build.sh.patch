@@ -1,0 +1,11 @@
+--- phantomjs-1.9.7/build.sh.orig	2014-06-27 10:09:04.225257574 +0100
++++ phantomjs-1.9.7/build.sh	2014-06-27 10:11:34.904317252 +0100
+@@ -21,6 +21,8 @@
+    COMPILE_JOBS=4
+ elif [[ $OSTYPE == freebsd* ]]; then
+    COMPILE_JOBS=`sysctl -n hw.ncpu`
++elif [[ $OSTYPE == solaris* ]]; then
++   COMPILE_JOBS=`/usr/sbin/psrinfo | grep "on-line" | wc -l`
+ else
+    CPU_CORES=`grep -c ^processor /proc/cpuinfo`
+    if [[ "$CPU_CORES" -gt 1 ]]; then

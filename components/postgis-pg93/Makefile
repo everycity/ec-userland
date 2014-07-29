@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		postgis
 COMPONENT_FMRI=		database/postgresql-93/postgis
-COMPONENT_VERSION=	2.1.2
+COMPONENT_VERSION=	2.1.3
 COMPONENT_LICENSE=	GPLv2
 COMPONENT_PROJECT_URL=	"http://www.postgis.org/"
 COMPONENT_SUMMARY=	PostGIS adds support for geographic objects to the PostgreSQL object-relational database.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:0bf842824815d9155129dcdda0a940ae3b7698c114e6e4a1cc2497527d0704d1
+COMPONENT_ARCHIVE_HASH=	sha256:c17812aa4bb86ed561dfc65cb42ab45176b94e0620de183a4bbd773d6d876ec1
 COMPONENT_ARCHIVE_URL=	http://download.osgeo.org/postgis/source/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

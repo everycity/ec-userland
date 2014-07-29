@@ -3500,7 +3500,7 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.1.0/specifications/default/minitest-4.7.5.gemspec
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.1.0/specifications/default/psych-2.0.3.gemspec
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.1.0/specifications/default/psych-2.0.5.gemspec
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.1.0/specifications/default/rake-10.1.0.gemspec
 file \
@@ -4561,18 +4561,18 @@ file \
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.1.0/specifications/default/minitest-4.7.5.gemspec
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.1.0/specifications/default/psych-2.0.3.gemspec
+    path=$(ECPREFIX)/lib/ruby/gems/2.1.0/specifications/default/psych-2.0.5.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.1.0/specifications/default/rake-10.1.0.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.1.0/specifications/default/rdoc-4.1.0.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.1.0/specifications/default/test-unit-$(COMPONENT_VERSION).0.gemspec
-file path=$(ECPREFIX)/share/man/man1/erb$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/share/man/man1/irb$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/share/man/man1/rake$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/share/man/man1/ri$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/share/man/man1/ruby$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/share/man/man1/erb2.1.1
+file path=$(ECPREFIX)/share/man/man1/irb2.1.1
+file path=$(ECPREFIX)/share/man/man1/rake2.1.1
+file path=$(ECPREFIX)/share/man/man1/ri2.1.1
+file path=$(ECPREFIX)/share/man/man1/ruby2.1.1
 file path=$(ECPREFIX)/share/ri/2.1.0/system/ACL/ACLEntry/cdesc-ACLEntry.ri
 file path=$(ECPREFIX)/share/ri/2.1.0/system/ACL/ACLEntry/dot_pat-i.ri
 file path=$(ECPREFIX)/share/ri/2.1.0/system/ACL/ACLEntry/dot_pat_str-i.ri
@@ -13597,6 +13597,8 @@ file \
     path=$(ECPREFIX)/share/ri/2.1.0/system/Psych/Visitors/YAMLTree/visit_Date-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.1.0/system/Psych/Visitors/YAMLTree/visit_DateTime-i.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.1.0/system/Psych/Visitors/YAMLTree/visit_Encoding-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.1.0/system/Psych/Visitors/YAMLTree/visit_Exception-i.ri
 file \

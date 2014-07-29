@@ -1,0 +1,23 @@
+#!/bin/sh
+
+CFGFILE="/ec/etc/haproxy/haproxy.cfg"
+PIDFILE="/ec/var/run/haproxy.pid"
+CMD="/ec/bin/amd64/haproxy -f $CFGFILE"
+
+restart() {
+    OLDPID=$(<$PIDFILE)
+    $CMD -$1 $OLDPID &
+    echo $! >$PIDFILE
+    wait $!
+}
+
+# graceful restart
+trap "restart sf" SIGUSR1
+# forceful restart
+trap "restart st" SIGHUP
+
+set -x
+
+$CMD &
+echo $! >$PIDFILE
+wait $!
