@@ -386,3 +386,14 @@
 /^zetaback$/d
 /^zfs-auto-snapshot$/d
 /^zork-trilogy$/d
+/^perl_modules/exiftool$/d
+/^phantomjs$/d
+/^php54-ext-suhosin$/d
+/^php55-ext-xcache$/d
+/^php55-ext-xdebug$/d
+/^php55-ext-suhosin$/d
+/^python/pymongo$/d
+/^zsh$/d
+/^opencv$/d
+/^re-alpine$/d
+/^meta-packages/nagios$/d
