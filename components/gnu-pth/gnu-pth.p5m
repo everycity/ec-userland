@@ -32,26 +32,15 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license gnu-pth.license license="GLPL"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/aclocal
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-dir path=$(ECPREFIX)/share/man/man3
-file path=$(ECPREFIX)/bin/$(MACH64)/pth-config
-file path=$(ECPREFIX)/bin/pth-config
-file path=$(ECPREFIX)/include/pth.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libpth.so.20.0.27
-file path=$(ECPREFIX)/lib/libpth.so.20.0.27
-file path=$(ECPREFIX)/share/aclocal/pth.m4
-file path=$(ECPREFIX)/share/man/man1/pth-config.1
-file path=$(ECPREFIX)/share/man/man3/pth.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libpth.so target=libpth.so.20.0.27
-link path=$(ECPREFIX)/lib/$(MACH64)/libpth.so.20 target=libpth.so.20.0.27
-link path=$(ECPREFIX)/lib/libpth.so target=libpth.so.20.0.27
-link path=$(ECPREFIX)/lib/libpth.so.20 target=libpth.so.20.0.27
+file path=$(USRDIR)/bin/$(MACH64)/pth-config
+file path=$(USRDIR)/bin/pth-config
+file path=$(USRDIR)/include/pth.h
+file path=$(USRDIR)/lib/$(MACH64)/libpth.so.20.0.27
+file path=$(USRDIR)/lib/libpth.so.20.0.27
+file path=$(USRDIR)/share/aclocal/pth.m4
+file path=$(USRDIR)/share/man/man1/pth-config.1
+file path=$(USRDIR)/share/man/man3/pth.3
+link path=$(USRDIR)/lib/$(MACH64)/libpth.so target=libpth.so.20.0.27
+link path=$(USRDIR)/lib/$(MACH64)/libpth.so.20 target=libpth.so.20.0.27
+link path=$(USRDIR)/lib/libpth.so target=libpth.so.20.0.27
+link path=$(USRDIR)/lib/libpth.so.20 target=libpth.so.20.0.27

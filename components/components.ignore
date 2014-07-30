@@ -68,8 +68,6 @@
 /^gnome-vfs$/d
 /^gnu-bc$/d
 /^gnu-inetutils$/d
-/^gnu-pth$/d
-#/^gnu-tar$/d
 /^gnupg$/d
 /^gnupg2$/d
 /^gnuplot$/d

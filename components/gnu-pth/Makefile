@@ -18,25 +18,42 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright (c) 2012, Igor Kozhukhov <ikozhukhov@gmail.com>.  All rights reserved.
+# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
 #
+DEF_JOBS = no
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		pth
 COMPONENT_VERSION=	2.0.7
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
+COMPONENT_PROJECT_URL=	http://www.gnu.org/software/pth/
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:9a71915c89ff2414de69fe104ae1016d513afeee
-COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:72353660c5a2caafd601b20e12e75d865fd88f6cf1a088b306a3963f0bc77232
+COMPONENT_ARCHIVE_URL=	http://ftp.gnu.org/gnu/pth/$(COMPONENT_ARCHIVE)
+COMPONENT_BUGDB=	library/pth
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-# make build isn't thread safe.
-override COMPONENT_BUILD_GMAKE_ARGS='-j1'
+CC += $(CC_BITS)
+CXX += $(CC_BITS)
 
-build:		$(BUILD_32_and_64)
+CFLAGS += $(CPP_LARGEFILES)
+CPPFLAGS += $(CPP_LARGEFILES)
 
-install:	$(INSTALL_32_and_64)
+CONFIGURE_OPTIONS  +=	--localstatedir=/var
+CONFIGURE_OPTIONS  +=	--with-pic
+
+build: $(BUILD_32_and_64)
+
+install: $(INSTALL_32_and_64)
+
+test: $(TEST_32_and_64)
+
+BUILD_PKG_DEPENDENCIES = $(BUILD_TOOLS)
+
+include ../../make-rules/depend.mk
 
