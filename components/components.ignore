@@ -62,7 +62,6 @@
 /^gdb$/d
 /^gdk-pixbuf$/d
 /^geoip$/d
-/^geoip-db-country$/d
 /^geos$/d
 /^giflib$/d
 /^gifsicle$/d
