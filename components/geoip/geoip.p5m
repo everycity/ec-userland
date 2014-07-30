@@ -29,49 +29,39 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license geoip.license license="GPL LGPLv2.1"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/GeoIP
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/geoiplookup
-file path=$(ECPREFIX)/bin/$(MACH64)/geoiplookup6
-file path=$(ECPREFIX)/bin/$(MACH64)/geoipupdate
-file path=$(ECPREFIX)/bin/geoiplookup
-file path=$(ECPREFIX)/bin/geoiplookup6
-file path=$(ECPREFIX)/bin/geoipupdate
-file path=$(ECPREFIX)/etc/GeoIP.conf
-file path=$(ECPREFIX)/etc/GeoIP.conf.default
-file path=$(ECPREFIX)/include/GeoIP.h
-file path=$(ECPREFIX)/include/GeoIPCity.h
-file path=$(ECPREFIX)/include/GeoIPUpdate.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libGeoIP.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/libGeoIPUpdate.so.0.0.0
-file path=$(ECPREFIX)/lib/libGeoIP.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/libGeoIPUpdate.so.0.0.0
-file path=$(ECPREFIX)/share/GeoIP/GeoIP.dat
-file path=$(ECPREFIX)/share/man/man1/geoiplookup.1
-file path=$(ECPREFIX)/share/man/man1/geoiplookup6.1
-file path=$(ECPREFIX)/share/man/man1/geoipupdate.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libGeoIP.so \
+file path=etc/GeoIP.conf
+file path=etc/GeoIP.conf.default
+
+file path=$(USRDIR)/bin/$(MACH64)/geoiplookup
+file path=$(USRDIR)/bin/$(MACH64)/geoiplookup6
+file path=$(USRDIR)/bin/$(MACH64)/geoipupdate
+file path=$(USRDIR)/bin/geoiplookup
+file path=$(USRDIR)/bin/geoiplookup6
+file path=$(USRDIR)/bin/geoipupdate
+file path=$(USRDIR)/include/GeoIP.h
+file path=$(USRDIR)/include/GeoIPCity.h
+file path=$(USRDIR)/include/GeoIPUpdate.h
+file path=$(USRDIR)/lib/$(MACH64)/libGeoIP.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/$(MACH64)/libGeoIPUpdate.so.0.0.0
+file path=$(USRDIR)/lib/libGeoIP.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/libGeoIPUpdate.so.0.0.0
+file path=$(USRDIR)/share/GeoIP/GeoIP.dat
+file path=$(USRDIR)/share/man/man1/geoiplookup.1
+file path=$(USRDIR)/share/man/man1/geoiplookup6.1
+file path=$(USRDIR)/share/man/man1/geoipupdate.1
+link path=$(USRDIR)/lib/$(MACH64)/libGeoIP.so \
     target=libGeoIP.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libGeoIP.so.1 \
+link path=$(USRDIR)/lib/$(MACH64)/libGeoIP.so.1 \
     target=libGeoIP.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libGeoIPUpdate.so \
+link path=$(USRDIR)/lib/$(MACH64)/libGeoIPUpdate.so \
     target=libGeoIPUpdate.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libGeoIPUpdate.so.0 \
+link path=$(USRDIR)/lib/$(MACH64)/libGeoIPUpdate.so.0 \
     target=libGeoIPUpdate.so.0.0.0
-link path=$(ECPREFIX)/lib/libGeoIP.so target=libGeoIP.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libGeoIP.so.1 \
+link path=$(USRDIR)/lib/libGeoIP.so target=libGeoIP.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libGeoIP.so.1 \
     target=libGeoIP.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libGeoIPUpdate.so target=libGeoIPUpdate.so.0.0.0
-link path=$(ECPREFIX)/lib/libGeoIPUpdate.so.0 target=libGeoIPUpdate.so.0.0.0
+link path=$(USRDIR)/lib/libGeoIPUpdate.so target=libGeoIPUpdate.so.0.0.0
+link path=$(USRDIR)/lib/libGeoIPUpdate.so.0 target=libGeoIPUpdate.so.0.0.0
 
 # Additional Dependencies
 depend fmri=pkg:/database/geoip-geolite/country-database type=require

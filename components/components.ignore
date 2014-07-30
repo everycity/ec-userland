@@ -61,7 +61,6 @@
 /^gdal$/d
 /^gdb$/d
 /^gdk-pixbuf$/d
-/^geoip$/d
 /^geos$/d
 /^giflib$/d
 /^gifsicle$/d
