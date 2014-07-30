@@ -165,7 +165,6 @@
 /^nasm$/d
 /^ncdu$/d
 /^nddtune$/d
-/^neon$/d
 /^net-snmp$/d
 /^netcat$/d
 /^nettle$/d
