@@ -312,7 +312,6 @@
 /^ruby\/ruby21$/d
 /^ruby\/stomp$/d
 /^schroedinger$/d
-/^scons$/d
 /^screen$/d
 /^serf$/d
 /^shellsettings$/d
