@@ -33,31 +33,21 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license libnet.license license='BSD'
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/libnet
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man3
-file path=$(ECPREFIX)/bin/$(MACH64)/libnet-config
-file path=$(ECPREFIX)/bin/libnet-config
-file path=$(ECPREFIX)/include/libnet.h
-file path=$(ECPREFIX)/include/libnet/libnet-asn1.h
-file path=$(ECPREFIX)/include/libnet/libnet-functions.h
-file path=$(ECPREFIX)/include/libnet/libnet-headers.h
-file path=$(ECPREFIX)/include/libnet/libnet-macros.h
-file path=$(ECPREFIX)/include/libnet/libnet-structures.h
-file path=$(ECPREFIX)/include/libnet/libnet-types.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libnet.so.1.7.0
-file path=$(ECPREFIX)/lib/libnet.so.1.7.0
-file path=$(ECPREFIX)/share/man/man3/libnet-functions.h.3
-file path=$(ECPREFIX)/share/man/man3/libnet-macros.h.3
-file path=$(ECPREFIX)/share/man/man3/libnet.h.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libnet.so target=libnet.so.1.7.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libnet.so.1 target=libnet.so.1.7.0
-link path=$(ECPREFIX)/lib/libnet.so target=libnet.so.1.7.0
-link path=$(ECPREFIX)/lib/libnet.so.1 target=libnet.so.1.7.0
+file path=$(USRDIR)/bin/$(MACH64)/libnet-config
+file path=$(USRDIR)/bin/libnet-config
+file path=$(USRDIR)/include/libnet.h
+file path=$(USRDIR)/include/libnet/libnet-asn1.h
+file path=$(USRDIR)/include/libnet/libnet-functions.h
+file path=$(USRDIR)/include/libnet/libnet-headers.h
+file path=$(USRDIR)/include/libnet/libnet-macros.h
+file path=$(USRDIR)/include/libnet/libnet-structures.h
+file path=$(USRDIR)/include/libnet/libnet-types.h
+file path=$(USRDIR)/lib/$(MACH64)/libnet.so.1.7.0
+file path=$(USRDIR)/lib/libnet.so.1.7.0
+file path=$(USRDIR)/share/man/man3/libnet-functions.h.3
+file path=$(USRDIR)/share/man/man3/libnet-macros.h.3
+file path=$(USRDIR)/share/man/man3/libnet.h.3
+link path=$(USRDIR)/lib/$(MACH64)/libnet.so target=libnet.so.1.7.0
+link path=$(USRDIR)/lib/$(MACH64)/libnet.so.1 target=libnet.so.1.7.0
+link path=$(USRDIR)/lib/libnet.so target=libnet.so.1.7.0
+link path=$(USRDIR)/lib/libnet.so.1 target=libnet.so.1.7.0
