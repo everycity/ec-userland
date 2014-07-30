@@ -34,24 +34,34 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS+=		-lintl -liconv
+#LDFLAGS+=		-liconv
+
+CONFIGURE_ENV += PYTHON="$(PYTHON)"
+CONFIGURE_ENV += PYMODS="$(PYMODS)"
+CONFIGURE_ENV += PYTHONPATH="$(PYTHON_VENDOR_PACKAGES)"
 
 CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic
 CONFIGURE_OPTIONS+=	--disable-mod-activation
-CONFIGURE_OPTIONS.32+=	--with-apr=$(ECPREFIX)/bin/apr-1-config
-CONFIGURE_OPTIONS.64+=	--with-apr=$(ECPREFIX)/bin/$(MACH64)/apr-1-config
-CONFIGURE_OPTIONS.32+=	--with-apr-util=$(ECPREFIX)/bin/apu-1-config
-CONFIGURE_OPTIONS.64+=	--with-apr-util=$(ECPREFIX)/bin/$(MACH64)/apu-1-config
-CONFIGURE_OPTIONS.32+=	--with-swig=$(ECPREFIX)/bin/swig
-CONFIGURE_OPTIONS.64+=	--with-swig=$(ECPREFIX)/bin/$(MACH64)/swig
-CONFIGURE_OPTIONS.32+=	--with-apxs=$(ECPREFIX)/bin/apxs
-CONFIGURE_OPTIONS.64+=	--with-apxs=$(ECPREFIX)/bin/$(MACH64)/apxs
-CONFIGURE_OPTIONS.32+=	--with-apache-libexecdir=$(ECPREFIX)/lib/apache/2.2/modules
-CONFIGURE_OPTIONS.64+=	--with-apache-libexecdir=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
+CONFIGURE_OPTIONS.32+=	--with-apr=$(USRDIR)/bin/apr-1-config
+CONFIGURE_OPTIONS.64+=	--with-apr=$(USRDIR)/bin/$(MACH64)/apr-1-config
+CONFIGURE_OPTIONS.32+=	--with-apr-util=$(USRDIR)/bin/apu-1-config
+CONFIGURE_OPTIONS.64+=	--with-apr-util=$(USRDIR)/bin/$(MACH64)/apu-1-config
+CONFIGURE_OPTIONS.32+=	--with-swig=$(USRDIR)/bin/swig
+CONFIGURE_OPTIONS.64+=	--with-swig=$(USRDIR)/bin/$(MACH64)/swig
+CONFIGURE_OPTIONS.32+=	--with-apxs=$(USRDIR)/bin/apxs
+CONFIGURE_OPTIONS.64+=	--with-apxs=$(USRDIR)/bin/$(MACH64)/apxs
+CONFIGURE_OPTIONS.32+=	--with-apache-libexecdir=$(USRDIR)/lib/apache/2.2/modules
+CONFIGURE_OPTIONS.64+=	--with-apache-libexecdir=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)
 CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))
-CONFIGURE_OPTIONS+=	JAVA_HOME="$(ECPREFIX)/java"
+CONFIGURE_OPTIONS+=	JAVA_HOME="$(USRDIR)/java"
 
 COMPONENT_BUILD_ENV+= EXTRA_CPPFLAGS=-D__EXTENSIONS__
+
+COMPONENT_BUILD_ARGS += \
+	swig_pydir="$(PYTHON_VENDOR_PACKAGES)" swig_pydir_extra="$(PYTHON_VENDOR_PACKAGES)"
+
+COMPONENT_INSTALL_ARGS += \
+	swig_pydir="$(PYTHON_VENDOR_PACKAGES)" swig_pydir_extra="$(PYTHON_VENDOR_PACKAGES)"
 
 COMPONENT_INSTALL_TARGETS.32+=	install-swig-py install-swig-rb
 COMPONENT_INSTALL_TARGETS.64+=	install-swig-py

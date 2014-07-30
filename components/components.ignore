@@ -321,7 +321,6 @@
 /^ssmtp$/d
 /^stress$/d
 /^stunnel$/d
-/^subversion$/d
 /^subversion-apache24$/d
 /^sysbench$/d
 /^syslog-ng$/d
