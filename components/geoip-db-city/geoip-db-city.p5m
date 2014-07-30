@@ -22,7 +22,4 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license geoip-db-city.license license="Open Data License"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/GeoIP
-file path=$(ECPREFIX)/share/GeoIP/GeoIPCity.dat
+file path=$(USRDIR)/share/GeoIP/GeoIPCity.dat
