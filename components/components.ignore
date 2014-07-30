@@ -283,7 +283,6 @@
 /^ppl$/d
 /^proftpd$/d
 /^proj$/d
-/^protobuf$/d
 /^python\/mysqldb55$/d
 /^python\/psycopg2-pg91$/d
 /^python\/psycopg2-pg93$/d
