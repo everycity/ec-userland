@@ -69,7 +69,7 @@ CONFIGURE_LOCALEDIR =	$(CONFIGURE_PREFIX)/share/locale
 #CONFIGURE_LOCALSTATEDIR =	$(CONFIGURE_PREFIX)/var
 CONFIGURE_INFODIR =	$(CONFIGURE_PREFIX)/share/info
 # all texinfo documentation seems to go to /usr/share/info no matter what
-#CONFIGURE_INFODIR =	/usr/share/info
+CONFIGURE_INFODIR =	/usr/share/info
 CONFIGURE_INCLUDEDIR =	/usr/include
 
 CONFIGURE_ENV	=	CONFIG_SHELL="$(CONFIG_SHELL)"
