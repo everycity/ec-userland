@@ -97,11 +97,13 @@ BUILD_DIR =	$(COMPONENT_DIR)/build
 PROTO_DIR =	$(BUILD_DIR)/prototype/$(MACH)
 
 ifneq (,$(filter $(BRAND),solaris10 smartos))
-  ECPREFIX = 	/ec
-  USRDIR = $(ECPREFIX)
+    ECPREFIX = 	/ec
+    USRDIR = $(ECPREFIX)
+    ZTYPE = ec
 else
-  ECPREFIX=
-  USRDIR = /usr
+    ECPREFIX=
+    USRDIR = /usr
+    ZTYPE = nonec
 endif
 
 SYSCONFDIR = $(ECPREFIX)/etc

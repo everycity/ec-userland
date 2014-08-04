@@ -133,6 +133,7 @@ PKG_MACROS +=		COMPONENT_HG_REV=$(COMPONENT_HG_REV)
 PKG_MACROS +=		USRDIR=$(shell echo $(USRDIR) | sed 's/^\///g')
 PKG_MACROS +=		SVCMETHOD=var/svc/method
 PKG_MACROS +=		SVCMANIFEST=var/svc/manifest
+PKG_MACROS +=		ZTYPE=$(ZTYPE)
 
 ifeq ($(SOLARIS_VERSION), 2.10)
 PKG_MACROS +=		S10=
