@@ -75,7 +75,6 @@
 /^go$/d
 /^google-authenticator$/d
 /^gpac$/d
-/^gperf$/d
 /^haproxy$/d
 /^haproxy-dev$/d
 /^harfbuzz$/d
