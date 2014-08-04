@@ -1,0 +1,24 @@
+Index: nginx-1.6.0/ngx-pagespeed/config
+===================================================================
+--- nginx-1.6.0/ngx-pagespeed/config.orig
++++ nginx-1.6.0/ngx-pagespeed/config
+@@ -62,6 +62,8 @@ if [ $uname_os = 'Linux' ]; then
+   os_name='linux'
+ elif [ $uname_os = 'Darwin' ]; then
+   os_name='mac'
++elif [ $uname_os = 'SunOS' ]; then
++  os_name='solaris'
+ else
+   echo "OS not supported: $uname_os"
+   exit 1
+@@ -72,6 +74,10 @@ if [ $uname_arch = 'x86_64' -o $uname_ar
+ elif [ $uname_arch = 'x86_32' -o $uname_arch = 'i686' \
+                               -o $uname_arch = 'i386' ]; then
+   arch_name='ia32'
++elif [ $os_name = 'solaris' -a ${BITS} = '32' ]; then
++  arch_name='ia32'
++elif [ $os_name = 'solaris' -a ${BITS} = '64' ]; then
++  arch_name='x64'
+ else
+   echo "Architecture not supported: $uname_arch"
+   exit 1

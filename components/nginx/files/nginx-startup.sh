@@ -1,4 +1,4 @@
-#!/usr/xpg4/bin/sh
+#!/usr/bin/sh
 
 #
 # This file and its contents are supplied under the terms of the
@@ -24,8 +24,8 @@ ulimit -n 65535
 # http://developers.sun.com/solaris/articles/stdio_256.html
 export LD_PRELOAD_32=/usr/lib/extendedFILE.so.1
 
-NGINX_USR_ROOT=/ec
-NGINX_ETC_ROOT=/ec/etc/nginx
+NGINX_USR_ROOT=/usr
+NGINX_ETC_ROOT=/etc/nginx
 
 STARTUP_OPTIONS=
 
