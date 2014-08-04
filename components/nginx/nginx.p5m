@@ -25,8 +25,8 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-file files/nginx-startup.sh path=$(SVCMETHOD)/http-nginx mode=555
-file files/nginx-manifest.xml path=$(SVCMANIFEST)/site/http-nginx.xml \
+file files/nginx-startup.sh.$(ZTYPE) path=$(SVCMETHOD)/http-nginx mode=555
+file files/nginx-manifest.xml.$(ZTYPE) path=$(SVCMANIFEST)/site/http-nginx.xml \
     restart_fmri=svc:/system/manifest-import:default
 
 #dir  path=$(LOCALSTATEDIR)/nginx mode=0755 owner=webservd group=webservd
