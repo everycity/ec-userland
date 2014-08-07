@@ -422,7 +422,6 @@ file path=$(ECPREFIX)/lib/asterisk/modules/res_rtp_asterisk.so
 file path=$(ECPREFIX)/lib/asterisk/modules/res_rtp_multicast.so
 file path=$(ECPREFIX)/lib/asterisk/modules/res_security_log.so
 file path=$(ECPREFIX)/lib/asterisk/modules/res_smdi.so
-file path=$(ECPREFIX)/lib/asterisk/modules/res_snmp.so
 file path=$(ECPREFIX)/lib/asterisk/modules/res_speech.so
 file path=$(ECPREFIX)/lib/asterisk/modules/res_stun_monitor.so
 file path=$(ECPREFIX)/lib/asterisk/modules/res_timing_pthread.so

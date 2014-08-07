@@ -29,12 +29,23 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+CONFIGURE_BINDIR.64=   $(CONFIGURE_PREFIX)/bin
+CONFIGURE_LIBDIR.64=   $(CONFIGURE_PREFIX)/lib
+CONFIGURE_SBINDIR.64=  $(CONFIGURE_PREFIX)/bin
+
 CONFIGURE_OPTIONS+=	--without-oss
 CONFIGURE_OPTIONS+=	--without-postgres
+CONFIGURE_OPTIONS+=	--build=x86_64-pc-solaris2.11
 
 COMPONENT_PRE_CONFIGURE_ACTION=	$(CLONEY) $(SOURCE_DIR) $(@D)
+CONFIGURE_ENV+=	CC="$(CC) -m64" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)" CXXFLAGS="$(CFLAGS)"
+COMPONENT_BUILD_ENV+= CC="$(CC) -m64" CXX="$(CCC)" CFLAGS="$(CFLAGS)" CXXFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
 
-build:		$(BUILD_32)
+PATH=$(ECPREFIX)/bin/$(MACH64):$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PKG_CONFIG_PATH= $(ECPREFIX)/lib/$(MACH64)/pkgconfig
+PKG_CONFIG= $(ECPREFIX)/bin/$(MACH64)/pkg-config
 
-install:	$(INSTALL_32)
+build:		$(BUILD_64)
+
+install:	$(INSTALL_64)
 
