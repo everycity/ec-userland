@@ -9,21 +9,27 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=         automake
-COMPONENT_VERSION=      1.12
+COMPONENT_FMRI=		developer/build/automake-112
+COMPONENT_VERSION=      1.12.2
+COMPONENT_LICENSE=	GPLv2
+COMPONENT_PROJECT_URL=	"http://www.gnu.org/software/automake/"
+COMPONENT_SUMMARY=	Automake is a tool for automatically generating Makefile.in files compliant with the GNU Coding Standards.
 COMPONENT_SRC=          $(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=      $(COMPONENT_SRC).tar.xz
-COMPONENT_ARCHIVE_HASH= sha256:4f920cad2dc59f1be296b7d7584e3828a36154d16191f3cad60a73e6e9bcf879
+COMPONENT_ARCHIVE_HASH= sha256:5fb56e918189b377a22368e19baaf70252bd85a9969ed5f8a8373f49e8faf07f
 COMPONENT_ARCHIVE_URL=  $(DOWNLOAD_GNU_FTP)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+CONFIGURE_OPTIONS+=	--program-suffix=-$(COMPONENT_VERSION)
 
 build:          $(BUILD_32)
 
