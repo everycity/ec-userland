@@ -106,6 +106,7 @@ ifneq (,$(filter $(BRAND),solaris10 smartos))
     CFLAGS = -I$(USRDIR)/include
     CXXFLAGS = -I$(USRDIR)/include
     CONFIGURE_DEFAULT_CPPFLAGS ?= yes
+    GCC_ROOT = /ec/bin
 else
     ECPREFIX=
     USRDIR = /usr
@@ -254,7 +255,7 @@ SPRO_ROOT =	$(BUILD_TOOLS)/SUNWspro
 SPRO_VROOT =	$(SPRO_ROOT)/sunstudio12.1
 
 GCC_VERSION = 	4.8
-GCC_ROOT =	$(USRDIR)/gcc/$(GCC_VERSION)
+GCC_ROOT ?=	$(USRDIR)/gcc/$(GCC_VERSION)
 
 CC.studio.32 =	$(SPRO_VROOT)/bin/cc
 CXX.studio.32 =	$(SPRO_VROOT)/bin/CC
