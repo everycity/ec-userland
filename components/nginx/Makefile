@@ -83,6 +83,7 @@ CONFIGURE_OPTIONS += --with-mail
 CONFIGURE_OPTIONS += --with-mail_ssl_module
 CONFIGURE_OPTIONS += --add-module=mod_wsgi
 CONFIGURE_OPTIONS += --add-module=ngx-pagespeed
+CONFIGURE_OPTIONS += --with-ld-opt="$(CC_BITS) -lgcc_s -lumem"
 
 CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
 
