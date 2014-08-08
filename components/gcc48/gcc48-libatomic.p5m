@@ -24,7 +24,7 @@ set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license COPYING license='GPLv3'
 
-link path=usr/gcc/4.8/lib/$(MACH64)/libatomic.so.1 target=libatomic.so.1.0.0
-file path=usr/gcc/4.8/lib/$(MACH64)/libatomic.so.1.0.0
-link path=usr/gcc/4.8/lib/libatomic.so.1 target=libatomic.so.1.0.0
-file path=usr/gcc/4.8/lib/libatomic.so.1.0.0
+link path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libatomic.so.1 target=libatomic.so.1.0.0
+file path=$(USRDIR)/gcc/4.8/lib/$(MACH64)/libatomic.so.1.0.0
+link path=$(USRDIR)/gcc/4.8/lib/libatomic.so.1 target=libatomic.so.1.0.0
+file path=$(USRDIR)/gcc/4.8/lib/libatomic.so.1.0.0

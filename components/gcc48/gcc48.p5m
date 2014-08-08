@@ -1151,34 +1151,35 @@ file path=$(USRDIR)/gcc/4.8/share/man/man7/fsf-funding.7
 file path=$(USRDIR)/gcc/4.8/share/man/man7/gfdl.7
 file path=$(USRDIR)/gcc/4.8/share/man/man7/gpl.7
 
-link path=usr/bin/c++ target=../gcc/4.8/bin/c++ mediator=gcc mediator-version=4.8
-link path=usr/bin/g++ target=../gcc/4.8/bin/g++ mediator=gcc mediator-version=4.8
-link path=usr/bin/gcc target=../gcc/4.8/bin/gcc mediator=gcc mediator-version=4.8
-link path=usr/bin/gcov target=../gcc/4.8/bin/gcov mediator=gcc mediator-version=4.8
-link path=usr/bin/gfortran target=../gcc/4.8/bin/gfortran mediator=gcc mediator-version=4.8
-link path=usr/bin/$(GNU_ARCH_32)-c++ target=../gcc/4.8/bin/$(GNU_ARCH_32)-c++ mediator=gcc mediator-version=4.8
-link path=usr/bin/$(GNU_ARCH_32)-g++ target=../gcc/4.8/bin/$(GNU_ARCH_32)-g++ mediator=gcc mediator-version=4.8
-link path=usr/bin/$(GNU_ARCH_32)-gcc target=../gcc/4.8/bin/$(GNU_ARCH_32)-gcc mediator=gcc mediator-version=4.8
-link path=usr/bin/$(GNU_ARCH_32)-gcc-$(COMPONENT_VERSION) target=../gcc/4.8/bin/$(GNU_ARCH_32)-gcc-$(COMPONENT_VERSION) mediator=gcc mediator-version=4.8
-link path=usr/bin/$(GNU_ARCH_32)-gfortran target=../gcc/4.8/bin/$(GNU_ARCH_32)-gfortran mediator=gcc mediator-version=4.8
+link path=$(USRDIR)/bin/c++ target=../gcc/4.8/bin/c++ mediator=gcc mediator-version=4.8
+link path=$(USRDIR)/bin/g++ target=../gcc/4.8/bin/g++ mediator=gcc mediator-version=4.8
+link path=$(USRDIR)/bin/gcc target=../gcc/4.8/bin/gcc mediator=gcc mediator-version=4.8
+link path=$(USRDIR)/bin/gcov target=../gcc/4.8/bin/gcov mediator=gcc mediator-version=4.8
+link path=$(USRDIR)/bin/gfortran target=../gcc/4.8/bin/gfortran mediator=gcc mediator-version=4.8
+link path=$(USRDIR)/bin/$(GNU_ARCH_32)-c++ target=../gcc/4.8/bin/$(GNU_ARCH_32)-c++ mediator=gcc mediator-version=4.8
+link path=$(USRDIR)/bin/$(GNU_ARCH_32)-g++ target=../gcc/4.8/bin/$(GNU_ARCH_32)-g++ mediator=gcc mediator-version=4.8
+link path=$(USRDIR)/bin/$(GNU_ARCH_32)-gcc target=../gcc/4.8/bin/$(GNU_ARCH_32)-gcc mediator=gcc mediator-version=4.8
+link path=$(USRDIR)/bin/$(GNU_ARCH_32)-gcc-$(COMPONENT_VERSION) target=../gcc/4.8/bin/$(GNU_ARCH_32)-gcc-$(COMPONENT_VERSION) mediator=gcc mediator-version=4.8
+link path=$(USRDIR)/bin/$(GNU_ARCH_32)-gfortran target=../gcc/4.8/bin/$(GNU_ARCH_32)-gfortran mediator=gcc mediator-version=4.8
 
-depend fmri=__TBD pkg.debug.depend.file=usr/bin/gas type=require \
-    variant.arch=i386
-#depend fmri=__TBD pkg.debug.depend.file=usr/bin/as type=require \
+depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/bin/gas type=require
+#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/bin/gas type=require \
+#    variant.arch=i386
+#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/bin/as type=require \
 #    variant.arch=sparc
-#depend fmri=__TBD pkg.debug.depend.file=usr/bin/ld type=require
-#depend fmri=__TBD pkg.debug.depend.file=usr/lib/crt1.o type=require \
+#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/bin/ld type=require
+#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/crt1.o type=require \
 #    variant.arch=i386
-#depend fmri=__TBD pkg.debug.depend.file=usr/lib/crti.o type=require \
+#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/crti.o type=require \
 #    variant.arch=i386
-#depend fmri=__TBD pkg.debug.depend.file=usr/lib/crtn.o type=require \
+#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/crtn.o type=require \
 #    variant.arch=i386
-#depend fmri=__TBD pkg.debug.depend.file=usr/lib/values-Xa.o type=require
-#depend fmri=__TBD pkg.debug.depend.file=usr/lib/values-Xc.o type=require
-#depend fmri=__TBD pkg.debug.depend.file=usr/lib/values-Xs.o type=require
-#depend fmri=__TBD pkg.debug.depend.file=usr/lib/values-Xt.o type=require
-#depend fmri=__TBD pkg.debug.depend.file=usr/lib/values-xpg4.o type=require
-#depend fmri=__TBD pkg.debug.depend.file=usr/lib/values-xpg6.o type=require
+#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/values-Xa.o type=require
+#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/values-Xc.o type=require
+#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/values-Xs.o type=require
+#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/values-Xt.o type=require
+#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/values-xpg4.o type=require
+#depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/lib/values-xpg6.o type=require
 
 #depend fmri=system/header type=require
 

@@ -36,6 +36,7 @@ include $(WS_MAKE_RULES)/ips.mk
 #PATH.i386=/usr/gnu/bin:/usr/bin:$(dir $(PERL))
 #PATH.sparc=/usr/bin:/sbin:/usr/sbin:$(dir $(PERL))
 #PATH=$(PATH.$(MACH))
+PATH=$(dir $(CC)):$(USRDIR)/bin:/usr/bin
 
 #CFLAGS_i386 = -mtune=opteron -march=opteron
 #CFLAGS_sparc = -mtune=ultrasparc -mcpu=ultrasparc -mno-unaligned-doubles
@@ -60,7 +61,7 @@ LD_OPTIONS := $(GCC_LD_OPTIONS)
 CONFIG_SHELL = /bin/sh
 MAKESHELL = /bin/sh
 
-CONFIGURE_PREFIX = /usr/gcc/4.8
+CONFIGURE_PREFIX = $(USRDIR)/gcc/4.8
 
 CONFIGURE_OPTIONS += --infodir=$(CONFIGURE_PREFIX)/share/info
 CONFIGURE_OPTIONS += --libexecdir=$(CONFIGURE_PREFIX)/lib
@@ -68,12 +69,16 @@ CONFIGURE_OPTIONS += --enable-languages="c,c++,fortran,objc"
 CONFIGURE_OPTIONS += --enable-shared
 CONFIGURE_OPTIONS += --enable-targets=$(GNU_ARCH_64)
 CONFIGURE_OPTIONS += --without-gnu-ld --with-ld=/usr/bin/ld
+CONFIGURE_OPTIONS += --with-gmp-include=$(USRDIR)/include
+CONFIGURE_OPTIONS += --with-mpfr-include=$(USRDIR)/include
+CONFIGURE_OPTIONS += --with-mpc-include=$(USRDIR)/include
+CONFIGURE_OPTIONS += --with-libiconv-prefix=$(USRDIR)
 
 CONFIGURE_ENV     += LD_OPTIONS="$(LD_OPTIONS)"
 
 # sparc and x86 use different assemblers
-CONFIGURE_OPTIONS.sparc +=	--without-gnu-as --with-as=/usr/bin/as
-CONFIGURE_OPTIONS.i386 +=	--with-gnu-as --with-as=/usr/bin/gas
+CONFIGURE_OPTIONS.sparc +=	--without-gnu-as --with-as=$(USRDIR)/bin/as
+CONFIGURE_OPTIONS.i386 +=	--with-gnu-as --with-as=$(USRDIR)/bin/gas
 CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(MACH))
 
 #COMPONENT_BUILD_ENV += PATH="$(PATH)"
