@@ -100,10 +100,19 @@ ifneq (,$(filter $(BRAND),solaris10 smartos))
     ECPREFIX = 	/ec
     USRDIR = $(ECPREFIX)
     ZTYPE = ec
+#    LDFLAGS.32 = -L$(USRDIR)/lib -R$(USRDIR)/lib
+#    LDFLAGS.64 = -L$(USRDIR)/lib/$(MACH64) -R$(USRDIR)/lib/$(MACH64)
+    CPPFLAGS = -I$(USRDIR)/include
+    CFLAGS = -I$(USRDIR)/include
+    CXXFLAGS = -I$(USRDIR)/include
+    CONFIGURE_DEFAULT_CPPFLAGS ?= yes
 else
     ECPREFIX=
     USRDIR = /usr
     ZTYPE = nonec
+    LDFLAGS=
+    CPPFLAGS=
+    CONFIGURE_DEFAULT_CPPFLAGS ?= no
 endif
 
 SYSCONFDIR = $(ECPREFIX)/etc
@@ -112,7 +121,7 @@ LOCALSTATEDIR = $(ECPREFIX)/var
 CONFIGURE_LOCALSTATEDIR = $(LOCALSTATEDIR)
 ETCDIR = $(SYSCONFDIR)
 
-PATH=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH=$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/sbin:/usr/sbin
 
 BINDIR =	/bin
 SBINDIR =	/sbin
@@ -269,16 +278,16 @@ LINT =		$(lint.$(BITS))
 
 LD =		/usr/bin/ld
 
-PYTHON.2.6.VENDOR_PACKAGES.32 = /usr/lib/python2.6/vendor-packages
-PYTHON.2.6.VENDOR_PACKAGES.64 = /usr/lib/python2.6/vendor-packages/64
+PYTHON.2.6.VENDOR_PACKAGES.32 = $(USRDIR)/lib/python2.6/vendor-packages
+PYTHON.2.6.VENDOR_PACKAGES.64 = $(USRDIR)/lib/python2.6/vendor-packages/64
 PYTHON.2.6.VENDOR_PACKAGES = $(PYTHON.2.6.VENDOR_PACKAGES.$(BITS))
 
-PYTHON.2.7.VENDOR_PACKAGES.32 = /usr/lib/python2.7/vendor-packages
-PYTHON.2.7.VENDOR_PACKAGES.64 = /usr/lib/python2.7/vendor-packages/64
+PYTHON.2.7.VENDOR_PACKAGES.32 = $(USRDIR)/lib/python2.7/vendor-packages
+PYTHON.2.7.VENDOR_PACKAGES.64 = $(USRDIR)/lib/python2.7/vendor-packages/64
 PYTHON.2.7.VENDOR_PACKAGES = $(PYTHON.2.7.VENDOR_PACKAGES.$(BITS))
 
-PYTHON_VENDOR_PACKAGES.32 = /usr/lib/python$(PYTHON_VERSION)/vendor-packages
-PYTHON_VENDOR_PACKAGES.64 = /usr/lib/python$(PYTHON_VERSION)/vendor-packages/64
+PYTHON_VENDOR_PACKAGES.32 = $(USRDIR)/lib/python$(PYTHON_VERSION)/vendor-packages
+PYTHON_VENDOR_PACKAGES.64 = $(USRDIR)/lib/python$(PYTHON_VERSION)/vendor-packages/64
 PYTHON_VENDOR_PACKAGES = $(PYTHON_VENDOR_PACKAGES.$(BITS))
 
 PYTHON.2.6.32 =	$(USRBINDIR)/python2.6
@@ -293,12 +302,14 @@ PYTHON =	$(PYTHON.$(PYTHON_VERSION).$(BITS))
 # The default is site-packages, but that directory belongs to the end-user.
 # Modules which are shipped by the OS but not with the core Python distribution
 # belong in vendor-packages.
-PYTHON_LIB= /usr/lib/python$(PYTHON_VERSION)/vendor-packages
+PYTHON_LIB= $(USRDIR)/lib/python$(PYTHON_VERSION)/vendor-packages
 
 JAVA_HOME =	$(USRDIR)/java
 
 PERL_VERSION =	5.18
+#PERL_VERSION =	5.12
 PERL_VERSIONS =	5.18
+#PERL_VERSIONS =	5.12
 #PERL.5.12 =	$(USRLIBDIR)/perl/5.12/bin/perl
 PERL.5.18 =	$(USRLIBDIR)/perl/5.18/bin/perl
 
@@ -322,7 +333,7 @@ PKG_MACROS +=   PERL_VERSION=$(PERL_VERSION)
 
 CMAKE =		$(USRBINDIR)/cmake
 CCSMAKE =	$(USRBINDIR)/sunmake
-GMAKE =		$(USRBINDIR)/make
+GMAKE =		$(USRBINDIR)/gmake
 GPATCH =	$(USRBINDIR)/patch
 PATCH_LEVEL =	1
 GPATCH_BACKUP =	--backup --version-control=numbered
@@ -344,7 +355,8 @@ CP =		/bin/cp -f
 MV =		/bin/mv -f
 LN =		/bin/ln
 SYMLINK =	/bin/ln -s
-ENV =		/usr/bin/env
+ECHO =		$(USRBINDIR)/echo
+ENV =		$(USRBINDIR)/env
 INSTALL =	$(USRBINDIR)/install
 CHMOD =		$(USRBINDIR)/chmod
 NAWK =		$(USRBINDIR)/nawk
@@ -583,7 +595,7 @@ ccs.ld.64 = -64
 gcc.ld.32 = -m32
 gcc.ld.64 = -m64
 LD_BITS =      $($(LINKER).ld.$(BITS))
-LDFLAGS =      $(LD_BITS)
+LDFLAGS +=      $(LD_BITS)
 
 CONFIGURE_PREFIX?=	$(USRDIR)
 
@@ -610,7 +622,7 @@ CXXFLAGS.32 =	-march=i686
 CFLAGS +=	$(CFLAGS.$(BITS))
 CXXFLAGS +=	$(CXXFLAGS.$(BITS))
 
-LDFLAGS +=	$(LDFLAGS.$(BITS))
+#LDFLAGS +=	$(LDFLAGS.$(BITS))
 
 # Link with libumem by default
 LDFLAGS +=	-lumem

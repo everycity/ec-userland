@@ -36,8 +36,10 @@ CLEAN_PATHS += source
 # inclusion.
 PATCH_DIR ?=	patches
 PATCH_PATTERN ?=	*.patch
-PATCHES =	$(shell find $(PATCH_DIR) -type f -name '$(PATCH_PATTERN)' \
-				2>/dev/null | sort) $(EXTRA_PATCHES)
+PATCHES =	$(shell find $(PATCH_DIR) -type f -name "$(PATCH_PATTERN)" \
+	-o -name "$(PATCH_PATTERN).$(ZTYPE)" \
+	2>/dev/null | sort)
+
 STAMPS =	$(PATCHES:$(PATCH_DIR)/%=$(SOURCE_DIR)/.%ed)
 
 $(SOURCE_DIR)/.%ed:	$(PATCH_DIR)/%

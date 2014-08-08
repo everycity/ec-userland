@@ -44,6 +44,7 @@ TEST_NO_ARCH = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH)-%/.tested)
 
 PYTHON_ENV =	CC="$(CC)"
 PYTHON_ENV +=	CFLAGS="$(CFLAGS)"
+#PYTHON_ENV +=	CPPFLAGS="$(CPPFLAGS)"
 PYTHON_ENV +=	LDFLAGS="$(LDFLAGS)"
 
 COMPONENT_BUILD_ENV += $(PYTHON_ENV)
@@ -81,7 +82,7 @@ $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
 # The default is site-packages, but that directory belongs to the end-user.
 # Modules which are shipped by the OS but not with the core Python distribution
 # belong in vendor-packages.
-PYTHON_LIB= $(ECPREFIX)/lib/python$(PYTHON_VERSION)/vendor-packages
+PYTHON_LIB= $(USRDIR)/lib/python$(PYTHON_VERSION)/vendor-packages
 PYTHON_DATA= $(PYTHON_LIB)
 
 COMPONENT_INSTALL_ARGS +=	--root $(PROTO_DIR) 

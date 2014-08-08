@@ -66,11 +66,11 @@ BRANCHID ?= $(RELEASE_MAJOR).$(RELEASE_MINOR).$(UPDATENUM).$(COMPONENT_REVISION)
 
 BUILD_VERSION =                $(OS_VERSION)-$(BRANCHID)
 
-PKGDEPEND =	pkgdepend
-PKGFMT =	pkgfmt
-PKGMOGRIFY =	pkgmogrify
-PKGSEND =	pkgsend
-PKGLINT =	pkglint
+PKGDEPEND =	$(USRDIR)/bin/pkgdepend
+PKGFMT =	$(USRDIR)/bin/pkgfmt
+PKGMOGRIFY =	$(USRDIR)/bin/pkgmogrify
+PKGSEND =	$(USRDIR)/bin/pkgsend
+PKGLINT =	$(USRDIR)/bin/pkglint
 PKGMANGLE =	$(WS_TOOLS)/userland-mangler
 
 # Package headers should all pretty much follow the same format
