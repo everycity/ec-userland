@@ -106,7 +106,7 @@ ifneq (,$(filter $(BRAND),solaris10 smartos))
     CFLAGS = -I$(USRDIR)/include
     CXXFLAGS = -I$(USRDIR)/include
     CONFIGURE_DEFAULT_CPPFLAGS ?= yes
-    GCC_ROOT = /ec/bin
+    GCC_ROOT = /ec
 else
     ECPREFIX=
     USRDIR = /usr
