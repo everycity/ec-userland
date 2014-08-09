@@ -27,6 +27,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+# need remove -I/ec/include on EC zones because build failed with it
+CPPFLAGS=
 CPPFLAGS += -D_REENTRANT
 
 CONFIGURE_OPTIONS    += --with-normal

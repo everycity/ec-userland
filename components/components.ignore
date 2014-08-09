@@ -239,7 +239,6 @@
 /^nano$/d
 /^nasm$/d
 /^ncdu$/d
-/^ncurses$/d
 /^nddtune$/d
 /^neon$/d
 /^net-snmp$/d
@@ -398,6 +397,7 @@
 /^python\/pymongo$/d
 /^python\/pyopenssl$/d
 /^python\/python26$/d
+/^python\/python27$/d
 /^python\/setuptools$/d
 /^python\/simplejson$/d
 /^qt4$/d
