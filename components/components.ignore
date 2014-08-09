@@ -409,7 +409,6 @@
 /^redis$/d
 /^redland$/d
 /^rrdtool$/d
-/^rsync$/d
 /^rsyslog$/d
 /^rtmpdump$/d
 /^ruby\/ec-mcollective$/d
