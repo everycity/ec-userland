@@ -211,7 +211,6 @@
 /^make$/d
 /^mariadb55$/d
 /^mbuffer$/d
-/^mc$/d
 /^mcrypt$/d
 /^mediainfo$/d
 /^memcached$/d

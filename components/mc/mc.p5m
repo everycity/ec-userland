@@ -18,7 +18,7 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -30,434 +30,233 @@ set name=info.classification value="org.opensolaris.category.2008:Desktop (GNOME
 set name=info.upstream_url value="http://www.midnight-commander.org/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license COPYING license="GPLv3"
+license COPYING license="GPLv2"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/mc
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/mc
-dir path=$(ECPREFIX)/lib/mc/ext.d
-dir path=$(ECPREFIX)/lib/mc/extfs.d
-dir path=$(ECPREFIX)/lib/mc/fish
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/locale
-dir path=$(ECPREFIX)/share/locale/az
-dir path=$(ECPREFIX)/share/locale/az/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/be
-dir path=$(ECPREFIX)/share/locale/be/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/bg
-dir path=$(ECPREFIX)/share/locale/bg/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/ca
-dir path=$(ECPREFIX)/share/locale/ca/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/cs
-dir path=$(ECPREFIX)/share/locale/cs/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/da
-dir path=$(ECPREFIX)/share/locale/da/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/de
-dir path=$(ECPREFIX)/share/locale/de/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/de_CH
-dir path=$(ECPREFIX)/share/locale/de_CH/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/el
-dir path=$(ECPREFIX)/share/locale/el/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/en_GB
-dir path=$(ECPREFIX)/share/locale/en_GB/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/eo
-dir path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/es
-dir path=$(ECPREFIX)/share/locale/es/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/et
-dir path=$(ECPREFIX)/share/locale/et/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/eu
-dir path=$(ECPREFIX)/share/locale/eu/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/fa
-dir path=$(ECPREFIX)/share/locale/fa/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/fi
-dir path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/fi_FI
-dir path=$(ECPREFIX)/share/locale/fi_FI/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/fr
-dir path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/gl
-dir path=$(ECPREFIX)/share/locale/gl/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/hr
-dir path=$(ECPREFIX)/share/locale/hr/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/hu
-dir path=$(ECPREFIX)/share/locale/hu/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/ia
-dir path=$(ECPREFIX)/share/locale/ia/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/id
-dir path=$(ECPREFIX)/share/locale/id/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/it
-dir path=$(ECPREFIX)/share/locale/it/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/ja
-dir path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/ka
-dir path=$(ECPREFIX)/share/locale/ka/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/kk
-dir path=$(ECPREFIX)/share/locale/kk/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/ko
-dir path=$(ECPREFIX)/share/locale/ko/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/lt
-dir path=$(ECPREFIX)/share/locale/lt/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/lv
-dir path=$(ECPREFIX)/share/locale/lv/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/mn
-dir path=$(ECPREFIX)/share/locale/mn/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/nb
-dir path=$(ECPREFIX)/share/locale/nb/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/nl
-dir path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/pl
-dir path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/pt
-dir path=$(ECPREFIX)/share/locale/pt/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/pt_BR
-dir path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/ro
-dir path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/ru
-dir path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/sk
-dir path=$(ECPREFIX)/share/locale/sk/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/sl
-dir path=$(ECPREFIX)/share/locale/sl/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/sr
-dir path=$(ECPREFIX)/share/locale/sr/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/sv
-dir path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/sv_SE
-dir path=$(ECPREFIX)/share/locale/sv_SE/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/szl
-dir path=$(ECPREFIX)/share/locale/szl/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/ta
-dir path=$(ECPREFIX)/share/locale/ta/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/tr
-dir path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/uk
-dir path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/vi
-dir path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/wa
-dir path=$(ECPREFIX)/share/locale/wa/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/zh_CN
-dir path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/zh_TW
-dir path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/es
-dir path=$(ECPREFIX)/share/man/es/man1
-dir path=$(ECPREFIX)/share/man/hu
-dir path=$(ECPREFIX)/share/man/hu/man1
-dir path=$(ECPREFIX)/share/man/it
-dir path=$(ECPREFIX)/share/man/it/man1
-dir path=$(ECPREFIX)/share/man/man1
-dir path=$(ECPREFIX)/share/man/pl
-dir path=$(ECPREFIX)/share/man/pl/man1
-dir path=$(ECPREFIX)/share/man/ru
-dir path=$(ECPREFIX)/share/man/ru/man1
-dir path=$(ECPREFIX)/share/man/sr
-dir path=$(ECPREFIX)/share/man/sr/man1
-dir path=$(ECPREFIX)/share/mc
-dir path=$(ECPREFIX)/share/mc/examples
-dir path=$(ECPREFIX)/share/mc/examples/macros.d
-dir path=$(ECPREFIX)/share/mc/help
-dir path=$(ECPREFIX)/share/mc/hints
-dir path=$(ECPREFIX)/share/mc/skins
-dir path=$(ECPREFIX)/share/mc/syntax
-file path=$(ECPREFIX)/bin/mc
-file path=$(ECPREFIX)/etc/mc/edit.indent.rc
-file path=$(ECPREFIX)/etc/mc/filehighlight.ini
-file path=$(ECPREFIX)/etc/mc/mc.default.keymap
-file path=$(ECPREFIX)/etc/mc/mc.emacs.keymap
-file path=$(ECPREFIX)/etc/mc/mc.ext
-file path=$(ECPREFIX)/etc/mc/mc.keymap
-file path=$(ECPREFIX)/etc/mc/mc.menu
-file path=$(ECPREFIX)/etc/mc/mc.menu.sr
-file path=$(ECPREFIX)/etc/mc/mcedit.menu
-file path=$(ECPREFIX)/etc/mc/sfs.ini
-file path=$(ECPREFIX)/lib/mc/ext.d/archive.sh
-file path=$(ECPREFIX)/lib/mc/ext.d/doc.sh
-file path=$(ECPREFIX)/lib/mc/ext.d/image.sh
-file path=$(ECPREFIX)/lib/mc/ext.d/misc.sh
-file path=$(ECPREFIX)/lib/mc/ext.d/package.sh
-file path=$(ECPREFIX)/lib/mc/ext.d/sound.sh
-file path=$(ECPREFIX)/lib/mc/ext.d/text.sh
-file path=$(ECPREFIX)/lib/mc/ext.d/video.sh
-file path=$(ECPREFIX)/lib/mc/ext.d/web.sh
-file path=$(ECPREFIX)/lib/mc/extfs.d/README
-file path=$(ECPREFIX)/lib/mc/extfs.d/README.extfs
-file path=$(ECPREFIX)/lib/mc/extfs.d/a+
-file path=$(ECPREFIX)/lib/mc/extfs.d/apt+
-file path=$(ECPREFIX)/lib/mc/extfs.d/audio
-file path=$(ECPREFIX)/lib/mc/extfs.d/bpp
-file path=$(ECPREFIX)/lib/mc/extfs.d/changesetfs
-file path=$(ECPREFIX)/lib/mc/extfs.d/deb
-file path=$(ECPREFIX)/lib/mc/extfs.d/deba
-file path=$(ECPREFIX)/lib/mc/extfs.d/debd
-file path=$(ECPREFIX)/lib/mc/extfs.d/dpkg+
-file path=$(ECPREFIX)/lib/mc/extfs.d/gitfs+
-file path=$(ECPREFIX)/lib/mc/extfs.d/hp48+
-file path=$(ECPREFIX)/lib/mc/extfs.d/iso9660
-file path=$(ECPREFIX)/lib/mc/extfs.d/lslR
-file path=$(ECPREFIX)/lib/mc/extfs.d/mailfs
-file path=$(ECPREFIX)/lib/mc/extfs.d/patchfs
-file path=$(ECPREFIX)/lib/mc/extfs.d/patchsetfs
-file path=$(ECPREFIX)/lib/mc/extfs.d/rpm
-file path=$(ECPREFIX)/lib/mc/extfs.d/rpms+
-file path=$(ECPREFIX)/lib/mc/extfs.d/s3+
-file path=$(ECPREFIX)/lib/mc/extfs.d/trpm
-file path=$(ECPREFIX)/lib/mc/extfs.d/u7z
-file path=$(ECPREFIX)/lib/mc/extfs.d/uace
-file path=$(ECPREFIX)/lib/mc/extfs.d/ualz
-file path=$(ECPREFIX)/lib/mc/extfs.d/uar
-file path=$(ECPREFIX)/lib/mc/extfs.d/uarc
-file path=$(ECPREFIX)/lib/mc/extfs.d/uarj
-file path=$(ECPREFIX)/lib/mc/extfs.d/uc1541
-file path=$(ECPREFIX)/lib/mc/extfs.d/ucab
-file path=$(ECPREFIX)/lib/mc/extfs.d/uha
-file path=$(ECPREFIX)/lib/mc/extfs.d/ulha
-file path=$(ECPREFIX)/lib/mc/extfs.d/ulib
-file path=$(ECPREFIX)/lib/mc/extfs.d/urar
-file path=$(ECPREFIX)/lib/mc/extfs.d/uzip
-file path=$(ECPREFIX)/lib/mc/extfs.d/uzoo
-file path=$(ECPREFIX)/lib/mc/fish/README.fish
-file path=$(ECPREFIX)/lib/mc/fish/append
-file path=$(ECPREFIX)/lib/mc/fish/chmod
-file path=$(ECPREFIX)/lib/mc/fish/chown
-file path=$(ECPREFIX)/lib/mc/fish/fexists
-file path=$(ECPREFIX)/lib/mc/fish/get
-file path=$(ECPREFIX)/lib/mc/fish/hardlink
-file path=$(ECPREFIX)/lib/mc/fish/info
-file path=$(ECPREFIX)/lib/mc/fish/ln
-file path=$(ECPREFIX)/lib/mc/fish/ls
-file path=$(ECPREFIX)/lib/mc/fish/mkdir
-file path=$(ECPREFIX)/lib/mc/fish/mv
-file path=$(ECPREFIX)/lib/mc/fish/rmdir
-file path=$(ECPREFIX)/lib/mc/fish/send
-file path=$(ECPREFIX)/lib/mc/fish/unlink
-file path=$(ECPREFIX)/lib/mc/fish/utime
-file path=$(ECPREFIX)/lib/mc/mc-wrapper.csh
-file path=$(ECPREFIX)/lib/mc/mc-wrapper.sh
-file path=$(ECPREFIX)/lib/mc/mc.csh
-file path=$(ECPREFIX)/lib/mc/mc.sh
-file path=$(ECPREFIX)/share/locale/az/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/be/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/bg/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/ca/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/cs/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/da/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/de/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/de_CH/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/el/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/en_GB/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/es/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/et/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/eu/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/fa/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/fi_FI/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/gl/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/hr/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/hu/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/ia/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/id/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/it/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/ka/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/kk/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/ko/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/lt/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/lv/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/mn/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/nb/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/pt/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/sk/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/sl/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/sr/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/sv_SE/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/szl/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/ta/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/wa/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/mc.mo
-file path=$(ECPREFIX)/share/man/es/man1/mc.1
-file path=$(ECPREFIX)/share/man/hu/man1/mc.1
-file path=$(ECPREFIX)/share/man/it/man1/mc.1
-file path=$(ECPREFIX)/share/man/man1/mc.1
-file path=$(ECPREFIX)/share/man/man1/mcedit.1
-file path=$(ECPREFIX)/share/man/man1/mcview.1
-file path=$(ECPREFIX)/share/man/pl/man1/mc.1
-file path=$(ECPREFIX)/share/man/ru/man1/mc.1
-file path=$(ECPREFIX)/share/man/sr/man1/mc.1
-file path=$(ECPREFIX)/share/mc/examples/macros.d/macro.0.sh
-file path=$(ECPREFIX)/share/mc/examples/macros.d/macro.1.sh
-file path=$(ECPREFIX)/share/mc/examples/macros.d/macro.3.sh
-file path=$(ECPREFIX)/share/mc/examples/macros.d/macro.4.sh
-file path=$(ECPREFIX)/share/mc/examples/macros.d/macro.5.sh
-file path=$(ECPREFIX)/share/mc/examples/macros.d/macro.6.sh
-file path=$(ECPREFIX)/share/mc/examples/macros.d/macro.7.sh
-file path=$(ECPREFIX)/share/mc/help/mc.hlp
-file path=$(ECPREFIX)/share/mc/help/mc.hlp.es
-file path=$(ECPREFIX)/share/mc/help/mc.hlp.hu
-file path=$(ECPREFIX)/share/mc/help/mc.hlp.it
-file path=$(ECPREFIX)/share/mc/help/mc.hlp.pl
-file path=$(ECPREFIX)/share/mc/help/mc.hlp.ru
-file path=$(ECPREFIX)/share/mc/help/mc.hlp.sr
-file path=$(ECPREFIX)/share/mc/hints/mc.hint
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.az
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.be
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.bg
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.ca
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.cs
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.da
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.de
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.de_CH
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.el
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.en_GB
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.eo
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.es
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.et
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.eu
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.fa
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.fi
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.fr
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.gl
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.hr
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.hu
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.ia
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.id
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.it
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.it_IT
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.ja
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.ka
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.kk
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.ko
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.lt
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.nl
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.pl
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.pt
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.pt_BR
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.ro
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.ru
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.sk
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.sl
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.sr
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.sv
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.sv_SE
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.szl
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.tr
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.uk
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.zh
-file path=$(ECPREFIX)/share/mc/hints/mc.hint.zh_CN
-file path=$(ECPREFIX)/share/mc/mc.charsets
-file path=$(ECPREFIX)/share/mc/mc.lib
-file path=$(ECPREFIX)/share/mc/skins/dark.ini
-file path=$(ECPREFIX)/share/mc/skins/darkfar.ini
-file path=$(ECPREFIX)/share/mc/skins/default.ini
-file path=$(ECPREFIX)/share/mc/skins/double-lines.ini
-file path=$(ECPREFIX)/share/mc/skins/featured.ini
-file path=$(ECPREFIX)/share/mc/skins/gotar.ini
-file path=$(ECPREFIX)/share/mc/skins/mc46.ini
-file path=$(ECPREFIX)/share/mc/skins/modarcon16-defbg.ini
-file path=$(ECPREFIX)/share/mc/skins/modarcon16.ini
-file path=$(ECPREFIX)/share/mc/skins/modarcon16root-defbg.ini
-file path=$(ECPREFIX)/share/mc/skins/modarcon16root.ini
-file path=$(ECPREFIX)/share/mc/skins/modarin256-defbg.ini
-file path=$(ECPREFIX)/share/mc/skins/modarin256.ini
-file path=$(ECPREFIX)/share/mc/skins/modarin256root-defbg.ini
-file path=$(ECPREFIX)/share/mc/skins/modarin256root.ini
-file path=$(ECPREFIX)/share/mc/skins/nicedark.ini
-file path=$(ECPREFIX)/share/mc/skins/sand256.ini
-file path=$(ECPREFIX)/share/mc/skins/xoria256.ini
-file path=$(ECPREFIX)/share/mc/syntax/PKGBUILD.syntax
-file path=$(ECPREFIX)/share/mc/syntax/Syntax
-file path=$(ECPREFIX)/share/mc/syntax/ada95.syntax
-file path=$(ECPREFIX)/share/mc/syntax/as.syntax
-file path=$(ECPREFIX)/share/mc/syntax/aspx.syntax
-file path=$(ECPREFIX)/share/mc/syntax/assembler.syntax
-file path=$(ECPREFIX)/share/mc/syntax/awk.syntax
-file path=$(ECPREFIX)/share/mc/syntax/c.syntax
-file path=$(ECPREFIX)/share/mc/syntax/cabal.syntax
-file path=$(ECPREFIX)/share/mc/syntax/changelog.syntax
-file path=$(ECPREFIX)/share/mc/syntax/cmake.syntax
-file path=$(ECPREFIX)/share/mc/syntax/cs.syntax
-file path=$(ECPREFIX)/share/mc/syntax/css.syntax
-file path=$(ECPREFIX)/share/mc/syntax/cxx.syntax
-file path=$(ECPREFIX)/share/mc/syntax/cython.syntax
-file path=$(ECPREFIX)/share/mc/syntax/d.syntax
-file path=$(ECPREFIX)/share/mc/syntax/debian-changelog.syntax
-file path=$(ECPREFIX)/share/mc/syntax/debian-control.syntax
-file path=$(ECPREFIX)/share/mc/syntax/debian-description.syntax
-file path=$(ECPREFIX)/share/mc/syntax/debian-sources-list.syntax
-file path=$(ECPREFIX)/share/mc/syntax/diff.syntax
-file path=$(ECPREFIX)/share/mc/syntax/dlink.syntax
-file path=$(ECPREFIX)/share/mc/syntax/dos.syntax
-file path=$(ECPREFIX)/share/mc/syntax/ebuild.syntax
-file path=$(ECPREFIX)/share/mc/syntax/eiffel.syntax
-file path=$(ECPREFIX)/share/mc/syntax/erlang.syntax
-file path=$(ECPREFIX)/share/mc/syntax/f90.syntax
-file path=$(ECPREFIX)/share/mc/syntax/filehighlight.syntax
-file path=$(ECPREFIX)/share/mc/syntax/fortran.syntax
-file path=$(ECPREFIX)/share/mc/syntax/haskell.syntax
-file path=$(ECPREFIX)/share/mc/syntax/html.syntax
-file path=$(ECPREFIX)/share/mc/syntax/idl.syntax
-file path=$(ECPREFIX)/share/mc/syntax/ini.syntax
-file path=$(ECPREFIX)/share/mc/syntax/j.syntax
-file path=$(ECPREFIX)/share/mc/syntax/jal.syntax
-file path=$(ECPREFIX)/share/mc/syntax/java.syntax
-file path=$(ECPREFIX)/share/mc/syntax/js.syntax
-file path=$(ECPREFIX)/share/mc/syntax/latex.syntax
-file path=$(ECPREFIX)/share/mc/syntax/lisp.syntax
-file path=$(ECPREFIX)/share/mc/syntax/lkr.syntax
-file path=$(ECPREFIX)/share/mc/syntax/lsm.syntax
-file path=$(ECPREFIX)/share/mc/syntax/lua.syntax
-file path=$(ECPREFIX)/share/mc/syntax/m4.syntax
-file path=$(ECPREFIX)/share/mc/syntax/mail.syntax
-file path=$(ECPREFIX)/share/mc/syntax/makefile.syntax
-file path=$(ECPREFIX)/share/mc/syntax/ml.syntax
-file path=$(ECPREFIX)/share/mc/syntax/named.syntax
-file path=$(ECPREFIX)/share/mc/syntax/nemerle.syntax
-file path=$(ECPREFIX)/share/mc/syntax/nroff.syntax
-file path=$(ECPREFIX)/share/mc/syntax/octave.syntax
-file path=$(ECPREFIX)/share/mc/syntax/pascal.syntax
-file path=$(ECPREFIX)/share/mc/syntax/perl.syntax
-file path=$(ECPREFIX)/share/mc/syntax/php.syntax
-file path=$(ECPREFIX)/share/mc/syntax/po.syntax
-file path=$(ECPREFIX)/share/mc/syntax/povray.syntax
-file path=$(ECPREFIX)/share/mc/syntax/procmail.syntax
-file path=$(ECPREFIX)/share/mc/syntax/properties.syntax
-file path=$(ECPREFIX)/share/mc/syntax/python.syntax
-file path=$(ECPREFIX)/share/mc/syntax/ruby.syntax
-file path=$(ECPREFIX)/share/mc/syntax/sh.syntax
-file path=$(ECPREFIX)/share/mc/syntax/slang.syntax
-file path=$(ECPREFIX)/share/mc/syntax/smalltalk.syntax
-file path=$(ECPREFIX)/share/mc/syntax/spec.syntax
-file path=$(ECPREFIX)/share/mc/syntax/sql.syntax
-file path=$(ECPREFIX)/share/mc/syntax/strace.syntax
-file path=$(ECPREFIX)/share/mc/syntax/swig.syntax
-file path=$(ECPREFIX)/share/mc/syntax/syntax.syntax
-file path=$(ECPREFIX)/share/mc/syntax/tcl.syntax
-file path=$(ECPREFIX)/share/mc/syntax/texinfo.syntax
-file path=$(ECPREFIX)/share/mc/syntax/tt.syntax
-file path=$(ECPREFIX)/share/mc/syntax/unknown.syntax
-file path=$(ECPREFIX)/share/mc/syntax/verilog.syntax
-file path=$(ECPREFIX)/share/mc/syntax/vhdl.syntax
-file path=$(ECPREFIX)/share/mc/syntax/xml.syntax
-file path=$(ECPREFIX)/share/mc/syntax/yum-repo.syntax
-file path=$(ECPREFIX)/share/mc/syntax/yxx.syntax
-link path=$(ECPREFIX)/bin/mcdiff target=mc
-link path=$(ECPREFIX)/bin/mcedit target=mc
-link path=$(ECPREFIX)/bin/mcview target=mc
+file path=$(SYSCONFDIR)/mc/edit.indent.rc
+file path=$(SYSCONFDIR)/mc/edit.spell.rc
+file path=$(SYSCONFDIR)/mc/filehighlight.ini
+file path=$(SYSCONFDIR)/mc/mc.ext
+file path=$(SYSCONFDIR)/mc/mc.keymap
+file path=$(SYSCONFDIR)/mc/mc.keymap.default
+file path=$(SYSCONFDIR)/mc/mc.keymap.emacs
+file path=$(SYSCONFDIR)/mc/mc.menu
+file path=$(SYSCONFDIR)/mc/mc.menu.sr
+file path=$(SYSCONFDIR)/mc/mcedit.menu
+file path=$(SYSCONFDIR)/mc/sfs.ini
+file path=$(USRDIR)/bin/mc mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/README
+file path=$(USRDIR)/lib/mc/extfs.d/README.extfs
+file path=$(USRDIR)/lib/mc/extfs.d/a+ mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/apt+ mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/audio mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/bpp mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/changesetfs mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/deb mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/deba mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/debd mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/dpkg+ mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/gitfs mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/hp48+ mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/iso9660 mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/lslR mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/mailfs mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/patchfs mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/patchsetfs mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/rpm mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/rpms+ mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/s3+ mode=0555 pkg.depend.bypass-generate=.*
+file path=$(USRDIR)/lib/mc/extfs.d/trpm mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/u7z mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/uace mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/ualz mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/uar mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/uarc mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/uarj mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/uc1541 mode=0555 pkg.depend.bypass-generate=.*
+file path=$(USRDIR)/lib/mc/extfs.d/ucab mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/uha mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/ulha mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/urar mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/uzip mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/uzoo mode=0555
+file path=$(USRDIR)/lib/mc/fish/README.fish
+file path=$(USRDIR)/lib/mc/fish/append mode=0555
+file path=$(USRDIR)/lib/mc/fish/chmod mode=0555
+file path=$(USRDIR)/lib/mc/fish/chown mode=0555
+file path=$(USRDIR)/lib/mc/fish/fexists mode=0555
+file path=$(USRDIR)/lib/mc/fish/get mode=0555
+file path=$(USRDIR)/lib/mc/fish/hardlink mode=0555
+file path=$(USRDIR)/lib/mc/fish/info mode=0555
+file path=$(USRDIR)/lib/mc/fish/ln mode=0555
+file path=$(USRDIR)/lib/mc/fish/ls mode=0555
+file path=$(USRDIR)/lib/mc/fish/mkdir mode=0555
+file path=$(USRDIR)/lib/mc/fish/mv mode=0555
+file path=$(USRDIR)/lib/mc/fish/rmdir mode=0555
+file path=$(USRDIR)/lib/mc/fish/send mode=0555
+file path=$(USRDIR)/lib/mc/fish/unlink mode=0555
+file path=$(USRDIR)/lib/mc/mc-wrapper.csh mode=0555
+file path=$(USRDIR)/lib/mc/mc-wrapper.sh mode=0555
+file path=$(USRDIR)/lib/mc/mc.csh mode=0555
+file path=$(USRDIR)/lib/mc/mc.sh mode=0555
+file path=$(USRDIR)/share/locale/az/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/be/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/bg/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/ca/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/cs/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/da/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/de/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/el/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/eo/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/es/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/eu/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/fi/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/fi_FI/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/fr/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/gl/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/hu/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/id/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/it/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/ja/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/ka/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/ko/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/lt/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/lv/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/mn/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/nb/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/nl/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/pl/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/pt/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/pt_BR/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/ro/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/ru/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/sk/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/sl/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/sr/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/sv/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/ta/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/tr/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/uk/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/vi/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/wa/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/zh_CN/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/zh_TW/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/man/es/man1/mc.1
+file path=$(USRDIR)/share/man/hu/man1/mc.1
+file path=$(USRDIR)/share/man/it/man1/mc.1
+file path=$(USRDIR)/share/man/man1/mc.1
+file path=$(USRDIR)/share/man/man1/mcedit.1
+file path=$(USRDIR)/share/man/man1/mcview.1
+file path=$(USRDIR)/share/man/pl/man1/mc.1
+file path=$(USRDIR)/share/man/ru/man1/mc.1
+file path=$(USRDIR)/share/man/sr/man1/mc.1
+file path=$(USRDIR)/share/mc/examples/macros.d/macro.0.sh mode=0555
+file path=$(USRDIR)/share/mc/examples/macros.d/macro.1.sh mode=0555
+file path=$(USRDIR)/share/mc/examples/macros.d/macro.3.sh mode=0555
+file path=$(USRDIR)/share/mc/examples/macros.d/macro.4.sh mode=0555
+file path=$(USRDIR)/share/mc/examples/macros.d/macro.5.sh mode=0555
+file path=$(USRDIR)/share/mc/examples/macros.d/macro.6.sh mode=0555
+file path=$(USRDIR)/share/mc/examples/macros.d/macro.7.sh mode=0555
+file path=$(USRDIR)/share/mc/help/mc.hlp
+file path=$(USRDIR)/share/mc/help/mc.hlp.es
+file path=$(USRDIR)/share/mc/help/mc.hlp.hu
+file path=$(USRDIR)/share/mc/help/mc.hlp.it
+file path=$(USRDIR)/share/mc/help/mc.hlp.pl
+file path=$(USRDIR)/share/mc/help/mc.hlp.ru
+file path=$(USRDIR)/share/mc/help/mc.hlp.sr
+file path=$(USRDIR)/share/mc/hints/mc.hint
+file path=$(USRDIR)/share/mc/hints/mc.hint.cs
+file path=$(USRDIR)/share/mc/hints/mc.hint.es
+file path=$(USRDIR)/share/mc/hints/mc.hint.hu
+file path=$(USRDIR)/share/mc/hints/mc.hint.it
+file path=$(USRDIR)/share/mc/hints/mc.hint.nl
+file path=$(USRDIR)/share/mc/hints/mc.hint.pl
+file path=$(USRDIR)/share/mc/hints/mc.hint.ru
+file path=$(USRDIR)/share/mc/hints/mc.hint.sr
+file path=$(USRDIR)/share/mc/hints/mc.hint.uk
+file path=$(USRDIR)/share/mc/hints/mc.hint.zh
+file path=$(USRDIR)/share/mc/mc.charsets
+file path=$(USRDIR)/share/mc/mc.lib
+file path=$(USRDIR)/share/mc/skins/dark.ini
+file path=$(USRDIR)/share/mc/skins/darkfar.ini
+file path=$(USRDIR)/share/mc/skins/default.ini
+file path=$(USRDIR)/share/mc/skins/double-lines.ini
+file path=$(USRDIR)/share/mc/skins/featured.ini
+file path=$(USRDIR)/share/mc/skins/gotar.ini
+file path=$(USRDIR)/share/mc/skins/mc46.ini
+file path=$(USRDIR)/share/mc/skins/nicedark.ini
+file path=$(USRDIR)/share/mc/skins/sand256.ini
+file path=$(USRDIR)/share/mc/skins/xoria256.ini
+file path=$(USRDIR)/share/mc/syntax/PKGBUILD.syntax
+file path=$(USRDIR)/share/mc/syntax/Syntax
+file path=$(USRDIR)/share/mc/syntax/ada95.syntax
+file path=$(USRDIR)/share/mc/syntax/aspx.syntax
+file path=$(USRDIR)/share/mc/syntax/assembler.syntax
+file path=$(USRDIR)/share/mc/syntax/awk.syntax
+file path=$(USRDIR)/share/mc/syntax/c.syntax
+file path=$(USRDIR)/share/mc/syntax/cabal.syntax
+file path=$(USRDIR)/share/mc/syntax/changelog.syntax
+file path=$(USRDIR)/share/mc/syntax/cs.syntax
+file path=$(USRDIR)/share/mc/syntax/css.syntax
+file path=$(USRDIR)/share/mc/syntax/cxx.syntax
+file path=$(USRDIR)/share/mc/syntax/cython.syntax
+file path=$(USRDIR)/share/mc/syntax/d.syntax
+file path=$(USRDIR)/share/mc/syntax/debian-changelog.syntax
+file path=$(USRDIR)/share/mc/syntax/debian-control.syntax
+file path=$(USRDIR)/share/mc/syntax/debian-description.syntax
+file path=$(USRDIR)/share/mc/syntax/debian-sources-list.syntax
+file path=$(USRDIR)/share/mc/syntax/diff.syntax
+file path=$(USRDIR)/share/mc/syntax/dos.syntax
+file path=$(USRDIR)/share/mc/syntax/ebuild.syntax
+file path=$(USRDIR)/share/mc/syntax/eiffel.syntax
+file path=$(USRDIR)/share/mc/syntax/erlang.syntax
+file path=$(USRDIR)/share/mc/syntax/f90.syntax
+file path=$(USRDIR)/share/mc/syntax/filehighlight.syntax
+file path=$(USRDIR)/share/mc/syntax/fortran.syntax
+file path=$(USRDIR)/share/mc/syntax/haskell.syntax
+file path=$(USRDIR)/share/mc/syntax/html.syntax
+file path=$(USRDIR)/share/mc/syntax/idl.syntax
+file path=$(USRDIR)/share/mc/syntax/ini.syntax
+file path=$(USRDIR)/share/mc/syntax/j.syntax
+file path=$(USRDIR)/share/mc/syntax/java.syntax
+file path=$(USRDIR)/share/mc/syntax/js.syntax
+file path=$(USRDIR)/share/mc/syntax/latex.syntax
+file path=$(USRDIR)/share/mc/syntax/lisp.syntax
+file path=$(USRDIR)/share/mc/syntax/lsm.syntax
+file path=$(USRDIR)/share/mc/syntax/lua.syntax
+file path=$(USRDIR)/share/mc/syntax/m4.syntax
+file path=$(USRDIR)/share/mc/syntax/mail.syntax
+file path=$(USRDIR)/share/mc/syntax/makefile.syntax
+file path=$(USRDIR)/share/mc/syntax/ml.syntax
+file path=$(USRDIR)/share/mc/syntax/named.syntax
+file path=$(USRDIR)/share/mc/syntax/nemerle.syntax
+file path=$(USRDIR)/share/mc/syntax/nroff.syntax
+file path=$(USRDIR)/share/mc/syntax/octave.syntax
+file path=$(USRDIR)/share/mc/syntax/pascal.syntax
+file path=$(USRDIR)/share/mc/syntax/perl.syntax
+file path=$(USRDIR)/share/mc/syntax/php.syntax
+file path=$(USRDIR)/share/mc/syntax/po.syntax
+file path=$(USRDIR)/share/mc/syntax/povray.syntax
+file path=$(USRDIR)/share/mc/syntax/procmail.syntax
+file path=$(USRDIR)/share/mc/syntax/properties.syntax
+file path=$(USRDIR)/share/mc/syntax/python.syntax
+file path=$(USRDIR)/share/mc/syntax/ruby.syntax
+file path=$(USRDIR)/share/mc/syntax/sh.syntax
+file path=$(USRDIR)/share/mc/syntax/slang.syntax
+file path=$(USRDIR)/share/mc/syntax/smalltalk.syntax
+file path=$(USRDIR)/share/mc/syntax/spec.syntax
+file path=$(USRDIR)/share/mc/syntax/sql.syntax
+file path=$(USRDIR)/share/mc/syntax/strace.syntax
+file path=$(USRDIR)/share/mc/syntax/swig.syntax
+file path=$(USRDIR)/share/mc/syntax/syntax.syntax
+file path=$(USRDIR)/share/mc/syntax/tcl.syntax
+file path=$(USRDIR)/share/mc/syntax/texinfo.syntax
+file path=$(USRDIR)/share/mc/syntax/tt.syntax
+file path=$(USRDIR)/share/mc/syntax/unknown.syntax
+file path=$(USRDIR)/share/mc/syntax/verilog.syntax
+file path=$(USRDIR)/share/mc/syntax/vhdl.syntax
+file path=$(USRDIR)/share/mc/syntax/xml.syntax
+file path=$(USRDIR)/share/mc/syntax/yum-repo.syntax
+file path=$(USRDIR)/share/mc/syntax/yxx.syntax
+link path=$(USRDIR)/bin/mcdiff target=mc
+link path=$(USRDIR)/bin/mcedit target=mc
+link path=$(USRDIR)/bin/mcview target=mc
