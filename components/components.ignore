@@ -134,7 +134,6 @@
 /^id3lib$/d
 /^illumos-hal$/d
 /^imagemagick$/d
-/^intltool$/d
 /^iperf$/d
 /^irssi$/d
 /^isc-bind$/d
