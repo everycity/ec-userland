@@ -364,7 +364,6 @@
 /^php55-ext-xdebug$/d
 /^phpmyadmin$/d
 /^pigz$/d
-/^pkg-config$/d
 /^pkg5$/d
 /^poppler$/d
 /^popt$/d
