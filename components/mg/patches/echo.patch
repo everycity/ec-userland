@@ -1,12 +1,14 @@
---- mg-20110120/echo.c.~1~	2011-01-02 22:57:56.000000000 +0000
-+++ mg-20110120/echo.c	2011-08-05 13:40:23.075871709 +0100
-@@ -18,7 +18,9 @@
+--- mg-20140414/echo.c.~1~	2014-04-03 20:20:55.000000000 +0100
++++ mg-20140414/echo.c	2014-04-23 20:42:39.227237458 +0100
+@@ -15,8 +15,11 @@
+ 
  #include "funmap.h"
  
++#include <limits.h>
  #include <stdarg.h>
 -#include <term.h>
-+#include <limits.h>
-+#include "asprintf.h"
++#include <strings.h>
++#include <sys/sysmacros.h>
 +#include </ec/include/ncurses/term.h>
  
  static char	*veread(const char *, char *, size_t, int, va_list);

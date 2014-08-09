@@ -1,0 +1,79 @@
+--- /dev/null	2014-04-23 20:43:08.000000000 +0100
++++ mg-20140414/adirent.c	2011-04-23 06:23:34.000000000 +0100
+@@ -0,0 +1,30 @@
++#include <limits.h>
++#include <string.h>
++
++#include "adirent.h"
++
++static char buf[sizeof (struct adirent) + PATH_MAX];
++
++static struct adirent *one_adirent = (struct adirent *)buf;
++
++DIRENT *
++READDIR(DIR *dirp)
++{
++	struct dirent *dp;
++
++	/* Do a normal readdir on dirp. */
++	dp = readdir(dirp);
++	if (dp == NULL)
++		return (NULL);
++
++	/* Copy members out of our dirent. */
++	one_adirent->d_ino = dp->d_ino;
++	one_adirent->d_off = dp->d_off;
++	one_adirent->d_reclen = (unsigned short)(sizeof (struct adirent));
++	strlcpy(one_adirent->d_name, dp->d_name, PATH_MAX);
++
++	/* Set d_type to DT_UNKNOWN. */
++	one_adirent->d_type = DT_UNKNOWN;
++
++	return (one_adirent);
++}
+--- /dev/null	2014-04-23 20:43:08.000000000 +0100
++++ mg-20140414/adirent.h	2011-04-23 06:23:32.000000000 +0100
+@@ -0,0 +1,43 @@
++#ifndef	_ADIRENT_H
++#define	_ADIRENT_H
++
++#ifdef	__cplusplus
++extern "C" {
++#endif
++
++#include <sys/types.h>
++#include <dirent.h>
++
++/*
++ * File types for d_type.
++ */
++#define	DT_UNKNOWN	0
++#define	DT_FIFO		1
++#define	DT_CHR		2
++#define	DT_DIR		4
++#define	DT_BLK		6
++#define	DT_REG		8
++#define	DT_LNK		10
++#define	DT_SOCK		12
++#define	DT_WHT		14
++
++#define	DIRENT	struct adirent
++
++struct adirent {
++	offset_t	d_ino;
++	offset_t	d_off;
++	uchar_t		d_type;
++	uint16_t	d_reclen;
++	char		d_name[PATH_MAX];
++};
++
++#define READDIR	areaddir
++
++DIRENT *READDIR(DIR *);
++
++
++#ifdef	__cplusplus
++}
++#endif
++
++#endif	/* _ADIRENT_H */

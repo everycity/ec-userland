@@ -1,10 +1,10 @@
---- mg-20110120/file.c.orig	2011-08-05 12:42:04.232849550 +0100
-+++ mg-20110120/file.c	2011-08-05 12:42:12.391684534 +0100
+--- mg-20140414/file.c.orig	2014-04-22 12:55:45.848095437 +0100
++++ mg-20140414/file.c	2014-04-22 12:56:03.407418074 +0100
 @@ -8,6 +8,7 @@
  
- #include "libgen.h"
  #include "def.h"
-+#include "asprintf.h"
  
- static char *xdirname(const char *);
++#include <strings.h>
+ #include <sys/stat.h>
  
+ #include <libgen.h>

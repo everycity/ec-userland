@@ -1,0 +1,75 @@
+--- mg-20140414/region.c.orig	2014-04-03 20:20:55.000000000 +0100
++++ mg-20140414/region.c	2014-04-24 00:36:30.143776431 +0100
+@@ -21,6 +21,12 @@
+ 
+ #define TIMEOUT 10000
+ 
++#ifndef MSG_NOSIGNAL
++#if defined(SO_NOSIGPIPE)
++#define MSG_NOSIGNAL SO_NOSIGPIPE
++#endif
++#endif
++
+ static char leftover[BUFSIZ];
+ 
+ static	int	getregion(struct region *);
+@@ -605,6 +611,47 @@
+ 	return (popbuftop(outbp, WNONE));
+ }
+ 
++#if !defined(MSG_NOSIGNAL) && !defined(SO_NOSIGPIPE) /* Solaris needs this */
++/*
++ * SIGPIPE handling similar to the approach described in
++ * http://krokisplace.blogspot.com/2010/02/suppressing-sigpipe-in-library.html
++ * and
++ * https://groups.google.com/forum/?fromgroups#!topic/comp.unix.programmer/Spk9NrhSMPk
++ */
++static ssize_t
++nosigpipe_send(int fd, const void *buffer, size_t size)
++{
++	sigset_t pending, blocked, set;
++	ssize_t count;
++	int saved, error;
++
++	sigpending(&pending);
++	if (!sigismember(&pending, SIGPIPE)) {
++		sigemptyset(&set);
++		sigaddset(&set, SIGPIPE);
++		if ((error = pthread_sigmask(SIG_BLOCK, (const sigset_t *)&set, (sigset_t *)&blocked)))
++			goto error;
++	}
++	count = send(fd, buffer, size, 0);
++	if (!sigismember(&pending, SIGPIPE)) {
++		saved = errno;
++		if (count == -1 && errno == EPIPE) {
++			sigemptyset(&set);
++			sigaddset(&set, SIGPIPE);
++			while (-1 == sigtimedwait(&set, NULL, &(struct timespec){ 0, 0 }) && errno == EINTR)
++				;;
++		}
++		if ((error = pthread_sigmask(SIG_SETMASK, (const sigset_t *)&blocked, (sigset_t *)NULL)))
++			goto error;
++		errno = saved;
++	}
++	return count;
++error:
++	errno = error;
++	return -1;
++}
++#endif
++
+ /*
+  * Write some text from region to fd. Once done shutdown the 
+  * write end.
+@@ -614,9 +661,8 @@
+ {
+ 	int w;
+ 
+-/* As per: http://lists.apple.com/archives/macnetworkprog/2002/Dec/msg00091.html */
+-#ifdef __APPLE__
+-	if (((w = send(fd, *text, *len, SO_NOSIGPIPE)) == -1)) {
++#if !defined(MSG_NOSIGNAL) && !defined(SO_NOSIGPIPE) /* Solaris needs this */
++	if (((w = nosigpipe_send(fd, *text, *len)) == -1)) {
+ #else
+ 	if (((w = send(fd, *text, *len, MSG_NOSIGNAL)) == -1)) {
+ #endif

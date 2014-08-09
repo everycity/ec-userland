@@ -1,0 +1,34 @@
+--- mg-20140414/tags.c.~1~	2014-04-06 20:10:51.000000000 +0100
++++ mg-20140414/tags.c	2014-08-09 13:24:23.626052713 +0100
+@@ -6,9 +6,7 @@
+  * Author: Sunil Nimmagadda <sunil@sunilnimmagadda.com>
+  */
+ 
+-#include <sys/queue.h>
+ #include <sys/stat.h>
+-#include <sys/tree.h>
+ #include <sys/types.h>
+ 
+ #include <ctype.h>
+@@ -19,13 +17,18 @@
+ 
+ #include <stdio.h>
+ 
+-#if defined(LIBBSD_OVERLAY) || defined(__FreeBSD__)
+-#  include <libutil.h>
++#if defined(__sun) && defined(__SVR4)
++#  include "fparseln.h"
+ #else
+-#  include <util.h>
++#  if defined(LIBBSD_OVERLAY) || defined(__FreeBSD__)
++#    include <libutil.h>
++#  else
++#    include <util.h>
++#  endif
+ #endif
+ 
+ #include "def.h"
++#include "tree.h"
+ 
+ struct ctag;
+ 
