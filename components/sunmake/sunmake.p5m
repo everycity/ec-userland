@@ -31,4 +31,4 @@ file path=$(USRDIR)/lib/libmakestate.so.1
 file path=$(USRDIR)/lib/svr4.make
 file path=$(USRDIR)/share/lib/make/make.rules
 file path=$(USRDIR)/share/lib/make/svr4.make.rules
-#file path=$(USRDIR)/xpg4/bin/make
+file $(USRDIR)/xpg4/bin/make path=$(USRDIR)/bin/sunmake

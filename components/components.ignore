@@ -434,7 +434,6 @@
 /^subversion$/d
 /^subversion-apache24$/d
 /^sudo$/d
-/^sunmake$/d
 /^swig$/d
 /^sysbench$/d
 /^syslog-ng$/d
