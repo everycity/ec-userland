@@ -31,7 +31,7 @@ license gettext.license license="GPLv2, FDLv1.2"
 #set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 #set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-#license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 file path=$(USRDIR)/bin/$(MACH64)/autopoint
 file path=$(USRDIR)/bin/$(MACH64)/envsubst

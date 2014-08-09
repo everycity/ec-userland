@@ -25,8 +25,8 @@
 #
 
 #CONFIGURE_DEFAULT_HOST = no
-CONFIGURE_DEFAULT_LDFLAGS = no
-CONFIGURE_DEFAULT_CPPFLAGS = no
+#CONFIGURE_DEFAULT_LDFLAGS = no
+#CONFIGURE_DEFAULT_CPPFLAGS = no
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gettext
@@ -44,7 +44,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CPPFLAGS += -I/usr/include/libxml2
+CPPFLAGS += -I$(USRDIR)/include/libxml2
 
 CONFIGURE_OPTIONS  +=		--disable-java
 CONFIGURE_OPTIONS  +=		--disable-libasprintf

@@ -91,7 +91,6 @@
 /^geoip-db-country$/d
 /^geos$/d
 /^getopt$/d
-/^gettext$/d
 /^ghostscript$/d
 /^giflib$/d
 /^gifsicle$/d
