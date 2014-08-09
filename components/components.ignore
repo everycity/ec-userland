@@ -28,7 +28,6 @@
 /^bdb51$/d
 /^bdb60$/d
 /^binutils$/d
-/^bison$/d
 /^bitlbee$/d
 /^boost$/d
 /^bzip2$/d
