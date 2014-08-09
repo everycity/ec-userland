@@ -1,0 +1,781 @@
+/ec/bin/pkgdepend resolve -m /home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed /home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27.depend.fixed
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/regrtest.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_anydbm.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test___future__.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_array.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_binhex.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_cmd.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_bsddb.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_bz2.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_logging.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_marshal.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_multibytecodec_support.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_multibytecodec.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_popen.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_popen2.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_random.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_sets.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_smtpnet.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_socket.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_codecencodings_kr.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_gl.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_dl.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_codecencodings_hk.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_codecmaps_cn.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_codecencodings_jp.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_codecmaps_kr.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_codecencodings_cn.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_codecencodings_iso2022.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_codecmaps_tw.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_codecencodings_tw.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_errno.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_codecmaps_hk.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_gzip.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_dumbdbm.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_eof.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_codecmaps_jp.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_with.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_whichdb.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_urlparse.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_urllibnet.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_urllib2_localnet.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+/home/build/ec-userland.dev/components/python/python27/build/manifest-i386-python-27-tests.depend.fixed has unresolved dependency '
+    depend type=require fmri=__TBD \
+        pkg.debug.depend.reason=ec/lib/python2.7/test/test_urllib2net.py \
+        pkg.debug.depend.type=python \
+        pkg.debug.depend.file=unittest.py \
+        pkg.debug.depend.file=unittest.pyc \
+        pkg.debug.depend.file=unittest.pyo \
+        pkg.debug.depend.file=unittest.so \
+        pkg.debug.depend.file=unittest/__init__.py \
+        pkg.debug.depend.file=unittestmodule.so \
+        pkg.debug.depend.path=ec/lib/python2.7 \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-dynload \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-old \
+        pkg.debug.depend.path=ec/lib/python2.7/lib-tk \
+        pkg.debug.depend.path=ec/lib/python2.7/plat-sunos5 \
+        pkg.debug.depend.path=ec/lib/python2.7/site-packages \
+        pkg.debug.depend.path=ec/lib/python2.7/test \
+        pkg.debug.depend.path=ec/lib/python2.7/vendor-packages \
+        pkg.debug.depend.path=ec/lib/python27.zip'.
+gmake: *** [/home/build/ec-userland.dev/components/python/python27/build/.resolved-i386] Error 1

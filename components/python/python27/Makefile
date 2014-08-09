@@ -25,7 +25,7 @@
 CONFIGURE_DEFAULT_CPPFLAGS = yes
 include ../../../make-rules/shared-macros.mk
 
-PATH=/usr/bin:/sbin:/usr/sbin
+#PATH=$(USRDIR)/bin:/usr/bin:/sbin:/usr/sbin
 
 COMPONENT_NAME=		Python
 COMPONENT_VERSION=	2.7.6
@@ -61,12 +61,11 @@ CPPFLAGS +=	-D_LARGEFILE64_SOURCE
 # libffi for _ctypes
 CPPFLAGS +=	$(shell pkg-config --cflags-only-I libffi)
 
-CFLAGS.32=
-CXXFLAGS.32=
-LDFLAGS =	-lumem
+CFLAGS.32= -I$(USRDIR)/include
+CXXFLAGS.32= -I$(USRDIR)/include
+LDFLAGS = -lumem
 
 EXTRA_CFLAGS = $(CFLAGS)
-#EXTRA_CFLAGS = $(gcc_OPT) $(CC_BITS)
 
 # Python puts its header files in a special place.
 LINT_FLAGS +=	-I$(SOURCE_DIR)/Include

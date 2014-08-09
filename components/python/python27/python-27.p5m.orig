@@ -33,13 +33,16 @@ set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 #file path=$(USRDIR)/bin/smtpd.py
 #file path=$(USRDIR)/bin/$(MACH64)/smtpd.py
 #
-file path=$(USRDIR)/bin/python2.7
-file path=$(USRDIR)/bin/$(MACH64)/python2.7
+file $(USRDIR)/bin/python2.7 path=$(USRDIR)/bin/$(MACH32)/isapython2.7
+link path=$(USRDIR)/bin/$(MACH32)/python2.7 target=isapython2.7
+file $(USRDIR)/bin/$(MACH64)/python2.7 path=$(USRDIR)/bin/$(MACH64)/isapython2.7
 
 link path=$(USRDIR)/bin/$(MACH64)/python target=python2.7 mediator=python \
     mediator-version=2.7
 link path=$(USRDIR)/bin/$(MACH64)/python-config target=python2.7-config \
     mediator=python mediator-version=2.7
+
+link path=$(USRDIR)/bin/$(MACH64)/python2.7 target=isapython2.7
 
 file path=$(USRDIR)/bin/$(MACH64)/python2.7-config
 link path=$(USRDIR)/bin/2to3 target=2to3-2.7 mediator=python mediator-version=2.7
@@ -47,6 +50,8 @@ link path=$(USRDIR)/bin/2to3 target=2to3-2.7 mediator=python mediator-version=2.
 file $(USRDIR)/bin/2to3 path=$(USRDIR)/bin/2to3-2.7
 link path=$(USRDIR)/bin/idle target=idle-2.7 mediator=python mediator-version=2.7
 file $(USRDIR)/bin/idle path=$(USRDIR)/bin/idle-2.7
+hardlink path=$(USRDIR)/bin/isapython2.7 target=/usr/lib/isaexec
+#file /usr/lib/isaexec path=$(USRDIR)/bin/isapython2.7
 link path=$(USRDIR)/bin/pydoc target=pydoc-2.7 mediator=python mediator-version=2.7
 file $(USRDIR)/bin/pydoc path=$(USRDIR)/bin/pydoc-2.7
 
@@ -54,6 +59,7 @@ link path=$(USRDIR)/bin/python target=python2.7 mediator=python mediator-version
 link path=$(USRDIR)/bin/python-config target=python2.7-config mediator=python \
     mediator-version=2.7
 
+link path=$(USRDIR)/bin/python2.7 target=$(MACH32)/isapython2.7
 file path=$(USRDIR)/bin/python2.7-config
 file path=$(USRDIR)/include/python2.7/Python-ast.h
 file path=$(USRDIR)/include/python2.7/Python.h
@@ -922,30 +928,30 @@ file path=$(USRDIR)/lib/python2.7/trace.py pkg.depend.bypass-generate=.*
 file path=$(USRDIR)/lib/python2.7/traceback.py
 file path=$(USRDIR)/lib/python2.7/tty.py
 file path=$(USRDIR)/lib/python2.7/types.py
-file path=$(USRDIR)/lib/python2.7/unittest/__init__.py
-file path=$(USRDIR)/lib/python2.7/unittest/__main__.py
-file path=$(USRDIR)/lib/python2.7/unittest/case.py
-file path=$(USRDIR)/lib/python2.7/unittest/loader.py
-file path=$(USRDIR)/lib/python2.7/unittest/main.py
-file path=$(USRDIR)/lib/python2.7/unittest/result.py
-file path=$(USRDIR)/lib/python2.7/unittest/runner.py
-file path=$(USRDIR)/lib/python2.7/unittest/signals.py
-file path=$(USRDIR)/lib/python2.7/unittest/suite.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/__init__.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/dummy.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/support.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_assertions.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_break.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_case.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_discovery.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_functiontestcase.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_loader.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_program.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_result.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_runner.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_setups.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_skipping.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_suite.py
+#file path=$(USRDIR)/lib/python2.7/unittest/__init__.py
+#file path=$(USRDIR)/lib/python2.7/unittest/__main__.py
+#file path=$(USRDIR)/lib/python2.7/unittest/case.py
+#file path=$(USRDIR)/lib/python2.7/unittest/loader.py
+#file path=$(USRDIR)/lib/python2.7/unittest/main.py
+#file path=$(USRDIR)/lib/python2.7/unittest/result.py
+#file path=$(USRDIR)/lib/python2.7/unittest/runner.py
+#file path=$(USRDIR)/lib/python2.7/unittest/signals.py
+#file path=$(USRDIR)/lib/python2.7/unittest/suite.py
+#file path=$(USRDIR)/lib/python2.7/unittest/test/__init__.py
+#file path=$(USRDIR)/lib/python2.7/unittest/test/dummy.py
+#file path=$(USRDIR)/lib/python2.7/unittest/test/support.py
+#file path=$(USRDIR)/lib/python2.7/unittest/test/test_assertions.py
+#file path=$(USRDIR)/lib/python2.7/unittest/test/test_break.py
+#file path=$(USRDIR)/lib/python2.7/unittest/test/test_case.py
+#file path=$(USRDIR)/lib/python2.7/unittest/test/test_discovery.py
+#file path=$(USRDIR)/lib/python2.7/unittest/test/test_functiontestcase.py
+#file path=$(USRDIR)/lib/python2.7/unittest/test/test_loader.py
+#file path=$(USRDIR)/lib/python2.7/unittest/test/test_program.py
+#file path=$(USRDIR)/lib/python2.7/unittest/test/test_result.py
+#file path=$(USRDIR)/lib/python2.7/unittest/test/test_runner.py
+#file path=$(USRDIR)/lib/python2.7/unittest/test/test_setups.py
+#file path=$(USRDIR)/lib/python2.7/unittest/test/test_skipping.py
+#file path=$(USRDIR)/lib/python2.7/unittest/test/test_suite.py
 file path=$(USRDIR)/lib/python2.7/unittest/util.py
 file path=$(USRDIR)/lib/python2.7/urllib.py
 file path=$(USRDIR)/lib/python2.7/urllib2.py
