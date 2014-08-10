@@ -23,7 +23,7 @@
 CONFIGURE_DEFAULT_CPPFLAGS = yes
 include ../../../make-rules/shared-macros.mk
 
-PATH=$(ECPREFIX)/bin:/apps/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
+#PATH=$(USRDIR)/bin:/apps/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
 
 COMPONENT_NAME=		Python
 COMPONENT_VERSION=	2.6.9
@@ -60,13 +60,13 @@ CXXFLAGS=	-I$(USRDIR)/include
 #LDFLAGS_32=	-L$(USRDIR)/lib -R$(USRDIR)/lib
 #LDFLAGS_64=	-L$(USRDIR)/lib/$(MACH64) -R$(USRDIR)/lib/$(MACH64)
 #LDFLAGS=	$(LDFLAGS_$(BITS))
-#LDFLAGS += -ltinfo
+LDFLAGS = -lumem
 
 C99MODE=
 CPPFLAGS +=	-IPython
 
 # so we find the ncurses headers
-CPPFLAGS +=	-I$(ECPREFIX)/include/ncursesw
+CPPFLAGS +=	-I$(USRDIR)/include/ncursesw
 # enable large files how they did in JDS
 CPPFLAGS +=	-D_LARGEFILE64_SOURCE
 # libffi for _ctypes
@@ -80,13 +80,13 @@ CONFIGURE_OPTIONS  +=		--with-system-ffi
 CONFIGURE_OPTIONS  +=		--with-wctype-functions
 CONFIGURE_OPTIONS  +=		ac_cv_opt_olimit_ok=no
 CONFIGURE_OPTIONS  +=		ac_cv_olimit_ok=no
-CONFIGURE_OPTIONS  +=		CPPFLAGS="$(CPPFLAGS)"
-CONFIGURE_OPTIONS  +=		CFLAGS="$(CFLAGS)"
+#CONFIGURE_OPTIONS  +=		CPPFLAGS="$(CPPFLAGS)"
+#CONFIGURE_OPTIONS  +=		CFLAGS="$(CFLAGS)"
 CONFIGURE_OPTIONS  +=		CCSHARED="$(CC_PIC)"
-CONFIGURE_OPTIONS  +=		CC="$(CC)"
-CONFIGURE_OPTIONS  +=		CXX="$(CCC)"
+#CONFIGURE_OPTIONS  +=		CC="$(CC)"
+#CONFIGURE_OPTIONS  +=		CXX="$(CCC)"
 CONFIGURE_OPTIONS  +=		CXXFLAGS="$(CCFLAGS)"
-CONFIGURE_OPTIONS  +=		LDFLAGS="$(LDFLAGS)"
+#CONFIGURE_OPTIONS  +=		LDFLAGS="$(LDFLAGS)"
 CONFIGURE_OPTIONS  +=		DFLAGS="-$(BITS)"
 
 COMPONENT_BUILD_ENV  +=		DFLAGS="-$(BITS)"
@@ -100,7 +100,7 @@ COMPONENT_INSTALL_ARGS.64 += DESTSHARED=$(CONFIGURE_PREFIX)/lib/python2.6/lib-dy
 # build a Python module.  So here we also touch the pickle files to avoid this.
 #
 COMPONENT_POST_INSTALL_ACTION= \
-            (cd $(PROTO_DIR)$(ECPREFIX) ;  \
+            (cd $(PROTO_DIR)$(USRDIR) ;  \
              $(MV) include/python2.6/pyconfig.h include/python2.6/pyconfig-$(BITS).h ; \
              $(TOUCH) lib/python2.6/lib2to3/*.pickle)
 
