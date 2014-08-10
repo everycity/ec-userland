@@ -26,7 +26,7 @@
 
 include ../../make-rules/shared-macros.mk
 
-PATH = /usr/gnu/bin:/usr/bin
+#PATH = /usr/gnu/bin:/usr/bin
 
 COMPONENT_NAME=		quilt
 COMPONENT_VERSION=	0.60
@@ -58,20 +58,20 @@ COMPONENT_BUILD_ARGS+=	--no-print-directory
 # Quilt will need this option until Solaris has GNU getopt.
 CONFIGURE_OPTIONS += --without-getopt
 
-CONFIGURE_OPTIONS += --with-cp=/usr/bin/cp
-CONFIGURE_OPTIONS += --with-date=/usr/bin/date
-CONFIGURE_OPTIONS += --with-grep=/usr/bin/grep
-CONFIGURE_OPTIONS += --with-tail=/usr/bin/tail
-CONFIGURE_OPTIONS += --with-tr=/usr/bin/tr
-CONFIGURE_OPTIONS += --with-sed=/usr/bin/gsed
-CONFIGURE_OPTIONS += --with-diff=/usr/bin/diff
-CONFIGURE_OPTIONS += --with-find=/usr/bin/gfind
-CONFIGURE_OPTIONS += --with-patch=/usr/bin/patch
-CONFIGURE_OPTIONS += --with-xargs=/usr/bin/xargs
-CONFIGURE_OPTIONS += --with-perl=/usr/bin/perl
-CONFIGURE_OPTIONS += --with-pod2man=/usr/bin/pod2man
-CONFIGURE_OPTIONS += --with-xgettext=/usr/bin/xgettext
-CONFIGURE_OPTIONS += --with-msgfmt=/usr/bin/msgfmt
+CONFIGURE_OPTIONS += --with-cp=$(USRDIR)/bin/cp
+CONFIGURE_OPTIONS += --with-date=$(USRDIR)/bin/date
+CONFIGURE_OPTIONS += --with-grep=$(USRDIR)/bin/grep
+CONFIGURE_OPTIONS += --with-tail=$(USRDIR)/bin/tail
+CONFIGURE_OPTIONS += --with-tr=$(USRDIR)/bin/tr
+CONFIGURE_OPTIONS += --with-sed=$(USRDIR)/bin/gsed
+CONFIGURE_OPTIONS += --with-diff=$(USRDIR)/bin/diff
+CONFIGURE_OPTIONS += --with-find=$(USRDIR)/bin/gfind
+CONFIGURE_OPTIONS += --with-patch=$(USRDIR)/bin/patch
+CONFIGURE_OPTIONS += --with-xargs=$(USRDIR)/bin/xargs
+CONFIGURE_OPTIONS += --with-perl=$(USRDIR)/bin/perl
+CONFIGURE_OPTIONS += --with-pod2man=$(USRDIR)/bin/pod2man
+CONFIGURE_OPTIONS += --with-xgettext=$(USRDIR)/bin/xgettext
+CONFIGURE_OPTIONS += --with-msgfmt=$(USRDIR)/bin/msgfmt
 
 COMPONENT_INSTALL_ARGS +=	BUILD_ROOT=$(PROTO_DIR)
 

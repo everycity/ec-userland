@@ -5,7 +5,7 @@
  	$ quilt delete "test3"
  	> Removing patch %{P}test3
 -	>~ find: `?\./dir'?: Permission denied
-+	>~ /usr/bin/find: ./dir: Permission denied
++	>~ gfind: ./dir: Permission denied
  
  	$ chmod a+rx .pc/test3/dir
  
