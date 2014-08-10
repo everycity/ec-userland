@@ -47,8 +47,8 @@ file path=$(USRDIR)/lib/python2.7/vendor-packages/pyOpenSSL-$(COMPONENT_VERSION)
 license LICENSE license=Apache2
 
 # force a dependency on the Python runtime
-depend type=require fmri=__TBD pkg.debug.depend.file=python2.7 \
-    pkg.debug.depend.path=$(USRDIR)/bin
+#depend type=require fmri=__TBD pkg.debug.depend.file=python2.7 \
+#    pkg.debug.depend.path=$(USRDIR)/bin
 
 # force a dependency on the pyopenssl package
 #depend fmri=library/python-2/pyopenssl@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION) \
