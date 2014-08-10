@@ -24,8 +24,6 @@
 #
 include ../../../make-rules/shared-macros.mk
 
-PATH=/usr/bin:/usr/gnu/bin:/usr/sbin
-
 COMPONENT_NAME=		jsonrpclib
 COMPONENT_VERSION=	0.1.3
 COMPONENT_HASH=		e3a3cde
