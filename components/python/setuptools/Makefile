@@ -40,6 +40,8 @@ include ../../../make-rules/ips.mk
 
 IPS_COMPONENT_VERSION=  0.6.3.11
 
+PYTHON_VERSIONS = 2.7 2.6
+
 # common targets
 build:		$(BUILD_32)
 
