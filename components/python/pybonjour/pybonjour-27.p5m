@@ -34,8 +34,8 @@ license pybonjour.copyright license=BSD
 #depend fmri=service/network/dns/mdns type=require
 
 # force a dependency on the Python 2.7 runtime
-depend fmri=__TBD pkg.debug.depend.file=python2.7 \
-       pkg.debug.depend.path=usr/bin type=require
+#depend fmri=__TBD pkg.debug.depend.file=python2.7 \
+#       pkg.debug.depend.path=$(USRDIR)/bin type=require
 
 # force a dependency on the pybonjour package
 #depend fmri=library/python-2/pybonjour@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION) \
