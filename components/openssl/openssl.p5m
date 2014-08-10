@@ -22,14 +22,14 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-file path=etc/openssl/misc/CA.pl
-file path=etc/openssl/misc/CA.sh
-file path=etc/openssl/misc/c_hash
-file path=etc/openssl/misc/c_info
-file path=etc/openssl/misc/c_issuer
-file path=etc/openssl/misc/c_name
-file path=etc/openssl/misc/tsget
-file path=etc/openssl/openssl.cnf
+file path=$(SYSCONFDIR)/openssl/misc/CA.pl
+file path=$(SYSCONFDIR)/openssl/misc/CA.sh
+file path=$(SYSCONFDIR)/openssl/misc/c_hash
+file path=$(SYSCONFDIR)/openssl/misc/c_info
+file path=$(SYSCONFDIR)/openssl/misc/c_issuer
+file path=$(SYSCONFDIR)/openssl/misc/c_name
+file path=$(SYSCONFDIR)/openssl/misc/tsget
+file path=$(SYSCONFDIR)/openssl/openssl.cnf
 
 file path=$(USRDIR)/bin/$(MACH64)/openssl
 file path=$(USRDIR)/bin/c_rehash

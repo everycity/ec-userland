@@ -40,30 +40,38 @@ override COMPONENT_BUILD_GMAKE_ARGS=
 # OpenSSL does not use autoconf but its own configure system.
 CONFIGURE_SCRIPT = $(SOURCE_DIR)/Configure
 
-CFLAGS += -DNO_WINDOWS_BRAINDEATH
+CFLAGS += -DSOLARIS_OPENSSL -DNO_WINDOWS_BRAINDEATH
 
 GENERIC_CONFIGURE_OPTIONS = \
         $(CFLAGS) \
-        --openssldir=/etc/openssl \
+        --openssldir=$(CONFIGURE_SYSCONFDIR)/openssl \
         --prefix=$(USRDIR) \
         --install_prefix=$(PROTO_DIR) \
-        no-rc3 \
-        no-rc5 \
-        no-mdc2 \
-        no-idea \
-        no-hw_4758_cca \
-        no-hw_aep \
-        no-hw_atalla \
-        no-hw_chil \
-        no-hw_gmp \
-        no-hw_ncipher \
-        no-hw_nuron \
-        no-hw_padlock \
-        no-hw_sureware \
-        no-hw_ubsec \
-        no-hw_cswift \
         threads \
         shared
+
+CONFIGURE_OPTIONS += no-ec
+CONFIGURE_OPTIONS += no-ecdh
+CONFIGURE_OPTIONS += no-ecdsa
+CONFIGURE_OPTIONS += no-rc3
+CONFIGURE_OPTIONS += no-rc5
+CONFIGURE_OPTIONS += no-mdc2
+CONFIGURE_OPTIONS += no-idea
+CONFIGURE_OPTIONS += no-hw_4758_cca
+CONFIGURE_OPTIONS += no-hw_aep
+CONFIGURE_OPTIONS += no-hw_atalla
+CONFIGURE_OPTIONS += no-hw_chil
+CONFIGURE_OPTIONS += no-hw_gmp
+CONFIGURE_OPTIONS += no-hw_ncipher
+CONFIGURE_OPTIONS += no-hw_nuron
+CONFIGURE_OPTIONS += no-hw_padlock
+CONFIGURE_OPTIONS += no-hw_sureware
+CONFIGURE_OPTIONS += no-hw_ubsec
+CONFIGURE_OPTIONS += no-hw_cswift
+CONFIGURE_OPTIONS += enable-md2
+CONFIGURE_OPTIONS += no-seed
+CONFIGURE_OPTIONS += no-whirlpool
+CONFIGURE_OPTIONS += no-whrlpool
 
 CONFIGURE_OPTIONS_i386_32 = solaris-x86-gcc 386
 CONFIGURE_OPTIONS_i386_64 = solaris64-x86_64-gcc
@@ -79,25 +87,27 @@ COMPONENT_PRE_CONFIGURE_ACTION = \
 
 COMPONENT_POST_CONFIGURE_ACTION = ( cd $(@D); $(MAKE) depend; )
 
+COMPONENT_INSTALL_ARGS += PATH=$(PATH) MANDIR=$(USRDIR)/share/man
+
 build:		$(BUILD_32_and_64)
 
 include ../../make-rules/shared-targets.mk
 
 $(BUILD_DIR)/.installed:	$(BUILD_32_and_64) $(INSTALL_32)
 	$(MKDIR) $(PROTO_DIR)$(USRDIR)/share
-	([ -d $(PROTO_DIR)/etc/openssl/man ] && \
-	    $(CP) -RP $(PROTO_DIR)/etc/openssl/man \
-	    $(PROTO_DIR)$(USRDIR)/share || true)
-	([ -d $(PROTO_DIR)/etc/openssl/man ] && \
-	    $(RM) -rf $(PROTO_DIR)/etc/openssl/man || true)
+#	([ -d $(PROTO_DIR)$(CONFIGURE_SYSCONFDIR)/openssl/man ] && \
+#	    $(CP) -RP $(PROTO_DIR)$(CONFIGURE_SYSCONFDIR)/openssl/man \
+#	    $(PROTO_DIR)$(USRDIR)/share || true)
+#	([ -d $(PROTO_DIR)$(CONFIGURE_SYSCONFDIR)/openssl/man ] && \
+#	    $(RM) -rf $(PROTO_DIR)$(CONFIGURE_SYSCONFDIR)/openssl/man || true)
 	$(MKDIR) $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)
 	$(INSTALL) $(BUILD_DIR_64)/apps/openssl $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)
 	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
 	$(INSTALL) $(BUILD_DIR_64)/libcrypto.so.1.0.0 $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
 	$(INSTALL) $(BUILD_DIR_64)/libssl.so.1.0.0 $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
-	( cd $(PROTO_DIR)$(USRDIR)/lib/$(MACH64) && \
-		$(SYMLINK) libcrypto.so.1.0.0 libcrypto.so && \
-		$(SYMLINK) libssl.so.1.0.0 libssl.so )
+#	( cd $(PROTO_DIR)$(USRDIR)/lib/$(MACH64) && \
+#		$(SYMLINK) -f libcrypto.so.1.0.0 libcrypto.so && \
+#		$(SYMLINK) -f libssl.so.1.0.0 libssl.so )
 	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
 	$(INSTALL) $(BUILD_DIR_64)/engines/lib4758cca.so $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
 	$(INSTALL) $(BUILD_DIR_64)/engines/libaep.so $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
@@ -117,15 +127,15 @@ $(BUILD_DIR)/.installed:	$(BUILD_32_and_64) $(INSTALL_32)
 	$(INSTALL) $(BUILD_DIR_64)/openssl.pc $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/pkgconfig
 	(chmod +w $(PROTO_DIR)$(USRDIR)/bin/openssl $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/openssl \
 		$(PROTO_DIR)$(USRDIR)/lib/*so.* $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/*so.*)
-	(strip $(PROTO_DIR)$(USRDIR)/bin/openssl $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/openssl \
-		$(PROTO_DIR)$(USRDIR)/lib/*so.* $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/*so.*)
+#	(strip $(PROTO_DIR)$(USRDIR)/bin/openssl $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/openssl \
+#		$(PROTO_DIR)$(USRDIR)/lib/*so.* $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/*so.*)
 	# Note: OpenSSL generates a header file, include/openssl/opensslconf.h
 	# This header file is different depending on 32bit or 64bit build
-	/usr/bin/echo -e "/* EC: combining 32 and 64bit versions */\n\n#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/opensslconf.h
+	$(ECHO) -e "/* EC: combining 32 and 64bit versions */\n\n#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/opensslconf.h
 	/usr/bin/cat $(BUILD_DIR_64)/include/openssl/opensslconf.h >> $(COMPONENT_DIR)/opensslconf.h
-	/usr/bin/echo -e "\n#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/opensslconf.h
+	$(ECHO) -e "\n#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/opensslconf.h
 	/usr/bin/cat $(BUILD_DIR_32)/include/openssl/opensslconf.h >> $(COMPONENT_DIR)/opensslconf.h
-	/usr/bin/echo -e "\n#endif /* EC */" >> $(COMPONENT_DIR)/opensslconf.h
+	$(ECHO) -e "\n#endif /* EC */" >> $(COMPONENT_DIR)/opensslconf.h
 	$(RM) $(PROTO_DIR)$(USRDIR)/include/openssl/opensslconf.h
 	$(INSTALL) $(COMPONENT_DIR)/opensslconf.h $(PROTO_DIR)$(USRDIR)/include/openssl/opensslconf.h
 	$(TOUCH) $@
