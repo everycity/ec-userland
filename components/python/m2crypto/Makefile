@@ -23,8 +23,6 @@
 #
 include ../../../make-rules/shared-macros.mk
 
-PATH=/usr/bin:/usr/gnu/bin:/usr/sbin
-
 COMPONENT_NAME=		M2Crypto
 COMPONENT_VERSION=	0.21.1
 COMPONENT_PROJECT_URL=	http://chandlerproject.org/Projects/MeTooCrypto/
@@ -37,6 +35,8 @@ COMPONENT_ARCHIVE_URL=	http://pypi.python.org/packages/source/M/M2Crypto/$(COMPO
 include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/setup.py.mk
 include $(WS_TOP)/make-rules/ips.mk
+
+#PYTHON_PRE_SETUP_ARGS += CFLAGS="$(CFLAGS)"
 
 # common targets
 build:		$(BUILD_32_and_64)
