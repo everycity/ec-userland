@@ -42,7 +42,7 @@ include $(WS_TOP)/make-rules/ips.mk
 # Needed to get around a broken /usr/lib/python2.7/config/Makefile
 # See CR #16837431.
 LD=$(CC)
-LDSHARED=$(CC) -G
+LDSHARED=$(CC) -shared
 PYTHON_ENV += CC="$(CC)"
 PYTHON_ENV += LDSHARED="$(LDSHARED)"
 PYTHON_ENV += LD="$(LD)"
@@ -53,7 +53,7 @@ COMPONENT_INSTALL_ENV += $(PYTHON_ENV)
 build:		$(BUILD_32_and_64)
 
 COMPONENT_POST_INSTALL_ACTION =	\
-	(cd $(PROTO_DIR)/usr/bin ; $(MV) -f coverage coverage$(PYTHON_VERSION))
+	(cd $(PROTO_DIR)$(USRDIR)/bin ; $(MV) -f coverage coverage$(PYTHON_VERSION))
 
 install:	$(INSTALL_32_and_64)
 

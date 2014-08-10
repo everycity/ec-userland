@@ -376,7 +376,6 @@
 /^proftpd$/d
 /^proj$/d
 /^protobuf$/d
-/^python\/coverage$/d
 /^python\/jsonrpclib$/d
 /^python\/m2crypto$/d
 /^python\/mako$/d
