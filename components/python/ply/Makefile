@@ -23,8 +23,6 @@
 #
 include ../../../make-rules/shared-macros.mk
 
-#PATH=/usr/bin:/usr/gnu/bin:/usr/sbin
-
 COMPONENT_NAME=		ply
 COMPONENT_VERSION=	3.1
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)

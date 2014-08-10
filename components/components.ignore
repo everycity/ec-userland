@@ -378,7 +378,6 @@
 /^protobuf$/d
 /^python\/mercurial$/d
 /^python\/mysqldb55$/d
-/^python\/ply$/d
 /^python\/psycopg2-pg91$/d
 /^python\/psycopg2-pg93$/d
 /^python\/pybonjour$/d
