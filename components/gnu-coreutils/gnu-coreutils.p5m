@@ -55,7 +55,8 @@ file path=$(USRDIR)/bin/groups
 file path=$(USRDIR)/bin/head
 file path=$(USRDIR)/bin/hostid
 file path=$(USRDIR)/bin/id
-file path=$(USRDIR)/bin/install
+file $(USRDIR)/bin/install path=$(USRDIR)/bin/ginstall
+link path=$(USRDIR)/bin/install target=ginstall
 file path=$(USRDIR)/bin/join
 file path=$(USRDIR)/bin/kill
 file path=$(USRDIR)/bin/link

@@ -101,7 +101,6 @@
 /^gnome-vfs$/d
 /^gnu-awk$/d
 /^gnu-bc$/d
-/^gnu-coreutils$/d
 /^gnu-diffutils$/d
 /^gnu-findutils$/d
 /^gnu-grep$/d
