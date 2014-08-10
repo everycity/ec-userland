@@ -23,8 +23,6 @@
 #
 include ../../../make-rules/shared-macros.mk
 
-PATH=/usr/bin:/usr/gnu/bin:/usr/sbin
-
 COMPONENT_NAME=		pycurl
 COMPONENT_VERSION=	7.19.0
 COMPONENT_PROJECT_URL=	http://pycurl.sourceforge.net/
@@ -43,7 +41,7 @@ include $(WS_TOP)/make-rules/setup.py.mk
 include $(WS_TOP)/make-rules/ips.mk
 
 # to make sure that the docs get installed in the right place.
-PYTHON_DATA = /usr
+PYTHON_DATA = $(USRDIR)
 
 # common targets
 build:		$(BUILD_32_and_64)
