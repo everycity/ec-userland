@@ -29,7 +29,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CFLAGS += -I/usr/include/ncursesw
+CFLAGS += -I$(USRDIR)/include/ncursesw
 LDFLAGS += -ltinfo
 
 CONFIGURE_OPTIONS  +=	--disable-static

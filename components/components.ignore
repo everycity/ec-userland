@@ -400,7 +400,6 @@
 /^raptor2$/d
 /^rasqal$/d
 /^re-alpine$/d
-/^readline$/d
 /^redis$/d
 /^redland$/d
 /^rrdtool$/d
