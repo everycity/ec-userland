@@ -25,8 +25,6 @@
 #
 include ../../../make-rules/shared-macros.mk
 
-PATH=/usr/bin:/usr/gnu/bin:/usr/sbin
-
 COMPONENT_NAME=		CherryPy
 COMPONENT_VERSION=	3.2.2
 COMPONENT_PROJECT_URL=	http://www.cherrypy.org/
@@ -42,7 +40,7 @@ include $(WS_TOP)/make-rules/setup.py.mk
 include $(WS_TOP)/make-rules/ips.mk
 
 COMPONENT_POST_INSTALL_ACTION += \
-	(cd $(PROTO_DIR)/usr/bin ; $(MV) -f cherryd cherryd$(PYTHON_VERSION))
+	(cd $(PROTO_DIR)$(USRDIR)/bin ; $(MV) -f cherryd cherryd$(PYTHON_VERSION))
 
 
 # common targets
