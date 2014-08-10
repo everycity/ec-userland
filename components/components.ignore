@@ -119,7 +119,6 @@
 /^go$/d
 /^google-authenticator$/d
 /^gpac$/d
-/^gperf$/d
 /^groff$/d
 /^guile$/d
 /^haproxy$/d
