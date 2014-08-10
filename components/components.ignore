@@ -361,7 +361,6 @@
 /^php55-ext-xdebug$/d
 /^phpmyadmin$/d
 /^pigz$/d
-/^pkg5$/d
 /^poppler$/d
 /^popt$/d
 /^postgis-pg91$/d
