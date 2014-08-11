@@ -124,7 +124,6 @@
 /^harfbuzz$/d
 /^help2man$/d
 /^htop$/d
-/^iconv$/d
 /^id3lib$/d
 /^illumos-hal$/d
 /^imagemagick$/d
