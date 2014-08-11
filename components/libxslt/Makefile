@@ -40,7 +40,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LINT_FLAGS +=	-I/usr/include/libxml2 
+LINT_FLAGS +=	-I$(USRDIR)/include/libxml2
 
 CFLAGS +=	$(CPP_LARGEFILES)
 LDFLAGS +=	$(LD_Z_DEFS) $(LD_Z_TEXT) -lpthread -lz
@@ -49,7 +49,7 @@ CONFIGURE_OPTIONS += --disable-static
 CONFIGURE_OPTIONS += --with-pic
 CONFIGURE_OPTIONS += --with-python=$(PYTHON.$(BITS))
 CONFIGURE_OPTIONS += --without-crypto
-CONFIGURE_OPTIONS += --with-html-dir=/usr/share/lib/xslt/doc
+CONFIGURE_OPTIONS += --with-html-dir=$(USRDIR)/share/lib/xslt/doc
 CONFIGURE_OPTIONS += --with-html-subdir=html
 CONFIGURE_OPTIONS += PYTHON_VENDOR_PACKAGES=$(PYTHON_VENDOR_PACKAGES)
 
