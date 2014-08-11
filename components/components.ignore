@@ -417,7 +417,6 @@
 /^taglib$/d
 /^tcl$/d
 /^tcsh$/d
-/^texinfo$/d
 /^tftp-hpa$/d
 /^tidy$/d
 /^tmux$/d
