@@ -356,7 +356,6 @@
 /^phpmyadmin$/d
 /^pigz$/d
 /^poppler$/d
-/^popt$/d
 /^postgis-pg91$/d
 /^postgis-pg93$/d
 /^postgresql91$/d
