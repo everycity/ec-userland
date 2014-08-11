@@ -32,8 +32,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_ENV+=	LIBS="$(LIBS)"
-
 GPATCH_FLAGS=	-p0
 
 CONFIGURE_OPTIONS+=	--enable-alias

@@ -24,7 +24,6 @@
 /^automake-112$/d
 /^automake-114$/d
 /^automake-19$/d
-/^bash$/d
 /^bdb51$/d
 /^bdb60$/d
 /^binutils$/d
