@@ -19,7 +19,6 @@
 /^aspell$/d
 /^autogen$/d
 /^automake-110$/d
-/^automake-111$/d
 /^automake-112$/d
 /^automake-114$/d
 /^automake-19$/d

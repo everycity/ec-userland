@@ -148,7 +148,7 @@ file path=$(USRDIR)/share/automake-1.11/ylwrap
 file path=$(USRDIR)/share/man/man1/aclocal-1.11.1
 file path=$(USRDIR)/share/man/man1/automake-1.11.1
 
-link path=usr/bin/aclocal target=aclocal-1.11 \
+link path=$(USRDIR)/bin/aclocal target=aclocal-1.11 \
     mediator=automake mediator-version=1.11
-link path=usr/bin/automake target=automake-1.11 \
+link path=$(USRDIR)/bin/automake target=automake-1.11 \
     mediator=automake mediator-version=1.11
