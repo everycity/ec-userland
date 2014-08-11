@@ -100,7 +100,6 @@
 /^gnu-awk$/d
 /^gnu-bc$/d
 /^gnu-diffutils$/d
-/^gnu-findutils$/d
 /^gnu-gzip$/d
 /^gnu-inetutils$/d
 /^gnu-libidn$/d
