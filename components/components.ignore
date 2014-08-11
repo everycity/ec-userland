@@ -17,7 +17,6 @@
 /^apr-util$/d
 /^asciidoc$/d
 /^aspell$/d
-/^autoconf$/d
 /^autogen$/d
 /^automake-110$/d
 /^automake-111$/d

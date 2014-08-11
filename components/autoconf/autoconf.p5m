@@ -83,4 +83,4 @@ file path=$(USRDIR)/share/man/man1/config.guess.1
 file path=$(USRDIR)/share/man/man1/config.sub.1
 file path=$(USRDIR)/share/man/man1/ifnames.1
 
-depend fmri=__TBD pkg.debug.depend.file=usr/bin/gm4 type=require
+depend fmri=__TBD pkg.debug.depend.file=$(USRDIR)/bin/gm4 type=require
