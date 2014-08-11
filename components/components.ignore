@@ -183,7 +183,6 @@
 /^libwpd$/d
 /^libwpg$/d
 /^libwps$/d
-/^libxml2$/d
 /^libxslt$/d
 /^libxspf$/d
 /^libyaml$/d
