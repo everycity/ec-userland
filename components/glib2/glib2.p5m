@@ -338,23 +338,18 @@ file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/gthread-2.0.pc
 file path=$(USRDIR)/lib/charset.alias
 
 file path=$(USRDIR)/lib/glib-2.0/include/glibconfig.h
-file path=$(USRDIR)/lib/libgio-2.0.la
 link path=$(USRDIR)/lib/libgio-2.0.so target=libgio-2.0.so.0.4000.0
 link path=$(USRDIR)/lib/libgio-2.0.so.0 target=libgio-2.0.so.0.4000.0
 file path=$(USRDIR)/lib/libgio-2.0.so.0.4000.0
-file path=$(USRDIR)/lib/libglib-2.0.la
 link path=$(USRDIR)/lib/libglib-2.0.so target=libglib-2.0.so.0.4000.0
 link path=$(USRDIR)/lib/libglib-2.0.so.0 target=libglib-2.0.so.0.4000.0
 file path=$(USRDIR)/lib/libglib-2.0.so.0.4000.0
-file path=$(USRDIR)/lib/libgmodule-2.0.la
 link path=$(USRDIR)/lib/libgmodule-2.0.so target=libgmodule-2.0.so.0.4000.0
 link path=$(USRDIR)/lib/libgmodule-2.0.so.0 target=libgmodule-2.0.so.0.4000.0
 file path=$(USRDIR)/lib/libgmodule-2.0.so.0.4000.0
-file path=$(USRDIR)/lib/libgobject-2.0.la
 link path=$(USRDIR)/lib/libgobject-2.0.so target=libgobject-2.0.so.0.4000.0
 link path=$(USRDIR)/lib/libgobject-2.0.so.0 target=libgobject-2.0.so.0.4000.0
 file path=$(USRDIR)/lib/libgobject-2.0.so.0.4000.0
-file path=$(USRDIR)/lib/libgthread-2.0.la
 link path=$(USRDIR)/lib/libgthread-2.0.so target=libgthread-2.0.so.0.4000.0
 link path=$(USRDIR)/lib/libgthread-2.0.so.0 target=libgthread-2.0.so.0.4000.0
 file path=$(USRDIR)/lib/libgthread-2.0.so.0.4000.0
@@ -374,10 +369,10 @@ file path=$(USRDIR)/share/bash-completion/completions/gapplication
 file path=$(USRDIR)/share/bash-completion/completions/gdbus
 file path=$(USRDIR)/share/bash-completion/completions/gresource
 file path=$(USRDIR)/share/bash-completion/completions/gsettings
-file path=$(USRDIR)/share/gdb/auto-load/usr/lib/$(MACH64)/libglib-2.0.so.0.4000.0-gdb.py
-file path=$(USRDIR)/share/gdb/auto-load/usr/lib/$(MACH64)/libgobject-2.0.so.0.4000.0-gdb.py
-file path=$(USRDIR)/share/gdb/auto-load/usr/lib/libglib-2.0.so.0.4000.0-gdb.py
-file path=$(USRDIR)/share/gdb/auto-load/usr/lib/libgobject-2.0.so.0.4000.0-gdb.py
+file path=$(USRDIR)/share/gdb/auto-load/$(USRDIR)/lib/$(MACH64)/libglib-2.0.so.0.4000.0-gdb.py
+file path=$(USRDIR)/share/gdb/auto-load/$(USRDIR)/lib/$(MACH64)/libgobject-2.0.so.0.4000.0-gdb.py
+file path=$(USRDIR)/share/gdb/auto-load/$(USRDIR)/lib/libglib-2.0.so.0.4000.0-gdb.py
+file path=$(USRDIR)/share/gdb/auto-load/$(USRDIR)/lib/libgobject-2.0.so.0.4000.0-gdb.py
 file path=$(USRDIR)/share/glib-2.0/codegen/__init__.py
 file path=$(USRDIR)/share/glib-2.0/codegen/codegen.py
 file path=$(USRDIR)/share/glib-2.0/codegen/codegen_docbook.py
@@ -942,6 +937,6 @@ file path=$(USRDIR)/share/locale/yi/LC_MESSAGES/glib20.mo
 file path=$(USRDIR)/share/locale/zh_CN/LC_MESSAGES/glib20.mo
 file path=$(USRDIR)/share/locale/zh_HK/LC_MESSAGES/glib20.mo
 file path=$(USRDIR)/share/locale/zh_TW/LC_MESSAGES/glib20.mo
-dir  path=$(USRDIR)/usr/lib/gio
-dir  path=$(USRDIR)/usr/lib/gio/modules
-dir  path=$(USRDIR)/usr/lib/gio/modules/$(MACH64)
+dir  path=$(USRDIR)/lib/gio
+dir  path=$(USRDIR)/lib/gio/modules
+dir  path=$(USRDIR)/lib/gio/modules/$(MACH64)

@@ -47,11 +47,9 @@ LDFLAGS += -lsocket -lsecdb -lnsl
 
 CONFIGURE_ENV += PYTHON="$(PYTHON.$(BITS))"
 
-#CFLAGS.32+=	-march=i686
-#CFLAGS+=	$(CFLAGS.$(BITS))
-
 CONFIGURE_OPTIONS  += --with-libiconv=gnu
 
+CONFIGURE_OPTIONS  += --disable-dtrace
 CONFIGURE_OPTIONS  += --disable-fam
 CONFIGURE_OPTIONS  += --disable-selinux
 CONFIGURE_OPTIONS  += --enable-shared
@@ -60,7 +58,8 @@ CONFIGURE_OPTIONS  += --with-pcre
 CONFIGURE_OPTIONS  += --disable-gtk-doc
 CONFIGURE_OPTIONS  += --disable-gtk-doc-html
 CONFIGURE_OPTIONS  += --disable-gtk-doc-pdf
-CONFIGURE_OPTIONS  += --with-gio-module-dir=$(CONFIGURE_LIBDIR.$(BITS))/gio/modules
+CONFIGURE_OPTIONS.32  += --with-gio-module-dir=$(USRDIR)/lib/gio/modules
+CONFIGURE_OPTIONS.64  += --with-gio-module-dir=$(USRDIR)/lib/gio/modules/$(MACH64)
 
 build:		$(BUILD_32_and_64)
 

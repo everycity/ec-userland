@@ -93,7 +93,6 @@
 /^giflib$/d
 /^gifsicle$/d
 /^git$/d
-/^glib2$/d
 /^gmp$/d
 /^gnome-mime-data$/d
 /^gnome-vfs$/d
