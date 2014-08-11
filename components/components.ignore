@@ -101,7 +101,6 @@
 /^gnu-libidn$/d
 /^gnu-patch$/d
 /^gnu-pth$/d
-/^gnu-sed$/d
 /^gnu-tar$/d
 /^gnu-wget$/d
 /^gnupg$/d
