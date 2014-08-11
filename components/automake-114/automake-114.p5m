@@ -22,147 +22,147 @@ set name=info.classification \
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 set name=info.upstream-url value=http://www.gnu.org/software/automake/
 
-file path=usr/bin/aclocal-$(COMPONENT_VERSION)
-file path=usr/bin/automake-$(COMPONENT_VERSION)
+file path=$(USRDIR)/bin/aclocal-$(COMPONENT_VERSION)
+file path=$(USRDIR)/bin/automake-$(COMPONENT_VERSION)
 
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/amversion.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/ar-lib.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/as.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/auxdir.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/cond-if.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/cond.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/depend.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/depout.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/dmalloc.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/extra-recurs.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/gcj.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/init.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/install-sh.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/internal/ac-config-macro-dirs.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/lead-dot.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/lex.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/lispdir.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/maintainer.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/make.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/missing.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/mkdirp.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/obsolete.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/options.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/prog-cc-c-o.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/python.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/runlog.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/sanity.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/silent.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/strip.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/substnot.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/tar.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/upc.m4
-file path=usr/share/aclocal-$(COMPONENT_VERSION)/vala.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/amversion.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/ar-lib.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/as.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/auxdir.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/cond-if.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/cond.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/depend.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/depout.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/dmalloc.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/extra-recurs.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/gcj.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/init.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/install-sh.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/internal/ac-config-macro-dirs.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/lead-dot.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/lex.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/lispdir.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/maintainer.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/make.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/missing.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/mkdirp.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/obsolete.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/options.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/prog-cc-c-o.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/python.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/runlog.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/sanity.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/silent.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/strip.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/substnot.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/tar.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/upc.m4
+file path=$(USRDIR)/share/aclocal-$(COMPONENT_VERSION)/vala.m4
 
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/ChannelDefs.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/Channels.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/Condition.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/Config.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/Configure_ac.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/DisjConditions.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/FileUtils.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/General.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/Getopt.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/Item.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/ItemDef.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/Language.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/Location.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/Options.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/Rule.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/RuleDef.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/VarDef.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/Variable.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/Version.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/Wrap.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/Automake/XFile.pm
-file path=usr/share/automake-$(COMPONENT_VERSION)/COPYING
-file path=usr/share/automake-$(COMPONENT_VERSION)/INSTALL
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/ChannelDefs.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/Channels.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/Condition.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/Config.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/Configure_ac.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/DisjConditions.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/FileUtils.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/General.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/Getopt.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/Item.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/ItemDef.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/Language.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/Location.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/Options.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/Rule.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/RuleDef.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/VarDef.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/Variable.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/Version.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/Wrap.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/Automake/XFile.pm
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/COPYING
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/INSTALL
 
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/check.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/check2.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/clean-hdr.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/clean.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/compile.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/configure.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/data.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/dejagnu.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/depend.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/depend2.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/distdir.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/footer.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/header-vars.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/header.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/inst-vars.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/install.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/java.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/lang-compile.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/lex.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/library.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/libs.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/libtool.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/lisp.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/ltlib.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/ltlibrary.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/mans-vars.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/mans.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/program.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/progs.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/python.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/remake-hdr.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/scripts.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/subdirs.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/tags.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/texi-vers.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/texibuild.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/texinfos.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/vala.am
-file path=usr/share/automake-$(COMPONENT_VERSION)/am/yacc.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/check.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/check2.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/clean-hdr.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/clean.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/compile.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/configure.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/data.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/dejagnu.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/depend.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/depend2.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/distdir.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/footer.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/header-vars.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/header.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/inst-vars.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/install.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/java.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/lang-compile.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/lex.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/library.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/libs.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/libtool.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/lisp.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/ltlib.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/ltlibrary.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/mans-vars.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/mans.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/program.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/progs.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/python.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/remake-hdr.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/scripts.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/subdirs.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/tags.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/texi-vers.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/texibuild.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/texinfos.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/vala.am
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/am/yacc.am
 
-file path=usr/share/automake-$(COMPONENT_VERSION)/ar-lib mode=0555
-file path=usr/share/automake-$(COMPONENT_VERSION)/compile mode=0555
-file path=usr/share/automake-$(COMPONENT_VERSION)/config.guess mode=0555
-file path=usr/share/automake-$(COMPONENT_VERSION)/config.sub mode=0555
-file path=usr/share/automake-$(COMPONENT_VERSION)/depcomp mode=0555
-file path=usr/share/automake-$(COMPONENT_VERSION)/install-sh mode=0555
-file path=usr/share/automake-$(COMPONENT_VERSION)/mdate-sh mode=0555
-file path=usr/share/automake-$(COMPONENT_VERSION)/missing mode=0555
-file path=usr/share/automake-$(COMPONENT_VERSION)/mkinstalldirs mode=0555
-file path=usr/share/automake-$(COMPONENT_VERSION)/py-compile mode=0555
-file path=usr/share/automake-$(COMPONENT_VERSION)/tap-driver.pl mode=0555
-file path=usr/share/automake-$(COMPONENT_VERSION)/tap-driver.sh mode=0555
-file path=usr/share/automake-$(COMPONENT_VERSION)/test-driver mode=0555
-file path=usr/share/automake-$(COMPONENT_VERSION)/texinfo.tex
-file path=usr/share/automake-$(COMPONENT_VERSION)/ylwrap mode=0555
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/ar-lib mode=0555
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/compile mode=0555
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/config.guess mode=0555
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/config.sub mode=0555
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/depcomp mode=0555
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/install-sh mode=0555
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/mdate-sh mode=0555
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/missing mode=0555
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/mkinstalldirs mode=0555
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/py-compile mode=0555
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/tap-driver.pl mode=0555
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/tap-driver.sh mode=0555
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/test-driver mode=0555
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/texinfo.tex
+file path=$(USRDIR)/share/automake-$(COMPONENT_VERSION)/ylwrap mode=0555
 
-file path=usr/share/doc/automake/amhello-1.0.tar.gz \
+file path=$(USRDIR)/share/doc/automake/amhello-1.0.tar.gz \
     pkg.linted.pkglint.dupaction001.1=true
-file path=usr/share/info/automake-history.info
-file path=usr/share/info/automake.info \
+file path=$(USRDIR)/share/info/automake-history.info
+file path=$(USRDIR)/share/info/automake.info \
     pkg.linted.pkglint.dupaction001.1=true
-file path=usr/share/info/automake.info-1 \
+file path=$(USRDIR)/share/info/automake.info-1 \
     pkg.linted.pkglint.dupaction001.1=true
-file path=usr/share/info/automake.info-2 \
+file path=$(USRDIR)/share/info/automake.info-2 \
     pkg.linted.pkglint.dupaction001.1=true
-file path=usr/share/info/automake.info-3
+file path=$(USRDIR)/share/info/automake.info-3
 
-file path=usr/share/man/man1/aclocal-$(COMPONENT_VERSION).1
-file usr/share/man/man1/aclocal.1 path=usr/share/man/man1/aclocal.1-$(COMPONENT_VERSION)
-link path=usr/share/man/man1/aclocal-1 target=aclocal.1-$(COMPONENT_VERSION) \
+file path=$(USRDIR)/share/man/man1/aclocal-$(COMPONENT_VERSION).1
+file $(USRDIR)/share/man/man1/aclocal.1 path=$(USRDIR)/share/man/man1/aclocal.1-$(COMPONENT_VERSION)
+link path=$(USRDIR)/share/man/man1/aclocal-1 target=aclocal.1-$(COMPONENT_VERSION) \
     mediator=automake mediator-version=1.14
 
-file path=usr/share/man/man1/automake-$(COMPONENT_VERSION).1
-file usr/share/man/man1/automake.1 path=usr/share/man/man1/automake.1-$(COMPONENT_VERSION)
-link path=usr/share/man/man1/automake.1 target=automake.1-$(COMPONENT_VERSION) \
+file path=$(USRDIR)/share/man/man1/automake-$(COMPONENT_VERSION).1
+file $(USRDIR)/share/man/man1/automake.1 path=$(USRDIR)/share/man/man1/automake.1-$(COMPONENT_VERSION)
+link path=$(USRDIR)/share/man/man1/automake.1 target=automake.1-$(COMPONENT_VERSION) \
     mediator=automake mediator-version=1.14
 
-link path=usr/bin/aclocal target=aclocal-$(COMPONENT_VERSION) \
+link path=$(USRDIR)/bin/aclocal target=aclocal-$(COMPONENT_VERSION) \
     mediator=automake mediator-version=1.14
-link path=usr/bin/automake target=automake-$(COMPONENT_VERSION) \
+link path=$(USRDIR)/bin/automake target=automake-$(COMPONENT_VERSION) \
     mediator=automake mediator-version=1.14
 
 license automake.license license="GPLv2 FDLv1.3"
