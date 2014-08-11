@@ -149,7 +149,6 @@
 /^libestr$/d
 /^libevent$/d
 /^libfcgi$/d
-/^libffi$/d
 /^libgcrypt$/d
 /^libgd$/d
 /^libgpg-error$/d
