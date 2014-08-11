@@ -101,7 +101,6 @@
 /^gnu-bc$/d
 /^gnu-diffutils$/d
 /^gnu-findutils$/d
-/^gnu-grep$/d
 /^gnu-gzip$/d
 /^gnu-inetutils$/d
 /^gnu-libidn$/d
