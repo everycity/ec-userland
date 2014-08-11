@@ -69,7 +69,6 @@
 /^fftw$/d
 /^file$/d
 /^flac$/d
-/^flex$/d
 /^fontconfig$/d
 /^fping$/d
 /^freeimage$/d

@@ -27,10 +27,10 @@ include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS += --infodir=$(USRDIR)/share/info
 
-COMPONENT_POST_INSTALL_ACTION = ( strip \
-                $(PROTO_DIR)$(USRDIR)/bin/* \
-                $(PROTO_DIR)$(USRDIR)/lib/*so* \
-                >/dev/null 2>&1; true )
+#COMPONENT_POST_INSTALL_ACTION = ( strip \
+#                $(PROTO_DIR)$(USRDIR)/bin/* \
+#                $(PROTO_DIR)$(USRDIR)/lib/*so* \
+#                >/dev/null 2>&1; true )
 
 build:		$(BUILD_32)
 
