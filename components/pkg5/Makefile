@@ -45,6 +45,8 @@ BRANCHID ?= $(RELEASE_MAJOR).$(RELEASE_MINOR).$(UPDATENUM).$(COMPONENT_REVISION)
 
 BUILD_VERSION =                $(OS_VERSION)-$(BRANCHID)
 
+PKGVERS_COMPONENT = 0.20140101
+
 GIT="git"
 GIT_REPO="https://github.com/everycity/pkg5.git"
 ifeq ($(ZTYPE),nonec)
@@ -83,8 +85,9 @@ $(BUILD_DIR)/$(MACH)/.built: $(SOURCE_DIR)/.downloaded
 	cd $(SOURCE_DIR)/src && \
 	$(ENV) $(COMPONENT_BUILD_ENV) $(MAKE) && $(ENV) $(COMPONENT_INSTALL_ENV) $(MAKE) install && \
 	cd pkg && \
-	$(MAKE) BUILD_VERSION=$(BUILD_VERSION) && \
-	$(MAKE) publish-pkgs BUILD_VERSION=$(BUILD_VERSION) && \
+	$(MAKE) BUILD_VERSION=$(BUILD_VERSION) PKGVERS_COMPONENT=$(PKGVERS_COMPONENT) && \
+	$(MAKE) publish-pkgs BUILD_VERSION=$(BUILD_VERSION) \
+		PKGVERS_COMPONENT=$(PKGVERS_COMPONENT) && \
 	$(MAKE) repository-metadata && \
 	$(TOUCH) $@
 
