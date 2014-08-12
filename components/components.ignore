@@ -204,7 +204,6 @@
 /^mongodb$/d
 /^mosh$/d
 /^mpc$/d
-/^mpfr$/d
 /^mplayer$/d
 /^mscorefonts-installer$/d
 /^mutt$/d

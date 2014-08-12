@@ -44,5 +44,5 @@ link path=$(USRDIR)/lib/$(MACH64)/libmpfr.so.4 target=libmpfr.so.4.1.2
 link path=$(USRDIR)/lib/libmpfr.so target=libmpfr.so.4.1.2
 link path=$(USRDIR)/lib/libmpfr.so.4 target=libmpfr.so.4.1.2
 
-file Solaris/libmpfr.pc path=$(USRDIR)/lib/pkgconfig/libmpfr.pc
-file Solaris/libmpfr-64.pc path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libmpfr-64.pc
+file Solaris/libmpfr.pc.$(ZTYPE) path=$(USRDIR)/lib/pkgconfig/libmpfr.pc
+file Solaris/libmpfr-64.pc.$(ZTYPE) path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libmpfr-64.pc

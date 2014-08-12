@@ -47,7 +47,7 @@ CONFIGURE_ENV += CPP="$(CC) $(CPPFLAGS) $(CFLAGS) -E"
 CONFIGURE_ENV += ABI="$(BITS)"
 CONFIGURE_ENV += MPN_PATH="$(MPN_$(BITS))"
 
-CONFIGURE_OPTIONS += --localstatedir=/var
+CONFIGURE_OPTIONS += --localstatedir=$(CONFIGURE_LOCALSTATEDIR)
 CONFIGURE_OPTIONS += --enable-shared
 CONFIGURE_OPTIONS += --disable-static
 CONFIGURE_OPTIONS += --disable-libtool-lock
