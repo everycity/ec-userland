@@ -37,7 +37,6 @@ CXXFLAGS += $(CPP_LARGEFILES) $(CPP_POSIX)
 CPPFLAGS += $(CPP_LARGEFILES) $(CPP_POSIX)
 
 CONFIGURE_OPTIONS +=	--enable-targets=$(GNU_ARCH_64)
-CONFIGURE_OPTIONS +=	--with-sysroot=/
 CONFIGURE_OPTIONS +=	--mandir=$(CONFIGURE_MANDIR)
 CONFIGURE_OPTIONS +=	--infodir=$(CONFIGURE_INFODIR)
 CONFIGURE_OPTIONS +=	--enable-64-bit-bfd
@@ -48,8 +47,8 @@ CONFIGURE_OPTIONS +=    --disable-libtool-lock
 CONFIGURE_OPTIONS +=    --enable-largefile=yes
 
 COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) && $(RM) etc/standards.info && \
-	sed -i.bak '/^INFO/s/standards.info //' etc/Makefile.in && \
-	sed -i -e 's/@colophon/@@colophon/' \
+	$(GSED) -i.bak '/^INFO/s/standards.info //' etc/Makefile.in && \
+	$(GSED) -i -e 's/@colophon/@@colophon/' \
 		-e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo \
 		-e 's/doc@cygnus.com/doc@@cygnus.com/' ld/ld.texinfo )
 

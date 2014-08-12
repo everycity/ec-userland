@@ -23,7 +23,6 @@
 /^automake-19$/d
 /^bdb51$/d
 /^bdb60$/d
-/^binutils$/d
 /^bitlbee$/d
 /^boost$/d
 /^bzip2$/d
