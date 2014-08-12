@@ -42,8 +42,7 @@ file path=$(USRDIR)/share/info/gmp.info
 file path=$(USRDIR)/share/info/gmp.info-1
 file path=$(USRDIR)/share/info/gmp.info-2
 
-file Solaris/libgmp.pc path=$(ECPREFIX)/lib/pkgconfig/libgmp.pc
-file Solaris/libgmpxx.pc path=$(ECPREFIX)/lib/pkgconfig/libgmpxx.pc
-file Solaris/libgmp-64.pc path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libgmp.pc
-file Solaris/libgmpxx-64.pc path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libgmpxx.pc
-
+file Solaris/libgmp.pc.$(ZTYPE) path=$(USRDIR)/lib/pkgconfig/libgmp.pc
+file Solaris/libgmpxx.pc.$(ZTYPE) path=$(USRDIR)/lib/pkgconfig/libgmpxx.pc
+file Solaris/libgmp-64.pc.$(ZTYPE) path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libgmp.pc
+file Solaris/libgmpxx-64.pc.$(ZTYPE) path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libgmpxx.pc
