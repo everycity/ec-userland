@@ -102,7 +102,6 @@
 /^gnu-patch$/d
 /^gnu-pth$/d
 /^gnu-tar$/d
-/^gnu-wget$/d
 /^gnupg$/d
 /^gnupg2$/d
 /^gnuplot$/d

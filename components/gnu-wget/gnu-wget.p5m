@@ -25,7 +25,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 file path=$(USRDIR)/bin/wget
-file path=etc/wgetrc
+file path=$(SYSCONFDIR)/wgetrc
 file path=$(USRDIR)/share/info/wget.info
 file path=$(USRDIR)/share/locale/be/LC_MESSAGES/wget.mo
 file path=$(USRDIR)/share/locale/bg/LC_MESSAGES/wget.mo

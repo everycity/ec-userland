@@ -1,0 +1,20 @@
+--- wget-1.14/doc/sample.wgetrc.orig	2012-10-22 17:24:18.848923219 +0000
++++ wget-1.14/doc/sample.wgetrc	2012-10-22 17:24:59.048900694 +0000
+@@ -1,7 +1,3 @@
+-###
+-### Sample Wget initialization file .wgetrc
+-###
+-
+ ## You can use this file to change the default behaviour of wget or to
+ ## avoid having to type many many command-line options. This file does
+ ## not contain a comprehensive list of commands -- look at the manual
+@@ -21,6 +17,9 @@
+ ## functionality, and make it behave contrary to the documentation:
+ ##
+ 
++# OpenSSL Default Certificate Authority File
++ca_certificate=/etc/openssl/cabundle.pem
++
+ # You can set retrieve quota for beginners by specifying a value
+ # optionally followed by 'K' (kilobytes) or 'M' (megabytes).  The
+ # default quota is unlimited.
