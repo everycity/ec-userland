@@ -595,10 +595,12 @@ CXXFLAGS +=	$(gcc_OPT)
 #
 
 # set the bittedness that we want to link
+ccs.ld.32 = -32
 ccs.ld.64 = -64
-gcc.ld = $(CC_BITS)
-LD_BITS =      $($(LINKER).ld
-LDFLAGS +=      $(LD_BITS)
+gcc.ld.32 = $(CC_BITS)
+gcc.ld.64 = $(CC_BITS)
+LD_BITS = $($(LINKER).ld.$(BITS))
+LDFLAGS += $(LD_BITS)
 
 CONFIGURE_PREFIX?=	$(USRDIR)
 
