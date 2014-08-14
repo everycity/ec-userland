@@ -1,0 +1,26 @@
+Index: gcc-4.4.4/intl/configure
+===================================================================
+--- gcc-4.4.4/intl/configure
++++ gcc-4.4.4/intl/configure
+@@ -1557,8 +1557,8 @@ else
+       test -z "$ac_dir" && ac_dir=.
+       for ac_exec_ext in '' $ac_executable_extensions; do
+         if $ac_executable_p "$ac_dir/$ac_word$ac_exec_ext"; then
+-          if $ac_dir/$ac_word --statistics /dev/null >/dev/null 2>&1 &&
+-     (if $ac_dir/$ac_word --statistics /dev/null 2>&1 >/dev/null | grep usage >/dev/null; then exit 1; else exit 0; fi); then
++          if $ac_dir/$ac_word /dev/null >/dev/null 2>&1 &&
++     (if $ac_dir/$ac_word /dev/null 2>&1 >/dev/null | grep usage >/dev/null; then exit 1; else exit 0; fi); then
+             ac_cv_path_MSGFMT="$ac_dir/$ac_word$ac_exec_ext"
+             break 2
+           fi
+@@ -1761,8 +1761,8 @@ fi
+ 
+ 
+       if test "$GMSGFMT" != ":"; then
+-            if $GMSGFMT --statistics /dev/null >/dev/null 2>&1 &&
+-       (if $GMSGFMT --statistics /dev/null 2>&1 >/dev/null | grep usage >/dev/null; then exit 1; else exit 0; fi); then
++            if $GMSGFMT /dev/null >/dev/null 2>&1 &&
++       (if $GMSGFMT /dev/null 2>&1 >/dev/null | grep usage >/dev/null; then exit 1; else exit 0; fi); then
+       : ;
+     else
+       GMSGFMT=`echo "$GMSGFMT" | sed -e 's,^.*/,,'`
