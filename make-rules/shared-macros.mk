@@ -107,6 +107,7 @@ ifneq (,$(filter $(BRAND),solaris10 smartos))
     CXXFLAGS = -I$(USRDIR)/include
     CONFIGURE_DEFAULT_CPPFLAGS ?= yes
     GCC_ROOT = /ec
+    LDFLAGS=
 else
     ECPREFIX=
     USRDIR = /usr
@@ -593,9 +594,8 @@ CXXFLAGS +=	$(gcc_OPT)
 
 # set the bittedness that we want to link
 ccs.ld.64 = -64
-gcc.ld.32 = -m32
-gcc.ld.64 = -m64
-LD_BITS =      $($(LINKER).ld.$(BITS))
+gcc.ld = $(CC_BITS)
+LD_BITS =      $($(LINKER).ld
 LDFLAGS +=      $(LD_BITS)
 
 CONFIGURE_PREFIX?=	$(USRDIR)
