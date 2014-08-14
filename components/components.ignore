@@ -72,7 +72,6 @@
 /^fribidi$/d
 /^frotz$/d
 /^gaa$/d
-/^gcc44$/d
 /^gcc47$/d
 /^gcc48$/d
 /^gconf$/d
