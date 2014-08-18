@@ -73,7 +73,6 @@
 /^frotz$/d
 /^gaa$/d
 /^gcc47$/d
-/^gcc48$/d
 /^gconf$/d
 /^gdal$/d
 /^gdb$/d

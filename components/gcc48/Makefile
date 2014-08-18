@@ -11,7 +11,6 @@
 
 #
 # Copyright 2014 EveryCity Ltd. All rights reserved.
-# Copyright 2014, Igor Kozhukhov <ikozhukhov@gmail.com>
 #
 CONFIGURE_DEFAULT_LDFLAGS = no
 CONFIGURE_DEFAULT_CPPFLAGS = no
@@ -86,16 +85,6 @@ COMPONENT_BUILD_ENV += SHELL="$(CONFIG_SHELL)"
 COMPONENT_BUILD_ENV += MAKESHELL="$(MAKESHELL)"
 
 COMPONENT_BUILD_TARGETS=bootstrap
-
-#COMPONENT_POST_INSTALL_ACTION = \
-#    ( cd $(PROTOUSRDIR)/gcc/4.8/lib  ; \
-#	$(PYTHON) -m compileall . ; \
-#      cd $(PROTOUSRDIR)/gcc/4.8/lib/$(MACH64) ; \
-#	$(PYTHON) -m compileall . ; \
-#      cd $(PROTOUSRDIR)/gcc/4.8/share/gcc-$(COMPONENT_VERSION)/python/libstdcxx ; \
-#	$(PYTHON) -m compileall . ; \
-#      cd $(PROTOUSRDIR)/gcc/4.8/share/gcc-$(COMPONENT_VERSION)/python/libstdcxx/v6 ; \
-#	$(PYTHON) -m compileall . )
 
 build:		$(BUILD_32)
 

@@ -8,8 +8,8 @@ Index: gcc-4.8.2/gcc/config/sol2-bi.h
     %{R*} \
 -   %{!YP,*:%{p|pg:-Y P,%R/usr/lib/libp/" ARCH64_SUBDIR ":%R/lib/" ARCH64_SUBDIR ":%R/usr/lib/" ARCH64_SUBDIR "}	\
 -	   %{!p:%{!pg:-Y P,%R/lib/" ARCH64_SUBDIR ":%R/usr/lib/" ARCH64_SUBDIR "}}}"
-+   %{!YP,*:%{p|pg:-Y P,%R/usr/gcc/4.8/lib/64:%R/usr/lib/libp/" ARCH64_SUBDIR ":%R/usr/lib/" ARCH64_SUBDIR ":%R/lib/" ARCH64_SUBDIR " -R /usr/gcc/4.8/lib/64:/usr/lib/64} \
-+	   %{!p:%{!pg:-Y P,%R/usr/gcc/4.8/lib/64:%R/usr/lib/" ARCH64_SUBDIR ":%R/lib/" ARCH64_SUBDIR " -R /usr/gcc/4.8/lib/64:/usr/lib/64}}}"
++   %{!YP,*:%{p|pg:-Y P,%R/usr/gcc/4.8/lib/" ARCH64_SUBDIR ":%R/usr/lib/libp/" ARCH64_SUBDIR ":%R/usr/lib/" ARCH64_SUBDIR ":%R/lib/" ARCH64_SUBDIR " -R /usr/gcc/4.8/lib/64:/usr/lib/64} \
++	   %{!p:%{!pg:-Y P,%R/usr/gcc/4.8/lib/" ARCH64_SUBDIR ":%R/usr/lib/" ARCH64_SUBDIR ":%R/lib/" ARCH64_SUBDIR " -R /usr/gcc/4.8/lib/64:/usr/lib/64}}}"
  
  #undef LINK_ARCH64_SPEC
  #ifndef USE_GLD
