@@ -30,16 +30,13 @@ PKGLINT=/bin/true
 download:
 
 prep:
-	$(COMPONENT_PRE_ACTION)
 
-COMPONENT_PRE_ACTION += \
-	$(CP) core-os.p5m.$(ZTYPE) core-os.p5m
+build:
 
-build: prep
-
-install: build
+install:
 	[ -d $(PROTO_DIR) ] || mkdir -p $(PROTO_DIR)
 	$(CLONEY) $(COMPONENT_DIR)/files $(PROTO_DIR)
+	$(CP) core-os.p5m.$(ZTYPE) core-os.p5m
 
 clean:
 	$(RM) -r $(BUILD_DIR) $(PROTO_DIR)
