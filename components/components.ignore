@@ -36,7 +36,6 @@
 /^cloog-ppl$/d
 /^clusterssh$/d
 /^cmake$/d
-/^core-os$/d
 /^cpuburn$/d
 /^cronie$/d
 /^cronolog$/d
