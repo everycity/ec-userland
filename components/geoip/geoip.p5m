@@ -29,8 +29,8 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license geoip.license license="GPL LGPLv2.1"
 
-file path=etc/GeoIP.conf
-file path=etc/GeoIP.conf.default
+file path=$(SYSCONFDIR)/GeoIP.conf
+file path=$(SYSCONFDIR)/GeoIP.conf.default
 
 file path=$(USRDIR)/bin/$(MACH64)/geoiplookup
 file path=$(USRDIR)/bin/$(MACH64)/geoiplookup6
