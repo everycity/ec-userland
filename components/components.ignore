@@ -213,7 +213,6 @@
 /^net-snmp$/d
 /^netcat$/d
 /^nettle$/d
-/^nginx$/d
 /^nodejs$/d
 /^nodejs04$/d
 /^nodejs06$/d

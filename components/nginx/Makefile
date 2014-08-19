@@ -36,7 +36,8 @@ COMPONENT_ARCHIVE_HASH_2=	sha256:ab8172d1f5d4965d412fe047b9725e4ecb78b6de780c053
 COMPONENT_ARCHIVE_URL_2=	https://github.com/pagespeed/ngx_pagespeed/archive/$(COMPONENT_ARCHIVE_2)
 COMPONENT_ARCHIVE_3=		psol-ec-${NPS_VERSION}.tar.gz
 COMPONENT_ARCHIVE_HASH_3=	sha256:4fe16bc91165fd09c408d8a6f9e4af4e2944ce3400862b8a09bdb7eaf25649bd
-COMPONENT_ARCHIVE_URL_3=	https://dl.google.com/dl/page-speed/psol/$(COMPONENT_ARCHIVE_3)
+#COMPONENT_ARCHIVE_URL_3=	https://dl.google.com/dl/page-speed/psol/$(COMPONENT_ARCHIVE_3)
+COMPONENT_ARCHIVE_URL_3=	http://smartos.igork.cloud.ec/$(COMPONENT_ARCHIVE_3)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
