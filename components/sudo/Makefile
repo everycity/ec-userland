@@ -39,7 +39,7 @@ CONFIGURE_OPTIONS+=	--with-insults
 CONFIGURE_OPTIONS+=	--with-hal-insults
 CONFIGURE_OPTIONS+=	--with-editor=$(USRDIR)/bin/vim
 CONFIGURE_OPTIONS+=	--exec-prefix=$(USRDIR)
-CONFIGURE_OPTIONS+=	--with-timedir=$(USRDIR)/var/adm/sudo
+CONFIGURE_OPTIONS+=	--with-timedir=$(CONFIGURE_LOCALSTATEDIR)/adm/sudo
 CONFIGURE_OPTIONS.32+=	--sbindir=$(USRDIR)/bin
 CONFIGURE_OPTIONS.64+=	--sbindir=$(USRDIR)/bin/$(MACH64)
 

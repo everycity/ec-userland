@@ -34,11 +34,11 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license sudo.license license="SUDO"
 
-dir path=etc/sudoers.d
+dir path=$(SYSCONFDIR)/sudoers.d
+file path=$(SYSCONFDIR)/sudoers
 file path=$(USRDIR)/bin/sudoedit
 file path=$(USRDIR)/bin/sudoreplay
 file path=$(USRDIR)/bin/visudo
-file path=etc/sudoers
 file path=$(USRDIR)/include/sudo_plugin.h
 file path=$(USRDIR)/lib/sudo_noexec.so
 file path=$(USRDIR)/lib/sudoers.so
