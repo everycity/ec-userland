@@ -24,9 +24,7 @@ group gid=97 groupname=pkg5srv
 user gcos-field="pkg(5) server UID" group=pkg5srv uid=97 username=pkg5srv
 
 # Core Directories
-dir  path=dev owner=root group=sys mode=0755
 dir  path=opt owner=root group=root mode=0755
-dir  path=proc owner=root group=root mode=0555
 dir  path=tmp owner=root group=root mode=1777
 
 # Core Directories
@@ -43,19 +41,21 @@ link path=ec/lib/64 target=$(MACH64)
 dir  path=ec/share
 dir  path=ec/share/man
 dir  path=ec/var
+dir  path=dev
 dir  path=lib
 dir  path=lib/$(MACH64)
-link path=lib/64 target=$(MACH64)
+#link path=lib/64 target=$(MACH64)
 dir  path=lib/svc
 dir  path=lib/svc/manifest
 dir  path=lib/svc/manifest/application
 dir  path=lib/svc/method
+dir  path=proc
 dir  path=sbin
 dir  path=usr
 dir  path=usr/bin
 dir  path=usr/lib
 dir  path=usr/lib/$(MACH64)
-link path=usr/lib/64 target=$(MACH64)
+#link path=usr/lib/64 target=$(MACH64)
 dir  path=usr/share
 dir  path=var
 dir  path=var/run
