@@ -20,8 +20,8 @@ set name=info.upstream_url value="$(COMPONENT_PROJECT_URL)"
 # users
 group gid=80 groupname=webservd
 user gcos-field="webservd" group=webservd uid=80 username=webservd login-shell=/bin/false home-dir=/var/apache
-group gid=97 groupname=pkg5srv
-user gcos-field="pkg(5) server UID" group=pkg5srv uid=97 username=pkg5srv
+#group gid=97 groupname=pkg5srv
+#user gcos-field="pkg(5) server UID" group=pkg5srv uid=97 username=pkg5srv
 
 # Core Directories
 dir  path=opt owner=root group=root mode=0755
