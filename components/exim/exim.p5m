@@ -22,6 +22,9 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
+group gid=456 groupname=exim
+user gcos-field="Exim Account" group=exim uid=456 username=exim login-shell=/bin/false home-dir=/ec/var/spool/exim
+
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/etc
@@ -41,13 +44,6 @@ dir path=var
 dir path=var/svc
 dir path=var/svc/manifest
 dir path=var/svc/manifest/site
-file path=$(ECPREFIX)/var/log/exim/main.log mode=0664 owner=exim group=exim preserve=true
-file path=$(ECPREFIX)/var/log/exim/panic.log mode=0664 owner=exim group=exim preserve=true
-file path=$(ECPREFIX)/var/log/exim/reject.log mode=0664 owner=exim group=exim preserve=true
-file path=var/svc/manifest/site/exim.xml restart_fmri=svc:/system/manifest-import:default
-file path=$(ECPREFIX)/var/svc/method/exim mode=0555
-file path=$(ECPREFIX)/etc/exim/aliases.conf mode=0644 preserve=true
-file path=$(ECPREFIX)/etc/exim/exim.conf mode=0644 preserve=true
 file path=$(ECPREFIX)/bin/exicyclog
 file path=$(ECPREFIX)/bin/exigrep
 file path=$(ECPREFIX)/bin/exim-$(COMPONENT_VERSION)-3 mode=4555 user=root group=root
@@ -63,6 +59,11 @@ file path=$(ECPREFIX)/bin/exipick
 file path=$(ECPREFIX)/bin/exiqgrep
 file path=$(ECPREFIX)/bin/exiqsumm
 file path=$(ECPREFIX)/bin/exiwhat
+file path=$(ECPREFIX)/etc/exim/aliases.conf mode=0644 preserve=true
+file path=$(ECPREFIX)/etc/exim/exim.conf mode=0644 preserve=true
+file path=$(ECPREFIX)/var/log/exim/main.log mode=0664 owner=exim group=exim preserve=true
+file path=$(ECPREFIX)/var/log/exim/panic.log mode=0664 owner=exim group=exim preserve=true
+file path=$(ECPREFIX)/var/log/exim/reject.log mode=0664 owner=exim group=exim preserve=true
+file path=$(ECPREFIX)/var/svc/method/exim mode=0555
+file path=var/svc/manifest/site/exim.xml restart_fmri=svc:/system/manifest-import:default
 link path=$(ECPREFIX)/bin/exim target=exim-$(COMPONENT_VERSION)-3
-group gid=456 groupname=exim
-user gcos-field="Exim Account" group=exim uid=456 username=exim login-shell=/bin/false home-dir=/ec/var/spool/exim
