@@ -307,6 +307,7 @@ file path=$(ECPREFIX)/lib/libintl.a
 file path=$(ECPREFIX)/lib/libintl.la
 file path=$(ECPREFIX)/lib/libintl.so.8.1.2
 file path=$(ECPREFIX)/share/aclocal/codeset.m4
+file path=$(ECPREFIX)/share/aclocal/extern-inline.m4
 file path=$(ECPREFIX)/share/aclocal/fcntl-o.m4
 file path=$(ECPREFIX)/share/aclocal/gettext.m4
 file path=$(ECPREFIX)/share/aclocal/glibc2.m4
