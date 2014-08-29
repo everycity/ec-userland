@@ -35,8 +35,7 @@ COMPONENT_BUILD_GMAKE_ARGS=
 
 CONFIGURE_OPTIONS+=	--with-soname=ruby$(RUBY_VER) --program-suffix=$(RUBY_VER)
 CONFIGURE_OPTIONS+=	--enable-shared
-# configure tries to be clever and guesses incorrectly
-CONFIGURE_OPTIONS.32+=	ac_cv_sys_file_offset_bits=32
+CONFIGURE_OPTIONS.32+=	ac_cv_func_dl_iterate_phdr=no
 
 build:		$(BUILD_32_and_64)
 
