@@ -196,6 +196,7 @@ file path=$(ECPREFIX)/lib/tomcat7/bin/version.sh
 file path=$(ECPREFIX)/lib/tomcat7/lib/annotations-api.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/catalina-ant.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/catalina-ha.jar
+file path=$(ECPREFIX)/lib/tomcat7/lib/catalina-jmx-remote.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/catalina-tribes.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/catalina.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/ecj-4.4.jar

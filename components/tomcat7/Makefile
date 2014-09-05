@@ -25,6 +25,8 @@ COMPONENT_ARCHIVE=	apache-tomcat-$(COMPONENT_VERSION).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:c20934fda63bc7311e2d8e067d67f886890c8be72280425c5f6f8fdd7a376c15
 COMPONENT_ARCHIVE_URL=	http://mirror.ox.ac.uk/sites/rsync.apache.org/tomcat/tomcat-7/v$(COMPONENT_VERSION)/bin/$(COMPONENT_ARCHIVE)
 #COMPONENT_ARCHIVE_URL=	$(APACHE_ARCHIVE)/tomcat/tomcat-7/v$(COMPONENT_VERSION)/bin/$(COMPONENT_ARCHIVE)
+COMPONENT_JMX_URL=	http://mirror.ox.ac.uk/sites/rsync.apache.org/tomcat/tomcat-7/v7.0.55/bin/extras/catalina-jmx-remote.jar
+
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
@@ -48,6 +50,7 @@ $(BUILD_DIR)/%/.installed:      $(BUILD_DIR)/%/.built
 	( for i in catalina.policy catalina.properties context.xml logging.properties server.xml \
 		tomcat-users.xml web.xml ; \
 		do $(CP) $(SOURCE_DIR)/conf/$$i $(PROTO_DIR)$(ECPREFIX)/etc/tomcat7/ ; done )
+	wget -O $(PROTO_DIR)$(ECPREFIX)/lib/tomcat7/lib/catalina-jmx-remote.jar $(COMPONENT_JMX_URL)
 	$(TOUCH) $@
 
 build:		$(BUILD_32)
