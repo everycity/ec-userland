@@ -1090,7 +1090,6 @@ dir path=$(ECPREFIX)/share/ri/1.9.1/system/RDoc/Stats/Verbose
 dir path=$(ECPREFIX)/share/ri/1.9.1/system/RDoc/Task
 dir path=$(ECPREFIX)/share/ri/1.9.1/system/RDoc/TokenStream
 dir path=$(ECPREFIX)/share/ri/1.9.1/system/RDoc/TopLevel
-dir path=$(ECPREFIX)/share/ri/1.9.1/system/RDocTask
 dir path=$(ECPREFIX)/share/ri/1.9.1/system/REXML
 dir path=$(ECPREFIX)/share/ri/1.9.1/system/REXML/AttlistDecl
 dir path=$(ECPREFIX)/share/ri/1.9.1/system/REXML/Attribute
@@ -1673,8 +1672,6 @@ dir \
 dir path=$(ECPREFIX)/share/ri/1.9.1/system/RSS/TaxonomyTopicsModel
 dir \
     path=$(ECPREFIX)/share/ri/1.9.1/system/RSS/TaxonomyTopicsModel/TaxonomyTopics
-dir \
-    path=$(ECPREFIX)/share/ri/1.9.1/system/RSS/TaxonomyTopicsModel/TaxonomyTopics/Bag
 dir path=$(ECPREFIX)/share/ri/1.9.1/system/RSS/TooMuchTagError
 dir path=$(ECPREFIX)/share/ri/1.9.1/system/RSS/TrackBackModel10
 dir path=$(ECPREFIX)/share/ri/1.9.1/system/RSS/TrackBackModel10/TrackBackAbout
@@ -14051,7 +14048,6 @@ file \
     path=$(ECPREFIX)/share/ri/1.9.1/system/RDoc/TopLevel/unique_classes_and_modules-c.ri
 file path=$(ECPREFIX)/share/ri/1.9.1/system/RDoc/TopLevel/unique_modules-c.ri
 file path=$(ECPREFIX)/share/ri/1.9.1/system/RDoc/cdesc-RDoc.ri
-file path=$(ECPREFIX)/share/ri/1.9.1/system/RDocTask/cdesc-RDocTask.ri
 file path=$(ECPREFIX)/share/ri/1.9.1/system/REXML/AttlistDecl/%5b%5d-i.ri
 file \
     path=$(ECPREFIX)/share/ri/1.9.1/system/REXML/AttlistDecl/cdesc-AttlistDecl.ri
@@ -17093,16 +17089,6 @@ file \
     path=$(ECPREFIX)/share/ri/1.9.1/system/RSS/TaxonomyTopicModel/append_features-c.ri
 file \
     path=$(ECPREFIX)/share/ri/1.9.1/system/RSS/TaxonomyTopicModel/cdesc-TaxonomyTopicModel.ri
-file \
-    path=$(ECPREFIX)/share/ri/1.9.1/system/RSS/TaxonomyTopicsModel/TaxonomyTopics/Bag/cdesc-Bag.ri
-file \
-    path=$(ECPREFIX)/share/ri/1.9.1/system/RSS/TaxonomyTopicsModel/TaxonomyTopics/Bag/full_name-i.ri
-file \
-    path=$(ECPREFIX)/share/ri/1.9.1/system/RSS/TaxonomyTopicsModel/TaxonomyTopics/Bag/new-c.ri
-file \
-    path=$(ECPREFIX)/share/ri/1.9.1/system/RSS/TaxonomyTopicsModel/TaxonomyTopics/Bag/required_uri-c.ri
-file \
-    path=$(ECPREFIX)/share/ri/1.9.1/system/RSS/TaxonomyTopicsModel/TaxonomyTopics/Bag/setup_maker-i.ri
 file \
     path=$(ECPREFIX)/share/ri/1.9.1/system/RSS/TaxonomyTopicsModel/TaxonomyTopics/cdesc-TaxonomyTopics.ri
 file \

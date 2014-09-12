@@ -16,14 +16,14 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ImageMagick
 COMPONENT_FMRI=		multimedia/imagemagick
-COMPONENT_VERSION=	6.8.8-10
-IPS_COMPONENT_VERSION=	6.8.8.10
+COMPONENT_VERSION=	6.8.9-6
+IPS_COMPONENT_VERSION=	6.8.9.6
 COMPONENT_LICENSE=	ImageMagick
 COMPONENT_PROJECT_URL=	http://www.imagemagick.org/
 COMPONENT_SUMMARY=	Convert, Edit, And Compose Images
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:a3a776b4a5655b0602344a74032aabacc915fbe78d556279574a8f1267c14aa2
+COMPONENT_ARCHIVE_HASH=	sha256:9a5b92bb6fd105a8460507687ad26cfdcc4fddc8850b782c0d13b1f44f5ef123
 COMPONENT_ARCHIVE_URL=	ftp://ftp.imagemagick.org/pub/ImageMagick/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -40,8 +40,7 @@ CONFIGURE_OPTIONS.64+=	--without-perl
 
 # To get the Perl modules built it is necessary to copy the PerlMagick directory
 # to the build directory
-#
-COMPONENT_PRE_CONFIGURE_ACTION= ($(CP) -R $(SOURCE_DIR)/PerlMagick $(@D); cd $(SOURCE_DIR); $(AUTORECONF) -f)
+COMPONENT_PRE_CONFIGURE_ACTION= ($(CP) -R $(SOURCE_DIR)/PerlMagick $(@D); )
 
 COMPONENT_BUILD_ARGS += LD="$(CC)"
 COMPONENT_BUILD_ARGS += LD_RUN_PATH="$(CONFIGURE_LIBDIR.$(BITS))"
@@ -92,8 +91,27 @@ COMPONENT_BUILD_ARGS += LD_RUN_PATH="$(CONFIGURE_LIBDIR.$(BITS))"
 # XML               --with-xml=yes                yes
 # ZLIB              --with-zlib=yes               yes
 
+COMPONENT_POST_INSTALL_ACTION+= ( \
+	/usr/bin/echo "/* EC: combining 32 and 64bit versions */\n\n\#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/magick-baseconfig.h; \
+	/usr/bin/cat $(BUILD_DIR_64)/magick/magick-baseconfig.h >> $(COMPONENT_DIR)/magick-baseconfig.h; \
+	/usr/bin/echo "\n\#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/magick-baseconfig.h; \
+	/usr/bin/cat $(BUILD_DIR_32)/magick/magick-baseconfig.h >> $(COMPONENT_DIR)/magick-baseconfig.h; \
+	/usr/bin/echo "\n\#endif /* EC */" >> $(COMPONENT_DIR)/magick-baseconfig.h; \
+	\
+	/usr/bin/echo "/* EC: combining 32 and 64bit versions */\n\n\#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/version.h; \
+	/usr/bin/cat $(BUILD_DIR_64)/magick/version.h >> $(COMPONENT_DIR)/version.h; \
+	/usr/bin/echo "\n\#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/version.h; \
+	/usr/bin/cat $(BUILD_DIR_32)/magick/version.h >> $(COMPONENT_DIR)/version.h; \
+	/usr/bin/echo "\n\#endif /* EC */" >> $(COMPONENT_DIR)/version.h; )
 
 build:		$(BUILD_32_and_64)
 
-install:	$(INSTALL_32_and_64)
+$(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
+	$(RM) $(PROTO_DIR)$(ECPREFIX)/include/ImageMagick-6/magick/magick-baseconfig.h
+	$(INSTALL) $(COMPONENT_DIR)/magick-baseconfig.h $(PROTO_DIR)$(ECPREFIX)/include/ImageMagick-6/magick/magick-baseconfig.h
+	$(RM) $(PROTO_DIR)$(ECPREFIX)/include/ImageMagick-6/magick/version.h
+	$(INSTALL) $(COMPONENT_DIR)/version.h $(PROTO_DIR)$(ECPREFIX)/include/ImageMagick-6/magick/version.h
+	$(TOUCH) $@
+
+install:	$(BUILD_DIR)/.installed
 

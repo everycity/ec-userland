@@ -30,15 +30,15 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gettext
+COMPONENT_FMRI=		text/gnu-gettext
 COMPONENT_VERSION=	0.18.3.2
-IPS_PKG_NAME=		text/gnu-gettext
-COMPONENT_PROJECT_URL=	http://www.gnu.org/software/gettext/
+COMPONENT_LICENSE=	GPLv3
+COMPONENT_PROJECT_URL=	"http://www.gnu.org/software/gettext/"
+COMPONENT_SUMMARY=	GNU gettext
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	\
-    sha256:d1a4e452d60eb407ab0305976529a45c18124bd518d976971ac6dc7aa8b4c5d7
-COMPONENT_ARCHIVE_URL=	http://ftp.gnu.org/pub/gnu/gettext/$(COMPONENT_ARCHIVE)
-COMPONENT_BUGDB=	utility/gnu-gettext
+COMPONENT_ARCHIVE_HASH=	sha256:d1a4e452d60eb407ab0305976529a45c18124bd518d976971ac6dc7aa8b4c5d7
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

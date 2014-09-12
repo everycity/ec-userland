@@ -17,16 +17,17 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=		mariadb
 COMPONENT_FMRI=         database/mariadb-55
 COMPONENT_VERSION_MJR=	5.5
-COMPONENT_VERSION_MNR=	38
-IPS_COMPONENT_VERSION=	5.5.38
+COMPONENT_VERSION_MNR=	39
 COMPONENT_VERSION=	$(COMPONENT_VERSION_MJR).$(COMPONENT_VERSION_MNR)
 COMPONENT_LICENSE=      BSD, LGPL, GPL
 COMPONENT_PROJECT_URL=  https://mariadb.org/
 COMPONENT_SUMMARY=	An enhanced, drop-in replacement for MySQL
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:efc839e6627064b3b5c6c39854198f0d34907f48937804758d4c09c7717be8d3
-COMPONENT_ARCHIVE_URL=	http://mirrors.coreix.net/$(COMPONENT_NAME)/$(COMPONENT_SRC)/source/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:cb850865ab55ce5f01c99a612cc75b76ead5d75adfa75a606f453d32f9089d14
+#COMPONENT_ARCHIVE_URL=	http://mirrors.coreix.net/$(COMPONENT_NAME)/$(COMPONENT_SRC)/source/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://mirror.stshosting.co.uk/$(COMPONENT_NAME)/$(COMPONENT_SRC)/source/$(COMPONENT_ARCHIVE)
+#https://downloads.mariadb.org/interstitial/mariadb-5.5.39/source/mariadb-5.5.39.tar.gz/from/http:/mirror.stshosting.co.uk/mariadb?serve?&serve
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk

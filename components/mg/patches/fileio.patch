@@ -1,28 +1,33 @@
---- mg-20110120/fileio.c.~1~	2008-12-30 16:04:23.000000000 +0000
-+++ mg-20110120/fileio.c	2011-08-05 13:42:00.752326852 +0100
-@@ -27,6 +27,7 @@
+--- mg-20140414/fileio.c.~1~	2014-04-03 20:20:55.000000000 +0100
++++ mg-20140414/fileio.c	2014-04-23 21:27:33.448204202 +0100
+@@ -15,11 +15,11 @@
+ 
+ #include <fcntl.h>
+ #include <limits.h>
+-#include <dirent.h>
+ #include <pwd.h>
+ #include <string.h>
  #include <unistd.h>
  
++#include "adirent.h"
  #include "kbd.h"
-+#include "asprintf.h"
+ #include "pathnames.h"
  
- static FILE	*ffp;
+@@ -425,7 +424,7 @@
+ 	size_t		 len, preflen;
+ 	int		 ret;
+ 	DIR		*dirp;
+-	struct dirent	*dent;
++	struct adirent	*dent;
+ 	struct list	*last, *current;
+ 	char		 fl_name[NFILEN + 2];
+ 	char		 prefixx[NFILEN + 1];
+@@ -507,7 +506,7 @@
+ 		return (NULL);
+ 	last = NULL;
  
-@@ -568,7 +569,7 @@
- 
- 	while ((dent = readdir(dirp)) != NULL) {
+-	while ((dent = readdir(dirp)) != NULL) {
++	while ((dent = READDIR(dirp)) != NULL) {
  		int isdir;
--#if defined (__CYGWIN__)	/* Cygwin lacks reclen/namlen. */
-+#if defined (__CYGWIN__) || (defined (__SVR4) && defined (__sun))	/* Cygwin lacks reclen/namlen. */
- 		if (strlen(dent->d_name) < len
- 		    || memcmp(cp, dent->d_name, len) != 0)
- #elif defined (__GLIBC__)		/* Linux uses reclen instead. */
-@@ -580,7 +581,7 @@
- 
- 		isdir = 0;
- 
--#ifndef __CYGWIN__      /* No support for d_type in Cygwin, do all
-+#if (! defined (__CYGWIN__)) && (! defined (__SVR4)) && (! defined (__sun))       /* No support for d_type in Cygwin, do all
- 			     type cheking with stat. */
- 		if (dent->d_type == DT_DIR) {
- 			isdir = 1;
+ 		if (strncmp(cp, dent->d_name, len) != 0)
+ 			continue;

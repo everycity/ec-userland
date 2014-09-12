@@ -15,16 +15,18 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tomcat
-COMPONENT_VERSION=	7.0.54
+COMPONENT_VERSION=	7.0.55
 COMPONENT_FMRI=         web/java-servlet/tomcat7
 COMPONENT_LICENSE=      Apache v2.0
 COMPONENT_SUMMARY=      Tomcat Servlet/JSP Container
 COMPONENT_PROJECT_URL=	$(PROJECT_APACHE)
 COMPONENT_SRC=		apache-tomcat-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	apache-tomcat-$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:f0316c128881c4df384771dc0da8f8e80d861385798e57d22fd4068f48ab8724
+COMPONENT_ARCHIVE_HASH=	sha256:c20934fda63bc7311e2d8e067d67f886890c8be72280425c5f6f8fdd7a376c15
 COMPONENT_ARCHIVE_URL=	http://mirror.ox.ac.uk/sites/rsync.apache.org/tomcat/tomcat-7/v$(COMPONENT_VERSION)/bin/$(COMPONENT_ARCHIVE)
 #COMPONENT_ARCHIVE_URL=	$(APACHE_ARCHIVE)/tomcat/tomcat-7/v$(COMPONENT_VERSION)/bin/$(COMPONENT_ARCHIVE)
+COMPONENT_JMX_URL=	http://mirror.ox.ac.uk/sites/rsync.apache.org/tomcat/tomcat-7/v7.0.55/bin/extras/catalina-jmx-remote.jar
+
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
@@ -48,6 +50,7 @@ $(BUILD_DIR)/%/.installed:      $(BUILD_DIR)/%/.built
 	( for i in catalina.policy catalina.properties context.xml logging.properties server.xml \
 		tomcat-users.xml web.xml ; \
 		do $(CP) $(SOURCE_DIR)/conf/$$i $(PROTO_DIR)$(ECPREFIX)/etc/tomcat7/ ; done )
+	wget -O $(PROTO_DIR)$(ECPREFIX)/lib/tomcat7/lib/catalina-jmx-remote.jar $(COMPONENT_JMX_URL)
 	$(TOUCH) $@
 
 build:		$(BUILD_32)

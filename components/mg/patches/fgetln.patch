@@ -1,33 +1,18 @@
---- mg-20110120/fgetln.c.~1~	2008-12-30 12:41:23.000000000 +0000
-+++ mg-20110120/fgetln.c	2011-08-05 14:18:38.091799011 +0100
-@@ -22,22 +22,63 @@
-  * fgetln() wrapper for operating systems with getline()
-  */
- 
--#define _GNU_SOURCE		/* for getline() */
--#include <sys/types.h>
- #include <stdio.h>
--#include <string.h>
- 
--#if defined (__GLIBC__) || defined (__CYGWIN__)  /* FreeWRT: only build
--						      this where needed */
--char *fgetln(FILE *, size_t *);
+--- /dev/null	2014-04-27 18:55:36.000000000 +0100
++++ mg-20140414/fgetln.c	2014-04-27 19:34:47.035227892 +0100
+@@ -0,0 +1,55 @@
++#if defined (__sun) && defined (__SVR4)
++
++#include <stdio.h>
++#include <stdlib.h>
++ 
 +#define INITIAL_LINE_LENGTH	256
 +
-+extern	char *fgetln(register FILE *,size_t *);
-+
-+#if defined (_WINDOWS) || defined (_WIN32) || defined (linux) || defined (sun)
-+
-+#include <stdlib.h>
- 
- char *
--fgetln(FILE *stream, size_t *len)
++char *
 +fgetln(fp, lenp)
 +	register FILE *fp;
 +	size_t *lenp;
- {
--	char *lb = NULL;
--	size_t lbsz = 0;
++{
 +	char c;
 +	size_t n, siz;
 +	size_t len, new_len;
@@ -50,9 +35,7 @@
 +		}
 +
 +		++siz;
- 
--	*len = getline(&lb, &lbsz, stream);
--	return ((*len == (size_t)-1) ? NULL : lb);
++ 
 +		if (c == '\n') {
 +			*p++ = c;
 +			break;
@@ -71,7 +54,5 @@
 +	if (lenp != NULL)
 +		*lenp = siz;
 +	return (buf);
- }
-+#elif defined (BSD)
-+extern	char *fgetln(register FILE *,size_t *);
- #endif
++}
++#endif

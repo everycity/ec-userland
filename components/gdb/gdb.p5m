@@ -9,84 +9,74 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/developer/debug/gdb@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="gdb - GNU debugger"
-set name=info.upstream_url value="http://www.gnu.org/software/gdb/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license gdb.license license="GPLv3"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/gdb
+dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/gdb
 dir path=$(ECPREFIX)/share/gdb/python
 dir path=$(ECPREFIX)/share/gdb/python/gdb
+dir path=$(ECPREFIX)/share/gdb/python/gdb/command
+dir path=$(ECPREFIX)/share/gdb/python/gdb/function
 dir path=$(ECPREFIX)/share/gdb/syscalls
-dir path=$(ECPREFIX)/share/info
-dir path=$(ECPREFIX)/share/locale
-dir path=$(ECPREFIX)/share/locale/da
-dir path=$(ECPREFIX)/share/locale/da/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/de
-dir path=$(ECPREFIX)/share/locale/de/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/es
-dir path=$(ECPREFIX)/share/locale/es/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/fi
-dir path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/fr
-dir path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/ga
-dir path=$(ECPREFIX)/share/locale/ga/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/id
-dir path=$(ECPREFIX)/share/locale/id/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/ja
-dir path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/nl
-dir path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/pt_BR
-dir path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/ro
-dir path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/ru
-dir path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/rw
-dir path=$(ECPREFIX)/share/locale/rw/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/sv
-dir path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/tr
-dir path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/vi
-dir path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/zh_CN
-dir path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES
+dir path=$(ECPREFIX)/share/gdb/system-gdbinit
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
+dir path=$(ECPREFIX)/share/man/man5
 file path=$(ECPREFIX)/bin/gdb
-file path=$(ECPREFIX)/bin/gdbtui
+file path=$(ECPREFIX)/include/gdb/jit-reader.h
+file path=$(ECPREFIX)/lib/libbfd.a
+file path=$(ECPREFIX)/lib/libbfd.la
+file path=$(ECPREFIX)/lib/libopcodes.a
+file path=$(ECPREFIX)/lib/libopcodes.la
+file path=$(ECPREFIX)/share/gdb/python/gdb/FrameDecorator.py
+file path=$(ECPREFIX)/share/gdb/python/gdb/FrameIterator.py
+file path=$(ECPREFIX)/share/gdb/python/gdb/__init__.py
+file path=$(ECPREFIX)/share/gdb/python/gdb/command/__init__.py
+file path=$(ECPREFIX)/share/gdb/python/gdb/command/bound_registers.py
+file path=$(ECPREFIX)/share/gdb/python/gdb/command/explore.py
+file path=$(ECPREFIX)/share/gdb/python/gdb/command/frame_filters.py
+file path=$(ECPREFIX)/share/gdb/python/gdb/command/pretty_printers.py
+file path=$(ECPREFIX)/share/gdb/python/gdb/command/prompt.py
+file path=$(ECPREFIX)/share/gdb/python/gdb/command/type_printers.py
+file path=$(ECPREFIX)/share/gdb/python/gdb/command/xmethods.py
+file path=$(ECPREFIX)/share/gdb/python/gdb/frames.py
+file path=$(ECPREFIX)/share/gdb/python/gdb/function/__init__.py
+file path=$(ECPREFIX)/share/gdb/python/gdb/function/strfns.py
+file path=$(ECPREFIX)/share/gdb/python/gdb/printing.py
+file path=$(ECPREFIX)/share/gdb/python/gdb/prompt.py
+file path=$(ECPREFIX)/share/gdb/python/gdb/types.py
+file path=$(ECPREFIX)/share/gdb/python/gdb/xmethod.py
 file path=$(ECPREFIX)/share/gdb/syscalls/amd64-linux.xml
+file path=$(ECPREFIX)/share/gdb/syscalls/arm-linux.xml
 file path=$(ECPREFIX)/share/gdb/syscalls/gdb-syscalls.dtd
 file path=$(ECPREFIX)/share/gdb/syscalls/i386-linux.xml
+file path=$(ECPREFIX)/share/gdb/syscalls/mips-n32-linux.xml
+file path=$(ECPREFIX)/share/gdb/syscalls/mips-n64-linux.xml
+file path=$(ECPREFIX)/share/gdb/syscalls/mips-o32-linux.xml
 file path=$(ECPREFIX)/share/gdb/syscalls/ppc-linux.xml
 file path=$(ECPREFIX)/share/gdb/syscalls/ppc64-linux.xml
+file path=$(ECPREFIX)/share/gdb/syscalls/s390-linux.xml
+file path=$(ECPREFIX)/share/gdb/syscalls/s390x-linux.xml
 file path=$(ECPREFIX)/share/gdb/syscalls/sparc-linux.xml
 file path=$(ECPREFIX)/share/gdb/syscalls/sparc64-linux.xml
-file path=$(ECPREFIX)/share/info/annotate.info
-file path=$(ECPREFIX)/share/info/gdb.info
-file path=$(ECPREFIX)/share/info/gdb.info-1
-file path=$(ECPREFIX)/share/info/gdb.info-2
-file path=$(ECPREFIX)/share/info/gdb.info-3
-file path=$(ECPREFIX)/share/info/gdb.info-4
-file path=$(ECPREFIX)/share/info/gdb.info-5
-file path=$(ECPREFIX)/share/info/gdb.info-6
-file path=$(ECPREFIX)/share/info/gdbint.info
-file path=$(ECPREFIX)/share/info/gdbint.info-1
-file path=$(ECPREFIX)/share/info/gdbint.info-2
-file path=$(ECPREFIX)/share/info/stabs.info
+file path=$(ECPREFIX)/share/gdb/system-gdbinit/elinos.py
+file path=$(ECPREFIX)/share/gdb/system-gdbinit/wrs-linux.py
 file path=$(ECPREFIX)/share/man/man1/gdb.1
-file path=$(ECPREFIX)/share/man/man1/gdbtui.1
+file path=$(ECPREFIX)/share/man/man1/gdbserver.1
+file path=$(ECPREFIX)/share/man/man5/gdbinit.5

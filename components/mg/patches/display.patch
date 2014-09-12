@@ -1,16 +1,13 @@
---- mg-20110120/display.c.orig	2011-08-05 12:30:32.896985128 +0100
-+++ mg-20110120/display.c	2011-08-05 12:31:15.565540698 +0100
-@@ -13,6 +13,10 @@
- #include "def.h"
+--- mg-20140414/display.c.orig	2014-04-22 12:27:24.950969060 +0100
++++ mg-20140414/display.c	2014-04-22 12:27:40.707276119 +0100
+@@ -14,6 +14,7 @@
  #include "kbd.h"
  
-+#define bzero(b,n) memset(b,0,n)
-+#define bcopy(b1,b2,n) memcpy(b2,b1,n)
-+#define bcmp(b1,b2,n) memcmp(b1,b2,n)
-+
  #include <ctype.h>
++#include <strings.h>
  
  /*
+  * You can change these back to the types
 @@ -27,7 +31,7 @@
  #define	XSHORT	int
  

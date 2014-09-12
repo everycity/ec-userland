@@ -1,0 +1,55 @@
+--- mg-20140414/GNUmakefile.~1~	2014-03-06 12:23:25.000000000 +0000
++++ mg-20140414/GNUmakefile	2014-08-09 14:15:46.075687327 +0100
+@@ -7,17 +7,25 @@
+ 
+ name=		mg
+ 
+-prefix=		/usr/local
++prefix=		$(ECPREFIX)
+ bindir=		$(prefix)/bin
+ libdir=		$(prefix)/lib
+ includedir=	$(prefix)/include
+ mandir=		$(prefix)/man
+ 
+-PKG_CONFIG=	/usr/bin/pkg-config
+-INSTALL=	/usr/bin/install
+-STRIP=		/usr/bin/strip
++PKG_CONFIG=	$(ECPREFIX)/bin/pkg-config
++INSTALL=	$(ECPREFIX)/bin/install
++STRIP=		$(ECPREFIX)/bin/strip
+ 
++DEAD=		-D__dead=__dead2
+ UNAME:=		$(shell uname)
++ifeq ($(UNAME),SunOS)
++  OBJS+=	adirent.o fgetln.o fparseln.o strtonum.o
++  SUNOS_LIBS=	-lsocket -lnsl -lumem
++  CURSES_LIBS=	-lncurses
++  DEAD=		-D__dead=
++  CPPFLAGS=	-DDEFFILEMODE=0666
++endif
+ ifeq ($(UNAME),FreeBSD)
+   BSD_CPPFLAGS:=
+   BSD_LIBS:=	-lutil
+@@ -26,17 +34,17 @@
+   BSD_LIBS:=	$(shell $(PKG_CONFIG) --libs libbsd-overlay)
+ endif
+ 
+-CURSES_LIBS=	-lcurses
++CURSES_LIBS?=	-lcurses
+ 
+ CC=		gcc
+ CFLAGS?=	-O2 -pipe
+ CFLAGS+=	-g -Wall
+-CPPFLAGS=	-DFKEYS -DREGEX -DXKEYS
+-CPPFLAGS+=	$(BSD_CPPFLAGS) -D__dead=__dead2
+-LIBS=		$(CURSES_LIBS) $(BSD_LIBS)
++CPPFLAGS+=	-DFKEYS -DREGEX -DXKEYS
++CPPFLAGS+=	$(BSD_CPPFLAGS) $(DEAD)
++LIBS=		$(CURSES_LIBS) $(BSD_LIBS) $(SUNOS_LIBS)
+ 
+ 
+-OBJS=	autoexec.o basic.o bell.o buffer.o cinfo.o dir.o display.o \
++OBJS+=	autoexec.o basic.o bell.o buffer.o cinfo.o dir.o display.o \
+ 	echo.o extend.o file.o fileio.o funmap.o help.o kbd.o keymap.o \
+ 	line.o macro.o main.o match.o modes.o paragraph.o random.o \
+ 	re_search.o region.o search.o spawn.o tty.o ttyio.o ttykbd.o \

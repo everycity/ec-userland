@@ -8,6 +8,8 @@ components/erlang/documentation
 components/gcc44/gcc44*.p5m
 components/geoip-db-city/GeoLiteCity-20111006.dat
 components/geoip-db-country/GeoIP-20111006.dat
+components/imagemagick/magick-baseconfig.h
+components/imagemagick/version.h
 components/libusb-*/src/.prep
 components/live555/install
 components/mc/mc-4.7.99.2-c819eb1fa3e179f237e9c30bb1e738c123da4e81.tar.gz

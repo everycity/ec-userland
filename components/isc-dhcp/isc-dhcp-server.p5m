@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -45,21 +45,23 @@ file files/dhcpd.leases path=$(ECPREFIX)/var/db/dhcp/dhcpd6.leases~ mode=0644 gr
 # Manually Generated Content
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/dhcp
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/include/dhcpctl
 dir path=$(ECPREFIX)/include/isc-dhcp
 dir path=$(ECPREFIX)/include/omapip
+dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man3
 dir path=$(ECPREFIX)/share/man/man5
 dir path=$(ECPREFIX)/share/man/man8
-dir path=$(SYSCONFDIR)
-dir path=$(SYSCONFDIR)/dhcp
 file path=$(ECPREFIX)/bin/dhcpd
 file path=$(ECPREFIX)/bin/dhcrelay
 file path=$(ECPREFIX)/bin/omshell
+file path=$(ECPREFIX)/etc/dhcp/dhcpd.conf.example
 file path=$(ECPREFIX)/include/dhcpctl/dhcpctl.h
 file path=$(ECPREFIX)/include/isc-dhcp/dst.h
 file path=$(ECPREFIX)/include/omapip/alloc.h
@@ -71,6 +73,9 @@ file path=$(ECPREFIX)/include/omapip/omapip.h
 file path=$(ECPREFIX)/include/omapip/omapip_p.h
 file path=$(ECPREFIX)/include/omapip/result.h
 file path=$(ECPREFIX)/include/omapip/trace.h
+file path=$(ECPREFIX)/lib/libdhcpctl.a
+file path=$(ECPREFIX)/lib/libdst.a
+file path=$(ECPREFIX)/lib/libomapi.a
 file path=$(ECPREFIX)/share/man/man1/omshell.1
 file path=$(ECPREFIX)/share/man/man3/dhcpctl.3
 file path=$(ECPREFIX)/share/man/man3/omapi.3
@@ -80,4 +85,3 @@ file path=$(ECPREFIX)/share/man/man5/dhcpd.conf.5
 file path=$(ECPREFIX)/share/man/man5/dhcpd.leases.5
 file path=$(ECPREFIX)/share/man/man8/dhcpd.8
 file path=$(ECPREFIX)/share/man/man8/dhcrelay.8
-file path=$(SYSCONFDIR)/dhcp/dhcpd.conf.example
