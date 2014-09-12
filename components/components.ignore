@@ -370,6 +370,7 @@
 /^ruby\/stomp$/d
 /^schroedinger$/d
 /^screen$/d
+/^scons$/d
 /^serf$/d
 /^shellsettings$/d
 /^slang$/d
