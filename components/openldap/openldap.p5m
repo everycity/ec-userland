@@ -22,40 +22,40 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-file path=etc/openldap/DB_CONFIG.example
-file path=etc/openldap/ldap.conf
-file path=etc/openldap/ldap.conf.default
-file path=etc/openldap/schema/README
-file path=etc/openldap/schema/collective.ldif
-file path=etc/openldap/schema/collective.schema
-file path=etc/openldap/schema/corba.ldif
-file path=etc/openldap/schema/corba.schema
-file path=etc/openldap/schema/core.ldif
-file path=etc/openldap/schema/core.schema
-file path=etc/openldap/schema/cosine.ldif
-file path=etc/openldap/schema/cosine.schema
-file path=etc/openldap/schema/duaconf.ldif
-file path=etc/openldap/schema/duaconf.schema
-file path=etc/openldap/schema/dyngroup.ldif
-file path=etc/openldap/schema/dyngroup.schema
-file path=etc/openldap/schema/inetorgperson.ldif
-file path=etc/openldap/schema/inetorgperson.schema
-file path=etc/openldap/schema/java.ldif
-file path=etc/openldap/schema/java.schema
-file path=etc/openldap/schema/misc.ldif
-file path=etc/openldap/schema/misc.schema
-file path=etc/openldap/schema/nis.ldif
-file path=etc/openldap/schema/nis.schema
-file path=etc/openldap/schema/openldap.ldif
-file path=etc/openldap/schema/openldap.schema
-file path=etc/openldap/schema/pmi.ldif
-file path=etc/openldap/schema/pmi.schema
-file path=etc/openldap/schema/ppolicy.ldif
-file path=etc/openldap/schema/ppolicy.schema
-file path=etc/openldap/slapd.conf
-file path=etc/openldap/slapd.conf.default
-file path=etc/openldap/slapd.ldif
-file path=etc/openldap/slapd.ldif.default
+file path=$(SYSCONFDIR)/openldap/DB_CONFIG.example
+file path=$(SYSCONFDIR)/openldap/ldap.conf
+file path=$(SYSCONFDIR)/openldap/ldap.conf.default
+file path=$(SYSCONFDIR)/openldap/schema/README
+file path=$(SYSCONFDIR)/openldap/schema/collective.ldif
+file path=$(SYSCONFDIR)/openldap/schema/collective.schema
+file path=$(SYSCONFDIR)/openldap/schema/corba.ldif
+file path=$(SYSCONFDIR)/openldap/schema/corba.schema
+file path=$(SYSCONFDIR)/openldap/schema/core.ldif
+file path=$(SYSCONFDIR)/openldap/schema/core.schema
+file path=$(SYSCONFDIR)/openldap/schema/cosine.ldif
+file path=$(SYSCONFDIR)/openldap/schema/cosine.schema
+file path=$(SYSCONFDIR)/openldap/schema/duaconf.ldif
+file path=$(SYSCONFDIR)/openldap/schema/duaconf.schema
+file path=$(SYSCONFDIR)/openldap/schema/dyngroup.ldif
+file path=$(SYSCONFDIR)/openldap/schema/dyngroup.schema
+file path=$(SYSCONFDIR)/openldap/schema/inetorgperson.ldif
+file path=$(SYSCONFDIR)/openldap/schema/inetorgperson.schema
+file path=$(SYSCONFDIR)/openldap/schema/java.ldif
+file path=$(SYSCONFDIR)/openldap/schema/java.schema
+file path=$(SYSCONFDIR)/openldap/schema/misc.ldif
+file path=$(SYSCONFDIR)/openldap/schema/misc.schema
+file path=$(SYSCONFDIR)/openldap/schema/nis.ldif
+file path=$(SYSCONFDIR)/openldap/schema/nis.schema
+file path=$(SYSCONFDIR)/openldap/schema/openldap.ldif
+file path=$(SYSCONFDIR)/openldap/schema/openldap.schema
+file path=$(SYSCONFDIR)/openldap/schema/pmi.ldif
+file path=$(SYSCONFDIR)/openldap/schema/pmi.schema
+file path=$(SYSCONFDIR)/openldap/schema/ppolicy.ldif
+file path=$(SYSCONFDIR)/openldap/schema/ppolicy.schema
+file path=$(SYSCONFDIR)/openldap/slapd.conf
+file path=$(SYSCONFDIR)/openldap/slapd.conf.default
+file path=$(SYSCONFDIR)/openldap/slapd.ldif
+file path=$(SYSCONFDIR)/openldap/slapd.ldif.default
 
 file path=$(USRDIR)/bin/$(MACH64)/ldapcompare
 file path=$(USRDIR)/bin/$(MACH64)/ldapdelete
@@ -203,7 +203,7 @@ file path=$(USRDIR)/share/man/man8/slappasswd.8
 file path=$(USRDIR)/share/man/man8/slapschema.8
 file path=$(USRDIR)/share/man/man8/slaptest.8
 
-file path=var/openldap-data/DB_CONFIG.example
+file path=$(LOCALSTATEDIR)/openldap-data/DB_CONFIG.example
 
 link path=$(USRDIR)/bin/$(MACH64)/ldapadd target=ldapmodify
 link path=$(USRDIR)/bin/$(MACH64)/slapacl target=slapd

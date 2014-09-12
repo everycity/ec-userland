@@ -219,7 +219,6 @@
 /^opencore-amr$/d
 /^opencv$/d
 /^openjpeg$/d
-/^openldap$/d
 /^openssh$/d
 /^opus$/d
 /^orbit2$/d
