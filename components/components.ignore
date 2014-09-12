@@ -89,7 +89,6 @@
 /^gnu-diffutils$/d
 /^gnu-gzip$/d
 /^gnu-inetutils$/d
-/^gnu-libidn$/d
 /^gnu-patch$/d
 /^gnu-pth$/d
 /^gnu-tar$/d
