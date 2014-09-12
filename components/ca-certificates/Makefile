@@ -24,7 +24,7 @@ COMPONENT_SUMMARY=	Bundle of CA Root Certificates (From Mozilla)
 include $(WS_TOP)/make-rules/justmake.mk
 include $(WS_TOP)/make-rules/ips.mk
 
-CABUNDLE_DIR=	$(PROTO_DIR)$(ETCDIR)/openssl
+CABUNDLE_DIR=	$(PROTO_DIR)$(CONFIGURE_SYSCONFDIR)/openssl
 CABUNDLE_FILE=	$(CABUNDLE_DIR)/cabundle.pem
 
 $(BUILD_DIR)/%/.built: 

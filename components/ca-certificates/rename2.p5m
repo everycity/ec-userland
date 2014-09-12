@@ -11,15 +11,7 @@
 #
 # Copyright 2014 EveryCity Ltd. All rights reserved.
 #
+set name=pkg.fmri value=pkg:/crypto/ca-bundle@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.renamed value=true
 
-# Transforms
-<include ec-drop-common>
-
-set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-
-license ca-certificates.license license="$(COMPONENT_LICENSE)"
-
-file path=$(SYSCONFDIR)/openssl/cabundle.pem
+depend fmri=pkg:/$(COMPONENT_FMRI) type=require
