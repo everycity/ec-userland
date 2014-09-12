@@ -13,7 +13,6 @@
 /^apache24-mod_jk$/d
 /^apache24-mod_security$/d
 /^apachetop$/d
-/^apr$/d
 /^apr-util$/d
 /^asciidoc$/d
 /^aspell$/d
