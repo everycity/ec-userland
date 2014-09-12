@@ -48,6 +48,7 @@ class UserlandActionChecker(base.ActionChecker):
 		self.runpath_re = [
 			re.compile('^/lib(/.*)?$'),
 			re.compile('^/usr/'),
+			re.compile('^/ec(/.*)?$'),
 			re.compile('^\$ORIGIN/')
 		]
 		self.runpath_64_re = [
