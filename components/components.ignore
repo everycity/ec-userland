@@ -25,7 +25,6 @@
 /^bdb51$/d
 /^bitlbee$/d
 /^boost$/d
-/^bzip2$/d
 /^cabextract$/d
 /^cairo$/d
 /^cassandra$/d
