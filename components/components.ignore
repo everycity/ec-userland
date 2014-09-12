@@ -39,7 +39,6 @@
 /^cronie$/d
 /^cronolog$/d
 /^csvfix$/d
-/^curl$/d
 /^dbt2$/d
 /^dbus$/d
 /^dbus-glib$/d
