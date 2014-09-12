@@ -398,7 +398,6 @@
 /^top$/d
 /^tor$/d
 /^trousers$/d
-/^unzip$/d
 /^uriparser$/d
 /^uwimap$/d
 /^varnish$/d
