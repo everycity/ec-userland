@@ -378,7 +378,6 @@
 /^sphinx$/d
 /^sphinx-099$/d
 /^spread$/d
-/^sqlite3$/d
 /^ssmtp$/d
 /^stress$/d
 /^stunnel$/d
