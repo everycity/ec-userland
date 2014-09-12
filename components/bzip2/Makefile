@@ -33,7 +33,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_PREP_ACTION = (cd $(@D) ; chmod 755 ./autogen.sh ; ./autogen.sh )
+COMPONENT_PREP_ACTION = (cd $(@D) ; $(SHELL) ./autogen.sh )
 
 build:		$(BUILD_32_and_64)
 

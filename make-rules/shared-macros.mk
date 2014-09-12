@@ -56,7 +56,7 @@ test:		SHELLOPTS=
 install:	SHELLOPTS=
 publish:	SHELLOPTS=pipefail
 
-SHELL=	/usr/bin/bash
+SHELL=	$(USRDIR)/bin/bash
 
 PUBLISHER ?= sngl.pkg.ec
 
