@@ -370,6 +370,7 @@
 /^ruby\/stomp$/d
 /^schroedinger$/d
 /^screen$/d
+/^serf$/d
 /^shellsettings$/d
 /^slang$/d
 /^smartos-ps$/d
