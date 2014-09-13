@@ -37,11 +37,25 @@ CFLAGS += $(CPP_LARGEFILES)
 CFLAGS += `pkg-config --cflags libidn`
 CPPFLAGS += `pkg-config --cflags libidn`
 
-CPPFLAGS+= -I$(USRDIR)/include
-
+CONFIGURE_OPTIONS += --localstatedir=$(CONFIGURE_LOCALSTATEDIR)
+CONFIGURE_OPTIONS += --enable-shared --disable-static
+CONFIGURE_OPTIONS += --enable-http --enable-ftp
+CONFIGURE_OPTIONS += --enable-file --enable-dict
+CONFIGURE_OPTIONS += --enable-manual
+CONFIGURE_OPTIONS += --enable-rtsp --enable-proxy
+CONFIGURE_OPTIONS += --enable-telnet --enable-tftp --enable-pop3
+CONFIGURE_OPTIONS += --enable-imap --enable-smtp
+CONFIGURE_OPTIONS += --enable-ipv6 --enable-nonblocking
+CONFIGURE_OPTIONS += --enable-thread --enable-verbose
+CONFIGURE_OPTIONS += --disable-sspi --enable-crypto-auth
+CONFIGURE_OPTIONS += --enable-cookies --disable-hidden-symbols
+CONFIGURE_OPTIONS += --disable-soname-bump
+CONFIGURE_OPTIONS += --with-random=/dev/urandom
+CONFIGURE_OPTIONS += --with-ssl
 CONFIGURE_OPTIONS += --with-pic
-CONFIGURE_OPTIONS += --enable-shared
-CONFIGURE_OPTIONS += --disable-static
+CONFIGURE_OPTIONS += --with-libssh2
+
+CONFIGURE_OPTIONS += --with-zlib=$(USRDIR)
 CONFIGURE_OPTIONS += --with-libidn=$(USRDIR)
 CONFIGURE_OPTIONS += --with-ca-bundle=$(CONFIGURE_SYSCONFDIR)/openssl/cabundle.pem
 CONFIGURE_OPTIONS += --without-librtmp
@@ -60,6 +74,10 @@ CONFIGURE_OPTIONS += "curl_disallow_getifaddrs=yes"
 #	's/CURLLIBDIR=.*/CURLLIBDIR="-L$(USRDIR)\/lib\/$(MACH64) -R$(USRDIR)\/lib\/$(MACH64) "/' \
 #	$(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/curl-config )
 #COMPONENT_POST_INSTALL_ACTION=$(COMPONENT_POST_INSTALL_ACTION.$(BITS))
+
+COMPONENT_POST_INSTALL_ACTION += \
+	($(MV) $(PROTOUSRDIR)/include/curl/curlbuild.h \
+		$(PROTOUSRDIR)/include/curl/curlbuild-$(BITS).h )
 
 # common targets
 build:		$(BUILD_32_and_64)
