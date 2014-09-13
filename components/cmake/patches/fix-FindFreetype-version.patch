@@ -1,0 +1,33 @@
+From bc49d820a276243324003bc34d92a69194938adf Mon Sep 17 00:00:00 2001
+From: "Daniele E. Domenichelli" <daniele.domenichelli@iit.it>
+Date: Mon, 9 Dec 2013 19:33:42 +0100
+Subject: [PATCH] FindFreetype: Detect version string with Freetype 2.5
+
+---
+ Modules/FindFreetype.cmake |   10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/Modules/FindFreetype.cmake b/Modules/FindFreetype.cmake
+index 9520f7d..1f12ba6 100644
+--- a/Modules/FindFreetype.cmake
++++ b/Modules/FindFreetype.cmake
+@@ -103,8 +103,14 @@ if(FREETYPE_INCLUDE_DIR_ft2build AND FREETYPE_INCLUDE_DIR_freetype2)
+ endif()
+ set(FREETYPE_LIBRARIES "${FREETYPE_LIBRARY}")
+ 
+-if(FREETYPE_INCLUDE_DIR_freetype2 AND EXISTS "${FREETYPE_INCLUDE_DIR_freetype2}/freetype/freetype.h")
+-    file(STRINGS "${FREETYPE_INCLUDE_DIR_freetype2}/freetype/freetype.h" freetype_version_str
++if(EXISTS "${FREETYPE_INCLUDE_DIR_freetype2}/freetype/freetype.h")
++  set(FREETYPE_H "${FREETYPE_INCLUDE_DIR_freetype2}/freetype/freetype.h")
++elseif(EXISTS "${FREETYPE_INCLUDE_DIR_freetype2}/freetype.h")
++  set(FREETYPE_H "${FREETYPE_INCLUDE_DIR_freetype2}/freetype.h")
++endif()
++
++if(FREETYPE_INCLUDE_DIR_freetype2 AND FREETYPE_H)
++    file(STRINGS "${FREETYPE_H}" freetype_version_str
+          REGEX "^#[\t ]*define[\t ]+FREETYPE_(MAJOR|MINOR|PATCH)[\t ]+[0-9]+$")
+ 
+     unset(FREETYPE_VERSION_STRING)
+-- 
+1.7.10.4
+
