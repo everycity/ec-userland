@@ -230,7 +230,6 @@
 /^perl_modules\/encode-locale$/d
 /^perl_modules\/exiftool$/d
 /^perl_modules\/file-listing$/d
-/^perl_modules\/gettext$/d
 /^perl_modules\/html-parser$/d
 /^perl_modules\/http-cookies$/d
 /^perl_modules\/http-daemon$/d

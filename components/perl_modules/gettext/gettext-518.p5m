@@ -30,4 +30,4 @@ file path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/auto
 
 # force a dependency on the Perl runtime
 depend fmri=__TBD pkg.debug.depend.file=perl \
-	pkg.debug.depend.path=$(USRDIR)/lib/perl/5.16/bin type=require
+	pkg.debug.depend.path=$(USRDIR)/lib/perl/5.18/bin type=require
