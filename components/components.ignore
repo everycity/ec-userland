@@ -151,7 +151,6 @@
 /^libssh2$/d
 /^libtheora$/d
 /^libtiff$/d
-/^libtool$/d
 /^libusb-ugen$/d
 /^libusb-wrapper$/d
 /^libuuid$/d
