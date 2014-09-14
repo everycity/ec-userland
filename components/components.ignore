@@ -453,3 +453,5 @@
 /^zip$/d
 /^zork-trilogy$/d
 /^zsh$/d
+/^perl\/perl512$/d
+/^perl_modules\/gettext$/d

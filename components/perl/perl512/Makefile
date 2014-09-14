@@ -12,6 +12,7 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
+DEF_JOBS := no
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		perl
