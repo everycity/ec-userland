@@ -24,19 +24,19 @@ set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 license COPYING license='GPLv3'
 
-file path=usr/bin/help2man
-file path=usr/lib/$(MACH64)/bindtextdomain.so
+file path=$(USRDIR)/bin/help2man
+file path=$(USRDIR)/lib/$(MACH64)/bindtextdomain.so
 
-file path=usr/share/info/help2man.info
+file path=$(USRDIR)/share/info/help2man.info
 
-file path=usr/share/locale/de/LC_MESSAGES/help2man.mo
-file path=usr/share/locale/fi/LC_MESSAGES/help2man.mo
-file path=usr/share/locale/fr/LC_MESSAGES/help2man.mo
-file path=usr/share/locale/pl/LC_MESSAGES/help2man.mo
-file path=usr/share/locale/pt_BR/LC_MESSAGES/help2man.mo
-file path=usr/share/locale/ru/LC_MESSAGES/help2man.mo
-file path=usr/share/locale/sv/LC_MESSAGES/help2man.mo
-file path=usr/share/locale/vi/LC_MESSAGES/help2man.mo
-file path=usr/share/man/man1/help2man.1
+file path=$(USRDIR)/share/locale/de/LC_MESSAGES/help2man.mo
+file path=$(USRDIR)/share/locale/fi/LC_MESSAGES/help2man.mo
+file path=$(USRDIR)/share/locale/fr/LC_MESSAGES/help2man.mo
+file path=$(USRDIR)/share/locale/pl/LC_MESSAGES/help2man.mo
+file path=$(USRDIR)/share/locale/pt_BR/LC_MESSAGES/help2man.mo
+file path=$(USRDIR)/share/locale/ru/LC_MESSAGES/help2man.mo
+file path=$(USRDIR)/share/locale/sv/LC_MESSAGES/help2man.mo
+file path=$(USRDIR)/share/locale/vi/LC_MESSAGES/help2man.mo
+file path=$(USRDIR)/share/man/man1/help2man.1
 
 depend fmri=library/perl-5/gettext type=require

@@ -100,7 +100,6 @@
 /^haproxy$/d
 /^haproxy-dev$/d
 /^harfbuzz$/d
-/^help2man$/d
 /^htop$/d
 /^id3lib$/d
 /^illumos-hal$/d
