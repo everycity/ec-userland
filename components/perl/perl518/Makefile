@@ -59,8 +59,8 @@ CONFIGURE_OPTIONS = \
 			-Ulocincpth= \
 			-Uloclibpth= \
                         -Dbin=$(USRDIR)/lib/perl/$(PERL_VERSION)/bin \
-			-Dcc="$(CC) -B/usr/bin/" \
-			-Accflags="-fno-stack-protector" \
+			-Dcc="$(CC)" \
+			-Accflags="-fno-stack-protector $(CFLAGS)" \
 			-Dcf_email="userland-discuss@opensolaris.org" \
 			-Dcf_by="perl-bugs" \
 			-Dlibperl=libperl.so.$(PERL_VERSION) \
@@ -78,7 +78,11 @@ CONFIGURE_OPTIONS = \
 			-Dman1dir=$(USRDIR)/lib/perl/$(PERL_VERSION)/man/man1 \
 			-Dman1ext=1 \
 			-Dman3dir=$(USRDIR)/lib/perl/$(PERL_VERSION)/man/man3 \
-			-Dman3ext=3
+			-Dman3ext=3 \
+			-Aldflags="-L$(USRDIR)/lib/64 $(LDFLAGS)" \
+			-Doptimize="$(CFLAGS)" \
+			-Dlocincpth="$(CPPFLAGS)" \
+			-Dloclibpth="$(USRDIR)/lib/$(MACH64)"
 
 #			-Dusedtrace \
 
@@ -87,9 +91,9 @@ CONFIGURE_THREAD_OPTIONS =  -Dusethreads \
 
 CONFIGURE_OPTIONS += $(CONFIGURE_THREAD_OPTIONS)
 
-COMPONENT_POST_UNPACK_ACTION = \
-	( cd $(SOURCE_DIR) \
-	&& gfind . -type f -name "*" | xargs chmod 0644 )
+#COMPONENT_POST_UNPACK_ACTION = \
+#	( cd $(SOURCE_DIR) \
+#	&& gfind . -type f -name "*" | xargs chmod 0644 )
 
 COMPONENT_POST_CONFIGURE_ACTION = \
 	(cd $(@D); \
