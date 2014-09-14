@@ -224,7 +224,6 @@
 /^pango$/d
 /^pdflib$/d
 /^pdftk$/d
-/^perl\/perl512$/d
 /^perl\/perl516$/d
 /^perl\/perl520$/d
 /^perl_modules\/encode-locale$/d
