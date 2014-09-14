@@ -71,7 +71,6 @@
 /^gconf$/d
 /^gdal$/d
 /^gdb$/d
-/^gdbm$/d
 /^gdk-pixbuf$/d
 /^geos$/d
 /^getopt$/d
