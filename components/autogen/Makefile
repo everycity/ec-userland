@@ -40,30 +40,21 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-PATH.32 = $(USRDIR)/bin
-PATH.64 = $(USRDIR)/bin/$(MACH64):$(USRDIR)/bin
-PATH = $(PATH.$(BITS))
-
 # build target is incorrect without this 
 COMPONENT_PRE_CONFIGURE_ACTION =        ($(CLONEY) $(SOURCE_DIR) $(@D))
-
-# strip the environment or install target fails
-ENV +=	-i
 
 # Replace all occurrences of "echo" with "/usr/gnu/bin/echo" in the two
 # scripts used by autogen that munge the man and mdoc output. This prevents
 # bogus conversions (like "\f" -> Control-L) happening.
 # Adjust "tr" to "/usr/gnu/bin/tr" in the autoopts vendor.test.
 # These changes now allow the autoopts tests to successfully complete.
-#COMPONENT_POST_UNPACK_ACTION = \
-#	$(GSED) -i -e 's|echo|/usr/gnu/bin/echo|' \
-#		$(SOURCE_DIR)/autoopts/tpl/mdoc2man.sh ; \
-#	$(GSED) -i -e 's|echo|/usr/gnu/bin/echo|' \
-#		$(SOURCE_DIR)/autoopts/tpl/texi2mdoc.sh ; \
-#	$(GSED) -i -e 's| tr | /usr/gnu/bin/tr |' \
-#		$(SOURCE_DIR)/autoopts/test/vendor.test
-
-CONFIGURE_ENV += PATH="$(PATH)"
+COMPONENT_POST_UNPACK_ACTION = \
+	$(GSED) -i -e 's|echo|$(USRDIR)/bin/echo|' \
+		$(SOURCE_DIR)/autoopts/tpl/mdoc2man.sh ; \
+	$(GSED) -i -e 's|echo|$(USRDIR)/bin/echo|' \
+		$(SOURCE_DIR)/autoopts/tpl/texi2mdoc.sh ; \
+	$(GSED) -i -e 's| tr | $(USRDIR)/bin/tr |' \
+		$(SOURCE_DIR)/autoopts/test/vendor.test
 
 # common targets
 build:		$(BUILD_32_and_64)
