@@ -96,7 +96,6 @@
 /^google-authenticator$/d
 /^gpac$/d
 /^groff$/d
-/^guile$/d
 /^haproxy$/d
 /^haproxy-dev$/d
 /^harfbuzz$/d

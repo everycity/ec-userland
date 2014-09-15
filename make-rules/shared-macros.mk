@@ -127,7 +127,9 @@ LOCALSTATEDIR = $(ECPREFIX)/var
 CONFIGURE_LOCALSTATEDIR = $(LOCALSTATEDIR)
 ETCDIR = $(SYSCONFDIR)
 
-PATH=$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/sbin:/usr/sbin
+PATH.32=$(USRDIR)/bin:/usr/bin:/usr/ccs/bin:/sbin:/usr/sbin
+PATH.64=$(USRDIR)/bin/$(MACH64):$(USRDIR)/bin:/usr/bin:/usr/ccs/bin:/sbin:/usr/sbin
+PATH=$(PATH.$(BITS))
 
 BINDIR =	/bin
 SBINDIR =	/sbin
