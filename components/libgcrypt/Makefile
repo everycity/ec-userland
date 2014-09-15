@@ -36,7 +36,7 @@ include ../../make-rules/ips.mk
 
 include ../../make-rules/shared-targets.mk
 
-CONFIGURE_ENV.64 += PATH=$(USRDIR)/bin/$(MACH64):$(PATH)
+#CONFIGURE_ENV.64 += PATH=$(USRDIR)/bin/$(MACH64):$(PATH)
 
 CONFIGURE_OPTIONS.64	+= --disable-amd64-as-feature-detection
 
