@@ -201,7 +201,6 @@
 /^neon$/d
 /^net-snmp$/d
 /^netcat$/d
-/^nettle$/d
 /^nodejs$/d
 /^nodejs04$/d
 /^nodejs06$/d
