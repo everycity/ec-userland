@@ -22,8 +22,8 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license mysql56.license license="GPLv2"
 
-file files/mysql56-my.cnf \
-    path=etc/mysql/5.6/my.cnf mode=0644 preserve=true
+file files/mysql56-my.cnf.$(ZTYPE) \
+    path=$(SYSCONFDIR)/mysql/5.6/my.cnf mode=0644 preserve=true
 file path=$(USRDIR)/lib/mysql/5.6/bin/$(MACH64)/mysql_config
 file path=$(USRDIR)/lib/mysql/5.6/bin/$(MACH64)/mysql_config_editor
 file path=$(USRDIR)/lib/mysql/5.6/bin/mysql_config
@@ -211,8 +211,8 @@ link path=$(USRDIR)/lib/mysql/5.6/lib/libmysqlclient_r.so.18 \
 link path=$(USRDIR)/lib/mysql/5.6/lib/libmysqlclient_r.so.18.1.0 \
     target=libmysqlclient.so
 link path=$(USRDIR)/bin/mysql_config \
-    target=../lib/mysql/active/bin/mysql_config preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/mysql_config preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/mysql_config \
-    target=../../lib/mysql/active/bin/$(MACH64)/mysql_config preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
-file files/mysql56-postinstall.xml path=var/svc/manifest/site/mysql56-postinstall.xml \
-    restart_fmri=svc:/system/manifest-import:default
+    target=../../lib/mysql/5.6/bin/$(MACH64)/mysql_config preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+#file files/mysql56-postinstall.xml path=$(SVCMANIFEST)/site/mysql56-postinstall.xml \
+#    restart_fmri=svc:/system/manifest-import:default

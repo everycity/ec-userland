@@ -187,7 +187,6 @@
 /^mplayer$/d
 /^mscorefonts-installer$/d
 /^mutt$/d
-/^mysql56$/d
 /^nagios\/core$/d
 /^nagios\/plugins$/d
 /^nano$/d

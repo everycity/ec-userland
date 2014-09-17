@@ -14,7 +14,7 @@
 
 include ../../make-rules/shared-macros.mk
 
-#CMAKE= cmake
+CMAKE= cmake
 
 COMPONENT_NAME=		mysql
 COMPONENT_VERSION=	5.6.20
@@ -60,8 +60,8 @@ CMAKE_OPTIONS+= -DINSTALL_SUPPORTFILESDIR=$(CMAKE_SHAREDIR)
 CMAKE_OPTIONS+= -DINSTALL_PLUGINDIR=$(CMAKE_PLUGINDIR.$(BITS))
 CMAKE_OPTIONS+= -DINSTALL_SBINDIR=$(CMAKE_BINDIR.$(BITS))
 CMAKE_OPTIONS+= -DINSTALL_SCRIPTDIR=$(CMAKE_BINDIR.$(BITS))
-CMAKE_OPTIONS+= -DMYSQL_DATADIR=/var/mysql/5.6/data
-CMAKE_OPTIONS+= -DSYSCONFDIR=/etc/mysql/5.6
+CMAKE_OPTIONS+= -DMYSQL_DATADIR=$(CONFIGURE_LOCALSTATEDIR)/mysql/5.6/data
+CMAKE_OPTIONS+= -DSYSCONFDIR=$(CONFIGURE_SYSCONFDIR)/mysql/5.6
 CMAKE_OPTIONS+= -DWITH_EXAMPLE_STORAGE_ENGINE=1
 CMAKE_OPTIONS+= -DWITH_INNOBASE_STORAGE_ENGINE=1
 CMAKE_OPTIONS+= -DWITH_LIBEDIT=OFF
@@ -75,12 +75,12 @@ CMAKE_OPTIONS+= -DCMAKE_SKIP_RPATH-ADVANCED=1
 
 LDFLAGS.32	+=	-L$(USRDIR)/lib/mysql/5.6/lib -R$(USRDIR)/lib/mysql/5.6/lib
 LDFLAGS.64	+=	-L$(USRDIR)/lib/mysql/5.6/lib/$(MACH64) -R$(USRDIR)/lib/mysql/5.6/lib/$(MACH64)
-#LDFLAGS += $(LDFLAGS.$(BITS))
+LDFLAGS += $(LDFLAGS.$(BITS))
 
 COMPONENT_PRE_BUILD_ACTION += cd $(@D);
 COMPONENT_PRE_BUILD_ACTION += export LDFLAGS="$(LDFLAGS)";
 COMPONENT_PRE_BUILD_ACTION += $(CMAKE) -j$(JOBS) . $(CMAKE_OPTIONS);
-#COMPONENT_PRE_BUILD_ACTION += $(GSED) -i -e 's!$(CC)!$(CXX)!' libmysql/CMakeFiles/libmysql.dir/link.txt;
+COMPONENT_PRE_BUILD_ACTION += $(GSED) -i -e 's!$(CC)!$(CXX)!' libmysql/CMakeFiles/libmysql.dir/link.txt;
 
 COMPONENT_POST_BUILD_ACTION.32 += $(GSED) -i -e 's!"share","share/mysql","support-files"!"lib/mysql/5.6/share"!' $(BUILD_DIR_32)/scripts/mysql_install_db;
 COMPONENT_POST_BUILD_ACTION.64 += $(GSED) -i -e 's!"share","share/mysql","support-files"!"lib/mysql/5.6/share"!' $(BUILD_DIR_64)/scripts/mysql_install_db;

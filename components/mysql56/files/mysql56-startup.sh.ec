@@ -1,4 +1,4 @@
-#!/usr/xpg4/bin/sh
+#!/usr/bin/sh
 #
 # This file and its contents are supplied under the terms of the
 # Common Development and Distribution License ("CDDL)". You may
@@ -19,17 +19,17 @@
 # during the next package upgrade. Instead, set these properties
 # via SMF using "svccfg -s mysql56:default" and setprop
 
-config_file="/etc/mysql/5.6/my.cnf"
+config_file="/ec/etc/mysql/5.6/my.cnf"
 user="mysql"
-data_dir="/var/mysql/5.6/data"
+data_dir="/ec/var/mysql/5.6/data"
 unix_socket_file="/tmp/mysql.sock"
 tcp_listen_address="127.0.0.1"
 tcp_listen_port="3306"
-error_log="/var/mysql/5.6/data/mysqld.log"
-pid_file="/var/mysql/5.6/data/mysqld.pid"
-mysqld_32_binary="/usr/lib/mysql/5.6/bin/mysqld"
-mysqld_64_binary="/usr/lib/mysql/5.6/bin/amd64/mysqld"
-mysqld_installdb_binary="/usr/lib/mysql/5.6/bin/mysql_install_db"
+error_log="/ec/var/mysql/5.6/data/mysqld.log"
+pid_file="/ec/var/mysql/5.6/data/mysqld.pid"
+mysqld_32_binary="/ec/lib/mysql/5.6/bin/mysqld"
+mysqld_64_binary="/ec/lib/mysql/5.6/bin/amd64/mysqld"
+mysqld_installdb_binary="/ec/lib/mysql/5.6/bin/mysql_install_db"
 additional_startup_options=""
 enable_64bit="true"
 skip_grant_tables="false"
@@ -85,7 +85,7 @@ fi
 
 # Create a data directory if it exists and is owned by the mysql user
 if [ -d $data_dir ] ; then
-  owner=`COLUMNS=255 /usr/bin/ls -dl $data_dir | /usr/bin/awk '{print $3}'`
+  owner=`COLUMNS=255 /usr/bin/ls -dl $data_dir | /usr/bin/nawk '{print $3}'`
   if [ "x${owner}" = "x${user}" ] ; then
     if [ ! -e ${data_dir}/mysql/user.MYI ] ; then
       # MySQL user table missing - lets populate the data directory

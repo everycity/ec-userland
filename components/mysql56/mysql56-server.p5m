@@ -22,9 +22,9 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license mysql56.license license="GPLv2"
 
-dir path=var/mysql mode=0770 owner=mysql group=mysql preserve=true
-dir path=var/mysql/5.6 mode=0770 owner=mysql group=mysql preserve=true
-dir path=var/mysql/5.6/data mode=0770 owner=mysql group=mysql preserve=true
+#dir path=$(LOCALSTATEDIR)/mysql mode=0770 owner=mysql group=mysql preserve=true # in mysql-common
+dir path=$(LOCALSTATEDIR)/mysql/5.6 mode=0770 owner=mysql group=mysql preserve=true
+dir path=$(LOCALSTATEDIR)/mysql/5.6/data mode=0770 owner=mysql group=mysql preserve=true
 
 file path=$(USRDIR)/lib/mysql/5.6/bin/$(MACH64)/msql2mysql
 file path=$(USRDIR)/lib/mysql/5.6/bin/$(MACH64)/my_print_defaults
@@ -184,94 +184,94 @@ file path=$(USRDIR)/lib/mysql/5.6/share/spanish/errmsg.sys
 file path=$(USRDIR)/lib/mysql/5.6/share/swedish/errmsg.sys
 file path=$(USRDIR)/lib/mysql/5.6/share/ukrainian/errmsg.sys
 
-file files/mysql56-manifest.xml path=var/svc/manifest/site/mysql56.xml \
+file files/mysql56-manifest.xml.$(ZTYPE) path=$(SVCMANIFEST)/site/mysql56.xml \
     restart_fmri=svc:/system/manifest-import:default
-file files/mysql56-startup.sh  path=var/svc/method/mysql56 mode=0555
+file files/mysql56-startup.sh.$(ZTYPE)  path=$(SVCMETHOD)/mysql56 mode=0555
 
 link path=$(USRDIR)/bin/msql2mysql \ 
-    target=../lib/mysql/active/bin/msql2mysql preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/msql2mysql preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/my_print_defaults \ 
-    target=../lib/mysql/active/bin/my_print_defaults preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/my_print_defaults preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/myisamchk \ 
-    target=../lib/mysql/active/bin/myisamchk preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/myisamchk preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/myisamlog \ 
-    target=../lib/mysql/active/bin/myisamlog preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/myisamlog preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/myisampack \ 
-    target=../lib/mysql/active/bin/myisampack preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/myisampack preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/mysql_convert_table_format \ 
-    target=../lib/mysql/active/bin/mysql_convert_table_format preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/mysql_convert_table_format preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/mysql_install_db \ 
-    target=../lib/mysql/active/bin/mysql_install_db preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/mysql_install_db preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/mysql_secure_installation \ 
-    target=../lib/mysql/active/bin/mysql_secure_installation preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/mysql_secure_installation preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/mysql_setpermission \ 
-    target=../lib/mysql/active/bin/mysql_setpermission preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/mysql_setpermission preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/mysql_tzinfo_to_sql \ 
-    target=../lib/mysql/active/bin/mysql_tzinfo_to_sql preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/mysql_tzinfo_to_sql preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/mysql_upgrade \ 
-    target=../lib/mysql/active/bin/mysql_upgrade preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/mysql_upgrade preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/mysql_zap \ 
-    target=../lib/mysql/active/bin/mysql_zap preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/mysql_zap preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/mysqlbinlog \ 
-    target=../lib/mysql/active/bin/mysqlbinlog preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/mysqlbinlog preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/mysqld_multi \ 
-    target=../lib/mysql/active/bin/mysqld_multi preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/mysqld_multi preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/mysqld_safe \ 
-    target=../lib/mysql/active/bin/mysqld_safe preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/mysqld_safe preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/mysqlhotcopy \ 
-    target=../lib/mysql/active/bin/mysqlhotcopy preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/mysqlhotcopy preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/mysqltest \ 
-    target=../lib/mysql/active/bin/mysqltest preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/mysqltest preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/perror \ 
-    target=../lib/mysql/active/bin/perror preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/perror preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/replace \ 
-    target=../lib/mysql/active/bin/replace preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/replace preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/resolve_stack_dump \ 
-    target=../lib/mysql/active/bin/resolve_stack_dump preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/resolve_stack_dump preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/resolveip \ 
-    target=../lib/mysql/active/bin/resolveip preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../lib/mysql/5.6/bin/resolveip preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/msql2mysql \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/msql2mysql preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/msql2mysql preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/my_print_defaults \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/my_print_defaults preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/my_print_defaults preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/myisamchk \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/myisamchk preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/myisamchk preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/myisamlog \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/myisamlog preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/myisamlog preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/myisampack \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/myisampack preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/myisampack preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/mysql_convert_table_format \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysql_convert_table_format preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/mysql_convert_table_format preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/mysql_install_db \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysql_install_db preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/mysql_install_db preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/mysql_secure_installation \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysql_secure_installation preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/mysql_secure_installation preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/mysql_setpermission \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysql_setpermission preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/mysql_setpermission preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/mysql_tzinfo_to_sql \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysql_tzinfo_to_sql preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/mysql_tzinfo_to_sql preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/mysql_upgrade \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysql_upgrade preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/mysql_upgrade preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/mysql_zap \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysql_zap preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/mysql_zap preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/mysqlbinlog \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysqlbinlog preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/mysqlbinlog preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/mysqld_multi \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysqld_multi preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/mysqld_multi preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/mysqld_safe \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysqld_safe preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/mysqld_safe preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/mysqlhotcopy \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysqlhotcopy preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/mysqlhotcopy preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/mysqltest \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysqltest preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/mysqltest preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/perror \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/perror preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/perror preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/replace \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/replace preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/replace preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/resolve_stack_dump \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/resolve_stack_dump preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/resolve_stack_dump preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 link path=$(USRDIR)/bin/$(MACH64)/resolveip \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/resolveip preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
+    target=../../lib/mysql/5.6/bin/$(MACH64)/resolveip preserve=true pkg.linted=true mediator=mysql mediator-version=5.6
 
 depend fmri=pkg:/database/mysql-56/library type=require
 depend fmri=pkg:/database/mysql-common type=require
