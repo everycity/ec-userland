@@ -18,3 +18,5 @@ set name=info.classification value="org.opensolaris.category.2008:System/Databas
 
 group gid=477 groupname=mysql
 user gcos-field="MySQL Account" group=mysql uid=477 username=mysql login-shell=/bin/false home-dir=/var/mysql
+
+dir path=$(LOCALSTATEDIR)/mysql mode=0770 owner=mysql group=mysql preserve=true

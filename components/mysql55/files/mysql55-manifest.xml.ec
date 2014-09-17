@@ -45,7 +45,7 @@
 	<exec_method
 		type='method'
 		name='start'
-		exec='/ec/var/svc/method/mysql55 start'
+		exec='/var/svc/method/mysql55 start'
 		timeout_seconds='60'/>
 
 	<exec_method

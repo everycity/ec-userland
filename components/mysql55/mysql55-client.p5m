@@ -22,140 +22,133 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license mysql55.license license="GPLv2"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/mysql/5.5
-dir path=$(ECPREFIX)/lib/mysql/5.5/bin
-dir path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)
-dir path=$(ECPREFIX)/lib/mysql/5.5/man
-dir path=$(ECPREFIX)/lib/mysql/5.5/man/man1
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/innochecksum
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/myisam_ftdump
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysql
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysql_client_test
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysql_find_rows
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysql_fix_extensions
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysql_waitpid
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysqlaccess
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysqlaccess.conf
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysqladmin
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysqlbug
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysqlcheck
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysqld
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysqldump
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysqldumpslow
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysqlimport
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysqlshow
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysqlslap
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/innochecksum
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/myisam_ftdump
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysql
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysql_client_test
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysql_find_rows
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysql_fix_extensions
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysql_waitpid
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysqlaccess
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysqlaccess.conf
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysqladmin
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysqlbug
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysqlcheck
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysqld
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysqldump
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysqldumpslow
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysqlimport
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysqlshow
-file path=$(ECPREFIX)/lib/mysql/5.5/bin/mysqlslap
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/comp_err.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/myisam_ftdump.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysql-stress-test.pl.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysql-test-run.pl.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysql.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysql.server.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysql_client_test.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysql_client_test_embedded.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysql_find_rows.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysql_fix_extensions.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysql_waitpid.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysqlaccess.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysqladmin.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysqlbug.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysqlcheck.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysqldump.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysqldumpslow.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysqlimport.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysqlman.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysqlshow.1
-file path=$(ECPREFIX)/lib/mysql/5.5/man/man1/mysqlslap.1
-link path=$(ECPREFIX)/bin/innochecksum \ 
-    target=../lib/mysql/active/bin/innochecksum preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/myisam_ftdump \ 
-    target=../lib/mysql/active/bin/myisam_ftdump preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/mysql \ 
-    target=../lib/mysql/active/bin/mysql preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/mysql_client_test \ 
-    target=../lib/mysql/active/bin/mysql_client_test preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/mysql_find_rows \ 
-    target=../lib/mysql/active/bin/mysql_find_rows preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/mysql_fix_extensions \ 
-    target=../lib/mysql/active/bin/mysql_fix_extensions preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/mysql_waitpid \ 
-    target=../lib/mysql/active/bin/mysql_waitpid preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/mysqlaccess \ 
-    target=../lib/mysql/active/bin/mysqlaccess preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/mysqlaccess.conf \ 
-    target=../lib/mysql/active/bin/mysqlaccess.conf preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/mysqladmin \ 
-    target=../lib/mysql/active/bin/mysqladmin preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/mysqlbug \ 
-    target=../lib/mysql/active/bin/mysqlbug preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/mysqlcheck \ 
-    target=../lib/mysql/active/bin/mysqlcheck preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/mysqld \ 
-    target=../lib/mysql/active/bin/mysqld preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/mysqldump \ 
-    target=../lib/mysql/active/bin/mysqldump preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/mysqldumpslow \ 
-    target=../lib/mysql/active/bin/mysqldumpslow preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/mysqlimport \ 
-    target=../lib/mysql/active/bin/mysqlimport preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/mysqlshow \ 
-    target=../lib/mysql/active/bin/mysqlshow preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/mysqlslap \ 
-    target=../lib/mysql/active/bin/mysqlslap preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/innochecksum \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/innochecksum preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/myisam_ftdump \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/myisam_ftdump preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/mysql \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysql preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/mysql_client_test \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysql_client_test preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/mysql_find_rows \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysql_find_rows preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/mysql_fix_extensions \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysql_fix_extensions preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/mysql_waitpid \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysql_waitpid preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/mysqlaccess \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysqlaccess preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/mysqlaccess.conf \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysqlaccess.conf preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/mysqladmin \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysqladmin preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/mysqlbug \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysqlbug preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/mysqlcheck \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysqlcheck preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/mysqld \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysqld preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/mysqldump \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysqldump preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/mysqldumpslow \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysqldumpslow preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/mysqlimport \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysqlimport preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/mysqlshow \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysqlshow preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/mysqlslap \ 
-    target=../../lib/mysql/active/bin/$(MACH64)/mysqlslap preserve=true pkg.linted=true
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/innochecksum
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/myisam_ftdump
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/mysql
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/mysql_client_test
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/mysql_find_rows
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/mysql_fix_extensions
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/mysql_waitpid
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/mysqlaccess
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/mysqlaccess.conf
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/mysqladmin
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/mysqlbug
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/mysqlcheck
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/mysqld
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/mysqldump
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/mysqldumpslow
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/mysqlimport
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/mysqlshow
+file path=$(USRDIR)/lib/mysql/5.5/bin/$(MACH64)/mysqlslap
+file path=$(USRDIR)/lib/mysql/5.5/bin/innochecksum
+file path=$(USRDIR)/lib/mysql/5.5/bin/myisam_ftdump
+file path=$(USRDIR)/lib/mysql/5.5/bin/mysql
+file path=$(USRDIR)/lib/mysql/5.5/bin/mysql_client_test
+file path=$(USRDIR)/lib/mysql/5.5/bin/mysql_find_rows
+file path=$(USRDIR)/lib/mysql/5.5/bin/mysql_fix_extensions
+file path=$(USRDIR)/lib/mysql/5.5/bin/mysql_waitpid
+file path=$(USRDIR)/lib/mysql/5.5/bin/mysqlaccess
+file path=$(USRDIR)/lib/mysql/5.5/bin/mysqlaccess.conf
+file path=$(USRDIR)/lib/mysql/5.5/bin/mysqladmin
+file path=$(USRDIR)/lib/mysql/5.5/bin/mysqlbug
+file path=$(USRDIR)/lib/mysql/5.5/bin/mysqlcheck
+file path=$(USRDIR)/lib/mysql/5.5/bin/mysqld
+file path=$(USRDIR)/lib/mysql/5.5/bin/mysqldump
+file path=$(USRDIR)/lib/mysql/5.5/bin/mysqldumpslow
+file path=$(USRDIR)/lib/mysql/5.5/bin/mysqlimport
+file path=$(USRDIR)/lib/mysql/5.5/bin/mysqlshow
+file path=$(USRDIR)/lib/mysql/5.5/bin/mysqlslap
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/comp_err.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/myisam_ftdump.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysql-stress-test.pl.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysql-test-run.pl.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysql.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysql.server.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysql_client_test.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysql_client_test_embedded.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysql_find_rows.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysql_fix_extensions.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysql_waitpid.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysqlaccess.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysqladmin.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysqlbug.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysqlcheck.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysqldump.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysqldumpslow.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysqlimport.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysqlman.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysqlshow.1
+file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysqlslap.1
+link path=$(USRDIR)/bin/innochecksum \ 
+    target=../lib/mysql/5.5/bin/innochecksum preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/myisam_ftdump \ 
+    target=../lib/mysql/5.5/bin/myisam_ftdump preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/mysql \ 
+    target=../lib/mysql/5.5/bin/mysql preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/mysql_client_test \ 
+    target=../lib/mysql/5.5/bin/mysql_client_test preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/mysql_find_rows \ 
+    target=../lib/mysql/5.5/bin/mysql_find_rows preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/mysql_fix_extensions \ 
+    target=../lib/mysql/5.5/bin/mysql_fix_extensions preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/mysql_waitpid \ 
+    target=../lib/mysql/5.5/bin/mysql_waitpid preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/mysqlaccess \ 
+    target=../lib/mysql/5.5/bin/mysqlaccess preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/mysqlaccess.conf \ 
+    target=../lib/mysql/5.5/bin/mysqlaccess.conf preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/mysqladmin \ 
+    target=../lib/mysql/5.5/bin/mysqladmin preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/mysqlbug \ 
+    target=../lib/mysql/5.5/bin/mysqlbug preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/mysqlcheck \ 
+    target=../lib/mysql/5.5/bin/mysqlcheck preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/mysqld \ 
+    target=../lib/mysql/5.5/bin/mysqld preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/mysqldump \ 
+    target=../lib/mysql/5.5/bin/mysqldump preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/mysqldumpslow \ 
+    target=../lib/mysql/5.5/bin/mysqldumpslow preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/mysqlimport \ 
+    target=../lib/mysql/5.5/bin/mysqlimport preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/mysqlshow \ 
+    target=../lib/mysql/5.5/bin/mysqlshow preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/mysqlslap \ 
+    target=../lib/mysql/5.5/bin/mysqlslap preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/innochecksum \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/innochecksum preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/myisam_ftdump \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/myisam_ftdump preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/mysql \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/mysql preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/mysql_client_test \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/mysql_client_test preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/mysql_find_rows \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/mysql_find_rows preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/mysql_fix_extensions \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/mysql_fix_extensions preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/mysql_waitpid \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/mysql_waitpid preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/mysqlaccess \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/mysqlaccess preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/mysqlaccess.conf \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/mysqlaccess.conf preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/mysqladmin \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/mysqladmin preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/mysqlbug \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/mysqlbug preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/mysqlcheck \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/mysqlcheck preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/mysqld \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/mysqld preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/mysqldump \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/mysqldump preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/mysqldumpslow \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/mysqldumpslow preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/mysqlimport \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/mysqlimport preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/mysqlshow \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/mysqlshow preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
+link path=$(USRDIR)/bin/$(MACH64)/mysqlslap \ 
+    target=../../lib/mysql/5.5/bin/$(MACH64)/mysqlslap preserve=true pkg.linted=true mediator=mysql mediator-version=5.5
 depend fmri=pkg:/database/mysql-55/library type=require
