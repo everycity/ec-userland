@@ -178,7 +178,6 @@
 /^mesa$/d
 /^meta-packages\/build-essential$/d
 /^meta-packages\/nagios$/d
-/^meta-packages\/postgresql$/d
 /^mg$/d
 /^mhash$/d
 /^mimms$/d
@@ -316,7 +315,6 @@
 /^poppler$/d
 /^postgis-pg91$/d
 /^postgis-pg93$/d
-/^postgresql91$/d
 /^postgresql92$/d
 /^postgresql93$/d
 /^powerdns$/d
