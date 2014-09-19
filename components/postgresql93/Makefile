@@ -32,10 +32,6 @@ CONFIGURE_SYSCONFDIR=	/etc/postgres/$(COMPONENT_MJR_VERSION)
 CONFIGURE_LOCALSTATEDIR=	/var/postgres/$(COMPONENT_MJR_VERSION)
 PKG_MACROS+=	COMPONENT_MJR_VERSION=$(COMPONENT_MJR_VERSION)
 
-PATH=	/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
-
-LDFLAGS += -lz
-
 CONFIGURE_ENV += PYTHON="$(PYTHON.$(BITS))"
 
 # DTrace probes only build/work on newer Solaris
