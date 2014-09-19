@@ -100,14 +100,13 @@ ifneq (,$(filter $(BRAND),solaris10 smartos))
     ECPREFIX = 	/ec
     USRDIR = $(ECPREFIX)
     ZTYPE = ec
-#    LDFLAGS.32 = -L$(USRDIR)/lib -R$(USRDIR)/lib
-#    LDFLAGS.64 = -L$(USRDIR)/lib/$(MACH64) -R$(USRDIR)/lib/$(MACH64)
     CPPFLAGS = -I$(USRDIR)/include
     CFLAGS = -I$(USRDIR)/include
     CXXFLAGS = -I$(USRDIR)/include
     CONFIGURE_DEFAULT_CPPFLAGS ?= yes
     GCC_ROOT = /ec
-    LDFLAGS=
+    LDFLAGS.32 = -L$(USRDIR)/lib
+    LDFLAGS.64 = -L$(USRDIR)/lib/$(MACH64)
     ECZONE=
     NONECZONE=\#
 else
