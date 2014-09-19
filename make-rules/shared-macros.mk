@@ -105,20 +105,20 @@ ifneq (,$(filter $(BRAND),solaris10 smartos))
     CXXFLAGS = -I$(USRDIR)/include
     CONFIGURE_DEFAULT_CPPFLAGS ?= yes
     GCC_ROOT = /ec
-    LDFLAGS.32 = -L$(USRDIR)/lib
-    LDFLAGS.64 = -L$(USRDIR)/lib/$(MACH64)
     ECZONE=
     NONECZONE=\#
 else
     ECPREFIX=
     USRDIR = /usr
     ZTYPE = nonec
-    LDFLAGS=
     CPPFLAGS=
     CONFIGURE_DEFAULT_CPPFLAGS ?= no
     ECZONE=\#
     NONECZONE=
 endif
+# we need these rules for EC and NONEC zones
+LDFLAGS.32 = -L$(USRDIR)/lib
+LDFLAGS.64 = -L$(USRDIR)/lib/$(MACH64)
 
 SYSCONFDIR = $(ECPREFIX)/etc
 CONFIGURE_SYSCONFDIR = $(SYSCONFDIR)
