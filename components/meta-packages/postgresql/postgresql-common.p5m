@@ -18,3 +18,6 @@ set name=info.classification value="org.opensolaris.category.2008:System/Databas
 
 group gid=90 groupname=postgres
 user gcos-field="Postgresql Account" group=postgres uid=90 username=postgres login-shell=/usr/bin/bash home-dir=/var/postgres
+
+dir path=$(SYSCONFDIR)/postgres
+dir path=$(LOCALSTATEDIR)/postgres
