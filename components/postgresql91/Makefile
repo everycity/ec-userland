@@ -27,14 +27,14 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_PREFIX=	$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)
-CONFIGURE_SYSCONFDIR=	$(ECPREFIX)/etc/postgres/$(COMPONENT_MJR_VERSION)
-CONFIGURE_LOCALSTATEDIR=	$(ECPREFIX)/var/postgres/$(COMPONENT_MJR_VERSION)
+CONFIGURE_PREFIX=	$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)
+CONFIGURE_SYSCONFDIR.ec= /ec/etc/postgres/$(COMPONENT_MJR_VERSION)
+CONFIGURE_SYSCONFDIR.nonec= /etc/postgres/$(COMPONENT_MJR_VERSION)
+CONFIGURE_SYSCONFDIR = $(CONFIGURE_SYSCONFDIR.$(ZTYPE))
+CONFIGURE_LOCALSTATEDIR.ec= /ec/var/postgres/$(COMPONENT_MJR_VERSION)
+CONFIGURE_LOCALSTATEDIR.nonec= /var/postgres/$(COMPONENT_MJR_VERSION)
+CONFIGURE_LOCALSTATEDIR = $(CONFIGURE_LOCALSTATEDIR.$(ZTYPE))
 PKG_MACROS+=	COMPONENT_MJR_VERSION=$(COMPONENT_MJR_VERSION)
-
-PATH=	$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
-
-CONFIGURE_OPTIONS +=	'LIBS=-lintl'
 
 # DTrace probes only build/work on newer Solaris
 ifeq ($(SOLARIS_VERSION),2.11)
@@ -43,14 +43,16 @@ else
 CONFIGURE_OPTIONS +=    --disable-dtrace
 endif
 
+CONFIGURE_ENV += PYTHON="$(PYTHON.$(BITS))"
+
 CONFIGURE_OPTIONS +=	--enable-nls
 CONFIGURE_OPTIONS +=	--enable-thread-safety
 CONFIGURE_OPTIONS +=	--enable-integer-datetimes
-CONFIGURE_OPTIONS +=	--with-system-tzdata=/usr/share/lib/zoneinfo
+CONFIGURE_OPTIONS +=	--with-system-tzdata=$(USRDIR)/share/lib/zoneinfo
 CONFIGURE_OPTIONS +=	--with-pam
 CONFIGURE_OPTIONS +=	--with-libedit-preferred
 CONFIGURE_OPTIONS +=	--with-gssapi
-CONFIGURE_OPTIONS +=	--with-perl
+CONFIGURE_OPTIONS.64 +=	--with-perl
 CONFIGURE_OPTIONS +=	--with-python
 CONFIGURE_OPTIONS +=	--with-ldap
 CONFIGURE_OPTIONS +=	--with-openssl
