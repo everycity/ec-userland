@@ -70,7 +70,6 @@
 /^gdb$/d
 /^gdk-pixbuf$/d
 /^geos$/d
-/^getopt$/d
 /^ghostscript$/d
 /^giflib$/d
 /^gifsicle$/d
