@@ -138,7 +138,6 @@
 /^librsvg$/d
 /^libsamplerate$/d
 /^libsndfile$/d
-/^libssh2$/d
 /^libtheora$/d
 /^libtiff$/d
 /^libusb-ugen$/d
