@@ -2968,7 +2968,7 @@ link path=$(USRDIR)/bin/cpan target=../lib/perl/5.18/bin/cpan mediator=perl medi
 link path=$(USRDIR)/bin/cpan2dist target=../lib/perl/5.18/bin/cpan2dist mediator=perl mediator-version=5.18
 link path=$(USRDIR)/bin/cpanp target=../lib/perl/5.18/bin/cpanp mediator=perl mediator-version=5.18
 link path=$(USRDIR)/bin/cpanp-run-perl target=../lib/perl/5.18/bin/cpanp-run-perl mediator=perl mediator-version=5.18
-link path=$(USRDIR)/bin/dprofpp target=../lib/perl/5.18/bin/dprofpp mediator=perl mediator-version=5.18
+#link path=$(USRDIR)/bin/dprofpp target=../lib/perl/5.18/bin/dprofpp mediator=perl mediator-version=5.18
 link path=$(USRDIR)/bin/enc2xs target=../lib/perl/5.18/bin/enc2xs mediator=perl mediator-version=5.18
 link path=$(USRDIR)/bin/find2perl target=../lib/perl/5.18/bin/find2perl mediator=perl mediator-version=5.18
 link path=$(USRDIR)/bin/h2ph target=../lib/perl/5.18/bin/h2ph mediator=perl mediator-version=5.18
