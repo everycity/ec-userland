@@ -57,6 +57,7 @@ file files/postgresql93-startup.sh.$(ZTYPE) \
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pg_ctl
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pg_isready
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/postgres
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_ctl
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_isready
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/postgres
 
