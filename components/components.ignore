@@ -85,7 +85,6 @@
 /^gnu-inetutils$/d
 /^gnu-patch$/d
 /^gnu-pth$/d
-/^gnu-tar$/d
 /^gnupg$/d
 /^gnupg2$/d
 /^gnuplot$/d
