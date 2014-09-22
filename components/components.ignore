@@ -340,7 +340,6 @@
 /^screen$/d
 /^serf$/d
 /^shellsettings$/d
-/^slang$/d
 /^smartos-ps$/d
 /^snappy$/d
 /^solr$/d
@@ -430,4 +429,3 @@
 /^zork-trilogy$/d
 /^zsh$/d
 /^bdb51$/d
-/^git$/d
