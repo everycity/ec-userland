@@ -21,7 +21,6 @@
 /^automake-110$/d
 /^automake-112$/d
 /^automake-19$/d
-/^bdb51$/d
 /^bitlbee$/d
 /^boost$/d
 /^cabextract$/d

@@ -26,7 +26,7 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CONFIGURE_SCRIPT=	$(SOURCE_DIR)/dist/configure
-COMPONENT_INSTALL_ARGS  += docdir=$(ECPREFIX)/share/doc/$(COMPONENT_NAME)-$(COMPONENT_VERSION)
+COMPONENT_INSTALL_ARGS  += docdir=$(USRDIR)/share/doc/$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 
 build:		$(BUILD_32_and_64)
 
