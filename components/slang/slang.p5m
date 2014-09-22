@@ -37,7 +37,7 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license slang.license license=GPLv2
 
-file path=etc/slsh/slsh.rc
+file path=$(SYSCONFDIR)/slsh/slsh.rc
 file path=$(USRDIR)/bin/$(MACH64)/slsh
 file path=$(USRDIR)/bin/slsh
 file path=$(USRDIR)/include/slang.h

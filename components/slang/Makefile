@@ -28,7 +28,7 @@
 DEF_JOBS := no
 
 #CONFIGURE_DEFAULT_LDFLAGS = no
-CONFIGURE_DEFAULT_CPPFLAGS = no
+#CONFIGURE_DEFAULT_CPPFLAGS = no
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		slang
@@ -60,7 +60,9 @@ CONFIGURE_SCRIPT = $(@D)/configure
 LDFLAGS += $(CC_BITS)
 LDFLAGS += -nodefaultlibs -lc
 
-CONFIGURE_OPTIONS  +=		--sysconfdir=$(ETCDIR)/slsh
+CONFIGURE_OPTIONS  += --sysconfdir=$(CONFIGURE_SYSCONFDIR)/slsh
+CONFIGURE_OPTIONS  += --with-readline=gnu
+CONFIGURE_OPTIONS  +=  --with-iconv=$(USRDIR)
 
 # common targets
 build:		$(BUILD_32_and_64)
