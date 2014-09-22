@@ -31,20 +31,20 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license gnu-diffutils.license license="GPLv3"
 
-file path=$(ECPREFIX)/bin/gcmp
-file path=$(ECPREFIX)/bin/gdiff
-file path=$(ECPREFIX)/bin/gdiff3
-file path=$(ECPREFIX)/bin/gsdiff
-file path=$(ECPREFIX)/share/info/diff.info
-file path=$(ECPREFIX)/share/man/man1/gcmp.1
-file path=$(ECPREFIX)/share/man/man1/gdiff.1
-file path=$(ECPREFIX)/share/man/man1/gdiff3.1
-file path=$(ECPREFIX)/share/man/man1/gsdiff.1
-link path=$(ECPREFIX)/bin/cmp target=gcmp
-link path=$(ECPREFIX)/bin/diff target=gdiff
-link path=$(ECPREFIX)/bin/diff3 target=gdiff3
-link path=$(ECPREFIX)/bin/sdiff target=gsdiff
-link path=$(ECPREFIX)/share/man/man1/cmp.1 target=gcmp.1
-link path=$(ECPREFIX)/share/man/man1/diff.1 target=gdiff.1
-link path=$(ECPREFIX)/share/man/man1/diff3.1 target=gdiff3.1
-link path=$(ECPREFIX)/share/man/man1/sdiff.1 target=gsdiff.1
+file path=$(USRDIR)/bin/gcmp
+file path=$(USRDIR)/bin/gdiff
+file path=$(USRDIR)/bin/gdiff3
+file path=$(USRDIR)/bin/gsdiff
+file path=$(USRDIR)/share/info/diff.info
+file path=$(USRDIR)/share/man/man1/gcmp.1
+file path=$(USRDIR)/share/man/man1/gdiff.1
+file path=$(USRDIR)/share/man/man1/gdiff3.1
+file path=$(USRDIR)/share/man/man1/gsdiff.1
+link path=$(USRDIR)/bin/cmp target=gcmp
+link path=$(USRDIR)/bin/diff target=gdiff
+link path=$(USRDIR)/bin/diff3 target=gdiff3
+link path=$(USRDIR)/bin/sdiff target=gsdiff
+link path=$(USRDIR)/share/man/man1/cmp.1 target=gcmp.1
+link path=$(USRDIR)/share/man/man1/diff.1 target=gdiff.1
+link path=$(USRDIR)/share/man/man1/diff3.1 target=gdiff3.1
+link path=$(USRDIR)/share/man/man1/sdiff.1 target=gsdiff.1
