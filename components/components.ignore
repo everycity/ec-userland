@@ -82,7 +82,6 @@
 /^gnu-awk$/d
 /^gnu-bc$/d
 /^gnu-diffutils$/d
-/^gnu-gzip$/d
 /^gnu-inetutils$/d
 /^gnu-patch$/d
 /^gnu-pth$/d
