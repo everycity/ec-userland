@@ -433,6 +433,5 @@
 /^zenlib$/d
 /^zetaback$/d
 /^zfs-auto-snapshot$/d
-/^zip$/d
 /^zork-trilogy$/d
 /^zsh$/d
