@@ -75,7 +75,6 @@
 /^ghostscript$/d
 /^giflib$/d
 /^gifsicle$/d
-/^git$/d
 /^gnome-mime-data$/d
 /^gnome-vfs$/d
 /^gnu-awk$/d
