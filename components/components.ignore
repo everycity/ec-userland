@@ -434,3 +434,4 @@
 /^zork-trilogy$/d
 /^zsh$/d
 /^bdb51$/d
+/^git$/d
