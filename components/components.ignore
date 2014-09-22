@@ -14,7 +14,6 @@
 /^apache24-mod_security$/d
 /^apachetop$/d
 /^apr-util$/d
-/^asciidoc$/d
 /^aspell$/d
 /^asterisk$/d
 /^atk$/d
@@ -421,7 +420,6 @@
 /^xapian\/bindings-php53$/d
 /^xapian\/bindings-php54$/d
 /^xapian\/core$/d
-/^xmlto$/d
 /^xvidcore$/d
 /^yamdi$/d
 /^yubico-libyubikey$/d
