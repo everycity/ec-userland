@@ -425,7 +425,6 @@
 /^xapian\/core$/d
 /^xmlto$/d
 /^xvidcore$/d
-/^xz$/d
 /^yamdi$/d
 /^yubico-libyubikey$/d
 /^yubico-pam$/d
