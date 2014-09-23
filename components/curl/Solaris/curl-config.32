@@ -21,7 +21,7 @@
 #
 ###########################################################################
 
-prefix=/usr
+prefix=/ec
 exec_prefix=${prefix}
 includedir=${prefix}/include/curl
 cppflag_curl_staticlib=
@@ -71,7 +71,7 @@ while test $# -gt 0; do
         ;;
 
     --ca)
-        echo ""
+        echo ""/ec/etc/openssl/cabundle.pem""
         ;;
 
     --cc)
@@ -83,19 +83,19 @@ while test $# -gt 0; do
         ;;
 
     --feature|--features)
-        for feature in SSL IPv6 libz IDN NTLM NTLM_WB TLS-SRP GSS-API ""; do
+        for feature in SSL IPv6 libz IDN NTLM NTLM_WB TLS-SRP ""; do
             test -n "$feature" && echo "$feature"
         done
         ;;
 
     --protocols)
-        for protocol in DICT FILE FTP FTPS GOPHER HTTP HTTPS IMAP IMAPS LDAP LDAPS POP3 POP3S RTSP SCP SFTP SMTP SMTPS TELNET TFTP; do
+        for protocol in DICT FILE FTP FTPS GOPHER HTTP HTTPS IMAP IMAPS POP3 POP3S RTSP SCP SFTP SMTP SMTPS TELNET TFTP; do
             echo "$protocol"
         done
         ;;
 
     --version)
-        echo libcurl 7.37.1
+        echo libcurl 7.38.0
         exit 0
         ;;
 
@@ -107,20 +107,20 @@ while test $# -gt 0; do
         # dash as that's used for things like version 1.2.3-CVS
         cpatch=`echo $checkfor | cut -d. -f3 | cut -d- -f1`
         checknum=`echo "$cmajor*256*256 + $cminor*256 + ${cpatch:-0}" | bc`
-        numuppercase=`echo 072501 | tr 'a-f' 'A-F'`
+        numuppercase=`echo 072600 | tr 'a-f' 'A-F'`
         nownum=`echo "obase=10; ibase=16; $numuppercase" | bc`
 
         if test "$nownum" -ge "$checknum"; then
           # silent success
           exit 0
         else
-          echo "requested version $checkfor is newer than existing 7.37.1"
+          echo "requested version $checkfor is newer than existing 7.38.0"
           exit 1
         fi
         ;;
 
     --vernum)
-        echo 072501
+        echo 072600
         exit 0
         ;;
 
@@ -142,13 +142,13 @@ while test $# -gt 0; do
         ;;
 
     --libs)
-        if test "X/usr/lib" != "X/usr/lib" -a "X/usr/lib" != "X/usr/lib64"; then
-           CURLLIBDIR="-L/usr/lib "
+        if test "X/ec/lib" != "X/usr/lib" -a "X/ec/lib" != "X/usr/lib64"; then
+           CURLLIBDIR="-L/ec/lib "
         else
            CURLLIBDIR=""
         fi
         if test "Xyes" = "Xyes"; then
-          echo ${CURLLIBDIR}-lcurl -lidn -lssh2 -lssh2 -lnsl -lsocket -lgcrypt -lssl -lcrypto -lssl -lcrypto -lgss -lsldap -lldap -lz -lsocket -lnsl
+          echo ${CURLLIBDIR}-lcurl -lidn -lssh2 -lssh2 -lumem -lnsl -lsocket -lssl -lcrypto -lssl -lcrypto -lz -lsocket -lnsl
         else
           echo ${CURLLIBDIR}-lcurl
         fi
@@ -156,7 +156,7 @@ while test $# -gt 0; do
 
     --static-libs)
         if test "Xno" != "Xno" ; then
-          echo /usr/lib/libcurl.a -L/usr/lib -L/usr/lib -lidn -lssh2 -lssh2 -lnsl -lsocket -lgcrypt -lssl -lcrypto -lssl -lcrypto -lgss -lsldap -lldap -lz -lsocket -lnsl
+          echo /ec/lib/libcurl.a -L/ec/lib -m32 -lumem -lidn -lssh2 -lssh2 -lumem -lnsl -lsocket -lssl -lcrypto -lssl -lcrypto -lz -lsocket -lnsl
         else
           echo "curl was built with static libraries disabled" >&2
           exit 1
@@ -164,7 +164,7 @@ while test $# -gt 0; do
         ;;
 
     --configure)
-        echo " '--prefix=/usr' '--mandir=/usr/share/man' '--bindir=/usr/bin' '--libdir=/usr/lib' '--sbindir=/usr/sbin' '--infodir=/usr/share/info' '--build=i386-pc-solaris2.11' '--localstatedir=/var' '--enable-shared' '--disable-static' '--enable-http' '--enable-ftp' '--enable-file' '--enable-dict' '--enable-manual' '--enable-rtsp' '--enable-proxy' '--enable-telnet' '--enable-tftp' '--enable-pop3' '--enable-imap' '--enable-smtp' '--enable-ipv6' '--enable-nonblocking' '--enable-thread' '--enable-verbose' '--disable-sspi' '--enable-crypto-auth' '--enable-cookies' '--disable-hidden-symbols' '--disable-soname-bump' '--enable-ldap' '--with-random=/dev/urandom' '--with-ssl' '--with-ldap-lib=ldap' '--with-lber-lib=sldap' '--with-gssapi-includes=/usr/include/gssapi' '--with-gssapi-libs=/usr/lib' '--with-gssapi=/usr' '--without-ca-bundle' '--with-ca-path=/etc/openssl/certs' '--with-zlib=/usr' '--with-libidn=/usr' '--with-pic' '--with-libssh2' 'curl_disallow_getifaddrs=yes' 'build_alias=i386-pc-solaris2.11' 'CC=${CC}' 'CFLAGS=-m32 -O3       -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/idn  ' 'LDFLAGS= ' 'CPPFLAGS=  -I/usr/include/idn  '"
+        echo " '--prefix=/ec' '--mandir=/ec/share/man' '--infodir=/ec/share/info' '--bindir=/ec/bin' '--libdir=/ec/lib' '--sbindir=/ec/bin' '--libexecdir=/ec/lib' '--sysconfdir=/ec/etc' '--build=i386-pc-solaris2.11' '--localstatedir=/ec/var' '--enable-shared' '--disable-static' '--enable-http' '--enable-ftp' '--enable-file' '--enable-dict' '--enable-manual' '--enable-rtsp' '--enable-proxy' '--enable-telnet' '--enable-tftp' '--enable-pop3' '--enable-imap' '--enable-smtp' '--enable-ipv6' '--enable-nonblocking' '--enable-thread' '--enable-verbose' '--disable-sspi' '--enable-crypto-auth' '--enable-cookies' '--disable-hidden-symbols' '--disable-soname-bump' '--with-random=/dev/urandom' '--with-ssl' '--with-pic' '--with-libssh2' '--with-zlib=/ec' '--with-libidn=/ec' '--with-ca-bundle=/ec/etc/openssl/cabundle.pem' '--without-librtmp' '--disable-ldap' '--disable-ldaps' '--with-gssapi-includes=/ec/include/gssapi' '--with-gssapi-libs=/usr/lib' '--with-gssapi=/ec' 'curl_disallow_getifaddrs=yes' 'build_alias=i386-pc-solaris2.11' 'CC=/ec/bin/gcc' 'CFLAGS=-I/ec/include -m32 -O3  -march=i686 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -I/ec/include  ' 'LDFLAGS=-m32 -lumem -L/ec/lib' 'CPPFLAGS=-I/ec/include  -I/usr/include  '"
         ;;
 
     *)

@@ -11,7 +11,7 @@
 #
 # Copyright 2014 EveryCity Ltd. All rights reserved.
 #
-CONFIGURE_DEFAULT_CPPFLAGS = yes
+#CONFIGURE_DEFAULT_CPPFLAGS = yes
 
 include ../../make-rules/shared-macros.mk
 
