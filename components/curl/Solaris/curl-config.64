@@ -156,7 +156,7 @@ while test $# -gt 0; do
 
     --static-libs)
         if test "Xno" != "Xno" ; then
-          echo /ec/lib/amd64/libcurl.a -L/ec/lib/amd64 -m64 -lumem -L/ec/lib/amd64 -lidn -lssh2 -lssh2 -lumem -lnsl -lsocket -lssl -lcrypto -lssl -lcrypto -lz -lsocket -lnsl
+          echo /ec/lib/amd64/libcurl.a -L/ec/lib/amd64 -m64 -lumem -L/ec/lib/amd64 -lidn -lssh2 -lumem -lssl -lcrypto -lz -lsocket -lnsl
         else
           echo "curl was built with static libraries disabled" >&2
           exit 1

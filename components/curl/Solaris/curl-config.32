@@ -148,7 +148,7 @@ while test $# -gt 0; do
            CURLLIBDIR=""
         fi
         if test "Xyes" = "Xyes"; then
-          echo ${CURLLIBDIR}-lcurl -lidn -lssh2 -lssh2 -lumem -lnsl -lsocket -lssl -lcrypto -lssl -lcrypto -lz -lsocket -lnsl
+          echo ${CURLLIBDIR}-lcurl -lidn -lssh2 -lumem -lnsl -lsocket -lssl -lcrypto -lz
         else
           echo ${CURLLIBDIR}-lcurl
         fi
@@ -156,7 +156,7 @@ while test $# -gt 0; do
 
     --static-libs)
         if test "Xno" != "Xno" ; then
-          echo /ec/lib/libcurl.a -L/ec/lib -m32 -lumem -lidn -lssh2 -lssh2 -lumem -lnsl -lsocket -lssl -lcrypto -lssl -lcrypto -lz -lsocket -lnsl
+          echo /ec/lib/libcurl.a -L/ec/lib -m32 -lumem -lidn -lssh2 -lumem -lnsl -lsocket -lssl -lcrypto -lz
         else
           echo "curl was built with static libraries disabled" >&2
           exit 1

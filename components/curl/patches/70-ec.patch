@@ -1,0 +1,55 @@
+Index: curl-7.38.0/configure
+===================================================================
+--- curl-7.38.0/configure.orig
++++ curl-7.38.0/configure
+@@ -21184,7 +21184,7 @@ $as_echo "#define HAVE_GSSAPI 1" >>confd
+                                  gss_libs=`$GSSAPI_ROOT/bin/$host_alias-krb5-config --libs gssapi`
+            LIBS="$gss_libs $LIBS"
+         elif test -f "$GSSAPI_ROOT/bin/krb5-config"; then
+-                                 gss_libs=`$GSSAPI_ROOT/bin/krb5-config --libs gssapi`
++                                 gss_libs=`$GSSAPI_ROOT/bin/krb5-config --libs`
+            LIBS="$gss_libs $LIBS"
+         else
+            case $host in
+@@ -21192,7 +21192,7 @@ $as_echo "#define HAVE_GSSAPI 1" >>confd
+               gss_libname="gss"
+               ;;
+            *)
+-              gss_libname="gssapi"
++              gss_libname="gss"
+               ;;
+            esac
+ 
+@@ -21212,7 +21212,7 @@ $as_echo "#define HAVE_GSSAPI 1" >>confd
+         LIBS="-lgss $LIBS"
+         ;;
+      *)
+-        LIBS="-lgssapi $LIBS"
++        LIBS="-lgss $LIBS"
+         ;;
+      esac
+   fi
+@@ -26982,21 +26982,14 @@ done
+ 
+ 
+ 
+-curl_preprocess_callconv="\
+-/* preprocess start */
+-#ifdef HAVE_WINDOWS_H
+-#  define FUNCALLCONV __stdcall
+-#else
+-#  define FUNCALLCONV
+-#endif
+-/* preprocess end */"
++curl_preprocess_callconv=""
+ 
+ 
+         #
+     #
+   { $as_echo "$as_me:${as_lineno-$LINENO}: checking for curl_socklen_t data type" >&5
+ $as_echo_n "checking for curl_socklen_t data type... " >&6; }
+-  curl_typeof_curl_socklen_t="unknown"
++  curl_typeof_curl_socklen_t="socklen_t"
+   for arg1 in int SOCKET; do
+     for arg2 in 'struct sockaddr' void; do
+       for t in socklen_t int size_t 'unsigned int' long 'unsigned long' void; do
