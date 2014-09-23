@@ -131,7 +131,6 @@
 /^libmemcached$/d
 /^libmms$/d
 /^libmpeg2$/d
-/^libnet$/d
 /^libogg$/d
 /^librsvg$/d
 /^libsamplerate$/d
