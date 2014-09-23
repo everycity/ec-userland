@@ -133,7 +133,6 @@
 /^libmpeg2$/d
 /^libnet$/d
 /^libogg$/d
-/^libpng$/d
 /^librsvg$/d
 /^libsamplerate$/d
 /^libsndfile$/d
