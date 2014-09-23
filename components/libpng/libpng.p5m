@@ -32,10 +32,10 @@ file path=$(USRDIR)/include/libpng16/png.h
 file path=$(USRDIR)/include/libpng16/pngconf.h
 file path=$(USRDIR)/include/libpng16/pnglibconf.h
 file path=$(USRDIR)/lib/$(MACH64)/libpng16.la
-file path=$(USRDIR)/lib/$(MACH64)/libpng16.so.16.10.0
+file path=$(USRDIR)/lib/$(MACH64)/libpng16.so.16.12.0
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libpng16.pc
 file path=$(USRDIR)/lib/libpng16.la
-file path=$(USRDIR)/lib/libpng16.so.16.10.0
+file path=$(USRDIR)/lib/libpng16.so.16.12.0
 file path=$(USRDIR)/lib/pkgconfig/libpng16.pc
 file path=$(USRDIR)/share/man/man3/libpng.3
 file path=$(USRDIR)/share/man/man3/libpngpf.3
@@ -47,11 +47,11 @@ link path=$(USRDIR)/include/pngconf.h target=libpng16/pngconf.h
 link path=$(USRDIR)/include/pnglibconf.h target=libpng16/pnglibconf.h
 link path=$(USRDIR)/lib/$(MACH64)/libpng.la target=libpng16.la
 link path=$(USRDIR)/lib/$(MACH64)/libpng.so target=libpng16.so
-link path=$(USRDIR)/lib/$(MACH64)/libpng16.so target=libpng16.so.16.10.0
-link path=$(USRDIR)/lib/$(MACH64)/libpng16.so.16 target=libpng16.so.16.10.0
+link path=$(USRDIR)/lib/$(MACH64)/libpng16.so target=libpng16.so.16.12.0
+link path=$(USRDIR)/lib/$(MACH64)/libpng16.so.16 target=libpng16.so.16.12.0
 link path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libpng.pc target=libpng16.pc
 link path=$(USRDIR)/lib/libpng.la target=libpng16.la
 link path=$(USRDIR)/lib/libpng.so target=libpng16.so
-link path=$(USRDIR)/lib/libpng16.so target=libpng16.so.16.10.0
-link path=$(USRDIR)/lib/libpng16.so.16 target=libpng16.so.16.10.0
+link path=$(USRDIR)/lib/libpng16.so target=libpng16.so.16.12.0
+link path=$(USRDIR)/lib/libpng16.so.16 target=libpng16.so.16.12.0
 link path=$(USRDIR)/lib/pkgconfig/libpng.pc target=libpng16.pc
