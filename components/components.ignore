@@ -75,7 +75,6 @@
 /^gifsicle$/d
 /^gnome-mime-data$/d
 /^gnome-vfs$/d
-/^gnu-awk$/d
 /^gnu-bc$/d
 /^gnu-inetutils$/d
 /^gnu-patch$/d
