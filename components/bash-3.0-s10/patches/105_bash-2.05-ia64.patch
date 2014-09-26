@@ -1,0 +1,21 @@
+--- bash-2.05/jobs.c.ia64	Mon Mar 26 20:08:24 2001
++++ bash-2.05/jobs.c	Tue Apr 24 14:40:24 2001
+@@ -28,6 +28,7 @@
+ #include <stdio.h>
+ #include <signal.h>
+ #include <errno.h>
++#include <string.h>
+ 
+ #if defined (HAVE_UNISTD_H)
+ #  include <unistd.h>
+--- bash-2.05/Makefile.in.ia64	Tue Apr  3 21:03:24 2001
++++ bash-2.05/Makefile.in	Tue Apr 24 14:40:54 2001
+@@ -98,7 +98,7 @@
+ 
+ CFLAGS = @CFLAGS@
+ CFLAGS_FOR_BUILD = @CFLAGS_FOR_BUILD@
+-CPPFLAGS = @CPPFLAGS@
++CPPFLAGS = -D_GNU_SOURCE @CPPFLAGS@
+ CPPFLAGS_FOR_BUILD = @CPPFLAGS_FOR_BUILD@
+ LOCAL_CFLAGS = @LOCAL_CFLAGS@ ${DEBUG}
+ DEFS = @DEFS@

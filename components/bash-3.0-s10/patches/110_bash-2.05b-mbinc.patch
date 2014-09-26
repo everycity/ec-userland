@@ -1,0 +1,11 @@
+--- bash-2.05b/include/shmbutil.h.mbinc	2002-05-06 14:58:39.000000000 -0300
++++ bash-2.05b/include/shmbutil.h	2002-08-21 23:52:21.000000000 -0300
+@@ -121,7 +121,7 @@
+ 		(_i)++; \
+ 	      } \
+ 	    else \
+-	      (_i) += mblength; \
++	      (_i) += (mblength < 1) ? 1 : mblength; \
+ 	  } \
+ 	else \
+ 	  (_i)++; \

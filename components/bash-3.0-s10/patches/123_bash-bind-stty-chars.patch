@@ -1,0 +1,74 @@
+--- bash-3.0/lib/readline/bind.c.bind-stty-chars	2004-03-04 03:39:32.000000000 +0000
++++ bash-3.0/lib/readline/bind.c	2007-07-03 13:26:23.000000000 +0100
+@@ -1355,6 +1355,7 @@
+   int *value;
+   int flags;
+ } boolean_varlist [] = {
++  { "bind-tty-special-chars",	&_rl_bind_stty_chars,		0 },
+   { "blink-matching-paren",	&rl_blink_matching_paren,	V_SPECIAL },
+   { "byte-oriented",		&rl_byte_oriented,		0 },
+   { "completion-ignore-case",	&_rl_completion_case_fold,	0 },
+--- bash-3.0/lib/readline/readline.c.bind-stty-chars	2007-07-03 13:26:23.000000000 +0100
++++ bash-3.0/lib/readline/readline.c	2007-07-03 13:26:23.000000000 +0100
+@@ -251,6 +251,10 @@
+    rather than as a meta-prefixed escape sequence. */
+ int _rl_output_meta_chars = 0;
+ 
++/* Non-zero means to look at the termios special characters and bind
++   them to equivalent readline functions at startup. */
++int _rl_bind_stty_chars = 1;
++
+ /* **************************************************************** */
+ /*								    */
+ /*			Top Level Functions			    */
+@@ -863,7 +867,8 @@
+ static void
+ readline_default_bindings ()
+ {
+-  rl_tty_set_default_bindings (_rl_keymap);
++  if (_rl_bind_stty_chars)
++    rl_tty_set_default_bindings (_rl_keymap);
+ }
+ 
+ /* Reset the default bindings for the terminal special characters we're
+@@ -871,8 +876,11 @@
+ static void
+ reset_default_bindings ()
+ {
+-  rl_tty_unset_default_bindings (_rl_keymap);
+-  rl_tty_set_default_bindings (_rl_keymap);
++  if (_rl_bind_stty_chars)
++    {
++      rl_tty_unset_default_bindings (_rl_keymap);
++      rl_tty_set_default_bindings (_rl_keymap);
++    }
+ }
+ 
+ /* Bind some common arrow key sequences in MAP. */
+--- bash-3.0/lib/readline/rltty.c.bind-stty-chars	2003-02-01 04:35:20.000000000 +0000
++++ bash-3.0/lib/readline/rltty.c	2007-07-03 13:26:23.000000000 +0100
+@@ -657,10 +657,12 @@
+ 
+   otio = tio;
+ 
+-  rl_tty_unset_default_bindings (_rl_keymap);
++  if (_rl_bind_stty_chars)
++    rl_tty_unset_default_bindings (_rl_keymap);
+   save_tty_chars (&otio);
+   RL_SETSTATE(RL_STATE_TTYCSAVED);
+-  _rl_bind_tty_special_chars (_rl_keymap, tio);
++  if (_rl_bind_stty_chars)
++    _rl_bind_tty_special_chars (_rl_keymap, tio);
+ 
+   prepare_terminal_settings (meta_flag, otio, &tio);
+ 
+--- bash-3.0/lib/readline/rlprivate.h.bind-stty-chars	2007-07-03 13:30:10.000000000 +0100
++++ bash-3.0/lib/readline/rlprivate.h	2007-07-03 13:31:27.000000000 +0100
+@@ -250,6 +250,7 @@
+ extern int _rl_meta_flag;
+ extern int _rl_convert_meta_chars_to_ascii;
+ extern int _rl_output_meta_chars;
++extern int _rl_bind_stty_chars;
+ extern char *_rl_comment_begin;
+ extern unsigned char _rl_parsing_conditionalized_out;
+ extern Keymap _rl_keymap;

@@ -1,0 +1,30 @@
+--- bash-3.0/builtins/cd.def.cd-leak	2004-05-13 16:08:45.000000000 +0100
++++ bash-3.0/builtins/cd.def	2007-07-04 16:40:44.000000000 +0100
+@@ -419,6 +419,7 @@
+       if (errno != ENOENT)
+ #endif
+ 	errno = ENOTDIR;
++      free(tdir);
+       return (0);
+     }
+ 
+@@ -436,14 +437,17 @@
+       else
+ 	set_working_directory (tdir);
+ 
++      free(tdir);
+       return (1);
+     }
+ 
+   /* We failed to change to the appropriate directory name.  If we tried
+      what the user passed (nolinks != 0), punt now. */
+   if (nolinks)
+-    return (0);
+-
++    {
++      free(tdir);
++      return (0);
++    }
+   err = errno;
+ 
+   /* We're not in physical mode (nolinks == 0), but we failed to change to

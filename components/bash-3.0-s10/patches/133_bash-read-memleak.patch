@@ -1,0 +1,11 @@
+--- bash-3.0/builtins/read.def.read-memleak	2005-12-07 17:45:38.000000000 +0000
++++ bash-3.0/builtins/read.def	2005-12-07 17:45:39.000000000 +0000
+@@ -461,6 +461,7 @@
+   if (retval < 0)
+     {
+       builtin_error (_("read error: %d: %s"), fd, strerror (errno));
++      run_unwind_frame ("read_builtin");
+       return (EXECUTION_FAILURE);
+     }
+ #endif
+

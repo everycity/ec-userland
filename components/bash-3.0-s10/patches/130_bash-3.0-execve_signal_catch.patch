@@ -1,0 +1,11 @@
+diff -up bash-3.0/execute_cmd.c.execve_signal_catch bash-3.0/execute_cmd.c
+--- bash-3.0/execute_cmd.c.execve_signal_catch	2008-09-18 14:56:04.000000000 +0200
++++ bash-3.0/execute_cmd.c	2008-09-18 15:47:23.000000000 +0200
+@@ -3830,6 +3830,7 @@ shell_execve (command, args, env)
+   SETOSTYPE (0);		/* Some systems use for USG/POSIX semantics */
+   execve (command, args, env);
+   i = errno;			/* error from execve() */
++  CATCH_SIGNALS ();
+   SETOSTYPE (1);
+ 
+   /* If we get to this point, then start checking out the file.

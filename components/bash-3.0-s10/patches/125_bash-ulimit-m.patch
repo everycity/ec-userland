@@ -1,0 +1,22 @@
+--- bash-3.0/builtins/ulimit.def.ulimit-m	2007-07-03 18:08:00.000000000 +0100
++++ bash-3.0/builtins/ulimit.def	2007-07-03 18:08:00.000000000 +0100
+@@ -37,7 +37,7 @@
+     -f	the maximum size of files created by the shell
+     -i	the maximum number of pending signals
+     -l	the maximum size a process may lock into memory
+-    -m	the maximum resident set size
++    -m	the maximum resident set size (has no effect on Linux)
+     -n	the maximum number of open file descriptors
+     -p	the pipe buffer size
+     -q	the maximum number of bytes in POSIX message queues
+--- bash-3.0/doc/bash.1.ulimit-m	2007-07-03 18:12:36.000000000 +0100
++++ bash-3.0/doc/bash.1	2007-07-03 18:12:46.000000000 +0100
+@@ -8405,7 +8405,7 @@
+ The maximum size that may be locked into memory
+ .TP
+ .B \-m
+-The maximum resident set size
++The maximum resident set size (has no effect on Linux)
+ .TP
+ .B \-n
+ The maximum number of open file descriptors (most systems do not

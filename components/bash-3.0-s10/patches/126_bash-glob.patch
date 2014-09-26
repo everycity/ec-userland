@@ -1,0 +1,83 @@
+--- bash-3.0/lib/glob/glob.c.glob	2004-03-17 22:36:25.000000000 +0000
++++ bash-3.0/lib/glob/glob.c	2007-07-04 15:26:08.000000000 +0100
+@@ -347,9 +347,11 @@
+   register char **name_vector;
+   register unsigned int i;
+   int mflags;		/* Flags passed to strmatch (). */
++  struct globval *firstmalloc, *tmplink;
+ 
+   lastlink = 0;
+   count = lose = skip = 0;
++  firstmalloc = 0;
+ 
+   /* If PAT is empty, skip the loop, but return one (empty) filename. */
+   if (pat == 0 || *pat == '\0')
+@@ -489,7 +491,11 @@
+ 	  if (strmatch (pat, dp->d_name, mflags) != FNM_NOMATCH)
+ 	    {
+ 	      nextname = (char *) malloc (D_NAMLEN (dp) + 1);
+-	      nextlink = (struct globval *) alloca (sizeof (struct globval));
++	      nextlink = (struct globval *) malloc (sizeof (struct globval));
++
++	      if (firstmalloc == 0)
++		firstmalloc = nextlink;
++	      
+ 	      if (nextlink == 0 || nextname == 0)
+ 		{
+ 		  lose = 1;
+@@ -515,11 +521,22 @@
+   /* Have we run out of memory?	 */
+   if (lose)
+     {
++      tmplink = 0;
++
+       /* Here free the strings we have got.  */
+       while (lastlink)
+ 	{
++          if (firstmalloc)
++            {
++              if (lastlink == firstmalloc)
++                firstmalloc = 0;
++              tmplink = lastlink;
++            }
++	  else
++	    tmplink = 0;
+ 	  free (lastlink->name);
+ 	  lastlink = lastlink->next;
++	  FREE (tmplink);
+ 	}
+ 
+       QUIT;
+@@ -528,13 +545,29 @@
+     }
+ 
+   /* Copy the name pointers from the linked list into the vector.  */
+-  for (i = 0; i < count; ++i)
++  for (tmplink = lastlink, i = 0; i < count; ++i)
+     {
+-      name_vector[i] = lastlink->name;
+-      lastlink = lastlink->next;
++      name_vector[i] = tmplink->name;
++      tmplink = tmplink->next;
+     }
+ 
+   name_vector[count] = NULL;
++
++  /* If we allocated some of the struct globvals, free them now. */
++  if (firstmalloc)
++    {
++      tmplink = 0;
++      while (lastlink)
++        {
++          tmplink = lastlink;
++          if (lastlink == firstmalloc)
++            lastlink = firstmalloc = 0;
++          else
++            lastlink = lastlink->next;
++          free (tmplink);
++        }
++    }
++
+   return (name_vector);
+ }
+ 

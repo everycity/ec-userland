@@ -1,0 +1,30 @@
+diff -up bash-3.0/execute_cmd.c.recycles_pids bash-3.0/execute_cmd.c
+--- bash-3.0/execute_cmd.c.recycles_pids	2009-11-19 12:49:05.000000000 +0100
++++ bash-3.0/execute_cmd.c	2009-11-19 12:50:11.000000000 +0100
+@@ -650,6 +650,11 @@ execute_command_internal (command, async
+     case cm_simple:
+       {
+ 	save_line_number = line_number;
++/* Do it like in bash-4.0 */
++#if defined (RECYCLES_PIDS)
++       last_made_pid = NO_PID;
++#endif
++
+ 	/* We can't rely on variables retaining their values across a
+ 	   call to execute_simple_command if a longjmp occurs as the
+ 	   result of a `return' builtin.  This is true for sure with gcc. */
+@@ -703,14 +708,6 @@ execute_command_internal (command, async
+ 	       subshells forked to execute builtin commands (e.g., in
+ 	       pipelines) to be waited for twice. */
+ 	      exec_result = wait_for (last_made_pid);
+-#if defined (RECYCLES_PIDS)
+-	      /* LynxOS, for one, recycles pids very quickly -- so quickly
+-		 that a new process may have the same pid as the last one
+-		 created.  This has been reported to fix the problem on that
+-		 OS, and a similar problem on Cygwin. */
+-	      if (exec_result == 0)
+-		last_made_pid = NO_PID;
+-#endif
+ 	  }
+       }
+ 

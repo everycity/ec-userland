@@ -1,0 +1,29 @@
+--- bash-3.0/tests/read.tests.tty-tests	2004-03-14 22:18:02.000000000 +0000
++++ bash-3.0/tests/read.tests	2004-09-10 16:41:32.746099025 +0100
+@@ -82,9 +82,6 @@
+ # test read -d delim behavior
+ ${THIS_SH} ./read1.sub
+ 
+-# test read -t timeout behavior
+-${THIS_SH} ./read2.sub
+-
+ # test read -n nchars behavior
+ ${THIS_SH} ./read3.sub
+ 
+--- bash-3.0/tests/read.right.tty-tests	2004-03-14 22:18:16.000000000 +0000
++++ bash-3.0/tests/read.right	2004-09-10 16:41:32.751098072 +0100
+@@ -33,14 +33,6 @@
+ a = xyz
+ a = -xyz 123-
+ a = abc
+-1
+-4
+-1
+-4
+-./read2.sub: line 13: read: -3: invalid timeout specification
+-1
+-4
+-abcde
+ ./read3.sub: line 4: read: -1: invalid number
+ abc
+ ab
