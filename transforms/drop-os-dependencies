@@ -69,3 +69,4 @@
 <transform depend pkg.debug.depend.file=isaexec -> drop>
 <transform depend pkg.debug.depend.file=libintl\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libw\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libldap\.so\.5 -> drop>
