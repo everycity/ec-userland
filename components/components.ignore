@@ -13,7 +13,6 @@
 /^apache24-mod_jk$/d
 /^apache24-mod_security$/d
 /^apachetop$/d
-/^apr-util$/d
 /^aspell$/d
 /^asterisk$/d
 /^atk$/d
@@ -421,3 +420,4 @@
 /^zsh$/d
 /^bdb51$/d
 /^bash-3.0-s10$/d
+/^serf$/d
