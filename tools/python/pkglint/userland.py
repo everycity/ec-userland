@@ -46,9 +46,9 @@ class UserlandActionChecker(base.ActionChecker):
 		else:
 			self.proto_path = None
 		self.runpath_re = [
+#			re.compile('^/ec(/.*)?$'),
 			re.compile('^/lib(/.*)?$'),
-			re.compile('^/usr/'),
-			re.compile('^/ec(/.*)?$'),
+			re.compile('^/usr(/.*)?$'),
 			re.compile('^\$ORIGIN/')
 		]
 		self.runpath_64_re = [
