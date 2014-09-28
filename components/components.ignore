@@ -124,7 +124,6 @@
 /^libksba$/d
 /^liblzo$/d
 /^libmad$/d
-/^libmcrypt$/d
 /^libmediainfo$/d
 /^libmemcached$/d
 /^libmms$/d
