@@ -1,0 +1,31 @@
+Index: scons-2.3.0/engine/SCons/Tool/sunar.py
+===================================================================
+--- scons-2.3.0/engine/SCons/Tool/sunar.py.orig
++++ scons-2.3.0/engine/SCons/Tool/sunar.py
+@@ -42,14 +42,9 @@ def generate(env):
+     """Add Builders and construction variables for ar to an Environment."""
+     SCons.Tool.createStaticLibBuilder(env)
+     
+-    if env.Detect('CC'):
+-        env['AR']          = 'CC'
+-        env['ARFLAGS']     = SCons.Util.CLVar('-xar')
+-        env['ARCOM']       = '$AR $ARFLAGS -o $TARGET $SOURCES'
+-    else:
+-        env['AR']          = 'ar'
+-        env['ARFLAGS']     = SCons.Util.CLVar('r')
+-        env['ARCOM']       = '$AR $ARFLAGS $TARGET $SOURCES'
++    env['AR']          = 'ar'
++    env['ARFLAGS']     = SCons.Util.CLVar('r')
++    env['ARCOM']       = '$AR $ARFLAGS $TARGET $SOURCES'
+ 
+     env['SHLINK']      = '$LINK'
+     env['SHLINKFLAGS'] = SCons.Util.CLVar('$LINKFLAGS -G')
+@@ -58,7 +53,7 @@ def generate(env):
+     env['LIBSUFFIX']   = '.a'
+ 
+ def exists(env):
+-    return env.Detect('CC') or env.Detect('ar')
++    return env.Detect('ar')
+ 
+ # Local Variables:
+ # tab-width:4
