@@ -34,17 +34,24 @@ hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/strip targ
 
 file path=$(USRDIR)/bin/addr2line
 file path=$(USRDIR)/bin/ar
+link path=$(USRDIR)/bin/gar target=ar
 file $(USRDIR)/bin/as path=$(USRDIR)/bin/gas
 file path=$(USRDIR)/bin/c++filt
 file path=$(USRDIR)/bin/elfedit
+link path=$(USRDIR)/bin/gelfedit target=elfedit
 file path=$(USRDIR)/bin/gprof
 file $(USRDIR)/bin/ld path=$(USRDIR)/bin/gld
 hardlink path=$(USRDIR)/bin/gld.bfd target=gld
 file path=$(USRDIR)/bin/nm
+link path=$(USRDIR)/bin/gnm target=nm
 file path=$(USRDIR)/bin/objcopy
+link path=$(USRDIR)/bin/gobjcopy target=objcopy
 file path=$(USRDIR)/bin/objdump
+link path=$(USRDIR)/bin/gobjdump target=objdump
 file path=$(USRDIR)/bin/ranlib
+link path=$(USRDIR)/bin/granlib target=ranlib
 file path=$(USRDIR)/bin/readelf
+link path=$(USRDIR)/bin/greadelf target=readelf
 file path=$(USRDIR)/bin/size
 file path=$(USRDIR)/bin/strings
 file $(USRDIR)/bin/strip path=$(USRDIR)/bin/gstrip
