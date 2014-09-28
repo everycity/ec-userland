@@ -1,0 +1,28 @@
+--- bash-3.0/jobs.c.wrap	2006-04-12 20:52:45.000000000 +0100
++++ bash-3.0/jobs.c	2006-04-12 20:52:49.000000000 +0100
+@@ -764,6 +764,25 @@
+   t->command = name;
+   the_pipeline = t;
+ 
++  /* Sanity check */
++  {
++    PROCESS *p;
++    int job;
++    job = find_job (pid, 0);
++    if (job != NO_JOB)
++      {
++	p = jobs[job]->pipe;
++	do
++	  {
++	    if (p->pid == pid)
++	      break;
++	    p = p->next;
++	  } while (p != jobs[job]->pipe);
++	jobs[job]->flags |= J_NOTIFIED;
++	p->pid = 0; /* avoid confusion with the new process we just forked */
++      }
++  }
++
+   if (t->next == 0)
+     t->next = t;
+   else

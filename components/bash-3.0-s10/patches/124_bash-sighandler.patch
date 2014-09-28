@@ -1,0 +1,179 @@
+--- bash-3.0/builtins/read.def.sighandler	2004-01-24 18:16:36.000000000 +0000
++++ bash-3.0/builtins/read.def	2007-07-03 15:19:03.000000000 +0100
+@@ -460,6 +460,7 @@
+ #if 1
+   if (retval < 0)
+     {
++      CATCH_SIGNALS ();
+       builtin_error (_("read error: %d: %s"), fd, strerror (errno));
+       return (EXECUTION_FAILURE);
+     }
+--- bash-3.0/lib/readline/input.c.sighandler	2004-07-12 20:33:44.000000000 +0100
++++ bash-3.0/lib/readline/input.c	2007-07-03 15:18:04.000000000 +0100
+@@ -435,6 +435,12 @@
+   return (c);
+ }
+ 
++/* From bash */
++extern int need_termination_unwind_protect;
++extern void do_termination_unwind_protect (int);
++/* and from trap.c */
++extern int running_trap;
++
+ int
+ rl_getc (stream)
+      FILE *stream;
+@@ -446,6 +452,9 @@
+     {
+       result = read (fileno (stream), &c, sizeof (unsigned char));
+ 
++      if (!running_trap && need_termination_unwind_protect)
++        do_termination_unwind_protect (need_termination_unwind_protect);
++
+       if (result == sizeof (unsigned char))
+ 	return (c);
+ 
+--- bash-3.0/lib/sh/zread.c.sighandler	2002-04-04 19:33:33.000000000 +0100
++++ bash-3.0/lib/sh/zread.c	2007-07-03 15:18:04.000000000 +0100
+@@ -34,6 +34,13 @@
+ #  define SEEK_CUR 1
+ #endif
+ 
++/* From bash */
++extern int need_termination_unwind_protect;
++extern void do_termination_unwind_protect (int);
++/* and from trap.c */
++extern int running_trap;
++
++
+ /* Read LEN bytes from FD into BUF.  Retry the read on EINTR.  Any other
+    error causes the loop to break. */
+ ssize_t
+@@ -45,7 +52,8 @@
+   ssize_t r;
+ 
+   while ((r = read (fd, buf, len)) < 0 && errno == EINTR)
+-    ;
++    if (!running_trap && need_termination_unwind_protect)
++      do_termination_unwind_protect (need_termination_unwind_protect);
+   return r;
+ }
+ 
+@@ -73,6 +81,8 @@
+ 	return r;
+       if (r == -1 && errno == EINTR)
+ 	{
++	  if (!running_trap && need_termination_unwind_protect)
++	    do_termination_unwind_protect (need_termination_unwind_protect);
+ 	  if (++nintr > NUM_INTR)
+ 	    return -1;
+ 	  continue;
+--- bash-3.0/input.c.sighandler	2003-12-19 05:09:03.000000000 +0000
++++ bash-3.0/input.c	2007-07-03 15:18:04.000000000 +0100
+@@ -41,6 +41,7 @@
+ #include "input.h"
+ #include "error.h"
+ #include "externs.h"
++#include "sig.h"
+ 
+ #if !defined (errno)
+ extern int errno;
+@@ -66,6 +67,7 @@
+     {
+       while (1)
+ 	{
++	  CATCH_SIGNALS ();
+ 	  local_bufused = read (fileno (stream), localbuf, sizeof(localbuf));
+ 	  if (local_bufused > 0)
+ 	    break;
+--- bash-3.0/sig.h.sighandler	2007-07-03 15:17:47.000000000 +0100
++++ bash-3.0/sig.h	2007-07-03 15:18:04.000000000 +0100
+@@ -109,8 +109,14 @@
+ 
+ #endif /* JOB_CONTROL */
+ 
++/* Global variables from sig.c */
++extern int need_termination_unwind_protect;
++/* and from trap.c */
++extern int running_trap;
++
+ /* Functions from sig.c. */
+ extern sighandler termination_unwind_protect __P((int));
++extern void do_termination_unwind_protect __P((int));
+ extern sighandler sigint_sighandler __P((int));
+ extern void initialize_signals __P((int));
+ extern void initialize_terminating_signals __P((void));
+@@ -123,4 +129,11 @@
+ extern SigHandler *trap_to_sighandler __P((int));
+ extern sighandler trap_handler __P((int));
+ 
++#define CATCH_SIGNALS()							\
++  do									\
++    {									\
++	    if (!running_trap && need_termination_unwind_protect)	\
++	do_termination_unwind_protect (need_termination_unwind_protect); \
++    } while (0)
++	
+ #endif /* _SIG_H_ */
+--- bash-3.0/jobs.c.sighandler	2007-07-03 15:17:48.000000000 +0100
++++ bash-3.0/jobs.c	2007-07-03 15:23:15.000000000 +0100
+@@ -2518,6 +2518,7 @@
+     retry:
+       if (wcontinued_not_supported)
+ 	waitpid_flags &= ~WCONTINUED;
++      CATCH_SIGNALS ();
+       pid = WAITPID (-1, &status, waitpid_flags);
+       if (pid == -1 && errno == EINVAL)
+ 	{
+@@ -2542,6 +2543,7 @@
+ 
+       /* If waitpid returns 0, there are running children.  If it returns -1,
+ 	 the only other error POSIX says it can return is EINTR. */
++      CATCH_SIGNALS ();
+       if (pid <= 0)
+ 	continue;	/* jumps right to the test */
+ 
+--- bash-3.0/sig.c.sighandler	2003-12-19 21:11:35.000000000 +0000
++++ bash-3.0/sig.c	2007-07-03 15:18:04.000000000 +0100
+@@ -58,6 +58,8 @@
+ extern int loop_level, continuing, breaking;
+ extern int parse_and_execute_level, shell_initialized;
+ 
++int need_termination_unwind_protect = 0;
++
+ /* Non-zero after SIGINT. */
+ int interrupt_state;
+ 
+@@ -408,6 +410,13 @@
+ termination_unwind_protect (sig)
+      int sig;
+ {
++  need_termination_unwind_protect = sig;
++  SIGRETURN (0);
++}
++
++void
++do_termination_unwind_protect (int sig)
++{
+   if (sig == SIGINT && signal_is_trapped (SIGINT))
+     run_interrupt_trap ();
+ 
+@@ -429,8 +438,6 @@
+   run_exit_trap ();
+   set_signal_handler (sig, SIG_DFL);
+   kill (getpid (), sig);
+-
+-  SIGRETURN (0);
+ }
+ 
+ /* What we really do when SIGINT occurs. */
+--- bash-3.0/execute_cmd.c.sighandler	2007-07-03 15:17:47.000000000 +0100
++++ bash-3.0/execute_cmd.c	2007-07-03 15:18:04.000000000 +0100
+@@ -360,6 +360,7 @@
+     unlink_fifo_list ();
+ #endif /* PROCESS_SUBSTITUTION */
+ 
++  CATCH_SIGNALS ();
+   return (result);
+ }
+ 

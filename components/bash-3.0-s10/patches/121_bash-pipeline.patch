@@ -1,0 +1,24 @@
+--- bash-3.0/jobs.c.pipeline	2006-04-12 17:20:33.000000000 +0100
++++ bash-3.0/jobs.c	2006-04-12 17:20:38.000000000 +0100
+@@ -392,11 +392,16 @@
+ void
+ cleanup_the_pipeline ()
+ {
+-  if (the_pipeline)
+-    {
+-      discard_pipeline (the_pipeline);
+-      the_pipeline = (PROCESS *)NULL;
+-    }
++  PROCESS *disposer;
++  sigset_t set, oset;
++
++  BLOCK_CHILD (set, oset);
++  disposer = the_pipeline;
++  the_pipeline = (PROCESS *)NULL;
++  UNBLOCK_CHILD (oset);
++
++  if (disposer)
++    discard_pipeline (disposer);
+ }
+ 
+ void

@@ -1,11 +1,11 @@
---- bind-9.8.1/configure.orig	2011-09-09 22:52:30.952020668 +0100
-+++ bind-9.8.1/configure	2011-09-09 22:57:49.565481426 +0100
-@@ -26889,7 +26889,7 @@
- 			;;
+--- bind-9.9.6/configure.orig	2014-09-27 18:24:14.395796923 +0100
++++ bind-9.9.6/configure	2014-09-27 18:24:41.976842012 +0100
+@@ -19508,7 +19508,7 @@
  		*-solaris*)
  			SO_CFLAGS="-KPIC"
--			SO_LD="ld -G -z text"
-+			SO_LD="${LD} -G -z text"
-                         ;;
+ 			SO_LDFLAGS="-G -z text"
+-			SO_LD="ld"
++			SO_LD="${LD}"
+ 			;;
  		*-hp-hpux*)
  			SO=sl

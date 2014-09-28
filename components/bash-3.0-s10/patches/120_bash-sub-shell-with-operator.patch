@@ -1,0 +1,32 @@
+--- bash-3.0/parse.y.sub-shell-with-operator	2006-04-12 13:16:07.000000000 +0100
++++ bash-3.0/parse.y	2006-04-12 17:06:47.000000000 +0100
+@@ -2055,14 +2055,6 @@
+   if (uc)
+     shell_input_line_index++;
+ 
+-  if MBTEST(uc == '\\' && remove_quoted_newline && shell_input_line[shell_input_line_index] == '\n')
+-    {
+-	if (SHOULD_PROMPT ())
+-	  prompt_again ();
+-	line_number++;
+-	goto restart_read;
+-    }
+-
+ #if defined (ALIAS) || defined (DPAREN_ARITHMETIC)
+   /* If UC is NULL, we have reached the end of the current input string.  If
+      pushed_string_list is non-empty, it's time to pop to the previous string
+@@ -2078,6 +2070,14 @@
+     }
+ #endif /* ALIAS || DPAREN_ARITHMETIC */
+ 
++  if MBTEST(uc == '\\' && remove_quoted_newline && shell_input_line[shell_input_line_index] == '\n')
++    {
++	if (SHOULD_PROMPT ())
++	  prompt_again ();
++	line_number++;
++	goto restart_read;
++    }
++
+   if (!uc && shell_input_line_terminator == EOF)
+     return ((shell_input_line_index != 0) ? '\n' : EOF);
+ 

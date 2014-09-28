@@ -1,0 +1,10 @@
+--- bash-2.05a/sig.h.fix	Sat Jan 26 20:01:06 2002
++++ bash-2.05a/sig.h	Sat Jan 26 20:01:13 2002
+@@ -23,6 +23,7 @@
+ #if !defined (_SIG_H_)
+ #  define _SIG_H_
+ 
++#include "config.h"
+ #include "stdc.h"
+ 
+ #if !defined (SIGABRT) && defined (SIGIOT)

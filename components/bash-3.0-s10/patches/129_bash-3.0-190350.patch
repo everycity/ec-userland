@@ -1,0 +1,176 @@
+#190350: vi mode glitch
+
+Whenever you do some non-inserting edit command, like 'x' or 'd',
+that becomes the command-to-repeat and no further insertions may be repeated.
+
+1. Start a new bash shell
+2. 'set -o vi'
+2. Type 'kekepop<esc>hxi\<esc>.'
+3. You end up with 'kekepp' instead of 'kekep\\p'.
+
+This patch fixes it and tries to fix redoing the 'I' command as well.
+I'm not sure about 'c', though.
+
+RHEL-4.7: (backported append redoing from 3.2 to 3.0)
+
+Signed-off-by: Tomas Janousek <tjanouse@redhat.com>
+---
+ lib/readline/misc.c      |    2 +-
+ lib/readline/readline.c  |    2 +-
+ lib/readline/readline.h  |    1 +
+ lib/readline/vi_keymap.c |    2 +-
+ lib/readline/vi_mode.c   |   51 +++++++++++++++++++++++++++++++++++++++------
+ 5 files changed, 48 insertions(+), 10 deletions(-)
+
+diff --git a/lib/readline/misc.c b/lib/readline/misc.c
+index 403313a..af9ef73 100644
+--- a/lib/readline/misc.c
++++ b/lib/readline/misc.c
+@@ -457,7 +457,7 @@ rl_vi_editing_mode (count, key)
+ #if defined (VI_MODE)
+   _rl_set_insert_mode (RL_IM_INSERT, 1);	/* vi mode ignores insert mode */
+   rl_editing_mode = vi_mode;
+-  rl_vi_insertion_mode (1, key);
++  rl_vi_insert_mode (1, key);
+ #endif /* VI_MODE */
+ 
+   return 0;
+diff --git a/lib/readline/readline.c b/lib/readline/readline.c
+index 2c247ba..f3b7d1f 100644
+--- a/lib/readline/readline.c
++++ b/lib/readline/readline.c
+@@ -352,7 +352,7 @@ readline_internal_setup ()
+ 
+ #if defined (VI_MODE)
+   if (rl_editing_mode == vi_mode)
+-    rl_vi_insertion_mode (1, 'i');
++    rl_vi_insert_mode (1, 'i');
+ #endif /* VI_MODE */
+ 
+   if (rl_pre_input_hook)
+diff --git a/lib/readline/readline.h b/lib/readline/readline.h
+index 222b317..916dcca 100644
+--- a/lib/readline/readline.h
++++ b/lib/readline/readline.h
+@@ -230,6 +230,7 @@ extern int rl_vi_next_word PARAMS((int, int));
+ extern int rl_vi_end_word PARAMS((int, int));
+ extern int rl_vi_insert_beg PARAMS((int, int));
+ extern int rl_vi_append_mode PARAMS((int, int));
++extern int rl_vi_insert_mode PARAMS((int, int));
+ extern int rl_vi_append_eol PARAMS((int, int));
+ extern int rl_vi_eof_maybe PARAMS((int, int));
+ extern int rl_vi_insertion_mode PARAMS((int, int));
+diff --git a/lib/readline/vi_keymap.c b/lib/readline/vi_keymap.c
+index 53a67c6..947be8c 100644
+--- a/lib/readline/vi_keymap.c
++++ b/lib/readline/vi_keymap.c
+@@ -151,7 +151,7 @@ KEYMAP_ENTRY_ARRAY vi_movement_keymap = {
+   { ISFUNC, rl_vi_char_search },		/* f */
+   { ISFUNC, (rl_command_func_t *)0x0 },		/* g */
+   { ISFUNC, rl_backward_char },			/* h */
+-  { ISFUNC, rl_vi_insertion_mode },		/* i */
++  { ISFUNC, rl_vi_insert_mode },		/* i */
+   { ISFUNC, rl_get_next_history },		/* j */
+   { ISFUNC, rl_get_previous_history },		/* k */
+   { ISFUNC, rl_forward_char },			/* l */
+diff --git a/lib/readline/vi_mode.c b/lib/readline/vi_mode.c
+index de723a1..9d3154d 100644
+--- a/lib/readline/vi_mode.c
++++ b/lib/readline/vi_mode.c
+@@ -109,6 +109,8 @@ static void _rl_vi_stuff_insert PARAMS((int));
+ static void _rl_vi_save_insert PARAMS((UNDO_LIST *));
+ static int rl_digit_loop1 PARAMS((void));
+ 
++static void _rl_vi_append_forward PARAMS((int));
++
+ void
+ _rl_vi_initialize_line ()
+ {
+@@ -190,6 +192,24 @@ rl_vi_redo (count, c)
+       if (rl_point > 0)
+ 	rl_point--;
+     }
++  /* Ditto for redoing an insert with `a', but move forward a character first
++     like the `a' command does. */
++  else if (_rl_vi_last_command == 'a' && vi_insert_buffer && *vi_insert_buffer)
++    {
++      _rl_vi_append_forward ('a');
++      _rl_vi_stuff_insert (count);
++      if (rl_point > 0)
++	rl_point--;
++    }
++  /* Ditto for redoing an insert with `I', but move to the beginning of line
++     like the `I' command does. */
++  else if (_rl_vi_last_command == 'I' && vi_insert_buffer && *vi_insert_buffer)
++    {
++      rl_beg_of_line (1, 'I');
++      _rl_vi_stuff_insert (count);
++      if (rl_point > 0)
++	rl_point--;
++    }
+   else
+     r = _rl_dispatch (_rl_vi_last_command, _rl_keymap);
+   vi_redoing = 0;
+@@ -554,27 +574,44 @@ rl_vi_insert_beg (count, key)
+      int count, key;
+ {
+   rl_beg_of_line (1, key);
+-  rl_vi_insertion_mode (1, key);
++  rl_vi_insert_mode (1, key);
+   return (0);
+ }
+ 
+-int
+-rl_vi_append_mode (count, key)
+-     int count, key;
++static void
++_rl_vi_append_forward (key)
++     int key;
+ {
++  int point;
++
+   if (rl_point < rl_end)
+     {
+       if (MB_CUR_MAX == 1 || rl_byte_oriented)
+ 	rl_point++;
+       else
+         {
+-          int point = rl_point;
++          point = rl_point;
+           rl_forward_char (1, key);
+           if (point == rl_point)
+             rl_point = rl_end;
+         }
+     }
+-  rl_vi_insertion_mode (1, key);
++}
++
++int
++rl_vi_append_mode (count, key)
++     int count, key;
++{
++  _rl_vi_append_forward (key);
++  rl_vi_start_inserting (key, 1, rl_arg_sign);
++  return (0);
++}
++
++int
++rl_vi_insert_mode (count, key)
++     int count, key;
++{
++  rl_vi_start_inserting (key, 1, rl_arg_sign);
+   return (0);
+ }
+ 
+@@ -651,7 +688,7 @@ _rl_vi_done_inserting ()
+     }
+   else
+     {
+-      if ((_rl_vi_last_key_before_insert == 'i' || _rl_vi_last_key_before_insert == 'a') && rl_undo_list)
++      if ((_rl_vi_last_key_before_insert == 'i' || _rl_vi_last_key_before_insert == 'a' || _rl_vi_last_key_before_insert == 'I') && rl_undo_list)
+         _rl_vi_save_insert (rl_undo_list);
+       /* XXX - Other keys probably need to be checked. */
+       else if (_rl_vi_last_key_before_insert == 'C')
+-- 
+1.5.4.4
+

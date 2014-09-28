@@ -1,0 +1,28 @@
+--- bash-3.0/execute_cmd.c.shellfunc	2004-07-04 19:12:58.000000000 +0100
++++ bash-3.0/execute_cmd.c	2004-07-28 09:39:52.122132599 +0100
+@@ -3104,6 +3104,7 @@
+   int return_val, result;
+   COMMAND *tc, *fc, *save_current;
+   char *debug_trap, *error_trap, *return_trap;
++  SHELL_VAR *old_shell_function;
+ #if defined (ARRAY_VARS)
+   SHELL_VAR *funcname_v, *bash_source_v, *bash_lineno_v;
+   ARRAY *funcname_a, *bash_source_a, *bash_lineno_a;
+@@ -3124,6 +3125,8 @@
+   if (tc && (flags & CMD_IGNORE_RETURN))
+     tc->flags |= CMD_IGNORE_RETURN;
+ 
++  old_shell_function = this_shell_function;
++
+   if (subshell == 0)
+     {
+       begin_unwind_frame ("function_calling");
+@@ -3276,6 +3279,8 @@
+   if (variable_context == 0 || this_shell_function == 0)
+     make_funcname_visible (0);
+ 
++  this_shell_function = old_shell_function;
++
+   return (result);
+ }
+ 

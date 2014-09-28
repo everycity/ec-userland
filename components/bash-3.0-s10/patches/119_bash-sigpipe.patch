@@ -1,0 +1,11 @@
+--- bash-2.05b/config-top.h.sigpipe	2004-07-21 17:53:45.061677879 +0100
++++ bash-2.05b/config-top.h	2004-07-21 17:54:16.925593881 +0100
+@@ -49,7 +49,7 @@
+ 
+ /* Define DONT_REPORT_SIGPIPE if you don't want to see `Broken pipe' messages
+    when a job like `cat jobs.c | exit 1' is executed. */
+-/* #define DONT_REPORT_SIGPIPE */
++#define DONT_REPORT_SIGPIPE
+ 
+ /* The default value of the PATH variable. */
+ #ifndef DEFAULT_PATH_VALUE
