@@ -73,19 +73,6 @@ COMPONENT_BUILD_TARGETS = bootstrap
 COMPONENT_PRE_INSTALL_ACTION = \
 	( $(RM) dummy.p5m )
 
-#COMPONENT_POST_INSTALL_ACTION = \
-#        ( strip $(PROTO_DIR)$(USRDIR)/bin/* \
-#                $(PROTO_DIR)$(USRDIR)/lib/*so* \
-#                $(PROTO_DIR)$(USRDIR)/lib/*/*so* \
-#                $(PROTO_DIR)$(USRDIR)/lib/gcc/*/*/cc1 \
-#                $(PROTO_DIR)$(USRDIR)/lib/gcc/*/*/cc1obj \
-#                $(PROTO_DIR)$(USRDIR)/lib/gcc/*/*/cc1plus \
-#                $(PROTO_DIR)$(USRDIR)/lib/gcc/*/*/collect2 \
-#                $(PROTO_DIR)$(USRDIR)/lib/gcc/*/*/f951 \
-#                $(PROTO_DIR)$(USRDIR)/lib/gcc/*/*/install-tools/fixincl \
-#                >/dev/null 2>&1; true )
-
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
-
