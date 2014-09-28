@@ -144,7 +144,6 @@
 /^libwpg$/d
 /^libwps$/d
 /^libxspf$/d
-/^libyaml$/d
 /^lighttpd$/d
 /^live555$/d
 /^logrotate$/d
