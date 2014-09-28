@@ -100,7 +100,7 @@ file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_ldap-1.so
 file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_ldap.a
 file path=$(USRDIR)/lib/$(MACH64)/aprutil.exp
 file path=$(USRDIR)/lib/$(MACH64)/libaprutil-1.a
-file path=$(USRDIR)/lib/$(MACH64)/libaprutil-1.so.0.5.3
+file path=$(USRDIR)/lib/$(MACH64)/libaprutil-1.so.0.5.4
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/apr-util-1.pc
 file path=$(USRDIR)/lib/apr-util-1/apr_dbd_odbc-1.so
 file path=$(USRDIR)/lib/apr-util-1/apr_dbd_odbc.a
@@ -112,7 +112,7 @@ file path=$(USRDIR)/lib/apr-util-1/apr_ldap-1.so
 file path=$(USRDIR)/lib/apr-util-1/apr_ldap.a
 file path=$(USRDIR)/lib/aprutil.exp
 file path=$(USRDIR)/lib/libaprutil-1.a
-file path=$(USRDIR)/lib/libaprutil-1.so.0.5.3
+file path=$(USRDIR)/lib/libaprutil-1.so.0.5.4
 file path=$(USRDIR)/lib/pkgconfig/apr-util-1.pc
 link path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbd_odbc.so \
     target=apr_dbd_odbc-1.so
@@ -123,14 +123,14 @@ link path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbd_sqlite3.so \
 link path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_ldap.so \
     target=apr_ldap-1.so
 link path=$(USRDIR)/lib/$(MACH64)/libaprutil-1.so \
-    target=libaprutil-1.so.0.5.3
+    target=libaprutil-1.so.0.5.4
 link path=$(USRDIR)/lib/$(MACH64)/libaprutil-1.so.0 \
-    target=libaprutil-1.so.0.5.3
+    target=libaprutil-1.so.0.5.4
 link path=$(USRDIR)/lib/apr-util-1/apr_dbd_odbc.so target=apr_dbd_odbc-1.so
 link path=$(USRDIR)/lib/apr-util-1/apr_dbd_pgsql.so \
     target=apr_dbd_pgsql-1.so
 link path=$(USRDIR)/lib/apr-util-1/apr_dbd_sqlite3.so \
     target=apr_dbd_sqlite3-1.so
 link path=$(USRDIR)/lib/apr-util-1/apr_ldap.so target=apr_ldap-1.so
-link path=$(USRDIR)/lib/libaprutil-1.so target=libaprutil-1.so.0.5.3
-link path=$(USRDIR)/lib/libaprutil-1.so.0 target=libaprutil-1.so.0.5.3
+link path=$(USRDIR)/lib/libaprutil-1.so target=libaprutil-1.so.0.5.4
+link path=$(USRDIR)/lib/libaprutil-1.so.0 target=libaprutil-1.so.0.5.4
