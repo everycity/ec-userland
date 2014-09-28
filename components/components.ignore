@@ -420,4 +420,3 @@
 /^zsh$/d
 /^bdb51$/d
 /^bash-3.0-s10$/d
-/^serf$/d
