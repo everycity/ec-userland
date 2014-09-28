@@ -15,22 +15,22 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		bash
 COMPONENT_FMRI=         shell/bash
-COMPONENT_VERSION=	4.3
+COMPONENT_VERSION=	4.2
 COMPONENT_LICENSE=      GPLv3, FDLv1.2
 COMPONENT_PROJECT_URL=  http://www.gnu.org/software/bash/
 COMPONENT_SUMMARY=      GNU Bourne-Again shell (bash)
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:afc687a28e0e24dc21b988fa159ff9dbcf6b7caa92ade8645cc6d5605cd024d4
+COMPONENT_ARCHIVE_HASH=	sha256:a27a1179ec9c0830c65c6aa5d7dab60f7ce1a2a608618570f96bfa72e95ab3d8
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
-COMPONENT_AUTOGEN_MANIFEST=	yes
-COMPONENT_LICENSE_FILE=	COPYING
 
 CONFIGURE_DEFAULT_SHAREDLIB=no
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+#CONFIGURE_ENV+=	LIBS="$(LIBS)"
 
 GPATCH_FLAGS=	-p0
 

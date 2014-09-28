@@ -1,0 +1,135 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+file path=$(USRDIR)/bin/bash
+file path=$(USRDIR)/bin/bashbug
+file path=$(USRDIR)/share/bash/alias
+file path=$(USRDIR)/share/bash/arith
+file path=$(USRDIR)/share/bash/arith_for
+file path=$(USRDIR)/share/bash/bg
+file path=$(USRDIR)/share/bash/bind
+file path=$(USRDIR)/share/bash/break
+file path=$(USRDIR)/share/bash/builtin
+file path=$(USRDIR)/share/bash/caller
+file path=$(USRDIR)/share/bash/case
+file path=$(USRDIR)/share/bash/cd
+file path=$(USRDIR)/share/bash/colon
+file path=$(USRDIR)/share/bash/command
+file path=$(USRDIR)/share/bash/compgen
+file path=$(USRDIR)/share/bash/complete
+file path=$(USRDIR)/share/bash/compopt
+file path=$(USRDIR)/share/bash/conditional
+file path=$(USRDIR)/share/bash/continue
+file path=$(USRDIR)/share/bash/coproc
+file path=$(USRDIR)/share/bash/declare
+file path=$(USRDIR)/share/bash/dirs
+file path=$(USRDIR)/share/bash/disown
+file path=$(USRDIR)/share/bash/dot
+file path=$(USRDIR)/share/bash/echo
+file path=$(USRDIR)/share/bash/enable
+file path=$(USRDIR)/share/bash/eval
+file path=$(USRDIR)/share/bash/exec
+file path=$(USRDIR)/share/bash/exit
+file path=$(USRDIR)/share/bash/export
+file path=$(USRDIR)/share/bash/false
+file path=$(USRDIR)/share/bash/fc
+file path=$(USRDIR)/share/bash/fg
+file path=$(USRDIR)/share/bash/fg_percent
+file path=$(USRDIR)/share/bash/for
+file path=$(USRDIR)/share/bash/function
+file path=$(USRDIR)/share/bash/getopts
+file path=$(USRDIR)/share/bash/grouping_braces
+file path=$(USRDIR)/share/bash/hash
+file path=$(USRDIR)/share/bash/help
+file path=$(USRDIR)/share/bash/history
+file path=$(USRDIR)/share/bash/if
+file path=$(USRDIR)/share/bash/jobs
+file path=$(USRDIR)/share/bash/kill
+file path=$(USRDIR)/share/bash/let
+file path=$(USRDIR)/share/bash/local
+file path=$(USRDIR)/share/bash/logout
+file path=$(USRDIR)/share/bash/mapfile
+file path=$(USRDIR)/share/bash/popd
+file path=$(USRDIR)/share/bash/printf
+file path=$(USRDIR)/share/bash/pushd
+file path=$(USRDIR)/share/bash/pwd
+file path=$(USRDIR)/share/bash/read
+file path=$(USRDIR)/share/bash/readarray
+file path=$(USRDIR)/share/bash/readonly
+file path=$(USRDIR)/share/bash/return
+file path=$(USRDIR)/share/bash/select
+file path=$(USRDIR)/share/bash/set
+file path=$(USRDIR)/share/bash/shift
+file path=$(USRDIR)/share/bash/shopt
+file path=$(USRDIR)/share/bash/source
+file path=$(USRDIR)/share/bash/suspend
+file path=$(USRDIR)/share/bash/test
+file path=$(USRDIR)/share/bash/test_bracket
+file path=$(USRDIR)/share/bash/time
+file path=$(USRDIR)/share/bash/times
+file path=$(USRDIR)/share/bash/trap
+file path=$(USRDIR)/share/bash/true
+file path=$(USRDIR)/share/bash/type
+file path=$(USRDIR)/share/bash/typeset
+file path=$(USRDIR)/share/bash/ulimit
+file path=$(USRDIR)/share/bash/umask
+file path=$(USRDIR)/share/bash/unalias
+file path=$(USRDIR)/share/bash/unset
+file path=$(USRDIR)/share/bash/until
+file path=$(USRDIR)/share/bash/variable_help
+file path=$(USRDIR)/share/bash/wait
+file path=$(USRDIR)/share/bash/while
+file path=$(USRDIR)/share/info/bash.info
+file path=$(USRDIR)/share/info/dir
+file path=$(USRDIR)/share/locale/af/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/bg/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/ca/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/cs/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/de/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/en@boldquot/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/en@quot/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/eo/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/es/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/et/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/fi/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/fr/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/ga/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/hu/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/id/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/ja/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/lt/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/nl/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/pl/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/pt_BR/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/ro/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/ru/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/sk/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/sv/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/tr/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/uk/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/vi/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/zh_CN/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/zh_TW/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/man/man1/bash.1
+file path=$(USRDIR)/share/man/man1/bashbug.1
