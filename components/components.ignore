@@ -77,7 +77,6 @@
 /^gnome-vfs$/d
 /^gnu-bc$/d
 /^gnu-inetutils$/d
-/^gnu-patch$/d
 /^gnu-pth$/d
 /^gnupg$/d
 /^gnupg2$/d
