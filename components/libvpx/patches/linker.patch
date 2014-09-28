@@ -5,7 +5,7 @@
  $(1):
  	$(if $(quiet),@echo    "    [LD] $$@")
 -	$(qexec)$$(LD) $$(strip $$(INTERNAL_LDFLAGS) $$(LDFLAGS) -o $$@ $(2) $(3) $$(extralibs))
-+	$$(CC) $$(strip $$(INTERNAL_LDFLAGS) $$(LDFLAGS) -o $$@ $(2) $(3) $$(extralibs))
++	$$(CC) $$(INTERNAL_LDFLAGS) $$(LDFLAGS) -o $$@ $(2) $(3) $$(extralibs)
  endef
  define linkerxx_template
  $(1): $(filter-out -%,$(2))
