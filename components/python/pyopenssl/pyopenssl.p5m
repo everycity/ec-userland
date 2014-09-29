@@ -31,9 +31,9 @@ set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 # pkg.linted needed until the reference repo is updated
 license pyopenssl.copyright license=LGPLv2.1
 
-#depend fmri=library/python-2/pyopenssl-26 \
-#    predicate=runtime/python-26 \
-#    type=conditional
+depend fmri=library/python-2/pyopenssl-26 \
+    predicate=runtime/python-26 \
+    type=conditional
 
 depend fmri=library/python-2/pyopenssl-27 \
     predicate=runtime/python-27 \
