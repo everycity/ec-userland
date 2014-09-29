@@ -36,6 +36,7 @@ COMPONENT_BUILD_GMAKE_ARGS=
 CONFIGURE_OPTIONS+=	--with-soname=ruby$(RUBY_VER) --program-suffix=$(RUBY_VER)
 CONFIGURE_OPTIONS+=	--enable-shared
 CONFIGURE_OPTIONS.32+=	ac_cv_func_dl_iterate_phdr=no
+CONFIGURE_OPTIONS+=	--disable-dtrace
 
 build:		$(BUILD_32_and_64)
 
