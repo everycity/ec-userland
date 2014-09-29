@@ -82,9 +82,9 @@ file path=$(USRDIR)/share/doc/pycurl/tests/util.py
 # since there are only py files there
 <transform file path=$(USRDIR)/share/doc/.+\.pyc$ -> drop>
 
-#depend fmri=library/python-2/pycurl-26 \
-#    predicate=runtime/python-26 \
-#    type=conditional
+depend fmri=library/python-2/pycurl-26 \
+    predicate=runtime/python-26 \
+    type=conditional
 
 depend fmri=library/python-2/pycurl-27 \
     predicate=runtime/python-27 \
