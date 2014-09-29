@@ -21,17 +21,24 @@
 # Copyright (c) 2012, Oracle and/or its affiliates. All rights reserved.
 #
 
-set name=pkg.fmri value=pkg:/library/python-2/jsonrpclib@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.fmri value=pkg:/library/python-2/jsonrpclib-26@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="Python implementation of JSON-RPC v2.0"
 set name=info.classification value="org.opensolaris.category.2008:Development/Python"
 set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 set name=info.upstream value="Josh Marshall <catchjosh@gmail.com>"
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-depend fmri=library/python-2/jsonrpclib-26 \
-    predicate=runtime/python-26 \
-    type=conditional
+license jsonrpclib.license license='Apache v2.0'
 
-depend fmri=library/python-2/jsonrpclib-27 \
-    predicate=runtime/python-27 \
-    type=conditional
+# force a dependency on the jsonrpclib package
+#depend fmri=library/python-2/jsonrpclib@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION) \
+#    type=require
+
+file \
+    path=$(USRDIR)/lib/python2.6/vendor-packages/jsonrpclib-$(COMPONENT_VERSION)-py2.6.egg-info
+file path=$(USRDIR)/lib/python2.6/vendor-packages/jsonrpclib/__init__.py
+file path=$(USRDIR)/lib/python2.6/vendor-packages/jsonrpclib/config.py
+file path=$(USRDIR)/lib/python2.6/vendor-packages/jsonrpclib/history.py
+file path=$(USRDIR)/lib/python2.6/vendor-packages/jsonrpclib/jsonclass.py
+file path=$(USRDIR)/lib/python2.6/vendor-packages/jsonrpclib/jsonrpc.py
+file path=$(USRDIR)/lib/python2.6/vendor-packages/jsonrpclib/SimpleJSONRPCServer.py
