@@ -29,9 +29,9 @@ set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 set name=info.upstream value="David Beazley <dave@dabeaz.com>"
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-#depend fmri=library/python-2/ply-26 \
-#    predicate=runtime/python-26 \
-#    type=conditional
+depend fmri=library/python-2/ply-26 \
+    predicate=runtime/python-26 \
+    type=conditional
 
 depend fmri=library/python-2/ply-27 \
     predicate=runtime/python-27 \
