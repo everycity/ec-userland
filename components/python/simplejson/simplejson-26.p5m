@@ -34,11 +34,11 @@ set name=info.classification \
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 
-file path=$(USRDIR)/lib/python2.6/vendor-packages/simplejson-2.1.2-py2.6.egg-info/PKG-INFO
-file path=$(USRDIR)/lib/python2.6/vendor-packages/simplejson-2.1.2-py2.6.egg-info/SOURCES.txt
-file path=$(USRDIR)/lib/python2.6/vendor-packages/simplejson-2.1.2-py2.6.egg-info/dependency_links.txt
-file path=$(USRDIR)/lib/python2.6/vendor-packages/simplejson-2.1.2-py2.6.egg-info/top_level.txt
-file path=$(USRDIR)/lib/python2.6/vendor-packages/simplejson-2.1.2-py2.6.egg-info/zip-safe
+file path=$(USRDIR)/lib/python2.6/vendor-packages/simplejson-$(COMPONENT_VERSION)-py2.6.egg-info/PKG-INFO
+file path=$(USRDIR)/lib/python2.6/vendor-packages/simplejson-$(COMPONENT_VERSION)-py2.6.egg-info/SOURCES.txt
+file path=$(USRDIR)/lib/python2.6/vendor-packages/simplejson-$(COMPONENT_VERSION)-py2.6.egg-info/dependency_links.txt
+file path=$(USRDIR)/lib/python2.6/vendor-packages/simplejson-$(COMPONENT_VERSION)-py2.6.egg-info/top_level.txt
+file path=$(USRDIR)/lib/python2.6/vendor-packages/simplejson-$(COMPONENT_VERSION)-py2.6.egg-info/zip-safe
 file path=$(USRDIR)/lib/python2.6/vendor-packages/simplejson/64/_speedups.so
 file path=$(USRDIR)/lib/python2.6/vendor-packages/simplejson/__init__.py
 file path=$(USRDIR)/lib/python2.6/vendor-packages/simplejson/_speedups.so
