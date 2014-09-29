@@ -113,7 +113,6 @@
 /^libdvbpsi$/d
 /^libee$/d
 /^libestr$/d
-/^libevent$/d
 /^libfcgi$/d
 /^libgd$/d
 /^libgsm$/d
@@ -172,7 +171,6 @@
 /^mutt$/d
 /^nagios\/core$/d
 /^nagios\/plugins$/d
-/^nano$/d
 /^nasm$/d
 /^ncdu$/d
 /^nddtune$/d
@@ -371,7 +369,6 @@
 /^wavpack$/d
 /^webapps\/awstats$/d
 /^webapps\/cacti$/d
-/^whois$/d
 /^wkhtmltopdf$/d
 /^wkhtmltopdf-qt4$/d
 /^x11-inputproto$/d
