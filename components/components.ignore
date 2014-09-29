@@ -323,7 +323,6 @@
 /^ruby\/ruby18$/d
 /^ruby\/ruby19$/d
 /^ruby\/ruby20$/d
-/^ruby\/ruby21$/d
 /^ruby\/stomp$/d
 /^schroedinger$/d
 /^screen$/d
