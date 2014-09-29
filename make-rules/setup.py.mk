@@ -18,7 +18,7 @@
 #
 # CDDL HEADER END
 #
-# Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2010, 2013, Oracle and/or its affiliates. All rights reserved.
 # Copyright 2012 EveryCity Ltd. All rights reserved.
 #
 
@@ -69,13 +69,11 @@ $(BUILD_DIR)/config-%/$(CFG):
 	echo "[build]\nbuild_base = $(BUILD_DIR)/$*" > $@
 
 # build the configured source
-$(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
+$(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep $(BUILD_DIR)/config-%/$(CFG)
 	$(RM) -r $(@D) ; $(MKDIR) $(@D)
 	$(COMPONENT_PRE_BUILD_ACTION)
-	(cd $(SOURCE_DIR) ; $(ENV) $(PYTHON_ENV) \
-		$(PYTHON.$(BITS)) ./setup.py $(PYTHON_PRE_SETUP_ARGS) \
-			build $(PYTHON_SETUP_BUILD_ARGS) \
-			--build-temp $(@D:$(BUILD_DIR)/%=%))
+	(cd $(SOURCE_DIR) ; $(ENV) HOME=$(BUILD_DIR)/config-$* $(COMPONENT_BUILD_ENV) \
+		$(PYTHON.$(BITS)) ./setup.py $(COMPONENT_BUILD_ARGS) build)
 	$(COMPONENT_POST_BUILD_ACTION)
 	$(TOUCH) $@
 
@@ -93,9 +91,9 @@ COMPONENT_INSTALL_ARGS +=	--install-data=$(PYTHON_DATA)
 COMPONENT_INSTALL_ARGS +=	--force
 
 # install the built source into a prototype area
-$(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
+$(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built $(BUILD_DIR)/config-%/$(CFG)
 	$(COMPONENT_PRE_INSTALL_ACTION)
-	(cd $(SOURCE_DIR) ; $(ENV) $(COMPONENT_INSTALL_ENV) \
+	(cd $(SOURCE_DIR) ; $(ENV) HOME=$(BUILD_DIR)/config-$* $(COMPONENT_INSTALL_ENV) \
 		$(PYTHON.$(BITS)) ./setup.py install $(COMPONENT_INSTALL_ARGS))
 	$(COMPONENT_POST_INSTALL_ACTION)
 	$(TOUCH) $@
