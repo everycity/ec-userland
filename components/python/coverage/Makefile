@@ -53,7 +53,8 @@ COMPONENT_INSTALL_ENV += $(PYTHON_ENV)
 build:		$(BUILD_32_and_64)
 
 COMPONENT_POST_INSTALL_ACTION =	\
-	(cd $(PROTO_DIR)$(USRDIR)/bin ; $(MV) -f coverage coverage$(PYTHON_VERSION))
+	(cd $(PROTO_DIR)$(USRDIR)/bin && $(MV) -f coverage coverage$(PYTHON_VERSION) \
+	&& $(GSED) -i -e 's;amd64/python$(PYTHON_VERSION);python$(PYTHON_VERSION);' coverage$(PYTHON_VERSION))
 
 install:	$(INSTALL_32_and_64)
 
