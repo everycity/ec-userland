@@ -34,7 +34,10 @@ license cherrypy.copyright license=BSD
 depend fmri=__TBD pkg.debug.depend.file=python2.6 \
        pkg.debug.depend.path=$(USRDIR)/bin type=require
 
-file path=$(USRDIR)/lib/python2.6/vendor-packages/CherryPy-$(COMPONENT_VERSION)-py2.6.egg-info
+file path=$(USRDIR)/lib/python2.6/vendor-packages/CherryPy-$(COMPONENT_VERSION)-py2.6.egg-info/PKG-INFO
+file path=$(USRDIR)/lib/python2.6/vendor-packages/CherryPy-$(COMPONENT_VERSION)-py2.6.egg-info/SOURCES.txt
+file path=$(USRDIR)/lib/python2.6/vendor-packages/CherryPy-$(COMPONENT_VERSION)-py2.6.egg-info/dependency_links.txt
+file path=$(USRDIR)/lib/python2.6/vendor-packages/CherryPy-$(COMPONENT_VERSION)-py2.6.egg-info/top_level.txt
 file path=$(USRDIR)/lib/python2.6/vendor-packages/cherrypy/LICENSE.txt
 file path=$(USRDIR)/lib/python2.6/vendor-packages/cherrypy/__init__.py
 file path=$(USRDIR)/lib/python2.6/vendor-packages/cherrypy/_cpchecker.py
