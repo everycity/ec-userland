@@ -29,6 +29,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/setup.py.mk
 include ../../make-rules/ips.mk
 
+PYTHON_VERSIONS = 2.7
+
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
