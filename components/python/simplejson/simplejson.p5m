@@ -21,9 +21,9 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license simplejson.license license='MIT'
 
-#depend fmri=library/python-2/simplejson-26 \
-#    predicate=runtime/python-26 \
-#    type=conditional
+depend fmri=library/python-2/simplejson-26 \
+    predicate=runtime/python-26 \
+    type=conditional
 
 depend fmri=library/python-2/simplejson-27 \
     predicate=runtime/python-27 \

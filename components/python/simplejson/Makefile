@@ -43,7 +43,7 @@ include $(WS_TOP)/make-rules/ips.mk
 # Needed to get around a broken /usr/lib/python2.7/config/Makefile
 # See CR #16837431.
 LD=$(CC)
-LDSHARED=$(CC) -G
+LDSHARED=$(CC) -shared
 PYTHON_ENV += CC="$(CC)"
 PYTHON_ENV += LDSHARED="$(LDSHARED)"
 PYTHON_ENV += LD="$(LD)"
