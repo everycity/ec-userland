@@ -30,12 +30,12 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 # Include /usr/sbin for dtrace
-PATH=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
+#PATH=$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
-CONFIG_SHELL =	$(ECPREFIX)/bin/python
+CONFIG_SHELL =	$(USRDIR)/bin/python
 CONFIGURE_SCRIPT =	$(@D)/configure
-CONFIGURE_OPTIONS =	--prefix=$(ECPREFIX)
+CONFIGURE_OPTIONS =	--prefix=$(USRDIR)
 
 build:		$(BUILD_32)
 

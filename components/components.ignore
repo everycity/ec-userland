@@ -177,7 +177,6 @@
 /^neon$/d
 /^net-snmp$/d
 /^netcat$/d
-/^nodejs$/d
 /^nodejs04$/d
 /^nodejs06$/d
 /^nrpe$/d
