@@ -22,8 +22,10 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-file path=$(USRDIR)/bin/$(MACH64)/file
-file path=$(USRDIR)/bin/file
+$(ECZONE)file path=$(USRDIR)/bin/$(MACH64)/file
+$(NONECZONE)file $(USRDIR)/bin/$(MACH64)/file path=$(USRDIR)/bin/$(MACH64)/gnu-file
+$(ECZONE)file path=$(USRDIR)/bin/file
+$(NONECZONE)file $(USRDIR)/bin/file path=$(USRDIR)/bin/gnu-file
 file path=$(USRDIR)/include/magic.h
 file path=$(USRDIR)/lib/$(MACH64)/libmagic.so.1.0.0
 file path=$(USRDIR)/lib/libmagic.so.1.0.0
