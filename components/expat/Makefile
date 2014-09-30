@@ -25,13 +25,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-#COMPONENT_POST_INSTALL_ACTION = ( strip \
-#                $(PROTO_DIR)$(USRDIR)/bin/* \
-#                $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/* \
-#                $(PROTO_DIR)$(USRDIR)/lib/*so* \
-#                $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/*so* \
-#                >/dev/null 2>&1; true )
-
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
