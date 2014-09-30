@@ -29,7 +29,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+= --with-default-fonts=/ec/share/fonts
+CONFIGURE_OPTIONS+= --with-default-fonts=$(USRDIR)/share/fonts
 
 build:		$(BUILD_32_and_64)
 

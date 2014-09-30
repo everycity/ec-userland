@@ -55,7 +55,6 @@
 /^fftw$/d
 /^file$/d
 /^flac$/d
-/^fontconfig$/d
 /^fping$/d
 /^freeimage$/d
 /^fribidi$/d
