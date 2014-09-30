@@ -58,7 +58,6 @@
 /^fontconfig$/d
 /^fping$/d
 /^freeimage$/d
-/^freetype2$/d
 /^fribidi$/d
 /^frotz$/d
 /^gaa$/d
