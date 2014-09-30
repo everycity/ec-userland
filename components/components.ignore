@@ -112,7 +112,6 @@
 /^libfcgi$/d
 /^libgd$/d
 /^libgsm$/d
-/^libicu$/d
 /^libid3tag$/d
 /^libksba$/d
 /^liblzo$/d
