@@ -42,8 +42,8 @@ CONFIGURE_ENV += CPPFLAGS="$(CPPFLAGS)"
 
 AP_PREFIX=$(USRDIR)/lib/apache/2.2
 AP_SHAREDIR=$(USRDIR)/share/apache/2.2
-AP_SYSCONFDIR=/etc/apache/2.2
-AP_DATADIR=/var/apache/2.2
+AP_SYSCONFDIR=$(CONFIGURE_SYSCONFDIR)/apache/2.2
+AP_DATADIR=$(CONFIGURE_LOCALSTATEDIR)/apache/2.2
 
 # We patch sources differently depending on the flavour being built
 COMPONENT_PRE_CONFIGURE_ACTION += $(ENV) BITS=$(BITS) MACH=$(MACH$(BITS)) \
@@ -51,7 +51,7 @@ COMPONENT_PRE_CONFIGURE_ACTION += $(ENV) BITS=$(BITS) MACH=$(MACH$(BITS)) \
 	$(COMPONENT_DIR)/patch-source.sh $(@D)
 
 # -L/ec/lib gets added to EXTRA_LDFLAGS for some reason, removing it as otherwise 64-bit build fails
-COMPONENT_POST_CONFIGURE_ACTION += (cd $(@D); gsed -i s/\^EXTRA_LDFLAGS.*// build/config_vars.mk)
+COMPONENT_POST_CONFIGURE_ACTION += (cd $(@D); $(GSED) -i s/\^EXTRA_LDFLAGS.*// build/config_vars.mk)
 
 CONFIGURE_OPTIONS      = CC="$(CC)"
 CONFIGURE_OPTIONS     += CXX="$(CCC)"

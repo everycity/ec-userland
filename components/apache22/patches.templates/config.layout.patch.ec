@@ -1,0 +1,31 @@
+--- httpd-2.2.17/config.layout.orig	2011-03-24 05:00:41.865236354 -0700
++++ httpd-2.2.17/config.layout	2011-03-24 05:11:45.205694672 -0700
+@@ -322,3 +322,28 @@
+     installbuilddir: ${prefix}/etc/apache/build
+     errordir:      ${datadir}/error
+ </Layout>
++
++# EveryCity layout
++<Layout EveryCity>
++    prefix:        /ec/lib/apache/2.2
++    exec_prefix:   /ec/lib/apache/2.2
++    bindir:        ${exec_prefix}/bin::ISAINFO::
++    sbindir:       ${exec_prefix}/bin::ISAINFO::
++    libdir:        ${exec_prefix}/lib::ISAINFO::
++    libexecdir:    ${exec_prefix}/modules::ISAINFO::
++    mandir:        /ec/share/apache/2.2/man
++    sysconfdir:    /ec/etc/apache/2.2
++    datadir:       /ec/var/apache/2.2
++    iconsdir:      ${datadir}/icons
++    htdocsdir:     ${datadir}/htdocs
++    manualdir:     ${datadir}/manual
++    cgidir:        ${datadir}/cgi-bin
++    includedir:    /ec/include/apache/2.2::MPM::
++    localstatedir: /ec/var/apache/2.2/run
++    runtimedir:    /ec/var/apache/2.2/run
++    logfiledir:    ${datadir}/logs
++    proxycachedir: ${datadir}/proxy
++    infodir:       ${exec_prefix}/info
++    installbuilddir: /ec/share/apache/2.2/build::MPM::::ISAINFO::
++    errordir:      ${datadir}/error
++</Layout>
