@@ -123,8 +123,8 @@ file path=$(USRDIR)/lib/$(MACH64)/aspell-0.60/texinfo-filter.info
 file path=$(USRDIR)/lib/$(MACH64)/aspell-0.60/texinfo-filter.so
 file path=$(USRDIR)/lib/$(MACH64)/aspell-0.60/texinfo.amf
 file path=$(USRDIR)/lib/$(MACH64)/aspell-0.60/url.amf
-file path=$(USRDIR)/lib/$(MACH64)/libaspell.so.15.1.4
-file path=$(USRDIR)/lib/$(MACH64)/libpspell.so.15.1.4
+file path=$(USRDIR)/lib/$(MACH64)/libaspell.so.15.1.5
+file path=$(USRDIR)/lib/$(MACH64)/libpspell.so.15.1.5
 file path=$(USRDIR)/lib/aspell-0.60/ccpp.amf
 file path=$(USRDIR)/lib/aspell-0.60/comment.amf
 file path=$(USRDIR)/lib/aspell-0.60/context-filter.info
@@ -206,8 +206,8 @@ file path=$(USRDIR)/lib/aspell-0.60/texinfo-filter.info
 file path=$(USRDIR)/lib/aspell-0.60/texinfo-filter.so
 file path=$(USRDIR)/lib/aspell-0.60/texinfo.amf
 file path=$(USRDIR)/lib/aspell-0.60/url.amf
-file path=$(USRDIR)/lib/libaspell.so.15.1.4
-file path=$(USRDIR)/lib/libpspell.so.15.1.4
+file path=$(USRDIR)/lib/libaspell.so.15.1.5
+file path=$(USRDIR)/lib/libpspell.so.15.1.5
 file path=$(USRDIR)/share/info/aspell-dev.info
 file path=$(USRDIR)/share/info/aspell.info
 file path=$(USRDIR)/share/locale/be/LC_MESSAGES/aspell.mo
@@ -240,11 +240,11 @@ file path=$(USRDIR)/share/man/man1/prezip-bin.1
 file path=$(USRDIR)/share/man/man1/pspell-config.1
 file path=$(USRDIR)/share/man/man1/run-with-aspell.1
 file path=$(USRDIR)/share/man/man1/word-list-compress.1
-link path=$(USRDIR)/lib/$(MACH64)/libaspell.so target=libaspell.so.15.1.4
-link path=$(USRDIR)/lib/$(MACH64)/libaspell.so.15 target=libaspell.so.15.1.4
-link path=$(USRDIR)/lib/$(MACH64)/libpspell.so target=libpspell.so.15.1.4
-link path=$(USRDIR)/lib/$(MACH64)/libpspell.so.15 target=libpspell.so.15.1.4
-link path=$(USRDIR)/lib/libaspell.so target=libaspell.so.15.1.4
-link path=$(USRDIR)/lib/libaspell.so.15 target=libaspell.so.15.1.4
-link path=$(USRDIR)/lib/libpspell.so target=libpspell.so.15.1.4
-link path=$(USRDIR)/lib/libpspell.so.15 target=libpspell.so.15.1.4
+link path=$(USRDIR)/lib/$(MACH64)/libaspell.so target=libaspell.so.15.1.5
+link path=$(USRDIR)/lib/$(MACH64)/libaspell.so.15 target=libaspell.so.15.1.5
+link path=$(USRDIR)/lib/$(MACH64)/libpspell.so target=libpspell.so.15.1.5
+link path=$(USRDIR)/lib/$(MACH64)/libpspell.so.15 target=libpspell.so.15.1.5
+link path=$(USRDIR)/lib/libaspell.so target=libaspell.so.15.1.5
+link path=$(USRDIR)/lib/libaspell.so.15 target=libaspell.so.15.1.5
+link path=$(USRDIR)/lib/libpspell.so target=libpspell.so.15.1.5
+link path=$(USRDIR)/lib/libpspell.so.15 target=libpspell.so.15.1.5
