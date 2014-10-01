@@ -349,7 +349,6 @@
 /^tor$/d
 /^trousers$/d
 /^uriparser$/d
-/^uwimap$/d
 /^varnish$/d
 /^vlc2$/d
 /^vo-aacenc$/d
