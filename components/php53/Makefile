@@ -25,13 +25,13 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 # Apache Paths
-AP_PREFIX=$(ECPREFIX)/lib/apache/2.2
-AP_SYSCONFDIR=$(ECPREFIX)/etc/apache/2.2
+AP_PREFIX=$(USRDIR)/lib/apache/2.2
+AP_SYSCONFDIR=$(USRDIR)/etc/apache/2.2
 
 # PHP Paths
-PHP_PREFIX=$(ECPREFIX)/lib/php/5.3
-PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.3
-PHP_DATADIR=$(ECPREFIX)/var/php/5.3
+PHP_PREFIX=$(USRDIR)/lib/php/5.3
+PHP_SYSCONFDIR=$(CONFIGURE_SYSCONFDIR)/php/5.3
+PHP_DATADIR=$(CONFIGURE_LOCALSTATEDIR)/php/5.3
 
 CFLAGS += -D_POSIX_PTHREAD_SEMANTICS
 
@@ -76,27 +76,27 @@ CONFIGURE_OPTIONS     +=	--with-sqlite=shared
 CONFIGURE_OPTIONS     +=	--with-ldap=shared
 
 # Shared Extensions
-CONFIGURE_OPTIONS     +=	--with-bz2=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-iconv=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-tidy=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-mhash=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-mcrypt=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-xsl=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-curl=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-readline=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-pspell=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-imap=shared,$(ECPREFIX)
+CONFIGURE_OPTIONS     +=	--with-bz2=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-iconv=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-tidy=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-mhash=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-mcrypt=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-xsl=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-curl=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-readline=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-pspell=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-imap=shared,$(USRDIR)
 CONFIGURE_OPTIONS     +=	--with-imap-ssl
 
 # Enabled Extensions
-CONFIGURE_OPTIONS     +=	--with-libxml-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-freetype-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-jpeg-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-png-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-zlib-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-xpm-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-libexpat-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-openssl-dir=$(ECPREFIX)
+CONFIGURE_OPTIONS     +=	--with-libxml-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-freetype-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-jpeg-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-png-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-zlib-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-xpm-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-libexpat-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-openssl-dir=$(USRDIR)
 
 # Disabled extensions & Options
 CONFIGURE_OPTIONS     +=	--disable-static
