@@ -26,7 +26,7 @@ include ../../make-rules/ips.mk
 
 # Apache Paths
 AP_PREFIX=$(USRDIR)/lib/apache/2.2
-AP_SYSCONFDIR=$(USRDIR)/etc/apache/2.2
+AP_SYSCONFDIR=$(CONFIGURE_SYSCONFDIR)/apache/2.2
 
 # PHP Paths
 PHP_PREFIX=$(USRDIR)/lib/php/5.3
