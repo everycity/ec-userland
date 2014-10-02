@@ -219,7 +219,6 @@
 /^php52-ext-mysqli55$/d
 /^php52-ext-pdo_mysql55$/d
 /^php52-ext-zip$/d
-/^php53$/d
 /^php53-apache24$/d
 /^php53-ext-apc$/d
 /^php53-ext-eaccelerator$/d

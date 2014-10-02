@@ -22,17 +22,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license php53.license license="PHP53 License"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/php
-dir path=$(ECPREFIX)/etc/php/5.3
-dir path=$(ECPREFIX)/etc/php/5.3/conf.d
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/php
-dir path=$(ECPREFIX)/lib/php/5.3
-dir path=$(ECPREFIX)/lib/php/5.3/extensions
-dir path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)
-file files/readline.ini path=$(ECPREFIX)/etc/php/5.3/conf.d/readline.ini preserve=true
-file path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)/readline.so
-file path=$(ECPREFIX)/lib/php/5.3/extensions/readline.so
+file files/readline.ini path=$(SYSCONFDIR)/php/5.3/conf.d/readline.ini preserve=true
+file path=$(USRDIR)/lib/php/5.3/extensions/$(MACH64)/readline.so
+file path=$(USRDIR)/lib/php/5.3/extensions/readline.so
 depend fmri=pkg:/web/php-53/php-common type=require

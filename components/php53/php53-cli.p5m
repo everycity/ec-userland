@@ -24,26 +24,14 @@ license php53.license license="PHP53 License"
 
 depend fmri=pkg:/web/php-53/php-common type=require
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/php
-dir path=$(ECPREFIX)/lib/php/5.3
-dir path=$(ECPREFIX)/lib/php/5.3/bin
-dir path=$(ECPREFIX)/lib/php/5.3/bin/$(MACH64)
-dir path=$(ECPREFIX)/lib/php/5.3/share
-dir path=$(ECPREFIX)/lib/php/5.3/share/man
-dir path=$(ECPREFIX)/lib/php/5.3/share/man/man1
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/lib/php/5.3/bin/$(MACH64)/php
-file path=$(ECPREFIX)/lib/php/5.3/bin/php
-file path=$(ECPREFIX)/lib/php/5.3/share/man/man1/php.1
-link path=$(ECPREFIX)/bin/php target=php-cli preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/php target=php-cli preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/php-cli \
-     target=../lib/php/active/bin/php preserve=true pkg.linted=true
-link path=$(ECPREFIX)/bin/$(MACH64)/php-cli \
-     target=../../lib/php/active/bin/$(MACH64)/php preserve=true pkg.linted=true
-link path=$(ECPREFIX)/share/man/man1/php.1 \
-     target=../../../lib/php/active/share/man/man1/php.1 preserve=true pkg.linted=true
+file path=$(USRDIR)/lib/php/5.3/bin/$(MACH64)/php
+file path=$(USRDIR)/lib/php/5.3/bin/php
+file path=$(USRDIR)/lib/php/5.3/share/man/man1/php.1
+link path=$(USRDIR)/bin/php target=php-cli preserve=true pkg.linted=true
+link path=$(USRDIR)/bin/$(MACH64)/php target=php-cli preserve=true pkg.linted=true
+link path=$(USRDIR)/bin/php-cli \
+     target=../lib/php/5.3/bin/php preserve=true pkg.linted=true mediator=php mediator-version=5.3
+link path=$(USRDIR)/bin/$(MACH64)/php-cli \
+     target=../../lib/php/5.3/bin/$(MACH64)/php preserve=true pkg.linted=true mediator=php mediator-version=5.3
+link path=$(USRDIR)/share/man/man1/php.1 \
+     target=../../../lib/php/5.3/share/man/man1/php.1 preserve=true pkg.linted=true mediator=php mediator-version=5.3

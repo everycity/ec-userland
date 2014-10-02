@@ -22,32 +22,17 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license php53.license license="PHP53 License"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/php
-dir path=$(ECPREFIX)/etc/php/5.3
-dir path=$(ECPREFIX)/etc/php/5.3/conf.d
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/php
-dir path=$(ECPREFIX)/lib/php/5.3
-dir path=$(ECPREFIX)/lib/php/5.3/include
-dir path=$(ECPREFIX)/lib/php/5.3/include/php
-dir path=$(ECPREFIX)/lib/php/5.3/include/php/ext
-dir path=$(ECPREFIX)/lib/php/5.3/include/php/ext/iconv
-dir path=$(ECPREFIX)/lib/php/5.3/lib
-dir path=$(ECPREFIX)/lib/php/5.3/extensions
-dir path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)
-file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/iconv/php_have_bsd_iconv.h
-file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/iconv/php_have_glibc_iconv.h
-file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/iconv/php_have_ibm_iconv.h
-file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/iconv/php_have_iconv.h
-file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/iconv/php_have_libiconv.h
-file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/iconv/php_iconv.h
-file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/iconv/php_iconv_aliased_libiconv.h
-file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/iconv/php_iconv_supports_errno.h
-file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/iconv/php_php_iconv_h_path.h
-file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/iconv/php_php_iconv_impl.h
-file files/iconv.ini path=$(ECPREFIX)/etc/php/5.3/conf.d/iconv.ini preserve=true
-file path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)/iconv.so
-file path=$(ECPREFIX)/lib/php/5.3/extensions/iconv.so
+file path=$(USRDIR)/lib/php/5.3/include/php/ext/iconv/php_have_bsd_iconv.h
+file path=$(USRDIR)/lib/php/5.3/include/php/ext/iconv/php_have_glibc_iconv.h
+file path=$(USRDIR)/lib/php/5.3/include/php/ext/iconv/php_have_ibm_iconv.h
+file path=$(USRDIR)/lib/php/5.3/include/php/ext/iconv/php_have_iconv.h
+file path=$(USRDIR)/lib/php/5.3/include/php/ext/iconv/php_have_libiconv.h
+file path=$(USRDIR)/lib/php/5.3/include/php/ext/iconv/php_iconv.h
+file path=$(USRDIR)/lib/php/5.3/include/php/ext/iconv/php_iconv_aliased_libiconv.h
+file path=$(USRDIR)/lib/php/5.3/include/php/ext/iconv/php_iconv_supports_errno.h
+file path=$(USRDIR)/lib/php/5.3/include/php/ext/iconv/php_php_iconv_h_path.h
+file path=$(USRDIR)/lib/php/5.3/include/php/ext/iconv/php_php_iconv_impl.h
+file files/iconv.ini path=$(SYSCONFDIR)/php/5.3/conf.d/iconv.ini preserve=true
+file path=$(USRDIR)/lib/php/5.3/extensions/$(MACH64)/iconv.so
+file path=$(USRDIR)/lib/php/5.3/extensions/iconv.so
 depend fmri=pkg:/web/php-53/php-common type=require
