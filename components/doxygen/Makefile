@@ -31,7 +31,7 @@ include ../../make-rules/ips.mk
 
 COMPONENT_PRE_CONFIGURE_ACTION=    $(CLONEY) $(SOURCE_DIR) $(@D)
 
-CONFIGURE_OPTIONS=	--shared --release --prefix=$(ECPREFIX) --install=$(ECPREFIX)/bin/install
+CONFIGURE_OPTIONS=	--shared --release --prefix=$(USRDIR) --install=$(USRDIR)/bin/install
 
 build:		$(BUILD_32_and_64)
 
