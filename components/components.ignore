@@ -40,7 +40,6 @@
 /^emacs$/d
 /^epm$/d
 /^erlang$/d
-/^eventlog$/d
 /^everycity-docs$/d
 /^exiftool$/d
 /^exim$/d

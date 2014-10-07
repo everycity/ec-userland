@@ -22,20 +22,13 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license eventlog.license license="EventLog"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/eventlog
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-file path=$(ECPREFIX)/include/eventlog/evtlog.h
-file path=$(ECPREFIX)/include/eventlog/evtmaps.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libevtlog.so.0.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/eventlog.pc
-file path=$(ECPREFIX)/lib/libevtlog.so.0.0.0
-file path=$(ECPREFIX)/lib/pkgconfig/eventlog.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libevtlog.so target=libevtlog.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libevtlog.so.0 target=libevtlog.so.0.0.0
-link path=$(ECPREFIX)/lib/libevtlog.so target=libevtlog.so.0.0.0
-link path=$(ECPREFIX)/lib/libevtlog.so.0 target=libevtlog.so.0.0.0
+file path=$(USRDIR)/include/eventlog/evtlog.h
+file path=$(USRDIR)/include/eventlog/evtmaps.h
+file path=$(USRDIR)/lib/$(MACH64)/libevtlog.so.0.0.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/eventlog.pc
+file path=$(USRDIR)/lib/libevtlog.so.0.0.0
+file path=$(USRDIR)/lib/pkgconfig/eventlog.pc
+link path=$(USRDIR)/lib/$(MACH64)/libevtlog.so target=libevtlog.so.0.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libevtlog.so.0 target=libevtlog.so.0.0.0
+link path=$(USRDIR)/lib/libevtlog.so target=libevtlog.so.0.0.0
+link path=$(USRDIR)/lib/libevtlog.so.0 target=libevtlog.so.0.0.0
