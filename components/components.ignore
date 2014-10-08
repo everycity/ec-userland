@@ -359,7 +359,6 @@
 /^x11-libice$/d
 /^x11-libpthread-stubs$/d
 /^x11-libsm$/d
-/^x11-libx11$/d
 /^x11-libxau$/d
 /^x11-libxaw$/d
 /^x11-libxcb$/d

@@ -30,7 +30,7 @@ PATH.64=$(USRDIR)/bin/$(MACH64):$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 PATH=$(PATH.$(BITS))
 
 CONFIGURE_OPTIONS +=	--enable-shared --disable-static --with-pic
-#CONFIGURE_OPTIONS +=	--with-sysroot=$(USRDIR)
+CONFIGURE_OPTIONS +=	--with-sysroot=$(USRDIR)
 CONFIGURE_OPTIONS +=	--with-xmlto=no
 
 build:		$(BUILD_32_and_64)
