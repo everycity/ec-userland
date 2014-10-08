@@ -22,59 +22,48 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license libxmu.license license="libXmu"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/X11
-dir path=$(ECPREFIX)/include/X11/Xmu
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/libXmu
-file path=$(ECPREFIX)/include/X11/Xmu/Atoms.h
-file path=$(ECPREFIX)/include/X11/Xmu/CharSet.h
-file path=$(ECPREFIX)/include/X11/Xmu/CloseHook.h
-file path=$(ECPREFIX)/include/X11/Xmu/Converters.h
-file path=$(ECPREFIX)/include/X11/Xmu/CurUtil.h
-file path=$(ECPREFIX)/include/X11/Xmu/CvtCache.h
-file path=$(ECPREFIX)/include/X11/Xmu/DisplayQue.h
-file path=$(ECPREFIX)/include/X11/Xmu/Drawing.h
-file path=$(ECPREFIX)/include/X11/Xmu/Editres.h
-file path=$(ECPREFIX)/include/X11/Xmu/EditresP.h
-file path=$(ECPREFIX)/include/X11/Xmu/Error.h
-file path=$(ECPREFIX)/include/X11/Xmu/ExtAgent.h
-file path=$(ECPREFIX)/include/X11/Xmu/Initer.h
-file path=$(ECPREFIX)/include/X11/Xmu/Lookup.h
-file path=$(ECPREFIX)/include/X11/Xmu/Misc.h
-file path=$(ECPREFIX)/include/X11/Xmu/StdCmap.h
-file path=$(ECPREFIX)/include/X11/Xmu/StdSel.h
-file path=$(ECPREFIX)/include/X11/Xmu/SysUtil.h
-file path=$(ECPREFIX)/include/X11/Xmu/WhitePoint.h
-file path=$(ECPREFIX)/include/X11/Xmu/WidgetNode.h
-file path=$(ECPREFIX)/include/X11/Xmu/WinUtil.h
-file path=$(ECPREFIX)/include/X11/Xmu/Xct.h
-file path=$(ECPREFIX)/include/X11/Xmu/Xmu.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libXmu.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libXmu.so.6.2.0
-file path=$(ECPREFIX)/lib/$(MACH64)/libXmuu.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libXmuu.so.1.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xmu.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xmuu.pc
-file path=$(ECPREFIX)/lib/libXmu.la
-file path=$(ECPREFIX)/lib/libXmu.so.6.2.0
-file path=$(ECPREFIX)/lib/libXmuu.la
-file path=$(ECPREFIX)/lib/libXmuu.so.1.0.0
-file path=$(ECPREFIX)/lib/pkgconfig/xmu.pc
-file path=$(ECPREFIX)/lib/pkgconfig/xmuu.pc
-file path=$(ECPREFIX)/share/doc/libXmu/Xmu.xml
-file path=$(ECPREFIX)/share/doc/libXmu/xlogo.svg
-link path=$(ECPREFIX)/lib/$(MACH64)/libXmu.so target=libXmu.so.6.2.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libXmu.so.6 target=libXmu.so.6.2.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libXmuu.so target=libXmuu.so.1.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libXmuu.so.1 target=libXmuu.so.1.0.0
-link path=$(ECPREFIX)/lib/libXmu.so target=libXmu.so.6.2.0
-link path=$(ECPREFIX)/lib/libXmu.so.6 target=libXmu.so.6.2.0
-link path=$(ECPREFIX)/lib/libXmuu.so target=libXmuu.so.1.0.0
-link path=$(ECPREFIX)/lib/libXmuu.so.1 target=libXmuu.so.1.0.0
+file path=$(USRDIR)/include/X11/Xmu/Atoms.h
+file path=$(USRDIR)/include/X11/Xmu/CharSet.h
+file path=$(USRDIR)/include/X11/Xmu/CloseHook.h
+file path=$(USRDIR)/include/X11/Xmu/Converters.h
+file path=$(USRDIR)/include/X11/Xmu/CurUtil.h
+file path=$(USRDIR)/include/X11/Xmu/CvtCache.h
+file path=$(USRDIR)/include/X11/Xmu/DisplayQue.h
+file path=$(USRDIR)/include/X11/Xmu/Drawing.h
+file path=$(USRDIR)/include/X11/Xmu/Editres.h
+file path=$(USRDIR)/include/X11/Xmu/EditresP.h
+file path=$(USRDIR)/include/X11/Xmu/Error.h
+file path=$(USRDIR)/include/X11/Xmu/ExtAgent.h
+file path=$(USRDIR)/include/X11/Xmu/Initer.h
+file path=$(USRDIR)/include/X11/Xmu/Lookup.h
+file path=$(USRDIR)/include/X11/Xmu/Misc.h
+file path=$(USRDIR)/include/X11/Xmu/StdCmap.h
+file path=$(USRDIR)/include/X11/Xmu/StdSel.h
+file path=$(USRDIR)/include/X11/Xmu/SysUtil.h
+file path=$(USRDIR)/include/X11/Xmu/WhitePoint.h
+file path=$(USRDIR)/include/X11/Xmu/WidgetNode.h
+file path=$(USRDIR)/include/X11/Xmu/WinUtil.h
+file path=$(USRDIR)/include/X11/Xmu/Xct.h
+file path=$(USRDIR)/include/X11/Xmu/Xmu.h
+file path=$(USRDIR)/lib/$(MACH64)/libXmu.la
+file path=$(USRDIR)/lib/$(MACH64)/libXmu.so.6.2.0
+file path=$(USRDIR)/lib/$(MACH64)/libXmuu.la
+file path=$(USRDIR)/lib/$(MACH64)/libXmuu.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xmu.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xmuu.pc
+file path=$(USRDIR)/lib/libXmu.la
+file path=$(USRDIR)/lib/libXmu.so.6.2.0
+file path=$(USRDIR)/lib/libXmuu.la
+file path=$(USRDIR)/lib/libXmuu.so.1.0.0
+file path=$(USRDIR)/lib/pkgconfig/xmu.pc
+file path=$(USRDIR)/lib/pkgconfig/xmuu.pc
+file path=$(USRDIR)/share/doc/libXmu/Xmu.xml
+file path=$(USRDIR)/share/doc/libXmu/xlogo.svg
+link path=$(USRDIR)/lib/$(MACH64)/libXmu.so target=libXmu.so.6.2.0
+link path=$(USRDIR)/lib/$(MACH64)/libXmu.so.6 target=libXmu.so.6.2.0
+link path=$(USRDIR)/lib/$(MACH64)/libXmuu.so target=libXmuu.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libXmuu.so.1 target=libXmuu.so.1.0.0
+link path=$(USRDIR)/lib/libXmu.so target=libXmu.so.6.2.0
+link path=$(USRDIR)/lib/libXmu.so.6 target=libXmu.so.6.2.0
+link path=$(USRDIR)/lib/libXmuu.so target=libXmuu.so.1.0.0
+link path=$(USRDIR)/lib/libXmuu.so.1 target=libXmuu.so.1.0.0
