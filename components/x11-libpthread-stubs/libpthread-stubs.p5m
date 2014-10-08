@@ -22,5 +22,5 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license libpthread-stubs.license license="MIT License (libpthread-stubs)"
 
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/pthread-stubs.pc
-file path=$(ECPREFIX)/lib/pkgconfig/pthread-stubs.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/pthread-stubs.pc
+file path=$(USRDIR)/lib/pkgconfig/pthread-stubs.pc
