@@ -358,7 +358,6 @@
 /^wkhtmltopdf-qt4$/d
 /^x11-libxi$/d
 /^x11-libxrender$/d
-/^x11-pixman$/d
 /^x11-renderproto$/d
 /^x11-xcb-util$/d
 /^x11-xcb-util-cursor$/d

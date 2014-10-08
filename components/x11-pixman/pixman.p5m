@@ -22,24 +22,17 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license pixman.license license="MIT License (pixman)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/pixman-1
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-file path=$(ECPREFIX)/include/pixman-1/pixman-version.h
-file path=$(ECPREFIX)/include/pixman-1/pixman.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libpixman-1.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/pixman-1.pc
-file path=$(ECPREFIX)/lib/libpixman-1.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/pkgconfig/pixman-1.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libpixman-1.so \
+file path=$(USRDIR)/include/pixman-1/pixman-version.h
+file path=$(USRDIR)/include/pixman-1/pixman.h
+file path=$(USRDIR)/lib/$(MACH64)/libpixman-1.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/pixman-1.pc
+file path=$(USRDIR)/lib/libpixman-1.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/pkgconfig/pixman-1.pc
+link path=$(USRDIR)/lib/$(MACH64)/libpixman-1.so \
     target=libpixman-1.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libpixman-1.so.0 \
+link path=$(USRDIR)/lib/$(MACH64)/libpixman-1.so.0 \
     target=libpixman-1.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libpixman-1.so \
+link path=$(USRDIR)/lib/libpixman-1.so \
     target=libpixman-1.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libpixman-1.so.0 \
+link path=$(USRDIR)/lib/libpixman-1.so.0 \
     target=libpixman-1.so.$(COMPONENT_VERSION)
