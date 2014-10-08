@@ -22,161 +22,148 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license libxaw.license license="libxaw"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/X11
-dir path=$(ECPREFIX)/include/X11/Xaw
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/libXaw
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man3
-file path=$(ECPREFIX)/include/X11/Xaw/AllWidgets.h
-file path=$(ECPREFIX)/include/X11/Xaw/AsciiSink.h
-file path=$(ECPREFIX)/include/X11/Xaw/AsciiSinkP.h
-file path=$(ECPREFIX)/include/X11/Xaw/AsciiSrc.h
-file path=$(ECPREFIX)/include/X11/Xaw/AsciiSrcP.h
-file path=$(ECPREFIX)/include/X11/Xaw/AsciiText.h
-file path=$(ECPREFIX)/include/X11/Xaw/AsciiTextP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Box.h
-file path=$(ECPREFIX)/include/X11/Xaw/BoxP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Cardinals.h
-file path=$(ECPREFIX)/include/X11/Xaw/Command.h
-file path=$(ECPREFIX)/include/X11/Xaw/CommandP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Dialog.h
-file path=$(ECPREFIX)/include/X11/Xaw/DialogP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Form.h
-file path=$(ECPREFIX)/include/X11/Xaw/FormP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Grip.h
-file path=$(ECPREFIX)/include/X11/Xaw/GripP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Label.h
-file path=$(ECPREFIX)/include/X11/Xaw/LabelP.h
-file path=$(ECPREFIX)/include/X11/Xaw/List.h
-file path=$(ECPREFIX)/include/X11/Xaw/ListP.h
-file path=$(ECPREFIX)/include/X11/Xaw/MenuButtoP.h
-file path=$(ECPREFIX)/include/X11/Xaw/MenuButton.h
-file path=$(ECPREFIX)/include/X11/Xaw/MultiSink.h
-file path=$(ECPREFIX)/include/X11/Xaw/MultiSinkP.h
-file path=$(ECPREFIX)/include/X11/Xaw/MultiSrc.h
-file path=$(ECPREFIX)/include/X11/Xaw/MultiSrcP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Paned.h
-file path=$(ECPREFIX)/include/X11/Xaw/PanedP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Panner.h
-file path=$(ECPREFIX)/include/X11/Xaw/PannerP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Porthole.h
-file path=$(ECPREFIX)/include/X11/Xaw/PortholeP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Repeater.h
-file path=$(ECPREFIX)/include/X11/Xaw/RepeaterP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Reports.h
-file path=$(ECPREFIX)/include/X11/Xaw/Scrollbar.h
-file path=$(ECPREFIX)/include/X11/Xaw/ScrollbarP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Simple.h
-file path=$(ECPREFIX)/include/X11/Xaw/SimpleMenP.h
-file path=$(ECPREFIX)/include/X11/Xaw/SimpleMenu.h
-file path=$(ECPREFIX)/include/X11/Xaw/SimpleP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Sme.h
-file path=$(ECPREFIX)/include/X11/Xaw/SmeBSB.h
-file path=$(ECPREFIX)/include/X11/Xaw/SmeBSBP.h
-file path=$(ECPREFIX)/include/X11/Xaw/SmeLine.h
-file path=$(ECPREFIX)/include/X11/Xaw/SmeLineP.h
-file path=$(ECPREFIX)/include/X11/Xaw/SmeP.h
-file path=$(ECPREFIX)/include/X11/Xaw/StripCharP.h
-file path=$(ECPREFIX)/include/X11/Xaw/StripChart.h
-file path=$(ECPREFIX)/include/X11/Xaw/Template.c
-file path=$(ECPREFIX)/include/X11/Xaw/Template.h
-file path=$(ECPREFIX)/include/X11/Xaw/TemplateP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Text.h
-file path=$(ECPREFIX)/include/X11/Xaw/TextP.h
-file path=$(ECPREFIX)/include/X11/Xaw/TextSink.h
-file path=$(ECPREFIX)/include/X11/Xaw/TextSinkP.h
-file path=$(ECPREFIX)/include/X11/Xaw/TextSrc.h
-file path=$(ECPREFIX)/include/X11/Xaw/TextSrcP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Tip.h
-file path=$(ECPREFIX)/include/X11/Xaw/TipP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Toggle.h
-file path=$(ECPREFIX)/include/X11/Xaw/ToggleP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Tree.h
-file path=$(ECPREFIX)/include/X11/Xaw/TreeP.h
-file path=$(ECPREFIX)/include/X11/Xaw/VendorEP.h
-file path=$(ECPREFIX)/include/X11/Xaw/Viewport.h
-file path=$(ECPREFIX)/include/X11/Xaw/ViewportP.h
-file path=$(ECPREFIX)/include/X11/Xaw/XawImP.h
-file path=$(ECPREFIX)/include/X11/Xaw/XawInit.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libXaw6.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libXaw6.so.6.0.1
-file path=$(ECPREFIX)/lib/$(MACH64)/libXaw7.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libXaw7.so.7.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xaw6.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xaw7.pc
-file path=$(ECPREFIX)/lib/libXaw6.la
-file path=$(ECPREFIX)/lib/libXaw6.so.6.0.1
-file path=$(ECPREFIX)/lib/libXaw7.la
-file path=$(ECPREFIX)/lib/libXaw7.so.7.0.0
-file path=$(ECPREFIX)/lib/pkgconfig/xaw6.pc
-file path=$(ECPREFIX)/lib/pkgconfig/xaw7.pc
-file path=$(ECPREFIX)/share/doc/libXaw/AsciiSink.xml
-file path=$(ECPREFIX)/share/doc/libXaw/AsciiSource.xml
-file path=$(ECPREFIX)/share/doc/libXaw/AsciiText.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Box.xml
-file path=$(ECPREFIX)/share/doc/libXaw/CH1.xml
-file path=$(ECPREFIX)/share/doc/libXaw/CH2.xml
-file path=$(ECPREFIX)/share/doc/libXaw/CH3.xml
-file path=$(ECPREFIX)/share/doc/libXaw/CH4.xml
-file path=$(ECPREFIX)/share/doc/libXaw/CH5.xml
-file path=$(ECPREFIX)/share/doc/libXaw/CH6.xml
-file path=$(ECPREFIX)/share/doc/libXaw/CH7.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Command.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Dialog.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Form.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Grip.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Label.xml
-file path=$(ECPREFIX)/share/doc/libXaw/List.xml
-file path=$(ECPREFIX)/share/doc/libXaw/MenuButton.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Paned.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Panner.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Porthole.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Repeater.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Scrollbar.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Simple.xml
-file path=$(ECPREFIX)/share/doc/libXaw/SimpleMenu.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Sme.xml
-file path=$(ECPREFIX)/share/doc/libXaw/SmeBSB.xml
-file path=$(ECPREFIX)/share/doc/libXaw/SmeLine.xml
-file path=$(ECPREFIX)/share/doc/libXaw/StripChart.xml
-file path=$(ECPREFIX)/share/doc/libXaw/TPage_Credits.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Template.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Template_private_header_file.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Template_public_header_file.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Template_widget_source_file.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Text.xml
-file path=$(ECPREFIX)/share/doc/libXaw/TextActions.xml
+file path=$(USRDIR)/include/X11/Xaw/AllWidgets.h
+file path=$(USRDIR)/include/X11/Xaw/AsciiSink.h
+file path=$(USRDIR)/include/X11/Xaw/AsciiSinkP.h
+file path=$(USRDIR)/include/X11/Xaw/AsciiSrc.h
+file path=$(USRDIR)/include/X11/Xaw/AsciiSrcP.h
+file path=$(USRDIR)/include/X11/Xaw/AsciiText.h
+file path=$(USRDIR)/include/X11/Xaw/AsciiTextP.h
+file path=$(USRDIR)/include/X11/Xaw/Box.h
+file path=$(USRDIR)/include/X11/Xaw/BoxP.h
+file path=$(USRDIR)/include/X11/Xaw/Cardinals.h
+file path=$(USRDIR)/include/X11/Xaw/Command.h
+file path=$(USRDIR)/include/X11/Xaw/CommandP.h
+file path=$(USRDIR)/include/X11/Xaw/Dialog.h
+file path=$(USRDIR)/include/X11/Xaw/DialogP.h
+file path=$(USRDIR)/include/X11/Xaw/Form.h
+file path=$(USRDIR)/include/X11/Xaw/FormP.h
+file path=$(USRDIR)/include/X11/Xaw/Grip.h
+file path=$(USRDIR)/include/X11/Xaw/GripP.h
+file path=$(USRDIR)/include/X11/Xaw/Label.h
+file path=$(USRDIR)/include/X11/Xaw/LabelP.h
+file path=$(USRDIR)/include/X11/Xaw/List.h
+file path=$(USRDIR)/include/X11/Xaw/ListP.h
+file path=$(USRDIR)/include/X11/Xaw/MenuButtoP.h
+file path=$(USRDIR)/include/X11/Xaw/MenuButton.h
+file path=$(USRDIR)/include/X11/Xaw/MultiSink.h
+file path=$(USRDIR)/include/X11/Xaw/MultiSinkP.h
+file path=$(USRDIR)/include/X11/Xaw/MultiSrc.h
+file path=$(USRDIR)/include/X11/Xaw/MultiSrcP.h
+file path=$(USRDIR)/include/X11/Xaw/Paned.h
+file path=$(USRDIR)/include/X11/Xaw/PanedP.h
+file path=$(USRDIR)/include/X11/Xaw/Panner.h
+file path=$(USRDIR)/include/X11/Xaw/PannerP.h
+file path=$(USRDIR)/include/X11/Xaw/Porthole.h
+file path=$(USRDIR)/include/X11/Xaw/PortholeP.h
+file path=$(USRDIR)/include/X11/Xaw/Repeater.h
+file path=$(USRDIR)/include/X11/Xaw/RepeaterP.h
+file path=$(USRDIR)/include/X11/Xaw/Reports.h
+file path=$(USRDIR)/include/X11/Xaw/Scrollbar.h
+file path=$(USRDIR)/include/X11/Xaw/ScrollbarP.h
+file path=$(USRDIR)/include/X11/Xaw/Simple.h
+file path=$(USRDIR)/include/X11/Xaw/SimpleMenP.h
+file path=$(USRDIR)/include/X11/Xaw/SimpleMenu.h
+file path=$(USRDIR)/include/X11/Xaw/SimpleP.h
+file path=$(USRDIR)/include/X11/Xaw/Sme.h
+file path=$(USRDIR)/include/X11/Xaw/SmeBSB.h
+file path=$(USRDIR)/include/X11/Xaw/SmeBSBP.h
+file path=$(USRDIR)/include/X11/Xaw/SmeLine.h
+file path=$(USRDIR)/include/X11/Xaw/SmeLineP.h
+file path=$(USRDIR)/include/X11/Xaw/SmeP.h
+file path=$(USRDIR)/include/X11/Xaw/StripCharP.h
+file path=$(USRDIR)/include/X11/Xaw/StripChart.h
+file path=$(USRDIR)/include/X11/Xaw/Template.c
+file path=$(USRDIR)/include/X11/Xaw/Template.h
+file path=$(USRDIR)/include/X11/Xaw/TemplateP.h
+file path=$(USRDIR)/include/X11/Xaw/Text.h
+file path=$(USRDIR)/include/X11/Xaw/TextP.h
+file path=$(USRDIR)/include/X11/Xaw/TextSink.h
+file path=$(USRDIR)/include/X11/Xaw/TextSinkP.h
+file path=$(USRDIR)/include/X11/Xaw/TextSrc.h
+file path=$(USRDIR)/include/X11/Xaw/TextSrcP.h
+file path=$(USRDIR)/include/X11/Xaw/Tip.h
+file path=$(USRDIR)/include/X11/Xaw/TipP.h
+file path=$(USRDIR)/include/X11/Xaw/Toggle.h
+file path=$(USRDIR)/include/X11/Xaw/ToggleP.h
+file path=$(USRDIR)/include/X11/Xaw/Tree.h
+file path=$(USRDIR)/include/X11/Xaw/TreeP.h
+file path=$(USRDIR)/include/X11/Xaw/VendorEP.h
+file path=$(USRDIR)/include/X11/Xaw/Viewport.h
+file path=$(USRDIR)/include/X11/Xaw/ViewportP.h
+file path=$(USRDIR)/include/X11/Xaw/XawImP.h
+file path=$(USRDIR)/include/X11/Xaw/XawInit.h
+file path=$(USRDIR)/lib/$(MACH64)/libXaw6.la
+file path=$(USRDIR)/lib/$(MACH64)/libXaw6.so.6.0.1
+file path=$(USRDIR)/lib/$(MACH64)/libXaw7.la
+file path=$(USRDIR)/lib/$(MACH64)/libXaw7.so.7.0.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xaw6.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xaw7.pc
+file path=$(USRDIR)/lib/libXaw6.la
+file path=$(USRDIR)/lib/libXaw6.so.6.0.1
+file path=$(USRDIR)/lib/libXaw7.la
+file path=$(USRDIR)/lib/libXaw7.so.7.0.0
+file path=$(USRDIR)/lib/pkgconfig/xaw6.pc
+file path=$(USRDIR)/lib/pkgconfig/xaw7.pc
+file path=$(USRDIR)/share/doc/libXaw/AsciiSink.xml
+file path=$(USRDIR)/share/doc/libXaw/AsciiSource.xml
+file path=$(USRDIR)/share/doc/libXaw/AsciiText.xml
+file path=$(USRDIR)/share/doc/libXaw/Box.xml
+file path=$(USRDIR)/share/doc/libXaw/CH1.xml
+file path=$(USRDIR)/share/doc/libXaw/CH2.xml
+file path=$(USRDIR)/share/doc/libXaw/CH3.xml
+file path=$(USRDIR)/share/doc/libXaw/CH4.xml
+file path=$(USRDIR)/share/doc/libXaw/CH5.xml
+file path=$(USRDIR)/share/doc/libXaw/CH6.xml
+file path=$(USRDIR)/share/doc/libXaw/CH7.xml
+file path=$(USRDIR)/share/doc/libXaw/Command.xml
+file path=$(USRDIR)/share/doc/libXaw/Dialog.xml
+file path=$(USRDIR)/share/doc/libXaw/Form.xml
+file path=$(USRDIR)/share/doc/libXaw/Grip.xml
+file path=$(USRDIR)/share/doc/libXaw/Label.xml
+file path=$(USRDIR)/share/doc/libXaw/List.xml
+file path=$(USRDIR)/share/doc/libXaw/MenuButton.xml
+file path=$(USRDIR)/share/doc/libXaw/Paned.xml
+file path=$(USRDIR)/share/doc/libXaw/Panner.xml
+file path=$(USRDIR)/share/doc/libXaw/Porthole.xml
+file path=$(USRDIR)/share/doc/libXaw/Repeater.xml
+file path=$(USRDIR)/share/doc/libXaw/Scrollbar.xml
+file path=$(USRDIR)/share/doc/libXaw/Simple.xml
+file path=$(USRDIR)/share/doc/libXaw/SimpleMenu.xml
+file path=$(USRDIR)/share/doc/libXaw/Sme.xml
+file path=$(USRDIR)/share/doc/libXaw/SmeBSB.xml
+file path=$(USRDIR)/share/doc/libXaw/SmeLine.xml
+file path=$(USRDIR)/share/doc/libXaw/StripChart.xml
+file path=$(USRDIR)/share/doc/libXaw/TPage_Credits.xml
+file path=$(USRDIR)/share/doc/libXaw/Template.xml
+file path=$(USRDIR)/share/doc/libXaw/Template_private_header_file.xml
+file path=$(USRDIR)/share/doc/libXaw/Template_public_header_file.xml
+file path=$(USRDIR)/share/doc/libXaw/Template_widget_source_file.xml
+file path=$(USRDIR)/share/doc/libXaw/Text.xml
+file path=$(USRDIR)/share/doc/libXaw/TextActions.xml
 file \
-    path=$(ECPREFIX)/share/doc/libXaw/TextActions_default_translation_bindings.xml
-file path=$(ECPREFIX)/share/doc/libXaw/TextActions_text_widget_actions.xml
-file path=$(ECPREFIX)/share/doc/libXaw/TextCustom.xml
-file path=$(ECPREFIX)/share/doc/libXaw/TextFuncs.xml
-file path=$(ECPREFIX)/share/doc/libXaw/TextSink.xml
-file path=$(ECPREFIX)/share/doc/libXaw/TextSource.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Toggle.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Tree.xml
-file path=$(ECPREFIX)/share/doc/libXaw/Viewport.xml
-file path=$(ECPREFIX)/share/doc/libXaw/libXaw.xml
-file path=$(ECPREFIX)/share/man/man3/Xaw.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libXaw.so target=libXaw7.so
-link path=$(ECPREFIX)/lib/$(MACH64)/libXaw.so.6 target=libXaw6.so.6
-link path=$(ECPREFIX)/lib/$(MACH64)/libXaw.so.7 target=libXaw7.so.7
-link path=$(ECPREFIX)/lib/$(MACH64)/libXaw6.so target=libXaw6.so.6.0.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libXaw6.so.6 target=libXaw6.so.6.0.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libXaw7.so target=libXaw7.so.7.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libXaw7.so.7 target=libXaw7.so.7.0.0
-link path=$(ECPREFIX)/lib/libXaw.so target=libXaw7.so
-link path=$(ECPREFIX)/lib/libXaw.so.6 target=libXaw6.so.6
-link path=$(ECPREFIX)/lib/libXaw.so.7 target=libXaw7.so.7
-link path=$(ECPREFIX)/lib/libXaw6.so target=libXaw6.so.6.0.1
-link path=$(ECPREFIX)/lib/libXaw6.so.6 target=libXaw6.so.6.0.1
-link path=$(ECPREFIX)/lib/libXaw7.so target=libXaw7.so.7.0.0
-link path=$(ECPREFIX)/lib/libXaw7.so.7 target=libXaw7.so.7.0.0
+    path=$(USRDIR)/share/doc/libXaw/TextActions_default_translation_bindings.xml
+file path=$(USRDIR)/share/doc/libXaw/TextActions_text_widget_actions.xml
+file path=$(USRDIR)/share/doc/libXaw/TextCustom.xml
+file path=$(USRDIR)/share/doc/libXaw/TextFuncs.xml
+file path=$(USRDIR)/share/doc/libXaw/TextSink.xml
+file path=$(USRDIR)/share/doc/libXaw/TextSource.xml
+file path=$(USRDIR)/share/doc/libXaw/Toggle.xml
+file path=$(USRDIR)/share/doc/libXaw/Tree.xml
+file path=$(USRDIR)/share/doc/libXaw/Viewport.xml
+file path=$(USRDIR)/share/doc/libXaw/libXaw.xml
+file path=$(USRDIR)/share/man/man3/Xaw.3
+link path=$(USRDIR)/lib/$(MACH64)/libXaw.so target=libXaw7.so
+link path=$(USRDIR)/lib/$(MACH64)/libXaw.so.6 target=libXaw6.so.6
+link path=$(USRDIR)/lib/$(MACH64)/libXaw.so.7 target=libXaw7.so.7
+link path=$(USRDIR)/lib/$(MACH64)/libXaw6.so target=libXaw6.so.6.0.1
+link path=$(USRDIR)/lib/$(MACH64)/libXaw6.so.6 target=libXaw6.so.6.0.1
+link path=$(USRDIR)/lib/$(MACH64)/libXaw7.so target=libXaw7.so.7.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libXaw7.so.7 target=libXaw7.so.7.0.0
+link path=$(USRDIR)/lib/libXaw.so target=libXaw7.so
+link path=$(USRDIR)/lib/libXaw.so.6 target=libXaw6.so.6
+link path=$(USRDIR)/lib/libXaw.so.7 target=libXaw7.so.7
+link path=$(USRDIR)/lib/libXaw6.so target=libXaw6.so.6.0.1
+link path=$(USRDIR)/lib/libXaw6.so.6 target=libXaw6.so.6.0.1
+link path=$(USRDIR)/lib/libXaw7.so target=libXaw7.so.7.0.0
+link path=$(USRDIR)/lib/libXaw7.so.7 target=libXaw7.so.7.0.0
