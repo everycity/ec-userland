@@ -26,7 +26,7 @@ include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS +=	--enable-shared --disable-static --with-pic
 CONFIGURE_OPTIONS +=	--with-xmlto=no
-#CONFIGURE_OPTIONS +=	--with-sysroot=$(ECPREFIX) 'LIBS=-lintl'
+CONFIGURE_OPTIONS +=	--with-sysroot=$(USRDIR)
 
 build:		$(BUILD_32_and_64)
 
