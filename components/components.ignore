@@ -368,7 +368,6 @@
 /^x11-libxt$/d
 /^x11-pixman$/d
 /^x11-renderproto$/d
-/^x11-xcb-proto$/d
 /^x11-xcb-util$/d
 /^x11-xcb-util-cursor$/d
 /^x11-xcb-util-image$/d
