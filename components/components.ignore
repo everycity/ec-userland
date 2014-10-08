@@ -380,7 +380,6 @@
 /^x11-xcb-util-keysyms$/d
 /^x11-xcb-util-renderutil$/d
 /^x11-xcb-util-wm$/d
-/^x11-xextproto$/d
 /^x11-xorg-macros$/d
 /^x11-xterm$/d
 /^x11-xtrans$/d
