@@ -23,69 +23,50 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license syslog-ng.license license="SyslogNG"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/syslog-ng
-dir path=$(ECPREFIX)/etc/syslog-ng/patterndb.d
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/syslog-ng
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/include
-dir path=$(ECPREFIX)/share/include/scl
-dir path=$(ECPREFIX)/share/include/scl/pacct
-dir path=$(ECPREFIX)/share/include/scl/syslogconf
-dir path=$(ECPREFIX)/share/include/scl/system
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-dir path=$(ECPREFIX)/share/man/man5
-dir path=$(ECPREFIX)/share/man/man8
-dir path=$(ECPREFIX)/share/xsd
-file path=$(ECPREFIX)/bin/loggen
-file path=$(ECPREFIX)/bin/pdbtool
-file path=$(ECPREFIX)/bin/syslog-ng
-file path=$(ECPREFIX)/bin/syslog-ng-ctl
-file path=$(ECPREFIX)/bin/update-patterndb
-file path=$(ECPREFIX)/etc/syslog-ng/modules.conf preserve=true
-file path=$(ECPREFIX)/etc/syslog-ng/scl.conf preserve=true
-file path=$(ECPREFIX)/lib/libsyslog-ng.so.0.0.0
-file path=$(ECPREFIX)/lib/syslog-ng/libaffile.so
-file path=$(ECPREFIX)/lib/syslog-ng/libafprog.so
-file path=$(ECPREFIX)/lib/syslog-ng/libafsocket-notls.so
-file path=$(ECPREFIX)/lib/syslog-ng/libafsocket-tls.so
-file path=$(ECPREFIX)/lib/syslog-ng/libafstreams.so
-file path=$(ECPREFIX)/lib/syslog-ng/libafuser.so
-file path=$(ECPREFIX)/lib/syslog-ng/libbasicfuncs.so
-file path=$(ECPREFIX)/lib/syslog-ng/libconfgen.so
-file path=$(ECPREFIX)/lib/syslog-ng/libconvertfuncs.so
-file path=$(ECPREFIX)/lib/syslog-ng/libcsvparser.so
-file path=$(ECPREFIX)/lib/syslog-ng/libdbparser.so
-file path=$(ECPREFIX)/lib/syslog-ng/libdummy.so
-file path=$(ECPREFIX)/lib/syslog-ng/libsyslogformat.so
-file path=$(ECPREFIX)/share/include/scl/pacct/plugin.conf
-file path=$(ECPREFIX)/share/include/scl/syslogconf/README
-file path=$(ECPREFIX)/share/include/scl/syslogconf/convert-syslogconf.awk
-file path=$(ECPREFIX)/share/include/scl/syslogconf/plugin.conf
-file path=$(ECPREFIX)/share/include/scl/system/generate-system-source.sh mode=0755
-file path=$(ECPREFIX)/share/include/scl/system/plugin.conf
-file path=$(ECPREFIX)/share/man/man1/loggen.1
-file path=$(ECPREFIX)/share/man/man1/pdbtool.1
-file path=$(ECPREFIX)/share/man/man1/syslog-ng-ctl.1
-file path=$(ECPREFIX)/share/man/man5/syslog-ng.conf.5
-file path=$(ECPREFIX)/share/man/man8/syslog-ng.8
-file path=$(ECPREFIX)/share/xsd/patterndb-1.xsd
-file path=$(ECPREFIX)/share/xsd/patterndb-2.xsd
-file path=$(ECPREFIX)/share/xsd/patterndb-3.xsd
-link path=$(ECPREFIX)/lib/libsyslog-ng.so target=libsyslog-ng.so.0.0.0
-link path=$(ECPREFIX)/lib/libsyslog-ng.so.0 target=libsyslog-ng.so.0.0.0
-link path=$(ECPREFIX)/lib/syslog-ng/libafsocket.so target=libafsocket-tls.so
+file path=$(USRDIR)/bin/loggen
+file path=$(USRDIR)/bin/pdbtool
+file path=$(USRDIR)/bin/syslog-ng
+file path=$(USRDIR)/bin/syslog-ng-ctl
+file path=$(USRDIR)/bin/update-patterndb
+file path=$(SYSCONFDIR)/syslog-ng/modules.conf preserve=true
+file path=$(SYSCONFDIR)/syslog-ng/scl.conf preserve=true
+file path=$(USRDIR)/lib/libsyslog-ng.so.0.0.0
+file path=$(USRDIR)/lib/syslog-ng/libaffile.so
+file path=$(USRDIR)/lib/syslog-ng/libafprog.so
+file path=$(USRDIR)/lib/syslog-ng/libafsocket-notls.so
+file path=$(USRDIR)/lib/syslog-ng/libafsocket-tls.so
+file path=$(USRDIR)/lib/syslog-ng/libafstreams.so
+file path=$(USRDIR)/lib/syslog-ng/libafuser.so
+file path=$(USRDIR)/lib/syslog-ng/libbasicfuncs.so
+file path=$(USRDIR)/lib/syslog-ng/libconfgen.so
+file path=$(USRDIR)/lib/syslog-ng/libconvertfuncs.so
+file path=$(USRDIR)/lib/syslog-ng/libcsvparser.so
+file path=$(USRDIR)/lib/syslog-ng/libdbparser.so
+file path=$(USRDIR)/lib/syslog-ng/libdummy.so
+file path=$(USRDIR)/lib/syslog-ng/libsyslogformat.so
+file path=$(USRDIR)/share/include/scl/pacct/plugin.conf
+file path=$(USRDIR)/share/include/scl/syslogconf/README
+file path=$(USRDIR)/share/include/scl/syslogconf/convert-syslogconf.awk
+file path=$(USRDIR)/share/include/scl/syslogconf/plugin.conf
+file path=$(USRDIR)/share/include/scl/system/generate-system-source.sh mode=0755
+file path=$(USRDIR)/share/include/scl/system/plugin.conf
+file path=$(USRDIR)/share/man/man1/loggen.1
+file path=$(USRDIR)/share/man/man1/pdbtool.1
+file path=$(USRDIR)/share/man/man1/syslog-ng-ctl.1
+file path=$(USRDIR)/share/man/man5/syslog-ng.conf.5
+file path=$(USRDIR)/share/man/man8/syslog-ng.8
+file path=$(USRDIR)/share/xsd/patterndb-1.xsd
+file path=$(USRDIR)/share/xsd/patterndb-2.xsd
+file path=$(USRDIR)/share/xsd/patterndb-3.xsd
+link path=$(USRDIR)/lib/libsyslog-ng.so target=libsyslog-ng.so.0.0.0
+link path=$(USRDIR)/lib/libsyslog-ng.so.0 target=libsyslog-ng.so.0.0.0
+link path=$(USRDIR)/lib/syslog-ng/libafsocket.so target=libafsocket-tls.so
 
 # Custom Entries
-file path=$(ECPREFIX)/etc/syslog-ng/syslog-ng.conf preserve=true
-file files/syslog-ng-manifest.xml path=var/svc/manifest/site/syslog-ng.xml \
+file path=$(SYSCONFDIR)/syslog-ng/syslog-ng.conf preserve=true
+file files/syslog-ng-manifest.xml.$(ZTYPE) path=$(SVCMANIFEST)/site/syslog-ng.xml \
     restart_fmri=svc:/system/manifest-import:default
 
-file 64/lib/$(MACH64)/libsyslog-ng.so.0.0.0 path=$(ECPREFIX)/lib/$(MACH64)/libsyslog-ng.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libsyslog-ng.so target=libsyslog-ng.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libsyslog-ng.so.0 target=libsyslog-ng.so.0.0.0
+file 64/lib/$(MACH64)/libsyslog-ng.so.0.0.0 path=$(USRDIR)/lib/$(MACH64)/libsyslog-ng.so.0.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsyslog-ng.so target=libsyslog-ng.so.0.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsyslog-ng.so.0 target=libsyslog-ng.so.0.0.0

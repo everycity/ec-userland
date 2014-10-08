@@ -331,7 +331,6 @@
 /^subversion$/d
 /^subversion-apache24$/d
 /^sysbench$/d
-/^syslog-ng$/d
 /^taglib$/d
 /^tcl$/d
 /^tcsh$/d

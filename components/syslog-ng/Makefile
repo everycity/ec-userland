@@ -25,11 +25,11 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_PREFIX.32 =	$(ECPREFIX)
+CONFIGURE_PREFIX.32 =	$(USRDIR)
 CONFIGURE_PREFIX.64 =	/64
 CONFIGURE_PREFIX =	$(CONFIGURE_PREFIX.$(BITS))
 
-CONFIGURE_OPTIONS += 	--sysconfdir=$(CONFIGURE_PREFIX)/etc/$(COMPONENT_NAME)
+CONFIGURE_OPTIONS += 	--sysconfdir=$(CONFIGURE_SYSCONFDIR)/$(COMPONENT_NAME)
 CONFIGURE_OPTIONS +=	--sbindir=$(CONFIGURE_PREFIX)/bin
 CONFIGURE_OPTIONS +=	--libexecdir=$(CONFIGURE_PREFIX)/lib
 CONFIGURE_OPTIONS += 	--enable-ssl
@@ -37,7 +37,7 @@ CONFIGURE_OPTIONS += 	--enable-ipv6
 CONFIGURE_OPTIONS += 	--enable-sun-streams
 CONFIGURE_OPTIONS += 	--enable-pcre
 CONFIGURE_OPTIONS += 	--with-pic
-CONFIGURE_OPTIONS += 	--with-pidfile-dir=/var/run
+CONFIGURE_OPTIONS += 	--with-pidfile-dir=$(CONFIGURE_LOCALSTATEDIR)/run
 
 build:		$(BUILD_32_and_64)
 

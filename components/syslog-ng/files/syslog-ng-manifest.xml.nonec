@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE service_bundle SYSTEM "/usr/share/lib/xml/dtd/service_bundle.dtd.1">
+<!--
+	Copyright (C) EveryCity 2011
+-->
+<service_bundle type='manifest' name='syslog-ng'>
+
+<service
+	name='system/syslog-ng'
+	type='service'
+	version='1'>
+
+	<create_default_instance enabled='false' />
+
+	<single_instance />
+
+	<!--
+		Wait until we reach the multi-user milestone
+	-->
+	<dependency name='syslog_multi-user'
+		grouping='require_all'
+		restart_on='none'
+		type='service'>
+		<service_fmri value='svc:/milestone/multi-user' />
+	</dependency>
+
+	<!--
+		Wait for network interfaces to be initialized.
+	-->
+	<dependency name='syslog_network'
+		grouping='require_all'
+		restart_on='none'
+		type='service'>
+		<service_fmri value='svc:/milestone/network' />
+	</dependency>
+
+	<!--
+		Wait for all local filesystems to be mounted.
+	-->
+	<dependency name='filesystem-local'
+		grouping='require_all'
+		restart_on='none'
+		type='service'>
+		<service_fmri
+			value='svc:/system/filesystem/local:default'/>
+	</dependency>
+
+	<!--
+		Require a configuration file in order to start.
+	-->
+	<dependency name='config_data'
+		grouping='require_all'
+		restart_on='restart'
+		type='path'>
+		<service_fmri value='file://localhost/etc/syslog-ng/syslog-ng.conf' />
+	</dependency>
+
+
+	<exec_method
+		type='method'
+		name='start'
+		exec='/usr/bin/syslog-ng'
+		timeout_seconds='30'/>
+
+	<exec_method
+		type='method'
+		name='stop'
+		exec=':kill'
+		timeout_seconds='30' />
+
+	<exec_method
+		type='method'
+		name='refresh'
+		exec=':kill -HUP'
+		timeout_seconds='60' />
+
+	<stability value='Evolving' />
+
+	<template>
+		<common_name>
+			<loctext xml:lang='C'>
+			Syslog-ng server
+			</loctext>
+		</common_name>
+		<documentation>
+			<manpage title='syslog-ng' section='8' manpath='/usr/share/man' />
+		</documentation>
+	</template>
+
+</service>
+
+</service_bundle>
+
