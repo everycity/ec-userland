@@ -356,7 +356,6 @@
 /^webapps\/cacti$/d
 /^wkhtmltopdf$/d
 /^wkhtmltopdf-qt4$/d
-/^x11-libice$/d
 /^x11-libsm$/d
 /^x11-libxi$/d
 /^x11-libxrender$/d
