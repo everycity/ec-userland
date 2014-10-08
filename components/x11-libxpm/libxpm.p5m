@@ -22,15 +22,15 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license libxpm.license license="MIT License (libxpm)"
 
-file path=$(ECPREFIX)/bin/$(MACH64)/cxpm
-file path=$(ECPREFIX)/bin/cxpm
-file path=$(ECPREFIX)/include/X11/xpm.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libXpm.so.4.11.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xpm.pc
-file path=$(ECPREFIX)/lib/libXpm.so.4.11.0
-file path=$(ECPREFIX)/lib/pkgconfig/xpm.pc
-file path=$(ECPREFIX)/share/man/man1/cxpm.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libXpm.so target=libXpm.so.4.11.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libXpm.so.4 target=libXpm.so.4.11.0
-link path=$(ECPREFIX)/lib/libXpm.so target=libXpm.so.4.11.0
-link path=$(ECPREFIX)/lib/libXpm.so.4 target=libXpm.so.4.11.0
+file path=$(USRDIR)/bin/$(MACH64)/cxpm
+file path=$(USRDIR)/bin/cxpm
+file path=$(USRDIR)/include/X11/xpm.h
+file path=$(USRDIR)/lib/$(MACH64)/libXpm.so.4.11.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xpm.pc
+file path=$(USRDIR)/lib/libXpm.so.4.11.0
+file path=$(USRDIR)/lib/pkgconfig/xpm.pc
+file path=$(USRDIR)/share/man/man1/cxpm.1
+link path=$(USRDIR)/lib/$(MACH64)/libXpm.so target=libXpm.so.4.11.0
+link path=$(USRDIR)/lib/$(MACH64)/libXpm.so.4 target=libXpm.so.4.11.0
+link path=$(USRDIR)/lib/libXpm.so target=libXpm.so.4.11.0
+link path=$(USRDIR)/lib/libXpm.so.4 target=libXpm.so.4.11.0

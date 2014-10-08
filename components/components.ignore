@@ -359,7 +359,6 @@
 /^x11-libice$/d
 /^x11-libsm$/d
 /^x11-libxi$/d
-/^x11-libxpm$/d
 /^x11-libxrender$/d
 /^x11-libxt$/d
 /^x11-pixman$/d
