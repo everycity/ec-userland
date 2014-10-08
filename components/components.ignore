@@ -357,7 +357,6 @@
 /^wkhtmltopdf$/d
 /^wkhtmltopdf-qt4$/d
 /^x11-inputproto$/d
-/^x11-kbproto$/d
 /^x11-libice$/d
 /^x11-libpthread-stubs$/d
 /^x11-libsm$/d
