@@ -166,6 +166,7 @@ file path=$(ECPREFIX)/lib/pkgconfig/libssl.pc
 file path=$(ECPREFIX)/lib/pkgconfig/openssl.pc
 file path=$(ECPREFIX)/share/man/man1/CA.pl.1
 file path=$(ECPREFIX)/share/man/man1/asn1parse.1
+file path=$(ECPREFIX)/share/man/man1/c_rehash.1
 file path=$(ECPREFIX)/share/man/man1/ca.1
 file path=$(ECPREFIX)/share/man/man1/ciphers.1
 file path=$(ECPREFIX)/share/man/man1/cms.1
@@ -255,6 +256,7 @@ file path=$(ECPREFIX)/share/man/man3/BN_swap.3
 file path=$(ECPREFIX)/share/man/man3/BN_zero.3
 file path=$(ECPREFIX)/share/man/man3/CMS_add0_cert.3
 file path=$(ECPREFIX)/share/man/man3/CMS_add1_recipient_cert.3
+file path=$(ECPREFIX)/share/man/man3/CMS_add1_signer.3
 file path=$(ECPREFIX)/share/man/man3/CMS_compress.3
 file path=$(ECPREFIX)/share/man/man3/CMS_decrypt.3
 file path=$(ECPREFIX)/share/man/man3/CMS_encrypt.3
@@ -264,7 +266,6 @@ file path=$(ECPREFIX)/share/man/man3/CMS_get0_SignerInfos.3
 file path=$(ECPREFIX)/share/man/man3/CMS_get0_type.3
 file path=$(ECPREFIX)/share/man/man3/CMS_get1_ReceiptRequest.3
 file path=$(ECPREFIX)/share/man/man3/CMS_sign.3
-file path=$(ECPREFIX)/share/man/man3/CMS_sign_add1_signer.3
 file path=$(ECPREFIX)/share/man/man3/CMS_sign_receipt.3
 file path=$(ECPREFIX)/share/man/man3/CMS_uncompress.3
 file path=$(ECPREFIX)/share/man/man3/CMS_verify.3
@@ -503,6 +504,7 @@ link path=$(ECPREFIX)/lib/$(MACH64)/libcrypto.so target=libcrypto.so.1.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libssl.so target=libssl.so.1.0.0
 link path=$(ECPREFIX)/lib/libcrypto.so target=libcrypto.so.1.0.0
 link path=$(ECPREFIX)/lib/libssl.so target=libssl.so.1.0.0
+link path=$(ECPREFIX)/share/man/man1/dss1.1 target=dgst.1
 link path=$(ECPREFIX)/share/man/man1/md2.1 target=dgst.1
 link path=$(ECPREFIX)/share/man/man1/md4.1 target=dgst.1
 link path=$(ECPREFIX)/share/man/man1/md5.1 target=dgst.1
@@ -510,6 +512,10 @@ link path=$(ECPREFIX)/share/man/man1/mdc2.1 target=dgst.1
 link path=$(ECPREFIX)/share/man/man1/ripemd160.1 target=dgst.1
 link path=$(ECPREFIX)/share/man/man1/sha.1 target=dgst.1
 link path=$(ECPREFIX)/share/man/man1/sha1.1 target=dgst.1
+link path=$(ECPREFIX)/share/man/man1/sha224.1 target=dgst.1
+link path=$(ECPREFIX)/share/man/man1/sha256.1 target=dgst.1
+link path=$(ECPREFIX)/share/man/man1/sha384.1 target=dgst.1
+link path=$(ECPREFIX)/share/man/man1/sha512.1 target=dgst.1
 link path=$(ECPREFIX)/share/man/man3/ASN1_OBJECT_free.3 \
     target=ASN1_OBJECT_new.3
 link path=$(ECPREFIX)/share/man/man3/ASN1_STRING_cmp.3 \
@@ -803,7 +809,7 @@ link path=$(ECPREFIX)/share/man/man3/CMS_SignerInfo_cert_cmp.3 \
 link path=$(ECPREFIX)/share/man/man3/CMS_SignerInfo_get0_signer_id.3 \
     target=CMS_get0_SignerInfos.3
 link path=$(ECPREFIX)/share/man/man3/CMS_SignerInfo_sign.3 \
-    target=CMS_sign_add1_signer.3
+    target=CMS_add1_signer.3
 link path=$(ECPREFIX)/share/man/man3/CMS_add0_crl.3 target=CMS_add0_cert.3
 link path=$(ECPREFIX)/share/man/man3/CMS_add0_recipient_key.3 \
     target=CMS_add1_recipient_cert.3
