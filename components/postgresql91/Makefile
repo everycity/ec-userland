@@ -66,6 +66,10 @@ $(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
 		cp pgbench $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/bin/ )
 	( cd $(BUILD_DIR_64)/contrib/pgbench && make && \
 		cp pgbench $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/bin/$(MACH64) )
+	( cd $(BUILD_DIR_32)/contrib/pgcrypto && make && \
+		cp pgcrypto.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/ )
+	( cd $(BUILD_DIR_64)/contrib/pgcrypto && make && \
+		cp pgcrypto.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/$(MACH64) )
 	( cd $(BUILD_DIR_32)/contrib/tablefunc && make && \
 		cp tablefunc.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/ )
 	( cd $(BUILD_DIR_64)/contrib/tablefunc && make && \
