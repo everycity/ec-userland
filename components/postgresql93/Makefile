@@ -61,9 +61,24 @@ COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; autoreconf )
 
 build:		$(BUILD_32_and_64)
 
-install:	$(INSTALL_32_and_64)
+$(BUILD_DIR)/.installed:        $(INSTALL_32_and_64)
 	( cd $(BUILD_DIR_32)/contrib/pgbench && make && \
 		cp pgbench $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/bin/ )
 	( cd $(BUILD_DIR_64)/contrib/pgbench && make && \
 		cp pgbench $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/bin/$(MACH64) )
+	( cd $(BUILD_DIR_32)/contrib/pgcrypto && make && \
+		cp pgcrypto.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/ )
+	( cd $(BUILD_DIR_64)/contrib/pgcrypto && make && \
+		cp pgcrypto.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/$(MACH64) )
+	( cd $(BUILD_DIR_32)/contrib/tablefunc && make && \
+		cp tablefunc.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/ )
+	( cd $(BUILD_DIR_64)/contrib/tablefunc && make && \
+		cp tablefunc.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/$(MACH64) )
+	$(MKDIR) $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/extension
+	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/extension
+	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc--unpackaged--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/extension
+	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc.control $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/extension
+	$(TOUCH) $@
+
+install:        $(BUILD_DIR)/.installed
 
