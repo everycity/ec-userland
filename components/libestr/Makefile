@@ -9,23 +9,25 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libestr
-COMPONENT_VERSION=	0.1.4
+COMPONENT_FMRI=		library/libestr
+COMPONENT_VERSION=	0.1.9
+COMPONENT_LICENSE=	LGPLv2.1
+COMPONENT_PROJECT_URL=	"http://libestr.adiscon.com/"
+COMPONENT_SUMMARY=	String handling library used by rsyslog
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:e30b05bc3091e2c35464d7ac736b2d4e5c054cc883e244c920b571e533de85e3
+COMPONENT_ARCHIVE_HASH=	sha256:822c6e2d01eaca1e72201f403a2ca01f3e86410b880e508e5204e3c2694d751a
 COMPONENT_ARCHIVE_URL=	http://libestr.adiscon.com/files/download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-
-#CONFIGURE_OPTIONS += 
 
 build:		$(BUILD_32_and_64)
 
