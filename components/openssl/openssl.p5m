@@ -108,7 +108,6 @@ file path=$(USRDIR)/include/openssl/whrlpool.h
 file path=$(USRDIR)/include/openssl/x509.h
 file path=$(USRDIR)/include/openssl/x509_vfy.h
 file path=$(USRDIR)/include/openssl/x509v3.h
-
 file path=$(USRDIR)/lib/$(MACH64)/engines/lib4758cca.so
 file path=$(USRDIR)/lib/$(MACH64)/engines/libaep.so
 file path=$(USRDIR)/lib/$(MACH64)/engines/libatalla.so

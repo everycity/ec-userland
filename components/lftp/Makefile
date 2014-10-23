@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		lftp
 COMPONENT_FMRI=         ftp/client/lftp
-COMPONENT_VERSION=      4.5.3
+COMPONENT_VERSION=      4.6.0
 COMPONENT_LICENSE=      GPLv3
 COMPONENT_PROJECT_URL=  http://lftp.yar.ru/
 COMPONENT_SUMMARY=	A sophisticated ftp/http client, and a file transfer program supporting a number of network protocols
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:8be26a5528a8a269f8ef780380bc0855545b7d7cc9ddd82cc39595391848cc9d
+COMPONENT_ARCHIVE_HASH=	sha256:e2312b2175d57503a74d4f7474edcb27725616b6f8fc4e62c0e2d0676d27a9a1
 COMPONENT_ARCHIVE_URL=	http://lftp.yar.ru/ftp/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
