@@ -27,7 +27,6 @@
 /^cloog-ppl$/d
 /^clusterssh$/d
 /^cpuburn$/d
-/^cronie$/d
 /^cronolog$/d
 /^csvfix$/d
 /^dbt2$/d

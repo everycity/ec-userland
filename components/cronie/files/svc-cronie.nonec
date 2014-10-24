@@ -17,9 +17,9 @@ if [ -p /etc/cron.d/FIFO ]; then
 	fi
 fi
 
-if [ -x /ec/bin/crond ]; then
+if [ -x /usr/bin/crond ]; then
 	/usr/bin/rm -f /etc/cron.d/FIFO
-	/ec/bin/crond &
+	/usr/bin/crond &
 else
 	exit 1
 fi

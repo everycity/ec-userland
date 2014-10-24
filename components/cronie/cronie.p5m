@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -24,36 +24,22 @@ license COPYING license="MIT, BSD, ISC, GPLv2"
 
 depend fmri=pkg:/text/gnu-awk type=require
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-dir path=$(ECPREFIX)/share/man/man5
-dir path=$(ECPREFIX)/share/man/man8
-dir path=$(ECPREFIX)/var
-dir path=$(ECPREFIX)/var/svc
-dir path=$(ECPREFIX)/var/svc/method
-dir path=etc/cron.hourly
-dir path=var/spool/anacron
-dir path=var/svc/manifest
-dir path=var/svc/manifest/site
-file path=$(ECPREFIX)/bin/anacron
-file path=$(ECPREFIX)/bin/crond
-file path=$(ECPREFIX)/bin/crontab mode=4555
-file files/run-parts path=$(ECPREFIX)/bin/run-parts
-file path=$(ECPREFIX)/share/man/man1/crontab.1
-file path=$(ECPREFIX)/share/man/man5/anacrontab.5
-file path=$(ECPREFIX)/share/man/man5/crontab.5
-file path=$(ECPREFIX)/share/man/man8/anacron.8
-file path=$(ECPREFIX)/share/man/man8/cron.8
-file path=$(ECPREFIX)/share/man/man8/crond.8
-file files/svc-cronie path=$(ECPREFIX)/var/svc/method/svc-cronie mode=0555
-file path=etc/anacrontab preserve=true
-file path=etc/cron.d/0hourly
-file files/cron.deny path=etc/cron.d/cron.deny preserve=true
-file path=etc/cron.hourly/0anacron mode=0555
-file path=var/spool/anacron/cron.daily preserve=true
-file path=var/spool/anacron/cron.monthly preserve=true
-file path=var/spool/anacron/cron.weekly preserve=true
-file files/cronie.xml path=var/svc/manifest/site/cronie.xml restart_fmri=svc:/system/manifest-import:default
+file path=$(USRDIR)/bin/anacron
+file path=$(USRDIR)/bin/crond
+file path=$(USRDIR)/bin/crontab mode=4555
+file files/run-parts.$(ZTYPE) path=$(USRDIR)/bin/run-parts
+file path=$(USRDIR)/share/man/man1/crontab.1
+file path=$(USRDIR)/share/man/man5/anacrontab.5
+file path=$(USRDIR)/share/man/man5/crontab.5
+file path=$(USRDIR)/share/man/man8/anacron.8
+file path=$(USRDIR)/share/man/man8/cron.8
+file path=$(USRDIR)/share/man/man8/crond.8
+file files/svc-cronie.$(ZTYPE) path=$(SVCMETHOD)/svc-cronie mode=0555
+file path=$(SYSCONFDIR)/anacrontab preserve=true
+file path=$(SYSCONFDIR)/cron.d/0hourly
+file files/cron.deny path=$(SYSCONFDIR)/cron.d/cron.deny preserve=true
+file path=$(SYSCONFDIR)/cron.hourly/0anacron mode=0555
+file path=$(LOCALSTATEDIR)/spool/anacron/cron.daily preserve=true
+file path=$(LOCALSTATEDIR)/spool/anacron/cron.monthly preserve=true
+file path=$(LOCALSTATEDIR)/spool/anacron/cron.weekly preserve=true
+file files/cronie.xml.$(ZTYPE) path=$(SVCMANIFEST)/site/cronie.xml restart_fmri=svc:/system/manifest-import:default

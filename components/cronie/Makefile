@@ -25,24 +25,24 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=	--sbindir=$(ECPREFIX)/bin
-CONFIGURE_OPTIONS+=	--sysconfdir=/etc
-CONFIGURE_OPTIONS+=	--localstatedir=/var
+CONFIGURE_OPTIONS+=	--sbindir=$(USRDIR)/bin
+CONFIGURE_OPTIONS+=	--sysconfdir=$(CONFIGURE_SYSCONFDIR)
+CONFIGURE_OPTIONS+=	--localstatedir=$(CONFIGURE_LOCALSTATEDIR)
 CONFIGURE_OPTIONS+=	--enable-anacron
 CONFIGURE_OPTIONS+=	--enable-pie
 
-COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; autoreconf )
+COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; autoreconf -i )
 
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
-	$(MKDIR) $(PROTO_DIR)/var/spool/cron
-	$(MKDIR) $(PROTO_DIR)/etc/cron.d
-	$(INSTALL) -m644 $(SOURCE_DIR)/contrib/anacrontab $(PROTO_DIR)/etc/anacrontab
-	$(INSTALL) -m644 $(SOURCE_DIR)/contrib/0hourly $(PROTO_DIR)/etc/cron.d/0hourly
-	$(MKDIR) $(PROTO_DIR)/etc/cron.hourly
-	$(INSTALL) -m755 $(SOURCE_DIR)/contrib/0anacron $(PROTO_DIR)/etc/cron.hourly/0anacron
-	$(MKDIR) $(PROTO_DIR)/var/spool/anacron
-	touch $(PROTO_DIR)/var/spool/anacron/cron.daily
-	touch $(PROTO_DIR)/var/spool/anacron/cron.weekly
-	touch $(PROTO_DIR)/var/spool/anacron/cron.monthly
+	$(MKDIR) $(PROTO_DIR)$(CONFIGURE_LOCALSTATEDIR)/spool/cron
+	$(MKDIR) $(PROTO_DIR)$(CONFIGURE_SYSCONFDIR)/cron.d
+	$(INSTALL) -m644 $(SOURCE_DIR)/contrib/anacrontab $(PROTO_DIR)$(CONFIGURE_SYSCONFDIR)/anacrontab
+	$(INSTALL) -m644 $(SOURCE_DIR)/contrib/0hourly $(PROTO_DIR)$(CONFIGURE_SYSCONFDIR)/cron.d/0hourly
+	$(MKDIR) $(PROTO_DIR)$(CONFIGURE_SYSCONFDIR)/cron.hourly
+	$(INSTALL) -m755 $(SOURCE_DIR)/contrib/0anacron $(PROTO_DIR)$(CONFIGURE_SYSCONFDIR)/cron.hourly/0anacron
+	$(MKDIR) $(PROTO_DIR)$(CONFIGURE_LOCALSTATEDIR)/spool/anacron
+	touch $(PROTO_DIR)$(CONFIGURE_LOCALSTATEDIR)/spool/anacron/cron.daily
+	touch $(PROTO_DIR)$(CONFIGURE_LOCALSTATEDIR)/spool/anacron/cron.weekly
+	touch $(PROTO_DIR)$(CONFIGURE_LOCALSTATEDIR)/spool/anacron/cron.monthly
