@@ -34,10 +34,10 @@ COMPONENT_PRE_BUILD_ACTION += $(CLONEY) $(SOURCE_DIR) $(@D)
 COMPONENT_BUILD_TARGETS = changepass
 
 $(BUILD_DIR)/%/.installed: $(BUILD_DIR)/%/.built
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/man/man8
-	$(CP) $(@D)/changepass $(PROTO_DIR)$(ECPREFIX)/bin
-	$(CP) $(@D)/changepass.man $(PROTO_DIR)$(ECPREFIX)/share/man/man8/changepass.8
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/bin
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/share/man/man8
+	$(CP) $(@D)/changepass $(PROTO_DIR)$(USRDIR)/bin
+	$(CP) $(@D)/changepass.man $(PROTO_DIR)$(USRDIR)/share/man/man8/changepass.8
 	$(TOUCH) $@
 
 build:      $(BUILD_32)

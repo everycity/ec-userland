@@ -22,7 +22,6 @@
 /^cabextract$/d
 /^cairo$/d
 /^cassandra$/d
-/^changepass$/d
 /^charybdis$/d
 /^clamav$/d
 /^cloog-ppl$/d
