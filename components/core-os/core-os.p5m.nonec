@@ -3193,7 +3193,7 @@ link path=usr/lib/$(MACH64)/libcharset.so target=libcharset.so.1.0.0
 link path=usr/lib/$(MACH64)/libcharset.so.1 target=libcharset.so.1.0.0
 link path=usr/lib/$(MACH64)/libcom_err.so target=libcom_err.so.1.1.3
 link path=usr/lib/$(MACH64)/libcom_err.so.1 target=libcom_err.so.1.1.3
-link path=usr/lib/$(MACH64)/libcrypto.so target=libcrypto.so.1.0.0
+#link path=usr/lib/$(MACH64)/libcrypto.so target=libcrypto.so.1.0.0
 link path=usr/lib/$(MACH64)/libdtrace.so.1 target=/system/usr/lib/$(MACH64)/libdtrace.so.1
 link path=usr/lib/$(MACH64)/libdtrace.so target=libdtrace.so.1
 #link path=usr/lib/$(MACH64)/libgetopt.so target=libgetopt.so.1.4.1
@@ -3278,6 +3278,12 @@ link path=usr/lib/$(MACH64)/libCstd.so.1 target=/system/usr/lib/$(MACH64)/libCst
 link path=usr/lib/$(MACH64)/libCrun.so.1 target=/system/usr/lib/$(MACH64)/libCrun.so.1
 link path=usr/lib/$(MACH64)/libsched.so.1 target=/system/usr/lib/$(MACH64)/libsched.so.1
 link path=usr/lib/$(MACH64)/libsched.so target=libsched.so.1
+link path=usr/lib/$(MACH64)/libcrypt.so.1 target=/system/usr/lib/$(MACH64)/libcrypt.so.1
+link path=usr/lib/$(MACH64)/libcrypt.so target=libcrypt.so.1
+link path=usr/lib/$(MACH64)/libcrypt_d.so.1 target=/system/usr/lib/$(MACH64)/libcrypt_d.so.1
+link path=usr/lib/$(MACH64)/libcrypt_d.so target=libcrypt_d.so.1
+link path=usr/lib/$(MACH64)/libcrypt_i.so.1 target=/system/usr/lib/$(MACH64)/libcrypt_i.so.1
+link path=usr/lib/$(MACH64)/libcrypt_i.so target=libcrypt_i.so.1
 
 link path=usr/lib/gmsgfmt target=/system/usr/lib/gmsgfmt
 link path=usr/lib/autofs target=/system/usr/lib/autofs
@@ -3359,6 +3365,12 @@ link path=usr/lib/libCstd.so.1 target=/system/usr/lib/libCstd.so.1
 link path=usr/lib/libCrun.so.1 target=/system/usr/lib/libCrun.so.1
 link path=usr/lib/libsched.so.1 target=/system/usr/lib/libsched.so.1
 link path=usr/lib/libsched.so target=libsched.so.1
+link path=usr/lib/libcrypt.so.1 target=/system/usr/lib/libcrypt.so.1
+link path=usr/lib/libcrypt.so target=libcrypt.so.1
+link path=usr/lib/libcrypt_d.so.1 target=/system/usr/lib/libcrypt_d.so.1
+link path=usr/lib/libcrypt_d.so target=libcrypt_d.so.1
+link path=usr/lib/libcrypt_i.so.1 target=/system/usr/lib/libcrypt_i.so.1
+link path=usr/lib/libcrypt_i.so target=libcrypt_i.so.1
 link path=usr/lib/extendedFILE.so.1 target=/system/usr/lib/extendedFILE.so.1
 link path=usr/tmp target=../var/tmp
 
