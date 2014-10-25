@@ -19,7 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2014 EveryCity Ltd. All rights reserved.
-# Copyright (c) 2012, Igor Kozhukhov <ikozhukhov@gmail.com>.  All rights reserved.
+# Copyright 2012, Igor Kozhukhov <ikozhukhov@gmail.com>.
 # Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
 include ../../../make-rules/shared-macros.mk
@@ -41,7 +41,7 @@ include $(WS_TOP)/make-rules/setup.py.mk
 include $(WS_TOP)/make-rules/ips.mk
 
 COMPONENT_POST_INSTALL_ACTION += \
-	(cd $(PROTO_DIR)/usr/bin ; $(MV) -f hg hg-$(PYTHON_VERSION))
+	(cd $(PROTO_DIR)$(USRDIR)/bin ; $(MV) -f hg hg-$(PYTHON_VERSION))
 
 PKG_PROTO_DIRS +=	$(SOURCE_DIR)/contrib
 PKG_PROTO_DIRS +=	$(SOURCE_DIR)/doc
@@ -55,7 +55,7 @@ build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
 	( $(MV) $(PROTOUSRBINDIR)/hg-2.7 $(PROTOUSRBINDIR)/hg-2.7.old \
-	&& $(GSED) -e 's;#!/usr/bin/$(MACH64)/python2.7;#!/usr/bin/python2.7;' $(PROTOUSRBINDIR)/hg-2.7.old > $(PROTOUSRBINDIR)/hg-2.7 )
+	&& $(GSED) -e 's;#!$(USRDIR)/bin/$(MACH64)/python2.7;#!$(USRDIR)/bin/python2.7;' $(PROTOUSRBINDIR)/hg-2.7.old > $(PROTOUSRBINDIR)/hg-2.7 )
 
 test:	$(INSTALL_32_and_64)
 	(cd $(COMPONENT_SRC)/tests ; \
