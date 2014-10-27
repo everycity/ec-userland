@@ -260,6 +260,7 @@ file path=$(ECPREFIX)/include/liveMedia/WAVAudioFileServerMediaSubsession.hh
 file path=$(ECPREFIX)/include/liveMedia/WAVAudioFileSource.hh
 file path=$(ECPREFIX)/include/liveMedia/liveMedia.hh
 file path=$(ECPREFIX)/include/liveMedia/liveMedia_version.hh
+file path=$(ECPREFIX)/include/liveMedia/ourMD5.hh
 file path=$(ECPREFIX)/include/liveMedia/uLawAudioFilter.hh
 file path=$(ECPREFIX)/lib/$(MACH64)/libBasicUsageEnvironment.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libUsageEnvironment.a
