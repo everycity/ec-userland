@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -22,36 +22,39 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license bdb51.license license="BSD"
 
-file path=$(USRDIR)/bin/$(MACH64)/db_archive
-file path=$(USRDIR)/bin/$(MACH64)/db_checkpoint
-file path=$(USRDIR)/bin/$(MACH64)/db_deadlock
-file path=$(USRDIR)/bin/$(MACH64)/db_dump
-file path=$(USRDIR)/bin/$(MACH64)/db_hotbackup
-file path=$(USRDIR)/bin/$(MACH64)/db_load
-file path=$(USRDIR)/bin/$(MACH64)/db_log_verify
-file path=$(USRDIR)/bin/$(MACH64)/db_printlog
-file path=$(USRDIR)/bin/$(MACH64)/db_recover
-file path=$(USRDIR)/bin/$(MACH64)/db_replicate
-file path=$(USRDIR)/bin/$(MACH64)/db_stat
-file path=$(USRDIR)/bin/$(MACH64)/db_upgrade
-file path=$(USRDIR)/bin/$(MACH64)/db_verify
-file path=$(USRDIR)/bin/db_archive
-file path=$(USRDIR)/bin/db_checkpoint
-file path=$(USRDIR)/bin/db_deadlock
-file path=$(USRDIR)/bin/db_dump
-file path=$(USRDIR)/bin/db_hotbackup
-file path=$(USRDIR)/bin/db_load
-file path=$(USRDIR)/bin/db_log_verify
-file path=$(USRDIR)/bin/db_printlog
-file path=$(USRDIR)/bin/db_recover
-file path=$(USRDIR)/bin/db_replicate
-file path=$(USRDIR)/bin/db_stat
-file path=$(USRDIR)/bin/db_upgrade
-file path=$(USRDIR)/bin/db_verify
-file path=$(USRDIR)/include/db.h
-file path=$(USRDIR)/include/db_cxx.h
+file path=$(USRDIR)/bin/$(MACH64)/db_archive mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/$(MACH64)/db_checkpoint mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/$(MACH64)/db_deadlock mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/$(MACH64)/db_dump mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/$(MACH64)/db_hotbackup mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/$(MACH64)/db_load mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/$(MACH64)/db_log_verify mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/$(MACH64)/db_printlog mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/$(MACH64)/db_recover mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/$(MACH64)/db_replicate mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/$(MACH64)/db_stat mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/$(MACH64)/db_upgrade mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/$(MACH64)/db_verify mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/db_archive mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/db_checkpoint mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/db_deadlock mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/db_dump mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/db_hotbackup mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/db_load mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/db_log_verify mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/db_printlog mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/db_recover mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/db_replicate mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/db_stat mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/db_upgrade mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/bin/db_verify mediator=bdb mediator-version=5.1
+
+file path=$(USRDIR)/include/db.h mediator=bdb mediator-version=5.1
+file path=$(USRDIR)/include/db_cxx.h mediator=bdb mediator-version=5.1
+
 file path=$(USRDIR)/lib/$(MACH64)/libdb-5.1.so
 file path=$(USRDIR)/lib/libdb-5.1.so
+
 file \
     path=$(USRDIR)/share/doc/db-$(COMPONENT_VERSION)/api_reference/C/BDB-C_APIReference.pdf
 file \
@@ -5176,6 +5179,6 @@ file \
 file \
     path=$(USRDIR)/share/doc/db-$(COMPONENT_VERSION)/upgrading/upgrade_process.html
 link path=$(USRDIR)/lib/$(MACH64)/libdb-5.so target=libdb-5.1.so
-link path=$(USRDIR)/lib/$(MACH64)/libdb.so target=libdb-5.1.so
+link path=$(USRDIR)/lib/$(MACH64)/libdb.so target=libdb-5.1.so mediator=bdb mediator-version=5.1
 link path=$(USRDIR)/lib/libdb-5.so target=libdb-5.1.so
-link path=$(USRDIR)/lib/libdb.so target=libdb-5.1.so
+link path=$(USRDIR)/lib/libdb.so target=libdb-5.1.so mediator=bdb mediator-version=5.1
