@@ -22,37 +22,68 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license LICENSE license='GPLv3'
 
-file path=$(USRDIR)/bin/$(MACH64)/db_archive mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/$(MACH64)/db_checkpoint mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/$(MACH64)/db_deadlock mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/$(MACH64)/db_dump mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/$(MACH64)/db_hotbackup mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/$(MACH64)/db_load mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/$(MACH64)/db_log_verify mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/$(MACH64)/db_printlog mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/$(MACH64)/db_recover mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/$(MACH64)/db_replicate mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/$(MACH64)/db_stat mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/$(MACH64)/db_tuner mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/$(MACH64)/db_upgrade mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/$(MACH64)/db_verify mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/db_archive mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/db_checkpoint mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/db_deadlock mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/db_dump mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/db_hotbackup mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/db_load mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/db_log_verify mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/db_printlog mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/db_recover mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/db_replicate mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/db_stat mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/db_tuner mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/db_upgrade mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/bin/db_verify mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/$(MACH64)/db_archive path=$(USRDIR)/bin/$(MACH64)/db_archive-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/$(MACH64)/db_archive target=db_archive-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/$(MACH64)/db_checkpoint path=$(USRDIR)/bin/$(MACH64)/db_checkpoint-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/$(MACH64)/db_checkpoint target=db_checkpoint-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/$(MACH64)/db_deadlock path=$(USRDIR)/bin/$(MACH64)/db_deadlock-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/$(MACH64)/db_deadlock target=db_deadlock-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/$(MACH64)/db_dump path=$(USRDIR)/bin/$(MACH64)/db_dump-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/$(MACH64)/db_dump target=db_dump-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/$(MACH64)/db_hotbackup path=$(USRDIR)/bin/$(MACH64)/db_hotbackup-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/$(MACH64)/db_hotbackup target=db_hotbackup-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/$(MACH64)/db_load path=$(USRDIR)/bin/$(MACH64)/db_load-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/$(MACH64)/db_load target=db_load-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/$(MACH64)/db_log_verify path=$(USRDIR)/bin/$(MACH64)/db_log_verify-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/$(MACH64)/db_log_verify target=db_log_verify-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/$(MACH64)/db_printlog path=$(USRDIR)/bin/$(MACH64)/db_printlog-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/$(MACH64)/db_printlog target=db_printlog-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/$(MACH64)/db_recover path=$(USRDIR)/bin/$(MACH64)/db_recover-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/$(MACH64)/db_recover target=db_recover-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/$(MACH64)/db_replicate path=$(USRDIR)/bin/$(MACH64)/db_replicate-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/$(MACH64)/db_replicate target=db_replicate-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/$(MACH64)/db_stat path=$(USRDIR)/bin/$(MACH64)/db_stat-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/$(MACH64)/db_stat target=db_stat-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/$(MACH64)/db_tuner path=$(USRDIR)/bin/$(MACH64)/db_tuner-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/$(MACH64)/db_tuner target=db_tuner-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/$(MACH64)/db_upgrade path=$(USRDIR)/bin/$(MACH64)/db_upgrade-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/$(MACH64)/db_upgrade target=db_upgrade-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/$(MACH64)/db_verify path=$(USRDIR)/bin/$(MACH64)/db_verify-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/$(MACH64)/db_verify target=db_verify-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
 
-file path=$(USRDIR)/include/db.h mediator=bdb mediator-version=6.0
-file path=$(USRDIR)/include/db_cxx.h mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/db_archive path=$(USRDIR)/bin/db_archive-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/db_archive target=db_archive-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/db_checkpoint path=$(USRDIR)/bin/db_checkpoint-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/db_checkpoint target=db_checkpoint-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/db_deadlock path=$(USRDIR)/bin/db_deadlock-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/db_deadlock target=db_deadlock-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/db_dump path=$(USRDIR)/bin/db_dump-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/db_dump target=db_dump-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/db_hotbackup path=$(USRDIR)/bin/db_hotbackup-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/db_hotbackup target=db_hotbackup-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/db_load path=$(USRDIR)/bin/db_load-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/db_load target=db_load-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/db_log_verify path=$(USRDIR)/bin/db_log_verify-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/db_log_verify target=db_log_verify-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/db_printlog path=$(USRDIR)/bin/db_printlog-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/db_printlog target=db_printlog-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/db_recover path=$(USRDIR)/bin/db_recover-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/db_recover target=db_recover-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/db_replicate path=$(USRDIR)/bin/db_replicate-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/db_replicate target=db_replicate-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/db_stat path=$(USRDIR)/bin/db_stat-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/db_stat target=db_stat-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/db_tuner path=$(USRDIR)/bin/db_tuner-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/db_tuner target=db_tuner-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/db_upgrade path=$(USRDIR)/bin/db_upgrade-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/db_upgrade target=db_upgrade-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/bin/db_verify path=$(USRDIR)/bin/db_verify-$(COMPONENT_VERSION)
+link path=$(USRDIR)/bin/db_verify target=db_verify-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+
+file $(USRDIR)/include/db.h path=$(USRDIR)/include/db.h-$(COMPONENT_VERSION)
+link path=$(USRDIR)/include/db.h target=db.h-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
+file $(USRDIR)/include/db_cxx.h path=$(USRDIR)/include/db_cxx.h-$(COMPONENT_VERSION)
+link path=$(USRDIR)/include/db_cxx.h target=db_cxx.h-$(COMPONENT_VERSION) mediator=bdb mediator-version=6.0
 
 file path=$(USRDIR)/lib/$(MACH64)/libdb-6.0.a
 file path=$(USRDIR)/lib/$(MACH64)/libdb-6.0.so
