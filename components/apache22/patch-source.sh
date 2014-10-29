@@ -13,6 +13,8 @@
 # Copyright 2011 EveryCity Ltd. All rights reserved.
 #
 
+ZTYPE="$2"
+
 if [ $BITS = 32 ]; then
     ISAINFO=
 else
@@ -23,7 +25,7 @@ if [ $MPM = prefork ] ; then
     MPM=
 fi
 
-for i in patches.templates/*; do
+for i in patches.templates/*.${ZTYPE} ; do
     cd $1
     cat $COMPONENT_DIR/$i | \
     sed s,::ISAINFO::,$ISAINFO,g | \

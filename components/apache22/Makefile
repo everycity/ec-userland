@@ -48,7 +48,7 @@ AP_DATADIR=$(CONFIGURE_LOCALSTATEDIR)/apache/2.2
 # We patch sources differently depending on the flavour being built
 COMPONENT_PRE_CONFIGURE_ACTION += $(ENV) BITS=$(BITS) MACH=$(MACH$(BITS)) \
 	COMPONENT_DIR=$(COMPONENT_DIR) MPM=$(MPM) \
-	$(COMPONENT_DIR)/patch-source.sh $(@D)
+	$(COMPONENT_DIR)/patch-source.sh $(@D) $(ZTYPE)
 
 # -L/ec/lib gets added to EXTRA_LDFLAGS for some reason, removing it as otherwise 64-bit build fails
 COMPONENT_POST_CONFIGURE_ACTION += (cd $(@D); $(GSED) -i s/\^EXTRA_LDFLAGS.*// build/config_vars.mk)
