@@ -33,11 +33,22 @@ PATH.32 =	$(USRDIR)/lib/postgres/9.3/bin:$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/us
 PATH.64 =	$(USRDIR)/lib/postgres/9.3/bin/$(MACH64):$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 PATH =	$(PATH.$(BITS))
 
+LDFLAGS += $(CC_BITS)
+
 CONFIGURE_OPTIONS	+=	--with-ldap
 CONFIGURE_OPTIONS.32	+=	--includedir=$(USRDIR)/include/apr-1.0
 CONFIGURE_OPTIONS.64	+=	--includedir=$(USRDIR)/include/apr-1.0/$(MACH64)
 CONFIGURE_OPTIONS.32	+=	--with-apr=$(USRDIR)/bin/apr-1-config
 CONFIGURE_OPTIONS.64	+=	--with-apr=$(USRDIR)/bin/$(MACH64)/apr-1-config
+
+CONFIGURE_OPTIONS += --with-sqlite3
+CONFIGURE_OPTIONS += --with-berkeley-db
+#CONFIGURE_OPTIONS += --with-ldap=ldap_r-2.4
+#CONFIGURE_OPTIONS += --with-ldap-include=/usr/include/openldap
+CONFIGURE_OPTIONS += --with-crypto
+CONFIGURE_OPTIONS += --without-gdbm
+CONFIGURE_OPTIONS += --without-sqlite2
+CONFIGURE_OPTIONS += --with-dbm=db
 
 build:		$(BUILD_32_and_64)
 
