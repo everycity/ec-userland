@@ -23,45 +23,10 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 file path=$(USRDIR)/bin/$(MACH64)/apr-1-config
+link path=$(USRDIR)/bin/$(MACH64)/apr-config target=apr-1-config
 file path=$(USRDIR)/bin/apr-1-config
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_allocator.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_atomic.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_dso.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_env.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_errno.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_escape.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_file_info.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_file_io.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_fnmatch.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_general.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_getopt.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_global_mutex.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_hash.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_inherit.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_lib.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_mmap.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_network_io.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_poll.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_pools.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_portable.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_proc_mutex.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_random.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_ring.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_shm.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_signal.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_skiplist.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_strings.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_support.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_tables.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_thread_cond.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_thread_mutex.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_thread_proc.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_thread_rwlock.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_time.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_user.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_version.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_want.h
+link path=$(USRDIR)/bin/apr-config target=apr-1-config
+
 file path=$(USRDIR)/include/apr-1.0/apr.h
 file path=$(USRDIR)/include/apr-1.0/apr_allocator.h
 file path=$(USRDIR)/include/apr-1.0/apr_atomic.h
@@ -100,6 +65,7 @@ file path=$(USRDIR)/include/apr-1.0/apr_time.h
 file path=$(USRDIR)/include/apr-1.0/apr_user.h
 file path=$(USRDIR)/include/apr-1.0/apr_version.h
 file path=$(USRDIR)/include/apr-1.0/apr_want.h
+
 file path=$(USRDIR)/lib/$(MACH64)/apr.exp
 file path=$(USRDIR)/lib/$(MACH64)/libapr-1.a
 file path=$(USRDIR)/lib/$(MACH64)/libapr-1.so.0.5.1
@@ -108,6 +74,7 @@ file path=$(USRDIR)/lib/apr.exp
 file path=$(USRDIR)/lib/libapr-1.a
 file path=$(USRDIR)/lib/libapr-1.so.0.5.1
 file path=$(USRDIR)/lib/pkgconfig/apr-1.pc
+
 file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/apr_rules.mk
 file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/libtool mode=0555
 file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/make_exports.awk
