@@ -23,40 +23,10 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 file path=$(USRDIR)/bin/$(MACH64)/apu-1-config
+link path=$(USRDIR)/bin/$(MACH64)/apu-config target=apu-1-config
 file path=$(USRDIR)/bin/apu-1-config
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_anylock.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_base64.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_buckets.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_crypto.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_date.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_dbd.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_dbm.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_hooks.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_ldap.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_ldap_init.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_ldap_option.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_ldap_rebind.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_ldap_url.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_md4.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_md5.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_memcache.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_optional.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_optional_hooks.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_queue.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_reslist.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_rmm.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_sdbm.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_sha1.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_strmatch.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_thread_pool.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_uri.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_uuid.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_xlate.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apr_xml.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apu.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apu_errno.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apu_version.h
-file path=$(USRDIR)/include/apr-1.0/$(MACH64)/apu_want.h
+link path=$(USRDIR)/bin/apu-config target=apu-1-config
+
 file path=$(USRDIR)/include/apr-1.0/apr_anylock.h
 file path=$(USRDIR)/include/apr-1.0/apr_base64.h
 file path=$(USRDIR)/include/apr-1.0/apr_buckets.h

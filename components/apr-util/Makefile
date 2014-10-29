@@ -36,8 +36,9 @@ PATH =	$(PATH.$(BITS))
 LDFLAGS += $(CC_BITS)
 
 CONFIGURE_OPTIONS	+=	--with-ldap
-CONFIGURE_OPTIONS.32	+=	--includedir=$(USRDIR)/include/apr-1.0
-CONFIGURE_OPTIONS.64	+=	--includedir=$(USRDIR)/include/apr-1.0/$(MACH64)
+#CONFIGURE_OPTIONS.32	+=	--includedir=$(USRDIR)/include/apr-1.0
+#CONFIGURE_OPTIONS.64	+=	--includedir=$(USRDIR)/include/apr-1.0/$(MACH64)
+CONFIGURE_OPTIONS	+=	--includedir=$(USRDIR)/include/apr-1.0
 CONFIGURE_OPTIONS.32	+=	--with-apr=$(USRDIR)/bin/apr-1-config
 CONFIGURE_OPTIONS.64	+=	--with-apr=$(USRDIR)/bin/$(MACH64)/apr-1-config
 
@@ -49,6 +50,18 @@ CONFIGURE_OPTIONS += --with-crypto
 CONFIGURE_OPTIONS += --without-gdbm
 CONFIGURE_OPTIONS += --without-sqlite2
 CONFIGURE_OPTIONS += --with-dbm=db
+
+# We need this to keep doxygen happy (for include/ and docs/ contents).
+COMPONENT_PRE_CONFIGURE_ACTION += ($(CLONEY) $(SOURCE_DIR) $(@D));
+
+# Some patches need configure script recreation.
+COMPONENT_PRE_CONFIGURE_ACTION.32 += \
+	(cd $(@D); \
+	./buildconf --with-apr=$(shell $(USRDIR)/bin/apr-1-config --srcdir));
+
+COMPONENT_PRE_CONFIGURE_ACTION.64 += \
+	(cd $(@D); \
+	./buildconf --with-apr=$(shell $(USRDIR)/bin/$(MACH64)/apr-1-config --srcdir));
 
 build:		$(BUILD_32_and_64)
 
