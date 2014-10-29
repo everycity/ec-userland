@@ -1,0 +1,57 @@
+Hack the apriconv library declaration not to pull in aprutil.  (It
+might be correct on Windows, I don't know, but we don't need apriconv
+_at all_, so we don't want it to pull in aprutil for us.)
+
+--- a/subversion/bindings/swig/perl/native/Makefile.PL.in
++++ b/subversion/bindings/swig/perl/native/Makefile.PL.in
+@@ -43,6 +43,12 @@
+                                 fs_base fs_util fs_fs/);
+ 
+ my @ldmodules = map {"-lsvn_$_-1"} (@modules, qw/diff subr/);
++sub libs_line {
++    return join(' ', $apr_ldflags,
++                (map {"-L$_"} @ldpaths),
++                (map {"-lsvn_$_-1"} @_),
++                '-lsvn_swig_perl-1', qx($swig -perl -ldflags));
++}
+ 
+ my $apr_shlib_path_var = '@SVN_APR_SHLIB_PATH_VAR@';
+ my $cppflags = <<'EOT';
+@@ -86,10 +92,6 @@
+                  " -I$svnlib_builddir",
+                  " -I$swig_srcdir -g"),
+     OBJECT => q/$(O_FILES)/,
+-    LIBS => [join(' ', $apr_ldflags,
+-                  (map {"-L$_"} @ldpaths),
+-                  @ldmodules, '-lsvn_swig_perl-1',
+-                  `$swig -perl -ldflags`)],
+     test => { TESTS => "$swig_srcdir/perl/native/t/*.t" }
+ );
+ 
+@@ -99,6 +101,7 @@
+     $_;
+ }
+ 
++$config{LIBS} = [libs_line('diff', 'subr')];
+ WriteMakefile(%config, NAME => 'SVN::_Core', C => ['core.c'],
+         PM => {map { ("$swig_srcdir/perl/native/$_.pm" =>
+                       "\$(INST_LIBDIR)/$_.pm") }
+@@ -113,6 +116,7 @@
+        );
+ 
+ for (@modules) {
++    $config{LIBS} = [libs_line($_, 'subr')];
+     WriteMakefile(%config,
+       MAKEFILE=> "Makefile.$_",
+       NAME    => "SVN::_".perlish($_),
+--- a/build.conf
++++ b/build.conf
+@@ -1149,7 +1149,7 @@
+ 
+ [apriconv]
+ type = lib
+-external-lib = $(SVN_APRUTIL_LIBS)
++external-lib = $(SVN_APR_LIBS)
+ 
+ [bdb]
+ type = lib

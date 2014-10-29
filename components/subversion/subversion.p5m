@@ -31,6 +31,7 @@ file path=$(USRDIR)/bin/$(MACH64)/svnrdump
 file path=$(USRDIR)/bin/$(MACH64)/svnserve
 file path=$(USRDIR)/bin/$(MACH64)/svnsync
 file path=$(USRDIR)/bin/$(MACH64)/svnversion
+
 file path=$(USRDIR)/bin/svn
 file path=$(USRDIR)/bin/svnadmin
 file path=$(USRDIR)/bin/svndumpfilter
@@ -40,6 +41,7 @@ file path=$(USRDIR)/bin/svnrdump
 file path=$(USRDIR)/bin/svnserve
 file path=$(USRDIR)/bin/svnsync
 file path=$(USRDIR)/bin/svnversion
+
 file path=$(USRDIR)/include/subversion-1/mod_authz_svn.h
 file path=$(USRDIR)/include/subversion-1/mod_dav_svn.h
 file path=$(USRDIR)/include/subversion-1/svn-revision.txt
@@ -84,32 +86,198 @@ file path=$(USRDIR)/include/subversion-1/svn_utf.h
 file path=$(USRDIR)/include/subversion-1/svn_version.h
 file path=$(USRDIR)/include/subversion-1/svn_wc.h
 file path=$(USRDIR)/include/subversion-1/svn_xml.h
-file path=$(USRDIR)/lib/$(MACH64)/libsvn_client-1.so.0.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libsvn_delta-1.so.0.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libsvn_diff-1.so.0.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libsvn_fs-1.so.0.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libsvn_fs_fs-1.so.0.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libsvn_fs_util-1.so.0.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libsvn_ra-1.so.0.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_local-1.so.0.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_serf-1.so.0.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_svn-1.so.0.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libsvn_repos-1.so.0.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libsvn_subr-1.so.0.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libsvn_wc-1.so.0.0.0
-file path=$(USRDIR)/lib/libsvn_client-1.so.0.0.0
-file path=$(USRDIR)/lib/libsvn_delta-1.so.0.0.0
-file path=$(USRDIR)/lib/libsvn_diff-1.so.0.0.0
-file path=$(USRDIR)/lib/libsvn_fs-1.so.0.0.0
-file path=$(USRDIR)/lib/libsvn_fs_fs-1.so.0.0.0
-file path=$(USRDIR)/lib/libsvn_fs_util-1.so.0.0.0
-file path=$(USRDIR)/lib/libsvn_ra-1.so.0.0.0
-file path=$(USRDIR)/lib/libsvn_ra_local-1.so.0.0.0
-file path=$(USRDIR)/lib/libsvn_ra_serf-1.so.0.0.0
-file path=$(USRDIR)/lib/libsvn_ra_svn-1.so.0.0.0
-file path=$(USRDIR)/lib/libsvn_repos-1.so.0.0.0
-file path=$(USRDIR)/lib/libsvn_subr-1.so.0.0.0
-file path=$(USRDIR)/lib/libsvn_wc-1.so.0.0.0
+
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_client-1.so \
+    target=libsvn_client-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_client-1.so.1 \
+    target=libsvn_client-1.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libsvn_client-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_delta-1.so \
+    target=libsvn_delta-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_delta-1.so.1 \
+    target=libsvn_delta-1.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libsvn_delta-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_diff-1.so target=libsvn_diff-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_diff-1.so.1 \
+    target=libsvn_diff-1.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libsvn_diff-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_fs-1.so target=libsvn_fs-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_fs-1.so.1 target=libsvn_fs-1.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libsvn_fs-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_fs_base-1.so \
+    target=libsvn_fs_base-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_fs_base-1.so.1 \
+    target=libsvn_fs_base-1.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libsvn_fs_base-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_fs_fs-1.so \
+    target=libsvn_fs_fs-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_fs_fs-1.so.1 \
+    target=libsvn_fs_fs-1.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libsvn_fs_fs-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_fs_util-1.so \
+    target=libsvn_fs_util-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_fs_util-1.so.1 \
+    target=libsvn_fs_util-1.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libsvn_fs_util-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_ra-1.so target=libsvn_ra-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_ra-1.so.1 target=libsvn_ra-1.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libsvn_ra-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_local-1.so \
+    target=libsvn_ra_local-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_local-1.so.1 \
+    target=libsvn_ra_local-1.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_local-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_serf-1.so \
+    target=libsvn_ra_serf-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_serf-1.so.1 \
+    target=libsvn_ra_serf-1.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_serf-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_svn-1.so \
+    target=libsvn_ra_svn-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_svn-1.so.1 \
+    target=libsvn_ra_svn-1.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_svn-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_repos-1.so \
+    target=libsvn_repos-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_repos-1.so.1 \
+    target=libsvn_repos-1.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libsvn_repos-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_subr-1.so target=libsvn_subr-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_subr-1.so.1 \
+    target=libsvn_subr-1.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libsvn_subr-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_swig_perl-1.so \
+    target=libsvn_swig_perl-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_swig_perl-1.so.1 \
+    target=libsvn_swig_perl-1.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libsvn_swig_perl-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_wc-1.so target=libsvn_wc-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvn_wc-1.so.1 target=libsvn_wc-1.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libsvn_wc-1.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvnjavahl-1.so \
+    target=libsvnjavahl-1.so.0.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libsvnjavahl-1.so.0 \
+    target=libsvnjavahl-1.so.0.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libsvnjavahl-1.so.0.0.0
+file path=$(USRDIR)/lib/$(MACH64)/svn-javahl/svn-javahl.jar
+
+link path=$(USRDIR)/lib/libsvn_client-1.so target=libsvn_client-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_client-1.so.1 target=libsvn_client-1.so.1.0.0
+file path=$(USRDIR)/lib/libsvn_client-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_delta-1.so target=libsvn_delta-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_delta-1.so.1 target=libsvn_delta-1.so.1.0.0
+file path=$(USRDIR)/lib/libsvn_delta-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_diff-1.so target=libsvn_diff-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_diff-1.so.1 target=libsvn_diff-1.so.1.0.0
+file path=$(USRDIR)/lib/libsvn_diff-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_fs-1.so target=libsvn_fs-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_fs-1.so.1 target=libsvn_fs-1.so.1.0.0
+file path=$(USRDIR)/lib/libsvn_fs-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_fs_base-1.so target=libsvn_fs_base-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_fs_base-1.so.1 target=libsvn_fs_base-1.so.1.0.0
+file path=$(USRDIR)/lib/libsvn_fs_base-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_fs_fs-1.so target=libsvn_fs_fs-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_fs_fs-1.so.1 target=libsvn_fs_fs-1.so.1.0.0
+file path=$(USRDIR)/lib/libsvn_fs_fs-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_fs_util-1.so target=libsvn_fs_util-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_fs_util-1.so.1 target=libsvn_fs_util-1.so.1.0.0
+file path=$(USRDIR)/lib/libsvn_fs_util-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_ra-1.so target=libsvn_ra-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_ra-1.so.1 target=libsvn_ra-1.so.1.0.0
+file path=$(USRDIR)/lib/libsvn_ra-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_ra_local-1.so target=libsvn_ra_local-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_ra_local-1.so.1 target=libsvn_ra_local-1.so.1.0.0
+file path=$(USRDIR)/lib/libsvn_ra_local-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_ra_serf-1.so target=libsvn_ra_serf-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_ra_serf-1.so.1 target=libsvn_ra_serf-1.so.1.0.0
+file path=$(USRDIR)/lib/libsvn_ra_serf-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_ra_svn-1.so target=libsvn_ra_svn-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_ra_svn-1.so.1 target=libsvn_ra_svn-1.so.1.0.0
+file path=$(USRDIR)/lib/libsvn_ra_svn-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_repos-1.so target=libsvn_repos-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_repos-1.so.1 target=libsvn_repos-1.so.1.0.0
+file path=$(USRDIR)/lib/libsvn_repos-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_subr-1.so target=libsvn_subr-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_subr-1.so.1 target=libsvn_subr-1.so.1.0.0
+file path=$(USRDIR)/lib/libsvn_subr-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_swig_perl-1.so target=libsvn_swig_perl-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_swig_perl-1.so.1 \
+    target=libsvn_swig_perl-1.so.1.0.0
+file path=$(USRDIR)/lib/libsvn_swig_perl-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_wc-1.so target=libsvn_wc-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvn_wc-1.so.1 target=libsvn_wc-1.so.1.0.0
+file path=$(USRDIR)/lib/libsvn_wc-1.so.1.0.0
+link path=$(USRDIR)/lib/libsvnjavahl-1.so target=libsvnjavahl-1.so.0.0.0
+link path=$(USRDIR)/lib/libsvnjavahl-1.so.0 target=libsvnjavahl-1.so.0.0.0
+file path=$(USRDIR)/lib/libsvnjavahl-1.so.0.0.0
+
+file path=$(USRDIR)/lib/perl/5.12/man/man3/SVN::Base.3
+file path=$(USRDIR)/lib/perl/5.12/man/man3/SVN::Client.3
+file path=$(USRDIR)/lib/perl/5.12/man/man3/SVN::Core.3
+file path=$(USRDIR)/lib/perl/5.12/man/man3/SVN::Delta.3
+file path=$(USRDIR)/lib/perl/5.12/man/man3/SVN::Fs.3
+file path=$(USRDIR)/lib/perl/5.12/man/man3/SVN::Ra.3
+file path=$(USRDIR)/lib/perl/5.12/man/man3/SVN::Repos.3
+file path=$(USRDIR)/lib/perl/5.12/man/man3/SVN::Wc.3
+
+file path=$(USRDIR)/lib/perl/5.18/man/man3/SVN::Base.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/SVN::Client.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/SVN::Core.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/SVN::Delta.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/SVN::Fs.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/SVN::Ra.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/SVN::Repos.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/SVN::Wc.3
+
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/SVN/Base.pm
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/SVN/Client.pm
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/SVN/Core.pm
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/SVN/Delta.pm
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/SVN/Fs.pm
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/SVN/Ra.pm
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/SVN/Repos.pm
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/SVN/Wc.pm
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/auto/SVN/_Client/_Client.bs
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/auto/SVN/_Client/_Client.so
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/auto/SVN/_Core/.packlist
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/auto/SVN/_Core/_Core.bs
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/auto/SVN/_Core/_Core.so
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/auto/SVN/_Delta/_Delta.bs
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/auto/SVN/_Delta/_Delta.so
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/auto/SVN/_Fs/_Fs.bs
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/auto/SVN/_Fs/_Fs.so
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/auto/SVN/_Ra/_Ra.bs
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/auto/SVN/_Ra/_Ra.so
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/auto/SVN/_Repos/_Repos.bs
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/auto/SVN/_Repos/_Repos.so
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/auto/SVN/_Wc/_Wc.bs
+file path=$(USRDIR)/lib/perl/site_perl/5.12/i86pc-solaris-thread-multi-64int/auto/SVN/_Wc/_Wc.so
+
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/SVN/Base.pm
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/SVN/Client.pm
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/SVN/Core.pm
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/SVN/Delta.pm
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/SVN/Fs.pm
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/SVN/Ra.pm
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/SVN/Repos.pm
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/SVN/Wc.pm
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/SVN/_Client/_Client.bs
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/SVN/_Client/_Client.so
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/SVN/_Core/.packlist
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/SVN/_Core/_Core.bs
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/SVN/_Core/_Core.so
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/SVN/_Delta/_Delta.bs
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/SVN/_Delta/_Delta.so
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/SVN/_Fs/_Fs.bs
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/SVN/_Fs/_Fs.so
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/SVN/_Ra/_Ra.bs
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/SVN/_Ra/_Ra.so
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/SVN/_Repos/_Repos.bs
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/SVN/_Repos/_Repos.so
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/SVN/_Wc/_Wc.bs
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/SVN/_Wc/_Wc.so
+
+file path=$(USRDIR)/lib/svn-javahl/svn-javahl.jar
 file path=$(USRDIR)/share/locale/de/LC_MESSAGES/subversion.mo
 file path=$(USRDIR)/share/locale/es/LC_MESSAGES/subversion.mo
 file path=$(USRDIR)/share/locale/fr/LC_MESSAGES/subversion.mo
@@ -122,6 +290,7 @@ file path=$(USRDIR)/share/locale/pt_BR/LC_MESSAGES/subversion.mo
 file path=$(USRDIR)/share/locale/sv/LC_MESSAGES/subversion.mo
 file path=$(USRDIR)/share/locale/zh_CN/LC_MESSAGES/subversion.mo
 file path=$(USRDIR)/share/locale/zh_TW/LC_MESSAGES/subversion.mo
+
 file path=$(USRDIR)/share/man/man1/svn.1
 file path=$(USRDIR)/share/man/man1/svnadmin.1
 file path=$(USRDIR)/share/man/man1/svndumpfilter.1
@@ -132,82 +301,3 @@ file path=$(USRDIR)/share/man/man1/svnsync.1
 file path=$(USRDIR)/share/man/man1/svnversion.1
 file path=$(USRDIR)/share/man/man5/svnserve.conf.5
 file path=$(USRDIR)/share/man/man8/svnserve.8
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_client-1.so \
-    target=libsvn_client-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_client-1.so.0 \
-    target=libsvn_client-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_delta-1.so \
-    target=libsvn_delta-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_delta-1.so.0 \
-    target=libsvn_delta-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_diff-1.so \
-    target=libsvn_diff-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_diff-1.so.0 \
-    target=libsvn_diff-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_fs-1.so target=libsvn_fs-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_fs-1.so.0 \
-    target=libsvn_fs-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_fs_fs-1.so \
-    target=libsvn_fs_fs-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_fs_fs-1.so.0 \
-    target=libsvn_fs_fs-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_fs_util-1.so \
-    target=libsvn_fs_util-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_fs_util-1.so.0 \
-    target=libsvn_fs_util-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_ra-1.so target=libsvn_ra-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_ra-1.so.0 \
-    target=libsvn_ra-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_local-1.so \
-    target=libsvn_ra_local-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_local-1.so.0 \
-    target=libsvn_ra_local-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_serf-1.so \
-    target=libsvn_ra_serf-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_serf-1.so.0 \
-    target=libsvn_ra_serf-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_svn-1.so \
-    target=libsvn_ra_svn-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_ra_svn-1.so.0 \
-    target=libsvn_ra_svn-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_repos-1.so \
-    target=libsvn_repos-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_repos-1.so.0 \
-    target=libsvn_repos-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_subr-1.so \
-    target=libsvn_subr-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_subr-1.so.0 \
-    target=libsvn_subr-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_wc-1.so target=libsvn_wc-1.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libsvn_wc-1.so.0 \
-    target=libsvn_wc-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_client-1.so target=libsvn_client-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_client-1.so.0 target=libsvn_client-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_delta-1.so target=libsvn_delta-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_delta-1.so.0 target=libsvn_delta-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_diff-1.so target=libsvn_diff-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_diff-1.so.0 target=libsvn_diff-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_fs-1.so target=libsvn_fs-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_fs-1.so.0 target=libsvn_fs-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_fs_fs-1.so target=libsvn_fs_fs-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_fs_fs-1.so.0 target=libsvn_fs_fs-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_fs_util-1.so target=libsvn_fs_util-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_fs_util-1.so.0 \
-    target=libsvn_fs_util-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_ra-1.so target=libsvn_ra-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_ra-1.so.0 target=libsvn_ra-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_ra_local-1.so \
-    target=libsvn_ra_local-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_ra_local-1.so.0 \
-    target=libsvn_ra_local-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_ra_serf-1.so target=libsvn_ra_serf-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_ra_serf-1.so.0 \
-    target=libsvn_ra_serf-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_ra_svn-1.so target=libsvn_ra_svn-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_ra_svn-1.so.0 target=libsvn_ra_svn-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_repos-1.so target=libsvn_repos-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_repos-1.so.0 target=libsvn_repos-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_subr-1.so target=libsvn_subr-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_subr-1.so.0 target=libsvn_subr-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_wc-1.so target=libsvn_wc-1.so.0.0.0
-link path=$(USRDIR)/lib/libsvn_wc-1.so.0 target=libsvn_wc-1.so.0.0.0
