@@ -99,7 +99,6 @@
 /^libassuan$/d
 /^libcaca$/d
 /^libcdr$/d
-/^libcroco$/d
 /^libdvbpsi$/d
 /^libee$/d
 /^libestr$/d
