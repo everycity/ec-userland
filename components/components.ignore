@@ -142,7 +142,6 @@
 /^mbuffer$/d
 /^mcrypt$/d
 /^mediainfo$/d
-/^memcached$/d
 /^memconf$/d
 /^mesa$/d
 /^meta-packages\/build-essential$/d

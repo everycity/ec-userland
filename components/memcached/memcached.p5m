@@ -22,24 +22,9 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/memcached
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-dir path=$(ECPREFIX)/var
-dir path=$(ECPREFIX)/var/svc
-dir path=$(ECPREFIX)/var/svc/method
-dir path=var
-dir path=var/svc
-dir path=var/svc/manifest
-dir path=var/svc/manifest/site
-file path=$(ECPREFIX)/bin/$(MACH64)/memcached
-file path=$(ECPREFIX)/include/memcached/protocol_binary.h
-file path=$(ECPREFIX)/share/man/man1/memcached.1
-file path=$(ECPREFIX)/var/svc/method/memcached.sh mode=0555
-file path=var/svc/manifest/site/ec-memcached.xml restart_fmri=svc:/system/manifest-import:default
-hardlink path=$(ECPREFIX)/bin/memcached target=$(MACH64)/memcached
+file path=$(USRDIR)/bin/$(MACH64)/memcached
+file path=$(USRDIR)/include/memcached/protocol_binary.h
+file path=$(USRDIR)/share/man/man1/memcached.1
+file memcached-startup.sh.$(ZTYPE) path=$(SVCMETHOD)/memcached.sh mode=0555
+file memcached-manifest.xml.$(ZTYPE) path=$(SVCMANIFEST)/site/ec-memcached.xml restart_fmri=svc:/system/manifest-import:default
+hardlink path=$(USRDIR)/bin/memcached target=$(MACH64)/memcached

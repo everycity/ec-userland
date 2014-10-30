@@ -28,10 +28,10 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_POST_INSTALL_ACTION+= mkdir -p $(PROTO_DIR)$(ECPREFIX)/var/svc/method ; \
-        mkdir -p $(PROTO_DIR)/var/svc/manifest/site ; \
-        cp $(COMPONENT_DIR)/memcached-startup.sh $(PROTO_DIR)$(ECPREFIX)/var/svc/method/memcached.sh ; \
-        cp $(COMPONENT_DIR)/memcached-manifest.xml $(PROTO_DIR)/var/svc/manifest/site/ec-memcached.xml
+#COMPONENT_POST_INSTALL_ACTION+= mkdir -p $(PROTO_DIR)$(USRDIR)/var/svc/method ; \
+#        mkdir -p $(PROTO_DIR)/var/svc/manifest/site ; \
+#        cp $(COMPONENT_DIR)/memcached-startup.sh $(PROTO_DIR)$(USRDIR)/var/svc/method/memcached.sh ; \
+#        cp $(COMPONENT_DIR)/memcached-manifest.xml $(PROTO_DIR)/var/svc/manifest/site/ec-memcached.xml
 
 build:		$(BUILD_64)
 
