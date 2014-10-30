@@ -20,7 +20,6 @@
 /^bitlbee$/d
 /^boost$/d
 /^cabextract$/d
-/^cairo$/d
 /^cassandra$/d
 /^charybdis$/d
 /^clamav$/d
