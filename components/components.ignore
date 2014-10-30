@@ -109,7 +109,6 @@
 /^liblzo$/d
 /^libmad$/d
 /^libmediainfo$/d
-/^libmemcached$/d
 /^libmms$/d
 /^libmpeg2$/d
 /^libogg$/d
