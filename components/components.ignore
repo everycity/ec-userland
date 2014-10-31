@@ -218,7 +218,6 @@
 /^php53-ext-imagick$/d
 /^php53-ext-libevent$/d
 /^php53-ext-mailparse$/d
-/^php53-ext-memcached$/d
 /^php53-ext-mongodb$/d
 /^php53-ext-mysql55$/d
 /^php53-ext-mysqli55$/d
