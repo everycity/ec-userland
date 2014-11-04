@@ -75,9 +75,12 @@ $(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
 	( cd $(BUILD_DIR_64)/contrib/tablefunc && make && \
 		cp tablefunc.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/$(MACH64) )
 	$(MKDIR) $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/extension
-	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/extension
-	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc--unpackaged--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/extension
-	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc.control $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/extension
+	$(CP) $(SOURCE_DIR)/contrib/pgcrypto/pgcrypto--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/pgcrypto/pgcrypto--unpackaged--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/pgcrypto/pgcrypto.control $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc--unpackaged--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc.control $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed
