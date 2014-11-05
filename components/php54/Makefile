@@ -139,21 +139,22 @@ CONFIGURE_OPTIONS     +=	--enable-intl
 
 # Shared Extensions
 CONFIGURE_OPTIONS     +=	--enable-bcmath=shared
-CONFIGURE_OPTIONS     +=	--enable-json=shared
-CONFIGURE_OPTIONS     +=	--enable-libxml=shared
 CONFIGURE_OPTIONS     +=	--enable-ctype=shared
 CONFIGURE_OPTIONS     +=	--enable-calendar=shared
-CONFIGURE_OPTIONS     +=	--enable-tokenizer=shared
-CONFIGURE_OPTIONS     +=	--enable-exif=shared
 CONFIGURE_OPTIONS     +=	--enable-dom=shared
+CONFIGURE_OPTIONS     +=	--enable-exif=shared
+CONFIGURE_OPTIONS     +=	--enable-fileinfo=shared
 CONFIGURE_OPTIONS     +=	--enable-ftp=shared
-CONFIGURE_OPTIONS     +=	--enable-pdo=shared
+CONFIGURE_OPTIONS     +=	--enable-json=shared
+CONFIGURE_OPTIONS     +=	--enable-libxml=shared
 CONFIGURE_OPTIONS     +=	--enable-mbstring=shared
-CONFIGURE_OPTIONS     +=	--enable-xmlreader=shared
-CONFIGURE_OPTIONS     +=	--enable-xmlwriter=shared
+CONFIGURE_OPTIONS     +=	--enable-pdo=shared
 CONFIGURE_OPTIONS     +=	--enable-soap=shared
 CONFIGURE_OPTIONS     +=	--enable-sockets=shared
+CONFIGURE_OPTIONS     +=	--enable-tokenizer=shared
 CONFIGURE_OPTIONS     +=	--enable-wddx=shared
+CONFIGURE_OPTIONS     +=	--enable-xmlreader=shared
+CONFIGURE_OPTIONS     +=	--enable-xmlwriter=shared
 CONFIGURE_OPTIONS     +=	--enable-zip=shared
 
 CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
