@@ -32,7 +32,7 @@ dir path=$(ECPREFIX)/lib/php
 dir path=$(ECPREFIX)/lib/php/5.5
 dir path=$(ECPREFIX)/lib/php/5.5/extensions
 dir path=$(ECPREFIX)/lib/php/5.5/extensions/$(MACH64)
-file fileinfo.ini path=$(ECPREFIX)/etc/php/5.5/conf.d/fileinfo.ini preserve=true
+file files/fileinfo.ini path=$(ECPREFIX)/etc/php/5.5/conf.d/fileinfo.ini preserve=true
 file path=$(ECPREFIX)/lib/php/5.5/extensions/$(MACH64)/fileinfo.so
 file path=$(ECPREFIX)/lib/php/5.5/extensions/fileinfo.so
 depend fmri=pkg:/web/php-55/php-common type=require
