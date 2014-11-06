@@ -77,7 +77,6 @@
 /^groff$/d
 /^haproxy$/d
 /^haproxy-dev$/d
-/^harfbuzz$/d
 /^htop$/d
 /^id3lib$/d
 /^illumos-hal$/d
