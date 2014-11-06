@@ -22,21 +22,15 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license bind.license license="BINDv98"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/dig
-file path=$(ECPREFIX)/bin/$(MACH64)/host
-file path=$(ECPREFIX)/bin/$(MACH64)/nslookup
-file path=$(ECPREFIX)/bin/$(MACH64)/nsupdate
-file path=$(ECPREFIX)/bin/dig
-file path=$(ECPREFIX)/bin/host
-file path=$(ECPREFIX)/bin/nslookup
-file path=$(ECPREFIX)/bin/nsupdate
-file path=$(ECPREFIX)/share/man/man1/dig.1
-file path=$(ECPREFIX)/share/man/man1/host.1
-file path=$(ECPREFIX)/share/man/man1/nslookup.1
-file path=$(ECPREFIX)/share/man/man1/nsupdate.1
+file path=$(USRDIR)/bin/$(MACH64)/dig
+file path=$(USRDIR)/bin/$(MACH64)/host
+file path=$(USRDIR)/bin/$(MACH64)/nslookup
+file path=$(USRDIR)/bin/$(MACH64)/nsupdate
+file path=$(USRDIR)/bin/dig
+file path=$(USRDIR)/bin/host
+file path=$(USRDIR)/bin/nslookup
+file path=$(USRDIR)/bin/nsupdate
+file path=$(USRDIR)/share/man/man1/dig.1
+file path=$(USRDIR)/share/man/man1/host.1
+file path=$(USRDIR)/share/man/man1/nslookup.1
+file path=$(USRDIR)/share/man/man1/nsupdate.1

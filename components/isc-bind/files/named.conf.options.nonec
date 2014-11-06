@@ -1,0 +1,87 @@
+//
+// This file and its contents are supplied under the terms of the
+// Common Development and Distribution License ("CDDL)". You may
+// only use this file in accordance with the terms of the CDDL.
+//
+// A full copy of the text of the CDDL should have accompanied this
+// source. A copy of the CDDL is also available via the Internet at
+// http://www.illumos.org/license/CDDL.
+//
+//
+// Copyright 2013 EveryCity Ltd. All rights reserved.
+//
+
+acl loopback           { 127.0.0.1/32; };
+
+options {
+        directory "/var/cache/bind";
+
+        // If there is a firewall between you and nameservers you want
+        // to talk to, you may need to fix the firewall to allow multiple
+        // ports to talk.  See http://www.kb.cert.org/vuls/id/800113
+
+        // If your ISP provided one or more IP addresses for stable
+        // nameservers, you probably want to use them as forwarders.
+        // Uncomment the following block, and insert the addresses replacing
+        // the all-0's placeholder.
+
+        // forwarders {
+        //      0.0.0.0;
+        // };
+
+        auth-nxdomain no;    # conform to RFC1035
+
+        version "not currently available";
+
+        allow-transfer { none; };
+        allow-update { none; };
+
+        allow-query { loopback; };
+
+        listen-on port 53 { 127.0.0.1; };
+};
+
+logging {
+        channel default_syslog {
+                syslog daemon;
+                severity info;
+		print-category yes;
+	};
+
+        channel default_debug {
+                file "named.run";
+                severity dynamic;
+                print-category yes;
+        };
+
+        channel null {
+                null;
+        };
+
+
+        category security {
+                null;
+        };
+
+        category lame-servers {
+                null;
+        };
+
+        category edns-disabled {
+                null;
+        };
+
+        category resolver {
+                null;
+        };
+
+        category default {
+                default_syslog;
+                default_debug;
+        };
+
+        category unmatched {
+                null;
+        };
+};
+

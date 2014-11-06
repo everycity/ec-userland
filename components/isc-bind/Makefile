@@ -25,10 +25,10 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=	--with-openssl=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-libxml2=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-libtool=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-libiconv=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--with-openssl=$(USRDIR)
+CONFIGURE_OPTIONS+=	--with-libxml2=$(USRDIR)
+CONFIGURE_OPTIONS+=	--with-libtool=$(USRDIR)
+CONFIGURE_OPTIONS+=	--with-libiconv=$(USRDIR)
 
 build:		$(BUILD_32_and_64)
 
