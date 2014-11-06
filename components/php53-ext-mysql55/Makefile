@@ -24,9 +24,9 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-PHP_PREFIX=$(ECPREFIX)/lib/php/5.3
-PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.3
-PHP_DATADIR=$(ECPREFIX)/var/php/5.3
+PHP_PREFIX=$(USRDIR)/lib/php/5.3
+PHP_SYSCONFDIR=$(CONFIGURE_SYSCONFDIR)/php/5.3
+PHP_DATADIR=$(CONFIGURE_LOCALSTATEDIR)/php/5.3
 
 CONFIGURE_OPTIONS	=	--prefix=$(PHP_PREFIX)
 CONFIGURE_OPTIONS.32	=	--bindir=$(PHP_PREFIX)/bin
@@ -42,20 +42,20 @@ CONFIGURE_OPTIONS     +=	--sysconfdir=$(PHP_SYSCONFDIR)
 CONFIGURE_OPTIONS     +=	--datadir=$(PHP_DATADIR)
 CONFIGURE_OPTIONS     +=	--mandir=$(PHP_PREFIX)/share/man
 
-CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris2.10
+CONFIGURE_OPTIONS.64  +=	--build=$(GNU_ARCH_64)
 CONFIGURE_OPTIONS.32  +=	--with-php-config=$(PHP_PREFIX)/bin/php-config
 CONFIGURE_OPTIONS.64  +=	--with-php-config=$(PHP_PREFIX)/bin/$(MACH64)/php-config
-CONFIGURE_OPTIONS     +=	--with-mysql=$(ECPREFIX)/lib/mysql/5.5
+CONFIGURE_OPTIONS     +=	--with-mysql=$(USRDIR)/lib/mysql/5.5
 
 CONFIGURE_OPTIONS     +=	$(CONFIGURE_OPTIONS.$(BITS))
 
 CFLAGS			+=	-D_POSIX_PTHREAD_SEMANTICS
-CFLAGS.32		=	-I$(ECPREFIX)/lib/mysql/5.5/include
-CFLAGS.64		=	-I$(ECPREFIX)/lib/mysql/5.5/include/$(MACH64)
-CPPFLAGS.32           +=	-I$(ECPREFIX)/lib/mysql/5.5/include
-CPPFLAGS.64           +=	-I$(ECPREFIX)/lib/mysql/5.5/include/$(MACH64)
-LDFLAGS.32            +=	-L$(ECPREFIX)/lib/mysql/5.5/lib -R$(ECPREFIX)/lib/mysql/5.5/lib
-LDFLAGS.64            +=	-L$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64) -R$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64)
+CFLAGS.32		=	-I$(USRDIR)/lib/mysql/5.5/include
+CFLAGS.64		=	-I$(USRDIR)/lib/mysql/5.5/include/$(MACH64)
+CPPFLAGS.32           +=	-I$(USRDIR)/lib/mysql/5.5/include
+CPPFLAGS.64           +=	-I$(USRDIR)/lib/mysql/5.5/include/$(MACH64)
+LDFLAGS.32            +=	-L$(USRDIR)/lib/mysql/5.5/lib -R$(USRDIR)/lib/mysql/5.5/lib
+LDFLAGS.64            +=	-L$(USRDIR)/lib/mysql/5.5/lib/$(MACH64) -R$(USRDIR)/lib/mysql/5.5/lib/$(MACH64)
 
 CFLAGS			+=	$(CFLAGS.$(BITS))
 CPPFLAGS		+=	$(CPPFLAGS.$(BITS))
