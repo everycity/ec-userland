@@ -132,7 +132,6 @@
 /^lucene$/d
 /^lz4$/d
 /^mDNSResponder$/d
-/^mailwrapper$/d
 /^mailx$/d
 /^make$/d
 /^mariadb55$/d

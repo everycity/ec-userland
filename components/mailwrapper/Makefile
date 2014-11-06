@@ -26,8 +26,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_BUILD_ENV += CC=$(CC) PREFIX=$(ECPREFIX)
-COMPONENT_INSTALL_ENV += DESTDIR=$(PROTO_DIR) ECPREFIX=$(ECPREFIX)
+COMPONENT_BUILD_ENV += CC=$(CC) PREFIX=$(USRDIR)
+COMPONENT_INSTALL_ENV += DESTDIR=$(PROTO_DIR) PREFIX=$(USRDIR)
 
 build:		$(BUILD_32)
 

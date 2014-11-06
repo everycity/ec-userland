@@ -1,0 +1,35 @@
+#!/bin/sh
+
+. /lib/svc/share/smf_include.sh
+
+PATH=/usr/bin:/usr/sbin
+
+PATHS="/usr/sbin/sendmail"
+
+mwmount() {
+    mount | grep ^$1\ on\  >/dev/null || \
+        mount -F lofs /usr/bin/mailwrapper $1
+}
+
+mwumount() {
+    mount | grep ^$1\ on\  >/dev/null || \
+        umount $1
+}
+
+case "$1" in
+    start)
+        for i in $PATHS; do mwmount $i; done
+        ;;
+    stop)
+        for i in $PATHS; do mwumount $i; done
+        ;;
+    refresh|restart)
+        for i in $PATHS; do mwmount $i; mwumount $i; done
+        ;;
+    *)
+        echo "Usage: $0 { start | stop | refresh }"
+        exit 1
+        ;;
+esac
+
+exit $SMF_EXIT_OK
