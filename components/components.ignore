@@ -218,7 +218,6 @@
 /^php53-ext-mailparse$/d
 /^php53-ext-mongodb$/d
 /^php53-ext-pdflib$/d
-/^php53-ext-pdo_mysql55$/d
 /^php53-ext-pdo_pgsql91$/d
 /^php53-ext-pgsql91$/d
 /^php53-ext-uploadprogress$/d
