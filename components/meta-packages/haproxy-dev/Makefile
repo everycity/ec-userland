@@ -15,7 +15,7 @@
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		haproxy-dev
-COMPONENT_VERSION=	1.5.0
+COMPONENT_VERSION=	1.5.0.26
 
 include ../../../make-rules/ips.mk
 
