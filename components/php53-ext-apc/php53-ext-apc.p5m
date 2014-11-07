@@ -22,23 +22,8 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license php53-ext-apc.license license="PHP3.01"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/php
-dir path=$(ECPREFIX)/etc/php/5.3
-dir path=$(ECPREFIX)/etc/php/5.3/conf.d
-file apc.ini path=$(ECPREFIX)/etc/php/5.3/conf.d/apc.ini preserve=true
+file apc.ini path=$(SYSCONFDIR)/php/5.3/conf.d/apc.ini preserve=true
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/php
-dir path=$(ECPREFIX)/lib/php/5.3
-dir path=$(ECPREFIX)/lib/php/5.3/extensions
-dir path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)
-dir path=$(ECPREFIX)/lib/php/5.3/include
-dir path=$(ECPREFIX)/lib/php/5.3/include/php
-dir path=$(ECPREFIX)/lib/php/5.3/include/php/ext
-dir path=$(ECPREFIX)/lib/php/5.3/include/php/ext/apc
-file path=$(ECPREFIX)/lib/php/5.3/extensions/$(MACH64)/apc.so
-file path=$(ECPREFIX)/lib/php/5.3/extensions/apc.so
-file path=$(ECPREFIX)/lib/php/5.3/include/php/ext/apc/apc_serializer.h
+file path=$(USRDIR)/lib/php/5.3/extensions/$(MACH64)/apc.so
+file path=$(USRDIR)/lib/php/5.3/extensions/apc.so
+file path=$(USRDIR)/lib/php/5.3/include/php/ext/apc/apc_serializer.h
