@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE service_bundle SYSTEM '/usr/share/lib/xml/dtd/service_bundle.dtd.1'>
+<!--
+	Copyright (C) EveryCity 2011
+-->
+<service_bundle type='manifest' name='exim'>
+
+<service
+	name='network/smtp/exim'
+	type='service'
+	version='1'>
+
+	<!--
+		Wait for network interfaces to be initialized.
+	-->
+	<dependency name='network'
+		grouping='require_all'
+		restart_on='error'
+		type='service'>
+		<service_fmri value='svc:/milestone/network:default'/>
+	</dependency>
+
+	<!--
+		Wait for all local filesystems to be mounted.
+	-->
+	<dependency name='filesystem-local'
+		grouping='require_all'
+		restart_on='none'
+		type='service'>
+      		<service_fmri
+			value='svc:/system/filesystem/local:default'/>
+	</dependency>
+
+	<!--
+		Wait for name services to come up.
+	-->
+	<dependency name='name-services'
+		grouping='require_all'
+		restart_on='none'
+		type='service'>
+      		<service_fmri
+			value='svc:/milestone/name-services:default'/>
+	</dependency>
+
+	<exec_method
+		type='method'
+		name='start'
+		exec='/var/svc/method/exim start'
+		timeout_seconds='60'/>
+
+ 	<exec_method
+		type='method'
+		name='stop'
+		exec=':kill'
+		timeout_seconds='30'/>
+
+	<exec_method
+		type='method'
+		name='refresh'
+		exec=':kill -HUP'
+		timeout_seconds='30'/>
+
+	<instance name='default' enabled='false'>
+
+		<property_group name='exim' type='application'>
+			<stability value='Evolving'/>
+        		<propval name='startup_options' type='astring' value='-bd -q15m'/>
+
+		        <!-- The default config file is at /etc/exim/exim.conf - only
+		             specify one if you understand exims behaviour when doing so -->
+			<propval name='configuration_file' type='astring' value=''/>
+
+			<propval name='exim_binary' type='astring' value='/usr/bin/exim'/>
+		</property_group>
+
+	</instance>
+
+	<stability value='Evolving'/>
+
+</service>
+
+</service_bundle>

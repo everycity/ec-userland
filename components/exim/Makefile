@@ -34,14 +34,6 @@ COMPONENT_BUILD_GMAKE_ARGS=
 COMPONENT_PREP_ACTION+= cp $(SOURCE_DIR)/src/EDITME $(SOURCE_DIR)/Local/Makefile
 COMPONENT_PRE_BUILD_ACTION+=	cp -r $(SOURCE_DIR)/* $(@D)
 COMPONENT_INSTALL_ENV+= DESTDIR=$(PROTO_DIR)
-COMPONENT_POST_INSTALL_ACTION+= mkdir -p $(PROTO_DIR)$(ECPREFIX)/var/log/exim ; \
-	touch $(PROTO_DIR)$(ECPREFIX)/var/log/exim/main.log ; \
-	touch $(PROTO_DIR)$(ECPREFIX)/var/log/exim/panic.log ; \
-	touch $(PROTO_DIR)$(ECPREFIX)/var/log/exim/reject.log ; \
-	mkdir -p $(PROTO_DIR)$(ECPREFIX)/var/svc/method ; \
-	mkdir -p $(PROTO_DIR)/var/svc/manifest/site ; \
-	cp $(COMPONENT_DIR)/exim-startup.sh $(PROTO_DIR)$(ECPREFIX)/var/svc/method/exim ; \
-	cp $(COMPONENT_DIR)/exim-manifest.xml $(PROTO_DIR)/var/svc/manifest/site/exim.xml
 
 build:		$(BUILD_32)
 

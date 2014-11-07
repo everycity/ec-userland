@@ -25,45 +25,27 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 group gid=456 groupname=exim
 user gcos-field="Exim Account" group=exim uid=456 username=exim login-shell=/bin/false home-dir=/ec/var/spool/exim
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/exim
-dir path=$(ECPREFIX)/var
-dir path=$(ECPREFIX)/var/log
-dir path=$(ECPREFIX)/var/log/exim mode=0775 owner=exim group=exim
-dir path=$(ECPREFIX)/var/spool
-dir path=$(ECPREFIX)/var/spool/exim mode=0770 owner=exim group=exim
-dir path=$(ECPREFIX)/var/spool/exim/db mode=0770 owner=exim group=exim
-dir path=$(ECPREFIX)/var/spool/exim/input mode=0770 owner=exim group=exim
-dir path=$(ECPREFIX)/var/spool/exim/msglog mode=0770 owner=exim group=exim
-dir path=$(ECPREFIX)/var
-dir path=$(ECPREFIX)/var/svc
-dir path=$(ECPREFIX)/var/svc/method
-dir path=var
-dir path=var/svc
-dir path=var/svc/manifest
-dir path=var/svc/manifest/site
-file path=$(ECPREFIX)/bin/exicyclog
-file path=$(ECPREFIX)/bin/exigrep
-file path=$(ECPREFIX)/bin/exim-$(COMPONENT_VERSION)-3 mode=4555 user=root group=root
-file path=$(ECPREFIX)/bin/exim_checkaccess
-file path=$(ECPREFIX)/bin/exim_dbmbuild
-file path=$(ECPREFIX)/bin/exim_dumpdb
-file path=$(ECPREFIX)/bin/exim_fixdb
-file path=$(ECPREFIX)/bin/exim_lock
-file path=$(ECPREFIX)/bin/exim_tidydb
-file path=$(ECPREFIX)/bin/eximstats
-file path=$(ECPREFIX)/bin/exinext
-file path=$(ECPREFIX)/bin/exipick
-file path=$(ECPREFIX)/bin/exiqgrep
-file path=$(ECPREFIX)/bin/exiqsumm
-file path=$(ECPREFIX)/bin/exiwhat
-file path=$(ECPREFIX)/etc/exim/aliases.conf mode=0644 preserve=true
-file path=$(ECPREFIX)/etc/exim/exim.conf mode=0644 preserve=true
-file path=$(ECPREFIX)/var/log/exim/main.log mode=0664 owner=exim group=exim preserve=true
-file path=$(ECPREFIX)/var/log/exim/panic.log mode=0664 owner=exim group=exim preserve=true
-file path=$(ECPREFIX)/var/log/exim/reject.log mode=0664 owner=exim group=exim preserve=true
-file path=$(ECPREFIX)/var/svc/method/exim mode=0555
-file path=var/svc/manifest/site/exim.xml restart_fmri=svc:/system/manifest-import:default
-link path=$(ECPREFIX)/bin/exim target=exim-$(COMPONENT_VERSION)-3
+file path=$(USRDIR)/bin/exicyclog
+file path=$(USRDIR)/bin/exigrep
+file path=$(USRDIR)/bin/exim-$(COMPONENT_VERSION)-3 mode=4555 user=root group=root
+file path=$(USRDIR)/bin/exim_checkaccess
+file path=$(USRDIR)/bin/exim_dbmbuild
+file path=$(USRDIR)/bin/exim_dumpdb
+file path=$(USRDIR)/bin/exim_fixdb
+file path=$(USRDIR)/bin/exim_lock
+file path=$(USRDIR)/bin/exim_tidydb
+file path=$(USRDIR)/bin/eximstats
+file path=$(USRDIR)/bin/exinext
+file path=$(USRDIR)/bin/exipick
+file path=$(USRDIR)/bin/exiqgrep
+file path=$(USRDIR)/bin/exiqsumm
+file path=$(USRDIR)/bin/exiwhat
+file path=$(SYSCONFDIR)/exim/aliases.conf mode=0644 preserve=true
+file path=$(SYSCONFDIR)/exim/exim.conf mode=0644 preserve=true
+dir  path=$(LOCALSTATEDIR)/log/exim mode=0775 owner=exim group=exim
+file path=$(LOCALSTATEDIR)/log/exim/main.log mode=0664 owner=exim group=exim preserve=true
+file path=$(LOCALSTATEDIR)/log/exim/panic.log mode=0664 owner=exim group=exim preserve=true
+file path=$(LOCALSTATEDIR)/log/exim/reject.log mode=0664 owner=exim group=exim preserve=true
+file files/exim-startup.sh.$(ZTYPE) path=$(SVCMETHOD)/exim mode=0555
+file files/exim-manifest.xml.$(ZTYPE) path=$(SVCMANIFEST)/site/exim.xml restart_fmri=svc:/system/manifest-import:default
+link path=$(USRDIR)/bin/exim target=exim-$(COMPONENT_VERSION)-3
