@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		swig
 COMPONENT_FMRI=		developer/swig
-COMPONENT_VERSION=	2.0.11
+COMPONENT_VERSION=	3.0.2
 COMPONENT_LICENSE=	GPLv3
 COMPONENT_PROJECT_URL=	"http://www.swig.org/"
 COMPONENT_SUMMARY=	SWIG is an interface compiler that connects programs written in C and C++ with scripting languages
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:63780bf29f53937ad399a1f68bccb3730c90f65746868c4cdfc25cafcd0a424e
+COMPONENT_ARCHIVE_HASH=	sha256:a2669657cabcedc371f63c0457407a183e0b6b2ef4e7e303c1ec9a3964cc7813
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
