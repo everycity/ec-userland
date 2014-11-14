@@ -1,0 +1,55 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2014 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/X11
+dir path=$(ECPREFIX)/include/X11/extensions
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man3
+file path=$(ECPREFIX)/include/X11/extensions/Xinerama.h
+file path=$(ECPREFIX)/include/X11/extensions/panoramiXext.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libXinerama.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libXinerama.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libXinerama.so.1.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xinerama.pc
+file path=$(ECPREFIX)/lib/libXinerama.a
+file path=$(ECPREFIX)/lib/libXinerama.la
+file path=$(ECPREFIX)/lib/libXinerama.so.1.0.0
+file path=$(ECPREFIX)/lib/pkgconfig/xinerama.pc
+file path=$(ECPREFIX)/share/man/man3/Xinerama.3
+file path=$(ECPREFIX)/share/man/man3/XineramaIsActive.3
+file path=$(ECPREFIX)/share/man/man3/XineramaQueryExtension.3
+file path=$(ECPREFIX)/share/man/man3/XineramaQueryScreens.3
+file path=$(ECPREFIX)/share/man/man3/XineramaQueryVersion.3
+link path=$(ECPREFIX)/lib/$(MACH64)/libXinerama.so target=libXinerama.so.1.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libXinerama.so.1 \
+    target=libXinerama.so.1.0.0
+link path=$(ECPREFIX)/lib/libXinerama.so target=libXinerama.so.1.0.0
+link path=$(ECPREFIX)/lib/libXinerama.so.1 target=libXinerama.so.1.0.0
