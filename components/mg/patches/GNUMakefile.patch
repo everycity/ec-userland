@@ -1,5 +1,5 @@
---- mg-20140414/GNUmakefile.~1~	2014-03-06 12:23:25.000000000 +0000
-+++ mg-20140414/GNUmakefile	2014-08-09 14:15:46.075687327 +0100
+--- mg-20141007/GNUmakefile.orig	2014-11-15 22:11:46.261780207 +0000
++++ mg-20141007/GNUmakefile	2014-11-15 22:16:36.823228950 +0000
 @@ -7,17 +7,25 @@
  
  name=		mg
@@ -37,7 +37,7 @@
 -CURSES_LIBS=	-lcurses
 +CURSES_LIBS?=	-lcurses
  
- CC=		gcc
+ CC?=		gcc
  CFLAGS?=	-O2 -pipe
  CFLAGS+=	-g -Wall
 -CPPFLAGS=	-DFKEYS -DREGEX -DXKEYS
