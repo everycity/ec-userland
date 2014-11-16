@@ -25,12 +25,12 @@
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/library/libgcrypt@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="GnuPG libgcrypt library"
-set name=info.upstream_url value="http://www.gnupg.org"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license libgcrypt.license license="LGPL"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -53,15 +53,15 @@ file path=$(ECPREFIX)/bin/libgcrypt-config
 file path=$(ECPREFIX)/bin/mpicalc
 file path=$(ECPREFIX)/include/gcrypt.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libgcrypt.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libgcrypt.so.20.0.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libgcrypt.so.20.0.2
 file path=$(ECPREFIX)/lib/libgcrypt.la
-file path=$(ECPREFIX)/lib/libgcrypt.so.20.0.1
+file path=$(ECPREFIX)/lib/libgcrypt.so.20.0.2
 file path=$(ECPREFIX)/share/aclocal/libgcrypt.m4
 file path=$(ECPREFIX)/share/info/gcrypt.info
 file path=$(ECPREFIX)/share/info/gcrypt.info-1
 file path=$(ECPREFIX)/share/info/gcrypt.info-2
 file path=$(ECPREFIX)/share/man/man1/hmac256.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libgcrypt.so target=libgcrypt.so.20.0.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libgcrypt.so.20 target=libgcrypt.so.20.0.1
-link path=$(ECPREFIX)/lib/libgcrypt.so target=libgcrypt.so.20.0.1
-link path=$(ECPREFIX)/lib/libgcrypt.so.20 target=libgcrypt.so.20.0.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libgcrypt.so target=libgcrypt.so.20.0.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libgcrypt.so.20 target=libgcrypt.so.20.0.2
+link path=$(ECPREFIX)/lib/libgcrypt.so target=libgcrypt.so.20.0.2
+link path=$(ECPREFIX)/lib/libgcrypt.so.20 target=libgcrypt.so.20.0.2
