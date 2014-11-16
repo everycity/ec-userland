@@ -19,15 +19,19 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libksba
-COMPONENT_VERSION=	1.3.0
+COMPONENT_FMRI=		crypto/library/libksba
+COMPONENT_VERSION=	1.3.1
+COMPONENT_LICENSE=	GPL/LGPL
+COMPONENT_PROJECT_URL=	"https://www.gnupg.org/"
+COMPONENT_SUMMARY=	CMS and X509 access library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:5a61eed50550d4d0dcb47457ce7b6a90f8e719d42a3b25f7e79333e8cd721971
+COMPONENT_ARCHIVE_HASH=	sha256:bc96b95516bd2b67f413bc8b5cc5a75a2583c6e666d24dfd0d5bcc6b1aab46f9
 COMPONENT_ARCHIVE_URL=	ftp://ftp.gnupg.org/gcrypt/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
