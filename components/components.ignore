@@ -366,3 +366,12 @@
 /^zsh$/d
 /^bash-3.0-s10$/d
 /^powerdns-recursor$/d
+/^automake-113$/d
+/^goaccess$/d
+/^meta-packages\/haproxy-dev$/d
+/^x11-libxinerama$/d
+/^x11-libxtst$/d
+/^x11-recordproto$/d
+/^x11-xfixes-proto$/d
+/^x11-xfixes$/d
+/^x11-xinerama-proto$/d

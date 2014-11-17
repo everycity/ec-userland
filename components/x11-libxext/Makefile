@@ -9,20 +9,26 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libxext
-COMPONENT_VERSION=	1.3.0
+COMPONENT_FMRI=		x11/library/libxext
+COMPONENT_VERSION=	1.3.3
+COMPONENT_LICENSE=	libXext
+COMPONENT_PROJECT_URL=	"http://cgit.freedesktop.org/xorg/lib/libXext/"
+COMPONENT_SUMMARY=	Common X Extensions library
 COMPONENT_SRC=		libXext-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:908be0c2374d584be0bcc36cb0e5e324714d28f2
+COMPONENT_ARCHIVE_HASH=	sha256:eb0b88050491fef4716da4b06a4d92b4fc9e76f880d6310b2157df604342cfe5
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_XORG_LIB)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+LD_OPTIONS+=	-M $(PWD)/mapfile-vers
 
 CONFIGURE_OPTIONS +=	--enable-shared --disable-static --with-pic
 CONFIGURE_OPTIONS +=	--with-xmlto=no

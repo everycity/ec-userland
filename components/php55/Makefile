@@ -14,10 +14,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	5.5.18
+COMPONENT_VERSION=	5.5.19
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:71f6445cc21c944a3b98592193c62e29a58af3fe26d097312502b4fd400286e4
+COMPONENT_ARCHIVE_HASH=	sha256:8d39f224424f37644da913353f1e773c20b7fc55bb3cc81526c18f91d1d6394e
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_UK)
 
 include ../../make-rules/prep.mk
@@ -146,20 +146,21 @@ CONFIGURE_OPTIONS     +=	--enable-opcache
 
 # Shared Extensions
 CONFIGURE_OPTIONS     +=	--enable-bcmath=shared
-CONFIGURE_OPTIONS     +=	--enable-json=shared
-CONFIGURE_OPTIONS     +=	--enable-libxml=shared
 CONFIGURE_OPTIONS     +=	--enable-ctype=shared
 CONFIGURE_OPTIONS     +=	--enable-calendar=shared
-CONFIGURE_OPTIONS     +=	--enable-tokenizer=shared
 CONFIGURE_OPTIONS     +=	--enable-exif=shared
 CONFIGURE_OPTIONS     +=	--enable-dom=shared
+CONFIGURE_OPTIONS     +=	--enable-fileinfo=shared
 CONFIGURE_OPTIONS     +=	--enable-ftp=shared
+CONFIGURE_OPTIONS     +=	--enable-json=shared
+CONFIGURE_OPTIONS     +=	--enable-libxml=shared
 CONFIGURE_OPTIONS     +=	--enable-pdo=shared
 CONFIGURE_OPTIONS     +=	--enable-mbstring=shared
 CONFIGURE_OPTIONS     +=	--enable-xmlreader=shared
 CONFIGURE_OPTIONS     +=	--enable-xmlwriter=shared
 CONFIGURE_OPTIONS     +=	--enable-soap=shared
 #CONFIGURE_OPTIONS     +=	--enable-sockets=shared
+CONFIGURE_OPTIONS     +=	--enable-tokenizer=shared
 CONFIGURE_OPTIONS     +=	--enable-wddx=shared
 CONFIGURE_OPTIONS     +=	--enable-zip=shared
 

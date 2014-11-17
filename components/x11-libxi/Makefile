@@ -9,16 +9,20 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libXi
-COMPONENT_VERSION=	1.5.0
+COMPONENT_FMRI=		x11/library/xi
+COMPONENT_VERSION=	1.7.4
+COMPONENT_LICENSE=	OpenGroup
+COMPONENT_PROJECT_URL=	"http://cgit.freedesktop.org/xorg/lib/libXi"
+COMPONENT_SUMMARY=	X.org libXi Client library for XInput.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:c9b7b005685548d5ebe51e0e270a7c9aba5b6d0a
+COMPONENT_ARCHIVE_HASH=	sha256:ddf7c56bc0d7206308c22365f694c1a1f177eb3b801fc22d42ead378440aca54
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_XORG_LIB)
 
 include ../../make-rules/prep.mk
@@ -31,5 +35,10 @@ CONFIGURE_OPTIONS+=	--disable-static
 
 build:		$(BUILD_32_and_64)
 
-install:	$(INSTALL_32_and_64)
+$(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
+	cd $(PROTO_DIR)$(ECPREFIX)/lib && $(SYMLINK) libXi.so.6.1.0 libXi.so.5
+	cd $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64) && $(SYMLINK) libXi.so.6.1.0 libXi.so.5
+	$(TOUCH) $@
+
+install:	$(BUILD_DIR)/.installed
 
