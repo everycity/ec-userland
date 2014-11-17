@@ -374,3 +374,4 @@
 /^x11-xfixes-proto$/d
 /^x11-xfixes$/d
 /^x11-xinerama-proto$/d
+/^x11-libxext$/d
