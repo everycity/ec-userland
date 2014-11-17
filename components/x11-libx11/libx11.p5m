@@ -34,17 +34,80 @@ file path=$(USRDIR)/include/X11/Xregion.h
 file path=$(USRDIR)/include/X11/Xresource.h
 file path=$(USRDIR)/include/X11/Xutil.h
 file path=$(USRDIR)/include/X11/cursorfont.h
-file path=$(USRDIR)/lib/$(MACH64)/X11/Xcms.txt
+
+link path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/ximcp.so \
+    target=ximcp.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/ximcp.so.2 \
+    target=ximcp.so.2.0.0
+file path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/ximcp.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/xlcDef.so \
+    target=xlcDef.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/xlcDef.so.2 \
+    target=xlcDef.so.2.0.0
+file path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/xlcDef.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/xlcUTF8Load.so \
+    target=xlcUTF8Load.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/xlcUTF8Load.so.2 \
+    target=xlcUTF8Load.so.2.0.0
+file path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/xlcUTF8Load.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/xlibi18n.so \
+    target=xlibi18n.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/xlibi18n.so.2 \
+    target=xlibi18n.so.2.0.0
+file path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/xlibi18n.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/xlocale.so \
+    target=xlocale.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/xlocale.so.2 \
+    target=xlocale.so.2.0.0
+file path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/xlocale.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/xomGeneric.so \
+    target=xomGeneric.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/xomGeneric.so.2 \
+    target=xomGeneric.so.2.0.0
+file path=$(USRDIR)/lib/$(MACH64)/X11/locale/common/xomGeneric.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libX11-xcb.so target=libX11-xcb.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libX11-xcb.so.1 target=libX11-xcb.so.1.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libX11-xcb.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libX11.so target=libX11.so.6.3.0
+link path=$(USRDIR)/lib/$(MACH64)/libX11.so.4 target=libX11.so.6.3.0
+link path=$(USRDIR)/lib/$(MACH64)/libX11.so.6 target=libX11.so.6.3.0
 file path=$(USRDIR)/lib/$(MACH64)/libX11.so.6.3.0
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/x11-xcb.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/x11.pc
-file path=$(USRDIR)/lib/X11/Xcms.txt
+link path=$(USRDIR)/lib/X11/locale/common/ximcp.so target=ximcp.so.2.0.0
+link path=$(USRDIR)/lib/X11/locale/common/ximcp.so.2 target=ximcp.so.2.0.0
+file path=$(USRDIR)/lib/X11/locale/common/ximcp.so.2.0.0
+link path=$(USRDIR)/lib/X11/locale/common/xlcDef.so target=xlcDef.so.2.0.0
+link path=$(USRDIR)/lib/X11/locale/common/xlcDef.so.2 target=xlcDef.so.2.0.0
+file path=$(USRDIR)/lib/X11/locale/common/xlcDef.so.2.0.0
+link path=$(USRDIR)/lib/X11/locale/common/xlcUTF8Load.so \
+    target=xlcUTF8Load.so.2.0.0
+link path=$(USRDIR)/lib/X11/locale/common/xlcUTF8Load.so.2 \
+    target=xlcUTF8Load.so.2.0.0
+file path=$(USRDIR)/lib/X11/locale/common/xlcUTF8Load.so.2.0.0
+link path=$(USRDIR)/lib/X11/locale/common/xlibi18n.so target=xlibi18n.so.2.0.0
+link path=$(USRDIR)/lib/X11/locale/common/xlibi18n.so.2 target=xlibi18n.so.2.0.0
+file path=$(USRDIR)/lib/X11/locale/common/xlibi18n.so.2.0.0
+link path=$(USRDIR)/lib/X11/locale/common/xlocale.so target=xlocale.so.2.0.0
+link path=$(USRDIR)/lib/X11/locale/common/xlocale.so.2 target=xlocale.so.2.0.0
+file path=$(USRDIR)/lib/X11/locale/common/xlocale.so.2.0.0
+link path=$(USRDIR)/lib/X11/locale/common/xomGeneric.so \
+    target=xomGeneric.so.2.0.0
+link path=$(USRDIR)/lib/X11/locale/common/xomGeneric.so.2 \
+    target=xomGeneric.so.2.0.0
+file path=$(USRDIR)/lib/X11/locale/common/xomGeneric.so.2.0.0
+link path=$(USRDIR)/lib/libX11-xcb.so target=libX11-xcb.so.1.0.0
+link path=$(USRDIR)/lib/libX11-xcb.so.1 target=libX11-xcb.so.1.0.0
 file path=$(USRDIR)/lib/libX11-xcb.so.1.0.0
+link path=$(USRDIR)/lib/libX11.so target=libX11.so.6.3.0
+link path=$(USRDIR)/lib/libX11.so.4 target=libX11.so.6.3.0
+link path=$(USRDIR)/lib/libX11.so.6 target=libX11.so.6.3.0
 file path=$(USRDIR)/lib/libX11.so.6.3.0
 file path=$(USRDIR)/lib/pkgconfig/x11-xcb.pc
 file path=$(USRDIR)/lib/pkgconfig/x11.pc
+
 file path=$(USRDIR)/share/X11/XErrorDB
+file path=$(USRDIR)/share/X11/Xcms.txt
 file path=$(USRDIR)/share/X11/locale/C/Compose
 file path=$(USRDIR)/share/X11/locale/C/XI18N_OBJS
 file path=$(USRDIR)/share/X11/locale/C/XLC_LOCALE
@@ -127,21 +190,18 @@ file path=$(USRDIR)/share/X11/locale/iso8859-9e/XLC_LOCALE
 file path=$(USRDIR)/share/X11/locale/ja.JIS/Compose
 file path=$(USRDIR)/share/X11/locale/ja.JIS/XI18N_OBJS
 file path=$(USRDIR)/share/X11/locale/ja.JIS/XLC_LOCALE
-file path=$(USRDIR)/share/X11/locale/ja.S90/Compose
-file path=$(USRDIR)/share/X11/locale/ja.S90/XI18N_OBJS
-file path=$(USRDIR)/share/X11/locale/ja.S90/XLC_LOCALE
 file path=$(USRDIR)/share/X11/locale/ja.SJIS/Compose
 file path=$(USRDIR)/share/X11/locale/ja.SJIS/XI18N_OBJS
 file path=$(USRDIR)/share/X11/locale/ja.SJIS/XLC_LOCALE
-file path=$(USRDIR)/share/X11/locale/ja.U90/Compose
-file path=$(USRDIR)/share/X11/locale/ja.U90/XI18N_OBJS
-file path=$(USRDIR)/share/X11/locale/ja.U90/XLC_LOCALE
 file path=$(USRDIR)/share/X11/locale/ja/Compose
 file path=$(USRDIR)/share/X11/locale/ja/XI18N_OBJS
 file path=$(USRDIR)/share/X11/locale/ja/XLC_LOCALE
 file path=$(USRDIR)/share/X11/locale/ja_JP.UTF-8/Compose
 file path=$(USRDIR)/share/X11/locale/ja_JP.UTF-8/XI18N_OBJS
 file path=$(USRDIR)/share/X11/locale/ja_JP.UTF-8/XLC_LOCALE
+file path=$(USRDIR)/share/X11/locale/km_KH.UTF-8/Compose
+file path=$(USRDIR)/share/X11/locale/km_KH.UTF-8/XI18N_OBJS
+file path=$(USRDIR)/share/X11/locale/km_KH.UTF-8/XLC_LOCALE
 file path=$(USRDIR)/share/X11/locale/ko/Compose
 file path=$(USRDIR)/share/X11/locale/ko/XI18N_OBJS
 file path=$(USRDIR)/share/X11/locale/ko/XLC_LOCALE
@@ -180,6 +240,9 @@ file path=$(USRDIR)/share/X11/locale/pt_BR.UTF-8/XLC_LOCALE
 file path=$(USRDIR)/share/X11/locale/ru_RU.UTF-8/Compose
 file path=$(USRDIR)/share/X11/locale/ru_RU.UTF-8/XI18N_OBJS
 file path=$(USRDIR)/share/X11/locale/ru_RU.UTF-8/XLC_LOCALE
+file path=$(USRDIR)/share/X11/locale/sr_CS.UTF-8/Compose
+file path=$(USRDIR)/share/X11/locale/sr_CS.UTF-8/XI18N_OBJS
+file path=$(USRDIR)/share/X11/locale/sr_CS.UTF-8/XLC_LOCALE
 file path=$(USRDIR)/share/X11/locale/tatar-cyr/Compose
 file path=$(USRDIR)/share/X11/locale/tatar-cyr/XI18N_OBJS
 file path=$(USRDIR)/share/X11/locale/tatar-cyr/XLC_LOCALE
@@ -228,6 +291,148 @@ file path=$(USRDIR)/share/X11/locale/zh_TW.big5/XLC_LOCALE
 file path=$(USRDIR)/share/X11/locale/zh_TW/Compose
 file path=$(USRDIR)/share/X11/locale/zh_TW/XI18N_OBJS
 file path=$(USRDIR)/share/X11/locale/zh_TW/XLC_LOCALE
+file path=$(USRDIR)/share/doc/libX11/XIM/dynamicflow.svg
+file path=$(USRDIR)/share/doc/libX11/XIM/dynamicflowsampleseq.svg
+file path=$(USRDIR)/share/doc/libX11/XIM/eventflow.svg
+file path=$(USRDIR)/share/doc/libX11/XIM/sampleprotocolflow1.svg
+file path=$(USRDIR)/share/doc/libX11/XIM/sampleprotocolflow2.svg
+file path=$(USRDIR)/share/doc/libX11/XIM/staticflow.svg
+file path=$(USRDIR)/share/doc/libX11/XIM/staticflowsampleseq.svg
+file path=$(USRDIR)/share/doc/libX11/XIM/xim.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-1.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-10.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-11.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-12.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-13.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-14.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-15.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-16.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-17.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-18.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-19.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-2.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-20.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-21.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-3.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-4.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-5.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-6.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-7.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-8.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/XKBlib-9.svg
+file path=$(USRDIR)/share/doc/libX11/XKB/acknowledgement.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch01.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch02.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch03.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch04.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch05.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch06.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch07.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch08.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch09.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch10.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch11.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch12.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch13.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch14.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch15.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch16.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch17.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch18.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch19.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch20.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch21.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/ch22.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/glossary.xml
+file path=$(USRDIR)/share/doc/libX11/XKB/xkblib.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/C.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/am_ET.UTF-8.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/armscii-8.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/el_GR.UTF-8.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/en_US.UTF-8.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/fi_FI.UTF-8.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/georgian-academy.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/georgian-ps.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/ibm-cp1133.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/iscii-dev.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/isiri-3342.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/iso8859-1.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/iso8859-10.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/iso8859-11.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/iso8859-13.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/iso8859-14.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/iso8859-15.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/iso8859-2.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/iso8859-3.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/iso8859-4.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/iso8859-5.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/iso8859-6.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/iso8859-7.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/iso8859-8.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/iso8859-9.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/iso8859-9e.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/ja.JIS.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/ja.SJIS.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/ja.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/ja_JP.UTF-8.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/km_KH.UTF-8.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/ko.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/ko_KR.UTF-8.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/koi8-c.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/koi8-r.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/koi8-u.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/libX11-keys.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/microsoft-cp1251.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/microsoft-cp1255.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/microsoft-cp1256.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/mulelao-1.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/nokhchi-1.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/pt_BR.UTF-8.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/ru_RU.UTF-8.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/sr_CS.UTF-8.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/tatar-cyr.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/th_TH.UTF-8.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/th_TH.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/tscii-0.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/vi_VN.tcvn.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/vi_VN.viscii.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/zh_CN.UTF-8.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/zh_CN.gb18030.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/zh_CN.gbk.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/zh_CN.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/zh_HK.UTF-8.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/zh_HK.big5.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/zh_HK.big5hkscs.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/zh_TW.UTF-8.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/zh_TW.big5.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/compose/zh_TW.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/framework/framework.svg
+file path=$(USRDIR)/share/doc/libX11/i18n/framework/framework.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/localedb/localedb.xml
+file path=$(USRDIR)/share/doc/libX11/i18n/trans/trans.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/AppA.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/AppB.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/AppC.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/AppD.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/CH01.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/CH02.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/CH03.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/CH04.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/CH05.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/CH06.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/CH07.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/CH08.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/CH09.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/CH10.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/CH11.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/CH12.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/CH13.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/CH14.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/CH15.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/CH16.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/credits.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/glossary.xml
+file path=$(USRDIR)/share/doc/libX11/libX11/libX11.xml
 file path=$(USRDIR)/share/man/man3/AllPlanes.3
 file path=$(USRDIR)/share/man/man3/BitmapBitOrder.3
 file path=$(USRDIR)/share/man/man3/BitmapPad.3
@@ -445,7 +650,7 @@ file path=$(USRDIR)/share/man/man3/XFreeFontNames.3
 file path=$(USRDIR)/share/man/man3/XFreeFontPath.3
 file path=$(USRDIR)/share/man/man3/XFreeFontSet.3
 file path=$(USRDIR)/share/man/man3/XFreeGC.3
-file path=$(USRDIR)/share/man/man3/XFreeModifierMap.3
+file path=$(USRDIR)/share/man/man3/XFreeModifiermap.3
 file path=$(USRDIR)/share/man/man3/XFreePixmap.3
 file path=$(USRDIR)/share/man/man3/XFreeStringList.3
 file path=$(USRDIR)/share/man/man3/XGCValues.3
@@ -1047,11 +1252,3 @@ file path=$(USRDIR)/share/man/man3/XwcTextPerCharExtents.3
 file path=$(USRDIR)/share/man/man3/XwcTextPropertyToTextList.3
 file path=$(USRDIR)/share/man/man4/Compose.4
 file path=$(USRDIR)/share/man/man4/XCompose.4
-link path=$(USRDIR)/lib/$(MACH64)/libX11-xcb.so target=libX11-xcb.so.1.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libX11-xcb.so.1 target=libX11-xcb.so.1.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libX11.so target=libX11.so.6.3.0
-link path=$(USRDIR)/lib/$(MACH64)/libX11.so.6 target=libX11.so.6.3.0
-link path=$(USRDIR)/lib/libX11-xcb.so target=libX11-xcb.so.1.0.0
-link path=$(USRDIR)/lib/libX11-xcb.so.1 target=libX11-xcb.so.1.0.0
-link path=$(USRDIR)/lib/libX11.so target=libX11.so.6.3.0
-link path=$(USRDIR)/lib/libX11.so.6 target=libX11.so.6.3.0
