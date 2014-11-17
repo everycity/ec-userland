@@ -28,7 +28,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LD_OPTIONS+=	-M $(PWD)/mapfile-vers
+#LD_OPTIONS+=	-M $(PWD)/mapfile-vers
 
 CONFIGURE_OPTIONS +=	--enable-shared --disable-static --with-pic
 CONFIGURE_OPTIONS +=	--with-xmlto=no
