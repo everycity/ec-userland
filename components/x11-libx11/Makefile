@@ -33,7 +33,9 @@ PATH.32=$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 PATH.64=$(ECPREFIX)/bin/$(MACH64):$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 PATH=$(PATH.$(BITS))
 
-CONFIGURE_OPTIONS +=	--enable-shared --disable-static --with-pic
+CONFIGURE_OPTIONS +=	--enable-shared --disable-static --with-pic --enable-xkb
+CONFIGURE_OPTIONS +=	--enable-xthreads --enable-loadable-i18n --enable-xlocaledir
+CONFIGURE_OPTIONS +=	--with-xcb=yes --enable-loadable-xcursor --enable-xcms
 CONFIGURE_OPTIONS +=	--with-sysroot=$(ECPREFIX)
 CONFIGURE_OPTIONS +=	--with-xmlto=no
 

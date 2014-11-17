@@ -27,7 +27,13 @@ dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/include/X11
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/X11
+dir path=$(ECPREFIX)/lib/$(MACH64)/X11/locale
+dir path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common
 dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/X11
+dir path=$(ECPREFIX)/lib/X11/locale
+dir path=$(ECPREFIX)/lib/X11/locale/common
 dir path=$(ECPREFIX)/lib/pkgconfig
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/X11
@@ -117,12 +123,36 @@ file path=$(ECPREFIX)/include/X11/Xregion.h
 file path=$(ECPREFIX)/include/X11/Xresource.h
 file path=$(ECPREFIX)/include/X11/Xutil.h
 file path=$(ECPREFIX)/include/X11/cursorfont.h
+file path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/ximcp.la
+file path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/ximcp.so.2.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xlcDef.la
+file path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xlcDef.so.2.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xlcUTF8Load.la
+file path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xlcUTF8Load.so.2.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xlibi18n.la
+file path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xlibi18n.so.2.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xlocale.la
+file path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xlocale.so.2.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xomGeneric.la
+file path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xomGeneric.so.2.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libX11-xcb.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libX11-xcb.so.1.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libX11.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libX11.so.6.3.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/x11-xcb.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/x11.pc
+file path=$(ECPREFIX)/lib/X11/locale/common/ximcp.la
+file path=$(ECPREFIX)/lib/X11/locale/common/ximcp.so.2.0.0
+file path=$(ECPREFIX)/lib/X11/locale/common/xlcDef.la
+file path=$(ECPREFIX)/lib/X11/locale/common/xlcDef.so.2.0.0
+file path=$(ECPREFIX)/lib/X11/locale/common/xlcUTF8Load.la
+file path=$(ECPREFIX)/lib/X11/locale/common/xlcUTF8Load.so.2.0.0
+file path=$(ECPREFIX)/lib/X11/locale/common/xlibi18n.la
+file path=$(ECPREFIX)/lib/X11/locale/common/xlibi18n.so.2.0.0
+file path=$(ECPREFIX)/lib/X11/locale/common/xlocale.la
+file path=$(ECPREFIX)/lib/X11/locale/common/xlocale.so.2.0.0
+file path=$(ECPREFIX)/lib/X11/locale/common/xomGeneric.la
+file path=$(ECPREFIX)/lib/X11/locale/common/xomGeneric.so.2.0.0
 file path=$(ECPREFIX)/lib/libX11-xcb.la
 file path=$(ECPREFIX)/lib/libX11-xcb.so.1.0.0
 file path=$(ECPREFIX)/lib/libX11.la
@@ -1275,11 +1305,54 @@ file path=$(ECPREFIX)/share/man/man3/XwcTextPerCharExtents.3
 file path=$(ECPREFIX)/share/man/man3/XwcTextPropertyToTextList.3
 file path=$(ECPREFIX)/share/man/man4/Compose.4
 file path=$(ECPREFIX)/share/man/man4/XCompose.4
+link path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/ximcp.so \
+    target=ximcp.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/ximcp.so.2 \
+    target=ximcp.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xlcDef.so \
+    target=xlcDef.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xlcDef.so.2 \
+    target=xlcDef.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xlcUTF8Load.so \
+    target=xlcUTF8Load.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xlcUTF8Load.so.2 \
+    target=xlcUTF8Load.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xlibi18n.so \
+    target=xlibi18n.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xlibi18n.so.2 \
+    target=xlibi18n.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xlocale.so \
+    target=xlocale.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xlocale.so.2 \
+    target=xlocale.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xomGeneric.so \
+    target=xomGeneric.so.2.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/X11/locale/common/xomGeneric.so.2 \
+    target=xomGeneric.so.2.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libX11-xcb.so target=libX11-xcb.so.1.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libX11-xcb.so.1 target=libX11-xcb.so.1.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libX11.so target=libX11.so.6.3.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libX11.so.4 target=libX11.so.6.3.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libX11.so.6 target=libX11.so.6.3.0
+link path=$(ECPREFIX)/lib/X11/locale/common/ximcp.so target=ximcp.so.2.0.0
+link path=$(ECPREFIX)/lib/X11/locale/common/ximcp.so.2 target=ximcp.so.2.0.0
+link path=$(ECPREFIX)/lib/X11/locale/common/xlcDef.so target=xlcDef.so.2.0.0
+link path=$(ECPREFIX)/lib/X11/locale/common/xlcDef.so.2 target=xlcDef.so.2.0.0
+link path=$(ECPREFIX)/lib/X11/locale/common/xlcUTF8Load.so \
+    target=xlcUTF8Load.so.2.0.0
+link path=$(ECPREFIX)/lib/X11/locale/common/xlcUTF8Load.so.2 \
+    target=xlcUTF8Load.so.2.0.0
+link path=$(ECPREFIX)/lib/X11/locale/common/xlibi18n.so \
+    target=xlibi18n.so.2.0.0
+link path=$(ECPREFIX)/lib/X11/locale/common/xlibi18n.so.2 \
+    target=xlibi18n.so.2.0.0
+link path=$(ECPREFIX)/lib/X11/locale/common/xlocale.so target=xlocale.so.2.0.0
+link path=$(ECPREFIX)/lib/X11/locale/common/xlocale.so.2 \
+    target=xlocale.so.2.0.0
+link path=$(ECPREFIX)/lib/X11/locale/common/xomGeneric.so \
+    target=xomGeneric.so.2.0.0
+link path=$(ECPREFIX)/lib/X11/locale/common/xomGeneric.so.2 \
+    target=xomGeneric.so.2.0.0
 link path=$(ECPREFIX)/lib/libX11-xcb.so target=libX11-xcb.so.1.0.0
 link path=$(ECPREFIX)/lib/libX11-xcb.so.1 target=libX11-xcb.so.1.0.0
 link path=$(ECPREFIX)/lib/libX11.so target=libX11.so.6.3.0
