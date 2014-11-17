@@ -346,7 +346,6 @@
 /^x11-xcb-util-keysyms$/d
 /^x11-xcb-util-renderutil$/d
 /^x11-xcb-util-wm$/d
-/^x11-xorg-macros$/d
 /^x11-xterm$/d
 /^x264$/d
 /^xapian\/bindings-php52$/d
