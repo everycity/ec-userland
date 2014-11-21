@@ -22,7 +22,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license php53.license license="PHP53 License"
 
-file mysql55.ini path=$SYSCONFDIR)/php/5.3/conf.d/mysql55.ini preserve=true
+file mysql55.ini path=$(SYSCONFDIR)/php/5.3/conf.d/mysql55.ini preserve=true
 file $(USRDIR)/lib/php/5.3/extensions/$(MACH64)/mysql.so \
     path=$(USRDIR)/lib/php/5.3/extensions/$(MACH64)/mysql55.so
 file $(USRDIR)/lib/php/5.3/extensions/mysql.so \
