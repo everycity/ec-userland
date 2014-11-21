@@ -42,14 +42,14 @@ CFLAGS += -DPAM_BUGFIX
 
 LDFLAGS += -B direct -z nolazyload
 
-CONFIGURE_OPTIONS+=	--sysconfdir=/etc/ssh
+CONFIGURE_OPTIONS+=	--sysconfdir=$(CONFIGURE_SYSCONFDIR)/ssh
 CONFIGURE_OPTIONS+=	--sbindir=$(USRDIR)/bin
 CONFIGURE_OPTIONS+=	--libexecdir=$(USRDIR)/bin
 
 CONFIGURE_OPTIONS+=	--with-ssl-dir=$(USRDIR)
 CONFIGURE_OPTIONS+=	--with-default-path=$(USRDIR)/bin:$(USRDIR)/sbin:/usr/bin:/usr/sbin:/usr/ccs/bin
-CONFIGURE_OPTIONS+=	--with-pid-dir=/var/run
-CONFIGURE_OPTIONS+=	--with-privsep-path=/var/empty/sshd
+CONFIGURE_OPTIONS+=	--with-pid-dir=$(CONFIGURE_LOCALSTATEDIR)/run
+CONFIGURE_OPTIONS+=	--with-privsep-path=$(CONFIGURE_LOCALSTATEDIR)/empty/sshd
 CONFIGURE_OPTIONS+=	--with-md5-passwords
 CONFIGURE_OPTIONS+=	--with-pam
 CONFIGURE_OPTIONS+=	--with-ssl-engine
