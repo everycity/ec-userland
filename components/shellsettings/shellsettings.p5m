@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -25,39 +25,36 @@ set name=pkg.summary value="Default inputrc, profile and bash configuration"
 
 license everycity.license license="CDDL"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/bash.d
+dir path=$(SYSCONFDIR)/bash.d
 
 # Deliver links inside /etc to help users find what they are looking for
-link path=etc/bash.d target=/$(ECPREFIX)/etc/bash.d
-link path=etc/inputrc target=/$(ECPREFIX)/etc/inputrc
-link path=etc/profile target=/$(ECPREFIX)/etc/profile
+$(ECZONE)link path=etc/bash.d target=/$(SYSCONFDIR)/bash.d
+$(ECZONE)link path=etc/inputrc target=/$(SYSCONFDIR)/inputrc
+$(ECZONE)link path=etc/profile target=/$(SYSCONFDIR)/profile
 
 # Set up our custom inputrc file
-file files/inputrc path=$(ECPREFIX)/etc/inputrc preserve=true
+file files/inputrc path=$(SYSCONFDIR)/inputrc preserve=true
 
-# Note we don't want to preserve /etc/profile, people shouldn't mess with it
-file files/profile path=$(ECPREFIX)/etc/profile
+# Note we don't want to preserve /etc/profile, users shouldn't mess with it
+file files/profile.$(ZTYPE) path=$(SYSCONFDIR)/profile
 
 # Overwrite the default login and su files to fix paths once and for all
-file files/login path=etc/default/login
-file files/su path=etc/default/su
+file files/login.$(ZTYPE) path=etc/default/login
+file files/su.$(ZTYPE) path=etc/default/su
 
 # Deliver our bash.d settings
-file files/bash.d/10_shell.sh path=$(ECPREFIX)/etc/bash.d/10_shell.sh
-file files/bash.d/15_user.sh path=$(ECPREFIX)/etc/bash.d/15_user.sh
-file files/bash.d/20_colours.sh path=$(ECPREFIX)/etc/bash.d/20_colours.sh
-file files/bash.d/25_prompt.sh path=$(ECPREFIX)/etc/bash.d/25_prompt.sh
-file files/bash.d/30_checkwinsize.sh path=$(ECPREFIX)/etc/bash.d/30_checkwinsize.sh
-file files/bash.d/35_gnuterminfo.sh path=$(ECPREFIX)/etc/bash.d/35_gnuterminfo.sh
-file files/bash.d/40_path.sh path=$(ECPREFIX)/etc/bash.d/40_path.sh
-file files/bash.d/45_history.sh path=$(ECPREFIX)/etc/bash.d/45_history.sh
-file files/bash.d/50_windowtitle.sh path=$(ECPREFIX)/etc/bash.d/50_windowtitle.sh
-file files/bash.d/55_manpath.sh path=$(ECPREFIX)/etc/bash.d/55_manpath.sh
-file files/bash.d/60_toolprefs.sh path=$(ECPREFIX)/etc/bash.d/60_toolprefs.sh
-file files/bash.d/70_aliases.sh path=$(ECPREFIX)/etc/bash.d/70_aliases.sh
-file files/bash.d/75_safetyfirst.sh path=$(ECPREFIX)/etc/bash.d/75_safetyfirst.sh
-file files/bash.d/80_motd.sh path=$(ECPREFIX)/etc/bash.d/80_motd.sh
-file files/bash.d/90_per_user_root_profile.sh path=$(ECPREFIX)/etc/bash.d/90_per_user_root_profile.sh
-
+file files/bash.d/10_shell.sh path=$(SYSCONFDIR)/bash.d/10_shell.sh
+file files/bash.d/15_user.sh path=$(SYSCONFDIR)/bash.d/15_user.sh
+file files/bash.d/20_colours.sh path=$(SYSCONFDIR)/bash.d/20_colours.sh
+file files/bash.d/25_prompt.sh path=$(SYSCONFDIR)/bash.d/25_prompt.sh
+file files/bash.d/30_checkwinsize.sh path=$(SYSCONFDIR)/bash.d/30_checkwinsize.sh
+file files/bash.d/35_gnuterminfo.sh.$(ZTYPE) path=$(SYSCONFDIR)/bash.d/35_gnuterminfo.sh
+file files/bash.d/40_path.sh.$(ZTYPE) path=$(SYSCONFDIR)/bash.d/40_path.sh
+file files/bash.d/45_history.sh path=$(SYSCONFDIR)/bash.d/45_history.sh
+file files/bash.d/50_windowtitle.sh path=$(SYSCONFDIR)/bash.d/50_windowtitle.sh
+file files/bash.d/55_manpath.sh.$(ZTYPE) path=$(SYSCONFDIR)/bash.d/55_manpath.sh
+file files/bash.d/60_toolprefs.sh.$(ZTYPE) path=$(SYSCONFDIR)/bash.d/60_toolprefs.sh
+file files/bash.d/70_aliases.sh.$(ZTYPE) path=$(SYSCONFDIR)/bash.d/70_aliases.sh
+file files/bash.d/75_safetyfirst.sh path=$(SYSCONFDIR)/bash.d/75_safetyfirst.sh
+file files/bash.d/80_motd.sh.$(ZTYPE) path=$(SYSCONFDIR)/bash.d/80_motd.sh
+file files/bash.d/90_per_user_root_profile.sh path=$(SYSCONFDIR)/bash.d/90_per_user_root_profile.sh
