@@ -295,7 +295,6 @@
 /^ruby\/stomp$/d
 /^schroedinger$/d
 /^screen$/d
-/^shellsettings$/d
 /^smartos-ps$/d
 /^snappy$/d
 /^solr$/d
