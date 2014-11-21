@@ -22,11 +22,7 @@ set name=pkg.summary value="EveryCity Quickstart Documentation"
 
 license everycity.license license="CDDL"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/everycity
+dir path=$(USRDIR)/share/everycity
 
-file files/solaris-quickstart.txt path=$(ECPREFIX)/share/everycity/solaris-quickstart.txt
-file files/ec-quickstart path=$(ECPREFIX)/bin/ec-quickstart mode=0555
-
+file files/solaris-quickstart.txt path=$(USRDIR)/share/everycity/solaris-quickstart.txt
+file files/ec-quickstart.$(ZTYPE) path=$(USRDIR)/bin/ec-quickstart mode=0555
