@@ -1,0 +1,11 @@
+--- unzip60/zipinfo.c.orig	2014-11-24 22:41:58.815834108 +0000
++++ unzip60/zipinfo.c	2014-11-24 22:42:32.093218049 +0000
+@@ -2124,7 +2124,7 @@
+                )
+             {
+                 xattr = (unsigned)(G.crec.external_file_attributes & 0xFF);
+-                sprintf(attribs, ".r.-...     %u.%u", hostver/10, hostver%10);
++                sprintf(attribs, ".r.-...     %2u.%u", hostver/10, hostver%10);
+                 attribs[2] = (xattr & 0x01)? '-' : 'w';
+                 attribs[5] = (xattr & 0x02)? 'h' : '-';
+                 attribs[6] = (xattr & 0x04)? 's' : '-';
