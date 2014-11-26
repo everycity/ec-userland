@@ -1,5 +1,4 @@
 /^activemq$/d
-/^ant$/d
 /^apache22-mod_cband$/d
 /^apache22-mod_evasive$/d
 /^apache22-mod_fastcgi$/d

@@ -37,19 +37,19 @@ GMAKE=./build.sh
 ANT_ENV+=JAVA_HOME=$(JAVA_HOME)
 
 ANT_DIST_DIRS+=-Ddist.dir=$(PROTO_DIR)
-ANT_DIST_DIRS+=-Ddist.bin=$(PROTO_DIR)$(ECPREFIX)/bin
-ANT_DIST_DIRS+=-Ddist.etc=$(PROTO_DIR)$(ECPREFIX)/share/lib/ant
-ANT_DIST_DIRS+=-Ddist.docs=$(PROTO_DIR)$(ECPREFIX)/share/doc/ant
-ANT_DIST_DIRS+=-Ddist.manual=$(PROTO_DIR)$(ECPREFIX)/share/doc/ant/manual
-ANT_DIST_DIRS+=-Ddist.javadocs=$(PROTO_DIR)$(ECPREFIX)/share/doc/ant/manual/api
-ANT_DIST_DIRS+=-Ddist.lib=$(PROTO_DIR)$(ECPREFIX)/share/lib/ant
+ANT_DIST_DIRS+=-Ddist.bin=$(PROTO_DIR)$(USRDIR)/bin
+ANT_DIST_DIRS+=-Ddist.etc=$(PROTO_DIR)$(USRDIR)/share/lib/ant
+ANT_DIST_DIRS+=-Ddist.docs=$(PROTO_DIR)$(USRDIR)/share/doc/ant
+ANT_DIST_DIRS+=-Ddist.manual=$(PROTO_DIR)$(USRDIR)/share/doc/ant/manual
+ANT_DIST_DIRS+=-Ddist.javadocs=$(PROTO_DIR)$(USRDIR)/share/doc/ant/manual/api
+ANT_DIST_DIRS+=-Ddist.lib=$(PROTO_DIR)$(USRDIR)/share/lib/ant
 
-OPTIONAL_LIBS+=$(ECPREFIX)/share/lib/java/junit-4.10.jar
+OPTIONAL_LIBS+=$(USRDIR)/share/lib/java/junit-4.10.jar
 #OPTIONAL_LIBS+=/usr/share/antlr-2.7.7/antlr.jar
 COMPONENT_PRE_BUILD_ACTION = $(CP) $(OPTIONAL_LIBS) $(@D)/lib/optional
 
 COMPONENT_POST_INSTALL_ACTION=	( perl -pi -e "s,^\#!.*,\#!$(PYTHON)," \
-	$(PROTO_DIR)$(ECPREFIX)/bin/runant.py )
+	$(PROTO_DIR)$(USRDIR)/bin/runant.py )
 
 COMPONENT_BUILD_TARGETS =	build
 COMPONENT_BUILD_ENV +=		$(ANT_ENV)
