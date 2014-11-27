@@ -28,11 +28,18 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+CPPFLAGS+=	-DSUNSOFT
 LD_OPTIONS+=	-M $(PWD)/mapfile-vers
 
+CONFIGURE_ENV +=	CPPFLAGS="$(CPPFLAGS)"
 CONFIGURE_OPTIONS +=	--enable-shared --disable-static --with-pic
 CONFIGURE_OPTIONS +=	--with-xmlto=no
 CONFIGURE_OPTIONS +=	--with-sysroot=$(ECPREFIX) 'LIBS=-lintl'
+
+COMPONENT_PRE_CONFIGURE_ACTION=	( \
+	$(CP) files/include/X11/extensions/xinerama.h $(SOURCE_DIR)/include/X11/extensions/; \
+	$(CP) files/man/* $(SOURCE_DIR)/man/; \
+	$(CP) files/src/* $(SOURCE_DIR)/src/; )
 
 build:		$(BUILD_32_and_64)
 
