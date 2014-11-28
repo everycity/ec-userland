@@ -84,7 +84,6 @@
 /^java-jna$/d
 /^java-snappy$/d
 /^json-c$/d
-/^junit$/d
 /^lame$/d
 /^lcms2$/d
 /^lftp$/d
