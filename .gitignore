@@ -1,5 +1,6 @@
 archives
 components/*.mk
+components/*/.installed
 components/*/build
 components/*/source
 components/*/*/build
