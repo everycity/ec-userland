@@ -363,7 +363,6 @@
 /^meta-packages\/haproxy-dev$/d
 /^x11-libxinerama$/d
 /^x11-libxtst$/d
-/^x11-xfixes-proto$/d
 /^x11-xfixes$/d
 /^x11-xinerama-proto$/d
 /^ca-certificates$/d
