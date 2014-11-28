@@ -22,19 +22,8 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license x11-renderproto.license license="x11-renderproto"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/X11
-dir path=$(ECPREFIX)/include/X11/extensions
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/renderproto
-file path=$(ECPREFIX)/include/X11/extensions/render.h
-file path=$(ECPREFIX)/include/X11/extensions/renderproto.h
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/renderproto.pc
-file path=$(ECPREFIX)/lib/pkgconfig/renderproto.pc
-file path=$(ECPREFIX)/share/doc/renderproto/renderproto.txt
+file path=$(USRDIR)/include/X11/extensions/render.h
+file path=$(USRDIR)/include/X11/extensions/renderproto.h
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/renderproto.pc
+file path=$(USRDIR)/lib/pkgconfig/renderproto.pc
+file path=$(USRDIR)/share/doc/renderproto/renderproto.txt

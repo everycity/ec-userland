@@ -27,8 +27,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/ant.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_BUILD_ARGS 	+= -Ddist=${PROTO_DIR}
-COMPONENT_BUILD_ARGS    += -Djavadocdir=${PROTO_DIR}
+COMPONENT_BUILD_ARGS 	+= -Ddist=$(PROTO_DIR)
+COMPONENT_BUILD_ARGS    += -Djavadocdir=$(PROTO_DIR)
 COMPONENT_BUILD_TARGETS += dist
 
 # common targets
