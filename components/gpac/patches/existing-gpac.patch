@@ -1,6 +1,6 @@
 --- gpac/applications/mp4client/Makefile.orig	2013-09-23 12:05:49.911374509 +0100
 +++ gpac/applications/mp4client/Makefile	2013-09-23 12:07:42.702700745 +0100
-@@ -36,7 +36,7 @@
+@@ -41,7 +41,7 @@
  all: $(PROG)
  
  MP4Client$(EXE): $(OBJS)
@@ -11,7 +11,7 @@
  	rm -f $(OBJS) ../../bin/gcc/$(PROG)
 --- gpac/applications/mp4box/Makefile.orig	2013-09-23 12:38:01.486337823 +0100
 +++ gpac/applications/mp4box/Makefile	2013-09-23 12:38:58.091803814 +0100
-@@ -60,7 +60,7 @@
+@@ -66,7 +66,7 @@
  all: $(PROG)
  
  $(PROG): $(OBJS)
@@ -28,6 +28,17 @@
  $(PROG): $(OBJS)
 -	$(CC) $(LDFLAGS) -o ../../bin/gcc/$@ $(OBJS) $(LINKFLAGS)
 +	$(CC) $(LINKFLAGS) $(LDFLAGS) -o ../../bin/gcc/$@ $(OBJS)
+ 
+ clean: 
+ 	rm -f $(OBJS) ../../bin/gcc/$(PROG)
+--- gpac-fc32cebbe682a47804c8bf9eba6d0d4837aae88f/applications/dashcast/Makefile.orig	2014-11-28 20:55:36.923541729 +0000
++++ gpac-fc32cebbe682a47804c8bf9eba6d0d4837aae88f/applications/dashcast/Makefile	2014-11-28 20:55:55.622545784 +0000
+@@ -54,7 +54,7 @@
+ all: $(PROG)
+ 
+ DashCast$(EXE): $(OBJS)
+-	$(CC) $(LDFLAGS) -o ../../bin/gcc/$@ $(OBJS) -L../../bin/gcc  -lgpac $(LINKLIBS)
++	$(CC) -o ../../bin/gcc/$@ $(OBJS) -L../../bin/gcc $(LDFLAGS) -lgpac $(LINKLIBS)
  
  clean: 
  	rm -f $(OBJS) ../../bin/gcc/$(PROG)
