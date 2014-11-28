@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libwps
 COMPONENT_FMRI=         library/libwps
-COMPONENT_VERSION=      0.2.9
+COMPONENT_VERSION=      0.3.0
 COMPONENT_LICENSE=      LGPLv2.1
 COMPONENT_PROJECT_URL=  "http://libwps.sourceforge.net/"
 COMPONENT_SUMMARY=	libwps is a library for importing the Microsoft Works word processor file format
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:ffd5180b62a1c43039e3e2db00af84b2efb5cc36904a771e545d7d324e8a84d9
+COMPONENT_ARCHIVE_HASH=	sha256:243d1dfc9bb53ac9d05405379a119e9b7d999714de3a3d56f4d3c505cedad43a
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
