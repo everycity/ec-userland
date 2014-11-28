@@ -22,26 +22,15 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/X11
-dir path=$(ECPREFIX)/include/X11/extensions
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/libXrender
-file path=$(ECPREFIX)/include/X11/extensions/Xrender.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libXrender.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libXrender.so.1.3.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xrender.pc
-file path=$(ECPREFIX)/lib/libXrender.la
-file path=$(ECPREFIX)/lib/libXrender.so.1.3.0
-file path=$(ECPREFIX)/lib/pkgconfig/xrender.pc
-file path=$(ECPREFIX)/share/doc/libXrender/libXrender.txt
-link path=$(ECPREFIX)/lib/$(MACH64)/libXrender.so target=libXrender.so.1.3.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libXrender.so.1 target=libXrender.so.1.3.0
-link path=$(ECPREFIX)/lib/libXrender.so target=libXrender.so.1.3.0
-link path=$(ECPREFIX)/lib/libXrender.so.1 target=libXrender.so.1.3.0
+file path=$(USRDIR)/include/X11/extensions/Xrender.h
+file path=$(USRDIR)/lib/$(MACH64)/libXrender.la
+file path=$(USRDIR)/lib/$(MACH64)/libXrender.so.1.3.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xrender.pc
+file path=$(USRDIR)/lib/libXrender.la
+file path=$(USRDIR)/lib/libXrender.so.1.3.0
+file path=$(USRDIR)/lib/pkgconfig/xrender.pc
+file path=$(USRDIR)/share/doc/libXrender/libXrender.txt
+link path=$(USRDIR)/lib/$(MACH64)/libXrender.so target=libXrender.so.1.3.0
+link path=$(USRDIR)/lib/$(MACH64)/libXrender.so.1 target=libXrender.so.1.3.0
+link path=$(USRDIR)/lib/libXrender.so target=libXrender.so.1.3.0
+link path=$(USRDIR)/lib/libXrender.so.1 target=libXrender.so.1.3.0

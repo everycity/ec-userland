@@ -32,7 +32,7 @@ include ../../make-rules/ips.mk
 LD_OPTIONS+=	-M $(PWD)/mapfile-vers
 
 CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic
-CONFIGURE_OPTIONS+=	--with-sysroot=/ec 'LIBS=-lintl'
+CONFIGURE_OPTIONS+=	--with-sysroot=$(USRDIR)
 
 build:		$(BUILD_32_and_64)
 
