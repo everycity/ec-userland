@@ -26,9 +26,8 @@ dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/libwpd-0.9
-dir path=$(ECPREFIX)/include/libwpd-0.9/libwpd
-dir path=$(ECPREFIX)/include/libwpd-0.9/libwpd-stream
+dir path=$(ECPREFIX)/include/libwpd-0.10
+dir path=$(ECPREFIX)/include/libwpd-0.10/libwpd
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
@@ -39,39 +38,17 @@ file path=$(ECPREFIX)/bin/$(MACH64)/wpd2text
 file path=$(ECPREFIX)/bin/wpd2html
 file path=$(ECPREFIX)/bin/wpd2raw
 file path=$(ECPREFIX)/bin/wpd2text
-file path=$(ECPREFIX)/include/libwpd-0.9/libwpd-stream/WPXStream.h
-file \
-    path=$(ECPREFIX)/include/libwpd-0.9/libwpd-stream/WPXStreamImplementation.h
-file path=$(ECPREFIX)/include/libwpd-0.9/libwpd-stream/libwpd-stream.h
-file path=$(ECPREFIX)/include/libwpd-0.9/libwpd/WPDocument.h
-file path=$(ECPREFIX)/include/libwpd-0.9/libwpd/WPXBinaryData.h
-file path=$(ECPREFIX)/include/libwpd-0.9/libwpd/WPXDocumentInterface.h
-file path=$(ECPREFIX)/include/libwpd-0.9/libwpd/WPXProperty.h
-file path=$(ECPREFIX)/include/libwpd-0.9/libwpd/WPXPropertyList.h
-file path=$(ECPREFIX)/include/libwpd-0.9/libwpd/WPXPropertyListVector.h
-file path=$(ECPREFIX)/include/libwpd-0.9/libwpd/WPXString.h
-file path=$(ECPREFIX)/include/libwpd-0.9/libwpd/libwpd.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libwpd-0.9.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libwpd-0.9.so.9.0.9
-file path=$(ECPREFIX)/lib/$(MACH64)/libwpd-stream-0.9.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libwpd-stream-0.9.so.9.0.9
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libwpd-0.9.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libwpd-stream-0.9.pc
-file path=$(ECPREFIX)/lib/libwpd-0.9.la
-file path=$(ECPREFIX)/lib/libwpd-0.9.so.9.0.9
-file path=$(ECPREFIX)/lib/libwpd-stream-0.9.la
-file path=$(ECPREFIX)/lib/libwpd-stream-0.9.so.9.0.9
-file path=$(ECPREFIX)/lib/pkgconfig/libwpd-0.9.pc
-file path=$(ECPREFIX)/lib/pkgconfig/libwpd-stream-0.9.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libwpd-0.9.so target=libwpd-0.9.so.9.0.9
-link path=$(ECPREFIX)/lib/$(MACH64)/libwpd-0.9.so.9 target=libwpd-0.9.so.9.0.9
-link path=$(ECPREFIX)/lib/$(MACH64)/libwpd-stream-0.9.so \
-    target=libwpd-stream-0.9.so.9.0.9
-link path=$(ECPREFIX)/lib/$(MACH64)/libwpd-stream-0.9.so.9 \
-    target=libwpd-stream-0.9.so.9.0.9
-link path=$(ECPREFIX)/lib/libwpd-0.9.so target=libwpd-0.9.so.9.0.9
-link path=$(ECPREFIX)/lib/libwpd-0.9.so.9 target=libwpd-0.9.so.9.0.9
-link path=$(ECPREFIX)/lib/libwpd-stream-0.9.so \
-    target=libwpd-stream-0.9.so.9.0.9
-link path=$(ECPREFIX)/lib/libwpd-stream-0.9.so.9 \
-    target=libwpd-stream-0.9.so.9.0.9
+file path=$(ECPREFIX)/include/libwpd-0.10/libwpd/WPDocument.h
+file path=$(ECPREFIX)/include/libwpd-0.10/libwpd/libwpd.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libwpd-0.10.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libwpd-0.10.so.10.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libwpd-0.10.pc
+file path=$(ECPREFIX)/lib/libwpd-0.10.la
+file path=$(ECPREFIX)/lib/libwpd-0.10.so.10.0.0
+file path=$(ECPREFIX)/lib/pkgconfig/libwpd-0.10.pc
+link path=$(ECPREFIX)/lib/$(MACH64)/libwpd-0.10.so \
+    target=libwpd-0.10.so.10.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libwpd-0.10.so.10 \
+    target=libwpd-0.10.so.10.0.0
+link path=$(ECPREFIX)/lib/libwpd-0.10.so target=libwpd-0.10.so.10.0.0
+link path=$(ECPREFIX)/lib/libwpd-0.10.so.10 target=libwpd-0.10.so.10.0.0
