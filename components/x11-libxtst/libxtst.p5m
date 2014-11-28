@@ -22,45 +22,32 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/X11
-dir path=$(ECPREFIX)/include/X11/extensions
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/libXtst
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man3
-file path=$(ECPREFIX)/include/X11/extensions/XTest.h
-file path=$(ECPREFIX)/include/X11/extensions/record.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libXtst.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libXtst.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libXtst.so.6.1.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xtst.pc
-file path=$(ECPREFIX)/lib/libXtst.a
-file path=$(ECPREFIX)/lib/libXtst.la
-file path=$(ECPREFIX)/lib/libXtst.so.6.1.0
-file path=$(ECPREFIX)/lib/pkgconfig/xtst.pc
-file path=$(ECPREFIX)/share/doc/libXtst/recordlib.xml
-file path=$(ECPREFIX)/share/doc/libXtst/xtestlib.xml
-file path=$(ECPREFIX)/share/man/man3/XTestCompareCurrentCursorWithWindow.3
-file path=$(ECPREFIX)/share/man/man3/XTestCompareCursorWithWindow.3
-file path=$(ECPREFIX)/share/man/man3/XTestDiscard.3
-file path=$(ECPREFIX)/share/man/man3/XTestFakeButtonEvent.3
-file path=$(ECPREFIX)/share/man/man3/XTestFakeKeyEvent.3
-file path=$(ECPREFIX)/share/man/man3/XTestFakeMotionEvent.3
-file path=$(ECPREFIX)/share/man/man3/XTestFakeRelativeMotionEvent.3
-file path=$(ECPREFIX)/share/man/man3/XTestGrabControl.3
-file path=$(ECPREFIX)/share/man/man3/XTestQueryExtension.3
-file path=$(ECPREFIX)/share/man/man3/XTestSetGContextOfGC.3
-file path=$(ECPREFIX)/share/man/man3/XTestSetVisualIDOfVisual.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libXtst.so target=libXtst.so.6.1.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libXtst.so.1 target=libXtst.so.6.1.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libXtst.so.6 target=libXtst.so.6.1.0
-link path=$(ECPREFIX)/lib/libXtst.so target=libXtst.so.6.1.0
-link path=$(ECPREFIX)/lib/libXtst.so.1 target=libXtst.so.6.1.0
-link path=$(ECPREFIX)/lib/libXtst.so.6 target=libXtst.so.6.1.0
+file path=$(USRDIR)/include/X11/extensions/XTest.h
+file path=$(USRDIR)/include/X11/extensions/record.h
+file path=$(USRDIR)/lib/$(MACH64)/libXtst.a
+file path=$(USRDIR)/lib/$(MACH64)/libXtst.la
+file path=$(USRDIR)/lib/$(MACH64)/libXtst.so.6.1.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xtst.pc
+file path=$(USRDIR)/lib/libXtst.a
+file path=$(USRDIR)/lib/libXtst.la
+file path=$(USRDIR)/lib/libXtst.so.6.1.0
+file path=$(USRDIR)/lib/pkgconfig/xtst.pc
+file path=$(USRDIR)/share/doc/libXtst/recordlib.xml
+file path=$(USRDIR)/share/doc/libXtst/xtestlib.xml
+file path=$(USRDIR)/share/man/man3/XTestCompareCurrentCursorWithWindow.3
+file path=$(USRDIR)/share/man/man3/XTestCompareCursorWithWindow.3
+file path=$(USRDIR)/share/man/man3/XTestDiscard.3
+file path=$(USRDIR)/share/man/man3/XTestFakeButtonEvent.3
+file path=$(USRDIR)/share/man/man3/XTestFakeKeyEvent.3
+file path=$(USRDIR)/share/man/man3/XTestFakeMotionEvent.3
+file path=$(USRDIR)/share/man/man3/XTestFakeRelativeMotionEvent.3
+file path=$(USRDIR)/share/man/man3/XTestGrabControl.3
+file path=$(USRDIR)/share/man/man3/XTestQueryExtension.3
+file path=$(USRDIR)/share/man/man3/XTestSetGContextOfGC.3
+file path=$(USRDIR)/share/man/man3/XTestSetVisualIDOfVisual.3
+link path=$(USRDIR)/lib/$(MACH64)/libXtst.so target=libXtst.so.6.1.0
+link path=$(USRDIR)/lib/$(MACH64)/libXtst.so.1 target=libXtst.so.6.1.0
+link path=$(USRDIR)/lib/$(MACH64)/libXtst.so.6 target=libXtst.so.6.1.0
+link path=$(USRDIR)/lib/libXtst.so target=libXtst.so.6.1.0
+link path=$(USRDIR)/lib/libXtst.so.1 target=libXtst.so.6.1.0
+link path=$(USRDIR)/lib/libXtst.so.6 target=libXtst.so.6.1.0

@@ -31,10 +31,10 @@ include ../../make-rules/ips.mk
 
 build:		$(BUILD_32_and_64)
 
-$(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
-	cd $(PROTO_DIR)$(ECPREFIX)/lib && $(SYMLINK) libXtst.so.6.1.0 libXtst.so.1
-	cd $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64) && $(SYMLINK) libXtst.so.6.1.0 libXtst.so.1
+#$(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
+#	cd $(PROTO_DIR)$(USRDIR)/lib && $(SYMLINK) libXtst.so.6.1.0 libXtst.so.1
+#	cd $(PROTO_DIR)$(USRDIR)/lib/$(MACH64) && $(SYMLINK) libXtst.so.6.1.0 libXtst.so.1
 	$(TOUCH) $@
 
-install:	$(BUILD_DIR)/.installed
-
+#install:	$(BUILD_DIR)/.installed
+install:	$(INSTALL_32_and_64)
