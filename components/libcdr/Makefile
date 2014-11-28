@@ -16,14 +16,14 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libcdr
 COMPONENT_FMRI=         library/libcdr
-COMPONENT_VERSION=      0.0.14
-COMPONENT_LICENSE=      MPLv1.1
+COMPONENT_VERSION=      0.1.1
+COMPONENT_LICENSE=      MPLv2.0
 COMPONENT_PROJECT_URL=  "http://www.freedesktop.org/wiki/Software/libcdr/"
 COMPONENT_SUMMARY=	Libcdr provides the ability to interpret and import Corel Draw drawings into various applications
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:515a64df4a06eeab3e97a0af0e4446a98bce590af7eb62298a9f0905f688e313
-COMPONENT_ARCHIVE_URL=	http://dev-www.libreoffice.org/src/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:ea3c28c76afa79cd18f749c8b760ba28ba18260de614cdb8810006eca781d460
+COMPONENT_ARCHIVE_URL=	http://dev-www.libreoffice.org/src/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
