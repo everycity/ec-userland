@@ -35,10 +35,10 @@ CONFIGURE_OPTIONS+=	--disable-static
 
 build:		$(BUILD_32_and_64)
 
-$(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
-	cd $(PROTO_DIR)$(ECPREFIX)/lib && $(SYMLINK) libXi.so.6.1.0 libXi.so.5
-	cd $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64) && $(SYMLINK) libXi.so.6.1.0 libXi.so.5
-	$(TOUCH) $@
+#$(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
+#	cd $(PROTO_DIR)$(ECPREFIX)/lib && $(SYMLINK) libXi.so.6.1.0 libXi.so.5
+#	cd $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64) && $(SYMLINK) libXi.so.6.1.0 libXi.so.5
+#	$(TOUCH) $@
 
-install:	$(BUILD_DIR)/.installed
-
+#install:	$(BUILD_DIR)/.installed
+install:	$(INSTALL_32_and_64)
