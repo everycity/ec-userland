@@ -29,12 +29,16 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+CONFIGURE_ENV.64 += PATH=$(ECPREFIX)/bin/$(MACH64):$(PATH)
+
 CMAKE_OPTIONS+=	-DCMAKE_RELEASE_TYPE=Release
 CMAKE_OPTIONS+=	-DCMAKE_INSTALL_PREFIX=$(ECPREFIX)
 CMAKE_OPTIONS+=	-DINSTALL_BINDIR=$(CONFIGURE_BINDIR.$(BITS))
 CMAKE_OPTIONS+=	-DINSTALL_LIBDIR=$(CONFIGURE_LIBDIR.$(BITS))
 
 CMAKE= cmake
+
+CMAKE_OPTIONS+=	-DCMAKE_SKIP_INSTALL_RPATH=YES -DCMAKE_SKIP_RPATH=YES
 
 $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
 	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
