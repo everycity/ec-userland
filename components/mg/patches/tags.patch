@@ -10,8 +10,8 @@
  #include <sys/types.h>
  
  #include <ctype.h>
-@@ -19,13 +17,18 @@
- 
+@@ -17,13 +15,18 @@
+ #include <string.h>
  #include <stdio.h>
  
 -#if defined(LIBBSD_OVERLAY) || defined(__FreeBSD__)
@@ -19,7 +19,7 @@
 +#if defined(__sun) && defined(__SVR4)
 +#  include "fparseln.h"
  #else
--#  include <util.h>
+-#include <util.h>
 +#  if defined(LIBBSD_OVERLAY) || defined(__FreeBSD__)
 +#    include <libutil.h>
 +#  else

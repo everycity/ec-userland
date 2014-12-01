@@ -1,10 +1,7 @@
 --- mg-20140414/line.c.orig	2014-04-23 21:28:18.164895545 +0100
 +++ mg-20140414/line.c	2014-04-23 21:28:41.933285794 +0100
-@@ -19,8 +19,10 @@
- 
- #include "def.h"
- 
-+#include <limits.h>
+@@ -22,6 +22,7 @@
+ #include <limits.h>
  #include <stdlib.h>
  #include <string.h>
 +#include <strings.h>

@@ -1,10 +1,9 @@
 --- mg-20140414/extend.c.~1~	2014-04-03 20:20:55.000000000 +0100
 +++ mg-20140414/extend.c	2014-04-22 12:39:11.101610003 +0100
-@@ -12,6 +12,8 @@
- 
+@@ -13,6 +13,7 @@
  #include <sys/types.h>
  #include <ctype.h>
-+#include <limits.h>
+ #include <limits.h>
 +#include <strings.h>
  
  #include "macro.h"
