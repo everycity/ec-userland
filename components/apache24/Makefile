@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		httpd
 COMPONENT_FMRI=		web/server/apache-24/httpd
-COMPONENT_VERSION=	2.4.9
+COMPONENT_VERSION=	2.4.10
 COMPONENT_LICENSE=	Apachev2.0
 COMPONENT_PROJECT_URL=	"http://httpd.apache.org/"
 COMPONENT_SUMMARY=	Apache HTTP Server
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:f78cc90dfa47caf3d83ad18fd6b4e85f237777c1733fc9088594b70ce2847603
+COMPONENT_ARCHIVE_HASH=	sha256:176c4dac1a745f07b7b91e7f4fd48f9c48049fa6f088efe758d61d9738669c6a
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_APACHE)
 
 include ../../make-rules/prep.mk
@@ -79,6 +79,7 @@ CONFIGURE_OPTIONS  +=	--enable-suexec
 CONFIGURE_OPTIONS  +=	--with-suexec-caller=webservd
 CONFIGURE_OPTIONS  +=	--enable-proxy
 CONFIGURE_OPTIONS  +=	--enable-proxy-connect
+CONFIGURE_OPTIONS  +=	--enable-proxy-fcgi
 CONFIGURE_OPTIONS  +=	--enable-proxy-ftp
 CONFIGURE_OPTIONS  +=	--enable-proxy-http
 CONFIGURE_OPTIONS  +=	--enable-proxy-ajp
