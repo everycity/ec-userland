@@ -118,7 +118,9 @@ CONFIGURE_OPTIONS     +=	--disable-libgcc
 #CONFIGURE_OPTIONS     +=	--disable-inline-optimization
 #CONFIGURE_OPTIONS     +=	--disable-libtool-lock
 #CONFIGURE_OPTIONS     +=	--disable-rpath
+ifeq ($(SOLARIS_VERSION), 2.11)
 CONFIGURE_OPTIONS     +=	--enable-dtrace
+endif
 CONFIGURE_OPTIONS     +=	--without-dbm
 CONFIGURE_OPTIONS     +=	--without-t1lib
 
