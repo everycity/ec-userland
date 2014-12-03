@@ -25,13 +25,23 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:850062414517055eab2440b788b503d45ebe9b290d4b2e027a5f887ad70f3f29
 COMPONENT_ARCHIVE_URL=	http://www.webta.org/apachetop/$(COMPONENT_ARCHIVE)
 
+ifeq ($(SOLARIS_VERSION), 2.10)
+PUBLISH_STAMP=
+endif
+
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS+=	CPPFLAGS="-I/ec/include/ncurses"
 
-build:		$(BUILD_32_and_64)
+build_2.10:
+	@echo "Not available."
+build_2.11:	$(BUILD_32_and_64)
+build:		build_$(SOLARIS_VERSION)
 
-install:	$(INSTALL_32_and_64)
+install_2.10:
+	@echo "Not available."
+install_2.11:	$(INSTALL_32_and_64)
+install:	install_$(SOLARIS_VERSION)
 
