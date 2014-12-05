@@ -70,3 +70,4 @@
 <transform depend pkg.debug.depend.file=libintl\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libw\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libldap\.so\.5 -> drop>
+<transform depend pkg.debug.depend.file=libsched\.so\.1 -> drop>

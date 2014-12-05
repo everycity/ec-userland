@@ -118,3 +118,4 @@
 <transform link mediator=apache mediator-version=2.2 -> default mediator-priority vendor>
 <transform link mediator=php mediator-version=5.5 -> default mediator-priority vendor>
 <transform link mediator=bdb mediator-version=5.1 -> default mediator-priority vendor>
+<transform link mediator=java mediator-version=1.7 -> default mediator-priority vendor>
