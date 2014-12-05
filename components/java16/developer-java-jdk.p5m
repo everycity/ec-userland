@@ -15,7 +15,7 @@
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/developer/java/jdk@0.5.11,$(BUILD_VERSION)
+set name=pkg.fmri value=pkg:/developer/java/jdk16@0.5.11,$(BUILD_VERSION)
 set name=pkg.description value="Java Platform development tools"
 set name=pkg.summary value="JDK 6.0 Dev. Tools (1.6.0_$(COMPONENT_VERSION))"
 set name=description value="JDK 6.0 Dev. Tools (1.6.0_$(COMPONENT_VERSION))"
@@ -7034,128 +7034,130 @@ file \
 file \
     path=$(USRDIR)/jdk/jdk1.6.0/sample/webservices/EbayServer/src/ebay/server/Main.java
 file path=$(USRDIR)/jdk/jdk1.6.0/src.zip
+
 link path=$(USRDIR)/bin/$(MACH64)/appletviewer \
-    target=../../jdk/active/bin/$(MACH64)/appletviewer
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/appletviewer mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/apt \
-    target=../../jdk/active/bin/$(MACH64)/apt
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/apt mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/extcheck \
-    target=../../jdk/active/bin/$(MACH64)/extcheck
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/extcheck mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/idlj \
-    target=../../jdk/active/bin/$(MACH64)/idlj
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/idlj mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/jar \
-    target=../../jdk/active/bin/$(MACH64)/jar
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/jar mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/jarsigner \
-    target=../../jdk/active/bin/$(MACH64)/jarsigner
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/jarsigner mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/java \
-    target=../../jdk/active/bin/$(MACH64)/java
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/java mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/javac \
-    target=../../jdk/active/bin/$(MACH64)/javac
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/javac mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/javadoc \
-    target=../../jdk/active/bin/$(MACH64)/javadoc
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/javadoc mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/javah \
-    target=../../jdk/active/bin/$(MACH64)/javah
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/javah mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/javap \
-    target=../../jdk/active/bin/$(MACH64)/javap
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/javap mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/jconsole \
-    target=../../jdk/active/bin/$(MACH64)/jconsole
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/jconsole mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/jdb \
-    target=../../jdk/active/bin/$(MACH64)/jdb
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/jdb mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/jhat \
-    target=../../jdk/active/bin/$(MACH64)/jhat
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/jhat mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/jinfo \
-    target=../../jdk/active/bin/$(MACH64)/jinfo
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/jinfo mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/jmap \
-    target=../../jdk/active/bin/$(MACH64)/jmap
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/jmap mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/jps \
-    target=../../jdk/active/bin/$(MACH64)/jps
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/jps mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/jrunscript \
-    target=../../jdk/active/bin/$(MACH64)/jrunscript
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/jrunscript mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/jsadebugd \
-    target=../../jdk/active/bin/$(MACH64)/jsadebugd
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/jsadebugd mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/jstack \
-    target=../../jdk/active/bin/$(MACH64)/jstack
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/jstack mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/jstat \
-    target=../../jdk/active/bin/$(MACH64)/jstat
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/jstat mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/jstatd \
-    target=../../jdk/active/bin/$(MACH64)/jstatd
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/jstatd mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/keytool \
-    target=../../jdk/active/bin/$(MACH64)/keytool
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/keytool mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/native2ascii \
-    target=../../jdk/active/bin/$(MACH64)/native2ascii
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/native2ascii mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/orbd \
-    target=../../jdk/active/bin/$(MACH64)/orbd
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/orbd mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/pack200 \
-    target=../../jdk/active/bin/$(MACH64)/pack200
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/pack200 mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/policytool \
-    target=../../jdk/active/bin/$(MACH64)/policytool
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/policytool mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/rmic \
-    target=../../jdk/active/bin/$(MACH64)/rmic
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/rmic mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/rmid \
-    target=../../jdk/active/bin/$(MACH64)/rmid
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/rmid mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/rmiregistry \
-    target=../../jdk/active/bin/$(MACH64)/rmiregistry
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/rmiregistry mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/schemagen \
-    target=../../jdk/active/bin/$(MACH64)/schemagen
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/schemagen mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/serialver \
-    target=../../jdk/active/bin/$(MACH64)/serialver
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/serialver mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/servertool \
-    target=../../jdk/active/bin/$(MACH64)/servertool
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/servertool mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/tnameserv \
-    target=../../jdk/active/bin/$(MACH64)/tnameserv
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/tnameserv mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/unpack200 \
-    target=../../jdk/active/bin/$(MACH64)/unpack200
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/unpack200 mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/wsgen \
-    target=../../jdk/active/bin/$(MACH64)/wsgen
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/wsgen mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/wsimport \
-    target=../../jdk/active/bin/$(MACH64)/wsimport
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/wsimport mediator=java mediator-version=1.6
 link path=$(USRDIR)/bin/$(MACH64)/xjc \
-    target=../../jdk/active/bin/$(MACH64)/xjc
-link path=$(USRDIR)/bin/ControlPanel target=../jdk/active/bin/ControlPanel
-link path=$(USRDIR)/bin/HtmlConverter target=../jdk/active/bin/HtmlConverter
-link path=$(USRDIR)/bin/appletviewer target=../jdk/active/bin/appletviewer
-link path=$(USRDIR)/bin/apt target=../jdk/active/bin/apt
-link path=$(USRDIR)/bin/extcheck target=../jdk/active/bin/extcheck
-link path=$(USRDIR)/bin/idlj target=../jdk/active/bin/idlj
-link path=$(USRDIR)/bin/jar target=../jdk/active/bin/jar
-link path=$(USRDIR)/bin/jarsigner target=../jdk/active/bin/jarsigner
-link path=$(USRDIR)/bin/java target=../jdk/active/bin/java
-link path=$(USRDIR)/bin/java-rmi.cgi target=../jdk/active/bin/java-rmi.cgi
-link path=$(USRDIR)/bin/javac target=../jdk/active/bin/javac
-link path=$(USRDIR)/bin/javadoc target=../jdk/active/bin/javadoc
-link path=$(USRDIR)/bin/javah target=../jdk/active/bin/javah
-link path=$(USRDIR)/bin/javap target=../jdk/active/bin/javap
-link path=$(USRDIR)/bin/javaws target=../jdk/active/bin/javaws
-link path=$(USRDIR)/bin/jconsole target=../jdk/active/bin/jconsole
-link path=$(USRDIR)/bin/jcontrol target=../jdk/active/bin/jcontrol
-link path=$(USRDIR)/bin/jdb target=../jdk/active/bin/jdb
-link path=$(USRDIR)/bin/jhat target=../jdk/active/bin/jhat
-link path=$(USRDIR)/bin/jinfo target=../jdk/active/bin/jinfo
-link path=$(USRDIR)/bin/jmap target=../jdk/active/bin/jmap
-link path=$(USRDIR)/bin/jps target=../jdk/active/bin/jps
-link path=$(USRDIR)/bin/jrunscript target=../jdk/active/bin/jrunscript
-link path=$(USRDIR)/bin/jsadebugd target=../jdk/active/bin/jsadebugd
-link path=$(USRDIR)/bin/jstack target=../jdk/active/bin/jstack
-link path=$(USRDIR)/bin/jstat target=../jdk/active/bin/jstat
-link path=$(USRDIR)/bin/jstatd target=../jdk/active/bin/jstatd
-link path=$(USRDIR)/bin/jvisualvm target=../jdk/active/bin/jvisualvm
-link path=$(USRDIR)/bin/keytool target=../jdk/active/bin/keytool
-link path=$(USRDIR)/bin/native2ascii target=../jdk/active/bin/native2ascii
-link path=$(USRDIR)/bin/orbd target=../jdk/active/bin/orbd
-link path=$(USRDIR)/bin/pack200 target=../jdk/active/bin/pack200
-link path=$(USRDIR)/bin/policytool target=../jdk/active/bin/policytool
-link path=$(USRDIR)/bin/rmic target=../jdk/active/bin/rmic
-link path=$(USRDIR)/bin/rmid target=../jdk/active/bin/rmid
-link path=$(USRDIR)/bin/rmiregistry target=../jdk/active/bin/rmiregistry
-link path=$(USRDIR)/bin/schemagen target=../jdk/active/bin/schemagen
-link path=$(USRDIR)/bin/serialver target=../jdk/active/bin/serialver
-link path=$(USRDIR)/bin/servertool target=../jdk/active/bin/servertool
-link path=$(USRDIR)/bin/tnameserv target=../jdk/active/bin/tnameserv
-link path=$(USRDIR)/bin/unpack200 target=../jdk/active/bin/unpack200
-link path=$(USRDIR)/bin/wsgen target=../jdk/active/bin/wsgen
-link path=$(USRDIR)/bin/wsimport target=../jdk/active/bin/wsimport
-link path=$(USRDIR)/bin/xjc target=../jdk/active/bin/xjc
-link path=$(USRDIR)/java target=jdk/active
-link path=$(USRDIR)/jdk/active target=jdk1.6.0 preserve=true
+    target=../../jdk/jdk1.6.0/bin/$(MACH64)/xjc mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/ControlPanel target=../jdk/jdk1.6.0/bin/ControlPanel mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/HtmlConverter target=../jdk/jdk1.6.0/bin/HtmlConverter mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/appletviewer target=../jdk/jdk1.6.0/bin/appletviewer mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/apt target=../jdk/jdk1.6.0/bin/apt mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/extcheck target=../jdk/jdk1.6.0/bin/extcheck mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/idlj target=../jdk/jdk1.6.0/bin/idlj mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/jar target=../jdk/jdk1.6.0/bin/jar mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/jarsigner target=../jdk/jdk1.6.0/bin/jarsigner mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/java target=../jdk/jdk1.6.0/bin/java mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/java-rmi.cgi target=../jdk/jdk1.6.0/bin/java-rmi.cgi mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/javac target=../jdk/jdk1.6.0/bin/javac mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/javadoc target=../jdk/jdk1.6.0/bin/javadoc mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/javah target=../jdk/jdk1.6.0/bin/javah mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/javap target=../jdk/jdk1.6.0/bin/javap mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/javaws target=../jdk/jdk1.6.0/bin/javaws mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/jconsole target=../jdk/jdk1.6.0/bin/jconsole mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/jcontrol target=../jdk/jdk1.6.0/bin/jcontrol mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/jdb target=../jdk/jdk1.6.0/bin/jdb mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/jhat target=../jdk/jdk1.6.0/bin/jhat mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/jinfo target=../jdk/jdk1.6.0/bin/jinfo mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/jmap target=../jdk/jdk1.6.0/bin/jmap mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/jps target=../jdk/jdk1.6.0/bin/jps mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/jrunscript target=../jdk/jdk1.6.0/bin/jrunscript mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/jsadebugd target=../jdk/jdk1.6.0/bin/jsadebugd mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/jstack target=../jdk/jdk1.6.0/bin/jstack mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/jstat target=../jdk/jdk1.6.0/bin/jstat mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/jstatd target=../jdk/jdk1.6.0/bin/jstatd mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/jvisualvm target=../jdk/jdk1.6.0/bin/jvisualvm mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/keytool target=../jdk/jdk1.6.0/bin/keytool mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/native2ascii target=../jdk/jdk1.6.0/bin/native2ascii mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/orbd target=../jdk/jdk1.6.0/bin/orbd mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/pack200 target=../jdk/jdk1.6.0/bin/pack200 mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/policytool target=../jdk/jdk1.6.0/bin/policytool mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/rmic target=../jdk/jdk1.6.0/bin/rmic mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/rmid target=../jdk/jdk1.6.0/bin/rmid mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/rmiregistry target=../jdk/jdk1.6.0/bin/rmiregistry mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/schemagen target=../jdk/jdk1.6.0/bin/schemagen mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/serialver target=../jdk/jdk1.6.0/bin/serialver mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/servertool target=../jdk/jdk1.6.0/bin/servertool mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/tnameserv target=../jdk/jdk1.6.0/bin/tnameserv mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/unpack200 target=../jdk/jdk1.6.0/bin/unpack200 mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/wsgen target=../jdk/jdk1.6.0/bin/wsgen mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/wsimport target=../jdk/jdk1.6.0/bin/wsimport mediator=java mediator-version=1.6
+link path=$(USRDIR)/bin/xjc target=../jdk/jdk1.6.0/bin/xjc mediator=java mediator-version=1.6
+
+link path=$(USRDIR)/java target=jdk/jdk1.6.0 mediator=java mediator-version=1.6
+
 link path=$(USRDIR)/jdk/jdk1.6.0/bin/ControlPanel target=jcontrol
 link path=$(USRDIR)/jdk/jdk1.6.0/jre/bin/ControlPanel target=jcontrol
 link path=$(USRDIR)/jdk/jdk1.6.0/jre/javaws/javaws target=../bin/javaws
