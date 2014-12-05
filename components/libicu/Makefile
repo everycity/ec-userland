@@ -9,32 +9,36 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		icu
-COMPONENT_VERSION=	49.1.1
-COMPONENT_OTHER_VERSION=49_1_1
+COMPONENT_FMRI=		library/icu
+COMPONENT_VERSION=	54.1
+COMPONENT_OTHER_VERSION=54_1
+COMPONENT_LICENSE=	MIT
+COMPONENT_PROJECT_URL=	"http://site.icu-project.org/"
+COMPONENT_SUMMARY=	C/C++ and Java libraries providing Unicode and Globalization support for software applications.
 COMPONENT_SRC=		$(COMPONENT_NAME)
 COMPONENT_ARCHIVE=	icu4c-$(COMPONENT_OTHER_VERSION)-src.tgz
-COMPONENT_ARCHIVE_HASH=	sha1:f407d7e2808b76e3a6ca316aab896aef74bf6722
-COMPONENT_ARCHIVE_URL=	\
-    http://download.icu-project.org/files/icu4c/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:d42bc9a8ca6a91c55eb0925c279f49e5b508d51ef26ac9850d9be55de5bb8ab3
+COMPONENT_ARCHIVE_URL=	http://download.icu-project.org/files/icu4c/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-MYCC.32 = $(CC) -march=i686
-MYCC.64 = $(CC)
-MYCC = $(MYCC.$(BITS))
-
-CONFIGURE_ENV += CC="$(MYCC)"
+LDFLAGS_32=	-m32 -L$(BUILD_DIR_32)/lib -L$(BUILD_DIR_32)/stubdata -L/ec/lib -R/ec/lib -lumem
+LDFLAGS_64=	-m64 -L$(BUILD_DIR_64)/lib -L$(BUILD_DIR_64)/stubdata -L/ec/lib/$(MACH64) -R/ec/lib/$(MACH64) -lumem
+LDFLAGS=	$(LDFLAGS_$(BITS))
 
 CONFIGURE_SCRIPT= $(SOURCE_DIR)/source/configure
+
+CONFIGURE_OPTIONS+=	-with-intl=full-icu
 
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
+

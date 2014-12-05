@@ -9,18 +9,18 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/library/icu@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="C/C++ and Java libraries providing Unicode and Globalization support for software applications."
-set name=info.upstream_url value="http://site.icu-project.org/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license license.html license="ICU License"
+license license.html license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -49,7 +49,7 @@ file path=$(ECPREFIX)/bin/$(MACH64)/genccode
 file path=$(ECPREFIX)/bin/$(MACH64)/gencfu
 file path=$(ECPREFIX)/bin/$(MACH64)/gencmn
 file path=$(ECPREFIX)/bin/$(MACH64)/gencnval
-file path=$(ECPREFIX)/bin/$(MACH64)/genctd
+file path=$(ECPREFIX)/bin/$(MACH64)/gendict
 file path=$(ECPREFIX)/bin/$(MACH64)/gennorm2
 file path=$(ECPREFIX)/bin/$(MACH64)/genrb
 file path=$(ECPREFIX)/bin/$(MACH64)/gensprep
@@ -65,7 +65,7 @@ file path=$(ECPREFIX)/bin/genccode
 file path=$(ECPREFIX)/bin/gencfu
 file path=$(ECPREFIX)/bin/gencmn
 file path=$(ECPREFIX)/bin/gencnval
-file path=$(ECPREFIX)/bin/genctd
+file path=$(ECPREFIX)/bin/gendict
 file path=$(ECPREFIX)/bin/gennorm2
 file path=$(ECPREFIX)/bin/genrb
 file path=$(ECPREFIX)/bin/gensprep
@@ -82,6 +82,7 @@ file path=$(ECPREFIX)/include/layout/LEInsertionList.h
 file path=$(ECPREFIX)/include/layout/LELanguages.h
 file path=$(ECPREFIX)/include/layout/LEScripts.h
 file path=$(ECPREFIX)/include/layout/LESwaps.h
+file path=$(ECPREFIX)/include/layout/LETableReference.h
 file path=$(ECPREFIX)/include/layout/LETypes.h
 file path=$(ECPREFIX)/include/layout/LayoutEngine.h
 file path=$(ECPREFIX)/include/layout/ParagraphLayout.h
@@ -92,8 +93,6 @@ file path=$(ECPREFIX)/include/layout/plruns.h
 file path=$(ECPREFIX)/include/unicode/alphaindex.h
 file path=$(ECPREFIX)/include/unicode/appendable.h
 file path=$(ECPREFIX)/include/unicode/basictz.h
-file path=$(ECPREFIX)/include/unicode/bms.h
-file path=$(ECPREFIX)/include/unicode/bmsearch.h
 file path=$(ECPREFIX)/include/unicode/brkiter.h
 file path=$(ECPREFIX)/include/unicode/bytestream.h
 file path=$(ECPREFIX)/include/unicode/bytestrie.h
@@ -104,7 +103,7 @@ file path=$(ECPREFIX)/include/unicode/chariter.h
 file path=$(ECPREFIX)/include/unicode/choicfmt.h
 file path=$(ECPREFIX)/include/unicode/coleitr.h
 file path=$(ECPREFIX)/include/unicode/coll.h
-file path=$(ECPREFIX)/include/unicode/colldata.h
+file path=$(ECPREFIX)/include/unicode/compactdecimalformat.h
 file path=$(ECPREFIX)/include/unicode/curramt.h
 file path=$(ECPREFIX)/include/unicode/currpinf.h
 file path=$(ECPREFIX)/include/unicode/currunit.h
@@ -119,15 +118,19 @@ file path=$(ECPREFIX)/include/unicode/dtitvfmt.h
 file path=$(ECPREFIX)/include/unicode/dtitvinf.h
 file path=$(ECPREFIX)/include/unicode/dtptngen.h
 file path=$(ECPREFIX)/include/unicode/dtrule.h
+file path=$(ECPREFIX)/include/unicode/enumset.h
 file path=$(ECPREFIX)/include/unicode/errorcode.h
 file path=$(ECPREFIX)/include/unicode/fieldpos.h
+file path=$(ECPREFIX)/include/unicode/filteredbrk.h
 file path=$(ECPREFIX)/include/unicode/fmtable.h
 file path=$(ECPREFIX)/include/unicode/format.h
 file path=$(ECPREFIX)/include/unicode/fpositer.h
+file path=$(ECPREFIX)/include/unicode/gender.h
 file path=$(ECPREFIX)/include/unicode/gregocal.h
 file path=$(ECPREFIX)/include/unicode/icudataver.h
 file path=$(ECPREFIX)/include/unicode/icuplug.h
 file path=$(ECPREFIX)/include/unicode/idna.h
+file path=$(ECPREFIX)/include/unicode/listformatter.h
 file path=$(ECPREFIX)/include/unicode/localpointer.h
 file path=$(ECPREFIX)/include/unicode/locdspnm.h
 file path=$(ECPREFIX)/include/unicode/locid.h
@@ -151,9 +154,12 @@ file path=$(ECPREFIX)/include/unicode/rbbi.h
 file path=$(ECPREFIX)/include/unicode/rbnf.h
 file path=$(ECPREFIX)/include/unicode/rbtz.h
 file path=$(ECPREFIX)/include/unicode/regex.h
+file path=$(ECPREFIX)/include/unicode/region.h
+file path=$(ECPREFIX)/include/unicode/reldatefmt.h
 file path=$(ECPREFIX)/include/unicode/rep.h
 file path=$(ECPREFIX)/include/unicode/resbund.h
 file path=$(ECPREFIX)/include/unicode/schriter.h
+file path=$(ECPREFIX)/include/unicode/scientificformathelper.h
 file path=$(ECPREFIX)/include/unicode/search.h
 file path=$(ECPREFIX)/include/unicode/selfmt.h
 file path=$(ECPREFIX)/include/unicode/simpletz.h
@@ -198,7 +204,10 @@ file path=$(ECPREFIX)/include/unicode/udat.h
 file path=$(ECPREFIX)/include/unicode/udata.h
 file path=$(ECPREFIX)/include/unicode/udateintervalformat.h
 file path=$(ECPREFIX)/include/unicode/udatpg.h
+file path=$(ECPREFIX)/include/unicode/udisplaycontext.h
 file path=$(ECPREFIX)/include/unicode/uenum.h
+file path=$(ECPREFIX)/include/unicode/uformattable.h
+file path=$(ECPREFIX)/include/unicode/ugender.h
 file path=$(ECPREFIX)/include/unicode/uidna.h
 file path=$(ECPREFIX)/include/unicode/uiter.h
 file path=$(ECPREFIX)/include/unicode/uldnames.h
@@ -216,9 +225,11 @@ file path=$(ECPREFIX)/include/unicode/unistr.h
 file path=$(ECPREFIX)/include/unicode/unorm.h
 file path=$(ECPREFIX)/include/unicode/unorm2.h
 file path=$(ECPREFIX)/include/unicode/unum.h
+file path=$(ECPREFIX)/include/unicode/unumsys.h
 file path=$(ECPREFIX)/include/unicode/uobject.h
 file path=$(ECPREFIX)/include/unicode/upluralrules.h
 file path=$(ECPREFIX)/include/unicode/uregex.h
+file path=$(ECPREFIX)/include/unicode/uregion.h
 file path=$(ECPREFIX)/include/unicode/urename.h
 file path=$(ECPREFIX)/include/unicode/urep.h
 file path=$(ECPREFIX)/include/unicode/ures.h
@@ -282,8 +293,9 @@ file path=$(ECPREFIX)/share/icu/$(COMPONENT_VERSION)/license.html
 file path=$(ECPREFIX)/share/icu/$(COMPONENT_VERSION)/mkinstalldirs
 file path=$(ECPREFIX)/share/man/man1/derb.1
 file path=$(ECPREFIX)/share/man/man1/genbrk.1
+file path=$(ECPREFIX)/share/man/man1/gencfu.1
 file path=$(ECPREFIX)/share/man/man1/gencnval.1
-file path=$(ECPREFIX)/share/man/man1/genctd.1
+file path=$(ECPREFIX)/share/man/man1/gendict.1
 file path=$(ECPREFIX)/share/man/man1/genrb.1
 file path=$(ECPREFIX)/share/man/man1/icu-config.1
 file path=$(ECPREFIX)/share/man/man1/makeconv.1
@@ -299,63 +311,63 @@ link path=$(ECPREFIX)/lib/$(MACH64)/icu/current target=$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/$(MACH64)/icu/pkgdata.inc target=current/pkgdata.inc
 link path=$(ECPREFIX)/lib/$(MACH64)/libicudata.so \
     target=libicudata.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libicudata.so.49 \
+link path=$(ECPREFIX)/lib/$(MACH64)/libicudata.so.54 \
     target=libicudata.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/$(MACH64)/libicui18n.so \
     target=libicui18n.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libicui18n.so.49 \
+link path=$(ECPREFIX)/lib/$(MACH64)/libicui18n.so.54 \
     target=libicui18n.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/$(MACH64)/libicuio.so \
     target=libicuio.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libicuio.so.49 \
+link path=$(ECPREFIX)/lib/$(MACH64)/libicuio.so.54 \
     target=libicuio.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/$(MACH64)/libicule.so \
     target=libicule.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libicule.so.49 \
+link path=$(ECPREFIX)/lib/$(MACH64)/libicule.so.54 \
     target=libicule.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/$(MACH64)/libiculx.so \
     target=libiculx.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libiculx.so.49 \
+link path=$(ECPREFIX)/lib/$(MACH64)/libiculx.so.54 \
     target=libiculx.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/$(MACH64)/libicutest.so \
     target=libicutest.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libicutest.so.49 \
+link path=$(ECPREFIX)/lib/$(MACH64)/libicutest.so.54 \
     target=libicutest.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/$(MACH64)/libicutu.so \
     target=libicutu.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libicutu.so.49 \
+link path=$(ECPREFIX)/lib/$(MACH64)/libicutu.so.54 \
     target=libicutu.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/$(MACH64)/libicuuc.so \
     target=libicuuc.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libicuuc.so.49 \
+link path=$(ECPREFIX)/lib/$(MACH64)/libicuuc.so.54 \
     target=libicuuc.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/icu/Makefile.inc target=current/Makefile.inc
 link path=$(ECPREFIX)/lib/icu/current target=$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/icu/pkgdata.inc target=current/pkgdata.inc
 link path=$(ECPREFIX)/lib/libicudata.so \
     target=libicudata.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libicudata.so.49 \
+link path=$(ECPREFIX)/lib/libicudata.so.54 \
     target=libicudata.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/libicui18n.so \
     target=libicui18n.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libicui18n.so.49 \
+link path=$(ECPREFIX)/lib/libicui18n.so.54 \
     target=libicui18n.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/libicuio.so target=libicuio.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libicuio.so.49 \
+link path=$(ECPREFIX)/lib/libicuio.so.54 \
     target=libicuio.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/libicule.so target=libicule.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libicule.so.49 \
+link path=$(ECPREFIX)/lib/libicule.so.54 \
     target=libicule.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/libiculx.so target=libiculx.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libiculx.so.49 \
+link path=$(ECPREFIX)/lib/libiculx.so.54 \
     target=libiculx.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/libicutest.so \
     target=libicutest.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libicutest.so.49 \
+link path=$(ECPREFIX)/lib/libicutest.so.54 \
     target=libicutest.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/libicutu.so target=libicutu.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libicutu.so.49 \
+link path=$(ECPREFIX)/lib/libicutu.so.54 \
     target=libicutu.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/libicuuc.so target=libicuuc.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libicuuc.so.49 \
+link path=$(ECPREFIX)/lib/libicuuc.so.54 \
     target=libicuuc.so.$(COMPONENT_VERSION)
