@@ -1,0 +1,79 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL"), version 1.0.
+# You may only use this file in accordance with the terms of version
+# 1.0 of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source.  A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2013 Alexander Pyhalov.  All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/developer/java/openjdk7-64@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="OpenJDK 7 64-bit development tools"
+set name=info.classification value="org.opensolaris.category.2008:Development/Java"
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+depend type=require fmri=pkg:/developer/java/openjdk7@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+
+license openjdk.license license="GPLv2 with Classpath Exception"
+
+# Generated section:
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/native2ascii
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/jarsigner
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/jrunscript
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/rmic
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/idlj
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/jar
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/jstatd
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/jhat
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/jconsole
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/jinfo
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/schemagen
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/jmap
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/wsgen
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/jcmd
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/serialver
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/xjc
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/jdb
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/jps
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/wsimport
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/appletviewer
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/jstat
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/apt
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/extcheck
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/jsadebugd
+file  mode=0555  path=$(USRDIR)/jdk/instances/openjdk1.7.0/bin/$(MACH64)/jstack
+
+link path=$(USRDIR)/bin/$(MACH64)/native2ascii target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/native2ascii mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/jarsigner target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/jarsigner mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/jrunscript target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/jrunscript mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/rmic target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/rmic mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/idlj target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/idlj mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/jar target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/jar mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/jstatd target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/jstatd mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/jhat target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/jhat mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/jconsole target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/jconsole mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/jinfo target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/jinfo mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/schemagen target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/schemagen mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/jmap target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/jmap mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/wsgen target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/wsgen mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/jcmd target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/jcmd mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/serialver target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/serialver mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/xjc target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/xjc mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/jdb target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/jdb mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/jps target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/jps mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/wsimport target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/wsimport mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/appletviewer target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/appletviewer mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/jstat target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/jstat mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/apt target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/apt mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/extcheck target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/extcheck mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/jsadebugd target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/jsadebugd mediator=java mediator-version=1.7
+link path=$(USRDIR)/bin/$(MACH64)/jstack target=../../jdk/instances/openjdk1.7.0/bin/$(MACH64)/jstack mediator=java mediator-version=1.7

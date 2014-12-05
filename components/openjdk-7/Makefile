@@ -1,0 +1,170 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL"), version 1.0.
+# You may only use this file in accordance with the terms of version
+# 1.0 of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source.  A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2013 Alexander Pyhalov.  All rights reserved.
+#
+
+include ../../make-rules/shared-macros.mk
+
+COMPONENT_NAME= oppenjdk-7
+
+OPENJDK_BUILD_NUMBER=60
+COMPONENT_VERSION=1.7.$(OPENJDK_BUILD_NUMBER)
+COMPONENT_SUMMARY= Open-source implementation of the Java Platform, Standard Edition
+COMPONENT_SRC= openjdk
+COMPONENT_ARCHIVE= openjdk-$(COMPONENT_VERSION)-20140614.tar.bz2
+COMPONENT_ARCHIVE_HASH= \
+  sha256:6b2a05e609b0772490e7d68e20efcd76f13881132b0234905bb2b09da680fb82
+COMPONENT_ARCHIVE_URL= \
+  http://ftp.netbsd.org/pub/pkgsrc/distfiles/LOCAL_PORTS/openjdk7/$(COMPONENT_ARCHIVE)
+COMPONENT_PROJECT_URL = http://openjdk.java.net/
+
+CLEAN_PATHS += $(BUILD_DIR)
+
+ICEDTEA7=icedtea7-02bbff3d71ff
+#ICEDTEA_WEB=icedtea-web-9e1f7dc48c20
+ICEDTEA_WEB=icedtea-web-6ec72d653144
+RHINO=rhino1_7R3
+
+COMPONENT_ARCHIVE_1=cacerts-20091013.tar.bz2
+COMPONENT_ARCHIVE_URL_1=http://ftp.netbsd.org/pub/pkgsrc/distfiles/LOCAL_PORTS/openjdk7/$(COMPONENT_ARCHIVE_1)
+COMPONENT_ARCHIVE_HASH_1=sha256:c726fce803cbfba199f3d0787493ca42690658603402be9bb53bb0909a10b191
+CLEAN_PATHS += cacerts
+CLEAN_PATHS += cacerts.out
+
+COMPONENT_ARCHIVE_2=$(ICEDTEA7).tar.bz2
+COMPONENT_ARCHIVE_URL_2=http://icedtea.classpath.org/hg/icedtea7/archive/02bbff3d71ff.tar.bz2
+CLEAN_PATHS += $(ICEDTEA7)
+# Source is mercurial, hash is changing
+
+COMPONENT_ARCHIVE_3=$(ICEDTEA_WEB).tar.bz2
+COMPONENT_ARCHIVE_URL_3=http://icedtea.classpath.org/hg/icedtea-web/archive/6ec72d653144.tar.bz2
+CLEAN_PATHS += $(ICEDTEA_WEB)
+# Source is mercurial, hash is changing
+
+COMPONENT_NAME_4=$(RHINO)
+COMPONENT_ARCHIVE_4=$(COMPONENT_NAME_4).zip
+COMPONENT_ARCHIVE_URL_4=http://ftp.mozilla.org/pub/mozilla.org/js/$(COMPONENT_ARCHIVE_4)
+COMPONENT_ARCHIVE_HASH_4=sha256:885b46e24fe5af23ad3712c5e08e8d97d6d92a4b89e1be860e8fe88e4a3dacd1
+CLEAN_PATHS += $(RHINO)
+
+include ../../make-rules/prep.mk
+include ../../make-rules/ips.mk
+
+PATCH_LEVEL=0
+
+COMPONENT_POST_UNPACK_ACTION += rm -fr $(ICEDTEA7) $(RHINO) $(ICEDTEA_WEB) cacerts cacerts.out;
+COMPONENT_POST_UNPACK_ACTION += $(UNPACK) $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE_1) ;
+COMPONENT_POST_UNPACK_ACTION += $(UNPACK) $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE_2) ;
+COMPONENT_POST_UNPACK_ACTION += $(UNPACK) $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE_3) ;
+COMPONENT_POST_UNPACK_ACTION += $(UNPACK) $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE_4) ;
+
+COMPONENT_PREP_ACTION += cp -a $(ICEDTEA_WEB)/plugin/icedteanp/java/* source/$(COMPONENT_SRC)/jdk/src/share/classes ;
+COMPONENT_PREP_ACTION += cp -a $(ICEDTEA_WEB)/netx/* source/$(COMPONENT_SRC)/jdk/src/share/classes ;
+
+# build the configured source
+# We need to copy, not use CLONEY, so this part of Makefile is rewritten
+$(BUILD_DIR)/%/.built: $(SOURCE_DIR)/.prep
+	$(RM) -r $(@D) ; $(MKDIR) $(@D)
+	chmod -R u+r  $(SOURCE_DIR)
+	cp -a $(SOURCE_DIR)/* $(@D)
+	$(COMPONENT_PRE_BUILD_ACTION)
+	(cd $(@D) ; $(ENV) $(COMPONENT_BUILD_ENV) \
+		$(GMAKE) $(COMPONENT_BUILD_GMAKE_ARGS) $(COMPONENT_BUILD_ARGS) \
+		$(COMPONENT_BUILD_TARGETS))
+	$(COMPONENT_POST_BUILD_ACTION)
+ifeq   ($(strip $(PARFAIT_BUILD)),yes)
+	-$(PARFAIT) build
+endif
+	$(TOUCH) $@
+
+ALT_LIB_PATH.32=$(USRDIR)/lib
+ALT_LIB_PATH.64=$(USRDIR)/lib/$(MACH64)
+
+LDFLAGS += -L$(ALT_LIB_PATH.$(BITS))
+LDFLAGS += -liconv
+
+export OTHER_LDFLAGS="$(LDFLAGS)"
+
+COMPONENT_ENV+=      LANG=C
+COMPONENT_ENV+=      CC=$(CC)
+COMPONENT_ENV+=      CXX=$(CXX)
+COMPONENT_ENV+=      OTHER_LDFLAGS="$(LDFLAGS)"
+COMPONENT_ENV+=      ALT_BOOTDIR=$(JAVA_HOME)
+COMPONENT_ENV+=      ALT_OBJCOPY=$(USRDIR)/bin/objcopy
+#COMPONENT_ENV+=      DUMP=/usr/bin/elfdump
+COMPONENT_ENV+=      DUMP=/usr/bin/dump
+COMPONENT_ENV+=      LDD=/usr/bin/ldd
+COMPONENT_ENV+=      CPIO=/usr/bin/cpio
+COMPONENT_ENV+=      NAWK=$(USRDIR)/bin/gawk
+COMPONENT_ENV+=      SED=$(USRDIR)/bin/gsed
+COMPONENT_ENV+=      ZIPEXE=$(USRDIR)/bin/zip
+COMPONENT_ENV+=      SH=$(USRDIR)/bin/bash
+COMPONENT_ENV+=      ALT_COMPILER_PATH=$(GCC_ROOT)/bin/
+COMPONENT_ENV+=      ALT_CUPS_HEADERS_PATH=$(USRDIR)/include/
+COMPONENT_ENV+=      ALT_FREETYPE_HEADERS_PATH=$(USRDIR)/include/freetype2/
+COMPONENT_ENV+=      HOTSPOT_BUILD_JOBS=1
+COMPONENT_ENV+=      NO_DOCS=true
+COMPONENT_ENV+=      SKIP_COMPARE_IMAGES=true
+COMPONENT_ENV+=      SKIP_FASTDEBUG_BUILD=yes
+COMPONENT_ENV+=      SKIP_DEBUG_BUILD=yes
+COMPONENT_ENV+=      USE_GCC=yes
+COMPONENT_ENV+=      RHINO_JAR=$(COMPONENT_DIR)/rhino1_7R3/js.jar
+COMPONENT_ENV+=      ARCH_DATA_MODEL=$(BITS)
+COMPONENT_ENV+=      PREFIX=$(USRDIR)
+COMPONENT_ENV+=      JDK_MICRO_VERSION="0_0$(OPENJDK_BUILD_NUMBER)"
+COMPONENT_ENV+=      STRIP=$(USRDIR)/bin/gstrip
+COMPONENT_ENV+=      NO_STRIP=true
+COMPONENT_ENV+=      ALT_STRIP_POLICY=no_strip
+COMPONENT_ENV+=      ALT_PACKAGE_PATH=$(USRDIR)
+#COMPONENT_ENV+=      ALT_X11_PATH=$(USRDIR)/X11
+COMPONENT_ENV+=      ALT_UNIXCCS_PATH=$(USRDIR)/bin/
+COMPONENT_ENV+=      ALT_UNIXCOMMAND_PATH=$(USRDIR)/bin/
+COMPONENT_ENV+=      ALT_DEVTOOLS_PATH=$(USRDIR)/bin/
+COMPONENT_ENV+=      ALT_FREETYPE_LIB_PATH=$(ALT_LIB_PATH.$(BITS))
+
+COMPONENT_BUILD_ENV =   $(COMPONENT_ENV)
+
+COMPONENT_BUILD_ARGS = \
+	CC="$(CC)" \
+	CXX="$(CXX)" \
+	ALT_LIB_PATH="$(ALT_LIB_PATH.$(BITS))" \
+	STRIP="$(USRDIR)/bin/gstrip" \
+	DUMP="/usr/bin/dump" \
+	NAWK="$(USRDIR)/bin/gawk" \
+	SED="$(USRDIR)/bin/gsed" \
+	ZIPEXE="$(USRDIR)/bin/zip" \
+	SH="$(USRDIR)/bin/bash" \
+	CPIO="/usr/bin/cpio" \
+	LDD="/usr/bin/ldd"
+
+cacerts.out: $(BUILD_32)
+	for cert in $(COMPONENT_DIR)/cacerts/*.crt; do                 \
+                echo yes | LD_LIBRARY_PATH=$(USRDIR)/lib:$(BUILD_DIR_32)/build/solaris-i586/j2sdk-image/jre/lib/i386 LC_ALL=C $(BUILD_DIR_32)/build/solaris-i586/j2sdk-image/bin/keytool              \
+                  -importcert                                           \
+                  -keystore $@                                  \
+                  -alias `echo $$cert | $(GSED) -e 's,.*/\\([^/]*\\)\\.crt,\\1,'` \
+                  -file $$cert                                          \
+                  -storepass pkgsrc;                                    \
+        done
+
+$(BUILD_DIR)/%/.installed: $(BUILD_DIR)/%/.built cacerts.out
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/jdk/instances/openjdk1.7.0
+	cp -a $(@D)/build/solaris-*/j2sdk-image/* $(PROTO_DIR)$(USRDIR)/jdk/instances/openjdk1.7.0
+	$(TOUCH) $@
+
+build: $(BUILD_32_and_64) cacerts.out
+
+install: $(INSTALL_32_and_64)
+
+.NOTPARALLEL:

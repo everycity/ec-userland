@@ -1,0 +1,14 @@
+Index: hotspot/src/share/vm/utilities/globalDefinitions_gcc.hpp
+===================================================================
+--- hotspot/src/share/vm/utilities/globalDefinitions_gcc.hpp.orig
++++ hotspot/src/share/vm/utilities/globalDefinitions_gcc.hpp
+@@ -270,6 +270,9 @@ inline int g_isnan(double f) { return is
+ // GCC 4.3 does not allow 0.0/0.0 to produce a NAN value
+ #if (__GNUC__ == 4) && (__GNUC_MINOR__ > 2)
+ #define CAN_USE_NAN_DEFINE 1
++#ifndef NAN
++#define NAN (__builtin_nanf(""))
++#endif
+ #endif
+ 
+ 
