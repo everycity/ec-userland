@@ -24,6 +24,7 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 # Custom Entries
 # Note ownership of var/varnish further down
+depend fmri=pkg:/developer/gcc-44 type=require
 depend fmri=pkg:/developer/gnu-binutils type=require
 dir path=$(ECPREFIX)/var/svc
 dir path=$(ECPREFIX)/var/svc/method
@@ -60,7 +61,7 @@ dir path=$(ECPREFIX)/share/varnish/include
 dir path=$(ECPREFIX)/share/varnish/include/cache
 dir path=$(ECPREFIX)/share/varnish/include/common
 dir path=$(ECPREFIX)/var
-dir path=$(ECPREFIX)/var/varnish user=webservd group=webservd
+dir path=$(ECPREFIX)/var/varnish owner=webservd group=webservd
 file path=$(ECPREFIX)/bin/$(MACH64)/varnishadm
 file path=$(ECPREFIX)/bin/$(MACH64)/varnishd
 file path=$(ECPREFIX)/bin/$(MACH64)/varnishhist
