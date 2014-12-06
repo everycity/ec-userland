@@ -113,7 +113,6 @@
 /^libtiff$/d
 /^libusb-ugen$/d
 /^libusb-wrapper$/d
-/^libuuid$/d
 /^libv8$/d
 /^libvorbis$/d
 /^libwpd$/d
