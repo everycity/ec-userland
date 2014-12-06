@@ -61,6 +61,9 @@ CLEAN_PATHS += $(RHINO)
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
 
+# test build stuff isn't thread safe
+override COMPONENT_BUILD_GMAKE_ARGS=
+
 PATCH_LEVEL=0
 
 COMPONENT_POST_UNPACK_ACTION += rm -fr $(ICEDTEA7) $(RHINO) $(ICEDTEA_WEB) cacerts cacerts.out;
