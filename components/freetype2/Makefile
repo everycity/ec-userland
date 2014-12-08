@@ -16,20 +16,34 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		freetype
 COMPONENT_FMRI=		library/freetype2
-COMPONENT_VERSION=	2.5.3
+COMPONENT_VERSION=	2.5.4
 COMPONENT_LICENSE=	Freetype
 COMPONENT_PROJECT_URL=	"http://www.freetype.org/"
 COMPONENT_SUMMARY=	FreeType 2 font engine
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:c0848b29d52ef3ca27ad92e08351f023c5e24ce8cea7d8fe69fc96358e65f75e
+COMPONENT_ARCHIVE_HASH=	sha256:3b4e2c666b33b32ad29ff0fe5c6538e757d3c73368e5dfa88bd59b4bc95cbabb
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_SAVANNAH)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+CLEAN_PATHS +=	ftconfig.h
+
 build:		$(BUILD_32_and_64)
 
-install:	$(INSTALL_32_and_64)
+$(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
+	# Note: freetype2 generates a header file, include/freetype2/ftconfig.h
+	# This header file is different depending on 32bit or 64bit build
+	/usr/bin/echo "/* EC: combining 32 and 64bit versions */\n\n#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/ftconfig.h
+	/usr/bin/cat $(BUILD_DIR_64)/ftconfig.h >> $(COMPONENT_DIR)/ftconfig.h
+	/usr/bin/echo "\n#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/ftconfig.h
+	/usr/bin/cat $(BUILD_DIR_32)/ftconfig.h >> $(COMPONENT_DIR)/ftconfig.h
+	/usr/bin/echo "\n#endif /* EC */" >> $(COMPONENT_DIR)/ftconfig.h
+	$(RM) $(PROTO_DIR)$(ECPREFIX)/include/freetype2/ftconfig.h
+	$(INSTALL) $(COMPONENT_DIR)/ftconfig.h $(PROTO_DIR)$(ECPREFIX)/include/freetype2/ftconfig.h
+	$(TOUCH) $@
+
+install:	$(BUILD_DIR)/.installed
 

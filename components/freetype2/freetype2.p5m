@@ -55,6 +55,7 @@ file path=$(ECPREFIX)/include/freetype2/ftcache.h
 file path=$(ECPREFIX)/include/freetype2/ftcffdrv.h
 file path=$(ECPREFIX)/include/freetype2/ftchapters.h
 file path=$(ECPREFIX)/include/freetype2/ftcid.h
+file path=$(ECPREFIX)/include/freetype2/ftconfig.h
 file path=$(ECPREFIX)/include/freetype2/fterrdef.h
 file path=$(ECPREFIX)/include/freetype2/fterrors.h
 file path=$(ECPREFIX)/include/freetype2/ftgasp.h
@@ -91,17 +92,17 @@ file path=$(ECPREFIX)/include/freetype2/tttags.h
 file path=$(ECPREFIX)/include/freetype2/ttunpat.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libfreetype.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libfreetype.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libfreetype.so.6.11.2
+file path=$(ECPREFIX)/lib/$(MACH64)/libfreetype.so.6.11.3
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/freetype2.pc
 file path=$(ECPREFIX)/lib/libfreetype.a
 file path=$(ECPREFIX)/lib/libfreetype.la
-file path=$(ECPREFIX)/lib/libfreetype.so.6.11.2
+file path=$(ECPREFIX)/lib/libfreetype.so.6.11.3
 file path=$(ECPREFIX)/lib/pkgconfig/freetype2.pc
 file path=$(ECPREFIX)/share/aclocal/freetype2.m4
 file path=$(ECPREFIX)/share/man/man1/freetype-config.1
 link path=$(ECPREFIX)/lib/$(MACH64)/libfreetype.so \
-    target=libfreetype.so.6.11.2
+    target=libfreetype.so.6.11.3
 link path=$(ECPREFIX)/lib/$(MACH64)/libfreetype.so.6 \
-    target=libfreetype.so.6.11.2
-link path=$(ECPREFIX)/lib/libfreetype.so target=libfreetype.so.6.11.2
-link path=$(ECPREFIX)/lib/libfreetype.so.6 target=libfreetype.so.6.11.2
+    target=libfreetype.so.6.11.3
+link path=$(ECPREFIX)/lib/libfreetype.so target=libfreetype.so.6.11.3
+link path=$(ECPREFIX)/lib/libfreetype.so.6 target=libfreetype.so.6.11.3
