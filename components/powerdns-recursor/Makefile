@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		powerdns-recursor
 COMPONENT_FMRI=         network/powerdns/recursor
-COMPONENT_VERSION=	3.6.1
+COMPONENT_VERSION=	3.6.2
 COMPONENT_LICENSE=      GPLv2
 COMPONENT_PROJECT_URL=  https://www.powerdns.com/recursor.html
 COMPONENT_SUMMARY=	PowerDNS high performance recursive DNS server
 COMPONENT_SRC=		pdns-recursor-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:e57bad320d67d08604fc6f6b7e49b5553cfb5baf3460a3e06d53ba2f7d8de396
+COMPONENT_ARCHIVE_HASH=	sha256:d9abf5bb5982cee1c3ba6eaa684d2777b7c0d3f038e201dd4e7362b4652750a4
 COMPONENT_ARCHIVE_URL=	http://downloads.powerdns.com/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
