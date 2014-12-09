@@ -9,14 +9,14 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/network/powerdns/backend/mysql@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="A high performance DNS Name Server - MySQL Backend"
+set name=pkg.fmri value=pkg:/network/powerdns/backend/random@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="A high performance DNS Name Server - Random Backend"
 set name=info.upstream_url value="http://www.powerdns.com/"
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
@@ -29,11 +29,7 @@ dir path=$(ECPREFIX)/lib/powerdns
 dir path=$(ECPREFIX)/lib/powerdns/$(MACH64)
 dir path=$(ECPREFIX)/lib/powerdns/$(MACH64)/pdns
 dir path=$(ECPREFIX)/lib/powerdns/pdns
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/pdns
-file path=$(ECPREFIX)/lib/powerdns/$(MACH64)/pdns/libgmysqlbackend.so
-file path=$(ECPREFIX)/lib/powerdns/pdns/libgmysqlbackend.so
-file path=$(ECPREFIX)/share/doc/pdns/dnssec-3.x_to_3.4.0_schema.mysql.sql
-file path=$(ECPREFIX)/share/doc/pdns/nodnssec-3.x_to_3.4.0_schema.mysql.sql
-file path=$(ECPREFIX)/share/doc/pdns/schema.mysql.sql
+file path=$(ECPREFIX)/lib/powerdns/$(MACH64)/pdns/librandombackend.la
+file path=$(ECPREFIX)/lib/powerdns/$(MACH64)/pdns/librandombackend.so
+file path=$(ECPREFIX)/lib/powerdns/pdns/librandombackend.la
+file path=$(ECPREFIX)/lib/powerdns/pdns/librandombackend.so

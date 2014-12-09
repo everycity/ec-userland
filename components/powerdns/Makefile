@@ -15,10 +15,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		powerdns
-COMPONENT_VERSION=	3.1
+COMPONENT_VERSION=	3.4.1
 COMPONENT_SRC=		pdns-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:1400f7bd659207c0b1f4b8296092e559a7b7bf6a2434951970217d9af06922a1
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
+COMPONENT_ARCHIVE_HASH=	sha256:13e32a31759e7fd341b98c89fe551723a5c6a768350b3609c576f70602deb24a
 COMPONENT_ARCHIVE_URL=	http://downloads.powerdns.com/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -40,6 +40,7 @@ CONFIGURE_OPTIONS += --with-pic
 CONFIGURE_OPTIONS += --enable-shared
 CONFIGURE_OPTIONS += --disable-static
 CONFIGURE_OPTIONS += --enable-pdns_server
+CONFIGURE_OPTIONS += --without-lua
 CONFIGURE_OPTIONS += --with-boost=$(ECPREFIX)
 CONFIGURE_OPTIONS += --with-mysql=$(ECPREFIX)/lib/mysql/$(MYSQL_VERSION)
 CONFIGURE_OPTIONS.32 += --with-mysql-lib=$(ECPREFIX)/lib/mysql/$(MYSQL_VERSION)/lib
