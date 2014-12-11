@@ -2,8 +2,8 @@
 #
 --- httpd-2.2.22/support/apachectl.in.orig	2012-02-03 11:26:14.199975371 +0000
 +++ httpd-2.2.22/support/apachectl.in	2012-02-03 11:51:55.181904194 +0000
-@@ -37,6 +37,22 @@
- #
+@@ -38,6 +38,22 @@
+ ACMD="$1"
  ARGV="$@"
  #
 +
@@ -25,7 +25,7 @@
  # |||||||||||||||||||| START CONFIGURATION SECTION  ||||||||||||||||||||
  # --------------------                              --------------------
  # 
-@@ -44,9 +60,10 @@
+@@ -45,9 +61,10 @@
  HTTPD='@exp_sbindir@/@progname@'
  #
  # pick up any necessary environment variables

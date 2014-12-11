@@ -1,7 +1,7 @@
 diff -ruN httpd-2.2.17.orig/Makefile.in httpd-2.2.17/Makefile.in
 --- httpd-2.2.17.orig/Makefile.in	2008-11-25 12:24:49.000000000 -0800
 +++ httpd-2.2.17/Makefile.in	2011-04-01 08:59:35.481942863 -0700
-@@ -82,9 +82,10 @@
+@@ -91,9 +91,10 @@
  	    done ; \
  	done ; \
  	if test -f "$(builddir)/envvars-std"; then \
@@ -18,7 +18,7 @@ diff -ruN httpd-2.2.17.orig/Makefile.in httpd-2.2.17/Makefile.in
 diff -ruN httpd-2.2.17.orig/support/Makefile.in httpd-2.2.17/support/Makefile.in
 --- httpd-2.2.17.orig/support/Makefile.in	2005-07-06 16:15:34.000000000 -0700
 +++ httpd-2.2.17/support/Makefile.in	2011-04-01 08:59:52.202422895 -0700
-@@ -23,9 +23,10 @@
+@@ -30,9 +30,10 @@
  	    fi ; \
  	done
  	@if test -f "$(builddir)/envvars-std"; then \

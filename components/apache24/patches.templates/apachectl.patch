@@ -1,7 +1,7 @@
 diff -ruN httpd-2.2.17.orig/support/apachectl.in httpd-2.2.17/support/apachectl.in
 --- httpd-2.2.17.orig/support/apachectl.in	2011-04-04 16:35:25.000000000 +0100
 +++ httpd-2.2.17/support/apachectl.in	2011-04-04 16:44:54.361910997 +0100
-@@ -80,6 +80,17 @@
+@@ -93,6 +93,17 @@
      ARGV="-h"
  fi
  
@@ -16,6 +16,6 @@ diff -ruN httpd-2.2.17.orig/support/apachectl.in httpd-2.2.17/support/apachectl.
 +
 +HTTPD="$HTTPD $OPTS_::BITS::"
 +
- case $ARGV in
+ case $ACMD in
  start|stop|restart|graceful|graceful-stop)
      $HTTPD -k $ARGV

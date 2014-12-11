@@ -1,6 +1,6 @@
 --- a/config.layout.orig	2011-03-24 05:00:41.865236354 -0700
 +++ b/config.layout	2011-03-24 05:11:45.205694672 -0700
-@@ -322,3 +322,28 @@
+@@ -370,3 +370,28 @@
      installbuilddir: ${prefix}/etc/apache/build
      errordir:      ${datadir}/error
  </Layout>
