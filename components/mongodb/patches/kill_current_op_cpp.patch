@@ -1,0 +1,11 @@
+--- mongodb-src-r2.6.0/src/mongo/db/kill_current_op.cpp.orig	2014-04-25 16:38:13.049771634 +0100
++++ mongodb-src-r2.6.0/src/mongo/db/kill_current_op.cpp	2014-04-25 16:44:55.349783438 +0100
+@@ -152,7 +152,7 @@
+         }
+ 
+         // Return true with (approx) probability p = "chance".  Recall: 0 <= chance <= 1.
+-        double next = static_cast<double>(std::abs(checkForInterruptPRNG.nextInt64()));
++        double next = static_cast<double>(std::abs((double)checkForInterruptPRNG.nextInt64()));
+         double upperBound =
+             std::numeric_limits<int64_t>::max() * failPointInfo["chance"].numberDouble();
+         if (next > upperBound) {
