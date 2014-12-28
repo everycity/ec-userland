@@ -359,5 +359,4 @@
 /^automake-113$/d
 /^goaccess$/d
 /^meta-packages\/haproxy-dev$/d
-/^x11-libxinerama$/d
 /^ca-certificates$/d
