@@ -360,5 +360,4 @@
 /^goaccess$/d
 /^meta-packages\/haproxy-dev$/d
 /^x11-libxinerama$/d
-/^x11-xinerama-proto$/d
 /^ca-certificates$/d
