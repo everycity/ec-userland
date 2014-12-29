@@ -1,37 +1,28 @@
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# CDDL HEADER START
-#
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
-#
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
-#
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
 
 #
-# Copyright 2013 Igor Kozhukhov <ikozhukhov@gmail.com>.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
-COMPONENT_NAME=		automake
-COMPONENT_VERSION=	1.14
-COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	\
-    sha256:7847424d4204d1627c129e9c15b81e145836afa2a1bf9003ffe10aa26ea75755
-COMPONENT_ARCHIVE_URL=	http://ftp.gnu.org/pub/gnu/automake/$(COMPONENT_ARCHIVE)
+COMPONENT_NAME=         automake
+COMPONENT_FMRI=		developer/build/automake-114
+COMPONENT_VERSION=      1.14
+COMPONENT_LICENSE=	GPLv2
+COMPONENT_PROJECT_URL=	"http://www.gnu.org/software/automake/"
+COMPONENT_SUMMARY=	Automake is a tool for automatically generating Makefile.in files compliant with the GNU Coding Standards.
+COMPONENT_SRC=          $(COMPONENT_NAME)-$(COMPONENT_VERSION).1
+COMPONENT_ARCHIVE=      $(COMPONENT_SRC).tar.xz
+COMPONENT_ARCHIVE_HASH= sha256:a9b4f04b8b69cac2e832a38a718943aa976dbdad0097211f8b3448afdacf0669
+COMPONENT_ARCHIVE_URL=  $(DOWNLOAD_GNU_FTP)
 
 include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/configure.mk

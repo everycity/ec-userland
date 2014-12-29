@@ -1,0 +1,145 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2014 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/cppunit
+dir path=$(ECPREFIX)/include/cppunit/config
+dir path=$(ECPREFIX)/include/cppunit/extensions
+dir path=$(ECPREFIX)/include/cppunit/plugin
+dir path=$(ECPREFIX)/include/cppunit/portability
+dir path=$(ECPREFIX)/include/cppunit/tools
+dir path=$(ECPREFIX)/include/cppunit/ui
+dir path=$(ECPREFIX)/include/cppunit/ui/mfc
+dir path=$(ECPREFIX)/include/cppunit/ui/qt
+dir path=$(ECPREFIX)/include/cppunit/ui/text
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/aclocal
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/$(MACH64)/DllPlugInTester
+file path=$(ECPREFIX)/bin/$(MACH64)/cppunit-config
+file path=$(ECPREFIX)/bin/DllPlugInTester
+file path=$(ECPREFIX)/bin/cppunit-config
+file path=$(ECPREFIX)/include/cppunit/AdditionalMessage.h
+file path=$(ECPREFIX)/include/cppunit/Asserter.h
+file path=$(ECPREFIX)/include/cppunit/BriefTestProgressListener.h
+file path=$(ECPREFIX)/include/cppunit/CompilerOutputter.h
+file path=$(ECPREFIX)/include/cppunit/Exception.h
+file path=$(ECPREFIX)/include/cppunit/Message.h
+file path=$(ECPREFIX)/include/cppunit/Outputter.h
+file path=$(ECPREFIX)/include/cppunit/Portability.h
+file path=$(ECPREFIX)/include/cppunit/Protector.h
+file path=$(ECPREFIX)/include/cppunit/SourceLine.h
+file path=$(ECPREFIX)/include/cppunit/SynchronizedObject.h
+file path=$(ECPREFIX)/include/cppunit/Test.h
+file path=$(ECPREFIX)/include/cppunit/TestAssert.h
+file path=$(ECPREFIX)/include/cppunit/TestCaller.h
+file path=$(ECPREFIX)/include/cppunit/TestCase.h
+file path=$(ECPREFIX)/include/cppunit/TestComposite.h
+file path=$(ECPREFIX)/include/cppunit/TestFailure.h
+file path=$(ECPREFIX)/include/cppunit/TestFixture.h
+file path=$(ECPREFIX)/include/cppunit/TestLeaf.h
+file path=$(ECPREFIX)/include/cppunit/TestListener.h
+file path=$(ECPREFIX)/include/cppunit/TestPath.h
+file path=$(ECPREFIX)/include/cppunit/TestResult.h
+file path=$(ECPREFIX)/include/cppunit/TestResultCollector.h
+file path=$(ECPREFIX)/include/cppunit/TestRunner.h
+file path=$(ECPREFIX)/include/cppunit/TestSuccessListener.h
+file path=$(ECPREFIX)/include/cppunit/TestSuite.h
+file path=$(ECPREFIX)/include/cppunit/TextOutputter.h
+file path=$(ECPREFIX)/include/cppunit/TextTestProgressListener.h
+file path=$(ECPREFIX)/include/cppunit/TextTestResult.h
+file path=$(ECPREFIX)/include/cppunit/TextTestRunner.h
+file path=$(ECPREFIX)/include/cppunit/XmlOutputter.h
+file path=$(ECPREFIX)/include/cppunit/XmlOutputterHook.h
+file path=$(ECPREFIX)/include/cppunit/config-auto.h
+file path=$(ECPREFIX)/include/cppunit/config/CppUnitApi.h
+file path=$(ECPREFIX)/include/cppunit/config/SelectDllLoader.h
+file path=$(ECPREFIX)/include/cppunit/config/SourcePrefix.h
+file path=$(ECPREFIX)/include/cppunit/config/config-bcb5.h
+file path=$(ECPREFIX)/include/cppunit/config/config-evc4.h
+file path=$(ECPREFIX)/include/cppunit/config/config-mac.h
+file path=$(ECPREFIX)/include/cppunit/config/config-msvc6.h
+file path=$(ECPREFIX)/include/cppunit/extensions/AutoRegisterSuite.h
+file path=$(ECPREFIX)/include/cppunit/extensions/ExceptionTestCaseDecorator.h
+file path=$(ECPREFIX)/include/cppunit/extensions/HelperMacros.h
+file path=$(ECPREFIX)/include/cppunit/extensions/Orthodox.h
+file path=$(ECPREFIX)/include/cppunit/extensions/RepeatedTest.h
+file path=$(ECPREFIX)/include/cppunit/extensions/TestCaseDecorator.h
+file path=$(ECPREFIX)/include/cppunit/extensions/TestDecorator.h
+file path=$(ECPREFIX)/include/cppunit/extensions/TestFactory.h
+file path=$(ECPREFIX)/include/cppunit/extensions/TestFactoryRegistry.h
+file path=$(ECPREFIX)/include/cppunit/extensions/TestFixtureFactory.h
+file path=$(ECPREFIX)/include/cppunit/extensions/TestNamer.h
+file path=$(ECPREFIX)/include/cppunit/extensions/TestSetUp.h
+file path=$(ECPREFIX)/include/cppunit/extensions/TestSuiteBuilderContext.h
+file path=$(ECPREFIX)/include/cppunit/extensions/TestSuiteFactory.h
+file path=$(ECPREFIX)/include/cppunit/extensions/TypeInfoHelper.h
+file path=$(ECPREFIX)/include/cppunit/plugin/DynamicLibraryManager.h
+file path=$(ECPREFIX)/include/cppunit/plugin/DynamicLibraryManagerException.h
+file path=$(ECPREFIX)/include/cppunit/plugin/PlugInManager.h
+file path=$(ECPREFIX)/include/cppunit/plugin/PlugInParameters.h
+file path=$(ECPREFIX)/include/cppunit/plugin/TestPlugIn.h
+file path=$(ECPREFIX)/include/cppunit/plugin/TestPlugInDefaultImpl.h
+file path=$(ECPREFIX)/include/cppunit/portability/CppUnitDeque.h
+file path=$(ECPREFIX)/include/cppunit/portability/CppUnitMap.h
+file path=$(ECPREFIX)/include/cppunit/portability/CppUnitSet.h
+file path=$(ECPREFIX)/include/cppunit/portability/CppUnitStack.h
+file path=$(ECPREFIX)/include/cppunit/portability/CppUnitVector.h
+file path=$(ECPREFIX)/include/cppunit/portability/FloatingPoint.h
+file path=$(ECPREFIX)/include/cppunit/portability/Stream.h
+file path=$(ECPREFIX)/include/cppunit/tools/Algorithm.h
+file path=$(ECPREFIX)/include/cppunit/tools/StringTools.h
+file path=$(ECPREFIX)/include/cppunit/tools/XmlDocument.h
+file path=$(ECPREFIX)/include/cppunit/tools/XmlElement.h
+file path=$(ECPREFIX)/include/cppunit/ui/mfc/MfcTestRunner.h
+file path=$(ECPREFIX)/include/cppunit/ui/mfc/TestRunner.h
+file path=$(ECPREFIX)/include/cppunit/ui/qt/Config.h
+file path=$(ECPREFIX)/include/cppunit/ui/qt/QtTestRunner.h
+file path=$(ECPREFIX)/include/cppunit/ui/qt/TestRunner.h
+file path=$(ECPREFIX)/include/cppunit/ui/text/TestRunner.h
+file path=$(ECPREFIX)/include/cppunit/ui/text/TextTestRunner.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libcppunit-1.13.so.0.0.2
+file path=$(ECPREFIX)/lib/$(MACH64)/libcppunit.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libcppunit.la
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/cppunit.pc
+file path=$(ECPREFIX)/lib/libcppunit-1.13.so.0.0.2
+file path=$(ECPREFIX)/lib/libcppunit.a
+file path=$(ECPREFIX)/lib/libcppunit.la
+file path=$(ECPREFIX)/lib/pkgconfig/cppunit.pc
+file path=$(ECPREFIX)/share/aclocal/cppunit.m4
+file path=$(ECPREFIX)/share/man/man1/cppunit-config.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libcppunit-1.13.so.0 \
+    target=libcppunit-1.13.so.0.0.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libcppunit.so \
+    target=libcppunit-1.13.so.0.0.2
+link path=$(ECPREFIX)/lib/libcppunit-1.13.so.0 target=libcppunit-1.13.so.0.0.2
+link path=$(ECPREFIX)/lib/libcppunit.so target=libcppunit-1.13.so.0.0.2

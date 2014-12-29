@@ -16,14 +16,17 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		phantomjs
 COMPONENT_FMRI=         web/automation/phantomjs
-COMPONENT_VERSION=      1.9.7
+COMPONENT_VERSION=	1.9.8
+#COMPONENT_VERSION=      2.0
 COMPONENT_LICENSE=      BSD
 COMPONENT_PROJECT_URL=  "http://phantomjs.org/"
 COMPONENT_SUMMARY=	PhantomJS is a headless WebKit scriptable with a JavaScript API.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-source.zip
-COMPONENT_ARCHIVE_HASH=	sha256:0f6c50ff24c1c4a8ccd7fedef62feef5e45195c7ba5ef6c84434448544877ff3
+COMPONENT_ARCHIVE_HASH=	sha256:37e53b2907bf37d2b6a43f08d38bb4a15596bba337822179e647efd60c2261bf
+#COMPONENT_ARCHIVE_HASH=	sha256:49159fb9d43e76fb39873f354255253bd70eebf62aa669f7f52f08cfe710f98a
 COMPONENT_ARCHIVE_URL=	https://bitbucket.org/ariya/$(COMPONENT_NAME)/downloads/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	https://github.com/ariya/phantomjs/archive/2.0.zip
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
@@ -40,7 +43,7 @@ QT_ARCH=	$(QT_ARCH_$(BITS))
 QT_ARGS=-platform $(QT_ARCH) -javascript-jit -webkit -system-sqlite
 #QT_ARGS+=-debug -webkit-debug
 QT_ARGS+=-iconv -I$(ECPREFIX)/include -no-rpath
-QT_ARGS+=-system-zlib -system-libtiff -system-libpng -no-libmng -system-libjpeg -no-dbus
+QT_ARGS+=-system-zlib -system-libtiff -system-libpng -no-libmng -system-libjpeg -no-dbus -svg
 QT_ARGS_32=-L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
 QT_ARGS_64=-L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)
 QT_ARGS+=$(QT_ARGS_$(BITS))

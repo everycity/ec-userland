@@ -21,7 +21,7 @@
 +DEAD=		-D__dead=__dead2
  UNAME:=		$(shell uname)
 +ifeq ($(UNAME),SunOS)
-+  OBJS+=	adirent.o fgetln.o fparseln.o strtonum.o
++  OBJS+=	adirent.o fgetln.o fparseln.o reallocarray.o strtonum.o
 +  SUNOS_LIBS=	-lsocket -lnsl -lumem
 +  CURSES_LIBS=	-lncurses
 +  DEAD=		-D__dead=

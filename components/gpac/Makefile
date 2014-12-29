@@ -9,30 +9,26 @@
 #
 
 #
-# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gpac
 COMPONENT_FMRI=		multimedia/gpac
-COMPONENT_VERSION=	0.5.0
+COMPONENT_VERSION=	2014.11.28
+GIT_COMMIT_ID=		fc32cebbe682a47804c8bf9eba6d0d4837aae88f
 COMPONENT_LICENSE=	LGPLv2.1
 COMPONENT_PROJECT_URL=	"http://gpac.wp.institut-telecom.fr/"
 COMPONENT_SUMMARY=	OpenSource multimedia framework
-COMPONENT_SRC=		$(COMPONENT_NAME)
-COMPONENT_ARCHIVE_NAME=	$(COMPONENT_NAME)-code-4774-trunk
-COMPONENT_ARCHIVE=	$(COMPONENT_ARCHIVE_NAME).zip
-COMPONENT_ARCHIVE_HASH=	sha256:b7f089efd5782acce746e5699ef6850b7dd49fe28c5e52801bb20ac321bcb035
-COMPONENT_ARCHIVE_URL=	http://sourceforge.net/code-snapshots/svn/g/gp/$(COMPONENT_NAME)/code/$(COMPONENT_ARCHIVE)
+COMPONENT_SRC=		$(COMPONENT_NAME)-$(GIT_COMMIT_ID)
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
+COMPONENT_ARCHIVE_HASH=	sha256:bd09d67c1b48da7f683579feec905f1e6ae9f01e57f4ec36c0ac66d23d15c594
+COMPONENT_ARCHIVE_URL=	https://codeload.github.com/gpac/gpac/tar.gz/$(GIT_COMMIT_ID)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-
-COMPONENT_POST_UNPACK_ACTION = ( \
-	${MV} source/$(COMPONENT_ARCHIVE_NAME)/$(COMPONENT_NAME) source/ ; \
-	${RM} -r source/$(COMPONENT_ARCHIVE_NAME) ; )
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 
@@ -53,7 +49,6 @@ CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))
 CONFIGURE_OPTIONS+=	--verbose
 CONFIGURE_OPTIONS+=	--enable-pic
 CONFIGURE_OPTIONS+=	--enable-ssl
-#CONFIGURE_OPTIONS+=	--enable-amr
 CONFIGURE_OPTIONS+=	--disable-3d
 
 CONFIGURE_OPTIONS+=	--X11-path=$(ECPREFIX)

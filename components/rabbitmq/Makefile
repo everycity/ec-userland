@@ -9,25 +9,31 @@
 #
 
 #
-# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		rabbitmq
-COMPONENT_VERSION=	3.0.3
+COMPONENT_FMRI=		service/rabbitmq
+COMPONENT_VERSION=	3.4.1
+COMPONENT_LICENSE=	MPL
+COMPONENT_PROJECT_URL=	"http://www.rabbitmq.com/"
+COMPONENT_SUMMARY=	Messaging for applications
 COMPONENT_SRC=		$(COMPONENT_NAME)-server-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:68f8e59246afe9a40cf42db83365c36d1b755bcac9be8cf8a3b97dbdfb29b71e
+COMPONENT_ARCHIVE_HASH=	sha256:9048576a7c40d2fb37efef4981fe6ef41cf078402739c56e71600e19caa8d56b
 COMPONENT_ARCHIVE_URL=	http://www.rabbitmq.com/releases/rabbitmq-server/v$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_INSTALL_ENV+= TARGET_DIR=$(PROTO_DIR)$(ECPREFIX)/lib/rabbitmq \
+COMPONENT_INSTALL_ENV+= \
+	TARGET_DIR=$(PROTO_DIR)$(ECPREFIX)/lib/rabbitmq \
 	SBIN_DIR=$(PROTO_DIR)$(ECPREFIX)/lib/rabbitmq/sbin \
-	MAN_DIR=$(PROTO_DIR)$(ECPREFIX)/share/man
+	MAN_DIR=$(PROTO_DIR)$(ECPREFIX)/share/man \
+	DOC_INSTALL_DIR=$(PROTO_DIR)$(ECPREFIX)/share/doc
 
 COMPONENT_POST_INSTALL_ACTION= \
 	( perl -pi -e 's/^SYS_PREFIX=.*/SYS_PREFIX=\/ec/g' \

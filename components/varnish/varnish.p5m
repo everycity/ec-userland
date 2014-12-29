@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -22,6 +22,15 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
+# Custom Entries
+# Note ownership of var/varnish further down
+depend fmri=pkg:/developer/gcc-44 type=require
+depend fmri=pkg:/developer/gnu-binutils type=require
+dir path=$(ECPREFIX)/var/svc
+dir path=$(ECPREFIX)/var/svc/method
+file files/varnish-manifest.xml path=var/svc/manifest/site/varnish.xml restart_fmri=svc:/system/manifest-import:default
+file files/varnish-startup.sh path=$(ECPREFIX)/var/svc/method/varnish mode=0555
+
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
@@ -29,6 +38,8 @@ dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/etc/varnish
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/include/varnish
+dir path=$(ECPREFIX)/include/varnish/tbl
+dir path=$(ECPREFIX)/include/varnish/vapi
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
@@ -38,19 +49,24 @@ dir path=$(ECPREFIX)/lib/pkgconfig
 dir path=$(ECPREFIX)/lib/varnish
 dir path=$(ECPREFIX)/lib/varnish/vmods
 dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/aclocal
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/varnish
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man3
 dir path=$(ECPREFIX)/share/man/man7
+dir path=$(ECPREFIX)/share/varnish
+dir path=$(ECPREFIX)/share/varnish/include
+dir path=$(ECPREFIX)/share/varnish/include/cache
+dir path=$(ECPREFIX)/share/varnish/include/common
 dir path=$(ECPREFIX)/var
-dir path=$(ECPREFIX)/var/varnish user=webservd group=webservd
+dir path=$(ECPREFIX)/var/varnish owner=webservd group=webservd
 file path=$(ECPREFIX)/bin/$(MACH64)/varnishadm
 file path=$(ECPREFIX)/bin/$(MACH64)/varnishd
 file path=$(ECPREFIX)/bin/$(MACH64)/varnishhist
 file path=$(ECPREFIX)/bin/$(MACH64)/varnishlog
 file path=$(ECPREFIX)/bin/$(MACH64)/varnishncsa
-file path=$(ECPREFIX)/bin/$(MACH64)/varnishreplay
-file path=$(ECPREFIX)/bin/$(MACH64)/varnishsizes
 file path=$(ECPREFIX)/bin/$(MACH64)/varnishstat
 file path=$(ECPREFIX)/bin/$(MACH64)/varnishtest
 file path=$(ECPREFIX)/bin/$(MACH64)/varnishtop
@@ -59,83 +75,115 @@ file path=$(ECPREFIX)/bin/varnishd
 file path=$(ECPREFIX)/bin/varnishhist
 file path=$(ECPREFIX)/bin/varnishlog
 file path=$(ECPREFIX)/bin/varnishncsa
-file path=$(ECPREFIX)/bin/varnishreplay
-file path=$(ECPREFIX)/bin/varnishsizes
 file path=$(ECPREFIX)/bin/varnishstat
 file path=$(ECPREFIX)/bin/varnishtest
 file path=$(ECPREFIX)/bin/varnishtop
-file path=$(ECPREFIX)/etc/varnish/default.vcl mode=0644 preserve=true
-file path=$(ECPREFIX)/include/varnish/varnishapi.h
+file path=$(ECPREFIX)/etc/varnish/example.vcl
+file path=$(ECPREFIX)/include/varnish/tbl/acct_fields_bereq.h
+file path=$(ECPREFIX)/include/varnish/tbl/acct_fields_req.h
+file path=$(ECPREFIX)/include/varnish/tbl/backend_poll.h
+file path=$(ECPREFIX)/include/varnish/tbl/ban_vars.h
+file path=$(ECPREFIX)/include/varnish/tbl/bo_flags.h
+file path=$(ECPREFIX)/include/varnish/tbl/body_status.h
+file path=$(ECPREFIX)/include/varnish/tbl/debug_bits.h
+file path=$(ECPREFIX)/include/varnish/tbl/feature_bits.h
+file path=$(ECPREFIX)/include/varnish/tbl/http_headers.h
+file path=$(ECPREFIX)/include/varnish/tbl/http_response.h
+file path=$(ECPREFIX)/include/varnish/tbl/locks.h
+file path=$(ECPREFIX)/include/varnish/tbl/req_body.h
+file path=$(ECPREFIX)/include/varnish/tbl/sess_close.h
+file path=$(ECPREFIX)/include/varnish/tbl/steps.h
+file path=$(ECPREFIX)/include/varnish/tbl/symbol_kind.h
+file path=$(ECPREFIX)/include/varnish/tbl/vcc_types.h
+file path=$(ECPREFIX)/include/varnish/tbl/vcl_returns.h
+file path=$(ECPREFIX)/include/varnish/tbl/vrt_stv_var.h
+file path=$(ECPREFIX)/include/varnish/tbl/vsc_all.h
+file path=$(ECPREFIX)/include/varnish/tbl/vsc_f_main.h
+file path=$(ECPREFIX)/include/varnish/tbl/vsc_fields.h
+file path=$(ECPREFIX)/include/varnish/tbl/vsc_levels.h
+file path=$(ECPREFIX)/include/varnish/tbl/vsc_types.h
+file path=$(ECPREFIX)/include/varnish/tbl/vsl_tags.h
+file path=$(ECPREFIX)/include/varnish/tbl/vsl_tags_http.h
+file path=$(ECPREFIX)/include/varnish/vapi/vapi_options.h
+file path=$(ECPREFIX)/include/varnish/vapi/voptget.h
+file path=$(ECPREFIX)/include/varnish/vapi/vsc.h
+file path=$(ECPREFIX)/include/varnish/vapi/vsc_int.h
+file path=$(ECPREFIX)/include/varnish/vapi/vsl.h
+file path=$(ECPREFIX)/include/varnish/vapi/vsl_int.h
+file path=$(ECPREFIX)/include/varnish/vapi/vsm.h
+file path=$(ECPREFIX)/include/varnish/vapi/vsm_int.h
 file path=$(ECPREFIX)/include/varnish/vcli.h
-file path=$(ECPREFIX)/include/varnish/vsc.h
-file path=$(ECPREFIX)/include/varnish/vsc_all.h
-file path=$(ECPREFIX)/include/varnish/vsc_fields.h
-file path=$(ECPREFIX)/include/varnish/vsl.h
-file path=$(ECPREFIX)/include/varnish/vsl_tags.h
-file path=$(ECPREFIX)/include/varnish/vsm.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libvarnishapi.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libvarnishapi.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libvarnishapi.so.1.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/varnishapi.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvarnish.a
 file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvarnish.la
 file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvarnish.so
-file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvarnishcompat.a
 file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvarnishcompat.la
 file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvarnishcompat.so
-file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvcl.a
-file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvcl.la
-file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvcl.so
-file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvgz.a
+file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvcc.la
+file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvcc.so
 file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvgz.la
 file path=$(ECPREFIX)/lib/$(MACH64)/varnish/libvgz.so
-file path=$(ECPREFIX)/lib/$(MACH64)/varnish/vmods/libvmod_std.a
+file path=$(ECPREFIX)/lib/$(MACH64)/varnish/vmods/libvmod_directors.la
+file path=$(ECPREFIX)/lib/$(MACH64)/varnish/vmods/libvmod_directors.so
 file path=$(ECPREFIX)/lib/$(MACH64)/varnish/vmods/libvmod_std.la
 file path=$(ECPREFIX)/lib/$(MACH64)/varnish/vmods/libvmod_std.so
-file path=$(ECPREFIX)/lib/libvarnishapi.a
 file path=$(ECPREFIX)/lib/libvarnishapi.la
 file path=$(ECPREFIX)/lib/libvarnishapi.so.1.0.0
 file path=$(ECPREFIX)/lib/pkgconfig/varnishapi.pc
-file path=$(ECPREFIX)/lib/varnish/libvarnish.a
 file path=$(ECPREFIX)/lib/varnish/libvarnish.la
 file path=$(ECPREFIX)/lib/varnish/libvarnish.so
-file path=$(ECPREFIX)/lib/varnish/libvarnishcompat.a
 file path=$(ECPREFIX)/lib/varnish/libvarnishcompat.la
 file path=$(ECPREFIX)/lib/varnish/libvarnishcompat.so
-file path=$(ECPREFIX)/lib/varnish/libvcl.a
-file path=$(ECPREFIX)/lib/varnish/libvcl.la
-file path=$(ECPREFIX)/lib/varnish/libvcl.so
-file path=$(ECPREFIX)/lib/varnish/libvgz.a
+file path=$(ECPREFIX)/lib/varnish/libvcc.la
+file path=$(ECPREFIX)/lib/varnish/libvcc.so
 file path=$(ECPREFIX)/lib/varnish/libvgz.la
 file path=$(ECPREFIX)/lib/varnish/libvgz.so
-file path=$(ECPREFIX)/lib/varnish/vmods/libvmod_std.a
+file path=$(ECPREFIX)/lib/varnish/vmods/libvmod_directors.la
+file path=$(ECPREFIX)/lib/varnish/vmods/libvmod_directors.so
 file path=$(ECPREFIX)/lib/varnish/vmods/libvmod_std.la
 file path=$(ECPREFIX)/lib/varnish/vmods/libvmod_std.so
+file path=$(ECPREFIX)/share/aclocal/varnish.m4
+file path=$(ECPREFIX)/share/doc/varnish/builtin.vcl
+file path=$(ECPREFIX)/share/doc/varnish/example.vcl
 file path=$(ECPREFIX)/share/man/man1/varnishadm.1
 file path=$(ECPREFIX)/share/man/man1/varnishd.1
 file path=$(ECPREFIX)/share/man/man1/varnishhist.1
 file path=$(ECPREFIX)/share/man/man1/varnishlog.1
 file path=$(ECPREFIX)/share/man/man1/varnishncsa.1
-file path=$(ECPREFIX)/share/man/man1/varnishreplay.1
-file path=$(ECPREFIX)/share/man/man1/varnishsizes.1
 file path=$(ECPREFIX)/share/man/man1/varnishstat.1
 file path=$(ECPREFIX)/share/man/man1/varnishtest.1
 file path=$(ECPREFIX)/share/man/man1/varnishtop.1
+file path=$(ECPREFIX)/share/man/man3/vmod_directors.3
 file path=$(ECPREFIX)/share/man/man3/vmod_std.3
 file path=$(ECPREFIX)/share/man/man7/varnish-cli.7
 file path=$(ECPREFIX)/share/man/man7/varnish-counters.7
 file path=$(ECPREFIX)/share/man/man7/vcl.7
+file path=$(ECPREFIX)/share/man/man7/vsl-query.7
+file path=$(ECPREFIX)/share/man/man7/vsl.7
+file path=$(ECPREFIX)/share/varnish/include/cache/cache.h
+file path=$(ECPREFIX)/share/varnish/include/cache/cache_backend.h
+file path=$(ECPREFIX)/share/varnish/include/common/common.h
+file path=$(ECPREFIX)/share/varnish/include/common/params.h
+file path=$(ECPREFIX)/share/varnish/include/miniobj.h
+file path=$(ECPREFIX)/share/varnish/include/vas.h
+file path=$(ECPREFIX)/share/varnish/include/vav.h
+file path=$(ECPREFIX)/share/varnish/include/vbm.h
+file path=$(ECPREFIX)/share/varnish/include/vcl.h
+file path=$(ECPREFIX)/share/varnish/include/vcs.h
+file path=$(ECPREFIX)/share/varnish/include/vdef.h
+file path=$(ECPREFIX)/share/varnish/include/vmod_abi.h
+file path=$(ECPREFIX)/share/varnish/include/vqueue.h
+file path=$(ECPREFIX)/share/varnish/include/vre.h
+file path=$(ECPREFIX)/share/varnish/include/vrt.h
+file path=$(ECPREFIX)/share/varnish/include/vrt_obj.h
+file path=$(ECPREFIX)/share/varnish/include/vsa.h
+file path=$(ECPREFIX)/share/varnish/include/vsb.h
+file path=$(ECPREFIX)/share/varnish/include/vsha256.h
+file path=$(ECPREFIX)/share/varnish/vmodtool.py
 link path=$(ECPREFIX)/lib/$(MACH64)/libvarnishapi.so \
     target=libvarnishapi.so.1.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libvarnishapi.so.1 \
     target=libvarnishapi.so.1.0.0
 link path=$(ECPREFIX)/lib/libvarnishapi.so target=libvarnishapi.so.1.0.0
 link path=$(ECPREFIX)/lib/libvarnishapi.so.1 target=libvarnishapi.so.1.0.0
-
-# Custom Entries
-dir path=$(ECPREFIX)/var/svc
-dir path=$(ECPREFIX)/var/svc/method
-depend fmri=pkg:/developer/gcc-44 type=require
-depend fmri=pkg:/developer/gnu-binutils type=require
-file files/varnish-manifest.xml path=var/svc/manifest/site/varnish.xml restart_fmri=svc:/system/manifest-import:default
-file files/varnish-startup.sh path=$(ECPREFIX)/var/svc/method/varnish mode=0555

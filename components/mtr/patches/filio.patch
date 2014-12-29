@@ -1,5 +1,5 @@
---- mtr-0.85/net.c.orig	2013-10-25 11:39:27.394287959 +0000
-+++ mtr-0.85/net.c	2013-10-25 11:41:25.111708965 +0000
+--- mtr-0.86/net.c.orig	2014-12-18 21:28:45.288985550 +0000
++++ mtr-0.86/net.c	2014-12-18 21:29:03.145622275 +0000
 @@ -27,6 +27,7 @@
  #include <sys/socket.h>
  #include <sys/ioctl.h>
@@ -8,10 +8,3 @@
  #include <netinet/in.h>
  #include <memory.h>
  #include <unistd.h>
-@@ -1562,4 +1563,4 @@
-   net_add_fds(&writefd, &maxfd);
-   select(maxfd, NULL, &writefd, NULL, &tv);
-   net_process_fds(&writefd);
--}
-\ No newline at end of file
-+}

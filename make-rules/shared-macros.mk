@@ -260,7 +260,7 @@ BUILD_TOOLS =	/ws/onnv-tools
 SPRO_ROOT =	$(BUILD_TOOLS)/SUNWspro
 SPRO_VROOT =	$(SPRO_ROOT)/sunstudio12.1
 
-GCC_VERSION = 	4.8
+GCC_VERSION ?= 	4.8
 GCC_ROOT ?=	$(USRDIR)/gcc/$(GCC_VERSION)
 
 CC.studio.32 =	$(SPRO_VROOT)/bin/cc
@@ -647,7 +647,10 @@ LD_Z_REDLOCSYM =	-z redlocsym
 # only be required if the component's native build is horribly broken.
 LD_Z_RESCAN_NOW =	-z rescan-now
 
-LD_Z_TEXT =		-z direct
+LD_Z_TEXT =		-z text
+
+# make sure that -lc is always present when building shared objects.
+LD_DEF_LIBS +=		-lc
 
 # make sure all symbols are defined.
 LD_Z_DEFS =		-z defs
@@ -682,7 +685,7 @@ LD_MAP_NOEXDATA.sparc =	$(LD_MAP_NOEXBSS)
 LD_MAP_PAGEALIGN =	-M /usr/lib/ld/map.pagealign
 
 # Linker options to add when only building libraries
-LD_OPTIONS_SO +=	$(LD_Z_TEXT) $(LD_Z_DEFS)
+LD_OPTIONS_SO +=	$(LD_Z_TEXT) $(LD_Z_DEFS) $(LD_DEF_LIBS)
 
 # Default linker options that everyone should get.  Do not add additional
 # libraries to this macro, as it will apply to everything linked during the

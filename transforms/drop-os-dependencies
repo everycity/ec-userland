@@ -27,6 +27,7 @@
 <transform depend pkg.debug.depend.file=libcurses\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libdevinfo\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libdl\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libdlpi\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libdoor\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libefi\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libelf\.so.* -> drop>

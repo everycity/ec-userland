@@ -29,6 +29,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+LD_OPTIONS+=	-M $(PWD)/mapfile-vers
+
 CONFIGURE_OPTIONS+=	--with-pic
 
 build:		$(BUILD_32_and_64)

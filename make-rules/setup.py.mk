@@ -80,8 +80,8 @@ $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep $(BUILD_DIR)/config-%/$(CFG)
 # The default is site-packages, but that directory belongs to the end-user.
 # Modules which are shipped by the OS but not with the core Python distribution
 # belong in vendor-packages.
-PYTHON_LIB= $(USRDIR)/lib/python$(PYTHON_VERSION)/vendor-packages
-PYTHON_DATA= $(PYTHON_LIB)
+#PYTHON_LIB= $(USRDIR)/lib/python$(PYTHON_VERSION)/vendor-packages
+#PYTHON_DATA= $(PYTHON_LIB)
 
 COMPONENT_INSTALL_ARGS +=	--root $(PROTO_DIR) 
 COMPONENT_INSTALL_ARGS +=	--install-lib=$(PYTHON_LIB)

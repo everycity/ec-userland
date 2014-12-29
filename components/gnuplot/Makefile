@@ -9,16 +9,20 @@
 #
 
 #
-# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gnuplot
-COMPONENT_VERSION=	4.6.1
+COMPONENT_FMRI=		image/gnuplot
+COMPONENT_VERSION=	4.6.6
+COMPONENT_LICENSE=	4 clause BSD
+COMPONENT_PROJECT_URL=	"http://gnuplot.info/"
+COMPONENT_SUMMARY=	Gnuplot is a portable command-line driven graphing utility
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:f4bf99907d0fea7db90b6e50147f1730b5bde2fbb93d9e58478b6b94409eebc6
+COMPONENT_ARCHIVE_HASH=	sha256:1f19596fd09045f22225afbfec11fa91b9ad1d95b9f48406362f517d4f130274
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk

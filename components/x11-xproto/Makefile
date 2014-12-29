@@ -1,32 +1,28 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
-# CDDL HEADER END
-#
-# Copyright 2011-2014, EveryCity Ltd. All rights reserved.
-#
+
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		xproto
-COMPONENT_VERSION=	7.0.21
+COMPONENT_FMRI=		x11/header/x11-protocols
+COMPONENT_VERSION=	7.0.26
+COMPONENT_LICENSE=	MIT License (xproto)
+COMPONENT_PROJECT_URL=	"http://cgit.freedesktop.org/xorg/proto/x11proto/"
+COMPONENT_SUMMARY=	X.org X11Proto protocol headers.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:6fdafa54514f36aec9cb04d76989193799400b59
+COMPONENT_ARCHIVE_HASH=	sha256:ea39fae5edf841f56525ab76590d8edbf53b8ec1a7fca0ab815917000ef02666
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_XORG_PROTO)
 
 include ../../make-rules/prep.mk

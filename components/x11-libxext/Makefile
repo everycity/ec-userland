@@ -28,11 +28,25 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-#LD_OPTIONS+=	-M $(PWD)/mapfile-vers
+COMPONENT_PREP_ACTION = ( cd $(@D) \
+	&& libtoolize --copy --force \
+	&& aclocal -I .  \
+	&& autoheader \
+	&& automake -a -c -f \
+	&& autoconf )
 
+CPPFLAGS+=	-DSUNSOFT
+LD_OPTIONS+=	-M $(PWD)/mapfile-vers
+
+#CONFIGURE_ENV +=	CPPFLAGS="$(CPPFLAGS)"
 CONFIGURE_OPTIONS +=	--enable-shared --disable-static --with-pic
 CONFIGURE_OPTIONS +=	--with-xmlto=no
 CONFIGURE_OPTIONS +=	--with-sysroot=$(USRDIR)
+
+COMPONENT_PRE_CONFIGURE_ACTION=	( \
+	$(CP) files/include/X11/extensions/xinerama.h $(SOURCE_DIR)/include/X11/extensions/; \
+	$(CP) files/man/* $(SOURCE_DIR)/man/; \
+	$(CP) files/src/* $(SOURCE_DIR)/src/; )
 
 build:		$(BUILD_32_and_64)
 

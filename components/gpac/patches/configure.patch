@@ -1,6 +1,6 @@
---- gpac/configure.~1~	2013-09-22 20:47:42.000000000 +0100
-+++ gpac/configure	2013-09-23 13:39:35.992985899 +0100
-@@ -57,6 +57,7 @@
+--- gpac-fc32cebbe682a47804c8bf9eba6d0d4837aae88f/configure.orig	2014-11-28 20:39:47.510650434 +0000
++++ gpac-fc32cebbe682a47804c8bf9eba6d0d4837aae88f/configure	2014-11-28 20:45:27.449518425 +0000
+@@ -55,6 +55,7 @@
  verbose="no"
  xulsdk_path="/usr/lib/xulrunner/sdk/include"
  xul_flags=""
@@ -8,15 +8,15 @@
  libdir="lib"
  
  #GPAC module config
-@@ -365,6 +366,7 @@
+@@ -373,6 +374,7 @@
          case `uname -s` in
              SunOS)
                  canon_arch=`isainfo -n`
 +                is_64="yes"
                  ;;
-             *)
-                 canon_arch="`$cc -dumpmachine | sed -e 's,\([^-]*\)-.*,\1,'`"
-@@ -502,6 +504,7 @@
+             Darwin)
+                 canon_arch="x86_64"
+@@ -514,6 +516,7 @@
          fi
          if test "$is_64" = "yes"; then
              if test "$cpu" = "x86_64"; then
@@ -24,26 +24,15 @@
                  libdir=lib/amd64
              elif test "$cpu" = "sparc"; then
                  libdir=lib/sparcv9
-@@ -1274,36 +1277,16 @@
- #look for FFMPEG support
- 
- ffmpeg_cflags=""
--ffmpeg_lflags="-lz -lavcodec -lavformat -lavutil -lswscale -lavdevice"
-+ffmpeg_lflags="-lz -lavcodec -lavformat -lavutil -lswscale"
- if test "$cross_prefix" = "" -a "$pkg_config" != "no"; then
--  if $pkg_config --exists libavcodec libavformat libswscale libavdevice libavutil 2> /dev/null  ; then
--    ffmpeg_cflags=`$pkg_config --cflags libavcodec libavformat libswscale libavutil libavdevice`
--    ffmpeg_lflags=`$pkg_config --libs libavcodec libavformat libswscale libavutil libavdevice`
-+  if $pkg_config --exists libavcodec libavformat libswscale libavutil 2> /dev/null  ; then
-+    ffmpeg_cflags=`$pkg_config --cflags libavcodec libavformat libswscale libavutil`
-+    ffmpeg_lflags=`$pkg_config --libs libavcodec libavformat libswscale libavutil`
-     has_ffmpeg="system"
+@@ -1302,29 +1305,7 @@
    fi
  fi
  
 -cat > $TMPC << EOF
 -#include <libavcodec/avcodec.h>
--int main(void) {return 0;}
+-int main(void) {
+-    return 0;
+-}
 -EOF
 -
 -if $cc -o $TMPO $TMPC $ffmpeg_cflags $ffmpeg_lflags $LDFLAGS 2> /dev/null  ; then
@@ -51,7 +40,7 @@
 -else
 -    old_ffmpeg_inc="yes"
 -
--    cat > $TMPC << EOF
+-cat > $TMPC << EOF
 -#include <ffmpeg/avcodec.h>
 -int main(void) {
 -    AVFrame *f1, *f2;
@@ -64,10 +53,10 @@
 -fi
 +old_ffmpeg_inc="no"
  
- if test "$cross_prefix" = "" ; then 
-     if $cc -o $TMPO $TMPC -I$prefix/include -L$prefix/lib $ffmpeg_lflags $LDFLAGS 2> /dev/null  ; then
-@@ -2724,6 +2707,7 @@
- echo "CPPFLAGS=$CPPFLAGS" >> config.mak
+ cat > $TMPC << EOF
+ #include <libavcodec/avcodec.h>
+@@ -2807,6 +2788,7 @@
+ echo "CXXFLAGS=$CXXFLAGS" >> config.mak
  echo "LDFLAGS=$LDFLAGS" >> config.mak
  echo "SHFLAGS=$SHFLAGS" >> config.mak
 +echo "bindir=$bindir" >> config.mak

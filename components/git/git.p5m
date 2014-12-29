@@ -25,13 +25,45 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-# Note: Watch out for git-p4
+hardlink path=$(USRDIR)/bin/git target=../lib/git-core/git
+hardlink path=$(USRDIR)/bin/git-cvsserver target=../lib/git-core/git-cvsserver
+hardlink path=$(USRDIR)/bin/git-receive-pack target=../lib/git-core/git
+hardlink path=$(USRDIR)/bin/git-shell target=../lib/git-core/git-shell
+hardlink path=$(USRDIR)/bin/git-upload-archive target=../lib/git-core/git
+hardlink path=$(USRDIR)/bin/git-upload-pack \
+    target=../lib/git-core/git-upload-pack
 file path=$(USRDIR)/bin/gitk
+file path=$(USRDIR)/lib/git-core/git
+hardlink path=$(USRDIR)/lib/git-core/git-add target=git
 file path=$(USRDIR)/lib/git-core/git-add--interactive
 file path=$(USRDIR)/lib/git-core/git-am
+hardlink path=$(USRDIR)/lib/git-core/git-annotate target=git
+hardlink path=$(USRDIR)/lib/git-core/git-apply target=git
 file path=$(USRDIR)/lib/git-core/git-archimport
+hardlink path=$(USRDIR)/lib/git-core/git-archive target=git
 file path=$(USRDIR)/lib/git-core/git-bisect
-file path=$(USRDIR)/lib/git-core/git-citool
+hardlink path=$(USRDIR)/lib/git-core/git-bisect--helper target=git
+hardlink path=$(USRDIR)/lib/git-core/git-blame target=git
+hardlink path=$(USRDIR)/lib/git-core/git-branch target=git
+hardlink path=$(USRDIR)/lib/git-core/git-bundle target=git
+hardlink path=$(USRDIR)/lib/git-core/git-cat-file target=git
+hardlink path=$(USRDIR)/lib/git-core/git-check-attr target=git
+hardlink path=$(USRDIR)/lib/git-core/git-check-ignore target=git
+hardlink path=$(USRDIR)/lib/git-core/git-check-mailmap target=git
+hardlink path=$(USRDIR)/lib/git-core/git-check-ref-format target=git
+hardlink path=$(USRDIR)/lib/git-core/git-checkout target=git
+hardlink path=$(USRDIR)/lib/git-core/git-checkout-index target=git
+hardlink path=$(USRDIR)/lib/git-core/git-cherry target=git
+hardlink path=$(USRDIR)/lib/git-core/git-cherry-pick target=git
+hardlink path=$(USRDIR)/lib/git-core/git-citool target=git-gui
+hardlink path=$(USRDIR)/lib/git-core/git-clean target=git
+hardlink path=$(USRDIR)/lib/git-core/git-clone target=git
+hardlink path=$(USRDIR)/lib/git-core/git-column target=git
+hardlink path=$(USRDIR)/lib/git-core/git-commit target=git
+hardlink path=$(USRDIR)/lib/git-core/git-commit-tree target=git
+hardlink path=$(USRDIR)/lib/git-core/git-config target=git
+hardlink path=$(USRDIR)/lib/git-core/git-count-objects target=git
+hardlink path=$(USRDIR)/lib/git-core/git-credential target=git
 file path=$(USRDIR)/lib/git-core/git-credential-cache
 file path=$(USRDIR)/lib/git-core/git-credential-cache--daemon
 file path=$(USRDIR)/lib/git-core/git-credential-store
@@ -39,46 +71,134 @@ file path=$(USRDIR)/lib/git-core/git-cvsexportcommit
 file path=$(USRDIR)/lib/git-core/git-cvsimport
 file path=$(USRDIR)/lib/git-core/git-cvsserver
 file path=$(USRDIR)/lib/git-core/git-daemon
+hardlink path=$(USRDIR)/lib/git-core/git-describe target=git
+hardlink path=$(USRDIR)/lib/git-core/git-diff target=git
+hardlink path=$(USRDIR)/lib/git-core/git-diff-files target=git
+hardlink path=$(USRDIR)/lib/git-core/git-diff-index target=git
+hardlink path=$(USRDIR)/lib/git-core/git-diff-tree target=git
 file path=$(USRDIR)/lib/git-core/git-difftool
 file path=$(USRDIR)/lib/git-core/git-difftool--helper
+hardlink path=$(USRDIR)/lib/git-core/git-fast-export target=git
 file path=$(USRDIR)/lib/git-core/git-fast-import
+hardlink path=$(USRDIR)/lib/git-core/git-fetch target=git
+hardlink path=$(USRDIR)/lib/git-core/git-fetch-pack target=git
 file path=$(USRDIR)/lib/git-core/git-filter-branch
+hardlink path=$(USRDIR)/lib/git-core/git-fmt-merge-msg target=git
+hardlink path=$(USRDIR)/lib/git-core/git-for-each-ref target=git
+hardlink path=$(USRDIR)/lib/git-core/git-format-patch target=git
+hardlink path=$(USRDIR)/lib/git-core/git-fsck target=git
+hardlink path=$(USRDIR)/lib/git-core/git-fsck-objects target=git
+hardlink path=$(USRDIR)/lib/git-core/git-gc target=git
+hardlink path=$(USRDIR)/lib/git-core/git-get-tar-commit-id target=git
+hardlink path=$(USRDIR)/lib/git-core/git-grep target=git
+file path=$(USRDIR)/lib/git-core/git-gui
 file path=$(USRDIR)/lib/git-core/git-gui--askpass
+hardlink path=$(USRDIR)/lib/git-core/git-hash-object target=git
+hardlink path=$(USRDIR)/lib/git-core/git-help target=git
 file path=$(USRDIR)/lib/git-core/git-http-backend
 file path=$(USRDIR)/lib/git-core/git-http-fetch
 file path=$(USRDIR)/lib/git-core/git-http-push
 file path=$(USRDIR)/lib/git-core/git-imap-send
+hardlink path=$(USRDIR)/lib/git-core/git-index-pack target=git
+hardlink path=$(USRDIR)/lib/git-core/git-init target=git
+hardlink path=$(USRDIR)/lib/git-core/git-init-db target=git
 file path=$(USRDIR)/lib/git-core/git-instaweb
+hardlink path=$(USRDIR)/lib/git-core/git-interpret-trailers target=git
+hardlink path=$(USRDIR)/lib/git-core/git-log target=git
+hardlink path=$(USRDIR)/lib/git-core/git-ls-files target=git
+hardlink path=$(USRDIR)/lib/git-core/git-ls-remote target=git
+hardlink path=$(USRDIR)/lib/git-core/git-ls-tree target=git
+hardlink path=$(USRDIR)/lib/git-core/git-mailinfo target=git
+hardlink path=$(USRDIR)/lib/git-core/git-mailsplit target=git
+hardlink path=$(USRDIR)/lib/git-core/git-merge target=git
+hardlink path=$(USRDIR)/lib/git-core/git-merge-base target=git
+hardlink path=$(USRDIR)/lib/git-core/git-merge-file target=git
+hardlink path=$(USRDIR)/lib/git-core/git-merge-index target=git
 file path=$(USRDIR)/lib/git-core/git-merge-octopus
 file path=$(USRDIR)/lib/git-core/git-merge-one-file
+hardlink path=$(USRDIR)/lib/git-core/git-merge-ours target=git
+hardlink path=$(USRDIR)/lib/git-core/git-merge-recursive target=git
 file path=$(USRDIR)/lib/git-core/git-merge-resolve
+hardlink path=$(USRDIR)/lib/git-core/git-merge-subtree target=git
+hardlink path=$(USRDIR)/lib/git-core/git-merge-tree target=git
 file path=$(USRDIR)/lib/git-core/git-mergetool
 file path=$(USRDIR)/lib/git-core/git-mergetool--lib
-file path=$(USRDIR)/lib/git-core/git-p4 pkg.depend.bypass-generate=.*/os/__init__.py pkg.depend.bypass-generate=.*/os/path.*
+hardlink path=$(USRDIR)/lib/git-core/git-mktag target=git
+hardlink path=$(USRDIR)/lib/git-core/git-mktree target=git
+hardlink path=$(USRDIR)/lib/git-core/git-mv target=git
+hardlink path=$(USRDIR)/lib/git-core/git-name-rev target=git
+hardlink path=$(USRDIR)/lib/git-core/git-notes target=git
+file path=$(USRDIR)/lib/git-core/git-p4
+hardlink path=$(USRDIR)/lib/git-core/git-pack-objects target=git
+hardlink path=$(USRDIR)/lib/git-core/git-pack-redundant target=git
+hardlink path=$(USRDIR)/lib/git-core/git-pack-refs target=git
 file path=$(USRDIR)/lib/git-core/git-parse-remote
+hardlink path=$(USRDIR)/lib/git-core/git-patch-id target=git
+hardlink path=$(USRDIR)/lib/git-core/git-prune target=git
+hardlink path=$(USRDIR)/lib/git-core/git-prune-packed target=git
 file path=$(USRDIR)/lib/git-core/git-pull
+hardlink path=$(USRDIR)/lib/git-core/git-push target=git
 file path=$(USRDIR)/lib/git-core/git-quiltimport
+hardlink path=$(USRDIR)/lib/git-core/git-read-tree target=git
 file path=$(USRDIR)/lib/git-core/git-rebase
 file path=$(USRDIR)/lib/git-core/git-rebase--am
 file path=$(USRDIR)/lib/git-core/git-rebase--interactive
 file path=$(USRDIR)/lib/git-core/git-rebase--merge
+hardlink path=$(USRDIR)/lib/git-core/git-receive-pack target=git
+hardlink path=$(USRDIR)/lib/git-core/git-reflog target=git
 file path=$(USRDIR)/lib/git-core/git-relink
+hardlink path=$(USRDIR)/lib/git-core/git-remote target=git
+hardlink path=$(USRDIR)/lib/git-core/git-remote-ext target=git
+hardlink path=$(USRDIR)/lib/git-core/git-remote-fd target=git
 file path=$(USRDIR)/lib/git-core/git-remote-ftp
+hardlink path=$(USRDIR)/lib/git-core/git-remote-ftps target=git-remote-ftp
+hardlink path=$(USRDIR)/lib/git-core/git-remote-http target=git-remote-ftp
+hardlink path=$(USRDIR)/lib/git-core/git-remote-https target=git-remote-ftp
 file path=$(USRDIR)/lib/git-core/git-remote-testsvn
+hardlink path=$(USRDIR)/lib/git-core/git-repack target=git
+hardlink path=$(USRDIR)/lib/git-core/git-replace target=git
 file path=$(USRDIR)/lib/git-core/git-request-pull
-file path=$(USRDIR)/lib/git-core/git-rev-list
+hardlink path=$(USRDIR)/lib/git-core/git-rerere target=git
+hardlink path=$(USRDIR)/lib/git-core/git-reset target=git
+hardlink path=$(USRDIR)/lib/git-core/git-rev-list target=git
+hardlink path=$(USRDIR)/lib/git-core/git-rev-parse target=git
+hardlink path=$(USRDIR)/lib/git-core/git-revert target=git
+hardlink path=$(USRDIR)/lib/git-core/git-rm target=git
 file path=$(USRDIR)/lib/git-core/git-send-email
+hardlink path=$(USRDIR)/lib/git-core/git-send-pack target=git
 file path=$(USRDIR)/lib/git-core/git-sh-i18n
 file path=$(USRDIR)/lib/git-core/git-sh-i18n--envsubst
 file path=$(USRDIR)/lib/git-core/git-sh-setup
 file path=$(USRDIR)/lib/git-core/git-shell
+hardlink path=$(USRDIR)/lib/git-core/git-shortlog target=git
+hardlink path=$(USRDIR)/lib/git-core/git-show target=git
+hardlink path=$(USRDIR)/lib/git-core/git-show-branch target=git
 file path=$(USRDIR)/lib/git-core/git-show-index
+hardlink path=$(USRDIR)/lib/git-core/git-show-ref target=git
+hardlink path=$(USRDIR)/lib/git-core/git-stage target=git
 file path=$(USRDIR)/lib/git-core/git-stash
+hardlink path=$(USRDIR)/lib/git-core/git-status target=git
+hardlink path=$(USRDIR)/lib/git-core/git-stripspace target=git
 file path=$(USRDIR)/lib/git-core/git-submodule
 file path=$(USRDIR)/lib/git-core/git-svn
+hardlink path=$(USRDIR)/lib/git-core/git-symbolic-ref target=git
+hardlink path=$(USRDIR)/lib/git-core/git-tag target=git
+hardlink path=$(USRDIR)/lib/git-core/git-unpack-file target=git
+hardlink path=$(USRDIR)/lib/git-core/git-unpack-objects target=git
+hardlink path=$(USRDIR)/lib/git-core/git-update-index target=git
+hardlink path=$(USRDIR)/lib/git-core/git-update-ref target=git
+hardlink path=$(USRDIR)/lib/git-core/git-update-server-info target=git
+hardlink path=$(USRDIR)/lib/git-core/git-upload-archive target=git
 file path=$(USRDIR)/lib/git-core/git-upload-pack
+hardlink path=$(USRDIR)/lib/git-core/git-var target=git
+hardlink path=$(USRDIR)/lib/git-core/git-verify-commit target=git
+hardlink path=$(USRDIR)/lib/git-core/git-verify-pack target=git
+hardlink path=$(USRDIR)/lib/git-core/git-verify-tag target=git
 file path=$(USRDIR)/lib/git-core/git-web--browse
+hardlink path=$(USRDIR)/lib/git-core/git-whatchanged target=git
+hardlink path=$(USRDIR)/lib/git-core/git-write-tree target=git
 file path=$(USRDIR)/lib/git-core/mergetools/araxis
+file path=$(USRDIR)/lib/git-core/mergetools/bc
 file path=$(USRDIR)/lib/git-core/mergetools/bc3
 file path=$(USRDIR)/lib/git-core/mergetools/codecompare
 file path=$(USRDIR)/lib/git-core/mergetools/deltawalker
@@ -88,6 +208,7 @@ file path=$(USRDIR)/lib/git-core/mergetools/ecmerge
 file path=$(USRDIR)/lib/git-core/mergetools/emerge
 file path=$(USRDIR)/lib/git-core/mergetools/gvimdiff
 file path=$(USRDIR)/lib/git-core/mergetools/gvimdiff2
+file path=$(USRDIR)/lib/git-core/mergetools/gvimdiff3
 file path=$(USRDIR)/lib/git-core/mergetools/kdiff3
 file path=$(USRDIR)/lib/git-core/mergetools/kompare
 file path=$(USRDIR)/lib/git-core/mergetools/meld
@@ -97,21 +218,759 @@ file path=$(USRDIR)/lib/git-core/mergetools/tkdiff
 file path=$(USRDIR)/lib/git-core/mergetools/tortoisemerge
 file path=$(USRDIR)/lib/git-core/mergetools/vimdiff
 file path=$(USRDIR)/lib/git-core/mergetools/vimdiff2
+file path=$(USRDIR)/lib/git-core/mergetools/vimdiff3
 file path=$(USRDIR)/lib/git-core/mergetools/xxdiff
-file path=$(USRDIR)/lib/site_perl/Error.pm
-file path=$(USRDIR)/lib/site_perl/Git.pm
-file path=$(USRDIR)/lib/site_perl/Git/I18N.pm
-file path=$(USRDIR)/lib/site_perl/Git/IndexInfo.pm
-file path=$(USRDIR)/lib/site_perl/Git/SVN.pm
-file path=$(USRDIR)/lib/site_perl/Git/SVN/Editor.pm
-file path=$(USRDIR)/lib/site_perl/Git/SVN/Fetcher.pm
-file path=$(USRDIR)/lib/site_perl/Git/SVN/GlobSpec.pm
-file path=$(USRDIR)/lib/site_perl/Git/SVN/Log.pm
-file path=$(USRDIR)/lib/site_perl/Git/SVN/Memoize/YAML.pm
-file path=$(USRDIR)/lib/site_perl/Git/SVN/Migration.pm
-file path=$(USRDIR)/lib/site_perl/Git/SVN/Prompt.pm
-file path=$(USRDIR)/lib/site_perl/Git/SVN/Ra.pm
-file path=$(USRDIR)/lib/site_perl/Git/SVN/Utils.pm
+
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/Error.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/Git.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/Git/I18N.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/Git/IndexInfo.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/Git/SVN.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/Git/SVN/Editor.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/Git/SVN/Fetcher.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/Git/SVN/GlobSpec.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/Git/SVN/Log.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/Git/SVN/Memoize/YAML.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/Git/SVN/Migration.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/Git/SVN/Prompt.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/Git/SVN/Ra.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/Git/SVN/Utils.pm
+file path=$(USRDIR)/lib/site_perl/5.18.2/i86pc-solaris-thread-multi-64/auto/Git/.packlist
+
+file path=$(USRDIR)/share/doc/git/RelNotes/$(COMPONENT_VERSION).txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.0.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.0.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.0.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.0.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.0.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.0.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.0.7.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.0.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.1.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.1.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.1.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.1.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.1.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.1.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.2.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.2.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.2.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.2.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.2.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.3.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.3.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.3.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.3.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.3.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.3.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.3.7.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.3.8.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.4.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.4.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.4.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.4.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.4.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.4.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.4.7.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.5.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.5.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.5.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.5.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.5.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.5.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.6.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.6.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.6.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.6.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.6.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.6.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.5.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.0.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.0.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.0.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.0.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.0.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.0.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.0.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.1.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.1.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.1.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.1.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.2.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.2.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.2.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.2.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.2.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.3.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.3.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.3.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.3.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.4.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.4.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.4.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.4.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.4.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.5.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.5.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.5.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.5.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.5.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.5.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.5.7.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.5.8.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.5.9.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.6.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.6.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.6.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.6.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.0.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.0.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.0.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.0.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.0.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.0.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.0.7.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.0.8.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.0.9.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.0.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.1.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.1.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.1.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.1.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.10.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.10.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.10.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.10.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.10.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.10.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.11.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.11.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.11.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.11.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.11.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.11.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.11.7.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.11.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.12.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.12.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.12.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.12.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.12.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.2.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.2.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.2.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.2.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.2.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.3.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.3.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.3.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.3.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.3.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.4.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.4.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.4.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.4.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.4.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.5.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.5.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.5.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.5.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.6.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.6.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.6.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.6.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.6.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.6.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.7.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.7.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.7.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.7.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.7.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.7.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.7.7.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.7.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.8.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.8.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.8.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.8.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.8.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.8.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.8.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.9.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.9.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.9.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.9.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.9.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.9.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.9.7.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.7.9.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.0.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.0.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.0.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.0.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.1.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.1.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.1.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.1.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.1.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.1.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.2.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.2.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.2.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.3.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.3.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.3.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.3.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.4.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.4.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.4.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.4.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.4.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.5.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.5.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.5.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.5.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.5.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.5.6.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.8.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.9.0.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.9.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.9.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.9.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.9.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/1.9.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/2.0.0.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/2.0.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/2.0.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/2.0.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/2.0.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/2.0.5.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/2.1.0.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/2.1.1.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/2.1.2.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/2.1.3.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/2.1.4.txt
+file path=$(USRDIR)/share/doc/git/RelNotes/2.2.0.txt
+file path=$(USRDIR)/share/doc/git/blame-options.txt
+file path=$(USRDIR)/share/doc/git/cmds-ancillaryinterrogators.txt
+file path=$(USRDIR)/share/doc/git/cmds-ancillarymanipulators.txt
+file path=$(USRDIR)/share/doc/git/cmds-foreignscminterface.txt
+file path=$(USRDIR)/share/doc/git/cmds-mainporcelain.txt
+file path=$(USRDIR)/share/doc/git/cmds-plumbinginterrogators.txt
+file path=$(USRDIR)/share/doc/git/cmds-plumbingmanipulators.txt
+file path=$(USRDIR)/share/doc/git/cmds-purehelpers.txt
+file path=$(USRDIR)/share/doc/git/cmds-synchelpers.txt
+file path=$(USRDIR)/share/doc/git/cmds-synchingrepositories.txt
+file path=$(USRDIR)/share/doc/git/config.txt
+file path=$(USRDIR)/share/doc/git/date-formats.txt
+file path=$(USRDIR)/share/doc/git/diff-config.txt
+file path=$(USRDIR)/share/doc/git/diff-format.txt
+file path=$(USRDIR)/share/doc/git/diff-generate-patch.txt
+file path=$(USRDIR)/share/doc/git/diff-options.txt
+file path=$(USRDIR)/share/doc/git/docbook-xsl.css
+file path=$(USRDIR)/share/doc/git/everyday.html
+file path=$(USRDIR)/share/doc/git/fetch-options.txt
+file path=$(USRDIR)/share/doc/git/git-add.html
+file path=$(USRDIR)/share/doc/git/git-add.txt
+file path=$(USRDIR)/share/doc/git/git-am.html
+file path=$(USRDIR)/share/doc/git/git-am.txt
+file path=$(USRDIR)/share/doc/git/git-annotate.html
+file path=$(USRDIR)/share/doc/git/git-annotate.txt
+file path=$(USRDIR)/share/doc/git/git-apply.html
+file path=$(USRDIR)/share/doc/git/git-apply.txt
+file path=$(USRDIR)/share/doc/git/git-archimport.html
+file path=$(USRDIR)/share/doc/git/git-archimport.txt
+file path=$(USRDIR)/share/doc/git/git-archive.html
+file path=$(USRDIR)/share/doc/git/git-archive.txt
+file path=$(USRDIR)/share/doc/git/git-bisect-lk2009.html
+file path=$(USRDIR)/share/doc/git/git-bisect-lk2009.txt
+file path=$(USRDIR)/share/doc/git/git-bisect.html
+file path=$(USRDIR)/share/doc/git/git-bisect.txt
+file path=$(USRDIR)/share/doc/git/git-blame.html
+file path=$(USRDIR)/share/doc/git/git-blame.txt
+file path=$(USRDIR)/share/doc/git/git-branch.html
+file path=$(USRDIR)/share/doc/git/git-branch.txt
+file path=$(USRDIR)/share/doc/git/git-bundle.html
+file path=$(USRDIR)/share/doc/git/git-bundle.txt
+file path=$(USRDIR)/share/doc/git/git-cat-file.html
+file path=$(USRDIR)/share/doc/git/git-cat-file.txt
+file path=$(USRDIR)/share/doc/git/git-check-attr.html
+file path=$(USRDIR)/share/doc/git/git-check-attr.txt
+file path=$(USRDIR)/share/doc/git/git-check-ignore.html
+file path=$(USRDIR)/share/doc/git/git-check-ignore.txt
+file path=$(USRDIR)/share/doc/git/git-check-mailmap.html
+file path=$(USRDIR)/share/doc/git/git-check-mailmap.txt
+file path=$(USRDIR)/share/doc/git/git-check-ref-format.html
+file path=$(USRDIR)/share/doc/git/git-check-ref-format.txt
+file path=$(USRDIR)/share/doc/git/git-checkout-index.html
+file path=$(USRDIR)/share/doc/git/git-checkout-index.txt
+file path=$(USRDIR)/share/doc/git/git-checkout.html
+file path=$(USRDIR)/share/doc/git/git-checkout.txt
+file path=$(USRDIR)/share/doc/git/git-cherry-pick.html
+file path=$(USRDIR)/share/doc/git/git-cherry-pick.txt
+file path=$(USRDIR)/share/doc/git/git-cherry.html
+file path=$(USRDIR)/share/doc/git/git-cherry.txt
+file path=$(USRDIR)/share/doc/git/git-citool.html
+file path=$(USRDIR)/share/doc/git/git-citool.txt
+file path=$(USRDIR)/share/doc/git/git-clean.html
+file path=$(USRDIR)/share/doc/git/git-clean.txt
+file path=$(USRDIR)/share/doc/git/git-clone.html
+file path=$(USRDIR)/share/doc/git/git-clone.txt
+file path=$(USRDIR)/share/doc/git/git-column.html
+file path=$(USRDIR)/share/doc/git/git-column.txt
+file path=$(USRDIR)/share/doc/git/git-commit-tree.html
+file path=$(USRDIR)/share/doc/git/git-commit-tree.txt
+file path=$(USRDIR)/share/doc/git/git-commit.html
+file path=$(USRDIR)/share/doc/git/git-commit.txt
+file path=$(USRDIR)/share/doc/git/git-config.html
+file path=$(USRDIR)/share/doc/git/git-config.txt
+file path=$(USRDIR)/share/doc/git/git-count-objects.html
+file path=$(USRDIR)/share/doc/git/git-count-objects.txt
+file path=$(USRDIR)/share/doc/git/git-credential-cache--daemon.html
+file path=$(USRDIR)/share/doc/git/git-credential-cache--daemon.txt
+file path=$(USRDIR)/share/doc/git/git-credential-cache.html
+file path=$(USRDIR)/share/doc/git/git-credential-cache.txt
+file path=$(USRDIR)/share/doc/git/git-credential-store.html
+file path=$(USRDIR)/share/doc/git/git-credential-store.txt
+file path=$(USRDIR)/share/doc/git/git-credential.html
+file path=$(USRDIR)/share/doc/git/git-credential.txt
+file path=$(USRDIR)/share/doc/git/git-cvsexportcommit.html
+file path=$(USRDIR)/share/doc/git/git-cvsexportcommit.txt
+file path=$(USRDIR)/share/doc/git/git-cvsimport.html
+file path=$(USRDIR)/share/doc/git/git-cvsimport.txt
+file path=$(USRDIR)/share/doc/git/git-cvsserver.html
+file path=$(USRDIR)/share/doc/git/git-cvsserver.txt
+file path=$(USRDIR)/share/doc/git/git-daemon.html
+file path=$(USRDIR)/share/doc/git/git-daemon.txt
+file path=$(USRDIR)/share/doc/git/git-describe.html
+file path=$(USRDIR)/share/doc/git/git-describe.txt
+file path=$(USRDIR)/share/doc/git/git-diff-files.html
+file path=$(USRDIR)/share/doc/git/git-diff-files.txt
+file path=$(USRDIR)/share/doc/git/git-diff-index.html
+file path=$(USRDIR)/share/doc/git/git-diff-index.txt
+file path=$(USRDIR)/share/doc/git/git-diff-tree.html
+file path=$(USRDIR)/share/doc/git/git-diff-tree.txt
+file path=$(USRDIR)/share/doc/git/git-diff.html
+file path=$(USRDIR)/share/doc/git/git-diff.txt
+file path=$(USRDIR)/share/doc/git/git-difftool.html
+file path=$(USRDIR)/share/doc/git/git-difftool.txt
+file path=$(USRDIR)/share/doc/git/git-fast-export.html
+file path=$(USRDIR)/share/doc/git/git-fast-export.txt
+file path=$(USRDIR)/share/doc/git/git-fast-import.html
+file path=$(USRDIR)/share/doc/git/git-fast-import.txt
+file path=$(USRDIR)/share/doc/git/git-fetch-pack.html
+file path=$(USRDIR)/share/doc/git/git-fetch-pack.txt
+file path=$(USRDIR)/share/doc/git/git-fetch.html
+file path=$(USRDIR)/share/doc/git/git-fetch.txt
+file path=$(USRDIR)/share/doc/git/git-filter-branch.html
+file path=$(USRDIR)/share/doc/git/git-filter-branch.txt
+file path=$(USRDIR)/share/doc/git/git-fmt-merge-msg.html
+file path=$(USRDIR)/share/doc/git/git-fmt-merge-msg.txt
+file path=$(USRDIR)/share/doc/git/git-for-each-ref.html
+file path=$(USRDIR)/share/doc/git/git-for-each-ref.txt
+file path=$(USRDIR)/share/doc/git/git-format-patch.html
+file path=$(USRDIR)/share/doc/git/git-format-patch.txt
+file path=$(USRDIR)/share/doc/git/git-fsck-objects.html
+file path=$(USRDIR)/share/doc/git/git-fsck-objects.txt
+file path=$(USRDIR)/share/doc/git/git-fsck.html
+file path=$(USRDIR)/share/doc/git/git-fsck.txt
+file path=$(USRDIR)/share/doc/git/git-gc.html
+file path=$(USRDIR)/share/doc/git/git-gc.txt
+file path=$(USRDIR)/share/doc/git/git-get-tar-commit-id.html
+file path=$(USRDIR)/share/doc/git/git-get-tar-commit-id.txt
+file path=$(USRDIR)/share/doc/git/git-grep.html
+file path=$(USRDIR)/share/doc/git/git-grep.txt
+file path=$(USRDIR)/share/doc/git/git-gui.html
+file path=$(USRDIR)/share/doc/git/git-gui.txt
+file path=$(USRDIR)/share/doc/git/git-hash-object.html
+file path=$(USRDIR)/share/doc/git/git-hash-object.txt
+file path=$(USRDIR)/share/doc/git/git-help.html
+file path=$(USRDIR)/share/doc/git/git-help.txt
+file path=$(USRDIR)/share/doc/git/git-http-backend.html
+file path=$(USRDIR)/share/doc/git/git-http-backend.txt
+file path=$(USRDIR)/share/doc/git/git-http-fetch.html
+file path=$(USRDIR)/share/doc/git/git-http-fetch.txt
+file path=$(USRDIR)/share/doc/git/git-http-push.html
+file path=$(USRDIR)/share/doc/git/git-http-push.txt
+file path=$(USRDIR)/share/doc/git/git-imap-send.html
+file path=$(USRDIR)/share/doc/git/git-imap-send.txt
+file path=$(USRDIR)/share/doc/git/git-index-pack.html
+file path=$(USRDIR)/share/doc/git/git-index-pack.txt
+file path=$(USRDIR)/share/doc/git/git-init-db.html
+file path=$(USRDIR)/share/doc/git/git-init-db.txt
+file path=$(USRDIR)/share/doc/git/git-init.html
+file path=$(USRDIR)/share/doc/git/git-init.txt
+file path=$(USRDIR)/share/doc/git/git-instaweb.html
+file path=$(USRDIR)/share/doc/git/git-instaweb.txt
+file path=$(USRDIR)/share/doc/git/git-interpret-trailers.html
+file path=$(USRDIR)/share/doc/git/git-interpret-trailers.txt
+file path=$(USRDIR)/share/doc/git/git-log.html
+file path=$(USRDIR)/share/doc/git/git-log.txt
+file path=$(USRDIR)/share/doc/git/git-ls-files.html
+file path=$(USRDIR)/share/doc/git/git-ls-files.txt
+file path=$(USRDIR)/share/doc/git/git-ls-remote.html
+file path=$(USRDIR)/share/doc/git/git-ls-remote.txt
+file path=$(USRDIR)/share/doc/git/git-ls-tree.html
+file path=$(USRDIR)/share/doc/git/git-ls-tree.txt
+file path=$(USRDIR)/share/doc/git/git-mailinfo.html
+file path=$(USRDIR)/share/doc/git/git-mailinfo.txt
+file path=$(USRDIR)/share/doc/git/git-mailsplit.html
+file path=$(USRDIR)/share/doc/git/git-mailsplit.txt
+file path=$(USRDIR)/share/doc/git/git-merge-base.html
+file path=$(USRDIR)/share/doc/git/git-merge-base.txt
+file path=$(USRDIR)/share/doc/git/git-merge-file.html
+file path=$(USRDIR)/share/doc/git/git-merge-file.txt
+file path=$(USRDIR)/share/doc/git/git-merge-index.html
+file path=$(USRDIR)/share/doc/git/git-merge-index.txt
+file path=$(USRDIR)/share/doc/git/git-merge-one-file.html
+file path=$(USRDIR)/share/doc/git/git-merge-one-file.txt
+file path=$(USRDIR)/share/doc/git/git-merge-tree.html
+file path=$(USRDIR)/share/doc/git/git-merge-tree.txt
+file path=$(USRDIR)/share/doc/git/git-merge.html
+file path=$(USRDIR)/share/doc/git/git-merge.txt
+file path=$(USRDIR)/share/doc/git/git-mergetool--lib.html
+file path=$(USRDIR)/share/doc/git/git-mergetool--lib.txt
+file path=$(USRDIR)/share/doc/git/git-mergetool.html
+file path=$(USRDIR)/share/doc/git/git-mergetool.txt
+file path=$(USRDIR)/share/doc/git/git-mktag.html
+file path=$(USRDIR)/share/doc/git/git-mktag.txt
+file path=$(USRDIR)/share/doc/git/git-mktree.html
+file path=$(USRDIR)/share/doc/git/git-mktree.txt
+file path=$(USRDIR)/share/doc/git/git-mv.html
+file path=$(USRDIR)/share/doc/git/git-mv.txt
+file path=$(USRDIR)/share/doc/git/git-name-rev.html
+file path=$(USRDIR)/share/doc/git/git-name-rev.txt
+file path=$(USRDIR)/share/doc/git/git-notes.html
+file path=$(USRDIR)/share/doc/git/git-notes.txt
+file path=$(USRDIR)/share/doc/git/git-p4.html
+file path=$(USRDIR)/share/doc/git/git-p4.txt
+file path=$(USRDIR)/share/doc/git/git-pack-objects.html
+file path=$(USRDIR)/share/doc/git/git-pack-objects.txt
+file path=$(USRDIR)/share/doc/git/git-pack-redundant.html
+file path=$(USRDIR)/share/doc/git/git-pack-redundant.txt
+file path=$(USRDIR)/share/doc/git/git-pack-refs.html
+file path=$(USRDIR)/share/doc/git/git-pack-refs.txt
+file path=$(USRDIR)/share/doc/git/git-parse-remote.html
+file path=$(USRDIR)/share/doc/git/git-parse-remote.txt
+file path=$(USRDIR)/share/doc/git/git-patch-id.html
+file path=$(USRDIR)/share/doc/git/git-patch-id.txt
+file path=$(USRDIR)/share/doc/git/git-prune-packed.html
+file path=$(USRDIR)/share/doc/git/git-prune-packed.txt
+file path=$(USRDIR)/share/doc/git/git-prune.html
+file path=$(USRDIR)/share/doc/git/git-prune.txt
+file path=$(USRDIR)/share/doc/git/git-pull.html
+file path=$(USRDIR)/share/doc/git/git-pull.txt
+file path=$(USRDIR)/share/doc/git/git-push.html
+file path=$(USRDIR)/share/doc/git/git-push.txt
+file path=$(USRDIR)/share/doc/git/git-quiltimport.html
+file path=$(USRDIR)/share/doc/git/git-quiltimport.txt
+file path=$(USRDIR)/share/doc/git/git-read-tree.html
+file path=$(USRDIR)/share/doc/git/git-read-tree.txt
+file path=$(USRDIR)/share/doc/git/git-rebase.html
+file path=$(USRDIR)/share/doc/git/git-rebase.txt
+file path=$(USRDIR)/share/doc/git/git-receive-pack.html
+file path=$(USRDIR)/share/doc/git/git-receive-pack.txt
+file path=$(USRDIR)/share/doc/git/git-reflog.html
+file path=$(USRDIR)/share/doc/git/git-reflog.txt
+file path=$(USRDIR)/share/doc/git/git-relink.html
+file path=$(USRDIR)/share/doc/git/git-relink.txt
+file path=$(USRDIR)/share/doc/git/git-remote-ext.html
+file path=$(USRDIR)/share/doc/git/git-remote-ext.txt
+file path=$(USRDIR)/share/doc/git/git-remote-fd.html
+file path=$(USRDIR)/share/doc/git/git-remote-fd.txt
+file path=$(USRDIR)/share/doc/git/git-remote-helpers.html
+file path=$(USRDIR)/share/doc/git/git-remote-testgit.html
+file path=$(USRDIR)/share/doc/git/git-remote-testgit.txt
+file path=$(USRDIR)/share/doc/git/git-remote.html
+file path=$(USRDIR)/share/doc/git/git-remote.txt
+file path=$(USRDIR)/share/doc/git/git-repack.html
+file path=$(USRDIR)/share/doc/git/git-repack.txt
+file path=$(USRDIR)/share/doc/git/git-replace.html
+file path=$(USRDIR)/share/doc/git/git-replace.txt
+file path=$(USRDIR)/share/doc/git/git-request-pull.html
+file path=$(USRDIR)/share/doc/git/git-request-pull.txt
+file path=$(USRDIR)/share/doc/git/git-rerere.html
+file path=$(USRDIR)/share/doc/git/git-rerere.txt
+file path=$(USRDIR)/share/doc/git/git-reset.html
+file path=$(USRDIR)/share/doc/git/git-reset.txt
+file path=$(USRDIR)/share/doc/git/git-rev-list.html
+file path=$(USRDIR)/share/doc/git/git-rev-list.txt
+file path=$(USRDIR)/share/doc/git/git-rev-parse.html
+file path=$(USRDIR)/share/doc/git/git-rev-parse.txt
+file path=$(USRDIR)/share/doc/git/git-revert.html
+file path=$(USRDIR)/share/doc/git/git-revert.txt
+file path=$(USRDIR)/share/doc/git/git-rm.html
+file path=$(USRDIR)/share/doc/git/git-rm.txt
+file path=$(USRDIR)/share/doc/git/git-send-email.html
+file path=$(USRDIR)/share/doc/git/git-send-email.txt
+file path=$(USRDIR)/share/doc/git/git-send-pack.html
+file path=$(USRDIR)/share/doc/git/git-send-pack.txt
+file path=$(USRDIR)/share/doc/git/git-sh-i18n--envsubst.html
+file path=$(USRDIR)/share/doc/git/git-sh-i18n--envsubst.txt
+file path=$(USRDIR)/share/doc/git/git-sh-i18n.html
+file path=$(USRDIR)/share/doc/git/git-sh-i18n.txt
+file path=$(USRDIR)/share/doc/git/git-sh-setup.html
+file path=$(USRDIR)/share/doc/git/git-sh-setup.txt
+file path=$(USRDIR)/share/doc/git/git-shell.html
+file path=$(USRDIR)/share/doc/git/git-shell.txt
+file path=$(USRDIR)/share/doc/git/git-shortlog.html
+file path=$(USRDIR)/share/doc/git/git-shortlog.txt
+file path=$(USRDIR)/share/doc/git/git-show-branch.html
+file path=$(USRDIR)/share/doc/git/git-show-branch.txt
+file path=$(USRDIR)/share/doc/git/git-show-index.html
+file path=$(USRDIR)/share/doc/git/git-show-index.txt
+file path=$(USRDIR)/share/doc/git/git-show-ref.html
+file path=$(USRDIR)/share/doc/git/git-show-ref.txt
+file path=$(USRDIR)/share/doc/git/git-show.html
+file path=$(USRDIR)/share/doc/git/git-show.txt
+file path=$(USRDIR)/share/doc/git/git-stage.html
+file path=$(USRDIR)/share/doc/git/git-stage.txt
+file path=$(USRDIR)/share/doc/git/git-stash.html
+file path=$(USRDIR)/share/doc/git/git-stash.txt
+file path=$(USRDIR)/share/doc/git/git-status.html
+file path=$(USRDIR)/share/doc/git/git-status.txt
+file path=$(USRDIR)/share/doc/git/git-stripspace.html
+file path=$(USRDIR)/share/doc/git/git-stripspace.txt
+file path=$(USRDIR)/share/doc/git/git-submodule.html
+file path=$(USRDIR)/share/doc/git/git-submodule.txt
+file path=$(USRDIR)/share/doc/git/git-svn.html
+file path=$(USRDIR)/share/doc/git/git-svn.txt
+file path=$(USRDIR)/share/doc/git/git-symbolic-ref.html
+file path=$(USRDIR)/share/doc/git/git-symbolic-ref.txt
+file path=$(USRDIR)/share/doc/git/git-tag.html
+file path=$(USRDIR)/share/doc/git/git-tag.txt
+file path=$(USRDIR)/share/doc/git/git-tools.html
+file path=$(USRDIR)/share/doc/git/git-tools.txt
+file path=$(USRDIR)/share/doc/git/git-unpack-file.html
+file path=$(USRDIR)/share/doc/git/git-unpack-file.txt
+file path=$(USRDIR)/share/doc/git/git-unpack-objects.html
+file path=$(USRDIR)/share/doc/git/git-unpack-objects.txt
+file path=$(USRDIR)/share/doc/git/git-update-index.html
+file path=$(USRDIR)/share/doc/git/git-update-index.txt
+file path=$(USRDIR)/share/doc/git/git-update-ref.html
+file path=$(USRDIR)/share/doc/git/git-update-ref.txt
+file path=$(USRDIR)/share/doc/git/git-update-server-info.html
+file path=$(USRDIR)/share/doc/git/git-update-server-info.txt
+file path=$(USRDIR)/share/doc/git/git-upload-archive.html
+file path=$(USRDIR)/share/doc/git/git-upload-archive.txt
+file path=$(USRDIR)/share/doc/git/git-upload-pack.html
+file path=$(USRDIR)/share/doc/git/git-upload-pack.txt
+file path=$(USRDIR)/share/doc/git/git-var.html
+file path=$(USRDIR)/share/doc/git/git-var.txt
+file path=$(USRDIR)/share/doc/git/git-verify-commit.html
+file path=$(USRDIR)/share/doc/git/git-verify-commit.txt
+file path=$(USRDIR)/share/doc/git/git-verify-pack.html
+file path=$(USRDIR)/share/doc/git/git-verify-pack.txt
+file path=$(USRDIR)/share/doc/git/git-verify-tag.html
+file path=$(USRDIR)/share/doc/git/git-verify-tag.txt
+file path=$(USRDIR)/share/doc/git/git-web--browse.html
+file path=$(USRDIR)/share/doc/git/git-web--browse.txt
+file path=$(USRDIR)/share/doc/git/git-whatchanged.html
+file path=$(USRDIR)/share/doc/git/git-whatchanged.txt
+file path=$(USRDIR)/share/doc/git/git-write-tree.html
+file path=$(USRDIR)/share/doc/git/git-write-tree.txt
+file path=$(USRDIR)/share/doc/git/git.html
+file path=$(USRDIR)/share/doc/git/git.txt
+file path=$(USRDIR)/share/doc/git/gitattributes.html
+file path=$(USRDIR)/share/doc/git/gitattributes.txt
+file path=$(USRDIR)/share/doc/git/gitcli.html
+file path=$(USRDIR)/share/doc/git/gitcli.txt
+file path=$(USRDIR)/share/doc/git/gitcore-tutorial.html
+file path=$(USRDIR)/share/doc/git/gitcore-tutorial.txt
+file path=$(USRDIR)/share/doc/git/gitcredentials.html
+file path=$(USRDIR)/share/doc/git/gitcredentials.txt
+file path=$(USRDIR)/share/doc/git/gitcvs-migration.html
+file path=$(USRDIR)/share/doc/git/gitcvs-migration.txt
+file path=$(USRDIR)/share/doc/git/gitdiffcore.html
+file path=$(USRDIR)/share/doc/git/gitdiffcore.txt
+file path=$(USRDIR)/share/doc/git/giteveryday.html
+file path=$(USRDIR)/share/doc/git/giteveryday.txt
+file path=$(USRDIR)/share/doc/git/gitglossary.html
+file path=$(USRDIR)/share/doc/git/gitglossary.txt
+file path=$(USRDIR)/share/doc/git/githooks.html
+file path=$(USRDIR)/share/doc/git/githooks.txt
+file path=$(USRDIR)/share/doc/git/gitignore.html
+file path=$(USRDIR)/share/doc/git/gitignore.txt
+file path=$(USRDIR)/share/doc/git/gitk.html
+file path=$(USRDIR)/share/doc/git/gitk.txt
+file path=$(USRDIR)/share/doc/git/gitmodules.html
+file path=$(USRDIR)/share/doc/git/gitmodules.txt
+file path=$(USRDIR)/share/doc/git/gitnamespaces.html
+file path=$(USRDIR)/share/doc/git/gitnamespaces.txt
+file path=$(USRDIR)/share/doc/git/gitremote-helpers.html
+file path=$(USRDIR)/share/doc/git/gitremote-helpers.txt
+file path=$(USRDIR)/share/doc/git/gitrepository-layout.html
+file path=$(USRDIR)/share/doc/git/gitrepository-layout.txt
+file path=$(USRDIR)/share/doc/git/gitrevisions.html
+file path=$(USRDIR)/share/doc/git/gitrevisions.txt
+file path=$(USRDIR)/share/doc/git/gittutorial-2.html
+file path=$(USRDIR)/share/doc/git/gittutorial-2.txt
+file path=$(USRDIR)/share/doc/git/gittutorial.html
+file path=$(USRDIR)/share/doc/git/gittutorial.txt
+file path=$(USRDIR)/share/doc/git/gitweb.conf.html
+file path=$(USRDIR)/share/doc/git/gitweb.conf.txt
+file path=$(USRDIR)/share/doc/git/gitweb.html
+file path=$(USRDIR)/share/doc/git/gitweb.txt
+file path=$(USRDIR)/share/doc/git/gitworkflows.html
+file path=$(USRDIR)/share/doc/git/gitworkflows.txt
+file path=$(USRDIR)/share/doc/git/glossary-content.txt
+file path=$(USRDIR)/share/doc/git/howto-index.html
+file path=$(USRDIR)/share/doc/git/howto-index.txt
+file path=$(USRDIR)/share/doc/git/howto/keep-canonical-history-correct.html
+file path=$(USRDIR)/share/doc/git/howto/keep-canonical-history-correct.txt
+file path=$(USRDIR)/share/doc/git/howto/maintain-git.html
+file path=$(USRDIR)/share/doc/git/howto/maintain-git.txt
+file path=$(USRDIR)/share/doc/git/howto/new-command.html
+file path=$(USRDIR)/share/doc/git/howto/new-command.txt
+file path=$(USRDIR)/share/doc/git/howto/rebase-from-internal-branch.html
+file path=$(USRDIR)/share/doc/git/howto/rebase-from-internal-branch.txt
+file path=$(USRDIR)/share/doc/git/howto/rebuild-from-update-hook.html
+file path=$(USRDIR)/share/doc/git/howto/rebuild-from-update-hook.txt
+file path=$(USRDIR)/share/doc/git/howto/recover-corrupted-blob-object.html
+file path=$(USRDIR)/share/doc/git/howto/recover-corrupted-blob-object.txt
+file path=$(USRDIR)/share/doc/git/howto/recover-corrupted-object-harder.html
+file path=$(USRDIR)/share/doc/git/howto/recover-corrupted-object-harder.txt
+file path=$(USRDIR)/share/doc/git/howto/revert-a-faulty-merge.html
+file path=$(USRDIR)/share/doc/git/howto/revert-a-faulty-merge.txt
+file path=$(USRDIR)/share/doc/git/howto/revert-branch-rebase.html
+file path=$(USRDIR)/share/doc/git/howto/revert-branch-rebase.txt
+file path=$(USRDIR)/share/doc/git/howto/separating-topic-branches.html
+file path=$(USRDIR)/share/doc/git/howto/separating-topic-branches.txt
+file path=$(USRDIR)/share/doc/git/howto/setup-git-server-over-http.html
+file path=$(USRDIR)/share/doc/git/howto/setup-git-server-over-http.txt
+file path=$(USRDIR)/share/doc/git/howto/update-hook-example.html
+file path=$(USRDIR)/share/doc/git/howto/update-hook-example.txt
+file path=$(USRDIR)/share/doc/git/howto/use-git-daemon.html
+file path=$(USRDIR)/share/doc/git/howto/use-git-daemon.txt
+file path=$(USRDIR)/share/doc/git/howto/using-merge-subtree.html
+file path=$(USRDIR)/share/doc/git/howto/using-merge-subtree.txt
+file path=$(USRDIR)/share/doc/git/howto/using-signed-tag-in-pull-request.html
+file path=$(USRDIR)/share/doc/git/howto/using-signed-tag-in-pull-request.txt
+file path=$(USRDIR)/share/doc/git/i18n.txt
+link path=$(USRDIR)/share/doc/git/index.html target=git.html
+file path=$(USRDIR)/share/doc/git/line-range-format.txt
+file path=$(USRDIR)/share/doc/git/mailmap.txt
+file path=$(USRDIR)/share/doc/git/merge-config.txt
+file path=$(USRDIR)/share/doc/git/merge-options.txt
+file path=$(USRDIR)/share/doc/git/merge-strategies.txt
+file path=$(USRDIR)/share/doc/git/mergetools-diff.txt
+file path=$(USRDIR)/share/doc/git/mergetools-merge.txt
+file path=$(USRDIR)/share/doc/git/pretty-formats.txt
+file path=$(USRDIR)/share/doc/git/pretty-options.txt
+file path=$(USRDIR)/share/doc/git/pull-fetch-param.txt
+file path=$(USRDIR)/share/doc/git/rev-list-options.txt
+file path=$(USRDIR)/share/doc/git/revisions.txt
+file path=$(USRDIR)/share/doc/git/sequencer.txt
+file path=$(USRDIR)/share/doc/git/technical/api-allocation-growing.html
+file path=$(USRDIR)/share/doc/git/technical/api-allocation-growing.txt
+file path=$(USRDIR)/share/doc/git/technical/api-argv-array.html
+file path=$(USRDIR)/share/doc/git/technical/api-argv-array.txt
+file path=$(USRDIR)/share/doc/git/technical/api-builtin.html
+file path=$(USRDIR)/share/doc/git/technical/api-builtin.txt
+file path=$(USRDIR)/share/doc/git/technical/api-config.html
+file path=$(USRDIR)/share/doc/git/technical/api-config.txt
+file path=$(USRDIR)/share/doc/git/technical/api-credentials.html
+file path=$(USRDIR)/share/doc/git/technical/api-credentials.txt
+file path=$(USRDIR)/share/doc/git/technical/api-decorate.html
+file path=$(USRDIR)/share/doc/git/technical/api-decorate.txt
+file path=$(USRDIR)/share/doc/git/technical/api-diff.html
+file path=$(USRDIR)/share/doc/git/technical/api-diff.txt
+file path=$(USRDIR)/share/doc/git/technical/api-directory-listing.html
+file path=$(USRDIR)/share/doc/git/technical/api-directory-listing.txt
+file path=$(USRDIR)/share/doc/git/technical/api-gitattributes.html
+file path=$(USRDIR)/share/doc/git/technical/api-gitattributes.txt
+file path=$(USRDIR)/share/doc/git/technical/api-grep.html
+file path=$(USRDIR)/share/doc/git/technical/api-grep.txt
+file path=$(USRDIR)/share/doc/git/technical/api-hashmap.html
+file path=$(USRDIR)/share/doc/git/technical/api-hashmap.txt
+file path=$(USRDIR)/share/doc/git/technical/api-history-graph.html
+file path=$(USRDIR)/share/doc/git/technical/api-history-graph.txt
+file path=$(USRDIR)/share/doc/git/technical/api-in-core-index.html
+file path=$(USRDIR)/share/doc/git/technical/api-in-core-index.txt
+file path=$(USRDIR)/share/doc/git/technical/api-index-skel.txt
+file path=$(USRDIR)/share/doc/git/technical/api-index.html
+file path=$(USRDIR)/share/doc/git/technical/api-index.txt
+file path=$(USRDIR)/share/doc/git/technical/api-lockfile.html
+file path=$(USRDIR)/share/doc/git/technical/api-lockfile.txt
+file path=$(USRDIR)/share/doc/git/technical/api-merge.html
+file path=$(USRDIR)/share/doc/git/technical/api-merge.txt
+file path=$(USRDIR)/share/doc/git/technical/api-object-access.html
+file path=$(USRDIR)/share/doc/git/technical/api-object-access.txt
+file path=$(USRDIR)/share/doc/git/technical/api-parse-options.html
+file path=$(USRDIR)/share/doc/git/technical/api-parse-options.txt
+file path=$(USRDIR)/share/doc/git/technical/api-quote.html
+file path=$(USRDIR)/share/doc/git/technical/api-quote.txt
+file path=$(USRDIR)/share/doc/git/technical/api-ref-iteration.html
+file path=$(USRDIR)/share/doc/git/technical/api-ref-iteration.txt
+file path=$(USRDIR)/share/doc/git/technical/api-remote.html
+file path=$(USRDIR)/share/doc/git/technical/api-remote.txt
+file path=$(USRDIR)/share/doc/git/technical/api-revision-walking.html
+file path=$(USRDIR)/share/doc/git/technical/api-revision-walking.txt
+file path=$(USRDIR)/share/doc/git/technical/api-run-command.html
+file path=$(USRDIR)/share/doc/git/technical/api-run-command.txt
+file path=$(USRDIR)/share/doc/git/technical/api-setup.html
+file path=$(USRDIR)/share/doc/git/technical/api-setup.txt
+file path=$(USRDIR)/share/doc/git/technical/api-sha1-array.html
+file path=$(USRDIR)/share/doc/git/technical/api-sha1-array.txt
+file path=$(USRDIR)/share/doc/git/technical/api-sigchain.html
+file path=$(USRDIR)/share/doc/git/technical/api-sigchain.txt
+file path=$(USRDIR)/share/doc/git/technical/api-strbuf.html
+file path=$(USRDIR)/share/doc/git/technical/api-strbuf.txt
+file path=$(USRDIR)/share/doc/git/technical/api-string-list.html
+file path=$(USRDIR)/share/doc/git/technical/api-string-list.txt
+file path=$(USRDIR)/share/doc/git/technical/api-trace.html
+file path=$(USRDIR)/share/doc/git/technical/api-trace.txt
+file path=$(USRDIR)/share/doc/git/technical/api-tree-walking.html
+file path=$(USRDIR)/share/doc/git/technical/api-tree-walking.txt
+file path=$(USRDIR)/share/doc/git/technical/api-xdiff-interface.html
+file path=$(USRDIR)/share/doc/git/technical/api-xdiff-interface.txt
+file path=$(USRDIR)/share/doc/git/technical/bitmap-format.txt
+file path=$(USRDIR)/share/doc/git/technical/http-protocol.html
+file path=$(USRDIR)/share/doc/git/technical/http-protocol.txt
+file path=$(USRDIR)/share/doc/git/technical/index-format.html
+file path=$(USRDIR)/share/doc/git/technical/index-format.txt
+file path=$(USRDIR)/share/doc/git/technical/pack-format.html
+file path=$(USRDIR)/share/doc/git/technical/pack-format.txt
+file path=$(USRDIR)/share/doc/git/technical/pack-heuristics.html
+file path=$(USRDIR)/share/doc/git/technical/pack-heuristics.txt
+file path=$(USRDIR)/share/doc/git/technical/pack-protocol.html
+file path=$(USRDIR)/share/doc/git/technical/pack-protocol.txt
+file path=$(USRDIR)/share/doc/git/technical/protocol-capabilities.html
+file path=$(USRDIR)/share/doc/git/technical/protocol-capabilities.txt
+file path=$(USRDIR)/share/doc/git/technical/protocol-common.html
+file path=$(USRDIR)/share/doc/git/technical/protocol-common.txt
+file path=$(USRDIR)/share/doc/git/technical/racy-git.html
+file path=$(USRDIR)/share/doc/git/technical/racy-git.txt
+file path=$(USRDIR)/share/doc/git/technical/send-pack-pipeline.html
+file path=$(USRDIR)/share/doc/git/technical/send-pack-pipeline.txt
+file path=$(USRDIR)/share/doc/git/technical/shallow.html
+file path=$(USRDIR)/share/doc/git/technical/shallow.txt
+file path=$(USRDIR)/share/doc/git/technical/trivial-merge.html
+file path=$(USRDIR)/share/doc/git/technical/trivial-merge.txt
+file path=$(USRDIR)/share/doc/git/urls-remotes.txt
+file path=$(USRDIR)/share/doc/git/urls.txt
+file path=$(USRDIR)/share/doc/git/user-manual.html
+file path=$(USRDIR)/share/doc/git/user-manual.txt
 file path=$(USRDIR)/share/git-core/templates/description
 file path=$(USRDIR)/share/git-core/templates/hooks/applypatch-msg.sample
 file path=$(USRDIR)/share/git-core/templates/hooks/commit-msg.sample
@@ -187,12 +1046,14 @@ file path=$(USRDIR)/share/gitk/lib/msgs/ja.msg
 file path=$(USRDIR)/share/gitk/lib/msgs/pt_br.msg
 file path=$(USRDIR)/share/gitk/lib/msgs/ru.msg
 file path=$(USRDIR)/share/gitk/lib/msgs/sv.msg
+file path=$(USRDIR)/share/gitk/lib/msgs/vi.msg
 file path=$(USRDIR)/share/gitweb/gitweb.cgi
 file path=$(USRDIR)/share/gitweb/static/git-favicon.png
 file path=$(USRDIR)/share/gitweb/static/git-logo.png
 file path=$(USRDIR)/share/gitweb/static/gitweb.css
 file path=$(USRDIR)/share/gitweb/static/gitweb.js
 file path=$(USRDIR)/share/locale/bg/LC_MESSAGES/git.mo
+file path=$(USRDIR)/share/locale/ca/LC_MESSAGES/git.mo
 file path=$(USRDIR)/share/locale/de/LC_MESSAGES/git.mo
 file path=$(USRDIR)/share/locale/fr/LC_MESSAGES/git.mo
 file path=$(USRDIR)/share/locale/is/LC_MESSAGES/git.mo
@@ -266,6 +1127,7 @@ file path=$(USRDIR)/share/man/man1/git-index-pack.1
 file path=$(USRDIR)/share/man/man1/git-init-db.1
 file path=$(USRDIR)/share/man/man1/git-init.1
 file path=$(USRDIR)/share/man/man1/git-instaweb.1
+file path=$(USRDIR)/share/man/man1/git-interpret-trailers.1
 file path=$(USRDIR)/share/man/man1/git-log.1
 file path=$(USRDIR)/share/man/man1/git-ls-files.1
 file path=$(USRDIR)/share/man/man1/git-ls-remote.1
@@ -341,6 +1203,7 @@ file path=$(USRDIR)/share/man/man1/git-update-server-info.1
 file path=$(USRDIR)/share/man/man1/git-upload-archive.1
 file path=$(USRDIR)/share/man/man1/git-upload-pack.1
 file path=$(USRDIR)/share/man/man1/git-var.1
+file path=$(USRDIR)/share/man/man1/git-verify-commit.1
 file path=$(USRDIR)/share/man/man1/git-verify-pack.1
 file path=$(USRDIR)/share/man/man1/git-verify-tag.1
 file path=$(USRDIR)/share/man/man1/git-web--browse.1
@@ -370,136 +1233,10 @@ file path=$(USRDIR)/share/man/man7/gitcore-tutorial.7
 file path=$(USRDIR)/share/man/man7/gitcredentials.7
 file path=$(USRDIR)/share/man/man7/gitcvs-migration.7
 file path=$(USRDIR)/share/man/man7/gitdiffcore.7
+file path=$(USRDIR)/share/man/man7/giteveryday.7
 file path=$(USRDIR)/share/man/man7/gitglossary.7
 file path=$(USRDIR)/share/man/man7/gitnamespaces.7
 file path=$(USRDIR)/share/man/man7/gitrevisions.7
 file path=$(USRDIR)/share/man/man7/gittutorial-2.7
 file path=$(USRDIR)/share/man/man7/gittutorial.7
 file path=$(USRDIR)/share/man/man7/gitworkflows.7
-hardlink path=$(USRDIR)/bin/git target=../lib/git-core/git-rev-list
-hardlink path=$(USRDIR)/bin/git-cvsserver \
-    target=../lib/git-core/git-cvsserver
-hardlink path=$(USRDIR)/bin/git-receive-pack \
-    target=../lib/git-core/git-rev-list
-hardlink path=$(USRDIR)/bin/git-shell target=../lib/git-core/git-shell
-hardlink path=$(USRDIR)/bin/git-upload-archive \
-    target=../lib/git-core/git-rev-list
-hardlink path=$(USRDIR)/bin/git-upload-pack \
-    target=../lib/git-core/git-upload-pack
-hardlink path=$(USRDIR)/lib/git-core/git target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-add target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-annotate target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-apply target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-archive target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-bisect--helper target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-blame target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-branch target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-bundle target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-cat-file target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-check-attr target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-check-ignore target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-check-mailmap target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-check-ref-format \
-    target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-checkout target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-checkout-index target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-cherry target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-cherry-pick target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-clean target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-clone target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-column target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-commit target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-commit-tree target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-config target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-count-objects target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-credential target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-describe target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-diff target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-diff-files target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-diff-index target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-diff-tree target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-fast-export target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-fetch target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-fetch-pack target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-fmt-merge-msg target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-for-each-ref target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-format-patch target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-fsck target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-fsck-objects target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-gc target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-get-tar-commit-id \
-    target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-grep target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-gui target=git-citool
-hardlink path=$(USRDIR)/lib/git-core/git-hash-object target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-help target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-index-pack target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-init target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-init-db target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-log target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-ls-files target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-ls-remote target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-ls-tree target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-mailinfo target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-mailsplit target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-merge target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-merge-base target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-merge-file target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-merge-index target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-merge-ours target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-merge-recursive target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-merge-subtree target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-merge-tree target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-mktag target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-mktree target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-mv target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-name-rev target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-notes target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-pack-objects target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-pack-redundant target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-pack-refs target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-patch-id target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-peek-remote target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-prune target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-prune-packed target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-push target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-read-tree target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-receive-pack target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-reflog target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-remote target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-remote-ext target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-remote-fd target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-remote-ftps target=git-remote-ftp
-hardlink path=$(USRDIR)/lib/git-core/git-remote-http target=git-remote-ftp
-hardlink path=$(USRDIR)/lib/git-core/git-remote-https target=git-remote-ftp
-hardlink path=$(USRDIR)/lib/git-core/git-repack target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-replace target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-repo-config target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-rerere target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-reset target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-rev-parse target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-revert target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-rm target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-send-pack target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-shortlog target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-show target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-show-branch target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-show-ref target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-stage target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-status target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-stripspace target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-symbolic-ref target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-tag target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-tar-tree target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-unpack-file target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-unpack-objects target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-update-index target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-update-ref target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-update-server-info \
-    target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-upload-archive target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-var target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-verify-pack target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-verify-tag target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-whatchanged target=git-rev-list
-hardlink path=$(USRDIR)/lib/git-core/git-write-tree target=git-rev-list

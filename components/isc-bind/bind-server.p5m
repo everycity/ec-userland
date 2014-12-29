@@ -189,6 +189,7 @@ file path=$(USRDIR)/include/isc/buffer.h
 file path=$(USRDIR)/include/isc/bufferlist.h
 file path=$(USRDIR)/include/isc/commandline.h
 file path=$(USRDIR)/include/isc/condition.h
+file path=$(USRDIR)/include/isc/counter.h
 file path=$(USRDIR)/include/isc/dir.h
 file path=$(USRDIR)/include/isc/entropy.h
 file path=$(USRDIR)/include/isc/error.h
@@ -240,8 +241,8 @@ file path=$(USRDIR)/include/isc/radix.h
 file path=$(USRDIR)/include/isc/random.h
 file path=$(USRDIR)/include/isc/ratelimiter.h
 file path=$(USRDIR)/include/isc/refcount.h
-file path=$(USRDIR)/include/isc/region.h
 file path=$(USRDIR)/include/isc/regex.h
+file path=$(USRDIR)/include/isc/region.h
 file path=$(USRDIR)/include/isc/resource.h
 file path=$(USRDIR)/include/isc/result.h
 file path=$(USRDIR)/include/isc/resultclass.h
@@ -364,6 +365,7 @@ hardlink path=$(USRDIR)/bin/bind9-config target=isc-config.sh
 hardlink path=$(USRDIR)/bin/lwresd target=named
 hardlink path=$(USRDIR)/share/man/man1/bind9-config.1 target=isc-config.sh.1
 hardlink path=$(USRDIR)/share/man/man3/lwres_addr_parse.3 \
+
     target=lwres_string_parse.3
 hardlink path=$(USRDIR)/share/man/man3/lwres_buffer_add.3 \
     target=lwres_buffer.3

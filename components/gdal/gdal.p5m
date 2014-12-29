@@ -145,11 +145,11 @@ file path=$(ECPREFIX)/include/thinplatespline.h
 file path=$(ECPREFIX)/include/vrtdataset.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libgdal.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libgdal.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libgdal.so.1.18.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libgdal.so.1.18.1
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/gdal.pc
 file path=$(ECPREFIX)/lib/libgdal.a
 file path=$(ECPREFIX)/lib/libgdal.la
-file path=$(ECPREFIX)/lib/libgdal.so.1.18.0
+file path=$(ECPREFIX)/lib/libgdal.so.1.18.1
 file path=$(ECPREFIX)/lib/pkgconfig/gdal.pc
 file path=$(ECPREFIX)/share/gdal/GDALLogoBW.svg
 file path=$(ECPREFIX)/share/gdal/GDALLogoColor.svg
@@ -192,6 +192,7 @@ file path=$(ECPREFIX)/share/gdal/prime_meridian.csv
 file path=$(ECPREFIX)/share/gdal/projop_wparm.csv
 file path=$(ECPREFIX)/share/gdal/ruian_vf_ob_v1.gfs
 file path=$(ECPREFIX)/share/gdal/ruian_vf_st_v1.gfs
+file path=$(ECPREFIX)/share/gdal/ruian_vf_v1.gfs
 file path=$(ECPREFIX)/share/gdal/s57agencies.csv
 file path=$(ECPREFIX)/share/gdal/s57attributes.csv
 file path=$(ECPREFIX)/share/gdal/s57attributes_aml.csv
@@ -207,7 +208,7 @@ file path=$(ECPREFIX)/share/gdal/trailer.dxf
 file path=$(ECPREFIX)/share/gdal/unit_of_measure.csv
 file path=$(ECPREFIX)/share/gdal/vertcs.csv
 file path=$(ECPREFIX)/share/gdal/vertcs.override.csv
-link path=$(ECPREFIX)/lib/$(MACH64)/libgdal.so target=libgdal.so.1.18.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libgdal.so.1 target=libgdal.so.1.18.0
-link path=$(ECPREFIX)/lib/libgdal.so target=libgdal.so.1.18.0
-link path=$(ECPREFIX)/lib/libgdal.so.1 target=libgdal.so.1.18.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libgdal.so target=libgdal.so.1.18.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libgdal.so.1 target=libgdal.so.1.18.1
+link path=$(ECPREFIX)/lib/libgdal.so target=libgdal.so.1.18.1
+link path=$(ECPREFIX)/lib/libgdal.so.1 target=libgdal.so.1.18.1

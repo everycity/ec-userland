@@ -7,5 +7,5 @@
 -#include <term.h>
 +#include </ec/include/ncurses/term.h>
  
- static int	 charcost(char *);
+ static int	 charcost(const char *);
  

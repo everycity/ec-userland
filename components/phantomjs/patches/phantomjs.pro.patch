@@ -1,9 +1,6 @@
-$NetBSD$
-
-Fix plugin linking.
---- a/src/phantomjs.pro.orig	2013-06-03 23:11:50.000000000 +0000
-+++ b/src/phantomjs.pro
-@@ -131,3 +131,21 @@ win32-msvc* {
+--- phantomjs-1.9.8/src/phantomjs.pro.orig	2014-11-17 13:44:42.730638057 +0000
++++ phantomjs-1.9.8/src/phantomjs.pro	2014-11-17 13:45:38.996314655 +0000
+@@ -131,3 +131,21 @@
              qico
      }
  }

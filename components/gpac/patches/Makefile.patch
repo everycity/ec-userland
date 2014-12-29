@@ -1,6 +1,6 @@
---- gpac/Makefile.orig	2013-06-27 13:14:36.000000000 +0100
-+++ gpac/Makefile	2013-09-23 13:43:05.977895142 +0100
-@@ -56,19 +56,19 @@
+--- gpac-fc32cebbe682a47804c8bf9eba6d0d4837aae88f/Makefile.~1~	2014-11-28 18:23:29.000000000 +0000
++++ gpac-fc32cebbe682a47804c8bf9eba6d0d4837aae88f/Makefile	2014-11-28 20:47:56.385364259 +0000
+@@ -67,19 +67,19 @@
  install:
  	$(INSTALL) -d "$(DESTDIR)$(prefix)"
  	$(INSTALL) -d "$(DESTDIR)$(prefix)/$(libdir)"
@@ -8,7 +8,7 @@
 +	$(INSTALL) -d "$(DESTDIR)$(prefix)/$(bindir)"
  ifeq ($(DISABLE_ISOFF), no) 
  ifeq ($(CONFIG_LINUX), yes)
- ifeq ($(CONFIG_FFMPEG), system)
+ ifneq ($(CONFIG_FFMPEG), no)
 -	$(INSTALL) $(INSTFLAGS) -m 755 bin/gcc/DashCast "$(DESTDIR)$(prefix)/bin"
 +	$(INSTALL) $(INSTFLAGS) -m 755 bin/gcc/DashCast "$(DESTDIR)$(prefix)/$(bindir)"
  endif
@@ -24,16 +24,21 @@
  endif
  	if [ -d  $(DESTDIR)$(prefix)/$(libdir)/pkgconfig ] ; then \
  	$(INSTALL) $(INSTFLAGS) -m 644 gpac.pc "$(DESTDIR)$(prefix)/$(libdir)/pkgconfig" ; \
-@@ -104,9 +104,9 @@
+@@ -115,7 +115,7 @@
  	rm -rf $(DESTDIR)$(moddir)
  	rm -rf $(DESTDIR)$(prefix)/$(libdir)/libgpac*
+ ifeq ($(CONFIG_WIN32),yes)
+-	rm -rf "$(DESTDIR)$(prefix)/bin/libgpac*"
++	rm -rf "$(DESTDIR)$(prefix)/$(bindir)/libgpac*"
+ endif
  	rm -rf $(DESTDIR)$(prefix)/$(libdir)/pkgconfig/gpac.pc
--	rm -rf $(DESTDIR)$(prefix)/bin/MP4Box
--	rm -rf $(DESTDIR)$(prefix)/bin/MP4Client
--	rm -rf $(DESTDIR)$(prefix)/bin/DashCast
-+	rm -rf $(DESTDIR)$(prefix)/$(bindir)/MP4Box
-+	rm -rf $(DESTDIR)$(prefix)/$(bindir)/MP4Client
-+	rm -rf $(DESTDIR)$(prefix)/$(bindir)/DashCast
- 	rm -rf $(DESTDIR)$(mandir)/man1/mp4box.1
- 	rm -rf $(DESTDIR)$(mandir)/man1/mp4client.1
- 	rm -rf $(DESTDIR)$(mandir)/man1/gpac.1
+ 	rm -rf $(DESTDIR)$(prefix)/bin/MP4Box
+@@ -130,7 +130,7 @@
+ installdylib:
+ ifeq ($(CONFIG_WIN32),yes)
+ 	$(INSTALL) $(INSTFLAGS) -m 755 bin/gcc/libgpac.dll.a $(DESTDIR)$(prefix)/$(libdir)
+-	$(INSTALL) $(INSTFLAGS) -m 755 bin/gcc/libgpac.dll $(DESTDIR)$(prefix)/bin
++	$(INSTALL) $(INSTFLAGS) -m 755 bin/gcc/libgpac.dll $(DESTDIR)$(prefix)/$(bindir)
+ else
+ ifeq ($(DEBUGBUILD),no)
+ 	$(STRIP) bin/gcc/libgpac.$(DYN_LIB_SUFFIX)

@@ -9,20 +9,25 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
-# Note this package doesn't work in Solaris 10 Zones with 
-# a shared IP stack.
+ifeq ($(SOLARIS_VERSION), 2.10)
+PUBLISH_STAMP=
+endif
 
 COMPONENT_NAME=		mtr
-COMPONENT_VERSION=	0.85
+COMPONENT_FMRI=		network/mtr
+COMPONENT_VERSION=	0.86
+COMPONENT_LICENSE=	GPLv2
+COMPONENT_PROJECT_URL=	"http://www.bitwizard.nl/mtr/"
+COMPONENT_SUMMARY=	MTR Traceroute Utility
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha256:
-COMPONENT_ARCHIVE_URL=	 ftp://ftp.bitwizard.nl/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:c5d948920b641cc35f8b380fc356ddfe07cce6a9c6474afe242fc58113f28c06
+COMPONENT_ARCHIVE_URL=	ftp://ftp.bitwizard.nl/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
@@ -31,9 +36,13 @@ include ../../make-rules/ips.mk
 CONFIGURE_OPTIONS+=	LIBS="-L$(ECPREFIX)/lib -lncurses"
 CONFIGURE_OPTIONS+=	--without-gtk
 
-COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) && ./bootstrap.sh )
+build_2.10:
+	@echo "Not available."
+build_2.11:	$(BUILD_32)
+build:		build_$(SOLARIS_VERSION)
 
-build:		$(BUILD_32)
-
-install:	$(INSTALL_32)
+install_2.10:
+	@echo "Not available."
+install_2.11:	$(INSTALL_32)
+install:	install_$(SOLARIS_VERSION)
 

@@ -1,9 +1,9 @@
---- mg-20140414/sysdef.h.~1~	2014-03-06 12:23:25.000000000 +0000
-+++ mg-20140414/sysdef.h	2014-04-27 19:53:56.414198847 +0100
+--- mg-20141127/sysdef.h.~1~	2014-11-27 19:26:10.000000000 +0000
++++ mg-20141127/sysdef.h	2014-12-01 09:45:45.164338438 +0000
 @@ -6,7 +6,13 @@
   *		POSIX system header file
   */
- #include <sys/param.h>
+ #include <sys/types.h>
 -#include <sys/queue.h>
 +/* This is the queue.h from OpenBSD/NetBSD, works fine. The one provided by
 +   others is incompatible. */
@@ -15,13 +15,14 @@
  
  /* necesarry to get asprintf & friends with glibc XXX doesn't work for some
   * mysterious reason! */
-@@ -40,3 +46,11 @@
+@@ -38,3 +44,12 @@
  	mode_t		fi_mode;
  	struct timespec	fi_mtime;	/* Last modified time */
  };
 +
 +#if defined(__sun) && defined(__SVR4)
 +extern char * fgetln(FILE *, size_t *);
++extern void * reallocarray(void *, size_t, size_t);
 +extern long long strtonum(const char *, long long, long long, const char **);
 +#ifndef LOGIN_NAME_MAX
 +#define LOGIN_NAME_MAX LOGNAME_MAX

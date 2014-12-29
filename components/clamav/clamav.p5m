@@ -52,6 +52,7 @@ file path=$(ECPREFIX)/bin/$(MACH64)/clamd
 file path=$(ECPREFIX)/bin/$(MACH64)/clamdscan
 file path=$(ECPREFIX)/bin/$(MACH64)/clamdtop
 file path=$(ECPREFIX)/bin/$(MACH64)/clamscan
+file path=$(ECPREFIX)/bin/$(MACH64)/clamsubmit
 file path=$(ECPREFIX)/bin/$(MACH64)/freshclam
 file path=$(ECPREFIX)/bin/$(MACH64)/sigtool
 file path=$(ECPREFIX)/bin/clamav-config
@@ -61,30 +62,32 @@ file path=$(ECPREFIX)/bin/clamd
 file path=$(ECPREFIX)/bin/clamdscan
 file path=$(ECPREFIX)/bin/clamdtop
 file path=$(ECPREFIX)/bin/clamscan
+file path=$(ECPREFIX)/bin/clamsubmit
 file path=$(ECPREFIX)/bin/freshclam
 file path=$(ECPREFIX)/bin/sigtool
 file path=$(ECPREFIX)/etc/clamd.conf.sample
 file path=$(ECPREFIX)/etc/freshclam.conf.sample
 file path=$(ECPREFIX)/include/clamav.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libclamav.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.6.1.20
+file path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.6.1.22
 file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so.6.1.20
+file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so.6.1.22
 file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so.6.1.20
+file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so.6.1.22
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libclamav.pc
 file path=$(ECPREFIX)/lib/libclamav.la
-file path=$(ECPREFIX)/lib/libclamav.so.6.1.20
+file path=$(ECPREFIX)/lib/libclamav.so.6.1.22
 file path=$(ECPREFIX)/lib/libclamunrar.la
-file path=$(ECPREFIX)/lib/libclamunrar.so.6.1.20
+file path=$(ECPREFIX)/lib/libclamunrar.so.6.1.22
 file path=$(ECPREFIX)/lib/libclamunrar_iface.la
-file path=$(ECPREFIX)/lib/libclamunrar_iface.so.6.1.20
+file path=$(ECPREFIX)/lib/libclamunrar_iface.so.6.1.22
 file path=$(ECPREFIX)/lib/pkgconfig/libclamav.pc
 file path=$(ECPREFIX)/share/man/man1/clambc.1
 file path=$(ECPREFIX)/share/man/man1/clamconf.1
 file path=$(ECPREFIX)/share/man/man1/clamdscan.1
 file path=$(ECPREFIX)/share/man/man1/clamdtop.1
 file path=$(ECPREFIX)/share/man/man1/clamscan.1
+file path=$(ECPREFIX)/share/man/man1/clamsubmit.1
 file path=$(ECPREFIX)/share/man/man1/freshclam.1
 file path=$(ECPREFIX)/share/man/man1/sigtool.1
 file path=$(ECPREFIX)/share/man/man5/clamav-milter.conf.5
@@ -92,21 +95,21 @@ file path=$(ECPREFIX)/share/man/man5/clamd.conf.5
 file path=$(ECPREFIX)/share/man/man5/freshclam.conf.5
 file path=$(ECPREFIX)/share/man/man8/clamav-milter.8
 file path=$(ECPREFIX)/share/man/man8/clamd.8
-link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so target=libclamav.so.6.1.20
-link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.6 target=libclamav.so.6.1.20
+link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so target=libclamav.so.6.1.22
+link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.6 target=libclamav.so.6.1.22
 link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so \
-    target=libclamunrar.so.6.1.20
+    target=libclamunrar.so.6.1.22
 link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so.6 \
-    target=libclamunrar.so.6.1.20
+    target=libclamunrar.so.6.1.22
 link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so \
-    target=libclamunrar_iface.so.6.1.20
+    target=libclamunrar_iface.so.6.1.22
 link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so.6 \
-    target=libclamunrar_iface.so.6.1.20
-link path=$(ECPREFIX)/lib/libclamav.so target=libclamav.so.6.1.20
-link path=$(ECPREFIX)/lib/libclamav.so.6 target=libclamav.so.6.1.20
-link path=$(ECPREFIX)/lib/libclamunrar.so target=libclamunrar.so.6.1.20
-link path=$(ECPREFIX)/lib/libclamunrar.so.6 target=libclamunrar.so.6.1.20
+    target=libclamunrar_iface.so.6.1.22
+link path=$(ECPREFIX)/lib/libclamav.so target=libclamav.so.6.1.22
+link path=$(ECPREFIX)/lib/libclamav.so.6 target=libclamav.so.6.1.22
+link path=$(ECPREFIX)/lib/libclamunrar.so target=libclamunrar.so.6.1.22
+link path=$(ECPREFIX)/lib/libclamunrar.so.6 target=libclamunrar.so.6.1.22
 link path=$(ECPREFIX)/lib/libclamunrar_iface.so \
-    target=libclamunrar_iface.so.6.1.20
+    target=libclamunrar_iface.so.6.1.22
 link path=$(ECPREFIX)/lib/libclamunrar_iface.so.6 \
-    target=libclamunrar_iface.so.6.1.20
+    target=libclamunrar_iface.so.6.1.22

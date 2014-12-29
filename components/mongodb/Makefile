@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		mongodb
 COMPONENT_FMRI=		database/mongodb
-COMPONENT_VERSION=	2.4.10
+COMPONENT_VERSION=	2.6.5
 COMPONENT_LICENSE=	APLv2,AGPLv3
 COMPONENT_PROJECT_URL=	"http://www.mongodb.org/"
 COMPONENT_SUMMARY=	An object/document-oriented database
 COMPONENT_SRC=		$(COMPONENT_NAME)-src-r$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:8ac8d0537e5316e842e3713870b76ea3cc18ec1234307e850046449f48a87402
+COMPONENT_ARCHIVE_HASH=	sha256:55d6cb624fe83935564a5e9cd38f2f94b2ec62745c5bd9c0539e4846ae9fa86c
 COMPONENT_ARCHIVE_URL=	http://downloads.mongodb.org/src/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -33,6 +33,8 @@ LIBPATH.32=	$(ECPREFIX)/lib
 LIBPATH.64=	$(ECPREFIX)/lib/$(MACH64)
 LIBPATH=	$(LIBPATH.$(BITS))
 
+COMPONENT_BUILD_TARGETS=	all
+
 COMPONENT_BUILD_ARGS += --prefix=$(PROTO_DIR)$(ECPREFIX)
 COMPONENT_BUILD_ARGS += --cc="$(CC)" --cxx="$(CXX)"
 COMPONENT_BUILD_ARGS += --libpath=$(LIBPATH)
@@ -42,6 +44,7 @@ COMPONENT_BUILD_ARGS += --use-system-pcre=USE-SYSTEM-PCRE
 COMPONENT_BUILD_ARGS += --use-system-boost=USE-SYSTEM-BOOST
 COMPONENT_BUILD_ARGS += --use-system-tcmalloc=USE-SYSTEM-TCMALLOC
 COMPONENT_BUILD_ARGS += --use-system-snappy=USE-SYSTEM-SNAPPY
+COMPONENT_BUILD_ARGS += --ssl
 
 COMPONENT_INSTALL_ENV = $(COMPONENT_BUILD_ENV)
 COMPONENT_INSTALL_ARGS = $(COMPONENT_BUILD_ARGS)
@@ -52,12 +55,5 @@ $(BUILD_DIR)/%/.installed:	GMAKE=scons
 
 build:		$(BUILD_32_and_64)
 
-$(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
-	( for i in bsondump mongo mongod mongodump mongoexport mongofiles mongoimport mongooplog mongoperf mongorestore mongos mongostat mongotop; do \
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/bin/$$i; \
-	$(CP) $(BUILD_DIR_32)/build/sunos5/32/cc__ec_bin_gcc/cxx__ec_bin_g++/extralib_rt/libpath__ec_lib/use-system-boost/use-system-pcre/use-system-snappy/use-system-tcmalloc/mongo/$$i $(PROTO_DIR)$(ECPREFIX)/bin; strip $(PROTO_DIR)$(ECPREFIX)/bin/$$i; \
-	$(CP) $(BUILD_DIR_64)/build/sunos5/64/cc__ec_bin_gcc/cxx__ec_bin_g++/extralib_rt/libpath__ec_lib_amd64/use-system-boost/use-system-pcre/use-system-snappy/use-system-tcmalloc/mongo/$$i $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64); strip $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/$$i;done )
-	$(TOUCH) $@
+install:	$(INSTALL_32_and_64)
 
-install:	$(BUILD_DIR)/.installed

@@ -37,11 +37,23 @@ file path=$(USRDIR)/include/X11/extensions/multibuf.h
 file path=$(USRDIR)/include/X11/extensions/security.h
 file path=$(USRDIR)/include/X11/extensions/shape.h
 file path=$(USRDIR)/include/X11/extensions/sync.h
+file path=$(USRDIR)/include/X11/extensions/xinerama.h
 file path=$(USRDIR)/include/X11/extensions/xtestext1.h
+link path=$(USRDIR)/lib/$(MACH64)/libXext.so target=libXext.so.0.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libXext.so.0 target=libXext.so.0.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libXext.so.0.0.0
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xext.pc
+link path=$(USRDIR)/lib/libXext.so target=libXext.so.0.0.0
+link path=$(USRDIR)/lib/libXext.so.0 target=libXext.so.0.0.0
 file path=$(USRDIR)/lib/libXext.so.0.0.0
 file path=$(USRDIR)/lib/pkgconfig/xext.pc
+
+file path=$(USRDIR)/share/doc/libXext/dbelib.xml
+file path=$(USRDIR)/share/doc/libXext/dpmslib.xml
+file path=$(USRDIR)/share/doc/libXext/shapelib.xml
+file path=$(USRDIR)/share/doc/libXext/synclib.xml
+file path=$(USRDIR)/share/doc/libXext/xtest1.xml
+
 file path=$(USRDIR)/share/man/man3/DBE.3
 file path=$(USRDIR)/share/man/man3/DPMSCapable.3
 file path=$(USRDIR)/share/man/man3/DPMSDisable.3
@@ -52,6 +64,7 @@ file path=$(USRDIR)/share/man/man3/DPMSGetVersion.3
 file path=$(USRDIR)/share/man/man3/DPMSInfo.3
 file path=$(USRDIR)/share/man/man3/DPMSQueryExtension.3
 file path=$(USRDIR)/share/man/man3/DPMSSetTimeouts.3
+file path=$(USRDIR)/share/man/man3/XReadScreen.3
 file path=$(USRDIR)/share/man/man3/XShape.3
 file path=$(USRDIR)/share/man/man3/XShapeCombineMask.3
 file path=$(USRDIR)/share/man/man3/XShapeCombineRectangles.3
@@ -75,6 +88,15 @@ file path=$(USRDIR)/share/man/man3/XShmPixmapFormat.3
 file path=$(USRDIR)/share/man/man3/XShmPutImage.3
 file path=$(USRDIR)/share/man/man3/XShmQueryExtension.3
 file path=$(USRDIR)/share/man/man3/XShmQueryVersion.3
+file path=$(USRDIR)/share/man/man3/XSolarisOvlCopyAreaAndPaintType.3
+file path=$(USRDIR)/share/man/man3/XSolarisOvlCopyPaintType.3
+file path=$(USRDIR)/share/man/man3/XSolarisOvlCreateWindow.3
+file path=$(USRDIR)/share/man/man3/XSolarisOvlGetPaintType.3
+file path=$(USRDIR)/share/man/man3/XSolarisOvlIsOverlayWindow.3
+file path=$(USRDIR)/share/man/man3/XSolarisOvlSelectPair.3
+file path=$(USRDIR)/share/man/man3/XSolarisOvlSelectPartner.3
+file path=$(USRDIR)/share/man/man3/XSolarisOvlSetPaintType.3
+file path=$(USRDIR)/share/man/man3/XSolarisOvlSetWindowTransparent.3
 file path=$(USRDIR)/share/man/man3/XcupGetReservedColormapEntries.3
 file path=$(USRDIR)/share/man/man3/XcupQueryVersion.3
 file path=$(USRDIR)/share/man/man3/XcupStoreColors.3
@@ -103,7 +125,3 @@ file path=$(USRDIR)/share/man/man3/XmbufGetScreenInfo.3
 file path=$(USRDIR)/share/man/man3/XmbufGetVersion.3
 file path=$(USRDIR)/share/man/man3/XmbufGetWindowAttributes.3
 file path=$(USRDIR)/share/man/man3/XmbufQueryExtension.3
-link path=$(USRDIR)/lib/$(MACH64)/libXext.so target=libXext.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libXext.so.0 target=libXext.so.0.0.0
-link path=$(USRDIR)/lib/libXext.so target=libXext.so.0.0.0
-link path=$(USRDIR)/lib/libXext.so.0 target=libXext.so.0.0.0

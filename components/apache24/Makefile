@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		httpd
 COMPONENT_FMRI=		web/server/apache-24/httpd
-COMPONENT_VERSION=	2.4.9
+COMPONENT_VERSION=	2.4.10
 COMPONENT_LICENSE=	Apachev2.0
 COMPONENT_PROJECT_URL=	"http://httpd.apache.org/"
 COMPONENT_SUMMARY=	Apache HTTP Server
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:f78cc90dfa47caf3d83ad18fd6b4e85f237777c1733fc9088594b70ce2847603
+COMPONENT_ARCHIVE_HASH=	sha256:176c4dac1a745f07b7b91e7f4fd48f9c48049fa6f088efe758d61d9738669c6a
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_APACHE)
 
 include ../../make-rules/prep.mk
@@ -46,16 +46,16 @@ CONFIGURE_ENV += CPPFLAGS="$(CPPFLAGS)"
 
 AP_PREFIX=$(USRDIR)/lib/apache/2.4
 AP_SHAREDIR=$(USRDIR)/share/apache/2.4
-AP_SYSCONFDIR=/etc/apache/2.4
-AP_DATADIR=/var/apache/2.4
+AP_SYSCONFDIR=$(CONFIGURE_SYSCONFDIR)/apache/2.4
+AP_DATADIR=$(CONFIGURE_LOCALSTATEDIR)/apache/2.4
 
 # We patch sources differently depending on the flavour being built
 COMPONENT_PRE_CONFIGURE_ACTION += $(ENV) BITS=$(BITS) MACH=$(MACH$(BITS)) \
 	COMPONENT_DIR=$(COMPONENT_DIR) MPM=$(MPM) \
-	$(COMPONENT_DIR)/patch-source.sh $(@D)
+	$(COMPONENT_DIR)/patch-source.sh $(@D) $(ZTYPE)
 
 # -L/ec/lib gets added to EXTRA_LDFLAGS for some reason, removing it as otherwise 64-bit build fails
-COMPONENT_POST_CONFIGURE_ACTION += (cd $(@D); gsed -i s/\^EXTRA_LDFLAGS.*// build/config_vars.mk)
+COMPONENT_POST_CONFIGURE_ACTION += (cd $(@D); $(GSED) -i s/\^EXTRA_LDFLAGS.*// build/config_vars.mk)
 
 CONFIGURE_OPTIONS      = CC="$(CC)"
 CONFIGURE_OPTIONS     += CXX="$(CCC)"
@@ -79,6 +79,7 @@ CONFIGURE_OPTIONS  +=	--enable-suexec
 CONFIGURE_OPTIONS  +=	--with-suexec-caller=webservd
 CONFIGURE_OPTIONS  +=	--enable-proxy
 CONFIGURE_OPTIONS  +=	--enable-proxy-connect
+CONFIGURE_OPTIONS  +=	--enable-proxy-fcgi
 CONFIGURE_OPTIONS  +=	--enable-proxy-ftp
 CONFIGURE_OPTIONS  +=	--enable-proxy-http
 CONFIGURE_OPTIONS  +=	--enable-proxy-ajp
@@ -159,7 +160,6 @@ $(BUILD_DIR)/.installed:	\
 	    $(PROTO_DIR)/$(AP_PREFIX)/bin/modules/* \
 	    $(PROTO_DIR)/$(AP_PREFIX)/bin/modules/$(MACH64)/* \
 	    >/dev/null 2>&1; true )
-	(cd $(PROTO_DIR)/$(AP_PREFIX)/../ ; rm -f active ; ln -s 2.4 active)
 	$(MKDIR) -p $(PROTO_DIR)/$(AP_SYSCONFDIR)/
 	rsync -a --delete $(COMPONENT_DIR)/conf/ $(PROTO_DIR)/$(AP_SYSCONFDIR)/
 	$(TOUCH) $@

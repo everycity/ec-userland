@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -19,448 +19,36 @@
 <transform file path=.+/etc/.+ -> default preserve true>
 <transform file path=.+/etc/.+ -> default mode 0644>
 
-set name=pkg.fmri value=pkg:/web/server/apache-22/httpd@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="Apache Web Server V2.2"
-set name=info.upstream_url value="http://httpd.apache.org/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license apache22.license license="APLv2"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-file path=$(SYSCONFDIR)/apache/2.2/conf.d/charset preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/conf.d/localized-error-pages preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/conf.d/other-vhosts-access-log preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/conf.d/security preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/envvars preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/httpd.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/magic preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mime.types preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/actions.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/actions.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/alias.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/alias.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/asis.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/auth_basic.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/auth_digest.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/authn_anon.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/authn_dbd.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/authn_dbm.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/authn_default.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/authn_file.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/authnz_ldap.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/authz_dbm.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/authz_default.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/authz_groupfile.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/authz_host.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/authz_owner.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/authz_user.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/autoindex.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/autoindex.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/cache.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/cern_meta.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/cgi.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/cgid.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/cgid.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/dav.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/dav_fs.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/dav_fs.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/dbd.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/deflate.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/deflate.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/dir.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/dir.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/disk_cache.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/disk_cache.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/dumpio.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/env.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/expires.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/ext_filter.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/file_cache.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/filter.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/headers.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/ident.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/imagemap.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/include.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/info.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/info.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/ldap.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/ldap.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/log_config.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/log_config.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/log_forensic.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/logio.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/mem_cache.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/mem_cache.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/mime.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/mime.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/mime_magic.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/mime_magic.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/mk-load-files.sh preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/negotiation.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/negotiation.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy_ajp.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy_balancer.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy_balancer.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy_connect.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy_ftp.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy_ftp.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy_http.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy_scgi.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/reqtimeout.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/reqtimeout.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/rewrite.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/setenvif.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/setenvif.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/speling.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/ssl.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/ssl.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/status.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/status.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/substitute.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/suexec.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/unique_id.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/userdir.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/userdir.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/usertrack.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/version.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/mods-available/vhost_alias.load preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/ports.conf preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/sites-available/default preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/sites-available/default-ssl preserve=true
-file path=$(SYSCONFDIR)/apache/2.2/sites-available/example preserve=true
-file path=$(USRDIR)/include/apache/2.2/ap_compat.h
-file path=$(USRDIR)/include/apache/2.2/ap_config.h
-file path=$(USRDIR)/include/apache/2.2/ap_config_auto.h
-file path=$(USRDIR)/include/apache/2.2/ap_config_layout.h
-file path=$(USRDIR)/include/apache/2.2/ap_listen.h
-file path=$(USRDIR)/include/apache/2.2/ap_mmn.h
-file path=$(USRDIR)/include/apache/2.2/ap_mpm.h
-file path=$(USRDIR)/include/apache/2.2/ap_provider.h
-file path=$(USRDIR)/include/apache/2.2/ap_regex.h
-file path=$(USRDIR)/include/apache/2.2/ap_regkey.h
-file path=$(USRDIR)/include/apache/2.2/ap_release.h
-file path=$(USRDIR)/include/apache/2.2/http_config.h
-file path=$(USRDIR)/include/apache/2.2/http_connection.h
-file path=$(USRDIR)/include/apache/2.2/http_core.h
-file path=$(USRDIR)/include/apache/2.2/http_log.h
-file path=$(USRDIR)/include/apache/2.2/http_main.h
-file path=$(USRDIR)/include/apache/2.2/http_protocol.h
-file path=$(USRDIR)/include/apache/2.2/http_request.h
-file path=$(USRDIR)/include/apache/2.2/http_vhost.h
-file path=$(USRDIR)/include/apache/2.2/httpd.h
-file path=$(USRDIR)/include/apache/2.2/mod_auth.h
-file path=$(USRDIR)/include/apache/2.2/mod_cgi.h
-file path=$(USRDIR)/include/apache/2.2/mod_core.h
-file path=$(USRDIR)/include/apache/2.2/mod_dav.h
-file path=$(USRDIR)/include/apache/2.2/mod_dbd.h
-file path=$(USRDIR)/include/apache/2.2/mod_include.h
-file path=$(USRDIR)/include/apache/2.2/mod_log_config.h
-file path=$(USRDIR)/include/apache/2.2/mod_proxy.h
-file path=$(USRDIR)/include/apache/2.2/mod_rewrite.h
-file path=$(USRDIR)/include/apache/2.2/mod_ssl.h
-file path=$(USRDIR)/include/apache/2.2/mod_status.h
-file path=$(USRDIR)/include/apache/2.2/mpm.h
-file path=$(USRDIR)/include/apache/2.2/mpm_common.h
-file path=$(USRDIR)/include/apache/2.2/mpm_default.h
-file path=$(USRDIR)/include/apache/2.2/os.h
-file path=$(USRDIR)/include/apache/2.2/scoreboard.h
-file path=$(USRDIR)/include/apache/2.2/unixd.h
-file path=$(USRDIR)/include/apache/2.2/util_cfgtree.h
-file path=$(USRDIR)/include/apache/2.2/util_charset.h
-file path=$(USRDIR)/include/apache/2.2/util_ebcdic.h
-file path=$(USRDIR)/include/apache/2.2/util_filter.h
-file path=$(USRDIR)/include/apache/2.2/util_ldap.h
-file path=$(USRDIR)/include/apache/2.2/util_md5.h
-file path=$(USRDIR)/include/apache/2.2/util_script.h
-file path=$(USRDIR)/include/apache/2.2/util_time.h
-file path=$(USRDIR)/include/apache/2.2/util_xml.h
-file path=$(USRDIR)/include/apache/2.2/worker/ap_compat.h
-file path=$(USRDIR)/include/apache/2.2/worker/ap_config.h
-file path=$(USRDIR)/include/apache/2.2/worker/ap_config_auto.h
-file path=$(USRDIR)/include/apache/2.2/worker/ap_config_layout.h
-file path=$(USRDIR)/include/apache/2.2/worker/ap_listen.h
-file path=$(USRDIR)/include/apache/2.2/worker/ap_mmn.h
-file path=$(USRDIR)/include/apache/2.2/worker/ap_mpm.h
-file path=$(USRDIR)/include/apache/2.2/worker/ap_provider.h
-file path=$(USRDIR)/include/apache/2.2/worker/ap_regex.h
-file path=$(USRDIR)/include/apache/2.2/worker/ap_regkey.h
-file path=$(USRDIR)/include/apache/2.2/worker/ap_release.h
-file path=$(USRDIR)/include/apache/2.2/worker/fdqueue.h
-file path=$(USRDIR)/include/apache/2.2/worker/http_config.h
-file path=$(USRDIR)/include/apache/2.2/worker/http_connection.h
-file path=$(USRDIR)/include/apache/2.2/worker/http_core.h
-file path=$(USRDIR)/include/apache/2.2/worker/http_log.h
-file path=$(USRDIR)/include/apache/2.2/worker/http_main.h
-file path=$(USRDIR)/include/apache/2.2/worker/http_protocol.h
-file path=$(USRDIR)/include/apache/2.2/worker/http_request.h
-file path=$(USRDIR)/include/apache/2.2/worker/http_vhost.h
-file path=$(USRDIR)/include/apache/2.2/worker/httpd.h
-file path=$(USRDIR)/include/apache/2.2/worker/mod_auth.h
-file path=$(USRDIR)/include/apache/2.2/worker/mod_cgi.h
-file path=$(USRDIR)/include/apache/2.2/worker/mod_core.h
-file path=$(USRDIR)/include/apache/2.2/worker/mod_dav.h
-file path=$(USRDIR)/include/apache/2.2/worker/mod_dbd.h
-file path=$(USRDIR)/include/apache/2.2/worker/mod_include.h
-file path=$(USRDIR)/include/apache/2.2/worker/mod_log_config.h
-file path=$(USRDIR)/include/apache/2.2/worker/mod_proxy.h
-file path=$(USRDIR)/include/apache/2.2/worker/mod_rewrite.h
-file path=$(USRDIR)/include/apache/2.2/worker/mod_ssl.h
-file path=$(USRDIR)/include/apache/2.2/worker/mod_status.h
-file path=$(USRDIR)/include/apache/2.2/worker/mpm.h
-file path=$(USRDIR)/include/apache/2.2/worker/mpm_common.h
-file path=$(USRDIR)/include/apache/2.2/worker/mpm_default.h
-file path=$(USRDIR)/include/apache/2.2/worker/os.h
-file path=$(USRDIR)/include/apache/2.2/worker/pod.h
-file path=$(USRDIR)/include/apache/2.2/worker/scoreboard.h
-file path=$(USRDIR)/include/apache/2.2/worker/unixd.h
-file path=$(USRDIR)/include/apache/2.2/worker/util_cfgtree.h
-file path=$(USRDIR)/include/apache/2.2/worker/util_charset.h
-file path=$(USRDIR)/include/apache/2.2/worker/util_ebcdic.h
-file path=$(USRDIR)/include/apache/2.2/worker/util_filter.h
-file path=$(USRDIR)/include/apache/2.2/worker/util_ldap.h
-file path=$(USRDIR)/include/apache/2.2/worker/util_md5.h
-file path=$(USRDIR)/include/apache/2.2/worker/util_script.h
-file path=$(USRDIR)/include/apache/2.2/worker/util_time.h
-file path=$(USRDIR)/include/apache/2.2/worker/util_xml.h
-file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/ab
-file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/apachectl
-file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/apxs
-file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/apxs.worker
-file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/checkgid
-file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/dbmmanage
-file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/htcacheclean
-file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/htdbm
-file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/htdigest
-file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/htpasswd
-file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/httpd
-file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/httpd.worker
-file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/httxt2dbm
-file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/logresolve
-file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/rotatelogs
-file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/suexec
 file files/a2enmod.$(ZTYPE) path=$(USRDIR)/lib/apache/2.2/bin/a2enmod
-file path=$(USRDIR)/lib/apache/2.2/bin/ab
-file path=$(USRDIR)/lib/apache/2.2/bin/apachectl
-file path=$(USRDIR)/lib/apache/2.2/bin/apxs
-file path=$(USRDIR)/lib/apache/2.2/bin/apxs.worker
-file path=$(USRDIR)/lib/apache/2.2/bin/checkgid
-file path=$(USRDIR)/lib/apache/2.2/bin/dbmmanage
-file path=$(USRDIR)/lib/apache/2.2/bin/htcacheclean
-file path=$(USRDIR)/lib/apache/2.2/bin/htdbm
-file path=$(USRDIR)/lib/apache/2.2/bin/htdigest
-file path=$(USRDIR)/lib/apache/2.2/bin/htpasswd
-file path=$(USRDIR)/lib/apache/2.2/bin/httpd
-file path=$(USRDIR)/lib/apache/2.2/bin/httpd.worker
-file path=$(USRDIR)/lib/apache/2.2/bin/httxt2dbm
-file path=$(USRDIR)/lib/apache/2.2/bin/logresolve
-file path=$(USRDIR)/lib/apache/2.2/bin/rotatelogs
-file path=$(USRDIR)/lib/apache/2.2/bin/suexec
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/httpd.exp
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_actions.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_alias.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_asis.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_auth_basic.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_auth_digest.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authn_anon.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authn_dbd.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authn_dbm.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authn_default.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authn_file.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authnz_ldap.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authz_dbm.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authz_default.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authz_groupfile.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authz_host.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authz_owner.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authz_user.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_autoindex.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_cache.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_cern_meta.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_cgi.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_cgid.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_dav.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_dav_fs.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_dbd.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_deflate.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_dir.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_disk_cache.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_dumpio.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_env.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_expires.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_ext_filter.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_file_cache.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_filter.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_headers.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_ident.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_imagemap.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_include.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_info.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_ldap.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_log_config.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_log_forensic.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_logio.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_mem_cache.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_mime.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_mime_magic.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_negotiation.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_proxy.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_ajp.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_balancer.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_connect.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_ftp.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_http.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_scgi.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_reqtimeout.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_rewrite.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_setenvif.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_speling.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_ssl.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_status.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_substitute.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_suexec.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_unique_id.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_userdir.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_usertrack.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_version.so
-file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_vhost_alias.so
-file path=$(USRDIR)/lib/apache/2.2/modules/httpd.exp
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_actions.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_alias.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_asis.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_auth_basic.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_auth_digest.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_authn_anon.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_authn_dbd.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_authn_dbm.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_authn_default.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_authn_file.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_authnz_ldap.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_authz_dbm.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_authz_default.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_authz_groupfile.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_authz_host.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_authz_owner.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_authz_user.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_autoindex.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_cache.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_cern_meta.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_cgi.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_cgid.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_dav.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_dav_fs.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_dbd.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_deflate.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_dir.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_disk_cache.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_dumpio.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_env.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_expires.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_ext_filter.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_file_cache.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_filter.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_headers.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_ident.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_imagemap.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_include.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_info.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_ldap.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_log_config.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_log_forensic.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_logio.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_mem_cache.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_mime.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_mime_magic.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_negotiation.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_proxy.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_proxy_ajp.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_proxy_balancer.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_proxy_connect.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_proxy_ftp.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_proxy_http.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_proxy_scgi.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_reqtimeout.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_rewrite.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_setenvif.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_speling.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_ssl.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_status.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_substitute.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_suexec.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_unique_id.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_userdir.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_usertrack.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_version.so
-file path=$(USRDIR)/lib/apache/2.2/modules/mod_vhost_alias.so
-file path=$(USRDIR)/share/apache/2.2/build/config.nice
-file path=$(USRDIR)/share/apache/2.2/build/config_vars.mk
-file path=$(USRDIR)/share/apache/2.2/build/instdso.sh mode=555
-file path=$(USRDIR)/share/apache/2.2/build/library.mk
-file path=$(USRDIR)/share/apache/2.2/build/ltlib.mk
-file path=$(USRDIR)/share/apache/2.2/build/mkdir.sh mode=555
-file path=$(USRDIR)/share/apache/2.2/build/program.mk
-file path=$(USRDIR)/share/apache/2.2/build/rules.mk
-file path=$(USRDIR)/share/apache/2.2/build/special.mk
-file path=$(USRDIR)/share/apache/2.2/build/worker/config.nice
-file path=$(USRDIR)/share/apache/2.2/build/worker/config_vars.mk
-file path=$(USRDIR)/share/apache/2.2/build/worker/instdso.sh mode=555
-file path=$(USRDIR)/share/apache/2.2/build/worker/library.mk
-file path=$(USRDIR)/share/apache/2.2/build/worker/ltlib.mk
-file path=$(USRDIR)/share/apache/2.2/build/worker/mkdir.sh mode=555
-file path=$(USRDIR)/share/apache/2.2/build/worker/program.mk
-file path=$(USRDIR)/share/apache/2.2/build/worker/rules.mk
-file path=$(USRDIR)/share/apache/2.2/build/worker/special.mk
-file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/config.nice
-file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/config_vars.mk
-file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/instdso.sh mode=555
-file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/library.mk
-file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/ltlib.mk
-file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/mkdir.sh mode=555
-file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/program.mk
-file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/rules.mk
-file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/special.mk
-file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/config.nice
-file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/config_vars.mk
-file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/instdso.sh mode=555
-file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/library.mk
-file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/ltlib.mk
-file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/mkdir.sh mode=555
-file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/program.mk
-file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/rules.mk
-file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/special.mk
-file path=$(USRDIR)/share/apache/2.2/man/man1/dbmmanage.1
-file path=$(USRDIR)/share/apache/2.2/man/man1/htdbm.1
-file path=$(USRDIR)/share/apache/2.2/man/man1/htdigest.1
-file path=$(USRDIR)/share/apache/2.2/man/man1/htpasswd.1
-file path=$(USRDIR)/share/apache/2.2/man/man1/httxt2dbm.1
-file path=$(USRDIR)/share/apache/2.2/man/man8/ab.8
-file path=$(USRDIR)/share/apache/2.2/man/man8/apachectl.8
-file path=$(USRDIR)/share/apache/2.2/man/man8/apxs.8
-file path=$(USRDIR)/share/apache/2.2/man/man8/htcacheclean.8
-file path=$(USRDIR)/share/apache/2.2/man/man8/httpd.8
-file path=$(USRDIR)/share/apache/2.2/man/man8/logresolve.8
-file path=$(USRDIR)/share/apache/2.2/man/man8/rotatelogs.8
-file path=$(USRDIR)/share/apache/2.2/man/man8/suexec.8
+file files/apache22-startup.sh.$(ZTYPE) path=$(SVCMETHOD)/http-apache22 mode=555
+file files/apache22-manifest.xml.$(ZTYPE) path=$(SVCMANIFEST)/site/http-apache22.xml \
+    restart_fmri=svc:/system/manifest-import:default
+
+file path=$(LOCALSTATEDIR)/apache/2.2/cgi-bin/printenv
+file path=$(LOCALSTATEDIR)/apache/2.2/cgi-bin/test-cgi
 file path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_BAD_GATEWAY.html.var
 file path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_BAD_REQUEST.html.var
 file path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_FORBIDDEN.html.var
 file path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_GONE.html.var
-file \
-    path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_INTERNAL_SERVER_ERROR.html.var
+file path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_INTERNAL_SERVER_ERROR.html.var
 file path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_LENGTH_REQUIRED.html.var
 file path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_METHOD_NOT_ALLOWED.html.var
 file path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_NOT_FOUND.html.var
 file path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_NOT_IMPLEMENTED.html.var
 file path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_PRECONDITION_FAILED.html.var
-file \
-    path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_REQUEST_ENTITY_TOO_LARGE.html.var
+file path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_REQUEST_ENTITY_TOO_LARGE.html.var
 file path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_REQUEST_TIME_OUT.html.var
-file \
-    path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_REQUEST_URI_TOO_LARGE.html.var
+file path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_REQUEST_URI_TOO_LARGE.html.var
 file path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_SERVICE_UNAVAILABLE.html.var
 file path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_UNAUTHORIZED.html.var
-file \
-    path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_UNSUPPORTED_MEDIA_TYPE.html.var
+file path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_UNSUPPORTED_MEDIA_TYPE.html.var
 file path=$(LOCALSTATEDIR)/apache/2.2/error/HTTP_VARIANT_ALSO_VARIES.html.var
 file path=$(LOCALSTATEDIR)/apache/2.2/error/README
 file path=$(LOCALSTATEDIR)/apache/2.2/error/contact.html.var
@@ -727,12 +315,14 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/developer/debugging.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/developer/debugging.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/developer/documenting.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/developer/documenting.html.en
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/developer/documenting.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/developer/filters.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/developer/filters.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/developer/hooks.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/developer/hooks.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/developer/index.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/developer/index.html.en
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/developer/index.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/developer/modules.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/developer/modules.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/developer/modules.html.ja.utf8
@@ -758,6 +348,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/env.html.tr.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/faq/index.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/faq/index.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/faq/index.html.tr.utf8
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/faq/index.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/filter.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/filter.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/filter.html.es
@@ -781,6 +372,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/handler.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/handler.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/handler.html.ru.koi8-r
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/handler.html.tr.utf8
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/handler.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/howto/access.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/howto/access.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/howto/auth.html
@@ -803,6 +395,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/howto/index.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/howto/index.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/howto/index.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/howto/index.html.ko.euc-kr
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/howto/index.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/howto/public_html.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/howto/public_html.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/howto/public_html.html.ja.utf8
@@ -830,6 +423,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/images/mod_filter_new.gif
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/images/mod_filter_new.png
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/images/mod_filter_new.tr.png
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/images/mod_filter_old.gif
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/images/mod_filter_old.png
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/images/mod_rewrite_fig1.gif
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/images/mod_rewrite_fig1.png
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/images/mod_rewrite_fig2.gif
@@ -857,6 +451,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/index.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/index.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/index.html.pt-br
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/index.html.tr.utf8
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/index.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/install.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/install.html.de
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/install.html.en
@@ -886,6 +481,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/misc/index.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/misc/index.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/misc/index.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/misc/index.html.tr.utf8
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/misc/index.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/misc/password_encryptions.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/misc/password_encryptions.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/misc/perf-tuning.html
@@ -894,8 +490,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/misc/perf-tuning.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/misc/perf-tuning.html.tr.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/misc/relevant_standards.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/misc/relevant_standards.html.en
-file \
-    path=$(LOCALSTATEDIR)/apache/2.2/manual/misc/relevant_standards.html.ko.euc-kr
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/misc/relevant_standards.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/misc/rewriteguide.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/misc/rewriteguide.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/misc/rewriteguide.html.ko.euc-kr
@@ -927,6 +522,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/directives.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/directives.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/directives.html.ru.koi8-r
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/directives.html.tr.utf8
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/directives.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/event.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/event.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/index.html
@@ -936,6 +532,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/index.html.es
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/index.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/index.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/index.html.tr.utf8
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/index.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_actions.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_actions.html.de
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_actions.html.en
@@ -975,8 +572,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authn_dbm.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authn_default.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authn_default.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authn_default.html.ja.utf8
-file \
-    path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authn_default.html.ko.euc-kr
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authn_default.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authn_file.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authn_file.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authn_file.html.fr
@@ -991,14 +587,11 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authz_dbm.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authz_default.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authz_default.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authz_default.html.ja.utf8
-file \
-    path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authz_default.html.ko.euc-kr
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authz_default.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authz_groupfile.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authz_groupfile.html.en
-file \
-    path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authz_groupfile.html.ja.utf8
-file \
-    path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authz_groupfile.html.ko.euc-kr
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authz_groupfile.html.ja.utf8
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authz_groupfile.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authz_host.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authz_host.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_authz_host.html.fr
@@ -1035,8 +628,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_cgid.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_cgid.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_charset_lite.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_charset_lite.html.en
-file \
-    path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_charset_lite.html.ko.euc-kr
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_charset_lite.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_dav.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_dav.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_dav.html.ja.utf8
@@ -1151,8 +743,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_proxy_ajp.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_proxy_ajp.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_proxy_balancer.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_proxy_balancer.html.en
-file \
-    path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_proxy_balancer.html.ja.utf8
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_proxy_balancer.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_proxy_connect.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_proxy_connect.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/mod_proxy_connect.html.ja.utf8
@@ -1249,6 +840,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/quickreference.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/quickreference.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/quickreference.html.ru.koi8-r
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/quickreference.html.tr.utf8
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/quickreference.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/worker.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/worker.html.de
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mod/worker.html.en
@@ -1262,6 +854,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/mpm.html.fr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mpm.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mpm.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/mpm.html.tr.utf8
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/mpm.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/new_features_2_0.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/new_features_2_0.html.de
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/new_features_2_0.html.en
@@ -1284,6 +877,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/platform/ebcdic.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/platform/index.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/platform/index.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/platform/index.html.ko.euc-kr
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/platform/index.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/platform/netware.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/platform/netware.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/platform/netware.html.ko.euc-kr
@@ -1292,8 +886,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/platform/perf-hp.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/platform/perf-hp.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/platform/win_compiling.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/platform/win_compiling.html.en
-file \
-    path=$(LOCALSTATEDIR)/apache/2.2/manual/platform/win_compiling.html.ko.euc-kr
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/platform/win_compiling.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/platform/windows.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/platform/windows.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/platform/windows.html.ko.euc-kr
@@ -1319,8 +912,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/programs/dbmmanage.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/programs/dbmmanage.html.tr.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/programs/htcacheclean.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/programs/htcacheclean.html.en
-file \
-    path=$(LOCALSTATEDIR)/apache/2.2/manual/programs/htcacheclean.html.ko.euc-kr
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/programs/htcacheclean.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/programs/htcacheclean.html.tr.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/programs/htdbm.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/programs/htdbm.html.en
@@ -1347,6 +939,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/programs/index.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/programs/index.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/programs/index.html.ru.koi8-r
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/programs/index.html.tr.utf8
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/programs/index.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/programs/logresolve.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/programs/logresolve.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/programs/logresolve.html.ko.euc-kr
@@ -1378,6 +971,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/rewrite/index.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/rewrite/index.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/rewrite/index.html.fr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/rewrite/index.html.tr.utf8
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/rewrite/index.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/rewrite/intro.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/rewrite/intro.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/rewrite/intro.html.fr
@@ -1410,10 +1004,12 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/sitemap.html.es
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/sitemap.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/sitemap.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/sitemap.html.tr.utf8
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/sitemap.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/ssl/index.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/ssl/index.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/ssl/index.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/ssl/index.html.tr.utf8
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/ssl/index.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/ssl/ssl_compat.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/ssl/ssl_compat.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/ssl/ssl_faq.html
@@ -1445,7 +1041,9 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/lang.dtd
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/latex/atbeginend.sty
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/manualpage.dtd
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/modulesynopsis.dtd
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/scripts/MINIFY
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/scripts/prettify.js
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/scripts/prettify.min.js
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/sitemap.dtd
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/version.ent
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/suexec.html
@@ -1489,6 +1087,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/vhosts/index.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/vhosts/index.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/vhosts/index.html.ru.koi8-r
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/vhosts/index.html.tr.utf8
+file path=$(LOCALSTATEDIR)/apache/2.2/manual/vhosts/index.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/vhosts/ip-based.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/vhosts/ip-based.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/vhosts/ip-based.html.fr
@@ -1506,76 +1105,484 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/vhosts/name-based.html.fr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/vhosts/name-based.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/vhosts/name-based.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/vhosts/name-based.html.tr.utf8
-file files/apache22-startup.sh.$(ZTYPE) path=$(SVCMETHOD)/http-apache22 mode=555
-file files/apache22-manifest.xml.$(ZTYPE) path=$(SVCMANIFEST)/site/http-apache22.xml \
-    restart_fmri=svc:/system/manifest-import:default
+file path=$(SYSCONFDIR)/apache/2.2/conf.d/charset
+file path=$(SYSCONFDIR)/apache/2.2/conf.d/localized-error-pages
+file path=$(SYSCONFDIR)/apache/2.2/conf.d/other-vhosts-access-log
+file path=$(SYSCONFDIR)/apache/2.2/conf.d/security
+file path=$(SYSCONFDIR)/apache/2.2/envvars
+file path=$(SYSCONFDIR)/apache/2.2/httpd.conf
+file path=$(SYSCONFDIR)/apache/2.2/magic
+file path=$(SYSCONFDIR)/apache/2.2/mime.types
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/actions.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/actions.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/alias.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/alias.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/asis.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/auth_basic.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/auth_digest.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/authn_anon.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/authn_dbd.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/authn_dbm.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/authn_default.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/authn_file.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/authnz_ldap.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/authz_dbm.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/authz_default.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/authz_groupfile.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/authz_host.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/authz_owner.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/authz_user.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/autoindex.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/autoindex.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/cache.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/cern_meta.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/cgi.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/cgid.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/cgid.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/dav.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/dav_fs.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/dav_fs.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/dbd.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/deflate.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/deflate.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/dir.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/dir.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/disk_cache.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/disk_cache.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/dumpio.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/env.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/expires.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/ext_filter.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/file_cache.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/filter.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/headers.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/ident.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/imagemap.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/include.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/info.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/info.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/ldap.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/ldap.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/log_config.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/log_config.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/log_forensic.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/logio.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/mem_cache.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/mem_cache.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/mime.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/mime.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/mime_magic.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/mime_magic.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/mk-load-files.sh
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/negotiation.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/negotiation.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy_ajp.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy_balancer.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy_balancer.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy_connect.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy_ftp.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy_ftp.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy_http.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/proxy_scgi.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/reqtimeout.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/reqtimeout.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/rewrite.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/setenvif.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/setenvif.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/speling.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/ssl.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/ssl.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/status.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/status.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/substitute.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/suexec.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/unique_id.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/userdir.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/userdir.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/usertrack.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/version.load
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/vhost_alias.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/alias.conf \
-    target=../mods-available/alias.conf preserve=true
+    target=../mods-available/alias.conf
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/alias.load \
-    target=../mods-available/alias.load preserve=true
+    target=../mods-available/alias.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/auth_basic.load \
-    target=../mods-available/auth_basic.load preserve=true
+    target=../mods-available/auth_basic.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/authn_file.load \
-    target=../mods-available/authn_file.load preserve=true
+    target=../mods-available/authn_file.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/authz_default.load \
-    target=../mods-available/authz_default.load preserve=true
+    target=../mods-available/authz_default.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/authz_groupfile.load \
-    target=../mods-available/authz_groupfile.load preserve=true
+    target=../mods-available/authz_groupfile.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/authz_host.load \
-    target=../mods-available/authz_host.load preserve=true
+    target=../mods-available/authz_host.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/authz_user.load \
-    target=../mods-available/authz_user.load preserve=true
+    target=../mods-available/authz_user.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/autoindex.conf \
-    target=../mods-available/autoindex.conf preserve=true
+    target=../mods-available/autoindex.conf
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/autoindex.load \
-    target=../mods-available/autoindex.load preserve=true
+    target=../mods-available/autoindex.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/cgi.load \
-    target=../mods-available/cgi.load preserve=true
+    target=../mods-available/cgi.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/deflate.conf \
-    target=../mods-available/deflate.conf preserve=true
+    target=../mods-available/deflate.conf
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/deflate.load \
-    target=../mods-available/deflate.load preserve=true
+    target=../mods-available/deflate.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/dir.conf \
-    target=../mods-available/dir.conf preserve=true
+    target=../mods-available/dir.conf
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/dir.load \
-    target=../mods-available/dir.load preserve=true
+    target=../mods-available/dir.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/env.load \
-    target=../mods-available/env.load preserve=true
-link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/log_config.conf \
-    target=../mods-available/log_config.conf preserve=true
+    target=../mods-available/env.load
+link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/headers.load \
+    target=../mods-available/headers.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/log_config.load \
-    target=../mods-available/log_config.load preserve=true
-link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/logio.load \
-    target=../mods-available/logio.load preserve=true
+    target=../mods-available/log_config.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/mime.conf \
-    target=../mods-available/mime.conf preserve=true
+    target=../mods-available/mime.conf
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/mime.load \
-    target=../mods-available/mime.load preserve=true
+    target=../mods-available/mime.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/negotiation.conf \
-    target=../mods-available/negotiation.conf preserve=true
+    target=../mods-available/negotiation.conf
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/negotiation.load \
-    target=../mods-available/negotiation.load preserve=true
+    target=../mods-available/negotiation.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/reqtimeout.conf \
-    target=../mods-available/reqtimeout.conf preserve=true
+    target=../mods-available/reqtimeout.conf
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/reqtimeout.load \
-    target=../mods-available/reqtimeout.load preserve=true
+    target=../mods-available/reqtimeout.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/rewrite.load \
-    target=../mods-available/rewrite.load preserve=true
+    target=../mods-available/rewrite.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/setenvif.conf \
-    target=../mods-available/setenvif.conf preserve=true
+    target=../mods-available/setenvif.conf
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/setenvif.load \
-    target=../mods-available/setenvif.load preserve=true
+    target=../mods-available/setenvif.load
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/status.conf \
-    target=../mods-available/status.conf preserve=true
+    target=../mods-available/status.conf
 link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/status.load \
-    target=../mods-available/status.load preserve=true
+    target=../mods-available/status.load
+file path=$(SYSCONFDIR)/apache/2.2/ports.conf
+file path=$(SYSCONFDIR)/apache/2.2/sites-available/default
+file path=$(SYSCONFDIR)/apache/2.2/sites-available/default-ssl
+file path=$(SYSCONFDIR)/apache/2.2/sites-available/example
 link path=$(SYSCONFDIR)/apache/2.2/sites-enabled/000-default \
-    target=../sites-available/default preserve=true
-link path=$(USRDIR)/lib/apache/2.2/bin/a2dismod target=a2enmod
-link path=$(USRDIR)/lib/apache/2.2/bin/a2ensite target=a2enmod
-link path=$(USRDIR)/lib/apache/2.2/bin/a2dissite target=a2enmod
-link path=$(SYSCONFDIR)/apache/2.2/sites-enabled/000-default \
-    target=../sites-available/default preserve=true
+    target=../sites-available/default
+file path=$(USRDIR)/include/apache/2.2/ap_compat.h
+file path=$(USRDIR)/include/apache/2.2/ap_config.h
+file path=$(USRDIR)/include/apache/2.2/ap_config_auto.h
+file path=$(USRDIR)/include/apache/2.2/ap_config_layout.h
+file path=$(USRDIR)/include/apache/2.2/ap_listen.h
+file path=$(USRDIR)/include/apache/2.2/ap_mmn.h
+file path=$(USRDIR)/include/apache/2.2/ap_mpm.h
+file path=$(USRDIR)/include/apache/2.2/ap_provider.h
+file path=$(USRDIR)/include/apache/2.2/ap_regex.h
+file path=$(USRDIR)/include/apache/2.2/ap_regkey.h
+file path=$(USRDIR)/include/apache/2.2/ap_release.h
+file path=$(USRDIR)/include/apache/2.2/http_config.h
+file path=$(USRDIR)/include/apache/2.2/http_connection.h
+file path=$(USRDIR)/include/apache/2.2/http_core.h
+file path=$(USRDIR)/include/apache/2.2/http_log.h
+file path=$(USRDIR)/include/apache/2.2/http_main.h
+file path=$(USRDIR)/include/apache/2.2/http_protocol.h
+file path=$(USRDIR)/include/apache/2.2/http_request.h
+file path=$(USRDIR)/include/apache/2.2/http_vhost.h
+file path=$(USRDIR)/include/apache/2.2/httpd.h
+file path=$(USRDIR)/include/apache/2.2/mod_auth.h
+file path=$(USRDIR)/include/apache/2.2/mod_cgi.h
+file path=$(USRDIR)/include/apache/2.2/mod_core.h
+file path=$(USRDIR)/include/apache/2.2/mod_dav.h
+file path=$(USRDIR)/include/apache/2.2/mod_dbd.h
+file path=$(USRDIR)/include/apache/2.2/mod_include.h
+file path=$(USRDIR)/include/apache/2.2/mod_log_config.h
+file path=$(USRDIR)/include/apache/2.2/mod_proxy.h
+file path=$(USRDIR)/include/apache/2.2/mod_rewrite.h
+file path=$(USRDIR)/include/apache/2.2/mod_ssl.h
+file path=$(USRDIR)/include/apache/2.2/mod_status.h
+file path=$(USRDIR)/include/apache/2.2/mpm.h
+file path=$(USRDIR)/include/apache/2.2/mpm_common.h
+file path=$(USRDIR)/include/apache/2.2/mpm_default.h
+file path=$(USRDIR)/include/apache/2.2/os.h
+file path=$(USRDIR)/include/apache/2.2/scoreboard.h
+file path=$(USRDIR)/include/apache/2.2/unixd.h
+file path=$(USRDIR)/include/apache/2.2/util_cfgtree.h
+file path=$(USRDIR)/include/apache/2.2/util_charset.h
+file path=$(USRDIR)/include/apache/2.2/util_ebcdic.h
+file path=$(USRDIR)/include/apache/2.2/util_filter.h
+file path=$(USRDIR)/include/apache/2.2/util_ldap.h
+file path=$(USRDIR)/include/apache/2.2/util_md5.h
+file path=$(USRDIR)/include/apache/2.2/util_script.h
+file path=$(USRDIR)/include/apache/2.2/util_time.h
+file path=$(USRDIR)/include/apache/2.2/util_xml.h
+file path=$(USRDIR)/include/apache/2.2/worker/ap_compat.h
+file path=$(USRDIR)/include/apache/2.2/worker/ap_config.h
+file path=$(USRDIR)/include/apache/2.2/worker/ap_config_auto.h
+file path=$(USRDIR)/include/apache/2.2/worker/ap_config_layout.h
+file path=$(USRDIR)/include/apache/2.2/worker/ap_listen.h
+file path=$(USRDIR)/include/apache/2.2/worker/ap_mmn.h
+file path=$(USRDIR)/include/apache/2.2/worker/ap_mpm.h
+file path=$(USRDIR)/include/apache/2.2/worker/ap_provider.h
+file path=$(USRDIR)/include/apache/2.2/worker/ap_regex.h
+file path=$(USRDIR)/include/apache/2.2/worker/ap_regkey.h
+file path=$(USRDIR)/include/apache/2.2/worker/ap_release.h
+file path=$(USRDIR)/include/apache/2.2/worker/fdqueue.h
+file path=$(USRDIR)/include/apache/2.2/worker/http_config.h
+file path=$(USRDIR)/include/apache/2.2/worker/http_connection.h
+file path=$(USRDIR)/include/apache/2.2/worker/http_core.h
+file path=$(USRDIR)/include/apache/2.2/worker/http_log.h
+file path=$(USRDIR)/include/apache/2.2/worker/http_main.h
+file path=$(USRDIR)/include/apache/2.2/worker/http_protocol.h
+file path=$(USRDIR)/include/apache/2.2/worker/http_request.h
+file path=$(USRDIR)/include/apache/2.2/worker/http_vhost.h
+file path=$(USRDIR)/include/apache/2.2/worker/httpd.h
+file path=$(USRDIR)/include/apache/2.2/worker/mod_auth.h
+file path=$(USRDIR)/include/apache/2.2/worker/mod_cgi.h
+file path=$(USRDIR)/include/apache/2.2/worker/mod_core.h
+file path=$(USRDIR)/include/apache/2.2/worker/mod_dav.h
+file path=$(USRDIR)/include/apache/2.2/worker/mod_dbd.h
+file path=$(USRDIR)/include/apache/2.2/worker/mod_include.h
+file path=$(USRDIR)/include/apache/2.2/worker/mod_log_config.h
+file path=$(USRDIR)/include/apache/2.2/worker/mod_proxy.h
+file path=$(USRDIR)/include/apache/2.2/worker/mod_rewrite.h
+file path=$(USRDIR)/include/apache/2.2/worker/mod_ssl.h
+file path=$(USRDIR)/include/apache/2.2/worker/mod_status.h
+file path=$(USRDIR)/include/apache/2.2/worker/mpm.h
+file path=$(USRDIR)/include/apache/2.2/worker/mpm_common.h
+file path=$(USRDIR)/include/apache/2.2/worker/mpm_default.h
+file path=$(USRDIR)/include/apache/2.2/worker/os.h
+file path=$(USRDIR)/include/apache/2.2/worker/pod.h
+file path=$(USRDIR)/include/apache/2.2/worker/scoreboard.h
+file path=$(USRDIR)/include/apache/2.2/worker/unixd.h
+file path=$(USRDIR)/include/apache/2.2/worker/util_cfgtree.h
+file path=$(USRDIR)/include/apache/2.2/worker/util_charset.h
+file path=$(USRDIR)/include/apache/2.2/worker/util_ebcdic.h
+file path=$(USRDIR)/include/apache/2.2/worker/util_filter.h
+file path=$(USRDIR)/include/apache/2.2/worker/util_ldap.h
+file path=$(USRDIR)/include/apache/2.2/worker/util_md5.h
+file path=$(USRDIR)/include/apache/2.2/worker/util_script.h
+file path=$(USRDIR)/include/apache/2.2/worker/util_time.h
+file path=$(USRDIR)/include/apache/2.2/worker/util_xml.h
+
+file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/ab
+file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/apachectl
+file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/apxs
+file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/apxs.worker
+file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/checkgid
+file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/dbmmanage
+file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/htcacheclean
+file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/htdbm
+file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/htdigest
+file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/htpasswd
+file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/httpd
+file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/httpd.worker
+file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/httxt2dbm
+file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/logresolve
+file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/rotatelogs
+file path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/suexec
+file path=$(USRDIR)/lib/apache/2.2/bin/ab
+file path=$(USRDIR)/lib/apache/2.2/bin/apachectl
+file path=$(USRDIR)/lib/apache/2.2/bin/apxs
+file path=$(USRDIR)/lib/apache/2.2/bin/apxs.worker
+file path=$(USRDIR)/lib/apache/2.2/bin/checkgid
+file path=$(USRDIR)/lib/apache/2.2/bin/dbmmanage
+file path=$(USRDIR)/lib/apache/2.2/bin/htcacheclean
+file path=$(USRDIR)/lib/apache/2.2/bin/htdbm
+file path=$(USRDIR)/lib/apache/2.2/bin/htdigest
+file path=$(USRDIR)/lib/apache/2.2/bin/htpasswd
+file path=$(USRDIR)/lib/apache/2.2/bin/httpd
+file path=$(USRDIR)/lib/apache/2.2/bin/httpd.worker
+file path=$(USRDIR)/lib/apache/2.2/bin/httxt2dbm
+file path=$(USRDIR)/lib/apache/2.2/bin/logresolve
+file path=$(USRDIR)/lib/apache/2.2/bin/rotatelogs
+file path=$(USRDIR)/lib/apache/2.2/bin/suexec
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/httpd.exp
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_actions.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_alias.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_asis.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_auth_basic.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_auth_digest.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authn_anon.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authn_dbd.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authn_dbm.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authn_default.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authn_file.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authnz_ldap.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authz_dbm.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authz_default.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authz_groupfile.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authz_host.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authz_owner.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_authz_user.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_autoindex.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_cache.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_cern_meta.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_cgi.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_cgid.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_dav.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_dav_fs.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_dbd.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_deflate.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_dir.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_disk_cache.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_dumpio.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_env.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_expires.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_ext_filter.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_file_cache.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_filter.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_headers.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_ident.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_imagemap.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_include.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_info.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_ldap.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_log_config.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_log_forensic.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_logio.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_mem_cache.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_mime.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_mime_magic.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_negotiation.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_proxy.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_ajp.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_balancer.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_connect.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_ftp.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_http.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_proxy_scgi.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_reqtimeout.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_rewrite.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_setenvif.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_speling.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_ssl.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_status.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_substitute.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_suexec.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_unique_id.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_userdir.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_usertrack.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_version.so
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_vhost_alias.so
+file path=$(USRDIR)/lib/apache/2.2/modules/httpd.exp
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_actions.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_alias.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_asis.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_auth_basic.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_auth_digest.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_authn_anon.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_authn_dbd.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_authn_dbm.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_authn_default.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_authn_file.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_authnz_ldap.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_authz_dbm.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_authz_default.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_authz_groupfile.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_authz_host.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_authz_owner.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_authz_user.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_autoindex.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_cache.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_cern_meta.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_cgi.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_cgid.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_dav.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_dav_fs.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_dbd.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_deflate.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_dir.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_disk_cache.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_dumpio.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_env.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_expires.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_ext_filter.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_file_cache.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_filter.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_headers.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_ident.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_imagemap.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_include.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_info.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_ldap.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_log_config.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_log_forensic.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_logio.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_mem_cache.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_mime.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_mime_magic.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_negotiation.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_proxy.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_proxy_ajp.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_proxy_balancer.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_proxy_connect.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_proxy_ftp.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_proxy_http.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_proxy_scgi.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_reqtimeout.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_rewrite.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_setenvif.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_speling.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_ssl.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_status.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_substitute.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_suexec.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_unique_id.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_userdir.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_usertrack.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_version.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_vhost_alias.so
+
+file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/config.nice
+file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/config_vars.mk
+file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/instdso.sh mode=555
+file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/library.mk
+file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/ltlib.mk
+file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/mkdir.sh mode=555
+file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/program.mk
+file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/rules.mk
+file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/special.mk
+file path=$(USRDIR)/share/apache/2.2/build/config.nice
+file path=$(USRDIR)/share/apache/2.2/build/config_vars.mk
+file path=$(USRDIR)/share/apache/2.2/build/instdso.sh mode=555
+file path=$(USRDIR)/share/apache/2.2/build/library.mk
+file path=$(USRDIR)/share/apache/2.2/build/ltlib.mk
+file path=$(USRDIR)/share/apache/2.2/build/mkdir.sh mode=555
+file path=$(USRDIR)/share/apache/2.2/build/program.mk
+file path=$(USRDIR)/share/apache/2.2/build/rules.mk
+file path=$(USRDIR)/share/apache/2.2/build/special.mk
+file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/config.nice
+file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/config_vars.mk
+file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/instdso.sh mode=555
+file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/library.mk
+file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/ltlib.mk
+file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/mkdir.sh mode=555
+file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/program.mk
+file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/rules.mk
+file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/special.mk
+file path=$(USRDIR)/share/apache/2.2/build/worker/config.nice
+file path=$(USRDIR)/share/apache/2.2/build/worker/config_vars.mk
+file path=$(USRDIR)/share/apache/2.2/build/worker/instdso.sh mode=555
+file path=$(USRDIR)/share/apache/2.2/build/worker/library.mk
+file path=$(USRDIR)/share/apache/2.2/build/worker/ltlib.mk
+file path=$(USRDIR)/share/apache/2.2/build/worker/mkdir.sh mode=555
+file path=$(USRDIR)/share/apache/2.2/build/worker/program.mk
+file path=$(USRDIR)/share/apache/2.2/build/worker/rules.mk
+file path=$(USRDIR)/share/apache/2.2/build/worker/special.mk
+
+file path=$(USRDIR)/share/apache/2.2/man/man1/dbmmanage.1
+file path=$(USRDIR)/share/apache/2.2/man/man1/htdbm.1
+file path=$(USRDIR)/share/apache/2.2/man/man1/htdigest.1
+file path=$(USRDIR)/share/apache/2.2/man/man1/htpasswd.1
+file path=$(USRDIR)/share/apache/2.2/man/man1/httxt2dbm.1
+file path=$(USRDIR)/share/apache/2.2/man/man8/ab.8
+file path=$(USRDIR)/share/apache/2.2/man/man8/apachectl.8
+file path=$(USRDIR)/share/apache/2.2/man/man8/apxs.8
+file path=$(USRDIR)/share/apache/2.2/man/man8/htcacheclean.8
+file path=$(USRDIR)/share/apache/2.2/man/man8/httpd.8
+file path=$(USRDIR)/share/apache/2.2/man/man8/logresolve.8
+file path=$(USRDIR)/share/apache/2.2/man/man8/rotatelogs.8
+file path=$(USRDIR)/share/apache/2.2/man/man8/suexec.8
+
 link path=$(USRDIR)/lib/apache/2.2/bin/a2dismod target=a2enmod
 link path=$(USRDIR)/lib/apache/2.2/bin/a2ensite target=a2enmod
 link path=$(USRDIR)/lib/apache/2.2/bin/a2dissite target=a2enmod

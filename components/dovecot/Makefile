@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		dovecot
 COMPONENT_FMRI=		mail/dovecot
-COMPONENT_VERSION=	2.2.13
+COMPONENT_VERSION=	2.2.15
 COMPONENT_LICENSE=	MIT
 COMPONENT_PROJECT_URL=	"http://dovecot.org/"
 COMPONENT_SUMMARY=	Dovecot IMAP Server
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:133cf3d2aa81733f6688ec986c91dbe07602fad81e856ba3d8046ffca85d9dce
+COMPONENT_ARCHIVE_HASH=	sha256:d10e7769e2367d635c93fd6589efdd05f2e3acf13c7911a40167faedf23c399f
 COMPONENT_ARCHIVE_URL=	http://www.dovecot.org/releases/2.2/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -32,8 +32,8 @@ include ../../make-rules/ips.mk
 # Encode runpaths for MySQL and Postgresql
 LDFLAGS.32+=    -L$(ECPREFIX)/lib/mysql/5.5/lib -R$(ECPREFIX)/lib/mysql/5.5/lib
 LDFLAGS.64+=    -L$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64) -R$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64)
-LDFLAGS.32+=    -L$(ECPREFIX)/lib/postgres/9.1/lib -R$(ECPREFIX)/lib/postgres/9.1/lib
-LDFLAGS.64+=    -L$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64) -R$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64)
+LDFLAGS.32+=    -L$(ECPREFIX)/lib/postgres/9.3/lib -R$(ECPREFIX)/lib/postgres/9.3/lib
+LDFLAGS.64+=    -L$(ECPREFIX)/lib/postgres/9.3/lib/$(MACH64) -R$(ECPREFIX)/lib/postgres/9.3/lib/$(MACH64)
 
 # Dovecot doesn't seem to want to support libdir==libexecdir
 # http://www.dovecot.org/list/dovecot/2009-December/045498.html

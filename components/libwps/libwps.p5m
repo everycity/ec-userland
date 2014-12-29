@@ -26,27 +26,33 @@ dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/libwps-0.2
-dir path=$(ECPREFIX)/include/libwps-0.2/libwps
+dir path=$(ECPREFIX)/include/libwps-0.3
+dir path=$(ECPREFIX)/include/libwps-0.3/libwps
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 dir path=$(ECPREFIX)/lib/pkgconfig
+file path=$(ECPREFIX)/bin/$(MACH64)/wks2csv
+file path=$(ECPREFIX)/bin/$(MACH64)/wks2raw
+file path=$(ECPREFIX)/bin/$(MACH64)/wks2text
 file path=$(ECPREFIX)/bin/$(MACH64)/wps2html
 file path=$(ECPREFIX)/bin/$(MACH64)/wps2raw
 file path=$(ECPREFIX)/bin/$(MACH64)/wps2text
+file path=$(ECPREFIX)/bin/wks2csv
+file path=$(ECPREFIX)/bin/wks2raw
+file path=$(ECPREFIX)/bin/wks2text
 file path=$(ECPREFIX)/bin/wps2html
 file path=$(ECPREFIX)/bin/wps2raw
 file path=$(ECPREFIX)/bin/wps2text
-file path=$(ECPREFIX)/include/libwps-0.2/libwps/WPSDocument.h
-file path=$(ECPREFIX)/include/libwps-0.2/libwps/libwps.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libwps-0.2.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libwps-0.2.so.2.0.9
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libwps-0.2.pc
-file path=$(ECPREFIX)/lib/libwps-0.2.la
-file path=$(ECPREFIX)/lib/libwps-0.2.so.2.0.9
-file path=$(ECPREFIX)/lib/pkgconfig/libwps-0.2.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libwps-0.2.so target=libwps-0.2.so.2.0.9
-link path=$(ECPREFIX)/lib/$(MACH64)/libwps-0.2.so.2 target=libwps-0.2.so.2.0.9
-link path=$(ECPREFIX)/lib/libwps-0.2.so target=libwps-0.2.so.2.0.9
-link path=$(ECPREFIX)/lib/libwps-0.2.so.2 target=libwps-0.2.so.2.0.9
+file path=$(ECPREFIX)/include/libwps-0.3/libwps/WPSDocument.h
+file path=$(ECPREFIX)/include/libwps-0.3/libwps/libwps.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libwps-0.3.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libwps-0.3.so.3.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libwps-0.3.pc
+file path=$(ECPREFIX)/lib/libwps-0.3.la
+file path=$(ECPREFIX)/lib/libwps-0.3.so.3.0.0
+file path=$(ECPREFIX)/lib/pkgconfig/libwps-0.3.pc
+link path=$(ECPREFIX)/lib/$(MACH64)/libwps-0.3.so target=libwps-0.3.so.3.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libwps-0.3.so.3 target=libwps-0.3.so.3.0.0
+link path=$(ECPREFIX)/lib/libwps-0.3.so target=libwps-0.3.so.3.0.0
+link path=$(ECPREFIX)/lib/libwps-0.3.so.3 target=libwps-0.3.so.3.0.0

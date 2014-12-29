@@ -124,7 +124,9 @@ CONFIGURE_OPTIONS     +=	--without-t1lib
 # Enabled extensions
 CONFIGURE_OPTIONS     +=	--enable-cli
 CONFIGURE_OPTIONS     +=	--enable-cgi
+ifeq ($(SOLARIS_VERSION), 2.11)
 CONFIGURE_OPTIONS     +=	--enable-dtrace
+endif
 CONFIGURE_OPTIONS     +=	--enable-shared
 CONFIGURE_OPTIONS     +=	--enable-filter
 CONFIGURE_OPTIONS     +=	--enable-gd-jis-conv

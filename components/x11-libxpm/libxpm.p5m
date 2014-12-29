@@ -9,28 +9,31 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/x11/library/libxpm@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="libXpm - X Pixmap (XPM) image file format library"
-set name=info.upstream_url value="http://xorg.freedesktop.org/releases/individual/lib/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license libxpm.license license="MIT License (libxpm)"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 file path=$(USRDIR)/bin/$(MACH64)/cxpm
+file path=$(USRDIR)/bin/$(MACH64)/sxpm
 file path=$(USRDIR)/bin/cxpm
+file path=$(USRDIR)/bin/sxpm
 file path=$(USRDIR)/include/X11/xpm.h
+link path=$(USRDIR)/lib/$(MACH64)/libXpm.so target=libXpm.so.4.11.0
+link path=$(USRDIR)/lib/$(MACH64)/libXpm.so.4 target=libXpm.so.4.11.0
 file path=$(USRDIR)/lib/$(MACH64)/libXpm.so.4.11.0
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xpm.pc
+link path=$(USRDIR)/lib/libXpm.so target=libXpm.so.4.11.0
+link path=$(USRDIR)/lib/libXpm.so.4 target=libXpm.so.4.11.0
 file path=$(USRDIR)/lib/libXpm.so.4.11.0
 file path=$(USRDIR)/lib/pkgconfig/xpm.pc
 file path=$(USRDIR)/share/man/man1/cxpm.1
-link path=$(USRDIR)/lib/$(MACH64)/libXpm.so target=libXpm.so.4.11.0
-link path=$(USRDIR)/lib/$(MACH64)/libXpm.so.4 target=libXpm.so.4.11.0
-link path=$(USRDIR)/lib/libXpm.so target=libXpm.so.4.11.0
-link path=$(USRDIR)/lib/libXpm.so.4 target=libXpm.so.4.11.0
+file path=$(USRDIR)/share/man/man1/sxpm.1

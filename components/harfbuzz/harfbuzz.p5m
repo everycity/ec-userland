@@ -38,7 +38,9 @@ file path=$(USRDIR)/include/harfbuzz/hb-font.h
 file path=$(USRDIR)/include/harfbuzz/hb-ft.h
 file path=$(USRDIR)/include/harfbuzz/hb-glib.h
 file path=$(USRDIR)/include/harfbuzz/hb-icu.h
+file path=$(USRDIR)/include/harfbuzz/hb-ot-font.h
 file path=$(USRDIR)/include/harfbuzz/hb-ot-layout.h
+file path=$(USRDIR)/include/harfbuzz/hb-ot-shape.h
 file path=$(USRDIR)/include/harfbuzz/hb-ot-tag.h
 file path=$(USRDIR)/include/harfbuzz/hb-ot.h
 file path=$(USRDIR)/include/harfbuzz/hb-set.h
@@ -47,28 +49,22 @@ file path=$(USRDIR)/include/harfbuzz/hb-shape.h
 file path=$(USRDIR)/include/harfbuzz/hb-unicode.h
 file path=$(USRDIR)/include/harfbuzz/hb-version.h
 file path=$(USRDIR)/include/harfbuzz/hb.h
-file path=$(USRDIR)/lib/$(MACH64)/libharfbuzz-icu.la
-file path=$(USRDIR)/lib/$(MACH64)/libharfbuzz-icu.so.0.925.0
-file path=$(USRDIR)/lib/$(MACH64)/libharfbuzz.la
-file path=$(USRDIR)/lib/$(MACH64)/libharfbuzz.so.0.925.0
+
+link path=$(USRDIR)/lib/$(MACH64)/libharfbuzz-icu.so \
+    target=libharfbuzz-icu.so.0.936.0
+link path=$(USRDIR)/lib/$(MACH64)/libharfbuzz-icu.so.0 \
+    target=libharfbuzz-icu.so.0.936.0
+file path=$(USRDIR)/lib/$(MACH64)/libharfbuzz-icu.so.0.936.0
+link path=$(USRDIR)/lib/$(MACH64)/libharfbuzz.so target=libharfbuzz.so.0.936.0
+link path=$(USRDIR)/lib/$(MACH64)/libharfbuzz.so.0 target=libharfbuzz.so.0.936.0
+file path=$(USRDIR)/lib/$(MACH64)/libharfbuzz.so.0.936.0
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/harfbuzz-icu.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/harfbuzz.pc
-file path=$(USRDIR)/lib/libharfbuzz-icu.la
-file path=$(USRDIR)/lib/libharfbuzz-icu.so.0.925.0
-file path=$(USRDIR)/lib/libharfbuzz.la
-file path=$(USRDIR)/lib/libharfbuzz.so.0.925.0
+link path=$(USRDIR)/lib/libharfbuzz-icu.so target=libharfbuzz-icu.so.0.936.0
+link path=$(USRDIR)/lib/libharfbuzz-icu.so.0 target=libharfbuzz-icu.so.0.936.0
+file path=$(USRDIR)/lib/libharfbuzz-icu.so.0.936.0
+link path=$(USRDIR)/lib/libharfbuzz.so target=libharfbuzz.so.0.936.0
+link path=$(USRDIR)/lib/libharfbuzz.so.0 target=libharfbuzz.so.0.936.0
+file path=$(USRDIR)/lib/libharfbuzz.so.0.936.0
 file path=$(USRDIR)/lib/pkgconfig/harfbuzz-icu.pc
 file path=$(USRDIR)/lib/pkgconfig/harfbuzz.pc
-link path=$(USRDIR)/lib/$(MACH64)/libharfbuzz-icu.so \
-    target=libharfbuzz-icu.so.0.925.0
-link path=$(USRDIR)/lib/$(MACH64)/libharfbuzz-icu.so.0 \
-    target=libharfbuzz-icu.so.0.925.0
-link path=$(USRDIR)/lib/$(MACH64)/libharfbuzz.so \
-    target=libharfbuzz.so.0.925.0
-link path=$(USRDIR)/lib/$(MACH64)/libharfbuzz.so.0 \
-    target=libharfbuzz.so.0.925.0
-link path=$(USRDIR)/lib/libharfbuzz-icu.so target=libharfbuzz-icu.so.0.925.0
-link path=$(USRDIR)/lib/libharfbuzz-icu.so.0 \
-    target=libharfbuzz-icu.so.0.925.0
-link path=$(USRDIR)/lib/libharfbuzz.so target=libharfbuzz.so.0.925.0
-link path=$(USRDIR)/lib/libharfbuzz.so.0 target=libharfbuzz.so.0.925.0

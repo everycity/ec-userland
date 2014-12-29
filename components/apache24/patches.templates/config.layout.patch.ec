@@ -1,0 +1,31 @@
+--- a/config.layout.orig	2011-03-24 05:00:41.865236354 -0700
++++ b/config.layout	2011-03-24 05:11:45.205694672 -0700
+@@ -370,3 +370,28 @@
+     installbuilddir: ${prefix}/etc/apache/build
+     errordir:      ${datadir}/error
+ </Layout>
++
++# EveryCity layout
++<Layout EveryCity>
++    prefix:        /ec/lib/apache/2.4
++    exec_prefix:   /ec/lib/apache/2.4
++    bindir:        ${exec_prefix}/bin::ISAINFO::
++    sbindir:       ${exec_prefix}/bin::ISAINFO::
++    libdir:        ${exec_prefix}/lib::ISAINFO::
++    libexecdir:    ${exec_prefix}/modules::ISAINFO::
++    mandir:        /ec/share/apache/2.4/man
++    sysconfdir:    /ec/etc/apache/2.4
++    datadir:       /ec/var/apache/2.4
++    iconsdir:      ${datadir}/icons
++    htdocsdir:     ${datadir}/htdocs
++    manualdir:     ${datadir}/manual
++    cgidir:        ${datadir}/cgi-bin
++    includedir:    /ec/include/apache/2.4::MPM::
++    localstatedir: /ec/var/apache/2.4/run
++    runtimedir:    /ec/var/apache/2.4/run
++    logfiledir:    ${datadir}/logs
++    proxycachedir: ${datadir}/proxy
++    infodir:       ${exec_prefix}/info
++    installbuilddir: /ec/share/apache/2.4/build::MPM::::ISAINFO::
++    errordir:      ${datadir}/error
++</Layout>

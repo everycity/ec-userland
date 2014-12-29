@@ -76,16 +76,14 @@ file path=$(USRDIR)/include/freetype2/tttables.h
 file path=$(USRDIR)/include/freetype2/tttags.h
 file path=$(USRDIR)/include/freetype2/ttunpat.h
 file path=$(USRDIR)/lib/$(MACH64)/libfreetype.a
-file path=$(USRDIR)/lib/$(MACH64)/libfreetype.so.6.11.2
+link path=$(USRDIR)/lib/$(MACH64)/libfreetype.so target=libfreetype.so.6.11.3
+link path=$(USRDIR)/lib/$(MACH64)/libfreetype.so.6 target=libfreetype.so.6.11.3
+file path=$(USRDIR)/lib/$(MACH64)/libfreetype.so.6.11.3
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/freetype2.pc
 file path=$(USRDIR)/lib/libfreetype.a
-file path=$(USRDIR)/lib/libfreetype.so.6.11.2
+link path=$(USRDIR)/lib/libfreetype.so target=libfreetype.so.6.11.3
+link path=$(USRDIR)/lib/libfreetype.so.6 target=libfreetype.so.6.11.3
+file path=$(USRDIR)/lib/libfreetype.so.6.11.3
 file path=$(USRDIR)/lib/pkgconfig/freetype2.pc
 file path=$(USRDIR)/share/aclocal/freetype2.m4
 file path=$(USRDIR)/share/man/man1/freetype-config.1
-link path=$(USRDIR)/lib/$(MACH64)/libfreetype.so \
-    target=libfreetype.so.6.11.2
-link path=$(USRDIR)/lib/$(MACH64)/libfreetype.so.6 \
-    target=libfreetype.so.6.11.2
-link path=$(USRDIR)/lib/libfreetype.so target=libfreetype.so.6.11.2
-link path=$(USRDIR)/lib/libfreetype.so.6 target=libfreetype.so.6.11.2
