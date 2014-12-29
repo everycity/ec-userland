@@ -370,5 +370,4 @@
 /^re2c$/d
 /^x11-evieproto$/d
 /^x11-libxevie$/d
-/^x11-libxscrnsaver$/d
 /^x11-xauth$/d

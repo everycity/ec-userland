@@ -22,39 +22,26 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/X11
-dir path=$(ECPREFIX)/include/X11/extensions
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man3
-file path=$(ECPREFIX)/include/X11/extensions/scrnsaver.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libXss.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libXss.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libXss.so.1.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xscrnsaver.pc
-file path=$(ECPREFIX)/lib/libXss.a
-file path=$(ECPREFIX)/lib/libXss.la
-file path=$(ECPREFIX)/lib/libXss.so.1.0.0
-file path=$(ECPREFIX)/lib/pkgconfig/xscrnsaver.pc
-file path=$(ECPREFIX)/share/man/man3/XScreenSaverAllocInfo.3
-file path=$(ECPREFIX)/share/man/man3/XScreenSaverGetRegistered.3
-file path=$(ECPREFIX)/share/man/man3/XScreenSaverQueryExtension.3
-file path=$(ECPREFIX)/share/man/man3/XScreenSaverQueryInfo.3
-file path=$(ECPREFIX)/share/man/man3/XScreenSaverQueryVersion.3
-file path=$(ECPREFIX)/share/man/man3/XScreenSaverRegister.3
-file path=$(ECPREFIX)/share/man/man3/XScreenSaverSelectInput.3
-file path=$(ECPREFIX)/share/man/man3/XScreenSaverSetAttributes.3
-file path=$(ECPREFIX)/share/man/man3/XScreenSaverSuspend.3
-file path=$(ECPREFIX)/share/man/man3/XScreenSaverUnregister.3
-file path=$(ECPREFIX)/share/man/man3/XScreenSaverUnsetAttributes.3
-file path=$(ECPREFIX)/share/man/man3/Xss.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libXss.so target=libXss.so.1.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libXss.so.1 target=libXss.so.1.0.0
-link path=$(ECPREFIX)/lib/libXss.so target=libXss.so.1.0.0
-link path=$(ECPREFIX)/lib/libXss.so.1 target=libXss.so.1.0.0
+file path=$(USRDIR)/include/X11/extensions/scrnsaver.h
+file path=$(USRDIR)/lib/$(MACH64)/libXss.a
+file path=$(USRDIR)/lib/$(MACH64)/libXss.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xscrnsaver.pc
+file path=$(USRDIR)/lib/libXss.a
+file path=$(USRDIR)/lib/libXss.so.1.0.0
+file path=$(USRDIR)/lib/pkgconfig/xscrnsaver.pc
+file path=$(USRDIR)/share/man/man3/XScreenSaverAllocInfo.3
+file path=$(USRDIR)/share/man/man3/XScreenSaverGetRegistered.3
+file path=$(USRDIR)/share/man/man3/XScreenSaverQueryExtension.3
+file path=$(USRDIR)/share/man/man3/XScreenSaverQueryInfo.3
+file path=$(USRDIR)/share/man/man3/XScreenSaverQueryVersion.3
+file path=$(USRDIR)/share/man/man3/XScreenSaverRegister.3
+file path=$(USRDIR)/share/man/man3/XScreenSaverSelectInput.3
+file path=$(USRDIR)/share/man/man3/XScreenSaverSetAttributes.3
+file path=$(USRDIR)/share/man/man3/XScreenSaverSuspend.3
+file path=$(USRDIR)/share/man/man3/XScreenSaverUnregister.3
+file path=$(USRDIR)/share/man/man3/XScreenSaverUnsetAttributes.3
+file path=$(USRDIR)/share/man/man3/Xss.3
+link path=$(USRDIR)/lib/$(MACH64)/libXss.so target=libXss.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libXss.so.1 target=libXss.so.1.0.0
+link path=$(USRDIR)/lib/libXss.so target=libXss.so.1.0.0
+link path=$(USRDIR)/lib/libXss.so.1 target=libXss.so.1.0.0
