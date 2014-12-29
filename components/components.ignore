@@ -368,5 +368,4 @@
 /^luajit$/d
 /^postgresql94$/d
 /^re2c$/d
-/^x11-libxevie$/d
 /^x11-xauth$/d
