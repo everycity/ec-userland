@@ -109,7 +109,6 @@
 /^libsamplerate$/d
 /^libsndfile$/d
 /^libtheora$/d
-/^libtiff$/d
 /^libusb-ugen$/d
 /^libusb-wrapper$/d
 /^libv8$/d

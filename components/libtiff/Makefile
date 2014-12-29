@@ -33,7 +33,7 @@ CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic
 CONFIGURE_OPTIONS+=	--enable-rpath
 CONFIGURE_OPTIONS+=	--enable-cxx
 CONFIGURE_OPTIONS+=	--without-x
-CONFIGURE_OPTIONS+=	--with-docdir=$(ECPREFIX)/share/doc/tiffx
+CONFIGURE_OPTIONS+=	--with-docdir=$(USRDIR)/share/doc/tiffx
 
 build:		$(BUILD_32_and_64)
 
