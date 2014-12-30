@@ -16,14 +16,15 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		cmake
 COMPONENT_FMRI=		developer/build/cmake
-COMPONENT_VERSION=	2.8.12
+COMPONENT_VERSION_MJR=	3.1
+COMPONENT_VERSION=	$(COMPONENT_VERSION_MJR).0
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://www.cmake.org/"
 COMPONENT_SUMMARY=	CMake - A cross-platform, open-source make system.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:d885ba10b2406ede59aa31a928df33c9d67fc01433202f7dd586999cfd0e0287
-COMPONENT_ARCHIVE_URL=	http://www.cmake.org/files/v2.8/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:8bdc3fa3f2da81bc10c772a6b64cc9052acc2901d42e1e1b2588b40df224aad9
+COMPONENT_ARCHIVE_URL=	http://www.cmake.org/files/v$(COMPONENT_VERSION_MJR)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
@@ -32,8 +33,12 @@ include ../../make-rules/ips.mk
 LDFLAGS+=	-lsocket -lnsl
 
 CONFIGURE_OPTIONS=	--prefix=$(ECPREFIX) --mandir=share/man
-CONFIGURE_OPTIONS+=	--docdir=share/doc/cmake-2.8
+CONFIGURE_OPTIONS+=	--docdir=share/doc/cmake-$(COMPONENT_VERSION_MJR)
 
 build:		$(BUILD_32)
 
-install:	$(INSTALL_32)
+$(BUILD_DIR)/.installed:	$(INSTALL_32)
+	find $(PROTO_DIR)$(ECPREFIX) -name "*\ *" -exec rm {} \;
+	$(TOUCH) $@
+
+install:	$(BUILD_DIR)/.installed
