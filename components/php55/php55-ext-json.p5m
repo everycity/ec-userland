@@ -23,7 +23,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 license php55.license license="PHP55 License"
 
 file path=$(USRDIR)/lib/php/5.5/include/php/ext/json/php_json.h
-file files/json.ini path=etc/php/5.5/conf.d/json.ini preserve=true
+file files/json.ini path=$(SYSCONFDIR)/php/5.5/conf.d/json.ini preserve=true
 file path=$(USRDIR)/lib/php/5.5/extensions/$(MACH64)/json.so
 file path=$(USRDIR)/lib/php/5.5/extensions/json.so
 depend fmri=pkg:/web/php-55/php-common type=require

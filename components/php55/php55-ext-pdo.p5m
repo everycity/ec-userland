@@ -24,7 +24,7 @@ license php55.license license="PHP55 License"
 
 file path=$(USRDIR)/lib/php/5.5/include/php/ext/pdo/php_pdo.h
 file path=$(USRDIR)/lib/php/5.5/include/php/ext/pdo/php_pdo_driver.h
-file files/pdo.ini path=etc/php/5.5/conf.d/pdo.ini preserve=true
+file files/pdo.ini path=$(SYSCONFDIR)/php/5.5/conf.d/pdo.ini preserve=true
 file path=$(USRDIR)/lib/php/5.5/extensions/$(MACH64)/pdo.so
 file path=$(USRDIR)/lib/php/5.5/extensions/pdo.so
 depend fmri=pkg:/web/php-55/php-common type=require

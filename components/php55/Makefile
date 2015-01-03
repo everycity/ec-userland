@@ -24,23 +24,17 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-PATH.32= $(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
-PATH.64= $(USRDIR)/bin/$(MACH64):$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
-PATH=$(PATH.$(BITS))
-
 # Apache Paths
 AP_PREFIX=$(USRDIR)/lib/apache/2.2
-AP_SYSCONFDIR=/etc/apache/2.2
+AP_SYSCONFDIR=$(CONFIGURE_SYSCONFDIR)/apache/2.2
 
 # PHP Paths
 PHP_PREFIX=$(USRDIR)/lib/php/5.5
-PHP_SYSCONFDIR=/etc/php/5.5
-PHP_DATADIR=/var/php/5.5
+PHP_SYSCONFDIR=$(CONFIGURE_SYSCONFDIR)/php/5.5
+PHP_DATADIR=$(CONFIGURE_LOCALSTATEDIR)/php/5.5
 
 CFLAGS += -D_POSIX_PTHREAD_SEMANTICS
-LDFLAGS += -lz
-
-CONFIGURE_ENV += PATH="$(PATH)"
+#LDFLAGS += -lz
 
 # Configure Options
 
@@ -63,7 +57,7 @@ CONFIGURE_OPTIONS.32  +=	--with-apxs2=$(AP_PREFIX)/bin/apxs
 CONFIGURE_OPTIONS.64  +=	--with-apxs2=$(AP_PREFIX)/bin/$(MACH64)/apxs
 CONFIGURE_OPTIONS     +=        --enable-fpm
 
-CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris$(SOLARIS_VERSION)
+CONFIGURE_OPTIONS.64  +=	--build=$(GNU_ARCH_64)
 
 CONFIGURE_OPTIONS     +=	--with-config-file-path=$(PHP_SYSCONFDIR)
 CONFIGURE_OPTIONS     +=	--with-config-file-scan-dir=$(PHP_SYSCONFDIR)/conf.d

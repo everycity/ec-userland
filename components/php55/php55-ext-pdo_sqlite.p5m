@@ -22,7 +22,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license php55.license license="PHP55 License"
 
-file files/pdo_sqlite.ini path=etc/php/5.5/conf.d/pdo_sqlite.ini preserve=true
+file files/pdo_sqlite.ini path=$(SYSCONFDIR)/php/5.5/conf.d/pdo_sqlite.ini preserve=true
 file path=$(USRDIR)/lib/php/5.5/extensions/$(MACH64)/pdo_sqlite.so
 file path=$(USRDIR)/lib/php/5.5/extensions/pdo_sqlite.so
 depend fmri=pkg:/web/php-55/php-common type=require

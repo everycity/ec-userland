@@ -38,7 +38,7 @@ file path=$(USRDIR)/lib/php/5.5/include/php/ext/gd/libgd/jisx0208.h
 file path=$(USRDIR)/lib/php/5.5/include/php/ext/gd/libgd/wbmp.h
 file path=$(USRDIR)/lib/php/5.5/include/php/ext/gd/libgd/webpimg.h
 file path=$(USRDIR)/lib/php/5.5/include/php/ext/gd/php_gd.h
-file files/gd.ini path=etc/php/5.5/conf.d/gd.ini preserve=true
+file files/gd.ini path=$(SYSCONFDIR)/php/5.5/conf.d/gd.ini preserve=true
 file path=$(USRDIR)/lib/php/5.5/extensions/$(MACH64)/gd.so
 file path=$(USRDIR)/lib/php/5.5/extensions/gd.so
 depend fmri=pkg:/web/php-55/php-common type=require

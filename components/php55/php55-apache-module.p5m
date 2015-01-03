@@ -22,14 +22,14 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license php55.license license="PHP55 License"
 
-file files/php55.load path=etc/apache/2.2/mods-available/php55.load preserve=true
-file files/php55.conf path=etc/apache/2.2/mods-available/php55.conf preserve=true
+file files/php55.load path=$(SYSCONFDIR)/apache/2.2/mods-available/php55.load preserve=true
+file files/php55.conf path=$(SYSCONFDIR)/apache/2.2/mods-available/php55.conf preserve=true
 file $(USRDIR)/lib/apache/2.2/modules/$(MACH64)/libphp5.so \
     path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_php55.so
 file $(USRDIR)/lib/apache/2.2/modules/libphp5.so \
     path=$(USRDIR)/lib/apache/2.2/modules/mod_php55.so
-link path=etc/apache/2.2/mods-enabled/php55.load \
+link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/php55.load \
     target=../mods-available/php55.load preserve=true
-link path=etc/apache/2.2/mods-enabled/php55.conf \
+link path=$(SYSCONFDIR)/apache/2.2/mods-enabled/php55.conf \
     target=../mods-available/php55.conf preserve=true
 depend fmri=pkg:/web/php-55/php-common type=require

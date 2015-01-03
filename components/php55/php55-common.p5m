@@ -22,7 +22,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license php55.license license="PHP55 License"
 
-file files/php.ini path=etc/php/5.5/php.ini preserve=true
+file files/php.ini path=$(SYSCONFDIR)/php/5.5/php.ini preserve=true
 file path=$(USRDIR)/lib/php/5.5/bin/$(MACH64)/phar.phar
 file path=$(USRDIR)/lib/php/5.5/bin/$(MACH64)/php-config
 file path=$(USRDIR)/lib/php/5.5/bin/$(MACH64)/phpize

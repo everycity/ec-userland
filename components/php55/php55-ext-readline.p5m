@@ -22,7 +22,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license php55.license license="PHP55 License"
 
-file files/readline.ini path=etc/php/5.5/conf.d/readline.ini preserve=true
+file files/readline.ini path=$(SYSCONFDIR)/php/5.5/conf.d/readline.ini preserve=true
 file path=$(USRDIR)/lib/php/5.5/extensions/$(MACH64)/readline.so
 file path=$(USRDIR)/lib/php/5.5/extensions/readline.so
 depend fmri=pkg:/web/php-55/php-common type=require

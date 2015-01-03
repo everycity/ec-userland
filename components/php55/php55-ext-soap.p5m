@@ -22,7 +22,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license php55.license license="PHP55 License"
 
-file files/soap.ini path=etc/php/5.5/conf.d/soap.ini preserve=true
+file files/soap.ini path=$(SYSCONFDIR)/php/5.5/conf.d/soap.ini preserve=true
 file path=$(USRDIR)/lib/php/5.5/extensions/$(MACH64)/soap.so
 file path=$(USRDIR)/lib/php/5.5/extensions/soap.so
 depend fmri=pkg:/web/php-55/php-common type=require

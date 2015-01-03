@@ -42,7 +42,7 @@ file path=$(USRDIR)/lib/php/5.5/include/php/ext/mbstring/mbstring.h
 file path=$(USRDIR)/lib/php/5.5/include/php/ext/mbstring/oniguruma/oniguruma.h
 file path=$(USRDIR)/lib/php/5.5/include/php/ext/mbstring/php_onig_compat.h
 file path=$(USRDIR)/lib/php/5.5/include/php/ext/mbstring/php_mbregex.h
-file files/mbstring.ini path=etc/php/5.5/conf.d/mbstring.ini preserve=true
+file files/mbstring.ini path=$(SYSCONFDIR)/php/5.5/conf.d/mbstring.ini preserve=true
 file path=$(USRDIR)/lib/php/5.5/extensions/$(MACH64)/mbstring.so
 file path=$(USRDIR)/lib/php/5.5/extensions/mbstring.so
 depend fmri=pkg:/web/php-55/php-common type=require

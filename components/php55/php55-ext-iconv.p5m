@@ -32,7 +32,7 @@ file path=$(USRDIR)/lib/php/5.5/include/php/ext/iconv/php_iconv_aliased_libiconv
 file path=$(USRDIR)/lib/php/5.5/include/php/ext/iconv/php_iconv_supports_errno.h
 file path=$(USRDIR)/lib/php/5.5/include/php/ext/iconv/php_php_iconv_h_path.h
 file path=$(USRDIR)/lib/php/5.5/include/php/ext/iconv/php_php_iconv_impl.h
-file files/iconv.ini path=etc/php/5.5/conf.d/iconv.ini preserve=true
+file files/iconv.ini path=$(SYSCONFDIR)/php/5.5/conf.d/iconv.ini preserve=true
 file path=$(USRDIR)/lib/php/5.5/extensions/$(MACH64)/iconv.so
 file path=$(USRDIR)/lib/php/5.5/extensions/iconv.so
 depend fmri=pkg:/web/php-55/php-common type=require

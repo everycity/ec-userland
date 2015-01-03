@@ -24,7 +24,7 @@ license php55.license license="PHP55 License"
 
 depend fmri=pkg:/web/php-55/php-common type=require
 
-file path=etc/php/5.5/pear.conf
+file path=$(SYSCONFDIR)/php/5.5/pear.conf
 file path=$(USRDIR)/lib/php/5.5/bin/pear
 file path=$(USRDIR)/lib/php/5.5/bin/peardev
 file path=$(USRDIR)/lib/php/5.5/share/PEAR/.channels/.alias/pear.txt
@@ -176,7 +176,7 @@ file path=$(USRDIR)/lib/php/5.5/share/PEAR/pearcmd.php
 file path=$(USRDIR)/lib/php/5.5/share/PEAR/peclcmd.php
 file path=$(USRDIR)/lib/php/5.5/share/PEAR/test/Structures_Graph/tests/AllTests.php
 file path=$(USRDIR)/lib/php/5.5/share/PEAR/test/Structures_Graph/tests/testCase/BasicGraph.php
-file path=$(USRDIR)/lib/php/5.5/share/PEAR/test/XML_Util/tests/AllTests.php
+#file path=$(USRDIR)/lib/php/5.5/share/PEAR/test/XML_Util/tests/AllTests.php
 file path=$(USRDIR)/lib/php/5.5/share/PEAR/test/XML_Util/tests/testBasic_apiVersion.phpt
 file path=$(USRDIR)/lib/php/5.5/share/PEAR/test/XML_Util/tests/testBasic_attributesToString.phpt
 file path=$(USRDIR)/lib/php/5.5/share/PEAR/test/XML_Util/tests/testBasic_collapseEmptyTags.phpt

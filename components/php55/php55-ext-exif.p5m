@@ -22,7 +22,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license php55.license license="PHP55 License"
 
-file files/exif.ini path=etc/php/5.5/conf.d/exif.ini preserve=true
+file files/exif.ini path=$(SYSCONFDIR)/php/5.5/conf.d/exif.ini preserve=true
 file path=$(USRDIR)/lib/php/5.5/extensions/$(MACH64)/exif.so
 file path=$(USRDIR)/lib/php/5.5/extensions/exif.so
 depend fmri=pkg:/web/php-55/php-common type=require

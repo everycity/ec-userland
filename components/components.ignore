@@ -236,7 +236,6 @@
 /^php54-ext-webdav$/d
 /^php54-ext-xdebug$/d
 /^php54-ext-zendopcache$/d
-/^php55$/d
 /^php55-apache24$/d
 /^php55-ext-ffmpeg$/d
 /^php55-ext-imagick$/d
