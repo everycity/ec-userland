@@ -22,15 +22,9 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/nasm
-file path=$(ECPREFIX)/bin/$(MACH64)/ndisasm
-file path=$(ECPREFIX)/bin/nasm
-file path=$(ECPREFIX)/bin/ndisasm
-file path=$(ECPREFIX)/share/man/man1/nasm.1
-file path=$(ECPREFIX)/share/man/man1/ndisasm.1
+file path=$(USRDIR)/bin/$(MACH64)/nasm
+file path=$(USRDIR)/bin/$(MACH64)/ndisasm
+file path=$(USRDIR)/bin/nasm
+file path=$(USRDIR)/bin/ndisasm
+file path=$(USRDIR)/share/man/man1/nasm.1
+file path=$(USRDIR)/share/man/man1/ndisasm.1

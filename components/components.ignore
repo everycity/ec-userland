@@ -145,7 +145,6 @@
 /^mutt$/d
 /^nagios\/core$/d
 /^nagios\/plugins$/d
-/^nasm$/d
 /^ncdu$/d
 /^nddtune$/d
 /^neon$/d
