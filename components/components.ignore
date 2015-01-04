@@ -104,7 +104,6 @@
 /^libmediainfo$/d
 /^libmms$/d
 /^libmpeg2$/d
-/^libogg$/d
 /^librsvg$/d
 /^libsamplerate$/d
 /^libsndfile$/d
