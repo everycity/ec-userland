@@ -110,7 +110,6 @@
 /^libusb-ugen$/d
 /^libusb-wrapper$/d
 /^libv8$/d
-/^libvorbis$/d
 /^libwpd$/d
 /^libwpg$/d
 /^libwps$/d
