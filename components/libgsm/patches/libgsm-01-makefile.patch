@@ -65,7 +65,7 @@
  ######### Remove -DNDEBUG to enable assertions.
  
 -CFLAGS	= $(CCFLAGS) $(SASR) $(DEBUG) $(MULHACK) $(FAST) $(LTP_CUT) \
-+CFLAGS	= -c -shared -fpic $(PICFLAG) $(OPTFLAGS) $(SASR) $(DEBUG) $(MULHACK) $(FAST) $(LTP_CUT) \
++CFLAGS	= -c -shared -fPIC $(PICFLAG) $(OPTFLAGS) $(SASR) $(DEBUG) $(MULHACK) $(FAST) $(LTP_CUT) \
  	$(WAV49) $(CCINC) -I$(INC)
  ######### It's $(CC) $(CFLAGS)
  
@@ -95,7 +95,7 @@
 -		$(AR) $(ARFLAGS) $(LIBGSM) $(GSM_OBJECTS)
 -		$(RANLIB) $(LIBGSM)
 +		-rm $(RMFLAGS) $(RMFLAGS) $(LIBGSM)
-+		$(LD) -G $(GSM_OBJECTS) -o $(LIBGSM) -shared -fpic $(LDFLAGS)
++		$(LD) -G $(GSM_OBJECTS) -o $(LIBGSM) -shared -fPIC $(LDFLAGS)
  
  
  # Toast, Untoast and Tcat -- the compress-like frontends to gsm.

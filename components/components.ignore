@@ -96,7 +96,6 @@
 /^libestr$/d
 /^libfcgi$/d
 /^libgd$/d
-/^libgsm$/d
 /^libid3tag$/d
 /^libksba$/d
 /^liblzo$/d
