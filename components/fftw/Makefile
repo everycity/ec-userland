@@ -28,8 +28,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=--with-pic --enable-shared --disable-static
-CONFIGURE_OPTIONS+=--enable-sse2
+CONFIGURE_OPTIONS += --with-pic --enable-shared --disable-static
+CONFIGURE_OPTIONS += --enable-sse2
 
 build:		$(BUILD_32_and_64)
 

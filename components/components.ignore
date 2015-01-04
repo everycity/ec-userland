@@ -42,7 +42,6 @@
 /^fcgiwrap$/d
 /^ffmpeg$/d
 /^ffmpeg08$/d
-/^fftw$/d
 /^flac$/d
 /^fping$/d
 /^freeimage$/d
