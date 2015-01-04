@@ -290,7 +290,6 @@
 /^solr$/d
 /^sox$/d
 /^spawn-fcgi$/d
-/^speex$/d
 /^sphinx$/d
 /^sphinx-099$/d
 /^spread$/d

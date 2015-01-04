@@ -21,7 +21,7 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:342f30dc57bd4a6dad41398365baaa690429660b10d866b7d508e8f1179cb7a6
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_XIPH)
 
-CONFIGURE_OPTIONS.64+=  'CC=$(ECPREFIX)/bin/gcc -m64' 'CXX=$(ECPREFIX)/bin/g++ -m64' 'LDFLAGS=-L../../../../libogg/build/amd64/src'
+#CONFIGURE_OPTIONS.64+=  'CC=$(CC) $(CC_BITS)' 'CXX=$(CXX) $(CC_BITS)' 'LDFLAGS=-L../../../../libogg/build/amd64/src'
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
