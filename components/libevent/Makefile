@@ -15,14 +15,15 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libevent
 COMPONENT_FMRI=		library/libevent
-COMPONENT_VERSION=	2.0.21
+COMPONENT_VERSION=	2.0.22
 COMPONENT_LICENSE=	BSD3c
 COMPONENT_PROJECT_URL=	"http://libevent.org/"
 COMPONENT_SUMMARY=	The libevent event notification library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)-stable
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:22a530a8a5ba1cb9c080cba033206b17dacd21437762155c6d30ee6469f574f5
-COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GITHUB)
+COMPONENT_ARCHIVE_HASH=	sha256:71c2c49f0adadacfdbe6332a372c38cf9c8b7895bb73dabeaa53cdcc1d4e1fa3
+SF_PROJECT_NAME=	levent
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF_PROJECT)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
