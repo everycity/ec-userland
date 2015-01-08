@@ -11,6 +11,7 @@
 
 #
 # Copyright 2014 Alexander Pyhalov.  All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -43,9 +44,9 @@ COMPONENT_PREP_ACTION =        (cd $(@D) &&\
                                         autoconf &&\
 					$(RM) config.h ) 
 
-CONFIGURE_PREFIX=/usr/benchmarks/filebench
+#CONFIGURE_PREFIX=/usr/benchmarks/filebench
 
-CONFIGURE_OPTIONS+=	--datarootdir=/usr/benchmarks
+#CONFIGURE_OPTIONS+=	--datarootdir=/usr/benchmarks
 
 build: $(BUILD_32_and_64)
 
