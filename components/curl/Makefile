@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		curl
 COMPONENT_FMRI=		web/curl
-COMPONENT_VERSION=	7.39.0
+COMPONENT_VERSION=	7.40.0
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	http://curl.haxx.se/
 COMPONENT_SUMMARY=	The C-URL Wrappers Library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:b222566e7087cd9701b301dd6634b360ae118cc1cbc7697e534dc451102ea4e0
+COMPONENT_ARCHIVE_HASH=	sha256:899109eb3900fa6b8a2f995df7f449964292776a04763e94fae640700f883fba
 COMPONENT_ARCHIVE_URL=	http://curl.haxx.se/download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

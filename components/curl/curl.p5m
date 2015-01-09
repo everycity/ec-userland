@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -271,6 +271,7 @@ file path=$(ECPREFIX)/share/man/man3/CURLOPT_TLSAUTH_TYPE.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_TLSAUTH_USERNAME.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_TRANSFERTEXT.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_TRANSFER_ENCODING.3
+file path=$(ECPREFIX)/share/man/man3/CURLOPT_UNIX_SOCKET_PATH.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_UNRESTRICTED_AUTH.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_UPLOAD.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_URL.3
