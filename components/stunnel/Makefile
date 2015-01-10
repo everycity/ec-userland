@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		stunnel
 COMPONENT_FMRI=         security/stunnel
-COMPONENT_VERSION=      5.07
-IPS_COMPONENT_VERSION=	5.7
+COMPONENT_VERSION=      5.09
+IPS_COMPONENT_VERSION=	5.9
 COMPONENT_LICENSE=      stunnel
 COMPONENT_PROJECT_URL=  https://www.stunnel.org/
 COMPONENT_SUMMARY=	The stunnel program is designed to work as an SSL encryption wrapper between remote client and local (inetd-startable) or remote server
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:505c6c63c4a20fc0cce8c35ef1ab7626c7b01071e3fca4ac6ea417afe8065309
+COMPONENT_ARCHIVE_HASH=	sha256:87b34a74061861d1edd2ab238c73eb989b3d0a17e44574b7b6ead1a16aae38c8
 COMPONENT_ARCHIVE_URL=	https://www.stunnel.org/downloads/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
