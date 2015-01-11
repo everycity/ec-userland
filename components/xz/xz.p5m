@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -47,6 +47,8 @@ dir path=$(ECPREFIX)/share/locale/it
 dir path=$(ECPREFIX)/share/locale/it/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/pl
 dir path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/vi
+dir path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 file path=$(ECPREFIX)/bin/$(MACH64)/lzmadec
@@ -76,7 +78,7 @@ file path=$(ECPREFIX)/include/lzma/filter.h
 file path=$(ECPREFIX)/include/lzma/hardware.h
 file path=$(ECPREFIX)/include/lzma/index.h
 file path=$(ECPREFIX)/include/lzma/index_hash.h
-file path=$(ECPREFIX)/include/lzma/lzma.h
+file path=$(ECPREFIX)/include/lzma/lzma12.h
 file path=$(ECPREFIX)/include/lzma/stream_flags.h
 file path=$(ECPREFIX)/include/lzma/version.h
 file path=$(ECPREFIX)/include/lzma/vli.h
@@ -97,6 +99,7 @@ file path=$(ECPREFIX)/share/doc/xz/examples/00_README.txt
 file path=$(ECPREFIX)/share/doc/xz/examples/01_compress_easy.c
 file path=$(ECPREFIX)/share/doc/xz/examples/02_decompress.c
 file path=$(ECPREFIX)/share/doc/xz/examples/03_compress_custom.c
+file path=$(ECPREFIX)/share/doc/xz/examples/04_compress_easy_mt.c
 file path=$(ECPREFIX)/share/doc/xz/examples/Makefile
 file path=$(ECPREFIX)/share/doc/xz/examples_old/xz_pipe_comp.c
 file path=$(ECPREFIX)/share/doc/xz/examples_old/xz_pipe_decomp.c
@@ -109,6 +112,7 @@ file path=$(ECPREFIX)/share/locale/de/LC_MESSAGES/xz.mo
 file path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES/xz.mo
 file path=$(ECPREFIX)/share/locale/it/LC_MESSAGES/xz.mo
 file path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES/xz.mo
+file path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES/xz.mo
 file path=$(ECPREFIX)/share/man/man1/lzmainfo.1
 file path=$(ECPREFIX)/share/man/man1/xz.1
 file path=$(ECPREFIX)/share/man/man1/xzdec.1
