@@ -9,17 +9,21 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		lzo
-COMPONENT_VERSION=	2.06
-IPS_COMPONENT_VERSION=	2.0.6
+COMPONENT_FMRI=		library/lzo
+COMPONENT_VERSION=	2.08
+IPS_COMPONENT_VERSION=	2.0.8
+COMPONENT_LICENSE=	GPLv2
+COMPONENT_PROJECT_URL=	"http://www.oberhumer.com/opensource/lzo/"
+COMPONENT_SUMMARY=	LZO is a portable lossless data compression library written in ANSI C
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:ff79e6f836d62d3f86ef6ce893ed65d07e638ef4d3cb952963471b4234d43e73
+COMPONENT_ARCHIVE_HASH=	sha256:ac1b3e4dee46febe9fd28737eb7f5692d3232ef1a01da10444394c3d47536614
 COMPONENT_ARCHIVE_URL=	http://www.oberhumer.com/opensource/lzo/download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
