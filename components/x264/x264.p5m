@@ -22,21 +22,13 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-file path=$(ECPREFIX)/bin/$(MACH64)/x264
-file path=$(ECPREFIX)/bin/x264
-file path=$(ECPREFIX)/include/x264.h
-file path=$(ECPREFIX)/include/x264_config.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libx264.so.142
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/x264.pc
-file path=$(ECPREFIX)/lib/libx264.so.142
-file path=$(ECPREFIX)/lib/pkgconfig/x264.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libx264.so target=libx264.so.142
-link path=$(ECPREFIX)/lib/libx264.so target=libx264.so.142
+file path=$(USRDIR)/bin/$(MACH64)/x264
+file path=$(USRDIR)/bin/x264
+file path=$(USRDIR)/include/x264.h
+file path=$(USRDIR)/include/x264_config.h
+file path=$(USRDIR)/lib/$(MACH64)/libx264.so.142
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/x264.pc
+file path=$(USRDIR)/lib/libx264.so.142
+file path=$(USRDIR)/lib/pkgconfig/x264.pc
+link path=$(USRDIR)/lib/$(MACH64)/libx264.so target=libx264.so.142
+link path=$(USRDIR)/lib/libx264.so target=libx264.so.142

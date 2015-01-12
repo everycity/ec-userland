@@ -29,12 +29,12 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS=	--prefix=$(ECPREFIX)	
-CONFIGURE_OPTIONS.32+=	--bindir=$(ECPREFIX)/bin
-CONFIGURE_OPTIONS.64+=	--bindir=$(ECPREFIX)/bin/$(MACH64)
-CONFIGURE_OPTIONS.32+=	--libdir=$(ECPREFIX)/lib
-CONFIGURE_OPTIONS.64+=	--libdir=$(ECPREFIX)/lib/$(MACH64)
-CONFIGURE_OPTIONS.64+=	--host=x86_64-pc-solaris$(SOLARIS_VERSION)
+CONFIGURE_OPTIONS=	--prefix=$(USRDIR)	
+CONFIGURE_OPTIONS.32+=	--bindir=$(USRDIR)/bin
+CONFIGURE_OPTIONS.64+=	--bindir=$(USRDIR)/bin/$(MACH64)
+CONFIGURE_OPTIONS.32+=	--libdir=$(USRDIR)/lib
+CONFIGURE_OPTIONS.64+=	--libdir=$(USRDIR)/lib/$(MACH64)
+CONFIGURE_OPTIONS.64+=	--host=$(GNU_ARCH_64)
 CONFIGURE_OPTIONS+=	--enable-pic
 CONFIGURE_OPTIONS+=	--enable-shared
 CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))
