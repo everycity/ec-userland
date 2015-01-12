@@ -75,7 +75,6 @@
 /^htop$/d
 /^id3lib$/d
 /^illumos-hal$/d
-/^imagemagick$/d
 /^iperf$/d
 /^irssi$/d
 /^isc-dhcp$/d

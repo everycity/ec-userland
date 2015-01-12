@@ -34,9 +34,9 @@ CONFIGURE_OPTIONS+=	--enable-shared=yes
 CONFIGURE_OPTIONS+=	--enable-static=no
 CONFIGURE_OPTIONS+=	--without-gvc
 CONFIGURE_OPTIONS+=	--without-modules
-CONFIGURE_OPTIONS.32+=	--with-perl=$(ECPREFIX)/bin/perl
+CONFIGURE_OPTIONS.64+=	--with-perl=$(USRDIR)/bin/perl
 CONFIGURE_OPTIONS.32+=	--with-perl-options="INSTALLDIRS=vendor"
-CONFIGURE_OPTIONS.64+=	--without-perl
+CONFIGURE_OPTIONS.32+=	--without-perl
 
 # To get the Perl modules built it is necessary to copy the PerlMagick directory
 # to the build directory
@@ -107,10 +107,10 @@ COMPONENT_POST_INSTALL_ACTION+= ( \
 build:		$(BUILD_32_and_64)
 
 $(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/include/ImageMagick-6/magick/magick-baseconfig.h
-	$(INSTALL) $(COMPONENT_DIR)/magick-baseconfig.h $(PROTO_DIR)$(ECPREFIX)/include/ImageMagick-6/magick/magick-baseconfig.h
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/include/ImageMagick-6/magick/version.h
-	$(INSTALL) $(COMPONENT_DIR)/version.h $(PROTO_DIR)$(ECPREFIX)/include/ImageMagick-6/magick/version.h
+	$(RM) $(PROTO_DIR)$(USRDIR)/include/ImageMagick-6/magick/magick-baseconfig.h
+	$(INSTALL) $(COMPONENT_DIR)/magick-baseconfig.h $(PROTO_DIR)$(USRDIR)/include/ImageMagick-6/magick/magick-baseconfig.h
+	$(RM) $(PROTO_DIR)$(USRDIR)/include/ImageMagick-6/magick/version.h
+	$(INSTALL) $(COMPONENT_DIR)/version.h $(PROTO_DIR)$(USRDIR)/include/ImageMagick-6/magick/version.h
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed
