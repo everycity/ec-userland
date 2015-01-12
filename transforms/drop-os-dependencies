@@ -41,6 +41,7 @@
 <transform depend pkg.debug.depend.file=libkvm\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libm\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libmail\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libmd\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libmd5\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libmtmalloc\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libnsl\.so.* -> drop>
