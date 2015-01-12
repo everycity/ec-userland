@@ -1,0 +1,198 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2015 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/body_factory
+dir path=$(ECPREFIX)/etc/body_factory/default
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/ts
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/i86pc-solaris-64int
+dir path=$(ECPREFIX)/lib/site_perl
+dir path=$(ECPREFIX)/lib/site_perl/5.12.4
+dir path=$(ECPREFIX)/lib/site_perl/5.12.4/i86pc-solaris-64int
+dir path=$(ECPREFIX)/lib/site_perl/5.12.4/i86pc-solaris-64int/auto
+dir path=$(ECPREFIX)/lib/site_perl/5.12.4/i86pc-solaris-64int/auto/Apache
+dir path=$(ECPREFIX)/lib/site_perl/5.12.4/i86pc-solaris-64int/auto/Apache/TS
+dir path=$(ECPREFIX)/lib/site_perl/Apache
+dir path=$(ECPREFIX)/lib/site_perl/Apache/TS
+dir path=$(ECPREFIX)/lib/site_perl/Apache/TS/Config
+dir path=$(ECPREFIX)/man
+dir path=$(ECPREFIX)/man/man3
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/trafficserver
+dir path=$(ECPREFIX)/share/doc/trafficserver/trafficshell
+dir path=$(ECPREFIX)/share/trafficserver
+dir path=$(ECPREFIX)/var
+dir path=$(ECPREFIX)/var/log
+dir path=$(ECPREFIX)/var/log/trafficserver
+dir path=$(ECPREFIX)/var/trafficserver
+file path=$(ECPREFIX)/bin/$(MACH64)/traffic_cop
+file path=$(ECPREFIX)/bin/$(MACH64)/traffic_line
+file path=$(ECPREFIX)/bin/$(MACH64)/traffic_logcat
+file path=$(ECPREFIX)/bin/$(MACH64)/traffic_logstats
+file path=$(ECPREFIX)/bin/$(MACH64)/traffic_manager
+file path=$(ECPREFIX)/bin/$(MACH64)/traffic_sac
+file path=$(ECPREFIX)/bin/$(MACH64)/traffic_server
+file path=$(ECPREFIX)/bin/$(MACH64)/traffic_top
+file path=$(ECPREFIX)/bin/$(MACH64)/trafficserver
+file path=$(ECPREFIX)/bin/$(MACH64)/tspush
+file path=$(ECPREFIX)/bin/$(MACH64)/tsxs
+file path=$(ECPREFIX)/etc/body_factory/default/.body_factory_info
+file path=$(ECPREFIX)/etc/body_factory/default/README
+file path=$(ECPREFIX)/etc/body_factory/default/access#denied
+file path=$(ECPREFIX)/etc/body_factory/default/access#proxy_auth_required
+file path=$(ECPREFIX)/etc/body_factory/default/access#redirect_url
+file path=$(ECPREFIX)/etc/body_factory/default/access#ssl_forbidden
+file path=$(ECPREFIX)/etc/body_factory/default/cache#not_in_cache
+file path=$(ECPREFIX)/etc/body_factory/default/cache#read_error
+file path=$(ECPREFIX)/etc/body_factory/default/congestion#retryAfter
+file path=$(ECPREFIX)/etc/body_factory/default/connect#dns_failed
+file path=$(ECPREFIX)/etc/body_factory/default/connect#failed_connect
+file path=$(ECPREFIX)/etc/body_factory/default/connect#hangup
+file path=$(ECPREFIX)/etc/body_factory/default/default
+file path=$(ECPREFIX)/etc/body_factory/default/interception#no_host
+file path=$(ECPREFIX)/etc/body_factory/default/redirect#moved_permanently
+file path=$(ECPREFIX)/etc/body_factory/default/redirect#moved_temporarily
+file path=$(ECPREFIX)/etc/body_factory/default/request#cycle_detected
+file path=$(ECPREFIX)/etc/body_factory/default/request#invalid_content_length
+file path=$(ECPREFIX)/etc/body_factory/default/request#no_content_length
+file path=$(ECPREFIX)/etc/body_factory/default/request#no_host
+file path=$(ECPREFIX)/etc/body_factory/default/request#scheme_unsupported
+file path=$(ECPREFIX)/etc/body_factory/default/request#syntax_error
+file path=$(ECPREFIX)/etc/body_factory/default/response#bad_response
+file path=$(ECPREFIX)/etc/body_factory/default/response#bad_version
+file path=$(ECPREFIX)/etc/body_factory/default/timeout#activity
+file path=$(ECPREFIX)/etc/body_factory/default/timeout#inactivity
+file path=$(ECPREFIX)/etc/body_factory/default/transcoding#unsupported
+file path=$(ECPREFIX)/etc/body_factory/default/urlrouting#no_mapping
+file path=$(ECPREFIX)/etc/cache.config
+file path=$(ECPREFIX)/etc/cluster.config
+file path=$(ECPREFIX)/etc/congestion.config
+file path=$(ECPREFIX)/etc/hosting.config
+file path=$(ECPREFIX)/etc/icp.config
+file path=$(ECPREFIX)/etc/ip_allow.config
+file path=$(ECPREFIX)/etc/log_hosts.config
+file path=$(ECPREFIX)/etc/logs_xml.config
+file path=$(ECPREFIX)/etc/parent.config
+file path=$(ECPREFIX)/etc/plugin.config
+file path=$(ECPREFIX)/etc/prefetch.config
+file path=$(ECPREFIX)/etc/records.config
+file path=$(ECPREFIX)/etc/remap.config
+file path=$(ECPREFIX)/etc/socks.config
+file path=$(ECPREFIX)/etc/splitdns.config
+file path=$(ECPREFIX)/etc/ssl_multicert.config
+file path=$(ECPREFIX)/etc/stats.config.xml
+file path=$(ECPREFIX)/etc/storage.config
+file path=$(ECPREFIX)/etc/trafficserver-release
+file path=$(ECPREFIX)/etc/update.config
+file path=$(ECPREFIX)/etc/vaddrs.config
+file path=$(ECPREFIX)/etc/volume.config
+file path=$(ECPREFIX)/include/ts/apidefs.h
+file path=$(ECPREFIX)/include/ts/experimental.h
+file path=$(ECPREFIX)/include/ts/mgmtapi.h
+file path=$(ECPREFIX)/include/ts/remap.h
+file path=$(ECPREFIX)/include/ts/ts.h
+file path=$(ECPREFIX)/lib/$(MACH64)/cacheurl.la
+file path=$(ECPREFIX)/lib/$(MACH64)/cacheurl.so
+file path=$(ECPREFIX)/lib/$(MACH64)/conf_remap.la
+file path=$(ECPREFIX)/lib/$(MACH64)/conf_remap.so
+file path=$(ECPREFIX)/lib/$(MACH64)/gzip.la
+file path=$(ECPREFIX)/lib/$(MACH64)/gzip.so
+file path=$(ECPREFIX)/lib/$(MACH64)/header_rewrite.la
+file path=$(ECPREFIX)/lib/$(MACH64)/header_rewrite.so
+file path=$(ECPREFIX)/lib/$(MACH64)/libloader.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libloader.so
+file path=$(ECPREFIX)/lib/$(MACH64)/libtsmgmt.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libtsmgmt.so.$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/lib/$(MACH64)/libtsmgmtshare.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libtsmgmtshare.so.$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/lib/$(MACH64)/libtsutil.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libtsutil.so.$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/lib/$(MACH64)/regex_remap.la
+file path=$(ECPREFIX)/lib/$(MACH64)/regex_remap.so
+file path=$(ECPREFIX)/lib/$(MACH64)/stats_over_http.la
+file path=$(ECPREFIX)/lib/$(MACH64)/stats_over_http.so
+file path=$(ECPREFIX)/lib/$(MACH64)/tcpinfo.la
+file path=$(ECPREFIX)/lib/$(MACH64)/tcpinfo.so
+file path=$(ECPREFIX)/lib/i86pc-solaris-64int/perllocal.pod
+file \
+    path=$(ECPREFIX)/lib/site_perl/5.12.4/i86pc-solaris-64int/auto/Apache/TS/.packlist
+file path=$(ECPREFIX)/lib/site_perl/Apache/TS.pm
+file path=$(ECPREFIX)/lib/site_perl/Apache/TS.pm.in
+file path=$(ECPREFIX)/lib/site_perl/Apache/TS/AdminClient.pm
+file path=$(ECPREFIX)/lib/site_perl/Apache/TS/Config.pm
+file path=$(ECPREFIX)/lib/site_perl/Apache/TS/Config/Records.pm
+file path=$(ECPREFIX)/man/man3/Apache::TS.3
+file path=$(ECPREFIX)/man/man3/Apache::TS::AdminClient.3
+file path=$(ECPREFIX)/man/man3/Apache::TS::Config::Records.3
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_alarms.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_cache-stats.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_cache.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_cluster.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_dns-resolver.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_dns-stats.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_hostdb-stats.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_hostdb.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_http-stats.1
+file \
+    path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_http-trans-stats.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_http.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_icp-stats.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_icp.1
+file \
+    path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_logging-stats.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_logging.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_network.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_parent.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_port-tunnels.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_proxy-stats.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_proxy.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_remap.1
+file \
+    path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_scheduled-update.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_security.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_socks.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_ssl.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_status.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_version.1
+file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_virtual-ip.1
+link path=$(ECPREFIX)/bin/$(MACH64)/tstop target=traffic_top
+link path=$(ECPREFIX)/lib/$(MACH64)/libtsmgmt.so \
+    target=libtsmgmt.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/$(MACH64)/libtsmgmt.so.5 \
+    target=libtsmgmt.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/$(MACH64)/libtsmgmtshare.so \
+    target=libtsmgmtshare.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/$(MACH64)/libtsmgmtshare.so.5 \
+    target=libtsmgmtshare.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/$(MACH64)/libtsutil.so \
+    target=libtsutil.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/$(MACH64)/libtsutil.so.5 \
+    target=libtsutil.so.$(COMPONENT_VERSION)
