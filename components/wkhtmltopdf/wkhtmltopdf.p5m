@@ -9,41 +9,39 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/graphics/wkhtmltopdf@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="Simple shell utility to convert html to pdf using the webkit rendering engine, and qt"
-set name=info.upstream_url value="http://code.google.com/p/wkhtmltopdf/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license wkhtmltopdf.license license="LGPLv3"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/include/wkhtmltox
 dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
 file path=$(ECPREFIX)/bin/wkhtmltoimage
 file path=$(ECPREFIX)/bin/wkhtmltopdf
-file path=$(ECPREFIX)/include/wkhtmltox/converter.hh
 file path=$(ECPREFIX)/include/wkhtmltox/dllbegin.inc
 file path=$(ECPREFIX)/include/wkhtmltox/dllend.inc
 file path=$(ECPREFIX)/include/wkhtmltox/image.h
-file path=$(ECPREFIX)/include/wkhtmltox/imageconverter.hh
-file path=$(ECPREFIX)/include/wkhtmltox/imagesettings.hh
-file path=$(ECPREFIX)/include/wkhtmltox/loadsettings.hh
-file path=$(ECPREFIX)/include/wkhtmltox/multipageloader.hh
 file path=$(ECPREFIX)/include/wkhtmltox/pdf.h
-file path=$(ECPREFIX)/include/wkhtmltox/pdfconverter.hh
-file path=$(ECPREFIX)/include/wkhtmltox/pdfsettings.hh
-file path=$(ECPREFIX)/include/wkhtmltox/settings.hh
-file path=$(ECPREFIX)/include/wkhtmltox/utilities.hh
-file path=$(ECPREFIX)/include/wkhtmltox/websettings.hh
-file path=$(ECPREFIX)/lib/libwkhtmltox.so.0.10.0
-link path=$(ECPREFIX)/lib/libwkhtmltox.so target=libwkhtmltox.so.0.10.0
-link path=$(ECPREFIX)/lib/libwkhtmltox.so.0 target=libwkhtmltox.so.0.10.0
-link path=$(ECPREFIX)/lib/libwkhtmltox.so.0.10 target=libwkhtmltox.so.0.10.0
+file path=$(ECPREFIX)/lib/libwkhtmltox.so.$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/share/man/man1/wkhtmltoimage.1.gz
+file path=$(ECPREFIX)/share/man/man1/wkhtmltopdf.1.gz
+link path=$(ECPREFIX)/lib/libwkhtmltox.so \
+    target=libwkhtmltox.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/libwkhtmltox.so.0 \
+    target=libwkhtmltox.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/libwkhtmltox.so.0.12 \
+    target=libwkhtmltox.so.$(COMPONENT_VERSION)

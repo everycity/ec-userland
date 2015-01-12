@@ -9,19 +9,21 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		wkhtmltopdf
-COMPONENT_VERSION=	0.11.0_rc1
-COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:db03922d281856e503b3d562614e3936285728c7
-COMPONENT_ARCHIVE_URL=	http://wkhtmltopdf.googlecode.com/files/$(COMPONENT_ARCHIVE)
-
-IPS_COMPONENT_VERSION=	0.10.99.1
+COMPONENT_FMRI=		graphics/wkhtmltopdf
+COMPONENT_VERSION=	0.12.2
+COMPONENT_LICENSE=	LGPLv3
+COMPONENT_PROJECT_URL=	"http://wkhtmltopdf.org/"
+COMPONENT_SUMMARY=	Simple shell utility to convert html to pdf using the webkit rendering engine, and QT
+COMPONENT_SRC=		wkhtmltox-$(COMPONENT_VERSION)
+COMPONENT_ARCHIVE=	wkhtmltox-$(COMPONENT_VERSION).tar.bz2
+COMPONENT_ARCHIVE_HASH=	sha256:80c26875eccf3c427478c7f9aead60ee3d8e6b4d957daea5d3bb31c66bf60907
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
