@@ -22,22 +22,6 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license orc.license license="ORC"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/orc-0.4
-dir path=$(ECPREFIX)/include/orc-0.4/orc
-dir path=$(ECPREFIX)/include/orc-0.4/orc-test
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/aclocal
-dir path=$(ECPREFIX)/share/gtk-doc
-dir path=$(ECPREFIX)/share/gtk-doc/html
-dir path=$(ECPREFIX)/share/gtk-doc/html/orc
 file path=$(ECPREFIX)/bin/$(MACH64)/orc-bugreport
 file path=$(ECPREFIX)/bin/$(MACH64)/orcc
 file path=$(ECPREFIX)/bin/orc-bugreport

@@ -150,7 +150,6 @@
 /^nrpe$/d
 /^opus$/d
 /^orbit2$/d
-/^orc$/d
 /^p5-Tk$/d
 /^p5-X11-Protocol$/d
 /^p7zip$/d
