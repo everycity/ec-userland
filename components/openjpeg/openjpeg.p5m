@@ -22,99 +22,84 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/openjpeg-1.5
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/openjpeg-1.5
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-dir path=$(ECPREFIX)/share/man/man3
-file path=$(ECPREFIX)/bin/$(MACH64)/JPWL_image_to_j2k
-file path=$(ECPREFIX)/bin/$(MACH64)/JPWL_j2k_to_image
-file path=$(ECPREFIX)/bin/$(MACH64)/extract_j2k_from_mj2
-file path=$(ECPREFIX)/bin/$(MACH64)/frames_to_mj2
-file path=$(ECPREFIX)/bin/$(MACH64)/image_to_j2k
-file path=$(ECPREFIX)/bin/$(MACH64)/j2k_dump
-file path=$(ECPREFIX)/bin/$(MACH64)/j2k_to_image
-file path=$(ECPREFIX)/bin/$(MACH64)/jpip_to_j2k
-file path=$(ECPREFIX)/bin/$(MACH64)/jpip_to_jp2
-file path=$(ECPREFIX)/bin/$(MACH64)/mj2_to_frames
-file path=$(ECPREFIX)/bin/$(MACH64)/opj_dec_server
-file path=$(ECPREFIX)/bin/$(MACH64)/test_index
-file path=$(ECPREFIX)/bin/$(MACH64)/wrap_j2k_in_mj2
-file path=$(ECPREFIX)/bin/JPWL_image_to_j2k
-file path=$(ECPREFIX)/bin/JPWL_j2k_to_image
-file path=$(ECPREFIX)/bin/extract_j2k_from_mj2
-file path=$(ECPREFIX)/bin/frames_to_mj2
-file path=$(ECPREFIX)/bin/image_to_j2k
-file path=$(ECPREFIX)/bin/j2k_dump
-file path=$(ECPREFIX)/bin/j2k_to_image
-file path=$(ECPREFIX)/bin/jpip_to_j2k
-file path=$(ECPREFIX)/bin/jpip_to_jp2
-file path=$(ECPREFIX)/bin/mj2_to_frames
-file path=$(ECPREFIX)/bin/opj_dec_server
-file path=$(ECPREFIX)/bin/test_index
-file path=$(ECPREFIX)/bin/wrap_j2k_in_mj2
-file path=$(ECPREFIX)/include/openjpeg-1.5/openjpeg.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libopenjpeg.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libopenjpeg.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libopenjpeg.so.1.5.0
-file path=$(ECPREFIX)/lib/$(MACH64)/libopenjpeg_JPWL.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libopenjpeg_JPWL.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libopenjpeg_JPWL.so.1.5.0
-file path=$(ECPREFIX)/lib/$(MACH64)/libopenjpip_local.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libopenjpip_local.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libopenjpip_local.so.1.5.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libopenjpeg-jpwl.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libopenjpeg1.pc
-file path=$(ECPREFIX)/lib/libopenjpeg.a
-file path=$(ECPREFIX)/lib/libopenjpeg.la
-file path=$(ECPREFIX)/lib/libopenjpeg.so.1.5.0
-file path=$(ECPREFIX)/lib/libopenjpeg_JPWL.a
-file path=$(ECPREFIX)/lib/libopenjpeg_JPWL.la
-file path=$(ECPREFIX)/lib/libopenjpeg_JPWL.so.1.5.0
-file path=$(ECPREFIX)/lib/libopenjpip_local.a
-file path=$(ECPREFIX)/lib/libopenjpip_local.la
-file path=$(ECPREFIX)/lib/libopenjpip_local.so.1.5.0
-file path=$(ECPREFIX)/lib/pkgconfig/libopenjpeg-jpwl.pc
-file path=$(ECPREFIX)/lib/pkgconfig/libopenjpeg1.pc
-file path=$(ECPREFIX)/share/doc/openjpeg-1.5/LICENSE
-file path=$(ECPREFIX)/share/man/man1/image_to_j2k.1
-file path=$(ECPREFIX)/share/man/man1/j2k_dump.1
-file path=$(ECPREFIX)/share/man/man1/j2k_to_image.1
-file path=$(ECPREFIX)/share/man/man3/libopenjpeg.3
-link path=$(ECPREFIX)/include/openjpeg.h target=openjpeg-1.5/openjpeg.h
-link path=$(ECPREFIX)/lib/$(MACH64)/libopenjpeg.so target=libopenjpeg.so.1.5.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libopenjpeg.so.1 \
+file path=$(USRDIR)/bin/$(MACH64)/JPWL_image_to_j2k
+file path=$(USRDIR)/bin/$(MACH64)/JPWL_j2k_to_image
+file path=$(USRDIR)/bin/$(MACH64)/extract_j2k_from_mj2
+file path=$(USRDIR)/bin/$(MACH64)/frames_to_mj2
+file path=$(USRDIR)/bin/$(MACH64)/image_to_j2k
+file path=$(USRDIR)/bin/$(MACH64)/j2k_dump
+file path=$(USRDIR)/bin/$(MACH64)/j2k_to_image
+file path=$(USRDIR)/bin/$(MACH64)/jpip_to_j2k
+file path=$(USRDIR)/bin/$(MACH64)/jpip_to_jp2
+file path=$(USRDIR)/bin/$(MACH64)/mj2_to_frames
+file path=$(USRDIR)/bin/$(MACH64)/opj_dec_server
+file path=$(USRDIR)/bin/$(MACH64)/test_index
+file path=$(USRDIR)/bin/$(MACH64)/wrap_j2k_in_mj2
+file path=$(USRDIR)/bin/JPWL_image_to_j2k
+file path=$(USRDIR)/bin/JPWL_j2k_to_image
+file path=$(USRDIR)/bin/extract_j2k_from_mj2
+file path=$(USRDIR)/bin/frames_to_mj2
+file path=$(USRDIR)/bin/image_to_j2k
+file path=$(USRDIR)/bin/j2k_dump
+file path=$(USRDIR)/bin/j2k_to_image
+file path=$(USRDIR)/bin/jpip_to_j2k
+file path=$(USRDIR)/bin/jpip_to_jp2
+file path=$(USRDIR)/bin/mj2_to_frames
+file path=$(USRDIR)/bin/opj_dec_server
+file path=$(USRDIR)/bin/test_index
+file path=$(USRDIR)/bin/wrap_j2k_in_mj2
+file path=$(USRDIR)/include/openjpeg-1.5/openjpeg.h
+file path=$(USRDIR)/lib/$(MACH64)/libopenjpeg.a
+file path=$(USRDIR)/lib/$(MACH64)/libopenjpeg.la
+file path=$(USRDIR)/lib/$(MACH64)/libopenjpeg.so.1.5.0
+file path=$(USRDIR)/lib/$(MACH64)/libopenjpeg_JPWL.a
+file path=$(USRDIR)/lib/$(MACH64)/libopenjpeg_JPWL.la
+file path=$(USRDIR)/lib/$(MACH64)/libopenjpeg_JPWL.so.1.5.0
+file path=$(USRDIR)/lib/$(MACH64)/libopenjpip_local.a
+file path=$(USRDIR)/lib/$(MACH64)/libopenjpip_local.la
+file path=$(USRDIR)/lib/$(MACH64)/libopenjpip_local.so.1.5.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libopenjpeg-jpwl.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libopenjpeg1.pc
+file path=$(USRDIR)/lib/libopenjpeg.a
+file path=$(USRDIR)/lib/libopenjpeg.la
+file path=$(USRDIR)/lib/libopenjpeg.so.1.5.0
+file path=$(USRDIR)/lib/libopenjpeg_JPWL.a
+file path=$(USRDIR)/lib/libopenjpeg_JPWL.la
+file path=$(USRDIR)/lib/libopenjpeg_JPWL.so.1.5.0
+file path=$(USRDIR)/lib/libopenjpip_local.a
+file path=$(USRDIR)/lib/libopenjpip_local.la
+file path=$(USRDIR)/lib/libopenjpip_local.so.1.5.0
+file path=$(USRDIR)/lib/pkgconfig/libopenjpeg-jpwl.pc
+file path=$(USRDIR)/lib/pkgconfig/libopenjpeg1.pc
+file path=$(USRDIR)/share/doc/openjpeg-1.5/LICENSE
+file path=$(USRDIR)/share/man/man1/image_to_j2k.1
+file path=$(USRDIR)/share/man/man1/j2k_dump.1
+file path=$(USRDIR)/share/man/man1/j2k_to_image.1
+file path=$(USRDIR)/share/man/man3/libopenjpeg.3
+link path=$(USRDIR)/include/openjpeg.h target=openjpeg-1.5/openjpeg.h
+link path=$(USRDIR)/lib/$(MACH64)/libopenjpeg.so target=libopenjpeg.so.1.5.0
+link path=$(USRDIR)/lib/$(MACH64)/libopenjpeg.so.1 \
     target=libopenjpeg.so.1.5.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libopenjpeg_JPWL.so \
+link path=$(USRDIR)/lib/$(MACH64)/libopenjpeg_JPWL.so \
     target=libopenjpeg_JPWL.so.1.5.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libopenjpeg_JPWL.so.1 \
+link path=$(USRDIR)/lib/$(MACH64)/libopenjpeg_JPWL.so.1 \
     target=libopenjpeg_JPWL.so.1.5.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libopenjpip_local.so \
+link path=$(USRDIR)/lib/$(MACH64)/libopenjpip_local.so \
     target=libopenjpip_local.so.1.5.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libopenjpip_local.so.1 \
+link path=$(USRDIR)/lib/$(MACH64)/libopenjpip_local.so.1 \
     target=libopenjpip_local.so.1.5.0
-link path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libopenjpeg.pc \
+link path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libopenjpeg.pc \
     target=libopenjpeg1.pc
-link path=$(ECPREFIX)/lib/libopenjpeg.so target=libopenjpeg.so.1.5.0
-link path=$(ECPREFIX)/lib/libopenjpeg.so.1 target=libopenjpeg.so.1.5.0
-link path=$(ECPREFIX)/lib/libopenjpeg_JPWL.so target=libopenjpeg_JPWL.so.1.5.0
-link path=$(ECPREFIX)/lib/libopenjpeg_JPWL.so.1 \
+link path=$(USRDIR)/lib/libopenjpeg.so target=libopenjpeg.so.1.5.0
+link path=$(USRDIR)/lib/libopenjpeg.so.1 target=libopenjpeg.so.1.5.0
+link path=$(USRDIR)/lib/libopenjpeg_JPWL.so target=libopenjpeg_JPWL.so.1.5.0
+link path=$(USRDIR)/lib/libopenjpeg_JPWL.so.1 \
     target=libopenjpeg_JPWL.so.1.5.0
-link path=$(ECPREFIX)/lib/libopenjpip_local.so \
+link path=$(USRDIR)/lib/libopenjpip_local.so \
     target=libopenjpip_local.so.1.5.0
-link path=$(ECPREFIX)/lib/libopenjpip_local.so.1 \
+link path=$(USRDIR)/lib/libopenjpip_local.so.1 \
     target=libopenjpip_local.so.1.5.0
-link path=$(ECPREFIX)/lib/pkgconfig/libopenjpeg.pc target=libopenjpeg1.pc
-link path=$(ECPREFIX)/share/man/man1/jpwl_image_to_j2k.1 target=image_to_j2k.1
-link path=$(ECPREFIX)/share/man/man1/jpwl_j2k_to_image.1 target=j2k_to_image.1
-link path=$(ECPREFIX)/share/man/man3/jpwl_libopenjpeg.3 target=libopenjpeg.3
+link path=$(USRDIR)/lib/pkgconfig/libopenjpeg.pc target=libopenjpeg1.pc
+link path=$(USRDIR)/share/man/man1/jpwl_image_to_j2k.1 target=image_to_j2k.1
+link path=$(USRDIR)/share/man/man1/jpwl_j2k_to_image.1 target=j2k_to_image.1
+link path=$(USRDIR)/share/man/man3/jpwl_libopenjpeg.3 target=libopenjpeg.3

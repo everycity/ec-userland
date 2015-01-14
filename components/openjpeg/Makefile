@@ -35,7 +35,7 @@ override COMPONENT_BUILD_GMAKE_ARGS=
 LDFLAGS +=	-lnsl -lsocket
 CONFIGURE_OPTIONS +=	--enable-mj2 --enable-jpwl --enable-jpip
 
-COMPONENT_POST_INSTALL_ACTION= ( cd $(PROTO_DIR)$(ECPREFIX)/include ; \
+COMPONENT_POST_INSTALL_ACTION= ( cd $(PROTO_DIR)$(USRDIR)/include ; \
 	$(SYMLINK) openjpeg-1.5/openjpeg.h openjpeg.h; )
 
 build:	$(BUILD_32_and_64)
