@@ -29,7 +29,6 @@
 /^dbt2$/d
 /^dbus$/d
 /^dbus-glib$/d
-/^dirac$/d
 /^dovecot$/d
 /^dspam$/d
 /^emacs$/d

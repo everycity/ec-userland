@@ -18,7 +18,7 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2015, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -32,9 +32,13 @@ COMPONENT_ARCHIVE_URL=	http://diracvideo.org/download/dirac-research/$(COMPONENT
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-include ../../make-rules/gnu-ld.mk
+#include ../../make-rules/gnu-ld.mk
 
-CONFIGURE_OPTIONS+=--with-pic --enable-shared --disable-static
+COMPONENT_PREP_ACTION+= \
+	( cd $(SOURCE_DIR) ; \
+	    autoreconf -v --install )
+
+#CONFIGURE_OPTIONS+=--with-pic --enable-shared --disable-static
 
 build:		$(BUILD_32_and_64)
 
