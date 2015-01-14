@@ -22,85 +22,62 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license orc.license license="ORC"
 
-file path=$(ECPREFIX)/bin/$(MACH64)/orc-bugreport
-file path=$(ECPREFIX)/bin/$(MACH64)/orcc
-file path=$(ECPREFIX)/bin/orc-bugreport
-file path=$(ECPREFIX)/bin/orcc
-file path=$(ECPREFIX)/include/orc-0.4/orc-test/orcarray.h
-file path=$(ECPREFIX)/include/orc-0.4/orc-test/orcprofile.h
-file path=$(ECPREFIX)/include/orc-0.4/orc-test/orcrandom.h
-file path=$(ECPREFIX)/include/orc-0.4/orc-test/orctest.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/opcodes.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/orc-stdint.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/orc.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/orcarm.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/orccpuinsn.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/orcdebug.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/orcemulateopcodes.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/orcfunctions.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/orcmmx.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/orcneon.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/orconce.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/orcparse.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/orcpowerpc.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/orcprogram.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/orcsse.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/orcutils.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/orcx86.h
-file path=$(ECPREFIX)/include/orc-0.4/orc/orcx86insn.h
-file path=$(ECPREFIX)/lib/$(MACH64)/liborc-0.4.la
-file path=$(ECPREFIX)/lib/$(MACH64)/liborc-0.4.so.0.16.0
-file path=$(ECPREFIX)/lib/$(MACH64)/liborc-test-0.4.la
-file path=$(ECPREFIX)/lib/$(MACH64)/liborc-test-0.4.so.0.16.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/orc-0.4.pc
-file path=$(ECPREFIX)/lib/liborc-0.4.la
-file path=$(ECPREFIX)/lib/liborc-0.4.so.0.16.0
-file path=$(ECPREFIX)/lib/liborc-test-0.4.la
-file path=$(ECPREFIX)/lib/liborc-test-0.4.so.0.16.0
-file path=$(ECPREFIX)/lib/pkgconfig/orc-0.4.pc
-file path=$(ECPREFIX)/share/aclocal/orc.m4
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/ch01.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/ch02.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/ch03.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/ch04.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/ch05.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/home.png
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/index.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/index.sgml
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/left.png
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-ARM.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-MMX.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-Orc.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-OrcCompiler.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-OrcDebug.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-OrcExecutor.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-OrcOpcode.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-OrcProgram.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-OrcRule.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-PowerPC.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-SSE.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-Utility-functions.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-building.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-concepts.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-misc.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-opcodes.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-runninging.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-tutorial.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc-x86.html
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc.devhelp
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/orc.devhelp2
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/right.png
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/style.css
-file path=$(ECPREFIX)/share/gtk-doc/html/orc/up.png
-link path=$(ECPREFIX)/lib/$(MACH64)/liborc-0.4.so target=liborc-0.4.so.0.16.0
-link path=$(ECPREFIX)/lib/$(MACH64)/liborc-0.4.so.0 \
-    target=liborc-0.4.so.0.16.0
-link path=$(ECPREFIX)/lib/$(MACH64)/liborc-test-0.4.so \
-    target=liborc-test-0.4.so.0.16.0
-link path=$(ECPREFIX)/lib/$(MACH64)/liborc-test-0.4.so.0 \
-    target=liborc-test-0.4.so.0.16.0
-link path=$(ECPREFIX)/lib/liborc-0.4.so target=liborc-0.4.so.0.16.0
-link path=$(ECPREFIX)/lib/liborc-0.4.so.0 target=liborc-0.4.so.0.16.0
-link path=$(ECPREFIX)/lib/liborc-test-0.4.so target=liborc-test-0.4.so.0.16.0
-link path=$(ECPREFIX)/lib/liborc-test-0.4.so.0 \
-    target=liborc-test-0.4.so.0.16.0
+file path=$(USRDIR)/bin/$(MACH64)/orc-bugreport
+file path=$(USRDIR)/bin/$(MACH64)/orcc
+file path=$(USRDIR)/bin/orc-bugreport
+file path=$(USRDIR)/bin/orcc
+
+file path=$(USRDIR)/include/orc-0.4/orc-test/orcarray.h
+file path=$(USRDIR)/include/orc-0.4/orc-test/orcprofile.h
+file path=$(USRDIR)/include/orc-0.4/orc-test/orcrandom.h
+file path=$(USRDIR)/include/orc-0.4/orc-test/orctest.h
+file path=$(USRDIR)/include/orc-0.4/orc/orc-stdint.h
+file path=$(USRDIR)/include/orc-0.4/orc/orc.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcarm.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcbytecode.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcbytecodes.h
+file path=$(USRDIR)/include/orc-0.4/orc/orccode.h
+file path=$(USRDIR)/include/orc-0.4/orc/orccompiler.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcconstant.h
+file path=$(USRDIR)/include/orc-0.4/orc/orccpu.h
+file path=$(USRDIR)/include/orc-0.4/orc/orccpuinsn.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcdebug.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcemulateopcodes.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcexecutor.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcfunctions.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcinstruction.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcinternal.h
+file path=$(USRDIR)/include/orc-0.4/orc/orclimits.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcmips.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcmmx.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcneon.h
+file path=$(USRDIR)/include/orc-0.4/orc/orconce.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcopcode.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcparse.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcpowerpc.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcprogram.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcrule.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcsse.h
+file path=$(USRDIR)/include/orc-0.4/orc/orctarget.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcutils.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcvariable.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcx86.h
+file path=$(USRDIR)/include/orc-0.4/orc/orcx86insn.h
+
+link path=$(USRDIR)/lib/$(MACH64)/liborc-0.4.so target=liborc-0.4.so.0.22.0
+link path=$(USRDIR)/lib/$(MACH64)/liborc-0.4.so.0 target=liborc-0.4.so.0.22.0
+file path=$(USRDIR)/lib/$(MACH64)/liborc-0.4.so.0.22.0
+link path=$(USRDIR)/lib/$(MACH64)/liborc-test-0.4.so \
+    target=liborc-test-0.4.so.0.22.0
+link path=$(USRDIR)/lib/$(MACH64)/liborc-test-0.4.so.0 \
+    target=liborc-test-0.4.so.0.22.0
+file path=$(USRDIR)/lib/$(MACH64)/liborc-test-0.4.so.0.22.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/orc-0.4.pc
+link path=$(USRDIR)/lib/liborc-0.4.so target=liborc-0.4.so.0.22.0
+link path=$(USRDIR)/lib/liborc-0.4.so.0 target=liborc-0.4.so.0.22.0
+file path=$(USRDIR)/lib/liborc-0.4.so.0.22.0
+link path=$(USRDIR)/lib/liborc-test-0.4.so target=liborc-test-0.4.so.0.22.0
+link path=$(USRDIR)/lib/liborc-test-0.4.so.0 target=liborc-test-0.4.so.0.22.0
+file path=$(USRDIR)/lib/liborc-test-0.4.so.0.22.0
+file path=$(USRDIR)/lib/pkgconfig/orc-0.4.pc
+file path=$(USRDIR)/share/aclocal/orc.m4
