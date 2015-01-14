@@ -148,7 +148,6 @@
 /^nodejs04$/d
 /^nodejs06$/d
 /^nrpe$/d
-/^opencore-amr$/d
 /^openjpeg$/d
 /^opus$/d
 /^orbit2$/d
