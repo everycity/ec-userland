@@ -275,7 +275,6 @@
 /^ruby\/ruby18$/d
 /^ruby\/ruby20$/d
 /^ruby\/stomp$/d
-/^schroedinger$/d
 /^screen$/d
 /^smartos-ps$/d
 /^snappy$/d

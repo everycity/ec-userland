@@ -23,20 +23,22 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		schroedinger
-COMPONENT_VERSION=	1.0.10
+COMPONENT_VERSION=	1.0.11
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:c8af4cb2bc54b7783ac20d7f4a39db4e31c1cac0
+#COMPONENT_ARCHIVE_HASH=	sha1:c8af4cb2bc54b7783ac20d7f4a39db4e31c1cac0
 COMPONENT_ARCHIVE_URL=	http://diracvideo.org/download/schroedinger/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-include ../../make-rules/gnu-ld.mk
+#include ../../make-rules/gnu-ld.mk
+
+COMPONENT_PREP_ACTION+= \
+	( cd $(SOURCE_DIR) ; \
+	    autoreconf -v --install )
 
 CONFIGURE_OPTIONS+=--with-pic --enable-shared --disable-static
-
-COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; libtoolize --force --copy ; autoreconf )
 
 build:		$(BUILD_32_and_64)
 
