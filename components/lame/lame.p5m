@@ -31,36 +31,33 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license lame.license license="LGPL"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/lame
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/lame
-dir path=$(ECPREFIX)/share/doc/lame/html
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/lame
-file path=$(ECPREFIX)/bin/lame
-file path=$(ECPREFIX)/include/lame/lame.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libmp3lame.so.0.0.0
-file path=$(ECPREFIX)/lib/libmp3lame.so.0.0.0
-file path=$(ECPREFIX)/share/doc/lame/html/basic.html
-file path=$(ECPREFIX)/share/doc/lame/html/contributors.html
-file path=$(ECPREFIX)/share/doc/lame/html/examples.html
-file path=$(ECPREFIX)/share/doc/lame/html/history.html
-file path=$(ECPREFIX)/share/doc/lame/html/id3.html
-file path=$(ECPREFIX)/share/doc/lame/html/index.html
-file path=$(ECPREFIX)/share/doc/lame/html/lame.css
-file path=$(ECPREFIX)/share/doc/lame/html/modes.html
-file path=$(ECPREFIX)/share/doc/lame/html/node6.html
-file path=$(ECPREFIX)/share/doc/lame/html/switchs.html
-file path=$(ECPREFIX)/share/man/man1/lame.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libmp3lame.so target=libmp3lame.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libmp3lame.so.0 target=libmp3lame.so.0.0.0
-link path=$(ECPREFIX)/lib/libmp3lame.so target=libmp3lame.so.0.0.0
-link path=$(ECPREFIX)/lib/libmp3lame.so.0 target=libmp3lame.so.0.0.0
+file path=$(USRDIR)/bin/$(MACH64)/lame
+file path=$(USRDIR)/bin/lame
+
+file path=$(USRDIR)/include/lame/lame.h
+
+file path=$(USRDIR)/lib/$(MACH64)/libmp3lame.a
+link path=$(USRDIR)/lib/$(MACH64)/libmp3lame.so target=libmp3lame.so.0.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libmp3lame.so.0 target=libmp3lame.so.0.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libmp3lame.so.0.0.0
+file path=$(USRDIR)/lib/libmp3lame.a
+link path=$(USRDIR)/lib/libmp3lame.so target=libmp3lame.so.0.0.0
+link path=$(USRDIR)/lib/libmp3lame.so.0 target=libmp3lame.so.0.0.0
+file path=$(USRDIR)/lib/libmp3lame.so.0.0.0
+
+file path=$(USRDIR)/share/doc/lame/html/about.html
+file path=$(USRDIR)/share/doc/lame/html/abr.html
+file path=$(USRDIR)/share/doc/lame/html/cbr.html
+file path=$(USRDIR)/share/doc/lame/html/contact.html
+file path=$(USRDIR)/share/doc/lame/html/contributors.html
+file path=$(USRDIR)/share/doc/lame/html/detailed.html
+file path=$(USRDIR)/share/doc/lame/html/history.html
+file path=$(USRDIR)/share/doc/lame/html/index.html
+file path=$(USRDIR)/share/doc/lame/html/introduction.html
+file path=$(USRDIR)/share/doc/lame/html/links.html
+file path=$(USRDIR)/share/doc/lame/html/list.html
+file path=$(USRDIR)/share/doc/lame/html/ms_stereo.html
+file path=$(USRDIR)/share/doc/lame/html/usage.html
+file path=$(USRDIR)/share/doc/lame/html/vbr.html
+
+file path=$(USRDIR)/share/man/man1/lame.1

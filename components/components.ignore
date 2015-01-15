@@ -79,7 +79,6 @@
 /^java-jna$/d
 /^java-snappy$/d
 /^json-c$/d
-/^lame$/d
 /^lftp$/d
 /^libIDL$/d
 /^libao$/d

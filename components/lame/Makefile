@@ -32,33 +32,29 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		lame
-COMPONENT_VERSION=	3.98.4
+COMPONENT_VERSION=	3.99.5
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:ac3144c76617223a9be4aaa3e28a66b51bcab28141050c3af04cb06836f772c8
+#COMPONENT_ARCHIVE_HASH=	sha256:ac3144c76617223a9be4aaa3e28a66b51bcab28141050c3af04cb06836f772c8
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-include ../../make-rules/gnu-ld.mk
+#include ../../make-rules/gnu-ld.mk
 
 # make build isn't thread safe.
-override COMPONENT_BUILD_GMAKE_ARGS='-j1'
+#override COMPONENT_BUILD_GMAKE_ARGS='-j1'
 
 COMPONENT_INSTALL_ENV+=		INSTALLROOT="$(PROTO_DIR)"
 
-# CONFIGURE_OPTIONS from Makefile.nonnasm
-#
-#CONFIGURE_OPTIONS+=     --enable-analyser=no
-#CONFIGURE_OPTIONS+=     --enable-brhist
-#CONFIGURE_OPTIONS+=     --enable-decoder
+LDFLAGS += -ltinfo
 
-CONFIGURE_OPTIONS+=	--enable-nasm
-CONFIGURE_OPTIONS+=	--enable-shared
-CONFIGURE_OPTIONS+=	--disable-static
-CONFIGURE_OPTIONS+=	--with-gnu-ld
-CONFIGURE_OPTIONS.64+=	--disable-nasm
+CONFIGURE_OPTIONS += --disable-debug
+CONFIGURE_OPTIONS += --enable-dynamic-frontends
+CONFIGURE_OPTIONS += --enable-expopt=full
+#CONFIGURE_OPTIONS += --enable-nasm
+CONFIGURE_OPTIONS += --with-fileio=lame
 
 build:		$(BUILD_32_and_64)
 
