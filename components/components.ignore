@@ -148,7 +148,6 @@
 /^p5-Tk$/d
 /^p5-X11-Protocol$/d
 /^p7zip$/d
-/^pango$/d
 /^pdflib$/d
 /^pdftk$/d
 /^perl\/perl516$/d

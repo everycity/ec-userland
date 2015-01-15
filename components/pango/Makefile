@@ -32,10 +32,10 @@ include ../../make-rules/ips.mk
 build:		$(BUILD_32_and_64)
 
 $(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/etc/pango
-	$(PROTO_DIR)$(ECPREFIX)/bin/pango-querymodules > $(PROTO_DIR)$(ECPREFIX)/etc/pango/pango.modules
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/etc/$(MACH64)/pango
-	$(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/pango-querymodules > $(PROTO_DIR)$(ECPREFIX)/etc/$(MACH64)/pango/pango.modules
+	$(MKDIR) $(PROTO_DIR)$(CONFIGURE_SYSCONFDIR)/pango
+	LD_LIBRARY_PATH=$(PROTO_DIR)$(USRDIR)/lib:${LD_LIBRARY_PATH} $(PROTO_DIR)$(USRDIR)/bin/pango-querymodules > $(PROTO_DIR)$(CONFIGURE_SYSCONFDIR)/pango/pango.modules
+	$(MKDIR) $(PROTO_DIR)$(CONFIGURE_SYSCONFDIR)/$(MACH64)/pango
+	LD_LIBRARY_PATH=$(PROTO_DIR)$(USRDIR)/lib/$(MACH64):${LD_LIBRARY_PATH} $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/pango-querymodules > $(PROTO_DIR)$(CONFIGURE_SYSCONFDIR)/$(MACH64)/pango/pango.modules
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed
