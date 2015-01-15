@@ -81,7 +81,6 @@
 /^java-snappy$/d
 /^json-c$/d
 /^lame$/d
-/^lcms2$/d
 /^lftp$/d
 /^libIDL$/d
 /^libao$/d
