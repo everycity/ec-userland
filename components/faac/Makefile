@@ -36,7 +36,9 @@ include ../../make-rules/ips.mk
 
 CONFIGURE_SCRIPT=	./configure
 COMPONENT_PRE_CONFIGURE_ACTION+=	( cp -r $(SOURCE_DIR)/* $(@D) && \
-	cd $(@D) && libtoolize --force --copy  && aclocal && autoconf && automake )
+	cd $(@D) && autoreconf -v --install )
+
+CONFIGURE_OPTIONS += --without-mp4v2
 
 build:		$(BUILD_32_and_64)
 

@@ -1,0 +1,14 @@
+Description: Fix format string security error.
+Author: Fabian Greffrath <fabian+debian@greffrath.com>
+
+--- faac.orig/frontend/main.c
++++ faac/frontend/main.c
+@@ -715,7 +715,7 @@ int main(int argc, char *argv[])
+         break;
+ #endif
+         case 'L':
+-        fprintf(stderr, faac_copyright_string);
++        fprintf(stderr, "%s", faac_copyright_string);
+         dieMessage = license;
+         break;
+     case 'X':

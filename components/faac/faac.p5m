@@ -32,23 +32,19 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license faac.license license="LGPL"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/faac
-file path=$(ECPREFIX)/bin/faac
-file path=$(ECPREFIX)/include/faac.h
-file path=$(ECPREFIX)/include/faaccfg.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libfaac.so.0.0.0
-file path=$(ECPREFIX)/lib/libfaac.so.0.0.0
-file path=$(ECPREFIX)/share/man/man1/faac.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libfaac.so target=libfaac.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libfaac.so.0 target=libfaac.so.0.0.0
-link path=$(ECPREFIX)/lib/libfaac.so target=libfaac.so.0.0.0
-link path=$(ECPREFIX)/lib/libfaac.so.0 target=libfaac.so.0.0.0
+file path=$(USRDIR)/bin/$(MACH64)/faac
+file path=$(USRDIR)/bin/faac
+
+file path=$(USRDIR)/include/faac.h
+file path=$(USRDIR)/include/faaccfg.h
+
+file path=$(USRDIR)/lib/$(MACH64)/libfaac.a
+link path=$(USRDIR)/lib/$(MACH64)/libfaac.so target=libfaac.so.0.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libfaac.so.0 target=libfaac.so.0.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libfaac.so.0.0.0
+file path=$(USRDIR)/lib/libfaac.a
+link path=$(USRDIR)/lib/libfaac.so target=libfaac.so.0.0.0
+link path=$(USRDIR)/lib/libfaac.so.0 target=libfaac.so.0.0.0
+file path=$(USRDIR)/lib/libfaac.so.0.0.0
+
+file path=$(USRDIR)/share/man/man1/faac.1

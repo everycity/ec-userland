@@ -1,0 +1,27 @@
+Description: Set appropriate symbol visibility attributes.
+Author: Fabian Greffrath <fabian+debian@greffrath.com>
+Forwarded: http://sourceforge.net/tracker/?func=detail&aid=3485333&group_id=704&atid=100704
+
+--- faac.orig/include/faac.h
++++ faac/include/faac.h
+@@ -30,6 +30,10 @@ extern "C" {
+ # ifndef FAACAPI
+ #  define FAACAPI __stdcall
+ # endif
++#elif defined(__GNUC__) && __GNUC__ >= 4
++# ifndef FAACAPI
++#  define FAACAPI __attribute__((visibility("default")))
++# endif
+ #else
+ # ifndef FAACAPI
+ #  define FAACAPI
+--- faac.orig/libfaac/Makefile.am
++++ faac/libfaac/Makefile.am
+@@ -7,6 +7,7 @@ endif
+ libfaac_la_SOURCES = $(main_SOURCES) $(drm_SOURCES)
+ libfaac_la_INCLUDES = aacquant.h channels.h filtbank.h hufftab.h psych.h backpred.h coder.h frame.h midside.h tns.h bitstream.h fft.h huffman.h ltp.h util.h
+ libfaac_la_LIBADD = -lm
++libfaac_la_CFLAGS = -fvisibility=hidden
+ 
+ INCLUDES = -I$(top_srcdir)/include
+ 

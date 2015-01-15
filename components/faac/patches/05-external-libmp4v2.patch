@@ -1,0 +1,71 @@
+Description: FAAC now able to use external updated libmp4v2
+Origin: http://faac.cvs.sourceforge.net/viewvc/faac/faac/configure.in?r1=1.25&r2=1.26&sortby=date,
+ http://faac.cvs.sourceforge.net/viewvc/faac/faac/frontend/Makefile.am?r1=1.9&r2=1.10&sortby=date,
+ http://faac.cvs.sourceforge.net/viewvc/faac/faac/frontend/main.c?r1=1.82&r2=1.83&sortby=date
+
+--- faac.orig/configure.in
++++ faac/configure.in
+@@ -28,14 +28,17 @@ AC_CHECK_DECL(strcasecmp, MY_DEFINE(HAVE
+ AC_CHECK_LIB(gnugetopt, getopt_long)
+ 
+ AM_CONDITIONAL(WITH_MP4V2, false)
++AM_CONDITIONAL(WITH_EXTERNAL_MP4V2, false)
+ 
+ AC_CHECK_DECLS([MP4Create, MP4MetadataDelete],
+                AC_CHECK_LIB(mp4v2, MP4MetadataDelete, external_mp4v2=yes,
+                             external_mp4v2=no, -lstdc++),
+-               external_mp4v2=no, [#include <mp4.h>])
++               external_mp4v2=no, [#include <mp4v2/mp4v2.h>])
+ 
+ if test x$external_mp4v2 = xyes; then
+   AC_MSG_NOTICE([*** Building with external mp4v2 ***])
++  MY_DEFINE(HAVE_EXTERNAL_LIBMP4V2)
++  AM_CONDITIONAL(WITH_EXTERNAL_MP4V2, true)
+ else
+   if test x$WITHMP4V2 = xyes; then
+      AC_MSG_NOTICE([*** Building with internal mp4v2 ***])
+--- faac.orig/frontend/Makefile.am
++++ faac/frontend/Makefile.am
+@@ -8,5 +8,9 @@ INCLUDES = -I$(top_srcdir)/include -I$(t
+ LDADD = $(top_builddir)/libfaac/libfaac.la $(top_srcdir)/common/mp4v2/libmp4v2.a -lm -lstdc++
+ else
+ INCLUDES = -I$(top_srcdir)/include 
++if WITH_EXTERNAL_MP4V2
++LDADD = $(top_builddir)/libfaac/libfaac.la -lm -lmp4v2
++else
+ LDADD = $(top_builddir)/libfaac/libfaac.la -lm
+ endif
++endif
+--- faac.orig/frontend/main.c
++++ faac/frontend/main.c
+@@ -18,7 +18,7 @@
+  * License along with this library; if not, write to the Free Software
+  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+  *
+- * $Id: main.c,v 1.82 2009/01/24 01:10:20 menno Exp $
++ * $Id: main.c,v 1.83 2009/07/27 18:12:38 menno Exp $
+  */
+ 
+ #ifdef _MSC_VER
+@@ -29,7 +29,10 @@
+ #include "config.h"
+ #endif
+ 
+-#ifdef HAVE_LIBMP4V2
++#ifdef HAVE_EXTERNAL_LIBMP4V2
++# include <mp4v2/mp4v2.h>
++# define HAVE_LIBMP4V2
++#elif defined(HAVE_LIBMP4V2)
+ # include <mp4.h>
+ #endif
+ 
+@@ -1167,6 +1170,9 @@ int main(int argc, char *argv[])
+ 
+ /*
+ $Log: main.c,v $
++Revision 1.83  2009/07/27 18:12:38  menno
++FAAC now able to use external updated libmp4v2
++
+ Revision 1.82  2009/01/24 01:10:20  menno
+ Made JPEG detection less restrictive
+ 

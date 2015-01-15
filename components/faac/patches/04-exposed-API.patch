@@ -1,0 +1,390 @@
+Description: Build faac against the public API exposed in <faac.h>
+ instead of the private API defined in "libfaac/frame.h".
+Author: Fabian Greffrath <fabian+debian@greffrath.com>
+Forwarded: http://sourceforge.net/tracker/?func=detail&aid=3485323&group_id=704&atid=100704
+
+--- faac.orig/libfaac/aacquant.c
++++ faac/libfaac/aacquant.c
+@@ -23,7 +23,7 @@
+ #include <math.h>
+ #include <stdlib.h>
+ 
+-#include "frame.h"
++#include <faac.h>
+ #include "aacquant.h"
+ #include "coder.h"
+ #include "huffman.h"
+--- faac.orig/libfaac/backpred.c
++++ faac/libfaac/backpred.c
+@@ -34,7 +34,7 @@ Copyright (c) 1997.
+ #include "backpred.h"
+ 
+ 
+-void PredInit(faacEncHandle hEncoder)
++void PredInit(faacEncStruct* hEncoder)
+ {
+     unsigned int channel;
+ 
+--- faac.orig/libfaac/backpred.h
++++ faac/libfaac/backpred.h
+@@ -43,7 +43,7 @@ void PredCalcPrediction(double *act_spec
+                         ChannelInfo *channelInfo,
+                         int chanNum);
+ 
+-void PredInit(faacEncHandle hEncoder);
++void PredInit(faacEncStruct* hEncoder);
+ 
+ void CopyPredInfo(CoderInfo *right, CoderInfo *left);
+ 
+--- faac.orig/libfaac/bitstream.c
++++ faac/libfaac/bitstream.c
+@@ -37,12 +37,12 @@ Copyright (c) 1997.
+ #include "ltp.h"
+ #include "util.h"
+ 
+-static int CountBitstream(faacEncHandle hEncoder,
++static int CountBitstream(faacEncStruct* hEncoder,
+                           CoderInfo *coderInfo,
+                           ChannelInfo *channelInfo,
+                           BitStream *bitStream,
+                           int numChannels);
+-static int WriteADTSHeader(faacEncHandle hEncoder,
++static int WriteADTSHeader(faacEncStruct* hEncoder,
+                            BitStream *bitStream,
+                            int writeFlag);
+ static int WriteCPE(CoderInfo *coderInfoL,
+@@ -152,7 +152,7 @@ static int WriteFAACStr(BitStream *bitSt
+ }
+ 
+ 
+-int WriteBitstream(faacEncHandle hEncoder,
++int WriteBitstream(faacEncStruct* hEncoder,
+                    CoderInfo *coderInfo,
+                    ChannelInfo *channelInfo,
+                    BitStream *bitStream,
+@@ -243,7 +243,7 @@ int WriteBitstream(faacEncHandle hEncode
+     return bits;
+ }
+ 
+-static int CountBitstream(faacEncHandle hEncoder,
++static int CountBitstream(faacEncStruct* hEncoder,
+                           CoderInfo *coderInfo,
+                           ChannelInfo *channelInfo,
+                           BitStream *bitStream,
+@@ -329,7 +329,7 @@ static int CountBitstream(faacEncHandle
+     return bits;
+ }
+ 
+-static int WriteADTSHeader(faacEncHandle hEncoder,
++static int WriteADTSHeader(faacEncStruct* hEncoder,
+                            BitStream *bitStream,
+                            int writeFlag)
+ {
+--- faac.orig/libfaac/bitstream.h
++++ faac/libfaac/bitstream.h
+@@ -149,7 +149,7 @@ typedef struct
+ 
+ 
+ 
+-int WriteBitstream(faacEncHandle hEncoder,
++int WriteBitstream(faacEncStruct* hEncoder,
+                    CoderInfo *coderInfo,
+                    ChannelInfo *channelInfo,
+                    BitStream *bitStream,
+--- faac.orig/libfaac/filtbank.c
++++ faac/libfaac/filtbank.c
+@@ -51,7 +51,7 @@ static void		IMDCT				( FFT_Tables *fft_
+ 
+ 
+ 
+-void FilterBankInit(faacEncHandle hEncoder)
++void FilterBankInit(faacEncStruct* hEncoder)
+ {
+     unsigned int i, channel;
+ 
+@@ -75,7 +75,7 @@ void FilterBankInit(faacEncHandle hEncod
+     CalculateKBDWindow(hEncoder->kbd_window_short, 6, BLOCK_LEN_SHORT*2);
+ }
+ 
+-void FilterBankEnd(faacEncHandle hEncoder)
++void FilterBankEnd(faacEncStruct* hEncoder)
+ {
+     unsigned int channel;
+ 
+@@ -90,7 +90,7 @@ void FilterBankEnd(faacEncHandle hEncode
+     if (hEncoder->kbd_window_short) FreeMemory(hEncoder->kbd_window_short);
+ }
+ 
+-void FilterBank(faacEncHandle hEncoder,
++void FilterBank(faacEncStruct* hEncoder,
+                 CoderInfo *coderInfo,
+                 double *p_in_data,
+                 double *p_out_mdct,
+@@ -202,7 +202,7 @@ void FilterBank(faacEncHandle hEncoder,
+     if (transf_buf) FreeMemory(transf_buf);
+ }
+ 
+-void IFilterBank(faacEncHandle hEncoder,
++void IFilterBank(faacEncStruct* hEncoder,
+                  CoderInfo *coderInfo,
+                  double *p_in_data,
+                  double *p_out_data,
+--- faac.orig/libfaac/filtbank.h
++++ faac/libfaac/filtbank.h
+@@ -41,18 +41,18 @@ extern "C" {
+ #define SINE_WINDOW 0
+ #define KBD_WINDOW  1
+ 
+-void			FilterBankInit		( faacEncHandle hEncoder );
++void			FilterBankInit		( faacEncStruct* hEncoder );
+ 
+-void			FilterBankEnd		( faacEncHandle hEncoder );
++void			FilterBankEnd		( faacEncStruct* hEncoder );
+ 
+-void			FilterBank( faacEncHandle hEncoder,
++void			FilterBank( faacEncStruct* hEncoder,
+ 						CoderInfo *coderInfo,
+ 						double *p_in_data,
+ 						double *p_out_mdct,
+ 						double *p_overlap,
+ 						int overlap_select );
+ 
+-void			IFilterBank( faacEncHandle hEncoder,
++void			IFilterBank( faacEncStruct* hEncoder,
+ 						CoderInfo *coderInfo,
+ 						double *p_in_data,
+ 						double *p_out_mdct,
+--- faac.orig/libfaac/frame.c
++++ faac/libfaac/frame.c
+@@ -87,8 +87,9 @@ int FAACAPI faacEncGetVersion( char **fa
+ }
+ 
+ 
+-int FAACAPI faacEncGetDecoderSpecificInfo(faacEncHandle hEncoder,unsigned char** ppBuffer,unsigned long* pSizeOfDecoderSpecificInfo)
++int FAACAPI faacEncGetDecoderSpecificInfo(faacEncHandle hpEncoder,unsigned char** ppBuffer,unsigned long* pSizeOfDecoderSpecificInfo)
+ {
++    faacEncStruct* hEncoder = (faacEncStruct*)hpEncoder;
+     BitStream* pBitStream = NULL;
+ 
+     if((hEncoder == NULL) || (ppBuffer == NULL) || (pSizeOfDecoderSpecificInfo == NULL)) {
+@@ -118,16 +119,18 @@ int FAACAPI faacEncGetDecoderSpecificInf
+ }
+ 
+ 
+-faacEncConfigurationPtr FAACAPI faacEncGetCurrentConfiguration(faacEncHandle hEncoder)
++faacEncConfigurationPtr FAACAPI faacEncGetCurrentConfiguration(faacEncHandle hpEncoder)
+ {
++    faacEncStruct* hEncoder = (faacEncStruct*)hpEncoder;
+     faacEncConfigurationPtr config = &(hEncoder->config);
+ 
+     return config;
+ }
+ 
+-int FAACAPI faacEncSetConfiguration(faacEncHandle hEncoder,
++int FAACAPI faacEncSetConfiguration(faacEncHandle hpEncoder,
+                                     faacEncConfigurationPtr config)
+ {
++    faacEncStruct* hEncoder = (faacEncStruct*)hpEncoder;
+ 	int i;
+ 
+     hEncoder->config.allowMidside = config->allowMidside;
+@@ -277,7 +280,7 @@ int FAACAPI faacEncSetConfiguration(faac
+ 		config->psymodelidx = (sizeof(psymodellist) / sizeof(psymodellist[0])) - 2;
+ 
+     hEncoder->config.psymodelidx = config->psymodelidx;
+-    hEncoder->psymodel = psymodellist[hEncoder->config.psymodelidx].model;
++    hEncoder->psymodel = (psymodel_t *)psymodellist[hEncoder->config.psymodelidx].ptr;
+     hEncoder->psymodel->PsyInit(&hEncoder->gpsyInfo, hEncoder->psyInfo, hEncoder->numChannels,
+ 			hEncoder->sampleRate, hEncoder->srInfo->cb_width_long,
+ 			hEncoder->srInfo->num_cb_long, hEncoder->srInfo->cb_width_short,
+@@ -297,7 +300,7 @@ faacEncHandle FAACAPI faacEncOpen(unsign
+                                   unsigned long *maxOutputBytes)
+ {
+     unsigned int channel;
+-    faacEncHandle hEncoder;
++    faacEncStruct* hEncoder;
+ 
+     *inputSamples = FRAME_LEN*numChannels;
+     *maxOutputBytes = (6144/8)*numChannels;
+@@ -334,7 +337,7 @@ faacEncHandle FAACAPI faacEncOpen(unsign
+     hEncoder->config.psymodellist = (psymodellist_t *)psymodellist;
+     hEncoder->config.psymodelidx = 0;
+     hEncoder->psymodel =
+-      hEncoder->config.psymodellist[hEncoder->config.psymodelidx].model;
++      (psymodel_t *)hEncoder->config.psymodellist[hEncoder->config.psymodelidx].ptr;
+     hEncoder->config.shortctl = SHORTCTL_NORMAL;
+ 
+ 	/* default channel map is straight-through */
+@@ -401,8 +404,9 @@ faacEncHandle FAACAPI faacEncOpen(unsign
+     return hEncoder;
+ }
+ 
+-int FAACAPI faacEncClose(faacEncHandle hEncoder)
++int FAACAPI faacEncClose(faacEncHandle hpEncoder)
+ {
++    faacEncStruct* hEncoder = (faacEncStruct*)hpEncoder;
+     unsigned int channel;
+ 
+     /* Deinitialize coder functions */
+@@ -441,13 +445,14 @@ int FAACAPI faacEncClose(faacEncHandle h
+     return 0;
+ }
+ 
+-int FAACAPI faacEncEncode(faacEncHandle hEncoder,
++int FAACAPI faacEncEncode(faacEncHandle hpEncoder,
+                           int32_t *inputBuffer,
+                           unsigned int samplesInput,
+                           unsigned char *outputBuffer,
+                           unsigned int bufferSize
+                           )
+ {
++    faacEncStruct* hEncoder = (faacEncStruct*)hpEncoder;
+     unsigned int channel, i;
+     int sb, frameBytes;
+     unsigned int offset;
+--- faac.orig/libfaac/frame.h
++++ faac/libfaac/frame.h
+@@ -36,6 +36,8 @@
+ # include <stdint.h>
+ #endif
+ 
++#include <faac.h>
++
+ #ifndef HAVE_INT32_T
+ typedef signed int int32_t;
+ #endif
+@@ -50,23 +52,8 @@ extern "C" {
+ #include "aacquant.h"
+ #include "fft.h"
+ 
+-#if defined(_WIN32) && !defined(__MINGW32__)
+-  #ifndef FAACAPI
+-    #define FAACAPI __stdcall
+-  #endif
+-#else
+-  #ifndef FAACAPI
+-    #define FAACAPI
+-  #endif
+-#endif
+-
+ #pragma pack(push, 1)
+ 
+-typedef struct {
+-  psymodel_t *model;
+-  char *name;
+-} psymodellist_t;
+-
+ #include <faaccfg.h>
+ 
+ typedef struct {
+@@ -124,32 +111,7 @@ typedef struct {
+ 
+     /* output bits difference in average bitrate mode */
+     int bitDiff;
+-} faacEncStruct, *faacEncHandle;
+-
+-int FAACAPI faacEncGetVersion(char **faac_id_string,
+-			      char **faac_copyright_string);
+-
+-int FAACAPI faacEncGetDecoderSpecificInfo(faacEncHandle hEncoder,
+-                                          unsigned char** ppBuffer,
+-                                          unsigned long* pSizeOfDecoderSpecificInfo);
+-
+-faacEncConfigurationPtr FAACAPI faacEncGetCurrentConfiguration(faacEncHandle hEncoder);
+-int FAACAPI faacEncSetConfiguration (faacEncHandle hEncoder, faacEncConfigurationPtr config);
+-
+-faacEncHandle FAACAPI faacEncOpen(unsigned long sampleRate,
+-                                  unsigned int numChannels,
+-                                  unsigned long *inputSamples,
+-                                  unsigned long *maxOutputBytes);
+-
+-int FAACAPI faacEncEncode(faacEncHandle hEncoder,
+-                          int32_t *inputBuffer,
+-                          unsigned int samplesInput,
+-                          unsigned char *outputBuffer,
+-                          unsigned int bufferSize
+-                          );
+-
+-int FAACAPI faacEncClose(faacEncHandle hEncoder);
+-
++} faacEncStruct;
+ 
+ #pragma pack(pop)
+ 
+--- faac.orig/libfaac/huffman.h
++++ faac/libfaac/huffman.h
+@@ -47,7 +47,7 @@ extern "C" {
+ 
+ #define ABS(A) ((A) < 0 ? (-A) : (A))
+ 
+-#include "frame.h"
++#include <faac.h>
+ 
+ void HuffmanInit(CoderInfo *coderInfo, unsigned int numChannels);
+ void HuffmanEnd(CoderInfo *coderInfo, unsigned int numChannels);
+--- faac.orig/libfaac/ltp.c
++++ faac/libfaac/ltp.c
+@@ -275,7 +275,7 @@ static double ltp_enc_tf(faacEncHandle h
+     return (bit_gain);
+ }
+ 
+-void LtpInit(faacEncHandle hEncoder)
++void LtpInit(faacEncStruct* hEncoder)
+ {
+     int i;
+     unsigned int channel;
+@@ -306,7 +306,7 @@ void LtpInit(faacEncHandle hEncoder)
+ 	}
+ }
+ 
+-void LtpEnd(faacEncHandle hEncoder)
++void LtpEnd(faacEncStruct* hEncoder)
+ {
+     unsigned int channel;
+ 
+--- faac.orig/libfaac/ltp.h
++++ faac/libfaac/ltp.h
+@@ -26,8 +26,8 @@
+ 
+ 
+ 
+-void LtpInit(faacEncHandle hEncoder);
+-void LtpEnd(faacEncHandle hEncoder);
++void LtpInit(faacEncStruct* hEncoder);
++void LtpEnd(faacEncStruct* hEncoder);
+ int LtpEncode(faacEncHandle hEncoder,
+                 CoderInfo *coderInfo,
+                 LtpInfo *ltpInfo,
+--- faac.orig/libfaac/psychkni.c
++++ faac/libfaac/psychkni.c
+@@ -26,7 +26,7 @@
+ #include "coder.h"
+ #include "fft.h"
+ #include "util.h"
+-#include "frame.h"
++#include <faac.h>
+ 
+ typedef float psyfloat;
+ 
+--- faac.orig/libfaac/tns.c
++++ faac/libfaac/tns.c
+@@ -84,7 +84,7 @@ static void TnsInvFilter(int length,doub
+ /*****************************************************/
+ /* InitTns:                                          */
+ /*****************************************************/
+-void TnsInit(faacEncHandle hEncoder)
++void TnsInit(faacEncStruct* hEncoder)
+ {
+     unsigned int channel;
+     int fsIndex = hEncoder->sampleRateIdx;
+--- faac.orig/libfaac/tns.h
++++ faac/libfaac/tns.h
+@@ -35,7 +35,7 @@ extern "C" {
+ #endif /* __cplusplus */
+ 
+ 
+-void TnsInit(faacEncHandle hEncoder);
++void TnsInit(faacEncStruct* hEncoder);
+ void TnsEncode(TnsInfo* tnsInfo, int numberOfBands,int maxSfb,enum WINDOW_TYPE blockType,
+                int* sfbOffsetTable,double* spec);
+ void TnsEncodeFilterOnly(TnsInfo* tnsInfo, int numberOfBands, int maxSfb,
