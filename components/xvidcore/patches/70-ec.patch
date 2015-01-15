@@ -1,0 +1,13 @@
+Index: xvidcore/build/generic/configure.in
+===================================================================
+--- xvidcore/build/generic/configure.in.orig
++++ xvidcore/build/generic/configure.in
+@@ -301,7 +301,7 @@ case "$target_os" in
+ 	SHARED_LIB="libxvidcore.\$(SHARED_EXTENSION).\$(API_MAJOR).\$(API_MINOR)"
+ 	SO_API_MAJOR_LINK="libxvidcore.\$(SHARED_EXTENSION).\$(API_MAJOR)"
+ 	SO_LINK="libxvidcore.\$(SHARED_EXTENSION)"
+-	SPECIFIC_LDFLAGS="-Wl,-soname,libxvidcore.\$(SHARED_EXTENSION).\$(API_MAJOR) -shared -Wl,--version-script=libxvidcore.ld -lc -lm"
++	SPECIFIC_LDFLAGS="-Wl,-soname,libxvidcore.\$(SHARED_EXTENSION).\$(API_MAJOR) -shared -Wl,-M,libxvidcore.ld -lc -lm"
+ 	SPECIFIC_CFLAGS="-fPIC"
+ 	;;
+      *bsd*|irix*)

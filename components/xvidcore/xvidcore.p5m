@@ -22,14 +22,10 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license xvidcore.license license="GPLv2"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-file path=$(ECPREFIX)/include/xvid.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libxvidcore.so.4.3
-file path=$(ECPREFIX)/lib/libxvidcore.so.4.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libxvidcore.so target=libxvidcore.so.4.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libxvidcore.so.4 target=libxvidcore.so.4.3
-link path=$(ECPREFIX)/lib/libxvidcore.so target=libxvidcore.so.4.3
-link path=$(ECPREFIX)/lib/libxvidcore.so.4 target=libxvidcore.so.4.3
+file path=$(USRDIR)/include/xvid.h
+file path=$(USRDIR)/lib/$(MACH64)/libxvidcore.so.4.3
+file path=$(USRDIR)/lib/libxvidcore.so.4.3
+link path=$(USRDIR)/lib/$(MACH64)/libxvidcore.so target=libxvidcore.so.4.3
+link path=$(USRDIR)/lib/$(MACH64)/libxvidcore.so.4 target=libxvidcore.so.4.3
+link path=$(USRDIR)/lib/libxvidcore.so target=libxvidcore.so.4.3
+link path=$(USRDIR)/lib/libxvidcore.so.4 target=libxvidcore.so.4.3

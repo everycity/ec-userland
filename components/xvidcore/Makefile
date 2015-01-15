@@ -23,18 +23,22 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		xvidcore
-COMPONENT_VERSION=	1.3.2
+COMPONENT_VERSION=	1.3.3
 COMPONENT_SRC=		$(COMPONENT_NAME)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:56e065d331545ade04c63c91153b9624b51d6e1b
+#COMPONENT_ARCHIVE_HASH=	sha1:56e065d331545ade04c63c91153b9624b51d6e1b
 COMPONENT_ARCHIVE_URL=	http://downloads.xvid.org/downloads/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-include ../../make-rules/gnu-ld.mk
+#include ../../make-rules/gnu-ld.mk
 
-LDFLAGS +=	-lrt
+LDFLAGS += -mimpure-text -lrt
+
+COMPONENT_PREP_ACTION+= \
+	( cd $(SOURCE_DIR)/build/generic ; \
+	    autoconf )
 
 $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
 	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
