@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -694,13 +694,13 @@ file path=$(ECPREFIX)/share/doc/go/html/doc/docs.html
 file path=$(ECPREFIX)/share/doc/go/html/doc/effective_go.html
 file path=$(ECPREFIX)/share/doc/go/html/doc/gccgo_contribute.html
 file path=$(ECPREFIX)/share/doc/go/html/doc/gccgo_install.html
-file path=$(ECPREFIX)/share/doc/go/html/doc/go$(COMPONENT_VERSION).html
 file path=$(ECPREFIX)/share/doc/go/html/doc/go-logo-black.png
 file path=$(ECPREFIX)/share/doc/go/html/doc/go-logo-blue.png
 file path=$(ECPREFIX)/share/doc/go/html/doc/go-logo-white.png
 file path=$(ECPREFIX)/share/doc/go/html/doc/go1.1.html
 file path=$(ECPREFIX)/share/doc/go/html/doc/go1.2.html
 file path=$(ECPREFIX)/share/doc/go/html/doc/go1.3.html
+file path=$(ECPREFIX)/share/doc/go/html/doc/go1.4.html
 file path=$(ECPREFIX)/share/doc/go/html/doc/go1.html
 file path=$(ECPREFIX)/share/doc/go/html/doc/go1compat.html
 file path=$(ECPREFIX)/share/doc/go/html/doc/go_faq.html
@@ -4634,6 +4634,7 @@ file path=$(ECPREFIX)/share/go/test/fixedbugs/issue8947.go
 file path=$(ECPREFIX)/share/go/test/fixedbugs/issue8961.go
 file path=$(ECPREFIX)/share/go/test/fixedbugs/issue9006.go
 file path=$(ECPREFIX)/share/go/test/fixedbugs/issue9110.go
+file path=$(ECPREFIX)/share/go/test/fixedbugs/issue9321.go
 file path=$(ECPREFIX)/share/go/test/float_lit.go
 file path=$(ECPREFIX)/share/go/test/float_lit2.go
 file path=$(ECPREFIX)/share/go/test/float_lit3.go

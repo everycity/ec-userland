@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		go
 COMPONENT_FMRI=		developer/go
-COMPONENT_VERSION=	1.4
+COMPONENT_VERSION=	1.4.1
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://golang.org/"
 COMPONENT_SUMMARY=	The Go Programming Language
 COMPONENT_SRC=		$(COMPONENT_NAME)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC)$(COMPONENT_VERSION).src.tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:3ae9f67e45a5ca7004b28808da8b1367d328a371d641ddbe636c0fb0ae0ffdae
+COMPONENT_ARCHIVE_HASH=	sha256:3d9bb27ad4be51f60dc44f3d0026036ef07142797b1df1b5ae816277e6c31bb3
 COMPONENT_ARCHIVE_URL=	https://storage.googleapis.com/golang/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
