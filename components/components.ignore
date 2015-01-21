@@ -38,7 +38,6 @@
 /^expect$/d
 /^faad2$/d
 /^fcgiwrap$/d
-/^ffmpeg$/d
 /^ffmpeg08$/d
 /^flac$/d
 /^fping$/d
