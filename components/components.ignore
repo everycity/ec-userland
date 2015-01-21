@@ -265,7 +265,6 @@
 /^redland$/d
 /^rrdtool$/d
 /^rsyslog$/d
-/^rtmpdump$/d
 /^ruby\/ec-mcollective$/d
 /^ruby\/ruby18$/d
 /^ruby\/ruby20$/d

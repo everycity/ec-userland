@@ -22,37 +22,24 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/librtmp
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man1
-dir path=$(ECPREFIX)/share/man3
-dir path=$(ECPREFIX)/share/man8
-file path=$(ECPREFIX)/bin/$(MACH64)/rtmpdump
-file path=$(ECPREFIX)/bin/$(MACH64)/rtmpgw
-file path=$(ECPREFIX)/bin/$(MACH64)/rtmpsrv
-file path=$(ECPREFIX)/bin/$(MACH64)/rtmpsuck
-file path=$(ECPREFIX)/bin/rtmpdump
-file path=$(ECPREFIX)/bin/rtmpgw
-file path=$(ECPREFIX)/bin/rtmpsrv
-file path=$(ECPREFIX)/bin/rtmpsuck
-file path=$(ECPREFIX)/include/librtmp/amf.h
-file path=$(ECPREFIX)/include/librtmp/http.h
-file path=$(ECPREFIX)/include/librtmp/log.h
-file path=$(ECPREFIX)/include/librtmp/rtmp.h
-file path=$(ECPREFIX)/lib/$(MACH64)/librtmp.so.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/librtmp.pc
-file path=$(ECPREFIX)/lib/librtmp.so.0
-file path=$(ECPREFIX)/lib/pkgconfig/librtmp.pc
-file path=$(ECPREFIX)/share/man1/rtmpdump.1
-file path=$(ECPREFIX)/share/man3/librtmp.3
-file path=$(ECPREFIX)/share/man8/rtmpgw.8
-link path=$(ECPREFIX)/lib/$(MACH64)/librtmp.so target=librtmp.so.0
-link path=$(ECPREFIX)/lib/librtmp.so target=librtmp.so.0
+file path=$(USRDIR)/bin/$(MACH64)/rtmpdump
+file path=$(USRDIR)/bin/$(MACH64)/rtmpgw
+file path=$(USRDIR)/bin/$(MACH64)/rtmpsrv
+file path=$(USRDIR)/bin/$(MACH64)/rtmpsuck
+file path=$(USRDIR)/bin/rtmpdump
+file path=$(USRDIR)/bin/rtmpgw
+file path=$(USRDIR)/bin/rtmpsrv
+file path=$(USRDIR)/bin/rtmpsuck
+file path=$(USRDIR)/include/librtmp/amf.h
+file path=$(USRDIR)/include/librtmp/http.h
+file path=$(USRDIR)/include/librtmp/log.h
+file path=$(USRDIR)/include/librtmp/rtmp.h
+file path=$(USRDIR)/lib/$(MACH64)/librtmp.so.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/librtmp.pc
+file path=$(USRDIR)/lib/librtmp.so.0
+file path=$(USRDIR)/lib/pkgconfig/librtmp.pc
+file path=$(USRDIR)/share/man1/rtmpdump.1
+file path=$(USRDIR)/share/man3/librtmp.3
+file path=$(USRDIR)/share/man8/rtmpgw.8
+link path=$(USRDIR)/lib/$(MACH64)/librtmp.so target=librtmp.so.0
+link path=$(USRDIR)/lib/librtmp.so target=librtmp.so.0
