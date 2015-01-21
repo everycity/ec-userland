@@ -22,24 +22,10 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/php
-dir path=$(ECPREFIX)/etc/php/5.5
-dir path=$(ECPREFIX)/etc/php/5.5/conf.d
-file imagick.ini path=$(ECPREFIX)/etc/php/5.5/conf.d/imagick.ini preserve=true
+file imagick.ini path=$(SYSCONFDIR)/php/5.5/conf.d/imagick.ini preserve=true
 
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/php
-dir path=$(ECPREFIX)/lib/php/5.5
-dir path=$(ECPREFIX)/lib/php/5.5/extensions
-dir path=$(ECPREFIX)/lib/php/5.5/extensions/$(MACH64)
-dir path=$(ECPREFIX)/lib/php/5.5/include
-dir path=$(ECPREFIX)/lib/php/5.5/include/php
-dir path=$(ECPREFIX)/lib/php/5.5/include/php/ext
-dir path=$(ECPREFIX)/lib/php/5.5/include/php/ext/imagick
-file path=$(ECPREFIX)/lib/php/5.5/extensions/$(MACH64)/imagick.so
-file path=$(ECPREFIX)/lib/php/5.5/extensions/imagick.so
-file path=$(ECPREFIX)/lib/php/5.5/include/php/ext/imagick/php_imagick.h
-file path=$(ECPREFIX)/lib/php/5.5/include/php/ext/imagick/php_imagick_defs.h
-file path=$(ECPREFIX)/lib/php/5.5/include/php/ext/imagick/php_imagick_shared.h
+file path=$(USRDIR)/lib/php/5.5/extensions/$(MACH64)/imagick.so
+file path=$(USRDIR)/lib/php/5.5/extensions/imagick.so
+file path=$(USRDIR)/lib/php/5.5/include/php/ext/imagick/php_imagick.h
+file path=$(USRDIR)/lib/php/5.5/include/php/ext/imagick/php_imagick_defs.h
+file path=$(USRDIR)/lib/php/5.5/include/php/ext/imagick/php_imagick_shared.h
