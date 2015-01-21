@@ -22,33 +22,24 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/vo-aacenc
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-file path=$(ECPREFIX)/include/vo-aacenc/cmnMemory.h
-file path=$(ECPREFIX)/include/vo-aacenc/voAAC.h
-file path=$(ECPREFIX)/include/vo-aacenc/voAMRWB.h
-file path=$(ECPREFIX)/include/vo-aacenc/voAudio.h
-file path=$(ECPREFIX)/include/vo-aacenc/voIndex.h
-file path=$(ECPREFIX)/include/vo-aacenc/voMem.h
-file path=$(ECPREFIX)/include/vo-aacenc/voType.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libvo-aacenc.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libvo-aacenc.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libvo-aacenc.so.0.0.3
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/vo-aacenc.pc
-file path=$(ECPREFIX)/lib/libvo-aacenc.a
-file path=$(ECPREFIX)/lib/libvo-aacenc.la
-file path=$(ECPREFIX)/lib/libvo-aacenc.so.0.0.3
-file path=$(ECPREFIX)/lib/pkgconfig/vo-aacenc.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libvo-aacenc.so \
+file path=$(USRDIR)/include/vo-aacenc/cmnMemory.h
+file path=$(USRDIR)/include/vo-aacenc/voAAC.h
+file path=$(USRDIR)/include/vo-aacenc/voAMRWB.h
+file path=$(USRDIR)/include/vo-aacenc/voAudio.h
+file path=$(USRDIR)/include/vo-aacenc/voIndex.h
+file path=$(USRDIR)/include/vo-aacenc/voMem.h
+file path=$(USRDIR)/include/vo-aacenc/voType.h
+file path=$(USRDIR)/lib/$(MACH64)/libvo-aacenc.a
+file path=$(USRDIR)/lib/$(MACH64)/libvo-aacenc.la
+file path=$(USRDIR)/lib/$(MACH64)/libvo-aacenc.so.0.0.3
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/vo-aacenc.pc
+file path=$(USRDIR)/lib/libvo-aacenc.a
+file path=$(USRDIR)/lib/libvo-aacenc.la
+file path=$(USRDIR)/lib/libvo-aacenc.so.0.0.3
+file path=$(USRDIR)/lib/pkgconfig/vo-aacenc.pc
+link path=$(USRDIR)/lib/$(MACH64)/libvo-aacenc.so \
     target=libvo-aacenc.so.0.0.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libvo-aacenc.so.0 \
+link path=$(USRDIR)/lib/$(MACH64)/libvo-aacenc.so.0 \
     target=libvo-aacenc.so.0.0.3
-link path=$(ECPREFIX)/lib/libvo-aacenc.so target=libvo-aacenc.so.0.0.3
-link path=$(ECPREFIX)/lib/libvo-aacenc.so.0 target=libvo-aacenc.so.0.0.3
+link path=$(USRDIR)/lib/libvo-aacenc.so target=libvo-aacenc.so.0.0.3
+link path=$(USRDIR)/lib/libvo-aacenc.so.0 target=libvo-aacenc.so.0.0.3
