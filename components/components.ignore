@@ -298,7 +298,6 @@
 /^uriparser$/d
 /^varnish$/d
 /^vlc2$/d
-/^vo-amrwbenc$/d
 /^vsftpd$/d
 /^wackamole$/d
 /^watch$/d
