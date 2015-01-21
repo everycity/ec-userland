@@ -32,12 +32,12 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 COMPONENT_POST_UNPACK_ACTION = ( \
-	${MV} source/$(COMPONENT_ARCHIVE_NAME)/$(COMPONENT_NAME) source/ ; \
-	${RM} -r source/$(COMPONENT_ARCHIVE_NAME) ; )
+	$(MV) source/$(COMPONENT_ARCHIVE_NAME)/$(COMPONENT_NAME) source/ ; \
+	$(RM) -r source/$(COMPONENT_ARCHIVE_NAME) ; )
 
-PHP_PREFIX=$(ECPREFIX)/lib/php/5.5
-PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.5
-PHP_DATADIR=$(ECPREFIX)/var/php/5.5
+PHP_PREFIX=$(USRDIR)/lib/php/5.5
+PHP_SYSCONFDIR=$(CONFIGURE_SYSCONFDIR)/php/5.5
+PHP_DATADIR=$(CONFIGURE_LOCALSTATEDIR)/php/5.5
 
 CONFIGURE_OPTIONS      =	--prefix=$(PHP_PREFIX)
 CONFIGURE_OPTIONS.32  +=	--bindir=$(PHP_PREFIX)/bin
@@ -53,8 +53,8 @@ CONFIGURE_OPTIONS     +=	--sysconfdir=$(PHP_SYSCONFDIR)
 CONFIGURE_OPTIONS     +=	--datadir=$(PHP_DATADIR)
 CONFIGURE_OPTIONS     +=	--mandir=$(PHP_PREFIX)/share/man
 
-CONFIGURE_OPTIONS     +=	--with-ffmpeg=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-libdir=$(ECPREFIX)/lib
+CONFIGURE_OPTIONS     +=	--with-ffmpeg=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-libdir=$(USRDIR)/lib
 
 CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris$(SOLARIS_VERSION)
 CONFIGURE_OPTIONS.32  +=	--with-php-config=$(PHP_PREFIX)/bin/php-config
@@ -62,7 +62,7 @@ CONFIGURE_OPTIONS.64  +=	--with-php-config=$(PHP_PREFIX)/bin/$(MACH64)/php-confi
 
 CONFIGURE_OPTIONS     +=	$(CONFIGURE_OPTIONS.$(BITS))
 
-CFLAGS                +=	-I$(ECPREFIX)/include -I$(PHP_PREFIX)/include
+CFLAGS                +=	-I$(USRDIR)/include -I$(PHP_PREFIX)/include
 CPPFLAGS              +=	$(CFLAGS)
 LDFLAGS.32            +=	-L$(PHP_PREFIX)/lib -R$(PHP_PREFIX)/lib
 LDFLAGS.64            +=	-L$(PHP_PREFIX)/lib/$(MACH64) -R$(PHP_PREFIX)/lib/$(MACH64)
