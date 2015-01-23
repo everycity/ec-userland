@@ -222,7 +222,6 @@
 /^php54-ext-xdebug$/d
 /^php54-ext-zendopcache$/d
 /^php55-apache24$/d
-/^php55-ext-pdo_mysql55$/d
 /^php55-ext-pdo_mysql56$/d
 /^php55-ext-pgsql91$/d
 /^php55-ext-pgsql93$/d
