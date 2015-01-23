@@ -24,7 +24,7 @@ license php55.license license="PHP55 License"
 
 file path=$(USRDIR)/lib/php/5.5/include/php/ext/mysqli/mysqli_libmysql.h
 file $(USRDIR)/lib/php/5.5/include/php/ext/mysqli/php_mysqli_structs.h path=$(USRDIR)/lib/php/5.5/include/php/ext/mysqli/php_mysqli56_structs.h
-link php_mysqli56_structs.h target=$(USRDIR)/lib/php/5.5/include/php/ext/mysqli/php_mysqli_structs.h mediator=mysql mediator-version=5.6
+link path=$(USRDIR)/lib/php/5.5/include/php/ext/mysqli/php_mysqli_structs.h target=php_mysqli56_structs.h mediator=mysql mediator-version=5.6
 file mysqli56.ini path=$(SYSCONFDIR)/php/5.5/conf.d/mysqli56.ini preserve=true
 file $(USRDIR)/lib/php/5.5/extensions/$(MACH64)/mysqli.so \
     path=$(USRDIR)/lib/php/5.5/extensions/$(MACH64)/mysqli56.so
