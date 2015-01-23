@@ -222,7 +222,6 @@
 /^php54-ext-xdebug$/d
 /^php54-ext-zendopcache$/d
 /^php55-apache24$/d
-/^php55-ext-ssh2$/d
 /^php55-ext-suhosin$/d
 /^php55-ext-xcache$/d
 /^php55-ext-xdebug$/d
