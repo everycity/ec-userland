@@ -22,7 +22,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license php55.license license="PHP55 License"
 
-file path=$(USRDIR)/lib/php/5.5/include/php/ext/mysqli/php_mysqli_structs.h
+file path=$(USRDIR)/lib/php/5.5/include/php/ext/mysqli/php_mysqli_structs.h mediator=mysql mediator-version=5.5
 file mysqli55.ini path=$(SYSCONFDIR)/php/5.5/conf.d/mysqli55.ini preserve=true
 file $(USRDIR)/lib/php/5.5/extensions/$(MACH64)/mysqli.so \
     path=$(USRDIR)/lib/php/5.5/extensions/$(MACH64)/mysqli55.so
