@@ -22,24 +22,10 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license php55.license license="PHP55 License"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/php
-dir path=$(ECPREFIX)/etc/php/5.5
-dir path=$(ECPREFIX)/etc/php/5.5/conf.d
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/php
-dir path=$(ECPREFIX)/lib/php/5.5
-dir path=$(ECPREFIX)/lib/php/5.5/extensions
-dir path=$(ECPREFIX)/lib/php/5.5/extensions/$(MACH64)
-dir path=$(ECPREFIX)/lib/php/5.5/include
-dir path=$(ECPREFIX)/lib/php/5.5/include/php
-dir path=$(ECPREFIX)/lib/php/5.5/include/php/ext
-dir path=$(ECPREFIX)/lib/php/5.5/include/php/ext/mysqli
-file path=$(ECPREFIX)/lib/php/5.5/include/php/ext/mysqli/mysqli_libmysql.h
-file path=$(ECPREFIX)/lib/php/5.5/include/php/ext/mysqli/php_mysqli_structs.h
-file mysqli56.ini path=$(ECPREFIX)/etc/php/5.5/conf.d/mysqli56.ini preserve=true
-file $(ECPREFIX)/lib/php/5.5/extensions/$(MACH64)/mysqli.so \
-    path=$(ECPREFIX)/lib/php/5.5/extensions/$(MACH64)/mysqli56.so
-file $(ECPREFIX)/lib/php/5.5/extensions/mysqli.so \
-    path=$(ECPREFIX)/lib/php/5.5/extensions/mysqli56.so
+file path=$(USRDIR)/lib/php/5.5/include/php/ext/mysqli/mysqli_libmysql.h
+file path=$(USRDIR)/lib/php/5.5/include/php/ext/mysqli/php_mysqli_structs.h
+file mysqli56.ini path=$(SYSCONFDIR)/php/5.5/conf.d/mysqli56.ini preserve=true
+file $(USRDIR)/lib/php/5.5/extensions/$(MACH64)/mysqli.so \
+    path=$(USRDIR)/lib/php/5.5/extensions/$(MACH64)/mysqli56.so
+file $(USRDIR)/lib/php/5.5/extensions/mysqli.so \
+    path=$(USRDIR)/lib/php/5.5/extensions/mysqli56.so
