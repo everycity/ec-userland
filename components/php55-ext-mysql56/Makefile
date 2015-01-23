@@ -25,8 +25,8 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 PHP_PREFIX=$(USRDIR)/lib/php/5.5
-PHP_SYSCONFDIR=/etc/php/5.5
-PHP_DATADIR=/var/php/5.5
+PHP_SYSCONFDIR=$(CONFIGURE_SYSCONFDIR)/php/5.5
+PHP_DATADIR=$(CONFIGURE_LOCALSTATEDIR)/php/5.5
 
 CONFIGURE_OPTIONS	=	--prefix=$(PHP_PREFIX)
 CONFIGURE_OPTIONS.32	=	--bindir=$(PHP_PREFIX)/bin
