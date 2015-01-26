@@ -17,7 +17,7 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=		trafficserver
 COMPONENT_FMRI=         web/loadbalancer/apachetrafficserver
 COMPONENT_VERSION=      5.1.2
-COMPONENT_LICENSE=      
+COMPONENT_LICENSE=      APLv2
 COMPONENT_PROJECT_URL=  "http://trafficserver.apache.org/"
 COMPONENT_SUMMARY=	Apache Traffic Server software is a fast, scalable and extensible HTTP/1.1 compliant caching proxy server
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
