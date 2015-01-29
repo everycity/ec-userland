@@ -54,12 +54,14 @@ file path=$(USRDIR)/bin/seek_print
 file path=$(USRDIR)/bin/trasher
 file path=$(USRDIR)/include/libavcodec/avcodec.h
 file path=$(USRDIR)/include/libavcodec/avfft.h
+file path=$(USRDIR)/include/libavcodec/dv_profile.h
 file path=$(USRDIR)/include/libavcodec/dxva2.h
 file path=$(USRDIR)/include/libavcodec/old_codec_ids.h
 file path=$(USRDIR)/include/libavcodec/vaapi.h
 file path=$(USRDIR)/include/libavcodec/vda.h
 file path=$(USRDIR)/include/libavcodec/vdpau.h
 file path=$(USRDIR)/include/libavcodec/version.h
+file path=$(USRDIR)/include/libavcodec/vorbis_parser.h
 file path=$(USRDIR)/include/libavcodec/xvmc.h
 file path=$(USRDIR)/include/libavdevice/avdevice.h
 file path=$(USRDIR)/include/libavdevice/version.h
@@ -87,11 +89,13 @@ file path=$(USRDIR)/include/libavutil/blowfish.h
 file path=$(USRDIR)/include/libavutil/bprint.h
 file path=$(USRDIR)/include/libavutil/bswap.h
 file path=$(USRDIR)/include/libavutil/buffer.h
+file path=$(USRDIR)/include/libavutil/cast5.h
 file path=$(USRDIR)/include/libavutil/channel_layout.h
 file path=$(USRDIR)/include/libavutil/common.h
 file path=$(USRDIR)/include/libavutil/cpu.h
 file path=$(USRDIR)/include/libavutil/crc.h
 file path=$(USRDIR)/include/libavutil/dict.h
+file path=$(USRDIR)/include/libavutil/display.h
 file path=$(USRDIR)/include/libavutil/downmix_info.h
 file path=$(USRDIR)/include/libavutil/error.h
 file path=$(USRDIR)/include/libavutil/eval.h
@@ -99,10 +103,10 @@ file path=$(USRDIR)/include/libavutil/ffversion.h
 file path=$(USRDIR)/include/libavutil/fifo.h
 file path=$(USRDIR)/include/libavutil/file.h
 file path=$(USRDIR)/include/libavutil/frame.h
+file path=$(USRDIR)/include/libavutil/hash.h
 file path=$(USRDIR)/include/libavutil/hmac.h
 file path=$(USRDIR)/include/libavutil/imgutils.h
 file path=$(USRDIR)/include/libavutil/intfloat.h
-file path=$(USRDIR)/include/libavutil/intfloat_readwrite.h
 file path=$(USRDIR)/include/libavutil/intreadwrite.h
 file path=$(USRDIR)/include/libavutil/lfg.h
 file path=$(USRDIR)/include/libavutil/log.h
@@ -111,19 +115,23 @@ file path=$(USRDIR)/include/libavutil/macros.h
 file path=$(USRDIR)/include/libavutil/mathematics.h
 file path=$(USRDIR)/include/libavutil/md5.h
 file path=$(USRDIR)/include/libavutil/mem.h
+file path=$(USRDIR)/include/libavutil/motion_vector.h
 file path=$(USRDIR)/include/libavutil/murmur3.h
 file path=$(USRDIR)/include/libavutil/old_pix_fmts.h
 file path=$(USRDIR)/include/libavutil/opt.h
 file path=$(USRDIR)/include/libavutil/parseutils.h
 file path=$(USRDIR)/include/libavutil/pixdesc.h
+file path=$(USRDIR)/include/libavutil/pixelutils.h
 file path=$(USRDIR)/include/libavutil/pixfmt.h
 file path=$(USRDIR)/include/libavutil/random_seed.h
 file path=$(USRDIR)/include/libavutil/rational.h
+file path=$(USRDIR)/include/libavutil/replaygain.h
 file path=$(USRDIR)/include/libavutil/ripemd.h
 file path=$(USRDIR)/include/libavutil/samplefmt.h
 file path=$(USRDIR)/include/libavutil/sha.h
 file path=$(USRDIR)/include/libavutil/sha512.h
 file path=$(USRDIR)/include/libavutil/stereo3d.h
+file path=$(USRDIR)/include/libavutil/threadmessage.h
 file path=$(USRDIR)/include/libavutil/time.h
 file path=$(USRDIR)/include/libavutil/timecode.h
 file path=$(USRDIR)/include/libavutil/timestamp.h
@@ -135,14 +143,36 @@ file path=$(USRDIR)/include/libswresample/swresample.h
 file path=$(USRDIR)/include/libswresample/version.h
 file path=$(USRDIR)/include/libswscale/swscale.h
 file path=$(USRDIR)/include/libswscale/version.h
-file path=$(USRDIR)/lib/$(MACH64)/libavcodec.so.55.52.102
-file path=$(USRDIR)/lib/$(MACH64)/libavdevice.so.55.10.100
-file path=$(USRDIR)/lib/$(MACH64)/libavfilter.so.4.2.100
-file path=$(USRDIR)/lib/$(MACH64)/libavformat.so.55.33.100
-file path=$(USRDIR)/lib/$(MACH64)/libavutil.so.52.66.100
-file path=$(USRDIR)/lib/$(MACH64)/libpostproc.so.52.3.100
-file path=$(USRDIR)/lib/$(MACH64)/libswresample.so.0.18.100
-file path=$(USRDIR)/lib/$(MACH64)/libswscale.so.2.5.102
+link path=$(USRDIR)/lib/$(MACH64)/libavcodec.so target=libavcodec.so.56.13.100
+link path=$(USRDIR)/lib/$(MACH64)/libavcodec.so.56 \
+    target=libavcodec.so.56.13.100
+file path=$(USRDIR)/lib/$(MACH64)/libavcodec.so.56.13.100
+link path=$(USRDIR)/lib/$(MACH64)/libavdevice.so target=libavdevice.so.56.3.100
+link path=$(USRDIR)/lib/$(MACH64)/libavdevice.so.56 \
+    target=libavdevice.so.56.3.100
+file path=$(USRDIR)/lib/$(MACH64)/libavdevice.so.56.3.100
+link path=$(USRDIR)/lib/$(MACH64)/libavfilter.so target=libavfilter.so.5.2.103
+link path=$(USRDIR)/lib/$(MACH64)/libavfilter.so.5 target=libavfilter.so.5.2.103
+file path=$(USRDIR)/lib/$(MACH64)/libavfilter.so.5.2.103
+link path=$(USRDIR)/lib/$(MACH64)/libavformat.so target=libavformat.so.56.15.102
+link path=$(USRDIR)/lib/$(MACH64)/libavformat.so.56 \
+    target=libavformat.so.56.15.102
+file path=$(USRDIR)/lib/$(MACH64)/libavformat.so.56.15.102
+link path=$(USRDIR)/lib/$(MACH64)/libavutil.so target=libavutil.so.54.15.100
+link path=$(USRDIR)/lib/$(MACH64)/libavutil.so.54 target=libavutil.so.54.15.100
+file path=$(USRDIR)/lib/$(MACH64)/libavutil.so.54.15.100
+link path=$(USRDIR)/lib/$(MACH64)/libpostproc.so target=libpostproc.so.53.3.100
+link path=$(USRDIR)/lib/$(MACH64)/libpostproc.so.53 \
+    target=libpostproc.so.53.3.100
+file path=$(USRDIR)/lib/$(MACH64)/libpostproc.so.53.3.100
+link path=$(USRDIR)/lib/$(MACH64)/libswresample.so \
+    target=libswresample.so.1.1.100
+link path=$(USRDIR)/lib/$(MACH64)/libswresample.so.1 \
+    target=libswresample.so.1.1.100
+file path=$(USRDIR)/lib/$(MACH64)/libswresample.so.1.1.100
+link path=$(USRDIR)/lib/$(MACH64)/libswscale.so target=libswscale.so.3.1.101
+link path=$(USRDIR)/lib/$(MACH64)/libswscale.so.3 target=libswscale.so.3.1.101
+file path=$(USRDIR)/lib/$(MACH64)/libswscale.so.3.1.101
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libavcodec.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libavdevice.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libavfilter.pc
@@ -151,14 +181,30 @@ file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libavutil.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libpostproc.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libswresample.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libswscale.pc
-file path=$(USRDIR)/lib/libavcodec.so.55.52.102
-file path=$(USRDIR)/lib/libavdevice.so.55.10.100
-file path=$(USRDIR)/lib/libavfilter.so.4.2.100
-file path=$(USRDIR)/lib/libavformat.so.55.33.100
-file path=$(USRDIR)/lib/libavutil.so.52.66.100
-file path=$(USRDIR)/lib/libpostproc.so.52.3.100
-file path=$(USRDIR)/lib/libswresample.so.0.18.100
-file path=$(USRDIR)/lib/libswscale.so.2.5.102
+link path=$(USRDIR)/lib/libavcodec.so target=libavcodec.so.56.13.100
+link path=$(USRDIR)/lib/libavcodec.so.56 target=libavcodec.so.56.13.100
+file path=$(USRDIR)/lib/libavcodec.so.56.13.100
+link path=$(USRDIR)/lib/libavdevice.so target=libavdevice.so.56.3.100
+link path=$(USRDIR)/lib/libavdevice.so.56 target=libavdevice.so.56.3.100
+file path=$(USRDIR)/lib/libavdevice.so.56.3.100
+link path=$(USRDIR)/lib/libavfilter.so target=libavfilter.so.5.2.103
+link path=$(USRDIR)/lib/libavfilter.so.5 target=libavfilter.so.5.2.103
+file path=$(USRDIR)/lib/libavfilter.so.5.2.103
+link path=$(USRDIR)/lib/libavformat.so target=libavformat.so.56.15.102
+link path=$(USRDIR)/lib/libavformat.so.56 target=libavformat.so.56.15.102
+file path=$(USRDIR)/lib/libavformat.so.56.15.102
+link path=$(USRDIR)/lib/libavutil.so target=libavutil.so.54.15.100
+link path=$(USRDIR)/lib/libavutil.so.54 target=libavutil.so.54.15.100
+file path=$(USRDIR)/lib/libavutil.so.54.15.100
+link path=$(USRDIR)/lib/libpostproc.so target=libpostproc.so.53.3.100
+link path=$(USRDIR)/lib/libpostproc.so.53 target=libpostproc.so.53.3.100
+file path=$(USRDIR)/lib/libpostproc.so.53.3.100
+link path=$(USRDIR)/lib/libswresample.so target=libswresample.so.1.1.100
+link path=$(USRDIR)/lib/libswresample.so.1 target=libswresample.so.1.1.100
+file path=$(USRDIR)/lib/libswresample.so.1.1.100
+link path=$(USRDIR)/lib/libswscale.so target=libswscale.so.3.1.101
+link path=$(USRDIR)/lib/libswscale.so.3 target=libswscale.so.3.1.101
+file path=$(USRDIR)/lib/libswscale.so.3.1.101
 file path=$(USRDIR)/lib/pkgconfig/libavcodec.pc
 file path=$(USRDIR)/lib/pkgconfig/libavdevice.pc
 file path=$(USRDIR)/lib/pkgconfig/libavfilter.pc
@@ -169,9 +215,10 @@ file path=$(USRDIR)/lib/pkgconfig/libswresample.pc
 file path=$(USRDIR)/lib/pkgconfig/libswscale.pc
 file path=$(USRDIR)/share/ffmpeg/examples/Makefile
 file path=$(USRDIR)/share/ffmpeg/examples/README
-file path=$(USRDIR)/share/ffmpeg/examples/avcodec.c
 file path=$(USRDIR)/share/ffmpeg/examples/avio_reading.c
+file path=$(USRDIR)/share/ffmpeg/examples/decoding_encoding.c
 file path=$(USRDIR)/share/ffmpeg/examples/demuxing_decoding.c
+file path=$(USRDIR)/share/ffmpeg/examples/extract_mvs.c
 file path=$(USRDIR)/share/ffmpeg/examples/filter_audio.c
 file path=$(USRDIR)/share/ffmpeg/examples/filtering_audio.c
 file path=$(USRDIR)/share/ffmpeg/examples/filtering_video.c
@@ -181,14 +228,13 @@ file path=$(USRDIR)/share/ffmpeg/examples/remuxing.c
 file path=$(USRDIR)/share/ffmpeg/examples/resampling_audio.c
 file path=$(USRDIR)/share/ffmpeg/examples/scaling_video.c
 file path=$(USRDIR)/share/ffmpeg/examples/transcode_aac.c
+file path=$(USRDIR)/share/ffmpeg/examples/transcoding.c
 file path=$(USRDIR)/share/ffmpeg/ffprobe.xsd
 file path=$(USRDIR)/share/ffmpeg/libvpx-1080p.ffpreset
 file path=$(USRDIR)/share/ffmpeg/libvpx-1080p50_60.ffpreset
 file path=$(USRDIR)/share/ffmpeg/libvpx-360p.ffpreset
 file path=$(USRDIR)/share/ffmpeg/libvpx-720p.ffpreset
 file path=$(USRDIR)/share/ffmpeg/libvpx-720p50_60.ffpreset
-file path=$(USRDIR)/share/ffmpeg/libx264-ipod320.ffpreset
-file path=$(USRDIR)/share/ffmpeg/libx264-ipod640.ffpreset
 file path=$(USRDIR)/share/man/man1/ffmpeg-all.1
 file path=$(USRDIR)/share/man/man1/ffmpeg-bitstream-filters.1
 file path=$(USRDIR)/share/man/man1/ffmpeg-codecs.1
@@ -211,49 +257,3 @@ file path=$(USRDIR)/share/man/man3/libavformat.3
 file path=$(USRDIR)/share/man/man3/libavutil.3
 file path=$(USRDIR)/share/man/man3/libswresample.3
 file path=$(USRDIR)/share/man/man3/libswscale.3
-link path=$(USRDIR)/lib/$(MACH64)/libavcodec.so \
-    target=libavcodec.so.55.52.102
-link path=$(USRDIR)/lib/$(MACH64)/libavcodec.so.55 \
-    target=libavcodec.so.55.52.102
-link path=$(USRDIR)/lib/$(MACH64)/libavdevice.so \
-    target=libavdevice.so.55.10.100
-link path=$(USRDIR)/lib/$(MACH64)/libavdevice.so.55 \
-    target=libavdevice.so.55.10.100
-link path=$(USRDIR)/lib/$(MACH64)/libavfilter.so \
-    target=libavfilter.so.4.2.100
-link path=$(USRDIR)/lib/$(MACH64)/libavfilter.so.4 \
-    target=libavfilter.so.4.2.100
-link path=$(USRDIR)/lib/$(MACH64)/libavformat.so \
-    target=libavformat.so.55.33.100
-link path=$(USRDIR)/lib/$(MACH64)/libavformat.so.55 \
-    target=libavformat.so.55.33.100
-link path=$(USRDIR)/lib/$(MACH64)/libavutil.so target=libavutil.so.52.66.100
-link path=$(USRDIR)/lib/$(MACH64)/libavutil.so.52 \
-    target=libavutil.so.52.66.100
-link path=$(USRDIR)/lib/$(MACH64)/libpostproc.so \
-    target=libpostproc.so.52.3.100
-link path=$(USRDIR)/lib/$(MACH64)/libpostproc.so.52 \
-    target=libpostproc.so.52.3.100
-link path=$(USRDIR)/lib/$(MACH64)/libswresample.so \
-    target=libswresample.so.0.18.100
-link path=$(USRDIR)/lib/$(MACH64)/libswresample.so.0 \
-    target=libswresample.so.0.18.100
-link path=$(USRDIR)/lib/$(MACH64)/libswscale.so target=libswscale.so.2.5.102
-link path=$(USRDIR)/lib/$(MACH64)/libswscale.so.2 \
-    target=libswscale.so.2.5.102
-link path=$(USRDIR)/lib/libavcodec.so target=libavcodec.so.55.52.102
-link path=$(USRDIR)/lib/libavcodec.so.55 target=libavcodec.so.55.52.102
-link path=$(USRDIR)/lib/libavdevice.so target=libavdevice.so.55.10.100
-link path=$(USRDIR)/lib/libavdevice.so.55 target=libavdevice.so.55.10.100
-link path=$(USRDIR)/lib/libavfilter.so target=libavfilter.so.4.2.100
-link path=$(USRDIR)/lib/libavfilter.so.4 target=libavfilter.so.4.2.100
-link path=$(USRDIR)/lib/libavformat.so target=libavformat.so.55.33.100
-link path=$(USRDIR)/lib/libavformat.so.55 target=libavformat.so.55.33.100
-link path=$(USRDIR)/lib/libavutil.so target=libavutil.so.52.66.100
-link path=$(USRDIR)/lib/libavutil.so.52 target=libavutil.so.52.66.100
-link path=$(USRDIR)/lib/libpostproc.so target=libpostproc.so.52.3.100
-link path=$(USRDIR)/lib/libpostproc.so.52 target=libpostproc.so.52.3.100
-link path=$(USRDIR)/lib/libswresample.so target=libswresample.so.0.18.100
-link path=$(USRDIR)/lib/libswresample.so.0 target=libswresample.so.0.18.100
-link path=$(USRDIR)/lib/libswscale.so target=libswscale.so.2.5.102
-link path=$(USRDIR)/lib/libswscale.so.2 target=libswscale.so.2.5.102
