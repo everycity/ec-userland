@@ -1,0 +1,182 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2015 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/booster
+dir path=$(ECPREFIX)/include/booster/aio
+dir path=$(ECPREFIX)/include/booster/iterator
+dir path=$(ECPREFIX)/include/booster/locale
+dir path=$(ECPREFIX)/include/booster/locale/boundary
+dir path=$(ECPREFIX)/include/booster/nowide
+dir path=$(ECPREFIX)/include/booster/smart_ptr
+dir path=$(ECPREFIX)/include/booster/traits
+dir path=$(ECPREFIX)/include/cppcms
+dir path=$(ECPREFIX)/lib
+file path=$(ECPREFIX)/bin/cppcms_config_find_param
+file path=$(ECPREFIX)/bin/cppcms_make_key
+file path=$(ECPREFIX)/bin/cppcms_run
+file path=$(ECPREFIX)/bin/cppcms_scale
+file path=$(ECPREFIX)/bin/cppcms_tmpl_cc
+file path=$(ECPREFIX)/include/booster/aio/acceptor.h
+file path=$(ECPREFIX)/include/booster/aio/aio_category.h
+file path=$(ECPREFIX)/include/booster/aio/aio_config.h
+file path=$(ECPREFIX)/include/booster/aio/basic_io_device.h
+file path=$(ECPREFIX)/include/booster/aio/basic_socket.h
+file path=$(ECPREFIX)/include/booster/aio/buffer.h
+file path=$(ECPREFIX)/include/booster/aio/deadline_timer.h
+file path=$(ECPREFIX)/include/booster/aio/endpoint.h
+file path=$(ECPREFIX)/include/booster/aio/io_service.h
+file path=$(ECPREFIX)/include/booster/aio/reactor.h
+file path=$(ECPREFIX)/include/booster/aio/socket.h
+file path=$(ECPREFIX)/include/booster/aio/stream_socket.h
+file path=$(ECPREFIX)/include/booster/aio/types.h
+file path=$(ECPREFIX)/include/booster/assert.h
+file path=$(ECPREFIX)/include/booster/atomic_counter.h
+file path=$(ECPREFIX)/include/booster/backtrace.h
+file path=$(ECPREFIX)/include/booster/bad_weak_ptr.h
+file path=$(ECPREFIX)/include/booster/build_config.h
+file path=$(ECPREFIX)/include/booster/callback.h
+file path=$(ECPREFIX)/include/booster/checked_delete.h
+file path=$(ECPREFIX)/include/booster/clone_ptr.h
+file path=$(ECPREFIX)/include/booster/config.h
+file path=$(ECPREFIX)/include/booster/copy_ptr.h
+file path=$(ECPREFIX)/include/booster/cstdint.h
+file path=$(ECPREFIX)/include/booster/ctime.h
+file path=$(ECPREFIX)/include/booster/enable_shared_from_this.h
+file path=$(ECPREFIX)/include/booster/function.h
+file path=$(ECPREFIX)/include/booster/hold_ptr.h
+file path=$(ECPREFIX)/include/booster/intrusive_ptr.h
+file path=$(ECPREFIX)/include/booster/iterator/iterator_facade.h
+file path=$(ECPREFIX)/include/booster/locale.h
+file path=$(ECPREFIX)/include/booster/locale/boundary.h
+file path=$(ECPREFIX)/include/booster/locale/boundary/boundary_point.h
+file path=$(ECPREFIX)/include/booster/locale/boundary/facets.h
+file path=$(ECPREFIX)/include/booster/locale/boundary/index.h
+file path=$(ECPREFIX)/include/booster/locale/boundary/segment.h
+file path=$(ECPREFIX)/include/booster/locale/boundary/types.h
+file path=$(ECPREFIX)/include/booster/locale/collator.h
+file path=$(ECPREFIX)/include/booster/locale/config.h
+file path=$(ECPREFIX)/include/booster/locale/conversion.h
+file path=$(ECPREFIX)/include/booster/locale/date_time.h
+file path=$(ECPREFIX)/include/booster/locale/date_time_facet.h
+file path=$(ECPREFIX)/include/booster/locale/encoding.h
+file path=$(ECPREFIX)/include/booster/locale/encoding_errors.h
+file path=$(ECPREFIX)/include/booster/locale/encoding_utf.h
+file path=$(ECPREFIX)/include/booster/locale/format.h
+file path=$(ECPREFIX)/include/booster/locale/formatting.h
+file path=$(ECPREFIX)/include/booster/locale/generator.h
+file path=$(ECPREFIX)/include/booster/locale/gnu_gettext.h
+file path=$(ECPREFIX)/include/booster/locale/hold_ptr.h
+file path=$(ECPREFIX)/include/booster/locale/info.h
+file path=$(ECPREFIX)/include/booster/locale/localization_backend.h
+file path=$(ECPREFIX)/include/booster/locale/message.h
+file path=$(ECPREFIX)/include/booster/locale/time_zone.h
+file path=$(ECPREFIX)/include/booster/locale/utf.h
+file path=$(ECPREFIX)/include/booster/locale/util.h
+file path=$(ECPREFIX)/include/booster/log.h
+file path=$(ECPREFIX)/include/booster/noncopyable.h
+file path=$(ECPREFIX)/include/booster/nowide/convert.h
+file path=$(ECPREFIX)/include/booster/nowide/cstdio.h
+file path=$(ECPREFIX)/include/booster/nowide/fstream.h
+file path=$(ECPREFIX)/include/booster/perl_regex.h
+file path=$(ECPREFIX)/include/booster/posix_time.h
+file path=$(ECPREFIX)/include/booster/refcounted.h
+file path=$(ECPREFIX)/include/booster/regex.h
+file path=$(ECPREFIX)/include/booster/regex_match.h
+file path=$(ECPREFIX)/include/booster/shared_object.h
+file path=$(ECPREFIX)/include/booster/shared_ptr.h
+file path=$(ECPREFIX)/include/booster/smart_ptr/operator_bool.h
+file path=$(ECPREFIX)/include/booster/smart_ptr/shared_count.h
+file path=$(ECPREFIX)/include/booster/smart_ptr/sp_convertible.h
+file path=$(ECPREFIX)/include/booster/smart_ptr/sp_counted_base.h
+file path=$(ECPREFIX)/include/booster/smart_ptr/sp_counted_impl.h
+file path=$(ECPREFIX)/include/booster/smart_ptr/sp_typeinfo.h
+file path=$(ECPREFIX)/include/booster/streambuf.h
+file path=$(ECPREFIX)/include/booster/system_error.h
+file path=$(ECPREFIX)/include/booster/thread.h
+file path=$(ECPREFIX)/include/booster/traits/enable_if.h
+file path=$(ECPREFIX)/include/booster/traits/is_base_of.h
+file path=$(ECPREFIX)/include/booster/weak_ptr.h
+file path=$(ECPREFIX)/include/cppcms/application.h
+file path=$(ECPREFIX)/include/cppcms/applications_pool.h
+file path=$(ECPREFIX)/include/cppcms/archive_traits.h
+file path=$(ECPREFIX)/include/cppcms/base64.h
+file path=$(ECPREFIX)/include/cppcms/base_cache_fwd.h
+file path=$(ECPREFIX)/include/cppcms/base_content.h
+file path=$(ECPREFIX)/include/cppcms/base_view.h
+file path=$(ECPREFIX)/include/cppcms/cache_interface.h
+file path=$(ECPREFIX)/include/cppcms/cache_pool.h
+file path=$(ECPREFIX)/include/cppcms/config.h
+file path=$(ECPREFIX)/include/cppcms/copy_filter.h
+file path=$(ECPREFIX)/include/cppcms/cppcms_error.h
+file path=$(ECPREFIX)/include/cppcms/crypto.h
+file path=$(ECPREFIX)/include/cppcms/cstdint.h
+file path=$(ECPREFIX)/include/cppcms/defs.h
+file path=$(ECPREFIX)/include/cppcms/encoding.h
+file path=$(ECPREFIX)/include/cppcms/filters.h
+file path=$(ECPREFIX)/include/cppcms/form.h
+file path=$(ECPREFIX)/include/cppcms/forwarder.h
+file path=$(ECPREFIX)/include/cppcms/http_content_type.h
+file path=$(ECPREFIX)/include/cppcms/http_context.h
+file path=$(ECPREFIX)/include/cppcms/http_cookie.h
+file path=$(ECPREFIX)/include/cppcms/http_file.h
+file path=$(ECPREFIX)/include/cppcms/http_request.h
+file path=$(ECPREFIX)/include/cppcms/http_response.h
+file path=$(ECPREFIX)/include/cppcms/json.h
+file path=$(ECPREFIX)/include/cppcms/locale_fwd.h
+file path=$(ECPREFIX)/include/cppcms/localization.h
+file path=$(ECPREFIX)/include/cppcms/mem_bind.h
+file path=$(ECPREFIX)/include/cppcms/mount_point.h
+file path=$(ECPREFIX)/include/cppcms/rpc_json.h
+file path=$(ECPREFIX)/include/cppcms/serialization.h
+file path=$(ECPREFIX)/include/cppcms/serialization_classes.h
+file path=$(ECPREFIX)/include/cppcms/service.h
+file path=$(ECPREFIX)/include/cppcms/session_api.h
+file path=$(ECPREFIX)/include/cppcms/session_cookies.h
+file path=$(ECPREFIX)/include/cppcms/session_dual.h
+file path=$(ECPREFIX)/include/cppcms/session_interface.h
+file path=$(ECPREFIX)/include/cppcms/session_pool.h
+file path=$(ECPREFIX)/include/cppcms/session_sid.h
+file path=$(ECPREFIX)/include/cppcms/session_storage.h
+file path=$(ECPREFIX)/include/cppcms/steal_buf.h
+file path=$(ECPREFIX)/include/cppcms/string_key.h
+file path=$(ECPREFIX)/include/cppcms/thread_pool.h
+file path=$(ECPREFIX)/include/cppcms/urandom.h
+file path=$(ECPREFIX)/include/cppcms/url_dispatcher.h
+file path=$(ECPREFIX)/include/cppcms/url_mapper.h
+file path=$(ECPREFIX)/include/cppcms/util.h
+file path=$(ECPREFIX)/include/cppcms/view.h
+file path=$(ECPREFIX)/include/cppcms/views_pool.h
+file path=$(ECPREFIX)/include/cppcms/xss.h
+file path=$(ECPREFIX)/lib/libbooster.a
+file path=$(ECPREFIX)/lib/libbooster.so.0.0.3
+file path=$(ECPREFIX)/lib/libcppcms.a
+file path=$(ECPREFIX)/lib/libcppcms.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/libbooster.so target=libbooster.so.0
+link path=$(ECPREFIX)/lib/libbooster.so.0 target=libbooster.so.0.0.3
+link path=$(ECPREFIX)/lib/libcppcms.so target=libcppcms.so.1
+link path=$(ECPREFIX)/lib/libcppcms.so.1 \
+    target=libcppcms.so.$(COMPONENT_VERSION)

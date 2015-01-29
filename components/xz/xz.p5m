@@ -1,3 +1,4 @@
 license COPYING.GPLv2 license="$(COMPONENT_LICENSE)"
 license COPYING.GPLv3 license="$(COMPONENT_LICENSE)"
 license COPYING.LGPLv2.1 license="$(COMPONENT_LICENSE)"
+

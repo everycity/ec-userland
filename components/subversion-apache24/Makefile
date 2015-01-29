@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		subversion
 COMPONENT_FMRI=		web/server/apache-24/module/apache-subversion
-COMPONENT_VERSION=	1.8.10
+COMPONENT_VERSION=	1.8.11
 COMPONENT_LICENSE=	CollabNetSVN
 COMPONENT_PROJECT_URL=	"http://subversion.apache.org"
 COMPONENT_SUMMARY=	The Subversion Source Control Management System Apache Module (Apache 2.4)
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:1cc900c8a7974337c3ed389dc6b5c59012ec48c7d4107ae31fd7c929ded47dcc
+COMPONENT_ARCHIVE_HASH=	sha256:10b056420e1f194c12840368f6bf58842e6200f9cb8cc5ebbf9be2e89e56e4d9
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_APACHE)
 
 include ../../make-rules/prep.mk

@@ -9,33 +9,29 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
-COMPONENT_NAME=			go
-COMPONENT_VERSION=		6a872d970aec
-IPS_COMPONENT_VERSION=	0.0.0.1.2.20131215
-COMPONENT_SRC=			4ad-go-sunos-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=		4ad-go-sunos-$(COMPONENT_VERSION).tar.bz2
-COMPONENT_ARCHIVE_URL=	https://bitbucket.org/4ad/go-sunos
-COMPONENT_PROJECT_URL=	http://golang.org/
-COMPONENT_FMRI=			developer/go
-COMPONENT_SUMMARY=		The Go Programming Language
+COMPONENT_NAME=		go
+COMPONENT_FMRI=		developer/go
+COMPONENT_VERSION=	1.4.1
+COMPONENT_LICENSE=	BSD
+COMPONENT_PROJECT_URL=	"http://golang.org/"
+COMPONENT_SUMMARY=	The Go Programming Language
+COMPONENT_SRC=		$(COMPONENT_NAME)
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC)$(COMPONENT_VERSION).src.tar.gz
+COMPONENT_ARCHIVE_HASH=	sha256:3d9bb27ad4be51f60dc44f3d0026036ef07142797b1df1b5ae816277e6c31bb3
+COMPONENT_ARCHIVE_URL=	https://storage.googleapis.com/golang/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
 
-$(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE):
-	$(COMPONENT_DIR)/generate-tarball.sh $(COMPONENT_ARCHIVE_URL) $(COMPONENT_SRC) $(COMPONENT_VERSION) $(WS_ARCHIVES)
-
-# Go is supported on amd64 architecture only
+CLEAN_PATHS+=	$(BUILD_DIR)
 
 COMPONENT_BUILD_ENV+= GOOS=solaris
-#COMPONENT_BUILD_ENV+= GOROOT=$(BUILD_DIR_64)/muahahaha
 COMPONENT_BUILD_ENV+= GOROOT_FINAL=$(ECPREFIX)/lib/go
-#COMPONENT_BUILD_ENV+= CC="$(CC) $(CC_BITS)"
 COMPONENT_BUILD_ARGS+= --no-banner
 
 $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
@@ -43,7 +39,7 @@ $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
 	$(CLONEY) $(SOURCE_DIR) $(@D)
 	$(COMPONENT_PRE_BUILD_ACTION)
 	(cd $(@D)/src ; $(ENV) $(COMPONENT_BUILD_ENV) \
-		./make.bash $(COMPONENT_BUILD_ARGS))
+		./all.bash $(COMPONENT_BUILD_ARGS))
 	$(COMPONENT_POST_BUILD_ACTION)
 	$(TOUCH) $@
 
@@ -66,9 +62,7 @@ $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
 	$(COMPONENT_POST_INSTALL_ACTION)
 	$(TOUCH) $@
 
-clean::
-	$(RM) -r $(BUILD_DIR)
-
+# Go is supported on amd64 architecture only
 build:		$(BUILD_64)
 
 install:	$(INSTALL_64)

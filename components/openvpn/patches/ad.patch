@@ -1,0 +1,24 @@
+$NetBSD: patch-ad,v 1.5 2013/07/31 06:53:21 adam Exp $
+
+--- a/config.h.in.orig	2013-05-31 12:00:59.000000000 +0000
++++ b/config.h.in
+@@ -277,6 +277,9 @@
+ /* struct in_pktinfo needed for IP_PKTINFO support */
+ #undef HAVE_IN_PKTINFO
+ 
++/* struct in_pktinfo.ipi_spec_dst needed for IP_PKTINFO support */
++#undef HAVE_IPI_SPEC_DST
++
+ /* struct iovec needed for IPv6 support */
+ #undef HAVE_IOVEC
+ 
+@@ -352,6 +355,9 @@
+ /* Define to 1 if you have the <net/if.h> header file. */
+ #undef HAVE_NET_IF_H
+ 
++/* Define to 1 if you have the <net/if_tap.h> header file. */
++#undef HAVE_NET_IF_TAP_H
++
+ /* Define to 1 if you have the <net/if_tun.h> header file. */
+ #undef HAVE_NET_IF_TUN_H
+ 

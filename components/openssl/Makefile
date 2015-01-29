@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014, EveryCity Ltd. All rights reserved.
+# Copyright 2015, EveryCity Ltd. All rights reserved.
 #
 
 # we need JOBS=1 for this component
@@ -18,14 +18,14 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		openssl
 COMPONENT_FMRI=		library/security/openssl
-COMPONENT_VERSION=	1.0.1j
-IPS_COMPONENT_VERSION=  1.0.1.10
+COMPONENT_VERSION=	1.0.1l
+IPS_COMPONENT_VERSION=  1.0.1.12
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://www.openssl.org/"
 COMPONENT_SUMMARY=	OpenSSL - a Toolkit for Secure Sockets Layer (SSL v2/v3) and Transport Layer (TLS v1) protocols and general purpose cryptographic library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:1b60ca8789ba6f03e8ef20da2293b8dc131c39d83814e775069f02d26354edf3
+COMPONENT_ARCHIVE_HASH=	sha256:b2cf4d48fe5d49f240c61c9e624193a6f232b5ed0baf010681e725963c40d1d4
 COMPONENT_ARCHIVE_URL=	http://www.openssl.org/source/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

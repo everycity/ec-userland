@@ -13,7 +13,13 @@
     <dependency name='name-services' grouping='require_all' restart_on='refresh' type='service'>
       <service_fmri value='svc:/milestone/name-services'/>
     </dependency>
-    <method_context>
+    <dependency name='network-physical' grouping='require_all' restart_on='none' type='service'>
+      <service_fmri value='svc:/network/physical'/>
+    </dependency>
+    <dependency name='network-routing-setup' grouping='require_all' restart_on='none' type='service'>
+      <service_fmri value='svc:/network/routing-setup:default'/>
+    </dependency>
+      <method_context>
       <method_credential group='root' user='root'/>
     </method_context>
     <exec_method name='start' type='method' exec='/ec/bin/spread -c /ec/etc/spread.conf' timeout_seconds='10'/>

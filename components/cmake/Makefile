@@ -16,15 +16,15 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		cmake
 COMPONENT_FMRI=		developer/build/cmake
-COMPONENT_VERSION=	2.8.12.2
+COMPONENT_VERSION_MJR=	3.1
+COMPONENT_VERSION=	$(COMPONENT_VERSION_MJR).0
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://www.cmake.org/"
 COMPONENT_SUMMARY=	CMake - A cross-platform, open-source make system.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	\
-	sha256:8c6574e9afabcb9fc66f463bb1f2f051958d86c85c37fccf067eb1a44a120e5e
-COMPONENT_ARCHIVE_URL=	http://www.cmake.org/files/v2.8/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:8bdc3fa3f2da81bc10c772a6b64cc9052acc2901d42e1e1b2588b40df224aad9
+COMPONENT_ARCHIVE_URL=	http://www.cmake.org/files/v$(COMPONENT_VERSION_MJR)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
@@ -34,7 +34,7 @@ LDFLAGS += -lsocket -lnsl
 LDFLAGS += -ltinfo
 
 CONFIGURE_OPTIONS=	--prefix=$(USRDIR) --mandir=share/man
-CONFIGURE_OPTIONS+=	--docdir=share/doc/cmake-2.8
+CONFIGURE_OPTIONS+=	--docdir=share/doc/cmake-$(COMPONENT_VERSION_MJR)
 
 CONFIGURE_OPTIONS +=	--system-curl
 #CONFIGURE_OPTIONS=	--system-expat
@@ -42,6 +42,8 @@ CONFIGURE_OPTIONS +=	--system-zlib
 CONFIGURE_OPTIONS +=	--system-bzip2
 #CONFIGURE_OPTIONS +=	--verbose
 
-build:		$(BUILD_32)
+$(BUILD_DIR)/.installed:	$(INSTALL_32)
+	find $(PROTO_DIR)$(USRDIR) -name "*\ *" -exec rm {} \;
+	$(TOUCH) $@
 
-install:	$(INSTALL_32)
+install:	$(BUILD_DIR)/.installed

@@ -324,3 +324,10 @@
 /^postgresql94$/d
 /^re2c$/d
 /^x11-xauth$/d
+/^check$/d
+/^cppcms$/d
+/^filebench$/d
+/^jq$/d
+/^openvpn$/d
+/^ruby/ruby22$/d
+/^trafficserver$/d
