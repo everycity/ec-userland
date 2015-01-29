@@ -243,7 +243,6 @@
 /^raptor2$/d
 /^rasqal$/d
 /^re-alpine$/d
-/^redis$/d
 /^redland$/d
 /^rrdtool$/d
 /^rsyslog$/d

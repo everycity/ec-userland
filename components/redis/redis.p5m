@@ -32,17 +32,15 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-file files/redis.conf path=$(ECPREFIX)/etc/redis/redis.conf preserve=true mode=0644
-file files/redis.xml path=var/svc/manifest/site/redis.xml \
+dir  path=$(SYSCONFDIR)/redis
+
+file files/redis.conf path=$(SYSCONFDIR)/redis/redis.conf preserve=true mode=0644
+file files/redis.xml.$(ZTYPE) path=$(SVCMANIFEST)/site/redis.xml \
     restart_fmri=svc:/system/manifest-import:default
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/redis
-file path=$(ECPREFIX)/bin/redis-benchmark
-file path=$(ECPREFIX)/bin/redis-check-aof
-file path=$(ECPREFIX)/bin/redis-check-dump
-file path=$(ECPREFIX)/bin/redis-cli
-file path=$(ECPREFIX)/bin/redis-server
-link path=$(ECPREFIX)/bin/redis-sentinel target=redis-server
+file path=$(USRDIR)/bin/redis-benchmark
+file path=$(USRDIR)/bin/redis-check-aof
+file path=$(USRDIR)/bin/redis-check-dump
+file path=$(USRDIR)/bin/redis-cli
+file path=$(USRDIR)/bin/redis-server
+link path=$(USRDIR)/bin/redis-sentinel target=redis-server

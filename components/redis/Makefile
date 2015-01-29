@@ -40,15 +40,15 @@ include ../../make-rules/ips.mk
 
 include ../../make-rules/shared-targets.mk
 
-COMPONENT_BUILD_GMAKE_ARGS+= CFLAGS="$(CFLAGS) -D_POSIX_PTHREAD_SEMANTICS" LDFLAGS="$(LDFLAGS)" V=1
+COMPONENT_BUILD_GMAKE_ARGS+= CC="$(CC)" CFLAGS="$(CFLAGS) -D_POSIX_PTHREAD_SEMANTICS" LDFLAGS="$(LDFLAGS)" V=1
 
-COMPONENT_INSTALL_TARGETS += os=solaris PREFIX=$(PROTO_DIR)$(ECPREFIX)
-COMPONENT_PRE_INSTALL_ACTION=	( mkdir -p $(PROTO_DIR)$(ECPREFIX)/bin )
+COMPONENT_INSTALL_TARGETS += os=solaris PREFIX=$(PROTO_DIR)$(USRDIR)
+COMPONENT_PRE_INSTALL_ACTION=	( mkdir -p $(PROTO_DIR)$(USRDIR)/bin )
 
 build:		$(BUILD_64)
 
 $(BUILD_DIR)/.installed:	$(INSTALL_64)
-	for file in $(PROTO_DIR)$(ECPREFIX)/bin/redis*; do strip -x $$file; done
+	for file in $(PROTO_DIR)$(USRDIR)/bin/redis*; do strip -x $$file; done
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed
