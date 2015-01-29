@@ -329,5 +329,5 @@
 /^filebench$/d
 /^jq$/d
 /^openvpn$/d
-/^ruby/ruby22$/d
+/^ruby\/ruby22$/d
 /^trafficserver$/d
