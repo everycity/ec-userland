@@ -17,7 +17,7 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=		openvpn
 COMPONENT_FMRI=         network/security/openvpn
 COMPONENT_VERSION=      2.3.6
-COMPONENT_LICENSE=      
+COMPONENT_LICENSE=      "Multiple Open Source Licenses"
 COMPONENT_PROJECT_URL=  "http://openvpn.net/index.php/open-source.html"
 COMPONENT_SUMMARY=	OpenVPN is a full-featured open source SSL VPN solution
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
