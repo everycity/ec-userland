@@ -1,0 +1,125 @@
+#!/usr/xpg4/bin/sh
+
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2015 EveryCity Ltd. All rights reserved.
+#
+
+. /lib/svc/share/smf_include.sh
+
+# Set a reasonable ulimit
+ulimit -n 65535
+
+# Allow more than 256 file descriptors on Solaris 10 32bit
+# See the following URL for a full description:
+# http://developers.sun.com/solaris/articles/stdio_256.html
+export LD_PRELOAD_32=/usr/lib/extendedFILE.so.1
+
+# Defaults, overidable via SMF
+TOMCAT_NAME=tomcat8
+catalina_home=/ec/lib/$TOMCAT_NAME
+catalina_base=/ec/var/$TOMCAT_NAME
+jvm_extra_options="-server"
+jvm_gc_options="-XX:+UseParallelGC -XX:+UseParallelOldGC -Xloggc:$CATALINA_BASE/logs/gc.log -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -verbose:gc"
+jvm_heap_options="-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$CATALINA_BASE/logs"
+jvm_jmx_options="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.port=8001"
+jvm_xms_options="-Xms1024m"
+jvm_xmx_options="-Xmx1024m"
+jvm_permsize_options="-XX:PermSize=128m"
+jvm_maxpermsize_options="-XX:MaxPermSize=256m"
+
+getprop() {
+    PROPVAL=""
+    svcprop -q -p $1 ${SMF_FMRI}
+    if [ $? -eq 0 ] ; then
+        PROPVAL=`svccfg -s ${SMF_FMRI} listprop $1 | \
+                /usr/bin/nawk '{ for (i = 3; i <= NF; i++) printf $i" " }' | \
+                /usr/bin/nawk '{ sub(/^\"/,""); sub(/\"[ \t]*$/,""); print }' | \
+                /usr/bin/sed 's/[ ]*$//g'`
+        if [ "${PROPVAL}" = "\"\"" ] ; then
+            PROPVAL=""
+        fi
+        return
+    fi
+    return
+}
+
+varprop() {
+  getprop tomcat/$1
+  if [ "${PROPVAL}" != "" ] ; then
+    export $1="${PROPVAL}"
+  fi
+}
+
+varprop catalina_home
+varprop catalina_base
+varprop jvm_extra_options
+varprop jvm_gc_options
+varprop jvm_heap_options
+varprop jvm_jmx_options
+varprop jvm_xms_options
+varprop jvm_xmx_options
+varprop jvm_permsize_options
+varprop jvm_maxpermsize_options
+
+getprop tomcat/enable_64bit
+if [ "${PROPVAL}" != "" ] ; then
+    case ${PROPVAL} in
+    true|1)
+        # Check if the system architecture supports 64-bit applications
+        PLATFORM=`isainfo -b`
+        if [ "${PLATFORM}" != "64" ]; then
+            echo "This system is not capable of supporting 64-bit applications."
+            echo "Set \"enable_64bit\" property value to \"false\" to start the 32-bit server."
+            exit $SMF_EXIT_ERR_CONFIG
+        fi
+
+	# 64 bit
+	jvm_extra_options="-d64 $jvm_extra_options"
+	;;
+    false|0) 
+	# 32 bit
+	;;
+    *)
+	# Invalid value for "bitness"
+	echo "\"bitness\" property value is invalid. Starting the server in 32-bit mode"
+	;;
+    esac
+fi
+
+export CATALINA_HOME="$catalina_home"
+export CATALINA_BASE="$catalina_base"
+export CATALINA_OPTS="  $jvm_extra_options $jvm_gc_options $jvm_heap_options $jvm_jmx_options $jvm_xms_options $jvm_xmx_options $jvm_permsize_options $jvm_maxpermsize_options"
+
+case "$1" in
+start)
+	cmd="start"
+	;;
+stop)
+	cmd="stop"
+	;;
+*)
+	echo "Usage: $0 {start|stop}"
+	exit $SMF_EXIT_ERR_CONFIG
+	;;
+esac
+
+$CATALINA_HOME/bin/catalina.sh $cmd 2>&1
+
+
+if [ $? -ne 0 ]; then
+    echo "Server failed to start. Check the tomcat error log for more information, if any."
+    exit $SMF_EXIT_ERR_FATAL
+fi
+
+exit $SMF_EXIT_OK
+
