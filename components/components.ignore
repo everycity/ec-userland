@@ -330,3 +330,4 @@
 /^openvpn$/d
 /^ruby\/ruby22$/d
 /^trafficserver$/d
+/^tomcat8$/d

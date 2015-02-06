@@ -18,14 +18,14 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		openssl
 COMPONENT_FMRI=		library/security/openssl
-COMPONENT_VERSION=	1.0.1l
-IPS_COMPONENT_VERSION=  1.0.1.12
+COMPONENT_VERSION=	1.0.2
+IPS_COMPONENT_VERSION=  1.0.2
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://www.openssl.org/"
 COMPONENT_SUMMARY=	OpenSSL - a Toolkit for Secure Sockets Layer (SSL v2/v3) and Transport Layer (TLS v1) protocols and general purpose cryptographic library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:b2cf4d48fe5d49f240c61c9e624193a6f232b5ed0baf010681e725963c40d1d4
+COMPONENT_ARCHIVE_HASH=	sha256:8c48baf3babe0d505d16cfc0cf272589c66d3624264098213db0fb00034728e9
 COMPONENT_ARCHIVE_URL=	http://www.openssl.org/source/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -105,9 +105,9 @@ $(BUILD_DIR)/.installed:	$(BUILD_32_and_64) $(INSTALL_32)
 	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
 	$(INSTALL) $(BUILD_DIR_64)/libcrypto.so.1.0.0 $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
 	$(INSTALL) $(BUILD_DIR_64)/libssl.so.1.0.0 $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
-#	( cd $(PROTO_DIR)$(USRDIR)/lib/$(MACH64) && \
-#		$(SYMLINK) -f libcrypto.so.1.0.0 libcrypto.so && \
-#		$(SYMLINK) -f libssl.so.1.0.0 libssl.so )
+	( cd $(PROTO_DIR)$(USRDIR)/lib/$(MACH64) && \
+		$(SYMLINK) -f libcrypto.so.1.0.0 libcrypto.so && \
+		$(SYMLINK) -f libssl.so.1.0.0 libssl.so )
 	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
 	$(INSTALL) $(BUILD_DIR_64)/engines/lib4758cca.so $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines
 	$(INSTALL) $(BUILD_DIR_64)/engines/libaep.so $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/engines

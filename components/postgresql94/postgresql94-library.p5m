@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014, EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -105,6 +105,8 @@ dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/es
 dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/es/LC_MESSAGES
 dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/fr
 dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/fr/LC_MESSAGES
+dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/id
+dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/id/LC_MESSAGES
 dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it
 dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES
 dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ja
@@ -328,6 +330,7 @@ file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/comma
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/commands/view.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/common/fe_memutils.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/common/relpath.h
+file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/common/string.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/common/username.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/datatype/timestamp.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/dynloader.h
@@ -1014,6 +1017,8 @@ file \
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/fr/LC_MESSAGES/postgres-9.4.mo
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/fr/LC_MESSAGES/psql-9.4.mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/id/LC_MESSAGES/postgres-9.4.mo
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES/ecpg-9.4.mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/it/LC_MESSAGES/ecpglib6-9.4.mo
