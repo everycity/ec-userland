@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ag
 COMPONENT_FMRI=         text/ag
-COMPONENT_VERSION=      0.27.0
+COMPONENT_VERSION=      0.29.1
 COMPONENT_LICENSE=      APLv2
 COMPONENT_PROJECT_URL=  "http://geoff.greer.fm/ag/"
 COMPONENT_SUMMARY=	A code-searching tool similar to ack, but faster
 COMPONENT_SRC=		the_silver_searcher-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:32172858385e2b8bea4c91572a3815368e582539585fd98e71c54b41de18a06a
+COMPONENT_ARCHIVE_HASH=	sha256:d75635ce2413089e816120ac8fdbb376e34f23552127670b7207126d6c9cd80a
 COMPONENT_ARCHIVE_URL=	http://geoff.greer.fm/ag/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
