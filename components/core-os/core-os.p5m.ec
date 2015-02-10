@@ -59,6 +59,7 @@ dir  path=usr/lib/$(MACH64)
 dir  path=usr/share
 dir  path=var
 dir  path=var/run
+dir  path=var/spool
 dir  path=var/svc
 dir  path=var/svc/manifest
 dir  path=var/svc/manifest/application
