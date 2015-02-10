@@ -29,6 +29,7 @@ dir  path=tmp owner=root group=root mode=1777
 
 # Core Directories
 dir  path=etc
+dir  path=etc/cron.d
 dir  path=etc/security
 dir  path=etc/security/auth_attr.d
 dir  path=etc/security/exec_attr.d
