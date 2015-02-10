@@ -23,7 +23,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 group gid=456 groupname=exim
-user gcos-field="Exim Account" group=exim uid=456 username=exim login-shell=/bin/false home-dir=/ec/var/spool/exim
+user gcos-field="Exim Account" group=exim uid=456 username=exim login-shell=/bin/false home-dir=$(LOCALSTATEDIR)/spool/exim
 
 file path=$(USRDIR)/bin/exicyclog
 file path=$(USRDIR)/bin/exigrep
@@ -49,3 +49,5 @@ file path=$(LOCALSTATEDIR)/log/exim/reject.log mode=0664 owner=exim group=exim p
 file files/exim-startup.sh.$(ZTYPE) path=$(SVCMETHOD)/exim mode=0555
 file files/exim-manifest.xml.$(ZTYPE) path=$(SVCMANIFEST)/site/exim.xml restart_fmri=svc:/system/manifest-import:default
 link path=$(USRDIR)/bin/exim target=exim-$(COMPONENT_VERSION)-3
+dir  path=$(LOCALSTATEDIR)/spool/exim owner=exim group=exim mode=0750
+dir  path=$(LOCALSTATEDIR)/spool/exim/db owner=exim group=exim mode=0750
