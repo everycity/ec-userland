@@ -28,7 +28,7 @@ set name=pkg.fmri value=pkg:/file/mc@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="The GNU Midnight Commander file manager"
 set name=info.classification value="org.opensolaris.category.2008:Desktop (GNOME)/File Managers"
 set name=info.upstream_url value="http://www.midnight-commander.org/"
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.source_url value=https://github.com/MidnightCommander/mc.git
 
 license COPYING license="GPLv3"
 
@@ -334,6 +334,7 @@ file path=$(ECPREFIX)/share/mc/hints/mc.hint.eu
 file path=$(ECPREFIX)/share/mc/hints/mc.hint.fa
 file path=$(ECPREFIX)/share/mc/hints/mc.hint.fi
 file path=$(ECPREFIX)/share/mc/hints/mc.hint.fr
+file path=$(ECPREFIX)/share/mc/hints/mc.hint.fr_CA
 file path=$(ECPREFIX)/share/mc/hints/mc.hint.gl
 file path=$(ECPREFIX)/share/mc/hints/mc.hint.hr
 file path=$(ECPREFIX)/share/mc/hints/mc.hint.hu
@@ -358,6 +359,7 @@ file path=$(ECPREFIX)/share/mc/hints/mc.hint.sr
 file path=$(ECPREFIX)/share/mc/hints/mc.hint.sv
 file path=$(ECPREFIX)/share/mc/hints/mc.hint.sv_SE
 file path=$(ECPREFIX)/share/mc/hints/mc.hint.szl
+file path=$(ECPREFIX)/share/mc/hints/mc.hint.te
 file path=$(ECPREFIX)/share/mc/hints/mc.hint.tr
 file path=$(ECPREFIX)/share/mc/hints/mc.hint.uk
 file path=$(ECPREFIX)/share/mc/hints/mc.hint.zh
@@ -370,6 +372,8 @@ file path=$(ECPREFIX)/share/mc/skins/default.ini
 file path=$(ECPREFIX)/share/mc/skins/double-lines.ini
 file path=$(ECPREFIX)/share/mc/skins/featured.ini
 file path=$(ECPREFIX)/share/mc/skins/gotar.ini
+file path=$(ECPREFIX)/share/mc/skins/gray-green-purple256.ini
+file path=$(ECPREFIX)/share/mc/skins/gray-orange-blue256.ini
 file path=$(ECPREFIX)/share/mc/skins/mc46.ini
 file path=$(ECPREFIX)/share/mc/skins/modarcon16-defbg.ini
 file path=$(ECPREFIX)/share/mc/skins/modarcon16.ini
@@ -439,6 +443,7 @@ file path=$(ECPREFIX)/share/mc/syntax/po.syntax
 file path=$(ECPREFIX)/share/mc/syntax/povray.syntax
 file path=$(ECPREFIX)/share/mc/syntax/procmail.syntax
 file path=$(ECPREFIX)/share/mc/syntax/properties.syntax
+file path=$(ECPREFIX)/share/mc/syntax/puppet.syntax
 file path=$(ECPREFIX)/share/mc/syntax/python.syntax
 file path=$(ECPREFIX)/share/mc/syntax/ruby.syntax
 file path=$(ECPREFIX)/share/mc/syntax/sh.syntax
