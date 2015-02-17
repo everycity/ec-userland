@@ -242,6 +242,7 @@ file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/config/realm.html
 file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/config/resources.html
 file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/config/server.html
 file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/config/service.html
+file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/config/sessionidgenerator.html
 file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/config/systemprops.html
 file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/config/valve.html
 file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/connectors.html
