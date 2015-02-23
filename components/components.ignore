@@ -109,7 +109,6 @@
 /^lsof$/d
 /^lua$/d
 /^lucene$/d
-/^lz4$/d
 /^mDNSResponder$/d
 /^mailx$/d
 /^make$/d

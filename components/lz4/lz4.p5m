@@ -22,8 +22,5 @@ set name=info.source_url value="$(COMPONENT_ARCHIVE_URL)"
 
 license lz4.license license="BSD"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-file path=$(ECPREFIX)/bin/lz4
-file path=$(ECPREFIX)/bin/$(MACH64)/lz4
+file path=$(USRDIR)/bin/lz4
+file path=$(USRDIR)/bin/$(MACH64)/lz4
