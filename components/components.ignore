@@ -91,7 +91,6 @@
 /^libid3tag$/d
 /^libksba$/d
 /^liblzo$/d
-/^libmad$/d
 /^libmediainfo$/d
 /^libmms$/d
 /^libmpeg2$/d
@@ -253,7 +252,6 @@
 /^smartos-ps$/d
 /^snappy$/d
 /^solr$/d
-/^sox$/d
 /^spawn-fcgi$/d
 /^sphinx$/d
 /^sphinx-099$/d
