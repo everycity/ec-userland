@@ -22,93 +22,75 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/FLAC
-dir path=$(ECPREFIX)/include/FLAC++
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/aclocal
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)
-dir path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html
-dir path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/images
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/flac
-file path=$(ECPREFIX)/bin/$(MACH64)/metaflac
-file path=$(ECPREFIX)/bin/flac
-file path=$(ECPREFIX)/bin/metaflac
-file path=$(ECPREFIX)/include/FLAC++/all.h
-file path=$(ECPREFIX)/include/FLAC++/decoder.h
-file path=$(ECPREFIX)/include/FLAC++/encoder.h
-file path=$(ECPREFIX)/include/FLAC++/export.h
-file path=$(ECPREFIX)/include/FLAC++/metadata.h
-file path=$(ECPREFIX)/include/FLAC/all.h
-file path=$(ECPREFIX)/include/FLAC/assert.h
-file path=$(ECPREFIX)/include/FLAC/callback.h
-file path=$(ECPREFIX)/include/FLAC/export.h
-file path=$(ECPREFIX)/include/FLAC/format.h
-file path=$(ECPREFIX)/include/FLAC/metadata.h
-file path=$(ECPREFIX)/include/FLAC/ordinals.h
-file path=$(ECPREFIX)/include/FLAC/stream_decoder.h
-file path=$(ECPREFIX)/include/FLAC/stream_encoder.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libFLAC++.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libFLAC++.so.6.3.0
-file path=$(ECPREFIX)/lib/$(MACH64)/libFLAC.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libFLAC.so.8.3.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/flac++.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/flac.pc
-file path=$(ECPREFIX)/lib/libFLAC++.la
-file path=$(ECPREFIX)/lib/libFLAC++.so.6.3.0
-file path=$(ECPREFIX)/lib/libFLAC.la
-file path=$(ECPREFIX)/lib/libFLAC.so.8.3.0
-file path=$(ECPREFIX)/lib/pkgconfig/flac++.pc
-file path=$(ECPREFIX)/lib/pkgconfig/flac.pc
-file path=$(ECPREFIX)/share/aclocal/libFLAC++.m4
-file path=$(ECPREFIX)/share/aclocal/libFLAC.m4
-file path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/FLAC.tag
-file path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/changelog.html
-file path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/developers.html
+file path=$(USRDIR)/bin/$(MACH64)/flac
+file path=$(USRDIR)/bin/$(MACH64)/metaflac
+file path=$(USRDIR)/bin/flac
+file path=$(USRDIR)/bin/metaflac
+file path=$(USRDIR)/include/FLAC++/all.h
+file path=$(USRDIR)/include/FLAC++/decoder.h
+file path=$(USRDIR)/include/FLAC++/encoder.h
+file path=$(USRDIR)/include/FLAC++/export.h
+file path=$(USRDIR)/include/FLAC++/metadata.h
+file path=$(USRDIR)/include/FLAC/all.h
+file path=$(USRDIR)/include/FLAC/assert.h
+file path=$(USRDIR)/include/FLAC/callback.h
+file path=$(USRDIR)/include/FLAC/export.h
+file path=$(USRDIR)/include/FLAC/format.h
+file path=$(USRDIR)/include/FLAC/metadata.h
+file path=$(USRDIR)/include/FLAC/ordinals.h
+file path=$(USRDIR)/include/FLAC/stream_decoder.h
+file path=$(USRDIR)/include/FLAC/stream_encoder.h
+file path=$(USRDIR)/lib/$(MACH64)/libFLAC++.la
+file path=$(USRDIR)/lib/$(MACH64)/libFLAC++.so.6.3.0
+file path=$(USRDIR)/lib/$(MACH64)/libFLAC.la
+file path=$(USRDIR)/lib/$(MACH64)/libFLAC.so.8.3.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/flac++.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/flac.pc
+file path=$(USRDIR)/lib/libFLAC++.la
+file path=$(USRDIR)/lib/libFLAC++.so.6.3.0
+file path=$(USRDIR)/lib/libFLAC.la
+file path=$(USRDIR)/lib/libFLAC.so.8.3.0
+file path=$(USRDIR)/lib/pkgconfig/flac++.pc
+file path=$(USRDIR)/lib/pkgconfig/flac.pc
+file path=$(USRDIR)/share/aclocal/libFLAC++.m4
+file path=$(USRDIR)/share/aclocal/libFLAC.m4
+file path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/FLAC.tag
+file path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/changelog.html
+file path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/developers.html
 file \
-    path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/documentation.html
+    path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/documentation.html
 file \
-    path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/documentation_bugs.html
+    path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/documentation_bugs.html
 file \
-    path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/documentation_example_code.html
+    path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/documentation_example_code.html
 file \
-    path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/documentation_format_overview.html
+    path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/documentation_format_overview.html
 file \
-    path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/documentation_tools.html
+    path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/documentation_tools.html
 file \
-    path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/documentation_tools_flac.html
+    path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/documentation_tools_flac.html
 file \
-    path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/documentation_tools_metaflac.html
-file path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/faq.html
-file path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/favicon.ico
-file path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/features.html
-file path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/flac.css
-file path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/format.html
-file path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/id.html
-file path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/images/logo.svg
+    path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/documentation_tools_metaflac.html
+file path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/faq.html
+file path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/favicon.ico
+file path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/features.html
+file path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/flac.css
+file path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/format.html
+file path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/id.html
+file path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/images/logo.svg
 file \
-    path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/images/logo130.gif
-file path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/index.html
-file path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/license.html
+    path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/images/logo130.gif
+file path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/index.html
+file path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/license.html
 file \
-    path=$(ECPREFIX)/share/doc/flac-$(COMPONENT_VERSION)/html/ogg_mapping.html
-file path=$(ECPREFIX)/share/man/man1/flac.1
-file path=$(ECPREFIX)/share/man/man1/metaflac.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libFLAC++.so target=libFLAC++.so.6.3.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libFLAC++.so.6 target=libFLAC++.so.6.3.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libFLAC.so target=libFLAC.so.8.3.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libFLAC.so.8 target=libFLAC.so.8.3.0
-link path=$(ECPREFIX)/lib/libFLAC++.so target=libFLAC++.so.6.3.0
-link path=$(ECPREFIX)/lib/libFLAC++.so.6 target=libFLAC++.so.6.3.0
-link path=$(ECPREFIX)/lib/libFLAC.so target=libFLAC.so.8.3.0
-link path=$(ECPREFIX)/lib/libFLAC.so.8 target=libFLAC.so.8.3.0
+    path=$(USRDIR)/share/doc/flac-$(COMPONENT_VERSION)/html/ogg_mapping.html
+file path=$(USRDIR)/share/man/man1/flac.1
+file path=$(USRDIR)/share/man/man1/metaflac.1
+link path=$(USRDIR)/lib/$(MACH64)/libFLAC++.so target=libFLAC++.so.6.3.0
+link path=$(USRDIR)/lib/$(MACH64)/libFLAC++.so.6 target=libFLAC++.so.6.3.0
+link path=$(USRDIR)/lib/$(MACH64)/libFLAC.so target=libFLAC.so.8.3.0
+link path=$(USRDIR)/lib/$(MACH64)/libFLAC.so.8 target=libFLAC.so.8.3.0
+link path=$(USRDIR)/lib/libFLAC++.so target=libFLAC++.so.6.3.0
+link path=$(USRDIR)/lib/libFLAC++.so.6 target=libFLAC++.so.6.3.0
+link path=$(USRDIR)/lib/libFLAC.so target=libFLAC.so.8.3.0
+link path=$(USRDIR)/lib/libFLAC.so.8 target=libFLAC.so.8.3.0

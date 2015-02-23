@@ -39,7 +39,6 @@
 /^faad2$/d
 /^fcgiwrap$/d
 /^ffmpeg08$/d
-/^flac$/d
 /^fping$/d
 /^freeimage$/d
 /^fribidi$/d
