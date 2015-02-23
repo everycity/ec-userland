@@ -22,14 +22,10 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license libmad.license license="GPLv2-libmad"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-file path=$(ECPREFIX)/include/mad.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libmad.so.0.2.1
-file path=$(ECPREFIX)/lib/libmad.so.0.2.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libmad.so target=libmad.so.0.2.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libmad.so.0 target=libmad.so.0.2.1
-link path=$(ECPREFIX)/lib/libmad.so target=libmad.so.0.2.1
-link path=$(ECPREFIX)/lib/libmad.so.0 target=libmad.so.0.2.1
+file path=$(USRDIR)/include/mad.h
+file path=$(USRDIR)/lib/$(MACH64)/libmad.so.0.2.1
+file path=$(USRDIR)/lib/libmad.so.0.2.1
+link path=$(USRDIR)/lib/$(MACH64)/libmad.so target=libmad.so.0.2.1
+link path=$(USRDIR)/lib/$(MACH64)/libmad.so.0 target=libmad.so.0.2.1
+link path=$(USRDIR)/lib/libmad.so target=libmad.so.0.2.1
+link path=$(USRDIR)/lib/libmad.so.0 target=libmad.so.0.2.1
