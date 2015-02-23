@@ -29,13 +29,16 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
+CFLAGS += -I$(USRDIR)/include/ncurses
+LDFLAGS += -ltinfo
+
 COMPONENT_BUILD_TARGETS=watch
-COMPONENT_BUILD_ARGS+=CC=$(CC) CFLAGS=-I/ec/include/ncurses
+COMPONENT_BUILD_ARGS += CC="$(CC)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
 
 # install the built source into a prototype area
 $(BUILD_DIR)/%/.installed:      $(BUILD_DIR)/%/.built
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin
-	$(CP) $(@D)/watch $(PROTO_DIR)$(ECPREFIX)/bin/
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/bin
+	$(CP) $(@D)/watch $(PROTO_DIR)$(USRDIR)/bin/
 	$(TOUCH) $@
 
 build:		$(BUILD_32)
