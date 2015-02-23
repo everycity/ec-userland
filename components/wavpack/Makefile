@@ -30,7 +30,7 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS+=	--with-pic --enable-shared --disable-static
-CONFIGURE_OPTIONS+=	--with-iconv=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--with-iconv=$(USRDIR)
 
 build:		$(BUILD_32_and_64)
 

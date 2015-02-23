@@ -274,7 +274,6 @@
 /^vlc2$/d
 /^vsftpd$/d
 /^wackamole$/d
-/^wavpack$/d
 /^webapps\/awstats$/d
 /^webapps\/cacti$/d
 /^wkhtmltopdf$/d
