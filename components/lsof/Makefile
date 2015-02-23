@@ -19,14 +19,14 @@ COMPONENT_VERSION=	1.0
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-LSOF_DIR=	$(PROTO_DIR)$(ECPREFIX)/bin/
+LSOF_DIR=	$(PROTO_DIR)$(USRDIR)/bin/
 
 $(BUILD_DIR)/%/.built: 
 	$(RM) -r $(@D) $(PROTO_DIR) ; $(MKDIR) -p $(@D) $(LSOF_DIR)
 	$(TOUCH) $@
 
 $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
-	( cp $(COMPONENT_DIR)/files/lsof $(LSOF_DIR) )
+	( cp $(COMPONENT_DIR)/files/lsof.$(ZTYPE) $(LSOF_DIR)/lsof )
 	$(TOUCH) $@
 
 download:

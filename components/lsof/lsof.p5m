@@ -20,6 +20,4 @@ set name=pkg.summary value="A stub package for lsof, which isn't available for Z
 set name=info.upstream_url value="http://www.everycity.com/"
 set name=info.source_url value="http://www.everycity.com/"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-file path=$(ECPREFIX)/bin/lsof
+file path=$(USRDIR)/bin/lsof

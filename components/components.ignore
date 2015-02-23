@@ -106,7 +106,6 @@
 /^lighttpd$/d
 /^live555$/d
 /^logrotate$/d
-/^lsof$/d
 /^lua$/d
 /^lucene$/d
 /^mDNSResponder$/d
