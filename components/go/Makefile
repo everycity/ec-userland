@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		go
 COMPONENT_FMRI=		developer/go
-COMPONENT_VERSION=	1.4.1
+COMPONENT_VERSION=	1.4.2
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://golang.org/"
 COMPONENT_SUMMARY=	The Go Programming Language
 COMPONENT_SRC=		$(COMPONENT_NAME)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC)$(COMPONENT_VERSION).src.tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:3d9bb27ad4be51f60dc44f3d0026036ef07142797b1df1b5ae816277e6c31bb3
+COMPONENT_ARCHIVE_HASH=	sha256:299a6fd8f8adfdce15bc06bde926e7b252ae8e24dd5b16b7d8791ed79e7b5e9b
 COMPONENT_ARCHIVE_URL=	https://storage.googleapis.com/golang/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -45,20 +45,11 @@ $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
 
 $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
 	$(COMPONENT_PRE_INSTALL_ACTION)
-	$(MKDIR) -p $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)
-	$(MKDIR) -p $(PROTO_DIR)/$(ECPREFIX)/lib/go/pkg
-	$(MKDIR) -p $(PROTO_DIR)/$(ECPREFIX)/share/go
-	$(MKDIR) -p $(PROTO_DIR)/$(ECPREFIX)/share/doc/go/html
-	$(CP) $(@D)/bin/go $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)
-	$(CP) $(@D)/bin/gofmt $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)
-	$(SYMLINK) $(MACH64)/go $(PROTO_DIR)/$(ECPREFIX)/bin/go
-	$(SYMLINK) $(MACH64)/gofmt $(PROTO_DIR)/$(ECPREFIX)/bin/gofmt
-	$(CP) -Rp $(@D)/pkg $(PROTO_DIR)/$(ECPREFIX)/lib/go
-	$(SYMLINK) ../../share/go/src $(PROTO_DIR)/$(ECPREFIX)/lib/go/src
-	$(CP) -Rp $(SOURCE_DIR)/src $(PROTO_DIR)/$(ECPREFIX)/share/go
-	$(CP) -Rp $(SOURCE_DIR)/test $(PROTO_DIR)/$(ECPREFIX)/share/go
-	$(CP) -Rp $(SOURCE_DIR)/doc $(PROTO_DIR)/$(ECPREFIX)/share/doc/go/html
-	$(SYMLINK) ../../share/doc/go/html $(PROTO_DIR)/$(ECPREFIX)/lib/go/doc
+	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/bin
+	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/lib
+	$(CP) -Rp $(@D) $(PROTO_DIR)$(ECPREFIX)/lib/go
+	$(SYMLINK) $(PROTO_DIR)$(ECPREFIX)/lib/go/bin/go $(PROTO_DIR)$(ECPREFIX)/bin/go
+	$(SYMLINK) $(PROTO_DIR)$(ECPREFIX)/lib/go/bin/gofmt $(PROTO_DIR)$(ECPREFIX)/bin/gofmt
 	$(COMPONENT_POST_INSTALL_ACTION)
 	$(TOUCH) $@
 
