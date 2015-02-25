@@ -9,15 +9,15 @@
 #
 
 #
-# Copyright 2014, EveryCity Ltd. All rights reserved.
+# Copyright 2015, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	5.5.21
+COMPONENT_VERSION=	5.5.22
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:45adba5b4d2519f6174b85fd5b07a77389f397603d84084bdd26c44b3d7dc8af
+COMPONENT_ARCHIVE_HASH=	sha256:cb6174e1e74de233ec7b461302f823a7eacf7bcc946d347486c930e53f2b7db7
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_UK)
 
 include ../../make-rules/prep.mk
@@ -63,7 +63,8 @@ CPPFLAGS		+=	$(CPPFLAGS.$(BITS))
 
 CONFIGURE_SCRIPT       =	$(@D)/configure
 
-COMPONENT_PRE_CONFIGURE_ACTION	=	cp -R $(SOURCE_DIR)/ext/mysqli/* $(@D) ; cd $(@D) ; $(PHP_PREFIX)/bin/phpize
+COMPONENT_PRE_CONFIGURE_ACTION	=	cp -R $(SOURCE_DIR)/ext/mysqli/* $(@D) ; \
+	$(MKDIR) $(@D)/ext ; cp -R $(SOURCE_DIR)/ext/mysqlnd $(@D)/ext ; cd $(@D) ; $(PHP_PREFIX)/bin/phpize
 COMPONENT_INSTALL_ARGS		+=	INSTALL_ROOT=$(PROTO_DIR)
 
 build:		$(BUILD_32_and_64)
