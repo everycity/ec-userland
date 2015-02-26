@@ -1,0 +1,25 @@
+--- /dev/null	2015-02-26 00:01:01.000000000 +0000
++++ logstash-forwarder-0ae8ca74ca/fileinfo_solaris.go	2015-02-26 08:57:06.252693424 +0000
+@@ -0,0 +1,11 @@
++package main
++
++import (
++	"os"
++	"syscall"
++)
++
++func file_ids(info *os.FileInfo) (uint64, uint64) {
++	fstat := (*(info)).Sys().(*syscall.Stat_t)
++	return fstat.Ino, fstat.Dev
++}
+--- /dev/null	2015-02-26 00:01:01.000000000 +0000
++++ logstash-forwarder-0ae8ca74ca/filestate_solaris.go	2015-02-26 08:57:46.172866550 +0000
+@@ -0,0 +1,8 @@
++package main
++
++type FileState struct {
++	Source *string `json:"source,omitempty"`
++	Offset int64 `json:"offset,omitempty"`
++	Inode uint64 `json:"inode,omitempty"`
++	Device uint64 `json:"device,omitempty"`
++}
