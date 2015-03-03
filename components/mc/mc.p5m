@@ -33,18 +33,30 @@ set name=info.source_url value=https://github.com/MidnightCommander/mc.git
 license COPYING license="GPLv2"
 
 file path=$(SYSCONFDIR)/mc/edit.indent.rc
-file path=$(SYSCONFDIR)/mc/edit.spell.rc
 file path=$(SYSCONFDIR)/mc/filehighlight.ini
+file path=$(SYSCONFDIR)/mc/mc.default.keymap
+file path=$(SYSCONFDIR)/mc/mc.emacs.keymap
 file path=$(SYSCONFDIR)/mc/mc.ext
 file path=$(SYSCONFDIR)/mc/mc.keymap
-file path=$(SYSCONFDIR)/mc/mc.keymap.default
-file path=$(SYSCONFDIR)/mc/mc.keymap.emacs
 file path=$(SYSCONFDIR)/mc/mc.menu
 file path=$(SYSCONFDIR)/mc/mc.menu.sr
 file path=$(SYSCONFDIR)/mc/mcedit.menu
 file path=$(SYSCONFDIR)/mc/sfs.ini
 
 file path=$(USRDIR)/bin/mc mode=0555
+link path=$(USRDIR)/bin/mcdiff target=mc
+link path=$(USRDIR)/bin/mcedit target=mc
+link path=$(USRDIR)/bin/mcview target=mc
+
+file path=$(USRDIR)/lib/mc/ext.d/archive.sh mode=0555
+file path=$(USRDIR)/lib/mc/ext.d/doc.sh mode=0555
+file path=$(USRDIR)/lib/mc/ext.d/image.sh mode=0555
+file path=$(USRDIR)/lib/mc/ext.d/misc.sh mode=0555
+file path=$(USRDIR)/lib/mc/ext.d/package.sh mode=0555
+file path=$(USRDIR)/lib/mc/ext.d/sound.sh mode=0555
+file path=$(USRDIR)/lib/mc/ext.d/text.sh mode=0555
+file path=$(USRDIR)/lib/mc/ext.d/video.sh mode=0555
+file path=$(USRDIR)/lib/mc/ext.d/web.sh mode=0555
 file path=$(USRDIR)/lib/mc/extfs.d/README
 file path=$(USRDIR)/lib/mc/extfs.d/README.extfs
 file path=$(USRDIR)/lib/mc/extfs.d/a+ mode=0555
@@ -56,7 +68,7 @@ file path=$(USRDIR)/lib/mc/extfs.d/deb mode=0555
 file path=$(USRDIR)/lib/mc/extfs.d/deba mode=0555
 file path=$(USRDIR)/lib/mc/extfs.d/debd mode=0555
 file path=$(USRDIR)/lib/mc/extfs.d/dpkg+ mode=0555
-file path=$(USRDIR)/lib/mc/extfs.d/gitfs mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/gitfs+ mode=0555
 file path=$(USRDIR)/lib/mc/extfs.d/hp48+ mode=0555
 file path=$(USRDIR)/lib/mc/extfs.d/iso9660 mode=0555
 file path=$(USRDIR)/lib/mc/extfs.d/lslR mode=0555
@@ -77,6 +89,7 @@ file path=$(USRDIR)/lib/mc/extfs.d/uc1541 mode=0555 pkg.depend.bypass-generate=.
 file path=$(USRDIR)/lib/mc/extfs.d/ucab mode=0555
 file path=$(USRDIR)/lib/mc/extfs.d/uha mode=0555
 file path=$(USRDIR)/lib/mc/extfs.d/ulha mode=0555
+file path=$(USRDIR)/lib/mc/extfs.d/ulib mode=0555
 file path=$(USRDIR)/lib/mc/extfs.d/urar mode=0555
 file path=$(USRDIR)/lib/mc/extfs.d/uzip mode=0555
 file path=$(USRDIR)/lib/mc/extfs.d/uzoo mode=0555
@@ -95,9 +108,10 @@ file path=$(USRDIR)/lib/mc/fish/mv mode=0555
 file path=$(USRDIR)/lib/mc/fish/rmdir mode=0555
 file path=$(USRDIR)/lib/mc/fish/send mode=0555
 file path=$(USRDIR)/lib/mc/fish/unlink mode=0555
-file path=$(USRDIR)/lib/mc/mc-wrapper.csh mode=0555
+file path=$(USRDIR)/lib/mc/fish/utime mode=0555
+file path=$(USRDIR)/lib/mc/mc-wrapper.csh
 file path=$(USRDIR)/lib/mc/mc-wrapper.sh mode=0555
-file path=$(USRDIR)/lib/mc/mc.csh mode=0555
+file path=$(USRDIR)/lib/mc/mc.csh
 file path=$(USRDIR)/lib/mc/mc.sh mode=0555
 
 file path=$(USRDIR)/share/locale/az/LC_MESSAGES/mc.mo
@@ -107,19 +121,26 @@ file path=$(USRDIR)/share/locale/ca/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/cs/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/da/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/de/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/de_CH/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/el/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/en_GB/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/eo/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/es/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/et/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/eu/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/fa/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/fi/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/fi_FI/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/fr/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/gl/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/hr/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/hu/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/ia/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/id/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/it/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/ja/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/ka/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/kk/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/ko/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/lt/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/lv/LC_MESSAGES/mc.mo
@@ -135,6 +156,8 @@ file path=$(USRDIR)/share/locale/sk/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/sl/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/sr/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/sv/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/sv_SE/LC_MESSAGES/mc.mo
+file path=$(USRDIR)/share/locale/szl/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/ta/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/tr/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/uk/LC_MESSAGES/mc.mo
@@ -166,16 +189,53 @@ file path=$(USRDIR)/share/mc/help/mc.hlp.pl
 file path=$(USRDIR)/share/mc/help/mc.hlp.ru
 file path=$(USRDIR)/share/mc/help/mc.hlp.sr
 file path=$(USRDIR)/share/mc/hints/mc.hint
+file path=$(USRDIR)/share/mc/hints/mc.hint.az
+file path=$(USRDIR)/share/mc/hints/mc.hint.be
+file path=$(USRDIR)/share/mc/hints/mc.hint.bg
+file path=$(USRDIR)/share/mc/hints/mc.hint.ca
 file path=$(USRDIR)/share/mc/hints/mc.hint.cs
+file path=$(USRDIR)/share/mc/hints/mc.hint.da
+file path=$(USRDIR)/share/mc/hints/mc.hint.de
+file path=$(USRDIR)/share/mc/hints/mc.hint.de_CH
+file path=$(USRDIR)/share/mc/hints/mc.hint.el
+file path=$(USRDIR)/share/mc/hints/mc.hint.en_GB
+file path=$(USRDIR)/share/mc/hints/mc.hint.eo
 file path=$(USRDIR)/share/mc/hints/mc.hint.es
+file path=$(USRDIR)/share/mc/hints/mc.hint.et
+file path=$(USRDIR)/share/mc/hints/mc.hint.eu
+file path=$(USRDIR)/share/mc/hints/mc.hint.fa
+file path=$(USRDIR)/share/mc/hints/mc.hint.fi
+file path=$(USRDIR)/share/mc/hints/mc.hint.fr
+file path=$(USRDIR)/share/mc/hints/mc.hint.fr_CA
+file path=$(USRDIR)/share/mc/hints/mc.hint.gl
+file path=$(USRDIR)/share/mc/hints/mc.hint.hr
 file path=$(USRDIR)/share/mc/hints/mc.hint.hu
+file path=$(USRDIR)/share/mc/hints/mc.hint.ia
+file path=$(USRDIR)/share/mc/hints/mc.hint.id
 file path=$(USRDIR)/share/mc/hints/mc.hint.it
+file path=$(USRDIR)/share/mc/hints/mc.hint.it_IT
+file path=$(USRDIR)/share/mc/hints/mc.hint.ja
+file path=$(USRDIR)/share/mc/hints/mc.hint.ka
+file path=$(USRDIR)/share/mc/hints/mc.hint.kk
+file path=$(USRDIR)/share/mc/hints/mc.hint.ko
+file path=$(USRDIR)/share/mc/hints/mc.hint.lt
 file path=$(USRDIR)/share/mc/hints/mc.hint.nl
 file path=$(USRDIR)/share/mc/hints/mc.hint.pl
+file path=$(USRDIR)/share/mc/hints/mc.hint.pt
+file path=$(USRDIR)/share/mc/hints/mc.hint.pt_BR
+file path=$(USRDIR)/share/mc/hints/mc.hint.ro
 file path=$(USRDIR)/share/mc/hints/mc.hint.ru
+file path=$(USRDIR)/share/mc/hints/mc.hint.sk
+file path=$(USRDIR)/share/mc/hints/mc.hint.sl
 file path=$(USRDIR)/share/mc/hints/mc.hint.sr
+file path=$(USRDIR)/share/mc/hints/mc.hint.sv
+file path=$(USRDIR)/share/mc/hints/mc.hint.sv_SE
+file path=$(USRDIR)/share/mc/hints/mc.hint.szl
+file path=$(USRDIR)/share/mc/hints/mc.hint.te
+file path=$(USRDIR)/share/mc/hints/mc.hint.tr
 file path=$(USRDIR)/share/mc/hints/mc.hint.uk
 file path=$(USRDIR)/share/mc/hints/mc.hint.zh
+file path=$(USRDIR)/share/mc/hints/mc.hint.zh_CN
 file path=$(USRDIR)/share/mc/mc.charsets
 file path=$(USRDIR)/share/mc/mc.lib
 file path=$(USRDIR)/share/mc/skins/dark.ini
@@ -184,19 +244,31 @@ file path=$(USRDIR)/share/mc/skins/default.ini
 file path=$(USRDIR)/share/mc/skins/double-lines.ini
 file path=$(USRDIR)/share/mc/skins/featured.ini
 file path=$(USRDIR)/share/mc/skins/gotar.ini
+file path=$(USRDIR)/share/mc/skins/gray-green-purple256.ini
+file path=$(USRDIR)/share/mc/skins/gray-orange-blue256.ini
 file path=$(USRDIR)/share/mc/skins/mc46.ini
+file path=$(USRDIR)/share/mc/skins/modarcon16-defbg.ini
+file path=$(USRDIR)/share/mc/skins/modarcon16.ini
+file path=$(USRDIR)/share/mc/skins/modarcon16root-defbg.ini
+file path=$(USRDIR)/share/mc/skins/modarcon16root.ini
+file path=$(USRDIR)/share/mc/skins/modarin256-defbg.ini
+file path=$(USRDIR)/share/mc/skins/modarin256.ini
+file path=$(USRDIR)/share/mc/skins/modarin256root-defbg.ini
+file path=$(USRDIR)/share/mc/skins/modarin256root.ini
 file path=$(USRDIR)/share/mc/skins/nicedark.ini
 file path=$(USRDIR)/share/mc/skins/sand256.ini
 file path=$(USRDIR)/share/mc/skins/xoria256.ini
 file path=$(USRDIR)/share/mc/syntax/PKGBUILD.syntax
 file path=$(USRDIR)/share/mc/syntax/Syntax
 file path=$(USRDIR)/share/mc/syntax/ada95.syntax
+file path=$(USRDIR)/share/mc/syntax/as.syntax
 file path=$(USRDIR)/share/mc/syntax/aspx.syntax
 file path=$(USRDIR)/share/mc/syntax/assembler.syntax
 file path=$(USRDIR)/share/mc/syntax/awk.syntax
 file path=$(USRDIR)/share/mc/syntax/c.syntax
 file path=$(USRDIR)/share/mc/syntax/cabal.syntax
 file path=$(USRDIR)/share/mc/syntax/changelog.syntax
+file path=$(USRDIR)/share/mc/syntax/cmake.syntax
 file path=$(USRDIR)/share/mc/syntax/cs.syntax
 file path=$(USRDIR)/share/mc/syntax/css.syntax
 file path=$(USRDIR)/share/mc/syntax/cxx.syntax
@@ -207,6 +279,7 @@ file path=$(USRDIR)/share/mc/syntax/debian-control.syntax
 file path=$(USRDIR)/share/mc/syntax/debian-description.syntax
 file path=$(USRDIR)/share/mc/syntax/debian-sources-list.syntax
 file path=$(USRDIR)/share/mc/syntax/diff.syntax
+file path=$(USRDIR)/share/mc/syntax/dlink.syntax
 file path=$(USRDIR)/share/mc/syntax/dos.syntax
 file path=$(USRDIR)/share/mc/syntax/ebuild.syntax
 file path=$(USRDIR)/share/mc/syntax/eiffel.syntax
@@ -219,10 +292,12 @@ file path=$(USRDIR)/share/mc/syntax/html.syntax
 file path=$(USRDIR)/share/mc/syntax/idl.syntax
 file path=$(USRDIR)/share/mc/syntax/ini.syntax
 file path=$(USRDIR)/share/mc/syntax/j.syntax
+file path=$(USRDIR)/share/mc/syntax/jal.syntax
 file path=$(USRDIR)/share/mc/syntax/java.syntax
 file path=$(USRDIR)/share/mc/syntax/js.syntax
 file path=$(USRDIR)/share/mc/syntax/latex.syntax
 file path=$(USRDIR)/share/mc/syntax/lisp.syntax
+file path=$(USRDIR)/share/mc/syntax/lkr.syntax
 file path=$(USRDIR)/share/mc/syntax/lsm.syntax
 file path=$(USRDIR)/share/mc/syntax/lua.syntax
 file path=$(USRDIR)/share/mc/syntax/m4.syntax
@@ -240,6 +315,7 @@ file path=$(USRDIR)/share/mc/syntax/po.syntax
 file path=$(USRDIR)/share/mc/syntax/povray.syntax
 file path=$(USRDIR)/share/mc/syntax/procmail.syntax
 file path=$(USRDIR)/share/mc/syntax/properties.syntax
+file path=$(USRDIR)/share/mc/syntax/puppet.syntax
 file path=$(USRDIR)/share/mc/syntax/python.syntax
 file path=$(USRDIR)/share/mc/syntax/ruby.syntax
 file path=$(USRDIR)/share/mc/syntax/sh.syntax
@@ -259,6 +335,3 @@ file path=$(USRDIR)/share/mc/syntax/vhdl.syntax
 file path=$(USRDIR)/share/mc/syntax/xml.syntax
 file path=$(USRDIR)/share/mc/syntax/yum-repo.syntax
 file path=$(USRDIR)/share/mc/syntax/yxx.syntax
-link path=$(USRDIR)/bin/mcdiff target=mc
-link path=$(USRDIR)/bin/mcedit target=mc
-link path=$(USRDIR)/bin/mcview target=mc
