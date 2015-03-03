@@ -307,7 +307,6 @@
 /^ca-certificates$/d
 /^ag$/d
 /^cppunit$/d
-/^cscope$/d
 /^graphicsmagick$/d
 /^librevenge$/d
 /^luajit$/d
