@@ -28,7 +28,7 @@ set name=pkg.fmri value=pkg:/file/mc@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="The GNU Midnight Commander file manager"
 set name=info.classification value="org.opensolaris.category.2008:Desktop (GNOME)/File Managers"
 set name=info.upstream_url value="http://www.midnight-commander.org/"
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.source_url value=https://github.com/MidnightCommander/mc.git
 
 license COPYING license="GPLv2"
 
@@ -43,6 +43,7 @@ file path=$(SYSCONFDIR)/mc/mc.menu
 file path=$(SYSCONFDIR)/mc/mc.menu.sr
 file path=$(SYSCONFDIR)/mc/mcedit.menu
 file path=$(SYSCONFDIR)/mc/sfs.ini
+
 file path=$(USRDIR)/bin/mc mode=0555
 file path=$(USRDIR)/lib/mc/extfs.d/README
 file path=$(USRDIR)/lib/mc/extfs.d/README.extfs
@@ -98,6 +99,7 @@ file path=$(USRDIR)/lib/mc/mc-wrapper.csh mode=0555
 file path=$(USRDIR)/lib/mc/mc-wrapper.sh mode=0555
 file path=$(USRDIR)/lib/mc/mc.csh mode=0555
 file path=$(USRDIR)/lib/mc/mc.sh mode=0555
+
 file path=$(USRDIR)/share/locale/az/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/be/LC_MESSAGES/mc.mo
 file path=$(USRDIR)/share/locale/bg/LC_MESSAGES/mc.mo

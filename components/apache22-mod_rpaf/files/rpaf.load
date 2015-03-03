@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule rpaf_module modules/amd64/mod_rpaf.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule rpaf_module modules/mod_rpaf.so
+</IfDefine>

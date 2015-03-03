@@ -321,3 +321,8 @@
 /^ruby\/ruby22$/d
 /^trafficserver$/d
 /^tomcat8$/d
+/^apache22-mod_rpaf$/d
+/^leveldb$/d
+/^logstash-forwarder$/d
+/^mozilla-nspr$/d
+/^mozilla-nss$/d

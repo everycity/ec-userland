@@ -1,0 +1,169 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2015 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license nss/COPYING license="MPLv2.0"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/nss
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+file path=$(ECPREFIX)/bin/$(MACH64)/addbuiltin
+file path=$(ECPREFIX)/bin/$(MACH64)/certutil
+file path=$(ECPREFIX)/bin/$(MACH64)/cmsutil
+file path=$(ECPREFIX)/bin/$(MACH64)/crlutil
+file path=$(ECPREFIX)/bin/$(MACH64)/modutil
+file path=$(ECPREFIX)/bin/$(MACH64)/pk12util
+file path=$(ECPREFIX)/bin/$(MACH64)/signtool
+file path=$(ECPREFIX)/bin/$(MACH64)/signver
+file path=$(ECPREFIX)/bin/$(MACH64)/ssltap
+file path=$(ECPREFIX)/bin/addbuiltin
+file path=$(ECPREFIX)/bin/certutil
+file path=$(ECPREFIX)/bin/cmsutil
+file path=$(ECPREFIX)/bin/crlutil
+file path=$(ECPREFIX)/bin/modutil
+file path=$(ECPREFIX)/bin/pk12util
+file path=$(ECPREFIX)/bin/signtool
+file path=$(ECPREFIX)/bin/signver
+file path=$(ECPREFIX)/bin/ssltap
+file path=$(ECPREFIX)/include/nss/base64.h
+file path=$(ECPREFIX)/include/nss/blapit.h
+file path=$(ECPREFIX)/include/nss/cert.h
+file path=$(ECPREFIX)/include/nss/certdb.h
+file path=$(ECPREFIX)/include/nss/certt.h
+file path=$(ECPREFIX)/include/nss/ciferfam.h
+file path=$(ECPREFIX)/include/nss/cmmf.h
+file path=$(ECPREFIX)/include/nss/cmmft.h
+file path=$(ECPREFIX)/include/nss/cms.h
+file path=$(ECPREFIX)/include/nss/cmsreclist.h
+file path=$(ECPREFIX)/include/nss/cmst.h
+file path=$(ECPREFIX)/include/nss/crmf.h
+file path=$(ECPREFIX)/include/nss/crmft.h
+file path=$(ECPREFIX)/include/nss/cryptohi.h
+file path=$(ECPREFIX)/include/nss/cryptoht.h
+file path=$(ECPREFIX)/include/nss/ecl-exp.h
+file path=$(ECPREFIX)/include/nss/hasht.h
+file path=$(ECPREFIX)/include/nss/jar-ds.h
+file path=$(ECPREFIX)/include/nss/jar.h
+file path=$(ECPREFIX)/include/nss/jarfile.h
+file path=$(ECPREFIX)/include/nss/key.h
+file path=$(ECPREFIX)/include/nss/keyhi.h
+file path=$(ECPREFIX)/include/nss/keyt.h
+file path=$(ECPREFIX)/include/nss/keythi.h
+file path=$(ECPREFIX)/include/nss/nss.h
+file path=$(ECPREFIX)/include/nss/nssb64.h
+file path=$(ECPREFIX)/include/nss/nssb64t.h
+file path=$(ECPREFIX)/include/nss/nssbase.h
+file path=$(ECPREFIX)/include/nss/nssbaset.h
+file path=$(ECPREFIX)/include/nss/nssckbi.h
+file path=$(ECPREFIX)/include/nss/nssckepv.h
+file path=$(ECPREFIX)/include/nss/nssckft.h
+file path=$(ECPREFIX)/include/nss/nssckfw.h
+file path=$(ECPREFIX)/include/nss/nssckfwc.h
+file path=$(ECPREFIX)/include/nss/nssckfwt.h
+file path=$(ECPREFIX)/include/nss/nssckg.h
+file path=$(ECPREFIX)/include/nss/nssckmdt.h
+file path=$(ECPREFIX)/include/nss/nssckt.h
+file path=$(ECPREFIX)/include/nss/nssilckt.h
+file path=$(ECPREFIX)/include/nss/nssilock.h
+file path=$(ECPREFIX)/include/nss/nsslocks.h
+file path=$(ECPREFIX)/include/nss/nssrwlk.h
+file path=$(ECPREFIX)/include/nss/nssrwlkt.h
+file path=$(ECPREFIX)/include/nss/nssutil.h
+file path=$(ECPREFIX)/include/nss/ocsp.h
+file path=$(ECPREFIX)/include/nss/ocspt.h
+file path=$(ECPREFIX)/include/nss/p12.h
+file path=$(ECPREFIX)/include/nss/p12plcy.h
+file path=$(ECPREFIX)/include/nss/p12t.h
+file path=$(ECPREFIX)/include/nss/pk11func.h
+file path=$(ECPREFIX)/include/nss/pk11pqg.h
+file path=$(ECPREFIX)/include/nss/pk11priv.h
+file path=$(ECPREFIX)/include/nss/pk11pub.h
+file path=$(ECPREFIX)/include/nss/pk11sdr.h
+file path=$(ECPREFIX)/include/nss/pkcs11.h
+file path=$(ECPREFIX)/include/nss/pkcs11f.h
+file path=$(ECPREFIX)/include/nss/pkcs11n.h
+file path=$(ECPREFIX)/include/nss/pkcs11p.h
+file path=$(ECPREFIX)/include/nss/pkcs11t.h
+file path=$(ECPREFIX)/include/nss/pkcs11u.h
+file path=$(ECPREFIX)/include/nss/pkcs12.h
+file path=$(ECPREFIX)/include/nss/pkcs12t.h
+file path=$(ECPREFIX)/include/nss/pkcs1sig.h
+file path=$(ECPREFIX)/include/nss/pkcs7t.h
+file path=$(ECPREFIX)/include/nss/portreg.h
+file path=$(ECPREFIX)/include/nss/preenc.h
+file path=$(ECPREFIX)/include/nss/secasn1.h
+file path=$(ECPREFIX)/include/nss/secasn1t.h
+file path=$(ECPREFIX)/include/nss/seccomon.h
+file path=$(ECPREFIX)/include/nss/secder.h
+file path=$(ECPREFIX)/include/nss/secdert.h
+file path=$(ECPREFIX)/include/nss/secdig.h
+file path=$(ECPREFIX)/include/nss/secdigt.h
+file path=$(ECPREFIX)/include/nss/secerr.h
+file path=$(ECPREFIX)/include/nss/sechash.h
+file path=$(ECPREFIX)/include/nss/secitem.h
+file path=$(ECPREFIX)/include/nss/secmime.h
+file path=$(ECPREFIX)/include/nss/secmod.h
+file path=$(ECPREFIX)/include/nss/secmodt.h
+file path=$(ECPREFIX)/include/nss/secoid.h
+file path=$(ECPREFIX)/include/nss/secoidt.h
+file path=$(ECPREFIX)/include/nss/secpkcs5.h
+file path=$(ECPREFIX)/include/nss/secpkcs7.h
+file path=$(ECPREFIX)/include/nss/secport.h
+file path=$(ECPREFIX)/include/nss/shsign.h
+file path=$(ECPREFIX)/include/nss/smime.h
+file path=$(ECPREFIX)/include/nss/ssl.h
+file path=$(ECPREFIX)/include/nss/sslerr.h
+file path=$(ECPREFIX)/include/nss/sslproto.h
+file path=$(ECPREFIX)/include/nss/sslt.h
+file path=$(ECPREFIX)/include/nss/utilmodt.h
+file path=$(ECPREFIX)/include/nss/utilpars.h
+file path=$(ECPREFIX)/include/nss/utilparst.h
+file path=$(ECPREFIX)/include/nss/utilrename.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libfreebl3.chk
+file path=$(ECPREFIX)/lib/$(MACH64)/libfreebl3.so
+file path=$(ECPREFIX)/lib/$(MACH64)/libnss3.so
+file path=$(ECPREFIX)/lib/$(MACH64)/libnssckbi.so
+file path=$(ECPREFIX)/lib/$(MACH64)/libnssdbm3.chk
+file path=$(ECPREFIX)/lib/$(MACH64)/libnssdbm3.so
+file path=$(ECPREFIX)/lib/$(MACH64)/libnssutil3.so
+file path=$(ECPREFIX)/lib/$(MACH64)/libsmime3.so
+file path=$(ECPREFIX)/lib/$(MACH64)/libsoftokn3.chk
+file path=$(ECPREFIX)/lib/$(MACH64)/libsoftokn3.so
+file path=$(ECPREFIX)/lib/$(MACH64)/libssl3.so
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/nss.pc
+file path=$(ECPREFIX)/lib/libfreebl3.chk
+file path=$(ECPREFIX)/lib/libfreebl3.so
+file path=$(ECPREFIX)/lib/libnss3.so
+file path=$(ECPREFIX)/lib/libnssckbi.so
+file path=$(ECPREFIX)/lib/libnssdbm3.chk
+file path=$(ECPREFIX)/lib/libnssdbm3.so
+file path=$(ECPREFIX)/lib/libnssutil3.so
+file path=$(ECPREFIX)/lib/libsmime3.so
+file path=$(ECPREFIX)/lib/libsoftokn3.chk
+file path=$(ECPREFIX)/lib/libsoftokn3.so
+file path=$(ECPREFIX)/lib/libssl3.so
+file path=$(ECPREFIX)/lib/pkgconfig/nss.pc

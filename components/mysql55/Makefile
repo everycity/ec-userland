@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -17,10 +17,10 @@ include ../../make-rules/shared-macros.mk
 CMAKE= cmake
 
 COMPONENT_NAME=		mysql
-COMPONENT_VERSION=	5.5.41
+COMPONENT_VERSION=	5.5.42
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:ec642fc5be5ea03b24a0c5189204675fb3794dee772314ace650623c1c994844
+COMPONENT_ARCHIVE_HASH=	sha256:887b12676be4893fa833e4a585c6c8b0c0f18dee30ba7d22cfe860cd85bfc74a
 COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.mysql.com/Downloads/MySQL-5.5/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

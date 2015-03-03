@@ -1,0 +1,10 @@
+--- go/src/crypto/x509/root_unix.go.orig	2015-02-24 11:12:15.647730792 +0000
++++ go/src/crypto/x509/root_unix.go	2015-02-24 11:12:46.062348846 +0000
+@@ -17,6 +17,7 @@
+ 	"/usr/local/share/certs/ca-root-nss.crt", // FreeBSD/DragonFly
+ 	"/etc/pki/tls/cacert.pem",                // OpenELEC
+ 	"/etc/certs/ca-certificates.crt",         // Solaris 11.2+
++	"/ec/etc/openssl/cabundle.pem",           // EveryCity
+ }
+ 
+ // Possible directories with certificate files; stop after successfully

@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
 COMPONENT_FMRI=		web/server/apache-24/module/apache-php54
-COMPONENT_VERSION=	5.4.37
+COMPONENT_VERSION=	5.4.38
 COMPONENT_LICENSE=	PHPv3.01
 COMPONENT_PROJECT_URL=	"http://www.php.net"
 COMPONENT_SUMMARY=	PHP 5.4 Module for Apache 2.4
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:857bf6675eeb0ae9c3cd6f9ccdb2a9b7bf89dcfda7f0a80857638fe023f3a8ad
+COMPONENT_ARCHIVE_HASH=	sha256:abf37db0cfadc9bb814f9df35f6aa966ad63f4f4c4475e432ec625568a5d3e88
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_UK)
 
 include ../../make-rules/prep.mk
