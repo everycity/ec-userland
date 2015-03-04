@@ -32,19 +32,22 @@ include ../../make-rules/ips.mk
 
 COMPONENT_BUILD_ENV += CC="$(CC)" CXX="$(CXX)" LDFLAGS="$(LDFLAGS)"
 
-LIBDIR.32= $(ECPREFIX)/lib
-LIBDIR.64= $(ECPREFIX)/lib/$(MACH64)
+LIBDIR.32= $(USRDIR)/lib
+LIBDIR.64= $(USRDIR)/lib/$(MACH64)
 LIBDIR= $(LIBDIR.$(BITS))
 
-BJAM=./bjam --v2 -d+2 -j10 -q address-model=$(BITS) \
+BJAM=./b2 --v2 -d+2 -j4 -q address-model=$(BITS) \
     -sBUILD="release <threading>single/multi" \
-    --prefix=$(PROTO_DIR)$(ECPREFIX) \
+    --user-config=./user-config.jam \
+    --prefix=$(PROTO_DIR)$(USRDIR) \
     --libdir=$(PROTO_DIR)$(LIBDIR)
 
 
-COMPONENT_PRE_BUILD_ACTION = cd $(@D); $(ENV) $(COMPONENT_BUILD_ENV) \
-    ./bootstrap.sh --prefix=$(ECPREFIX) --libdir=$(LIBDIR) \
-        --with-toolset=gcc --with-icu=$(ECPREFIX); \
+COMPONENT_PRE_BUILD_ACTION = cd $(@D); \
+	echo "using gcc : : $(CXX) : <compileflags>$(CFLAGS) $(CC_PIC) -pthreads <linkflags>$(CC_BITS) ;" > ./user-config.jam; \
+	$(ENV) $(COMPONENT_BUILD_ENV) \
+	./bootstrap.sh --prefix=$(USRDIR) --libdir=$(LIBDIR) \
+        --with-toolset=gcc --with-icu=$(USRDIR); \
     $(BJAM) release stage
 
 COMPONENT_PRE_INSTALL_ACTION = cd $(@D); \
