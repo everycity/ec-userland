@@ -76,7 +76,6 @@
 /^json-c$/d
 /^lftp$/d
 /^libIDL$/d
-/^libao$/d
 /^libassuan$/d
 /^libcaca$/d
 /^libcdr$/d
