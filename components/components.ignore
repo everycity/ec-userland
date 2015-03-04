@@ -35,7 +35,6 @@
 /^erlang$/d
 /^exiftool$/d
 /^expect$/d
-/^faad2$/d
 /^fcgiwrap$/d
 /^ffmpeg08$/d
 /^fping$/d
