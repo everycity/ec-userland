@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		rabbitmq
 COMPONENT_FMRI=		service/rabbitmq
-COMPONENT_VERSION=	3.4.1
+COMPONENT_VERSION=	3.4.4
 COMPONENT_LICENSE=	MPL
 COMPONENT_PROJECT_URL=	"http://www.rabbitmq.com/"
 COMPONENT_SUMMARY=	Messaging for applications
 COMPONENT_SRC=		$(COMPONENT_NAME)-server-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:9048576a7c40d2fb37efef4981fe6ef41cf078402739c56e71600e19caa8d56b
+COMPONENT_ARCHIVE_HASH=	sha256:9241b3465e4026c6590aca9324308d31b60e552fd2a8c464322d34e9479bd5da
 COMPONENT_ARCHIVE_URL=	http://www.rabbitmq.com/releases/rabbitmq-server/v$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
