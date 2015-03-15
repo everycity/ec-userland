@@ -1,6 +1,6 @@
---- sox-14.4.1/src/formats.c.orig	2013-02-08 23:08:21.632967117 +0000
-+++ sox-14.4.1/src/formats.c	2013-02-08 23:09:39.180538119 +0000
-@@ -406,21 +406,21 @@
+--- sox-14.4.2/src/formats.c.~1~	2015-03-15 21:40:46.983015209 +0000
++++ sox-14.4.2/src/formats.c	2015-03-15 21:46:48.002911280 +0000
+@@ -410,22 +410,22 @@
  {
  /* _FSTDIO is for Torek stdio (i.e. most BSD-derived libc's)
   * In theory, we no longer need to check _NEWLIB_VERSION or __APPLE__ */
@@ -9,7 +9,8 @@
 -  fp->_r += PIPE_AUTO_DETECT_SIZE;
 -#elif defined __GLIBC__
 -  fp->_IO_read_ptr = fp->_IO_read_base;
--#elif defined _MSC_VER || defined _WIN32 || defined _WIN64 || defined _ISO_STDIO_ISO_H
+-#elif defined _MSC_VER || defined _WIN32 || defined _WIN64 || \
+-      defined _ISO_STDIO_ISO_H || defined __sgi
 -  fp->_ptr = fp->_base;
 -#else
 +//#if defined _FSTDIO || defined _NEWLIB_VERSION || defined __APPLE__
@@ -17,7 +18,8 @@
 +//  fp->_r += PIPE_AUTO_DETECT_SIZE;
 +//#elif defined __GLIBC__
 +//  fp->_IO_read_ptr = fp->_IO_read_base;
-+//#elif defined _MSC_VER || defined _WIN32 || defined _WIN64 || defined _ISO_STDIO_ISO_H
++//#elif defined _MSC_VER || defined _WIN32 || defined _WIN64 || \
++//      defined _ISO_STDIO_ISO_H || defined __sgi
 +//  fp->_ptr = fp->_base;
 +//#else
    /* To fix this #error, either simply remove the #error line and live without
