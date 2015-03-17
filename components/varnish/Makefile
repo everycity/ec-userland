@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		varnish
 COMPONENT_FMRI=		web/cache/varnish
-COMPONENT_VERSION=	4.0.2
+COMPONENT_VERSION=	4.0.3
 COMPONENT_LICENSE=	Varnish
 COMPONENT_PROJECT_URL=	"https://www.varnish-cache.org/"
 COMPONENT_SUMMARY=	Varnish Web Application Accelerator
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:d9fb6a6eaf05bbb0c8eb5855556a4b092183b2c1a61281bfd73adf83a304555b
+COMPONENT_ARCHIVE_HASH=	sha256:94b9a174097f47db2286acd2c35f235e49a2b7a9ddfdbd6eb7aa4da9ae8f8206
 COMPONENT_ARCHIVE_URL=	http://repo.varnish-cache.org/source/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -32,8 +32,10 @@ CONFIGURE_OPTIONS.32+=	--sbindir=$(ECPREFIX)/bin
 CONFIGURE_OPTIONS.64+=	--sbindir=$(ECPREFIX)/bin/$(MACH64)
 CONFIGURE_OPTIONS+=	--without-rst2html --disable-silent-rules
 
+CONFIGURE_ENV+=		VCC_CC="$(CC) $(CC_BITS) $(CC_PIC) -shared -o %o %s"
+
 #COMPONENT_PRE_CONFIGURE_ACTION=	$(CLONEY) $(SOURCE_DIR) $(@D)
-COMPONENT_PRE_CONFIGURE_ACTION+=	( cd $(SOURCE_DIR) ; \
+#COMPONENT_PRE_CONFIGURE_ACTION+=	( cd $(SOURCE_DIR) ; \
 	libtoolize --force --copy ; aclocal -I m4; autoheader; \
 	automake --add-missing --copy --foreign; autoconf; \
 	$(GPATCH) -p1 < ../../patches/configure.patch;  )
