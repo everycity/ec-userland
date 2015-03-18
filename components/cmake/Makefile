@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		cmake
 COMPONENT_FMRI=		developer/build/cmake
-COMPONENT_VERSION_MJR=	3.1
-COMPONENT_VERSION=	$(COMPONENT_VERSION_MJR).0
+COMPONENT_VERSION_MJR=	3.2
+COMPONENT_VERSION=	$(COMPONENT_VERSION_MJR).1
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://www.cmake.org/"
 COMPONENT_SUMMARY=	CMake - A cross-platform, open-source make system.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:8bdc3fa3f2da81bc10c772a6b64cc9052acc2901d42e1e1b2588b40df224aad9
+COMPONENT_ARCHIVE_HASH=	sha256:759f1cf6b1a26b037726a9acca6da501235c20ad3671df29d43f29052ef1502c
 COMPONENT_ARCHIVE_URL=	http://www.cmake.org/files/v$(COMPONENT_VERSION_MJR)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
