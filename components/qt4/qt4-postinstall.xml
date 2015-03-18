@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE service_bundle SYSTEM '/usr/share/lib/xml/dtd/service_bundle.dtd.1'>
+<!--
+        Copyright (C) EveryCity 2015
+-->
+<service_bundle type='manifest' name='qt4-postinstall'>
+
+<service
+        name='tmp/postinstall/qt4'
+        type='service'
+        version='1'>
+
+        <exec_method
+                type='method'
+                name='start'
+                exec='sh -c &quot;[ -h /ec/lib/qt/active ] || ln -s 4.8 /ec/lib/qt/active&quot; ; /usr/bin/ctrun svcadm disable tmp/postinstall/qt4'
+                timeout_seconds='60'/>
+
+        <exec_method
+                type='method'
+                name='stop'
+                exec='/usr/bin/ctrun svccfg delete -f tmp/postinstall/qt4'
+                timeout_seconds='30'/>
+
+        <instance name='default' enabled='true'/>
+
+        <stability value='Evolving'/>
+
+</service>
+
+</service_bundle>
