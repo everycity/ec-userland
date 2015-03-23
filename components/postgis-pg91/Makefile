@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		postgis
 COMPONENT_FMRI=		database/postgresql-91/postgis
-COMPONENT_VERSION=	2.1.3
+COMPONENT_VERSION=	2.1.6
 COMPONENT_LICENSE=	GPLv2
 COMPONENT_PROJECT_URL=	"http://www.postgis.org/"
 COMPONENT_SUMMARY=	PostGIS adds support for geographic objects to the PostgreSQL object-relational database.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:c17812aa4bb86ed561dfc65cb42ab45176b94e0620de183a4bbd773d6d876ec1
+COMPONENT_ARCHIVE_HASH=	sha256:6ffdf655bc4fca2b5495dd96f44b266e84111912d5c3f91b832023c4fec5c222
 COMPONENT_ARCHIVE_URL=	http://download.osgeo.org/postgis/source/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

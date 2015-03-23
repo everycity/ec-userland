@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -114,6 +114,8 @@ file \
 file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis--2.0.5--$(COMPONENT_VERSION).sql
 file \
+    path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis--2.0.6--$(COMPONENT_VERSION).sql
+file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis--2.1.0--$(COMPONENT_VERSION).sql
 file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis--2.1.0rc1--$(COMPONENT_VERSION).sql
@@ -125,6 +127,12 @@ file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis--2.1.1--$(COMPONENT_VERSION).sql
 file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis--2.1.2--$(COMPONENT_VERSION).sql
+file \
+    path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis--2.1.3--$(COMPONENT_VERSION).sql
+file \
+    path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis--2.1.4--$(COMPONENT_VERSION).sql
+file \
+    path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis--2.1.5--$(COMPONENT_VERSION).sql
 file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis--unpackaged--$(COMPONENT_VERSION).sql
 file path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis.control
@@ -147,6 +155,8 @@ file \
 file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_tiger_geocoder--2.0.5--$(COMPONENT_VERSION).sql
 file \
+    path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_tiger_geocoder--2.0.6--$(COMPONENT_VERSION).sql
+file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_tiger_geocoder--2.1.0--$(COMPONENT_VERSION).sql
 file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_tiger_geocoder--2.1.0rc1--$(COMPONENT_VERSION).sql
@@ -158,6 +168,12 @@ file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_tiger_geocoder--2.1.1--$(COMPONENT_VERSION).sql
 file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_tiger_geocoder--2.1.2--$(COMPONENT_VERSION).sql
+file \
+    path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_tiger_geocoder--2.1.3--$(COMPONENT_VERSION).sql
+file \
+    path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_tiger_geocoder--2.1.4--$(COMPONENT_VERSION).sql
+file \
+    path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_tiger_geocoder--2.1.5--$(COMPONENT_VERSION).sql
 file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_tiger_geocoder--unpackaged--$(COMPONENT_VERSION).sql
 file \
@@ -181,6 +197,8 @@ file \
 file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_topology--2.0.5--$(COMPONENT_VERSION).sql
 file \
+    path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_topology--2.0.6--$(COMPONENT_VERSION).sql
+file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_topology--2.1.0--$(COMPONENT_VERSION).sql
 file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_topology--2.1.0rc1--$(COMPONENT_VERSION).sql
@@ -192,6 +210,12 @@ file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_topology--2.1.1--$(COMPONENT_VERSION).sql
 file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_topology--2.1.2--$(COMPONENT_VERSION).sql
+file \
+    path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_topology--2.1.3--$(COMPONENT_VERSION).sql
+file \
+    path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_topology--2.1.4--$(COMPONENT_VERSION).sql
+file \
+    path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_topology--2.1.5--$(COMPONENT_VERSION).sql
 file \
     path=$(ECPREFIX)/lib/postgres/9.1/share/extension/postgis_topology--unpackaged--$(COMPONENT_VERSION).sql
 file \
