@@ -63,7 +63,6 @@
 /^google-authenticator$/d
 /^gpac$/d
 /^groff$/d
-/^haproxy$/d
 /^haproxy-dev$/d
 /^htop$/d
 /^id3lib$/d

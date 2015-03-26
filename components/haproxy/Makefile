@@ -31,6 +31,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
+COMPONENT_LICENSE_FILE=	LICENSE
+
 COMPONENT_PRE_BUILD_ACTION+=	$(CLONEY) $(SOURCE_DIR) $(@D)
 
 SBINDIR.32=	$(ECPREFIX)/bin
