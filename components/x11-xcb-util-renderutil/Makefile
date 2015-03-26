@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -28,6 +28,8 @@ COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_XORG_XCB)
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+COMPONENT_LICENSE_FILE=	$(COMPONENT_NAME).license
 
 CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic --with-sysroot=/ec
 

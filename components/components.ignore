@@ -276,7 +276,6 @@
 /^x11-xcb-util-cursor$/d
 /^x11-xcb-util-image$/d
 /^x11-xcb-util-keysyms$/d
-/^x11-xcb-util-renderutil$/d
 /^x11-xcb-util-wm$/d
 /^x11-xterm$/d
 /^xapian\/bindings-php52$/d
