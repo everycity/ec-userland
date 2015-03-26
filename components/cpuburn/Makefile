@@ -9,21 +9,27 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		cpuburn
+COMPONENT_FMRI=		benchmark/cpuburn
 COMPONENT_VERSION=	1.4
+COMPONENT_LICENSE=	cpuburn
+COMPONENT_PROJECT_URL=	"http://unknown"
+COMPONENT_SUMMARY=	A collection of programs to put heavy load on CPU
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME)_$(COMPONENT_VERSION).orig.tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:291e163d17ce528fd8301f821babed74d9caffaf
+COMPONENT_ARCHIVE_HASH=	sha256:1b2a1672f455545a28d0f038737e792e8c3b97789f2029f765847fc2a807244a
 COMPONENT_ARCHIVE_URL=	https://launchpad.net/ubuntu/lucid/+source/cpuburn/1.4-39/+files/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
+
+COMPONENT_LICENSE_FILE=	$(COMPONENT_NAME).license
 
 # install the built source into a prototype area
 $(BUILD_DIR)/%/.installed:      $(BUILD_DIR)/%/.built

@@ -22,7 +22,6 @@
 /^clamav$/d
 /^cloog-ppl$/d
 /^clusterssh$/d
-/^cpuburn$/d
 /^cronolog$/d
 /^csvfix$/d
 /^dbt2$/d
