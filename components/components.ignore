@@ -242,7 +242,6 @@
 /^ruby\/ruby20$/d
 /^ruby\/stomp$/d
 /^smartos-ps$/d
-/^snappy$/d
 /^solr$/d
 /^spawn-fcgi$/d
 /^sphinx$/d
