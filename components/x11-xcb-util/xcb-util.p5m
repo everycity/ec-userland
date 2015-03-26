@@ -9,44 +9,43 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
-<include ec-drop-common>
+#<include ec-drop-common>
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/xcb
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-file path=$(ECPREFIX)/include/xcb/xcb_atom.h
-file path=$(ECPREFIX)/include/xcb/xcb_aux.h
-file path=$(ECPREFIX)/include/xcb/xcb_event.h
-file path=$(ECPREFIX)/include/xcb/xcb_util.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-util.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libxcb-util.so.1.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-atom.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-aux.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-event.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xcb-util.pc
-file path=$(ECPREFIX)/lib/libxcb-util.la
-file path=$(ECPREFIX)/lib/libxcb-util.so.1.0.0
-file path=$(ECPREFIX)/lib/pkgconfig/xcb-atom.pc
-file path=$(ECPREFIX)/lib/pkgconfig/xcb-aux.pc
-file path=$(ECPREFIX)/lib/pkgconfig/xcb-event.pc
-file path=$(ECPREFIX)/lib/pkgconfig/xcb-util.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-util.so target=libxcb-util.so.1.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libxcb-util.so.1 \
-    target=libxcb-util.so.1.0.0
-link path=$(ECPREFIX)/lib/libxcb-util.so target=libxcb-util.so.1.0.0
-link path=$(ECPREFIX)/lib/libxcb-util.so.1 target=libxcb-util.so.1.0.0
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/include
+dir  path=$(USRDIR)/include/xcb
+file path=$(USRDIR)/include/xcb/xcb_atom.h
+file path=$(USRDIR)/include/xcb/xcb_aux.h
+file path=$(USRDIR)/include/xcb/xcb_event.h
+file path=$(USRDIR)/include/xcb/xcb_util.h
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/$(MACH64)
+file path=$(USRDIR)/lib/$(MACH64)/libxcb-util.la
+link path=$(USRDIR)/lib/$(MACH64)/libxcb-util.so target=libxcb-util.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libxcb-util.so.1 target=libxcb-util.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libxcb-util.so.1.0.0
+dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xcb-atom.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xcb-aux.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xcb-event.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xcb-util.pc
+file path=$(USRDIR)/lib/libxcb-util.la
+link path=$(USRDIR)/lib/libxcb-util.so target=libxcb-util.so.1.0.0
+link path=$(USRDIR)/lib/libxcb-util.so.1 target=libxcb-util.so.1.0.0
+file path=$(USRDIR)/lib/libxcb-util.so.1.0.0
+dir  path=$(USRDIR)/lib/pkgconfig
+file path=$(USRDIR)/lib/pkgconfig/xcb-atom.pc
+file path=$(USRDIR)/lib/pkgconfig/xcb-aux.pc
+file path=$(USRDIR)/lib/pkgconfig/xcb-event.pc
+file path=$(USRDIR)/lib/pkgconfig/xcb-util.pc
