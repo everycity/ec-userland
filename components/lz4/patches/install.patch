@@ -1,0 +1,65 @@
+--- lz4-r127/Makefile.~1~	2014-12-19 08:51:32.000000000 +0000
++++ lz4-r127/Makefile	2015-03-18 22:43:23.809416720 +0000
+@@ -86,10 +86,6 @@
+ 	@echo Cleaning completed
+ 
+ 
+-#------------------------------------------------------------------------
+-#make install is validated only for Linux, OSX, kFreeBSD and Hurd targets
+-ifneq (,$(filter $(shell uname),Linux Darwin GNU/kFreeBSD GNU))
+-
+ install:
+ 	@cd $(LZ4DIR); $(MAKE) -e install
+ 	@cd $(PRGDIR); $(MAKE) -e install
+@@ -133,4 +129,3 @@
+ prg-travis:
+ 	@cd $(PRGDIR); $(MAKE) -e test-travis
+ 
+-endif
+--- lz4-r127/lib/Makefile.~1~	2014-12-19 08:51:32.000000000 +0000
++++ lz4-r127/lib/Makefile	2015-03-18 22:43:23.810193679 +0000
+@@ -80,10 +80,6 @@
+ 	@echo Cleaning library completed
+ 
+ 
+-#------------------------------------------------------------------------
+-#make install is validated only for Linux, OSX, kFreeBSD and Hurd targets
+-ifneq (,$(filter $(shell uname),Linux Darwin GNU/kFreeBSD GNU))
+-
+ liblz4.pc: liblz4.pc.in Makefile
+ 	@echo creating pkgconfig
+ 	@sed -e 's|@PREFIX@|$(PREFIX)|' \
+@@ -114,4 +110,3 @@
+ 	@[ -f $(DESTDIR)$(INCLUDEDIR)/lz4hc.h ] && rm -f $(DESTDIR)$(INCLUDEDIR)/lz4hc.h
+ 	@echo lz4 libraries successfully uninstalled
+ 
+-endif
+--- lz4-r127/programs/Makefile.~1~	2014-12-19 08:51:32.000000000 +0000
++++ lz4-r127/programs/Makefile	2015-03-18 22:46:52.883044907 +0000
+@@ -39,8 +39,8 @@
+ CFLAGS += -std=c99 -Wall -Wextra -Wundef -Wshadow -Wcast-align -Wstrict-prototypes -pedantic -DLZ4_VERSION=\"$(RELEASE)\"
+ FLAGS   = -I../lib $(CPPFLAGS) $(CFLAGS) $(LDFLAGS)
+ 
+-BINDIR=$(PREFIX)/bin
+-MANDIR=$(PREFIX)/share/man/man1
++BINDIR?=$(PREFIX)/bin
++MANDIR?=$(PREFIX)/share/man/man1
+ LZ4DIR=../lib
+ 
+ TEST_FILES = COPYING
+@@ -106,10 +106,6 @@
+ 	@echo Cleaning completed
+ 
+ 
+-#------------------------------------------------------------------------
+-#make install is validated only for Linux, OSX, kFreeBSD and Hurd targets
+-ifneq (,$(filter $(shell uname),Linux Darwin GNU/kFreeBSD GNU))
+-
+ install: lz4 lz4c
+ 	@echo Installing binaries
+ 	@install -d -m 755 $(DESTDIR)$(BINDIR)/ $(DESTDIR)$(MANDIR)/
+@@ -203,4 +199,3 @@
+ test-mem32: lz4c32 datagen
+ # unfortunately, valgrind doesn't seem to work with non-native binary. If someone knows how to do a valgrind-test on a 32-bits exe with a 64-bits system...
+ 
+-endif
