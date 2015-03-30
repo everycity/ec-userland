@@ -22,36 +22,25 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/bin
-dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/lz4
 file path=$(USRDIR)/bin/$(MACH64)/lz4c
 link path=$(USRDIR)/bin/$(MACH64)/lz4cat target=lz4
 file path=$(USRDIR)/bin/lz4
 file path=$(USRDIR)/bin/lz4c
 link path=$(USRDIR)/bin/lz4cat target=lz4
-dir  path=$(USRDIR)/include
 file path=$(USRDIR)/include/lz4.h
 file path=$(USRDIR)/include/lz4frame.h
 file path=$(USRDIR)/include/lz4hc.h
-dir  path=$(USRDIR)/lib
-dir  path=$(USRDIR)/lib/$(MACH64)
 file path=$(USRDIR)/lib/$(MACH64)/liblz4.a
 link path=$(USRDIR)/lib/$(MACH64)/liblz4.so target=liblz4.so.1.5.0
 link path=$(USRDIR)/lib/$(MACH64)/liblz4.so.1 target=liblz4.so.1.5.0
 file path=$(USRDIR)/lib/$(MACH64)/liblz4.so.1.5.0
-dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/liblz4.pc
 file path=$(USRDIR)/lib/liblz4.a
 link path=$(USRDIR)/lib/liblz4.so target=liblz4.so.1.5.0
 link path=$(USRDIR)/lib/liblz4.so.1 target=liblz4.so.1.5.0
 file path=$(USRDIR)/lib/liblz4.so.1.5.0
-dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/liblz4.pc
-dir  path=$(USRDIR)/share
-dir  path=$(USRDIR)/share/man
-dir  path=$(USRDIR)/share/man/man1
 file path=$(USRDIR)/share/man/man1/lz4.1
 file path=$(USRDIR)/share/man/man1/lz4c.1
 file path=$(USRDIR)/share/man/man1/lz4cat.1
