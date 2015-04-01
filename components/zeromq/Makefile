@@ -15,7 +15,7 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		zeromq
-COMPONENT_FMRI=         service/zeromq
+COMPONENT_FMRI=         library/zeromq
 COMPONENT_VERSION=      4.0.5
 COMPONENT_LICENSE=      LGPL with static linking exception
 COMPONENT_PROJECT_URL=  "http://zeromq.org/"
