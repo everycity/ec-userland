@@ -1,0 +1,232 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2015 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+#<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/google
+dir path=$(ECPREFIX)/include/gperftools
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/$(MACH64)/pprof
+file path=$(ECPREFIX)/bin/pprof
+file path=$(ECPREFIX)/include/google/heap-checker.h
+file path=$(ECPREFIX)/include/google/heap-profiler.h
+file path=$(ECPREFIX)/include/google/malloc_extension.h
+file path=$(ECPREFIX)/include/google/malloc_extension_c.h
+file path=$(ECPREFIX)/include/google/malloc_hook.h
+file path=$(ECPREFIX)/include/google/malloc_hook_c.h
+file path=$(ECPREFIX)/include/google/profiler.h
+file path=$(ECPREFIX)/include/google/stacktrace.h
+file path=$(ECPREFIX)/include/google/tcmalloc.h
+file path=$(ECPREFIX)/include/gperftools/heap-checker.h
+file path=$(ECPREFIX)/include/gperftools/heap-profiler.h
+file path=$(ECPREFIX)/include/gperftools/malloc_extension.h
+file path=$(ECPREFIX)/include/gperftools/malloc_extension_c.h
+file path=$(ECPREFIX)/include/gperftools/malloc_hook.h
+file path=$(ECPREFIX)/include/gperftools/malloc_hook_c.h
+file path=$(ECPREFIX)/include/gperftools/profiler.h
+file path=$(ECPREFIX)/include/gperftools/stacktrace.h
+file path=$(ECPREFIX)/include/gperftools/tcmalloc.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libprofiler.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libprofiler.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libprofiler.so.0.4.5
+file path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc.so.4.2.6
+file path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_and_profiler.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_and_profiler.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_and_profiler.so.4.2.6
+file path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_debug.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_debug.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_debug.so.4.2.6
+file path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_minimal.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_minimal.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_minimal.so.4.2.6
+file path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_minimal_debug.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_minimal_debug.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_minimal_debug.so.4.2.6
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libprofiler.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libtcmalloc.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libtcmalloc_debug.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libtcmalloc_minimal.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libtcmalloc_minimal_debug.pc
+file path=$(ECPREFIX)/lib/libprofiler.a
+file path=$(ECPREFIX)/lib/libprofiler.la
+file path=$(ECPREFIX)/lib/libprofiler.so.0.4.5
+file path=$(ECPREFIX)/lib/libtcmalloc.a
+file path=$(ECPREFIX)/lib/libtcmalloc.la
+file path=$(ECPREFIX)/lib/libtcmalloc.so.4.2.6
+file path=$(ECPREFIX)/lib/libtcmalloc_and_profiler.a
+file path=$(ECPREFIX)/lib/libtcmalloc_and_profiler.la
+file path=$(ECPREFIX)/lib/libtcmalloc_and_profiler.so.4.2.6
+file path=$(ECPREFIX)/lib/libtcmalloc_debug.a
+file path=$(ECPREFIX)/lib/libtcmalloc_debug.la
+file path=$(ECPREFIX)/lib/libtcmalloc_debug.so.4.2.6
+file path=$(ECPREFIX)/lib/libtcmalloc_minimal.a
+file path=$(ECPREFIX)/lib/libtcmalloc_minimal.la
+file path=$(ECPREFIX)/lib/libtcmalloc_minimal.so.4.2.6
+file path=$(ECPREFIX)/lib/libtcmalloc_minimal_debug.a
+file path=$(ECPREFIX)/lib/libtcmalloc_minimal_debug.la
+file path=$(ECPREFIX)/lib/libtcmalloc_minimal_debug.so.4.2.6
+file path=$(ECPREFIX)/lib/pkgconfig/libprofiler.pc
+file path=$(ECPREFIX)/lib/pkgconfig/libtcmalloc.pc
+file path=$(ECPREFIX)/lib/pkgconfig/libtcmalloc_debug.pc
+file path=$(ECPREFIX)/lib/pkgconfig/libtcmalloc_minimal.pc
+file path=$(ECPREFIX)/lib/pkgconfig/libtcmalloc_minimal_debug.pc
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/AUTHORS
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/COPYING
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/ChangeLog
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/INSTALL
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/NEWS
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/README
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/README_windows.txt
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/TODO
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/cpuprofile-fileformat.html
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/cpuprofile.html
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/designstyle.css
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/heap-example1.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/heap_checker.html
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/heapprofile.html
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/index.html
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/overview.dot
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/overview.gif
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/pageheap.dot
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/pageheap.gif
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/pprof-test-big.gif
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/pprof-test.gif
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/pprof-vsnprintf-big.gif
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/pprof-vsnprintf.gif
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/pprof_remote_servers.html
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/spanmap.dot
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/spanmap.gif
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/t-test1.times.txt
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.1024.bytes.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.128.bytes.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.131072.bytes.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.16384.bytes.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.2048.bytes.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.256.bytes.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.32768.bytes.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.4096.bytes.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.512.bytes.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.64.bytes.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.65536.bytes.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.8192.bytes.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.1.threads.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.12.threads.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.16.threads.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.2.threads.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.20.threads.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.3.threads.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.4.threads.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.5.threads.png
+file \
+    path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.8.threads.png
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc.html
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/threadheap.dot
+file path=$(ECPREFIX)/share/doc/gperftools-$(COMPONENT_VERSION)/threadheap.gif
+file path=$(ECPREFIX)/share/man/man1/pprof.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libprofiler.so target=libprofiler.so.0.4.5
+link path=$(ECPREFIX)/lib/$(MACH64)/libprofiler.so.0 \
+    target=libprofiler.so.0.4.5
+link path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc.so target=libtcmalloc.so.4.2.6
+link path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc.so.4 \
+    target=libtcmalloc.so.4.2.6
+link path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_and_profiler.so \
+    target=libtcmalloc_and_profiler.so.4.2.6
+link path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_and_profiler.so.4 \
+    target=libtcmalloc_and_profiler.so.4.2.6
+link path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_debug.so \
+    target=libtcmalloc_debug.so.4.2.6
+link path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_debug.so.4 \
+    target=libtcmalloc_debug.so.4.2.6
+link path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_minimal.so \
+    target=libtcmalloc_minimal.so.4.2.6
+link path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_minimal.so.4 \
+    target=libtcmalloc_minimal.so.4.2.6
+link path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_minimal_debug.so \
+    target=libtcmalloc_minimal_debug.so.4.2.6
+link path=$(ECPREFIX)/lib/$(MACH64)/libtcmalloc_minimal_debug.so.4 \
+    target=libtcmalloc_minimal_debug.so.4.2.6
+link path=$(ECPREFIX)/lib/libprofiler.so target=libprofiler.so.0.4.5
+link path=$(ECPREFIX)/lib/libprofiler.so.0 target=libprofiler.so.0.4.5
+link path=$(ECPREFIX)/lib/libtcmalloc.so target=libtcmalloc.so.4.2.6
+link path=$(ECPREFIX)/lib/libtcmalloc.so.4 target=libtcmalloc.so.4.2.6
+link path=$(ECPREFIX)/lib/libtcmalloc_and_profiler.so \
+    target=libtcmalloc_and_profiler.so.4.2.6
+link path=$(ECPREFIX)/lib/libtcmalloc_and_profiler.so.4 \
+    target=libtcmalloc_and_profiler.so.4.2.6
+link path=$(ECPREFIX)/lib/libtcmalloc_debug.so \
+    target=libtcmalloc_debug.so.4.2.6
+link path=$(ECPREFIX)/lib/libtcmalloc_debug.so.4 \
+    target=libtcmalloc_debug.so.4.2.6
+link path=$(ECPREFIX)/lib/libtcmalloc_minimal.so \
+    target=libtcmalloc_minimal.so.4.2.6
+link path=$(ECPREFIX)/lib/libtcmalloc_minimal.so.4 \
+    target=libtcmalloc_minimal.so.4.2.6
+link path=$(ECPREFIX)/lib/libtcmalloc_minimal_debug.so \
+    target=libtcmalloc_minimal_debug.so.4.2.6
+link path=$(ECPREFIX)/lib/libtcmalloc_minimal_debug.so.4 \
+    target=libtcmalloc_minimal_debug.so.4.2.6
