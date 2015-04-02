@@ -14,10 +14,6 @@
 
 # We do not want to publish any of these files
 
-#Static libraries
-<transform file path=.+/lib/.+\.a$ -> drop>
-<transform file path=.+/lib/.+\.la$ -> drop>
-
 #Compiled python files
 <transform file path=.+/lib/python2\.6/.+\.pyc$ -> drop>
 <transform file path=.+/lib/python2\.7/.+\.pyc$ -> drop>
