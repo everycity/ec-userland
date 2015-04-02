@@ -1,0 +1,195 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2015 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+#<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/bin
+dir  path=$(USRDIR)/bin/$(MACH64)
+file path=$(USRDIR)/bin/$(MACH64)/pprof
+file path=$(USRDIR)/bin/pprof
+dir  path=$(USRDIR)/include
+dir  path=$(USRDIR)/include/google
+file path=$(USRDIR)/include/google/heap-checker.h
+file path=$(USRDIR)/include/google/heap-profiler.h
+file path=$(USRDIR)/include/google/malloc_extension.h
+file path=$(USRDIR)/include/google/malloc_extension_c.h
+file path=$(USRDIR)/include/google/malloc_hook.h
+file path=$(USRDIR)/include/google/malloc_hook_c.h
+file path=$(USRDIR)/include/google/profiler.h
+file path=$(USRDIR)/include/google/stacktrace.h
+file path=$(USRDIR)/include/google/tcmalloc.h
+dir  path=$(USRDIR)/include/gperftools
+file path=$(USRDIR)/include/gperftools/heap-checker.h
+file path=$(USRDIR)/include/gperftools/heap-profiler.h
+file path=$(USRDIR)/include/gperftools/malloc_extension.h
+file path=$(USRDIR)/include/gperftools/malloc_extension_c.h
+file path=$(USRDIR)/include/gperftools/malloc_hook.h
+file path=$(USRDIR)/include/gperftools/malloc_hook_c.h
+file path=$(USRDIR)/include/gperftools/profiler.h
+file path=$(USRDIR)/include/gperftools/stacktrace.h
+file path=$(USRDIR)/include/gperftools/tcmalloc.h
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/$(MACH64)
+file path=$(USRDIR)/lib/$(MACH64)/libprofiler.a
+file path=$(USRDIR)/lib/$(MACH64)/libprofiler.la
+link path=$(USRDIR)/lib/$(MACH64)/libprofiler.so target=libprofiler.so.0.4.5
+link path=$(USRDIR)/lib/$(MACH64)/libprofiler.so.0 target=libprofiler.so.0.4.5
+file path=$(USRDIR)/lib/$(MACH64)/libprofiler.so.0.4.5
+file path=$(USRDIR)/lib/$(MACH64)/libtcmalloc.a
+file path=$(USRDIR)/lib/$(MACH64)/libtcmalloc.la
+link path=$(USRDIR)/lib/$(MACH64)/libtcmalloc.so target=libtcmalloc.so.4.2.6
+link path=$(USRDIR)/lib/$(MACH64)/libtcmalloc.so.4 target=libtcmalloc.so.4.2.6
+file path=$(USRDIR)/lib/$(MACH64)/libtcmalloc.so.4.2.6
+file path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_and_profiler.a
+file path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_and_profiler.la
+link path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_and_profiler.so \
+    target=libtcmalloc_and_profiler.so.4.2.6
+link path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_and_profiler.so.4 \
+    target=libtcmalloc_and_profiler.so.4.2.6
+file path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_and_profiler.so.4.2.6
+file path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_debug.a
+file path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_debug.la
+link path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_debug.so \
+    target=libtcmalloc_debug.so.4.2.6
+link path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_debug.so.4 \
+    target=libtcmalloc_debug.so.4.2.6
+file path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_debug.so.4.2.6
+file path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_minimal.a
+file path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_minimal.la
+link path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_minimal.so \
+    target=libtcmalloc_minimal.so.4.2.6
+link path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_minimal.so.4 \
+    target=libtcmalloc_minimal.so.4.2.6
+file path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_minimal.so.4.2.6
+file path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_minimal_debug.a
+file path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_minimal_debug.la
+link path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_minimal_debug.so \
+    target=libtcmalloc_minimal_debug.so.4.2.6
+link path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_minimal_debug.so.4 \
+    target=libtcmalloc_minimal_debug.so.4.2.6
+file path=$(USRDIR)/lib/$(MACH64)/libtcmalloc_minimal_debug.so.4.2.6
+dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libprofiler.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libtcmalloc.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libtcmalloc_debug.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libtcmalloc_minimal.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libtcmalloc_minimal_debug.pc
+file path=$(USRDIR)/lib/libprofiler.a
+file path=$(USRDIR)/lib/libprofiler.la
+link path=$(USRDIR)/lib/libprofiler.so target=libprofiler.so.0.4.5
+link path=$(USRDIR)/lib/libprofiler.so.0 target=libprofiler.so.0.4.5
+file path=$(USRDIR)/lib/libprofiler.so.0.4.5
+file path=$(USRDIR)/lib/libtcmalloc.a
+file path=$(USRDIR)/lib/libtcmalloc.la
+link path=$(USRDIR)/lib/libtcmalloc.so target=libtcmalloc.so.4.2.6
+link path=$(USRDIR)/lib/libtcmalloc.so.4 target=libtcmalloc.so.4.2.6
+file path=$(USRDIR)/lib/libtcmalloc.so.4.2.6
+file path=$(USRDIR)/lib/libtcmalloc_and_profiler.a
+file path=$(USRDIR)/lib/libtcmalloc_and_profiler.la
+link path=$(USRDIR)/lib/libtcmalloc_and_profiler.so \
+    target=libtcmalloc_and_profiler.so.4.2.6
+link path=$(USRDIR)/lib/libtcmalloc_and_profiler.so.4 \
+    target=libtcmalloc_and_profiler.so.4.2.6
+file path=$(USRDIR)/lib/libtcmalloc_and_profiler.so.4.2.6
+file path=$(USRDIR)/lib/libtcmalloc_debug.a
+file path=$(USRDIR)/lib/libtcmalloc_debug.la
+link path=$(USRDIR)/lib/libtcmalloc_debug.so target=libtcmalloc_debug.so.4.2.6
+link path=$(USRDIR)/lib/libtcmalloc_debug.so.4 target=libtcmalloc_debug.so.4.2.6
+file path=$(USRDIR)/lib/libtcmalloc_debug.so.4.2.6
+file path=$(USRDIR)/lib/libtcmalloc_minimal.a
+file path=$(USRDIR)/lib/libtcmalloc_minimal.la
+link path=$(USRDIR)/lib/libtcmalloc_minimal.so \
+    target=libtcmalloc_minimal.so.4.2.6
+link path=$(USRDIR)/lib/libtcmalloc_minimal.so.4 \
+    target=libtcmalloc_minimal.so.4.2.6
+file path=$(USRDIR)/lib/libtcmalloc_minimal.so.4.2.6
+file path=$(USRDIR)/lib/libtcmalloc_minimal_debug.a
+file path=$(USRDIR)/lib/libtcmalloc_minimal_debug.la
+link path=$(USRDIR)/lib/libtcmalloc_minimal_debug.so \
+    target=libtcmalloc_minimal_debug.so.4.2.6
+link path=$(USRDIR)/lib/libtcmalloc_minimal_debug.so.4 \
+    target=libtcmalloc_minimal_debug.so.4.2.6
+file path=$(USRDIR)/lib/libtcmalloc_minimal_debug.so.4.2.6
+dir  path=$(USRDIR)/lib/pkgconfig
+file path=$(USRDIR)/lib/pkgconfig/libprofiler.pc
+file path=$(USRDIR)/lib/pkgconfig/libtcmalloc.pc
+file path=$(USRDIR)/lib/pkgconfig/libtcmalloc_debug.pc
+file path=$(USRDIR)/lib/pkgconfig/libtcmalloc_minimal.pc
+file path=$(USRDIR)/lib/pkgconfig/libtcmalloc_minimal_debug.pc
+dir  path=$(USRDIR)/share
+dir  path=$(USRDIR)/share/doc
+dir  path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/AUTHORS
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/COPYING
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/ChangeLog
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/INSTALL
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/NEWS
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/README
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/README_windows.txt
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/TODO
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/cpuprofile-fileformat.html
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/cpuprofile.html
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/designstyle.css
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/heap-example1.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/heap_checker.html
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/heapprofile.html
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/index.html
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/overview.dot
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/overview.gif
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/pageheap.dot
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/pageheap.gif
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/pprof-test-big.gif
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/pprof-test.gif
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/pprof-vsnprintf-big.gif
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/pprof-vsnprintf.gif
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/pprof_remote_servers.html
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/spanmap.dot
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/spanmap.gif
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/t-test1.times.txt
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.1024.bytes.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.128.bytes.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.131072.bytes.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.16384.bytes.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.2048.bytes.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.256.bytes.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.32768.bytes.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.4096.bytes.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.512.bytes.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.64.bytes.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.65536.bytes.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspercpusec.vs.threads.8192.bytes.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.1.threads.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.12.threads.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.16.threads.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.2.threads.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.20.threads.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.3.threads.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.4.threads.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.5.threads.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc-opspersec.vs.size.8.threads.png
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/tcmalloc.html
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/threadheap.dot
+file path=$(USRDIR)/share/doc/gperftools-$(COMPONENT_VERSION)/threadheap.gif
+dir  path=$(USRDIR)/share/man
+dir  path=$(USRDIR)/share/man/man1
+file path=$(USRDIR)/share/man/man1/pprof.1
