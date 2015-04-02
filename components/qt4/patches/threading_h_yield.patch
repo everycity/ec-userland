@@ -11,3 +11,14 @@ $NetBSD: patch-src_3rdparty_webkit_Source_JavaScriptCore_wtf_Threading.h,v 1.2 2
 +#endif
  
  #endif // Threading_h
+--- qt-everywhere-opensource-src-4.8.6/src/3rdparty/webkit/Source/WebCore/platform/sql/SQLiteDatabase.cpp.orig	2015-03-24 15:36:24.954336841 +0000
++++ qt-everywhere-opensource-src-4.8.6/src/3rdparty/webkit/Source/WebCore/platform/sql/SQLiteDatabase.cpp	2015-03-24 15:37:10.440384246 +0000
+@@ -114,7 +114,7 @@
+         if (!m_db)
+             return;
+         sqlite3_interrupt(m_db);
+-        yield();
++        WTF::yield();
+     }
+ 
+     m_lockingMutex.unlock();

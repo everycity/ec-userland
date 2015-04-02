@@ -227,7 +227,6 @@
 /^python\/psycopg2-pg91$/d
 /^python\/psycopg2-pg93$/d
 /^python\/pymongo$/d
-/^qt4$/d
 /^quilt$/d
 /^rabbitmq$/d
 /^raptor2$/d
