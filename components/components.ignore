@@ -25,7 +25,6 @@
 /^cronolog$/d
 /^csvfix$/d
 /^dbt2$/d
-/^dbus$/d
 /^dbus-glib$/d
 /^dovecot$/d
 /^dspam$/d
