@@ -16,21 +16,20 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		node
 COMPONENT_FMRI=		runtime/nodejs
-COMPONENT_VERSION=	0.10.36
+COMPONENT_VERSION=	0.12.2
 COMPONENT_LICENSE=	BSD-like, MIT, Apache
 COMPONENT_PROJECT_URL=	"http://nodejs.org"
 COMPONENT_SUMMARY=	Evented I/O for V8 JavaScript.
 COMPONENT_SRC=		$(COMPONENT_NAME)-v$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:b9d7d1d0294bce46686b13a05da6fc5b1e7743b597544aa888e8e64a9f178c81
+COMPONENT_ARCHIVE_HASH=	sha256:ac7e78ade93e633e7ed628532bb8e650caba0c9c33af33581957f3382e2a772d
 COMPONENT_ARCHIVE_URL=	http://nodejs.org/dist/v$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-# Include /usr/sbin for dtrace
-#PATH=$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
+COMPONENT_LICENSE_FILE=	LICENSE
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 CONFIG_SHELL =	$(USRDIR)/bin/python
