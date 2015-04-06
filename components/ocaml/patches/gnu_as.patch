@@ -1,0 +1,11 @@
+--- ocaml-4.02.1/asmrun/i386.S.~1~	2014-06-02 18:10:31.000000000 +0100
++++ ocaml-4.02.1/asmrun/i386.S	2015-04-06 15:59:35.042586921 +0100
+@@ -19,7 +19,7 @@
+ /* Linux/BSD with ELF binaries and Solaris do not prefix identifiers with _.
+    Linux/BSD with a.out binaries and NextStep do. */
+ 
+-#if defined(SYS_solaris)
++#if (defined(SYS_solaris) && !defined(__GNUC__))
+ #define CONCAT(a,b) a/**/b
+ #else
+ #define CONCAT(a,b) a##b
