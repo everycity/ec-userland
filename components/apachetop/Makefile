@@ -33,7 +33,12 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=	CPPFLAGS="-I/ec/include/ncurses"
+COMPONENT_LICENSE_FILE=	LICENSE
+
+LIBS+=	-ltinfo
+
+CONFIGURE_OPTIONS+=	CPPFLAGS="$(CPPFLAGS) -I/ec/include/ncurses"
+CONFIGURE_OPTIONS+=	LIBS="$(LIBS)"
 
 build_2.10:
 	@echo "Not available."
