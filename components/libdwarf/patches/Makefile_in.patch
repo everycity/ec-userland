@@ -1,0 +1,10 @@
+--- dwarf-20150310/Makefile.in.orig	2015-04-02 20:00:15.274371399 +0000
++++ dwarf-20150310/Makefile.in	2015-04-02 20:00:25.815619404 +0000
+@@ -62,7 +62,6 @@
+ DEFS =		@DEFS@
+ LIBS =		@LIBS@
+ INCLUDES =	-I. -I$(srcdir)
+-dwfpic =        @dwfpic@
+ CFLAGS =	$(PREINCS) @CFLAGS@ $(INCLUDES) $(dwfpic) $(POSTINCS)
+ LDFLAGS =	$(PRELIBS) @LDFLAGS@ $(POSTLIBS)
+ 
