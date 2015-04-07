@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libgd
 COMPONENT_FMRI=		library/libgd
-COMPONENT_VERSION=	2.1.0
+COMPONENT_VERSION=	2.1.1
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://libgd.bitbucket.org/"
 COMPONENT_SUMMARY=	GD is an open source code library for the dynamic creation of images by programmers.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:3ceef69d5454a392e8793ae90b5f0d632dd3e20879c12856aa1d1d3d063a51c8
+COMPONENT_ARCHIVE_HASH=	sha256:cf47bce5a4c4c6dc77ba8d0349d1eec9ceff77ed86f14b249a0780b7f18554c5
 COMPONENT_ARCHIVE_URL=	https://bitbucket.org/libgd/gd-libgd/downloads/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
