@@ -1,0 +1,11 @@
+--- dwarf-20150310/dwarfexample/Makefile.orig	2015-04-07 12:38:27.453692588 +0000
++++ dwarf-20150310/dwarfexample/Makefile	2015-04-07 12:38:43.938080459 +0000
+@@ -3,7 +3,7 @@
+ LIBDIR= -L../libdwarf
+ LIBS= -ldwarf -lelf
+ # FreeBSD gcc has -g -gdwarf-2 not -gdwarf-4
+-CFLAGS= -g -Wall -I../libdwarf
++CFLAGS+= -g -Wall -I../libdwarf
+ 
+ all: simplereader frame1
+ 
