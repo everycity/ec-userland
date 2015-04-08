@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # This Makefile has --enable-nasm support for 32bit encoding, which
@@ -32,10 +32,14 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		lame
+COMPONENT_FMRI=		audio/lame
 COMPONENT_VERSION=	3.99.5
+COMPONENT_LICENSE=	LGPL
+COMPONENT_PROJECT_URL=	"http://lame.sourceforge.net/"
+COMPONENT_SUMMARY=	LAME MP3 Encoder
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha256:ac3144c76617223a9be4aaa3e28a66b51bcab28141050c3af04cb06836f772c8
+COMPONENT_ARCHIVE_HASH=	sha256:24346b4158e4af3bd9f2e194bb23eb473c75fb7377011523353196b19b9a23ff
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
