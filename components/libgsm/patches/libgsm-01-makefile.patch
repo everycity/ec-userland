@@ -1,5 +1,5 @@
 --- gsm-1.0-pl13/Makefile.~1~	2006-04-26 19:14:26.000000000 +0000
-+++ gsm-1.0-pl13/Makefile	2011-12-27 01:20:38.861411331 +0000
++++ gsm-1.0-pl13/Makefile	2015-04-08 14:26:12.961627148 +0000
 @@ -30,6 +30,8 @@
  ######### define this, and read about the GSM_OPT_WAV49 option in the
  ######### manual page on gsm_option(3).
@@ -29,29 +29,34 @@
  
  # Where do you want to install the gsm library, header file, and manpages?
  #
-@@ -80,8 +82,8 @@
+@@ -79,9 +81,9 @@
+ # this directory.
  
  GSM_INSTALL_ROOT = $(INSTALL_ROOT)
- GSM_INSTALL_LIB = $(GSM_INSTALL_ROOT)/lib
+-GSM_INSTALL_LIB = $(GSM_INSTALL_ROOT)/lib
 -GSM_INSTALL_INC = $(GSM_INSTALL_ROOT)/inc
 -GSM_INSTALL_MAN = $(GSM_INSTALL_ROOT)/man/man3
++GSM_INSTALL_LIB ?= $(GSM_INSTALL_ROOT)/lib
 +GSM_INSTALL_INC = $(GSM_INSTALL_ROOT)/include/gsm
 +GSM_INSTALL_MAN = $(GSM_INSTALL_ROOT)/share/man/man3
  
  
  # Where do you want to install the toast binaries and their manpage?
-@@ -91,16 +93,16 @@
+@@ -90,17 +92,17 @@
+ # of this directory.
  
  TOAST_INSTALL_ROOT	  = $(INSTALL_ROOT)
- TOAST_INSTALL_BIN = $(TOAST_INSTALL_ROOT)/bin
+-TOAST_INSTALL_BIN = $(TOAST_INSTALL_ROOT)/bin
 -TOAST_INSTALL_MAN = $(TOAST_INSTALL_ROOT)/man/man1
++TOAST_INSTALL_BIN ?= $(TOAST_INSTALL_ROOT)/bin
 +TOAST_INSTALL_MAN = $(TOAST_INSTALL_ROOT)/share/man/man1
  
  #  Other tools
  
 -SHELL		= /bin/sh
+-LN		= ln
 +SHELL		= /bin/bash
- LN		= ln
++LN		= ln -s
  BASENAME 	= basename
  AR		= ar
  ARFLAGS		= cr
@@ -69,15 +74,23 @@
  	$(WAV49) $(CCINC) -I$(INC)
  ######### It's $(CC) $(CFLAGS)
  
-@@ -139,7 +141,7 @@
+@@ -139,11 +141,11 @@
  
  # Targets
  
 -LIBGSM	= $(LIB)/libgsm.a
-+LIBGSM	= $(LIB)/libgsm.so.$(MAJOR)
+-
+-TOAST	= $(BIN)/toast
+-UNTOAST	= $(BIN)/untoast
+-TCAT	= $(BIN)/tcat
++LIBGSM		= libgsm.so.$(MAJOR)
++LIBGSMTGT	= $(LIB)/$(LIBGSM)
++TOAST		= $(BIN)/toast
++UNTOAST		= $(BIN)/untoast
++TCAT		= $(BIN)/tcat
  
- TOAST	= $(BIN)/toast
- UNTOAST	= $(BIN)/untoast
+ # Headers
+ 
 @@ -257,7 +259,7 @@
  # Install targets
  
@@ -87,19 +100,39 @@
  		$(GSM_INSTALL_INC)/gsm.h		\
  		$(GSM_INSTALL_MAN)/gsm.3		\
  		$(GSM_INSTALL_MAN)/gsm_explode.3	\
-@@ -300,9 +302,8 @@
+@@ -279,7 +281,7 @@
+ 
+ # Target rules
+ 
+-all:		$(LIBGSM) $(TOAST) $(TCAT) $(UNTOAST)
++all:		$(LIBGSMTGT) $(TOAST) $(TCAT) $(UNTOAST)
+ 		@-echo $(ROOT): Done.
+ 
+ tst:		$(TST)/lin2cod $(TST)/cod2lin $(TOAST) $(TST)/test-result
+@@ -299,16 +301,16 @@
+ 
  # The basic API: libgsm
  
- $(LIBGSM):	$(LIB) $(GSM_OBJECTS)
+-$(LIBGSM):	$(LIB) $(GSM_OBJECTS)
 -		-rm $(RMFLAGS) $(LIBGSM)
 -		$(AR) $(ARFLAGS) $(LIBGSM) $(GSM_OBJECTS)
 -		$(RANLIB) $(LIBGSM)
-+		-rm $(RMFLAGS) $(RMFLAGS) $(LIBGSM)
-+		$(LD) -G $(GSM_OBJECTS) -o $(LIBGSM) -shared -fPIC $(LDFLAGS)
++$(LIBGSMTGT):	$(LIB) $(GSM_OBJECTS)
++		-rm $(RMFLAGS) $(RMFLAGS) $(LIBGSMTGT)
++		$(LD) $(GSM_OBJECTS) -o $(LIBGSMTGT) -shared -fPIC $(LDFLAGS)
++		$(LN) -f $(LIBGSM) lib/libgsm.so
  
  
  # Toast, Untoast and Tcat -- the compress-like frontends to gsm.
-@@ -351,51 +352,52 @@
+ 
+-$(TOAST):	$(BIN) $(TOAST_OBJECTS) $(LIBGSM)
+-		$(LD) $(LFLAGS) -o $(TOAST) $(TOAST_OBJECTS) $(LIBGSM) $(LDLIB)
++$(TOAST):	$(BIN) $(TOAST_OBJECTS) $(LIBGSMTGT)
++		$(LD) $(LFLAGS) -lgsm -L./lib -o $(TOAST) $(TOAST_OBJECTS) $(LDLIB)
+ 
+ $(UNTOAST):	$(BIN) $(TOAST)
+ 		-rm $(RMFLAGS) $(UNTOAST)
+@@ -351,51 +353,52 @@
  		fi
  
  $(TOAST_INSTALL_BIN)/toast:	$(TOAST)
@@ -156,10 +189,10 @@
  
 -$(GSM_INSTALL_LIB)/libgsm.a:	$(LIBGSM)
 -		-rm $@
-+$(GSM_INSTALL_LIB)/libgsm.so.$(MAJOR):	$(LIBGSM)
++$(GSM_INSTALL_LIB)/$(LIBGSM):	$(LIBGSMTGT)
 +		-rm $(RMFLAGS) $@
  		cp $? $@
-+		( cd $(GSM_INSTALL_LIB) ; ln -s libgsm.so.$(MAJOR) libgsm.so )
++		( cd $(GSM_INSTALL_LIB) ; $(LN) $(LIBGSM) libgsm.so )
  		chmod 444 $@
  
  

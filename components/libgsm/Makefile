@@ -19,33 +19,41 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libgsm
+COMPONENT_FMRI=		library/libgsm
 COMPONENT_VERSION=	1.0.13
+COMPONENT_LICENSE=	BSD3CLAUSE
+COMPONENT_PROJECT_URL=	"http://libgsm.sourcearchive.com/"
+COMPONENT_SUMMARY=	GSM Speech Encoding Library
 COMPONENT_SRC=		gsm-1.0-pl13
 COMPONENT_ARCHIVE=	libgsm_1.0.13.orig.tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:668b0a180039a50d379b3d5a22e78da4b1d90afc
+COMPONENT_ARCHIVE_HASH=	sha256:52c518244d428c2e56c543b98c9135f4a76ff780c32455580b793f60a0a092ad
 COMPONENT_ARCHIVE_URL=	http://libgsm.sourcearchive.com/downloads/1.0.13-3/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-override COMPONENT_BUILD_GMAKE_ARGS=
+COMPONENT_LICENSE_FILE=	COPYRIGHT
+
+BINDIR_32=	$(PROTO_DIR)$(USRDIR)/bin
+BINDIR_64=	$(PROTO_DIR)$(USRDIR)/bin/$(MACH64)
+LIBDIR_32=	$(PROTO_DIR)$(USRDIR)/lib
+LIBDIR_64=	$(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
 
 COMPONENT_BUILD_ENV+= CC="$(CC) $(CC_BITS)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
-COMPONENT_INSTALL_ENV+= CC="$(CC)"
+COMPONENT_INSTALL_ENV+= CC="$(CC) $(CC_BITS)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
 COMPONENT_PRE_INSTALL_ACTION+= mkdir -p $(PROTO_DIR)$(USRDIR)/{bin,lib} \
 	$(PROTO_DIR)$(USRDIR)/{bin,lib}/$(MACH64) \
 	$(PROTO_DIR)$(USRDIR)/include/gsm \
 	$(PROTO_DIR)$(USRDIR)/share/man/man3
-COMPONENT_INSTALL_ARGS= INSTALL_ROOT=$(PROTO_DIR)$(USRDIR)
+COMPONENT_INSTALL_ARGS= INSTALL_ROOT=$(PROTO_DIR)$(USRDIR) GSM_INSTALL_LIB=$(LIBDIR_$(BITS)) TOAST_INSTALL_BIN=$(BINDIR_$(BITS))
 
 build:		$(BUILD_32_and_64)
 
-install:	$(INSTALL_32) build
-	$(INSTALL) $(BUILD_DIR_64)/lib/libgsm.so.1 $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
+install:	$(INSTALL_32_and_64)
 
