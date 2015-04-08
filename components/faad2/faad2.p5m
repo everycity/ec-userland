@@ -9,29 +9,42 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/library/audio/faad2@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="FAAD2 open source MPEG-4 and MPEG-2 AAC decoder"
-set name=info.upstream_url value="http://www.audiocoding.com/faad2.html"
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license faad2.license license="GPLv2"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/bin
+dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/faad
 file path=$(USRDIR)/bin/faad
+dir  path=$(USRDIR)/include
 file path=$(USRDIR)/include/faad.h
 file path=$(USRDIR)/include/mp4ff.h
 file path=$(USRDIR)/include/mp4ffint.h
 file path=$(USRDIR)/include/neaacdec.h
-file path=$(USRDIR)/lib/$(MACH64)/libfaad.so.2.0.0
-file path=$(USRDIR)/lib/libfaad.so.2.0.0
-file path=$(USRDIR)/share/man/manm/faad.man
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/$(MACH64)
+file path=$(USRDIR)/lib/$(MACH64)/libfaad.la
 link path=$(USRDIR)/lib/$(MACH64)/libfaad.so target=libfaad.so.2.0.0
 link path=$(USRDIR)/lib/$(MACH64)/libfaad.so.2 target=libfaad.so.2.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libfaad.so.2.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libmp4ff.a
+file path=$(USRDIR)/lib/libfaad.la
 link path=$(USRDIR)/lib/libfaad.so target=libfaad.so.2.0.0
 link path=$(USRDIR)/lib/libfaad.so.2 target=libfaad.so.2.0.0
+file path=$(USRDIR)/lib/libfaad.so.2.0.0
+file path=$(USRDIR)/lib/libmp4ff.a
+dir  path=$(USRDIR)/share
+dir  path=$(USRDIR)/share/man
+dir  path=$(USRDIR)/share/man/manm
+file path=$(USRDIR)/share/man/manm/faad.man
