@@ -10,14 +10,17 @@
 
 #
 # Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
-# Copyright 2012-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ant
+COMPONENT_FMRI=		developer/build/ant
 COMPONENT_VERSION=	1.8.4
+COMPONENT_LICENSE=	ANT
 COMPONENT_PROJECT_URL=	$(PROJECT_APACHE)
+COMPONENT_SUMMARY=	Apache Ant Java-based build tool
 COMPONENT_SRC_NAME=	apache-ant
 COMPONENT_SRC=		$(COMPONENT_SRC_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-src.tar.bz2
@@ -45,7 +48,6 @@ ANT_DIST_DIRS+=-Ddist.javadocs=$(PROTO_DIR)$(ECPREFIX)/share/doc/ant/manual/api
 ANT_DIST_DIRS+=-Ddist.lib=$(PROTO_DIR)$(ECPREFIX)/share/lib/ant
 
 OPTIONAL_LIBS+=$(ECPREFIX)/share/lib/java/junit-4.10.jar
-#OPTIONAL_LIBS+=/usr/share/antlr-2.7.7/antlr.jar
 COMPONENT_PRE_BUILD_ACTION = $(CP) $(OPTIONAL_LIBS) $(@D)/lib/optional
 
 COMPONENT_POST_INSTALL_ACTION=	( perl -pi -e "s,^\#!.*,\#!$(PYTHON)," \
