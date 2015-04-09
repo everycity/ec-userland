@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -34,13 +34,11 @@ dir path=$(ECPREFIX)/var/data
 dir path=$(ECPREFIX)/var/log
 file path=$(ECPREFIX)/bin/$(MACH64)/indexer
 file path=$(ECPREFIX)/bin/$(MACH64)/indextool
-file path=$(ECPREFIX)/bin/$(MACH64)/search
 file path=$(ECPREFIX)/bin/$(MACH64)/searchd
 file path=$(ECPREFIX)/bin/$(MACH64)/spelldump
 file path=$(ECPREFIX)/bin/$(MACH64)/wordbreaker
 file path=$(ECPREFIX)/bin/indexer
 file path=$(ECPREFIX)/bin/indextool
-file path=$(ECPREFIX)/bin/search
 file path=$(ECPREFIX)/bin/searchd
 file path=$(ECPREFIX)/bin/spelldump
 file path=$(ECPREFIX)/bin/wordbreaker
