@@ -1,0 +1,82 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2015 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/include
+dir  path=$(USRDIR)/include/yaml-cpp
+file path=$(USRDIR)/include/yaml-cpp/anchor.h
+file path=$(USRDIR)/include/yaml-cpp/binary.h
+dir  path=$(USRDIR)/include/yaml-cpp/contrib
+file path=$(USRDIR)/include/yaml-cpp/contrib/anchordict.h
+file path=$(USRDIR)/include/yaml-cpp/contrib/graphbuilder.h
+file path=$(USRDIR)/include/yaml-cpp/dll.h
+file path=$(USRDIR)/include/yaml-cpp/emitfromevents.h
+file path=$(USRDIR)/include/yaml-cpp/emitter.h
+file path=$(USRDIR)/include/yaml-cpp/emitterdef.h
+file path=$(USRDIR)/include/yaml-cpp/emittermanip.h
+file path=$(USRDIR)/include/yaml-cpp/emitterstyle.h
+file path=$(USRDIR)/include/yaml-cpp/eventhandler.h
+file path=$(USRDIR)/include/yaml-cpp/exceptions.h
+file path=$(USRDIR)/include/yaml-cpp/mark.h
+dir  path=$(USRDIR)/include/yaml-cpp/node
+file path=$(USRDIR)/include/yaml-cpp/node/convert.h
+dir  path=$(USRDIR)/include/yaml-cpp/node/detail
+file path=$(USRDIR)/include/yaml-cpp/node/detail/bool_type.h
+file path=$(USRDIR)/include/yaml-cpp/node/detail/impl.h
+file path=$(USRDIR)/include/yaml-cpp/node/detail/iterator.h
+file path=$(USRDIR)/include/yaml-cpp/node/detail/iterator_fwd.h
+file path=$(USRDIR)/include/yaml-cpp/node/detail/memory.h
+file path=$(USRDIR)/include/yaml-cpp/node/detail/node.h
+file path=$(USRDIR)/include/yaml-cpp/node/detail/node_data.h
+file path=$(USRDIR)/include/yaml-cpp/node/detail/node_iterator.h
+file path=$(USRDIR)/include/yaml-cpp/node/detail/node_ref.h
+file path=$(USRDIR)/include/yaml-cpp/node/emit.h
+file path=$(USRDIR)/include/yaml-cpp/node/impl.h
+file path=$(USRDIR)/include/yaml-cpp/node/iterator.h
+file path=$(USRDIR)/include/yaml-cpp/node/node.h
+file path=$(USRDIR)/include/yaml-cpp/node/parse.h
+file path=$(USRDIR)/include/yaml-cpp/node/ptr.h
+file path=$(USRDIR)/include/yaml-cpp/node/type.h
+file path=$(USRDIR)/include/yaml-cpp/noncopyable.h
+file path=$(USRDIR)/include/yaml-cpp/null.h
+file path=$(USRDIR)/include/yaml-cpp/ostream_wrapper.h
+file path=$(USRDIR)/include/yaml-cpp/parser.h
+file path=$(USRDIR)/include/yaml-cpp/stlemitter.h
+file path=$(USRDIR)/include/yaml-cpp/traits.h
+file path=$(USRDIR)/include/yaml-cpp/yaml.h
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/$(MACH64)
+link path=$(USRDIR)/lib/$(MACH64)/libyaml-cpp.so \
+    target=libyaml-cpp.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/$(MACH64)/libyaml-cpp.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/$(MACH64)/libyaml-cpp.so.0 \
+    target=libyaml-cpp.so.$(COMPONENT_VERSION)
+dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/yaml-cpp.pc
+link path=$(USRDIR)/lib/libyaml-cpp.so target=libyaml-cpp.so.0.5
+file path=$(USRDIR)/lib/libyaml-cpp.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libyaml-cpp.so.0.5 \
+    target=libyaml-cpp.so.$(COMPONENT_VERSION)
+dir  path=$(USRDIR)/lib/pkgconfig
+file path=$(USRDIR)/lib/pkgconfig/yaml-cpp.pc
