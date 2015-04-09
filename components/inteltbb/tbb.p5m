@@ -1,0 +1,132 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2015 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/include
+dir  path=$(USRDIR)/include/tbb
+file path=$(USRDIR)/include/tbb/aggregator.h
+file path=$(USRDIR)/include/tbb/aligned_space.h
+file path=$(USRDIR)/include/tbb/atomic.h
+file path=$(USRDIR)/include/tbb/blocked_range.h
+file path=$(USRDIR)/include/tbb/blocked_range2d.h
+file path=$(USRDIR)/include/tbb/blocked_range3d.h
+file path=$(USRDIR)/include/tbb/cache_aligned_allocator.h
+file path=$(USRDIR)/include/tbb/combinable.h
+dir  path=$(USRDIR)/include/tbb/compat
+file path=$(USRDIR)/include/tbb/compat/condition_variable
+file path=$(USRDIR)/include/tbb/compat/ppl.h
+file path=$(USRDIR)/include/tbb/compat/thread
+file path=$(USRDIR)/include/tbb/compat/tuple
+file path=$(USRDIR)/include/tbb/concurrent_hash_map.h
+file path=$(USRDIR)/include/tbb/concurrent_lru_cache.h
+file path=$(USRDIR)/include/tbb/concurrent_priority_queue.h
+file path=$(USRDIR)/include/tbb/concurrent_queue.h
+file path=$(USRDIR)/include/tbb/concurrent_unordered_map.h
+file path=$(USRDIR)/include/tbb/concurrent_unordered_set.h
+file path=$(USRDIR)/include/tbb/concurrent_vector.h
+file path=$(USRDIR)/include/tbb/critical_section.h
+file path=$(USRDIR)/include/tbb/enumerable_thread_specific.h
+file path=$(USRDIR)/include/tbb/flow_graph.h
+file path=$(USRDIR)/include/tbb/index.html
+dir  path=$(USRDIR)/include/tbb/internal
+file path=$(USRDIR)/include/tbb/internal/_aggregator_impl.h
+file path=$(USRDIR)/include/tbb/internal/_concurrent_queue_impl.h
+file path=$(USRDIR)/include/tbb/internal/_concurrent_unordered_impl.h
+file path=$(USRDIR)/include/tbb/internal/_flow_graph_impl.h
+file path=$(USRDIR)/include/tbb/internal/_flow_graph_indexer_impl.h
+file path=$(USRDIR)/include/tbb/internal/_flow_graph_item_buffer_impl.h
+file path=$(USRDIR)/include/tbb/internal/_flow_graph_join_impl.h
+file path=$(USRDIR)/include/tbb/internal/_flow_graph_node_impl.h
+file path=$(USRDIR)/include/tbb/internal/_flow_graph_tagged_buffer_impl.h
+file path=$(USRDIR)/include/tbb/internal/_flow_graph_trace_impl.h
+file path=$(USRDIR)/include/tbb/internal/_flow_graph_types_impl.h
+file path=$(USRDIR)/include/tbb/internal/_mutex_padding.h
+file path=$(USRDIR)/include/tbb/internal/_range_iterator.h
+file path=$(USRDIR)/include/tbb/internal/_tbb_strings.h
+file path=$(USRDIR)/include/tbb/internal/_tbb_windef.h
+file path=$(USRDIR)/include/tbb/internal/_template_helpers.h
+file path=$(USRDIR)/include/tbb/internal/_x86_eliding_mutex_impl.h
+file path=$(USRDIR)/include/tbb/internal/_x86_rtm_rw_mutex_impl.h
+dir  path=$(USRDIR)/include/tbb/machine
+file path=$(USRDIR)/include/tbb/machine/gcc_armv7.h
+file path=$(USRDIR)/include/tbb/machine/gcc_generic.h
+file path=$(USRDIR)/include/tbb/machine/gcc_ia32_common.h
+file path=$(USRDIR)/include/tbb/machine/gcc_itsx.h
+file path=$(USRDIR)/include/tbb/machine/ibm_aix51.h
+file path=$(USRDIR)/include/tbb/machine/icc_generic.h
+file path=$(USRDIR)/include/tbb/machine/linux_common.h
+file path=$(USRDIR)/include/tbb/machine/linux_ia32.h
+file path=$(USRDIR)/include/tbb/machine/linux_ia64.h
+file path=$(USRDIR)/include/tbb/machine/linux_intel64.h
+file path=$(USRDIR)/include/tbb/machine/mac_ppc.h
+file path=$(USRDIR)/include/tbb/machine/macos_common.h
+file path=$(USRDIR)/include/tbb/machine/mic_common.h
+file path=$(USRDIR)/include/tbb/machine/msvc_armv7.h
+file path=$(USRDIR)/include/tbb/machine/msvc_ia32_common.h
+file path=$(USRDIR)/include/tbb/machine/sunos_sparc.h
+file path=$(USRDIR)/include/tbb/machine/windows_api.h
+file path=$(USRDIR)/include/tbb/machine/windows_ia32.h
+file path=$(USRDIR)/include/tbb/machine/windows_intel64.h
+file path=$(USRDIR)/include/tbb/machine/xbox360_ppc.h
+file path=$(USRDIR)/include/tbb/memory_pool.h
+file path=$(USRDIR)/include/tbb/mutex.h
+file path=$(USRDIR)/include/tbb/null_mutex.h
+file path=$(USRDIR)/include/tbb/null_rw_mutex.h
+file path=$(USRDIR)/include/tbb/parallel_do.h
+file path=$(USRDIR)/include/tbb/parallel_for.h
+file path=$(USRDIR)/include/tbb/parallel_for_each.h
+file path=$(USRDIR)/include/tbb/parallel_invoke.h
+file path=$(USRDIR)/include/tbb/parallel_reduce.h
+file path=$(USRDIR)/include/tbb/parallel_scan.h
+file path=$(USRDIR)/include/tbb/parallel_sort.h
+file path=$(USRDIR)/include/tbb/parallel_while.h
+file path=$(USRDIR)/include/tbb/partitioner.h
+file path=$(USRDIR)/include/tbb/pipeline.h
+file path=$(USRDIR)/include/tbb/queuing_mutex.h
+file path=$(USRDIR)/include/tbb/queuing_rw_mutex.h
+file path=$(USRDIR)/include/tbb/reader_writer_lock.h
+file path=$(USRDIR)/include/tbb/recursive_mutex.h
+file path=$(USRDIR)/include/tbb/runtime_loader.h
+file path=$(USRDIR)/include/tbb/scalable_allocator.h
+file path=$(USRDIR)/include/tbb/spin_mutex.h
+file path=$(USRDIR)/include/tbb/spin_rw_mutex.h
+file path=$(USRDIR)/include/tbb/task.h
+file path=$(USRDIR)/include/tbb/task_arena.h
+file path=$(USRDIR)/include/tbb/task_group.h
+file path=$(USRDIR)/include/tbb/task_scheduler_init.h
+file path=$(USRDIR)/include/tbb/task_scheduler_observer.h
+file path=$(USRDIR)/include/tbb/tbb.h
+file path=$(USRDIR)/include/tbb/tbb_allocator.h
+file path=$(USRDIR)/include/tbb/tbb_config.h
+file path=$(USRDIR)/include/tbb/tbb_exception.h
+file path=$(USRDIR)/include/tbb/tbb_machine.h
+file path=$(USRDIR)/include/tbb/tbb_profiling.h
+file path=$(USRDIR)/include/tbb/tbb_stddef.h
+file path=$(USRDIR)/include/tbb/tbb_thread.h
+file path=$(USRDIR)/include/tbb/tbbmalloc_proxy.h
+file path=$(USRDIR)/include/tbb/tick_count.h
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/$(MACH64)
+file path=$(USRDIR)/lib/$(MACH64)/libtbb.so
+file path=$(USRDIR)/lib/$(MACH64)/libtbbmalloc.so
