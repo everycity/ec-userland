@@ -64,7 +64,6 @@
 /^java-jna$/d
 /^java-snappy$/d
 /^json-c$/d
-/^lftp$/d
 /^libIDL$/d
 /^libassuan$/d
 /^libcaca$/d
