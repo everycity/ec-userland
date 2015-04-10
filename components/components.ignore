@@ -13,6 +13,7 @@
 /^automake-112$/d
 /^automake-19$/d
 /^bitlbee$/d
+/^boost$/d
 /^cabextract$/d
 /^cassandra$/d
 /^charybdis$/d
