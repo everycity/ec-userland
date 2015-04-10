@@ -31,7 +31,7 @@ include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS+=	--with-pic --with-xml=$(ECPREFIX) --with-zlib=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--with-libbz2-prefix=$(ECPREFIX) --with-libcurl=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-openssl=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--with-openssl=$(ECPREFIX) LIBS="-ltinfo"
 
 build:		$(BUILD_32_and_64)
 

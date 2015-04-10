@@ -16,7 +16,6 @@
 /^cabextract$/d
 /^cassandra$/d
 /^charybdis$/d
-/^clamav$/d
 /^cloog-ppl$/d
 /^clusterssh$/d
 /^cronolog$/d

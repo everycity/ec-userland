@@ -17,99 +17,96 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 group gid=465 groupname=clamav
 user gcos-field="Clam AntiVirus" group=clamav uid=465 username=clamav login-shell=/bin/false
 
-dir path=$(ECPREFIX)/share/clamav owner=clamav group=clamav mode=0755
-dir path=/var
-dir path=/var/log
+dir path=$(USRDIR)/share/clamav owner=clamav group=clamav mode=0755
 file files/freshclam.log path=/var/log/freshclam.log owner=clamav mode=0600
 file files/freshclam.xml path=var/svc/manifest/site/freshclam.xml
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-dir path=$(ECPREFIX)/share/man/man5
-dir path=$(ECPREFIX)/share/man/man8
-file path=$(ECPREFIX)/bin/$(MACH64)/clamav-config
-file path=$(ECPREFIX)/bin/$(MACH64)/clambc
-file path=$(ECPREFIX)/bin/$(MACH64)/clamconf
-file path=$(ECPREFIX)/bin/$(MACH64)/clamd
-file path=$(ECPREFIX)/bin/$(MACH64)/clamdscan
-file path=$(ECPREFIX)/bin/$(MACH64)/clamdtop
-file path=$(ECPREFIX)/bin/$(MACH64)/clamscan
-file path=$(ECPREFIX)/bin/$(MACH64)/clamsubmit
-file path=$(ECPREFIX)/bin/$(MACH64)/freshclam
-file path=$(ECPREFIX)/bin/$(MACH64)/sigtool
-file path=$(ECPREFIX)/bin/clamav-config
-file path=$(ECPREFIX)/bin/clambc
-file path=$(ECPREFIX)/bin/clamconf
-file path=$(ECPREFIX)/bin/clamd
-file path=$(ECPREFIX)/bin/clamdscan
-file path=$(ECPREFIX)/bin/clamdtop
-file path=$(ECPREFIX)/bin/clamscan
-file path=$(ECPREFIX)/bin/clamsubmit
-file path=$(ECPREFIX)/bin/freshclam
-file path=$(ECPREFIX)/bin/sigtool
-file path=$(ECPREFIX)/etc/clamd.conf.sample
-file path=$(ECPREFIX)/etc/freshclam.conf.sample
-file path=$(ECPREFIX)/include/clamav.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamav.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.6.1.25
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so.6.1.25
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so.6.1.25
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libclamav.pc
-file path=$(ECPREFIX)/lib/libclamav.la
-file path=$(ECPREFIX)/lib/libclamav.so.6.1.25
-file path=$(ECPREFIX)/lib/libclamunrar.la
-file path=$(ECPREFIX)/lib/libclamunrar.so.6.1.25
-file path=$(ECPREFIX)/lib/libclamunrar_iface.la
-file path=$(ECPREFIX)/lib/libclamunrar_iface.so.6.1.25
-file path=$(ECPREFIX)/lib/pkgconfig/libclamav.pc
-file path=$(ECPREFIX)/share/man/man1/clambc.1
-file path=$(ECPREFIX)/share/man/man1/clamconf.1
-file path=$(ECPREFIX)/share/man/man1/clamdscan.1
-file path=$(ECPREFIX)/share/man/man1/clamdtop.1
-file path=$(ECPREFIX)/share/man/man1/clamscan.1
-file path=$(ECPREFIX)/share/man/man1/clamsubmit.1
-file path=$(ECPREFIX)/share/man/man1/freshclam.1
-file path=$(ECPREFIX)/share/man/man1/sigtool.1
-file path=$(ECPREFIX)/share/man/man5/clamav-milter.conf.5
-file path=$(ECPREFIX)/share/man/man5/clamd.conf.5
-file path=$(ECPREFIX)/share/man/man5/freshclam.conf.5
-file path=$(ECPREFIX)/share/man/man8/clamav-milter.8
-file path=$(ECPREFIX)/share/man/man8/clamd.8
-link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so target=libclamav.so.6.1.25
-link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.6 target=libclamav.so.6.1.25
-link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so \
+dir  path=$(SYSCONFDIR)
+file path=$(SYSCONFDIR)/clamd.conf.sample
+file path=$(SYSCONFDIR)/freshclam.conf.sample
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/bin
+dir  path=$(USRDIR)/bin/$(MACH64)
+file path=$(USRDIR)/bin/$(MACH64)/clamav-config
+file path=$(USRDIR)/bin/$(MACH64)/clambc
+file path=$(USRDIR)/bin/$(MACH64)/clamconf
+file path=$(USRDIR)/bin/$(MACH64)/clamd
+file path=$(USRDIR)/bin/$(MACH64)/clamdscan
+file path=$(USRDIR)/bin/$(MACH64)/clamdtop
+file path=$(USRDIR)/bin/$(MACH64)/clamscan
+file path=$(USRDIR)/bin/$(MACH64)/clamsubmit
+file path=$(USRDIR)/bin/$(MACH64)/freshclam
+file path=$(USRDIR)/bin/$(MACH64)/sigtool
+file path=$(USRDIR)/bin/clamav-config
+file path=$(USRDIR)/bin/clambc
+file path=$(USRDIR)/bin/clamconf
+file path=$(USRDIR)/bin/clamd
+file path=$(USRDIR)/bin/clamdscan
+file path=$(USRDIR)/bin/clamdtop
+file path=$(USRDIR)/bin/clamscan
+file path=$(USRDIR)/bin/clamsubmit
+file path=$(USRDIR)/bin/freshclam
+file path=$(USRDIR)/bin/sigtool
+dir  path=$(USRDIR)/include
+file path=$(USRDIR)/include/clamav.h
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/$(MACH64)
+file path=$(USRDIR)/lib/$(MACH64)/libclamav.la
+link path=$(USRDIR)/lib/$(MACH64)/libclamav.so target=libclamav.so.6.1.25
+link path=$(USRDIR)/lib/$(MACH64)/libclamav.so.6 target=libclamav.so.6.1.25
+file path=$(USRDIR)/lib/$(MACH64)/libclamav.so.6.1.25
+file path=$(USRDIR)/lib/$(MACH64)/libclamunrar.la
+link path=$(USRDIR)/lib/$(MACH64)/libclamunrar.so target=libclamunrar.so.6.1.25
+link path=$(USRDIR)/lib/$(MACH64)/libclamunrar.so.6 \
     target=libclamunrar.so.6.1.25
-link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so.6 \
-    target=libclamunrar.so.6.1.25
-link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so \
+file path=$(USRDIR)/lib/$(MACH64)/libclamunrar.so.6.1.25
+file path=$(USRDIR)/lib/$(MACH64)/libclamunrar_iface.la
+link path=$(USRDIR)/lib/$(MACH64)/libclamunrar_iface.so \
     target=libclamunrar_iface.so.6.1.25
-link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so.6 \
+link path=$(USRDIR)/lib/$(MACH64)/libclamunrar_iface.so.6 \
     target=libclamunrar_iface.so.6.1.25
-link path=$(ECPREFIX)/lib/libclamav.so target=libclamav.so.6.1.25
-link path=$(ECPREFIX)/lib/libclamav.so.6 target=libclamav.so.6.1.25
-link path=$(ECPREFIX)/lib/libclamunrar.so target=libclamunrar.so.6.1.25
-link path=$(ECPREFIX)/lib/libclamunrar.so.6 target=libclamunrar.so.6.1.25
-link path=$(ECPREFIX)/lib/libclamunrar_iface.so \
+file path=$(USRDIR)/lib/$(MACH64)/libclamunrar_iface.so.6.1.25
+dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libclamav.pc
+file path=$(USRDIR)/lib/libclamav.la
+link path=$(USRDIR)/lib/libclamav.so target=libclamav.so.6.1.25
+link path=$(USRDIR)/lib/libclamav.so.6 target=libclamav.so.6.1.25
+file path=$(USRDIR)/lib/libclamav.so.6.1.25
+file path=$(USRDIR)/lib/libclamunrar.la
+link path=$(USRDIR)/lib/libclamunrar.so target=libclamunrar.so.6.1.25
+link path=$(USRDIR)/lib/libclamunrar.so.6 target=libclamunrar.so.6.1.25
+file path=$(USRDIR)/lib/libclamunrar.so.6.1.25
+file path=$(USRDIR)/lib/libclamunrar_iface.la
+link path=$(USRDIR)/lib/libclamunrar_iface.so \
     target=libclamunrar_iface.so.6.1.25
-link path=$(ECPREFIX)/lib/libclamunrar_iface.so.6 \
+link path=$(USRDIR)/lib/libclamunrar_iface.so.6 \
     target=libclamunrar_iface.so.6.1.25
+file path=$(USRDIR)/lib/libclamunrar_iface.so.6.1.25
+dir  path=$(USRDIR)/lib/pkgconfig
+file path=$(USRDIR)/lib/pkgconfig/libclamav.pc
+dir  path=$(USRDIR)/share
+dir  path=$(USRDIR)/share/man
+dir  path=$(USRDIR)/share/man/man1
+file path=$(USRDIR)/share/man/man1/clambc.1
+file path=$(USRDIR)/share/man/man1/clamconf.1
+file path=$(USRDIR)/share/man/man1/clamdscan.1
+file path=$(USRDIR)/share/man/man1/clamdtop.1
+file path=$(USRDIR)/share/man/man1/clamscan.1
+file path=$(USRDIR)/share/man/man1/clamsubmit.1
+file path=$(USRDIR)/share/man/man1/freshclam.1
+file path=$(USRDIR)/share/man/man1/sigtool.1
+dir  path=$(USRDIR)/share/man/man5
+file path=$(USRDIR)/share/man/man5/clamav-milter.conf.5
+file path=$(USRDIR)/share/man/man5/clamd.conf.5
+file path=$(USRDIR)/share/man/man5/freshclam.conf.5
+dir  path=$(USRDIR)/share/man/man8
+file path=$(USRDIR)/share/man/man8/clamav-milter.8
+file path=$(USRDIR)/share/man/man8/clamd.8
