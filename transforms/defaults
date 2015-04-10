@@ -21,7 +21,7 @@
 
 #
 # Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 <transform dir path=etc$ -> default group sys>
@@ -52,6 +52,7 @@
 <transform dir path=ec/share/aclocal$ -> default group other>
 <transform dir path=ec/share/doc$ -> default group other>
 <transform dir path=ec/share/lib$ -> default group sys>
+<transform file path=ec/etc/.* -> default mode 0644>
 
 #
 # Most directories and files under /etc/security are group sys
