@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -30,7 +30,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_BUILD_ENV += CC="$(CC)" CXX="$(CXX)" LDFLAGS="$(LDFLAGS)"
+COMPONENT_LICENSE_FILE=	LICENSE_1_0.txt
 
 LIBDIR.32= $(USRDIR)/lib
 LIBDIR.64= $(USRDIR)/lib/$(MACH64)
@@ -42,9 +42,8 @@ BJAM=./b2 --v2 -d+2 -j4 -q address-model=$(BITS) \
     --prefix=$(PROTO_DIR)$(USRDIR) \
     --libdir=$(PROTO_DIR)$(LIBDIR)
 
-
 COMPONENT_PRE_BUILD_ACTION = cd $(@D); \
-	echo "using gcc : : $(CXX) : <compileflags>$(CFLAGS) $(CC_PIC) -pthreads <linkflags>$(CC_BITS) ;" > ./user-config.jam; \
+	echo 'using gcc : 4.8.3 : $(CXX) : <cflags>"$(CFLAGS) $(CC_PIC) -pthreads" <cxxflags>"$(CXXFLAGS) -std=c++0x" <linkflags>"$(LDFLAGS)" ;' > ./user-config.jam; \
 	$(ENV) $(COMPONENT_BUILD_ENV) \
 	./bootstrap.sh --prefix=$(USRDIR) --libdir=$(LIBDIR) \
         --with-toolset=gcc --with-icu=$(USRDIR); \
