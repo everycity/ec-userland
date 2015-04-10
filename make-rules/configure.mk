@@ -143,7 +143,6 @@ $(BUILD_DIR)/%/.configured:	$(SOURCE_DIR)/.prep
 	$(COMPONENT_POST_CONFIGURE_ACTION)
 	$(TOUCH) $@
 
-COMPONENT_BUILD_ARGS += -j$(BUILD_JOBS)
 # build the configured source
 COMPONENT_BUILD_ROOT = $(@D)
 $(BUILD_DIR)/%/.built:	$(BUILD_DIR)/%/.configured

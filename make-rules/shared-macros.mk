@@ -706,15 +706,6 @@ COMPONENT_BUILD_ARGS += $(COMPONENT_BUILD_ARGS.$(BITS))
 COMPONENT_INSTALL_ENV += $(COMPONENT_INSTALL_ENV.$(BITS))
 COMPONENT_INSTALL_ARGS += $(COMPONENT_INSTALL_ARGS.$(BITS))
 
-# define build jobs for parallel builds
-DEF_JOBS ?= yes
-JOBS ?= 1
-ifeq ($(DEF_JOBS),yes)
-    BUILD_JOBS = $(JOBS)
-else
-    BUILD_JOBS = 1
-endif
-
 # declare these phony so that we avoid filesystem conflicts.
 .PHONY:	prep build install publish test clean clobber
 
