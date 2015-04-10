@@ -22,15 +22,24 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/ar target=../../bin/ar
-hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/as target=../../bin/gas
-hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/ld target=../../bin/gld
-hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/ld.bfd target=../../bin/gld
-hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/nm target=../../bin/nm
-hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/objcopy target=../../bin/objcopy
-hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/objdump target=../../bin/objdump
-hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/ranlib target=../../bin/ranlib
-hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/strip target=../../bin/gstrip
+hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/ar \
+    target=../../bin/ar
+hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/gas \
+    target=../../bin/gas
+hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/gld \
+    target=../../bin/gld
+hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/gld.bfd \
+    target=../../bin/gld
+hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/nm \
+    target=../../bin/nm
+hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/objcopy \
+    target=../../bin/objcopy
+hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/objdump \
+    target=../../bin/objdump
+hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/ranlib \
+    target=../../bin/ranlib
+hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/gstrip \
+    target=../../bin/gstrip
 
 file path=$(USRDIR)/bin/addr2line
 file path=$(USRDIR)/bin/ar
@@ -147,14 +156,13 @@ file path=$(USRDIR)/lib/ldscripts/elf_x86_64_sol2.xsc
 file path=$(USRDIR)/lib/ldscripts/elf_x86_64_sol2.xsw
 file path=$(USRDIR)/lib/ldscripts/elf_x86_64_sol2.xu
 file path=$(USRDIR)/lib/ldscripts/elf_x86_64_sol2.xw
+
 file path=$(USRDIR)/lib/libbfd.a
-file path=$(USRDIR)/lib/libiberty.a
 file path=$(USRDIR)/lib/libopcodes.a
 
 file $(USRDIR)/share/info/as.info path=$(USRDIR)/share/info/gas.info
 file path=$(USRDIR)/share/info/bfd.info
 file path=$(USRDIR)/share/info/binutils.info
-file path=$(USRDIR)/share/info/configure.info
 file path=$(USRDIR)/share/info/gprof.info
 file $(USRDIR)/share/info/ld.info path=$(USRDIR)/share/info/gld.info
 
