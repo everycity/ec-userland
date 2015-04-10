@@ -208,7 +208,6 @@
 /^php55-apache24$/d
 /^phpmyadmin$/d
 /^pigz$/d
-/^poppler$/d
 /^postgis-pg91$/d
 /^postgis-pg93$/d
 /^postgresql92$/d
