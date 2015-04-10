@@ -42,7 +42,6 @@
 /^gdk-pixbuf$/d
 /^geos$/d
 /^ghostscript$/d
-/^giflib$/d
 /^gifsicle$/d
 /^gnome-mime-data$/d
 /^gnome-vfs$/d
