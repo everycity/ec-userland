@@ -213,7 +213,6 @@
 /^postgis-pg93$/d
 /^postgresql92$/d
 /^powerdns$/d
-/^ppl$/d
 /^proftpd$/d
 /^proj$/d
 /^protobuf$/d
