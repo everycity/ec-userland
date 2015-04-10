@@ -25,7 +25,6 @@
 /^dbus-glib$/d
 /^dovecot$/d
 /^dspam$/d
-/^emacs$/d
 /^epm$/d
 /^erlang$/d
 /^exiftool$/d
