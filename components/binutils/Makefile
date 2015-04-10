@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011-2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -22,19 +22,19 @@ COMPONENT_PROJECT_URL=  http://www.gnu.org/software/binutils/
 COMPONENT_SUMMARY=      GNU binutils
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	\
-	sha256:22defc65cfa3ef2a3395faaea75d6331c6e62ea5dfacfed3e2ec17b08c882923
+COMPONENT_ARCHIVE_HASH=	sha256:22defc65cfa3ef2a3395faaea75d6331c6e62ea5dfacfed3e2ec17b08c882923
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/configure.mk
 include $(WS_TOP)/make-rules/ips.mk
 
-CFLAGS += -std=gnu99
-CFLAGS += -Wno-maybe-uninitialized
-CFLAGS += $(CPP_LARGEFILES) $(CPP_POSIX)
-CXXFLAGS += $(CPP_LARGEFILES) $(CPP_POSIX)
-CPPFLAGS += $(CPP_LARGEFILES) $(CPP_POSIX)
+CPPFLAGS=	$(CPP_LARGEFILES) $(CPP_POSIX)
+CFLAGS=		$(CC_BITS) $(CFLAGS.$(COMPILER)) $(CFLAGS.$(BITS))
+CFLAGS+=	-std=gnu99 -Wno-maybe-uninitialized
+CFLAGS+=	$(CPP_LARGEFILES) $(CPP_POSIX)
+CXXFLAGS=	$(CC_BITS) $(CFLAGS.$(COMPILER)) $(CFLAGS.$(BITS))
+CXXFLAGS+=	$(CPP_LARGEFILES) $(CPP_POSIX)
 
 CONFIGURE_OPTIONS +=	--enable-targets=$(GNU_ARCH_64)
 CONFIGURE_OPTIONS +=	--mandir=$(CONFIGURE_MANDIR)
@@ -52,7 +52,6 @@ COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) && $(RM) etc/standards.info 
 		-e 's/doc@cygnus.com/doc@@cygnus.com/' bfd/doc/bfd.texinfo \
 		-e 's/doc@cygnus.com/doc@@cygnus.com/' ld/ld.texinfo )
 
-# common targets
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
