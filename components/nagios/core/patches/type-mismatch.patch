@@ -1,0 +1,102 @@
+From fd5cb20cd13f30b695232e4f60548b88abee24c1 Mon Sep 17 00:00:00 2001
+From: "Eric J. Mislivec" <emislivec@nagios.com>
+Date: Thu, 28 Aug 2014 13:19:26 -0500
+Subject: [PATCH] Fix some type/format mismatch warnings for pid_t.
+
+---
+ base/nagios.c  |  2 +-
+ base/workers.c |  8 ++++----
+ lib/worker.c   | 12 ++++++------
+ 3 files changed, 11 insertions(+), 11 deletions(-)
+
+diff --git a/base/nagios.c b/base/nagios.c
+index a88cdd2..3657fb3 100644
+--- a/base/nagios.c
++++ b/base/nagios.c
+@@ -161,7 +161,7 @@ static int nagios_core_worker(const char *path)
+ 		return 1;
+ 	}
+ 
+-	ret = nsock_printf_nul(sd, "@wproc register name=Core Worker %d;pid=%d", getpid(), getpid());
++	ret = nsock_printf_nul(sd, "@wproc register name=Core Worker %ld;pid=%ld", (long)getpid(), (long)getpid());
+ 	if (ret < 0) {
+ 		printf("Failed to register as worker.\n");
+ 		return 1;
+diff --git a/base/workers.c b/base/workers.c
+index b04ba2e..3b8732d 100644
+--- a/base/workers.c
++++ b/base/workers.c
+@@ -774,7 +774,7 @@ static int handle_worker_result(int sd, int events, void *arg)
+ 			break;
+ 
+ 		default:
+-			logit(NSLOG_RUNTIME_WARNING, TRUE, "Worker %d: Unknown jobtype: %d\n", wp->pid, job->type);
++			logit(NSLOG_RUNTIME_WARNING, TRUE, "Worker %ld: Unknown jobtype: %d\n", (long)wp->pid, job->type);
+ 			break;
+ 		}
+ 		destroy_job(job);
+@@ -904,9 +904,9 @@ static int wproc_query_handler(int sd, char *buf, unsigned int len)
+ 
+ 		for (i = 0; i < workers.len; i++) {
+ 			struct wproc_worker *wp = workers.wps[i];
+-			nsock_printf(sd, "name=%s;pid=%d;jobs_running=%u;jobs_started=%u\n",
+-						 wp->name, wp->pid,
+-						 wp->jobs_running, wp->jobs_started);
++			nsock_printf(sd, "name=%s;pid=%ld;jobs_running=%u;jobs_started=%u\n",
++					wp->name, (long)wp->pid,
++					wp->jobs_running, wp->jobs_started);
+ 		}
+ 		return 0;
+ 	}
+diff --git a/lib/worker.c b/lib/worker.c
+index 822f274..4af62f6 100644
+--- a/lib/worker.c
++++ b/lib/worker.c
+@@ -378,7 +378,7 @@ static void kill_job(child_process *cp, int reason)
+ 		if (errno == ESRCH) {
+ 			reaped = 1;
+ 		} else {
+-			wlog("kill(-%d, SIGKILL) failed: %s\n", cp->ei->pid, strerror(errno));
++			wlog("kill(-%ld, SIGKILL) failed: %s\n", (long)cp->ei->pid, strerror(errno));
+ 		}
+ 	}
+ 
+@@ -406,9 +406,9 @@ static void kill_job(child_process *cp, int reason)
+ 			 * reap attempt later.
+ 			 */
+ 			if (reason == ESTALE) {
+-				wlog("tv.tv_sec is currently %lu", (unsigned long)tv.tv_sec);
++				wlog("tv.tv_sec is currently %llu", (unsigned long long)tv.tv_sec);
+ 				tv.tv_sec += 5;
+-				wlog("Failed to reap child with pid %d. Next attempt @ %lu.%lu", cp->ei->pid, (unsigned long)tv.tv_sec, (unsigned long)tv.tv_usec);
++				wlog("Failed to reap child with pid %ld. Next attempt @ %llu.%lu", (long)cp->ei->pid, (unsigned long long)tv.tv_sec, (unsigned long)tv.tv_usec);
+ 			} else {
+ 				tv.tv_usec = 250000;
+ 				if (tv.tv_usec > 1000000) {
+@@ -427,7 +427,7 @@ static void kill_job(child_process *cp, int reason)
+ 	if (cp->ei->state != ESTALE)
+ 		finish_job(cp, reason);
+ 	else
+-		wlog("job %d (pid=%d): Dormant child reaped", cp->id, cp->ei->pid);
++		wlog("job %d (pid=%ld): Dormant child reaped", cp->id, (long)cp->ei->pid);
+ 	destroy_job(cp);
+ }
+ 
+@@ -442,7 +442,7 @@ static void gather_output(child_process *cp, iobuf *io, int final)
+ 			if (errno == EINTR || errno == EAGAIN)
+ 				continue;
+ 			if (!final && errno != EAGAIN)
+-				wlog("job %d (pid=%d): Failed to read(): %s", cp->id, cp->ei->pid, strerror(errno));
++				wlog("job %d (pid=%ld): Failed to read(): %s", cp->id, (long)cp->ei->pid, strerror(errno));
+ 		}
+ 
+ 		if (rd > 0) {
+@@ -794,7 +794,7 @@ void enter_worker(int sd, int (*cb)(child_process*))
+ 				}
+ 			} else {
+ 				/* this job timed out, so kill it */
+-				wlog("job %d (pid=%d) timed out. Killing it", cp->id, cp->ei->pid);
++				wlog("job %d (pid=%ld) timed out. Killing it", cp->id, (long)cp->ei->pid);
+ 				kill_job(cp, ETIME);
+ 			}
+ 		}

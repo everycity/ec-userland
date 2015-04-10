@@ -1,0 +1,100 @@
+From fcb5c8ebfff2a6f07554cee3c5e6c78536131bda Mon Sep 17 00:00:00 2001
+From: "Eric J. Mislivec" <emislivec@nagios.com>
+Date: Thu, 28 Aug 2014 10:55:42 -0500
+Subject: [PATCH] Fix build on Solaris.
+
+Solaris' <pwd.h> declares several extensions by default. One of these,
+struct comment, conflicts with our type of the same name. We suppress
+these extensions by defining __XOPEN_OR_POSIX before including <pwd.h>,
+and undefining immediately after so we get other extensions we do want
+later. Since configure likes to comment out undefs, do the conditional
+definitions in a separate header. Also, fix the install-headers target
+to not install config.h and the new config_pwd.h as these aren't
+intended for users of libnagios.
+
+Now to cleanup some warnings, and get a proper declaration of
+getloadavg() on systems that don't declare it in <stdlib.h> (see:
+https://www.gnu.org/software/gnulib/manual/html_node/getloadavg.html).
+---
+ Makefile.in          |  6 +++---
+ include/config.h.in  |  4 ++--
+ include/config_pwd.h | 23 +++++++++++++++++++++++
+ 3 files changed, 28 insertions(+), 5 deletions(-)
+ create mode 100644 include/config_pwd.h
+
+diff --git a/Makefile.in b/Makefile.in
+index f487c47..c60de00 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -298,7 +298,7 @@ install-webconf:
+ 	@echo ""
+ 	@echo "*** Nagios/Apache conf file installed ***"
+ 	@echo ""
+-	
++
+ install-exfoliation:
+ 	cp -rf contrib/exfoliation/stylesheets/* $(DESTDIR)$(HTMLDIR)/stylesheets
+ 	cp -rf contrib/exfoliation/images/* $(DESTDIR)$(HTMLDIR)/images
+@@ -307,7 +307,7 @@ install-exfoliation:
+ 	@echo "*** Exfoliation theme installed ***"
+ 	@echo "NOTE: Use 'make install-classicui' to revert to classic Nagios theme";
+ 	@echo ""
+-	
++
+ install-classicui:
+ 	cp -rf html/stylesheets/* $(DESTDIR)$(HTMLDIR)/stylesheets
+ 	cp -rf html/images/* $(DESTDIR)$(HTMLDIR)/images
+@@ -344,7 +344,7 @@ install-headers:
+ 	$(INSTALL) -d -m 755 $(DESTDIR)$(INCLUDEDIR)/lib
+ 	$(INSTALL) -m 644 include/*.h $(DESTDIR)$(INCLUDEDIR)
+ 	$(INSTALL) -m 644 lib/*.h $(DESTDIR)$(INCLUDEDIR)/lib
+-	rm -f $(DESTDIR)$(INCLUDEDIR)/nagios/config.h
++	rm -f $(DESTDIR)$(INCLUDEDIR)/config*.h
+ 
+ install-lib: $(SRC_LIB)/libnagios.a
+ 	$(INSTALL) -d -m 755 $(DESTDIR)$(LIBDIR)
+diff --git a/include/config.h.in b/include/config.h.in
+index 8dc819f..3541b2f 100644
+--- a/include/config.h.in
++++ b/include/config.h.in
+@@ -140,9 +140,9 @@
+ 
+ #undef HAVE_PWD_H
+ #ifdef HAVE_PWD_H
+-#include <pwd.h>
++#include "config_pwd.h"
+ #endif
+- 
++
+ #undef HAVE_GRP_H
+ #ifdef HAVE_GRP_H
+ #include <grp.h>
+diff --git a/include/config_pwd.h b/include/config_pwd.h
+new file mode 100644
+index 0000000..0d99aba
+--- /dev/null
++++ b/include/config_pwd.h
+@@ -0,0 +1,23 @@
++#ifndef NAGIOS_INCLUDE_CONFIG_PWD_H
++#define NAGIOS_INCLUDE_CONFIG_PWD_H
++/**
++ * @file include/config_pwd.h
++ * A wrapper header to let us conditionally define and then undefine
++ * __XOPEN_OR_POSIX to suppress the conflicting 'struct comment' declaration on
++ * Solaris. We can't do this in config.h.in since the undef will be commented
++ * out when config.h is generated.
++ */
++
++#if defined(__sun) && defined(__SVR4) && !defined(__XOPEN_OR_POSIX)
++#define __XOPEN_OR_POSIX
++#define NEED_TO_UNDEF__XOPEN_OR_POSIX
++#endif
++
++#include <pwd.h>
++
++#if defined(NEED_TO_UNDEF__XOPEN_OR_POSIX)
++#undef __XOPEN_OR_POSIX
++#undef NEED_TO_UNDEF__XOPEN_OR_POSIX
++#endif
++
++#endif

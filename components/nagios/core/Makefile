@@ -9,29 +9,25 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		nagios
 COMPONENT_FMRI=         monitoring/nagios/core
-COMPONENT_VERSION=      3.5.0
+COMPONENT_VERSION=      4.0.8
 COMPONENT_LICENSE=      GPLv2
 COMPONENT_PROJECT_URL=  http://www.nagios.org/
 COMPONENT_SUMMARY=	IT Infrastructure Monitoring
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:469381b2954392689c85d3db733e8da4bd43b806b3d661d1a7fbd52dacc084db
+COMPONENT_ARCHIVE_HASH=	sha256:8b268d250c97851775abe162f46f64724f95f367d752ae4630280cc5d368ca4b
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../../make-rules/prep.mk
 include ../../../make-rules/configure.mk
 include ../../../make-rules/ips.mk
-
-COMPONENT_POST_UNPACK_ACTION=	( \
-	cd $(COMPONENT_DIR)/source ; \
-	mv $(COMPONENT_NAME) $(COMPONENT_SRC); )
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 

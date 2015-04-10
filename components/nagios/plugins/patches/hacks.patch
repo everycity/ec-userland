@@ -1,11 +1,11 @@
---- nagios-plugins-1.4.16/configure.~1~	2012-06-27 18:33:08.000000000 +0100
-+++ nagios-plugins-1.4.16/configure	2013-06-05 11:04:48.612720868 +0100
-@@ -14648,7 +14648,7 @@
-         { $as_echo "$as_me:${as_lineno-$LINENO}: result: using nagios-plugins internal ps command (pst3) for solaris" >&5
+--- nagios-plugins-2.0.3/configure.~1~	2015-04-10 11:53:44.681523032 +0100
++++ nagios-plugins-2.0.3/configure	2015-04-10 11:53:55.226404576 +0100
+@@ -21525,7 +21525,7 @@
+         { $as_echo "$as_me:$LINENO: result: using nagios-plugins internal ps command (pst3) for solaris" >&5
  $as_echo "using nagios-plugins internal ps command (pst3) for solaris" >&6; }
  	if test `isainfo -b` = 64 ; then
 -		pst3_use_64bit=1
 +		pst3_use_64bit=0
- 		{ $as_echo "$as_me:${as_lineno-$LINENO}: using 64bit pst3" >&5
+ 		{ $as_echo "$as_me:$LINENO: using 64bit pst3" >&5
  $as_echo "$as_me: using 64bit pst3" >&6;}
  	else
