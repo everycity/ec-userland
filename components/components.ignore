@@ -288,7 +288,6 @@
 /^goaccess$/d
 /^meta-packages\/haproxy-dev$/d
 /^ca-certificates$/d
-/^ag$/d
 /^cppunit$/d
 /^graphicsmagick$/d
 /^librevenge$/d
