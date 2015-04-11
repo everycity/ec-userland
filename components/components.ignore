@@ -114,7 +114,6 @@
 /^mutt$/d
 /^nagios\/core$/d
 /^nagios\/plugins$/d
-/^ncdu$/d
 /^nddtune$/d
 /^neon$/d
 /^net-snmp$/d
