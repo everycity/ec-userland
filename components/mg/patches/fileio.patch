@@ -1,19 +1,22 @@
---- mg-20140414/fileio.c.~1~	2014-04-03 20:20:55.000000000 +0100
-+++ mg-20140414/fileio.c	2014-04-23 21:27:33.448204202 +0100
-@@ -15,11 +15,11 @@
- 
+--- mg-20150323/fileio.c.~1~	2015-03-23 11:03:05.000000000 +0000
++++ mg-20150323/fileio.c	2015-04-11 13:59:55.864285773 +0000
+@@ -12,7 +12,6 @@
+ #include <sys/time.h>
+ #include <sys/types.h>
+ #include <sys/wait.h>
+-#include <dirent.h>
+ #include <errno.h>
  #include <fcntl.h>
  #include <limits.h>
--#include <dirent.h>
- #include <pwd.h>
+@@ -23,6 +22,7 @@
  #include <string.h>
  #include <unistd.h>
  
 +#include "adirent.h"
+ #include "def.h"
  #include "kbd.h"
  #include "pathnames.h"
- 
-@@ -425,7 +424,7 @@
+@@ -429,7 +429,7 @@
  	size_t		 len, preflen;
  	int		 ret;
  	DIR		*dirp;
@@ -22,7 +25,7 @@
  	struct list	*last, *current;
  	char		 fl_name[NFILEN + 2];
  	char		 prefixx[NFILEN + 1];
-@@ -507,7 +506,7 @@
+@@ -511,7 +511,7 @@
  		return (NULL);
  	last = NULL;
  

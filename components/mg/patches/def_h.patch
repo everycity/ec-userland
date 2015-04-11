@@ -1,0 +1,17 @@
+--- mg-20150323/def.h.~1~	2015-03-23 11:23:30.000000000 +0000
++++ mg-20150323/def.h	2015-04-11 14:35:30.120425501 +0000
+@@ -25,6 +25,14 @@
+ #  define LOGIN_NAME_MAX _POSIX_LOGIN_NAME_MAX
+ #endif
+ 
++#if defined(__sun) && defined(__SVR4)
++#include <strings.h>
++extern uint32_t arc4random_uniform(uint32_t);
++extern char * fgetln(FILE *, size_t *);
++extern void * reallocarray(void *, size_t, size_t);
++extern long long strtonum(const char *, long long, long long, const char **);
++#endif
++
+ typedef int     (*PF)(int, int);        /* generally useful type */
+ 
+ /*

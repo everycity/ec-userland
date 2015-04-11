@@ -1,0 +1,16 @@
+--- mg-20150323/main.c.~1~	2015-04-11 15:21:57.642129257 +0000
++++ mg-20150323/main.c	2015-04-11 15:22:04.519550674 +0000
+@@ -84,13 +84,11 @@
+ 	 */
+ 	{
+ 		extern void grep_init(void);
+-		extern void theo_init(void);
+ 		extern void cmode_init(void);
+ 		extern void dired_init(void);
+ 
+ 		dired_init();
+ 		grep_init();
+-		theo_init();
+ 		cmode_init();
+ 	}
+ 

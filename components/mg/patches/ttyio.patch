@@ -1,19 +1,19 @@
---- mg-20140414/ttyio.c.~1~	2014-04-03 20:20:56.000000000 +0100
-+++ mg-20140414/ttyio.c	2014-04-24 00:53:41.789513872 +0100
-@@ -11,13 +11,14 @@
+--- mg-20150323/ttyio.c.~1~	2015-03-23 11:03:05.000000000 +0000
++++ mg-20150323/ttyio.c	2015-04-11 14:10:00.949226283 +0000
+@@ -10,6 +10,7 @@
+  * buffered fashion.
   */
- #include "def.h"
  
 +#include <sys/filio.h>
-+#include <sys/ioctl.h>
- #include <sys/types.h>
+ #include <sys/ioctl.h>
+ #include <sys/queue.h>
  #include <sys/time.h>
--#include <sys/ioctl.h>
- #include <fcntl.h>
- #include <poll.h>
- #include <termios.h>
+@@ -21,7 +22,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
 -#include <term.h>
-+#include </ec/include/ncurses/term.h>
- 
- #define NOBUF	512			/* Output buffer size. */
++#include <ncurses/term.h>
+ #include <termios.h>
+ #include <unistd.h>
  

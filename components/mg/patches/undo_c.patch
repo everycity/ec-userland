@@ -1,0 +1,16 @@
+--- mg-20150323/undo.c.~1~	2015-03-23 11:03:05.000000000 +0000
++++ mg-20150323/undo.c	2015-04-11 14:21:50.572432880 +0000
+@@ -3,12 +3,12 @@
+  * This file is in the public domain
+  */
+ 
+-#include <sys/queue.h>
+ #include <signal.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+ 
++#include "queue.h"
+ #include "def.h"
+ #include "kbd.h"
+ 

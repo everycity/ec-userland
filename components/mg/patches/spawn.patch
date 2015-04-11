@@ -1,11 +1,11 @@
---- mg-20110120/spawn.c.~1~	2011-08-05 13:55:31.751323990 +0100
-+++ mg-20110120/spawn.c	2011-08-05 13:55:41.484968105 +0100
+--- mg-20150323/spawn.c.~1~	2015-04-11 14:00:48.282571678 +0000
++++ mg-20150323/spawn.c	2015-04-11 14:01:07.488155113 +0000
 @@ -10,7 +10,7 @@
- #include "def.h"
- 
- #include <termios.h>
+ #include <sys/queue.h>
+ #include <signal.h>
+ #include <stdio.h>
 -#include <term.h>
-+#include </ec/include/ncurses/term.h>
++#include <ncurses/term.h>
+ #include <termios.h>
  
- /*
-  * This causes mg to send itself a stop signal.  It assumes the parent
+ #include "def.h"

@@ -1,11 +1,11 @@
---- mg-20110120/ttykbd.c.~1~	2011-08-05 14:03:26.236781764 +0100
-+++ mg-20110120/ttykbd.c	2011-08-05 14:03:37.013615316 +0100
+--- mg-20150323/ttykbd.c.~1~	2015-04-11 14:10:41.021367501 +0000
++++ mg-20150323/ttykbd.c	2015-04-11 14:10:53.073581575 +0000
 @@ -12,7 +12,7 @@
- #include "kbd.h"
- 
- #ifdef	XKEYS
+ #include <signal.h>
+ #include <stdio.h>
+ #include <stdlib.h>
 -#include <term.h>
-+#include </ec/include/ncurses/term.h>
++#include <ncurses/term.h>
  
- #ifdef  FKEYS
- /*
+ #include "def.h"
+ #include "kbd.h"

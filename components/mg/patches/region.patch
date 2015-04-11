@@ -1,6 +1,6 @@
 --- mg-20140414/region.c.orig	2014-04-03 20:20:55.000000000 +0100
 +++ mg-20140414/region.c	2014-04-24 00:36:30.143776431 +0100
-@@ -21,6 +21,12 @@
+@@ -25,6 +25,12 @@
  
  #define TIMEOUT 10000
  
@@ -13,7 +13,7 @@
  static char leftover[BUFSIZ];
  
  static	int	getregion(struct region *);
-@@ -605,6 +611,47 @@
+@@ -609,6 +615,47 @@
  	return (popbuftop(outbp, WNONE));
  }
  
@@ -61,7 +61,7 @@
  /*
   * Write some text from region to fd. Once done shutdown the 
   * write end.
-@@ -614,9 +661,8 @@
+@@ -618,9 +665,8 @@
  {
  	int w;
  

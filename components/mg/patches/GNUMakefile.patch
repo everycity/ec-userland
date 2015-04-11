@@ -1,5 +1,5 @@
---- mg-20141007/GNUmakefile.orig	2014-11-15 22:11:46.261780207 +0000
-+++ mg-20141007/GNUmakefile	2014-11-15 22:16:36.823228950 +0000
+--- mg-20150323/GNUmakefile.~1~	2014-07-26 15:20:49.000000000 +0000
++++ mg-20150323/GNUmakefile	2015-04-11 15:20:50.809129426 +0000
 @@ -7,17 +7,25 @@
  
  name=		mg
@@ -23,14 +23,14 @@
 +ifeq ($(UNAME),SunOS)
 +  OBJS+=	adirent.o fgetln.o fparseln.o reallocarray.o strtonum.o
 +  SUNOS_LIBS=	-lsocket -lnsl -lumem
-+  CURSES_LIBS=	-lncurses
++  CURSES_LIBS=	-lncurses -ltinfo
 +  DEAD=		-D__dead=
 +  CPPFLAGS=	-DDEFFILEMODE=0666
 +endif
  ifeq ($(UNAME),FreeBSD)
    BSD_CPPFLAGS:=
    BSD_LIBS:=	-lutil
-@@ -26,17 +34,17 @@
+@@ -26,22 +34,22 @@
    BSD_LIBS:=	$(shell $(PKG_CONFIG) --libs libbsd-overlay)
  endif
  
@@ -44,7 +44,7 @@
 -CPPFLAGS+=	$(BSD_CPPFLAGS) -D__dead=__dead2
 -LIBS=		$(CURSES_LIBS) $(BSD_LIBS)
 +CPPFLAGS+=	-DFKEYS -DREGEX -DXKEYS
-+CPPFLAGS+=	$(BSD_CPPFLAGS) $(DEAD)
++CPPFLAGS+=	$(BSD_CPPFLAGS) $(DEAD) -I/ec/include
 +LIBS=		$(CURSES_LIBS) $(BSD_LIBS) $(SUNOS_LIBS)
  
  
@@ -53,3 +53,9 @@
  	echo.o extend.o file.o fileio.o funmap.o help.o kbd.o keymap.o \
  	line.o macro.o main.o match.o modes.o paragraph.o random.o \
  	re_search.o region.o search.o spawn.o tty.o ttyio.o ttykbd.o \
+ 	undo.o version.o window.o word.o yank.o
+-OBJS+=	cmode.o cscope.o dired.o grep.o tags.o theo.o
++OBJS+=	cmode.o cscope.o dired.o grep.o tags.o
+ 
+ 
+ # # Portability stuff.

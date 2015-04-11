@@ -1,19 +1,11 @@
---- mg-20140414/display.c.orig	2014-04-22 12:27:24.950969060 +0100
-+++ mg-20140414/display.c	2014-04-22 12:27:40.707276119 +0100
-@@ -14,6 +14,7 @@
- #include "kbd.h"
- 
- #include <ctype.h>
-+#include <strings.h>
- 
- /*
-  * You can change these back to the types
-@@ -27,7 +31,7 @@
+--- mg-20150323/display.c.~1~	2015-03-23 11:03:05.000000000 +0000
++++ mg-20150323/display.c	2015-04-11 13:46:30.200382126 +0000
+@@ -33,7 +33,7 @@
  #define	XSHORT	int
  
  #ifdef	STANDOUT_GLITCH
 -#include <term.h>
-+#include </ec/include/ncurses/term.h>
++#include <ncurses/term.h>
  #endif
  
  /*
