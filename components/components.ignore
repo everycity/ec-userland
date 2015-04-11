@@ -105,7 +105,6 @@
 /^mesa$/d
 /^meta-packages\/build-essential$/d
 /^meta-packages\/nagios$/d
-/^mg$/d
 /^mhash$/d
 /^mimms$/d
 /^mongodb$/d
