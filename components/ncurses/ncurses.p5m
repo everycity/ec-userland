@@ -9,19 +9,18 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
-
 
 # Transforms
 <include ec-drop-common>
 
 set name=pkg.fmri value=pkg:/library/ncurses@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="A CRT screen handling and optimization package."
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license ncurses.license license="MIT"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 link path=$(USRDIR)/bin/$(MACH64)/captoinfo target=tic
 file path=$(USRDIR)/bin/$(MACH64)/clear
@@ -46,26 +45,26 @@ file path=$(USRDIR)/bin/toe
 file path=$(USRDIR)/bin/tput
 file path=$(USRDIR)/bin/tset
 
-file path=$(USRDIR)/include/curses.h
-file path=$(USRDIR)/include/cursesapp.h
-file path=$(USRDIR)/include/cursesf.h
-file path=$(USRDIR)/include/cursesm.h
-file path=$(USRDIR)/include/cursesp.h
-file path=$(USRDIR)/include/cursesw.h
-file path=$(USRDIR)/include/cursslk.h
-file path=$(USRDIR)/include/eti.h
-file path=$(USRDIR)/include/etip.h
-file path=$(USRDIR)/include/form.h
-file path=$(USRDIR)/include/menu.h
-file path=$(USRDIR)/include/nc_tparm.h
-link path=$(USRDIR)/include/ncurses.h target=curses.h
-file path=$(USRDIR)/include/ncurses_dll.h
-file path=$(USRDIR)/include/panel.h
-file path=$(USRDIR)/include/term.h
-file path=$(USRDIR)/include/term_entry.h
-file path=$(USRDIR)/include/termcap.h
-file path=$(USRDIR)/include/tic.h
-file path=$(USRDIR)/include/unctrl.h
+file path=$(USRDIR)/include/ncurses/curses.h
+file path=$(USRDIR)/include/ncurses/cursesapp.h
+file path=$(USRDIR)/include/ncurses/cursesf.h
+file path=$(USRDIR)/include/ncurses/cursesm.h
+file path=$(USRDIR)/include/ncurses/cursesp.h
+file path=$(USRDIR)/include/ncurses/cursesw.h
+file path=$(USRDIR)/include/ncurses/cursslk.h
+file path=$(USRDIR)/include/ncurses/eti.h
+file path=$(USRDIR)/include/ncurses/etip.h
+file path=$(USRDIR)/include/ncurses/form.h
+file path=$(USRDIR)/include/ncurses/menu.h
+file path=$(USRDIR)/include/ncurses/nc_tparm.h
+link path=$(USRDIR)/include/ncurses/ncurses.h target=curses.h
+file path=$(USRDIR)/include/ncurses/ncurses_dll.h
+file path=$(USRDIR)/include/ncurses/panel.h
+file path=$(USRDIR)/include/ncurses/term.h
+file path=$(USRDIR)/include/ncurses/term_entry.h
+file path=$(USRDIR)/include/ncurses/termcap.h
+file path=$(USRDIR)/include/ncurses/tic.h
+file path=$(USRDIR)/include/ncurses/unctrl.h
 
 link path=$(USRDIR)/lib/$(MACH64)/libcurses.a target=libncurses.a
 link path=$(USRDIR)/lib/$(MACH64)/libcurses.so \
@@ -91,12 +90,24 @@ link path=$(USRDIR)/lib/$(MACH64)/libpanel.so target=libpanel.so.5
 file path=$(USRDIR)/lib/$(MACH64)/libpanel.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/$(MACH64)/libpanel.so.5 \
     target=libpanel.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/$(MACH64)/libtic.a
+link path=$(USRDIR)/lib/$(MACH64)/libtic.so target=libtic.so.5
+file path=$(USRDIR)/lib/$(MACH64)/libtic.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/$(MACH64)/libtic.so.5 \
+    target=libtic.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/$(MACH64)/libtinfo.a
+link path=$(USRDIR)/lib/$(MACH64)/libtinfo.so target=libtinfo.so.5
+file path=$(USRDIR)/lib/$(MACH64)/libtinfo.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/$(MACH64)/libtinfo.so.5 \
+    target=libtinfo.so.$(COMPONENT_VERSION)
 
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/form.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/menu.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/ncurses++.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/ncurses.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/panel.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/tic.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/tinfo.pc
 
 link path=$(USRDIR)/lib/libcurses.a target=libncurses.a
 link path=$(USRDIR)/lib/libcurses.so target=libncurses.so.$(COMPONENT_VERSION)
@@ -118,12 +129,23 @@ file path=$(USRDIR)/lib/libpanel.a
 link path=$(USRDIR)/lib/libpanel.so target=libpanel.so.5
 file path=$(USRDIR)/lib/libpanel.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/libpanel.so.5 target=libpanel.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/libtic.a
+link path=$(USRDIR)/lib/libtic.so target=libtic.so.5
+file path=$(USRDIR)/lib/libtic.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libtic.so.5 target=libtic.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/libtinfo.a
+link path=$(USRDIR)/lib/libtinfo.so target=libtinfo.so.5
+file path=$(USRDIR)/lib/libtinfo.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libtinfo.so.5 target=libtinfo.so.$(COMPONENT_VERSION)
 
 file path=$(USRDIR)/lib/pkgconfig/form.pc
 file path=$(USRDIR)/lib/pkgconfig/menu.pc
 file path=$(USRDIR)/lib/pkgconfig/ncurses++.pc
 file path=$(USRDIR)/lib/pkgconfig/ncurses.pc
 file path=$(USRDIR)/lib/pkgconfig/panel.pc
+file path=$(USRDIR)/lib/pkgconfig/tic.pc
+file path=$(USRDIR)/lib/pkgconfig/tinfo.pc
+
 link path=$(USRDIR)/lib/terminfo target=../share/terminfo
 
 file path=$(USRDIR)/share/man/man1/captoinfo.1m

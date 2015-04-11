@@ -9,17 +9,17 @@
 #
 
 #
-# Copyright 2012-2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 <include ec-drop-common>
 
 set name=pkg.fmri value=pkg:/library/ncurses-wide@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="A CRT screen handling and optimization package - wide character support variant."
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license ncurses.license license=MIT
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 file path=$(USRDIR)/bin/$(MACH64)/ncursesw5-config
 file path=$(USRDIR)/bin/ncursesw5-config
@@ -66,23 +66,12 @@ link path=$(USRDIR)/lib/$(MACH64)/libpanelw.so target=libpanelw.so.5
 file path=$(USRDIR)/lib/$(MACH64)/libpanelw.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/$(MACH64)/libpanelw.so.5 \
     target=libpanelw.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/$(MACH64)/libtic.a
-link path=$(USRDIR)/lib/$(MACH64)/libtic.so target=libtic.so.5
-file path=$(USRDIR)/lib/$(MACH64)/libtic.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/$(MACH64)/libtic.so.5 \
-    target=libtic.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/$(MACH64)/libtinfo.a
-link path=$(USRDIR)/lib/$(MACH64)/libtinfo.so target=libtinfo.so.5
-file path=$(USRDIR)/lib/$(MACH64)/libtinfo.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/$(MACH64)/libtinfo.so.5 \
-    target=libtinfo.so.$(COMPONENT_VERSION)
+
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/formw.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/menuw.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/ncurses++w.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/ncursesw.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/panelw.pc
-file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/tic.pc
-file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/tinfo.pc
 
 file path=$(USRDIR)/lib/libformw.a
 link path=$(USRDIR)/lib/libformw.so target=libformw.so.5
@@ -103,21 +92,11 @@ link path=$(USRDIR)/lib/libpanelw.so target=libpanelw.so.5
 file path=$(USRDIR)/lib/libpanelw.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/libpanelw.so.5 \
     target=libpanelw.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/libtic.a
-link path=$(USRDIR)/lib/libtic.so target=libtic.so.5
-file path=$(USRDIR)/lib/libtic.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libtic.so.5 target=libtic.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/libtinfo.a
-link path=$(USRDIR)/lib/libtinfo.so target=libtinfo.so.5
-file path=$(USRDIR)/lib/libtinfo.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libtinfo.so.5 target=libtinfo.so.$(COMPONENT_VERSION)
 
 file path=$(USRDIR)/lib/pkgconfig/formw.pc
 file path=$(USRDIR)/lib/pkgconfig/menuw.pc
 file path=$(USRDIR)/lib/pkgconfig/ncurses++w.pc
 file path=$(USRDIR)/lib/pkgconfig/ncursesw.pc
 file path=$(USRDIR)/lib/pkgconfig/panelw.pc
-file path=$(USRDIR)/lib/pkgconfig/tic.pc
-file path=$(USRDIR)/lib/pkgconfig/tinfo.pc
 
 file path=$(USRDIR)/share/man/man1/ncursesw5-config.1

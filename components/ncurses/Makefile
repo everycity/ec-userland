@@ -9,14 +9,14 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
-CONFIGURE_DEFAULT_CPPFLAGS = yes
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ncurses
 COMPONENT_VERSION=	5.9
+COMPONENT_LICENSE=	MIT
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_PROJECT_URL=	http://www.gnu.org/software/ncurses/
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
@@ -27,9 +27,11 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-# need remove -I/ec/include on EC zones because build failed with it
+COMPONENT_LICENSE_FILE=	ncurses.license
+
+# Remove -I/ec/include from CPPFLAGS
 CPPFLAGS=
-CPPFLAGS += -D_REENTRANT
+CXXFLAGS+=	-std=c++0x -D_XOPEN_SOURCE=600
 
 CONFIGURE_OPTIONS    += --with-normal
 CONFIGURE_OPTIONS    += --with-shared
@@ -75,7 +77,7 @@ CFG_WIDE += --includedir=$(USRDIR)/include/ncursesw
 CFG_WIDE += --disable-overwrite
 
 CFG_NONWIDE = --disable-widec
-#CFG_NONWIDE += --includedir=$(USRDIR)/include/ncurses
+CFG_NONWIDE += --includedir=$(USRDIR)/include/ncurses
 CFG_NONWIDE += --enable-overwrite
 
 $(VARIANT_WIDE)/%/.configured: CONFIGURE_OPTIONS += $(CFG_WIDE)
