@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ncdu
 COMPONENT_FMRI=		file/ncdu
-COMPONENT_VERSION=	1.10
+COMPONENT_VERSION=	1.11
 COMPONENT_LICENSE=	ncdu
 COMPONENT_PROJECT_URL=	"http://dev.yorhel.nl/ncdu"
 COMPONENT_SUMMARY=	ncurses disk usage viewer
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:f5994a4848dbbca480d39729b021f057700f14ef72c0d739bbd82d862f2f0c67
+COMPONENT_ARCHIVE_HASH=	sha256:d0aea772e47463c281007f279a9041252155a2b2349b18adb9055075e141bb7b
 COMPONENT_ARCHIVE_URL=	http://dev.yorhel.nl/download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
