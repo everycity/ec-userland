@@ -30,7 +30,10 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+CPPFLAGS+=	-I/ec/include/ncurses
 CONFIGURE_ENV+=	LIBS=-ltinfo
+
+CONFIGURE_OPTIONS+=	--with-ncurses=$(USRDIR)
 
 build:		$(BUILD_32_and_64)
 
