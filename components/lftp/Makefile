@@ -29,6 +29,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+CPPFLAGS+=	-I$(USRDIR)/include/ncurses
 CONFIGURE_OPTIONS+=	--with-openssl
 
 build:		$(BUILD_32_and_64)
