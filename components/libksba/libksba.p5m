@@ -19,7 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -27,30 +27,30 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/aclocal
-dir path=$(ECPREFIX)/share/info
-file path=$(ECPREFIX)/bin/$(MACH64)/ksba-config
-file path=$(ECPREFIX)/bin/ksba-config
-file path=$(ECPREFIX)/include/ksba.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libksba.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libksba.so.8.11.3
-file path=$(ECPREFIX)/lib/libksba.la
-file path=$(ECPREFIX)/lib/libksba.so.8.11.3
-file path=$(ECPREFIX)/share/aclocal/ksba.m4
-file path=$(ECPREFIX)/share/info/ksba.info
-link path=$(ECPREFIX)/lib/$(MACH64)/libksba.so target=libksba.so.8.11.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libksba.so.8 target=libksba.so.8.11.3
-link path=$(ECPREFIX)/lib/libksba.so target=libksba.so.8.11.3
-link path=$(ECPREFIX)/lib/libksba.so.8 target=libksba.so.8.11.3
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/bin
+dir  path=$(USRDIR)/bin/$(MACH64)
+file path=$(USRDIR)/bin/$(MACH64)/ksba-config
+file path=$(USRDIR)/bin/ksba-config
+dir  path=$(USRDIR)/include
+file path=$(USRDIR)/include/ksba.h
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/$(MACH64)
+file path=$(USRDIR)/lib/$(MACH64)/libksba.la
+link path=$(USRDIR)/lib/$(MACH64)/libksba.so target=libksba.so.8.11.4
+link path=$(USRDIR)/lib/$(MACH64)/libksba.so.8 target=libksba.so.8.11.4
+file path=$(USRDIR)/lib/$(MACH64)/libksba.so.8.11.4
+file path=$(USRDIR)/lib/libksba.la
+link path=$(USRDIR)/lib/libksba.so target=libksba.so.8.11.4
+link path=$(USRDIR)/lib/libksba.so.8 target=libksba.so.8.11.4
+file path=$(USRDIR)/lib/libksba.so.8.11.4
+dir  path=$(USRDIR)/share
+dir  path=$(USRDIR)/share/aclocal
+file path=$(USRDIR)/share/aclocal/ksba.m4
+dir  path=$(USRDIR)/share/info
+file path=$(USRDIR)/share/info/ksba.info
