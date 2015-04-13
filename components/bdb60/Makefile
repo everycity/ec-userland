@@ -33,7 +33,12 @@ include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/configure.mk
 include $(WS_TOP)/make-rules/ips.mk
 
+CONFIGURE_ENV += AR="LD_PRELOAD=/usr/lib/extendedFILE.so.1 ar"
+
 CONFIGURE_SCRIPT=	$(SOURCE_DIR)/dist/configure
+
+COMPONENT_BUILD_ARGS += \
+	AR="LD_PRELOAD=/usr/lib/extendedFILE.so.1 ar"
 
 COMPONENT_INSTALL_ARGS  += docdir=$(USRDIR)/share/doc/$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 
