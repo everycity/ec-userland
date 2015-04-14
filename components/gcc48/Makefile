@@ -10,7 +10,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 CONFIGURE_DEFAULT_LDFLAGS = no
 CONFIGURE_DEFAULT_CPPFLAGS = no
@@ -73,7 +73,7 @@ CONFIGURE_OPTIONS += --with-mpfr-include=$(USRDIR)/include
 CONFIGURE_OPTIONS += --with-mpc-include=$(USRDIR)/include
 CONFIGURE_OPTIONS += --with-libiconv-prefix=$(USRDIR)
 
-CONFIGURE_ENV+=	AR="LD_PRELOAD_32=/usr/lib/extendedFILE.so.1 ar"
+CONFIGURE_ENV+=	AR="$(LD_PRELOAD_AR)"
 CONFIGURE_ENV+=	LD_OPTIONS="$(LD_OPTIONS)"
 
 # sparc and x86 use different assemblers
