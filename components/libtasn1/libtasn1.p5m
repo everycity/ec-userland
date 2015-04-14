@@ -1,56 +1,68 @@
 #
 # This file and its contents are supplied under the terms of the
-# Common Development and Distribution License ("CDDL"), version 1.0.
-# You may only use this file in accordance with the terms of version
-# 1.0 of the CDDL.
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
 # A full copy of the text of the CDDL should have accompanied this
-# source.  A copy of the CDDL is also available via the Internet at
+# source. A copy of the CDDL is also available via the Internet at
 # http://www.illumos.org/license/CDDL.
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
-<transform file path=usr.*/man/.+ -> default mangler.man.stability uncommitted>
-set name=pkg.fmri value=pkg:/library/libtasn1@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="Tiny ASN.1 library"
-set name=info.classification value="org.opensolaris.category.2008:System/Libraries"
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
 set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
-license libtasn1.license license='LGPLv21'
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/bin
+dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/asn1Coding
 file path=$(USRDIR)/bin/$(MACH64)/asn1Decoding
 file path=$(USRDIR)/bin/$(MACH64)/asn1Parser
 file path=$(USRDIR)/bin/asn1Coding
 file path=$(USRDIR)/bin/asn1Decoding
 file path=$(USRDIR)/bin/asn1Parser
-
+dir  path=$(USRDIR)/include
 file path=$(USRDIR)/include/libtasn1.h
-
-link path=$(USRDIR)/lib/$(MACH64)/libtasn1.so target=libtasn1.so.6.3.1
-link path=$(USRDIR)/lib/$(MACH64)/libtasn1.so.6 target=libtasn1.so.6.3.1
-file path=$(USRDIR)/lib/$(MACH64)/libtasn1.so.6.3.1
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/$(MACH64)
+file path=$(USRDIR)/lib/$(MACH64)/libtasn1.la
+link path=$(USRDIR)/lib/$(MACH64)/libtasn1.so target=libtasn1.so.6.4.1
+link path=$(USRDIR)/lib/$(MACH64)/libtasn1.so.6 target=libtasn1.so.6.4.1
+file path=$(USRDIR)/lib/$(MACH64)/libtasn1.so.6.4.1
+dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libtasn1.pc
-link path=$(USRDIR)/lib/libtasn1.so target=libtasn1.so.6.3.1
-link path=$(USRDIR)/lib/libtasn1.so.6 target=libtasn1.so.6.3.1
-file path=$(USRDIR)/lib/libtasn1.so.6.3.1
+file path=$(USRDIR)/lib/libtasn1.la
+link path=$(USRDIR)/lib/libtasn1.so target=libtasn1.so.6.4.1
+link path=$(USRDIR)/lib/libtasn1.so.6 target=libtasn1.so.6.4.1
+file path=$(USRDIR)/lib/libtasn1.so.6.4.1
+dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/libtasn1.pc
-
+dir  path=$(USRDIR)/share
+dir  path=$(USRDIR)/share/info
+file path=$(USRDIR)/share/info/dir
 file path=$(USRDIR)/share/info/libtasn1.info
-
+dir  path=$(USRDIR)/share/man
+dir  path=$(USRDIR)/share/man/man1
 file path=$(USRDIR)/share/man/man1/asn1Coding.1
 file path=$(USRDIR)/share/man/man1/asn1Decoding.1
 file path=$(USRDIR)/share/man/man1/asn1Parser.1
+dir  path=$(USRDIR)/share/man/man3
 file path=$(USRDIR)/share/man/man3/asn1_array2tree.3
 file path=$(USRDIR)/share/man/man3/asn1_bit_der.3
 file path=$(USRDIR)/share/man/man3/asn1_check_version.3
 file path=$(USRDIR)/share/man/man3/asn1_copy_node.3
 file path=$(USRDIR)/share/man/man3/asn1_create_element.3
+file path=$(USRDIR)/share/man/man3/asn1_decode_simple_ber.3
 file path=$(USRDIR)/share/man/man3/asn1_decode_simple_der.3
 file path=$(USRDIR)/share/man/man3/asn1_delete_element.3
 file path=$(USRDIR)/share/man/man3/asn1_delete_structure.3
