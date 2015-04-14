@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011-2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -26,19 +26,15 @@ COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:608e4b1cf390e9bf54c0ef00c5bd9ca76d36e2261b9f4d33d54516f3f6a20fd2
 COMPONENT_ARCHIVE_URL=	http://download.oracle.com/berkeley-db/$(COMPONENT_ARCHIVE)
-#COMPONENT_AUTOGEN_MANIFEST=	yes
 COMPONENT_LICENSE_FILE=	LICENSE
 
 include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/configure.mk
 include $(WS_TOP)/make-rules/ips.mk
 
-CONFIGURE_ENV += AR="LD_PRELOAD=/usr/lib/extendedFILE.so.1 ar"
+CONFIGURE_ENV += AR="$(LD_PRELOAD_AR)"
 
 CONFIGURE_SCRIPT=	$(SOURCE_DIR)/dist/configure
-
-COMPONENT_BUILD_ARGS += \
-	AR="LD_PRELOAD=/usr/lib/extendedFILE.so.1 ar"
 
 COMPONENT_INSTALL_ARGS  += docdir=$(USRDIR)/share/doc/$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 
