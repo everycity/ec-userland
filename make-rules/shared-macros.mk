@@ -104,7 +104,7 @@ ifneq (,$(filter $(BRAND),solaris10 smartos))
     CFLAGS = -I$(USRDIR)/include
     CXXFLAGS = -I$(USRDIR)/include
     CONFIGURE_DEFAULT_CPPFLAGS ?= yes
-    GCC_ROOT = /ec
+    GCC_ROOT = $(ECPREFIX)
     ECZONE=
     NONECZONE=\#
 else
@@ -348,6 +348,7 @@ PATCH_LEVEL =	1
 GPATCH_BACKUP =	--backup --version-control=numbered
 GPATCH_FLAGS =	-p$(PATCH_LEVEL) $(GPATCH_BACKUP)
 GSED =		$(USRBINDIR)/gsed
+SED =		$(USRBINDIR)/sed
 
 PKGREPO =	pkgrepo
 PKGSEND =	pkgsend
@@ -375,6 +376,8 @@ GTAR =		$(USRBINDIR)/gtar
 GFIND =		$(USRBINDIR)/gfind
 IPS2TGZ =	$(WS_TOOLS)/ips2tgz
 MAKEISA_SH =	$(WS_TOOLS)/makeisa.sh
+
+LD_PRELOAD_AR=	LD_PRELOAD_32=/usr/lib/extendedFILE.so.1 $(USRBINDIR)/ar
 
 INS.dir=        $(INSTALL) -d $@
 INS.file=       $(INSTALL) -m 444 $< $(@D)
