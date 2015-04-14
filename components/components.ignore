@@ -58,6 +58,7 @@
 /^htop$/d
 /^id3lib$/d
 /^illumos-hal$/d
+/^intltool$/d
 /^irssi$/d
 /^isc-dhcp$/d
 /^java-jna$/d
