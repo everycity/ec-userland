@@ -28,10 +28,11 @@ COMPONENT_ARCHIVE_URL=	https://storage.googleapis.com/golang/$(COMPONENT_ARCHIVE
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
 
+COMPONENT_LICENSE_FILE=	LICENSE
 CLEAN_PATHS+=	$(BUILD_DIR)
 
 COMPONENT_BUILD_ENV+= GOOS=solaris
-COMPONENT_BUILD_ENV+= GOROOT_FINAL=$(ECPREFIX)/lib/go
+COMPONENT_BUILD_ENV+= GOROOT_FINAL=$(USRDIR)/lib/go
 COMPONENT_BUILD_ARGS+= --no-banner
 
 $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
@@ -48,8 +49,9 @@ $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
 	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/bin
 	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/lib
 	$(CP) -Rp $(@D) $(PROTO_DIR)$(ECPREFIX)/lib/go
-	$(SYMLINK) $(PROTO_DIR)$(ECPREFIX)/lib/go/bin/go $(PROTO_DIR)$(ECPREFIX)/bin/go
-	$(SYMLINK) $(PROTO_DIR)$(ECPREFIX)/lib/go/bin/gofmt $(PROTO_DIR)$(ECPREFIX)/bin/gofmt
+	(cd $(PROTO_DIR)$(ECPREFIX)/bin ; \
+	$(SYMLINK) ../lib/go/bin/go go; \
+	$(SYMLINK) ../lib/go/bin/gofmt gofmt; )
 	$(COMPONENT_POST_INSTALL_ACTION)
 	$(TOUCH) $@
 
