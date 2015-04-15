@@ -30,6 +30,9 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+COMPONENT_PREP_ACTION = \
+	( $(CP) $(COMPONENT_DIR)/patches/if_tun.h $(SOURCE_DIR)/openbsd-compat/ )
+
 CFLAGS += -fno-stack-protector
 CFLAGS += -DSET_USE_PAM
 CFLAGS += -DDEPRECATE_SUNSSH_OPT
@@ -39,8 +42,10 @@ CFLAGS += -DDTRACE_SFTP
 CFLAGS += -DDISABLE_BANNER
 CFLAGS += -DPAM_ENHANCEMENT
 CFLAGS += -DPAM_BUGFIX
+CFLAGS += -DSSH_TUN_ILLUMOS=1
 
-LDFLAGS += -B direct -z nolazyload
+#LDFLAGS += -B direct -z nolazyload
+LDFLAGS += -B direct
 
 CONFIGURE_OPTIONS+=	--sysconfdir=$(CONFIGURE_SYSCONFDIR)/ssh
 CONFIGURE_OPTIONS+=	--sbindir=$(USRDIR)/bin
