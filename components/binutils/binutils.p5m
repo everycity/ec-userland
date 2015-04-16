@@ -20,10 +20,10 @@ set name=pkg.summary value="$(COMPONENT_SUMMARY)"
 set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_LICENSE_FILE) license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/ar \
-    target=../../bin/ar
+    target=../../bin/gar
 hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/gas \
     target=../../bin/gas
 hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/gld \
@@ -42,8 +42,7 @@ hardlink path=$(USRDIR)/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/bin/gstrip \
     target=../../bin/gstrip
 
 file path=$(USRDIR)/bin/addr2line
-file path=$(USRDIR)/bin/ar
-link path=$(USRDIR)/bin/gar target=ar
+file $(USRDIR)/bin/ar path=$(USRDIR)/bin/gar
 file $(USRDIR)/bin/as path=$(USRDIR)/bin/gas
 file path=$(USRDIR)/bin/c++filt
 file path=$(USRDIR)/bin/elfedit
