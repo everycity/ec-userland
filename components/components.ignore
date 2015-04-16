@@ -98,7 +98,6 @@
 /^mailx$/d
 /^make$/d
 /^mariadb55$/d
-/^mbuffer$/d
 /^mcrypt$/d
 /^mediainfo$/d
 /^memconf$/d
