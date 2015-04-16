@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -29,7 +29,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic --with-sysroot=/ec
+CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic
 
 build:		$(BUILD_32_and_64)
 

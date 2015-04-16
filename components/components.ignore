@@ -258,7 +258,6 @@
 /^webapps\/cacti$/d
 /^wkhtmltopdf$/d
 /^wkhtmltopdf-qt4$/d
-/^x11-xcb-util-cursor$/d
 /^x11-xterm$/d
 /^xapian\/bindings-php52$/d
 /^xapian\/bindings-php53$/d
