@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -35,6 +35,16 @@ dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/etc/nginx
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/perl
+dir path=$(ECPREFIX)/lib/perl/5.12
+dir path=$(ECPREFIX)/lib/perl/5.12/man
+dir path=$(ECPREFIX)/lib/perl/5.12/man/man3
+dir path=$(ECPREFIX)/lib/perl/site_perl
+dir path=$(ECPREFIX)/lib/perl/site_perl/5.12
+dir path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int
+dir path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto
+dir path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/nginx
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/nginx
 dir path=$(ECPREFIX)/share/nginx/html
@@ -59,5 +69,13 @@ file path=$(ECPREFIX)/etc/nginx/scgi_params.default
 file path=$(ECPREFIX)/etc/nginx/uwsgi_params
 file path=$(ECPREFIX)/etc/nginx/uwsgi_params.default
 file path=$(ECPREFIX)/etc/nginx/win-utf
+file path=$(ECPREFIX)/lib/perl/5.12/man/man3/nginx.3
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/nginx/.packlist
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/nginx/nginx.bs
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/nginx/nginx.so
+file path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/nginx.pm
 file path=$(ECPREFIX)/share/nginx/html/50x.html
 file path=$(ECPREFIX)/share/nginx/html/index.html
