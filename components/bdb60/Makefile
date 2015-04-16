@@ -32,8 +32,6 @@ include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/configure.mk
 include $(WS_TOP)/make-rules/ips.mk
 
-CONFIGURE_ENV += AR="$(LD_PRELOAD_AR)"
-
 CONFIGURE_SCRIPT=	$(SOURCE_DIR)/dist/configure
 
 COMPONENT_INSTALL_ARGS  += docdir=$(USRDIR)/share/doc/$(COMPONENT_NAME)-$(COMPONENT_VERSION)

@@ -73,7 +73,6 @@ CONFIGURE_OPTIONS += --with-mpfr-include=$(USRDIR)/include
 CONFIGURE_OPTIONS += --with-mpc-include=$(USRDIR)/include
 CONFIGURE_OPTIONS += --with-libiconv-prefix=$(USRDIR)
 
-CONFIGURE_ENV+=	AR="$(LD_PRELOAD_AR)"
 CONFIGURE_ENV+=	LD_OPTIONS="$(LD_OPTIONS)"
 
 # sparc and x86 use different assemblers

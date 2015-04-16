@@ -31,7 +31,6 @@ include ../../make-rules/ips.mk
 
 COMPONENT_PREP_ACTION = (cd $(@D) ; ./autogen.sh; libtoolize; )
 
-CONFIGURE_ENV+=		AR="$(LD_PRELOAD_AR)"
 CONFIGURE_OPTIONS+=	--libexecdir=$(USRDIR)/lib
 
 download::

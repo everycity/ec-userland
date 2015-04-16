@@ -19,7 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
-# Copyright 2011-2014, EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # The workspace starts at the mercurial/git root
@@ -376,8 +376,6 @@ GTAR =		$(USRBINDIR)/gtar
 GFIND =		$(USRBINDIR)/gfind
 IPS2TGZ =	$(WS_TOOLS)/ips2tgz
 MAKEISA_SH =	$(WS_TOOLS)/makeisa.sh
-
-LD_PRELOAD_AR=	LD_PRELOAD_32=/usr/lib/extendedFILE.so.1 $(USRBINDIR)/ar
 
 INS.dir=        $(INSTALL) -d $@
 INS.file=       $(INSTALL) -m 444 $< $(@D)
