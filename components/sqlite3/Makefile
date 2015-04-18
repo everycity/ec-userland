@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		sqlite3
 COMPONENT_FMRI=		database/sqlite-3
-COMPONENT_VERSION=	3.8.5.0
+COMPONENT_VERSION=	3.8.9
 COMPONENT_LICENSE=	Public Domain
 COMPONENT_PROJECT_URL=	"http://www.sqlite.org/"
 COMPONENT_SUMMARY=	SQL database engine library
-COMPONENT_SRC=		sqlite-autoconf-3080500
+COMPONENT_SRC=		sqlite-autoconf-3080900
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:98c33abe4106e508e73fda648b2657ac9e969fe24695f543dcde68cc71f3091b
-COMPONENT_ARCHIVE_URL=	http://www.sqlite.org/2014/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:76ebb6392cd2289fbff903af7ff67f3e49bd01ff30544b8028ecededd60269a2
+COMPONENT_ARCHIVE_URL=	http://www.sqlite.org/2015/$(COMPONENT_ARCHIVE)
 COMPONENT_AUTOGEN_MANIFEST=	yes
 COMPONENT_LICENSE_FILE=	sqlite3.license
 
