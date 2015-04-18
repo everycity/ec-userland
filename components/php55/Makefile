@@ -14,10 +14,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	5.5.23
+COMPONENT_VERSION=	5.5.24
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:bf1246d4aca5b1a4e26f5cea273565ad3ee4607f20b7f28a508e3cab1a4d0c82
+COMPONENT_ARCHIVE_HASH=	sha256:43e6b83fe8151f8d2062ca4da915312fc92e47789801049231c705a8b29b05bc
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_UK)
 
 include ../../make-rules/prep.mk
@@ -161,8 +161,6 @@ CONFIGURE_OPTIONS     +=	--enable-zip=shared
 
 CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
 
-#CONFIGURE_OPTIONS += $(CONFIGURE_VARIANT_OPTIONS)
-
 COMPONENT_POST_CONFIGURE_ACTION_64= \
 	( cd $(@D) ; $(GSED) -i -e 's!-L[ ]*/ec/lib!-L/ec/lib/amd64!g' -e 's!-R[ ]*/ec/lib!-R/ec/lib/amd64!g' Makefile )
 COMPONENT_POST_CONFIGURE_ACTION=	$(COMPONENT_POST_CONFIGURE_ACTION_$(BITS))
@@ -184,28 +182,7 @@ COMPONENT_BUILD_ENV+=	CC="$(CC)" CXX="$(CCC)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFL
 CONFIGURE_ENV.32 +=     EXTENSION_DIR=$(PHP_PREFIX)/extensions
 CONFIGURE_ENV.64 +=     EXTENSION_DIR=$(PHP_PREFIX)/extensions/$(MACH64)
 
-# Standard build
-#$(BUILD_DIR_32)/.configured:	CONFIGURE_VARIANT_OPTIONS= \
-#    --with-apxs2=$(AP_PREFIX)/bin/apxs
-#$(BUILD_DIR_64)/.configured:	CONFIGURE_VARIANT_OPTIONS= \
-#    --with-apxs2=$(AP_PREFIX)/bin/$(MACH64)/apxs
-
-# CGI build
-#$(BUILD_DIR)/$(MACH32).cgi/.configured:     BITS=32
-#$(BUILD_DIR)/$(MACH64).cgi/.configured:     BITS=64
-#$(BUILD_DIR)/$(MACH32).cgi/.configured:     CONFIGURE_VARIANT_OPTIONS= 
-#$(BUILD_DIR)/$(MACH64).cgi/.configured:     CONFIGURE_VARIANT_OPTIONS= 
-#$(BUILD_DIR)/$(MACH32).cgi/.built:          BITS=32
-#$(BUILD_DIR)/$(MACH64).cgi/.built:          BITS=64
-#$(BUILD_DIR)/$(MACH32).cgi/.installed:      BITS=32
-#$(BUILD_DIR)/$(MACH64).cgi/.installed:      BITS=64
-
-
 build:		$(BUILD_32_and_64)
-# \
-#    $(BUILD_DIR)/$(MACH32).cgi/.built \
-#    $(BUILD_DIR)/$(MACH64).cgi/.built
 
 install:	$(INSTALL_32_and_64)
-#	$(CP) $(BUILD_DIR)/$(MACH32).cgi/sapi/cgi/php-cgi $(PROTO_DIR)$(PHP_PREFIX)/bin
-#	$(CP) $(BUILD_DIR)/$(MACH64).cgi/sapi/cgi/php-cgi $(PROTO_DIR)$(PHP_PREFIX)/bin/$(MACH64)
+
