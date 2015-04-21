@@ -33,7 +33,7 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 # Build is not thread safe
-override JOBS=1
+override COMPONENT_BUILD_GMAKE_ARGS=
 
 COMPONENT_LICENSE_FILE=	LICENSE
 

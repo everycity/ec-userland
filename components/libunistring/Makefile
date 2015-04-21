@@ -29,8 +29,6 @@ include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/configure.mk
 include $(WS_TOP)/make-rules/ips.mk
 
-CONFIGURE_ENV+=	AR="$(LD_PRELOAD_AR)"
-
 build:			$(BUILD_32_and_64)
 
 install:		$(INSTALL_32_and_64)

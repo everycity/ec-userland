@@ -58,6 +58,7 @@
 /^htop$/d
 /^id3lib$/d
 /^illumos-hal$/d
+/^intltool$/d
 /^irssi$/d
 /^isc-dhcp$/d
 /^java-jna$/d
@@ -97,7 +98,6 @@
 /^mailx$/d
 /^make$/d
 /^mariadb55$/d
-/^mbuffer$/d
 /^mcrypt$/d
 /^mediainfo$/d
 /^memconf$/d
@@ -257,7 +257,6 @@
 /^webapps\/cacti$/d
 /^wkhtmltopdf$/d
 /^wkhtmltopdf-qt4$/d
-/^x11-xcb-util-cursor$/d
 /^x11-xterm$/d
 /^xapian\/bindings-php52$/d
 /^xapian\/bindings-php53$/d

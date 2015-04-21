@@ -9,25 +9,25 @@
 #
 
 #
-# Copyright 2011, 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/shell/mbuffer@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="mbuffer - tool for buffering data streams"
-set name=info.upstream_url value="http://www.maier-komor.de/mbuffer.html"
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license mbuffer.license license="GPLv3"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/mbuffer
-file path=$(ECPREFIX)/bin/mbuffer
-file path=$(ECPREFIX)/share/man/man1/mbuffer.1
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/bin
+dir  path=$(USRDIR)/bin/$(MACH64)
+file path=$(USRDIR)/bin/$(MACH64)/mbuffer
+file path=$(USRDIR)/bin/mbuffer
+dir  path=$(USRDIR)/share
+dir  path=$(USRDIR)/share/man
+dir  path=$(USRDIR)/share/man/man1
+file path=$(USRDIR)/share/man/man1/mbuffer.1
