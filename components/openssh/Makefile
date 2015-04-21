@@ -33,6 +33,7 @@ include ../../make-rules/ips.mk
 COMPONENT_PREP_ACTION = \
 	( $(CP) $(COMPONENT_DIR)/patches/if_tun.h $(SOURCE_DIR)/openbsd-compat/ )
 
+
 CFLAGS += -fno-stack-protector
 CFLAGS += -DSET_USE_PAM
 CFLAGS += -DDEPRECATE_SUNSSH_OPT
