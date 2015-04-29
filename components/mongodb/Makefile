@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		mongodb
 COMPONENT_FMRI=		database/mongodb
-COMPONENT_VERSION=	2.6.7
+COMPONENT_VERSION=	2.6.8
 COMPONENT_LICENSE=	APLv2,AGPLv3
 COMPONENT_PROJECT_URL=	"http://www.mongodb.org/"
 COMPONENT_SUMMARY=	An object/document-oriented database
 COMPONENT_SRC=		$(COMPONENT_NAME)-src-r$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:512254d1adeaf19cc8188032ac75ce01ac114811b5a27ef3a95dc79eeedd6bc9
+COMPONENT_ARCHIVE_HASH=	sha256:1997f60d9de17320f22c604d8aa1cbe5f38d877142cd0e9130fe3dae7b311a06
 COMPONENT_ARCHIVE_URL=	http://downloads.mongodb.org/src/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
