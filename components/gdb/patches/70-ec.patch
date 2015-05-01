@@ -1,0 +1,14 @@
+Index: gdb-7.8/gdb/tui/tui-io.c
+===================================================================
+--- gdb-7.8/gdb/tui/tui-io.c.orig
++++ gdb-7.8/gdb/tui/tui-io.c
+@@ -46,6 +46,9 @@
+    "gdb_curses.h".  */
+ #include "readline/readline.h"
+ 
++typedef rl_icpfunc_t Function;
++typedef rl_vcpfunc_t VFunction;
++
+ int
+ key_is_start_sequence (int ch)
+ {

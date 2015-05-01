@@ -31,7 +31,6 @@ include ../../make-rules/ips.mk
 
 CFLAGS += -I/usr/include
 CPPFLAGS += -I/usr/include
-
 LDFLAGS += -ltinfo
 
 CONFIGURE_OPTIONS += CPP="$(CC) -E -I$(USRDIR)/include"
