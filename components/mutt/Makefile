@@ -30,8 +30,10 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+LDFLAGS += -ltinfo
+
 CONFIGURE_OPTIONS += 	--enable-pop --enable-imap --enable-smtp --enable-hcache
-CONFIGURE_OPTIONS +=	--with-curses --with-gss --with-sasl --with-ssl --with-idn=$(ECPREFIX)
+CONFIGURE_OPTIONS +=	--with-curses --with-gss --with-sasl --with-ssl --with-idn=$(USRDIR)
 
 build:		$(BUILD_32_and_64)
 

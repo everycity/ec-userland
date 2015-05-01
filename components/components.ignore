@@ -108,7 +108,6 @@
 /^mosh$/d
 /^mplayer$/d
 /^mscorefonts-installer$/d
-/^mutt$/d
 /^nagios\/core$/d
 /^nagios\/plugins$/d
 /^nddtune$/d
