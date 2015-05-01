@@ -24,8 +24,8 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 file path=$(USRDIR)/bin/gdb
 file path=$(USRDIR)/include/gdb/jit-reader.h
-file path=$(USRDIR)/lib/libbfd.a
-file path=$(USRDIR)/lib/libopcodes.a
+#file path=$(USRDIR)/lib/libbfd.a
+#file path=$(USRDIR)/lib/libopcodes.a
 file path=$(USRDIR)/share/gdb/python/gdb/FrameDecorator.py
 file path=$(USRDIR)/share/gdb/python/gdb/FrameIterator.py
 file path=$(USRDIR)/share/gdb/python/gdb/__init__.py
