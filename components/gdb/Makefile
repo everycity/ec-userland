@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -29,20 +29,41 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+CFLAGS += -I/usr/include
+CPPFLAGS += -I/usr/include
+
+LDFLAGS += -ltinfo
+
+CONFIGURE_OPTIONS += CPP="$(CC) -E -I$(USRDIR)/include"
+
+CONFIGURE_OPTIONS += --with-system-readline
+CONFIGURE_OPTIONS += --with-x=no
+
+COMPONENT_BUILD_ARGS += \
+	CPP="$(CC) -E -I$(USRDIR)/include" \
+	CFLAGS="$(CFLAGS)" \
+	CPPFLAGS="$(CPPFLAGS)" \
+	LDFLAGS="$(LDFLAGS)"
+
+COMPONENT_INSTALL_ARGS += \
+	CPP="$(CC) -E -I$(USRDIR)/include" \
+	CFLAGS="$(CFLAGS)" \
+	CPPFLAGS="$(CPPFLAGS)" \
+	LDFLAGS="$(LDFLAGS)"
+
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
 
 # The illumos gcore is special and best so don't supply one with gdb.
 COMPONENT_POST_INSTALL_ACTION+=	( \
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/bin/gcore; \
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/include/ansidecl.h; \
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/include/bfd.h; \
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/include/bfdlink.h; \
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/include/dis-asm.h; \
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/include/symcat.h; \
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/lib/charset.alias; \
-	$(RM) -r $(PROTO_DIR)$(ECPREFIX)/share/info; \
-	$(RM) -r $(PROTO_DIR)$(ECPREFIX)/share/locale; \
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/share/man/man1/gcore.1; )
-
+	$(RM) $(PROTO_DIR)$(USRDIR)/bin/gcore; \
+	$(RM) $(PROTO_DIR)$(USRDIR)/include/ansidecl.h; \
+	$(RM) $(PROTO_DIR)$(USRDIR)/include/bfd.h; \
+	$(RM) $(PROTO_DIR)$(USRDIR)/include/bfdlink.h; \
+	$(RM) $(PROTO_DIR)$(USRDIR)/include/dis-asm.h; \
+	$(RM) $(PROTO_DIR)$(USRDIR)/include/symcat.h; \
+	$(RM) $(PROTO_DIR)$(USRDIR)/lib/charset.alias; \
+	$(RM) -r $(PROTO_DIR)$(USRDIR)/share/info; \
+	$(RM) -r $(PROTO_DIR)$(USRDIR)/share/locale; \
+	$(RM) $(PROTO_DIR)$(USRDIR)/share/man/man1/gcore.1; )

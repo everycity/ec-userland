@@ -37,7 +37,6 @@
 /^gcc47$/d
 /^gconf$/d
 /^gdal$/d
-/^gdb$/d
 /^gdk-pixbuf$/d
 /^geos$/d
 /^ghostscript$/d
