@@ -94,7 +94,6 @@
 /^lua$/d
 /^lucene$/d
 /^mDNSResponder$/d
-/^mailx$/d
 /^make$/d
 /^mariadb55$/d
 /^mcrypt$/d

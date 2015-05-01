@@ -22,12 +22,6 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license mailx.license license="mailx"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/mailx
-file path=$(ECPREFIX)/etc/mailx.rc mode=0644 preserve=true
-file path=$(ECPREFIX)/share/man/man1/mailx.1
+file path=$(USRDIR)/bin/mailx
+file path=$(SYSCONFDIR)/mailx.rc mode=0644 preserve=true
+file path=$(USRDIR)/share/man/man1/mailx.1
