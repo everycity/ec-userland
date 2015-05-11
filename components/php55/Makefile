@@ -37,6 +37,8 @@ PHP_DATADIR=$(ECPREFIX)/var/php/5.5
 
 CFLAGS += -D_POSIX_PTHREAD_SEMANTICS
 
+COMPONENT_PREP_ACTION =		( cd $(@D) && autoconf )
+
 # Configure Options
 
 CONFIGURE_OPTIONS      =	--prefix=$(PHP_PREFIX)
@@ -154,7 +156,7 @@ CONFIGURE_OPTIONS     +=	--enable-mbstring=shared
 CONFIGURE_OPTIONS     +=	--enable-xmlreader=shared
 CONFIGURE_OPTIONS     +=	--enable-xmlwriter=shared
 CONFIGURE_OPTIONS     +=	--enable-soap=shared
-#CONFIGURE_OPTIONS     +=	--enable-sockets=shared
+CONFIGURE_OPTIONS     +=	--enable-sockets=shared
 CONFIGURE_OPTIONS     +=	--enable-tokenizer=shared
 CONFIGURE_OPTIONS     +=	--enable-wddx=shared
 CONFIGURE_OPTIONS     +=	--enable-zip=shared
