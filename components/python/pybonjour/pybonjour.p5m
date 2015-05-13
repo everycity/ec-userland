@@ -29,6 +29,8 @@ set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 set name=info.upstream value="Christopher Stawarz <cstawarz@gmail.com>"
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
+license pybonjour.copyright license=BSD
+
 depend fmri=library/python-2/pybonjour-26 \
     predicate=runtime/python-26 \
     type=conditional
