@@ -32,8 +32,8 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 license ply.copyright license=LGPLv2.1
 
 # force a dependency on the Python 2.6 runtime
-depend fmri=__TBD pkg.debug.depend.file=python2.6 \
-       pkg.debug.depend.path=$(USRDIR)/bin type=require
+#depend fmri=__TBD pkg.debug.depend.file=python2.6 \
+#       pkg.debug.depend.path=$(USRDIR)/bin type=require
 
 # force a dependency on the ply package
 #depend fmri=library/python-2/ply@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION) \
