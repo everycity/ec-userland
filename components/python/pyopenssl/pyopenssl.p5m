@@ -29,7 +29,7 @@ set name=info.classification \
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 # pkg.linted needed until the reference repo is updated
-license pyopenssl.copyright license=LGPLv2.1
+license LICENSE license=Apache2
 
 depend fmri=library/python-2/pyopenssl-26 \
     predicate=runtime/python-26 \

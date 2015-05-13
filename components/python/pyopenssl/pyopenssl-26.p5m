@@ -47,5 +47,5 @@ file path=$(USRDIR)/lib/python2.6/vendor-packages/pyOpenSSL-$(COMPONENT_VERSION)
 license LICENSE license=Apache2
 
 # force a dependency on the Python runtime
-depend type=require fmri=__TBD pkg.debug.depend.file=python2.6 \
-    pkg.debug.depend.path=$(USRDIR)/bin
+#depend type=require fmri=__TBD pkg.debug.depend.file=python2.6 \
+#    pkg.debug.depend.path=$(USRDIR)/bin
