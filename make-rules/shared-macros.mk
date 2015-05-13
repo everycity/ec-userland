@@ -310,6 +310,7 @@ PYTHON =	$(PYTHON.$(PYTHON_VERSION).$(BITS))
 # Modules which are shipped by the OS but not with the core Python distribution
 # belong in vendor-packages.
 PYTHON_LIB= $(USRDIR)/lib/python$(PYTHON_VERSION)/vendor-packages
+PYTHON_DATA= $(PYTHON_LIB)
 
 JAVA_HOME =	$(USRDIR)/java
 
