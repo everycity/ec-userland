@@ -1,0 +1,42 @@
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright (c) 2012, Oracle and/or its affiliates. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/library/python-2/jsonschema@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary \
+    value="An implementation of JSON-Schema validation for Python"
+set name=pkg.description \
+    value="jsonschema is an implementation of the JSON Schema for Python. JSON Schema is intended to define validation, documentation, hyperlink navigation, and interaction control of JSON data. This implementation is small and extensible, supports lazy validation that can iteratively report all validation errors and allows for programmatic querying of which properties or items failed validation."
+set name=info.classification \
+    value=org.opensolaris.category.2008:Development/Python
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+
+license COPYING license=MIT
+
+depend fmri=library/python-2/jsonschema-26 \
+    predicate=runtime/python-26 \
+    type=conditional
+
+depend fmri=library/python-2/jsonschema-27 \
+    predicate=runtime/python-27 \
+    type=conditional

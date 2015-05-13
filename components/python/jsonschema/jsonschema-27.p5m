@@ -1,0 +1,45 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2015 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+#<include ec-drop-common>
+
+set name=pkg.fmri \
+    value=pkg:/library/python-2/jsonschema-27@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary \
+    value="An implementation of JSON-Schema validation for Python"
+set name=pkg.description \
+    value="jsonschema is an implementation of the JSON Schema for Python. JSON Schema is intended to define validation, documentation, hyperlink navigation, and interaction control of JSON data. This implementation is small and extensible, supports lazy validation that can iteratively report all validation errors and allows for programmatic querying of which properties or items failed validation."
+set name=info.classification \
+    value=org.opensolaris.category.2008:Development/Python
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+
+license COPYING license=MIT
+
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonschema-$(COMPONENT_VERSION)-py2.7.egg-info
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonschema/__init__.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonschema/_format.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonschema/_utils.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonschema/_validators.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonschema/compat.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonschema/exceptions.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonschema/schemas/draft3.json
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonschema/schemas/draft4.json
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonschema/tests/__init__.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonschema/tests/compat.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonschema/tests/test_format.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonschema/tests/test_jsonschema_test_suite.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonschema/tests/test_validators.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/jsonschema/validators.py
