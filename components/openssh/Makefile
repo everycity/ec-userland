@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -68,5 +68,3 @@ CONFIGURE_OPTIONS+=	--with-zlib=$(USRDIR)
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
-
-
