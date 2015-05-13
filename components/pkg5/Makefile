@@ -9,10 +9,9 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 # Copyright 2013 Adam Stevko. All rights reserved.
 #
-
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		pkg
