@@ -20,35 +20,24 @@
 #
 
 #
-# Copyright 2014, Igor Kozhukhov <ikozhukhov@gmail.com>.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 # Copyright (c) 2013, 2014, Oracle and/or its affiliates. All rights reserved.
 #
 
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		simplejson
-COMPONENT_VERSION=	2.1.3
+COMPONENT_VERSION=	3.6.5
 COMPONENT_PROJECT_URL=	http://undefined.org/python/#simplejson
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH= \
-    sha256:5689044e96478b42b4c1e34057f248ca22263de767430e934c6f430f005d7027
+    sha256:2a3189f79d1c7b8a2149a0e783c0b4217fad9b30a6e7d60450f2553dc2c0e57e
 COMPONENT_ARCHIVE_URL=	http://pypi.python.org/packages/source/s/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
-COMPONENT_BUGDB=	python-mod/simplejson
 
 include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/setup.py.mk
 include $(WS_TOP)/make-rules/ips.mk
-
-# Needed to get around a broken /usr/lib/python2.7/config/Makefile
-# See CR #16837431.
-LD=$(CC)
-LDSHARED=$(CC) -shared
-PYTHON_ENV += CC="$(CC)"
-PYTHON_ENV += LDSHARED="$(LDSHARED)"
-PYTHON_ENV += LD="$(LD)"
-PYTHON_ENV += CFLAGS="$(CFLAGS)"
-COMPONENT_INSTALL_ENV += $(PYTHON_ENV)
 
 COMPONENT_TEST_DIR= $(COMPONENT_SRC) 
 COMPONENT_TEST_ARGS= ./setup.py test
