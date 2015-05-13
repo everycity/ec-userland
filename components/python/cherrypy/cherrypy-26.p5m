@@ -31,8 +31,8 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license cherrypy.copyright license=BSD
 # force a dependency on the Python 2.7 runtime
-depend fmri=__TBD pkg.debug.depend.file=python2.6 \
-       pkg.debug.depend.path=$(USRDIR)/bin type=require
+#depend fmri=__TBD pkg.debug.depend.file=python2.6 \
+#       pkg.debug.depend.path=$(USRDIR)/bin type=require
 
 file path=$(USRDIR)/lib/python2.6/vendor-packages/CherryPy-$(COMPONENT_VERSION)-py2.6.egg-info/PKG-INFO
 file path=$(USRDIR)/lib/python2.6/vendor-packages/CherryPy-$(COMPONENT_VERSION)-py2.6.egg-info/SOURCES.txt
