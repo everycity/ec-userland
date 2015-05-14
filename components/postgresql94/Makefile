@@ -56,12 +56,17 @@ CONFIGURE_OPTIONS +=	--with-ldap
 CONFIGURE_OPTIONS +=	--with-openssl
 CONFIGURE_OPTIONS +=	--with-libxml
 CONFIGURE_OPTIONS +=	--with-libxslt
+CONFIGURE_OPTIONS +=	--with-uuid=e2fs
 
 COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; autoreconf )
 
 build:		$(BUILD_32_and_64)
 
 $(BUILD_DIR)/.installed:        $(INSTALL_32_and_64)
+	( cd $(BUILD_DIR_32)/contrib/hstore && make && \
+		cp hstore.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/ )
+	( cd $(BUILD_DIR_64)/contrib/hstore && make && \
+		cp hstore.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/$(MACH64) )
 	( cd $(BUILD_DIR_32)/contrib/pgbench && make && \
 		cp pgbench $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/bin/ )
 	( cd $(BUILD_DIR_64)/contrib/pgbench && make && \
@@ -74,6 +79,10 @@ $(BUILD_DIR)/.installed:        $(INSTALL_32_and_64)
 		cp tablefunc.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/ )
 	( cd $(BUILD_DIR_64)/contrib/tablefunc && make && \
 		cp tablefunc.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/$(MACH64) )
+	( cd $(BUILD_DIR_32)/contrib/uuid-ossp && make && \
+		cp uuid-ossp.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/ )
+	( cd $(BUILD_DIR_64)/contrib/uuid-ossp && make && \
+		cp uuid-ossp.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/$(MACH64) )
 	$(MKDIR) $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/extension
 	$(CP) $(SOURCE_DIR)/contrib/pgcrypto/pgcrypto--1.0--1.1.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
 	$(CP) $(SOURCE_DIR)/contrib/pgcrypto/pgcrypto--1.1.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
