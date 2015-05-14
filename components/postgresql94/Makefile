@@ -84,6 +84,12 @@ $(BUILD_DIR)/.installed:        $(INSTALL_32_and_64)
 	( cd $(BUILD_DIR_64)/contrib/uuid-ossp && make && \
 		cp uuid-ossp.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/$(MACH64) )
 	$(MKDIR) $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/extension
+	$(CP) $(SOURCE_DIR)/contrib/hstore/hstore--1.0--1.1.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/hstore/hstore--1.1--1.2.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/hstore/hstore--1.2--1.3.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/hstore/hstore--1.3.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/hstore/hstore--unpackaged--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/hstore/hstore.control $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
 	$(CP) $(SOURCE_DIR)/contrib/pgcrypto/pgcrypto--1.0--1.1.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
 	$(CP) $(SOURCE_DIR)/contrib/pgcrypto/pgcrypto--1.1.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
 	$(CP) $(SOURCE_DIR)/contrib/pgcrypto/pgcrypto--unpackaged--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
@@ -91,6 +97,9 @@ $(BUILD_DIR)/.installed:        $(INSTALL_32_and_64)
 	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
 	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc--unpackaged--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
 	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc.control $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/uuid-ossp/uuid-ossp--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/uuid-ossp/uuid-ossp--unpackaged--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/uuid-ossp/uuid-ossp.control $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
 	$(TOUCH) $@
 
 install:        $(BUILD_DIR)/.installed
