@@ -9,16 +9,16 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tomcat
-COMPONENT_VERSION=	6.0.39
+COMPONENT_VERSION=	6.0.44
 COMPONENT_SRC=		apache-tomcat-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	apache-tomcat-$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:debdeafe900f5eb85f8816ea235ab7e3e5261071b2ea01ac288241e794e911a7
+COMPONENT_ARCHIVE_HASH=	sha256:aab792322e75c6502675120933cbc519cfb59ac8d192f4fa103371a335708224
 COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.apache.org/tomcat/tomcat-6/v$(COMPONENT_VERSION)/bin/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
