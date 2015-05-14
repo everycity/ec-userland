@@ -30,7 +30,7 @@ COMPONENT_PRE_BUILD_ACTION+=	( $(CP) -R $(SOURCE_DIR)/* $(@D)/ && \
 	 cd $(@D) && cp makefile.solaris_x86 makefile.machine )
 COMPONENT_BUILD_TARGETS=	all
 COMPONENT_INSTALL_ARGS+=	DEST_DIR="$(PROTO_DIR)" \
-	DEST_HOME="$(ECPREFIX)"
+	DEST_HOME="$(USRDIR)"
 
 build:		$(BUILD_32)
 
