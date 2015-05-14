@@ -34,11 +34,11 @@ COMPONENT_BUILD_ENV+=	CC="$(CC)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
 build:		$(BUILD_32_and_64)
 
 $(BUILD_DIR)/.installed:	$(BUILD_32_and_64)
-	$(MKDIR) $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)
-	$(INSTALL) $(BUILD_DIR_32)/pigz $(PROTO_DIR)/$(ECPREFIX)/bin/
-	$(INSTALL) $(BUILD_DIR_32)/unpigz $(PROTO_DIR)/$(ECPREFIX)/bin/
-	$(INSTALL) $(BUILD_DIR_64)/pigz $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)/
-	$(INSTALL) $(BUILD_DIR_64)/unpigz $(PROTO_DIR)/$(ECPREFIX)/bin/$(MACH64)/
+	$(MKDIR) $(PROTO_DIR)/$(USRDIR)/bin/$(MACH64)
+	$(INSTALL) $(BUILD_DIR_32)/pigz $(PROTO_DIR)/$(USRDIR)/bin/
+	$(INSTALL) $(BUILD_DIR_32)/unpigz $(PROTO_DIR)/$(USRDIR)/bin/
+	$(INSTALL) $(BUILD_DIR_64)/pigz $(PROTO_DIR)/$(USRDIR)/bin/$(MACH64)/
+	$(INSTALL) $(BUILD_DIR_64)/unpigz $(PROTO_DIR)/$(USRDIR)/bin/$(MACH64)/
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed
