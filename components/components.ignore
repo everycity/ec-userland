@@ -30,7 +30,6 @@
 /^expect$/d
 /^fcgiwrap$/d
 /^ffmpeg08$/d
-/^fping$/d
 /^freeimage$/d
 /^frotz$/d
 /^gaa$/d
