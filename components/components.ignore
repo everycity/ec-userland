@@ -228,7 +228,6 @@
 /^sysbench$/d
 /^taglib$/d
 /^tcl$/d
-/^tcsh$/d
 /^tftp-hpa$/d
 /^tmux$/d
 /^toilet$/d
