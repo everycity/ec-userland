@@ -10,7 +10,7 @@
 
 #
 # Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -47,21 +47,22 @@ include ../../make-rules/ips.mk
 
 CLEAN_PATH +=	documentation
 
-PATH=   $(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
+PATH=   $(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
+EC_INCLUDE= -Ipcre -I$(USRDIR)/include
 
 LD =	$(CC) $(LD_BITS)
 
 CONFIGURE_ENV +=	DED_LD="$(LD)"
-CONFIGURE_ENV +=	DED_LDFLAGS="-shared -L/ec/lib -R/ec/lib -lumem"
+CONFIGURE_ENV +=	DED_LDFLAGS="-shared $(LDFLAGS)"
 CONFIGURE_ENV +=	DED_LD_FLAG_RUNTIME_LIBRARY_PATH="-R"
 
-CONFIGURE_OPTIONS +=	CFLAGS="$(CFLAGS)"
-CONFIGURE_OPTIONS +=	CPPFLAGS="$(CPPFLAGS)"
+#CONFIGURE_OPTIONS +=	CFLAGS="$(CFLAGS)"
+#CONFIGURE_OPTIONS +=	CPPFLAGS="$(CPPFLAGS)"
 CONFIGURE_OPTIONS +=	--enable-smp-support
 CONFIGURE_OPTIONS +=	--enable-dtrace
 CONFIGURE_OPTIONS +=	--enable-threads
 CONFIGURE_OPTIONS +=	--enable-hipe
-CONFIGURE_OPTIONS +=	--with-ssl=$(ECPREFIX)
+CONFIGURE_OPTIONS +=	--with-ssl=$(USRDIR)
 CONFIGURE_OPTIONS +=	--enable-dynamic-ssl-lib
 CONFIGURE_OPTIONS +=	--with-dynamic-trace=dtrace
 
@@ -93,10 +94,10 @@ $(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
 	$(UNPACK) $(UNPACK_ARGS) $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE_1) && \
 	$(UNPACK) $(UNPACK_ARGS) $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE_2)
 	# remove INSTALL_PREFIX from path
-	$(PERL) -pi -e "s|$(PROTO_DIR)||g" $(PROTO_DIR)$(ECPREFIX)/lib/erlang/bin/erl \
-		$(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/erlang/bin/erl \
-		$(PROTO_DIR)$(ECPREFIX)/lib/erlang/releases/RELEASES \
-		$(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/erlang/releases/RELEASES
+	$(PERL) -pi -e "s|$(PROTO_DIR)||g" $(PROTO_DIR)$(USRDIR)/lib/erlang/bin/erl \
+		$(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/erlang/bin/erl \
+		$(PROTO_DIR)$(USRDIR)/lib/erlang/releases/RELEASES \
+		$(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/erlang/releases/RELEASES
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed

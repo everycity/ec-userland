@@ -25,7 +25,6 @@
 /^dovecot$/d
 /^dspam$/d
 /^epm$/d
-/^erlang$/d
 /^exiftool$/d
 /^expect$/d
 /^fcgiwrap$/d
