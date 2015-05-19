@@ -95,14 +95,15 @@ COMPONENT_DIR =	$(shell pwd)
 SOURCE_DIR =	$(COMPONENT_DIR)/source/$(COMPONENT_SRC)
 BUILD_DIR =	$(COMPONENT_DIR)/build
 PROTO_DIR =	$(BUILD_DIR)/prototype/$(MACH)
+EC_INCLUDE =	-I$(USRDIR)/include
 
 ifneq (,$(filter $(BRAND),solaris10 smartos))
     ECPREFIX = 	/ec
     USRDIR = $(ECPREFIX)
     ZTYPE = ec
-    CPPFLAGS = -I$(USRDIR)/include
-    CFLAGS = -I$(USRDIR)/include
-    CXXFLAGS = -I$(USRDIR)/include
+    CPPFLAGS = $(EC_INCLUDE)
+    CFLAGS = $(EC_INCLUDE)
+    CXXFLAGS = $(EC_INCLUDE)
     CONFIGURE_DEFAULT_CPPFLAGS ?= yes
     GCC_ROOT = $(ECPREFIX)
     ECZONE=
