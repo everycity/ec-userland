@@ -25,32 +25,25 @@ license json-c.license license="JSONC"
 # This entry was missing for some reason
 file json_object_iterator.h path=$(ECPREFIX)/include/json/json_object_iterator.h
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/json
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-file path=$(ECPREFIX)/include/json/arraylist.h
-file path=$(ECPREFIX)/include/json/bits.h
-file path=$(ECPREFIX)/include/json/debug.h
-file path=$(ECPREFIX)/include/json/json.h
-file path=$(ECPREFIX)/include/json/json_config.h
-file path=$(ECPREFIX)/include/json/json_inttypes.h
-file path=$(ECPREFIX)/include/json/json_object.h
-file path=$(ECPREFIX)/include/json/json_object_private.h
-file path=$(ECPREFIX)/include/json/json_tokener.h
-file path=$(ECPREFIX)/include/json/json_util.h
-file path=$(ECPREFIX)/include/json/linkhash.h
-file path=$(ECPREFIX)/include/json/printbuf.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libjson.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libjson.so.0.1.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/json.pc
-file path=$(ECPREFIX)/lib/libjson.la
-file path=$(ECPREFIX)/lib/libjson.so.0.1.0
-file path=$(ECPREFIX)/lib/pkgconfig/json.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libjson.so target=libjson.so.0.1.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libjson.so.0 target=libjson.so.0.1.0
-link path=$(ECPREFIX)/lib/libjson.so target=libjson.so.0.1.0
-link path=$(ECPREFIX)/lib/libjson.so.0 target=libjson.so.0.1.0
+file path=$(USRDIR)/include/json/arraylist.h
+file path=$(USRDIR)/include/json/bits.h
+file path=$(USRDIR)/include/json/debug.h
+file path=$(USRDIR)/include/json/json.h
+file path=$(USRDIR)/include/json/json_config.h
+file path=$(USRDIR)/include/json/json_inttypes.h
+file path=$(USRDIR)/include/json/json_object.h
+file path=$(USRDIR)/include/json/json_object_private.h
+file path=$(USRDIR)/include/json/json_tokener.h
+file path=$(USRDIR)/include/json/json_util.h
+file path=$(USRDIR)/include/json/linkhash.h
+file path=$(USRDIR)/include/json/printbuf.h
+file path=$(USRDIR)/lib/$(MACH64)/libjson.la
+file path=$(USRDIR)/lib/$(MACH64)/libjson.so.0.1.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/json.pc
+file path=$(USRDIR)/lib/libjson.la
+file path=$(USRDIR)/lib/libjson.so.0.1.0
+file path=$(USRDIR)/lib/pkgconfig/json.pc
+link path=$(USRDIR)/lib/$(MACH64)/libjson.so target=libjson.so.0.1.0
+link path=$(USRDIR)/lib/$(MACH64)/libjson.so.0 target=libjson.so.0.1.0
+link path=$(USRDIR)/lib/libjson.so target=libjson.so.0.1.0
+link path=$(USRDIR)/lib/libjson.so.0 target=libjson.so.0.1.0

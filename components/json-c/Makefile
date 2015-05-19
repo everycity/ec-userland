@@ -27,7 +27,7 @@ include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS+=--with-pic --enable-shared --disable-static
 
-COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; libtoolize --force --copy ; autoreconf )
+COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; libtoolize --force --copy ; autoreconf -iv )
 
 build:		$(BUILD_32_and_64)
 
