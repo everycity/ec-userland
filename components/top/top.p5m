@@ -33,12 +33,5 @@ set name=org.opensolaris.arc-caseid value=PSARC/2008/533
 
 license top.license license="BSD, Apachev2.0"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/top
-file path=$(ECPREFIX)/share/man/man1/top.1
-link path=$(ECPREFIX)/bin/top target=$(MACH64)/top
+file $(USRDIR)/bin/$(MACH64)/$(MACH64)/top path=$(USRDIR)/bin/top
+file path=$(USRDIR)/share/man/man1/top.1
