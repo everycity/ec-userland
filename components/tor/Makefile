@@ -29,8 +29,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=	--with-openssl-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-zlib-dir=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--with-openssl-dir=$(USRDIR)
+CONFIGURE_OPTIONS+=	--with-zlib-dir=$(USRDIR)
 
 build:		$(BUILD_32_and_64)
 

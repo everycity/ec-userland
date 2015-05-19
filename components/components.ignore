@@ -238,7 +238,6 @@
 /^tomcat7$/d
 /^tomee15$/d
 /^top$/d
-/^tor$/d
 /^trousers$/d
 /^uriparser$/d
 /^varnish$/d
