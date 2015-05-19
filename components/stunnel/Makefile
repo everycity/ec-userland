@@ -30,7 +30,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=	--with-ssl=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--with-ssl=$(USRDIR)
 
 build:		$(BUILD_32_and_64)
 
