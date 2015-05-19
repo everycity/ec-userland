@@ -22,39 +22,31 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/lzo
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/lzo
-file path=$(ECPREFIX)/include/lzo/lzo1.h
-file path=$(ECPREFIX)/include/lzo/lzo1a.h
-file path=$(ECPREFIX)/include/lzo/lzo1b.h
-file path=$(ECPREFIX)/include/lzo/lzo1c.h
-file path=$(ECPREFIX)/include/lzo/lzo1f.h
-file path=$(ECPREFIX)/include/lzo/lzo1x.h
-file path=$(ECPREFIX)/include/lzo/lzo1y.h
-file path=$(ECPREFIX)/include/lzo/lzo1z.h
-file path=$(ECPREFIX)/include/lzo/lzo2a.h
-file path=$(ECPREFIX)/include/lzo/lzo_asm.h
-file path=$(ECPREFIX)/include/lzo/lzoconf.h
-file path=$(ECPREFIX)/include/lzo/lzodefs.h
-file path=$(ECPREFIX)/include/lzo/lzoutil.h
-file path=$(ECPREFIX)/lib/$(MACH64)/liblzo2.la
-file path=$(ECPREFIX)/lib/$(MACH64)/liblzo2.so.2.0.0
-file path=$(ECPREFIX)/lib/liblzo2.la
-file path=$(ECPREFIX)/lib/liblzo2.so.2.0.0
-file path=$(ECPREFIX)/share/doc/lzo/AUTHORS
-file path=$(ECPREFIX)/share/doc/lzo/COPYING
-file path=$(ECPREFIX)/share/doc/lzo/LZO.FAQ
-file path=$(ECPREFIX)/share/doc/lzo/LZO.TXT
-file path=$(ECPREFIX)/share/doc/lzo/LZOAPI.TXT
-file path=$(ECPREFIX)/share/doc/lzo/NEWS
-file path=$(ECPREFIX)/share/doc/lzo/THANKS
-link path=$(ECPREFIX)/lib/$(MACH64)/liblzo2.so target=liblzo2.so.2.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/liblzo2.so.2 target=liblzo2.so.2.0.0
-link path=$(ECPREFIX)/lib/liblzo2.so target=liblzo2.so.2.0.0
-link path=$(ECPREFIX)/lib/liblzo2.so.2 target=liblzo2.so.2.0.0
+file path=$(USRDIR)/include/lzo/lzo1.h
+file path=$(USRDIR)/include/lzo/lzo1a.h
+file path=$(USRDIR)/include/lzo/lzo1b.h
+file path=$(USRDIR)/include/lzo/lzo1c.h
+file path=$(USRDIR)/include/lzo/lzo1f.h
+file path=$(USRDIR)/include/lzo/lzo1x.h
+file path=$(USRDIR)/include/lzo/lzo1y.h
+file path=$(USRDIR)/include/lzo/lzo1z.h
+file path=$(USRDIR)/include/lzo/lzo2a.h
+file path=$(USRDIR)/include/lzo/lzo_asm.h
+file path=$(USRDIR)/include/lzo/lzoconf.h
+file path=$(USRDIR)/include/lzo/lzodefs.h
+file path=$(USRDIR)/include/lzo/lzoutil.h
+file path=$(USRDIR)/lib/$(MACH64)/liblzo2.la
+file path=$(USRDIR)/lib/$(MACH64)/liblzo2.so.2.0.0
+file path=$(USRDIR)/lib/liblzo2.la
+file path=$(USRDIR)/lib/liblzo2.so.2.0.0
+file path=$(USRDIR)/share/doc/lzo/AUTHORS
+file path=$(USRDIR)/share/doc/lzo/COPYING
+file path=$(USRDIR)/share/doc/lzo/LZO.FAQ
+file path=$(USRDIR)/share/doc/lzo/LZO.TXT
+file path=$(USRDIR)/share/doc/lzo/LZOAPI.TXT
+file path=$(USRDIR)/share/doc/lzo/NEWS
+file path=$(USRDIR)/share/doc/lzo/THANKS
+link path=$(USRDIR)/lib/$(MACH64)/liblzo2.so target=liblzo2.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/liblzo2.so.2 target=liblzo2.so.2.0.0
+link path=$(USRDIR)/lib/liblzo2.so target=liblzo2.so.2.0.0
+link path=$(USRDIR)/lib/liblzo2.so.2 target=liblzo2.so.2.0.0

@@ -71,7 +71,6 @@
 /^libgd$/d
 /^libid3tag$/d
 /^libksba$/d
-/^liblzo$/d
 /^libmediainfo$/d
 /^libmms$/d
 /^libmpeg2$/d
