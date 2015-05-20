@@ -14,10 +14,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	5.6.8
+COMPONENT_VERSION=	5.6.9
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:c5b1c75c5671c239473eb611129f33ac432a55a1c341990b70009a2aa3b8dbc3
+COMPONENT_ARCHIVE_HASH=	sha256:49527ba66357fe65bcd463dfb8dcff1b8879419f88b3c334f50696a2aceacb87
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_UK)
 
 include ../../make-rules/prep.mk
@@ -36,6 +36,8 @@ PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.6
 PHP_DATADIR=$(ECPREFIX)/var/php/5.6
 
 CFLAGS += -D_POSIX_PTHREAD_SEMANTICS
+
+COMPONENT_PREP_ACTION =		( cd $(@D) && autoconf )
 
 # Configure Options
 
@@ -154,7 +156,7 @@ CONFIGURE_OPTIONS     +=	--enable-mbstring=shared
 CONFIGURE_OPTIONS     +=	--enable-xmlreader=shared
 CONFIGURE_OPTIONS     +=	--enable-xmlwriter=shared
 CONFIGURE_OPTIONS     +=	--enable-soap=shared
-#CONFIGURE_OPTIONS     +=	--enable-sockets=shared
+CONFIGURE_OPTIONS     +=	--enable-sockets=shared
 CONFIGURE_OPTIONS     +=	--enable-tokenizer=shared
 CONFIGURE_OPTIONS     +=	--enable-wddx=shared
 CONFIGURE_OPTIONS     +=	--enable-zip=shared
