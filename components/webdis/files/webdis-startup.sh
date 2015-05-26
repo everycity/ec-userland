@@ -22,23 +22,29 @@ getprop() {
 
 getprop webdis/enable_64bit
 if [ "${PROPVAL}" = "true" ] ; then
-  MEMCACHEDBINARY="/ec/bin/amd64/webdis"
+  WEBDISBINARY="/ec/bin/amd64/webdis"
   getprop webdis/webdis_binary64
   if [ "${PROPVAL}" != "" ] ; then
-    MEMCACHEDBINARY="${PROPVAL}"
+    WEBDISBINARY="${PROPVAL}"
   fi
 else
-  MEMCACHEDBINARY="/ec/bin/webdis"
+  WEBDISBINARY="/ec/bin/webdis"
   getprop webdis/webdis_binary
   if [ "${PROPVAL}" != "" ] ; then
-    MEMCACHEDBINARY="${PROPVAL}"
+    WEBDISBINARY="${PROPVAL}"
   fi
+fi
+
+WEBDISCONFIG="/ec/etc/webdis.prod.json"
+getprop webdis/webdis_config
+if [ "${PROPVAL}" != "" ] ; then
+  WEBDISCONFIG="${PROPVAL}"
 fi
 
 case "$1" in
   start)
     echo "Starting webdis: \c"
-    $MEMCACHEDBINARY
+    $WEBDISBINARY $WEBDISCONFIG
     echo "webdis."
     ;;
   *)

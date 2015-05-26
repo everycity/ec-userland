@@ -30,6 +30,7 @@
         <propval name='enable_64bit' type='boolean' value='false'/>
         <propval name='webdis_binary' type='astring' value='/ec/bin/webdis'/>
         <propval name='webdis_binary64' type='astring' value='/ec/bin/amd64/webdis'/>
+        <propval name='webdis_config' type='astring' value='/ec/etc/webdis.prod.json'/>
       </property_group>
     </instance>
   </service>
