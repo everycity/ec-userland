@@ -1,0 +1,10 @@
+--- webdis-master/server.c.orig	2015-05-26 09:44:15.610847443 +0100
++++ webdis-master/server.c	2015-05-26 09:44:57.796722822 +0100
+@@ -16,6 +16,7 @@
+ #include <sys/types.h>
+ #include <sys/socket.h>
+ #include <sys/ioctl.h>
++#include <sys/filio.h>
+ 
+ /**
+  * Sets up a non-blocking socket
