@@ -83,7 +83,7 @@ Property value defaults with description:
 -p thread_pools=4            # Thread Pool per CPU
 -p thread_pool_add_delay=2ms # Thread init delay, not to bomb OS
 -p sess_timeout=10s          # Keep-Alive timeout
--p max_restarts=12           # Amount of restart attempts
+-p max_restarts=12           # Number of restart attempts
 -p session_linger=120ms      # Milliseconds to keep thread around
 -p connect_timeout=0s        # Important bug work around for Solaris
 -p lru_interval=20s          # LRU interval checks

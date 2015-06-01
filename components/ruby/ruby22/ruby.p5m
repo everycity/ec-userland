@@ -5133,11 +5133,11 @@ file \
     path=$(ECPREFIX)/lib/ruby/gems/2.2.0/specifications/power_assert-0.2.2.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.2.0/specifications/test-unit-3.0.8.gemspec
-file path=$(ECPREFIX)/share/man/man1/erb$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/share/man/man1/irb$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/share/man/man1/rake$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/share/man/man1/ri$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/share/man/man1/ruby$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/share/man/man1/erb2.2.1
+file path=$(ECPREFIX)/share/man/man1/irb2.2.1
+file path=$(ECPREFIX)/share/man/man1/rake2.2.1
+file path=$(ECPREFIX)/share/man/man1/ri2.2.1
+file path=$(ECPREFIX)/share/man/man1/ruby2.2.1
 file path=$(ECPREFIX)/share/ri/2.2.0/system/ACL/ACLEntry/cdesc-ACLEntry.ri
 file path=$(ECPREFIX)/share/ri/2.2.0/system/ACL/ACLEntry/dot_pat-i.ri
 file path=$(ECPREFIX)/share/ri/2.2.0/system/ACL/ACLEntry/dot_pat_str-i.ri

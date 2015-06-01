@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -38,6 +38,8 @@ dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/etc/varnish
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/include/varnish
+dir path=$(ECPREFIX)/include/varnish/cache
+dir path=$(ECPREFIX)/include/varnish/common
 dir path=$(ECPREFIX)/include/varnish/tbl
 dir path=$(ECPREFIX)/include/varnish/vapi
 dir path=$(ECPREFIX)/lib
@@ -57,9 +59,6 @@ dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man3
 dir path=$(ECPREFIX)/share/man/man7
 dir path=$(ECPREFIX)/share/varnish
-dir path=$(ECPREFIX)/share/varnish/include
-dir path=$(ECPREFIX)/share/varnish/include/cache
-dir path=$(ECPREFIX)/share/varnish/include/common
 dir path=$(ECPREFIX)/var
 dir path=$(ECPREFIX)/var/varnish owner=webservd group=webservd
 file path=$(ECPREFIX)/bin/$(MACH64)/varnishadm
@@ -79,6 +78,11 @@ file path=$(ECPREFIX)/bin/varnishstat
 file path=$(ECPREFIX)/bin/varnishtest
 file path=$(ECPREFIX)/bin/varnishtop
 file path=$(ECPREFIX)/etc/varnish/example.vcl
+file path=$(ECPREFIX)/include/varnish/cache/cache.h
+file path=$(ECPREFIX)/include/varnish/cache/cache_backend.h
+file path=$(ECPREFIX)/include/varnish/common/common.h
+file path=$(ECPREFIX)/include/varnish/common/params.h
+file path=$(ECPREFIX)/include/varnish/miniobj.h
 file path=$(ECPREFIX)/include/varnish/tbl/acct_fields_bereq.h
 file path=$(ECPREFIX)/include/varnish/tbl/acct_fields_req.h
 file path=$(ECPREFIX)/include/varnish/tbl/backend_poll.h
@@ -112,7 +116,21 @@ file path=$(ECPREFIX)/include/varnish/vapi/vsl.h
 file path=$(ECPREFIX)/include/varnish/vapi/vsl_int.h
 file path=$(ECPREFIX)/include/varnish/vapi/vsm.h
 file path=$(ECPREFIX)/include/varnish/vapi/vsm_int.h
+file path=$(ECPREFIX)/include/varnish/vas.h
+file path=$(ECPREFIX)/include/varnish/vav.h
+file path=$(ECPREFIX)/include/varnish/vbm.h
+file path=$(ECPREFIX)/include/varnish/vcl.h
 file path=$(ECPREFIX)/include/varnish/vcli.h
+file path=$(ECPREFIX)/include/varnish/vcs.h
+file path=$(ECPREFIX)/include/varnish/vdef.h
+file path=$(ECPREFIX)/include/varnish/vmod_abi.h
+file path=$(ECPREFIX)/include/varnish/vqueue.h
+file path=$(ECPREFIX)/include/varnish/vre.h
+file path=$(ECPREFIX)/include/varnish/vrt.h
+file path=$(ECPREFIX)/include/varnish/vrt_obj.h
+file path=$(ECPREFIX)/include/varnish/vsa.h
+file path=$(ECPREFIX)/include/varnish/vsb.h
+file path=$(ECPREFIX)/include/varnish/vsha256.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libvarnishapi.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libvarnishapi.so.1.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/varnishapi.pc
@@ -161,25 +179,6 @@ file path=$(ECPREFIX)/share/man/man7/varnish-counters.7
 file path=$(ECPREFIX)/share/man/man7/vcl.7
 file path=$(ECPREFIX)/share/man/man7/vsl-query.7
 file path=$(ECPREFIX)/share/man/man7/vsl.7
-file path=$(ECPREFIX)/share/varnish/include/cache/cache.h
-file path=$(ECPREFIX)/share/varnish/include/cache/cache_backend.h
-file path=$(ECPREFIX)/share/varnish/include/common/common.h
-file path=$(ECPREFIX)/share/varnish/include/common/params.h
-file path=$(ECPREFIX)/share/varnish/include/miniobj.h
-file path=$(ECPREFIX)/share/varnish/include/vas.h
-file path=$(ECPREFIX)/share/varnish/include/vav.h
-file path=$(ECPREFIX)/share/varnish/include/vbm.h
-file path=$(ECPREFIX)/share/varnish/include/vcl.h
-file path=$(ECPREFIX)/share/varnish/include/vcs.h
-file path=$(ECPREFIX)/share/varnish/include/vdef.h
-file path=$(ECPREFIX)/share/varnish/include/vmod_abi.h
-file path=$(ECPREFIX)/share/varnish/include/vqueue.h
-file path=$(ECPREFIX)/share/varnish/include/vre.h
-file path=$(ECPREFIX)/share/varnish/include/vrt.h
-file path=$(ECPREFIX)/share/varnish/include/vrt_obj.h
-file path=$(ECPREFIX)/share/varnish/include/vsa.h
-file path=$(ECPREFIX)/share/varnish/include/vsb.h
-file path=$(ECPREFIX)/share/varnish/include/vsha256.h
 file path=$(ECPREFIX)/share/varnish/vmodtool.py
 link path=$(ECPREFIX)/lib/$(MACH64)/libvarnishapi.so \
     target=libvarnishapi.so.1.0.0

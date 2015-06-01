@@ -9,16 +9,20 @@
 #
 
 #
-# Copyright 2011 Audioboo Ltd. All rights reserved.
+# Copyright 2015 Audioboo Ltd. All rights reserved.
 # Copyright 2011-2013 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		sox
-COMPONENT_VERSION=	14.4.1
+COMPONENT_FMRI=		audio/sox
+COMPONENT_VERSION=	14.4.2
+COMPONENT_LICENSE=	LGPL
+COMPONENT_PROJECT_URL=	"http://sox.sourceforge.net/"
+COMPONENT_SUMMARY=	Sox Audio Converter
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:2cb40527f6957f2de27aea39fb5da3dda4ddf4aaef22812d643f40623dec0e40
+COMPONENT_ARCHIVE_HASH=	sha256:81a6956d4330e75b5827316e44ae381e6f1e8928003c6aa45896da9041ea149c
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk

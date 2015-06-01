@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		nginx
 COMPONENT_FMRI=		web/server/nginx
-COMPONENT_VERSION=	1.6.2
+COMPONENT_VERSION=	1.6.3
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	http://nginx.net/
 COMPONENT_SUMMARY=	Nginx Webserver
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:b5608c2959d3e7ad09b20fc8f9e5bd4bc87b3bc8ba5936a513c04ed8f1391a18
+COMPONENT_ARCHIVE_HASH=	sha256:0a98e95b366e4d6042f331e1fa4d70e18fd1e49d8993e589008e70e742b7e757
 COMPONENT_ARCHIVE_URL=	http://nginx.org/download/$(COMPONENT_ARCHIVE)
 
 MOD_WSGI_HG_TAG=		6975f0ec7eeb
@@ -73,9 +73,11 @@ CONFIGURE_OPTIONS += --with-http_flv_module
 CONFIGURE_OPTIONS += --with-http_geoip_module
 CONFIGURE_OPTIONS += --with-http_gzip_static_module
 CONFIGURE_OPTIONS += --with-http_mp4_module
+CONFIGURE_OPTIONS.64 += --with-http_perl_module
 CONFIGURE_OPTIONS += --with-http_random_index_module
 CONFIGURE_OPTIONS += --with-http_realip_module
 CONFIGURE_OPTIONS += --with-http_secure_link_module
+CONFIGURE_OPTIONS += --with-http_spdy_module
 CONFIGURE_OPTIONS += --with-http_ssl_module
 CONFIGURE_OPTIONS += --with-http_sub_module
 CONFIGURE_OPTIONS += --with-http_stub_status_module

@@ -821,6 +821,7 @@ file path=$(ECPREFIX)/lib/postgres/9.4/lib/$(MACH64)/euc_cn_and_mic.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/$(MACH64)/euc_jp_and_sjis.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/$(MACH64)/euc_kr_and_mic.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/$(MACH64)/euc_tw_and_big5.so
+file path=$(ECPREFIX)/lib/postgres/9.4/lib/$(MACH64)/hstore.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/$(MACH64)/latin2_and_win1250.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/$(MACH64)/latin_and_mic.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/$(MACH64)/libecpg.a
@@ -869,6 +870,7 @@ file path=$(ECPREFIX)/lib/postgres/9.4/lib/$(MACH64)/utf8_and_sjis.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/$(MACH64)/utf8_and_sjis2004.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/$(MACH64)/utf8_and_uhc.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/$(MACH64)/utf8_and_win.so
+file path=$(ECPREFIX)/lib/postgres/9.4/lib/$(MACH64)/uuid-ossp.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/ascii_and_mic.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/cyrillic_and_mic.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/dict_snowball.so
@@ -877,6 +879,7 @@ file path=$(ECPREFIX)/lib/postgres/9.4/lib/euc_cn_and_mic.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/euc_jp_and_sjis.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/euc_kr_and_mic.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/euc_tw_and_big5.so
+file path=$(ECPREFIX)/lib/postgres/9.4/lib/hstore.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/latin2_and_win1250.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/latin_and_mic.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/libecpg.a
@@ -922,7 +925,15 @@ file path=$(ECPREFIX)/lib/postgres/9.4/lib/utf8_and_sjis.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/utf8_and_sjis2004.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/utf8_and_uhc.so
 file path=$(ECPREFIX)/lib/postgres/9.4/lib/utf8_and_win.so
+file path=$(ECPREFIX)/lib/postgres/9.4/lib/uuid-ossp.so
 file path=$(ECPREFIX)/lib/postgres/9.4/share/conversion_create.sql
+file path=$(ECPREFIX)/lib/postgres/9.4/share/extension/hstore--1.0--1.1.sql
+file path=$(ECPREFIX)/lib/postgres/9.4/share/extension/hstore--1.1--1.2.sql
+file path=$(ECPREFIX)/lib/postgres/9.4/share/extension/hstore--1.2--1.3.sql
+file path=$(ECPREFIX)/lib/postgres/9.4/share/extension/hstore--1.3.sql
+file \
+    path=$(ECPREFIX)/lib/postgres/9.4/share/extension/hstore--unpackaged--1.0.sql
+file path=$(ECPREFIX)/lib/postgres/9.4/share/extension/hstore.control
 file path=$(ECPREFIX)/lib/postgres/9.4/share/extension/pgcrypto--1.0--1.1.sql
 file path=$(ECPREFIX)/lib/postgres/9.4/share/extension/pgcrypto--1.1.sql
 file \
@@ -944,6 +955,10 @@ file path=$(ECPREFIX)/lib/postgres/9.4/share/extension/tablefunc--1.0.sql
 file \
     path=$(ECPREFIX)/lib/postgres/9.4/share/extension/tablefunc--unpackaged--1.0.sql
 file path=$(ECPREFIX)/lib/postgres/9.4/share/extension/tablefunc.control
+file path=$(ECPREFIX)/lib/postgres/9.4/share/extension/uuid-ossp--1.0.sql
+file \
+    path=$(ECPREFIX)/lib/postgres/9.4/share/extension/uuid-ossp--unpackaged--1.0.sql
+file path=$(ECPREFIX)/lib/postgres/9.4/share/extension/uuid-ossp.control
 file path=$(ECPREFIX)/lib/postgres/9.4/share/information_schema.sql
 file path=$(ECPREFIX)/lib/postgres/9.4/share/locale/cs/LC_MESSAGES/ecpg-9.4.mo
 file \

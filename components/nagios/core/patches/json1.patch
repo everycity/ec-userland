@@ -1,0 +1,42 @@
+From 0247abaaf598a7c83e08fd6736c90ec5441a177d Mon Sep 17 00:00:00 2001
+From: Eric Stanley <estanley@nagios.com>
+Date: Thu, 14 Aug 2014 06:59:02 -0500
+Subject: [PATCH] JSON CIG: Now escaping object and array keys
+
+Previously scalar values were being escaped properly, but not array
+and object keys. This commit fixes that.
+---
+ cgi/jsonutils.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/cgi/jsonutils.c b/cgi/jsonutils.c
+index 7fe1f2c..2256652 100644
+--- a/cgi/jsonutils.c
++++ b/cgi/jsonutils.c
+@@ -736,10 +736,14 @@ void json_array_print(json_array *obj, int padding, int whitespace,
+ void json_member_print(json_object_member *mp, int padding, int whitespace, 
+ 		char *strftime_format, unsigned format_options) {
+ 
++	char *buf = NULL;
++
+ 	switch(mp->type) {
+ 	case JSON_TYPE_OBJECT:
+ 		if(NULL != mp->key) {
+-			indentf(padding, whitespace, "\"%s\": ", mp->key);
++			buf = json_escape_string(mp->key, &string_escapes);
++			indentf(padding, whitespace, "\"%s\": ", buf);
++			if(NULL != buf) free(buf);
+ 			}
+ 		else {
+ 			indentf(padding, whitespace, "");
+@@ -749,7 +753,9 @@ void json_member_print(json_object_member *mp, int padding, int whitespace,
+ 		break;
+ 	case JSON_TYPE_ARRAY:
+ 		if(NULL != mp->key) {
+-			indentf(padding, whitespace, "\"%s\": ", mp->key);
++			buf = json_escape_string(mp->key, &string_escapes);
++			indentf(padding, whitespace, "\"%s\": ", buf);
++			if(NULL != buf) free(buf);
+ 			}
+ 		else {
+ 			indentf(padding, whitespace, "");

@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ruby
 COMPONENT_FMRI=		runtime/ruby-20
-COMPONENT_VERSION=	2.0.0-p598
-IPS_COMPONENT_VERSION=	2.0.0.598
+COMPONENT_VERSION=	2.0.0-p645
+IPS_COMPONENT_VERSION=	2.0.0.645
 COMPONENT_LICENSE=	2-clause BSDL
 COMPONENT_PROJECT_URL=	http://www.ruby-lang.org/
 COMPONENT_SUMMARY=	The Ruby Programming Language & RubyGems
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:4136bf7d764cbcc1c7da2824ed2826c3550f2b62af673c79ddbf9049b12095fd
+COMPONENT_ARCHIVE_HASH=	sha256:5e9f8effffe97cba5ef0015feec6e1e5f3bacf6ace78cd1cdf72708cd71cf4ab
 COMPONENT_ARCHIVE_URL=	ftp://ftp.ruby-lang.org//pub/ruby/2.0/$(COMPONENT_ARCHIVE)
 
 include ../../../make-rules/prep.mk

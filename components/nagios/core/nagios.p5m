@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -60,6 +60,7 @@ dir path=$(ECPREFIX)/nagios/var/archives
 dir path=$(ECPREFIX)/nagios/var/spool
 dir path=$(ECPREFIX)/nagios/var/spool/checkresults
 file path=$(ECPREFIX)/etc/apache/2.2/sites-available/nagios.conf
+file path=$(ECPREFIX)/nagios/bin/$(MACH64)/archivejson.cgi
 file path=$(ECPREFIX)/nagios/bin/$(MACH64)/avail.cgi
 file path=$(ECPREFIX)/nagios/bin/$(MACH64)/cmd.cgi
 file path=$(ECPREFIX)/nagios/bin/$(MACH64)/config.cgi
@@ -69,15 +70,18 @@ file path=$(ECPREFIX)/nagios/bin/$(MACH64)/history.cgi
 file path=$(ECPREFIX)/nagios/bin/$(MACH64)/nagios
 file path=$(ECPREFIX)/nagios/bin/$(MACH64)/nagiostats
 file path=$(ECPREFIX)/nagios/bin/$(MACH64)/notifications.cgi
+file path=$(ECPREFIX)/nagios/bin/$(MACH64)/objectjson.cgi
 file path=$(ECPREFIX)/nagios/bin/$(MACH64)/outages.cgi
 file path=$(ECPREFIX)/nagios/bin/$(MACH64)/showlog.cgi
 file path=$(ECPREFIX)/nagios/bin/$(MACH64)/status.cgi
+file path=$(ECPREFIX)/nagios/bin/$(MACH64)/statusjson.cgi
 file path=$(ECPREFIX)/nagios/bin/$(MACH64)/statusmap.cgi
 file path=$(ECPREFIX)/nagios/bin/$(MACH64)/statuswml.cgi
 file path=$(ECPREFIX)/nagios/bin/$(MACH64)/statuswrl.cgi
 file path=$(ECPREFIX)/nagios/bin/$(MACH64)/summary.cgi
 file path=$(ECPREFIX)/nagios/bin/$(MACH64)/tac.cgi
 file path=$(ECPREFIX)/nagios/bin/$(MACH64)/trends.cgi
+file path=$(ECPREFIX)/nagios/bin/archivejson.cgi
 file path=$(ECPREFIX)/nagios/bin/avail.cgi
 file path=$(ECPREFIX)/nagios/bin/cmd.cgi
 file path=$(ECPREFIX)/nagios/bin/config.cgi
@@ -87,9 +91,11 @@ file path=$(ECPREFIX)/nagios/bin/history.cgi
 file path=$(ECPREFIX)/nagios/bin/nagios
 file path=$(ECPREFIX)/nagios/bin/nagiostats
 file path=$(ECPREFIX)/nagios/bin/notifications.cgi
+file path=$(ECPREFIX)/nagios/bin/objectjson.cgi
 file path=$(ECPREFIX)/nagios/bin/outages.cgi
 file path=$(ECPREFIX)/nagios/bin/showlog.cgi
 file path=$(ECPREFIX)/nagios/bin/status.cgi
+file path=$(ECPREFIX)/nagios/bin/statusjson.cgi
 file path=$(ECPREFIX)/nagios/bin/statusmap.cgi
 file path=$(ECPREFIX)/nagios/bin/statuswml.cgi
 file path=$(ECPREFIX)/nagios/bin/statuswrl.cgi
@@ -432,9 +438,14 @@ file path=$(ECPREFIX)/nagios/share/includes/rss/rss_utils.inc
 file path=$(ECPREFIX)/nagios/share/includes/utils.inc.php
 file path=$(ECPREFIX)/nagios/share/index.php
 file path=$(ECPREFIX)/nagios/share/js/jquery-1.7.1.min.js
+file path=$(ECPREFIX)/nagios/share/js/jsonquery.js
+file path=$(ECPREFIX)/nagios/share/jsonquery.html
 file path=$(ECPREFIX)/nagios/share/main.php
 file path=$(ECPREFIX)/nagios/share/robots.txt
+file path=$(ECPREFIX)/nagios/share/rss-corebanner.php
+file path=$(ECPREFIX)/nagios/share/rss-corefeed.html
 file path=$(ECPREFIX)/nagios/share/rss-corefeed.php
+file path=$(ECPREFIX)/nagios/share/rss-newsfeed.html
 file path=$(ECPREFIX)/nagios/share/rss-newsfeed.php
 file path=$(ECPREFIX)/nagios/share/side.php
 file path=$(ECPREFIX)/nagios/share/stylesheets/avail.css
@@ -445,6 +456,7 @@ file path=$(ECPREFIX)/nagios/share/stylesheets/config.css
 file path=$(ECPREFIX)/nagios/share/stylesheets/extinfo.css
 file path=$(ECPREFIX)/nagios/share/stylesheets/histogram.css
 file path=$(ECPREFIX)/nagios/share/stylesheets/history.css
+file path=$(ECPREFIX)/nagios/share/stylesheets/jsonquery.css
 file path=$(ECPREFIX)/nagios/share/stylesheets/ministatus.css
 file path=$(ECPREFIX)/nagios/share/stylesheets/notifications.css
 file path=$(ECPREFIX)/nagios/share/stylesheets/outages.css

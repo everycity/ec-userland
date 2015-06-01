@@ -1,0 +1,99 @@
+From 2ef49ef8dea7c36d2dca3b176712d5f9722e8f48 Mon Sep 17 00:00:00 2001
+From: Eric Stanley <estanley@nagios.com>
+Date: Tue, 19 Aug 2014 05:45:16 -0500
+Subject: [PATCH] Archive JSON: Fixed null pointer dereferences
+
+When the time period for the state change list and availability queries in
+the archive JSON is sufficiently small, there may be no entries in the list.
+Previously this could have caused pointers that were never initialized to
+be deferenced. This commit adds checks to verify that those pointers are not
+null before using them.
+---
+ Changelog         |  6 ++++++
+ cgi/archivejson.c | 40 ++++++++++++++++++++++++----------------
+ 2 files changed, 30 insertions(+), 16 deletions(-)
+
+diff --git a/Changelog b/Changelog
+index 41b3832..22bb0a3 100644
+--- a/Changelog
++++ b/Changelog
+@@ -2,6 +2,12 @@
+ Nagios Core 4 Change Log
+ ########################
+ 
++4.x.x - xx/xx/xxxx
++------------------
++FIXES
++* Fixed null pointer dereferences in archive JSON (Eric Stanley)
++* Fixed memory overwrite issue in JSON string escaping (Eric Stanley)
++
+ 4.0.8 - 08/12/2014
+ ------------------
+ ENHANCEMENTS
+diff --git a/cgi/archivejson.c b/cgi/archivejson.c
+index db1db19..0a19d06 100644
+--- a/cgi/archivejson.c
++++ b/cgi/archivejson.c
+@@ -3175,14 +3175,18 @@ json_object *json_archive_statechangelist(unsigned format_options,
+ 	/* Inject a pseudo entry with the final state */
+ 	switch(object_type) {
+ 	case AU_OBJTYPE_HOST:
+-		end_log = au_create_alert_or_state_log(object_type, 
+-				temp_host, AU_STATETYPE_HARD, temp_state_log->state, 
+-				"Final Host Pseudo-State");
++		if(NULL != temp_host) {
++			end_log = au_create_alert_or_state_log(object_type,
++					temp_host, AU_STATETYPE_HARD, temp_state_log->state,
++					"Final Host Pseudo-State");
++			}
+ 		break;
+ 	case AU_OBJTYPE_SERVICE:
+-		end_log = au_create_alert_or_state_log(object_type, 
+-				temp_service, AU_STATETYPE_HARD, temp_state_log->state, 
+-				"Final Service Pseudo-State");
++		if(NULL != temp_service) {
++			end_log = au_create_alert_or_state_log(object_type,
++					temp_service, AU_STATETYPE_HARD, temp_state_log->state,
++					"Final Service Pseudo-State");
++			}
+ 		break;
+ 		}
+ 	if(end_log != NULL) {
+@@ -4484,11 +4488,13 @@ json_object *json_archive_single_host_availability(unsigned format_options,
+ 		host = au_add_host(log->hosts, host_name);
+ 		/* Add global events to this new host */
+ 		global_host = au_find_host(log->hosts, "*");
+-		for(temp_entry = global_host->log_entries->head; NULL != temp_entry; 
+-				temp_entry = temp_entry->next) {
+-			if(au_list_add_node(host->log_entries, temp_entry->data, 
+-					au_cmp_log_entries) == 0) {
+-				break;
++		if(NULL != global_host) {
++			for(temp_entry = global_host->log_entries->head; NULL != temp_entry;
++					temp_entry = temp_entry->next) {
++				if(au_list_add_node(host->log_entries, temp_entry->data,
++						au_cmp_log_entries) == 0) {
++					break;
++					}
+ 				}
+ 			}
+ 		}
+@@ -4523,11 +4529,13 @@ json_object *json_archive_single_service_availability(unsigned format_options,
+ 		service = au_add_service(log->services, host_name, service_description);
+ 		/* Add global events to this new service */
+ 		global_host = au_find_host(log->hosts, "*");
+-		for(temp_entry = global_host->log_entries->head; NULL != temp_entry; 
+-				temp_entry = temp_entry->next) {
+-			if(au_list_add_node(service->log_entries, temp_entry->data, 
+-					au_cmp_log_entries) == 0) {
+-				break;
++		if(NULL != global_host) {
++			for(temp_entry = global_host->log_entries->head; NULL != temp_entry;
++					temp_entry = temp_entry->next) {
++				if(au_list_add_node(service->log_entries, temp_entry->data,
++						au_cmp_log_entries) == 0) {
++					break;
++					}
+ 				}
+ 			}
+ 		}

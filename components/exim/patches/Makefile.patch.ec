@@ -1,5 +1,5 @@
---- exim-4.76/src/EDITME.~1~	2011-05-09 09:36:25.000000000 +0100
-+++ exim-4.76/src/EDITME	2011-07-28 10:52:06.750236597 +0100
+--- exim-4.85/src/EDITME.~1~	2015-01-05 23:40:11.000000000 +0000
++++ exim-4.85/src/EDITME	2015-03-18 14:14:41.118489430 +0000
 @@ -98,7 +98,7 @@
  # /usr/local/sbin. The installation script will try to create this directory,
  # and any superior directories, if they do not exist.
@@ -65,8 +65,9 @@
 -# LOOKUP_DSEARCH=yes
 +LOOKUP_DSEARCH=yes
  # LOOKUP_IBASE=yes
- # LOOKUP_LDAP=yes
+-# LOOKUP_LDAP=yes
 -# LOOKUP_MYSQL=yes
++LOOKUP_LDAP=yes
 +LOOKUP_MYSQL=yes
  # LOOKUP_NIS=yes
  # LOOKUP_NISPLUS=yes
@@ -76,12 +77,21 @@
  # LOOKUP_PGSQL=yes
  # LOOKUP_SQLITE=yes
  # LOOKUP_SQLITE_PC=sqlite3
+@@ -327,7 +327,7 @@
+ # with Solaris 7 onwards. Uncomment whichever of these you are using.
+ 
+ # LDAP_LIB_TYPE=OPENLDAP1
+-# LDAP_LIB_TYPE=OPENLDAP2
++LDAP_LIB_TYPE=OPENLDAP2
+ # LDAP_LIB_TYPE=NETSCAPE
+ # LDAP_LIB_TYPE=SOLARIS
+ 
 @@ -363,6 +363,8 @@
  
  # LOOKUP_INCLUDE=-I /usr/local/ldap/include -I /usr/local/mysql/include -I /usr/local/pgsql/include
  # LOOKUP_LIBS=-L/usr/local/lib -lldap -llber -lmysqlclient -lpq -lgds -lsqlite3
 +LOOKUP_INCLUDE=-I/ec/lib/mysql/5.5/include -I/ec/lib/mysql/5.5/include/mysql
-+LOOKUP_LIBS=-L/ec/lib/mysql/5.5/lib -R/ec/lib/mysql/5.5/lib -lmysqlclient
++LOOKUP_LIBS=-L/ec/lib/mysql/5.5/lib -R/ec/lib/mysql/5.5/lib -lmysqlclient -lldap -llber
  
  
  #------------------------------------------------------------------------------
@@ -103,7 +113,7 @@
  
  # If you want to use the deprecated "demime" condition in the DATA ACL,
  # uncomment the line below. Doing so will also explicitly turn on the
-@@ -534,6 +536,7 @@
+@@ -577,6 +579,7 @@
  # the TRUSTED_CONFIG_LIST file, then root privileges are not dropped by Exim.
  
  # TRUSTED_CONFIG_LIST=/usr/exim/trusted_configs
@@ -111,14 +121,15 @@
  
  
  #------------------------------------------------------------------------------
-@@ -578,15 +581,15 @@
+@@ -621,15 +624,15 @@
  # included in the Exim binary. You will then need to set up the run time
  # configuration to make use of the mechanism(s) selected.
  
 -# AUTH_CRAM_MD5=yes
 +AUTH_CRAM_MD5=yes
  # AUTH_CYRUS_SASL=yes
- # AUTH_DOVECOT=yes
+-# AUTH_DOVECOT=yes
++AUTH_DOVECOT=yes
  # AUTH_GSASL=yes
  # AUTH_GSASL_PC=libgsasl
  # AUTH_HEIMDAL_GSSAPI=yes
@@ -130,7 +141,7 @@
  
  
  #------------------------------------------------------------------------------
-@@ -634,9 +637,9 @@
+@@ -677,9 +680,9 @@
  # and its header file are not in the default places. You might need to use
  # something like this:
  #
@@ -143,7 +154,7 @@
  #
  # but of course there may need to be other things in CFLAGS and EXTRALIBS_EXIM
  # as well.
-@@ -655,7 +658,7 @@
+@@ -698,7 +701,7 @@
  # "{crypt16}". If you want the default handling (without any preceding
  # indicator) to use crypt16(), uncomment the following line:
  
@@ -152,7 +163,7 @@
  
  # If you do that, you can still access the basic crypt() function by preceding
  # an encrypted password with "{crypt}". For more details, see the description
-@@ -689,11 +672,11 @@
+@@ -732,11 +735,11 @@
  # leave these settings commented out.
  
  # This setting is required for any TLS support (either OpenSSL or GnuTLS)
@@ -166,7 +177,7 @@
  
  # Uncomment the first and either the second or the third of these if you
  # are using GnuTLS.  If you have pkg-config, then the second, else the third.
-@@ -719,7 +722,7 @@
+@@ -769,7 +772,7 @@
  # with all your other libraries. If they are in a special directory, you may
  # need something like
  
@@ -175,7 +186,7 @@
  # or
  # TLS_LIBS=-L/opt/gnu/lib -lgnutls -ltasn1 -lgcrypt
  
-@@ -727,7 +730,7 @@
+@@ -777,7 +780,7 @@
  # auxiliary programs. If the include files are not in a standard place, you can
  # set TLS_INCLUDE to specify where they are, for example:
  
@@ -184,7 +195,7 @@
  # or
  # TLS_INCLUDE=-I/opt/gnu/include
  
-@@ -764,7 +767,7 @@
+@@ -814,7 +817,7 @@
  # %s. This will be replaced by one of the strings "main", "panic", or "reject"
  # to form the final file names. Some installations may want something like this:
  
@@ -193,7 +204,7 @@
  
  # which results in files with names /var/log/exim_mainlog, etc. The directory
  # in which the log files are placed must exist; Exim does not try to create
-@@ -813,7 +816,7 @@
+@@ -863,7 +866,7 @@
  # files. Both the name of the command and the suffix that it adds to files
  # need to be defined here. See also the EXICYCLOG_MAX configuration.
  
@@ -202,7 +213,7 @@
  COMPRESS_SUFFIX=gz
  
  
-@@ -821,7 +824,7 @@
+@@ -871,7 +874,7 @@
  # If the exigrep utility is fed compressed log files, it tries to uncompress
  # them using this command.
  
@@ -211,7 +222,7 @@
  
  
  #------------------------------------------------------------------------------
-@@ -850,8 +853,7 @@
+@@ -900,8 +903,7 @@
  # support, which is intended for use in conjunction with the SMTP AUTH
  # facilities, is included only when requested by the following setting:
  
@@ -221,7 +232,7 @@
  # You probably need to add -lpam to EXTRALIBS, and in some releases of
  # GNU/Linux -ldl is also needed.
  
-@@ -966,7 +968,7 @@
+@@ -1016,7 +1018,7 @@
  # aliases). The following setting can be changed to specify a different
  # location for the system alias file.
  
@@ -230,7 +241,7 @@
  
  
  #------------------------------------------------------------------------------
-@@ -985,7 +987,8 @@
+@@ -1035,7 +1037,8 @@
  # is "yes", as well as supporting line editing, a history of input lines in the
  # current run is maintained.
  
@@ -240,7 +251,7 @@
  
  # You may need to add -ldl to EXTRALIBS when you set USE_READLINE=yes.
  # Note that this option adds to the size of the Exim binary, because the
-@@ -1222,7 +1225,7 @@
+@@ -1272,7 +1275,7 @@
  # (process id) to a file so that it can easily be identified. The path of the
  # file can be specified here. Some installations may want something like this:
  
@@ -249,7 +260,7 @@
  
  # If PID_FILE_PATH is not defined, Exim writes a file in its spool directory
  # using the name "exim-daemon.pid".
-@@ -1293,4 +1296,6 @@
+@@ -1343,4 +1346,6 @@
  
  # ENABLE_DISABLE_FSYNC=yes
  

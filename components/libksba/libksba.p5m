@@ -32,25 +32,14 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/bin
-dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/ksba-config
 file path=$(USRDIR)/bin/ksba-config
-dir  path=$(USRDIR)/include
 file path=$(USRDIR)/include/ksba.h
-dir  path=$(USRDIR)/lib
-dir  path=$(USRDIR)/lib/$(MACH64)
-file path=$(USRDIR)/lib/$(MACH64)/libksba.la
 link path=$(USRDIR)/lib/$(MACH64)/libksba.so target=libksba.so.8.11.4
 link path=$(USRDIR)/lib/$(MACH64)/libksba.so.8 target=libksba.so.8.11.4
 file path=$(USRDIR)/lib/$(MACH64)/libksba.so.8.11.4
-file path=$(USRDIR)/lib/libksba.la
 link path=$(USRDIR)/lib/libksba.so target=libksba.so.8.11.4
 link path=$(USRDIR)/lib/libksba.so.8 target=libksba.so.8.11.4
 file path=$(USRDIR)/lib/libksba.so.8.11.4
-dir  path=$(USRDIR)/share
-dir  path=$(USRDIR)/share/aclocal
 file path=$(USRDIR)/share/aclocal/ksba.m4
-dir  path=$(USRDIR)/share/info
 file path=$(USRDIR)/share/info/ksba.info

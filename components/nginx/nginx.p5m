@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -34,6 +34,7 @@ dir  path=$(LOCALSTATEDIR)/nginx mode=0755
 #dir  path=$(LOCALSTATEDIR)/nginx/logs mode=0755 owner=webservd group=webservd
 dir  path=$(LOCALSTATEDIR)/nginx/logs mode=0755
 
+dir  path=$(SYSCONFDIR)/nginx
 file path=$(SYSCONFDIR)/nginx/fastcgi.conf
 file path=$(SYSCONFDIR)/nginx/fastcgi.conf.default
 file path=$(SYSCONFDIR)/nginx/fastcgi_params
@@ -49,8 +50,15 @@ file path=$(SYSCONFDIR)/nginx/scgi_params.default
 file path=$(SYSCONFDIR)/nginx/uwsgi_params
 file path=$(SYSCONFDIR)/nginx/uwsgi_params.default
 file path=$(SYSCONFDIR)/nginx/win-utf
-
 file path=$(USRDIR)/bin/$(MACH64)/nginx
 file path=$(USRDIR)/bin/nginx
+file path=$(USRDIR)/lib/perl/5.18/man/man3/nginx.3
+dir  path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/nginx
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/nginx/.packlist
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/nginx/nginx.bs
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/auto/nginx/nginx.so
+file path=$(USRDIR)/lib/perl/site_perl/5.18/i86pc-solaris-thread-multi-64/nginx.pm
+dir  path=$(USRDIR)/share/nginx
+dir  path=$(USRDIR)/share/nginx/html
 file path=$(USRDIR)/share/nginx/html/50x.html
 file path=$(USRDIR)/share/nginx/html/index.html

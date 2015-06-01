@@ -16,14 +16,14 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		logstash-forwarder
 COMPONENT_FMRI=	 service/logstash-forwarder
-COMPONENT_VERSION=      2015.2.25
+COMPONENT_VERSION=      2015.3.23
 COMPONENT_LICENSE=      APLv2
 COMPONENT_PROJECT_URL=  "https://github.com/elasticsearch/logstash-forwarder"
 COMPONENT_SUMMARY=	An experiment to cut logs in preparation for processing elsewhere
-COMPONENT_SRC=		$(COMPONENT_NAME)-0ae8ca74ca
+COMPONENT_SRC=		$(COMPONENT_NAME)-de79786bbb
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME)-$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:e127b510b4b85a6631379fec92fa12d08c12d74bb5f50dd823a99279e87c598c
-COMPONENT_ARCHIVE_URL=	https://codeload.github.com/elasticsearch/logstash-forwarder/tar.gz/0ae8ca74ca
+COMPONENT_ARCHIVE_HASH=	sha256:ce41a9f2ed5216a8f78c8cde8068b842a5a6d0d666c4d745659663d79599909f
+COMPONENT_ARCHIVE_URL=	https://codeload.github.com/elasticsearch/logstash-forwarder/tar.gz/de79786bbb
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk

@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -27,5 +27,8 @@ depend fmri=pkg:/web/php-55/php-common type=require
 file path=$(USRDIR)/lib/php/5.5/bin/$(MACH64)/php-fpm
 file path=$(USRDIR)/lib/php/5.5/bin/php-fpm
 file path=$(USRDIR)/lib/php/5.5/share/man/man8/php-fpm.8
+file files/php-fpm-manifest.xml path=var/svc/manifest/site/php-fpm.xml \
+    restart_fmri=svc:/system/manifest-import:default
+dir path=$(LOCALSTATEDIR)/php/5.5/fpm
 file path=$(LOCALSTATEDIR)/php/5.5/fpm/status.html
 file path=$(SYSCONFDIR)/php/5.5/php-fpm.conf.default

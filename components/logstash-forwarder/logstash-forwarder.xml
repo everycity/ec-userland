@@ -7,7 +7,7 @@
     <dependency name='milestone' grouping='require_all' restart_on='none' type='service'>
       <service_fmri value='svc:/milestone/sysconfig'/>
     </dependency>
-    <exec_method name='start' type='method' exec='/ec/bin/logstash-forwarder -config=/ec/etc/logstash-forwarder/logstash-forwarder.conf -quiet=true &amp;' timeout_seconds='60'/>
+    <exec_method name='start' type='method' exec='/ec/bin/logstash-forwarder -config=/ec/etc/logstash-forwarder/logstash-forwarder.conf -syslog=true -quiet=true &amp;' timeout_seconds='60'/>
     <exec_method name='stop' type='method' exec=':kill' timeout_seconds='60'/>
     <stability value='Unstable'/>
     <template>

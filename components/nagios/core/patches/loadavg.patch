@@ -1,0 +1,60 @@
+From 3e9d1be944edb736309a6670ad0621cc8857fa1c Mon Sep 17 00:00:00 2001
+From: "Eric J. Mislivec" <emislivec@nagios.com>
+Date: Wed, 3 Sep 2014 14:28:49 -0500
+Subject: [PATCH] build: Include <sys/loadavg.h> if it exists.
+
+As getloadavg() doesn't live in <stdlib.h> on Solaris, we include this
+to get a proper declaration.
+---
+ configure           | 3 ++-
+ configure.in        | 2 +-
+ include/config.h.in | 9 +++++++++
+ 3 files changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/configure b/configure
+index 5fe943b..6a27b10 100755
+--- a/configure
++++ b/configure
+@@ -3881,7 +3881,8 @@ done
+ 
+ 
+ 
+-for ac_header in arpa/inet.h ctype.h dirent.h errno.h fcntl.h getopt.h grp.h libgen.h limits.h math.h netdb.h netinet/in.h pwd.h regex.h signal.h socket.h stdarg.h string.h strings.h sys/mman.h sys/types.h sys/time.h sys/resource.h sys/wait.h sys/socket.h sys/stat.h sys/timeb.h sys/un.h sys/ipc.h sys/msg.h sys/poll.h syslog.h uio.h unistd.h locale.h wchar.h
++
++for ac_header in arpa/inet.h ctype.h dirent.h errno.h fcntl.h getopt.h grp.h libgen.h limits.h math.h netdb.h netinet/in.h pwd.h regex.h signal.h socket.h stdarg.h string.h strings.h sys/loadavg.h sys/mman.h sys/types.h sys/time.h sys/resource.h sys/wait.h sys/socket.h sys/stat.h sys/timeb.h sys/un.h sys/ipc.h sys/msg.h sys/poll.h syslog.h uio.h unistd.h locale.h wchar.h
+ do
+ as_ac_Header=`$as_echo "ac_cv_header_$ac_header" | $as_tr_sh`
+ if { as_var=$as_ac_Header; eval "test \"\${$as_var+set}\" = set"; }; then
+diff --git a/configure.in b/configure.in
+index fa4a146..6aa4db1 100644
+--- a/configure.in
++++ b/configure.in
+@@ -29,7 +29,7 @@ dnl Checks for header files.
+ AC_HEADER_STDC
+ AC_HEADER_TIME
+ AC_HEADER_SYS_WAIT
+-AC_CHECK_HEADERS(arpa/inet.h ctype.h dirent.h errno.h fcntl.h getopt.h grp.h libgen.h limits.h math.h netdb.h netinet/in.h pwd.h regex.h signal.h socket.h stdarg.h string.h strings.h sys/mman.h sys/types.h sys/time.h sys/resource.h sys/wait.h sys/socket.h sys/stat.h sys/timeb.h sys/un.h sys/ipc.h sys/msg.h sys/poll.h syslog.h uio.h unistd.h locale.h wchar.h)
++AC_CHECK_HEADERS(arpa/inet.h ctype.h dirent.h errno.h fcntl.h getopt.h grp.h libgen.h limits.h math.h netdb.h netinet/in.h pwd.h regex.h signal.h socket.h stdarg.h string.h strings.h sys/loadavg.h sys/mman.h sys/types.h sys/time.h sys/resource.h sys/wait.h sys/socket.h sys/stat.h sys/timeb.h sys/un.h sys/ipc.h sys/msg.h sys/poll.h syslog.h uio.h unistd.h locale.h wchar.h)
+ 
+ dnl Checks for typedefs, structures, and compiler characteristics.
+ AC_C_CONST
+diff --git a/include/config.h.in b/include/config.h.in
+index 3541b2f..5fb39ac 100644
+--- a/include/config.h.in
++++ b/include/config.h.in
+@@ -193,6 +193,15 @@
+ #include <stdarg.h>
+ #endif
+ 
++/* Another Solarisism: getloadavg() lives in <sys/loadavg.h>, not <stdlib.h>,
++ * so include the former if it exists. This may be true on other systems, or
++ * this function may be missing altogether (see:
++ * https://www.gnu.org/software/gnulib/manual/html_node/getloadavg.html). */
++#undef HAVE_SYS_LOADAVG_H
++#ifdef HAVE_SYS_LOADAVG_H
++#include <sys/loadavg.h>
++#endif
++
+ #undef HAVE_SYS_TYPES_H
+ #ifdef HAVE_SYS_TYPES_H
+ #include <sys/types.h>

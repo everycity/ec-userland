@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -34,10 +34,13 @@ dir path=$(ECPREFIX)/lib/php/5.4/share/man/man8
 dir path=$(ECPREFIX)/lib/php/5.4/var
 dir path=$(ECPREFIX)/lib/php/5.4/var/log
 dir path=$(ECPREFIX)/lib/php/5.4/var/run
+dir path=$(ECPREFIX)/lib/php/5.4/var/run/php-fpm
 dir path=$(LOCALSTATEDIR)
 dir path=$(LOCALSTATEDIR)/php
 dir path=$(LOCALSTATEDIR)/php/5.4
 dir path=$(LOCALSTATEDIR)/php/5.4/fpm
+dir path=$(SYSCONFDIR)/php-fpm
+dir path=$(SYSCONFDIR)/php-fpm/sites
 file path=$(ECPREFIX)/lib/php/5.4/bin/$(MACH64)/php-fpm
 file path=$(ECPREFIX)/lib/php/5.4/bin/php-fpm
 file path=$(ECPREFIX)/lib/php/5.4/share/man/man8/php-fpm.8

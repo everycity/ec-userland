@@ -9,11 +9,11 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
-<include ec-drop-common>
+#<include ec-drop-common>
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
@@ -3268,6 +3268,10 @@ file \
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.0.0/rubygems/spec_fetcher.rb
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.0.0/rubygems/specification.rb
 file \
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.0.0/rubygems/ssl_certs/AddTrustExternalCARoot-2048.pem
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.0.0/rubygems/ssl_certs/AddTrustExternalCARoot.pem
+file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.0.0/rubygems/ssl_certs/Class3PublicPrimaryCertificationAuthority.pem
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.0.0/rubygems/ssl_certs/DigiCertHighAssuranceEVRootCA.pem
@@ -4272,6 +4276,10 @@ file path=$(ECPREFIX)/lib/ruby/2.0.0/rubygems/source_local.rb
 file path=$(ECPREFIX)/lib/ruby/2.0.0/rubygems/source_specific_file.rb
 file path=$(ECPREFIX)/lib/ruby/2.0.0/rubygems/spec_fetcher.rb
 file path=$(ECPREFIX)/lib/ruby/2.0.0/rubygems/specification.rb
+file \
+    path=$(ECPREFIX)/lib/ruby/2.0.0/rubygems/ssl_certs/AddTrustExternalCARoot-2048.pem
+file \
+    path=$(ECPREFIX)/lib/ruby/2.0.0/rubygems/ssl_certs/AddTrustExternalCARoot.pem
 file \
     path=$(ECPREFIX)/lib/ruby/2.0.0/rubygems/ssl_certs/Class3PublicPrimaryCertificationAuthority.pem
 file \

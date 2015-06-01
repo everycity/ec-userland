@@ -29,7 +29,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CFLAGS +=	-I$(ECPREFIX)/include/ncursesw
+CFLAGS +=	-I$(USRDIR)/include/ncursesw
 
 build:		$(BUILD_32)
 

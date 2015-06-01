@@ -30,22 +30,22 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-PATH.32=$(ECPREFIX)/lib/postgres/9.3/bin:$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
-PATH.64=$(ECPREFIX)/lib/postgres/9.3/bin/$(MACH64)$(ECPREFIX)/bin/$(MACH64):$(ECPREFIX)/bin/$(MACH64):/usr/bin:/usr/sfw/bin:/usr/ccs/bin:$(ECPREFIX)/bin
+PATH.32=$(USRDIR)/lib/postgres/9.3/bin:$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH.64=$(USRDIR)/lib/postgres/9.3/bin/$(MACH64)$(USRDIR)/bin/$(MACH64):$(USRDIR)/bin/$(MACH64):/usr/bin:/usr/sfw/bin:/usr/ccs/bin:$(USRDIR)/bin
 PATH=$(PATH.$(BITS))
 
-LDFLAGS.32 +=   -L$(ECPREFIX)/lib/postgres/9.3/lib -R$(ECPREFIX)/lib/postgres/9.3/lib
-LDFLAGS.64 +=	-L$(ECPREFIX)/lib/postgres/9.3/lib/$(MACH64) -R$(ECPREFIX)/lib/postgres/9.3/lib/$(MACH64)
+LDFLAGS.32 +=   -L$(USRDIR)/lib/postgres/9.3/lib -R$(USRDIR)/lib/postgres/9.3/lib
+LDFLAGS.64 +=	-L$(USRDIR)/lib/postgres/9.3/lib/$(MACH64) -R$(USRDIR)/lib/postgres/9.3/lib/$(MACH64)
 
 COMPONENT_INSTALL_ENV+=	INSTALL_ROOT=$(PROTO_DIR)
 
-CONFIGURE_OPTIONS=	-prefix $(ECPREFIX)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)
-CONFIGURE_OPTIONS.32=	-bindir $(ECPREFIX)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/bin
-CONFIGURE_OPTIONS.32+=	-libdir $(ECPREFIX)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/lib
-CONFIGURE_OPTIONS.32+=	-plugindir $(ECPREFIX)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/plugins
-CONFIGURE_OPTIONS.64=	-bindir $(ECPREFIX)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/bin/$(MACH64)
-CONFIGURE_OPTIONS.64+=	-libdir $(ECPREFIX)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/lib/$(MACH64)
-CONFIGURE_OPTIONS.64+=	-plugindir $(ECPREFIX)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/plugins/$(MACH64)
+CONFIGURE_OPTIONS=	-prefix $(USRDIR)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)
+CONFIGURE_OPTIONS.32=	-bindir $(USRDIR)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/bin
+CONFIGURE_OPTIONS.32+=	-libdir $(USRDIR)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/lib
+CONFIGURE_OPTIONS.32+=	-plugindir $(USRDIR)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/plugins
+CONFIGURE_OPTIONS.64=	-bindir $(USRDIR)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/bin/$(MACH64)
+CONFIGURE_OPTIONS.64+=	-libdir $(USRDIR)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/lib/$(MACH64)
+CONFIGURE_OPTIONS.64+=	-plugindir $(USRDIR)/lib/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/plugins/$(MACH64)
 CONFIGURE_OPTIONS.32+=	-platform solaris-g++
 CONFIGURE_OPTIONS.64+=	-platform solaris-g++-64
 CONFIGURE_OPTIONS+=	-verbose
@@ -64,9 +64,9 @@ CONFIGURE_OPTIONS+=	-plugin-sql-mysql
 CONFIGURE_OPTIONS+=	-plugin-sql-psql
 CONFIGURE_OPTIONS+=	-system-sqlite
 
-COMPONENT_POST_INSTALL_ACTION.32= ( cd $(PROTO_DIR)$(ECPREFIX)/lib/qt/$(COMPONENT_VERSION_MJR)/mkspecs ; \
+COMPONENT_POST_INSTALL_ACTION.32= ( cd $(PROTO_DIR)$(USRDIR)/lib/qt/$(COMPONENT_VERSION_MJR)/mkspecs ; \
 	mv qconfig.pri qconfig.pri.32 )
-COMPONENT_POST_INSTALL_ACTION.64= ( cd $(PROTO_DIR)$(ECPREFIX)/lib/qt/$(COMPONENT_VERSION_MJR)/mkspecs ; \
+COMPONENT_POST_INSTALL_ACTION.64= ( cd $(PROTO_DIR)$(USRDIR)/lib/qt/$(COMPONENT_VERSION_MJR)/mkspecs ; \
 	mv qconfig.pri qconfig.pri.64 ; ln -s qconfig.pri.32 qconfig.pri )
 COMPONENT_POST_INSTALL_ACTION=$(COMPONENT_POST_INSTALL_ACTION.$(BITS))
 

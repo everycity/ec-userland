@@ -21,7 +21,7 @@ COMPONENT_LICENSE=	CDDL
 COMPONENT_PROJECT_URL=	https://github.com/everycity/ec-userland
 COMPONENT_SUMMARY=	The base operating system files, directories and symlinks for the SNGL Zone Brand
 
-CANONICAL_MANIFESTS = core-os.p5m baseos-rename.p5m
+CANONICAL_MANIFESTS = core-os.$(ZTYPE).p5m baseos-rename.p5m
 
 include $(WS_TOP)/make-rules/ips.mk
 
@@ -36,9 +36,7 @@ build:
 install:
 	[ -d $(PROTO_DIR) ] || mkdir -p $(PROTO_DIR)
 	$(CLONEY) $(COMPONENT_DIR)/files $(PROTO_DIR)
-	$(CP) core-os.p5m.$(ZTYPE) core-os.p5m
 
 clean:
 	$(RM) -r $(BUILD_DIR) $(PROTO_DIR)
-	$(RM) core-os.p5m
 

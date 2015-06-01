@@ -14,10 +14,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	5.5.22
+COMPONENT_VERSION=	5.5.25
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:cb6174e1e74de233ec7b461302f823a7eacf7bcc946d347486c930e53f2b7db7
+COMPONENT_ARCHIVE_HASH=	sha256:c9397f60bff139e0df441c5e2766108c5bc7ad690de136eb9f5b2f9bbf771240
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_UK)
 
 include ../../make-rules/prep.mk
@@ -35,6 +35,8 @@ PHP_DATADIR=$(CONFIGURE_LOCALSTATEDIR)/php/5.5
 
 CFLAGS += -D_POSIX_PTHREAD_SEMANTICS
 #LDFLAGS += -lz
+
+COMPONENT_PREP_ACTION =		( cd $(@D) && autoconf )
 
 # Configure Options
 
@@ -153,14 +155,12 @@ CONFIGURE_OPTIONS     +=	--enable-mbstring=shared
 CONFIGURE_OPTIONS     +=	--enable-xmlreader=shared
 CONFIGURE_OPTIONS     +=	--enable-xmlwriter=shared
 CONFIGURE_OPTIONS     +=	--enable-soap=shared
-#CONFIGURE_OPTIONS     +=	--enable-sockets=shared
+CONFIGURE_OPTIONS     +=	--enable-sockets=shared
 CONFIGURE_OPTIONS     +=	--enable-tokenizer=shared
 CONFIGURE_OPTIONS     +=	--enable-wddx=shared
 CONFIGURE_OPTIONS     +=	--enable-zip=shared
 
 CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
-
-#CONFIGURE_OPTIONS += $(CONFIGURE_VARIANT_OPTIONS)
 
 COMPONENT_POST_CONFIGURE_ACTION_64= \
 	( cd $(@D) ; $(GSED) -i -e 's!-L[ ]*/usr/lib!-L/usr/lib/amd64!g' -e 's!-R[ ]*/usr/lib!-R/usr/lib/amd64!g' Makefile )
@@ -183,28 +183,7 @@ COMPONENT_BUILD_ENV+=	CC="$(CC)" CXX="$(CCC)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFL
 CONFIGURE_ENV.32 +=     EXTENSION_DIR=$(PHP_PREFIX)/extensions
 CONFIGURE_ENV.64 +=     EXTENSION_DIR=$(PHP_PREFIX)/extensions/$(MACH64)
 
-# Standard build
-#$(BUILD_DIR_32)/.configured:	CONFIGURE_VARIANT_OPTIONS= \
-#    --with-apxs2=$(AP_PREFIX)/bin/apxs
-#$(BUILD_DIR_64)/.configured:	CONFIGURE_VARIANT_OPTIONS= \
-#    --with-apxs2=$(AP_PREFIX)/bin/$(MACH64)/apxs
-
-# CGI build
-#$(BUILD_DIR)/$(MACH32).cgi/.configured:     BITS=32
-#$(BUILD_DIR)/$(MACH64).cgi/.configured:     BITS=64
-#$(BUILD_DIR)/$(MACH32).cgi/.configured:     CONFIGURE_VARIANT_OPTIONS= 
-#$(BUILD_DIR)/$(MACH64).cgi/.configured:     CONFIGURE_VARIANT_OPTIONS= 
-#$(BUILD_DIR)/$(MACH32).cgi/.built:          BITS=32
-#$(BUILD_DIR)/$(MACH64).cgi/.built:          BITS=64
-#$(BUILD_DIR)/$(MACH32).cgi/.installed:      BITS=32
-#$(BUILD_DIR)/$(MACH64).cgi/.installed:      BITS=64
-
-
 build:		$(BUILD_32_and_64)
-# \
-#    $(BUILD_DIR)/$(MACH32).cgi/.built \
-#    $(BUILD_DIR)/$(MACH64).cgi/.built
 
 install:	$(INSTALL_32_and_64)
-#	$(CP) $(BUILD_DIR)/$(MACH32).cgi/sapi/cgi/php-cgi $(PROTO_DIR)$(PHP_PREFIX)/bin
-#	$(CP) $(BUILD_DIR)/$(MACH64).cgi/sapi/cgi/php-cgi $(PROTO_DIR)$(PHP_PREFIX)/bin/$(MACH64)
+

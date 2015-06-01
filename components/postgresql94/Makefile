@@ -16,11 +16,11 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		postgresql
 COMPONENT_MJR_VERSION=	9.4
-COMPONENT_MNR_VERSION=	1
+COMPONENT_MNR_VERSION=	2
 COMPONENT_VERSION=	$(COMPONENT_MJR_VERSION).$(COMPONENT_MNR_VERSION)
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:29ddb77c820095b8f52e5455e9c6c6c20cf979b0834ed1986a8857b84888c3a6
+COMPONENT_ARCHIVE_HASH=	sha256:81fda191c165ba1d25d75cd0166ece5abdcb4a7f5eca01b349371e279ebb4d11
 COMPONENT_ARCHIVE_URL=	http://ftp.postgresql.org/pub/source/v$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -56,12 +56,17 @@ CONFIGURE_OPTIONS +=	--with-ldap
 CONFIGURE_OPTIONS +=	--with-openssl
 CONFIGURE_OPTIONS +=	--with-libxml
 CONFIGURE_OPTIONS +=	--with-libxslt
+CONFIGURE_OPTIONS +=	--with-uuid=e2fs
 
 COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; autoreconf )
 
 build:		$(BUILD_32_and_64)
 
 $(BUILD_DIR)/.installed:        $(INSTALL_32_and_64)
+	( cd $(BUILD_DIR_32)/contrib/hstore && make && \
+		cp hstore.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/ )
+	( cd $(BUILD_DIR_64)/contrib/hstore && make && \
+		cp hstore.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/$(MACH64) )
 	( cd $(BUILD_DIR_32)/contrib/pgbench && make && \
 		cp pgbench $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/bin/ )
 	( cd $(BUILD_DIR_64)/contrib/pgbench && make && \
@@ -74,7 +79,17 @@ $(BUILD_DIR)/.installed:        $(INSTALL_32_and_64)
 		cp tablefunc.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/ )
 	( cd $(BUILD_DIR_64)/contrib/tablefunc && make && \
 		cp tablefunc.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/$(MACH64) )
+	( cd $(BUILD_DIR_32)/contrib/uuid-ossp && make && \
+		cp uuid-ossp.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/ )
+	( cd $(BUILD_DIR_64)/contrib/uuid-ossp && make && \
+		cp uuid-ossp.so $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/lib/$(MACH64) )
 	$(MKDIR) $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/extension
+	$(CP) $(SOURCE_DIR)/contrib/hstore/hstore--1.0--1.1.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/hstore/hstore--1.1--1.2.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/hstore/hstore--1.2--1.3.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/hstore/hstore--1.3.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/hstore/hstore--unpackaged--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/hstore/hstore.control $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
 	$(CP) $(SOURCE_DIR)/contrib/pgcrypto/pgcrypto--1.0--1.1.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
 	$(CP) $(SOURCE_DIR)/contrib/pgcrypto/pgcrypto--1.1.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
 	$(CP) $(SOURCE_DIR)/contrib/pgcrypto/pgcrypto--unpackaged--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
@@ -82,6 +97,9 @@ $(BUILD_DIR)/.installed:        $(INSTALL_32_and_64)
 	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
 	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc--unpackaged--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
 	$(CP) $(SOURCE_DIR)/contrib/tablefunc/tablefunc.control $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/uuid-ossp/uuid-ossp--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/uuid-ossp/uuid-ossp--unpackaged--1.0.sql $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
+	$(CP) $(SOURCE_DIR)/contrib/uuid-ossp/uuid-ossp.control $(BUILD_DIR)/prototype/$(MACH)$(CONFIGURE_PREFIX)/share/extension
 	$(TOUCH) $@
 
 install:        $(BUILD_DIR)/.installed

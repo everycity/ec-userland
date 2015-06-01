@@ -35,7 +35,7 @@ file path=$(USRDIR)/bin/complete-ant-cmd.pl
 file path=$(USRDIR)/bin/envset.cmd
 file path=$(USRDIR)/bin/lcp.bat
 file path=$(USRDIR)/bin/runant.pl
-file path=$(USRDIR)/bin/runant.py pkg.depend.bypass-generate=.*/os/__init__.py pkg.depend.bypass-generate=.*/os/path.*
+file path=$(USRDIR)/bin/runant.py pkg.depend.bypass-generate=.*
 file path=$(USRDIR)/bin/runrc.cmd
 dir  path=$(USRDIR)/share
 dir  path=$(USRDIR)/share/doc

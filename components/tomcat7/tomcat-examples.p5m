@@ -322,8 +322,10 @@ file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/jsp/applet/Clock2.jav
 file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/jsp/debug-taglib.tld
 file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/jsp/example-taglib.tld
 file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/jsp2/jsp2-example-taglib.tld
-file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/lib/jstl.jar
-file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/lib/standard.jar
+file \
+    path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar
+file \
+    path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar
 file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/tags/displayProducts.tag
 file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/tags/helloWorld.tag
 file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/tags/panel.tag

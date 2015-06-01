@@ -1,0 +1,22 @@
+--- webdis-master/Makefile.~1~	2013-11-26 08:38:50.000000000 +0000
++++ webdis-master/Makefile	2015-05-26 11:07:42.845551271 +0100
+@@ -5,8 +5,8 @@
+ FORMAT_OBJS?=formats/json.o formats/raw.o formats/common.o formats/custom-type.o
+ HTTP_PARSER_OBJS?=http-parser/http_parser.o
+ 
+-CFLAGS ?= -O0 -ggdb -Wall -Wextra -I. -Ijansson/src -Ihttp-parser
+-LDFLAGS ?= -levent -pthread
++CFLAGS ?= $(CC_BITS) -std=c99 -O0 -ggdb -Wall -Wextra -I. -Ijansson/src -Ihttp-parser
++LDFLAGS ?= $(CC_BITS) -levent -pthread -lnsl -lsocket
+ 
+ # check for MessagePack
+ MSGPACK_LIB=$(shell ls /usr/lib/libmsgpack.so 2>/dev/null)
+@@ -23,7 +23,7 @@
+ 
+ 
+ PREFIX ?= /usr/local
+-CONFDIR ?= $(DESTDIR)/etc
++CONFDIR ?= $(DESTDIR)$(PREFIX)/etc
+ 
+ INSTALL_DIRS = $(DESTDIR) \
+ 	       $(DESTDIR)/$(PREFIX) \

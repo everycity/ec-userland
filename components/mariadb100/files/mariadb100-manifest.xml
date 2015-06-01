@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE service_bundle SYSTEM "/usr/share/lib/xml/dtd/service_bundle.dtd.1">
+<!--
+//
+// This file and its contents are supplied under the terms of the
+// Common Development and Distribution License ("CDDL)". You may
+// only use this file in accordance with the terms of the CDDL.
+//
+// A full copy of the text of the CDDL should have accompanied this
+// source. A copy of the CDDL is also available via the Internet at
+// http://www.illumos.org/license/CDDL.
+//
+//
+// Copyright 2011 EveryCity Ltd. All rights reserved.
+//
+-->
+<service_bundle type='manifest' name='mariadb100'>
+
+<service
+	name='application/database/mariadb100'
+	type='service'
+	version='1'>
+
+	<!--
+		Wait for network interfaces to be initialized.
+	-->
+	<dependency name='network'
+		grouping='require_all'
+		restart_on='error'
+		type='service'>
+		<service_fmri value='svc:/milestone/network:default'/>
+	</dependency>
+
+	<!--
+		Wait for all local filesystems to be mounted.
+	-->
+	<dependency name='filesystem-local'
+		grouping='require_all'
+		restart_on='none'
+		type='service'>
+		<service_fmri
+			value='svc:/system/filesystem/local:default'/>
+	</dependency>
+
+	<exec_method
+		type='method'
+		name='start'
+		exec='/ec/var/svc/method/mariadb100 start'
+		timeout_seconds='60'/>
+
+	<exec_method
+		type='method'
+		name='stop'
+		exec=':kill'
+		timeout_seconds='60'/>
+
+	<exec_method
+		type='method'
+		name='refresh'
+		exec=':kill -HUP'
+		timeout_seconds='60'/>
+
+	<instance name='default' enabled='false'>
+
+		<property_group name='mariadbd' type='application'>
+			<stability value='Evolving'/>
+			<propval name='additional_startup_options' type='astring' value=''/>
+			<propval name='config_file' type='astring' value='/ec/etc/mariadb/10.0/my.cnf'/>
+			<propval name='data_dir' type='astring' value='/ec/var/mariadb/10.0/data'/>
+			<propval name='enable_64bit' type='boolean' value='true'/>
+			<propval name='error_log' type='astring' value='/ec/var/mariadb/10.0/data/mariadbd.log'/>
+			<propval name='mariadbd_32_binary' type='astring' value='/ec/lib/mariadb/10.0/bin/mysqld'/>
+			<propval name='mariadbd_64_binary' type='astring' value='/ec/lib/mariadb/10.0/bin/amd64/mysqld'/>
+			<propval name='mariadbd_installdb_binary' type='astring' value='/ec/lib/mariadb/10.0/bin/mysql_install_db'/>
+			<propval name='pid_file' type='astring' value='/ec/var/mariadb/10.0/data/mariadbd.pid'/>
+			<propval name='skip_grant_tables' type='boolean' value='false'/>
+			<propval name='tcp_listen_address' type='astring' value='127.0.0.1'/>
+			<propval name='tcp_listen_port' type='astring' value='3306'/>
+			<propval name='unix_socket_file' type='astring' value='/tmp/mariadb.sock'/>
+			<propval name='user' type='astring' value='mariadb'/>
+		</property_group>
+
+	</instance>
+
+	<stability value='Evolving'/>
+
+</service>
+
+</service_bundle>
