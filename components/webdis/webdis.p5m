@@ -41,5 +41,5 @@ file path=$(ECPREFIX)/bin/$(MACH64)/webdis
 file path=$(ECPREFIX)/bin/webdis
 file path=$(ECPREFIX)/etc/webdis.prod.json preserve=true
 file path=$(ECPREFIX)/var/log/webdis.log owner=webdis group=webdis
-file path=$(ECPREFIX)/var/svc/method/webdis.sh
+file path=$(ECPREFIX)/var/svc/method/webdis.sh mode=0555
 file path=var/svc/manifest/site/webdis.xml restart_fmri=svc:/system/manifest-import:default
