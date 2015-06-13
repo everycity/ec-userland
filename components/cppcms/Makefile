@@ -29,6 +29,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
+COMPONENT_LICENSE_FILE=	COPYING.TXT
+
 CMAKE_LIBDIR_32 =	$(ECPREFIX)/lib
 
 CMAKE_OPTIONS =		-DCMAKE_BUILD_TYPE=Release
