@@ -47,10 +47,27 @@ COMPONENT_PRE_BUILD_ACTION += cd $(@D);
 COMPONENT_PRE_BUILD_ACTION += export LDFLAGS="$(LDFLAGS)";
 COMPONENT_PRE_BUILD_ACTION += $(CMAKE) . $(CMAKE_OPTIONS);
 
-build:		$(BUILD_32)
+build:		$(BUILD_32_and_64)
 
 $(BUILD_DIR)/.installed:	$(INSTALL_32)
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/cppcms_config_find_param $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/cppcms_make_key $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/bin/cppcms_run $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/cppcms_scale $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/bin/cppcms_tmpl_cc $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/booster/libbooster.a $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/booster/libbooster.so.0.0.3 $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/libcppcms.a $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/libcppcms.so.$(COMPONENT_VERSION) $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
+	( cd $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64) && \
+	$(SYMLINK) libbooster.so.0.0.3 libbooster.so.0 && \
+	$(SYMLINK) libbooster.so.0.0.3 libbooster.so && \
+	$(SYMLINK) libcppcms.so.$(COMPONENT_VERSION) libcppcms.so.1 && \
+	$(SYMLINK) libcppcms.so.$(COMPONENT_VERSION) libcppcms.so )
 	$(GSED) -i -e 's%^#!/usr/bin/env python%#!$(ECPREFIX)/bin/python2.6%' $(PROTO_DIR)$(ECPREFIX)/bin/cppcms_tmpl_cc
+	$(GSED) -i -e 's%^#!/usr/bin/env python%#!$(ECPREFIX)/bin/$(MACH64)/python2.6%' $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/cppcms_tmpl_cc
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed

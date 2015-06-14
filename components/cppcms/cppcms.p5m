@@ -24,6 +24,12 @@ license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 dir  path=$(USRDIR)
 dir  path=$(USRDIR)/bin
+dir  path=$(USRDIR)/bin/$(MACH64)
+file path=$(USRDIR)/bin/$(MACH64)/cppcms_config_find_param
+file path=$(USRDIR)/bin/$(MACH64)/cppcms_make_key
+file path=$(USRDIR)/bin/$(MACH64)/cppcms_run
+file path=$(USRDIR)/bin/$(MACH64)/cppcms_scale
+file path=$(USRDIR)/bin/$(MACH64)/cppcms_tmpl_cc
 file path=$(USRDIR)/bin/cppcms_config_find_param
 file path=$(USRDIR)/bin/cppcms_make_key
 file path=$(USRDIR)/bin/cppcms_run
@@ -171,6 +177,17 @@ file path=$(USRDIR)/include/cppcms/view.h
 file path=$(USRDIR)/include/cppcms/views_pool.h
 file path=$(USRDIR)/include/cppcms/xss.h
 dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/$(MACH64)
+file path=$(USRDIR)/lib/$(MACH64)/libbooster.a
+link path=$(USRDIR)/lib/$(MACH64)/libbooster.so target=libbooster.so.0.0.3
+link path=$(USRDIR)/lib/$(MACH64)/libbooster.so.0 target=libbooster.so.0.0.3
+file path=$(USRDIR)/lib/$(MACH64)/libbooster.so.0.0.3
+file path=$(USRDIR)/lib/$(MACH64)/libcppcms.a
+link path=$(USRDIR)/lib/$(MACH64)/libcppcms.so \
+    target=libcppcms.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/$(MACH64)/libcppcms.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/$(MACH64)/libcppcms.so.1 \
+    target=libcppcms.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/libbooster.a
 link path=$(USRDIR)/lib/libbooster.so target=libbooster.so.0
 link path=$(USRDIR)/lib/libbooster.so.0 target=libbooster.so.0.0.3
