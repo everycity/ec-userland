@@ -272,7 +272,6 @@
 /^postgresql94$/d
 /^re2c$/d
 /^check$/d
-/^cppcms$/d
 /^filebench$/d
 /^jq$/d
 /^openvpn$/d
