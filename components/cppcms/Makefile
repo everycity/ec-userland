@@ -66,8 +66,8 @@ $(BUILD_DIR)/.installed:	$(INSTALL_32)
 	$(SYMLINK) libbooster.so.0.0.3 libbooster.so && \
 	$(SYMLINK) libcppcms.so.$(COMPONENT_VERSION) libcppcms.so.1 && \
 	$(SYMLINK) libcppcms.so.$(COMPONENT_VERSION) libcppcms.so )
-	$(GSED) -i -e 's%^#!/usr/bin/env python%#!$(ECPREFIX)/bin/python2.6%' $(PROTO_DIR)$(ECPREFIX)/bin/cppcms_tmpl_cc
-	$(GSED) -i -e 's%^#!/usr/bin/env python%#!$(ECPREFIX)/bin/$(MACH64)/python2.6%' $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/cppcms_tmpl_cc
+	$(GSED) -i -e 's%^#!/usr/bin/env python%#!$(ECPREFIX)/bin/python2.7%' $(PROTO_DIR)$(ECPREFIX)/bin/cppcms_tmpl_cc
+	$(GSED) -i -e 's%^#!/usr/bin/env python%#!$(ECPREFIX)/bin/$(MACH64)/python2.7%' $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/cppcms_tmpl_cc
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed
