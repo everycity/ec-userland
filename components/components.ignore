@@ -18,6 +18,7 @@
 /^charybdis$/d
 /^cloog-ppl$/d
 /^clusterssh$/d
+/^cppcms$/d
 /^cronolog$/d
 /^csvfix$/d
 /^dbt2$/d
