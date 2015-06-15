@@ -17,11 +17,12 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
+dir  path=$(SYSCONFDIR)
 dir  path=$(SYSCONFDIR)/openssl
 dir  path=$(SYSCONFDIR)/openssl/certs
 dir  path=$(SYSCONFDIR)/openssl/misc
@@ -34,10 +35,13 @@ file path=$(SYSCONFDIR)/openssl/misc/c_name
 file path=$(SYSCONFDIR)/openssl/misc/tsget
 file path=$(SYSCONFDIR)/openssl/openssl.cnf
 dir  path=$(SYSCONFDIR)/openssl/private
-
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/bin
+dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/openssl
 file path=$(USRDIR)/bin/c_rehash
 file path=$(USRDIR)/bin/openssl
+dir  path=$(USRDIR)/include
 dir  path=$(USRDIR)/include/openssl
 file path=$(USRDIR)/include/openssl/aes.h
 file path=$(USRDIR)/include/openssl/asn1.h
@@ -114,6 +118,8 @@ file path=$(USRDIR)/include/openssl/whrlpool.h
 file path=$(USRDIR)/include/openssl/x509.h
 file path=$(USRDIR)/include/openssl/x509_vfy.h
 file path=$(USRDIR)/include/openssl/x509v3.h
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/$(MACH64)
 dir  path=$(USRDIR)/lib/$(MACH64)/engines
 file path=$(USRDIR)/lib/$(MACH64)/engines/lib4758cca.so
 file path=$(USRDIR)/lib/$(MACH64)/engines/libaep.so
@@ -131,6 +137,7 @@ link path=$(USRDIR)/lib/$(MACH64)/libcrypto.so target=libcrypto.so.1.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libcrypto.so.1.0.0
 link path=$(USRDIR)/lib/$(MACH64)/libssl.so target=libssl.so.1.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libssl.so.1.0.0
+dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libcrypto.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libssl.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/openssl.pc
@@ -153,9 +160,13 @@ file path=$(USRDIR)/lib/libcrypto.so.1.0.0
 file path=$(USRDIR)/lib/libssl.a
 link path=$(USRDIR)/lib/libssl.so target=libssl.so.1.0.0
 file path=$(USRDIR)/lib/libssl.so.1.0.0
+dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/libcrypto.pc
 file path=$(USRDIR)/lib/pkgconfig/libssl.pc
 file path=$(USRDIR)/lib/pkgconfig/openssl.pc
+dir  path=$(USRDIR)/share
+dir  path=$(USRDIR)/share/man
+dir  path=$(USRDIR)/share/man/man1
 file path=$(USRDIR)/share/man/man1/CA.pl.1
 file path=$(USRDIR)/share/man/man1/asn1parse.1
 file path=$(USRDIR)/share/man/man1/c_rehash.1
@@ -213,6 +224,7 @@ file path=$(USRDIR)/share/man/man1/tsget.1
 file path=$(USRDIR)/share/man/man1/verify.1
 file path=$(USRDIR)/share/man/man1/version.1
 file path=$(USRDIR)/share/man/man1/x509.1
+dir  path=$(USRDIR)/share/man/man3
 link path=$(USRDIR)/share/man/man3/.3 target=SSL_CTX_use_serverinfo.3
 link path=$(USRDIR)/share/man/man3/ASN1_OBJECT_free.3 target=ASN1_OBJECT_new.3
 file path=$(USRDIR)/share/man/man3/ASN1_OBJECT_new.3
@@ -1436,6 +1448,8 @@ file path=$(USRDIR)/share/man/man3/SSL_CIPHER_get_name.3
 link path=$(USRDIR)/share/man/man3/SSL_CIPHER_get_version.3 \
     target=SSL_CIPHER_get_name.3
 file path=$(USRDIR)/share/man/man3/SSL_COMP_add_compression_method.3
+link path=$(USRDIR)/share/man/man3/SSL_COMP_free_compression_methods.3 \
+    target=SSL_COMP_add_compression_method.3
 link path=$(USRDIR)/share/man/man3/SSL_CONF_CTX_clear_flags.3 \
     target=SSL_CONF_CTX_set_flags.3
 link path=$(USRDIR)/share/man/man3/SSL_CONF_CTX_free.3 target=SSL_CONF_CTX_new.3
@@ -2160,6 +2174,8 @@ file path=$(USRDIR)/share/man/man3/threads.3
 file path=$(USRDIR)/share/man/man3/ui.3
 file path=$(USRDIR)/share/man/man3/ui_compat.3
 file path=$(USRDIR)/share/man/man3/x509.3
+dir  path=$(USRDIR)/share/man/man5
 file path=$(USRDIR)/share/man/man5/config.5
 file path=$(USRDIR)/share/man/man5/x509v3_config.5
+dir  path=$(USRDIR)/share/man/man7
 file path=$(USRDIR)/share/man/man7/des_modes.7
