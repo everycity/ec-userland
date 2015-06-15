@@ -20,6 +20,7 @@
 #
 
 #
+# Copyright 2014 EveryCity Ltd. All rights reserved.
 # Copyright (c) 2012, Igor Kozhukhov <ikozhukhov@gmail.com>. All rights reserved.
 # Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
@@ -72,6 +73,7 @@ CONFIGURE_OPTIONS +=	--enable-dbus
 CONFIGURE_OPTIONS +=	--with-dbusdir="$(ETCDIR)/dbus-1"
 CONFIGURE_OPTIONS +=	--enable-threads
 CONFIGURE_OPTIONS +=	--enable-64bit
+CONFIGURE_OPTIONS +=	--without-php
 
 CONFIGURE_OPTIONS += 	ARCH64FLAGS="-m64"
 CONFIGURE_OPTIONS += 	DSO64FLAGS="$(LDLIBS) -shared"
