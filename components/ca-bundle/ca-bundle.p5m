@@ -23,4 +23,4 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 license ca-bundle.license license="$(COMPONENT_LICENSE)"
 
 file path=$(SYSCONFDIR)/openssl/cabundle.pem
-link path=$(SYSCONFDIR)/etc/openssl/cert.pem target=cabundle.pem
+link path=$(SYSCONFDIR)/openssl/cert.pem target=cabundle.pem
