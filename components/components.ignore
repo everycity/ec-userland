@@ -294,8 +294,6 @@
 /^zeromq$/d
 /^qt4$/d
 /^erlang$/d
-# arc4random issue
-/^libevent$/d
 # Ignores below are either pkgdepend issues or fallout
 # from the server image update to everycity_20150603T122154Z
 /^cairo$/d
