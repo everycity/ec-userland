@@ -88,17 +88,17 @@ file path=$(USRDIR)/include/ldap_utf8.h
 file path=$(USRDIR)/include/ldif.h
 file path=$(USRDIR)/include/slapi-plugin.h
 
-file path=$(USRDIR)/lib/$(MACH64)/liblber-2.4.so.2.10.2
+file path=$(USRDIR)/lib/$(MACH64)/liblber-2.4.so.2.10.3
 file path=$(USRDIR)/lib/$(MACH64)/liblber.a
-file path=$(USRDIR)/lib/$(MACH64)/libldap-2.4.so.2.10.2
+file path=$(USRDIR)/lib/$(MACH64)/libldap-2.4.so.2.10.3
 file path=$(USRDIR)/lib/$(MACH64)/libldap.a
-file path=$(USRDIR)/lib/$(MACH64)/libldap_r-2.4.so.2.10.2
+file path=$(USRDIR)/lib/$(MACH64)/libldap_r-2.4.so.2.10.3
 file path=$(USRDIR)/lib/$(MACH64)/libldap_r.a
-file path=$(USRDIR)/lib/liblber-2.4.so.2.10.2
+file path=$(USRDIR)/lib/liblber-2.4.so.2.10.3
 file path=$(USRDIR)/lib/liblber.a
-file path=$(USRDIR)/lib/libldap-2.4.so.2.10.2
+file path=$(USRDIR)/lib/libldap-2.4.so.2.10.3
 file path=$(USRDIR)/lib/libldap.a
-file path=$(USRDIR)/lib/libldap_r-2.4.so.2.10.2
+file path=$(USRDIR)/lib/libldap_r-2.4.so.2.10.3
 file path=$(USRDIR)/lib/libldap_r.a
 
 file path=$(USRDIR)/share/man/man1/ldapcompare.1
@@ -227,21 +227,21 @@ link path=$(USRDIR)/bin/slapschema target=slapd
 link path=$(USRDIR)/bin/slaptest target=slapd
 
 link path=$(USRDIR)/lib/$(MACH64)/liblber-2.4.so.2 \
-    target=liblber-2.4.so.2.10.2
-link path=$(USRDIR)/lib/$(MACH64)/liblber.so target=liblber-2.4.so.2.10.2
+    target=liblber-2.4.so.2.10.3
+link path=$(USRDIR)/lib/$(MACH64)/liblber.so target=liblber-2.4.so.2.10.3
 link path=$(USRDIR)/lib/$(MACH64)/libldap-2.4.so.2 \
-    target=libldap-2.4.so.2.10.2
-link path=$(USRDIR)/lib/$(MACH64)/libldap.so target=libldap-2.4.so.2.10.2
+    target=libldap-2.4.so.2.10.3
+link path=$(USRDIR)/lib/$(MACH64)/libldap.so target=libldap-2.4.so.2.10.3
 link path=$(USRDIR)/lib/$(MACH64)/libldap_r-2.4.so.2 \
-    target=libldap_r-2.4.so.2.10.2
+    target=libldap_r-2.4.so.2.10.3
 link path=$(USRDIR)/lib/$(MACH64)/libldap_r.so \
-    target=libldap_r-2.4.so.2.10.2
-link path=$(USRDIR)/lib/liblber-2.4.so.2 target=liblber-2.4.so.2.10.2
-link path=$(USRDIR)/lib/liblber.so target=liblber-2.4.so.2.10.2
-link path=$(USRDIR)/lib/libldap-2.4.so.2 target=libldap-2.4.so.2.10.2
-link path=$(USRDIR)/lib/libldap.so target=libldap-2.4.so.2.10.2
-link path=$(USRDIR)/lib/libldap_r-2.4.so.2 target=libldap_r-2.4.so.2.10.2
-link path=$(USRDIR)/lib/libldap_r.so target=libldap_r-2.4.so.2.10.2
+    target=libldap_r-2.4.so.2.10.3
+link path=$(USRDIR)/lib/liblber-2.4.so.2 target=liblber-2.4.so.2.10.3
+link path=$(USRDIR)/lib/liblber.so target=liblber-2.4.so.2.10.3
+link path=$(USRDIR)/lib/libldap-2.4.so.2 target=libldap-2.4.so.2.10.3
+link path=$(USRDIR)/lib/libldap.so target=libldap-2.4.so.2.10.3
+link path=$(USRDIR)/lib/libldap_r-2.4.so.2 target=libldap_r-2.4.so.2.10.3
+link path=$(USRDIR)/lib/libldap_r.so target=libldap_r-2.4.so.2.10.3
 
 link path=$(USRDIR)/share/man/man1/ldapadd.1 target=ldapmodify.1
 link path=$(USRDIR)/share/man/man3/ber_alloc_t.3 target=lber-encode.3
