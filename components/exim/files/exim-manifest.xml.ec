@@ -45,7 +45,7 @@
 	<exec_method
 		type='method'
 		name='start'
-		exec='/ec/var/svc/method/exim start'
+		exec='/var/svc/method/exim start'
 		timeout_seconds='60'/>
 
  	<exec_method
