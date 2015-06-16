@@ -306,5 +306,4 @@
 /^cups$/d
 /^gcc44$/d
 /^slang$/d
-/^gcc48$/d
 /^openjdk-7$/d
