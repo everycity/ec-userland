@@ -47,7 +47,7 @@
 	<exec_method
 		type='method'
 		name='start'
-		exec='/ec/var/svc/method/svc-cronie'
+		exec='/var/svc/method/svc-cronie'
 		timeout_seconds='60'>
 		<method_context>
 			<method_credential user='root' group='root' />
