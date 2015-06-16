@@ -70,7 +70,6 @@
 /^libfcgi$/d
 /^libgd$/d
 /^libid3tag$/d
-/^libksba$/d
 /^libmediainfo$/d
 /^libmms$/d
 /^libmpeg2$/d
