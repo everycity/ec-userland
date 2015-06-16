@@ -295,13 +295,14 @@
 /^erlang$/d
 # Ignores below are either pkgdepend issues or fallout
 # from the server image update to everycity_20150603T122154Z
-#/^gnu-coreutils$/d
+/^cairo$/d
+/^gnu-coreutils$/d
 #/^glib2$/d
-#/^junit$/d
-#/^libgpg-error$/d
-#/^libgcrypt$/d
+/^junit$/d
+/^libgpg-error$/d
+/^libgcrypt$/d
 # igork fix for cups worked in JT build zone but not for jenkins
-#/^cups$/d
+/^cups$/d
 /^gcc44$/d
-#/^slang$/d
+/^slang$/d
 /^openjdk-7$/d
