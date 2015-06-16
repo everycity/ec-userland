@@ -10,10 +10,10 @@
     <method_context>
       <method_credential group="root" user="root"/>
     </method_context>
-    <exec_method name="start" type="method" exec="/ec/var/svc/method/mailwrapper start" timeout_seconds="10"/>
-    <exec_method name="stop" type="method" exec="/ec/var/svc/method/mailwrapper stop" timeout_seconds="10"/>
-    <exec_method name="refresh" type="method" exec="/ec/var/svc/method/mailwrapper refresh" timeout_seconds="10"/>
-    <exec_method name="restart" type="method" exec="/ec/var/svc/method/mailwrapper restart" timeout_seconds="10"/>
+    <exec_method name="start" type="method" exec="/var/svc/method/mailwrapper start" timeout_seconds="10"/>
+    <exec_method name="stop" type="method" exec="/var/svc/method/mailwrapper stop" timeout_seconds="10"/>
+    <exec_method name="refresh" type="method" exec="/var/svc/method/mailwrapper refresh" timeout_seconds="10"/>
+    <exec_method name="restart" type="method" exec="/var/svc/method/mailwrapper restart" timeout_seconds="10"/>
     <property_group name="application" type="application"/>
     <property_group name="startd" type="framework">
       <propval name="duration" type="astring" value="transient"/>
