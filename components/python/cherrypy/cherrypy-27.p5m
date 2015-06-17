@@ -59,9 +59,6 @@ file path=$(USRDIR)/lib/python2.7/vendor-packages/cherrypy/_cptools.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/cherrypy/_cptree.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/cherrypy/_cpwsgi.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/cherrypy/_cpwsgi_server.py
-# pkgdepend(1) and python 2.7 don't play well yet.
-file path=$(USRDIR)/lib/python2.7/vendor-packages/cherrypy/cherryd mode=0555 \
-    pkg.depend.bypass-generate=.*
 file path=$(USRDIR)/lib/python2.7/vendor-packages/cherrypy/favicon.ico
 file path=$(USRDIR)/lib/python2.7/vendor-packages/cherrypy/lib/__init__.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/cherrypy/lib/auth.py
@@ -162,6 +159,8 @@ file path=$(USRDIR)/lib/python2.7/vendor-packages/cherrypy/wsgiserver/__init__.p
 file path=$(USRDIR)/lib/python2.7/vendor-packages/cherrypy/wsgiserver/ssl_builtin.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/cherrypy/wsgiserver/ssl_pyopenssl.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/cherrypy/wsgiserver/wsgiserver2.py
+
+file path=$(USRDIR)/lib/python2.7/vendor-packages/cherrypy/cherryd mode=0555 pkg.depend.bypass-generate=.*
 
 link path=$(USRDIR)/bin/cherryd \
     target=../lib/python2.7/vendor-packages/cherrypy/cherryd \
