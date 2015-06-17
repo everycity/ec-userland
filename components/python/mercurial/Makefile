@@ -22,6 +22,8 @@
 # Copyright 2012, Igor Kozhukhov <ikozhukhov@gmail.com>.
 # Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
+
+COMPONENT_BUILD_ARGS=
 include ../../../make-rules/shared-macros.mk
 
 PATH=/usr/bin:/usr/gnu/bin:/usr/sbin
