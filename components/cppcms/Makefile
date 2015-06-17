@@ -31,17 +31,17 @@ include ../../make-rules/ips.mk
 
 COMPONENT_LICENSE_FILE=	COPYING.TXT
 
-CMAKE_LIBDIR_32 =	$(ECPREFIX)/lib
+CMAKE_LIBDIR_32 =	$(USRDIR)/lib
 
 CMAKE_OPTIONS =		-DCMAKE_BUILD_TYPE=Release
 CMAKE_OPTIONS +=	-DCMAKE_C_COMPILER="$(CC)"
 CMAKE_OPTIONS +=	-DCMAKE_CXX_COMPILER="$(CXX)"
 CMAKE_OPTIONS +=	-DCMAKE_C_FLAGS="$(CFLAGS)"
 CMAKE_OPTIONS +=	-DCMAKE_CXX_FLAGS="$(CFLAGS)"
-CMAKE_OPTIONS +=	-DCMAKE_INCLUDE_PATH=$(ECPREFIX)/include
+CMAKE_OPTIONS +=	-DCMAKE_INCLUDE_PATH=$(USRDIR)/include
 CMAKE_OPTIONS +=	-DCMAKE_LIBRARY_PATH=$(CMAKE_LIBDIR_$(BITS))
-CMAKE_OPTIONS +=	-DCMAKE_INSTALL_PREFIX=$(ECPREFIX)
-CMAKE_OPTIONS +=	-DCMAKE_INSTALL_RPATH=$(ECPREFIX)/lib
+CMAKE_OPTIONS +=	-DCMAKE_INSTALL_PREFIX=$(USRDIR)
+CMAKE_OPTIONS +=	-DCMAKE_INSTALL_RPATH=$(USRDIR)/lib
 
 COMPONENT_PRE_BUILD_ACTION += cd $(@D);
 COMPONENT_PRE_BUILD_ACTION += export LDFLAGS="$(LDFLAGS)";
@@ -50,24 +50,24 @@ COMPONENT_PRE_BUILD_ACTION += $(CMAKE) . $(CMAKE_OPTIONS);
 build:		$(BUILD_32_and_64)
 
 $(BUILD_DIR)/.installed:	$(INSTALL_32)
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
-	$(CP) $(BUILD_DIR_64)/cppcms_config_find_param $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
-	$(CP) $(BUILD_DIR_64)/cppcms_make_key $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
-	$(CP) $(BUILD_DIR_64)/bin/cppcms_run $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
-	$(CP) $(BUILD_DIR_64)/cppcms_scale $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
-	$(CP) $(BUILD_DIR_64)/bin/cppcms_tmpl_cc $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
-	$(CP) $(BUILD_DIR_64)/booster/libbooster.a $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
-	$(CP) $(BUILD_DIR_64)/booster/libbooster.so.0.0.3 $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
-	$(CP) $(BUILD_DIR_64)/libcppcms.a $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
-	$(CP) $(BUILD_DIR_64)/libcppcms.so.$(COMPONENT_VERSION) $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
-	( cd $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64) && \
-	$(SYMLINK) libbooster.so.0.0.3 libbooster.so.0 && \
-	$(SYMLINK) libbooster.so.0.0.3 libbooster.so && \
-	$(SYMLINK) libcppcms.so.$(COMPONENT_VERSION) libcppcms.so.1 && \
-	$(SYMLINK) libcppcms.so.$(COMPONENT_VERSION) libcppcms.so )
-	$(GSED) -i -e 's%^#!/usr/bin/env python%#!$(ECPREFIX)/bin/python2.7%' $(PROTO_DIR)$(ECPREFIX)/bin/cppcms_tmpl_cc
-	$(GSED) -i -e 's%^#!/usr/bin/env python%#!$(ECPREFIX)/bin/$(MACH64)/python2.7%' $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/cppcms_tmpl_cc
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/cppcms_config_find_param $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/cppcms_make_key $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/bin/cppcms_run $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/cppcms_scale $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/bin/cppcms_tmpl_cc $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/booster/libbooster.a $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/booster/libbooster.so.0.0.3 $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/libcppcms.a $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
+	$(CP) $(BUILD_DIR_64)/libcppcms.so.$(COMPONENT_VERSION) $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
+	( cd $(PROTO_DIR)$(USRDIR)/lib/$(MACH64) && \
+	$(SYMLINK) -f libbooster.so.0.0.3 libbooster.so.0 && \
+	$(SYMLINK) -f libbooster.so.0.0.3 libbooster.so && \
+	$(SYMLINK) -f libcppcms.so.$(COMPONENT_VERSION) libcppcms.so.1 && \
+	$(SYMLINK) -f libcppcms.so.$(COMPONENT_VERSION) libcppcms.so )
+	$(GSED) -i -e 's%^#!/usr/bin/env python%#!$(USRDIR)/bin/python2.7%' $(PROTO_DIR)$(USRDIR)/bin/cppcms_tmpl_cc
+	$(GSED) -i -e 's%^#!/usr/bin/env python%#!$(USRDIR)/bin/$(MACH64)/python2.7%' $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/cppcms_tmpl_cc
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed
