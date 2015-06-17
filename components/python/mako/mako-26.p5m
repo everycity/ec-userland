@@ -35,29 +35,30 @@ license mako.copyright license=MIT
 #depend fmri=__TBD pkg.debug.depend.file=python2.6 \
 #       pkg.debug.depend.path=$(USRDIR)/bin type=require
 
-file \
-    path=$(USRDIR)/lib/python2.6/vendor-packages/Mako-$(COMPONENT_VERSION)-py2.6.egg-info/PKG-INFO
-file \
-    path=$(USRDIR)/lib/python2.6/vendor-packages/Mako-$(COMPONENT_VERSION)-py2.6.egg-info/SOURCES.txt
-file \
-    path=$(USRDIR)/lib/python2.6/vendor-packages/Mako-$(COMPONENT_VERSION)-py2.6.egg-info/dependency_links.txt
-file \
-    path=$(USRDIR)/lib/python2.6/vendor-packages/Mako-$(COMPONENT_VERSION)-py2.6.egg-info/entry_points.txt
-file \
-    path=$(USRDIR)/lib/python2.6/vendor-packages/Mako-$(COMPONENT_VERSION)-py2.6.egg-info/not-zip-safe
-file \
-    path=$(USRDIR)/lib/python2.6/vendor-packages/Mako-$(COMPONENT_VERSION)-py2.6.egg-info/requires.txt
-file \
-    path=$(USRDIR)/lib/python2.6/vendor-packages/Mako-$(COMPONENT_VERSION)-py2.6.egg-info/top_level.txt
+link path=$(USRDIR)/bin/mako-render \
+    target=mako-render2.6 \
+    mediator=python mediator-version=2.6 pkg.linted.pkglint.dupaction007=true
+
+file path=$(USRDIR)/bin/mako-render2.6 pkg.depend.bypass-generate=.*
+file path=$(USRDIR)/lib/python2.6/vendor-packages/Mako-$(COMPONENT_VERSION)-py2.6.egg-info/PKG-INFO
+file path=$(USRDIR)/lib/python2.6/vendor-packages/Mako-$(COMPONENT_VERSION)-py2.6.egg-info/SOURCES.txt
+file path=$(USRDIR)/lib/python2.6/vendor-packages/Mako-$(COMPONENT_VERSION)-py2.6.egg-info/dependency_links.txt
+file path=$(USRDIR)/lib/python2.6/vendor-packages/Mako-$(COMPONENT_VERSION)-py2.6.egg-info/entry_points.txt
+file path=$(USRDIR)/lib/python2.6/vendor-packages/Mako-$(COMPONENT_VERSION)-py2.6.egg-info/not-zip-safe
+file path=$(USRDIR)/lib/python2.6/vendor-packages/Mako-$(COMPONENT_VERSION)-py2.6.egg-info/requires.txt
+file path=$(USRDIR)/lib/python2.6/vendor-packages/Mako-$(COMPONENT_VERSION)-py2.6.egg-info/top_level.txt
 file path=$(USRDIR)/lib/python2.6/vendor-packages/mako/__init__.py
 file path=$(USRDIR)/lib/python2.6/vendor-packages/mako/_ast_util.py
 file path=$(USRDIR)/lib/python2.6/vendor-packages/mako/ast.py
 file path=$(USRDIR)/lib/python2.6/vendor-packages/mako/cache.py
+file path=$(USRDIR)/lib/python2.6/vendor-packages/mako/cmd.py
 file path=$(USRDIR)/lib/python2.6/vendor-packages/mako/codegen.py
+file path=$(USRDIR)/lib/python2.6/vendor-packages/mako/compat.py
 file path=$(USRDIR)/lib/python2.6/vendor-packages/mako/exceptions.py
 file path=$(USRDIR)/lib/python2.6/vendor-packages/mako/ext/__init__.py
 file path=$(USRDIR)/lib/python2.6/vendor-packages/mako/ext/autohandler.py
 file path=$(USRDIR)/lib/python2.6/vendor-packages/mako/ext/babelplugin.py
+file path=$(USRDIR)/lib/python2.6/vendor-packages/mako/ext/beaker_cache.py
 file path=$(USRDIR)/lib/python2.6/vendor-packages/mako/ext/preprocessors.py
 file path=$(USRDIR)/lib/python2.6/vendor-packages/mako/ext/pygmentplugin.py
 file path=$(USRDIR)/lib/python2.6/vendor-packages/mako/ext/turbogears.py
