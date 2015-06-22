@@ -1,0 +1,47 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2015 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/bin
+file path=$(USRDIR)/bin/gflags_completions.sh
+dir  path=$(USRDIR)/include
+dir  path=$(USRDIR)/include/gflags
+file path=$(USRDIR)/include/gflags/gflags.h
+file path=$(USRDIR)/include/gflags/gflags_completions.h
+file path=$(USRDIR)/include/gflags/gflags_declare.h
+file path=$(USRDIR)/include/gflags/gflags_gflags.h
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/cmake
+dir  path=$(USRDIR)/lib/cmake/gflags
+file path=$(USRDIR)/lib/cmake/gflags/gflags-config-version.cmake
+file path=$(USRDIR)/lib/cmake/gflags/gflags-config.cmake
+file path=$(USRDIR)/lib/cmake/gflags/gflags-export-noconfig.cmake
+file path=$(USRDIR)/lib/cmake/gflags/gflags-export.cmake
+link path=$(USRDIR)/lib/libgflags.so target=libgflags.so.2
+file path=$(USRDIR)/lib/libgflags.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libgflags.so.2 target=libgflags.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libgflags_nothreads.so target=libgflags_nothreads.so.2
+file path=$(USRDIR)/lib/libgflags_nothreads.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libgflags_nothreads.so.2 \
+    target=libgflags_nothreads.so.$(COMPONENT_VERSION)
