@@ -68,6 +68,7 @@ CONFIGURE_OPTIONS += --with-ipv6
 CONFIGURE_OPTIONS += --with-mail
 CONFIGURE_OPTIONS += --with-mail_ssl_module
 CONFIGURE_OPTIONS += --add-module=mod_wsgi
+CONFIGURE_OPTIONS += --with-threads
 
 CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
 
