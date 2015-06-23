@@ -41,7 +41,7 @@ $(BUILD_DIR)/.installed:	$(INSTALL_32)
 	$(INSTALL) -d $(PROTO_DIR)$(ECPREFIX)/var/log/
 	$(TOUCH) $(PROTO_DIR)$(ECPREFIX)/var/log/webdis.log
 	$(GSED) -i'' -e 's/0\.0\.0\.0/127\.0\.0\.1/' -e 's!/var/log/webdis.log!/ec/var/log/webdis.log!' $(PROTO_DIR)$(ECPREFIX)/etc/webdis.prod.json
-	$(INSTALL) -D --mode=0555 files/webdis-startup.sh $(PROTO_DIR)$(ECPREFIX)/var/svc/method/webdis.sh
+	$(INSTALL) -D files/webdis-startup.sh $(PROTO_DIR)$(ECPREFIX)/var/svc/method/webdis.sh
 	$(INSTALL) -D files/webdis-manifest.xml $(PROTO_DIR)/var/svc/manifest/site/webdis.xml
 	$(TOUCH) $@
 

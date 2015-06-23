@@ -44,6 +44,7 @@ file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/iconv/php_have_iconv.h
 file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/iconv/php_have_libiconv.h
 file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/iconv/php_iconv.h
 file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/iconv/php_iconv_aliased_libiconv.h
+file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/iconv/php_iconv_broken_ignore.h
 file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/iconv/php_iconv_supports_errno.h
 file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/iconv/php_php_iconv_h_path.h
 file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/iconv/php_php_iconv_impl.h
