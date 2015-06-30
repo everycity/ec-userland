@@ -226,7 +226,6 @@
 /^subversion-apache24$/d
 /^sysbench$/d
 /^taglib$/d
-/^tcl$/d
 /^tftp-hpa$/d
 /^tmux$/d
 /^toilet$/d
