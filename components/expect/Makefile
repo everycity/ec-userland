@@ -29,7 +29,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=	--with-tcl=$(ECPREFIX)/lib
+CONFIGURE_OPTIONS+=	--with-tcl=$(USRDIR)/lib
 
 build:		$(BUILD_32)
 

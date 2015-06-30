@@ -26,7 +26,6 @@
 /^dspam$/d
 /^epm$/d
 /^exiftool$/d
-/^expect$/d
 /^fcgiwrap$/d
 /^ffmpeg08$/d
 /^freeimage$/d
