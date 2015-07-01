@@ -301,4 +301,3 @@
 # igork fix for cups worked in JT build zone but not for jenkins
 /^cups$/d
 /^gcc44$/d
-/^slang$/d
