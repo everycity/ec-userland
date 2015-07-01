@@ -296,4 +296,3 @@
 /^gnu-coreutils$/d
 /^glib2$/d
 /^junit$/d
-/^libgpg-error$/d
