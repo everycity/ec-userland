@@ -742,7 +742,6 @@ file path=$(USRDIR)/gcc/4.4/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(
 file path=$(USRDIR)/gcc/4.4/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/complex.h
 $(ECZONE)file path=$(USRDIR)/gcc/4.4/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/curses.h
 file path=$(USRDIR)/gcc/4.4/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/dat/dat_platform_specific.h
-file path=$(USRDIR)/gcc/4.4/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/iso/math_c99.h
 file path=$(USRDIR)/gcc/4.4/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/limits.h
 file path=$(USRDIR)/gcc/4.4/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/math.h
 file path=$(USRDIR)/gcc/4.4/lib/gcc/$(MACH)-$(PLAT)-solaris$(SOLARIS_VERSION)/$(COMPONENT_VERSION)/include-fixed/netinet/ip_compat.h
