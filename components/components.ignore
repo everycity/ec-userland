@@ -297,4 +297,3 @@
 /^glib2$/d
 /^junit$/d
 /^libgpg-error$/d
-/^libgcrypt$/d

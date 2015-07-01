@@ -43,15 +43,15 @@ file path=$(USRDIR)/bin/mpicalc
 
 file path=$(USRDIR)/include/gcrypt.h
 
-file path=$(USRDIR)/lib/$(MACH64)/libgcrypt.so.20.0.1
-file path=$(USRDIR)/lib/libgcrypt.so.20.0.1
+file path=$(USRDIR)/lib/$(MACH64)/libgcrypt.so.20.0.2
+file path=$(USRDIR)/lib/libgcrypt.so.20.0.2
 
 file path=$(USRDIR)/share/aclocal/libgcrypt.m4
 file path=$(USRDIR)/share/info/gcrypt.info
 file path=$(USRDIR)/share/info/gcrypt.info-1
 file path=$(USRDIR)/share/info/gcrypt.info-2
 file path=$(USRDIR)/share/man/man1/hmac256.1
-link path=$(USRDIR)/lib/$(MACH64)/libgcrypt.so target=libgcrypt.so.20.0.1
-link path=$(USRDIR)/lib/$(MACH64)/libgcrypt.so.20 target=libgcrypt.so.20.0.1
-link path=$(USRDIR)/lib/libgcrypt.so target=libgcrypt.so.20.0.1
-link path=$(USRDIR)/lib/libgcrypt.so.20 target=libgcrypt.so.20.0.1
+link path=$(USRDIR)/lib/$(MACH64)/libgcrypt.so target=libgcrypt.so.20.0.2
+link path=$(USRDIR)/lib/$(MACH64)/libgcrypt.so.20 target=libgcrypt.so.20.0.2
+link path=$(USRDIR)/lib/libgcrypt.so target=libgcrypt.so.20.0.2
+link path=$(USRDIR)/lib/libgcrypt.so.20 target=libgcrypt.so.20.0.2
