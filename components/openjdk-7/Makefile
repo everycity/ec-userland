@@ -142,14 +142,15 @@ COMPONENT_BUILD_ARGS = \
 	CC="$(CC)" \
 	CXX="$(CXX)" \
 	ALT_LIB_PATH="$(ALT_LIB_PATH.$(BITS))" \
-	STRIP="$(USRDIR)/bin/gstrip" \
+	STRIP="/usr/bin/strip" \
 	DUMP="/usr/bin/dump" \
 	NAWK="$(USRDIR)/bin/gawk" \
 	SED="$(USRDIR)/bin/gsed" \
 	ZIPEXE="$(USRDIR)/bin/zip" \
 	SH="$(USRDIR)/bin/bash" \
 	CPIO="/usr/bin/cpio" \
-	LDD="/usr/bin/ldd"
+	LDD="/usr/bin/ldd" \
+	AR="/usr/bin/ar"
 
 cacerts.out: $(BUILD_32)
 	for cert in $(COMPONENT_DIR)/cacerts/*.crt; do                 \

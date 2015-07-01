@@ -302,4 +302,3 @@
 /^cups$/d
 /^gcc44$/d
 /^slang$/d
-/^openjdk-7$/d
