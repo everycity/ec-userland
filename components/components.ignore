@@ -295,4 +295,3 @@
 /^cairo$/d
 /^gnu-coreutils$/d
 /^glib2$/d
-/^junit$/d
