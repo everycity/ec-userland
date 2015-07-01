@@ -298,5 +298,3 @@
 /^junit$/d
 /^libgpg-error$/d
 /^libgcrypt$/d
-# igork fix for cups worked in JT build zone but not for jenkins- arc4random_stir problem
-/^cups$/d
