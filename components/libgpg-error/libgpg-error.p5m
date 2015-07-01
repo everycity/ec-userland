@@ -37,16 +37,21 @@ file path=$(USRDIR)/bin/$(MACH64)/gpg-error-config
 file path=$(USRDIR)/bin/gpg-error
 file path=$(USRDIR)/bin/gpg-error-config
 file path=$(USRDIR)/include/gpg-error.h
-file path=$(USRDIR)/lib/$(MACH64)/libgpg-error.la
-file path=$(USRDIR)/lib/$(MACH64)/libgpg-error.so.0.11.0
-file path=$(USRDIR)/lib/libgpg-error.la
-file path=$(USRDIR)/lib/libgpg-error.so.0.11.0
+
+link path=$(USRDIR)/lib/$(MACH64)/libgpg-error.so target=libgpg-error.so.0.13.0
+link path=$(USRDIR)/lib/$(MACH64)/libgpg-error.so.0 \
+    target=libgpg-error.so.0.13.0
+file path=$(USRDIR)/lib/$(MACH64)/libgpg-error.so.0.13.0
+link path=$(USRDIR)/lib/libgpg-error.so target=libgpg-error.so.0.13.0
+link path=$(USRDIR)/lib/libgpg-error.so.0 target=libgpg-error.so.0.13.0
+file path=$(USRDIR)/lib/libgpg-error.so.0.13.0
+
 file path=$(USRDIR)/share/aclocal/gpg-error.m4
 file path=$(USRDIR)/share/common-lisp/source/gpg-error/gpg-error-codes.lisp
-file \
-    path=$(USRDIR)/share/common-lisp/source/gpg-error/gpg-error-package.lisp
+file path=$(USRDIR)/share/common-lisp/source/gpg-error/gpg-error-package.lisp
 file path=$(USRDIR)/share/common-lisp/source/gpg-error/gpg-error.asd
 file path=$(USRDIR)/share/common-lisp/source/gpg-error/gpg-error.lisp
+file path=$(USRDIR)/share/info/gpgrt.info
 file path=$(USRDIR)/share/locale/cs/LC_MESSAGES/libgpg-error.mo
 file path=$(USRDIR)/share/locale/da/LC_MESSAGES/libgpg-error.mo
 file path=$(USRDIR)/share/locale/de/LC_MESSAGES/libgpg-error.mo
@@ -61,9 +66,4 @@ file path=$(USRDIR)/share/locale/sv/LC_MESSAGES/libgpg-error.mo
 file path=$(USRDIR)/share/locale/uk/LC_MESSAGES/libgpg-error.mo
 file path=$(USRDIR)/share/locale/vi/LC_MESSAGES/libgpg-error.mo
 file path=$(USRDIR)/share/locale/zh_CN/LC_MESSAGES/libgpg-error.mo
-link path=$(USRDIR)/lib/$(MACH64)/libgpg-error.so \
-    target=libgpg-error.so.0.11.0
-link path=$(USRDIR)/lib/$(MACH64)/libgpg-error.so.0 \
-    target=libgpg-error.so.0.11.0
-link path=$(USRDIR)/lib/libgpg-error.so target=libgpg-error.so.0.11.0
-link path=$(USRDIR)/lib/libgpg-error.so.0 target=libgpg-error.so.0.11.0
+file path=$(USRDIR)/share/man/man1/gpg-error-config.1
