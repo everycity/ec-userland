@@ -22,6 +22,9 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license COPYING license="GPLv3"
 
+file $(USRDIR)/bin/install path=$(USRDIR)/bin/ginstall
+link path=$(USRDIR)/bin/install target=ginstall
+
 file path=$(USRDIR)/bin/[
 file path=$(USRDIR)/bin/base64
 file path=$(USRDIR)/bin/basename
@@ -55,8 +58,6 @@ file path=$(USRDIR)/bin/groups
 file path=$(USRDIR)/bin/head
 file path=$(USRDIR)/bin/hostid
 file path=$(USRDIR)/bin/id
-file $(USRDIR)/bin/install path=$(USRDIR)/bin/ginstall
-link path=$(USRDIR)/bin/install target=ginstall
 file path=$(USRDIR)/bin/join
 file path=$(USRDIR)/bin/kill
 file path=$(USRDIR)/bin/link
@@ -127,92 +128,135 @@ file path=$(USRDIR)/bin/who
 file path=$(USRDIR)/bin/whoami
 file path=$(USRDIR)/bin/yes
 
+file path=$(USRDIR)/lib/coreutils/libstdbuf.so
 file path=$(USRDIR)/share/info/coreutils.info
 
 file path=$(USRDIR)/share/locale/af/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/af/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/af/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/be/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/be/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/be/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/bg/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/bg/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/bg/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/ca/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/ca/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/ca/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/cs/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/cs/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/cs/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/da/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/da/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/da/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/de/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/de/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/de/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/el/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/el/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/el/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/eo/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/eo/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/eo/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/es/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/es/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/es/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/et/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/et/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/et/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/eu/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/eu/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/eu/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/fi/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/fi/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/fi/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/fr/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/fr/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/fr/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/ga/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/ga/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/ga/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/gl/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/gl/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/gl/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/hr/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/hr/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/hr/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/hu/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/hu/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/hu/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/ia/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/ia/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/ia/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/id/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/id/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/id/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/it/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/it/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/it/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/ja/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/ja/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/ja/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/kk/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/kk/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/kk/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/ko/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/ko/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/ko/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/lg/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/lg/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/lg/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/lt/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/lt/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/lt/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/ms/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/ms/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/ms/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/nb/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/nb/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/nb/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/nl/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/nl/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/nl/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/pl/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/pl/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/pl/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/pt/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/pt/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/pt/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/pt_BR/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/pt_BR/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/pt_BR/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/ro/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/ro/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/ro/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/ru/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/ru/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/ru/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/sk/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/sk/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/sk/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/sl/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/sl/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/sl/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/sv/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/sv/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/sv/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/tr/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/tr/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/tr/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/uk/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/uk/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/uk/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/vi/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/vi/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/vi/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/zh_CN/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/zh_CN/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/zh_CN/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 file path=$(USRDIR)/share/locale/zh_TW/LC_MESSAGES/coreutils.mo
-link path=$(USRDIR)/share/locale/zh_TW/LC_TIME/coreutils.mo target=../LC_MESSAGES/coreutils.mo
+link path=$(USRDIR)/share/locale/zh_TW/LC_TIME/coreutils.mo \
+    target=../LC_MESSAGES/coreutils.mo
 
 file path=$(USRDIR)/share/man/man1/base64.1
 file path=$(USRDIR)/share/man/man1/basename.1
@@ -246,7 +290,7 @@ file path=$(USRDIR)/share/man/man1/groups.1
 file path=$(USRDIR)/share/man/man1/head.1
 file path=$(USRDIR)/share/man/man1/hostid.1
 file path=$(USRDIR)/share/man/man1/id.1
-file path=$(USRDIR)/share/man/man1/install.1
+file $(USRDIR)/share/man/man1/install.1 path=$(USRDIR)/share/man/man1/ginstall.1
 file path=$(USRDIR)/share/man/man1/join.1
 file path=$(USRDIR)/share/man/man1/kill.1
 file path=$(USRDIR)/share/man/man1/link.1

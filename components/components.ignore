@@ -293,5 +293,4 @@
 # Ignores below are either pkgdepend issues or fallout
 # from the server image update to everycity_20150603T122154Z
 /^cairo$/d
-/^gnu-coreutils$/d
 /^glib2$/d
