@@ -22,8 +22,6 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/include
 dir  path=$(USRDIR)/include/boost
 dir  path=$(USRDIR)/include/boost/accumulators
 file path=$(USRDIR)/include/boost/accumulators/accumulators.hpp
