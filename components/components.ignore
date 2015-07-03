@@ -58,8 +58,6 @@
 /^isc-dhcp$/d
 /^java-jna$/d
 /^java-snappy$/d
-/^libcdr$/d
-/^libdvbpsi$/d
 /^libee$/d
 /^libestr$/d
 /^libfcgi$/d
