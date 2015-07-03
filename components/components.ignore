@@ -59,7 +59,6 @@
 /^java-jna$/d
 /^java-snappy$/d
 /^libee$/d
-/^libestr$/d
 /^libfcgi$/d
 /^libgd$/d
 /^libid3tag$/d
