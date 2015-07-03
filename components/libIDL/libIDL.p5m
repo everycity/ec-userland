@@ -22,32 +22,20 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/libIDL-2.0
-dir path=$(ECPREFIX)/include/libIDL-2.0/libIDL
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/info
-file path=$(ECPREFIX)/bin/$(MACH64)/libIDL-config-2
-file path=$(ECPREFIX)/bin/libIDL-config-2
-file path=$(ECPREFIX)/include/libIDL-2.0/libIDL/IDL.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libIDL-2.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libIDL-2.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libIDL-2.so.0.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libIDL-2.0.pc
-file path=$(ECPREFIX)/lib/libIDL-2.a
-file path=$(ECPREFIX)/lib/libIDL-2.la
-file path=$(ECPREFIX)/lib/libIDL-2.so.0.0.0
-file path=$(ECPREFIX)/lib/pkgconfig/libIDL-2.0.pc
-file path=$(ECPREFIX)/share/info/dir
-file path=$(ECPREFIX)/share/info/libIDL2.info
-link path=$(ECPREFIX)/lib/$(MACH64)/libIDL-2.so target=libIDL-2.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libIDL-2.so.0 target=libIDL-2.so.0.0.0
-link path=$(ECPREFIX)/lib/libIDL-2.so target=libIDL-2.so.0.0.0
-link path=$(ECPREFIX)/lib/libIDL-2.so.0 target=libIDL-2.so.0.0.0
+file path=$(USRDIR)/bin/$(MACH64)/libIDL-config-2
+file path=$(USRDIR)/bin/libIDL-config-2
+file path=$(USRDIR)/include/libIDL-2.0/libIDL/IDL.h
+file path=$(USRDIR)/lib/$(MACH64)/libIDL-2.a
+file path=$(USRDIR)/lib/$(MACH64)/libIDL-2.la
+file path=$(USRDIR)/lib/$(MACH64)/libIDL-2.so.0.0.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libIDL-2.0.pc
+file path=$(USRDIR)/lib/libIDL-2.a
+file path=$(USRDIR)/lib/libIDL-2.la
+file path=$(USRDIR)/lib/libIDL-2.so.0.0.0
+file path=$(USRDIR)/lib/pkgconfig/libIDL-2.0.pc
+file path=$(USRDIR)/share/info/dir
+file path=$(USRDIR)/share/info/libIDL2.info
+link path=$(USRDIR)/lib/$(MACH64)/libIDL-2.so target=libIDL-2.so.0.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libIDL-2.so.0 target=libIDL-2.so.0.0.0
+link path=$(USRDIR)/lib/libIDL-2.so target=libIDL-2.so.0.0.0
+link path=$(USRDIR)/lib/libIDL-2.so.0 target=libIDL-2.so.0.0.0
