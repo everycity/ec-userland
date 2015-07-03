@@ -281,7 +281,6 @@
 /^mozilla-nspr$/d
 /^mozilla-nss$/d
 /^git-repo$/d
-/^libedit$/d
 /^mariadb100$/d
 /^php56-apache24$/d
 /^php56$/d
