@@ -240,7 +240,6 @@
 /^yubico-pam$/d
 /^yubico-ykclient$/d
 /^yubico-ykpers$/d
-/^zenlib$/d
 /^zetaback$/d
 /^zfs-auto-snapshot$/d
 /^zork-trilogy$/d
