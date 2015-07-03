@@ -259,7 +259,6 @@
 /^meta-packages\/haproxy-dev$/d
 /^ca-certificates$/d
 /^graphicsmagick$/d
-/^librevenge$/d
 /^libtool$/d
 /^luajit$/d
 /^postgresql94$/d

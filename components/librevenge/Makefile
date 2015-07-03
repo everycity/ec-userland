@@ -31,6 +31,7 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS+=	--enable-shared	--with-pic
+CONFIGURE_OPTIONS+= --disable-werror
 
 build:		$(BUILD_32_and_64)
 

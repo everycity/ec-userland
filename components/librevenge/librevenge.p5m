@@ -22,109 +22,93 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/librevenge-0.0
-dir path=$(ECPREFIX)/include/librevenge-0.0/librevenge
-dir path=$(ECPREFIX)/include/librevenge-0.0/librevenge-generators
-dir path=$(ECPREFIX)/include/librevenge-0.0/librevenge-stream
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge-generators/RVNGCSVSpreadsheetGenerator.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge-generators/RVNGCSVSpreadsheetGenerator.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge-generators/RVNGHTMLTextGenerator.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge-generators/RVNGHTMLTextGenerator.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge-generators/RVNGRawDrawingGenerator.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge-generators/RVNGRawDrawingGenerator.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge-generators/RVNGRawPresentationGenerator.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge-generators/RVNGRawPresentationGenerator.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge-generators/RVNGRawSpreadsheetGenerator.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge-generators/RVNGRawSpreadsheetGenerator.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge-generators/RVNGRawTextGenerator.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge-generators/RVNGRawTextGenerator.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge-generators/RVNGSVGPresentationGenerator.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge-generators/RVNGSVGPresentationGenerator.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge-generators/RVNGTextDrawingGenerator.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge-generators/RVNGTextDrawingGenerator.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge-generators/RVNGTextPresentationGenerator.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge-generators/RVNGTextPresentationGenerator.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge-generators/RVNGTextSpreadsheetGenerator.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge-generators/RVNGTextSpreadsheetGenerator.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge-generators/RVNGTextTextGenerator.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge-generators/RVNGTextTextGenerator.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge-generators/librevenge-generators-api.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge-generators/librevenge-generators-api.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge-generators/librevenge-generators.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge-generators/librevenge-generators.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge-stream/RVNGDirectoryStream.h
-file path=$(ECPREFIX)/include/librevenge-0.0/librevenge-stream/RVNGStream.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge-stream/RVNGDirectoryStream.h
+file path=$(USRDIR)/include/librevenge-0.0/librevenge-stream/RVNGStream.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge-stream/RVNGStreamImplementation.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge-stream/RVNGStreamImplementation.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge-stream/librevenge-stream-api.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge-stream/librevenge-stream-api.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge-stream/librevenge-stream.h
-file path=$(ECPREFIX)/include/librevenge-0.0/librevenge/RVNGBinaryData.h
-file path=$(ECPREFIX)/include/librevenge-0.0/librevenge/RVNGDrawingInterface.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge-stream/librevenge-stream.h
+file path=$(USRDIR)/include/librevenge-0.0/librevenge/RVNGBinaryData.h
+file path=$(USRDIR)/include/librevenge-0.0/librevenge/RVNGDrawingInterface.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge/RVNGPresentationInterface.h
-file path=$(ECPREFIX)/include/librevenge-0.0/librevenge/RVNGProperty.h
-file path=$(ECPREFIX)/include/librevenge-0.0/librevenge/RVNGPropertyList.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge/RVNGPresentationInterface.h
+file path=$(USRDIR)/include/librevenge-0.0/librevenge/RVNGProperty.h
+file path=$(USRDIR)/include/librevenge-0.0/librevenge/RVNGPropertyList.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge/RVNGPropertyListVector.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge/RVNGPropertyListVector.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge/RVNGSVGDrawingGenerator.h
+    path=$(USRDIR)/include/librevenge-0.0/librevenge/RVNGSVGDrawingGenerator.h
 file \
-    path=$(ECPREFIX)/include/librevenge-0.0/librevenge/RVNGSpreadsheetInterface.h
-file path=$(ECPREFIX)/include/librevenge-0.0/librevenge/RVNGString.h
-file path=$(ECPREFIX)/include/librevenge-0.0/librevenge/RVNGStringVector.h
-file path=$(ECPREFIX)/include/librevenge-0.0/librevenge/RVNGTextInterface.h
-file path=$(ECPREFIX)/include/librevenge-0.0/librevenge/librevenge-api.h
-file path=$(ECPREFIX)/include/librevenge-0.0/librevenge/librevenge.h
-file path=$(ECPREFIX)/lib/$(MACH64)/librevenge-0.0.la
-file path=$(ECPREFIX)/lib/$(MACH64)/librevenge-0.0.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/librevenge-generators-0.0.la
+    path=$(USRDIR)/include/librevenge-0.0/librevenge/RVNGSpreadsheetInterface.h
+file path=$(USRDIR)/include/librevenge-0.0/librevenge/RVNGString.h
+file path=$(USRDIR)/include/librevenge-0.0/librevenge/RVNGStringVector.h
+file path=$(USRDIR)/include/librevenge-0.0/librevenge/RVNGTextInterface.h
+file path=$(USRDIR)/include/librevenge-0.0/librevenge/librevenge-api.h
+file path=$(USRDIR)/include/librevenge-0.0/librevenge/librevenge.h
+file path=$(USRDIR)/lib/$(MACH64)/librevenge-0.0.so.$(COMPONENT_VERSION)
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/librevenge-generators-0.0.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/librevenge-stream-0.0.la
+    path=$(USRDIR)/lib/$(MACH64)/librevenge-generators-0.0.so.$(COMPONENT_VERSION)
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/librevenge-stream-0.0.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/librevenge-0.0.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/librevenge-generators-0.0.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/librevenge-stream-0.0.pc
-file path=$(ECPREFIX)/lib/librevenge-0.0.la
-file path=$(ECPREFIX)/lib/librevenge-0.0.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/librevenge-generators-0.0.la
-file path=$(ECPREFIX)/lib/librevenge-generators-0.0.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/librevenge-stream-0.0.la
-file path=$(ECPREFIX)/lib/librevenge-stream-0.0.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/pkgconfig/librevenge-0.0.pc
-file path=$(ECPREFIX)/lib/pkgconfig/librevenge-generators-0.0.pc
-file path=$(ECPREFIX)/lib/pkgconfig/librevenge-stream-0.0.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/librevenge-0.0.so \
+    path=$(USRDIR)/lib/$(MACH64)/librevenge-stream-0.0.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/librevenge-0.0.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/librevenge-generators-0.0.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/librevenge-stream-0.0.pc
+file path=$(USRDIR)/lib/librevenge-0.0.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/librevenge-generators-0.0.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/librevenge-stream-0.0.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/pkgconfig/librevenge-0.0.pc
+file path=$(USRDIR)/lib/pkgconfig/librevenge-generators-0.0.pc
+file path=$(USRDIR)/lib/pkgconfig/librevenge-stream-0.0.pc
+link path=$(USRDIR)/lib/$(MACH64)/librevenge-0.0.so \
     target=librevenge-0.0.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/librevenge-0.0.so.0 \
+link path=$(USRDIR)/lib/$(MACH64)/librevenge-0.0.so.0 \
     target=librevenge-0.0.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/librevenge-generators-0.0.so \
+link path=$(USRDIR)/lib/$(MACH64)/librevenge-generators-0.0.so \
     target=librevenge-generators-0.0.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/librevenge-generators-0.0.so.0 \
+link path=$(USRDIR)/lib/$(MACH64)/librevenge-generators-0.0.so.0 \
     target=librevenge-generators-0.0.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/librevenge-stream-0.0.so \
+link path=$(USRDIR)/lib/$(MACH64)/librevenge-stream-0.0.so \
     target=librevenge-stream-0.0.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/librevenge-stream-0.0.so.0 \
+link path=$(USRDIR)/lib/$(MACH64)/librevenge-stream-0.0.so.0 \
     target=librevenge-stream-0.0.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/librevenge-0.0.so \
+link path=$(USRDIR)/lib/librevenge-0.0.so \
     target=librevenge-0.0.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/librevenge-0.0.so.0 \
+link path=$(USRDIR)/lib/librevenge-0.0.so.0 \
     target=librevenge-0.0.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/librevenge-generators-0.0.so \
+link path=$(USRDIR)/lib/librevenge-generators-0.0.so \
     target=librevenge-generators-0.0.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/librevenge-generators-0.0.so.0 \
+link path=$(USRDIR)/lib/librevenge-generators-0.0.so.0 \
     target=librevenge-generators-0.0.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/librevenge-stream-0.0.so \
+link path=$(USRDIR)/lib/librevenge-stream-0.0.so \
     target=librevenge-stream-0.0.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/librevenge-stream-0.0.so.0 \
+link path=$(USRDIR)/lib/librevenge-stream-0.0.so.0 \
     target=librevenge-stream-0.0.so.$(COMPONENT_VERSION)
