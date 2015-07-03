@@ -57,7 +57,6 @@
 /^isc-dhcp$/d
 /^java-jna$/d
 /^java-snappy$/d
-/^libmpeg2$/d
 /^librsvg$/d
 /^libsamplerate$/d
 /^libsndfile$/d

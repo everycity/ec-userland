@@ -22,43 +22,31 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license libmpeg2.license license="GPLv2"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/mpeg2dec
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/corrupt_mpeg2
-file path=$(ECPREFIX)/bin/$(MACH64)/extract_mpeg2
-file path=$(ECPREFIX)/bin/$(MACH64)/mpeg2dec
-file path=$(ECPREFIX)/bin/corrupt_mpeg2
-file path=$(ECPREFIX)/bin/extract_mpeg2
-file path=$(ECPREFIX)/bin/mpeg2dec
-file path=$(ECPREFIX)/include/mpeg2dec/mpeg2.h
-file path=$(ECPREFIX)/include/mpeg2dec/mpeg2convert.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libmpeg2.so.0.1.0
-file path=$(ECPREFIX)/lib/$(MACH64)/libmpeg2convert.so.0.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libmpeg2.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libmpeg2convert.pc
-file path=$(ECPREFIX)/lib/libmpeg2.so.0.1.0
-file path=$(ECPREFIX)/lib/libmpeg2convert.so.0.0.0
-file path=$(ECPREFIX)/lib/pkgconfig/libmpeg2.pc
-file path=$(ECPREFIX)/lib/pkgconfig/libmpeg2convert.pc
-file path=$(ECPREFIX)/share/man/man1/extract_mpeg2.1
-file path=$(ECPREFIX)/share/man/man1/mpeg2dec.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libmpeg2.so target=libmpeg2.so.0.1.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libmpeg2.so.0 target=libmpeg2.so.0.1.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libmpeg2convert.so \
+file path=$(USRDIR)/bin/$(MACH64)/corrupt_mpeg2
+file path=$(USRDIR)/bin/$(MACH64)/extract_mpeg2
+file path=$(USRDIR)/bin/$(MACH64)/mpeg2dec
+file path=$(USRDIR)/bin/corrupt_mpeg2
+file path=$(USRDIR)/bin/extract_mpeg2
+file path=$(USRDIR)/bin/mpeg2dec
+file path=$(USRDIR)/include/mpeg2dec/mpeg2.h
+file path=$(USRDIR)/include/mpeg2dec/mpeg2convert.h
+file path=$(USRDIR)/lib/$(MACH64)/libmpeg2.so.0.1.0
+file path=$(USRDIR)/lib/$(MACH64)/libmpeg2convert.so.0.0.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libmpeg2.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libmpeg2convert.pc
+file path=$(USRDIR)/lib/libmpeg2.so.0.1.0
+file path=$(USRDIR)/lib/libmpeg2convert.so.0.0.0
+file path=$(USRDIR)/lib/pkgconfig/libmpeg2.pc
+file path=$(USRDIR)/lib/pkgconfig/libmpeg2convert.pc
+file path=$(USRDIR)/share/man/man1/extract_mpeg2.1
+file path=$(USRDIR)/share/man/man1/mpeg2dec.1
+link path=$(USRDIR)/lib/$(MACH64)/libmpeg2.so target=libmpeg2.so.0.1.0
+link path=$(USRDIR)/lib/$(MACH64)/libmpeg2.so.0 target=libmpeg2.so.0.1.0
+link path=$(USRDIR)/lib/$(MACH64)/libmpeg2convert.so \
     target=libmpeg2convert.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libmpeg2convert.so.0 \
+link path=$(USRDIR)/lib/$(MACH64)/libmpeg2convert.so.0 \
     target=libmpeg2convert.so.0.0.0
-link path=$(ECPREFIX)/lib/libmpeg2.so target=libmpeg2.so.0.1.0
-link path=$(ECPREFIX)/lib/libmpeg2.so.0 target=libmpeg2.so.0.1.0
-link path=$(ECPREFIX)/lib/libmpeg2convert.so target=libmpeg2convert.so.0.0.0
-link path=$(ECPREFIX)/lib/libmpeg2convert.so.0 target=libmpeg2convert.so.0.0.0
+link path=$(USRDIR)/lib/libmpeg2.so target=libmpeg2.so.0.1.0
+link path=$(USRDIR)/lib/libmpeg2.so.0 target=libmpeg2.so.0.1.0
+link path=$(USRDIR)/lib/libmpeg2convert.so target=libmpeg2convert.so.0.0.0
+link path=$(USRDIR)/lib/libmpeg2convert.so.0 target=libmpeg2convert.so.0.0.0
