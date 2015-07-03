@@ -22,103 +22,70 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/jni
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/jni
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/lib/python2.6
-dir path=$(ECPREFIX)/lib/python2.6/site-packages
-dir path=$(ECPREFIX)/lib/python2.6/site-packages/caca
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/java
-dir path=$(ECPREFIX)/share/libcaca
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/caca-config
-file path=$(ECPREFIX)/bin/$(MACH64)/cacaclock
-file path=$(ECPREFIX)/bin/$(MACH64)/cacademo
-file path=$(ECPREFIX)/bin/$(MACH64)/cacafire
-file path=$(ECPREFIX)/bin/$(MACH64)/cacaplay
-file path=$(ECPREFIX)/bin/$(MACH64)/cacaserver
-file path=$(ECPREFIX)/bin/$(MACH64)/cacaview
-file path=$(ECPREFIX)/bin/$(MACH64)/img2txt
-file path=$(ECPREFIX)/bin/caca-config
-file path=$(ECPREFIX)/bin/cacaclock
-file path=$(ECPREFIX)/bin/cacademo
-file path=$(ECPREFIX)/bin/cacafire
-file path=$(ECPREFIX)/bin/cacaplay
-file path=$(ECPREFIX)/bin/cacaserver
-file path=$(ECPREFIX)/bin/cacaview
-file path=$(ECPREFIX)/bin/img2txt
-file path=$(ECPREFIX)/include/caca++.h
-file path=$(ECPREFIX)/include/caca.h
-file path=$(ECPREFIX)/include/caca0.h
-file path=$(ECPREFIX)/include/caca_conio.h
-file path=$(ECPREFIX)/include/caca_types.h
-file path=$(ECPREFIX)/lib/$(MACH64)/jni/libcaca-java.la
-file path=$(ECPREFIX)/lib/$(MACH64)/jni/libcaca-java.so.0.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/libcaca++.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libcaca++.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libcaca++.so.0.99.19
-file path=$(ECPREFIX)/lib/$(MACH64)/libcaca.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libcaca.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libcaca.so.0.99.19
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/caca++.pc
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/caca.pc
-file path=$(ECPREFIX)/lib/jni/libcaca-java.la
-file path=$(ECPREFIX)/lib/jni/libcaca-java.so.0.0.0
-file path=$(ECPREFIX)/lib/libcaca++.a
-file path=$(ECPREFIX)/lib/libcaca++.la
-file path=$(ECPREFIX)/lib/libcaca++.so.0.99.19
-file path=$(ECPREFIX)/lib/libcaca.a
-file path=$(ECPREFIX)/lib/libcaca.la
-file path=$(ECPREFIX)/lib/libcaca.so.0.99.19
-file path=$(ECPREFIX)/lib/pkgconfig/caca++.pc
-file path=$(ECPREFIX)/lib/pkgconfig/caca.pc
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/__init__.py
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/__init__.pyc
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/__init__.pyo
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/canvas.py
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/canvas.pyc
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/canvas.pyo
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/common.py
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/common.pyc
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/common.pyo
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/display.py
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/display.pyc
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/display.pyo
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/dither.py
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/dither.pyc
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/dither.pyo
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/font.py
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/font.pyc
-file path=$(ECPREFIX)/lib/python2.6/site-packages/caca/font.pyo
-file path=$(ECPREFIX)/share/java/libjava.jar
-file path=$(ECPREFIX)/share/libcaca/caca.txt
-file path=$(ECPREFIX)/share/man/man1/caca-config.1
-file path=$(ECPREFIX)/share/man/man1/cacafire.1
-file path=$(ECPREFIX)/share/man/man1/cacaplay.1
-file path=$(ECPREFIX)/share/man/man1/cacaserver.1
-file path=$(ECPREFIX)/share/man/man1/cacaview.1
-file path=$(ECPREFIX)/share/man/man1/img2txt.1
-link path=$(ECPREFIX)/lib/$(MACH64)/jni/libcaca-java.so \
+file path=$(USRDIR)/bin/$(MACH64)/caca-config
+file path=$(USRDIR)/bin/$(MACH64)/cacaclock
+file path=$(USRDIR)/bin/$(MACH64)/cacademo
+file path=$(USRDIR)/bin/$(MACH64)/cacafire
+file path=$(USRDIR)/bin/$(MACH64)/cacaplay
+file path=$(USRDIR)/bin/$(MACH64)/cacaserver
+file path=$(USRDIR)/bin/$(MACH64)/cacaview
+file path=$(USRDIR)/bin/$(MACH64)/img2txt
+file path=$(USRDIR)/bin/caca-config
+file path=$(USRDIR)/bin/cacaclock
+file path=$(USRDIR)/bin/cacademo
+file path=$(USRDIR)/bin/cacafire
+file path=$(USRDIR)/bin/cacaplay
+file path=$(USRDIR)/bin/cacaserver
+file path=$(USRDIR)/bin/cacaview
+file path=$(USRDIR)/bin/img2txt
+
+file path=$(USRDIR)/include/caca++.h
+file path=$(USRDIR)/include/caca.h
+file path=$(USRDIR)/include/caca0.h
+file path=$(USRDIR)/include/caca_conio.h
+file path=$(USRDIR)/include/caca_types.h
+
+file path=$(USRDIR)/lib/$(MACH64)/jni/libcaca-java.so.0.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libcaca++.a
+file path=$(USRDIR)/lib/$(MACH64)/libcaca++.so.0.99.19
+file path=$(USRDIR)/lib/$(MACH64)/libcaca.a
+file path=$(USRDIR)/lib/$(MACH64)/libcaca.so.0.99.19
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/caca++.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/caca.pc
+file path=$(USRDIR)/lib/jni/libcaca-java.so.0.0.0
+file path=$(USRDIR)/lib/libcaca++.a
+file path=$(USRDIR)/lib/libcaca++.so.0.99.19
+file path=$(USRDIR)/lib/libcaca.a
+file path=$(USRDIR)/lib/libcaca.so.0.99.19
+file path=$(USRDIR)/lib/pkgconfig/caca++.pc
+file path=$(USRDIR)/lib/pkgconfig/caca.pc
+file path=$(USRDIR)/lib/python2.7/site-packages/caca/__init__.py
+file path=$(USRDIR)/lib/python2.7/site-packages/caca/canvas.py
+file path=$(USRDIR)/lib/python2.7/site-packages/caca/common.py
+file path=$(USRDIR)/lib/python2.7/site-packages/caca/display.py
+file path=$(USRDIR)/lib/python2.7/site-packages/caca/dither.py
+file path=$(USRDIR)/lib/python2.7/site-packages/caca/font.py
+
+file path=$(USRDIR)/share/java/libjava.jar
+file path=$(USRDIR)/share/libcaca/caca.txt
+file path=$(USRDIR)/share/man/man1/caca-config.1
+file path=$(USRDIR)/share/man/man1/cacafire.1
+file path=$(USRDIR)/share/man/man1/cacaplay.1
+file path=$(USRDIR)/share/man/man1/cacaserver.1
+file path=$(USRDIR)/share/man/man1/cacaview.1
+file path=$(USRDIR)/share/man/man1/img2txt.1
+link path=$(USRDIR)/lib/$(MACH64)/jni/libcaca-java.so \
     target=libcaca-java.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/jni/libcaca-java.so.0 \
+link path=$(USRDIR)/lib/$(MACH64)/jni/libcaca-java.so.0 \
     target=libcaca-java.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libcaca++.so target=libcaca++.so.0.99.19
-link path=$(ECPREFIX)/lib/$(MACH64)/libcaca++.so.0 target=libcaca++.so.0.99.19
-link path=$(ECPREFIX)/lib/$(MACH64)/libcaca.so target=libcaca.so.0.99.19
-link path=$(ECPREFIX)/lib/$(MACH64)/libcaca.so.0 target=libcaca.so.0.99.19
-link path=$(ECPREFIX)/lib/jni/libcaca-java.so target=libcaca-java.so.0.0.0
-link path=$(ECPREFIX)/lib/jni/libcaca-java.so.0 target=libcaca-java.so.0.0.0
-link path=$(ECPREFIX)/lib/libcaca++.so target=libcaca++.so.0.99.19
-link path=$(ECPREFIX)/lib/libcaca++.so.0 target=libcaca++.so.0.99.19
-link path=$(ECPREFIX)/lib/libcaca.so target=libcaca.so.0.99.19
-link path=$(ECPREFIX)/lib/libcaca.so.0 target=libcaca.so.0.99.19
-link path=$(ECPREFIX)/share/man/man1/cacademo.1 target=cacafire.1
+link path=$(USRDIR)/lib/$(MACH64)/libcaca++.so target=libcaca++.so.0.99.19
+link path=$(USRDIR)/lib/$(MACH64)/libcaca++.so.0 target=libcaca++.so.0.99.19
+link path=$(USRDIR)/lib/$(MACH64)/libcaca.so target=libcaca.so.0.99.19
+link path=$(USRDIR)/lib/$(MACH64)/libcaca.so.0 target=libcaca.so.0.99.19
+link path=$(USRDIR)/lib/jni/libcaca-java.so target=libcaca-java.so.0.0.0
+link path=$(USRDIR)/lib/jni/libcaca-java.so.0 target=libcaca-java.so.0.0.0
+link path=$(USRDIR)/lib/libcaca++.so target=libcaca++.so.0.99.19
+link path=$(USRDIR)/lib/libcaca++.so.0 target=libcaca++.so.0.99.19
+link path=$(USRDIR)/lib/libcaca.so target=libcaca.so.0.99.19
+link path=$(USRDIR)/lib/libcaca.so.0 target=libcaca.so.0.99.19
+link path=$(USRDIR)/share/man/man1/cacademo.1 target=cacafire.1

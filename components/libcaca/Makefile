@@ -11,6 +11,7 @@
 #
 # Copyright 2014 EveryCity Ltd. All rights reserved.
 #
+COMPONENT_BUILD_GMAKE_ARGS=
 
 include ../../make-rules/shared-macros.mk
 
@@ -30,7 +31,15 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
+
 LDFLAGS	+=	-lnsl -lsocket -lresolv
+
+EC_INCLUDE = -I../caca -I$(USRDIR)/include
+
+JAVA_CFLAGS += -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/solaris
+
+CONFIGURE_ENV.64 += JAVA_CFLAGS="$(JAVA_CFLAGS)"
 
 build:		$(BUILD_32_and_64)
 
