@@ -287,7 +287,6 @@
 /^php56$/d
 /^webdis$/d
 /^wp-cli$/d
-/^zeromq$/d
 /^qt4$/d
 # Ignores below are either pkgdepend issues or fallout
 # from the server image update to everycity_20150603T122154Z
