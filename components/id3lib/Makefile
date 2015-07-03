@@ -36,7 +36,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS	+=	-lm -lgcc_s -lstdc++ -lz
+LDFLAGS	+=	-lm -static-libstdc++ -static-libgcc -lz
 
 build:		$(BUILD_32_and_64)
 

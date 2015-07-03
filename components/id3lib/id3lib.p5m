@@ -22,38 +22,31 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license id3lib.license license="LGPL"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/id3
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-file path=$(ECPREFIX)/bin/$(MACH64)/id3convert
-file path=$(ECPREFIX)/bin/$(MACH64)/id3cp
-file path=$(ECPREFIX)/bin/$(MACH64)/id3info
-file path=$(ECPREFIX)/bin/$(MACH64)/id3tag
-file path=$(ECPREFIX)/bin/id3convert
-file path=$(ECPREFIX)/bin/id3cp
-file path=$(ECPREFIX)/bin/id3info
-file path=$(ECPREFIX)/bin/id3tag
-file path=$(ECPREFIX)/include/id3.h
-file path=$(ECPREFIX)/include/id3/field.h
-file path=$(ECPREFIX)/include/id3/globals.h
-file path=$(ECPREFIX)/include/id3/id3lib_frame.h
-file path=$(ECPREFIX)/include/id3/id3lib_streams.h
-file path=$(ECPREFIX)/include/id3/id3lib_strings.h
-file path=$(ECPREFIX)/include/id3/misc_support.h
-file path=$(ECPREFIX)/include/id3/reader.h
-file path=$(ECPREFIX)/include/id3/readers.h
-file path=$(ECPREFIX)/include/id3/sized_types.h
-file path=$(ECPREFIX)/include/id3/tag.h
-file path=$(ECPREFIX)/include/id3/utils.h
-file path=$(ECPREFIX)/include/id3/writer.h
-file path=$(ECPREFIX)/include/id3/writers.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libid3-3.8.so.3.0.0
-file path=$(ECPREFIX)/lib/libid3-3.8.so.3.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libid3-3.8.so.3 target=libid3-3.8.so.3.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libid3.so target=libid3-3.8.so.3.0.0
-link path=$(ECPREFIX)/lib/libid3-3.8.so.3 target=libid3-3.8.so.3.0.0
-link path=$(ECPREFIX)/lib/libid3.so target=libid3-3.8.so.3.0.0
+file path=$(USRDIR)/bin/$(MACH64)/id3convert
+file path=$(USRDIR)/bin/$(MACH64)/id3cp
+file path=$(USRDIR)/bin/$(MACH64)/id3info
+file path=$(USRDIR)/bin/$(MACH64)/id3tag
+file path=$(USRDIR)/bin/id3convert
+file path=$(USRDIR)/bin/id3cp
+file path=$(USRDIR)/bin/id3info
+file path=$(USRDIR)/bin/id3tag
+file path=$(USRDIR)/include/id3.h
+file path=$(USRDIR)/include/id3/field.h
+file path=$(USRDIR)/include/id3/globals.h
+file path=$(USRDIR)/include/id3/id3lib_frame.h
+file path=$(USRDIR)/include/id3/id3lib_streams.h
+file path=$(USRDIR)/include/id3/id3lib_strings.h
+file path=$(USRDIR)/include/id3/misc_support.h
+file path=$(USRDIR)/include/id3/reader.h
+file path=$(USRDIR)/include/id3/readers.h
+file path=$(USRDIR)/include/id3/sized_types.h
+file path=$(USRDIR)/include/id3/tag.h
+file path=$(USRDIR)/include/id3/utils.h
+file path=$(USRDIR)/include/id3/writer.h
+file path=$(USRDIR)/include/id3/writers.h
+file path=$(USRDIR)/lib/$(MACH64)/libid3-3.8.so.3.0.0
+file path=$(USRDIR)/lib/libid3-3.8.so.3.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libid3-3.8.so.3 target=libid3-3.8.so.3.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libid3.so target=libid3-3.8.so.3.0.0
+link path=$(USRDIR)/lib/libid3-3.8.so.3 target=libid3-3.8.so.3.0.0
+link path=$(USRDIR)/lib/libid3.so target=libid3-3.8.so.3.0.0

@@ -52,7 +52,6 @@
 /^groff$/d
 /^haproxy-dev$/d
 /^htop$/d
-/^id3lib$/d
 /^illumos-hal$/d
 /^irssi$/d
 /^isc-dhcp$/d
