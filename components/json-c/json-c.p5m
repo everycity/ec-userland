@@ -37,10 +37,8 @@ file path=$(USRDIR)/include/json/json_tokener.h
 file path=$(USRDIR)/include/json/json_util.h
 file path=$(USRDIR)/include/json/linkhash.h
 file path=$(USRDIR)/include/json/printbuf.h
-file path=$(USRDIR)/lib/$(MACH64)/libjson.la
 file path=$(USRDIR)/lib/$(MACH64)/libjson.so.0.1.0
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/json.pc
-file path=$(USRDIR)/lib/libjson.la
 file path=$(USRDIR)/lib/libjson.so.0.1.0
 file path=$(USRDIR)/lib/pkgconfig/json.pc
 link path=$(USRDIR)/lib/$(MACH64)/libjson.so target=libjson.so.0.1.0
