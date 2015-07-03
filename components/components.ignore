@@ -293,3 +293,4 @@
 # Ignores below are either pkgdepend issues or fallout
 # from the server image update to everycity_20150603T122154Z
 /^glib2$/d
+/^cairo$/d
