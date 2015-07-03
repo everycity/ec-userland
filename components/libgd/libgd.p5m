@@ -22,62 +22,54 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-file path=$(ECPREFIX)/bin/$(MACH64)/annotate
-file path=$(ECPREFIX)/bin/$(MACH64)/bdftogd
-file path=$(ECPREFIX)/bin/$(MACH64)/gd2copypal
-file path=$(ECPREFIX)/bin/$(MACH64)/gd2togif
-file path=$(ECPREFIX)/bin/$(MACH64)/gd2topng
-file path=$(ECPREFIX)/bin/$(MACH64)/gdcmpgif
-file path=$(ECPREFIX)/bin/$(MACH64)/gdlib-config
-file path=$(ECPREFIX)/bin/$(MACH64)/gdparttopng
-file path=$(ECPREFIX)/bin/$(MACH64)/gdtopng
-file path=$(ECPREFIX)/bin/$(MACH64)/giftogd2
-file path=$(ECPREFIX)/bin/$(MACH64)/pngtogd
-file path=$(ECPREFIX)/bin/$(MACH64)/pngtogd2
-file path=$(ECPREFIX)/bin/$(MACH64)/webpng
-file path=$(ECPREFIX)/bin/annotate
-file path=$(ECPREFIX)/bin/bdftogd
-file path=$(ECPREFIX)/bin/gd2copypal
-file path=$(ECPREFIX)/bin/gd2togif
-file path=$(ECPREFIX)/bin/gd2topng
-file path=$(ECPREFIX)/bin/gdcmpgif
-file path=$(ECPREFIX)/bin/gdlib-config
-file path=$(ECPREFIX)/bin/gdparttopng
-file path=$(ECPREFIX)/bin/gdtopng
-file path=$(ECPREFIX)/bin/giftogd2
-file path=$(ECPREFIX)/bin/pngtogd
-file path=$(ECPREFIX)/bin/pngtogd2
-file path=$(ECPREFIX)/bin/webpng
-file path=$(ECPREFIX)/include/entities.h
-file path=$(ECPREFIX)/include/gd.h
-file path=$(ECPREFIX)/include/gd_color_map.h
-file path=$(ECPREFIX)/include/gd_errors.h
-file path=$(ECPREFIX)/include/gd_io.h
-file path=$(ECPREFIX)/include/gdcache.h
-file path=$(ECPREFIX)/include/gdfontg.h
-file path=$(ECPREFIX)/include/gdfontl.h
-file path=$(ECPREFIX)/include/gdfontmb.h
-file path=$(ECPREFIX)/include/gdfonts.h
-file path=$(ECPREFIX)/include/gdfontt.h
-file path=$(ECPREFIX)/include/gdfx.h
-file path=$(ECPREFIX)/include/gdpp.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libgd.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libgd.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libgd.so.3.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/gdlib.pc
-file path=$(ECPREFIX)/lib/libgd.a
-file path=$(ECPREFIX)/lib/libgd.la
-file path=$(ECPREFIX)/lib/libgd.so.3.0.0
-file path=$(ECPREFIX)/lib/pkgconfig/gdlib.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libgd.so target=libgd.so.3.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libgd.so.3 target=libgd.so.3.0.0
-link path=$(ECPREFIX)/lib/libgd.so target=libgd.so.3.0.0
-link path=$(ECPREFIX)/lib/libgd.so.3 target=libgd.so.3.0.0
+file path=$(USRDIR)/bin/$(MACH64)/annotate
+file path=$(USRDIR)/bin/$(MACH64)/bdftogd
+file path=$(USRDIR)/bin/$(MACH64)/gd2copypal
+file path=$(USRDIR)/bin/$(MACH64)/gd2togif
+file path=$(USRDIR)/bin/$(MACH64)/gd2topng
+file path=$(USRDIR)/bin/$(MACH64)/gdcmpgif
+file path=$(USRDIR)/bin/$(MACH64)/gdlib-config
+file path=$(USRDIR)/bin/$(MACH64)/gdparttopng
+file path=$(USRDIR)/bin/$(MACH64)/gdtopng
+file path=$(USRDIR)/bin/$(MACH64)/giftogd2
+file path=$(USRDIR)/bin/$(MACH64)/pngtogd
+file path=$(USRDIR)/bin/$(MACH64)/pngtogd2
+file path=$(USRDIR)/bin/$(MACH64)/webpng
+file path=$(USRDIR)/bin/annotate
+file path=$(USRDIR)/bin/bdftogd
+file path=$(USRDIR)/bin/gd2copypal
+file path=$(USRDIR)/bin/gd2togif
+file path=$(USRDIR)/bin/gd2topng
+file path=$(USRDIR)/bin/gdcmpgif
+file path=$(USRDIR)/bin/gdlib-config
+file path=$(USRDIR)/bin/gdparttopng
+file path=$(USRDIR)/bin/gdtopng
+file path=$(USRDIR)/bin/giftogd2
+file path=$(USRDIR)/bin/pngtogd
+file path=$(USRDIR)/bin/pngtogd2
+file path=$(USRDIR)/bin/webpng
+
+file path=$(USRDIR)/include/entities.h
+file path=$(USRDIR)/include/gd.h
+file path=$(USRDIR)/include/gd_color_map.h
+file path=$(USRDIR)/include/gd_errors.h
+file path=$(USRDIR)/include/gd_io.h
+file path=$(USRDIR)/include/gdcache.h
+file path=$(USRDIR)/include/gdfontg.h
+file path=$(USRDIR)/include/gdfontl.h
+file path=$(USRDIR)/include/gdfontmb.h
+file path=$(USRDIR)/include/gdfonts.h
+file path=$(USRDIR)/include/gdfontt.h
+file path=$(USRDIR)/include/gdfx.h
+file path=$(USRDIR)/include/gdpp.h
+
+file path=$(USRDIR)/lib/$(MACH64)/libgd.a
+file path=$(USRDIR)/lib/$(MACH64)/libgd.so.3.0.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/gdlib.pc
+file path=$(USRDIR)/lib/libgd.a
+file path=$(USRDIR)/lib/libgd.so.3.0.0
+file path=$(USRDIR)/lib/pkgconfig/gdlib.pc
+link path=$(USRDIR)/lib/$(MACH64)/libgd.so target=libgd.so.3.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libgd.so.3 target=libgd.so.3.0.0
+link path=$(USRDIR)/lib/libgd.so target=libgd.so.3.0.0
+link path=$(USRDIR)/lib/libgd.so.3 target=libgd.so.3.0.0

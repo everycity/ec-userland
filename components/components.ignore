@@ -58,7 +58,6 @@
 /^isc-dhcp$/d
 /^java-jna$/d
 /^java-snappy$/d
-/^libgd$/d
 /^libid3tag$/d
 /^libmediainfo$/d
 /^libmms$/d
