@@ -30,26 +30,28 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
+CXXFLAGS += -Wno-unused-local-typedefs
+
 COMPONENT_PRE_BUILD_ACTION=	(cd $(@D); $(GMAKE) dependencies;)
-COMPONENT_BUILD_ENV+=		LDFLAGS="$(LDFLAGS) -lnsl"
+COMPONENT_BUILD_ENV+=		LDFLAGS="$(LDFLAGS) -lnsl" CXXFLAGS="$(CXXFLAGS)"
 COMPONENT_BUILD_ARGS=		console=readline library=shared soname_version=$(COMPONENT_VERSION)
 COMPONENT_BUILD_TARGETS=	ia32.release
 
 build:		$(BUILD_32)
 
 $(BUILD_DIR)/.installed:	$(BUILD_DIR_32)/.built
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin
-	$(CP) $(BUILD_DIR_32)/out/ia32.release/d8 $(PROTO_DIR)$(ECPREFIX)/bin
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/include
-	$(CP) $(BUILD_DIR_32)/include/v8-debug.h $(PROTO_DIR)$(ECPREFIX)/include
-	$(CP) $(BUILD_DIR_32)/include/v8-preparser.h $(PROTO_DIR)$(ECPREFIX)/include
-	$(CP) $(BUILD_DIR_32)/include/v8-profiler.h $(PROTO_DIR)$(ECPREFIX)/include
-	$(CP) $(BUILD_DIR_32)/include/v8-testing.h $(PROTO_DIR)$(ECPREFIX)/include
-	$(CP) $(BUILD_DIR_32)/include/v8.h $(PROTO_DIR)$(ECPREFIX)/include
-	$(CP) $(BUILD_DIR_32)/include/v8stdint.h $(PROTO_DIR)$(ECPREFIX)/include
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib
-	$(CP) $(BUILD_DIR_32)/out/ia32.release/lib.target/libv8.so.$(COMPONENT_VERSION) $(PROTO_DIR)$(ECPREFIX)/lib
-	( cd $(PROTO_DIR)$(ECPREFIX)/lib ; \
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/bin
+	$(CP) $(BUILD_DIR_32)/out/ia32.release/d8 $(PROTO_DIR)$(USRDIR)/bin
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/include
+	$(CP) $(BUILD_DIR_32)/include/v8-debug.h $(PROTO_DIR)$(USRDIR)/include
+	$(CP) $(BUILD_DIR_32)/include/v8-preparser.h $(PROTO_DIR)$(USRDIR)/include
+	$(CP) $(BUILD_DIR_32)/include/v8-profiler.h $(PROTO_DIR)$(USRDIR)/include
+	$(CP) $(BUILD_DIR_32)/include/v8-testing.h $(PROTO_DIR)$(USRDIR)/include
+	$(CP) $(BUILD_DIR_32)/include/v8.h $(PROTO_DIR)$(USRDIR)/include
+	$(CP) $(BUILD_DIR_32)/include/v8stdint.h $(PROTO_DIR)$(USRDIR)/include
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib
+	$(CP) $(BUILD_DIR_32)/out/ia32.release/lib.target/libv8.so.$(COMPONENT_VERSION) $(PROTO_DIR)$(USRDIR)/lib
+	( cd $(PROTO_DIR)$(USRDIR)/lib ; \
 		$(SYMLINK) libv8.so.$(COMPONENT_VERSION) libv8.so ; \
 		$(SYMLINK) libv8.so.$(COMPONENT_VERSION) libv8.so.$(COMPONENT_MJR_VERSION) ; )
 	$(TOUCH) $@
