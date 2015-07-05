@@ -22,51 +22,41 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license libxspf.license license="LibXSPF"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/xspf
-dir path=$(ECPREFIX)/include/xspf/ProjectOpus
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-file path=$(ECPREFIX)/bin/$(MACH64)/xspf_check
-file path=$(ECPREFIX)/bin/$(MACH64)/xspf_strip
-file path=$(ECPREFIX)/bin/xspf_check
-file path=$(ECPREFIX)/bin/xspf_strip
-file path=$(ECPREFIX)/include/xspf/ProjectOpus/ProjectOpusPlaylistExtension.h
+file path=$(USRDIR)/bin/$(MACH64)/xspf_check
+file path=$(USRDIR)/bin/$(MACH64)/xspf_strip
+file path=$(USRDIR)/bin/xspf_check
+file path=$(USRDIR)/bin/xspf_strip
+file path=$(USRDIR)/include/xspf/ProjectOpus/ProjectOpusPlaylistExtension.h
 file \
-    path=$(ECPREFIX)/include/xspf/ProjectOpus/ProjectOpusPlaylistExtensionReader.h
+    path=$(USRDIR)/include/xspf/ProjectOpus/ProjectOpusPlaylistExtensionReader.h
 file \
-    path=$(ECPREFIX)/include/xspf/ProjectOpus/ProjectOpusPlaylistExtensionWriter.h
-file path=$(ECPREFIX)/include/xspf/Xspf.h
-file path=$(ECPREFIX)/include/xspf/XspfChunkCallback.h
-file path=$(ECPREFIX)/include/xspf/XspfData.h
-file path=$(ECPREFIX)/include/xspf/XspfDateTime.h
-file path=$(ECPREFIX)/include/xspf/XspfDefines.h
-file path=$(ECPREFIX)/include/xspf/XspfExtension.h
-file path=$(ECPREFIX)/include/xspf/XspfExtensionReader.h
-file path=$(ECPREFIX)/include/xspf/XspfExtensionReaderFactory.h
-file path=$(ECPREFIX)/include/xspf/XspfExtensionWriter.h
-file path=$(ECPREFIX)/include/xspf/XspfIndentFormatter.h
-file path=$(ECPREFIX)/include/xspf/XspfProps.h
-file path=$(ECPREFIX)/include/xspf/XspfReader.h
-file path=$(ECPREFIX)/include/xspf/XspfReaderCallback.h
-file path=$(ECPREFIX)/include/xspf/XspfSeamlessFormatter.h
-file path=$(ECPREFIX)/include/xspf/XspfStack.h
-file path=$(ECPREFIX)/include/xspf/XspfToolbox.h
-file path=$(ECPREFIX)/include/xspf/XspfTrack.h
-file path=$(ECPREFIX)/include/xspf/XspfVersion.h
-file path=$(ECPREFIX)/include/xspf/XspfWriter.h
-file path=$(ECPREFIX)/include/xspf/XspfXmlFormatter.h
-file path=$(ECPREFIX)/include/xspf/xspf_c.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libxspf.so.4.0.1
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xspf.pc
-file path=$(ECPREFIX)/lib/libxspf.so.4.0.1
-file path=$(ECPREFIX)/lib/pkgconfig/xspf.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libxspf.so target=libxspf.so.4.0.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libxspf.so.4 target=libxspf.so.4.0.1
-link path=$(ECPREFIX)/lib/libxspf.so target=libxspf.so.4.0.1
-link path=$(ECPREFIX)/lib/libxspf.so.4 target=libxspf.so.4.0.1
+    path=$(USRDIR)/include/xspf/ProjectOpus/ProjectOpusPlaylistExtensionWriter.h
+file path=$(USRDIR)/include/xspf/Xspf.h
+file path=$(USRDIR)/include/xspf/XspfChunkCallback.h
+file path=$(USRDIR)/include/xspf/XspfData.h
+file path=$(USRDIR)/include/xspf/XspfDateTime.h
+file path=$(USRDIR)/include/xspf/XspfDefines.h
+file path=$(USRDIR)/include/xspf/XspfExtension.h
+file path=$(USRDIR)/include/xspf/XspfExtensionReader.h
+file path=$(USRDIR)/include/xspf/XspfExtensionReaderFactory.h
+file path=$(USRDIR)/include/xspf/XspfExtensionWriter.h
+file path=$(USRDIR)/include/xspf/XspfIndentFormatter.h
+file path=$(USRDIR)/include/xspf/XspfProps.h
+file path=$(USRDIR)/include/xspf/XspfReader.h
+file path=$(USRDIR)/include/xspf/XspfReaderCallback.h
+file path=$(USRDIR)/include/xspf/XspfSeamlessFormatter.h
+file path=$(USRDIR)/include/xspf/XspfStack.h
+file path=$(USRDIR)/include/xspf/XspfToolbox.h
+file path=$(USRDIR)/include/xspf/XspfTrack.h
+file path=$(USRDIR)/include/xspf/XspfVersion.h
+file path=$(USRDIR)/include/xspf/XspfWriter.h
+file path=$(USRDIR)/include/xspf/XspfXmlFormatter.h
+file path=$(USRDIR)/include/xspf/xspf_c.h
+file path=$(USRDIR)/lib/$(MACH64)/libxspf.so.4.0.1
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xspf.pc
+file path=$(USRDIR)/lib/libxspf.so.4.0.1
+file path=$(USRDIR)/lib/pkgconfig/xspf.pc
+link path=$(USRDIR)/lib/$(MACH64)/libxspf.so target=libxspf.so.4.0.1
+link path=$(USRDIR)/lib/$(MACH64)/libxspf.so.4 target=libxspf.so.4.0.1
+link path=$(USRDIR)/lib/libxspf.so target=libxspf.so.4.0.1
+link path=$(USRDIR)/lib/libxspf.so.4 target=libxspf.so.4.0.1
