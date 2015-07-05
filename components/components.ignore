@@ -1,4 +1,3 @@
-/^apache22-mod_evasive$/d
 /^apache22-mod_fastcgi$/d
 /^apache22-mod_geoip2$/d
 /^apache22-mod_jk$/d
