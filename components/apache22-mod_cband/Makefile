@@ -32,16 +32,16 @@ COMPONENT_PRE_CONFIGURE_ACTION.64 = ( sed -e 's/@DST_CLASS@/@DST_CLASS@ -Wl,-m64
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D)); \
 	$(COMPONENT_PRE_CONFIGURE_ACTION.$(BITS))
 
-CONFIGURE_OPTIONS.32    +=      --with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/apxs
-CONFIGURE_OPTIONS.64    +=      --with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/apxs
+CONFIGURE_OPTIONS.32    +=      --with-apxs=$(USRDIR)/lib/apache/2.2/bin/apxs
+CONFIGURE_OPTIONS.64    +=      --with-apxs=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/apxs
 
 build:		$(BUILD_32_and_64)
 
 $(BUILD_DIR)/.installed:	build
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.2/mods-available
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
-	$(CP) $(BUILD_DIR_32)/src/.libs/mod_cband.so $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/
-	$(CP) $(BUILD_DIR_64)/src/.libs/mod_cband.so $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(SYSCONFDIR)/apache/2.2/mods-available
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules/$(MACH64)
+	$(CP) $(BUILD_DIR_32)/src/.libs/mod_cband.so $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules/
+	$(CP) $(BUILD_DIR_64)/src/.libs/mod_cband.so $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules/$(MACH64)
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed
