@@ -22,31 +22,19 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/libwpg-0.3
-dir path=$(ECPREFIX)/include/libwpg-0.3/libwpg
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-file path=$(ECPREFIX)/bin/$(MACH64)/wpg2raw
-file path=$(ECPREFIX)/bin/$(MACH64)/wpg2svg
-file path=$(ECPREFIX)/bin/$(MACH64)/wpg2svgbatch.pl
-file path=$(ECPREFIX)/bin/wpg2raw
-file path=$(ECPREFIX)/bin/wpg2svg
-file path=$(ECPREFIX)/bin/wpg2svgbatch.pl
-file path=$(ECPREFIX)/include/libwpg-0.3/libwpg/WPGraphics.h
-file path=$(ECPREFIX)/include/libwpg-0.3/libwpg/libwpg.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libwpg-0.3.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libwpg-0.3.so.3.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libwpg-0.3.pc
-file path=$(ECPREFIX)/lib/libwpg-0.3.la
-file path=$(ECPREFIX)/lib/libwpg-0.3.so.3.0.0
-file path=$(ECPREFIX)/lib/pkgconfig/libwpg-0.3.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libwpg-0.3.so target=libwpg-0.3.so.3.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libwpg-0.3.so.3 target=libwpg-0.3.so.3.0.0
-link path=$(ECPREFIX)/lib/libwpg-0.3.so target=libwpg-0.3.so.3.0.0
-link path=$(ECPREFIX)/lib/libwpg-0.3.so.3 target=libwpg-0.3.so.3.0.0
+file path=$(USRDIR)/bin/$(MACH64)/wpg2raw
+file path=$(USRDIR)/bin/$(MACH64)/wpg2svg
+file path=$(USRDIR)/bin/$(MACH64)/wpg2svgbatch.pl
+file path=$(USRDIR)/bin/wpg2raw
+file path=$(USRDIR)/bin/wpg2svg
+file path=$(USRDIR)/bin/wpg2svgbatch.pl
+file path=$(USRDIR)/include/libwpg-0.3/libwpg/WPGraphics.h
+file path=$(USRDIR)/include/libwpg-0.3/libwpg/libwpg.h
+file path=$(USRDIR)/lib/$(MACH64)/libwpg-0.3.so.3.0.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libwpg-0.3.pc
+file path=$(USRDIR)/lib/libwpg-0.3.so.3.0.0
+file path=$(USRDIR)/lib/pkgconfig/libwpg-0.3.pc
+link path=$(USRDIR)/lib/$(MACH64)/libwpg-0.3.so target=libwpg-0.3.so.3.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libwpg-0.3.so.3 target=libwpg-0.3.so.3.0.0
+link path=$(USRDIR)/lib/libwpg-0.3.so target=libwpg-0.3.so.3.0.0
+link path=$(USRDIR)/lib/libwpg-0.3.so.3 target=libwpg-0.3.so.3.0.0
