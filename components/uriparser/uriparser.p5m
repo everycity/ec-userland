@@ -22,26 +22,19 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license uriparser.license license="URIParser"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/uriparser
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-file path=$(ECPREFIX)/include/uriparser/Uri.h
-file path=$(ECPREFIX)/include/uriparser/UriBase.h
-file path=$(ECPREFIX)/include/uriparser/UriDefsAnsi.h
-file path=$(ECPREFIX)/include/uriparser/UriDefsConfig.h
-file path=$(ECPREFIX)/include/uriparser/UriDefsUnicode.h
-file path=$(ECPREFIX)/include/uriparser/UriIp4.h
-file path=$(ECPREFIX)/lib/$(MACH64)/liburiparser.so.1.0.10
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/liburiparser.pc
-file path=$(ECPREFIX)/lib/liburiparser.so.1.0.10
-file path=$(ECPREFIX)/lib/pkgconfig/liburiparser.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/liburiparser.so \
+file path=$(USRDIR)/include/uriparser/Uri.h
+file path=$(USRDIR)/include/uriparser/UriBase.h
+file path=$(USRDIR)/include/uriparser/UriDefsAnsi.h
+file path=$(USRDIR)/include/uriparser/UriDefsConfig.h
+file path=$(USRDIR)/include/uriparser/UriDefsUnicode.h
+file path=$(USRDIR)/include/uriparser/UriIp4.h
+file path=$(USRDIR)/lib/$(MACH64)/liburiparser.so.1.0.10
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/liburiparser.pc
+file path=$(USRDIR)/lib/liburiparser.so.1.0.10
+file path=$(USRDIR)/lib/pkgconfig/liburiparser.pc
+link path=$(USRDIR)/lib/$(MACH64)/liburiparser.so \
     target=liburiparser.so.1.0.10
-link path=$(ECPREFIX)/lib/$(MACH64)/liburiparser.so.1 \
+link path=$(USRDIR)/lib/$(MACH64)/liburiparser.so.1 \
     target=liburiparser.so.1.0.10
-link path=$(ECPREFIX)/lib/liburiparser.so target=liburiparser.so.1.0.10
-link path=$(ECPREFIX)/lib/liburiparser.so.1 target=liburiparser.so.1.0.10
+link path=$(USRDIR)/lib/liburiparser.so target=liburiparser.so.1.0.10
+link path=$(USRDIR)/lib/liburiparser.so.1 target=liburiparser.so.1.0.10

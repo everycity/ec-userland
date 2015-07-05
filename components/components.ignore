@@ -207,7 +207,6 @@
 /^tomcat7$/d
 /^tomee15$/d
 /^trousers$/d
-/^uriparser$/d
 /^varnish$/d
 /^vlc2$/d
 /^vsftpd$/d
