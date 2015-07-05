@@ -56,7 +56,6 @@
 /^isc-dhcp$/d
 /^java-jna$/d
 /^java-snappy$/d
-/^libwpd$/d
 /^libwpg$/d
 /^libwps$/d
 /^libxspf$/d
