@@ -22,25 +22,13 @@ license $(COMPONENT_NAME).license license=$(COMPONENT_LICENSE)
 
 depend fmri=library/libusbugen type=require
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/libusb
+file $(MACH32)/libusb-config path=$(USRDIR)/bin/libusb-config
+file $(MACH32)/usb.h path=$(USRDIR)/include/usb.h
+file $(MACH32)/libusb.txt path=$(USRDIR)/share/doc/libusb/libusb.txt
+file $(MACH32)/libusb.so.1 path=$(USRDIR)/lib/libusb.so.1
+file $(MACH64)/libusb.so.1 path=$(USRDIR)/lib/$(MACH64)/libusb.so.1
+file $(MACH32)/libusb.pc path=$(USRDIR)/lib/pkgconfig/libusb.pc
+file src/libusb-64.pc path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libusb.pc
 
-file $(MACH32)/libusb-config path=$(ECPREFIX)/bin/libusb-config
-file $(MACH32)/usb.h path=$(ECPREFIX)/include/usb.h
-file $(MACH32)/libusb.txt path=$(ECPREFIX)/share/doc/libusb/libusb.txt
-file $(MACH32)/libusb.so.1 path=$(ECPREFIX)/lib/libusb.so.1
-file $(MACH64)/libusb.so.1 path=$(ECPREFIX)/lib/$(MACH64)/libusb.so.1
-file $(MACH32)/libusb.pc path=$(ECPREFIX)/lib/pkgconfig/libusb.pc
-file src/libusb-64.pc path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libusb.pc
-
-link path=$(ECPREFIX)/lib/$(MACH64)/libusb.so target=libusb.so.1
-link path=$(ECPREFIX)/lib/libusb.so target=libusb.so.1
-
+link path=$(USRDIR)/lib/$(MACH64)/libusb.so target=libusb.so.1
+link path=$(USRDIR)/lib/libusb.so target=libusb.so.1

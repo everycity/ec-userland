@@ -56,7 +56,6 @@
 /^isc-dhcp$/d
 /^java-jna$/d
 /^java-snappy$/d
-/^libusb-wrapper$/d
 /^libv8$/d
 /^libwpd$/d
 /^libwpg$/d
