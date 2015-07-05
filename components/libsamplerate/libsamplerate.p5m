@@ -22,26 +22,18 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license libsamplerate.license license="GPLv2"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-file path=$(ECPREFIX)/bin/$(MACH64)/sndfile-resample
-file path=$(ECPREFIX)/bin/sndfile-resample
-file path=$(ECPREFIX)/include/samplerate.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libsamplerate.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/samplerate.pc
-file path=$(ECPREFIX)/lib/libsamplerate.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/pkgconfig/samplerate.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libsamplerate.so \
+file path=$(USRDIR)/bin/$(MACH64)/sndfile-resample
+file path=$(USRDIR)/bin/sndfile-resample
+file path=$(USRDIR)/include/samplerate.h
+file path=$(USRDIR)/lib/$(MACH64)/libsamplerate.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/samplerate.pc
+file path=$(USRDIR)/lib/libsamplerate.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/pkgconfig/samplerate.pc
+link path=$(USRDIR)/lib/$(MACH64)/libsamplerate.so \
     target=libsamplerate.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libsamplerate.so.0 \
+link path=$(USRDIR)/lib/$(MACH64)/libsamplerate.so.0 \
     target=libsamplerate.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libsamplerate.so \
+link path=$(USRDIR)/lib/libsamplerate.so \
     target=libsamplerate.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libsamplerate.so.0 \
+link path=$(USRDIR)/lib/libsamplerate.so.0 \
     target=libsamplerate.so.$(COMPONENT_VERSION)
