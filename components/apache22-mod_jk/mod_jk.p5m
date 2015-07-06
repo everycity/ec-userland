@@ -25,17 +25,7 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 # Additional Dependencies
 depend fmri=pkg:/web/server/apache-22/httpd type=require
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/apache
-dir path=$(ECPREFIX)/etc/apache/2.2
-dir path=$(ECPREFIX)/etc/apache/2.2/mods-available
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/apache
-dir path=$(ECPREFIX)/lib/apache/2.2
-dir path=$(ECPREFIX)/lib/apache/2.2/modules
-dir path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
-file path=$(ECPREFIX)/etc/apache/2.2/mods-available/jk.conf
-file path=$(ECPREFIX)/etc/apache/2.2/mods-available/jk.load
-file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_jk.so
-file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_jk.so
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/jk.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/jk.load
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_jk.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_jk.so

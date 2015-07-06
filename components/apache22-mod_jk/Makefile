@@ -37,8 +37,8 @@ LINKER=	ccs
 COMPONENT_EXTRA_PATCH_ACTION=	($(GPATCH) -d $(@D) $(GPATCH_FLAGS) < s10brandz-linking.patch)
 endif
 
-CONFIGURE_OPTIONS.32	+=	--with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/apxs
-CONFIGURE_OPTIONS.64	+=	--with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/apxs
+CONFIGURE_OPTIONS.32	+=	--with-apxs=$(USRDIR)/lib/apache/2.2/bin/apxs
+CONFIGURE_OPTIONS.64	+=	--with-apxs=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/apxs
 
 COMPONENT_PRE_CONFIGURE_ACTION = $(CLONEY) $(SOURCE_DIR)/native $(@D)
 CONFIGURE_SCRIPT = $(SOURCE_DIR)/native/configure
@@ -46,12 +46,12 @@ CONFIGURE_SCRIPT = $(SOURCE_DIR)/native/configure
 build:		$(BUILD_32_and_64)
 
 $(BUILD_DIR)/.installed:        build
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.2/mods-available
-	$(CP) $(COMPONENT_DIR)/files/jk.conf $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.2/mods-available
-	$(CP) $(COMPONENT_DIR)/files/jk.load $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.2/mods-available
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
-	$(CP) $(BUILD_DIR_32)/apache-2.0/mod_jk.so $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/
-	$(CP) $(BUILD_DIR_64)/apache-2.0/mod_jk.so $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(SYSCONFDIR)/apache/2.2/mods-available
+	$(CP) $(COMPONENT_DIR)/files/jk.conf $(PROTO_DIR)$(SYSCONFDIR)/apache/2.2/mods-available
+	$(CP) $(COMPONENT_DIR)/files/jk.load $(PROTO_DIR)$(SYSCONFDIR)/apache/2.2/mods-available
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules/$(MACH64)
+	$(CP) $(BUILD_DIR_32)/apache-2.0/mod_jk.so $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules/
+	$(CP) $(BUILD_DIR_64)/apache-2.0/mod_jk.so $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules/$(MACH64)
 	$(TOUCH) $@
 
 install:        $(BUILD_DIR)/.installed

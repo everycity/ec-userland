@@ -1,4 +1,3 @@
-/^apache22-mod_jk$/d
 /^apache22-mod_security$/d
 /^apache22-mod_wsgi$/d
 /^apache22-mod_xsendfile$/d
