@@ -22,20 +22,10 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 #license license="Apache"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/apache
-dir path=$(ECPREFIX)/etc/apache/2.2
-dir path=$(ECPREFIX)/etc/apache/2.2/mods-available
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/apache
-dir path=$(ECPREFIX)/lib/apache/2.2
-dir path=$(ECPREFIX)/lib/apache/2.2/modules
-dir path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
-file path=$(ECPREFIX)/etc/apache/2.2/mods-available/geoip2.conf
-file path=$(ECPREFIX)/etc/apache/2.2/mods-available/geoip2.load
-file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_geoip.so
-file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_geoip.so
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/geoip2.conf
+file path=$(SYSCONFDIR)/apache/2.2/mods-available/geoip2.load
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_geoip.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_geoip.so
 
 # Additional Dependencies
 depend fmri=pkg:/web/server/apache-22/httpd type=require
