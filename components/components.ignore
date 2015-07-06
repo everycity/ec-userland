@@ -54,7 +54,6 @@
 /^lighttpd$/d
 /^live555$/d
 /^logrotate$/d
-/^lua$/d
 /^lucene$/d
 /^mDNSResponder$/d
 /^make$/d
