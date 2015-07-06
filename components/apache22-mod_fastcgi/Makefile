@@ -25,12 +25,12 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-APXS.32 = $(ECPREFIX)/lib/apache/2.2/bin/apxs
-APXS.64 = $(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/apxs
+APXS.32 = $(USRDIR)/lib/apache/2.2/bin/apxs
+APXS.64 = $(USRDIR)/lib/apache/2.2/bin/$(MACH64)/apxs
 APXS=$(APXS.$(BITS))
 
-APACHECTL.32 = $(ECPREFIX)/lib/apache/2.2/bin/apachectl
-APACHECTL.64 = $(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/apachectl
+APACHECTL.32 = $(USRDIR)/lib/apache/2.2/bin/apachectl
+APACHECTL.64 = $(USRDIR)/lib/apache/2.2/bin/$(MACH64)/apachectl
 APACHECTL=$(APACHECTL.$(BITS))
 
 COMPONENT_COMMON_ARGS = APXS=$(APXS) APACHECTL=$(APACHECTL)
@@ -49,8 +49,8 @@ COMPONENT_PRE_BUILD_ACTION += $(COMPONENT_PRE_BUILD_ACTION.$(BITS))
 build:		$(BUILD_32_and_64)
 
 install: build
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules/$(MACH64)
 	$(CP) $(BUILD_DIR_32)/.libs/mod_fastcgi.so \
-	    $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules
+	    $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules
 	$(CP) $(BUILD_DIR_64)/.libs/mod_fastcgi.so \
-	    $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
+	    $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules/$(MACH64)
