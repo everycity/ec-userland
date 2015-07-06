@@ -36,17 +36,17 @@ $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
 	$(COMPONENT_POST_CONFIGURE_ACTION)
 	$(TOUCH) $@
 
-CONFIGURE_OPTIONS.32	+=	--with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/apxs
-CONFIGURE_OPTIONS.64	+=	--with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/apxs
+CONFIGURE_OPTIONS.32	+=	--with-apxs=$(USRDIR)/lib/apache/2.2/bin/apxs
+CONFIGURE_OPTIONS.64	+=	--with-apxs=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)/apxs
 
-CONFIGURE_OPTIONS.32	+=	--with-python=$(ECPREFIX)/bin/python
-CONFIGURE_OPTIONS.64	+=	--with-python=$(ECPREFIX)/bin/$(MACH64)/python
+CONFIGURE_OPTIONS.32	+=	--with-python=$(USRDIR)/bin/python
+CONFIGURE_OPTIONS.64	+=	--with-python=$(USRDIR)/bin/$(MACH64)/python
 
 CONFIGURE_OPTIONS +=	LDFLAGS="$(LDFLAGS)"
 
 COMPONENT_POST_INSTALL_ACTION = ( strip \
-                $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/*so \
-                $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/*so \
+                $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules/*so \
+                $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/*so \
                 >/dev/null 2>&1; true )
 
 build:		$(BUILD_32_and_64)
