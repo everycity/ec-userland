@@ -29,23 +29,23 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS.32+=	--with-apxs=$(ECPREFIX)/lib/apache/2.4/bin/apxs
-CONFIGURE_OPTIONS.64+=	--with-apxs=$(ECPREFIX)/lib/apache/2.4/bin/$(MACH64)/apxs
-CONFIGURE_OPTIONS+=	--with-pcre=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-curl=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-libxml=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-apr=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-apu=$(ECPREFIX)
+CONFIGURE_OPTIONS.32+=	--with-apxs=$(USRDIR)/lib/apache/2.4/bin/apxs
+CONFIGURE_OPTIONS.64+=	--with-apxs=$(USRDIR)/lib/apache/2.4/bin/$(MACH64)/apxs
+CONFIGURE_OPTIONS+=	--with-pcre=$(USRDIR)
+CONFIGURE_OPTIONS+=	--with-curl=$(USRDIR)
+CONFIGURE_OPTIONS+=	--with-libxml=$(USRDIR)
+CONFIGURE_OPTIONS+=	--with-apr=$(USRDIR)
+CONFIGURE_OPTIONS+=	--with-apu=$(USRDIR)
 
 build:		$(BUILD_32_and_64)
 
 $(BUILD_DIR)/.installed:        build
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.4/mods-available
-	$(CP) $(COMPONENT_DIR)/files/security.conf $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.4/mods-available
-	$(CP) $(COMPONENT_DIR)/files/security.load $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.4/mods-available
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.4/modules/$(MACH64)
-	$(CP) $(BUILD_DIR_32)/apache2/.libs/mod_security2.so $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.4/modules/
-	$(CP) $(BUILD_DIR_64)/apache2/.libs/mod_security2.so $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.4/modules/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(SYSCONFDIR)/apache/2.4/mods-available
+	$(CP) $(COMPONENT_DIR)/files/security.conf $(PROTO_DIR)$(SYSCONFDIR)/apache/2.4/mods-available
+	$(CP) $(COMPONENT_DIR)/files/security.load $(PROTO_DIR)$(SYSCONFDIR)/apache/2.4/mods-available
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/apache/2.4/modules/$(MACH64)
+	$(CP) $(BUILD_DIR_32)/apache2/.libs/mod_security2.so $(PROTO_DIR)$(USRDIR)/lib/apache/2.4/modules/
+	$(CP) $(BUILD_DIR_64)/apache2/.libs/mod_security2.so $(PROTO_DIR)$(USRDIR)/lib/apache/2.4/modules/$(MACH64)
 	$(TOUCH) $@
 
 install:        $(BUILD_DIR)/.installed
