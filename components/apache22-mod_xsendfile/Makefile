@@ -22,8 +22,8 @@ include ../../make-rules/ips.mk
 
 CLEAN_PATHS += $(BUILD_DIR)
 
-APXS.32 = $(ECPREFIX)/lib/apache/2.2/bin/apxs
-APXS.64 = $(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/apxs
+APXS.32 = $(USRDIR)/lib/apache/2.2/bin/apxs
+APXS.64 = $(USRDIR)/lib/apache/2.2/bin/$(MACH64)/apxs
 APXS=$(APXS.$(BITS))
 
 download prep::
@@ -38,8 +38,8 @@ $(BUILD_DIR)/%/.built: $(COMPONENT_DIR)/mod_xsendfile.c
 build: $(BUILD_32_and_64)
 
 install: build
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules/$(MACH64)
 	$(CP) $(BUILD_DIR_32)/.libs/mod_xsendfile.so \
-	    $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules
+	    $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules
 	$(CP) $(BUILD_DIR_64)/.libs/mod_xsendfile.so \
-	    $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
+	    $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules/$(MACH64)

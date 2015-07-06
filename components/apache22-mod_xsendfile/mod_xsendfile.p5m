@@ -21,18 +21,8 @@ set name=info.upstream_url value="https://tn123.org/mod_xsendfile/"
 
 license mod_xsendfile.license license="APLv2"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/apache
-dir path=$(ECPREFIX)/etc/apache/2.2
-dir path=$(ECPREFIX)/etc/apache/2.2/mods-available
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/apache
-dir path=$(ECPREFIX)/lib/apache/2.2
-dir path=$(ECPREFIX)/lib/apache/2.2/modules
-dir path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
-file xsendfile.load path=$(ECPREFIX)/etc/apache/2.2/mods-available/xsendfile.load
-file path=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)/mod_xsendfile.so
-file path=$(ECPREFIX)/lib/apache/2.2/modules/mod_xsendfile.so
-link path=$(ECPREFIX)/etc/apache/2.2/mods-enabled/xsendfile.load \
+file xsendfile.load path=$(SYSCONFDIR)/apache/2.2/mods-available/xsendfile.load
+file path=$(USRDIR)/lib/apache/2.2/modules/$(MACH64)/mod_xsendfile.so
+file path=$(USRDIR)/lib/apache/2.2/modules/mod_xsendfile.so
+link path=$(USRDIR)/etc/apache/2.2/mods-enabled/xsendfile.load \
     target=../mods-available/xsendfile.load preserve=true
