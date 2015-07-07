@@ -5,7 +5,6 @@
 /^cloog-ppl$/d
 /^clusterssh$/d
 /^dbt2$/d
-/^dspam$/d
 /^epm$/d
 /^exiftool$/d
 /^fcgiwrap$/d
@@ -217,7 +216,6 @@
 /^postgresql94$/d
 /^re2c$/d
 /^check$/d
-/^filebench$/d
 /^jq$/d
 /^openvpn$/d
 /^trafficserver$/d
