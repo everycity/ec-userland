@@ -25,7 +25,7 @@
 		<service_fmri value='svc:/system/filesystem/local:default'/>
 	</dependency>
 
-	<exec_method name='start' type='method' exec='/ec/var/svc/method/dspam start' timeout_seconds='60'>
+	<exec_method name='start' type='method' exec='/var/svc/method/dspam start' timeout_seconds='60'>
 		<method_context/>
 	</exec_method>
 
