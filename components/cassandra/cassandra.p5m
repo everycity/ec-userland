@@ -27,9 +27,9 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-#depend fmri=developer/java/jdk type=require
-#depend fmri=library/java/java-jna type=require
-#depend fmri=library/java/java-snappy type=require
+depend fmri=developer/java/openjdk7 type=require
+depend fmri=library/java/java-jna type=require
+depend fmri=library/java/java-snappy type=require
 
 file files/cassandra-smf.sh path=$(SVCMETHOD)/cassandra mode=0555
 file files/cassandra-smf.xml path=$(SVCMANIFEST)/site/cassandra.xml \
