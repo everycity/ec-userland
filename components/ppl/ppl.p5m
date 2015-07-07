@@ -22,42 +22,28 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/bin
-dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/ppl-config
 file path=$(USRDIR)/bin/$(MACH64)/ppl_lcdd
 file path=$(USRDIR)/bin/$(MACH64)/ppl_pips
 file path=$(USRDIR)/bin/ppl-config
 file path=$(USRDIR)/bin/ppl_lcdd
 file path=$(USRDIR)/bin/ppl_pips
-dir  path=$(USRDIR)/include
 file path=$(USRDIR)/include/ppl.hh
 file path=$(USRDIR)/include/ppl_c.h
-dir  path=$(USRDIR)/lib
-dir  path=$(USRDIR)/lib/$(MACH64)
-file path=$(USRDIR)/lib/$(MACH64)/libppl.la
 link path=$(USRDIR)/lib/$(MACH64)/libppl.so target=libppl.so.12.0.0
 link path=$(USRDIR)/lib/$(MACH64)/libppl.so.12 target=libppl.so.12.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libppl.so.12.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libppl_c.la
 link path=$(USRDIR)/lib/$(MACH64)/libppl_c.so target=libppl_c.so.4.0.0
 link path=$(USRDIR)/lib/$(MACH64)/libppl_c.so.4 target=libppl_c.so.4.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libppl_c.so.4.0.0
-file path=$(USRDIR)/lib/libppl.la
 link path=$(USRDIR)/lib/libppl.so target=libppl.so.12.0.0
 link path=$(USRDIR)/lib/libppl.so.12 target=libppl.so.12.0.0
 file path=$(USRDIR)/lib/libppl.so.12.0.0
-file path=$(USRDIR)/lib/libppl_c.la
 link path=$(USRDIR)/lib/libppl_c.so target=libppl_c.so.4.0.0
 link path=$(USRDIR)/lib/libppl_c.so.4 target=libppl_c.so.4.0.0
 file path=$(USRDIR)/lib/libppl_c.so.4.0.0
-dir  path=$(USRDIR)/share
-dir  path=$(USRDIR)/share/aclocal
 file path=$(USRDIR)/share/aclocal/ppl.m4
 file path=$(USRDIR)/share/aclocal/ppl_c.m4
-dir  path=$(USRDIR)/share/doc
-dir  path=$(USRDIR)/share/doc/ppl
 file path=$(USRDIR)/share/doc/ppl/BUGS
 file path=$(USRDIR)/share/doc/ppl/COPYING
 file path=$(USRDIR)/share/doc/ppl/CREDITS
@@ -73,7 +59,6 @@ file path=$(USRDIR)/share/doc/ppl/fdl.txt
 file path=$(USRDIR)/share/doc/ppl/gpl.pdf
 file path=$(USRDIR)/share/doc/ppl/gpl.ps.gz
 file path=$(USRDIR)/share/doc/ppl/gpl.txt
-dir  path=$(USRDIR)/share/doc/ppl/ppl-user-$(COMPONENT_VERSION)-html
 file path=$(USRDIR)/share/doc/ppl/ppl-user-$(COMPONENT_VERSION)-html/GFDL.html
 file path=$(USRDIR)/share/doc/ppl/ppl-user-$(COMPONENT_VERSION)-html/GPL.html
 file path=$(USRDIR)/share/doc/ppl/ppl-user-$(COMPONENT_VERSION)-html/annotated.html
@@ -1647,12 +1632,9 @@ file path=$(USRDIR)/share/doc/ppl/ppl-user-c-interface-$(COMPONENT_VERSION)-html
 file path=$(USRDIR)/share/doc/ppl/ppl-user-c-interface-$(COMPONENT_VERSION)-html/tabs.css
 file path=$(USRDIR)/share/doc/ppl/ppl-user-c-interface-$(COMPONENT_VERSION).pdf
 file path=$(USRDIR)/share/doc/ppl/ppl-user-c-interface-$(COMPONENT_VERSION).ps.gz
-dir  path=$(USRDIR)/share/man
-dir  path=$(USRDIR)/share/man/man1
 file path=$(USRDIR)/share/man/man1/ppl-config.1
 file path=$(USRDIR)/share/man/man1/ppl_lcdd.1
 file path=$(USRDIR)/share/man/man1/ppl_lpsol.1
 file path=$(USRDIR)/share/man/man1/ppl_pips.1
-dir  path=$(USRDIR)/share/man/man3
 file path=$(USRDIR)/share/man/man3/libppl.3
 file path=$(USRDIR)/share/man/man3/libppl_c.3

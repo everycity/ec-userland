@@ -28,7 +28,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=	--with-gmp-prefix=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--with-gmp-prefix=$(USRDIR)
 CONFIGURE_OPTIONS+=	--disable-static
 
 include ../../make-rules/shared-targets.mk
