@@ -37,46 +37,46 @@ $(BUILD_DIR)/%/.built: $(SOURCE_DIR)/.prep
 
 $(BUILD_DIR)/%/.installed: $(BUILD_DIR)/%/.built
 
-	[ -d $(PROTO_DIR)$(ECPREFIX)/bin ] || $(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin
-	[ -d $(PROTO_DIR)$(ECPREFIX)/etc/cassandra ] || $(MKDIR) $(PROTO_DIR)$(ECPREFIX)/etc/cassandra
-	[ -d $(PROTO_DIR)$(ECPREFIX)/share/cassandra/lib ] || $(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/cassandra/lib
-	[ -d $(PROTO_DIR)$(ECPREFIX)/share/doc/cassandra/licenses ] || $(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/doc/cassandra/licenses
-	[ -d $(PROTO_DIR)$(ECPREFIX)/var/lib/cassandra ] || $(MKDIR) $(PROTO_DIR)$(ECPREFIX)/var/lib/cassandra
-	[ -d $(PROTO_DIR)$(ECPREFIX)/var/log/cassandra ] || $(MKDIR) $(PROTO_DIR)$(ECPREFIX)/var/log/cassandra
-	[ -d $(PROTO_DIR)$(ECPREFIX)/var/svc/method ] || $(MKDIR) $(PROTO_DIR)$(ECPREFIX)/var/svc/method
-	[ -d $(PROTO_DIR)/var/svc/manifest/site ] || $(MKDIR) $(PROTO_DIR)/var/svc/manifest/site
-	[ -d $(PROTO_DIR)$(ECPREFIX)/lib/python2.6/vendor-packages ] || $(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/python2.6/vendor-packages
+	[ -d $(PROTO_DIR)$(USRDIR)/bin ] || $(MKDIR) $(PROTO_DIR)$(USRDIR)/bin
+	[ -d $(PROTO_DIR)/$(SYSCONFDIR)/cassandra ] || $(MKDIR) $(PROTO_DIR)/$(SYSCONFDIR)/cassandra
+	[ -d $(PROTO_DIR)$(USRDIR)/share/cassandra/lib ] || $(MKDIR) $(PROTO_DIR)$(USRDIR)/share/cassandra/lib
+	[ -d $(PROTO_DIR)$(USRDIR)/share/doc/cassandra/licenses ] || $(MKDIR) $(PROTO_DIR)$(USRDIR)/share/doc/cassandra/licenses
+	[ -d $(PROTO_DIR)/$(LOCALSTATEDIR)/lib/cassandra ] || $(MKDIR) $(PROTO_DIR)/$(LOCALSTATEDIR)/lib/cassandra
+	[ -d $(PROTO_DIR)/$(LOCALSTATEDIR)/log/cassandra ] || $(MKDIR) $(PROTO_DIR)/$(LOCALSTATEDIR)/log/cassandra
+	[ -d $(PROTO_DIR)/$(SVCMETHOD) ] || $(MKDIR) $(PROTO_DIR)/$(SVCMETHOD)
+	[ -d $(PROTO_DIR)/$(SVCMANIFEST)/site ] || $(MKDIR) $(PROTO_DIR)/$(SVCMANIFEST)/site
+	[ -d $(PROTO_DIR)$(USRDIR)/lib/python2.7/vendor-packages ] || $(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/python2.7/vendor-packages
 
 	# bin
-	$(CP) $(SOURCE_DIR)/tools/bin/* $(PROTO_DIR)$(ECPREFIX)/bin
-	$(CP) $(SOURCE_DIR)/bin/* $(PROTO_DIR)$(ECPREFIX)/bin
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/bin/*.bat
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/bin/{cassandra.in.sh,debug-cql,stop-server}
+	$(CP) $(SOURCE_DIR)/tools/bin/* $(PROTO_DIR)$(USRDIR)/bin
+	$(CP) $(SOURCE_DIR)/bin/* $(PROTO_DIR)$(USRDIR)/bin
+	$(RM) $(PROTO_DIR)$(USRDIR)/bin/*.bat
+	$(RM) $(PROTO_DIR)$(USRDIR)/bin/{cassandra.in.sh,debug-cql,stop-server}
 
 	# etc/cassandra
-	$(CP) -r $(SOURCE_DIR)/conf/* $(PROTO_DIR)$(ECPREFIX)/etc/cassandra
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/etc/cassandra/README.txt
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/etc/cassandra/cqlshrc.sample
+	$(CP) -r $(SOURCE_DIR)/conf/* $(PROTO_DIR)$(SYSCONFDIR)/cassandra
+	$(RM) $(PROTO_DIR)$(SYSCONFDIR)/cassandra/README.txt
+	$(RM) $(PROTO_DIR)$(SYSCONFDIR)/cassandra/cqlshrc.sample
 
-	# lib/python2.6
-	$(CP) -r $(SOURCE_DIR)/pylib/cqlshlib $(PROTO_DIR)$(ECPREFIX)/lib/python2.6/vendor-packages/cqlshlib
+	# lib/python2.7
+	$(CP) -r $(SOURCE_DIR)/pylib/cqlshlib $(PROTO_DIR)$(USRDIR)/lib/python2.7/vendor-packages/cqlshlib
 
 	# share/cassandra
-	$(CP) $(SOURCE_DIR)/lib/{*.jar,*.zip} $(PROTO_DIR)$(ECPREFIX)/share/cassandra/lib
+	$(CP) $(SOURCE_DIR)/lib/{*.jar,*.zip} $(PROTO_DIR)$(USRDIR)/share/cassandra/lib
 	$(MV) \
-	  $(PROTO_DIR)$(ECPREFIX)/share/cassandra/lib/apache-cassandra-$(COMPONENT_VERSION).jar \
-	  $(PROTO_DIR)$(ECPREFIX)/share/cassandra
+	  $(PROTO_DIR)$(USRDIR)/share/cassandra/lib/apache-cassandra-$(COMPONENT_VERSION).jar \
+	  $(PROTO_DIR)$(USRDIR)/share/cassandra
 	$(MV) \
-	  $(PROTO_DIR)$(ECPREFIX)/share/cassandra/lib/apache-cassandra-thrift-$(COMPONENT_VERSION).jar \
-	  $(PROTO_DIR)$(ECPREFIX)/share/cassandra
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/share/cassandra/lib/apache-cassandra-clientutil-$(COMPONENT_VERSION).jar
-	$(CP) $(SOURCE_DIR)/bin/cassandra.in.sh $(PROTO_DIR)$(ECPREFIX)/share/cassandra
-	$(CP) $(SOURCE_DIR)/tools/lib/stress.jar $(PROTO_DIR)$(ECPREFIX)/share/cassandra
+	  $(PROTO_DIR)$(USRDIR)/share/cassandra/lib/apache-cassandra-thrift-$(COMPONENT_VERSION).jar \
+	  $(PROTO_DIR)$(USRDIR)/share/cassandra
+	$(RM) $(PROTO_DIR)$(USRDIR)/share/cassandra/lib/apache-cassandra-clientutil-$(COMPONENT_VERSION).jar
+	$(CP) $(SOURCE_DIR)/bin/cassandra.in.sh $(PROTO_DIR)$(USRDIR)/share/cassandra
+	$(CP) $(SOURCE_DIR)/tools/lib/stress.jar $(PROTO_DIR)$(USRDIR)/share/cassandra
 
 	# share/doc/cassandra
-	$(CP) $(SOURCE_DIR)/*.txt $(PROTO_DIR)$(ECPREFIX)/share/doc/cassandra
-	$(CP) $(SOURCE_DIR)/conf/cqlshrc.sample $(PROTO_DIR)$(ECPREFIX)/share/doc/cassandra
-	$(CP) $(SOURCE_DIR)/lib/licenses/* $(PROTO_DIR)$(ECPREFIX)/share/doc/cassandra/licenses
+	$(CP) $(SOURCE_DIR)/*.txt $(PROTO_DIR)$(USRDIR)/share/doc/cassandra
+	$(CP) $(SOURCE_DIR)/conf/cqlshrc.sample $(PROTO_DIR)$(USRDIR)/share/doc/cassandra
+	$(CP) $(SOURCE_DIR)/lib/licenses/* $(PROTO_DIR)$(USRDIR)/share/doc/cassandra/licenses
 
 	# remove patch backup files
 	find $(PROTO_DIR) -type f -name "*.~[12]~" -exec rm {} \;
