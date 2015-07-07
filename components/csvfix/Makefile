@@ -34,8 +34,8 @@ COMPONENT_BUILD_TARGETS=	lin
 build:		$(BUILD_32)
 
 $(BUILD_DIR)/.installed:	$(BUILD_32)
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin
-	$(CP) $(BUILD_DIR_32)/csvfix/bin/csvfix $(PROTO_DIR)$(ECPREFIX)/bin
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/bin
+	$(CP) $(BUILD_DIR_32)/csvfix/bin/csvfix $(PROTO_DIR)$(USRDIR)/bin
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed
