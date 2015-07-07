@@ -5,7 +5,6 @@
 /^cloog-ppl$/d
 /^clusterssh$/d
 /^dbt2$/d
-/^dovecot$/d
 /^dspam$/d
 /^epm$/d
 /^exiftool$/d

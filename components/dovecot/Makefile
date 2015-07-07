@@ -30,17 +30,17 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 # Encode runpaths for MySQL and Postgresql
-LDFLAGS.32+=    -L$(ECPREFIX)/lib/mysql/5.5/lib -R$(ECPREFIX)/lib/mysql/5.5/lib
-LDFLAGS.64+=    -L$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64) -R$(ECPREFIX)/lib/mysql/5.5/lib/$(MACH64)
-LDFLAGS.32+=    -L$(ECPREFIX)/lib/postgres/9.3/lib -R$(ECPREFIX)/lib/postgres/9.3/lib
-LDFLAGS.64+=    -L$(ECPREFIX)/lib/postgres/9.3/lib/$(MACH64) -R$(ECPREFIX)/lib/postgres/9.3/lib/$(MACH64)
+LDFLAGS.32+=    -L$(USRDIR)/lib/mysql/5.5/lib -R$(USRDIR)/lib/mysql/5.5/lib
+LDFLAGS.64+=    -L$(USRDIR)/lib/mysql/5.5/lib/$(MACH64) -R$(USRDIR)/lib/mysql/5.5/lib/$(MACH64)
+LDFLAGS.32+=    -L$(USRDIR)/lib/postgres/9.3/lib -R$(USRDIR)/lib/postgres/9.3/lib
+LDFLAGS.64+=    -L$(USRDIR)/lib/postgres/9.3/lib/$(MACH64) -R$(USRDIR)/lib/postgres/9.3/lib/$(MACH64)
 
 # Dovecot doesn't seem to want to support libdir==libexecdir
 # http://www.dovecot.org/list/dovecot/2009-December/045498.html
-CONFIGURE_OPTIONS+=	--libexecdir=$(ECPREFIX)/libexec
+CONFIGURE_OPTIONS+=	--libexecdir=$(USRDIR)/libexec
 
-CONFIGURE_OPTIONS.32+=	--sbindir=$(ECPREFIX)/bin
-CONFIGURE_OPTIONS.64+=	--sbindir=$(ECPREFIX)/bin/$(MACH64)
+CONFIGURE_OPTIONS.32+=	--sbindir=$(USRDIR)/bin
+CONFIGURE_OPTIONS.64+=	--sbindir=$(USRDIR)/bin/$(MACH64)
 CONFIGURE_OPTIONS+=	--with-mysql
 CONFIGURE_OPTIONS+=	--with-pgsql
 CONFIGURE_OPTIONS+=	--with-sqlite
