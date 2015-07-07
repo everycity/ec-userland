@@ -25,11 +25,11 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS=	--prefix=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--mandir=$(ECPREFIX)/share/man
-CONFIGURE_OPTIONS+=	--bindir=$(ECPREFIX)/bin
-CONFIGURE_OPTIONS+=	--libdir=$(ECPREFIX)/lib
-CONFIGURE_OPTIONS+=	--sbindir=$(ECPREFIX)/bin
+CONFIGURE_OPTIONS=	--prefix=$(USRDIR)
+CONFIGURE_OPTIONS+=	--mandir=$(USRDIR)/share/man
+CONFIGURE_OPTIONS+=	--bindir=$(USRDIR)/bin
+CONFIGURE_OPTIONS+=	--libdir=$(USRDIR)/lib
+CONFIGURE_OPTIONS+=	--sbindir=$(USRDIR)/bin
 
 build:		$(BUILD_32)
 

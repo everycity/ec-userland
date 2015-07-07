@@ -4,7 +4,6 @@
 /^bitlbee$/d
 /^cloog-ppl$/d
 /^clusterssh$/d
-/^cronolog$/d
 /^csvfix$/d
 /^dbt2$/d
 /^dbus-glib$/d
