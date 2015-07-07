@@ -22,8 +22,5 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL_1)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/java
 file path=$(ECPREFIX)/share/java/jna-$(COMPONENT_VERSION).jar
 file path=$(ECPREFIX)/share/java/jna-platform-$(COMPONENT_VERSION).jar

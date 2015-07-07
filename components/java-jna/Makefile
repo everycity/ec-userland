@@ -43,9 +43,9 @@ $(BUILD_DIR)/%/.built: $(SOURCE_DIR)/.prep
 	$(TOUCH) $@
 
 $(BUILD_DIR)/%/.installed: $(BUILD_DIR)/%/.built
-	[ -d $(PROTO_DIR)$(ECPREFIX)/share/java ] || $(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/java
-	$(CP) $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE_1) $(PROTO_DIR)$(ECPREFIX)/share/java
-	$(CP) $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE_2) $(PROTO_DIR)$(ECPREFIX)/share/java/jna-platform-$(COMPONENT_VERSION).jar
+	[ -d $(PROTO_DIR)$(USRDIR)/share/java ] || $(MKDIR) $(PROTO_DIR)$(USRDIR)/share/java
+	$(CP) $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE_1) $(PROTO_DIR)$(USRDIR)/share/java
+	$(CP) $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE_2) $(PROTO_DIR)$(USRDIR)/share/java/jna-platform-$(COMPONENT_VERSION).jar
 	$(TOUCH) $@
 
 build:		$(BUILD_32)
