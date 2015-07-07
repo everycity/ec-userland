@@ -22,43 +22,26 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/dbus-1.0
-dir path=$(ECPREFIX)/include/dbus-1.0/dbus
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-dir path=$(SYSCONFDIR)
-dir path=$(SYSCONFDIR)/bash_completion.d
-file path=$(ECPREFIX)/bin/$(MACH64)/dbus-binding-tool
-file path=$(ECPREFIX)/bin/dbus-binding-tool
-file path=$(ECPREFIX)/include/dbus-1.0/dbus/dbus-glib-bindings.h
-file path=$(ECPREFIX)/include/dbus-1.0/dbus/dbus-glib-lowlevel.h
-file path=$(ECPREFIX)/include/dbus-1.0/dbus/dbus-glib.h
-file path=$(ECPREFIX)/include/dbus-1.0/dbus/dbus-gtype-specialized.h
-file path=$(ECPREFIX)/include/dbus-1.0/dbus/dbus-gvalue-parse-variant.h
-file path=$(ECPREFIX)/lib/$(MACH64)/dbus-bash-completion-helper
-file path=$(ECPREFIX)/lib/$(MACH64)/libdbus-glib-1.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libdbus-glib-1.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libdbus-glib-1.so.2.2.2
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/dbus-glib-1.pc
-file path=$(ECPREFIX)/lib/dbus-bash-completion-helper
-file path=$(ECPREFIX)/lib/libdbus-glib-1.a
-file path=$(ECPREFIX)/lib/libdbus-glib-1.la
-file path=$(ECPREFIX)/lib/libdbus-glib-1.so.2.2.2
-file path=$(ECPREFIX)/lib/pkgconfig/dbus-glib-1.pc
-file path=$(ECPREFIX)/share/man/man1/dbus-binding-tool.1
+file path=$(USRDIR)/bin/$(MACH64)/dbus-binding-tool
+file path=$(USRDIR)/bin/dbus-binding-tool
+file path=$(USRDIR)/include/dbus-1.0/dbus/dbus-glib-bindings.h
+file path=$(USRDIR)/include/dbus-1.0/dbus/dbus-glib-lowlevel.h
+file path=$(USRDIR)/include/dbus-1.0/dbus/dbus-glib.h
+file path=$(USRDIR)/include/dbus-1.0/dbus/dbus-gtype-specialized.h
+file path=$(USRDIR)/include/dbus-1.0/dbus/dbus-gvalue-parse-variant.h
+file path=$(USRDIR)/lib/$(MACH64)/dbus-bash-completion-helper
+file path=$(USRDIR)/lib/$(MACH64)/libdbus-glib-1.a
+file path=$(USRDIR)/lib/$(MACH64)/libdbus-glib-1.so.2.2.2
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/dbus-glib-1.pc
+file path=$(USRDIR)/lib/dbus-bash-completion-helper
+file path=$(USRDIR)/lib/libdbus-glib-1.a
+file path=$(USRDIR)/lib/libdbus-glib-1.so.2.2.2
+file path=$(USRDIR)/lib/pkgconfig/dbus-glib-1.pc
+file path=$(USRDIR)/share/man/man1/dbus-binding-tool.1
 file path=$(SYSCONFDIR)/bash_completion.d/dbus-bash-completion.sh
-link path=$(ECPREFIX)/lib/$(MACH64)/libdbus-glib-1.so \
+link path=$(USRDIR)/lib/$(MACH64)/libdbus-glib-1.so \
     target=libdbus-glib-1.so.2.2.2
-link path=$(ECPREFIX)/lib/$(MACH64)/libdbus-glib-1.so.2 \
+link path=$(USRDIR)/lib/$(MACH64)/libdbus-glib-1.so.2 \
     target=libdbus-glib-1.so.2.2.2
-link path=$(ECPREFIX)/lib/libdbus-glib-1.so target=libdbus-glib-1.so.2.2.2
-link path=$(ECPREFIX)/lib/libdbus-glib-1.so.2 target=libdbus-glib-1.so.2.2.2
+link path=$(USRDIR)/lib/libdbus-glib-1.so target=libdbus-glib-1.so.2.2.2
+link path=$(USRDIR)/lib/libdbus-glib-1.so.2 target=libdbus-glib-1.so.2.2.2
