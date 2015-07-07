@@ -29,21 +29,21 @@ COMPONENT_PREP_ACTION = ( cd $(@D); autoconf )
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 
-CONFIGURE_OPTIONS +=    --enable-openssl=$(ECPREFIX)
-CONFIGURE_OPTIONS +=	--bindir=$(ECPREFIX)/lib/charybdis
-CONFIGURE_OPTIONS +=	--sbindir=$(ECPREFIX)/lib/charybdis
-CONFIGURE_OPTIONS +=	--sysconfdir=$(ECPREFIX)/etc/charybdis
-CONFIGURE_OPTIONS +=	--with-confdir=$(ECPREFIX)/etc/charybdis
-CONFIGURE_OPTIONS +=	--with-helpdir=$(ECPREFIX)/share/doc/charybdis
-CONFIGURE_OPTIONS +=	--with-moduledir=$(ECPREFIX)/lib/charybdis/modules
-CONFIGURE_OPTIONS +=	--with-logdir=$(ECPREFIX)/var/log/charybdis
-CONFIGURE_OPTIONS +=	--with-rundir=$(ECPREFIX)/var/run
+CONFIGURE_OPTIONS +=    --enable-openssl=$(USRDIR)
+CONFIGURE_OPTIONS +=	--bindir=$(USRDIR)/lib/charybdis
+CONFIGURE_OPTIONS +=	--sbindir=$(USRDIR)/lib/charybdis
+CONFIGURE_OPTIONS +=	--sysconfdir=$(CONFIGURE_SYSCONFDIR)/charybdis
+CONFIGURE_OPTIONS +=	--with-confdir=$(CONFIGURE_SYSCONFDIR)/charybdis
+CONFIGURE_OPTIONS +=	--with-helpdir=$(USRDIR)/share/doc/charybdis
+CONFIGURE_OPTIONS +=	--with-moduledir=$(USRDIR)/lib/charybdis/modules
+CONFIGURE_OPTIONS +=	--with-logdir=$(CONFIGURE_LOCALSTATEDIR)/log/charybdis
+CONFIGURE_OPTIONS +=	--with-rundir=$(CONFIGURE_LOCALSTATEDIR)/run
 
 COMPONENT_PRE_INSTALL_ACTION  +=       ( \
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/var/log/charybdis )
+	$(MKDIR) $(PROTO_DIR)$(CONFIGURE_LOCALSTATEDIR)/log/charybdis )
 COMPONENT_POST_INSTALL_ACTION +=       ( \
-	$(MV) $(PROTO_DIR)$(ECPREFIX)/etc/charybdis/example.conf \
-	    $(PROTO_DIR)$(ECPREFIX)/etc/charybdis/ircd.conf )
+	$(MV) $(PROTO_DIR)$(CONFIGURE_SYSCONFDIR)/charybdis/example.conf \
+	    $(PROTO_DIR)$(CONFIGURE_SYSCONFDIR)/charybdis/ircd.conf )
 
 build:          $(BUILD_32)
 

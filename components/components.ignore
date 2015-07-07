@@ -2,7 +2,6 @@
 /^automake-112$/d
 /^automake-19$/d
 /^bitlbee$/d
-/^charybdis$/d
 /^cloog-ppl$/d
 /^clusterssh$/d
 /^cronolog$/d
