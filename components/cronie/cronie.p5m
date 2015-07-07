@@ -24,6 +24,7 @@ license COPYING license="MIT, BSD, ISC, GPLv2"
 
 depend fmri=pkg:/text/gnu-awk type=require
 
+dir  path=$(LOCALSTATEDIR)/spool/cron
 file path=$(USRDIR)/bin/anacron
 file path=$(USRDIR)/bin/crond
 file path=$(USRDIR)/bin/crontab mode=4555
