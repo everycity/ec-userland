@@ -5,7 +5,6 @@
 /^cloog-ppl$/d
 /^clusterssh$/d
 /^dbt2$/d
-/^epm$/d
 /^exiftool$/d
 /^fcgiwrap$/d
 /^ffmpeg08$/d
