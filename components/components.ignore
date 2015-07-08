@@ -223,7 +223,6 @@
 /^apache22-mod_rpaf$/d
 /^leveldb$/d
 /^logstash-forwarder$/d
-/^mozilla-nss$/d
 /^git-repo$/d
 /^mariadb100$/d
 /^php56-apache24$/d

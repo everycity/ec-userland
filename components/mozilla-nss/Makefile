@@ -30,7 +30,7 @@ COMPONENT_ARCHIVE_URL=	ftp://ftp.mozilla.org/pub/mozilla.org/security/nss/releas
 COMPONENT_BUILD_ENV += BUILD_OPT=1
 
 # Generate symbolic info for debuggers
-COMPONENT_BUILD_ENV += XCFLAGS="-g"
+COMPONENT_BUILD_ENV += XCFLAGS="-g $(EC_INCLUDE)"
 
 COMPONENT_BUILD_ENV += PATH=$(GCC_ROOT)/bin:$(PATH)
 COMPONENT_BUILD_ENV += PKG_CONFIG_ALLOW_SYSTEM_LIBS=1
@@ -38,11 +38,11 @@ COMPONENT_BUILD_ENV += PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1
 COMPONENT_BUILD_ENV += NSS_USE_SYSTEM_SQLITE=1
 COMPONENT_BUILD_ENV += NS_USE_GCC=1
 
-MPS.32=$(ECPREFIX)/lib
-MPS.64=$(ECPREFIX)/lib/$(MACH64)
-COMPONENT_BUILD_ENV += NSPR_INCLUDE_DIR=$(ECPREFIX)/include/nspr
+MPS.32=$(USRDIR)/lib
+MPS.64=$(USRDIR)/lib/$(MACH64)
+COMPONENT_BUILD_ENV += NSPR_INCLUDE_DIR=$(USRDIR)/include/nspr
 COMPONENT_BUILD_ENV += NSPR_LIB_DIR=$(MPS.$(BITS))
-COMPONENT_BUILD_ENV += NSS_INCLUDE_DIR=$(ECPREFIX)/include/nss
+COMPONENT_BUILD_ENV += NSS_INCLUDE_DIR=$(USRDIR)/include/nss
 COMPONENT_BUILD_ENV += NSS_LIB_DIR=$(MPS.$(BITS))
 
 COMPONENT_BUILD_ENV.64 += USE_64=1
@@ -69,41 +69,41 @@ $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
 build: $(BUILD_32_and_64)
 
 install: build
-	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/bin
-	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
-	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/lib
-	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
-#	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/include/dbm
-	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/include/nss
-	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/lib/pkgconfig
-	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-#	cp $(BUILD_DIR_32)/dist/public/dbm/*.h $(PROTO_DIR)$(ECPREFIX)/include/dbm
-	cp $(BUILD_DIR_32)/dist/public/nss/*.h $(PROTO_DIR)$(ECPREFIX)/include/nss
-	cp $(BUILD_DIR_32)/dist/SunOS5.11_*_OPT.OBJ/lib/*.so $(PROTO_DIR)$(ECPREFIX)/lib
-	cp $(BUILD_DIR_32)/dist/SunOS5.11_*_OPT.OBJ/lib/*.chk $(PROTO_DIR)$(ECPREFIX)/lib
-	cp $(BUILD_DIR_64)/dist/SunOS5.11_*_OPT.OBJ/lib/*.so $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
-	cp $(BUILD_DIR_64)/dist/SunOS5.11_*_OPT.OBJ/lib/*.chk $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
+	$(MKDIR) -p $(PROTO_DIR)$(USRDIR)/bin
+	$(MKDIR) -p $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)
+	$(MKDIR) -p $(PROTO_DIR)$(USRDIR)/lib
+	$(MKDIR) -p $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
+#	$(MKDIR) -p $(PROTO_DIR)$(USRDIR)/include/dbm
+	$(MKDIR) -p $(PROTO_DIR)$(USRDIR)/include/nss
+	$(MKDIR) -p $(PROTO_DIR)$(USRDIR)/lib/pkgconfig
+	$(MKDIR) -p $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/pkgconfig
+#	cp $(BUILD_DIR_32)/dist/public/dbm/*.h $(PROTO_DIR)$(USRDIR)/include/dbm
+	cp $(BUILD_DIR_32)/dist/public/nss/*.h $(PROTO_DIR)$(USRDIR)/include/nss
+	cp $(BUILD_DIR_32)/dist/SunOS5.11_*_OPT.OBJ/lib/*.so $(PROTO_DIR)$(USRDIR)/lib
+	cp $(BUILD_DIR_32)/dist/SunOS5.11_*_OPT.OBJ/lib/*.chk $(PROTO_DIR)$(USRDIR)/lib
+	cp $(BUILD_DIR_64)/dist/SunOS5.11_*_OPT.OBJ/lib/*.so $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
+	cp $(BUILD_DIR_64)/dist/SunOS5.11_*_OPT.OBJ/lib/*.chk $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
 	for i in addbuiltin certutil cmsutil crlutil modutil pk12util signtool signver ssltap; do \
-		cp $(BUILD_DIR_32)/dist/SunOS5.11_*_OPT.OBJ/bin/$$i $(PROTO_DIR)$(ECPREFIX)/bin; \
-		cp $(BUILD_DIR_64)/dist/SunOS5.11_*_OPT.OBJ/bin/$$i $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64); \
+		cp $(BUILD_DIR_32)/dist/SunOS5.11_*_OPT.OBJ/bin/$$i $(PROTO_DIR)$(USRDIR)/bin; \
+		cp $(BUILD_DIR_64)/dist/SunOS5.11_*_OPT.OBJ/bin/$$i $(PROTO_DIR)$(USRDIR)/bin/$(MACH64); \
 		done
 	cat $(COMPONENT_DIR)/nss.pc | sed s/^Version:/Version:\ $(COMPONENT_VERSION)/ | \
-		sed s%/usr%$(ECPREFIX)% \
-		> $(PROTO_DIR)$(ECPREFIX)/lib/pkgconfig/nss.pc 
+		sed s%/usr%$(USRDIR)% \
+		> $(PROTO_DIR)$(USRDIR)/lib/pkgconfig/nss.pc 
 	cat $(COMPONENT_DIR)/nss.pc | sed s/^Version:/Version:\ $(COMPONENT_VERSION)/ | \
-		sed s%/usr%$(ECPREFIX)% | sed s%/lib$$%/lib/$(MACH64)% \
-		> $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig/nss.pc 
-#	for i in $(PROTO_DIR)$(ECPREFIX)/lib/*.so; do \
-#        	$(ELFEDIT) -e 'dyn:value -s RPATH "$(ECPREFIX)/lib"' $$i ;\
+		sed s%/usr%$(USRDIR)% | sed s%/lib$$%/lib/$(MACH64)% \
+		> $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/pkgconfig/nss.pc 
+#	for i in $(PROTO_DIR)$(USRDIR)/lib/*.so; do \
+#        	$(ELFEDIT) -e 'dyn:value -s RPATH "$(USRDIR)/lib"' $$i ;\
 #    		done ;
-#	for i in $(PROTO_DIR)$(ECPREFIX)/lib/*.so; do \
-#        	$(ELFEDIT) -e 'dyn:value -s RUNPATH "$(ECPREFIX)/lib"' $$i ;\
+#	for i in $(PROTO_DIR)$(USRDIR)/lib/*.so; do \
+#        	$(ELFEDIT) -e 'dyn:value -s RUNPATH "$(USRDIR)/lib"' $$i ;\
 #		done
-#	for i in $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/*.so; do \
-#        	$(ELFEDIT) -e 'dyn:value -s  RPATH "$(ECPREFIX)/lib/$(MACH64)"' $$i ;\
+#	for i in $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/*.so; do \
+#        	$(ELFEDIT) -e 'dyn:value -s  RPATH "$(USRDIR)/lib/$(MACH64)"' $$i ;\
 #    		done ;
-#	for i in $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/*.so; do \
-#        	$(ELFEDIT) -e 'dyn:value -s  RUNPATH "$(ECPREFIX)/lib/$(MACH64)"' $$i ;\
+#	for i in $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/*.so; do \
+#        	$(ELFEDIT) -e 'dyn:value -s  RUNPATH "$(USRDIR)/lib/$(MACH64)"' $$i ;\
 #		done
 	$(TOUCH) $(BUILD_DIR_32)/.installed $(BUILD_DIR_64)/.installed
 
