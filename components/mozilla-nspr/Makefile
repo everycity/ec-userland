@@ -33,38 +33,38 @@ CONFIGURE_SCRIPT = $(SOURCE_DIR)/nspr/configure
 
 CONFIGURE_ENV += CC="$(CC)"
 
-CONFIGURE_BINDIR.32 = $(ECPREFIX)/bin
-CONFIGURE_BINDIR.64 = $(ECPREFIX)/bin/$(MACH64)
+CONFIGURE_BINDIR.32 = $(USRDIR)/bin
+CONFIGURE_BINDIR.64 = $(USRDIR)/bin/$(MACH64)
 
-CONFIGURE_LIBDIR.32 = $(ECPREFIX)/lib
-CONFIGURE_LIBDIR.64 = $(ECPREFIX)/lib/$(MACH64)
+CONFIGURE_LIBDIR.32 = $(USRDIR)/lib
+CONFIGURE_LIBDIR.64 = $(USRDIR)/lib/$(MACH64)
 
 CONFIGURE_OPTIONS.64 += --enable-64bit
 
 CONFIGURE_OPTIONS = --prefix=$(CONFIGURE_PREFIX)
 CONFIGURE_OPTIONS += --bindir=$(CONFIGURE_BINDIR.$(BITS))
 CONFIGURE_OPTIONS += --libdir=$(CONFIGURE_LIBDIR.$(BITS))
-CONFIGURE_OPTIONS += --includedir=$(ECPREFIX)/include/nspr
+CONFIGURE_OPTIONS += --includedir=$(USRDIR)/include/nspr
 #CONFIGURE_OPTIONS += --disable-debug
 CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
 
 build: $(BUILD_32_and_64)
 
 install: $(INSTALL_32_and_64)
-#	for i in $(PROTO_DIR)$(ECPREFIX)/lib/*.so; do \
-#		$(ELFEDIT) -e 'dyn:value -s  RPATH "$(ECPREFIX)/lib"' $$i ;\
+#	for i in $(PROTO_DIR)$(USRDIR)/lib/*.so; do \
+#		$(ELFEDIT) -e 'dyn:value -s  RPATH "$(USRDIR)/lib"' $$i ;\
 #		done ;
-#	for i in $(PROTO_DIR)$(ECPREFIX)/lib/*.so; do \
-#		$(ELFEDIT) -e 'dyn:value -s  RUNPATH "$(ECPREFIX)/lib"' $$i ;\
+#	for i in $(PROTO_DIR)$(USRDIR)/lib/*.so; do \
+#		$(ELFEDIT) -e 'dyn:value -s  RUNPATH "$(USRDIR)/lib"' $$i ;\
 #		done
-#	for i in $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/*.so; do \
-#		$(ELFEDIT) -e 'dyn:value -s  RPATH "$(ECPREFIX)/lib/$(MACH64)"' $$i ;\
+#	for i in $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/*.so; do \
+#		$(ELFEDIT) -e 'dyn:value -s  RPATH "$(USRDIR)/lib/$(MACH64)"' $$i ;\
 #		done ;
-#	for i in $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/*.so; do \
-#		$(ELFEDIT) -e 'dyn:value -s  RUNPATH "$(ECPREFIX)/lib/$(MACH64)"' $$i ;\
+#	for i in $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/*.so; do \
+#		$(ELFEDIT) -e 'dyn:value -s  RUNPATH "$(USRDIR)/lib/$(MACH64)"' $$i ;\
 #		done
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/bin/compile-et.pl $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/compile-et.pl
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/bin/prerr.properties $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/prerr.properties
-	$(RM) $(PROTO_DIR)$(ECPREFIX)/lib/*.a $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/*.a
+	$(RM) $(PROTO_DIR)$(USRDIR)/bin/compile-et.pl $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/compile-et.pl
+	$(RM) $(PROTO_DIR)$(USRDIR)/bin/prerr.properties $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/prerr.properties
+	$(RM) $(PROTO_DIR)$(USRDIR)/lib/*.a $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/*.a
 	
 	$(TOUCH) $(BUILD_DIR_32)/.installed $(BUILD_DIR_64)/.installed
