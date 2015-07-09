@@ -6,7 +6,6 @@
 /^clusterssh$/d
 /^dbt2$/d
 /^exiftool$/d
-/^fcgiwrap$/d
 /^ffmpeg08$/d
 /^freeimage$/d
 /^frotz$/d
