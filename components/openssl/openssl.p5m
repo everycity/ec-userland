@@ -383,6 +383,7 @@ file path=$(ECPREFIX)/share/man/man3/SSL_CTX_add_session.3
 file path=$(ECPREFIX)/share/man/man3/SSL_CTX_ctrl.3
 file path=$(ECPREFIX)/share/man/man3/SSL_CTX_flush_sessions.3
 file path=$(ECPREFIX)/share/man/man3/SSL_CTX_free.3
+file path=$(ECPREFIX)/share/man/man3/SSL_CTX_get0_param.3
 file path=$(ECPREFIX)/share/man/man3/SSL_CTX_get_ex_new_index.3
 file path=$(ECPREFIX)/share/man/man3/SSL_CTX_get_verify_mode.3
 file path=$(ECPREFIX)/share/man/man3/SSL_CTX_load_verify_locations.3
@@ -542,7 +543,6 @@ link path=$(ECPREFIX)/share/man/man1/sha224.1 target=dgst.1
 link path=$(ECPREFIX)/share/man/man1/sha256.1 target=dgst.1
 link path=$(ECPREFIX)/share/man/man1/sha384.1 target=dgst.1
 link path=$(ECPREFIX)/share/man/man1/sha512.1 target=dgst.1
-link path=$(ECPREFIX)/share/man/man3/.3 target=SSL_CTX_use_serverinfo.3
 link path=$(ECPREFIX)/share/man/man3/ASN1_OBJECT_free.3 \
     target=ASN1_OBJECT_new.3
 link path=$(ECPREFIX)/share/man/man3/ASN1_STRING_cmp.3 \
@@ -1839,6 +1839,8 @@ link path=$(ECPREFIX)/share/man/man3/SSL_CTX_set1_chain_cert_store.3 \
     target=SSL_CTX_set1_verify_cert_store.3
 link path=$(ECPREFIX)/share/man/man3/SSL_CTX_set1_curves_list.3 \
     target=SSL_CTX_set1_curves.3
+link path=$(ECPREFIX)/share/man/man3/SSL_CTX_set1_param.3 \
+    target=SSL_CTX_get0_param.3
 link path=$(ECPREFIX)/share/man/man3/SSL_CTX_set_current_cert.3 \
     target=SSL_CTX_add1_chain_cert.3
 link path=$(ECPREFIX)/share/man/man3/SSL_CTX_set_default_passwd_cb_userdata.3 \
@@ -1877,6 +1879,8 @@ link path=$(ECPREFIX)/share/man/man3/SSL_CTX_use_certificate_chain_file.3 \
     target=SSL_CTX_use_certificate.3
 link path=$(ECPREFIX)/share/man/man3/SSL_CTX_use_certificate_file.3 \
     target=SSL_CTX_use_certificate.3
+link path=$(ECPREFIX)/share/man/man3/SSL_CTX_use_serverinfo_file.3 \
+    target=SSL_CTX_use_serverinfo.3
 link path=$(ECPREFIX)/share/man/man3/SSL_SESSION_get_ex_data.3 \
     target=SSL_SESSION_get_ex_new_index.3
 link path=$(ECPREFIX)/share/man/man3/SSL_SESSION_get_timeout.3 \
@@ -1915,6 +1919,8 @@ link path=$(ECPREFIX)/share/man/man3/SSL_flush_sessions.3 \
     target=SSL_CTX_flush_sessions.3
 link path=$(ECPREFIX)/share/man/man3/SSL_get0_chain_certs.3 \
     target=SSL_CTX_add1_chain_cert.3
+link path=$(ECPREFIX)/share/man/man3/SSL_get0_param.3 \
+    target=SSL_CTX_get0_param.3
 link path=$(ECPREFIX)/share/man/man3/SSL_get1_curves.3 \
     target=SSL_CTX_set1_curves.3
 link path=$(ECPREFIX)/share/man/man3/SSL_get_accept_state.3 \
@@ -1986,6 +1992,8 @@ link path=$(ECPREFIX)/share/man/man3/SSL_set1_curves.3 \
     target=SSL_CTX_set1_curves.3
 link path=$(ECPREFIX)/share/man/man3/SSL_set1_curves_list.3 \
     target=SSL_CTX_set1_curves.3
+link path=$(ECPREFIX)/share/man/man3/SSL_set1_param.3 \
+    target=SSL_CTX_get0_param.3
 link path=$(ECPREFIX)/share/man/man3/SSL_set1_verify_cert_store.3 \
     target=SSL_CTX_set1_verify_cert_store.3
 link path=$(ECPREFIX)/share/man/man3/SSL_set_cert_cb.3 \
