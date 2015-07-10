@@ -7,7 +7,6 @@
 /^dbt2$/d
 /^exiftool$/d
 /^ffmpeg08$/d
-/^gaa$/d
 /^gcc47$/d
 /^gconf$/d
 /^gdal$/d
