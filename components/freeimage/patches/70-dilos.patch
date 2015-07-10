@@ -1,0 +1,16 @@
+Index: FreeImage/Source/OpenEXR/IlmImf/ImfHuf.cpp
+===================================================================
+--- FreeImage/Source/OpenEXR/IlmImf/ImfHuf.cpp.orig
++++ FreeImage/Source/OpenEXR/IlmImf/ImfHuf.cpp
+@@ -47,9 +47,9 @@
+ 
+ #include <ImfHuf.h>
+ #include <ImfInt64.h>
++#include <string.h>
+ #include <ImfAutoArray.h>
+ #include "Iex.h"
+-#include <string.h>
+ #include <assert.h>
+ #include <algorithm>
+ 
+
