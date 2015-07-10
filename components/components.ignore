@@ -7,8 +7,6 @@
 /^dbt2$/d
 /^exiftool$/d
 /^ffmpeg08$/d
-/^freeimage$/d
-/^frotz$/d
 /^gaa$/d
 /^gcc47$/d
 /^gconf$/d

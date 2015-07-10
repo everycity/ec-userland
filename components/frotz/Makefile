@@ -29,7 +29,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_BUILD_ARGS+= DESTDIR=$(PROTO_DIR) ECPREFIX=$(ECPREFIX)
+COMPONENT_BUILD_ARGS+= DESTDIR=$(PROTO_DIR) ECPREFIX=$(USRDIR)
 COMPONENT_INSTALL_ARGS+=	$(COMPONENT_BUILD_ARGS)
 
 

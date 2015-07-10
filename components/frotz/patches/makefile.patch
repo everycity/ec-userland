@@ -22,8 +22,8 @@
  #INCL = -I/usr/freeware/include
  #INCL = -I/5usr/include
  #INCL = -I/path/to/ncurses.h
-+INCL = -I$(ECPREFIX)/include
 +INCL = -I$(ECPREFIX)/include/ncurses
++INCL += -I$(ECPREFIX)/include
  
  # If your vendor-supplied curses library won't work, uncomment the
  # location where the ncurses library is.
@@ -31,7 +31,7 @@
  #LIB = -L/usr/freeware/lib
  #LIB = -L/5usr/lib
  #LIB = -L/path/to/libncurses.so
-+LIB = -L$(ECPREFIX)/lib
++LIB = -L$(ECPREFIX)/lib -ltinfo
  
  # One of these must always be uncommented.  If your vendor-supplied
  # curses library won't work, comment out the first option and uncomment
