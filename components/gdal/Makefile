@@ -31,11 +31,11 @@ include ../../make-rules/ips.mk
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 
-LDFLAGS.32 +=	-L$(ECPREFIX)/lib/postgres/9.3/lib -R$(ECPREFIX)/lib/postgres/9.3/lib
-LDFLAGS.64 +=	-L$(ECPREFIX)/lib/postgres/9.3/lib/$(MACH64) -R$(ECPREFIX)/lib/postgres/9.3/lib/$(MACH64)
+LDFLAGS.32 +=	-L$(USRDIR)/lib/postgres/9.3/lib -R$(USRDIR)/lib/postgres/9.3/lib
+LDFLAGS.64 +=	-L$(USRDIR)/lib/postgres/9.3/lib/$(MACH64) -R$(USRDIR)/lib/postgres/9.3/lib/$(MACH64)
 
-CONFIGURE_OPTIONS.32 +=	--with-pg=$(ECPREFIX)/lib/postgres/9.3/bin/pg_config
-CONFIGURE_OPTIONS.64 +=	--with-pg=$(ECPREFIX)/lib/postgres/9.3/bin/$(MACH64)/pg_config
+CONFIGURE_OPTIONS.32 +=	--with-pg=$(USRDIR)/lib/postgres/9.3/bin/pg_config
+CONFIGURE_OPTIONS.64 +=	--with-pg=$(USRDIR)/lib/postgres/9.3/bin/$(MACH64)/pg_config
 
 build:		$(BUILD_32_and_64)
 

@@ -9,7 +9,6 @@
 /^ffmpeg08$/d
 /^gcc47$/d
 /^gconf$/d
-/^gdal$/d
 /^geos$/d
 /^ghostscript$/d
 /^gifsicle$/d
