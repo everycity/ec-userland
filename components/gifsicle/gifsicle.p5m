@@ -20,15 +20,9 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license gifsicle.license license="GPLv2"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/gifdiff
-file path=$(ECPREFIX)/bin/$(MACH64)/gifsicle
-file path=$(ECPREFIX)/bin/gifdiff
-file path=$(ECPREFIX)/bin/gifsicle
-file path=$(ECPREFIX)/share/man/man1/gifdiff.1
-file path=$(ECPREFIX)/share/man/man1/gifsicle.1
+file path=$(USRDIR)/bin/$(MACH64)/gifdiff
+file path=$(USRDIR)/bin/$(MACH64)/gifsicle
+file path=$(USRDIR)/bin/gifdiff
+file path=$(USRDIR)/bin/gifsicle
+file path=$(USRDIR)/share/man/man1/gifdiff.1
+file path=$(USRDIR)/share/man/man1/gifsicle.1
