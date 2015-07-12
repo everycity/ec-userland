@@ -219,3 +219,4 @@
 /^webdis$/d
 /^wp-cli$/d
 /^qt4$/d
+/^cairo$/d
