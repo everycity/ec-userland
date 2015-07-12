@@ -66,6 +66,8 @@ CONFIGURE_OPTIONS += --infodir=$(CONFIGURE_PREFIX)/share/info
 CONFIGURE_OPTIONS += --libexecdir=$(CONFIGURE_PREFIX)/lib
 CONFIGURE_OPTIONS += --enable-languages="c,c++,fortran,objc"
 CONFIGURE_OPTIONS += --enable-shared
+CONFIGURE_OPTIONS += --enable-tls
+CONFIGURE_OPTIONS += --enable-threads=posix
 CONFIGURE_OPTIONS += --enable-targets=$(GNU_ARCH_64)
 CONFIGURE_OPTIONS += --without-gnu-ld --with-ld=/usr/bin/ld
 CONFIGURE_OPTIONS += --with-gmp-include=$(USRDIR)/include
