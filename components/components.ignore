@@ -10,7 +10,6 @@
 /^gcc47$/d
 /^geos$/d
 /^ghostscript$/d
-/^gnome-vfs$/d
 /^gnu-bc$/d
 /^gnu-inetutils$/d
 /^gnu-pth$/d
