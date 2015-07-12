@@ -8,7 +8,6 @@
 /^exiftool$/d
 /^ffmpeg08$/d
 /^gcc47$/d
-/^gconf$/d
 /^geos$/d
 /^ghostscript$/d
 /^gnome-vfs$/d
