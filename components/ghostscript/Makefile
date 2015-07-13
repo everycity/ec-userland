@@ -31,6 +31,8 @@ include ../../make-rules/ips.mk
 # make build isn't thread safe.
 override COMPONENT_BUILD_GMAKE_ARGS=
 
+LDFLAGS += -lpng16
+
 CONFIGURE_OPTIONS += 	--with-drivers=ALL
 CONFIGURE_OPTIONS +=	--enable-dynamic
 CONFIGURE_OPTIONS +=	--with-ijs
