@@ -40,7 +40,7 @@ include ../../make-rules/ips.mk
 
 include ../../make-rules/shared-targets.mk
 
-CONFIGURE_OPTIONS	+=	--libexecdir=$(ECPREFIX)/libexec
+CONFIGURE_OPTIONS	+=	--libexecdir=$(USRDIR)/libexec
 
 build:		$(BUILD_32_and_64)
 
