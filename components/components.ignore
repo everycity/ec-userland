@@ -9,7 +9,6 @@
 /^ffmpeg08$/d
 /^gcc47$/d
 /^geos$/d
-/^gnu-inetutils$/d
 /^gnu-pth$/d
 /^gnupg$/d
 /^gnupg2$/d
