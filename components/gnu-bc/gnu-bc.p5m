@@ -22,19 +22,11 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license gnu-bc.license license="GPLv2"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/info
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/bc
-file path=$(ECPREFIX)/bin/$(MACH64)/dc
-file path=$(ECPREFIX)/bin/bc
-file path=$(ECPREFIX)/bin/dc
-file path=$(ECPREFIX)/share/info/bc.info
-file path=$(ECPREFIX)/share/info/dc.info
-file path=$(ECPREFIX)/share/info/dir
-file path=$(ECPREFIX)/share/man/man1/bc.1
-file path=$(ECPREFIX)/share/man/man1/dc.1
+file path=$(USRDIR)/bin/$(MACH64)/bc
+file path=$(USRDIR)/bin/$(MACH64)/dc
+file path=$(USRDIR)/bin/bc
+file path=$(USRDIR)/bin/dc
+file path=$(USRDIR)/share/info/bc.info
+file path=$(USRDIR)/share/info/dc.info
+file path=$(USRDIR)/share/man/man1/bc.1
+file path=$(USRDIR)/share/man/man1/dc.1
