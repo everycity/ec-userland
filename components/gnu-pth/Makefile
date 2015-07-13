@@ -21,7 +21,6 @@
 # Copyright (c) 2012, Igor Kozhukhov <ikozhukhov@gmail.com>.  All rights reserved.
 # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
 #
-DEF_JOBS = no
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		pth
@@ -37,6 +36,8 @@ COMPONENT_BUGDB=	library/pth
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+COMPONENT_BUILD_GMAKE_ARGS=
 
 CC += $(CC_BITS)
 CXX += $(CC_BITS)
