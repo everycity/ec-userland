@@ -32,14 +32,14 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
  
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-file path=$(ECPREFIX)/bin/$(MACH64)/libassuan-config
-file path=$(ECPREFIX)/bin/libassuan-config
-file path=$(ECPREFIX)/include/assuan.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libassuan.so.0.4.3
-file path=$(ECPREFIX)/lib/libassuan.so.0.4.3
-file path=$(ECPREFIX)/share/aclocal/libassuan.m4
-file path=$(ECPREFIX)/share/info/assuan.info
-link path=$(ECPREFIX)/lib/$(MACH64)/libassuan.so target=libassuan.so.0.4.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libassuan.so.0 target=libassuan.so.0.4.3
-link path=$(ECPREFIX)/lib/libassuan.so target=libassuan.so.0.4.3
-link path=$(ECPREFIX)/lib/libassuan.so.0 target=libassuan.so.0.4.3
+file path=$(USRDIR)/bin/$(MACH64)/libassuan-config
+file path=$(USRDIR)/bin/libassuan-config
+file path=$(USRDIR)/include/assuan.h
+file path=$(USRDIR)/lib/$(MACH64)/libassuan.so.0.4.3
+file path=$(USRDIR)/lib/libassuan.so.0.4.3
+file path=$(USRDIR)/share/aclocal/libassuan.m4
+file path=$(USRDIR)/share/info/assuan.info
+link path=$(USRDIR)/lib/$(MACH64)/libassuan.so target=libassuan.so.0.4.3
+link path=$(USRDIR)/lib/$(MACH64)/libassuan.so.0 target=libassuan.so.0.4.3
+link path=$(USRDIR)/lib/libassuan.so target=libassuan.so.0.4.3
+link path=$(USRDIR)/lib/libassuan.so.0 target=libassuan.so.0.4.3
