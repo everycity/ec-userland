@@ -36,10 +36,10 @@ include ../../make-rules/ips.mk
 
 include ../../make-rules/shared-targets.mk
 
-CONFIGURE_ENV.64 += PATH=$(ECPREFIX)/bin/$(MACH64):$(PATH)
+CONFIGURE_ENV.64 += PATH=$(USRDIR)/bin/$(MACH64):$(PATH)
 
-CONFIGURE_OPTIONS.32+=	--libexecdir=$(ECPREFIX)/bin
-CONFIGURE_OPTIONS.64+=	--libexecdir=$(ECPREFIX)/bin/$(MACH64)
+CONFIGURE_OPTIONS.32+=	--libexecdir=$(USRDIR)/bin
+CONFIGURE_OPTIONS.64+=	--libexecdir=$(USRDIR)/bin/$(MACH64)
 
 build:		$(BUILD_32_and_64)
 
