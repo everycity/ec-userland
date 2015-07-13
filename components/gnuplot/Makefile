@@ -30,9 +30,9 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 # This is so that the 64bit gdlib-config gets picked up
-PATH.32 =       $(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
-PATH.64 =       $(ECPREFIX)/bin/$(MACH64):$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
-PATH    =       $(PATH.$(BITS))
+#PATH.32 =       $(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+#PATH.64 =       $(USRDIR)/bin/$(MACH64):$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+#PATH    =       $(PATH.$(BITS))
 
 LDFLAGS +=	-lm -llua -liconv
 
