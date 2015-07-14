@@ -27,7 +27,7 @@
 	</dependency>
 
 	<exec_method type='method' name='start' 
-		exec='/ec/var/svc/method/isc-dhcp' timeout_seconds='60'>
+		exec='/var/svc/method/isc-dhcp' timeout_seconds='60'>
 		<method_context>
 			<method_credential
 				user='netadm' group='netadm' 
@@ -48,7 +48,7 @@
 			<propval name='config_file' type='astring' 
 				value='/ec/etc/dhcp/dhcpd4.conf'/>
 			<propval name='lease_file' type='astring'
-				value='/ec/var/db/dhcp/dhcpd4.leases'/>
+				value='/var/db/dhcp/dhcpd4.leases'/>
 			<property name='listen_ifnames' type='astring' >
 				<astring_list>
 					<value_node value='' />
@@ -63,7 +63,7 @@
 			<propval name='config_file' type='astring'
 				value='/ec/etc/dhcp/dhcpd6.conf'/>
 			<propval name='lease_file' type='astring'
-				value='/ec/var/db/dhcp/dhcpd6.leases'/>
+				value='/var/db/dhcp/dhcpd6.leases'/>
 			<property name='listen_ifnames' type='astring'>
 				<astring_list>
 					<value_node value='' />

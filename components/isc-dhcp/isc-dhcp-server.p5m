@@ -23,65 +23,44 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 # Manifiest and method
-dir path=var
-dir path=var/svc
-dir path=var/svc/manifest
-dir path=var/svc/manifest/site
-dir path=$(ECPREFIX)/var
-dir path=$(ECPREFIX)/var/svc
-dir path=$(ECPREFIX)/var/svc/method
-file files/isc-dhcp-server.xml path=var/svc/manifest/site/isc-dhcp-server.xml
-file files/isc-dhcp path=/ec/var/svc/method/isc-dhcp mode=0555
+file files/isc-dhcp-server.xml path=$(SVCMANIFEST)/site/isc-dhcp-server.xml
+file files/isc-dhcp path=$(SVCMETHOD)/isc-dhcp mode=0555
 
 # Leases file
-dir path=$(ECPREFIX)/var
-dir path=$(ECPREFIX)/var/db
-dir path=$(ECPREFIX)/var/db/dhcp mode=0755 group=netadm owner=netadm
-file files/dhcpd.leases path=$(ECPREFIX)/var/db/dhcp/dhcpd4.leases mode=0644 group=netadm owner=netadm preserve=true
-file files/dhcpd.leases path=$(ECPREFIX)/var/db/dhcp/dhcpd4.leases~ mode=0644 group=netadm owner=netadm preserve=true
-file files/dhcpd.leases path=$(ECPREFIX)/var/db/dhcp/dhcpd6.leases mode=0644 group=netadm owner=netadm preserve=true
-file files/dhcpd.leases path=$(ECPREFIX)/var/db/dhcp/dhcpd6.leases~ mode=0644 group=netadm owner=netadm preserve=true
+dir path=$(LOCALSTATEDIR)/db
+dir path=$(LOCALSTATEDIR)/db/dhcp mode=0755 group=netadm owner=netadm
+file files/dhcpd.leases path=$(LOCALSTATEDIR)/db/dhcp/dhcpd4.leases mode=0644 group=netadm owner=netadm preserve=true
+file files/dhcpd.leases path=$(LOCALSTATEDIR)/db/dhcp/dhcpd4.leases~ mode=0644 group=netadm owner=netadm preserve=true
+file files/dhcpd.leases path=$(LOCALSTATEDIR)/db/dhcp/dhcpd6.leases mode=0644 group=netadm owner=netadm preserve=true
+file files/dhcpd.leases path=$(LOCALSTATEDIR)/db/dhcp/dhcpd6.leases~ mode=0644 group=netadm owner=netadm preserve=true
 
 # Manually Generated Content
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/dhcp
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/dhcpctl
-dir path=$(ECPREFIX)/include/isc-dhcp
-dir path=$(ECPREFIX)/include/omapip
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-dir path=$(ECPREFIX)/share/man/man3
-dir path=$(ECPREFIX)/share/man/man5
-dir path=$(ECPREFIX)/share/man/man8
-file path=$(ECPREFIX)/bin/dhcpd
-file path=$(ECPREFIX)/bin/dhcrelay
-file path=$(ECPREFIX)/bin/omshell
-file path=$(ECPREFIX)/etc/dhcp/dhcpd.conf.example
-file path=$(ECPREFIX)/include/dhcpctl/dhcpctl.h
-file path=$(ECPREFIX)/include/isc-dhcp/dst.h
-file path=$(ECPREFIX)/include/omapip/alloc.h
-file path=$(ECPREFIX)/include/omapip/buffer.h
-file path=$(ECPREFIX)/include/omapip/convert.h
-file path=$(ECPREFIX)/include/omapip/hash.h
-file path=$(ECPREFIX)/include/omapip/isclib.h
-file path=$(ECPREFIX)/include/omapip/omapip.h
-file path=$(ECPREFIX)/include/omapip/omapip_p.h
-file path=$(ECPREFIX)/include/omapip/result.h
-file path=$(ECPREFIX)/include/omapip/trace.h
-file path=$(ECPREFIX)/lib/libdhcpctl.a
-file path=$(ECPREFIX)/lib/libdst.a
-file path=$(ECPREFIX)/lib/libomapi.a
-file path=$(ECPREFIX)/share/man/man1/omshell.1
-file path=$(ECPREFIX)/share/man/man3/dhcpctl.3
-file path=$(ECPREFIX)/share/man/man3/omapi.3
-file path=$(ECPREFIX)/share/man/man5/dhcp-eval.5
-file path=$(ECPREFIX)/share/man/man5/dhcp-options.5
-file path=$(ECPREFIX)/share/man/man5/dhcpd.conf.5
-file path=$(ECPREFIX)/share/man/man5/dhcpd.leases.5
-file path=$(ECPREFIX)/share/man/man8/dhcpd.8
-file path=$(ECPREFIX)/share/man/man8/dhcrelay.8
+dir path=$(SYSCONFDIR)/dhcp
+
+file path=$(USRDIR)/bin/dhcpd
+file path=$(USRDIR)/bin/dhcrelay
+file path=$(USRDIR)/bin/omshell
+file path=$(SYSCONFDIR)/dhcp/dhcpd.conf.example
+file path=$(USRDIR)/include/dhcpctl/dhcpctl.h
+file path=$(USRDIR)/include/isc-dhcp/dst.h
+file path=$(USRDIR)/include/omapip/alloc.h
+file path=$(USRDIR)/include/omapip/buffer.h
+file path=$(USRDIR)/include/omapip/convert.h
+file path=$(USRDIR)/include/omapip/hash.h
+file path=$(USRDIR)/include/omapip/isclib.h
+file path=$(USRDIR)/include/omapip/omapip.h
+file path=$(USRDIR)/include/omapip/omapip_p.h
+file path=$(USRDIR)/include/omapip/result.h
+file path=$(USRDIR)/include/omapip/trace.h
+file path=$(USRDIR)/lib/libdhcpctl.a
+file path=$(USRDIR)/lib/libdst.a
+file path=$(USRDIR)/lib/libomapi.a
+file path=$(USRDIR)/share/man/man1/omshell.1
+file path=$(USRDIR)/share/man/man3/dhcpctl.3
+file path=$(USRDIR)/share/man/man3/omapi.3
+file path=$(USRDIR)/share/man/man5/dhcp-eval.5
+file path=$(USRDIR)/share/man/man5/dhcp-options.5
+file path=$(USRDIR)/share/man/man5/dhcpd.conf.5
+file path=$(USRDIR)/share/man/man5/dhcpd.leases.5
+file path=$(USRDIR)/share/man/man8/dhcpd.8
+file path=$(USRDIR)/share/man/man8/dhcrelay.8
