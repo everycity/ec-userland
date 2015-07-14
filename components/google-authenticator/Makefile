@@ -30,12 +30,12 @@ include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
 $(BUILD_DIR)/%/.installed:      $(BUILD_DIR)/%/.built
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/security/$(MACH64)
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
-	$(CP) $(BUILD_DIR)/$(MACH32)/pam_google_authenticator.so $(PROTO_DIR)$(ECPREFIX)/lib/security/
-	$(CP) $(BUILD_DIR)/$(MACH64)/pam_google_authenticator.so $(PROTO_DIR)$(ECPREFIX)/lib/security/$(MACH64)/
-	$(CP) $(BUILD_DIR)/$(MACH32)/google-authenticator $(PROTO_DIR)$(ECPREFIX)/bin/
-	$(CP) $(BUILD_DIR)/$(MACH64)/google-authenticator $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/security/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)
+	$(CP) $(BUILD_DIR)/$(MACH32)/pam_google_authenticator.so $(PROTO_DIR)$(USRDIR)/lib/security/
+	$(CP) $(BUILD_DIR)/$(MACH64)/pam_google_authenticator.so $(PROTO_DIR)$(USRDIR)/lib/security/$(MACH64)/
+	$(CP) $(BUILD_DIR)/$(MACH32)/google-authenticator $(PROTO_DIR)$(USRDIR)/bin/
+	$(CP) $(BUILD_DIR)/$(MACH64)/google-authenticator $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/
 	$(TOUCH) $@
 
 build:		$(BUILD_32_and_64)

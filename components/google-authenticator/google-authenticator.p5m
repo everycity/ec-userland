@@ -22,13 +22,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/security
-dir path=$(ECPREFIX)/lib/security/$(MACH64)
-file path=$(ECPREFIX)/bin/$(MACH64)/google-authenticator
-file path=$(ECPREFIX)/bin/google-authenticator
-file path=$(ECPREFIX)/lib/security/$(MACH64)/pam_google_authenticator.so
-file path=$(ECPREFIX)/lib/security/pam_google_authenticator.so
+file path=$(USRDIR)/bin/$(MACH64)/google-authenticator
+file path=$(USRDIR)/bin/google-authenticator
+file path=$(USRDIR)/lib/security/$(MACH64)/pam_google_authenticator.so
+file path=$(USRDIR)/lib/security/pam_google_authenticator.so
