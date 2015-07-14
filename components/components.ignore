@@ -9,7 +9,6 @@
 /^ffmpeg08$/d
 /^gcc47$/d
 /^geos$/d
-/^lighttpd$/d
 /^live555$/d
 /^logrotate$/d
 /^lucene$/d

@@ -41,14 +41,8 @@ set name=org.opensolaris.consolidation value=\$(CONSOLIDATION)
 
 license lighttpd.license license="Revised BSD"
 
-dir path=\$(ECPREFIX)
-dir path=\$(ECPREFIX)/lib
-dir path=\$(ECPREFIX)/lib/lighttpd
-dir path=\$(ECPREFIX)/lib/lighttpd/\$(LIGHTTPD_MAJOR)
-dir path=\$(ECPREFIX)/lib/lighttpd/\$(LIGHTTPD_MAJOR)/lib
-dir path=\$(ECPREFIX)/lib/lighttpd/\$(LIGHTTPD_MAJOR)/lib/\$(MACH64)
-file path=\$(ECPREFIX)/lib/lighttpd/\$(LIGHTTPD_MAJOR)/lib/\$(MACH64)/mod_${i}.so
-file path=\$(ECPREFIX)/lib/lighttpd/\$(LIGHTTPD_MAJOR)/lib/mod_${i}.so
+file path=\$(USRDIR)/lib/lighttpd/\$(LIGHTTPD_MAJOR)/lib/\$(MACH64)/mod_${i}.so
+file path=\$(USRDIR)/lib/lighttpd/\$(LIGHTTPD_MAJOR)/lib/mod_${i}.so
 
 EOF
 

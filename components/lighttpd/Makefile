@@ -27,9 +27,9 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_PREFIX=		$(ECPREFIX)/lib/lighttpd/$(COMPONENT_MJR_VERSION)
-CONFIGURE_SYSCONFDIR=		$(ECPREFIX)/etc/lighttpd/$(COMPONENT_MJR_VERSION)
-CONFIGURE_LOCALSTATEDIR=	$(ECPREFIX)/var/lighttpd/$(COMPONENT_MJR_VERSION)
+CONFIGURE_PREFIX=		$(USRDIR)/lib/lighttpd/$(COMPONENT_MJR_VERSION)
+CONFIGURE_SYSCONFDIR=		$(USRDIR)/etc/lighttpd/$(COMPONENT_MJR_VERSION)
+CONFIGURE_LOCALSTATEDIR=	$(USRDIR)/var/lighttpd/$(COMPONENT_MJR_VERSION)
 PKG_MACROS+=			LIGHTTPD_MAJOR=$(COMPONENT_MJR_VERSION)
 
 CONFIGURE_OPTIONS+=	--with-pic
@@ -39,8 +39,8 @@ CONFIGURE_OPTIONS+=	--with-zlib
 CONFIGURE_OPTIONS+=	--with-bzip2
 CONFIGURE_OPTIONS+=	--with-openssl
 CONFIGURE_OPTIONS+=	--with-pcre
-CONFIGURE_OPTIONS.32+=	--with-mysql=$(ECPREFIX)/bin/mysql_config
-CONFIGURE_OPTIONS.64+=	--with-mysql=$(ECPREFIX)/bin/$(MACH64)/mysql_config
+CONFIGURE_OPTIONS.32+=	--with-mysql=$(USRDIR)/bin/mysql_config
+CONFIGURE_OPTIONS.64+=	--with-mysql=$(USRDIR)/bin/$(MACH64)/mysql_config
 
 build:		$(BUILD_32_and_64)
 

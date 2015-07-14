@@ -22,48 +22,37 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license lighttpd.license license="Revised BSD"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/lighttpd
-dir path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)
-dir path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)/bin
-dir path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)/bin/$(MACH64)
-dir path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)/share
-dir path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)/share/man
-dir path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)/share/man/man8
-file path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)/bin/$(MACH64)/lighttpd
-file path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)/bin/$(MACH64)/lighttpd-angel
-file path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)/bin/lighttpd
-file path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)/bin/lighttpd-angel
-file path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)/share/man/man8/lighttpd.8
+file path=$(USRDIR)/lib/lighttpd/$(LIGHTTPD_MAJOR)/bin/$(MACH64)/lighttpd
+file path=$(USRDIR)/lib/lighttpd/$(LIGHTTPD_MAJOR)/bin/$(MACH64)/lighttpd-angel
+file path=$(USRDIR)/lib/lighttpd/$(LIGHTTPD_MAJOR)/bin/lighttpd
+file path=$(USRDIR)/lib/lighttpd/$(LIGHTTPD_MAJOR)/bin/lighttpd-angel
+file path=$(USRDIR)/lib/lighttpd/$(LIGHTTPD_MAJOR)/share/man/man8/lighttpd.8
 
 # Symlinks
-link path=$(ECPREFIX)/lib/lighttpd/active target=$(LIGHTTPD_MAJOR)
-link path=$(ECPREFIX)/bin/lighttpd target=/$(ECPREFIX)/lib/lighttpd/active/bin/lighttpd
-link path=$(ECPREFIX)/bin/lighttpd-angel target=/$(ECPREFIX)/lib/lighttpd/active/bin/lighttpd-angel
-link path=$(ECPREFIX)/bin/$(MACH64)/lighttpd target=/$(ECPREFIX)/lib/lighttpd/active/bin/$(MACH64)/lighttpd
-link path=$(ECPREFIX)/bin/$(MACH64)/lighttpd-angel target=/$(ECPREFIX)/lib/lighttpd/active/bin/$(MACH64)/lighttpd-angel
+link path=$(USRDIR)/lib/lighttpd/active target=$(LIGHTTPD_MAJOR)
+link path=$(USRDIR)/bin/lighttpd target=../../lib/lighttpd/active/bin/lighttpd
+link path=$(USRDIR)/bin/lighttpd-angel target=../../lib/lighttpd/active/bin/lighttpd-angel
+link path=$(USRDIR)/bin/$(MACH64)/lighttpd target=../../lib/lighttpd/active/bin/$(MACH64)/lighttpd
+link path=$(USRDIR)/bin/$(MACH64)/lighttpd-angel target=../../lib/lighttpd/active/bin/$(MACH64)/lighttpd-angel
 
 # Configuration
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/lighttpd
-dir path=$(ECPREFIX)/etc/lighttpd/$(LIGHTTPD_MAJOR)
-file files/lighttpd.conf path=$(ECPREFIX)/etc/lighttpd/$(LIGHTTPD_MAJOR)/lighttpd.conf preserve=true mode=0644
+dir path=$(SYSCONFDIR)/lighttpd
+dir path=$(SYSCONFDIR)/lighttpd/$(LIGHTTPD_MAJOR)
+file files/lighttpd.conf path=$(SYSCONFDIR)/lighttpd/$(LIGHTTPD_MAJOR)/lighttpd.conf preserve=true mode=0644
 
 # var dirs
-dir path=$(ECPREFIX)/var
-dir path=$(ECPREFIX)/var/lighttpd
-dir path=$(ECPREFIX)/var/lighttpd/$(LIGHTTPD_MAJOR)
-dir path=$(ECPREFIX)/var/lighttpd/$(LIGHTTPD_MAJOR)/logs owner=webservd group=webservd mode=0755
-dir path=$(ECPREFIX)/var/lighttpd/$(LIGHTTPD_MAJOR)/rrds owner=webservd group=webservd mode=0755
-dir path=$(ECPREFIX)/var/lighttpd/$(LIGHTTPD_MAJOR)/www owner=webservd group=webservd mode=0755
-file files/index.html path=$(ECPREFIX)/var/lighttpd/$(LIGHTTPD_MAJOR)/www/index.html owner=webservd group=webservd mode=0644
+dir path=$(LOCALSTATEDIR)/lighttpd
+dir path=$(LOCALSTATEDIR)/lighttpd/$(LIGHTTPD_MAJOR)
+dir path=$(LOCALSTATEDIR)/lighttpd/$(LIGHTTPD_MAJOR)/logs owner=webservd group=webservd mode=0755
+dir path=$(LOCALSTATEDIR)/lighttpd/$(LIGHTTPD_MAJOR)/rrds owner=webservd group=webservd mode=0755
+dir path=$(LOCALSTATEDIR)/lighttpd/$(LIGHTTPD_MAJOR)/www owner=webservd group=webservd mode=0755
+file files/index.html path=$(LOCALSTATEDIR)/lighttpd/$(LIGHTTPD_MAJOR)/www/index.html owner=webservd group=webservd mode=0644
 
 # Service manifests
-file files/lighttpd-manifest.xml path=var/svc/manifest/site/lighttpd$(LIGHTTPD_MAJOR).xml \
+file files/lighttpd-manifest.xml path=$(SVCMANIFEST)/site/lighttpd$(LIGHTTPD_MAJOR).xml \
     restart_fmri=svc:/system/manifest-import:default
 file files/lighttpd-startup.sh \
-    path=$(ECPREFIX)/var/svc/method/lighttpd$(LIGHTTPD_MAJOR) mode=0555
+    path=$(SVCMETHOD)/lighttpd$(LIGHTTPD_MAJOR) mode=0555
 
 # Dependencies
 depend fmri=pkg:/web/server/lighttpd-$(LIGHTTPD_MAJOR)/module/lighttpd-access type=require
@@ -71,4 +60,3 @@ depend fmri=pkg:/web/server/lighttpd-$(LIGHTTPD_MAJOR)/module/lighttpd-accesslog
 depend fmri=pkg:/web/server/lighttpd-$(LIGHTTPD_MAJOR)/module/lighttpd-indexfile type=require
 depend fmri=pkg:/web/server/lighttpd-$(LIGHTTPD_MAJOR)/module/lighttpd-dirlisting type=require
 depend fmri=pkg:/web/server/lighttpd-$(LIGHTTPD_MAJOR)/module/lighttpd-staticfile type=require
-
