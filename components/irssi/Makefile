@@ -26,7 +26,9 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=	--with-ncurses=$(ECPREFIX)
+LDFLAGS += -ltinfo
+
+CONFIGURE_OPTIONS+=	--with-ncurses=$(USRDIR)
 
 build:		$(BUILD_32)
 
