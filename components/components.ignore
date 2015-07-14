@@ -35,7 +35,6 @@
 /^nagios\/plugins$/d
 /^nddtune$/d
 /^neon$/d
-/^net-snmp$/d
 /^netcat$/d
 /^nodejs04$/d
 /^nodejs06$/d
