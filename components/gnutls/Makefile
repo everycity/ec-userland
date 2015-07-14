@@ -29,7 +29,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS += -lsocket -lnsl
+#LDFLAGS += -lsocket -lnsl
 
 CFLAGS+=	$(CC_PIC)
 CONFIGURE_OPTIONS+=	--enable-shared
