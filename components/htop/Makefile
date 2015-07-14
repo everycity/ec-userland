@@ -35,7 +35,9 @@ include ../../make-rules/ips.mk
 
 COMPONENT_PRE_CONFIGURE_ACTION = $(CLONEY) $(SOURCE_DIR) $(@D)
 
-CONFIGURE_OPTIONS+= CPPFLAGS=-I$(ECPREFIX)/include/ncurses
+LDFLAGS += -ltinfo
+
+CONFIGURE_OPTIONS+= CPPFLAGS=-I$(USRDIR)/include/ncurses
 CONFIGURE_OPTIONS+= --with-proc=/system/lxproc
 CONFIGURE_OPTIONS+= --enable-unicode
 

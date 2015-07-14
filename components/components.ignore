@@ -9,8 +9,6 @@
 /^ffmpeg08$/d
 /^gcc47$/d
 /^geos$/d
-/^haproxy-dev$/d
-/^htop$/d
 /^illumos-hal$/d
 /^irssi$/d
 /^isc-dhcp$/d
