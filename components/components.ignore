@@ -9,7 +9,6 @@
 /^ffmpeg08$/d
 /^gcc47$/d
 /^geos$/d
-/^gpac$/d
 /^groff$/d
 /^haproxy-dev$/d
 /^htop$/d
