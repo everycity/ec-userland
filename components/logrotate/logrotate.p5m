@@ -22,11 +22,6 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license logrotate.license license="GPLv2"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man5
-dir path=$(ECPREFIX)/share/man8
-file path=$(ECPREFIX)/bin/logrotate
-file path=$(ECPREFIX)/share/man5/logrotate.conf.5
-file path=$(ECPREFIX)/share/man8/logrotate.8
+file path=$(USRDIR)/bin/logrotate
+file path=$(USRDIR)/share/man5/logrotate.conf.5
+file path=$(USRDIR)/share/man8/logrotate.8

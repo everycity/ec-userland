@@ -9,7 +9,6 @@
 /^ffmpeg08$/d
 /^gcc47$/d
 /^geos$/d
-/^logrotate$/d
 /^lucene$/d
 /^mDNSResponder$/d
 /^make$/d
