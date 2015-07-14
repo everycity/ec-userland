@@ -35,21 +35,21 @@ build:		$(BUILD_32_and_64)
 
 # This recipe taken from http://ftp.de.debian.org/debian/pool/main/libl/liblivemedia/
 $(BUILD_DIR)/.installed:	build
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/bin
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
 	for f in BasicUsageEnvironment \
 		UsageEnvironment liveMedia groupsock; do \
-	  $(MKDIR) $(PROTO_DIR)$(ECPREFIX)/include/$${f}; \
-	  $(CP) $(BUILD_DIR_32)/$${f}/include/*.h* $(PROTO_DIR)$(ECPREFIX)/include/$${f}/; \
-	  $(CP) $(BUILD_DIR_32)/$${f}/lib$${f}.a $(PROTO_DIR)$(ECPREFIX)/lib/; \
-	  $(CP) $(BUILD_DIR_64)/$${f}/lib$${f}.a $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/; \
+	  $(MKDIR) $(PROTO_DIR)$(USRDIR)/include/$${f}; \
+	  $(CP) $(BUILD_DIR_32)/$${f}/include/*.h* $(PROTO_DIR)$(USRDIR)/include/$${f}/; \
+	  $(CP) $(BUILD_DIR_32)/$${f}/lib$${f}.a $(PROTO_DIR)$(USRDIR)/lib/; \
+	  $(CP) $(BUILD_DIR_64)/$${f}/lib$${f}.a $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/; \
 	done
-	$(CP) $(BUILD_DIR_32)/mediaServer/live555MediaServer $(PROTO_DIR)$(ECPREFIX)/bin/
-	$(CP) $(BUILD_DIR_32)/proxyServer/live555ProxyServer $(PROTO_DIR)$(ECPREFIX)/bin/
-	$(CP) $(BUILD_DIR_64)/mediaServer/live555MediaServer $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/
-	$(CP) $(BUILD_DIR_64)/proxyServer/live555ProxyServer $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/
+	$(CP) $(BUILD_DIR_32)/mediaServer/live555MediaServer $(PROTO_DIR)$(USRDIR)/bin/
+	$(CP) $(BUILD_DIR_32)/proxyServer/live555ProxyServer $(PROTO_DIR)$(USRDIR)/bin/
+	$(CP) $(BUILD_DIR_64)/mediaServer/live555MediaServer $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/
+	$(CP) $(BUILD_DIR_64)/proxyServer/live555ProxyServer $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/
 	for f in openRTSP playSIP registerRTSPStream sapWatch \
 		MPEG2TransportStreamIndexer \
 		testAMRAudioStreamer \
@@ -73,8 +73,8 @@ $(BUILD_DIR)/.installed:	build
 		testReplicator \
 		testWAVAudioStreamer \
 		vobStreamer; do \
-	  $(CP) $(BUILD_DIR_32)/testProgs/$${f} $(PROTO_DIR)$(ECPREFIX)/bin/; \
-	  $(CP) $(BUILD_DIR_64)/testProgs/$${f} $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)/; \
+	  $(CP) $(BUILD_DIR_32)/testProgs/$${f} $(PROTO_DIR)$(USRDIR)/bin/; \
+	  $(CP) $(BUILD_DIR_64)/testProgs/$${f} $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/; \
 	done
 	$(TOUCH) $@
 
