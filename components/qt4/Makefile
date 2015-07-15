@@ -31,8 +31,10 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 PATH.32=$(USRDIR)/lib/postgres/9.3/bin:$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
-PATH.64=$(USRDIR)/lib/postgres/9.3/bin/$(MACH64)$(USRDIR)/bin/$(MACH64):$(USRDIR)/bin/$(MACH64):/usr/bin:/usr/sfw/bin:/usr/ccs/bin:$(USRDIR)/bin
+PATH.64=$(USRDIR)/lib/postgres/9.3/bin/$(MACH64):$(USRDIR)/bin/$(MACH64):/usr/bin:/usr/sfw/bin:/usr/ccs/bin:$(USRDIR)/bin
 PATH=$(PATH.$(BITS))
+
+CXXFLAGS+=	-D_GLIBCXX_USE_C99_FP_MACROS_DYNAMIC=1
 
 LDFLAGS.32 +=   -L$(USRDIR)/lib/postgres/9.3/lib -R$(USRDIR)/lib/postgres/9.3/lib
 LDFLAGS.64 +=	-L$(USRDIR)/lib/postgres/9.3/lib/$(MACH64) -R$(USRDIR)/lib/postgres/9.3/lib/$(MACH64)

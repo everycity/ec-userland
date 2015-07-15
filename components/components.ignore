@@ -198,6 +198,5 @@
 /^php56$/d
 /^webdis$/d
 /^wp-cli$/d
-/^qt4$/d
 # failed on jenkins but work on my local zone:
 /^cairo$/d
