@@ -29,7 +29,7 @@ CLEAN_PATHS +=	$(BUILD_DIR)
 build:		prep
 
 install:	build
-	@[ -d $(PROTO_DIR)$(ECPREFIX)/share/lucene ] || $(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/lucene
-	@[ -d $(PROTO_DIR)$(ECPREFIX)/share/doc/lucene ] || $(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/doc/lucene
-	@( cp $(SOURCE_DIR)/*.txt $(PROTO_DIR)$(ECPREFIX)/share/doc/lucene/ )
-	@( find $(SOURCE_DIR) -type f -name "*.jar" -exec cp {} $(PROTO_DIR)$(ECPREFIX)/share/lucene/ \; )
+	@[ -d $(PROTO_DIR)$(USRDIR)/share/lucene ] || $(MKDIR) $(PROTO_DIR)$(USRDIR)/share/lucene
+	@[ -d $(PROTO_DIR)$(USRDIR)/share/doc/lucene ] || $(MKDIR) $(PROTO_DIR)$(USRDIR)/share/doc/lucene
+	@( cp $(SOURCE_DIR)/*.txt $(PROTO_DIR)$(USRDIR)/share/doc/lucene/ )
+	@( find $(SOURCE_DIR) -type f -name "*.jar" -exec cp {} $(PROTO_DIR)$(USRDIR)/share/lucene/ \; )
