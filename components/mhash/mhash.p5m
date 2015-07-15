@@ -22,25 +22,17 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license mhash.license license="LGPLv2"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/mutils
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man3
-file path=$(ECPREFIX)/include/mhash.h
-file path=$(ECPREFIX)/include/mutils/mglobal.h
-file path=$(ECPREFIX)/include/mutils/mhash.h
-file path=$(ECPREFIX)/include/mutils/mhash_config.h
-file path=$(ECPREFIX)/include/mutils/mincludes.h
-file path=$(ECPREFIX)/include/mutils/mtypes.h
-file path=$(ECPREFIX)/include/mutils/mutils.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libmhash.so.2.0.1
-file path=$(ECPREFIX)/lib/libmhash.so.2.0.1
-file path=$(ECPREFIX)/share/man/man3/mhash.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libmhash.so target=libmhash.so.2.0.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libmhash.so.2 target=libmhash.so.2.0.1
-link path=$(ECPREFIX)/lib/libmhash.so target=libmhash.so.2.0.1
-link path=$(ECPREFIX)/lib/libmhash.so.2 target=libmhash.so.2.0.1
+file path=$(USRDIR)/include/mhash.h
+file path=$(USRDIR)/include/mutils/mglobal.h
+file path=$(USRDIR)/include/mutils/mhash.h
+file path=$(USRDIR)/include/mutils/mhash_config.h
+file path=$(USRDIR)/include/mutils/mincludes.h
+file path=$(USRDIR)/include/mutils/mtypes.h
+file path=$(USRDIR)/include/mutils/mutils.h
+file path=$(USRDIR)/lib/$(MACH64)/libmhash.so.2.0.1
+file path=$(USRDIR)/lib/libmhash.so.2.0.1
+file path=$(USRDIR)/share/man/man3/mhash.3
+link path=$(USRDIR)/lib/$(MACH64)/libmhash.so target=libmhash.so.2.0.1
+link path=$(USRDIR)/lib/$(MACH64)/libmhash.so.2 target=libmhash.so.2.0.1
+link path=$(USRDIR)/lib/libmhash.so target=libmhash.so.2.0.1
+link path=$(USRDIR)/lib/libmhash.so.2 target=libmhash.so.2.0.1
