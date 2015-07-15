@@ -22,13 +22,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license License.html license="GPL/LGPL"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/mediainfo
-file path=$(ECPREFIX)/bin/$(MACH64)/mediainfo
-file path=$(ECPREFIX)/bin/mediainfo
-file path=$(ECPREFIX)/share/doc/mediainfo/History_CLI.txt
-file path=$(ECPREFIX)/share/doc/mediainfo/License.html
+file path=$(USRDIR)/bin/$(MACH64)/mediainfo
+file path=$(USRDIR)/bin/mediainfo
+file path=$(USRDIR)/share/doc/mediainfo/History_CLI.txt
+file path=$(USRDIR)/share/doc/mediainfo/License.html

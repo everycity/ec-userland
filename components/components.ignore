@@ -12,7 +12,6 @@
 /^make$/d
 /^mariadb55$/d
 /^mcrypt$/d
-/^mediainfo$/d
 /^memconf$/d
 /^mesa$/d
 /^meta-packages\/build-essential$/d

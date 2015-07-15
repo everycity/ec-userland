@@ -26,9 +26,9 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 # This is so that the 64bit libmediainfo-config gets picked up
-PATH.32	=	$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
-PATH.64	=	$(ECPREFIX)/bin/$(MACH64):$(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
-PATH	=	$(PATH.$(BITS))
+#PATH.32	=	$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+#PATH.64	=	$(USRDIR)/bin/$(MACH64):$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+#PATH	=	$(PATH.$(BITS))
 
 COMPONENT_POST_UNPACK_ACTION = ( ${MV} source/MediaInfo source/$(COMPONENT_NAME) )
 
@@ -41,7 +41,7 @@ CONFIGURE_OPTIONS +=	--with-pic
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/doc/$(COMPONENT_NAME)
-	$(CP) $(SOURCE_DIR)/History_CLI.txt $(PROTO_DIR)$(ECPREFIX)/share/doc/$(COMPONENT_NAME)
-	$(CP) $(SOURCE_DIR)/License.html $(PROTO_DIR)$(ECPREFIX)/share/doc/$(COMPONENT_NAME)
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/share/doc/$(COMPONENT_NAME)
+	$(CP) $(SOURCE_DIR)/History_CLI.txt $(PROTO_DIR)$(USRDIR)/share/doc/$(COMPONENT_NAME)
+	$(CP) $(SOURCE_DIR)/License.html $(PROTO_DIR)$(USRDIR)/share/doc/$(COMPONENT_NAME)
 
