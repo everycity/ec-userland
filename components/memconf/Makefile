@@ -26,8 +26,8 @@ download prep::
 configure build:
 
 install:
-	mkdir -p $(PROTO_DIR)$(ECPREFIX)/bin
+	mkdir -p $(PROTO_DIR)$(USRDIR)/bin
 	cat $(COMPONENT_DIR)/memconf | \
 	    $(GSED) 's%#!/usr/bin/env perl%#!$(PERL)%' > \
-	    $(PROTO_DIR)$(ECPREFIX)/bin/memconf
-	chmod +x $(PROTO_DIR)$(ECPREFIX)/bin/memconf
+	    $(PROTO_DIR)$(USRDIR)/bin/memconf
+	chmod +x $(PROTO_DIR)$(USRDIR)/bin/memconf
