@@ -201,4 +201,3 @@
 /^qt4$/d
 # failed on jenkins but work on my local zone:
 /^cairo$/d
-/^isc-dhcp$/d
