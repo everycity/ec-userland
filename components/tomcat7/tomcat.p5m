@@ -198,9 +198,9 @@ file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/architecture/overview.html
 file \
     path=$(ECPREFIX)/lib/tomcat7/webapps/docs/architecture/requestProcess.html
 file \
-    path=$(ECPREFIX)/lib/tomcat7/webapps/docs/architecture/requestProcess/requestProcess.pdf
+    path=$(ECPREFIX)/lib/tomcat7/webapps/docs/architecture/requestProcess/authentication-process.png
 file \
-    path=$(ECPREFIX)/lib/tomcat7/webapps/docs/architecture/requestProcess/roseModel.mdl
+    path=$(ECPREFIX)/lib/tomcat7/webapps/docs/architecture/requestProcess/request-process.png
 file path=$(ECPREFIX)/lib/tomcat7/webapps/docs/architecture/startup.html
 file \
     path=$(ECPREFIX)/lib/tomcat7/webapps/docs/architecture/startup/serverStartup.pdf
