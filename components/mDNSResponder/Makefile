@@ -28,12 +28,12 @@ include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
 COMPONENT_BUILD_TARGETS += os=solaris LDFLAGS="$(LDFLAGS)"
-COMPONENT_INSTALL_TARGETS += os=solaris INSTBASE=$(PROTO_DIR)$(ECPREFIX)
+COMPONENT_INSTALL_TARGETS += os=solaris INSTBASE=$(PROTO_DIR)$(USRDIR)
 COMPONENT_PRE_INSTALL_ACTION= \
 	(for i in bin include lib sbin share/man/man8; do \
-	mkdir -p $(PROTO_DIR)$(ECPREFIX)/$$i; done)
-COMPONENT_POST_INSTALL_ACTION= strip $(PROTO_DIR)$(ECPREFIX)/bin/* \
-	$(PROTO_DIR)$(ECPREFIX)/lib/*so*
+	mkdir -p $(PROTO_DIR)$(USRDIR)/$$i; done)
+COMPONENT_POST_INSTALL_ACTION= strip $(PROTO_DIR)$(USRDIR)/bin/* \
+	$(PROTO_DIR)$(USRDIR)/lib/*so*
 
 $(BUILD_DIR)/%/.built:  $(SOURCE_DIR)/.prep
 	$(RM) -r $(@D) ; $(MKDIR) $(@D)

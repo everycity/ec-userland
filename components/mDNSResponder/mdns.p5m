@@ -22,16 +22,9 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license mdns.license license="APLv2"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man8
-file path=$(ECPREFIX)/bin/dns-sd
-file path=$(ECPREFIX)/bin/mdnsd
-file path=$(ECPREFIX)/include/dns_sd.h
-file path=$(ECPREFIX)/lib/libdns_sd.so.1
-file path=$(ECPREFIX)/share/man/man8/mdnsd.8
-link path=$(ECPREFIX)/lib/libdns_sd.so target=libdns_sd.so.1
+file path=$(USRDIR)/bin/dns-sd
+file path=$(USRDIR)/bin/mdnsd
+file path=$(USRDIR)/include/dns_sd.h
+file path=$(USRDIR)/lib/libdns_sd.so.1
+file path=$(USRDIR)/share/man/man8/mdnsd.8
+link path=$(USRDIR)/lib/libdns_sd.so target=libdns_sd.so.1

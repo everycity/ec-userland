@@ -9,7 +9,6 @@
 /^ffmpeg08$/d
 /^gcc47$/d
 /^geos$/d
-/^mDNSResponder$/d
 /^make$/d
 /^mariadb55$/d
 /^mcrypt$/d
