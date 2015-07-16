@@ -35,7 +35,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-PYTHON=		$(ECPREFIX)/bin/python2.6
+#PYTHON=		$(USRDIR)/bin/python2.7
 
 $(BUILD_DIR)/%/.built:  $(SOURCE_DIR)/.prep
 	$(RM) -r $(@D) ; $(MKDIR) $(@D)
@@ -46,8 +46,8 @@ $(BUILD_DIR)/%/.built:  $(SOURCE_DIR)/.prep
 
 $(BUILD_DIR)/%/.installed:      $(BUILD_DIR)/%/.built
 	$(MKDIR) $(PROTO_DIR)
-	(cd $(PROTO_DIR) ; $(ECPREFIX)/bin/tar -zxf \
-		$(@D)/dist/$(COMPONENT_NAME)-$(COMPONENT_VERSION_MJR).solaris-$(SOLARIS_VERSION)-i86pc.tar.gz)
+	(cd $(PROTO_DIR) ; $(USRDIR)/bin/tar -zxf \
+		$(@D)/dist/$(COMPONENT_NAME)-$(COMPONENT_VERSION_MJR).solaris-$(SOLARIS_VERSION)-i86pc.32bit.tar.gz)
 	$(TOUCH) $@
 
 build:		$(BUILD_32)

@@ -22,18 +22,9 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license mimms.license license="GPLv3"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/python2.6
-dir path=$(ECPREFIX)/lib/python2.6/site-packages
-dir path=$(ECPREFIX)/lib/python2.6/site-packages/libmimms
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/mimms
-file path=$(ECPREFIX)/lib/python2.6/site-packages/libmimms/__init__.py
-file path=$(ECPREFIX)/lib/python2.6/site-packages/libmimms/core.py
-file path=$(ECPREFIX)/lib/python2.6/site-packages/libmimms/libmms.py
-file path=$(ECPREFIX)/lib/python2.6/site-packages/mimms-3.2-py2.6.egg-info
-file path=$(ECPREFIX)/share/man/man1/mimms.1
+file path=$(USRDIR)/bin/mimms
+file path=$(USRDIR)/lib/python2.7/site-packages/libmimms/__init__.py
+file path=$(USRDIR)/lib/python2.7/site-packages/libmimms/core.py
+file path=$(USRDIR)/lib/python2.7/site-packages/libmimms/libmms.py
+file path=$(USRDIR)/lib/python2.7/site-packages/mimms-3.2-py2.7.egg-info
+file path=$(USRDIR)/share/man/man1/mimms.1

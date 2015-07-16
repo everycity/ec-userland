@@ -14,7 +14,6 @@
 /^mcrypt$/d
 /^meta-packages\/build-essential$/d
 /^meta-packages\/nagios$/d
-/^mimms$/d
 /^mongodb$/d
 /^mosh$/d
 /^mplayer$/d
