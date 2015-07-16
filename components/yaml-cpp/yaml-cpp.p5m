@@ -22,8 +22,6 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/include
 dir  path=$(USRDIR)/include/yaml-cpp
 file path=$(USRDIR)/include/yaml-cpp/anchor.h
 file path=$(USRDIR)/include/yaml-cpp/binary.h
@@ -65,8 +63,6 @@ file path=$(USRDIR)/include/yaml-cpp/parser.h
 file path=$(USRDIR)/include/yaml-cpp/stlemitter.h
 file path=$(USRDIR)/include/yaml-cpp/traits.h
 file path=$(USRDIR)/include/yaml-cpp/yaml.h
-dir  path=$(USRDIR)/lib
-dir  path=$(USRDIR)/lib/$(MACH64)
 link path=$(USRDIR)/lib/$(MACH64)/libyaml-cpp.so \
     target=libyaml-cpp.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/$(MACH64)/libyaml-cpp.so.$(COMPONENT_VERSION)

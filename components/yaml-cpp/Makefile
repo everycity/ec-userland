@@ -34,7 +34,7 @@ COMPONENT_LICENSE_FILE=	license.txt
 LDFLAGS+=	-lstdc++
 
 CMAKE_OPTIONS+= -DCMAKE_RELEASE_TYPE=Release
-CMAKE_OPTIONS+= -DCMAKE_INSTALL_PREFIX=$(ECPREFIX)
+CMAKE_OPTIONS+= -DCMAKE_INSTALL_PREFIX=$(USRDIR)
 CMAKE_OPTIONS+= -DBUILD_SHARED_LIBS=ON
 CMAKE_OPTIONS+= -DINSTALL_BINDIR=$(CONFIGURE_BINDIR.$(BITS))
 CMAKE_OPTIONS+= -DINSTALL_LIBDIR=$(CONFIGURE_LIBDIR.$(BITS))
@@ -51,12 +51,12 @@ $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
 build:		$(BUILD_32_and_64)
 
 $(BUILD_DIR)/.installed:	$(INSTALL_32) $(BUILD_32_and_64)
-	$(INSTALL) -D $(BUILD_DIR_64)/libyaml-cpp.so.0.5.2 $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/libyaml-cpp.so.0.5.2
-	(cd $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64); \
+	$(INSTALL) -D $(BUILD_DIR_64)/libyaml-cpp.so.0.5.2 $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/libyaml-cpp.so.0.5.2
+	(cd $(PROTO_DIR)$(USRDIR)/lib/$(MACH64); \
 	$(SYMLINK) libyaml-cpp.so.0.5.2 libyaml-cpp.so.0.5; \
 	$(SYMLINK) libyaml-cpp.so.0.5.2 libyaml-cpp.so; )
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-	$(GSED) 's!${prefix}/lib!${prefix}/lib/$(MACH64)!' build/amd64/yaml-cpp.pc > $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig/yaml-cpp.pc
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/pkgconfig
+	$(GSED) 's!${prefix}/lib!${prefix}/lib/$(MACH64)!' build/amd64/yaml-cpp.pc > $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/pkgconfig/yaml-cpp.pc
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed
