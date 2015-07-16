@@ -22,15 +22,9 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license COPYING license="GPLv3"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-dir path=$(SYSCONFDIR)
-file path=$(ECPREFIX)/bin/mosh
-file path=$(ECPREFIX)/bin/mosh-client
-file path=$(ECPREFIX)/bin/mosh-server
-file path=$(ECPREFIX)/share/man/man1/mosh-client.1
-file path=$(ECPREFIX)/share/man/man1/mosh-server.1
-file path=$(ECPREFIX)/share/man/man1/mosh.1
+file path=$(USRDIR)/bin/mosh
+file path=$(USRDIR)/bin/mosh-client
+file path=$(USRDIR)/bin/mosh-server
+file path=$(USRDIR)/share/man/man1/mosh-client.1
+file path=$(USRDIR)/share/man/man1/mosh-server.1
+file path=$(USRDIR)/share/man/man1/mosh.1

@@ -15,7 +15,6 @@
 /^meta-packages\/build-essential$/d
 /^meta-packages\/nagios$/d
 /^mongodb$/d
-/^mosh$/d
 /^mplayer$/d
 /^mscorefonts-installer$/d
 /^nagios\/core$/d
