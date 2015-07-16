@@ -22,27 +22,18 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/include
 file path=$(USRDIR)/include/snappy-c.h
 file path=$(USRDIR)/include/snappy-sinksource.h
 file path=$(USRDIR)/include/snappy-stubs-public.h
 file path=$(USRDIR)/include/snappy.h
-dir  path=$(USRDIR)/lib
-dir  path=$(USRDIR)/lib/$(MACH64)
 file path=$(USRDIR)/lib/$(MACH64)/libsnappy.a
-file path=$(USRDIR)/lib/$(MACH64)/libsnappy.la
 link path=$(USRDIR)/lib/$(MACH64)/libsnappy.so target=libsnappy.so.1.1.4
 link path=$(USRDIR)/lib/$(MACH64)/libsnappy.so.1 target=libsnappy.so.1.1.4
 file path=$(USRDIR)/lib/$(MACH64)/libsnappy.so.1.1.4
 file path=$(USRDIR)/lib/libsnappy.a
-file path=$(USRDIR)/lib/libsnappy.la
 link path=$(USRDIR)/lib/libsnappy.so target=libsnappy.so.1.1.4
 link path=$(USRDIR)/lib/libsnappy.so.1 target=libsnappy.so.1.1.4
 file path=$(USRDIR)/lib/libsnappy.so.1.1.4
-dir  path=$(USRDIR)/share
-dir  path=$(USRDIR)/share/doc
-dir  path=$(USRDIR)/share/doc/snappy
 file path=$(USRDIR)/share/doc/snappy/COPYING
 file path=$(USRDIR)/share/doc/snappy/ChangeLog
 file path=$(USRDIR)/share/doc/snappy/INSTALL
