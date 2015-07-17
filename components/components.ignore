@@ -16,7 +16,6 @@
 /^mongodb$/d
 /^mplayer$/d
 /^nagios\/plugins$/d
-/^nddtune$/d
 /^neon$/d
 /^netcat$/d
 /^nodejs04$/d
