@@ -31,10 +31,10 @@ CLEAN_PATHS += $(BUILD_DIR)
 configure build:
 
 install: prep
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/doc/mscorefonts
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/fonts/truetype/msttcorefonts
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/mscorefonts
-	cp $(SOURCE_DIR)/update-ms-fonts $(PROTO_DIR)$(ECPREFIX)/bin/mscorefonts-installer
-	cp $(SOURCE_DIR)/cabfiles.sha256sums $(PROTO_DIR)$(ECPREFIX)/share/mscorefonts
-	chmod +x $(PROTO_DIR)$(ECPREFIX)/bin/mscorefonts-installer
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/bin
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/share/doc/mscorefonts
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/share/fonts/truetype/msttcorefonts
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/share/mscorefonts
+	cp $(SOURCE_DIR)/update-ms-fonts $(PROTO_DIR)$(USRDIR)/bin/mscorefonts-installer
+	cp $(SOURCE_DIR)/cabfiles.sha256sums $(PROTO_DIR)$(USRDIR)/share/mscorefonts
+	chmod +x $(PROTO_DIR)$(USRDIR)/bin/mscorefonts-installer

@@ -21,17 +21,8 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license mscorefonts-installer.license license="GPLv2"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/mscorefonts
-dir path=$(ECPREFIX)/share/fonts
-dir path=$(ECPREFIX)/share/fonts/truetype
-dir path=$(ECPREFIX)/share/fonts/truetype/msttcorefonts
-dir path=$(ECPREFIX)/share/mscorefonts
-file path=$(ECPREFIX)/bin/mscorefonts-installer
-file path=$(ECPREFIX)/share/mscorefonts/cabfiles.sha256sums
+file path=$(USRDIR)/bin/mscorefonts-installer
+file path=$(USRDIR)/share/mscorefonts/cabfiles.sha256sums
 
 depend fmri=pkg:/archiver/cabextract type=require
 depend fmri=pkg:/web/gnu-wget type=require
