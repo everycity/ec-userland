@@ -13,7 +13,6 @@
 /^mariadb55$/d
 /^mcrypt$/d
 /^meta-packages\/build-essential$/d
-/^meta-packages\/nagios$/d
 /^mongodb$/d
 /^mplayer$/d
 /^nagios\/core$/d
