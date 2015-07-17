@@ -42,6 +42,8 @@ link path=ec/lib/64 target=$(MACH64)
 dir  path=ec/share
 dir  path=ec/share/man
 dir  path=ec/var
+dir  path=ec/var/archives
+dir  path=ec/var/spool
 dir  path=dev
 dir  path=lib
 dir  path=lib/$(MACH64)
