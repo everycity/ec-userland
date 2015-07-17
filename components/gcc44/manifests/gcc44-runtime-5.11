@@ -34,11 +34,6 @@ file path=$(USRDIR)/gcc/4.4/lib/$(MACH64)/libssp.so.0.0.0
 link path=$(USRDIR)/gcc/4.4/lib/$(MACH64)/libstdc++.so.6 target=libstdc++.so.6.0.13
 file path=$(USRDIR)/gcc/4.4/lib/$(MACH64)/libstdc++.so.6.0.13
 
-#link path=$(USRDIR)/lib/$(MACH64)/libgcc_s.so.1 target=../../gcc/4.4/lib/$(MACH64)/libgcc_s.so.1 mediator=gcc mediator-version=4.4
-link path=$(USRDIR)/lib/$(MACH64)/libgcc_s.so.1 target=../../gcc/4.4/lib/$(MACH64)/libgcc_s.so.1
-#link path=$(USRDIR)/lib/$(MACH64)/libstdc++.so.6 target=../../gcc/4.4/lib/$(MACH64)/libstdc++.so.6 mediator=gcc mediator-version=4.4
-link path=$(USRDIR)/lib/$(MACH64)/libstdc++.so.6 target=../../gcc/4.4/lib/$(MACH64)/libstdc++.so.6
-
 file path=$(USRDIR)/gcc/4.4/lib/libgcc_s.so.1
 link path=$(USRDIR)/gcc/4.4/lib/libgfortran.so.3 target=libgfortran.so.3.0.0
 file path=$(USRDIR)/gcc/4.4/lib/libgfortran.so.3.0.0
@@ -51,7 +46,11 @@ file path=$(USRDIR)/gcc/4.4/lib/libssp.so.0.0.0
 link path=$(USRDIR)/gcc/4.4/lib/libstdc++.so.6 target=libstdc++.so.6.0.13
 file path=$(USRDIR)/gcc/4.4/lib/libstdc++.so.6.0.13
 
+#link path=$(USRDIR)/lib/$(MACH64)/libgcc_s.so.1 target=../../gcc/4.4/lib/$(MACH64)/libgcc_s.so.1 mediator=gcc mediator-version=4.4
+#link path=$(USRDIR)/lib/$(MACH64)/libgcc_s.so.1 target=../../gcc/4.4/lib/$(MACH64)/libgcc_s.so.1
+#link path=$(USRDIR)/lib/$(MACH64)/libstdc++.so.6 target=../../gcc/4.4/lib/$(MACH64)/libstdc++.so.6 mediator=gcc mediator-version=4.4
+#link path=$(USRDIR)/lib/$(MACH64)/libstdc++.so.6 target=../../gcc/4.4/lib/$(MACH64)/libstdc++.so.6
 #link path=$(USRDIR)/lib/libgcc_s.so.1 target=../gcc/4.4/lib/libgcc_s.so.1 mediator=gcc mediator-version=4.4
-link path=$(USRDIR)/lib/libgcc_s.so.1 target=../gcc/4.4/lib/libgcc_s.so.1
+#link path=$(USRDIR)/lib/libgcc_s.so.1 target=../gcc/4.4/lib/libgcc_s.so.1
 #link path=$(USRDIR)/lib/libstdc++.so.6 target=../gcc/4.4/lib/libstdc++.so.6 mediator=gcc mediator-version=4.4
-link path=$(USRDIR)/lib/libstdc++.so.6 target=../gcc/4.4/lib/libstdc++.so.6
+#link path=$(USRDIR)/lib/libstdc++.so.6 target=../gcc/4.4/lib/libstdc++.so.6
