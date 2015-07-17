@@ -15,7 +15,6 @@
 /^meta-packages\/build-essential$/d
 /^mongodb$/d
 /^mplayer$/d
-/^nagios\/core$/d
 /^nagios\/plugins$/d
 /^nddtune$/d
 /^neon$/d

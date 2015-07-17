@@ -34,8 +34,8 @@ COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 CONFIGURE_SCRIPT_32=	$(BUILD_DIR_32)/configure
 CONFIGURE_SCRIPT_64=	$(BUILD_DIR_64)/configure
 CONFIGURE_SCRIPT=	$(CONFIGURE_SCRIPT_$(BITS))
-CONFIGURE_PREFIX=	$(ECPREFIX)/nagios
-CONFIGURE_OPTIONS+=	--with-httpd-conf=$(ECPREFIX)/etc/apache/2.2/sites-available
+CONFIGURE_PREFIX=	$(USRDIR)/nagios
+CONFIGURE_OPTIONS+=	--with-httpd-conf=$(USRDIR)/etc/apache/2.2/sites-available
 
 COMPONENT_BUILD_TARGETS=	all
 COMPONENT_INSTALL_TARGETS=	install install-config install-webconf
