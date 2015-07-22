@@ -30,7 +30,9 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS+=-z nolazyload
+#LDFLAGS+=-z nolazyload
+LDFLAGS = -L/usr/lib -L/ec/lib
+LDFLAGS += -z guidance=nolazyload -z nolazyload -lbsm
 
 COMPONENT_PRE_CONFIGURE_ACTION = \
     $(CLONEY) $(SOURCE_DIR) $(@D)
@@ -45,14 +47,14 @@ DSOMODS4 = mod_quotatab_radius:mod_quotatab_sql:mod_radius:mod_ratio:mod_readme:
 DSOMODS5 = mod_sftp_sql:mod_shaper:mod_site_misc:mod_sql:mod_sql_mysql:mod_sql_odbc:mod_sql_passwd:mod_sql_postgres:
 DSOMODS6 = mod_sql_sqlite:mod_tls:mod_tls_memcache:mod_tls_shmcache:mod_unique_id:mod_wrap2:mod_wrap2_file:mod_wrap2_sql
 
-CONFIGURE_OPTIONS +=	CFLAGS="$(CFLAGS) -I$(ECPREFIX)/include/odbc -I$(ECPREFIX)/lib/postgres/9.3/include"
-CONFIGURE_OPTIONS +=	LDFLAGS="$(LDFLAGS) -L$(ECPREFIX)/lib/postgres/9.3/lib -R$(ECPREFIX)/lib/postgres/9.3/lib -R$(ECPREFIX)/lib/mysql/5.5/lib"
+CONFIGURE_OPTIONS +=	CFLAGS="$(CFLAGS) -I$(USRDIR)/include/odbc -I$(USRDIR)/lib/postgres/9.3/include"
+CONFIGURE_OPTIONS +=	LDFLAGS="$(LDFLAGS) -L$(USRDIR)/lib/postgres/9.3/lib -R$(USRDIR)/lib/postgres/9.3/lib -R$(USRDIR)/lib/mysql/5.5/lib"
 CONFIGURE_OPTIONS +=	CPPFLAGS="$(CPPFLAGS) -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_OPENSSL"
 CONFIGURE_OPTIONS +=	install_user=$(LOGNAME)
 CONFIGURE_OPTIONS +=	install_group=`groups | cut -f 1 -d ' '`
-CONFIGURE_OPTIONS +=	--sysconfdir=$(ECPREFIX)/etc/proftpd
-CONFIGURE_OPTIONS +=	--localstatedir=$(ECPREFIX)/var/run
-CONFIGURE_OPTIONS +=	--libexecdir=$(ECPREFIX)/lib/proftpd
+CONFIGURE_OPTIONS +=	--sysconfdir=$(USRDIR)/etc/proftpd
+CONFIGURE_OPTIONS +=	--localstatedir=$(USRDIR)/var/run
+CONFIGURE_OPTIONS +=	--libexecdir=$(USRDIR)/lib/proftpd
 CONFIGURE_OPTIONS +=	--enable-sendfile
 CONFIGURE_OPTIONS +=	--enable-facl
 CONFIGURE_OPTIONS +=	--enable-dso
@@ -70,9 +72,9 @@ CONFIGURE_OPTIONS +=	--with-shared=$(DSOMODS1)$(DSOMODS2)$(DSOMODS3)$(DSOMODS4)$
 build:		$(BUILD_32)
 
 $(BUILD_DIR)/.installed:	$(INSTALL_32)
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/var/svc/method
+	$(MKDIR) $(PROTO_DIR)/var/svc/method
 	$(MKDIR) $(PROTO_DIR)/var/svc/manifest/site
-	$(CP) $(COMPONENT_DIR)/files/proftpd-startup.sh $(PROTO_DIR)$(ECPREFIX)/var/svc/method/proftpd
+	$(CP) $(COMPONENT_DIR)/files/proftpd-startup.sh $(PROTO_DIR)/var/svc/method/proftpd
 	$(CP) $(COMPONENT_DIR)/files/proftpd-manifest.xml $(PROTO_DIR)/var/svc/manifest/site/proftpd.xml
 	$(TOUCH) $@
 

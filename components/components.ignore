@@ -100,7 +100,6 @@
 /^postgis-pg93$/d
 /^postgresql92$/d
 /^powerdns$/d
-/^proftpd$/d
 /^proj$/d
 /^python\/mysqldb55$/d
 /^python\/psycopg2-pg91$/d
