@@ -25,139 +25,128 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/nagios
-dir path=$(ECPREFIX)/nagios/include
-dir path=$(ECPREFIX)/nagios/lib
-dir path=$(ECPREFIX)/nagios/lib/$(MACH64)
-dir path=$(ECPREFIX)/nagios/share
-dir path=$(ECPREFIX)/nagios/share/locale
-dir path=$(ECPREFIX)/nagios/share/locale/de
-dir path=$(ECPREFIX)/nagios/share/locale/de/LC_MESSAGES
-dir path=$(ECPREFIX)/nagios/share/locale/fr
-dir path=$(ECPREFIX)/nagios/share/locale/fr/LC_MESSAGES
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/charset.alias
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_apt
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_breeze
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_by_ssh
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_cluster
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_dig
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_disk
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_disk_smb
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_dns
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_dummy
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_file_age
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_flexlm
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_hpjd
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_http
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_ifoperstatus
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_ifstatus
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_ircd
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_ldap
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_load
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_log
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_mailq
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_mrtg
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_mrtgtraf
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_nagios
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_nt
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_ntp
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_ntp_peer
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_ntp_time
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_nwstat
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_oracle
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_overcr
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_ping
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_procs
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_real
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_rpc
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_sensors
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_smtp
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_snmp
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_ssh
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_swap
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_tcp
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_time
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_ups
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_users
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_wave
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/negate
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/urlize
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/utils.pm
-file path=$(ECPREFIX)/nagios/lib/$(MACH64)/utils.sh
-file path=$(ECPREFIX)/nagios/lib/charset.alias
-file path=$(ECPREFIX)/nagios/lib/check_apt
-file path=$(ECPREFIX)/nagios/lib/check_breeze
-file path=$(ECPREFIX)/nagios/lib/check_by_ssh
-file path=$(ECPREFIX)/nagios/lib/check_cluster
-file path=$(ECPREFIX)/nagios/lib/check_dig
-file path=$(ECPREFIX)/nagios/lib/check_disk
-file path=$(ECPREFIX)/nagios/lib/check_disk_smb
-file path=$(ECPREFIX)/nagios/lib/check_dns
-file path=$(ECPREFIX)/nagios/lib/check_dummy
-file path=$(ECPREFIX)/nagios/lib/check_file_age
-file path=$(ECPREFIX)/nagios/lib/check_flexlm
-file path=$(ECPREFIX)/nagios/lib/check_hpjd
-file path=$(ECPREFIX)/nagios/lib/check_http
-file path=$(ECPREFIX)/nagios/lib/check_ifoperstatus
-file path=$(ECPREFIX)/nagios/lib/check_ifstatus
-file path=$(ECPREFIX)/nagios/lib/check_ircd
-file path=$(ECPREFIX)/nagios/lib/check_ldap
-file path=$(ECPREFIX)/nagios/lib/check_load
-file path=$(ECPREFIX)/nagios/lib/check_log
-file path=$(ECPREFIX)/nagios/lib/check_mailq
-file path=$(ECPREFIX)/nagios/lib/check_mrtg
-file path=$(ECPREFIX)/nagios/lib/check_mrtgtraf
-file path=$(ECPREFIX)/nagios/lib/check_mysql
-file path=$(ECPREFIX)/nagios/lib/check_mysql_query
-file path=$(ECPREFIX)/nagios/lib/check_nagios
-file path=$(ECPREFIX)/nagios/lib/check_nt
-file path=$(ECPREFIX)/nagios/lib/check_ntp
-file path=$(ECPREFIX)/nagios/lib/check_ntp_peer
-file path=$(ECPREFIX)/nagios/lib/check_ntp_time
-file path=$(ECPREFIX)/nagios/lib/check_nwstat
-file path=$(ECPREFIX)/nagios/lib/check_oracle
-file path=$(ECPREFIX)/nagios/lib/check_overcr
-file path=$(ECPREFIX)/nagios/lib/check_ping
-file path=$(ECPREFIX)/nagios/lib/check_procs
-file path=$(ECPREFIX)/nagios/lib/check_real
-file path=$(ECPREFIX)/nagios/lib/check_rpc
-file path=$(ECPREFIX)/nagios/lib/check_sensors
-file path=$(ECPREFIX)/nagios/lib/check_smtp
-file path=$(ECPREFIX)/nagios/lib/check_snmp
-file path=$(ECPREFIX)/nagios/lib/check_ssh
-file path=$(ECPREFIX)/nagios/lib/check_tcp
-file path=$(ECPREFIX)/nagios/lib/check_time
-file path=$(ECPREFIX)/nagios/lib/check_ups
-file path=$(ECPREFIX)/nagios/lib/check_users
-file path=$(ECPREFIX)/nagios/lib/check_wave
-file path=$(ECPREFIX)/nagios/lib/negate
-file path=$(ECPREFIX)/nagios/lib/urlize
-file path=$(ECPREFIX)/nagios/lib/utils.pm
-file path=$(ECPREFIX)/nagios/lib/utils.sh
-file path=$(ECPREFIX)/nagios/share/locale/de/LC_MESSAGES/nagios-plugins.mo
-file path=$(ECPREFIX)/nagios/share/locale/fr/LC_MESSAGES/nagios-plugins.mo
-link path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_clamd target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_ftp target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_imap target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_jabber target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_ldaps target=check_ldap
-link path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_nntp target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_nntps target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_pop target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_simap target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_spop target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_ssmtp target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/$(MACH64)/check_udp target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/check_clamd target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/check_ftp target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/check_imap target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/check_jabber target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/check_ldaps target=check_ldap
-link path=$(ECPREFIX)/nagios/lib/check_nntp target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/check_nntps target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/check_pop target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/check_simap target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/check_spop target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/check_ssmtp target=check_tcp
-link path=$(ECPREFIX)/nagios/lib/check_udp target=check_tcp
+file path=$(USRDIR)/nagios/lib/$(MACH64)/charset.alias
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_apt
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_breeze
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_by_ssh
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_cluster
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_dig
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_disk
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_disk_smb
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_dns
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_dummy
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_file_age
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_flexlm
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_hpjd
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_http
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_ifoperstatus
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_ifstatus
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_ircd
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_ldap
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_load
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_log
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_mailq
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_mrtg
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_mrtgtraf
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_nagios
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_nt
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_ntp
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_ntp_peer
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_ntp_time
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_nwstat
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_oracle
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_overcr
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_ping
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_procs
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_real
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_rpc
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_sensors
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_smtp
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_snmp
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_ssh
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_swap
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_tcp
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_time
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_ups
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_users
+file path=$(USRDIR)/nagios/lib/$(MACH64)/check_wave
+file path=$(USRDIR)/nagios/lib/$(MACH64)/negate
+file path=$(USRDIR)/nagios/lib/$(MACH64)/urlize
+file path=$(USRDIR)/nagios/lib/$(MACH64)/utils.pm
+file path=$(USRDIR)/nagios/lib/$(MACH64)/utils.sh
+file path=$(USRDIR)/nagios/lib/charset.alias
+file path=$(USRDIR)/nagios/lib/check_apt
+file path=$(USRDIR)/nagios/lib/check_breeze
+file path=$(USRDIR)/nagios/lib/check_by_ssh
+file path=$(USRDIR)/nagios/lib/check_cluster
+file path=$(USRDIR)/nagios/lib/check_dig
+file path=$(USRDIR)/nagios/lib/check_disk
+file path=$(USRDIR)/nagios/lib/check_disk_smb
+file path=$(USRDIR)/nagios/lib/check_dns
+file path=$(USRDIR)/nagios/lib/check_dummy
+file path=$(USRDIR)/nagios/lib/check_file_age
+file path=$(USRDIR)/nagios/lib/check_flexlm
+file path=$(USRDIR)/nagios/lib/check_hpjd
+file path=$(USRDIR)/nagios/lib/check_http
+file path=$(USRDIR)/nagios/lib/check_ifoperstatus
+file path=$(USRDIR)/nagios/lib/check_ifstatus
+file path=$(USRDIR)/nagios/lib/check_ircd
+file path=$(USRDIR)/nagios/lib/check_ldap
+file path=$(USRDIR)/nagios/lib/check_load
+file path=$(USRDIR)/nagios/lib/check_log
+file path=$(USRDIR)/nagios/lib/check_mailq
+file path=$(USRDIR)/nagios/lib/check_mrtg
+file path=$(USRDIR)/nagios/lib/check_mrtgtraf
+file path=$(USRDIR)/nagios/lib/check_mysql
+file path=$(USRDIR)/nagios/lib/check_mysql_query
+file path=$(USRDIR)/nagios/lib/check_nagios
+file path=$(USRDIR)/nagios/lib/check_nt
+file path=$(USRDIR)/nagios/lib/check_ntp
+file path=$(USRDIR)/nagios/lib/check_ntp_peer
+file path=$(USRDIR)/nagios/lib/check_ntp_time
+file path=$(USRDIR)/nagios/lib/check_nwstat
+file path=$(USRDIR)/nagios/lib/check_oracle
+file path=$(USRDIR)/nagios/lib/check_overcr
+file path=$(USRDIR)/nagios/lib/check_ping
+file path=$(USRDIR)/nagios/lib/check_procs
+file path=$(USRDIR)/nagios/lib/check_real
+file path=$(USRDIR)/nagios/lib/check_rpc
+file path=$(USRDIR)/nagios/lib/check_sensors
+file path=$(USRDIR)/nagios/lib/check_smtp
+file path=$(USRDIR)/nagios/lib/check_snmp
+file path=$(USRDIR)/nagios/lib/check_ssh
+file path=$(USRDIR)/nagios/lib/check_tcp
+file path=$(USRDIR)/nagios/lib/check_time
+file path=$(USRDIR)/nagios/lib/check_ups
+file path=$(USRDIR)/nagios/lib/check_users
+file path=$(USRDIR)/nagios/lib/check_wave
+file path=$(USRDIR)/nagios/lib/negate
+file path=$(USRDIR)/nagios/lib/urlize
+file path=$(USRDIR)/nagios/lib/utils.pm
+file path=$(USRDIR)/nagios/lib/utils.sh
+file path=$(USRDIR)/nagios/share/locale/de/LC_MESSAGES/nagios-plugins.mo
+file path=$(USRDIR)/nagios/share/locale/fr/LC_MESSAGES/nagios-plugins.mo
+link path=$(USRDIR)/nagios/lib/$(MACH64)/check_clamd target=check_tcp
+link path=$(USRDIR)/nagios/lib/$(MACH64)/check_ftp target=check_tcp
+link path=$(USRDIR)/nagios/lib/$(MACH64)/check_imap target=check_tcp
+link path=$(USRDIR)/nagios/lib/$(MACH64)/check_jabber target=check_tcp
+link path=$(USRDIR)/nagios/lib/$(MACH64)/check_ldaps target=check_ldap
+link path=$(USRDIR)/nagios/lib/$(MACH64)/check_nntp target=check_tcp
+link path=$(USRDIR)/nagios/lib/$(MACH64)/check_nntps target=check_tcp
+link path=$(USRDIR)/nagios/lib/$(MACH64)/check_pop target=check_tcp
+link path=$(USRDIR)/nagios/lib/$(MACH64)/check_simap target=check_tcp
+link path=$(USRDIR)/nagios/lib/$(MACH64)/check_spop target=check_tcp
+link path=$(USRDIR)/nagios/lib/$(MACH64)/check_ssmtp target=check_tcp
+link path=$(USRDIR)/nagios/lib/$(MACH64)/check_udp target=check_tcp
+link path=$(USRDIR)/nagios/lib/check_clamd target=check_tcp
+link path=$(USRDIR)/nagios/lib/check_ftp target=check_tcp
+link path=$(USRDIR)/nagios/lib/check_imap target=check_tcp
+link path=$(USRDIR)/nagios/lib/check_jabber target=check_tcp
+link path=$(USRDIR)/nagios/lib/check_ldaps target=check_ldap
+link path=$(USRDIR)/nagios/lib/check_nntp target=check_tcp
+link path=$(USRDIR)/nagios/lib/check_nntps target=check_tcp
+link path=$(USRDIR)/nagios/lib/check_pop target=check_tcp
+link path=$(USRDIR)/nagios/lib/check_simap target=check_tcp
+link path=$(USRDIR)/nagios/lib/check_spop target=check_tcp
+link path=$(USRDIR)/nagios/lib/check_ssmtp target=check_tcp
+link path=$(USRDIR)/nagios/lib/check_udp target=check_tcp

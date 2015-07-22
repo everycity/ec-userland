@@ -15,7 +15,6 @@
 /^meta-packages\/build-essential$/d
 /^mongodb$/d
 /^mplayer$/d
-/^nagios\/plugins$/d
 /^neon$/d
 /^netcat$/d
 /^nodejs04$/d
