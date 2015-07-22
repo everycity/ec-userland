@@ -24,7 +24,11 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_PRE_CONFIGURE_ACTION += cd $(SOURCE_DIR) ; autoreconf ; cp -r $(SOURCE_DIR)/* $(@D)
+COMPONENT_PRE_CONFIGURE_ACTION = \
+	( cd $(SOURCE_DIR) \
+	&& AUTOMAKE=automake-1.11 ACLOCAL=aclocal-1.11 autoreconf \
+	&& $(CLONEY) $(SOURCE_DIR) $(@D) )
+
 CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic
 
 include ../../make-rules/shared-targets.mk

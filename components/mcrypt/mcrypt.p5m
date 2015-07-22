@@ -22,30 +22,13 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license mcrypt.license license="GPLv3"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/locale
-dir path=$(ECPREFIX)/share/locale/cs
-dir path=$(ECPREFIX)/share/locale/cs/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/de
-dir path=$(ECPREFIX)/share/locale/de/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/el
-dir path=$(ECPREFIX)/share/locale/el/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/es_AR
-dir path=$(ECPREFIX)/share/locale/es_AR/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/pl
-dir path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/mcrypt
-file path=$(ECPREFIX)/bin/mcrypt
-file path=$(ECPREFIX)/share/locale/cs/LC_MESSAGES/mcrypt.mo
-file path=$(ECPREFIX)/share/locale/de/LC_MESSAGES/mcrypt.mo
-file path=$(ECPREFIX)/share/locale/el/LC_MESSAGES/mcrypt.mo
-file path=$(ECPREFIX)/share/locale/es_AR/LC_MESSAGES/mcrypt.mo
-file path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES/mcrypt.mo
-file path=$(ECPREFIX)/share/man/man1/mcrypt.1
-link path=$(ECPREFIX)/bin/$(MACH64)/mdecrypt target=mcrypt
-link path=$(ECPREFIX)/bin/mdecrypt target=mcrypt
+file path=$(USRDIR)/bin/$(MACH64)/mcrypt
+file path=$(USRDIR)/bin/mcrypt
+file path=$(USRDIR)/share/locale/cs/LC_MESSAGES/mcrypt.mo
+file path=$(USRDIR)/share/locale/de/LC_MESSAGES/mcrypt.mo
+file path=$(USRDIR)/share/locale/el/LC_MESSAGES/mcrypt.mo
+file path=$(USRDIR)/share/locale/es_AR/LC_MESSAGES/mcrypt.mo
+file path=$(USRDIR)/share/locale/pl/LC_MESSAGES/mcrypt.mo
+file path=$(USRDIR)/share/man/man1/mcrypt.1
+link path=$(USRDIR)/bin/$(MACH64)/mdecrypt target=mcrypt
+link path=$(USRDIR)/bin/mdecrypt target=mcrypt
