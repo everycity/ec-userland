@@ -14,7 +14,6 @@
 /^meta-packages\/build-essential$/d
 /^mongodb$/d
 /^mplayer$/d
-/^netcat$/d
 /^nodejs04$/d
 /^nodejs06$/d
 /^nrpe$/d

@@ -22,6 +22,4 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license netcat.license license="Public Domain"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-file path=$(ECPREFIX)/bin/nc
+file path=$(USRDIR)/bin/nc

@@ -33,8 +33,8 @@ COMPONENT_BUILD_ARGS=	solaris
 
 # install the built source into a prototype area
 $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin
-	$(CP) $(@D)/nc $(PROTO_DIR)$(ECPREFIX)/bin/
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/bin
+	$(CP) $(@D)/nc $(PROTO_DIR)$(USRDIR)/bin/
 	$(TOUCH) $@
 
 build:		$(BUILD_32)
