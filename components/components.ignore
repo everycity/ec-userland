@@ -121,7 +121,6 @@
 /^smartos-ps$/d
 /^solr$/d
 /^spawn-fcgi$/d
-/^sphinx$/d
 /^sphinx-099$/d
 /^spread$/d
 /^ssmtp$/d
