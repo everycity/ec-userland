@@ -18,12 +18,12 @@ CONFIGURE_DEFAULT_CPPFLAGS = no
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gcc
-COMPONENT_VERSION=	4.8.3
+COMPONENT_VERSION=	4.8.5
 COMPONENT_PROJECT_URL=	http://gcc.gnu.org/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH= \
-    sha256:5a46edbee29b6fed9006c02899db7cb7eff5f2d5837678484e1ff7da3b4beb6f
+    sha256:1dbc5cd94c9947fe5dffd298e569de7f44c3cedbd428fceea59490d336d8295a
 COMPONENT_ARCHIVE_URL=	http://ftp.gnu.org/gnu/gcc/$(COMPONENT_SRC)/$(COMPONENT_ARCHIVE)
 COMPONENT_BUGDB=        utility/gnu-compiler
 
@@ -37,14 +37,14 @@ include $(WS_MAKE_RULES)/ips.mk
 #PATH=$(PATH.$(MACH))
 PATH=$(dir $(CC)):$(USRDIR)/bin:/usr/bin
 
-#CFLAGS_i386 = -mtune=opteron -march=opteron
-#CFLAGS_sparc = -mtune=ultrasparc -mcpu=ultrasparc -mno-unaligned-doubles
+CFLAGS_i386 = -mtune=opteron -march=opteron
+CFLAGS_sparc = -mtune=ultrasparc -mcpu=ultrasparc -mno-unaligned-doubles
 CFLAGS := -g -O2 
-#CFLAGS += $(CFLAGS_$(MACH))
+CFLAGS += $(CFLAGS_$(MACH))
 CFLAGS_FOR_BUILD=$(CFLAGS)
 
 CXXFLAGS := -g -O2
-#CXXFLAGS += $(CFLAGS_$(MACH))
+CXXFLAGS += $(CFLAGS_$(MACH))
 
 # CC_BITS may get in the way
 CC_BITS=
