@@ -1,12 +1,13 @@
-Index: openssh-6.6p1/auth.h
+Index: openssh-6.9p1/auth.h
 ===================================================================
---- openssh-6.6p1/auth.h.orig
-+++ openssh-6.6p1/auth.h
-@@ -75,6 +75,7 @@ struct Authctxt {
- #endif
- 	Buffer		*loginmsg;
- 	void		*methoddata;
-+	int		chanid;
+--- openssh-6.9p1/auth.h.orig
++++ openssh-6.9p1/auth.h
+@@ -81,6 +81,8 @@ struct Authctxt {
+ 
+ 	struct sshkey	**prev_userkeys;
+ 	u_int		 nprev_userkeys;
++
++	int		chanid; /**/
  };
  /*
   * Every authentication method has to handle authentication requests for
@@ -184,14 +185,14 @@ Index: openssh-6.6p1/channels.h
  void	 channel_set_fds(int, int, int, int, int, int, int, u_int);
  void	 channel_free(Channel *);
  void	 channel_free_all(void);
-Index: openssh-6.6p1/clientloop.c
+Index: openssh-6.9p1/clientloop.c
 ===================================================================
---- openssh-6.6p1/clientloop.c.orig
-+++ openssh-6.6p1/clientloop.c
-@@ -85,6 +85,9 @@
- #include <termios.h>
+--- openssh-6.9p1/clientloop.c.orig
++++ openssh-6.9p1/clientloop.c
+@@ -86,6 +86,9 @@
  #include <pwd.h>
  #include <unistd.h>
+ #include <limits.h>
 +#if defined(SSH_TUN_ILLUMOS)
 +#include <sys/fcntl.h>
 +#endif
