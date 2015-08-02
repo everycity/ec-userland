@@ -22,29 +22,20 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/include/opus
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/aclocal
-file path=$(ECPREFIX)/include/opus/opus.h
-file path=$(ECPREFIX)/include/opus/opus_defines.h
-file path=$(ECPREFIX)/include/opus/opus_multistream.h
-file path=$(ECPREFIX)/include/opus/opus_types.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libopus.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libopus.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libopus.so.0.5.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/opus.pc
-file path=$(ECPREFIX)/lib/libopus.a
-file path=$(ECPREFIX)/lib/libopus.la
-file path=$(ECPREFIX)/lib/libopus.so.0.5.0
-file path=$(ECPREFIX)/lib/pkgconfig/opus.pc
-file path=$(ECPREFIX)/share/aclocal/opus.m4
-link path=$(ECPREFIX)/lib/$(MACH64)/libopus.so target=libopus.so.0.5.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libopus.so.0 target=libopus.so.0.5.0
-link path=$(ECPREFIX)/lib/libopus.so target=libopus.so.0.5.0
-link path=$(ECPREFIX)/lib/libopus.so.0 target=libopus.so.0.5.0
+file path=$(USRDIR)/include/opus/opus.h
+file path=$(USRDIR)/include/opus/opus_defines.h
+file path=$(USRDIR)/include/opus/opus_multistream.h
+file path=$(USRDIR)/include/opus/opus_types.h
+file path=$(USRDIR)/lib/$(MACH64)/libopus.a
+file path=$(USRDIR)/lib/$(MACH64)/libopus.la
+file path=$(USRDIR)/lib/$(MACH64)/libopus.so.0.5.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/opus.pc
+file path=$(USRDIR)/lib/libopus.a
+file path=$(USRDIR)/lib/libopus.la
+file path=$(USRDIR)/lib/libopus.so.0.5.0
+file path=$(USRDIR)/lib/pkgconfig/opus.pc
+file path=$(USRDIR)/share/aclocal/opus.m4
+link path=$(USRDIR)/lib/$(MACH64)/libopus.so target=libopus.so.0.5.0
+link path=$(USRDIR)/lib/$(MACH64)/libopus.so.0 target=libopus.so.0.5.0
+link path=$(USRDIR)/lib/libopus.so target=libopus.so.0.5.0
+link path=$(USRDIR)/lib/libopus.so.0 target=libopus.so.0.5.0

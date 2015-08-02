@@ -16,7 +16,6 @@
 /^mplayer$/d
 /^nodejs04$/d
 /^nodejs06$/d
-/^opus$/d
 /^p5-Tk$/d
 /^p5-X11-Protocol$/d
 /^pdflib$/d
