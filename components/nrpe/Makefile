@@ -27,8 +27,8 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS+=	--enable-command-args	
-CONFIGURE_OPTIONS+=	--with-ssl=$(ECPREFIX)
-CONFIGURE_OPTIONS.32+=	--with-ssl-lib=$(ECPREFIX)/lib
+CONFIGURE_OPTIONS+=	--with-ssl=$(USRDIR)
+CONFIGURE_OPTIONS.32+=	--with-ssl-lib=$(USRDIR)/lib
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 
