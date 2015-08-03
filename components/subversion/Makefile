@@ -34,7 +34,9 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS+=		-lintl -liconv
+CFLAGS+=	-D__EXTENSIONS__
+CPPFLAGS+=	-D__EXTENSIONS__
+LDFLAGS+=	-lintl -liconv
 
 CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic
 CONFIGURE_OPTIONS+=	--disable-mod-activation
@@ -44,14 +46,12 @@ CONFIGURE_OPTIONS.32+=	--with-apr-util=$(ECPREFIX)/bin/apu-1-config
 CONFIGURE_OPTIONS.64+=	--with-apr-util=$(ECPREFIX)/bin/$(MACH64)/apu-1-config
 CONFIGURE_OPTIONS.32+=	--with-swig=$(ECPREFIX)/bin/swig
 CONFIGURE_OPTIONS.64+=	--with-swig=$(ECPREFIX)/bin/$(MACH64)/swig
-CONFIGURE_OPTIONS.32+=	--with-apxs=$(ECPREFIX)/bin/apxs
-CONFIGURE_OPTIONS.64+=	--with-apxs=$(ECPREFIX)/bin/$(MACH64)/apxs
+CONFIGURE_OPTIONS.32+=	--with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/apxs
+CONFIGURE_OPTIONS.64+=	--with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/apxs
 CONFIGURE_OPTIONS.32+=	--with-apache-libexecdir=$(ECPREFIX)/lib/apache/2.2/modules
 CONFIGURE_OPTIONS.64+=	--with-apache-libexecdir=$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
 CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))
 CONFIGURE_OPTIONS+=	JAVA_HOME="$(ECPREFIX)/java"
-
-COMPONENT_BUILD_ENV+= EXTRA_CPPFLAGS=-D__EXTENSIONS__
 
 COMPONENT_INSTALL_TARGETS.32+=	install-swig-py install-swig-rb
 COMPONENT_INSTALL_TARGETS.64+=	install-swig-py
