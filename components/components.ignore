@@ -8,6 +8,8 @@
 /^mongodb$/d
 /^mplayer$/d
 /^powerdns$/d
+/^pdflib$/d
+/^phantomjs$/d
 # in progress
 /^automake-110$/d
 /^automake-112$/d
@@ -20,7 +22,6 @@
 /^nodejs04$/d
 /^nodejs06$/d
 /^p5-X11-Protocol$/d
-/^pdflib$/d
 /^pdftk$/d
 /^perl\/perl516$/d
 /^perl\/perl520$/d
@@ -43,7 +44,6 @@
 /^perl_modules\/uri$/d
 /^perl_modules\/xml-parser$/d
 /^perl_modules\/xml-simple$/d
-/^phantomjs$/d
 /^php54$/d
 /^php54-apache24$/d
 /^php54-ext-apc$/d
@@ -74,7 +74,6 @@
 /^postgis-pg91$/d
 /^postgis-pg93$/d
 /^postgresql92$/d
-/^proj$/d
 /^python\/mysqldb55$/d
 /^python\/psycopg2-pg91$/d
 /^python\/psycopg2-pg93$/d

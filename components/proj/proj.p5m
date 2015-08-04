@@ -22,57 +22,44 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license proj.license license="MIT"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-dir path=$(ECPREFIX)/share/man/man3
-dir path=$(ECPREFIX)/share/proj
-file path=$(ECPREFIX)/bin/$(MACH64)/cs2cs
-file path=$(ECPREFIX)/bin/$(MACH64)/geod
-file path=$(ECPREFIX)/bin/$(MACH64)/nad2bin
-file path=$(ECPREFIX)/bin/$(MACH64)/proj
-file path=$(ECPREFIX)/bin/cs2cs
-file path=$(ECPREFIX)/bin/geod
-file path=$(ECPREFIX)/bin/nad2bin
-file path=$(ECPREFIX)/bin/proj
-file path=$(ECPREFIX)/include/org_proj4_Projections.h
-file path=$(ECPREFIX)/include/proj_api.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libproj.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libproj.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libproj.so.0.7.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/proj.pc
-file path=$(ECPREFIX)/lib/libproj.a
-file path=$(ECPREFIX)/lib/libproj.la
-file path=$(ECPREFIX)/lib/libproj.so.0.7.0
-file path=$(ECPREFIX)/lib/pkgconfig/proj.pc
-file path=$(ECPREFIX)/share/man/man1/cs2cs.1
-file path=$(ECPREFIX)/share/man/man1/geod.1
-file path=$(ECPREFIX)/share/man/man1/proj.1
-file path=$(ECPREFIX)/share/man/man3/pj_init.3
-file path=$(ECPREFIX)/share/proj/GL27
-file path=$(ECPREFIX)/share/proj/IGNF
-file path=$(ECPREFIX)/share/proj/epsg
-file path=$(ECPREFIX)/share/proj/esri
-file path=$(ECPREFIX)/share/proj/esri.extra
-file path=$(ECPREFIX)/share/proj/nad.lst
-file path=$(ECPREFIX)/share/proj/nad27
-file path=$(ECPREFIX)/share/proj/nad83
-file path=$(ECPREFIX)/share/proj/other.extra
-file path=$(ECPREFIX)/share/proj/proj_def.dat
-file path=$(ECPREFIX)/share/proj/world
-link path=$(ECPREFIX)/bin/$(MACH64)/invgeod target=geod
-link path=$(ECPREFIX)/bin/$(MACH64)/invproj target=proj
-link path=$(ECPREFIX)/bin/invgeod target=geod
-link path=$(ECPREFIX)/bin/invproj target=proj
-link path=$(ECPREFIX)/lib/$(MACH64)/libproj.so target=libproj.so.0.7.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libproj.so.0 target=libproj.so.0.7.0
-link path=$(ECPREFIX)/lib/libproj.so target=libproj.so.0.7.0
-link path=$(ECPREFIX)/lib/libproj.so.0 target=libproj.so.0.7.0
+file path=$(USRDIR)/bin/$(MACH64)/cs2cs
+file path=$(USRDIR)/bin/$(MACH64)/geod
+file path=$(USRDIR)/bin/$(MACH64)/nad2bin
+file path=$(USRDIR)/bin/$(MACH64)/proj
+file path=$(USRDIR)/bin/cs2cs
+file path=$(USRDIR)/bin/geod
+file path=$(USRDIR)/bin/nad2bin
+file path=$(USRDIR)/bin/proj
+file path=$(USRDIR)/include/org_proj4_Projections.h
+file path=$(USRDIR)/include/proj_api.h
+file path=$(USRDIR)/lib/$(MACH64)/libproj.a
+file path=$(USRDIR)/lib/$(MACH64)/libproj.la
+file path=$(USRDIR)/lib/$(MACH64)/libproj.so.0.7.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/proj.pc
+file path=$(USRDIR)/lib/libproj.a
+file path=$(USRDIR)/lib/libproj.la
+file path=$(USRDIR)/lib/libproj.so.0.7.0
+file path=$(USRDIR)/lib/pkgconfig/proj.pc
+file path=$(USRDIR)/share/man/man1/cs2cs.1
+file path=$(USRDIR)/share/man/man1/geod.1
+file path=$(USRDIR)/share/man/man1/proj.1
+file path=$(USRDIR)/share/man/man3/pj_init.3
+file path=$(USRDIR)/share/proj/GL27
+file path=$(USRDIR)/share/proj/IGNF
+file path=$(USRDIR)/share/proj/epsg
+file path=$(USRDIR)/share/proj/esri
+file path=$(USRDIR)/share/proj/esri.extra
+file path=$(USRDIR)/share/proj/nad.lst
+file path=$(USRDIR)/share/proj/nad27
+file path=$(USRDIR)/share/proj/nad83
+file path=$(USRDIR)/share/proj/other.extra
+file path=$(USRDIR)/share/proj/proj_def.dat
+file path=$(USRDIR)/share/proj/world
+link path=$(USRDIR)/bin/$(MACH64)/invgeod target=geod
+link path=$(USRDIR)/bin/$(MACH64)/invproj target=proj
+link path=$(USRDIR)/bin/invgeod target=geod
+link path=$(USRDIR)/bin/invproj target=proj
+link path=$(USRDIR)/lib/$(MACH64)/libproj.so target=libproj.so.0.7.0
+link path=$(USRDIR)/lib/$(MACH64)/libproj.so.0 target=libproj.so.0.7.0
+link path=$(USRDIR)/lib/libproj.so target=libproj.so.0.7.0
+link path=$(USRDIR)/lib/libproj.so.0 target=libproj.so.0.7.0
