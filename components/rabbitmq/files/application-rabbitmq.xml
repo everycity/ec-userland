@@ -72,7 +72,7 @@
 		<exec_method
 		    type='method'
 		    name='start'
-		    exec='/ec/var/svc/method/application-rabbitmq start'
+		    exec='/var/svc/method/application-rabbitmq start'
 		    timeout_seconds='60'>
 			<method_context>
 				<method_credential
