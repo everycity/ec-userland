@@ -1,22 +1,24 @@
+# failed
+/^bitlbee$/d
+/^cloog-ppl$/d
+/^dbt2$/d
+/^exiftool$/d
+/^geos$/d
+/^mariadb55$/d
+/^mongodb$/d
+/^mplayer$/d
+/^powerdns$/d
+# in progress
 /^automake-110$/d
 /^automake-112$/d
 /^automake-19$/d
-/^bitlbee$/d
-/^cloog-ppl$/d
 /^clusterssh$/d
-/^dbt2$/d
-/^exiftool$/d
 /^ffmpeg08$/d
 /^gcc47$/d
-/^geos$/d
 /^make$/d
-/^mariadb55$/d
 /^meta-packages\/build-essential$/d
-/^mongodb$/d
-/^mplayer$/d
 /^nodejs04$/d
 /^nodejs06$/d
-/^p5-Tk$/d
 /^p5-X11-Protocol$/d
 /^pdflib$/d
 /^pdftk$/d
@@ -72,7 +74,6 @@
 /^postgis-pg91$/d
 /^postgis-pg93$/d
 /^postgresql92$/d
-/^powerdns$/d
 /^proj$/d
 /^python\/mysqldb55$/d
 /^python\/psycopg2-pg91$/d
