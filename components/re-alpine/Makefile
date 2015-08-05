@@ -35,7 +35,7 @@ LDFLAGS +=	-lcrypto -lnsl
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 
-CONFIGURE_OPTIONS+=	--with-ssl-dir=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--with-ssl-dir=$(USRDIR)
 
 build:		$(BUILD_32_and_64)
 
