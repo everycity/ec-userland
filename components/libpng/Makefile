@@ -15,23 +15,25 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libpng
 COMPONENT_FMRI=		library/libpng
-COMPONENT_VERSION=	1.6.12
+COMPONENT_VERSION=	1.6.15
 COMPONENT_LICENSE=	libpng
 COMPONENT_PROJECT_URL=	http://www.libpng.org/pub/png/
 COMPONENT_SUMMARY=	The official PNG reference library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:73bec855f265e86cf247c8e60069338bba7f16deade54b459b6465ffa86f7076
+#COMPONENT_ARCHIVE_HASH=	sha256:73bec855f265e86cf247c8e60069338bba7f16deade54b459b6465ffa86f7076
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+LDFLAGS += -lz
+
 CONFIGURE_OPTIONS +=	--enable-shared
 CONFIGURE_OPTIONS +=	--disable-static
 CONFIGURE_OPTIONS +=	--with-pic
-#CONFIGURE_OPTIONS +=	--with-sysroot=/
+CONFIGURE_OPTIONS +=	--with-sysroot=$(USRDIR)
 
 build:		$(BUILD_32_and_64)
 

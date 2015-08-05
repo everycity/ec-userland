@@ -25,29 +25,35 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 file path=$(USRDIR)/bin/$(MACH64)/libpng16-config
 file path=$(USRDIR)/bin/$(MACH64)/png-fix-itxt
 file path=$(USRDIR)/bin/$(MACH64)/pngfix
+
 file path=$(USRDIR)/bin/libpng16-config
 file path=$(USRDIR)/bin/png-fix-itxt
 file path=$(USRDIR)/bin/pngfix
+
 file path=$(USRDIR)/include/libpng16/png.h
 file path=$(USRDIR)/include/libpng16/pngconf.h
 file path=$(USRDIR)/include/libpng16/pnglibconf.h
-file path=$(USRDIR)/lib/$(MACH64)/libpng16.so.16.15.0
+
+file path=$(USRDIR)/lib/$(MACH64)/libpng16.so.16.12.0
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libpng16.pc
-file path=$(USRDIR)/lib/libpng16.so.16.15.0
+file path=$(USRDIR)/lib/libpng16.so.16.12.0
 file path=$(USRDIR)/lib/pkgconfig/libpng16.pc
 file path=$(USRDIR)/share/man/man3/libpng.3
 file path=$(USRDIR)/share/man/man3/libpngpf.3
 file path=$(USRDIR)/share/man/man5/png.5
-link path=$(USRDIR)/bin/$(MACH64)/libpng-config target=libpng16-config
-link path=$(USRDIR)/bin/libpng-config target=libpng16-config
-link path=$(USRDIR)/include/png.h target=libpng16/png.h
-link path=$(USRDIR)/include/pngconf.h target=libpng16/pngconf.h
-link path=$(USRDIR)/include/pnglibconf.h target=libpng16/pnglibconf.h
-link path=$(USRDIR)/lib/$(MACH64)/libpng.so target=libpng16.so
-link path=$(USRDIR)/lib/$(MACH64)/libpng16.so target=libpng16.so.16.15.0
-link path=$(USRDIR)/lib/$(MACH64)/libpng16.so.16 target=libpng16.so.16.15.0
-link path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libpng.pc target=libpng16.pc
-link path=$(USRDIR)/lib/libpng.so target=libpng16.so
-link path=$(USRDIR)/lib/libpng16.so target=libpng16.so.16.15.0
-link path=$(USRDIR)/lib/libpng16.so.16 target=libpng16.so.16.15.0
-link path=$(USRDIR)/lib/pkgconfig/libpng.pc target=libpng16.pc
+
+#link path=$(USRDIR)/bin/$(MACH64)/libpng-config target=libpng16-config
+#link path=$(USRDIR)/bin/libpng-config target=libpng16-config
+
+#link path=$(USRDIR)/include/png.h target=libpng16/png.h
+#link path=$(USRDIR)/include/pngconf.h target=libpng16/pngconf.h
+#link path=$(USRDIR)/include/pnglibconf.h target=libpng16/pnglibconf.h
+
+#link path=$(USRDIR)/lib/$(MACH64)/libpng.so target=libpng16.so
+link path=$(USRDIR)/lib/$(MACH64)/libpng16.so target=libpng16.so.16.12.0
+link path=$(USRDIR)/lib/$(MACH64)/libpng16.so.16 target=libpng16.so.16.12.0
+#link path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libpng.pc target=libpng16.pc
+#link path=$(USRDIR)/lib/libpng.so target=libpng16.so
+link path=$(USRDIR)/lib/libpng16.so target=libpng16.so.16.12.0
+link path=$(USRDIR)/lib/libpng16.so.16 target=libpng16.so.16.12.0
+#link path=$(USRDIR)/lib/pkgconfig/libpng.pc target=libpng16.pc
