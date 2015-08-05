@@ -30,6 +30,8 @@ include ../../make-rules/ips.mk
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 
+CONFIGURE_ENV += PERL="$(PERL.$(BITS))"
+
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
