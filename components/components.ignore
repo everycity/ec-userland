@@ -78,7 +78,6 @@
 /^python\/psycopg2-pg91$/d
 /^python\/psycopg2-pg93$/d
 /^python\/pymongo$/d
-/^redland$/d
 /^rrdtool$/d
 /^rsyslog$/d
 /^ruby\/ec-mcollective$/d

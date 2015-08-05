@@ -29,13 +29,13 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CFLAGS+=	-I$(ECPREFIX)/include/odbc
+CFLAGS+=	-I$(USRDIR)/include/odbc
 
-CONFIGURE_ENV.64+=	PATH=$(ECPREFIX)/bin/$(MACH64):$(PATH)
+CONFIGURE_ENV.64+=	PATH=$(USRDIR)/bin/$(MACH64):$(PATH)
 
-CONFIGURE_OPTIONS+=	--with-bdb=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--with-bdb=$(USRDIR)
 CONFIGURE_OPTIONS+=	--with-unixodbc
-#CONFIGURE_OPTIONS+=	--with-odbc-inc=$(ECPREFIX)/include/odbc
+#CONFIGURE_OPTIONS+=	--with-odbc-inc=$(USRDIR)/include/odbc
 #CONFIGURE_OPTIONS+=	--with-odbc-lib=
 
 build:		$(BUILD_32_and_64)
