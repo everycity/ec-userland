@@ -36,12 +36,9 @@ file path=$(ECPREFIX)/include/wkhtmltox/dllbegin.inc
 file path=$(ECPREFIX)/include/wkhtmltox/dllend.inc
 file path=$(ECPREFIX)/include/wkhtmltox/image.h
 file path=$(ECPREFIX)/include/wkhtmltox/pdf.h
-file path=$(ECPREFIX)/lib/libwkhtmltox.so.$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/lib/libwkhtmltox.so.0.12.2
 file path=$(ECPREFIX)/share/man/man1/wkhtmltoimage.1.gz
 file path=$(ECPREFIX)/share/man/man1/wkhtmltopdf.1.gz
-link path=$(ECPREFIX)/lib/libwkhtmltox.so \
-    target=libwkhtmltox.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libwkhtmltox.so.0 \
-    target=libwkhtmltox.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libwkhtmltox.so.0.12 \
-    target=libwkhtmltox.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/libwkhtmltox.so target=libwkhtmltox.so.0.12.2
+link path=$(ECPREFIX)/lib/libwkhtmltox.so.0 target=libwkhtmltox.so.0.12.2
+link path=$(ECPREFIX)/lib/libwkhtmltox.so.0.12 target=libwkhtmltox.so.0.12.2
