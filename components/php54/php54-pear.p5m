@@ -194,7 +194,7 @@ file path=$(USRDIR)/lib/php/5.4/share/PEAR/test/XML_Util/tests/testBasic_reverse
 file path=$(USRDIR)/lib/php/5.4/share/PEAR/test/XML_Util/tests/testBasic_splitQualifiedName.phpt
 file path=$(USRDIR)/lib/php/5.4/share/PEAR/test/XML_Util/tests/testBug_18343.phpt
 file path=$(USRDIR)/lib/php/5.4/share/PEAR/test/XML_Util/tests/testBug_4950.phpt
-link path=$(USRDIR)/bin/pear target=../lib/php/active/bin/pear preserve=true pkg.linted=true
-link path=$(USRDIR)/bin/peardev target=../lib/php/active/bin/peardev preserve=true pkg.linted=true
-link path=$(USRDIR)/bin/$(MACH64)/pear target=../../lib/php/active/bin/$(MACH64)/pear preserve=true pkg.linted=true
-link path=$(USRDIR)/bin/$(MACH64)/peardev target=../../lib/php/active/bin/$(MACH64)/peardev preserve=true pkg.linted=true
+link path=$(USRDIR)/bin/pear target=../lib/php/5.4/bin/pear preserve=true pkg.linted=true mediator=php mediator-version=5.4
+link path=$(USRDIR)/bin/peardev target=../lib/php/5.4/bin/peardev preserve=true pkg.linted=true mediator=php mediator-version=5.4
+link path=$(USRDIR)/bin/$(MACH64)/pear target=../../lib/php/5.4/bin/$(MACH64)/pear preserve=true pkg.linted=true mediator=php mediator-version=5.4
+link path=$(USRDIR)/bin/$(MACH64)/peardev target=../../lib/php/5.4/bin/$(MACH64)/peardev preserve=true pkg.linted=true mediator=php mediator-version=5.4
