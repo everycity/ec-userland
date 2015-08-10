@@ -22,17 +22,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license php54.license license="PHP54 License"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/php
-dir path=$(ECPREFIX)/etc/php/5.4
-dir path=$(ECPREFIX)/etc/php/5.4/conf.d
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/php
-dir path=$(ECPREFIX)/lib/php/5.4
-dir path=$(ECPREFIX)/lib/php/5.4/extensions
-dir path=$(ECPREFIX)/lib/php/5.4/extensions/$(MACH64)
-file files/tidy.ini path=$(ECPREFIX)/etc/php/5.4/conf.d/tidy.ini preserve=true
-file path=$(ECPREFIX)/lib/php/5.4/extensions/$(MACH64)/tidy.so
-file path=$(ECPREFIX)/lib/php/5.4/extensions/tidy.so
+file files/tidy.ini path=$(SYSCONFDIR)/php/5.4/conf.d/tidy.ini preserve=true
+file path=$(USRDIR)/lib/php/5.4/extensions/$(MACH64)/tidy.so
+file path=$(USRDIR)/lib/php/5.4/extensions/tidy.so
 depend fmri=pkg:/web/php-54/php-common type=require

@@ -24,18 +24,20 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-PATH=   $(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
+PATH=   $(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
 
 # Apache Paths
-AP_PREFIX=$(ECPREFIX)/lib/apache/2.2
-AP_SYSCONFDIR=$(ECPREFIX)/etc/apache/2.2
+AP_PREFIX=$(USRDIR)/lib/apache/2.2
+AP_SYSCONFDIR=$(CONFIGURE_SYSCONFDIR)/apache/2.2
 
 # PHP Paths
-PHP_PREFIX=$(ECPREFIX)/lib/php/5.4
-PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.4
-PHP_DATADIR=$(ECPREFIX)/var/php/5.4
+PHP_PREFIX=$(USRDIR)/lib/php/5.4
+PHP_SYSCONFDIR=$(CONFIGURE_SYSCONFDIR)/php/5.4
+PHP_DATADIR=$(CONFIGURE_LOCALSTATEDIR)/php/5.4
 
 CFLAGS += -std=gnu99 -D_POSIX_PTHREAD_SEMANTICS
+
+COMPONENT_PREP_ACTION =		( cd $(@D) && autoconf )
 
 # Configure Options
 
@@ -58,7 +60,7 @@ CONFIGURE_OPTIONS.32  +=	--with-apxs2=$(AP_PREFIX)/bin/apxs
 CONFIGURE_OPTIONS.64  +=	--with-apxs2=$(AP_PREFIX)/bin/$(MACH64)/apxs
 CONFIGURE_OPTIONS     +=        --enable-fpm
 
-CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris$(SOLARIS_VERSION)
+CONFIGURE_OPTIONS.64  +=	--build=$(GNU_ARCH_64)
 
 CONFIGURE_OPTIONS     +=	--with-config-file-path=$(PHP_SYSCONFDIR)
 CONFIGURE_OPTIONS     +=	--with-config-file-scan-dir=$(PHP_SYSCONFDIR)/conf.d
@@ -69,7 +71,7 @@ CONFIGURE_OPTIONS     +=	--with-zend-vm=CALL
 
 CONFIGURE_OPTIONS     +=	--with-cdb
 CONFIGURE_OPTIONS     +=	--with-kerberos
-CONFIGURE_OPTIONS     +=	--with-pcre-regex=$(ECPREFIX)
+CONFIGURE_OPTIONS     +=	--with-pcre-regex=$(USRDIR)
 
 # Shared Extensions
 
@@ -79,32 +81,32 @@ CONFIGURE_OPTIONS     +=	--with-gettext=shared
 CONFIGURE_OPTIONS     +=	--with-xmlrpc=shared
 CONFIGURE_OPTIONS     +=	--with-gd=shared
 CONFIGURE_OPTIONS     +=	--with-zlib=shared
-CONFIGURE_OPTIONS     +=	--with-openssl=shared
-CONFIGURE_OPTIONS     +=	--with-pdo-sqlite=shared
+CONFIGURE_OPTIONS     +=	--with-openssl=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-pdo-sqlite=shared,$(USRDIR)
 CONFIGURE_OPTIONS     +=	--with-ldap=shared
 
 # Shared Extensions
-CONFIGURE_OPTIONS     +=	--with-bz2=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-iconv=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-tidy=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-mhash=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-mcrypt=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-xsl=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-curl=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-readline=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-pspell=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-imap=shared,$(ECPREFIX)
+CONFIGURE_OPTIONS     +=	--with-bz2=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-iconv=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-tidy=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-mhash=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-mcrypt=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-xsl=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-curl=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-readline=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-pspell=shared,$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-imap=shared,$(USRDIR)
 CONFIGURE_OPTIONS     +=	--with-imap-ssl
 
 # Enabled Extensions
-CONFIGURE_OPTIONS     +=	--with-libxml-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-freetype-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-jpeg-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-png-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-zlib-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-xpm-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-libexpat-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-openssl-dir=$(ECPREFIX)
+CONFIGURE_OPTIONS     +=	--with-libxml-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-freetype-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-jpeg-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-png-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-zlib-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-xpm-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-libexpat-dir=$(USRDIR)
+CONFIGURE_OPTIONS     +=	--with-openssl-dir=$(USRDIR)
 
 # Disabled extensions & Options
 CONFIGURE_OPTIONS     +=	--disable-static
