@@ -89,7 +89,6 @@
 /^stress$/d
 /^subversion-apache24$/d
 /^sysbench$/d
-/^taglib$/d
 /^tftp-hpa$/d
 /^tmux$/d
 /^toilet$/d
