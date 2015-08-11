@@ -1,15 +1,19 @@
---- vlc-2.1.4/configure.~1~	2014-02-21 14:21:26.000000000 +0000
-+++ vlc-2.1.4/configure	2014-04-04 10:39:40.894728086 +0100
-@@ -9030,7 +9030,7 @@
+Index: vlc-2.2.1/configure
+===================================================================
+--- vlc-2.2.1/configure.orig
++++ vlc-2.2.1/configure
+@@ -9129,8 +9129,8 @@ $as_echo "${CONTRIB_DIR}" >&6; }
+   CFLAGS="${CFLAGS} -I${CONTRIB_DIR}/include"
+   CXXFLAGS="${CXXFLAGS} -I${CONTRIB_DIR}/include"
    OBJCFLAGS="${OBJCFLAGS} -I${CONTRIB_DIR}/include"
-   if test "$build" = "$host" -o "$PKG_CONFIG_LIBDIR"; then :
+-  export PKG_CONFIG_PATH="${CONTRIB_DIR}/lib/pkgconfig:$PKG_CONFIG_PATH"
+-  LDFLAGS="${LDFLAGS} -L${CONTRIB_DIR}/lib"
++  export PKG_CONFIG_PATH="$PKG_CONFIG_PATH"
++  LDFLAGS="${LDFLAGS}"
  
--    export PKG_CONFIG_PATH="${CONTRIB_DIR}/lib/pkgconfig:$PKG_CONFIG_PATH"
-+    export PKG_CONFIG_PATH="$PKG_CONFIG_PATH"
+   if test "${SYS}" = "darwin"; then :
  
- else
- 
-@@ -50927,7 +50927,7 @@
+@@ -53213,7 +53213,7 @@ _ACEOF
  
  
  cat >>confdefs.h <<_ACEOF

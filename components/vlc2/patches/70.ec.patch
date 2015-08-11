@@ -1,0 +1,40 @@
+Index: vlc-2.2.1/src/posix/error.c
+===================================================================
+--- vlc-2.2.1/src/posix/error.c.orig
++++ vlc-2.2.1/src/posix/error.c
+@@ -29,6 +29,26 @@
+ 
+ #include <vlc_common.h>
+ 
++#ifndef strerror_l
++/*char *strerror_l(int, locale_t);*/
++
++static const char *
++translate (const char *str, locale_t loc)
++{
++    locale_t oldloc = uselocale (loc);
++    const char *res = _(str);
++    uselocale (oldloc);
++    return res;
++}
++
++/* Return a string describing the errno code in ERRNUM.  */
++char *
++strerror_l (int errnum, locale_t loc)
++{
++    return (char *) translate (strerror(errnum), loc);
++}
++#endif
++
+ static const char *vlc_strerror_l(int errnum, const char *lname)
+ {
+     int saved_errno = errno;
+@@ -48,7 +68,7 @@ static const char *vlc_strerror_l(int er
+         errno = saved_errno;
+     }
+ 
+-    const char *buf = strerror_l(errnum, loc);
++    char *buf = strerror_l(errnum, loc);
+ 
+     freelocale(loc);
+     return buf;
