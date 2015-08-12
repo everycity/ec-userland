@@ -1,6 +1,6 @@
---- nginx-1.0.15/conf/nginx.conf.~1~	2011-06-27 15:47:51.000000000 +0000
-+++ nginx-1.0.15/conf/nginx.conf	2012-04-21 23:51:29.564390972 +0000
-@@ -1,19 +1,27 @@
+--- nginx-1.8.0/conf/nginx.conf.~1~	2015-04-21 15:11:59.000000000 +0100
++++ nginx-1.8.0/conf/nginx.conf	2015-08-12 11:56:23.724622535 +0100
+@@ -1,19 +1,28 @@
 +#
 +# This file and its contents are supplied under the terms of the
 +# Common Development and Distribution License ("CDDL)". You may
@@ -12,7 +12,7 @@
 +#
 +
 +#
-+# Copyright 2012 EveryCity Ltd. All rights reserved.
++# Copyright 2015 EveryCity Ltd. All rights reserved.
 +#
  
 -#user  nobody;
@@ -29,14 +29,16 @@
 +#error_log  var/nginx/logs/error.log  info;
  
  events {
-     worker_connections  1024;
+-    worker_connections  1024;
++    worker_connections 1024;
++    devpoll_events     1;
  }
  
 -
  http {
      include       mime.types;
      default_type  application/octet-stream;
-@@ -22,7 +30,7 @@
+@@ -22,7 +31,7 @@
      #                  '$status $body_bytes_sent "$http_referer" '
      #                  '"$http_user_agent" "$http_x_forwarded_for"';
  
@@ -45,7 +47,7 @@
  
      sendfile        on;
      #tcp_nopush     on;
-@@ -38,10 +46,10 @@
+@@ -38,10 +47,10 @@
  
          #charset koi8-r;
  
@@ -58,7 +60,7 @@
              index  index.html index.htm;
          }
  
-@@ -51,7 +59,7 @@
+@@ -51,7 +60,7 @@
          #
          error_page   500 502 503 504  /50x.html;
          location = /50x.html {
@@ -67,7 +69,7 @@
          }
  
          # proxy the PHP scripts to Apache listening on 127.0.0.1:80
-@@ -87,7 +95,7 @@
+@@ -87,7 +96,7 @@
      #    server_name  somename  alias  another.alias;
  
      #    location / {
@@ -76,7 +78,7 @@
      #        index  index.html index.htm;
      #    }
      #}
-@@ -109,7 +117,7 @@
+@@ -109,7 +118,7 @@
      #    ssl_prefer_server_ciphers  on;
  
      #    location / {
