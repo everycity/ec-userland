@@ -9,18 +9,22 @@
 #
 
 #
-# Copyright 2012, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2015, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		lua
+COMPONENT_FMRI=		developer/lua
 COMPONENT_MJR_VERSION=	5.2
-COMPONENT_MNR_VERSION=	1
+COMPONENT_MNR_VERSION=	4
 COMPONENT_VERSION=	$(COMPONENT_MJR_VERSION).$(COMPONENT_MNR_VERSION)
+COMPONENT_LICENSE=	MIT
+COMPONENT_PROJECT_URL=	"http://www.lua.org/"
+COMPONENT_SUMMARY=	Lua is a powerful, fast, lightweight, embeddable scripting language.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:64304da87976133196f9e4c15250b70f444467b6ed80d7cfd7b3b982b5177be5
+COMPONENT_ARCHIVE_HASH=	sha256:b9e2e4aad6789b3b63a056d442f7b39f0ecfca3ae0f1fc0ae4e9614401b69f4b
 COMPONENT_ARCHIVE_URL=	http://www.lua.org/ftp/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
