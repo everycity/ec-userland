@@ -49,7 +49,7 @@ ANT_DIST_DIRS+=-Ddist.manual=$(PROTO_DIR)$(USRDIR)/share/doc/ant/manual
 ANT_DIST_DIRS+=-Ddist.javadocs=$(PROTO_DIR)$(USRDIR)/share/doc/ant/manual/api
 ANT_DIST_DIRS+=-Ddist.lib=$(PROTO_DIR)$(USRDIR)/share/lib/ant
 
-OPTIONAL_LIBS+=$(USRDIR)/share/lib/java/junit-4.10.jar
+OPTIONAL_LIBS+=$(USRDIR)/share/lib/java/junit.jar
 COMPONENT_PRE_BUILD_ACTION = $(CP) $(OPTIONAL_LIBS) $(@D)/lib/optional
 
 COMPONENT_POST_INSTALL_ACTION=	( perl -pi -e "s,^\#!.*,\#!$(PYTHON)," \
