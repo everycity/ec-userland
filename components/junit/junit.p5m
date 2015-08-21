@@ -37,7 +37,7 @@ set name=info.upstream-url value=http://sourceforge.net/projects/junit/
 
 license junit.license license="CPLv1.0, BSD"
 link path=$(USRDIR)/share/doc/junit/javadoc target=../../lib/java/javadoc/junit
-link path=$(USRDIR)/share/lib/java/junit.jar target=junit-$(COMPONENT_VERSION).jar
+link path=$(USRDIR)/share/lib/java/junit.jar target=../../junit-$(COMPONENT_VERSION).jar
 
 file path=$(USRDIR)/share/BUILDING
 file path=$(USRDIR)/share/README.html
