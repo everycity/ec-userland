@@ -24,6 +24,7 @@ license bison.license license="GPLv3"
 
 file path=$(USRDIR)/bin/bison
 file $(USRDIR)/bin/yacc path=$(USRDIR)/bin/byacc
+link path=$(USRDIR)/bin/yacc target=byacc
 file path=$(USRDIR)/lib/liby.a
 file path=$(USRDIR)/share/aclocal/bison-i18n.m4
 file path=$(USRDIR)/share/bison/README
