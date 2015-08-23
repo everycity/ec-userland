@@ -34,14 +34,14 @@ import sys
 def uncompress_unpack_commands(filename, verbose=False):
 	import re
 
-	uncompress = "/bin/cat"
+	uncompress = "cat"
 
 	if (re.search("(\.bz2|\.tbz|\.tbz2)$", filename) != None):
-		uncompress = "/usr/bin/bzip2 -dc"
+		uncompress = "bzip2 -dc"
 	elif (re.search("(\.gz|\.tgz)$", filename) != None):
-		uncompress = "/usr/bin/gzip -dc"
+		uncompress = "gzip -dc"
 	elif (re.search("(\.Z)$", filename) != None):
-		uncompress = "/usr/bin/uncompress -c"
+		uncompress = "uncompress -c"
 	elif (re.search("(\.7z)$", filename) != None):
 		uncompress = "7z --s"
 	elif (re.search("(\.zip)$", filename) != None):

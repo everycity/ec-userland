@@ -368,6 +368,7 @@ MV =		/bin/mv -f
 LN =		/bin/ln
 SYMLINK =	/bin/ln -s
 ECHO =		$(USRBINDIR)/echo
+CAT =		$(USRBINDIR)/cat
 ENV =		$(USRBINDIR)/env
 INSTALL =	$(USRBINDIR)/install
 CHMOD =		$(USRBINDIR)/chmod
