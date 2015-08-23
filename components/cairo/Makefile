@@ -29,6 +29,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+LDFLAGS_LIBPATH=
+
 CONFIGURE_OPTIONS +=	--enable-xlib-xrender=no
 
 build:		$(BUILD_32_and_64)
