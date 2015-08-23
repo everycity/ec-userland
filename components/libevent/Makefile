@@ -39,11 +39,11 @@ build:		$(BUILD_32_and_64)
 $(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
 	# Note: libevent generates a header file, include/event2/event-config.h
 	# This header file is different depending on 32bit or 64bit build
-	/usr/bin/echo "/* EC: combining 32 and 64bit versions */\n\n#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/event-config.h
-	/usr/bin/cat $(BUILD_DIR_64)/include/event2/event-config.h >> $(COMPONENT_DIR)/event-config.h
-	/usr/bin/echo "\n#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/event-config.h
-	/usr/bin/cat $(BUILD_DIR_32)/include/event2/event-config.h >> $(COMPONENT_DIR)/event-config.h
-	/usr/bin/echo "\n#endif /* EC */" >> $(COMPONENT_DIR)/event-config.h
+	$(ECHO) -e "/* EC: combining 32 and 64bit versions */\n\n#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/event-config.h
+	$(CAT) $(BUILD_DIR_64)/include/event2/event-config.h >> $(COMPONENT_DIR)/event-config.h
+	$(ECHO) -e "\n#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/event-config.h
+	$(CAT) $(BUILD_DIR_32)/include/event2/event-config.h >> $(COMPONENT_DIR)/event-config.h
+	$(ECHO) -e "\n#endif /* EC */" >> $(COMPONENT_DIR)/event-config.h
 	$(RM) $(PROTO_DIR)$(ECPREFIX)/include/event2/event-config.h
 	$(INSTALL) $(COMPONENT_DIR)/event-config.h $(PROTO_DIR)$(ECPREFIX)/include/event2/event-config.h
 	$(TOUCH) $@
