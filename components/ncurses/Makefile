@@ -32,6 +32,10 @@ COMPONENT_LICENSE_FILE=	ncurses.license
 # Remove -I/ec/include from CPPFLAGS
 CPPFLAGS=
 CXXFLAGS+=	-std=c++0x -D_XOPEN_SOURCE=600
+CXXFLAGS += -D_XPG6
+LDFLAGS += -D_XPG6
+CPPFLAGS += -D_XPG6
+CFLAGS += -std=c99 -D_POSIX_C_SOURCE=200112L
 
 CONFIGURE_OPTIONS    += --with-normal
 CONFIGURE_OPTIONS    += --with-shared
