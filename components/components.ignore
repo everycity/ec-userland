@@ -1,3 +1,11 @@
+# failed with some updates - need re-check
+/^tcl$/d
+/^expect$/d
+/^nginx$/d
+/^p5-Tk$/d
+/^php55-ext-suhosin$/d
+/^redis$/d
+/^rabbitmq$/d
 # failed
 /^bitlbee$/d
 /^cloog-ppl$/d
@@ -124,7 +132,6 @@
 /^goaccess$/d
 /^meta-packages\/haproxy-dev$/d
 /^ca-certificates$/d
-/^graphicsmagick$/d
 /^postgresql94$/d
 /^re2c$/d
 /^check$/d
