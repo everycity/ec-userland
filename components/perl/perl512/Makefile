@@ -28,6 +28,7 @@ include ../../../make-rules/prep.mk
 include ../../../make-rules/configure.mk
 include ../../../make-rules/ips.mk
 
+override COMPONENT_BUILD_GMAKE_ARGS=
 #
 # The extra Configure parameters (cf_email, cf_by, myhostname) and
 # the gawk and sed that follow are attempting to sanatize the
