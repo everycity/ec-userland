@@ -92,17 +92,17 @@ COMPONENT_BUILD_ARGS += LD_RUN_PATH="$(CONFIGURE_LIBDIR.$(BITS))"
 # ZLIB              --with-zlib=yes               yes
 
 COMPONENT_POST_INSTALL_ACTION+= ( \
-	/usr/bin/echo "/* EC: combining 32 and 64bit versions */\n\n\#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/magick-baseconfig.h; \
-	/usr/bin/cat $(BUILD_DIR_64)/magick/magick-baseconfig.h >> $(COMPONENT_DIR)/magick-baseconfig.h; \
-	/usr/bin/echo "\n\#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/magick-baseconfig.h; \
-	/usr/bin/cat $(BUILD_DIR_32)/magick/magick-baseconfig.h >> $(COMPONENT_DIR)/magick-baseconfig.h; \
-	/usr/bin/echo "\n\#endif /* EC */" >> $(COMPONENT_DIR)/magick-baseconfig.h; \
+	$(ECHO) -e "/* EC: combining 32 and 64bit versions */\n\n\#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/magick-baseconfig.h; \
+	$(CAT) $(BUILD_DIR_64)/magick/magick-baseconfig.h >> $(COMPONENT_DIR)/magick-baseconfig.h; \
+	$(ECHO) -e "\n\#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/magick-baseconfig.h; \
+	$(CAT) $(BUILD_DIR_32)/magick/magick-baseconfig.h >> $(COMPONENT_DIR)/magick-baseconfig.h; \
+	$(ECHO) -e "\n\#endif /* EC */" >> $(COMPONENT_DIR)/magick-baseconfig.h; \
 	\
-	/usr/bin/echo "/* EC: combining 32 and 64bit versions */\n\n\#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/version.h; \
-	/usr/bin/cat $(BUILD_DIR_64)/magick/version.h >> $(COMPONENT_DIR)/version.h; \
-	/usr/bin/echo "\n\#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/version.h; \
-	/usr/bin/cat $(BUILD_DIR_32)/magick/version.h >> $(COMPONENT_DIR)/version.h; \
-	/usr/bin/echo "\n\#endif /* EC */" >> $(COMPONENT_DIR)/version.h; )
+	$(ECHO) -e "/* EC: combining 32 and 64bit versions */\n\n\#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/version.h; \
+	$(CAT) $(BUILD_DIR_64)/magick/version.h >> $(COMPONENT_DIR)/version.h; \
+	$(ECHO) -e "\n\#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/version.h; \
+	$(CAT) $(BUILD_DIR_32)/magick/version.h >> $(COMPONENT_DIR)/version.h; \
+	$(ECHO) -e "\n\#endif /* EC */" >> $(COMPONENT_DIR)/version.h; )
 
 build:		$(BUILD_32_and_64)
 
