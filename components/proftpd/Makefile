@@ -31,7 +31,7 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 #LDFLAGS+=-z nolazyload
-LDFLAGS = -L/usr/lib -L/ec/lib
+#LDFLAGS = -L/usr/lib -L/ec/lib
 LDFLAGS += -z guidance=nolazyload -z nolazyload -lbsm
 
 COMPONENT_PRE_CONFIGURE_ACTION = \
@@ -48,7 +48,7 @@ DSOMODS5 = mod_sftp_sql:mod_shaper:mod_site_misc:mod_sql:mod_sql_mysql:mod_sql_o
 DSOMODS6 = mod_sql_sqlite:mod_tls:mod_tls_memcache:mod_tls_shmcache:mod_unique_id:mod_wrap2:mod_wrap2_file:mod_wrap2_sql
 
 CONFIGURE_OPTIONS +=	CFLAGS="$(CFLAGS) -I$(USRDIR)/include/odbc -I$(USRDIR)/lib/postgres/9.3/include"
-CONFIGURE_OPTIONS +=	LDFLAGS="$(LDFLAGS) -L$(USRDIR)/lib/postgres/9.3/lib -R$(USRDIR)/lib/postgres/9.3/lib -R$(USRDIR)/lib/mysql/5.5/lib"
+CONFIGURE_OPTIONS +=	LDFLAGS="$(LDFLAGS) -L$(USRDIR)/lib/postgres/9.3/lib -R$(USRDIR)/lib/postgres/9.3/lib -L$(USRDIR)/lib/mysql/5.5/lib -R$(USRDIR)/lib/mysql/5.5/lib"
 CONFIGURE_OPTIONS +=	CPPFLAGS="$(CPPFLAGS) -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_OPENSSL"
 CONFIGURE_OPTIONS +=	install_user=$(LOGNAME)
 CONFIGURE_OPTIONS +=	install_group=`groups | cut -f 1 -d ' '`
@@ -65,6 +65,7 @@ CONFIGURE_OPTIONS +=	--enable-ipv6
 CONFIGURE_OPTIONS +=	--enable-nls
 CONFIGURE_OPTIONS +=	--enable-openssl
 CONFIGURE_OPTIONS +=	--enable-pcre
+CONFIGURE_OPTIONS +=	--disable-curses
 CONFIGURE_OPTIONS +=	--disable-static
 CONFIGURE_OPTIONS +=	--enable-buffer-size=16384
 CONFIGURE_OPTIONS +=	--with-shared=$(DSOMODS1)$(DSOMODS2)$(DSOMODS3)$(DSOMODS4)$(DSOMODS5)$(DSOMODS6)
