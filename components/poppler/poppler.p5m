@@ -79,46 +79,38 @@ file path=$(USRDIR)/include/poppler/glib/poppler.h
 dir  path=$(USRDIR)/lib
 dir  path=$(USRDIR)/lib/$(MACH64)
 file path=$(USRDIR)/lib/$(MACH64)/libpoppler-cpp.a
-file path=$(USRDIR)/lib/$(MACH64)/libpoppler-cpp.la
 link path=$(USRDIR)/lib/$(MACH64)/libpoppler-cpp.so \
     target=libpoppler-cpp.so.0.2.0
 link path=$(USRDIR)/lib/$(MACH64)/libpoppler-cpp.so.0 \
     target=libpoppler-cpp.so.0.2.0
 file path=$(USRDIR)/lib/$(MACH64)/libpoppler-cpp.so.0.2.0
 file path=$(USRDIR)/lib/$(MACH64)/libpoppler-glib.a
-file path=$(USRDIR)/lib/$(MACH64)/libpoppler-glib.la
 link path=$(USRDIR)/lib/$(MACH64)/libpoppler-glib.so \
     target=libpoppler-glib.so.8.6.0
 link path=$(USRDIR)/lib/$(MACH64)/libpoppler-glib.so.8 \
     target=libpoppler-glib.so.8.6.0
 file path=$(USRDIR)/lib/$(MACH64)/libpoppler-glib.so.8.6.0
 file path=$(USRDIR)/lib/$(MACH64)/libpoppler.a
-file path=$(USRDIR)/lib/$(MACH64)/libpoppler.la
 link path=$(USRDIR)/lib/$(MACH64)/libpoppler.so target=libpoppler.so.46.0.0
 link path=$(USRDIR)/lib/$(MACH64)/libpoppler.so.46 target=libpoppler.so.46.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libpoppler.so.46.0.0
-dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/poppler-cairo.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/poppler-cpp.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/poppler-glib.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/poppler-splash.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/poppler.pc
 file path=$(USRDIR)/lib/libpoppler-cpp.a
-file path=$(USRDIR)/lib/libpoppler-cpp.la
 link path=$(USRDIR)/lib/libpoppler-cpp.so target=libpoppler-cpp.so.0.2.0
 link path=$(USRDIR)/lib/libpoppler-cpp.so.0 target=libpoppler-cpp.so.0.2.0
 file path=$(USRDIR)/lib/libpoppler-cpp.so.0.2.0
 file path=$(USRDIR)/lib/libpoppler-glib.a
-file path=$(USRDIR)/lib/libpoppler-glib.la
 link path=$(USRDIR)/lib/libpoppler-glib.so target=libpoppler-glib.so.8.6.0
 link path=$(USRDIR)/lib/libpoppler-glib.so.8 target=libpoppler-glib.so.8.6.0
 file path=$(USRDIR)/lib/libpoppler-glib.so.8.6.0
 file path=$(USRDIR)/lib/libpoppler.a
-file path=$(USRDIR)/lib/libpoppler.la
 link path=$(USRDIR)/lib/libpoppler.so target=libpoppler.so.46.0.0
 link path=$(USRDIR)/lib/libpoppler.so.46 target=libpoppler.so.46.0.0
 file path=$(USRDIR)/lib/libpoppler.so.46.0.0
-dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/poppler-cairo.pc
 file path=$(USRDIR)/lib/pkgconfig/poppler-cpp.pc
 file path=$(USRDIR)/lib/pkgconfig/poppler-glib.pc

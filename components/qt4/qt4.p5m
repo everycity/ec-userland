@@ -3382,23 +3382,18 @@ file path=$(USRDIR)/lib/qt/4.8/include/QtXmlPatterns/qxmlresultitems.h
 file path=$(USRDIR)/lib/qt/4.8/include/QtXmlPatterns/qxmlschema.h
 file path=$(USRDIR)/lib/qt/4.8/include/QtXmlPatterns/qxmlschemavalidator.h
 file path=$(USRDIR)/lib/qt/4.8/include/QtXmlPatterns/qxmlserializer.h
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQt3Support.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQt3Support.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQt3Support.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtCLucene.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtCLucene.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtCLucene.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtCore.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtCore.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtCore.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtDBus.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtDBus.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtDBus.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtDeclarative.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtDeclarative.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtDeclarative.so.$(COMPONENT_VERSION)
@@ -3408,56 +3403,43 @@ file \
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtDesignerComponents.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtDesignerComponents.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtGui.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtGui.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtGui.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtHelp.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtHelp.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtHelp.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtMultimedia.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtMultimedia.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtMultimedia.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtNetwork.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtNetwork.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtNetwork.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtScript.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtScript.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtScript.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtScriptTools.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtScriptTools.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtScriptTools.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtSql.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtSql.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtSql.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtSvg.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtSvg.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtSvg.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtTest.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtTest.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtTest.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtUiTools.a
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtUiTools.prl
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtWebKit.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtWebKit.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtWebKit.so.4.9.4
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtXml.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtXml.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtXml.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtXmlPatterns.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtXmlPatterns.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libQtXmlPatterns.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libjscore.la
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libjscore.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/libjscore.so.$(COMPONENT_VERSION)
@@ -3483,19 +3465,14 @@ file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtWebKit.pc
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtXml.pc
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/QtXmlPatterns.pc
 file path=$(USRDIR)/lib/qt/4.8/lib/$(MACH64)/pkgconfig/jscore.pc
-file path=$(USRDIR)/lib/qt/4.8/lib/libQt3Support.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libQt3Support.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libQt3Support.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/libQtCLucene.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtCLucene.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtCLucene.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/libQtCore.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtCore.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtCore.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/libQtDBus.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtDBus.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtDBus.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/libQtDeclarative.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtDeclarative.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtDeclarative.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtDesigner.prl
@@ -3503,45 +3480,32 @@ file path=$(USRDIR)/lib/qt/4.8/lib/libQtDesigner.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtDesignerComponents.prl
 file \
     path=$(USRDIR)/lib/qt/4.8/lib/libQtDesignerComponents.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/libQtGui.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtGui.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtGui.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/libQtHelp.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtHelp.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtHelp.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/libQtMultimedia.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtMultimedia.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtMultimedia.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/libQtNetwork.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtNetwork.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtNetwork.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/libQtScript.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtScript.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtScript.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/libQtScriptTools.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtScriptTools.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtScriptTools.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/libQtSql.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtSql.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtSql.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/libQtSvg.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtSvg.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtSvg.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/libQtTest.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtTest.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtTest.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtUiTools.a
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtUiTools.prl
-file path=$(USRDIR)/lib/qt/4.8/lib/libQtWebKit.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtWebKit.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtWebKit.so.4.9.4
-file path=$(USRDIR)/lib/qt/4.8/lib/libQtXml.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtXml.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtXml.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/libQtXmlPatterns.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtXmlPatterns.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libQtXmlPatterns.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/qt/4.8/lib/libjscore.la
 file path=$(USRDIR)/lib/qt/4.8/lib/libjscore.prl
 file path=$(USRDIR)/lib/qt/4.8/lib/libjscore.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/qt/4.8/lib/pkgconfig/Qt3Support.pc

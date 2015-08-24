@@ -35,28 +35,18 @@ dir  path=$(USRDIR)/include
 file path=$(USRDIR)/include/libtasn1.h
 dir  path=$(USRDIR)/lib
 dir  path=$(USRDIR)/lib/$(MACH64)
-file path=$(USRDIR)/lib/$(MACH64)/libtasn1.la
 link path=$(USRDIR)/lib/$(MACH64)/libtasn1.so target=libtasn1.so.6.4.1
 link path=$(USRDIR)/lib/$(MACH64)/libtasn1.so.6 target=libtasn1.so.6.4.1
 file path=$(USRDIR)/lib/$(MACH64)/libtasn1.so.6.4.1
-dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libtasn1.pc
-file path=$(USRDIR)/lib/libtasn1.la
 link path=$(USRDIR)/lib/libtasn1.so target=libtasn1.so.6.4.1
 link path=$(USRDIR)/lib/libtasn1.so.6 target=libtasn1.so.6.4.1
 file path=$(USRDIR)/lib/libtasn1.so.6.4.1
-dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/libtasn1.pc
-dir  path=$(USRDIR)/share
-dir  path=$(USRDIR)/share/info
-file path=$(USRDIR)/share/info/dir
 file path=$(USRDIR)/share/info/libtasn1.info
-dir  path=$(USRDIR)/share/man
-dir  path=$(USRDIR)/share/man/man1
 file path=$(USRDIR)/share/man/man1/asn1Coding.1
 file path=$(USRDIR)/share/man/man1/asn1Decoding.1
 file path=$(USRDIR)/share/man/man1/asn1Parser.1
-dir  path=$(USRDIR)/share/man/man3
 file path=$(USRDIR)/share/man/man3/asn1_array2tree.3
 file path=$(USRDIR)/share/man/man3/asn1_bit_der.3
 file path=$(USRDIR)/share/man/man3/asn1_check_version.3

@@ -24,10 +24,8 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 file path=$(USRDIR)/include/X11/extensions/XInput.h
 file path=$(USRDIR)/include/X11/extensions/XInput2.h
-file path=$(USRDIR)/lib/$(MACH64)/libXi.la
 file path=$(USRDIR)/lib/$(MACH64)/libXi.so.6.1.0
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xi.pc
-file path=$(USRDIR)/lib/libXi.la
 file path=$(USRDIR)/lib/libXi.so.6.1.0
 file path=$(USRDIR)/lib/pkgconfig/xi.pc
 file path=$(USRDIR)/share/doc/libXi/encoding.xml

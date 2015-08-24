@@ -24,11 +24,9 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 file path=$(ECPREFIX)/include/X11/extensions/Xfixes.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libXfixes.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libXfixes.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libXfixes.so.3.1.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/xfixes.pc
 file path=$(ECPREFIX)/lib/libXfixes.a
-file path=$(ECPREFIX)/lib/libXfixes.la
 file path=$(ECPREFIX)/lib/libXfixes.so.3.1.0
 file path=$(ECPREFIX)/lib/pkgconfig/xfixes.pc
 file path=$(ECPREFIX)/share/man/man3/Xfixes.3

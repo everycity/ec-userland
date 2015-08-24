@@ -32,27 +32,16 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/bin
-dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/faac
 file path=$(USRDIR)/bin/faac
-dir  path=$(USRDIR)/include
 file path=$(USRDIR)/include/faac.h
 file path=$(USRDIR)/include/faaccfg.h
-dir  path=$(USRDIR)/lib
-dir  path=$(USRDIR)/lib/$(MACH64)
 file path=$(USRDIR)/lib/$(MACH64)/libfaac.a
-file path=$(USRDIR)/lib/$(MACH64)/libfaac.la
 link path=$(USRDIR)/lib/$(MACH64)/libfaac.so target=libfaac.so.0.0.0
 link path=$(USRDIR)/lib/$(MACH64)/libfaac.so.0 target=libfaac.so.0.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libfaac.so.0.0.0
 file path=$(USRDIR)/lib/libfaac.a
-file path=$(USRDIR)/lib/libfaac.la
 link path=$(USRDIR)/lib/libfaac.so target=libfaac.so.0.0.0
 link path=$(USRDIR)/lib/libfaac.so.0 target=libfaac.so.0.0.0
 file path=$(USRDIR)/lib/libfaac.so.0.0.0
-dir  path=$(USRDIR)/share
-dir  path=$(USRDIR)/share/man
-dir  path=$(USRDIR)/share/man/man1
 file path=$(USRDIR)/share/man/man1/faac.1

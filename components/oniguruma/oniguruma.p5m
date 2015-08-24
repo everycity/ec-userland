@@ -34,14 +34,12 @@ file path=$(USRDIR)/include/oniguruma.h
 dir  path=$(USRDIR)/lib
 dir  path=$(USRDIR)/lib/$(MACH64)
 file path=$(USRDIR)/lib/$(MACH64)/libonig.a
-file path=$(USRDIR)/lib/$(MACH64)/libonig.la
 link path=$(USRDIR)/lib/$(MACH64)/libonig.so target=libonig.so.2.0.0
 link path=$(USRDIR)/lib/$(MACH64)/libonig.so.2 target=libonig.so.2.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libonig.so.2.0.0
 dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/oniguruma.pc
 file path=$(USRDIR)/lib/libonig.a
-file path=$(USRDIR)/lib/libonig.la
 link path=$(USRDIR)/lib/libonig.so target=libonig.so.2.0.0
 link path=$(USRDIR)/lib/libonig.so.2 target=libonig.so.2.0.0
 file path=$(USRDIR)/lib/libonig.so.2.0.0

@@ -60,24 +60,14 @@ file path=$(USRDIR)/include/atk-1.0/atk/atkutil.h
 file path=$(USRDIR)/include/atk-1.0/atk/atkvalue.h
 file path=$(USRDIR)/include/atk-1.0/atk/atkversion.h
 file path=$(USRDIR)/include/atk-1.0/atk/atkwindow.h
-dir  path=$(USRDIR)/lib
-dir  path=$(USRDIR)/lib/$(MACH64)
-file path=$(USRDIR)/lib/$(MACH64)/libatk-1.0.la
 link path=$(USRDIR)/lib/$(MACH64)/libatk-1.0.so target=libatk-1.0.so.0.21609.1
 link path=$(USRDIR)/lib/$(MACH64)/libatk-1.0.so.0 target=libatk-1.0.so.0.21609.1
 file path=$(USRDIR)/lib/$(MACH64)/libatk-1.0.so.0.21609.1
-dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/atk.pc
-file path=$(USRDIR)/lib/libatk-1.0.la
 link path=$(USRDIR)/lib/libatk-1.0.so target=libatk-1.0.so.0.21609.1
 link path=$(USRDIR)/lib/libatk-1.0.so.0 target=libatk-1.0.so.0.21609.1
 file path=$(USRDIR)/lib/libatk-1.0.so.0.21609.1
-dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/atk.pc
-dir  path=$(USRDIR)/share
-dir  path=$(USRDIR)/share/locale
-dir  path=$(USRDIR)/share/locale/af
-dir  path=$(USRDIR)/share/locale/af/LC_MESSAGES
 file path=$(USRDIR)/share/locale/af/LC_MESSAGES/atk10.mo
 dir  path=$(USRDIR)/share/locale/am
 dir  path=$(USRDIR)/share/locale/am/LC_MESSAGES

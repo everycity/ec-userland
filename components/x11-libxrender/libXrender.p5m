@@ -23,10 +23,8 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 file path=$(USRDIR)/include/X11/extensions/Xrender.h
-file path=$(USRDIR)/lib/$(MACH64)/libXrender.la
 file path=$(USRDIR)/lib/$(MACH64)/libXrender.so.1.3.0
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xrender.pc
-file path=$(USRDIR)/lib/libXrender.la
 file path=$(USRDIR)/lib/libXrender.so.1.3.0
 file path=$(USRDIR)/lib/pkgconfig/xrender.pc
 file path=$(USRDIR)/share/doc/libXrender/libXrender.txt

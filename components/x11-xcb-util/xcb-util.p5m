@@ -22,29 +22,20 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/include
-dir  path=$(USRDIR)/include/xcb
 file path=$(USRDIR)/include/xcb/xcb_atom.h
 file path=$(USRDIR)/include/xcb/xcb_aux.h
 file path=$(USRDIR)/include/xcb/xcb_event.h
 file path=$(USRDIR)/include/xcb/xcb_util.h
-dir  path=$(USRDIR)/lib
-dir  path=$(USRDIR)/lib/$(MACH64)
-file path=$(USRDIR)/lib/$(MACH64)/libxcb-util.la
 link path=$(USRDIR)/lib/$(MACH64)/libxcb-util.so target=libxcb-util.so.1.0.0
 link path=$(USRDIR)/lib/$(MACH64)/libxcb-util.so.1 target=libxcb-util.so.1.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libxcb-util.so.1.0.0
-dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xcb-atom.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xcb-aux.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xcb-event.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xcb-util.pc
-file path=$(USRDIR)/lib/libxcb-util.la
 link path=$(USRDIR)/lib/libxcb-util.so target=libxcb-util.so.1.0.0
 link path=$(USRDIR)/lib/libxcb-util.so.1 target=libxcb-util.so.1.0.0
 file path=$(USRDIR)/lib/libxcb-util.so.1.0.0
-dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/xcb-atom.pc
 file path=$(USRDIR)/lib/pkgconfig/xcb-aux.pc
 file path=$(USRDIR)/lib/pkgconfig/xcb-event.pc

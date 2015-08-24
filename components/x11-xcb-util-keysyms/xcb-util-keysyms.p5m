@@ -22,23 +22,14 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/include
-dir  path=$(USRDIR)/include/xcb
 file path=$(USRDIR)/include/xcb/xcb_keysyms.h
-dir  path=$(USRDIR)/lib
-dir  path=$(USRDIR)/lib/$(MACH64)
-file path=$(USRDIR)/lib/$(MACH64)/libxcb-keysyms.la
 link path=$(USRDIR)/lib/$(MACH64)/libxcb-keysyms.so \
     target=libxcb-keysyms.so.1.0.0
 link path=$(USRDIR)/lib/$(MACH64)/libxcb-keysyms.so.1 \
     target=libxcb-keysyms.so.1.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libxcb-keysyms.so.1.0.0
-dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xcb-keysyms.pc
-file path=$(USRDIR)/lib/libxcb-keysyms.la
 link path=$(USRDIR)/lib/libxcb-keysyms.so target=libxcb-keysyms.so.1.0.0
 link path=$(USRDIR)/lib/libxcb-keysyms.so.1 target=libxcb-keysyms.so.1.0.0
 file path=$(USRDIR)/lib/libxcb-keysyms.so.1.0.0
-dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/xcb-keysyms.pc

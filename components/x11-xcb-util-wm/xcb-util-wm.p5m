@@ -22,32 +22,21 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/include
-dir  path=$(USRDIR)/include/xcb
 file path=$(USRDIR)/include/xcb/xcb_ewmh.h
 file path=$(USRDIR)/include/xcb/xcb_icccm.h
-dir  path=$(USRDIR)/lib
-dir  path=$(USRDIR)/lib/$(MACH64)
-file path=$(USRDIR)/lib/$(MACH64)/libxcb-ewmh.la
 link path=$(USRDIR)/lib/$(MACH64)/libxcb-ewmh.so target=libxcb-ewmh.so.2.0.0
 link path=$(USRDIR)/lib/$(MACH64)/libxcb-ewmh.so.2 target=libxcb-ewmh.so.2.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libxcb-ewmh.so.2.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libxcb-icccm.la
 link path=$(USRDIR)/lib/$(MACH64)/libxcb-icccm.so target=libxcb-icccm.so.4.0.0
 link path=$(USRDIR)/lib/$(MACH64)/libxcb-icccm.so.4 target=libxcb-icccm.so.4.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libxcb-icccm.so.4.0.0
-dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xcb-ewmh.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xcb-icccm.pc
-file path=$(USRDIR)/lib/libxcb-ewmh.la
 link path=$(USRDIR)/lib/libxcb-ewmh.so target=libxcb-ewmh.so.2.0.0
 link path=$(USRDIR)/lib/libxcb-ewmh.so.2 target=libxcb-ewmh.so.2.0.0
 file path=$(USRDIR)/lib/libxcb-ewmh.so.2.0.0
-file path=$(USRDIR)/lib/libxcb-icccm.la
 link path=$(USRDIR)/lib/libxcb-icccm.so target=libxcb-icccm.so.4.0.0
 link path=$(USRDIR)/lib/libxcb-icccm.so.4 target=libxcb-icccm.so.4.0.0
 file path=$(USRDIR)/lib/libxcb-icccm.so.4.0.0
-dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/xcb-ewmh.pc
 file path=$(USRDIR)/lib/pkgconfig/xcb-icccm.pc

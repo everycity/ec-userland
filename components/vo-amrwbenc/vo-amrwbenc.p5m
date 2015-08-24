@@ -24,11 +24,9 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 file path=$(USRDIR)/include/vo-amrwbenc/enc_if.h
 file path=$(USRDIR)/lib/$(MACH64)/libvo-amrwbenc.a
-file path=$(USRDIR)/lib/$(MACH64)/libvo-amrwbenc.la
 file path=$(USRDIR)/lib/$(MACH64)/libvo-amrwbenc.so.0.0.3
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/vo-amrwbenc.pc
 file path=$(USRDIR)/lib/libvo-amrwbenc.a
-file path=$(USRDIR)/lib/libvo-amrwbenc.la
 file path=$(USRDIR)/lib/libvo-amrwbenc.so.0.0.3
 file path=$(USRDIR)/lib/pkgconfig/vo-amrwbenc.pc
 link path=$(USRDIR)/lib/$(MACH64)/libvo-amrwbenc.so \

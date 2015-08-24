@@ -52,13 +52,11 @@ file path=$(USRDIR)/include/fribidi/fribidi-unicode.h
 file path=$(USRDIR)/include/fribidi/fribidi.h
 dir  path=$(USRDIR)/lib
 dir  path=$(USRDIR)/lib/$(MACH64)
-file path=$(USRDIR)/lib/$(MACH64)/libfribidi.la
 link path=$(USRDIR)/lib/$(MACH64)/libfribidi.so target=libfribidi.so.0.3.5
 link path=$(USRDIR)/lib/$(MACH64)/libfribidi.so.0 target=libfribidi.so.0.3.5
 file path=$(USRDIR)/lib/$(MACH64)/libfribidi.so.0.3.5
 dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/fribidi.pc
-file path=$(USRDIR)/lib/libfribidi.la
 link path=$(USRDIR)/lib/libfribidi.so target=libfribidi.so.0.3.5
 link path=$(USRDIR)/lib/libfribidi.so.0 target=libfribidi.so.0.3.5
 file path=$(USRDIR)/lib/libfribidi.so.0.3.5

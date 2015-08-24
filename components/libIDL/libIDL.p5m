@@ -26,14 +26,11 @@ file path=$(USRDIR)/bin/$(MACH64)/libIDL-config-2
 file path=$(USRDIR)/bin/libIDL-config-2
 file path=$(USRDIR)/include/libIDL-2.0/libIDL/IDL.h
 file path=$(USRDIR)/lib/$(MACH64)/libIDL-2.a
-file path=$(USRDIR)/lib/$(MACH64)/libIDL-2.la
 file path=$(USRDIR)/lib/$(MACH64)/libIDL-2.so.0.0.0
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libIDL-2.0.pc
 file path=$(USRDIR)/lib/libIDL-2.a
-file path=$(USRDIR)/lib/libIDL-2.la
 file path=$(USRDIR)/lib/libIDL-2.so.0.0.0
 file path=$(USRDIR)/lib/pkgconfig/libIDL-2.0.pc
-file path=$(USRDIR)/share/info/dir
 file path=$(USRDIR)/share/info/libIDL2.info
 link path=$(USRDIR)/lib/$(MACH64)/libIDL-2.so target=libIDL-2.so.0.0.0
 link path=$(USRDIR)/lib/$(MACH64)/libIDL-2.so.0 target=libIDL-2.so.0.0.0

@@ -22,9 +22,6 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/bin
-dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/lame
 file path=$(USRDIR)/bin/lame
 dir  path=$(USRDIR)/include
@@ -33,19 +30,13 @@ file path=$(USRDIR)/include/lame/lame.h
 dir  path=$(USRDIR)/lib
 dir  path=$(USRDIR)/lib/$(MACH64)
 file path=$(USRDIR)/lib/$(MACH64)/libmp3lame.a
-file path=$(USRDIR)/lib/$(MACH64)/libmp3lame.la
 link path=$(USRDIR)/lib/$(MACH64)/libmp3lame.so target=libmp3lame.so.0.0.0
 link path=$(USRDIR)/lib/$(MACH64)/libmp3lame.so.0 target=libmp3lame.so.0.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libmp3lame.so.0.0.0
 file path=$(USRDIR)/lib/libmp3lame.a
-file path=$(USRDIR)/lib/libmp3lame.la
 link path=$(USRDIR)/lib/libmp3lame.so target=libmp3lame.so.0.0.0
 link path=$(USRDIR)/lib/libmp3lame.so.0 target=libmp3lame.so.0.0.0
 file path=$(USRDIR)/lib/libmp3lame.so.0.0.0
-dir  path=$(USRDIR)/share
-dir  path=$(USRDIR)/share/doc
-dir  path=$(USRDIR)/share/doc/lame
-dir  path=$(USRDIR)/share/doc/lame/html
 file path=$(USRDIR)/share/doc/lame/html/about.html
 file path=$(USRDIR)/share/doc/lame/html/abr.html
 file path=$(USRDIR)/share/doc/lame/html/cbr.html

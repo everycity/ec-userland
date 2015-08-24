@@ -86,12 +86,10 @@ file path=$(USRDIR)/include/gif_lib.h
 dir  path=$(USRDIR)/lib
 dir  path=$(USRDIR)/lib/$(MACH64)
 file path=$(USRDIR)/lib/$(MACH64)/libgif.a
-file path=$(USRDIR)/lib/$(MACH64)/libgif.la
 link path=$(USRDIR)/lib/$(MACH64)/libgif.so target=libgif.so.4.1.7
 link path=$(USRDIR)/lib/$(MACH64)/libgif.so.4 target=libgif.so.4.1.7
 file path=$(USRDIR)/lib/$(MACH64)/libgif.so.4.1.7
 file path=$(USRDIR)/lib/libgif.a
-file path=$(USRDIR)/lib/libgif.la
 link path=$(USRDIR)/lib/libgif.so target=libgif.so.4.1.7
 link path=$(USRDIR)/lib/libgif.so.4 target=libgif.so.4.1.7
 file path=$(USRDIR)/lib/libgif.so.4.1.7

@@ -22,23 +22,14 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/include
-dir  path=$(USRDIR)/include/xcb
 file path=$(USRDIR)/include/xcb/xcb_bitops.h
 file path=$(USRDIR)/include/xcb/xcb_image.h
 file path=$(USRDIR)/include/xcb/xcb_pixel.h
-dir  path=$(USRDIR)/lib
-dir  path=$(USRDIR)/lib/$(MACH64)
-file path=$(USRDIR)/lib/$(MACH64)/libxcb-image.la
 link path=$(USRDIR)/lib/$(MACH64)/libxcb-image.so target=libxcb-image.so.0.0.0
 link path=$(USRDIR)/lib/$(MACH64)/libxcb-image.so.0 target=libxcb-image.so.0.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libxcb-image.so.0.0.0
-dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xcb-image.pc
-file path=$(USRDIR)/lib/libxcb-image.la
 link path=$(USRDIR)/lib/libxcb-image.so target=libxcb-image.so.0.0.0
 link path=$(USRDIR)/lib/libxcb-image.so.0 target=libxcb-image.so.0.0.0
 file path=$(USRDIR)/lib/libxcb-image.so.0.0.0
-dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/xcb-image.pc

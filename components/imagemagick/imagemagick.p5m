@@ -205,11 +205,8 @@ file path=$(USRDIR)/include/ImageMagick-6/wand/stream.h
 file path=$(USRDIR)/include/ImageMagick-6/wand/wand-view.h
 
 file path=$(USRDIR)/lib/$(MACH64)/ImageMagick-6.8.9/config-Q16/configure.xml
-file path=$(USRDIR)/lib/$(MACH64)/libMagick++-6.Q16.la
 file path=$(USRDIR)/lib/$(MACH64)/libMagick++-6.Q16.so.5.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libMagickCore-6.Q16.la
 file path=$(USRDIR)/lib/$(MACH64)/libMagickCore-6.Q16.so.2.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libMagickWand-6.Q16.la
 file path=$(USRDIR)/lib/$(MACH64)/libMagickWand-6.Q16.so.2.0.0
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/ImageMagick++-6.Q16.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/ImageMagick++.pc
@@ -224,11 +221,8 @@ file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/MagickWand.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/Wand-6.Q16.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/Wand.pc
 file path=$(USRDIR)/lib/ImageMagick-6.8.9/config-Q16/configure.xml
-file path=$(USRDIR)/lib/libMagick++-6.Q16.la
 file path=$(USRDIR)/lib/libMagick++-6.Q16.so.5.0.0
-file path=$(USRDIR)/lib/libMagickCore-6.Q16.la
 file path=$(USRDIR)/lib/libMagickCore-6.Q16.so.2.0.0
-file path=$(USRDIR)/lib/libMagickWand-6.Q16.la
 file path=$(USRDIR)/lib/libMagickWand-6.Q16.so.2.0.0
 
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::Magick.3

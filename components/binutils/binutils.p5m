@@ -157,9 +157,7 @@ file path=$(USRDIR)/lib/ldscripts/elf_x86_64_sol2.xu
 file path=$(USRDIR)/lib/ldscripts/elf_x86_64_sol2.xw
 
 file path=$(USRDIR)/lib/libbfd.a
-file path=$(USRDIR)/lib/libbfd.la
 file path=$(USRDIR)/lib/libopcodes.a
-file path=$(USRDIR)/lib/libopcodes.la
 
 file $(USRDIR)/share/info/as.info path=$(USRDIR)/share/info/gas.info
 file path=$(USRDIR)/share/info/bfd.info

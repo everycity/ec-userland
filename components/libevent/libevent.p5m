@@ -63,30 +63,25 @@ dir  path=$(USRDIR)/lib
 dir  path=$(USRDIR)/lib/$(MACH64)
 link path=$(USRDIR)/lib/$(MACH64)/libevent-2.0.so.5 target=libevent-2.0.so.5.1.9
 file path=$(USRDIR)/lib/$(MACH64)/libevent-2.0.so.5.1.9
-file path=$(USRDIR)/lib/$(MACH64)/libevent.la
 link path=$(USRDIR)/lib/$(MACH64)/libevent.so target=libevent-2.0.so.5.1.9
 link path=$(USRDIR)/lib/$(MACH64)/libevent_core-2.0.so.5 \
     target=libevent_core-2.0.so.5.1.9
 file path=$(USRDIR)/lib/$(MACH64)/libevent_core-2.0.so.5.1.9
-file path=$(USRDIR)/lib/$(MACH64)/libevent_core.la
 link path=$(USRDIR)/lib/$(MACH64)/libevent_core.so \
     target=libevent_core-2.0.so.5.1.9
 link path=$(USRDIR)/lib/$(MACH64)/libevent_extra-2.0.so.5 \
     target=libevent_extra-2.0.so.5.1.9
 file path=$(USRDIR)/lib/$(MACH64)/libevent_extra-2.0.so.5.1.9
-file path=$(USRDIR)/lib/$(MACH64)/libevent_extra.la
 link path=$(USRDIR)/lib/$(MACH64)/libevent_extra.so \
     target=libevent_extra-2.0.so.5.1.9
 link path=$(USRDIR)/lib/$(MACH64)/libevent_openssl-2.0.so.5 \
     target=libevent_openssl-2.0.so.5.1.9
 file path=$(USRDIR)/lib/$(MACH64)/libevent_openssl-2.0.so.5.1.9
-file path=$(USRDIR)/lib/$(MACH64)/libevent_openssl.la
 link path=$(USRDIR)/lib/$(MACH64)/libevent_openssl.so \
     target=libevent_openssl-2.0.so.5.1.9
 link path=$(USRDIR)/lib/$(MACH64)/libevent_pthreads-2.0.so.5 \
     target=libevent_pthreads-2.0.so.5.1.9
 file path=$(USRDIR)/lib/$(MACH64)/libevent_pthreads-2.0.so.5.1.9
-file path=$(USRDIR)/lib/$(MACH64)/libevent_pthreads.la
 link path=$(USRDIR)/lib/$(MACH64)/libevent_pthreads.so \
     target=libevent_pthreads-2.0.so.5.1.9
 dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
@@ -95,29 +90,23 @@ file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libevent_openssl.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libevent_pthreads.pc
 link path=$(USRDIR)/lib/libevent-2.0.so.5 target=libevent-2.0.so.5.1.9
 file path=$(USRDIR)/lib/libevent-2.0.so.5.1.9
-file path=$(USRDIR)/lib/libevent.la
 link path=$(USRDIR)/lib/libevent.so target=libevent-2.0.so.5.1.9
 link path=$(USRDIR)/lib/libevent_core-2.0.so.5 target=libevent_core-2.0.so.5.1.9
 file path=$(USRDIR)/lib/libevent_core-2.0.so.5.1.9
-file path=$(USRDIR)/lib/libevent_core.la
 link path=$(USRDIR)/lib/libevent_core.so target=libevent_core-2.0.so.5.1.9
 link path=$(USRDIR)/lib/libevent_extra-2.0.so.5 \
     target=libevent_extra-2.0.so.5.1.9
 file path=$(USRDIR)/lib/libevent_extra-2.0.so.5.1.9
-file path=$(USRDIR)/lib/libevent_extra.la
 link path=$(USRDIR)/lib/libevent_extra.so target=libevent_extra-2.0.so.5.1.9
 link path=$(USRDIR)/lib/libevent_openssl-2.0.so.5 \
     target=libevent_openssl-2.0.so.5.1.9
 file path=$(USRDIR)/lib/libevent_openssl-2.0.so.5.1.9
-file path=$(USRDIR)/lib/libevent_openssl.la
 link path=$(USRDIR)/lib/libevent_openssl.so target=libevent_openssl-2.0.so.5.1.9
 link path=$(USRDIR)/lib/libevent_pthreads-2.0.so.5 \
     target=libevent_pthreads-2.0.so.5.1.9
 file path=$(USRDIR)/lib/libevent_pthreads-2.0.so.5.1.9
-file path=$(USRDIR)/lib/libevent_pthreads.la
 link path=$(USRDIR)/lib/libevent_pthreads.so \
     target=libevent_pthreads-2.0.so.5.1.9
-dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/libevent.pc
 file path=$(USRDIR)/lib/pkgconfig/libevent_openssl.pc
 file path=$(USRDIR)/lib/pkgconfig/libevent_pthreads.pc

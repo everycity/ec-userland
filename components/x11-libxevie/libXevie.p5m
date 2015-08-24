@@ -24,11 +24,9 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 file path=$(USRDIR)/include/X11/extensions/Xevie.h
 file path=$(USRDIR)/lib/$(MACH64)/libXevie.a
-file path=$(USRDIR)/lib/$(MACH64)/libXevie.la
 file path=$(USRDIR)/lib/$(MACH64)/libXevie.so.1.0.0
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/xevie.pc
 file path=$(USRDIR)/lib/libXevie.a
-file path=$(USRDIR)/lib/libXevie.la
 file path=$(USRDIR)/lib/libXevie.so.1.0.0
 file path=$(USRDIR)/lib/pkgconfig/xevie.pc
 file path=$(USRDIR)/share/man/man3/Xevie.3

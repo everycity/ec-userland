@@ -89,7 +89,6 @@ file path=$(USRDIR)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-pnm.so
 file \
     path=$(USRDIR)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-qtif.so
 file path=$(USRDIR)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-ras.so
-file path=$(USRDIR)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-tga.la
 file path=$(USRDIR)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-tga.so
 file \
     path=$(USRDIR)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-tiff.so

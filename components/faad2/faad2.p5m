@@ -22,29 +22,18 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/bin
-dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/faad
 file path=$(USRDIR)/bin/faad
-dir  path=$(USRDIR)/include
 file path=$(USRDIR)/include/faad.h
 file path=$(USRDIR)/include/mp4ff.h
 file path=$(USRDIR)/include/mp4ffint.h
 file path=$(USRDIR)/include/neaacdec.h
-dir  path=$(USRDIR)/lib
-dir  path=$(USRDIR)/lib/$(MACH64)
-file path=$(USRDIR)/lib/$(MACH64)/libfaad.la
 link path=$(USRDIR)/lib/$(MACH64)/libfaad.so target=libfaad.so.2.0.0
 link path=$(USRDIR)/lib/$(MACH64)/libfaad.so.2 target=libfaad.so.2.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libfaad.so.2.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libmp4ff.a
-file path=$(USRDIR)/lib/libfaad.la
 link path=$(USRDIR)/lib/libfaad.so target=libfaad.so.2.0.0
 link path=$(USRDIR)/lib/libfaad.so.2 target=libfaad.so.2.0.0
 file path=$(USRDIR)/lib/libfaad.so.2.0.0
 file path=$(USRDIR)/lib/libmp4ff.a
-dir  path=$(USRDIR)/share
-dir  path=$(USRDIR)/share/man
-dir  path=$(USRDIR)/share/man/manm
 file path=$(USRDIR)/share/man/manm/faad.man
