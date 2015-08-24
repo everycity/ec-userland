@@ -377,6 +377,7 @@ CHMOD =		$(USRBINDIR)/chmod
 NAWK =		$(USRBINDIR)/nawk
 TEE =		$(USRBINDIR)/tee
 GUNZIP =	$(USRBINDIR)/gunzip
+GZIP =		$(USRBINDIR)/gzip
 GTAR =		$(USRBINDIR)/gtar
 GFIND =		$(USRBINDIR)/gfind
 IPS2TGZ =	$(WS_TOOLS)/ips2tgz
