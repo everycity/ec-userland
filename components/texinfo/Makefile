@@ -24,6 +24,8 @@ COMPONENT_ARCHIVE_URL=		$(DOWNLOAD_GNU_FTP)
 
 COMPONENT_IPS_VERSION=	4.13.1
 
+LDFLAGS += -ltinfo
+
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
