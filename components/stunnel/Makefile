@@ -24,7 +24,8 @@ COMPONENT_SUMMARY=	The stunnel program is designed to work as an SSL encryption 
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:0b543242cf26649acfdd9f00de564c3e8de7ac2237d53935ffdc7eb24f4d556d
-COMPONENT_ARCHIVE_URL=	https://www.stunnel.org/downloads/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	https://www.stunnel.org/downloads/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://ftp.osuosl.org/pub/blfs/conglomeration/stunnel/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
