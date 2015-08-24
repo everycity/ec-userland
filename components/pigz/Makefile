@@ -29,6 +29,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
+CFLAGS += -std=gnu99
 COMPONENT_BUILD_ENV+=	CC="$(CC)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
 
 build:		$(BUILD_32_and_64)
