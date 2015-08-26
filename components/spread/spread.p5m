@@ -22,67 +22,52 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-dir path=$(ECPREFIX)/share/man/man3
-dir path=$(SYSCONFDIR)
-file path=$(ECPREFIX)/bin/$(MACH64)/spflooder
-file path=$(ECPREFIX)/bin/$(MACH64)/spmonitor
-file path=$(ECPREFIX)/bin/$(MACH64)/spread
-file path=$(ECPREFIX)/bin/$(MACH64)/sptuser
-file path=$(ECPREFIX)/bin/$(MACH64)/spuser
-file path=$(ECPREFIX)/bin/spflooder
-file path=$(ECPREFIX)/bin/spmonitor
-file path=$(ECPREFIX)/bin/spread
-file path=$(ECPREFIX)/bin/sptuser
-file path=$(ECPREFIX)/bin/spuser
-file path=$(ECPREFIX)/include/sp.h
-file path=$(ECPREFIX)/include/sp_events.h
-file path=$(ECPREFIX)/include/sp_func.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libspread.so.1.0
-file path=$(ECPREFIX)/lib/$(MACH64)/libtspread.so.1.0
-file path=$(ECPREFIX)/lib/libspread.so.1.0
-file path=$(ECPREFIX)/lib/libtspread.so.1.0
-file path=$(ECPREFIX)/share/man/man1/spflooder.1
-file path=$(ECPREFIX)/share/man/man1/spmonitor.1
-file path=$(ECPREFIX)/share/man/man1/spread.1
-file path=$(ECPREFIX)/share/man/man1/sptuser.1
-file path=$(ECPREFIX)/share/man/man1/spuser.1
-file path=$(ECPREFIX)/share/man/man3/SP_connect.3
-file path=$(ECPREFIX)/share/man/man3/SP_disconnect.3
-file path=$(ECPREFIX)/share/man/man3/SP_equal_group_ids.3
-file path=$(ECPREFIX)/share/man/man3/SP_error.3
-file path=$(ECPREFIX)/share/man/man3/SP_join.3
-file path=$(ECPREFIX)/share/man/man3/SP_leave.3
-file path=$(ECPREFIX)/share/man/man3/SP_multicast.3
-file path=$(ECPREFIX)/share/man/man3/SP_multigroup_multicast.3
-file path=$(ECPREFIX)/share/man/man3/SP_multigroup_scat_multicast.3
-file path=$(ECPREFIX)/share/man/man3/SP_poll.3
-file path=$(ECPREFIX)/share/man/man3/SP_receive.3
-file path=$(ECPREFIX)/share/man/man3/SP_scat_multicast.3
-file path=$(ECPREFIX)/share/man/man3/SP_scat_receive.3
-file path=$(ECPREFIX)/share/man/man3/libsp.3
+file path=$(USRDIR)/bin/$(MACH64)/spflooder
+file path=$(USRDIR)/bin/$(MACH64)/spmonitor
+file path=$(USRDIR)/bin/$(MACH64)/spread
+file path=$(USRDIR)/bin/$(MACH64)/sptuser
+file path=$(USRDIR)/bin/$(MACH64)/spuser
+file path=$(USRDIR)/bin/spflooder
+file path=$(USRDIR)/bin/spmonitor
+file path=$(USRDIR)/bin/spread
+file path=$(USRDIR)/bin/sptuser
+file path=$(USRDIR)/bin/spuser
+file path=$(USRDIR)/include/sp.h
+file path=$(USRDIR)/include/sp_events.h
+file path=$(USRDIR)/include/sp_func.h
+file path=$(USRDIR)/lib/$(MACH64)/libspread.so.1.0
+file path=$(USRDIR)/lib/$(MACH64)/libtspread.so.1.0
+file path=$(USRDIR)/lib/libspread.so.1.0
+file path=$(USRDIR)/lib/libtspread.so.1.0
+file path=$(USRDIR)/share/man/man1/spflooder.1
+file path=$(USRDIR)/share/man/man1/spmonitor.1
+file path=$(USRDIR)/share/man/man1/spread.1
+file path=$(USRDIR)/share/man/man1/sptuser.1
+file path=$(USRDIR)/share/man/man1/spuser.1
+file path=$(USRDIR)/share/man/man3/SP_connect.3
+file path=$(USRDIR)/share/man/man3/SP_disconnect.3
+file path=$(USRDIR)/share/man/man3/SP_equal_group_ids.3
+file path=$(USRDIR)/share/man/man3/SP_error.3
+file path=$(USRDIR)/share/man/man3/SP_join.3
+file path=$(USRDIR)/share/man/man3/SP_leave.3
+file path=$(USRDIR)/share/man/man3/SP_multicast.3
+file path=$(USRDIR)/share/man/man3/SP_multigroup_multicast.3
+file path=$(USRDIR)/share/man/man3/SP_multigroup_scat_multicast.3
+file path=$(USRDIR)/share/man/man3/SP_poll.3
+file path=$(USRDIR)/share/man/man3/SP_receive.3
+file path=$(USRDIR)/share/man/man3/SP_scat_multicast.3
+file path=$(USRDIR)/share/man/man3/SP_scat_receive.3
+file path=$(USRDIR)/share/man/man3/libsp.3
 file path=$(SYSCONFDIR)/spread.conf preserve=true mode=0644
-link path=$(ECPREFIX)/lib/$(MACH64)/libspread.so target=libspread.so.1.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libtspread.so target=libtspread.so.1.0
-link path=$(ECPREFIX)/lib/libspread.so target=libspread.so.1.0
-link path=$(ECPREFIX)/lib/libtspread.so target=libtspread.so.1.0
+link path=$(USRDIR)/lib/$(MACH64)/libspread.so target=libspread.so.1.0
+link path=$(USRDIR)/lib/$(MACH64)/libtspread.so target=libtspread.so.1.0
+link path=$(USRDIR)/lib/libspread.so target=libspread.so.1.0
+link path=$(USRDIR)/lib/libtspread.so target=libtspread.so.1.0
 
 group gid=484 groupname=spread
-user gcos-field="Spread Account" group=spread uid=484 username=spread login-shell=/bin/false home-dir=$(ECPREFIX)/var/run
-dir path=$(ECPREFIX)/var/log/spread owner=spread group=spread preserve=true
-dir path=$(ECPREFIX)/var/run/spread owner=spread group=spread preserve=true
+user gcos-field="Spread Account" group=spread uid=484 username=spread login-shell=/bin/false home-dir=$(USRDIR)/var/run
+dir path=$(LOCALSTATEDIR)/log/spread owner=spread group=spread preserve=true
+dir path=$(LOCALSTATEDIR)/run/spread owner=spread group=spread preserve=true
 
-dir path=var
-dir path=var/svc
-dir path=var/svc/manifest
-dir path=var/svc/manifest/site
-file files/spread.xml path=var/svc/manifest/site/spread.xml \
+file files/spread.xml path=$(SVCMANIFEST)/site/spread.xml \
     restart_fmri=svc:/system/manifest-import:default
