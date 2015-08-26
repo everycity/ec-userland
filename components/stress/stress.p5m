@@ -22,15 +22,8 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/info
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/stress
-file path=$(ECPREFIX)/bin/stress
-file path=$(ECPREFIX)/share/info/dir
-file path=$(ECPREFIX)/share/info/stress.info
-file path=$(ECPREFIX)/share/man/man1/stress.1
+file path=$(USRDIR)/bin/$(MACH64)/stress
+file path=$(USRDIR)/bin/stress
+file path=$(USRDIR)/share/info/dir
+file path=$(USRDIR)/share/info/stress.info
+file path=$(USRDIR)/share/man/man1/stress.1
