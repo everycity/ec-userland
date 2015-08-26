@@ -1,0 +1,15 @@
+# lua pkg-config file
+
+prefix=/ec
+exec_prefix=${prefix}
+libdir=LUA_LIBDIR
+includedir=${prefix}/include
+
+Name: lua
+Description: lua is a scripting language
+Version: LUA_VER
+Requires:
+Conflicts:
+Libs: -L${libdir}
+Cflags: -I${includedir}
+
