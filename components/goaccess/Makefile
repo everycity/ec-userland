@@ -31,7 +31,8 @@ include ../../make-rules/ips.mk
 
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
 
-CFLAGS+=	-D__EXTENSIONS__ -D_XOPEN_SOURCE=500
+CFLAGS +=	-std=gnu99 -D__EXTENSIONS__ -D_XOPEN_SOURCE=600
+LDFLAGS +=	-ltinfo
 
 build:		$(BUILD_32_and_64)
 
