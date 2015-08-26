@@ -86,7 +86,6 @@
 /^python\/psycopg2-pg93$/d
 /^python\/pymongo$/d
 /^ruby\/ec-mcollective$/d
-/^ruby\/ruby18$/d
 /^ruby\/stomp$/d
 /^smartos-ps$/d
 /^solr$/d
