@@ -7,7 +7,6 @@
 /^redis$/d
 /^rabbitmq$/d
 # failed
-/^bitlbee$/d
 /^cloog-ppl$/d
 /^dbt2$/d
 /^exiftool$/d
