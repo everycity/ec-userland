@@ -88,7 +88,6 @@
 /^ruby\/stomp$/d
 /^smartos-ps$/d
 /^solr$/d
-/^sphinx-099$/d
 /^subversion-apache24$/d
 /^toilet$/d
 /^tomcat6$/d
