@@ -32,10 +32,11 @@ include ../../../make-rules/ips.mk
 RUBY_VER=	2.0
 
 # Build weird when threaded.
-COMPONENT_BUILD_GMAKE_ARGS=
+#COMPONENT_BUILD_GMAKE_ARGS=
 
 CONFIGURE_OPTIONS+=	--with-soname=ruby$(RUBY_VER) --program-suffix=$(RUBY_VER)
 CONFIGURE_OPTIONS+=	--enable-shared
+CONFIGURE_OPTIONS+=	--disable-dtrace
 CONFIGURE_OPTIONS.32+=	ac_cv_func_dl_iterate_phdr=no
 
 build:		$(BUILD_32_and_64)

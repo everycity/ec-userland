@@ -87,7 +87,6 @@
 /^python\/pymongo$/d
 /^ruby\/ec-mcollective$/d
 /^ruby\/ruby18$/d
-/^ruby\/ruby20$/d
 /^ruby\/stomp$/d
 /^smartos-ps$/d
 /^solr$/d
