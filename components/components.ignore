@@ -91,7 +91,6 @@
 /^solr$/d
 /^sphinx-099$/d
 /^subversion-apache24$/d
-/^tmux$/d
 /^toilet$/d
 /^tomcat6$/d
 /^tomcat7$/d

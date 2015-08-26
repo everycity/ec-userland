@@ -30,6 +30,9 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+CPPFLAGS += -I$(USRDIR)/include/ncurses
+LDFLAGS += -lncurses
+
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
