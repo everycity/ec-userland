@@ -90,7 +90,6 @@
 /^smartos-ps$/d
 /^solr$/d
 /^sphinx-099$/d
-/^ssmtp$/d
 /^stress$/d
 /^subversion-apache24$/d
 /^sysbench$/d

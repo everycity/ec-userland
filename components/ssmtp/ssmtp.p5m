@@ -24,16 +24,8 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license COPYING license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/ssmtp
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man5
-dir path=$(ECPREFIX)/share/man/man8
-file path=$(ECPREFIX)/bin/ssmtp
-file path=$(ECPREFIX)/etc/ssmtp/revaliases
-file path=$(ECPREFIX)/etc/ssmtp/ssmtp.conf
-file path=$(ECPREFIX)/share/man/man5/ssmtp.conf.5
-file path=$(ECPREFIX)/share/man/man8/ssmtp.8
+file path=$(USRDIR)/bin/ssmtp
+file path=$(USRDIR)/etc/ssmtp/revaliases
+file path=$(USRDIR)/etc/ssmtp/ssmtp.conf
+file path=$(USRDIR)/share/man/man5/ssmtp.conf.5
+file path=$(USRDIR)/share/man/man8/ssmtp.8

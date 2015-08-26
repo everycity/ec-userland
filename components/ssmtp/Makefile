@@ -40,17 +40,17 @@ CONFIGURE_OPTIONS+= --enable-inet6
 
 $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
 
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/etc/ssmtp
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/man/man5
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/man/man8
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/bin
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/etc/ssmtp
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/share/man/man5
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/share/man/man8
 
-	$(CP) $(@D)/ssmtp $(PROTO_DIR)$(ECPREFIX)/bin
-	$(CP) $(@D)/ssmtp.conf $(PROTO_DIR)$(ECPREFIX)/etc/ssmtp
-	$(CP) $(@D)/revaliases $(PROTO_DIR)$(ECPREFIX)/etc/ssmtp
+	$(CP) $(@D)/ssmtp $(PROTO_DIR)$(USRDIR)/bin
+	$(CP) $(@D)/ssmtp.conf $(PROTO_DIR)$(USRDIR)/etc/ssmtp
+	$(CP) $(@D)/revaliases $(PROTO_DIR)$(USRDIR)/etc/ssmtp
 
-	$(CP) $(@D)/ssmtp.conf.5 $(PROTO_DIR)$(ECPREFIX)/share/man/man5
-	$(CP) $(@D)/ssmtp.8 $(PROTO_DIR)$(ECPREFIX)/share/man/man8
+	$(CP) $(@D)/ssmtp.conf.5 $(PROTO_DIR)$(USRDIR)/share/man/man5
+	$(CP) $(@D)/ssmtp.8 $(PROTO_DIR)$(USRDIR)/share/man/man8
 
 	$(TOUCH) $@
 
