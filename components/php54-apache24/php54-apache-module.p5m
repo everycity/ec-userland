@@ -25,24 +25,13 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 depend fmri=pkg:/web/server/apache-24/httpd type=require
 depend fmri=pkg:/web/php-54/php-common type=require
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/apache
-dir path=$(ECPREFIX)/etc/apache/2.4
-dir path=$(ECPREFIX)/etc/apache/2.4/mods-available
-dir path=$(ECPREFIX)/etc/apache/2.4/mods-enabled
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/apache
-dir path=$(ECPREFIX)/lib/apache/2.4
-dir path=$(ECPREFIX)/lib/apache/2.4/modules
-dir path=$(ECPREFIX)/lib/apache/2.4/modules/$(MACH64)
-file files/php54.load path=$(ECPREFIX)/etc/apache/2.4/mods-available/php54.load preserve=true
-file files/php54.conf path=$(ECPREFIX)/etc/apache/2.4/mods-available/php54.conf preserve=true
-file $(ECPREFIX)/lib/apache/2.4/modules/$(MACH64)/libphp5.so \
-    path=$(ECPREFIX)/lib/apache/2.4/modules/$(MACH64)/mod_php54.so
-file $(ECPREFIX)/lib/apache/2.4/modules/libphp5.so \
-    path=$(ECPREFIX)/lib/apache/2.4/modules/mod_php54.so
-link path=$(ECPREFIX)/etc/apache/2.4/mods-enabled/php54.load \
+file files/php54.load path=$(CONFIGURE_SYSCONFDIR)/apache/2.4/mods-available/php54.load preserve=true
+file files/php54.conf path=$(CONFIGURE_SYSCONFDIR)/apache/2.4/mods-available/php54.conf preserve=true
+file $(USRDIR)/lib/apache/2.4/modules/$(MACH64)/libphp5.so \
+    path=$(USRDIR)/lib/apache/2.4/modules/$(MACH64)/mod_php54.so
+file $(USRDIR)/lib/apache/2.4/modules/libphp5.so \
+    path=$(USRDIR)/lib/apache/2.4/modules/mod_php54.so
+link path=$(CONFIGURE_SYSCONFDIR)/apache/2.4/mods-enabled/php54.load \
     target=../mods-available/php54.load preserve=true
-link path=$(ECPREFIX)/etc/apache/2.4/mods-enabled/php54.conf \
+link path=$(CONFIGURE_SYSCONFDIR)/apache/2.4/mods-enabled/php54.conf \
     target=../mods-available/php54.conf preserve=true
