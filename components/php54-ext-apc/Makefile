@@ -31,9 +31,9 @@ include ../../make-rules/ips.mk
 
 CLEAN_PATHS +=	package.xml
 
-PHP_PREFIX=$(ECPREFIX)/lib/php/5.4
-PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.4
-PHP_DATADIR=$(ECPREFIX)/var/php/5.4
+PHP_PREFIX=$(USRDIR)/lib/php/5.4
+PHP_SYSCONFDIR=$(CONFIGURE_SYSCONFDIR)/php/5.4
+PHP_DATADIR=$(CONFIGURE_LOCALSTATEDIR)/php/5.4
 
 CONFIGURE_OPTIONS      =	--prefix=$(PHP_PREFIX)
 CONFIGURE_OPTIONS.32  +=	--bindir=$(PHP_PREFIX)/bin
@@ -55,7 +55,7 @@ CONFIGURE_OPTIONS.64  +=	--with-php-config=$(PHP_PREFIX)/bin/$(MACH64)/php-confi
 
 CONFIGURE_OPTIONS     +=	$(CONFIGURE_OPTIONS.$(BITS))
 
-CFLAGS                +=	-I$(ECPREFIX)/include -I$(PHP_PREFIX)/include
+CFLAGS                +=	-I$(USRDIR)/include -I$(PHP_PREFIX)/include
 CPPFLAGS              +=	$(CFLAGS)
 LDFLAGS.32            +=	-L$(PHP_PREFIX)/lib -R$(PHP_PREFIX)/lib
 LDFLAGS.64            +=	-L$(PHP_PREFIX)/lib/$(MACH64) -R$(PHP_PREFIX)/lib/$(MACH64)
