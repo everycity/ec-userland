@@ -51,7 +51,6 @@
 /^perl_modules\/net-ssleay$/d
 /^perl_modules\/uri$/d
 /^perl_modules\/xml-simple$/d
-/^php54-ext-mysqli55$/d
 /^php54-ext-mysqli56$/d
 /^php54-ext-pdo_mysql55$/d
 /^php54-ext-pdo_mysql56$/d
