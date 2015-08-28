@@ -1,0 +1,39 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2015 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+
+file path=$(USRDIR)/bin/$(MACH64)/sqlite3
+file path=$(USRDIR)/bin/sqlite3
+file path=$(USRDIR)/include/sqlite3.h
+file path=$(USRDIR)/include/sqlite3ext.h
+file path=$(USRDIR)/lib/$(MACH64)/libsqlite3.a
+link path=$(USRDIR)/lib/$(MACH64)/libsqlite3.so target=libsqlite3.so.0.8.6
+link path=$(USRDIR)/lib/$(MACH64)/libsqlite3.so.0 target=libsqlite3.so.0.8.6
+file path=$(USRDIR)/lib/$(MACH64)/libsqlite3.so.0.8.6
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/sqlite3.pc
+file path=$(USRDIR)/lib/libsqlite3.a
+link path=$(USRDIR)/lib/libsqlite3.so target=libsqlite3.so.0.8.6
+link path=$(USRDIR)/lib/libsqlite3.so.0 target=libsqlite3.so.0.8.6
+file path=$(USRDIR)/lib/libsqlite3.so.0.8.6
+file path=$(USRDIR)/lib/pkgconfig/sqlite3.pc
+file path=$(USRDIR)/share/man/man1/sqlite3.1
