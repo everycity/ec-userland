@@ -51,7 +51,6 @@
 /^perl_modules\/net-ssleay$/d
 /^perl_modules\/uri$/d
 /^perl_modules\/xml-simple$/d
-/^php54-ext-imagick$/d
 /^php54-ext-libevent$/d
 /^php54-ext-mailparse$/d
 /^php54-ext-memcache$/d
