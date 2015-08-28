@@ -22,14 +22,8 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license php54.license license="PHP54 License"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/php
-dir path=$(ECPREFIX)/lib/php/5.4
-dir path=$(ECPREFIX)/lib/php/5.4/extensions
-dir path=$(ECPREFIX)/lib/php/5.4/extensions/$(MACH64)
-file pgsql91.ini path=$(ECPREFIX)/etc/php/5.4/conf.d/pgsql91.ini preserve=true
-file $(ECPREFIX)/lib/php/5.4/extensions/$(MACH64)/pgsql.so \
-	path=$(ECPREFIX)/lib/php/5.4/extensions/$(MACH64)/pgsql91.so
-file $(ECPREFIX)/lib/php/5.4/extensions/pgsql.so \
-	path=$(ECPREFIX)/lib/php/5.4/extensions/pgsql91.so
+file pgsql91.ini path=$(CONFIGURE_SYSCONFDIR)/php/5.4/conf.d/pgsql91.ini preserve=true
+file $(USRDIR)/lib/php/5.4/extensions/$(MACH64)/pgsql.so \
+	path=$(USRDIR)/lib/php/5.4/extensions/$(MACH64)/pgsql91.so
+file $(USRDIR)/lib/php/5.4/extensions/pgsql.so \
+	path=$(USRDIR)/lib/php/5.4/extensions/pgsql91.so
