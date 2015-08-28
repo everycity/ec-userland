@@ -51,7 +51,6 @@
 /^perl_modules\/net-ssleay$/d
 /^perl_modules\/uri$/d
 /^perl_modules\/xml-simple$/d
-/^php54-ext-memcache$/d
 /^php54-ext-memcached$/d
 /^php54-ext-mongodb$/d
 /^php54-ext-mysql55$/d
