@@ -63,7 +63,6 @@
 /^ruby\/ec-mcollective$/d
 /^ruby\/stomp$/d
 /^smartos-ps$/d
-/^solr$/d
 /^subversion-apache24$/d
 /^toilet$/d
 /^tomcat6$/d
