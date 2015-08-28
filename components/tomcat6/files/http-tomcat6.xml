@@ -76,7 +76,7 @@ CDDL HEADER END
 		<exec_method
 			type='method'
 			name='start'
-			exec='/ec/var/svc/method/http-tomcat6 start'
+			exec='/var/svc/method/http-tomcat6 start'
 			timeout_seconds='60'>
 			<method_context>
 			<method_credential
@@ -88,7 +88,7 @@ CDDL HEADER END
 		<exec_method
 			type='method'
 			name='stop'
-			exec='/ec/var/svc/method/http-tomcat6 stop'
+			exec='/var/svc/method/http-tomcat6 stop'
 			timeout_seconds='60' />
 
 		<template>

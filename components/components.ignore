@@ -65,7 +65,6 @@
 /^smartos-ps$/d
 /^subversion-apache24$/d
 /^toilet$/d
-/^tomcat6$/d
 /^tomcat7$/d
 /^tomee15$/d
 /^trousers$/d
