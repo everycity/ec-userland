@@ -52,7 +52,6 @@
 /^perl_modules\/uri$/d
 /^perl_modules\/xml-simple$/d
 /^php54-apache24$/d
-/^php54-ext-ffmpeg$/d
 /^php54-ext-geoip$/d
 /^php54-ext-imagick$/d
 /^php54-ext-libevent$/d
