@@ -22,16 +22,6 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/php
-dir path=$(ECPREFIX)/etc/php/5.4
-dir path=$(ECPREFIX)/etc/php/5.4/conf.d
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/php
-dir path=$(ECPREFIX)/lib/php/5.4
-dir path=$(ECPREFIX)/lib/php/5.4/extensions
-dir path=$(ECPREFIX)/lib/php/5.4/extensions/$(MACH64)
-file path=$(ECPREFIX)/lib/php/5.4/extensions/$(MACH64)/mongo.so
-file path=$(ECPREFIX)/lib/php/5.4/extensions/mongo.so
-file mongo.ini path=$(ECPREFIX)/etc/php/5.4/conf.d/mongo.ini preserve=true
+file path=$(USRDIR)/lib/php/5.4/extensions/$(MACH64)/mongo.so
+file path=$(USRDIR)/lib/php/5.4/extensions/mongo.so
+file mongo.ini path=$(CONFIGURE_SYSCONFDIR)/php/5.4/conf.d/mongo.ini preserve=true
