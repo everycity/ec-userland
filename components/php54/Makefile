@@ -24,7 +24,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-PATH=   $(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
+#PATH=   $(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
 
 # Apache Paths
 AP_PREFIX=$(USRDIR)/lib/apache/2.2
