@@ -18,7 +18,6 @@
 /^powerdns$/d
 /^pdflib$/d
 /^phantomjs$/d
-/^vlc$/d
 # in progress
 /^automake-110$/d
 /^automake-112$/d
