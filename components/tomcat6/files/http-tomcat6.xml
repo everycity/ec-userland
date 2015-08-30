@@ -80,7 +80,7 @@ CDDL HEADER END
 			timeout_seconds='60'>
 			<method_context>
 			<method_credential
-			  user='tomcat6' group='tomcat6'
+			  user='tomcat' group='tomcat'
 			  privileges='basic,net_privaddr'/>
 			</method_context>
 		</exec_method>

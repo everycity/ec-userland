@@ -39,10 +39,7 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 # Dependencies
 depend fmri=developer/java/openjdk7 type=require
-
-# User/Group Accounts
-group gid=480 groupname=tomcat
-user gcos-field="Tomcat Account" group=tomcat uid=480 username=tomcat login-shell=/bin/false
+depend fmri=web/tomcat-common type=require
 
 # SMF Entries
 file files/http-tomcat7 path=$(SVCMETHOD)/http-tomcat7 mode=0555

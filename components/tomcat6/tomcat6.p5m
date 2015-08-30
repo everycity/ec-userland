@@ -35,12 +35,10 @@ set name=info.upstream_url value=http://tomcat.apache.org/
 
 license LICENSE license="Apache v2.0"
 
-depend fmri=developer/java/jdk type=require
+depend fmri=developer/java/openjdk7 type=require
+depend fmri=web/tomcat-common type=require
 
-group gid=480 groupname=tomcat6
-user gcos-field="Tomcat Account" group=tomcat6 uid=480 username=tomcat6 login-shell=/bin/false home-dir=$(ECPREFIX)/lib/tomcat6
-
-dir path=$(LOCALSTATEDIR)/log/tomcat6 owner=tomcat6 group=tomcat6
+dir path=$(LOCALSTATEDIR)/log/tomcat6 owner=tomcat group=tomcat
 dir path=$(LOCALSTATEDIR)/tomcat6
 dir path=$(LOCALSTATEDIR)/tomcat6/webapps mode=0775
 file path=$(SYSCONFDIR)/tomcat6/catalina.policy

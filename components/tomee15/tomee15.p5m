@@ -36,10 +36,7 @@ license LICENSE license="Apache v2.0"
 
 # Dependencies
 depend fmri=developer/java/openjdk7 type=require
-
-# User/Group Accounts
-group gid=480 groupname=tomcat
-user gcos-field="Tomcat Account" group=tomcat uid=480 username=tomcat login-shell=/bin/false
+depend fmri=web/tomcat-common type=require
 
 # SMF Entries
 file files/http-tomee15 path=$(SVCMETHOD)/http-tomee15 mode=0555
