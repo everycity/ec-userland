@@ -38,15 +38,15 @@ $(BUILD_32): dirent-fixed.h
 build:		$(BUILD_32)
 
 $(BUILD_DIR)/.installed:	build
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/empty
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin
-	$(INSTALL) $(BUILD_DIR_32)/vsftpd $(PROTO_DIR)$(ECPREFIX)/bin/vsftpd
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/etc/$(COMPONENT_NAME)
-	$(INSTALL) $(BUILD_DIR_32)/vsftpd.conf $(PROTO_DIR)$(ECPREFIX)/etc/$(COMPONENT_NAME)/vsftpd.conf
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/man/man5
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/man/man8
-	$(INSTALL) $(BUILD_DIR_32)/vsftpd.conf.5 $(PROTO_DIR)$(ECPREFIX)/share/man/man5/vsftpd.conf.5
-	$(INSTALL) $(BUILD_DIR_32)/vsftpd.8 $(PROTO_DIR)$(ECPREFIX)/share/man/man8/vsftpd.8
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/share/empty
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/bin
+	$(INSTALL) $(BUILD_DIR_32)/vsftpd $(PROTO_DIR)$(USRDIR)/bin/vsftpd
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/etc/$(COMPONENT_NAME)
+	$(INSTALL) $(BUILD_DIR_32)/vsftpd.conf $(PROTO_DIR)$(USRDIR)/etc/$(COMPONENT_NAME)/vsftpd.conf
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/share/man/man5
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/share/man/man8
+	$(INSTALL) $(BUILD_DIR_32)/vsftpd.conf.5 $(PROTO_DIR)$(USRDIR)/share/man/man5/vsftpd.conf.5
+	$(INSTALL) $(BUILD_DIR_32)/vsftpd.8 $(PROTO_DIR)$(USRDIR)/share/man/man8/vsftpd.8
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed

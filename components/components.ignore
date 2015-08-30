@@ -62,7 +62,6 @@
 /^subversion-apache24$/d
 /^trousers$/d
 /^varnish$/d
-/^vsftpd$/d
 /^wackamole$/d
 /^webapps\/awstats$/d
 /^webapps\/cacti$/d

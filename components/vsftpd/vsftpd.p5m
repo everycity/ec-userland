@@ -24,21 +24,12 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license vsftpd.license license="GPLv2 with OpenSSL linking exception"
 
-file files/vsftpd-manifest.xml path=var/svc/manifest/site/vsftpd.xml \
+file files/vsftpd-manifest.xml path=$(SVCMANIFEST)/site/vsftpd.xml \
     restart_fmri=svc:/system/manifest-import:default
-file files/vsftpd-startup.sh path=$(ECPREFIX)/var/svc/method/vsftpd mode=0555
+file files/vsftpd-startup.sh path=$(SVCMETHOD)/vsftpd mode=0555
 
 # Auto-generated
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/vsftpd
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/empty
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man5
-dir path=$(ECPREFIX)/share/man/man8
-file path=$(ECPREFIX)/bin/vsftpd
-file path=$(ECPREFIX)/etc/vsftpd/vsftpd.conf
-file path=$(ECPREFIX)/share/man/man5/vsftpd.conf.5
-file path=$(ECPREFIX)/share/man/man8/vsftpd.8
+file path=$(USRDIR)/bin/vsftpd
+file path=$(USRDIR)/etc/vsftpd/vsftpd.conf
+file path=$(USRDIR)/share/man/man5/vsftpd.conf.5
+file path=$(USRDIR)/share/man/man8/vsftpd.8
