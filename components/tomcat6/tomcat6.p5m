@@ -19,13 +19,13 @@
 <transform file path=ec/lib/tomcat6/(webapps/.+)$ -> set action.hash %<\1> >
 <transform file path=ec/etc/tomcat6/(.*)$ -> set action.hash conf/%<\1> >
 <transform file path=ec/share/doc/tomcat6/(.*)$ -> set action.hash %<\1> >
-<transform file path=ec/etc/tomcat6/.* -> default group tomcat6>
+<transform file path=ec/etc/tomcat6/.* -> default group tomcat>
 <transform file dir link hardlink path=ec/etc/tomcat6.* -> default preserve true>
 <transform file path=ec/etc/tomcat6.* -> default mode 0644>
-<transform file dir path=ec/etc/tomcat6.* -> default owner tomcat6>
-<transform file dir path=ec/etc/tomcat6.* -> default group tomcat6>
-<transform dir path=ec/var/tomcat6/.* -> default owner tomcat6>
-<transform dir path=ec/var/tomcat6/.* -> default group tomcat6>
+<transform file dir path=ec/etc/tomcat6.* -> default owner tomcat>
+<transform file dir path=ec/etc/tomcat6.* -> default group tomcat>
+<transform dir path=ec/var/tomcat6/.* -> default owner tomcat>
+<transform dir path=ec/var/tomcat6/.* -> default group tomcat>
 
 set name=pkg.fmri value=pkg:/web/java-servlet/tomcat6@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="Tomcat Servlet/JSP Container"
