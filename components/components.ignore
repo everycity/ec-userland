@@ -6,7 +6,6 @@
 /^php55-ext-suhosin$/d
 /^php54-ext-suhosin$/d
 /^redis$/d
-/^rabbitmq$/d
 # failed
 /^cloog-ppl$/d
 /^dbt2$/d
