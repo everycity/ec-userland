@@ -15,8 +15,8 @@
 # Transforms
 <include ec-drop-common>
 <transform file path=ec/lib/tomcat6/(webapps/.+)$ -> set action.hash %<\1> >
-<transform dir path=ec/var/tomcat6/.* -> default owner tomcat6>
-<transform dir path=ec/var/tomcat6/.* -> default group tomcat6>
+<transform dir path=ec/var/tomcat6/.* -> default owner tomcat>
+<transform dir path=ec/var/tomcat6/.* -> default group tomcat>
 
 set name=pkg.fmri value=pkg:/web/java-servlet/tomcat6/examples@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="Tomcat Servlet/JSP Container - examples"
