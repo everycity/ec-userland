@@ -77,7 +77,7 @@
 		<exec_method
 			type='method'
 			name='start'
-			exec='/ec/var/svc/method/http-tomcat7 start'
+			exec='/var/svc/method/http-tomcat7 start'
 			timeout_seconds='60'>
 			<method_context>
 			<method_credential

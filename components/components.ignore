@@ -60,7 +60,6 @@
 /^ruby\/stomp$/d
 /^smartos-ps$/d
 /^subversion-apache24$/d
-/^tomcat7$/d
 /^tomee15$/d
 /^trousers$/d
 /^varnish$/d
