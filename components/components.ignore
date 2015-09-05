@@ -77,7 +77,6 @@
 /^zsh$/d
 /^bash-3.0-s10$/d
 /^powerdns-recursor$/d
-/^automake-113$/d
 /^meta-packages\/haproxy-dev$/d
 /^ca-certificates$/d
 /^postgresql94$/d
