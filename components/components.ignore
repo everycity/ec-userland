@@ -82,7 +82,6 @@
 /^postgresql94$/d
 /^openvpn$/d
 /^tomcat8$/d
-/^apache22-mod_rpaf$/d
 /^leveldb$/d
 /^logstash-forwarder$/d
 /^git-repo$/d

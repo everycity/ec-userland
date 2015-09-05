@@ -29,34 +29,34 @@ include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
 
 CLEAN_PATHS+=   $(BUILD_DIR)
-APACHE22_PATH=  $(ECPREFIX)/lib/apache/2.2
+APACHE22_PATH=  $(USRDIR)/lib/apache/2.2
 
 $(BUILD_DIR)/$(MACH32)/.built:  prep
 	$(RM) -r $(@D) $(PROTO_DIR) ; $(MKDIR) -p $(@D)
 	$(CP) $(SOURCE_DIR)/mod_rpaf.c $(@D)
-	( cd $(@D) ; LTFLAGS="--tag=CC" $(APACHE22_PATH)/bin/apxs -L$(ECPREFIX)/lib -I$(ECPREFIX)/include -c mod_rpaf.c )
+	( cd $(@D) ; LTFLAGS="--tag=CC" $(APACHE22_PATH)/bin/apxs -L$(USRDIR)/lib -I$(USRDIR)/include -c mod_rpaf.c )
 	$(TOUCH) $@
 
 $(BUILD_DIR)/$(MACH64)/.built:  prep
 	$(RM) -r $(@D) $(PROTO_DIR) ; $(MKDIR) -p $(@D)
 	$(CP) $(SOURCE_DIR)/mod_rpaf.c $(@D)
-	( cd $(@D) ; LTFLAGS="--tag=CC" $(APACHE22_PATH)/bin/$(MACH64)/apxs -Wl,-m64 -L$(ECPREFIX)/lib/$(MACH64) -I$(ECPREFIX)/include -c mod_rpaf.c )
+	( cd $(@D) ; LTFLAGS="--tag=CC" $(APACHE22_PATH)/bin/$(MACH64)/apxs -Wl,-m64 -L$(USRDIR)/lib/$(MACH64) -I$(USRDIR)/include -c mod_rpaf.c )
 	$(TOUCH) $@
 
 $(BUILD_DIR)/$(MACH32)/.installed-$(MACH32):    build
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules
-	$(CP) $(@D)/.libs/mod_rpaf.so $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules
+	$(CP) $(@D)/.libs/mod_rpaf.so $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules
 	$(TOUCH) $@
 
 $(BUILD_DIR)/$(MACH64)/.installed-$(MACH64):    build
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
-	$(CP) $(@D)/.libs/mod_rpaf.so $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules/$(MACH64)
+	$(CP) $(@D)/.libs/mod_rpaf.so $(PROTO_DIR)$(USRDIR)/lib/apache/2.2/modules/$(MACH64)
 	$(TOUCH) $@
 
 $(BUILD_DIR)/.installed:	$(BUILD_DIR)/$(MACH32)/.installed-$(MACH32)     $(BUILD_DIR)/$(MACH64)/.installed-$(MACH64)
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.2/mods-available
-	$(CP) files/rpaf.conf $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.2/mods-available
-	$(CP) files/rpaf.load $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.2/mods-available
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/etc/apache/2.2/mods-available
+	$(CP) files/rpaf.conf $(PROTO_DIR)$(USRDIR)/etc/apache/2.2/mods-available
+	$(CP) files/rpaf.load $(PROTO_DIR)$(USRDIR)/etc/apache/2.2/mods-available
 	$(TOUCH) $@
 
 build:	  $(BUILD_32_and_64)
