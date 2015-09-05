@@ -82,7 +82,6 @@
 /^postgresql94$/d
 /^openvpn$/d
 /^tomcat8$/d
-/^leveldb$/d
 /^logstash-forwarder$/d
 /^git-repo$/d
 /^mariadb100$/d

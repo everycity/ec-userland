@@ -42,18 +42,18 @@ COMPONENT_BUILD_ENV += LDFLAGS="$(LDFLAGS)"
 build:		$(BUILD_32_and_64)
 
 install: build
-#	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/bin
-#	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
-	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/lib
-	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
-	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/include/leveldb
-#	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/lib/pkgconfig
-#	$(MKDIR) -p $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+#	$(MKDIR) -p $(PROTO_DIR)$(USRDIR)/bin
+#	$(MKDIR) -p $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)
+	$(MKDIR) -p $(PROTO_DIR)$(USRDIR)/lib
+	$(MKDIR) -p $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
+	$(MKDIR) -p $(PROTO_DIR)$(USRDIR)/include/leveldb
+#	$(MKDIR) -p $(PROTO_DIR)$(USRDIR)/lib/pkgconfig
+#	$(MKDIR) -p $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/pkgconfig
 
-	cp $(BUILD_DIR_32)/libleveldb.so* $(PROTO_DIR)$(ECPREFIX)/lib
-	cp $(BUILD_DIR_64)/libleveldb.so* $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)
-	cp $(BUILD_DIR_32)/include/leveldb/* $(PROTO_DIR)$(ECPREFIX)/include/leveldb
+	cp $(BUILD_DIR_32)/libleveldb.so* $(PROTO_DIR)$(USRDIR)/lib
+	cp $(BUILD_DIR_64)/libleveldb.so* $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)
+	cp $(BUILD_DIR_32)/include/leveldb/* $(PROTO_DIR)$(USRDIR)/include/leveldb
 #	cat $(COMPONENT_DIR)/nss.pc | sed s/^Version:/Version:\ $(COMPONENT_VERSION)/ | \
-#		sed s%/usr%$(ECPREFIX)% \
-#		> $(PROTO_DIR)$(ECPREFIX)/lib/pkgconfig/nss.pc 
+#		sed s%/usr%$(USRDIR)% \
+#		> $(PROTO_DIR)$(USRDIR)/lib/pkgconfig/nss.pc 
 	$(TOUCH) $(BUILD_DIR_32)/.installed $(BUILD_DIR_64)/.installed
