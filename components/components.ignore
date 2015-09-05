@@ -72,7 +72,6 @@
 /^xapian\/bindings-php54$/d
 /^xapian\/core$/d
 /^yubico-pam$/d
-/^yubico-ykpers$/d
 /^zetaback$/d
 /^zfs-auto-snapshot$/d
 /^zork-trilogy$/d
