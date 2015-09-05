@@ -22,66 +22,47 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
-dir path=$(ECPREFIX)/lib/pkgconfig
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/aclocal
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/check
-dir path=$(ECPREFIX)/share/doc/check/example
-dir path=$(ECPREFIX)/share/doc/check/example/src
-dir path=$(ECPREFIX)/share/doc/check/example/tests
-dir path=$(ECPREFIX)/share/info
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/checkmk
-file path=$(ECPREFIX)/bin/checkmk
-file path=$(ECPREFIX)/include/check.h
-file path=$(ECPREFIX)/include/check_stdint.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libcheck.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libcheck.so.0.0.0
-file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/check.pc
-file path=$(ECPREFIX)/lib/libcheck.a
-file path=$(ECPREFIX)/lib/libcheck.so.0.0.0
-file path=$(ECPREFIX)/lib/pkgconfig/check.pc
-file path=$(ECPREFIX)/share/aclocal/check.m4
-file path=$(ECPREFIX)/share/doc/check/COPYING.LESSER
-file path=$(ECPREFIX)/share/doc/check/ChangeLog
-file path=$(ECPREFIX)/share/doc/check/ChangeLogOld
-file path=$(ECPREFIX)/share/doc/check/NEWS
-file path=$(ECPREFIX)/share/doc/check/README
-file path=$(ECPREFIX)/share/doc/check/SVNChangeLog
-file path=$(ECPREFIX)/share/doc/check/example/Makefile.am
-file path=$(ECPREFIX)/share/doc/check/example/README
-file path=$(ECPREFIX)/share/doc/check/example/configure.ac
-file path=$(ECPREFIX)/share/doc/check/example/src/Makefile.am
-file path=$(ECPREFIX)/share/doc/check/example/src/main.c
-file path=$(ECPREFIX)/share/doc/check/example/src/money.1.c
-file path=$(ECPREFIX)/share/doc/check/example/src/money.1.h
-file path=$(ECPREFIX)/share/doc/check/example/src/money.2.h
-file path=$(ECPREFIX)/share/doc/check/example/src/money.3.c
-file path=$(ECPREFIX)/share/doc/check/example/src/money.4.c
-file path=$(ECPREFIX)/share/doc/check/example/src/money.5.c
-file path=$(ECPREFIX)/share/doc/check/example/src/money.6.c
-file path=$(ECPREFIX)/share/doc/check/example/src/money.c
-file path=$(ECPREFIX)/share/doc/check/example/src/money.h
-file path=$(ECPREFIX)/share/doc/check/example/tests/Makefile.am
-file path=$(ECPREFIX)/share/doc/check/example/tests/check_money.1.c
-file path=$(ECPREFIX)/share/doc/check/example/tests/check_money.2.c
-file path=$(ECPREFIX)/share/doc/check/example/tests/check_money.3.c
-file path=$(ECPREFIX)/share/doc/check/example/tests/check_money.6.c
-file path=$(ECPREFIX)/share/doc/check/example/tests/check_money.7.c
-file path=$(ECPREFIX)/share/doc/check/example/tests/check_money.c
-file path=$(ECPREFIX)/share/info/check.info
-file path=$(ECPREFIX)/share/info/dir
-file path=$(ECPREFIX)/share/man/man1/checkmk.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libcheck.so target=libcheck.so.0.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libcheck.so.0 target=libcheck.so.0.0.0
-link path=$(ECPREFIX)/lib/libcheck.so target=libcheck.so.0.0.0
-link path=$(ECPREFIX)/lib/libcheck.so.0 target=libcheck.so.0.0.0
+file path=$(USRDIR)/bin/$(MACH64)/checkmk
+file path=$(USRDIR)/bin/checkmk
+file path=$(USRDIR)/include/check.h
+file path=$(USRDIR)/include/check_stdint.h
+file path=$(USRDIR)/lib/$(MACH64)/libcheck.a
+file path=$(USRDIR)/lib/$(MACH64)/libcheck.so.0.0.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/check.pc
+file path=$(USRDIR)/lib/libcheck.a
+file path=$(USRDIR)/lib/libcheck.so.0.0.0
+file path=$(USRDIR)/lib/pkgconfig/check.pc
+file path=$(USRDIR)/share/aclocal/check.m4
+file path=$(USRDIR)/share/doc/check/COPYING.LESSER
+file path=$(USRDIR)/share/doc/check/ChangeLog
+file path=$(USRDIR)/share/doc/check/ChangeLogOld
+file path=$(USRDIR)/share/doc/check/NEWS
+file path=$(USRDIR)/share/doc/check/README
+file path=$(USRDIR)/share/doc/check/SVNChangeLog
+file path=$(USRDIR)/share/doc/check/example/Makefile.am
+file path=$(USRDIR)/share/doc/check/example/README
+file path=$(USRDIR)/share/doc/check/example/configure.ac
+file path=$(USRDIR)/share/doc/check/example/src/Makefile.am
+file path=$(USRDIR)/share/doc/check/example/src/main.c
+file path=$(USRDIR)/share/doc/check/example/src/money.1.c
+file path=$(USRDIR)/share/doc/check/example/src/money.1.h
+file path=$(USRDIR)/share/doc/check/example/src/money.2.h
+file path=$(USRDIR)/share/doc/check/example/src/money.3.c
+file path=$(USRDIR)/share/doc/check/example/src/money.4.c
+file path=$(USRDIR)/share/doc/check/example/src/money.5.c
+file path=$(USRDIR)/share/doc/check/example/src/money.6.c
+file path=$(USRDIR)/share/doc/check/example/src/money.c
+file path=$(USRDIR)/share/doc/check/example/src/money.h
+file path=$(USRDIR)/share/doc/check/example/tests/Makefile.am
+file path=$(USRDIR)/share/doc/check/example/tests/check_money.1.c
+file path=$(USRDIR)/share/doc/check/example/tests/check_money.2.c
+file path=$(USRDIR)/share/doc/check/example/tests/check_money.3.c
+file path=$(USRDIR)/share/doc/check/example/tests/check_money.6.c
+file path=$(USRDIR)/share/doc/check/example/tests/check_money.7.c
+file path=$(USRDIR)/share/doc/check/example/tests/check_money.c
+file path=$(USRDIR)/share/info/check.info
+file path=$(USRDIR)/share/man/man1/checkmk.1
+link path=$(USRDIR)/lib/$(MACH64)/libcheck.so target=libcheck.so.0.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libcheck.so.0 target=libcheck.so.0.0.0
+link path=$(USRDIR)/lib/libcheck.so target=libcheck.so.0.0.0
+link path=$(USRDIR)/lib/libcheck.so.0 target=libcheck.so.0.0.0
