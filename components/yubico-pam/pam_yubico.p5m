@@ -22,22 +22,10 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/security
-dir path=$(ECPREFIX)/lib/security/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/ykpamcfg
-file path=$(ECPREFIX)/bin/ykpamcfg
-file path=$(ECPREFIX)/include/drop_privs.h
-file path=$(ECPREFIX)/include/util.h
-file path=$(ECPREFIX)/lib/security/$(MACH64)/pam_yubico.la
-file path=$(ECPREFIX)/lib/security/$(MACH64)/pam_yubico.so
-file path=$(ECPREFIX)/lib/security/pam_yubico.la
-file path=$(ECPREFIX)/lib/security/pam_yubico.so
-file path=$(ECPREFIX)/share/man/man1/ykpamcfg.1
+file path=$(USRDIR)/bin/$(MACH64)/ykpamcfg
+file path=$(USRDIR)/bin/ykpamcfg
+file path=$(USRDIR)/include/drop_privs.h
+file path=$(USRDIR)/include/util.h
+file path=$(USRDIR)/lib/security/$(MACH64)/pam_yubico.so
+file path=$(USRDIR)/lib/security/pam_yubico.so
+file path=$(USRDIR)/share/man/man1/ykpamcfg.1

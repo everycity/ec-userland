@@ -29,8 +29,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-PAMDIR.32=	$(ECPREFIX)/lib/security
-PAMDIR.64=	$(ECPREFIX)/lib/security/$(MACH64)
+PAMDIR.32=	$(USRDIR)/lib/security
+PAMDIR.64=	$(USRDIR)/lib/security/$(MACH64)
 
 CONFIGURE_OPTIONS+=	--with-pam-dir=$(PAMDIR.$(BITS))
 
