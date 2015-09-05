@@ -22,24 +22,16 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-file path=$(ECPREFIX)/bin/$(MACH64)/ykclient
-file path=$(ECPREFIX)/bin/ykclient
-file path=$(ECPREFIX)/include/ykclient.h
-file path=$(ECPREFIX)/include/ykclient_server_response.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libykclient.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libykclient.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libykclient.so.3.4.1
-file path=$(ECPREFIX)/lib/libykclient.a
-file path=$(ECPREFIX)/lib/libykclient.la
-file path=$(ECPREFIX)/lib/libykclient.so.3.4.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libykclient.so target=libykclient.so.3.4.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libykclient.so.3 \
+file path=$(USRDIR)/bin/$(MACH64)/ykclient
+file path=$(USRDIR)/bin/ykclient
+file path=$(USRDIR)/include/ykclient.h
+file path=$(USRDIR)/include/ykclient_server_response.h
+file path=$(USRDIR)/lib/$(MACH64)/libykclient.a
+file path=$(USRDIR)/lib/$(MACH64)/libykclient.so.3.4.1
+file path=$(USRDIR)/lib/libykclient.a
+file path=$(USRDIR)/lib/libykclient.so.3.4.1
+link path=$(USRDIR)/lib/$(MACH64)/libykclient.so target=libykclient.so.3.4.1
+link path=$(USRDIR)/lib/$(MACH64)/libykclient.so.3 \
     target=libykclient.so.3.4.1
-link path=$(ECPREFIX)/lib/libykclient.so target=libykclient.so.3.4.1
-link path=$(ECPREFIX)/lib/libykclient.so.3 target=libykclient.so.3.4.1
+link path=$(USRDIR)/lib/libykclient.so target=libykclient.so.3.4.1
+link path=$(USRDIR)/lib/libykclient.so.3 target=libykclient.so.3.4.1
