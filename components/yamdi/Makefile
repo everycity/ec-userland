@@ -37,15 +37,15 @@ $(BUILD_DIR)/%/.built:	prep
 build:		$(BUILD_32_and_64)
 
 $(BUILD_DIR)/$(MACH32)/.installed:      $(BUILD_DIR)/$(MACH32)/.built
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)$(BINDIR)
-	$(CP) $(BUILD_DIR)/$(MACH32)/yamdi $(PROTO_DIR)$(ECPREFIX)$(BINDIR)
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)$(BINDIR)
+	$(CP) $(BUILD_DIR)/$(MACH32)/yamdi $(PROTO_DIR)$(USRDIR)$(BINDIR)
 	$(TOUCH) $@
 
 $(BUILD_DIR)/$(MACH64)/.installed:      $(BUILD_DIR)/$(MACH64)/.built
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)$(BINDIR)/$(MACH64)
-	$(CP) $(BUILD_DIR)/$(MACH64)/yamdi $(PROTO_DIR)$(ECPREFIX)$(BINDIR)/$(MACH64)
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)$(BINDIR)/$(MACH64)
+	$(CP) $(BUILD_DIR)/$(MACH64)/yamdi $(PROTO_DIR)$(USRDIR)$(BINDIR)/$(MACH64)
 	$(TOUCH) $@
 
 install:	$(INSTALL_32_and_64)
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/man/man1
-	$(CP) $(SOURCE_DIR)/man1/yamdi.1 $(PROTO_DIR)$(ECPREFIX)/share/man/man1
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/share/man/man1
+	$(CP) $(SOURCE_DIR)/man1/yamdi.1 $(PROTO_DIR)$(USRDIR)/share/man/man1

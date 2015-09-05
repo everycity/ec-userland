@@ -71,7 +71,6 @@
 /^xapian\/bindings-php53$/d
 /^xapian\/bindings-php54$/d
 /^xapian\/core$/d
-/^yamdi$/d
 /^yubico-libyubikey$/d
 /^yubico-pam$/d
 /^yubico-ykclient$/d
