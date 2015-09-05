@@ -25,21 +25,9 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 group gid=486 groupname=webdis
 user gcos-field="Webdis Account" group=webdis uid=486 username=webdis login-shell=/bin/false
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/var
-dir path=$(ECPREFIX)/var/log
-dir path=$(ECPREFIX)/var/svc
-dir path=$(ECPREFIX)/var/svc/method
-dir path=var
-dir path=var/svc
-dir path=var/svc/manifest
-dir path=var/svc/manifest/site
-file path=$(ECPREFIX)/bin/$(MACH64)/webdis
-file path=$(ECPREFIX)/bin/webdis
-file path=$(ECPREFIX)/etc/webdis.prod.json preserve=true
-file path=$(ECPREFIX)/var/log/webdis.log owner=webdis group=webdis
-file path=$(ECPREFIX)/var/svc/method/webdis.sh mode=0555
-file path=var/svc/manifest/site/webdis.xml restart_fmri=svc:/system/manifest-import:default
+file path=$(USRDIR)/bin/$(MACH64)/webdis
+file path=$(USRDIR)/bin/webdis
+file path=$(SYSCONFDIR)/webdis.prod.json preserve=true
+file path=$(LOCALSTATEDIR)/log/webdis.log owner=webdis group=webdis
+file path=$(SVCMETHOD)/webdis.sh mode=0555
+file path=$(SVCMANIFEST)/site/webdis.xml restart_fmri=svc:/system/manifest-import:default

@@ -11,7 +11,7 @@
     </dependency>
 
     <exec_method type='method' name='start'
-      exec='/ec/var/svc/method/webdis.sh start'
+      exec='/var/svc/method/webdis.sh start'
       timeout_seconds='-1'>
     </exec_method>
 

@@ -87,5 +87,4 @@
 /^mariadb100$/d
 /^php56-apache24$/d
 /^php56$/d
-/^webdis$/d
 /^wp-cli$/d
