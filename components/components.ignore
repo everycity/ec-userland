@@ -80,7 +80,6 @@
 /^meta-packages\/haproxy-dev$/d
 /^ca-certificates$/d
 /^postgresql94$/d
-/^jq$/d
 /^openvpn$/d
 /^trafficserver$/d
 /^tomcat8$/d

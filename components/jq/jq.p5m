@@ -22,31 +22,20 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/jq
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/$(MACH64)/jq
-file path=$(ECPREFIX)/bin/jq
-file path=$(ECPREFIX)/include/jq.h
-file path=$(ECPREFIX)/include/jv.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libjq.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libjq.so.1.0.4
-file path=$(ECPREFIX)/lib/libjq.a
-file path=$(ECPREFIX)/lib/libjq.so.1.0.4
-file path=$(ECPREFIX)/share/doc/jq/AUTHORS
-file path=$(ECPREFIX)/share/doc/jq/COPYING
-file path=$(ECPREFIX)/share/doc/jq/README
-file path=$(ECPREFIX)/share/doc/jq/README.md
-file path=$(ECPREFIX)/share/man/man1/jq.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libjq.so target=libjq.so.1.0.4
-link path=$(ECPREFIX)/lib/$(MACH64)/libjq.so.1 target=libjq.so.1.0.4
-link path=$(ECPREFIX)/lib/libjq.so target=libjq.so.1.0.4
-link path=$(ECPREFIX)/lib/libjq.so.1 target=libjq.so.1.0.4
+file path=$(USRDIR)/bin/$(MACH64)/jq
+file path=$(USRDIR)/bin/jq
+file path=$(USRDIR)/include/jq.h
+file path=$(USRDIR)/include/jv.h
+file path=$(USRDIR)/lib/$(MACH64)/libjq.a
+file path=$(USRDIR)/lib/$(MACH64)/libjq.so.1.0.4
+file path=$(USRDIR)/lib/libjq.a
+file path=$(USRDIR)/lib/libjq.so.1.0.4
+file path=$(USRDIR)/share/doc/jq/AUTHORS
+file path=$(USRDIR)/share/doc/jq/COPYING
+file path=$(USRDIR)/share/doc/jq/README
+file path=$(USRDIR)/share/doc/jq/README.md
+file path=$(USRDIR)/share/man/man1/jq.1
+link path=$(USRDIR)/lib/$(MACH64)/libjq.so target=libjq.so.1.0.4
+link path=$(USRDIR)/lib/$(MACH64)/libjq.so.1 target=libjq.so.1.0.4
+link path=$(USRDIR)/lib/libjq.so target=libjq.so.1.0.4
+link path=$(USRDIR)/lib/libjq.so.1 target=libjq.so.1.0.4
