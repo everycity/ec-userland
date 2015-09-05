@@ -29,6 +29,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+LDFLAGS += -ltinfo
+
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)

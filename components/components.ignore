@@ -17,6 +17,8 @@
 /^powerdns$/d
 /^pdflib$/d
 /^phantomjs$/d
+/^varnish$/d
+/^wackamole$/d
 # in progress
 /^automake-112$/d
 /^clusterssh$/d
@@ -61,13 +63,10 @@
 /^smartos-ps$/d
 /^subversion-apache24$/d
 /^trousers$/d
-/^varnish$/d
-/^wackamole$/d
 /^webapps\/awstats$/d
 /^webapps\/cacti$/d
 /^wkhtmltopdf$/d
 /^wkhtmltopdf-qt4$/d
-/^x11-xterm$/d
 /^xapian\/bindings-php52$/d
 /^xapian\/bindings-php53$/d
 /^xapian\/bindings-php54$/d
