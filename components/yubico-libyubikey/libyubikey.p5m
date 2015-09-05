@@ -22,26 +22,18 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-file path=$(ECPREFIX)/bin/$(MACH64)/modhex
-file path=$(ECPREFIX)/bin/$(MACH64)/ykgenerate
-file path=$(ECPREFIX)/bin/$(MACH64)/ykparse
-file path=$(ECPREFIX)/bin/modhex
-file path=$(ECPREFIX)/bin/ykgenerate
-file path=$(ECPREFIX)/bin/ykparse
-file path=$(ECPREFIX)/include/yubikey.h
-file path=$(ECPREFIX)/lib/$(MACH64)/libyubikey.a
-file path=$(ECPREFIX)/lib/$(MACH64)/libyubikey.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libyubikey.so.0.1.3
-file path=$(ECPREFIX)/lib/libyubikey.a
-file path=$(ECPREFIX)/lib/libyubikey.la
-file path=$(ECPREFIX)/lib/libyubikey.so.0.1.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libyubikey.so target=libyubikey.so.0.1.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libyubikey.so.0 target=libyubikey.so.0.1.3
-link path=$(ECPREFIX)/lib/libyubikey.so target=libyubikey.so.0.1.3
-link path=$(ECPREFIX)/lib/libyubikey.so.0 target=libyubikey.so.0.1.3
+file path=$(USRDIR)/bin/$(MACH64)/modhex
+file path=$(USRDIR)/bin/$(MACH64)/ykgenerate
+file path=$(USRDIR)/bin/$(MACH64)/ykparse
+file path=$(USRDIR)/bin/modhex
+file path=$(USRDIR)/bin/ykgenerate
+file path=$(USRDIR)/bin/ykparse
+file path=$(USRDIR)/include/yubikey.h
+file path=$(USRDIR)/lib/$(MACH64)/libyubikey.a
+file path=$(USRDIR)/lib/$(MACH64)/libyubikey.so.0.1.3
+file path=$(USRDIR)/lib/libyubikey.a
+file path=$(USRDIR)/lib/libyubikey.so.0.1.3
+link path=$(USRDIR)/lib/$(MACH64)/libyubikey.so target=libyubikey.so.0.1.3
+link path=$(USRDIR)/lib/$(MACH64)/libyubikey.so.0 target=libyubikey.so.0.1.3
+link path=$(USRDIR)/lib/libyubikey.so target=libyubikey.so.0.1.3
+link path=$(USRDIR)/lib/libyubikey.so.0 target=libyubikey.so.0.1.3
