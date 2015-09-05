@@ -80,7 +80,6 @@
 /^meta-packages\/haproxy-dev$/d
 /^ca-certificates$/d
 /^postgresql94$/d
-/^re2c$/d
 /^check$/d
 /^jq$/d
 /^openvpn$/d
