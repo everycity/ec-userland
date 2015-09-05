@@ -81,7 +81,6 @@
 /^ca-certificates$/d
 /^postgresql94$/d
 /^openvpn$/d
-/^trafficserver$/d
 /^tomcat8$/d
 /^apache22-mod_rpaf$/d
 /^leveldb$/d

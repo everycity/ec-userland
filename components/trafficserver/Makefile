@@ -29,8 +29,15 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CFLAGS+=	-I$(ECPREFIX)/include/libxml2
-CXXFLAGS+=	-I$(ECPREFIX)/include/libxml2
+BITS = 64
+
+CFLAGS+=	-I$(USRDIR)/include/libxml2
+CFLAGS+=	-I$(USRDIR)/include/ncursesw
+CXXFLAGS+=	-I$(USRDIR)/include/libxml2
+CXXFLAGS+=	-I$(USRDIR)/include/ncursesw
+CXXFLAGS+=	-std=gnu++11
+
+LDFLAGS += -ltinfo
 
 #CONFIGURE_OPTIONS+=	
 
