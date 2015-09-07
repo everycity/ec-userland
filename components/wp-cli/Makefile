@@ -30,8 +30,8 @@ include ../../make-rules/ips.mk
 
 $(SOURCE_DIR)/.unpacked:	download Makefile $(PATCHES)
 	$(RM) -r $(SOURCE_DIR) build
-	($(MKDIR) $(COMPONENT_DIR)/source/wp-cli $(PROTO_DIR)$(ECPREFIX)/bin; \
-	$(CP) $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE) $(PROTO_DIR)$(ECPREFIX)/bin/wp)
+	($(MKDIR) $(COMPONENT_DIR)/source/wp-cli $(PROTO_DIR)$(USRDIR)/bin; \
+	$(CP) $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE) $(PROTO_DIR)$(USRDIR)/bin/wp)
 	$(TOUCH) $@
 
 $(SOURCE_DIR)/.built:	$(SOURCE_DIR)/.prep
