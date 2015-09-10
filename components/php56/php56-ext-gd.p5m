@@ -22,38 +22,23 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license php56.license license="PHP56 License"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/php
-dir path=$(ECPREFIX)/etc/php/5.6
-dir path=$(ECPREFIX)/etc/php/5.6/conf.d
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/php
-dir path=$(ECPREFIX)/lib/php/5.6
-dir path=$(ECPREFIX)/lib/php/5.6/include
-dir path=$(ECPREFIX)/lib/php/5.6/include/php
-dir path=$(ECPREFIX)/lib/php/5.6/include/php/ext
-dir path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd
-dir path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd/libgd
-dir path=$(ECPREFIX)/lib/php/5.6/extensions
-dir path=$(ECPREFIX)/lib/php/5.6/extensions/$(MACH64)
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd/gd_compat.h
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd/gdcache.h
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd/libgd/gd.h
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd/libgd/gd_intern.h
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd/libgd/gd_io.h
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd/libgd/gdcache.h
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd/libgd/gdfontg.h
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd/libgd/gdfontl.h
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd/libgd/gdfontmb.h
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd/libgd/gdfonts.h
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd/libgd/gdfontt.h
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd/libgd/gdhelpers.h
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd/libgd/jisx0208.h
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd/libgd/wbmp.h
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd/libgd/webpimg.h
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/gd/php_gd.h
-file files/gd.ini path=$(ECPREFIX)/etc/php/5.6/conf.d/gd.ini preserve=true
-file path=$(ECPREFIX)/lib/php/5.6/extensions/$(MACH64)/gd.so
-file path=$(ECPREFIX)/lib/php/5.6/extensions/gd.so
+file path=$(USRDIR)/lib/php/5.6/include/php/ext/gd/gd_compat.h
+file path=$(USRDIR)/lib/php/5.6/include/php/ext/gd/gdcache.h
+file path=$(USRDIR)/lib/php/5.6/include/php/ext/gd/libgd/gd.h
+file path=$(USRDIR)/lib/php/5.6/include/php/ext/gd/libgd/gd_intern.h
+file path=$(USRDIR)/lib/php/5.6/include/php/ext/gd/libgd/gd_io.h
+file path=$(USRDIR)/lib/php/5.6/include/php/ext/gd/libgd/gdcache.h
+file path=$(USRDIR)/lib/php/5.6/include/php/ext/gd/libgd/gdfontg.h
+file path=$(USRDIR)/lib/php/5.6/include/php/ext/gd/libgd/gdfontl.h
+file path=$(USRDIR)/lib/php/5.6/include/php/ext/gd/libgd/gdfontmb.h
+file path=$(USRDIR)/lib/php/5.6/include/php/ext/gd/libgd/gdfonts.h
+file path=$(USRDIR)/lib/php/5.6/include/php/ext/gd/libgd/gdfontt.h
+file path=$(USRDIR)/lib/php/5.6/include/php/ext/gd/libgd/gdhelpers.h
+file path=$(USRDIR)/lib/php/5.6/include/php/ext/gd/libgd/jisx0208.h
+file path=$(USRDIR)/lib/php/5.6/include/php/ext/gd/libgd/wbmp.h
+file path=$(USRDIR)/lib/php/5.6/include/php/ext/gd/libgd/webpimg.h
+file path=$(USRDIR)/lib/php/5.6/include/php/ext/gd/php_gd.h
+file files/gd.ini path=$(SYSCONFDIR)/php/5.6/conf.d/gd.ini preserve=true
+file path=$(USRDIR)/lib/php/5.6/extensions/$(MACH64)/gd.so
+file path=$(USRDIR)/lib/php/5.6/extensions/gd.so
 depend fmri=pkg:/web/php-56/php-common type=require

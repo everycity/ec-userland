@@ -19,6 +19,7 @@
 /^phantomjs$/d
 /^varnish$/d
 /^wackamole$/d
+/^mariadb100$/d
 # in progress
 /^automake-112$/d
 /^clusterssh$/d
@@ -84,6 +85,4 @@
 /^tomcat8$/d
 /^logstash-forwarder$/d
 /^git-repo$/d
-/^mariadb100$/d
 /^php56-apache24$/d
-/^php56$/d

@@ -24,22 +24,10 @@ license php56.license license="PHP56 License"
 
 depend fmri=pkg:/web/php-56/php-common type=require
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/php
-dir path=$(ECPREFIX)/lib/php/5.6
-dir path=$(ECPREFIX)/lib/php/5.6/bin
-dir path=$(ECPREFIX)/lib/php/5.6/bin/$(MACH64)
-dir path=$(ECPREFIX)/lib/php/5.6/share/man/man8
-dir path=$(ECPREFIX)/lib/php/5.6/var
-dir path=$(ECPREFIX)/lib/php/5.6/var/log
-dir path=$(ECPREFIX)/lib/php/5.6/var/run
-dir path=$(LOCALSTATEDIR)
-dir path=$(LOCALSTATEDIR)/php
 dir path=$(LOCALSTATEDIR)/php/5.6
 dir path=$(LOCALSTATEDIR)/php/5.6/fpm
-file path=$(ECPREFIX)/lib/php/5.6/bin/$(MACH64)/php-fpm
-file path=$(ECPREFIX)/lib/php/5.6/bin/php-fpm
-file path=$(ECPREFIX)/lib/php/5.6/share/man/man8/php-fpm.8
+file path=$(USRDIR)/lib/php/5.6/bin/$(MACH64)/php-fpm
+file path=$(USRDIR)/lib/php/5.6/bin/php-fpm
+file path=$(USRDIR)/lib/php/5.6/share/man/man8/php-fpm.8
 file path=$(LOCALSTATEDIR)/php/5.6/fpm/status.html
 file path=$(SYSCONFDIR)/php/5.6/php-fpm.conf.default
