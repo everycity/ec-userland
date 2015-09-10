@@ -85,4 +85,3 @@
 /^tomcat8$/d
 /^logstash-forwarder$/d
 /^git-repo$/d
-/^php56-apache24$/d
