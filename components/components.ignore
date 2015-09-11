@@ -71,7 +71,6 @@
 /^xapian\/bindings-php52$/d
 /^xapian\/bindings-php53$/d
 /^xapian\/bindings-php54$/d
-/^xapian\/core$/d
 /^zetaback$/d
 /^zfs-auto-snapshot$/d
 /^zork-trilogy$/d
