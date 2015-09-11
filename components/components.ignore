@@ -32,7 +32,6 @@
 /^nodejs06$/d
 /^p5-X11-Protocol$/d
 /^pdftk$/d
-/^perl_modules\/lwp-mediatypes$/d
 /^perl_modules\/lwp-protocol-https$/d
 /^perl_modules\/mozilla-ca$/d
 /^perl_modules\/net-http$/d
