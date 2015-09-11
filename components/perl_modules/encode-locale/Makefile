@@ -15,7 +15,7 @@
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		Encode-Locale
-COMPONENT_FMRI=         library/perl-5/perl-encode-locale-512
+COMPONENT_FMRI=         library/perl-5/perl-encode-locale-518
 COMPONENT_VERSION=      1.03
 IPS_COMPONENT_VERSION=	1.3
 COMPONENT_LICENSE=      PERL
