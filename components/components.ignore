@@ -32,7 +32,6 @@
 /^nodejs06$/d
 /^p5-X11-Protocol$/d
 /^pdftk$/d
-/^perl_modules\/http-date$/d
 /^perl_modules\/http-message$/d
 /^perl_modules\/io-socket-ssl$/d
 /^perl_modules\/io-tty$/d

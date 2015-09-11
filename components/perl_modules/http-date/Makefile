@@ -15,7 +15,7 @@
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		HTTP-Date
-COMPONENT_FMRI=         library/perl-5/perl-http-date-512
+COMPONENT_FMRI=         library/perl-5/perl-http-date-518
 COMPONENT_VERSION=      6.02
 IPS_COMPONENT_VERSION=	6.2
 COMPONENT_LICENSE=      PERL
@@ -30,10 +30,10 @@ include ../../../make-rules/prep.mk
 include ../../../make-rules/justmake.mk
 include ../../../make-rules/ips.mk
 
-COMPONENT_PRE_BUILD_ACTION = cd $(@D); $(PERL.5.12) Makefile.PL
+COMPONENT_PRE_BUILD_ACTION = cd $(@D); $(PERL) Makefile.PL
 COMPONENT_INSTALL_TARGETS = install_vendor
 
-build:		$(BUILD_32)
+build:		$(BUILD_64)
 
-install:	$(INSTALL_32)
+install:	$(INSTALL_64)
 
