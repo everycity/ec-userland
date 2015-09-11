@@ -20,6 +20,7 @@
 /^varnish$/d
 /^wackamole$/d
 /^mariadb100$/d
+/^xapian\/bindings-php54$/d
 # in progress
 /^automake-112$/d
 /^clusterssh$/d
@@ -31,10 +32,6 @@
 /^nodejs06$/d
 /^p5-X11-Protocol$/d
 /^pdftk$/d
-/^perl\/perl516$/d
-/^perl\/perl520$/d
-/^perl_modules\/encode-locale$/d
-/^perl_modules\/exiftool$/d
 /^perl_modules\/file-listing$/d
 /^perl_modules\/html-parser$/d
 /^perl_modules\/http-cookies$/d
@@ -68,9 +65,6 @@
 /^webapps\/cacti$/d
 /^wkhtmltopdf$/d
 /^wkhtmltopdf-qt4$/d
-/^xapian\/bindings-php52$/d
-/^xapian\/bindings-php53$/d
-/^xapian\/bindings-php54$/d
 /^zetaback$/d
 /^zfs-auto-snapshot$/d
 /^zork-trilogy$/d
