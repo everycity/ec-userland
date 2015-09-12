@@ -24,4 +24,4 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 file path=$(USRDIR)/lib/php/5.4/extensions/$(MACH64)/mongo.so
 file path=$(USRDIR)/lib/php/5.4/extensions/mongo.so
-file mongo.ini path=$(CONFIGURE_SYSCONFDIR)/php/5.4/conf.d/mongo.ini preserve=true
+file mongo.ini path=$(SYSCONFDIR)/php/5.4/conf.d/mongo.ini preserve=true

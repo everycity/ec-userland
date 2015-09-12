@@ -24,4 +24,4 @@ license php54-ext-geoip.license license="PHP301"
 
 file path=$(USRDIR)/lib/php/5.4/extensions/$(MACH64)/geoip.so
 file path=$(USRDIR)/lib/php/5.4/extensions/geoip.so
-file geoip.ini path=$(CONFIGURE_SYSCONFDIR)/php/5.4/conf.d/geoip.ini preserve=true
+file geoip.ini path=$(SYSCONFDIR)/php/5.4/conf.d/geoip.ini preserve=true

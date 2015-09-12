@@ -22,6 +22,6 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-file phpredis.ini path=$(CONFIGURE_SYSCONFDIR)/php/5.4/conf.d/phpredis.ini preserve=true
+file phpredis.ini path=$(SYSCONFDIR)/php/5.4/conf.d/phpredis.ini preserve=true
 file path=$(USRDIR)/lib/php/5.4/extensions/$(MACH64)/redis.so
 file path=$(USRDIR)/lib/php/5.4/extensions/redis.so

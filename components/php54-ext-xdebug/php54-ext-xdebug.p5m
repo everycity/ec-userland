@@ -27,4 +27,4 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 file path=$(USRDIR)/lib/php/5.4/extensions/$(MACH64)/xdebug.so
 file path=$(USRDIR)/lib/php/5.4/extensions/xdebug.so
-file xdebug.ini path=$(CONFIGURE_SYSCONFDIR)/php/5.4/conf.d/xdebug.ini
+file xdebug.ini path=$(SYSCONFDIR)/php/5.4/conf.d/xdebug.ini

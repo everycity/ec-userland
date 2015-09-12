@@ -22,8 +22,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-file apc.ini path=$(CONFIGURE_SYSCONFDIR)/php/5.4/conf.d/apc.ini preserve=true
-
+file apc.ini path=$(SYSCONFDIR)/php/5.4/conf.d/apc.ini preserve=true
 file path=$(USRDIR)/lib/php/5.4/extensions/$(MACH64)/apc.so
 file path=$(USRDIR)/lib/php/5.4/extensions/apc.so
 file path=$(USRDIR)/lib/php/5.4/include/php/ext/apc/apc_serializer.h

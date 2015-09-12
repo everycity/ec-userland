@@ -22,7 +22,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-file libevent.ini path=$(CONFIGURE_SYSCONFDIR)php/5.4/conf.d/libevent.ini preserve=true
+file libevent.ini path=$(SYSCONFDIR)php/5.4/conf.d/libevent.ini preserve=true
 
 file path=$(USRDIR)/lib/php/5.4/extensions/$(MACH64)/libevent.so
 file path=$(USRDIR)/lib/php/5.4/extensions/libevent.so

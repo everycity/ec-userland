@@ -31,7 +31,7 @@ file $(USRDIR)/lib/apache/2.4/modules/$(MACH64)/libphp5.so \
     path=$(USRDIR)/lib/apache/2.4/modules/$(MACH64)/mod_php55.so
 file $(USRDIR)/lib/apache/2.4/modules/libphp5.so \
     path=$(USRDIR)/lib/apache/2.4/modules/mod_php55.so
-link path=$(CONFIGURE_SYSCONFDIR)/apache/2.4/mods-enabled/php55.load \
+link path=$(SYSCONFDIR)/apache/2.4/mods-enabled/php55.load \
     target=../mods-available/php55.load preserve=true
-link path=$(CONFIGURE_SYSCONFDIR)/apache/2.4/mods-enabled/php55.conf \
+link path=$(SYSCONFDIR)/apache/2.4/mods-enabled/php55.conf \
     target=../mods-available/php55.conf preserve=true

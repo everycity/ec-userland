@@ -22,7 +22,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-file imagick.ini path=$(CONFIGURE_SYSCONFDIR)/php/5.4/conf.d/imagick.ini preserve=true
+file imagick.ini path=$(SYSCONFDIR)/php/5.4/conf.d/imagick.ini preserve=true
 
 file path=$(USRDIR)/lib/php/5.4/extensions/$(MACH64)/imagick.so
 file path=$(USRDIR)/lib/php/5.4/extensions/imagick.so

@@ -24,4 +24,4 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 file path=$(USRDIR)/lib/php/5.4/extensions/$(MACH64)/mailparse.so
 file path=$(USRDIR)/lib/php/5.4/extensions/mailparse.so
-file mailparse.ini path=$(CONFIGURE_SYSCONFDIR)/php/5.4/conf.d/mailparse.ini preserve=true
+file mailparse.ini path=$(SYSCONFDIR)/php/5.4/conf.d/mailparse.ini preserve=true
