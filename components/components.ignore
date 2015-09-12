@@ -22,7 +22,6 @@
 /^mariadb100$/d
 /^xapian\/bindings-php54$/d
 # in progress
-/^automake-112$/d
 /^clusterssh$/d
 /^ffmpeg08$/d
 /^gcc47$/d
