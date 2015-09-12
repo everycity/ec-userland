@@ -32,7 +32,6 @@
 /^nodejs06$/d
 /^p5-X11-Protocol$/d
 /^pdftk$/d
-/^perl_modules\/net-http$/d
 /^perl_modules\/net-ssleay$/d
 /^perl_modules\/uri$/d
 /^perl_modules\/xml-simple$/d
