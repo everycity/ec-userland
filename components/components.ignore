@@ -30,7 +30,6 @@
 /^phpmyadmin$/d
 /^postgis-pg91$/d
 /^postgis-pg93$/d
-/^postgresql92$/d
 /^python\/mysqldb55$/d
 /^python\/psycopg2-pg91$/d
 /^python\/psycopg2-pg93$/d

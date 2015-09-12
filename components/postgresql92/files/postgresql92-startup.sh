@@ -1,4 +1,4 @@
-#!/usr/xpg4/bin/sh
+#!/usr/bin/sh
 #
 # This file and its contents are supplied under the terms of the
 # Common Development and Distribution License ("CDDL)". You may
