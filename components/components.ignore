@@ -23,11 +23,8 @@
 /^xapian\/bindings-php54$/d
 # in progress
 /^clusterssh$/d
-/^gcc47$/d
 /^make$/d
 /^meta-packages\/build-essential$/d
-/^nodejs04$/d
-/^nodejs06$/d
 /^p5-X11-Protocol$/d
 /^pdftk$/d
 /^phpmyadmin$/d
