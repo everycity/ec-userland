@@ -45,19 +45,19 @@
 	<exec_method
 		type='method'
 		name='start'
-		exec='/ec/var/svc/method/postgresql9.4 start'
+		exec='/var/svc/method/postgresql9.4 start'
 		timeout_seconds='60'/>
 
 	<exec_method
 		type='method'
 		name='stop'
-		exec='/ec/var/svc/method/postgresql9.4 stop'
+		exec='/var/svc/method/postgresql9.4 stop'
 		timeout_seconds='120'/>
 
 	<exec_method
 		type='method'
 		name='refresh'
-		exec='/ec/var/svc/method/postgresql9.4 reload'
+		exec='/var/svc/method/postgresql9.4 reload'
 		timeout_seconds='60'/>
 
 	<instance name='default' enabled='false'>

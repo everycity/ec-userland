@@ -50,7 +50,6 @@
 /^powerdns-recursor$/d
 /^meta-packages\/haproxy-dev$/d
 /^ca-certificates$/d
-/^postgresql94$/d
 /^openvpn$/d
 /^tomcat8$/d
 /^logstash-forwarder$/d
