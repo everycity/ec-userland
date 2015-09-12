@@ -3,9 +3,6 @@
 /^expect$/d
 /^nginx$/d
 /^p5-Tk$/d
-/^php55-ext-suhosin$/d
-/^php54-ext-suhosin$/d
-/^redis$/d
 # failed
 /^cloog-ppl$/d
 /^dbt2$/d
@@ -20,6 +17,9 @@
 /^varnish$/d
 /^wackamole$/d
 /^mariadb100$/d
+/^php55-ext-suhosin$/d
+/^php54-ext-suhosin$/d
+/^redis$/d
 /^xapian\/bindings-php54$/d
 # in progress
 /^clusterssh$/d
@@ -38,7 +38,6 @@
 /^ruby\/ec-mcollective$/d
 /^ruby\/stomp$/d
 /^smartos-ps$/d
-/^subversion-apache24$/d
 /^trousers$/d
 /^webapps\/awstats$/d
 /^webapps\/cacti$/d

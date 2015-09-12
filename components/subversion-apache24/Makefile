@@ -29,34 +29,47 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS+=		-lintl -liconv
+COMPONENT_PREP_ACTION = \
+	( cd $(@D) \
+	&& $(ENV) $(CONFIGURE_ENV) ./autogen.sh )
+
+COMPONENT_PRE_CONFIGURE_ACTION = \
+	$(CLONEY) $(SOURCE_DIR) $(@D)
+
+CPPFLAGS += -D__EXTENSIONS__
+CXXFLAGS += $(CC_PIC)
+CXXFLAGS += -D_REENTRANT -DNDEBUG -DSOLARIS
+CFLAGS.32 += $(CPP_LARGEFILES)
+
+LDFLAGS += $(CC_BITS)
 
 CONFIGURE_OPTIONS+=	--enable-shared --disable-static --with-pic
+CONFIGURE_OPTIONS+=	--disable-experimental-libtool
 CONFIGURE_OPTIONS+=	--disable-mod-activation
-CONFIGURE_OPTIONS.32+=	--with-apr=$(ECPREFIX)/bin/apr-1-config
-CONFIGURE_OPTIONS.64+=	--with-apr=$(ECPREFIX)/bin/$(MACH64)/apr-1-config
-CONFIGURE_OPTIONS.32+=	--with-apr-util=$(ECPREFIX)/bin/apu-1-config
-CONFIGURE_OPTIONS.64+=	--with-apr-util=$(ECPREFIX)/bin/$(MACH64)/apu-1-config
-CONFIGURE_OPTIONS.32+=	--with-swig=$(ECPREFIX)/bin/swig
-CONFIGURE_OPTIONS.64+=	--with-swig=$(ECPREFIX)/bin/$(MACH64)/swig
-CONFIGURE_OPTIONS.32+=	--with-apxs=$(ECPREFIX)/lib/apache/2.4/bin/apxs
-CONFIGURE_OPTIONS.64+=	--with-apxs=$(ECPREFIX)/lib/apache/2.4/bin/$(MACH64)/apxs
-CONFIGURE_OPTIONS.32+=	--with-apache-libexecdir=$(ECPREFIX)/lib/apache/2.4/modules
-CONFIGURE_OPTIONS.64+=	--with-apache-libexecdir=$(ECPREFIX)/lib/apache/2.4/modules/$(MACH64)
+CONFIGURE_OPTIONS.32+=	--with-apr=$(USRDIR)/bin/apr-1-config
+CONFIGURE_OPTIONS.64+=	--with-apr=$(USRDIR)/bin/$(MACH64)/apr-1-config
+CONFIGURE_OPTIONS.32+=	--with-apr-util=$(USRDIR)/bin/apu-1-config
+CONFIGURE_OPTIONS.64+=	--with-apr-util=$(USRDIR)/bin/$(MACH64)/apu-1-config
+CONFIGURE_OPTIONS.32+=	--with-swig=$(USRDIR)/bin/swig
+CONFIGURE_OPTIONS.64+=	--with-swig=$(USRDIR)/bin/$(MACH64)/swig
+CONFIGURE_OPTIONS.32+=	--with-apxs=$(USRDIR)/lib/apache/2.4/bin/apxs
+CONFIGURE_OPTIONS.64+=	--with-apxs=$(USRDIR)/lib/apache/2.4/bin/$(MACH64)/apxs
+CONFIGURE_OPTIONS.32+=	--with-apache-libexecdir=$(USRDIR)/lib/apache/2.4/modules
+CONFIGURE_OPTIONS.64+=	--with-apache-libexecdir=$(USRDIR)/lib/apache/2.4/modules/$(MACH64)
 CONFIGURE_OPTIONS+=	$(CONFIGURE_OPTIONS.$(BITS))
-CONFIGURE_OPTIONS+=	JAVA_HOME="$(ECPREFIX)/java"
+CONFIGURE_OPTIONS+=	JAVA_HOME="$(USRDIR)/java"
 
-COMPONENT_BUILD_ENV+= EXTRA_CPPFLAGS=-D__EXTENSIONS__
+#COMPONENT_BUILD_ENV+= EXTRA_CPPFLAGS=-D__EXTENSIONS__
 
-COMPONENT_PRE_CONFIGURE_ACTION+=	($(CP) -R $(SOURCE_DIR)/* $(@D)/)
-CONFIGURE_SCRIPT=	$(@D)/configure
+#COMPONENT_PRE_CONFIGURE_ACTION+=	($(CP) -R $(SOURCE_DIR)/* $(@D)/)
+#CONFIGURE_SCRIPT=	$(@D)/configure
 
 build:		$(BUILD_32_and_64)
 
 $(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.4/mods-available
-	$(CP) $(COMPONENT_DIR)/files/subversion.conf $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.4/mods-available
-	$(CP) $(COMPONENT_DIR)/files/subversion.load $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.4/mods-available
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/etc/apache/2.4/mods-available
+	$(CP) $(COMPONENT_DIR)/files/subversion.conf $(PROTO_DIR)$(USRDIR)/etc/apache/2.4/mods-available
+	$(CP) $(COMPONENT_DIR)/files/subversion.load $(PROTO_DIR)$(USRDIR)/etc/apache/2.4/mods-available
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed
