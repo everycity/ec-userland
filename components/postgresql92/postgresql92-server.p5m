@@ -41,9 +41,9 @@ link path=$(SYSCONFDIR)/postgres/$(COMPONENT_MJR_VERSION)/postgresql.conf \
     target=../../../var/postgres/$(COMPONENT_MJR_VERSION)/data/postgresql.conf mediator=pg mediator-version=9.2
 
 # var dirs
-dir path=$(SYSCONFDIR)/postgres
-dir path=$(SYSCONFDIR)/postgres/$(COMPONENT_MJR_VERSION)
-dir path=$(SYSCONFDIR)/postgres/$(COMPONENT_MJR_VERSION)/data owner=postgres group=postgres mode=0770
+dir path=$(LOCALSTATEDIR)/postgres
+dir path=$(LOCALSTATEDIR)/postgres/$(COMPONENT_MJR_VERSION)
+dir path=$(LOCALSTATEDIR)/postgres/$(COMPONENT_MJR_VERSION)/data owner=postgres group=postgres mode=0770
 
 # Service manifests
 file files/postgresql92-manifest.xml path=$(SVCMANIFEST)/site/postgresql$(COMPONENT_MJR_VERSION).xml \
