@@ -23,7 +23,6 @@
 /^xapian\/bindings-php54$/d
 # in progress
 /^clusterssh$/d
-/^ffmpeg08$/d
 /^gcc47$/d
 /^make$/d
 /^meta-packages\/build-essential$/d
