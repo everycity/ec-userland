@@ -43,9 +43,9 @@ link path=$(SYSCONFDIR)/postgres/$(COMPONENT_MJR_VERSION)/postgresql.conf \
     target=../../../var/postgres/$(COMPONENT_MJR_VERSION)/data/postgresql.conf mediator=pg mediator-version=9.3
 
 # var dirs
-dir path=var/postgres
-dir path=var/postgres/$(COMPONENT_MJR_VERSION)
-dir path=var/postgres/$(COMPONENT_MJR_VERSION)/data owner=postgres group=postgres mode=0770
+dir path=$(SYSCONFDIR)/postgres
+dir path=$(SYSCONFDIR)/postgres/$(COMPONENT_MJR_VERSION)
+dir path=$(SYSCONFDIR)/postgres/$(COMPONENT_MJR_VERSION)/data owner=postgres group=postgres mode=0770
 
 # Service manifests
 file files/postgresql93-manifest.xml.$(ZTYPE) path=$(SVCMANIFEST)/site/postgresql$(COMPONENT_MJR_VERSION).xml \
