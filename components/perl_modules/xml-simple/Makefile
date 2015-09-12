@@ -43,7 +43,7 @@ include $(WS_TOP)/make-rules/makemaker.mk
 COMPONENT_INSTALL_ENV += INSTALLVENDORMAN3DIR=$(USRSHAREMAN3DIR)
 
 # look in XML::Parser's proto area
-PERL_FLAGS.5.12 = -I$(WS_COMPONENTS)/perl_modules/xml-parser/build/prototype/$(MACH)/usr/lib/perl/vendor_perl/$(PERL_VERSION)/$(PERL_ARCH.5.12)
+#PERL_FLAGS.5.12 = -I$(WS_COMPONENTS)/perl_modules/xml-parser/build/prototype/$(MACH)/usr/lib/perl/vendor_perl/$(PERL_VERSION)/$(PERL_ARCH.5.12)
 PERL_FLAGS.5.18 = -I$(WS_COMPONENTS)/perl_modules/xml-parser/build/prototype/$(MACH)/usr/lib/perl/vendor_perl/$(PERL_VERSION)/$(PERL_ARCH.5.18)
 PERL_FLAGS = $(PERL_FLAGS.$(PERL))
 
@@ -53,20 +53,20 @@ COMPONENT_TEST_TARGETS = test
 $(WS_COMPONENTS)/perl_modules/xml-parser/build/$(PERL_VERSION)/.installed:
 	(cd $(WS_COMPONENTS)/perl_modules/xml-parser ; $(GMAKE) JOBS=$(JOBS) install)
 
-$(BUILD_32):	\
-		$(WS_COMPONENTS)/perl_modules/xml-parser/build/$(PERL_VERSION)/.installed
+#$(BUILD_32):	\
+#		$(WS_COMPONENTS)/perl_modules/xml-parser/build/$(PERL_VERSION)/.installed
 
 $(BUILD_64):	\
 		$(WS_COMPONENTS)/perl_modules/xml-parser/build/$(PERL_VERSION)/.installed
 
-build:		$(BUILD_32_and_64)
+build:		$(BUILD_64)
 
-install:	$(INSTALL_32_and_64)
+install:	$(INSTALL_64)
 
 	#
 	# Must have xml-parser installed for these tests to pass.
 	#
-test:		$(TEST_32_and_64)
+test:		$(TEST_64)
 
 BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
 

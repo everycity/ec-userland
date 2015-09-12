@@ -31,11 +31,11 @@ set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 # perl 5.12
-depend fmri=library/perl-5/xml-simple-512 predicate=runtime/perl-512 \
-    type=conditional
+#depend fmri=library/perl-5/xml-simple-512 predicate=runtime/perl-512 \
+#    type=conditional
 
 # perl 5.18
-depend fmri=library/perl-5/xml-simple-516 predicate=runtime/perl-518 \
+depend fmri=library/perl-5/xml-simple-518 predicate=runtime/perl-518 \
     type=conditional
 
 # No legacy package because this is split from xml-parser
