@@ -30,14 +30,14 @@ CLEAN_PATHS += $(BUILD_DIR)
 build: prep
 
 install: prep
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/var/svc/method
+	$(MKDIR) $(PROTO_DIR)/var/svc/method
 	$(MKDIR) $(PROTO_DIR)/var/svc/manifest/site
 	cat $(SOURCE_DIR)/src/lib/svc/method/zfs-auto-snapshot | \
-	    $(GSED) -e 's%/lib/svc/method%$(ECPREFIX)/var/svc/method%g' \
+	    $(GSED) -e 's%/lib/svc/method%/var/svc/method%g' \
 	        -e 's/NOW=.*/NOW=$$\(env TZ=UTC date +%s\)/' > \
-	    $(PROTO_DIR)$(ECPREFIX)/var/svc/method/zfs-auto-snapshot
-	$(CHMOD) +x $(PROTO_DIR)$(ECPREFIX)/var/svc/method/zfs-auto-snapshot
+	    $(PROTO_DIR)/var/svc/method/zfs-auto-snapshot
+	$(CHMOD) +x $(PROTO_DIR)/var/svc/method/zfs-auto-snapshot
 	
 	cat $(SOURCE_DIR)/src/var/svc/manifest/system/filesystem/auto-snapshot.xml | \
-	    $(GSED) 's%/lib/svc/method%$(ECPREFIX)/var/svc/method%g' > \
+	    $(GSED) 's%/lib/svc/method%/var/svc/method%g' > \
 	    $(PROTO_DIR)/var/svc/manifest/site/zfs-auto-snapshot.xml

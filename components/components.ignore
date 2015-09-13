@@ -40,7 +40,6 @@
 /^trousers$/d
 /^webapps\/awstats$/d
 /^webapps\/cacti$/d
-/^zfs-auto-snapshot$/d
 /^zork-trilogy$/d
 /^zsh$/d
 /^bash-3.0-s10$/d
