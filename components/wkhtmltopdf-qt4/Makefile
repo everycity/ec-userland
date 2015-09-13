@@ -33,13 +33,18 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+CXXFLAGS+=	-D_GLIBCXX_USE_C99_FP_MACROS_DYNAMIC=1
+
 COMPONENT_INSTALL_ENV+=	INSTALL_ROOT=$(PROTO_DIR)
 
-CONFIGURE_OPTIONS=	-prefix $(ECPREFIX)/lib/$(COMPONENT_NAME)
-CONFIGURE_OPTIONS.32=	-bindir $(ECPREFIX)/lib/$(COMPONENT_NAME)/bin
-CONFIGURE_OPTIONS.32+=	-libdir $(ECPREFIX)/lib/$(COMPONENT_NAME)/lib
-CONFIGURE_OPTIONS.32+=	-plugindir $(ECPREFIX)/lib/$(COMPONENT_NAME)/plugins
+CONFIGURE_OPTIONS=	-prefix $(USRDIR)/lib/$(COMPONENT_NAME)
+CONFIGURE_OPTIONS.32=	-bindir $(USRDIR)/lib/$(COMPONENT_NAME)/bin
+CONFIGURE_OPTIONS.32+=	-libdir $(USRDIR)/lib/$(COMPONENT_NAME)/lib
+CONFIGURE_OPTIONS.32+=	-plugindir $(USRDIR)/lib/$(COMPONENT_NAME)/plugins
 CONFIGURE_OPTIONS.32+=	-platform solaris-g++
+CONFIGURE_OPTIONS.64=	-bindir $(USRDIR)/lib/$(COMPONENT_NAME)/bin/$(MACH64)
+CONFIGURE_OPTIONS.64+=	-libdir $(USRDIR)/lib/$(COMPONENT_NAME)/lib/$(MACH64)
+CONFIGURE_OPTIONS.64+=	-platform solaris-g++-64
 CONFIGURE_OPTIONS+=	-confirm-license
 CONFIGURE_OPTIONS+=	-opensource
 CONFIGURE_OPTIONS+=     -largefile

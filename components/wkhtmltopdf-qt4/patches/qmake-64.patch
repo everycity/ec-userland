@@ -1,5 +1,14 @@
---- qt-everywhere-opensource-src-4.7.3/mkspecs/solaris-g++-64/qmake.conf.orig	2011-07-09 17:36:57.778604585 +0100
-+++ qt-everywhere-opensource-src-4.7.3/mkspecs/solaris-g++-64/qmake.conf	2011-07-09 17:38:30.816230249 +0100
+--- qt-everywhere-opensource-src-4.8.6/mkspecs/solaris-g++-64/qmake.conf.~1~	2014-04-10 18:37:12.000000000 +0000
++++ qt-everywhere-opensource-src-4.8.6/mkspecs/solaris-g++-64/qmake.conf	2015-07-15 09:54:32.218195242 +0000
+@@ -36,7 +36,7 @@
+ QMAKE_LEXFLAGS		=
+ QMAKE_YACC		= yacc
+ QMAKE_YACCFLAGS		= -d
+-QMAKE_CFLAGS		= -m64 -D_XOPEN_SOURCE=500 -D__EXTENSIONS__
++QMAKE_CFLAGS		= -m64 -D__EXTENSIONS__
+ QMAKE_CFLAGS_DEPS	= -M
+ QMAKE_CFLAGS_WARN_ON	= -Wall -W
+ QMAKE_CFLAGS_WARN_OFF	= -w
 @@ -59,14 +59,14 @@
  QMAKE_CXXFLAGS_YACC	= $$QMAKE_CFLAGS_YACC
  QMAKE_CXXFLAGS_THREAD	= $$QMAKE_CFLAGS_THREAD

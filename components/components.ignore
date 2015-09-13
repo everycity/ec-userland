@@ -41,7 +41,6 @@
 /^webapps\/awstats$/d
 /^webapps\/cacti$/d
 /^wkhtmltopdf$/d
-/^wkhtmltopdf-qt4$/d
 /^zetaback$/d
 /^zfs-auto-snapshot$/d
 /^zork-trilogy$/d
