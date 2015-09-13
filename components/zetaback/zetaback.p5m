@@ -23,15 +23,9 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license LICENSE license='Zetaback License'
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file $(ECPREFIX)/etc/zetaback.conf.sample path=$(ECPREFIX)/etc/zetaback.conf mode=0644 preserve=true
-file $(ECPREFIX)/etc/zetaback_agent.conf.sample path=$(ECPREFIX)/etc/zetaback_agent.conf mode=0644 preserve=true
-file path=$(ECPREFIX)/bin/zetaback
-file path=$(ECPREFIX)/bin/zetaback_agent
-file path=$(ECPREFIX)/share/man/man1/zetaback.1
-file path=$(ECPREFIX)/share/man/man1/zetaback_agent.1
+file $(USRDIR)/etc/zetaback.conf.sample path=$(USRDIR)/etc/zetaback.conf mode=0644 preserve=true
+file $(USRDIR)/etc/zetaback_agent.conf.sample path=$(USRDIR)/etc/zetaback_agent.conf mode=0644 preserve=true
+file path=$(USRDIR)/bin/zetaback
+file path=$(USRDIR)/bin/zetaback_agent
+file path=$(USRDIR)/share/man/man1/zetaback.1
+file path=$(USRDIR)/share/man/man1/zetaback_agent.1

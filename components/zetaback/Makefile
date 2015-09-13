@@ -28,8 +28,10 @@ include ../../make-rules/ips.mk
 
 COMPONENT_PRE_CONFIGURE_ACTION = $(CLONEY) $(SOURCE_DIR) $(@D)
 
-build:		$(BUILD_32)
+CONFIGURE_BINDIR.64 = $(CONFIGURE_BINDIR.32)
 
-install:	$(INSTALL_32)
+build:		$(BUILD_64)
+
+install:	$(INSTALL_64)
 
 test:		$(NO_TESTS)
