@@ -2,7 +2,6 @@
 /^tcl$/d
 /^expect$/d
 /^nginx$/d
-/^p5-Tk$/d
 # failed
 /^cloog-ppl$/d
 /^dbt2$/d

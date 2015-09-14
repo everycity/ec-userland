@@ -1,0 +1,53 @@
+Index: Tk-804.031/PNG/libpng/scripts/makefile.gcc
+===================================================================
+--- Tk-804.031/PNG/libpng/scripts/makefile.gcc.orig
++++ Tk-804.031/PNG/libpng/scripts/makefile.gcc
+@@ -8,16 +8,16 @@ ZLIBINC = ../zlib
+ ZLIBLIB = ../zlib
+ 
+ # Compiler, linker, lib and other tools
+-CC = gcc
+-LD = $(CC)
++CC = gcc -m64
++LD = $(CC) -m64
+ AR_RC = ar rcs
+ RANLIB = ranlib
+ RM_F = rm -f
+ 
+ CDEBUG = -g -DPNG_DEBUG=5
+ LDDEBUG =
+-CRELEASE = -O2
+-LDRELEASE = -s
++CRELEASE = -O2 -m64
++LDRELEASE = -s -m64
+ #CFLAGS = -Wall $(CDEBUG)
+ CFLAGS = -Wall $(CRELEASE)
+ #LDFLAGS = $(LDDEBUG)
+Index: Tk-804.031/PNG/libpng/scripts/makefile.solaris
+===================================================================
+--- Tk-804.031/PNG/libpng/scripts/makefile.solaris.orig
++++ Tk-804.031/PNG/libpng/scripts/makefile.solaris
+@@ -91,7 +91,7 @@ libpng-config:
+ 	( cat scripts/libpng-config-head.in; \
+ 	echo prefix=\"$(prefix)\"; \
+ 	echo I_opts=\"-I$(INCPATH)/$(LIBNAME)\"; \
+-	echo cppflags=\"-DPNG_USE_PNGGCCRD -DPNG_NO_ASSEMBLER_CODE\"; \
++	echo cppflags=\"-DPNG_NO_ASSEMBLER_CODE\"; \
+ 	echo L_opts=\"-L$(LIBPATH)\"; \
+ 	echo R_opts=\"-R$(LIBPATH)\"; \
+ 	echo libs=\"-lpng12 -lz -lm\"; \
+Index: Tk-804.031/PNG/libpng/pngconf.h
+===================================================================
+--- Tk-804.031/PNG/libpng/pngconf.h.orig
++++ Tk-804.031/PNG/libpng/pngconf.h
+@@ -730,10 +730,6 @@
+      defined(__MMX__)
+ #    define PNG_MMX_CODE_SUPPORTED
+ #  endif
+-#  if !defined(PNG_USE_PNGGCCRD) && !defined(PNG_NO_MMX_CODE) && \
+-     !defined(PNG_USE_PNGVCRD) && defined(__MMX__)
+-#    define PNG_USE_PNGGCCRD
+-#  endif
+ #endif
+ 
+ /* If you are sure that you don't need thread safety and you are compiling

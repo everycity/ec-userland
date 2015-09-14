@@ -5,7 +5,7 @@
        if ($Config{'osname'} eq 'solaris' || $Config{'osname'} eq 'sunos')
  	{
 -	  $xlib = &lX11(0,'/usr/openwin/lib');
-+	  $xlib = &lX11(0,'/ec/lib');
++	  $xlib = &lX11(0,'/ec/lib/64');
  	}
      }
  
@@ -14,7 +14,7 @@
    unless (defined $xlib)
      {
 -      $xlib = &lX11(0,chooseX11(</usr/X11*/lib>),chooseX11(</usr/lib/X11*>),</usr/Xfree*/lib>,'/usr/X386/lib')
-+      $xlib = &lX11(0,chooseX11(</ec/lib>),chooseX11(</ec/lib>),</ec/lib>,'/ec/lib')
++      $xlib = &lX11(0,chooseX11(</ec/lib>),chooseX11(</ec/lib/64>),</ec/lib/64>,'/ec/lib/64/')
      }
  
    #

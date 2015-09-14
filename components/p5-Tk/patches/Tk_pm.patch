@@ -6,8 +6,8 @@
  # This is a workround for Solaris X11 locale handling
 -Preload(DynaLoader::dl_findfile('-L/usr/openwin/lib','-lX11'))
 -  if (NeedPreload() && -d '/usr/openwin/lib');
-+Preload(DynaLoader::dl_findfile('-L/ec/lib','-lX11'))
-+  if (NeedPreload() && -d '/ec/lib');
++Preload(DynaLoader::dl_findfile('-L/ec/lib/64','-lX11'))
++  if (NeedPreload() && -d '/ec/lib/64');
  
  use Tk::Submethods ('option'    =>  [qw(add get clear readfile)],
                      'clipboard' =>  [qw(clear append get)]
