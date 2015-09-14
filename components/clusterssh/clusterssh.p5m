@@ -22,14 +22,8 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license clusterssh.license license="GPLv2"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
-file path=$(ECPREFIX)/bin/cssh
-file path=$(ECPREFIX)/share/man/man1/cssh.1
+file path=$(USRDIR)/bin/cssh
+file path=$(USRDIR)/share/man/man1/cssh.1
 
 depend fmri=library/perl-5/Tk type=require
 depend fmri=library/perl-5/x11/protocol type=require
-depend fmri=runtime/perl-512 type=require

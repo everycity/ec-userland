@@ -25,7 +25,9 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-build:		$(BUILD_32)
+CONFIGURE_BINDIR.64 = $(CONFIGURE_BINDIR.32)
 
-install:	$(INSTALL_32)
+build:		$(BUILD_64)
+
+install:	$(INSTALL_64)
 

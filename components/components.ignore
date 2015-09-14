@@ -21,7 +21,6 @@
 /^redis$/d
 /^xapian\/bindings-php54$/d
 # in progress
-/^clusterssh$/d
 /^make$/d
 /^meta-packages\/build-essential$/d
 /^pdftk$/d
