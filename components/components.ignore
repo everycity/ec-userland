@@ -24,7 +24,6 @@
 /^clusterssh$/d
 /^make$/d
 /^meta-packages\/build-essential$/d
-/^p5-X11-Protocol$/d
 /^pdftk$/d
 /^phpmyadmin$/d
 /^postgis-pg91$/d

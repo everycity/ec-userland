@@ -25,7 +25,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
 include ../../make-rules/makemaker.mk
 
-build:		$(BUILD_32)
+build:		$(BUILD_64)
 
-install:	$(INSTALL_32)
+install:	$(INSTALL_64)
 
