@@ -40,10 +40,10 @@ $(BUILD_DIR)/$(COMPONENT_NAME)/.built:  $(SOURCE_DIR)/.prep
 
 # install the built source into a prototype area
 $(BUILD_DIR)/$(COMPONENT_NAME)/.installed:	$(BUILD_DIR)/$(COMPONENT_NAME)/.built
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin
-	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/etc/logstash-forwarder
-	$(CP) $(@D)/$(COMPONENT_NAME) $(PROTO_DIR)$(ECPREFIX)/bin
-	$(CP) $(@D)/logstash-forwarder.conf.example $(PROTO_DIR)$(ECPREFIX)/etc/logstash-forwarder/logstash-forwarder.conf
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/bin
+	$(MKDIR) $(PROTO_DIR)$(USRDIR)/etc/logstash-forwarder
+	$(CP) $(@D)/$(COMPONENT_NAME) $(PROTO_DIR)$(USRDIR)/bin
+	$(CP) $(@D)/logstash-forwarder.conf.example $(PROTO_DIR)$(USRDIR)/etc/logstash-forwarder/logstash-forwarder.conf
 	$(TOUCH) $@
 
 build:		$(BUILD_DIR)/$(COMPONENT_NAME)/.built

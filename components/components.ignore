@@ -45,5 +45,4 @@
 /^ca-certificates$/d
 /^openvpn$/d
 /^tomcat8$/d
-/^logstash-forwarder$/d
 /^git-repo$/d

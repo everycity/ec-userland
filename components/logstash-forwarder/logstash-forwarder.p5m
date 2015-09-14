@@ -25,9 +25,6 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 file logstash-forwarder.xml path=var/svc/manifest/site/logstash-forwarder.xml \
 	restart_fmri=svc:/system/manifest-import:default
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/etc
-dir path=$(ECPREFIX)/etc/logstash-forwarder
-file path=$(ECPREFIX)/bin/logstash-forwarder
-file path=$(ECPREFIX)/etc/logstash-forwarder/logstash-forwarder.conf
+dir path=$(USRDIR)/etc/logstash-forwarder
+file path=$(USRDIR)/bin/logstash-forwarder
+file path=$(USRDIR)/etc/logstash-forwarder/logstash-forwarder.conf
