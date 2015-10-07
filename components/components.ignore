@@ -21,6 +21,7 @@
 /^redis$/d
 /^xapian\/bindings-php54$/d
 /^mysqlproxy55$/d
+/^subversion-apache24$/d
 # in progress
 /^make$/d
 /^meta-packages\/build-essential$/d
