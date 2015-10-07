@@ -28,12 +28,9 @@ file path=$(USRDIR)/include/wkhtmltox/dllbegin.inc
 file path=$(USRDIR)/include/wkhtmltox/dllend.inc
 file path=$(USRDIR)/include/wkhtmltox/image.h
 file path=$(USRDIR)/include/wkhtmltox/pdf.h
-file path=$(USRDIR)/lib/libwkhtmltox.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libwkhtmltox.so target=libwkhtmltox.so.0.12.2
+link path=$(USRDIR)/lib/libwkhtmltox.so.0 target=libwkhtmltox.so.0.12.2
+link path=$(USRDIR)/lib/libwkhtmltox.so.0.12 target=libwkhtmltox.so.0.12.2
+file path=$(USRDIR)/lib/libwkhtmltox.so.0.12.2
 file path=$(USRDIR)/share/man/man1/wkhtmltoimage.1.gz
 file path=$(USRDIR)/share/man/man1/wkhtmltopdf.1.gz
-link path=$(USRDIR)/lib/libwkhtmltox.so \
-    target=libwkhtmltox.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libwkhtmltox.so.0 \
-    target=libwkhtmltox.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libwkhtmltox.so.0.12 \
-    target=libwkhtmltox.so.$(COMPONENT_VERSION)

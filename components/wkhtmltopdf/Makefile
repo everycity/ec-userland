@@ -16,14 +16,14 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		wkhtmltopdf
 COMPONENT_FMRI=		graphics/wkhtmltopdf
-COMPONENT_VERSION=	0.12.2
+COMPONENT_VERSION=	0.12.2.1
 COMPONENT_LICENSE=	LGPLv3
 COMPONENT_PROJECT_URL=	"http://wkhtmltopdf.org/"
 COMPONENT_SUMMARY=	Simple shell utility to convert html to pdf using the webkit rendering engine, and QT
 COMPONENT_SRC=		wkhtmltox-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	wkhtmltox-$(COMPONENT_VERSION).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:80c26875eccf3c427478c7f9aead60ee3d8e6b4d957daea5d3bb31c66bf60907
-COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
+COMPONENT_ARCHIVE_HASH=	sha256:acb62fa593c537f028883bc827cbb459ed232611d810be109f3942ec8c5aa5c2
+COMPONENT_ARCHIVE_URL=	http://download.gna.org/$(COMPONENT_NAME)/0.12/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk

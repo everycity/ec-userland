@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		zendopcache
 COMPONENT_FMRI=		web/php-54/extension/php-zendopcache
-COMPONENT_VERSION=	7.0.2
+COMPONENT_VERSION=	7.0.5
 COMPONENT_LICENSE=	PHP3.01
 COMPONENT_PROJECT_URL=	"http://pecl.php.net/package/ZendOpcache"
 COMPONENT_SUMMARY=	The Zend OPcache provides faster PHP execution through opcode caching and optimization.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH=	sha256:4aea4f0242dc50a5a68e7a170c3c537716e5da03b2a7b322349f211c09d90f44
+COMPONENT_ARCHIVE_HASH=	sha256:c8e4a23bcc78e6280f41b5020eac4825a810d77684d0ce10608bfa5bece9e9c0
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_PECL)
 
 include ../../make-rules/prep.mk

@@ -9,18 +9,18 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		lighttpd
 COMPONENT_MJR_VERSION=	1.4
-COMPONENT_MNR_VERSION=	35
+COMPONENT_MNR_VERSION=	36
 COMPONENT_VERSION=	$(COMPONENT_MJR_VERSION).$(COMPONENT_MNR_VERSION)
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:62c23de053fd82e1bf64f204cb6c6e44ba3c16c01ff1e09da680d982802ef1cc
+COMPONENT_ARCHIVE_HASH=	sha256:8afc12cd40412cd94679f08725c68e4f5a3d91dfff7abc12d217c4f489b1819b
 COMPONENT_ARCHIVE_URL=	http://download.lighttpd.net/lighttpd/releases-$(COMPONENT_MJR_VERSION).x/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

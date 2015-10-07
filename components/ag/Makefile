@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ag
 COMPONENT_FMRI=         text/ag
-COMPONENT_VERSION=      0.29.1
+COMPONENT_VERSION=      0.31.0
 COMPONENT_LICENSE=      APLv2
 COMPONENT_PROJECT_URL=  "http://geoff.greer.fm/ag/"
 COMPONENT_SUMMARY=	A code-searching tool similar to ack, but faster
 COMPONENT_SRC=		the_silver_searcher-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:d75635ce2413089e816120ac8fdbb376e34f23552127670b7207126d6c9cd80a
+COMPONENT_ARCHIVE_HASH=	sha256:2b556d61a702d04e2638532aba08bccf178523b6a38464a25305563581823271
 COMPONENT_ARCHIVE_URL=	http://geoff.greer.fm/ag/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
