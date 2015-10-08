@@ -20,6 +20,7 @@
 /^php54-ext-suhosin$/d
 /^redis$/d
 /^xapian\/bindings-php54$/d
+/^mysqlproxy55$/d
 # in progress
 /^make$/d
 /^meta-packages\/build-essential$/d
