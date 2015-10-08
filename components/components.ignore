@@ -47,6 +47,7 @@
 /^openvpn$/d
 /^tomcat8$/d
 /^git-repo$/d
+/^lua52$/d
 # new
 /^php56-ext-mysql55$/d
 /^php56-ext-mysql56$/d
