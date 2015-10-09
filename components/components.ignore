@@ -48,7 +48,6 @@
 /^git-repo$/d
 /^lua52$/d
 # new
-/^php56-ext-pdo_mysql55$/d
 /^php56-ext-pdo_mysql56$/d
 /^php56-ext-pgsql91$/d
 /^php56-ext-pgsql93$/d
