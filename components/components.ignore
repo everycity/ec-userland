@@ -47,5 +47,3 @@
 /^tomcat8$/d
 /^git-repo$/d
 /^lua52$/d
-# new
-/^php56-ext-pgsql93$/d
