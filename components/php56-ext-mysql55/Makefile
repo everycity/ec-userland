@@ -43,7 +43,7 @@ CONFIGURE_OPTIONS     +=	--sysconfdir=$(PHP_SYSCONFDIR)
 CONFIGURE_OPTIONS     +=	--datadir=$(PHP_DATADIR)
 CONFIGURE_OPTIONS     +=	--mandir=$(PHP_PREFIX)/share/man
 
-CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris2.10
+CONFIGURE_OPTIONS.64  +=	--build=$(GNU_ARCH_64)
 CONFIGURE_OPTIONS.32  +=	--with-php-config=$(PHP_PREFIX)/bin/php-config
 CONFIGURE_OPTIONS.64  +=	--with-php-config=$(PHP_PREFIX)/bin/$(MACH64)/php-config
 CONFIGURE_OPTIONS     +=	--with-mysql=$(USRDIR)/lib/mysql/5.5
