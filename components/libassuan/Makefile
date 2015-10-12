@@ -19,19 +19,19 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libassuan
 COMPONENT_FMRI=		crypto/library/libassuan
-COMPONENT_VERSION=	2.1.3
+COMPONENT_VERSION=	2.3.0
 COMPONENT_LICENSE=	LGPLv2.1
 COMPONENT_PROJECT_URL=	"https://www.gnupg.org/"
 COMPONENT_SUMMARY=	IPC library used by GnuPG software
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:fa2170b353c928eb59610e0700c34947f1890634ddf7bcf2366c9c88b4f51d1a
+COMPONENT_ARCHIVE_HASH=	sha256:87c999f572047fa22a79ab5de4c8a1a5a91f292561b69573965cac7751320452
 COMPONENT_ARCHIVE_URL=	ftp://ftp.gnupg.org/gcrypt/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

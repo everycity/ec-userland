@@ -19,7 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -45,12 +45,12 @@ file path=$(ECPREFIX)/bin/$(MACH64)/libassuan-config
 file path=$(ECPREFIX)/bin/libassuan-config
 file path=$(ECPREFIX)/include/assuan.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libassuan.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libassuan.so.0.4.3
+file path=$(ECPREFIX)/lib/$(MACH64)/libassuan.so.0.6.0
 file path=$(ECPREFIX)/lib/libassuan.la
-file path=$(ECPREFIX)/lib/libassuan.so.0.4.3
+file path=$(ECPREFIX)/lib/libassuan.so.0.6.0
 file path=$(ECPREFIX)/share/aclocal/libassuan.m4
 file path=$(ECPREFIX)/share/info/assuan.info
-link path=$(ECPREFIX)/lib/$(MACH64)/libassuan.so target=libassuan.so.0.4.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libassuan.so.0 target=libassuan.so.0.4.3
-link path=$(ECPREFIX)/lib/libassuan.so target=libassuan.so.0.4.3
-link path=$(ECPREFIX)/lib/libassuan.so.0 target=libassuan.so.0.4.3
+link path=$(ECPREFIX)/lib/$(MACH64)/libassuan.so target=libassuan.so.0.6.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libassuan.so.0 target=libassuan.so.0.6.0
+link path=$(ECPREFIX)/lib/libassuan.so target=libassuan.so.0.6.0
+link path=$(ECPREFIX)/lib/libassuan.so.0 target=libassuan.so.0.6.0
