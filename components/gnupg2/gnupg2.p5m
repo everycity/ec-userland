@@ -19,7 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -80,6 +80,8 @@ dir path=$(ECPREFIX)/share/locale/ja
 dir path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/nb
 dir path=$(ECPREFIX)/share/locale/nb/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/nl
+dir path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/pl
 dir path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/pt
@@ -214,6 +216,7 @@ file path=$(ECPREFIX)/share/locale/id/LC_MESSAGES/gnupg2.mo
 file path=$(ECPREFIX)/share/locale/it/LC_MESSAGES/gnupg2.mo
 file path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES/gnupg2.mo
 file path=$(ECPREFIX)/share/locale/nb/LC_MESSAGES/gnupg2.mo
+file path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES/gnupg2.mo
 file path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES/gnupg2.mo
 file path=$(ECPREFIX)/share/locale/pt/LC_MESSAGES/gnupg2.mo
 file path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES/gnupg2.mo
