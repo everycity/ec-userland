@@ -19,19 +19,19 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libgcrypt
 COMPONENT_FMRI=		library/libgcrypt
-COMPONENT_VERSION=	1.6.2
+COMPONENT_VERSION=	1.6.4
 COMPONENT_LICENSE=	LGPL
 COMPONENT_PROJECT_URL=	"http://www.gnupg.org"
 COMPONENT_SUMMARY=	GnuPG libgcrypt library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:de084492a6b38cdb27b67eaf749ceba76bf7029f63a9c0c3c1b05c88c9885c4c
+COMPONENT_ARCHIVE_HASH=	sha256:c9bc2c7fe2e5f4ea13b0c74f9d24bcbb1ad889bb39297d8082aebf23f4336026
 COMPONENT_ARCHIVE_URL=	ftp://ftp.gnupg.org/gcrypt/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
