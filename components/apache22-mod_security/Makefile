@@ -36,6 +36,7 @@ CONFIGURE_OPTIONS+=	--with-curl=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--with-libxml=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--with-apr=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--with-apu=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--without-lua
 
 build:		$(BUILD_32_and_64)
 
