@@ -29,14 +29,18 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+LDFLAGS+=	-llua
+
 CONFIGURE_OPTIONS.32+=	--with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/apxs
 CONFIGURE_OPTIONS.64+=	--with-apxs=$(ECPREFIX)/lib/apache/2.2/bin/$(MACH64)/apxs
 CONFIGURE_OPTIONS+=	--with-pcre=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--with-curl=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--with-libxml=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-apr=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-apu=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--without-lua
+CONFIGURE_OPTIONS.32+=	--with-apr=$(ECPREFIX)/bin/apr-1-config
+CONFIGURE_OPTIONS.64+=	--with-apr=$(ECPREFIX)/bin/$(MACH64)/apr-1-config
+CONFIGURE_OPTIONS.32+=	--with-apu=$(ECPREFIX)/bin/apu-1-config
+CONFIGURE_OPTIONS.64+=	--with-apu=$(ECPREFIX)/bin/$(MACH64)/apu-1-config
+CONFIGURE_OPTIONS+=	--with-lua
 
 build:		$(BUILD_32_and_64)
 
