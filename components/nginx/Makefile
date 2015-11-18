@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		nginx
 COMPONENT_FMRI=		web/server/nginx
-COMPONENT_VERSION=	1.8.0
+COMPONENT_VERSION=	1.9.7
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	http://nginx.net/
 COMPONENT_SUMMARY=	Nginx Webserver
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:23cca1239990c818d8f6da118320c4979aadf5386deda691b1b7c2c96b9df3d5
+COMPONENT_ARCHIVE_HASH=	sha256:794bd217affdfce1c6263d9199c3961f387a2df9d57dcb42876faaf41c1748d5
 COMPONENT_ARCHIVE_URL=	http://nginx.org/download/$(COMPONENT_ARCHIVE)
 
 MOD_WSGI_HG_TAG=		6975f0ec7eeb
@@ -42,7 +42,7 @@ COMPONENT_PREP_ACTION = cd $(@D); \
 CONFIGURE_OPTIONS  = --prefix=$(ECPREFIX)
 CONFIGURE_OPTIONS.32 = --sbin-path=$(ECPREFIX)/bin/nginx
 CONFIGURE_OPTIONS.64 = --sbin-path=$(ECPREFIX)/bin/$(MACH64)/nginx
-CONFIGURE_OPTIONS += --with-ld-opt=$(LD_BITS)
+CONFIGURE_OPTIONS += --with-ld-opt="$(LD_BITS) -llua"
 CONFIGURE_OPTIONS += --conf-path=$(ECPREFIX)/etc/nginx/nginx.conf
 CONFIGURE_OPTIONS += --http-log-path=$(ECPREFIX)/var/nginx/logs/access_log
 CONFIGURE_OPTIONS += --error-log-path=$(ECPREFIX)/var/nginx/logs/error_log
@@ -60,7 +60,7 @@ CONFIGURE_OPTIONS.32 += --with-http_perl_module
 CONFIGURE_OPTIONS += --with-http_random_index_module
 CONFIGURE_OPTIONS += --with-http_realip_module
 CONFIGURE_OPTIONS += --with-http_secure_link_module
-CONFIGURE_OPTIONS += --with-http_spdy_module
+CONFIGURE_OPTIONS += --with-http_v2_module
 CONFIGURE_OPTIONS += --with-http_ssl_module
 CONFIGURE_OPTIONS += --with-http_sub_module
 CONFIGURE_OPTIONS += --with-http_stub_status_module
@@ -69,6 +69,10 @@ CONFIGURE_OPTIONS += --with-mail
 CONFIGURE_OPTIONS += --with-mail_ssl_module
 CONFIGURE_OPTIONS += --add-module=mod_wsgi
 CONFIGURE_OPTIONS += --with-threads
+CONFIGURE_OPTIONS += --with-stream
+CONFIGURE_OPTIONS += --with-stream_ssl_module
+CONFIGURE_OPTIONS.32 += --add-module=$(WS_TOP)/components/modsecurity/build/$(MACH32)/nginx/modsecurity
+CONFIGURE_OPTIONS.64 += --add-module=$(WS_TOP)/components/modsecurity/build/$(MACH64)/nginx/modsecurity
 
 CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
 
