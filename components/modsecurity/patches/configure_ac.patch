@@ -1,0 +1,11 @@
+--- modsecurity-2.9.0/configure.ac.orig	2015-09-30 19:29:58.873398894 +0100
++++ modsecurity-2.9.0/configure.ac	2015-09-30 19:30:35.830061451 +0100
+@@ -712,7 +712,7 @@
+ CHECK_SSDEEP()
+ #AC_SEARCH_LIBS([fuzzy_hash_buf], [fuzzy])
+ 
+-CFLAGS="$CFLAGS $APU_CFLAGS"
++CFLAGS="$CFLAGS $APR_CFLAGS $APU_CFLAGS"
+ AC_TRY_COMPILE(
+ 	[#include <apr_crypto.h>],
+ 	[

@@ -1,0 +1,10 @@
+--- modsecurity-2.9.0/apache2/Makefile.in.orig	2015-09-30 21:21:10.596998676 +0100
++++ modsecurity-2.9.0/apache2/Makefile.in	2015-09-30 21:22:28.137314038 +0100
+@@ -1200,6 +1200,7 @@
+ @LINUX_FALSE@	for m in $(pkglib_LTLIBRARIES); do \
+ @LINUX_FALSE@	  base=`echo $$m | sed 's/\..*//'`; \
+ @LINUX_FALSE@	  rm -f $(DESTDIR)$(pkglibdir)/$$base.*a; \
++@LINUX_FALSE@	  $(mkdir_p) $(DESTDIR)$(APXS_MODULES); \
+ @LINUX_FALSE@	  cp -p $(DESTDIR)$(pkglibdir)/$$base.so $(DESTDIR)$(APXS_MODULES); \
+ @LINUX_FALSE@	done
+ 
