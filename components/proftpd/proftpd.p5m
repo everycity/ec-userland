@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -81,6 +81,7 @@ file path=$(ECPREFIX)/bin/prxs
 file path=$(ECPREFIX)/etc/proftpd/blacklist.dat
 file path=$(ECPREFIX)/etc/proftpd/dhparams.pem
 file path=$(ECPREFIX)/etc/proftpd/proftpd.conf
+file path=$(ECPREFIX)/include/proftpd/ascii.h
 file path=$(ECPREFIX)/include/proftpd/auth.h
 file path=$(ECPREFIX)/include/proftpd/bindings.h
 file path=$(ECPREFIX)/include/proftpd/buildstamp.h
@@ -105,13 +106,16 @@ file path=$(ECPREFIX)/include/proftpd/fsio.h
 file path=$(ECPREFIX)/include/proftpd/ftp.h
 file path=$(ECPREFIX)/include/proftpd/glibc-glob.h
 file path=$(ECPREFIX)/include/proftpd/help.h
+file path=$(ECPREFIX)/include/proftpd/ident.h
 file path=$(ECPREFIX)/include/proftpd/inet.h
+file path=$(ECPREFIX)/include/proftpd/lastlog.h
 file path=$(ECPREFIX)/include/proftpd/libsupp.h
 file path=$(ECPREFIX)/include/proftpd/log.h
 file path=$(ECPREFIX)/include/proftpd/memcache.h
 file path=$(ECPREFIX)/include/proftpd/mkhome.h
 file path=$(ECPREFIX)/include/proftpd/mod_ctrls.h
 file path=$(ECPREFIX)/include/proftpd/mod_load.h
+file path=$(ECPREFIX)/include/proftpd/mod_log.h
 file path=$(ECPREFIX)/include/proftpd/mod_quotatab.h
 file path=$(ECPREFIX)/include/proftpd/mod_sftp.h
 file path=$(ECPREFIX)/include/proftpd/mod_sql.h
@@ -131,6 +135,7 @@ file path=$(ECPREFIX)/include/proftpd/proctitle.h
 file path=$(ECPREFIX)/include/proftpd/proftpd.h
 file path=$(ECPREFIX)/include/proftpd/regexp.h
 file path=$(ECPREFIX)/include/proftpd/response.h
+file path=$(ECPREFIX)/include/proftpd/rlimit.h
 file path=$(ECPREFIX)/include/proftpd/scoreboard.h
 file path=$(ECPREFIX)/include/proftpd/session.h
 file path=$(ECPREFIX)/include/proftpd/sets.h
@@ -142,6 +147,7 @@ file path=$(ECPREFIX)/include/proftpd/throttle.h
 file path=$(ECPREFIX)/include/proftpd/timers.h
 file path=$(ECPREFIX)/include/proftpd/tpl.h
 file path=$(ECPREFIX)/include/proftpd/trace.h
+file path=$(ECPREFIX)/include/proftpd/utf8.h
 file path=$(ECPREFIX)/include/proftpd/var.h
 file path=$(ECPREFIX)/include/proftpd/version.h
 file path=$(ECPREFIX)/include/proftpd/xferlog.h
@@ -254,6 +260,7 @@ file path=$(ECPREFIX)/share/man/man1/ftpmail.1
 file path=$(ECPREFIX)/share/man/man1/ftpquota.1
 file path=$(ECPREFIX)/share/man/man1/ftptop.1
 file path=$(ECPREFIX)/share/man/man1/ftpwho.1
+file path=$(ECPREFIX)/share/man/man5/proftpd.conf.5
 file path=$(ECPREFIX)/share/man/man5/xferlog.5
 file path=$(ECPREFIX)/share/man/man8/ftpdctl.8
 file path=$(ECPREFIX)/share/man/man8/ftpscrub.8
