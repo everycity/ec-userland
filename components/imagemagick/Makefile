@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ImageMagick
 COMPONENT_FMRI=		multimedia/imagemagick
-COMPONENT_VERSION=	6.8.9-10
-IPS_COMPONENT_VERSION=	6.8.9.10
+COMPONENT_VERSION=	6.9.2-6
+IPS_COMPONENT_VERSION=	6.9.2.6
 COMPONENT_LICENSE=	ImageMagick
 COMPONENT_PROJECT_URL=	http://www.imagemagick.org/
 COMPONENT_SUMMARY=	Convert, Edit, And Compose Images
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:94cb4949d1a5854d28ac886ccea4478c06b6b1cd5da81794a3908e6b9563f0a1
+COMPONENT_ARCHIVE_HASH=	sha256:209ecda34f315cabea52d6575114ad9a0f10571c8424e2bd25d438cce0c8e431
 COMPONENT_ARCHIVE_URL=	ftp://ftp.imagemagick.org/pub/ImageMagick/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -37,6 +37,7 @@ CONFIGURE_OPTIONS+=	--without-modules
 CONFIGURE_OPTIONS.32+=	--with-perl=$(ECPREFIX)/bin/perl
 CONFIGURE_OPTIONS.32+=	--with-perl-options="INSTALLDIRS=vendor"
 CONFIGURE_OPTIONS.64+=	--without-perl
+CONFIGURE_OPTIONS+=	--with-rsvg=yes
 
 # To get the Perl modules built it is necessary to copy the PerlMagick directory
 # to the build directory
