@@ -9,21 +9,22 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gdk-pixbuf
 COMPONENT_FMRI=         library/gdk-pixbuf
-COMPONENT_VERSION=      2.30.3
+COMPONENT_VERSION_MJR=	2.32
+COMPONENT_VERSION=      $(COMPONENT_VERSION_MJR).2
 COMPONENT_LICENSE=      LGPLv2
 COMPONENT_PROJECT_URL=  "https://git.gnome.org/browse/gdk-pixbuf/"
 COMPONENT_SUMMARY=	GDK-Pixbuf is a toolkit for image loading and pixel buffer manipulation
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
-COMPONENT_ARCHIVE_HASH=	sha256:c229c53f59573eab9410b53690a4b9db770312c80a4d84ecd6295aa894574494
-COMPONENT_ARCHIVE_URL=	http://ftp.gnome.org/pub/GNOME/sources/$(COMPONENT_NAME)/2.30/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:d3ab06fc123b13effed4c27c77cebdfad2173ff20628d82c397b7660ae926145
+COMPONENT_ARCHIVE_URL=	http://ftp.gnome.org/pub/GNOME/sources/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

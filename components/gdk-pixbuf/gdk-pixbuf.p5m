@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -136,6 +136,8 @@ dir path=$(ECPREFIX)/share/locale/ja
 dir path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/ka
 dir path=$(ECPREFIX)/share/locale/ka/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/kk
+dir path=$(ECPREFIX)/share/locale/kk/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/km
 dir path=$(ECPREFIX)/share/locale/km/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/kn
@@ -257,6 +259,8 @@ file path=$(ECPREFIX)/bin/gdk-pixbuf-csource
 file path=$(ECPREFIX)/bin/gdk-pixbuf-pixdata
 file path=$(ECPREFIX)/bin/gdk-pixbuf-query-loaders
 file path=$(ECPREFIX)/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-animation.h
+file \
+    path=$(ECPREFIX)/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-autocleanups.h
 file path=$(ECPREFIX)/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-core.h
 file \
     path=$(ECPREFIX)/include/gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf-enum-types.h
@@ -294,10 +298,6 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-jpeg.so
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-pcx.la
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-pcx.so
-file \
     path=$(ECPREFIX)/lib/$(MACH64)/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
@@ -310,10 +310,6 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-qtif.so
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-ras.la
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-ras.so
-file \
     path=$(ECPREFIX)/lib/$(MACH64)/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-tga.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-tga.so
@@ -321,10 +317,6 @@ file \
     path=$(ECPREFIX)/lib/$(MACH64)/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-tiff.la
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-tiff.so
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-wbmp.la
-file \
-    path=$(ECPREFIX)/lib/$(MACH64)/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-wbmp.so
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-xbm.la
 file \
@@ -334,7 +326,7 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-xpm.so
 file path=$(ECPREFIX)/lib/$(MACH64)/libgdk_pixbuf-2.0.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libgdk_pixbuf-2.0.so.0.3000.3
+file path=$(ECPREFIX)/lib/$(MACH64)/libgdk_pixbuf-2.0.so.0.3200.2
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/gdk-pixbuf-2.0.pc
 file path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-ani.la
 file path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-ani.so
@@ -352,8 +344,6 @@ file \
     path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-jpeg.la
 file \
     path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-jpeg.so
-file path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-pcx.la
-file path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-pcx.so
 file path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.la
 file path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
 file path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-pnm.la
@@ -362,24 +352,18 @@ file \
     path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-qtif.la
 file \
     path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-qtif.so
-file path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-ras.la
-file path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-ras.so
 file path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-tga.la
 file path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-tga.so
 file \
     path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-tiff.la
 file \
     path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-tiff.so
-file \
-    path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-wbmp.la
-file \
-    path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-wbmp.so
 file path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-xbm.la
 file path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-xbm.so
 file path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-xpm.la
 file path=$(ECPREFIX)/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-xpm.so
 file path=$(ECPREFIX)/lib/libgdk_pixbuf-2.0.la
-file path=$(ECPREFIX)/lib/libgdk_pixbuf-2.0.so.0.3000.3
+file path=$(ECPREFIX)/lib/libgdk_pixbuf-2.0.so.0.3200.2
 file path=$(ECPREFIX)/lib/pkgconfig/gdk-pixbuf-2.0.pc
 file path=$(ECPREFIX)/share/locale/af/LC_MESSAGES/gdk-pixbuf.mo
 file path=$(ECPREFIX)/share/locale/ang/LC_MESSAGES/gdk-pixbuf.mo
@@ -429,6 +413,7 @@ file path=$(ECPREFIX)/share/locale/is/LC_MESSAGES/gdk-pixbuf.mo
 file path=$(ECPREFIX)/share/locale/it/LC_MESSAGES/gdk-pixbuf.mo
 file path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES/gdk-pixbuf.mo
 file path=$(ECPREFIX)/share/locale/ka/LC_MESSAGES/gdk-pixbuf.mo
+file path=$(ECPREFIX)/share/locale/kk/LC_MESSAGES/gdk-pixbuf.mo
 file path=$(ECPREFIX)/share/locale/km/LC_MESSAGES/gdk-pixbuf.mo
 file path=$(ECPREFIX)/share/locale/kn/LC_MESSAGES/gdk-pixbuf.mo
 file path=$(ECPREFIX)/share/locale/ko/LC_MESSAGES/gdk-pixbuf.mo
@@ -488,10 +473,10 @@ file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/gdk-pixbuf.mo
 file path=$(ECPREFIX)/share/man/man1/gdk-pixbuf-csource.1
 file path=$(ECPREFIX)/share/man/man1/gdk-pixbuf-query-loaders.1
 link path=$(ECPREFIX)/lib/$(MACH64)/libgdk_pixbuf-2.0.so \
-    target=libgdk_pixbuf-2.0.so.0.3000.3
+    target=libgdk_pixbuf-2.0.so.0.3200.2
 link path=$(ECPREFIX)/lib/$(MACH64)/libgdk_pixbuf-2.0.so.0 \
-    target=libgdk_pixbuf-2.0.so.0.3000.3
+    target=libgdk_pixbuf-2.0.so.0.3200.2
 link path=$(ECPREFIX)/lib/libgdk_pixbuf-2.0.so \
-    target=libgdk_pixbuf-2.0.so.0.3000.3
+    target=libgdk_pixbuf-2.0.so.0.3200.2
 link path=$(ECPREFIX)/lib/libgdk_pixbuf-2.0.so.0 \
-    target=libgdk_pixbuf-2.0.so.0.3000.3
+    target=libgdk_pixbuf-2.0.so.0.3200.2
