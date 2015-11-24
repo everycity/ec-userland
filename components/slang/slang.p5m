@@ -9,18 +9,18 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/library/slang@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="S-Lang Library"
-set name=info.upstream_url value="http://www.s-lang.org/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license slang.license license="GPLv2"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
@@ -29,9 +29,11 @@ dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 dir path=$(ECPREFIX)/lib/$(MACH64)/slang
 dir path=$(ECPREFIX)/lib/$(MACH64)/slang/v2
 dir path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules
+dir path=$(ECPREFIX)/lib/pkgconfig
 dir path=$(ECPREFIX)/lib/slang
 dir path=$(ECPREFIX)/lib/slang/v2
 dir path=$(ECPREFIX)/lib/slang/v2/modules
@@ -55,7 +57,10 @@ file path=$(ECPREFIX)/etc/slsh.rc
 file path=$(ECPREFIX)/include/slang.h
 file path=$(ECPREFIX)/include/slcurses.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libslang.so.$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/slang.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/csv-module.so
 file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/fcntl-module.so
+file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/fork-module.so
 file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/iconv-module.so
 file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/pcre-module.so
 file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/png-module.so
@@ -63,10 +68,15 @@ file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/rand-module.so
 file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/select-module.so
 file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/slsmg-module.so
 file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/socket-module.so
+file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/sysconf-module.so
 file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/termios-module.so
 file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/varray-module.so
+file path=$(ECPREFIX)/lib/$(MACH64)/slang/v2/modules/zlib-module.so
 file path=$(ECPREFIX)/lib/libslang.so.$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/lib/pkgconfig/slang.pc
+file path=$(ECPREFIX)/lib/slang/v2/modules/csv-module.so
 file path=$(ECPREFIX)/lib/slang/v2/modules/fcntl-module.so
+file path=$(ECPREFIX)/lib/slang/v2/modules/fork-module.so
 file path=$(ECPREFIX)/lib/slang/v2/modules/iconv-module.so
 file path=$(ECPREFIX)/lib/slang/v2/modules/pcre-module.so
 file path=$(ECPREFIX)/lib/slang/v2/modules/png-module.so
@@ -74,8 +84,10 @@ file path=$(ECPREFIX)/lib/slang/v2/modules/rand-module.so
 file path=$(ECPREFIX)/lib/slang/v2/modules/select-module.so
 file path=$(ECPREFIX)/lib/slang/v2/modules/slsmg-module.so
 file path=$(ECPREFIX)/lib/slang/v2/modules/socket-module.so
+file path=$(ECPREFIX)/lib/slang/v2/modules/sysconf-module.so
 file path=$(ECPREFIX)/lib/slang/v2/modules/termios-module.so
 file path=$(ECPREFIX)/lib/slang/v2/modules/varray-module.so
+file path=$(ECPREFIX)/lib/slang/v2/modules/zlib-module.so
 file path=$(ECPREFIX)/share/doc/slang/v2/COPYING
 file path=$(ECPREFIX)/share/doc/slang/v2/changes.txt
 file path=$(ECPREFIX)/share/doc/slang/v2/cref.txt
@@ -90,11 +102,14 @@ file path=$(ECPREFIX)/share/doc/slsh/html/slshfun-4.html
 file path=$(ECPREFIX)/share/doc/slsh/html/slshfun-5.html
 file path=$(ECPREFIX)/share/doc/slsh/html/slshfun-6.html
 file path=$(ECPREFIX)/share/doc/slsh/html/slshfun-7.html
+file path=$(ECPREFIX)/share/doc/slsh/html/slshfun-8.html
+file path=$(ECPREFIX)/share/doc/slsh/html/slshfun-9.html
 file path=$(ECPREFIX)/share/doc/slsh/html/slshfun.html
 file path=$(ECPREFIX)/share/man/man1/slsh.1
 file path=$(ECPREFIX)/share/slsh/arrayfuns.sl
 file path=$(ECPREFIX)/share/slsh/autoload.sl
 file path=$(ECPREFIX)/share/slsh/cmaps/cool.map
+file path=$(ECPREFIX)/share/slsh/cmaps/coolwarm.map
 file path=$(ECPREFIX)/share/slsh/cmaps/copper.map
 file path=$(ECPREFIX)/share/slsh/cmaps/drywet.map
 file path=$(ECPREFIX)/share/slsh/cmaps/ds9b.map
@@ -117,19 +132,26 @@ file path=$(ECPREFIX)/share/slsh/cmaps/split.map
 file path=$(ECPREFIX)/share/slsh/cmaps/topo.map
 file path=$(ECPREFIX)/share/slsh/cmaps/wysiwyg.map
 file path=$(ECPREFIX)/share/slsh/cmdopt.sl
+file path=$(ECPREFIX)/share/slsh/csv.sl
 file path=$(ECPREFIX)/share/slsh/fcntl.sl
+file path=$(ECPREFIX)/share/slsh/fork.sl
 file path=$(ECPREFIX)/share/slsh/glob.sl
 file path=$(ECPREFIX)/share/slsh/help/arrayfuns.hlp
 file path=$(ECPREFIX)/share/slsh/help/cmdopt.hlp
+file path=$(ECPREFIX)/share/slsh/help/csvfuns.hlp
+file path=$(ECPREFIX)/share/slsh/help/forkfuns.hlp
 file path=$(ECPREFIX)/share/slsh/help/glob.hlp
 file path=$(ECPREFIX)/share/slsh/help/onigfuns.hlp
 file path=$(ECPREFIX)/share/slsh/help/pcrefuns.hlp
 file path=$(ECPREFIX)/share/slsh/help/pngfuns.hlp
 file path=$(ECPREFIX)/share/slsh/help/print.hlp
+file path=$(ECPREFIX)/share/slsh/help/process.hlp
 file path=$(ECPREFIX)/share/slsh/help/profile.hlp
 file path=$(ECPREFIX)/share/slsh/help/randfuns.hlp
 file path=$(ECPREFIX)/share/slsh/help/readascii.hlp
 file path=$(ECPREFIX)/share/slsh/help/require.hlp
+file path=$(ECPREFIX)/share/slsh/help/setfuns.hlp
+file path=$(ECPREFIX)/share/slsh/help/slsmg.hlp
 file path=$(ECPREFIX)/share/slsh/help/sockfuns.hlp
 file path=$(ECPREFIX)/share/slsh/help/structfuns.hlp
 file path=$(ECPREFIX)/share/slsh/iconv.sl
@@ -137,22 +159,27 @@ file path=$(ECPREFIX)/share/slsh/onig.sl
 file path=$(ECPREFIX)/share/slsh/pcre.sl
 file path=$(ECPREFIX)/share/slsh/png.sl
 file path=$(ECPREFIX)/share/slsh/print.sl
+file path=$(ECPREFIX)/share/slsh/process.sl
 file path=$(ECPREFIX)/share/slsh/profile.sl
 file path=$(ECPREFIX)/share/slsh/rand.sl
 file path=$(ECPREFIX)/share/slsh/readascii.sl
 file path=$(ECPREFIX)/share/slsh/require.sl
 file path=$(ECPREFIX)/share/slsh/rline/complete.sl
 file path=$(ECPREFIX)/share/slsh/rline/editfuns.sl
+file path=$(ECPREFIX)/share/slsh/rline/editor.sl
 file path=$(ECPREFIX)/share/slsh/rline/emacskeys.sl
 file path=$(ECPREFIX)/share/slsh/rline/history.sl
+file path=$(ECPREFIX)/share/slsh/rline/histsrch.sl
 file path=$(ECPREFIX)/share/slsh/rline/slrline.rc
 file path=$(ECPREFIX)/share/slsh/rline/vikeys.sl
 file path=$(ECPREFIX)/share/slsh/scripts/jpegsize
 file path=$(ECPREFIX)/share/slsh/scripts/lsrpm
 file path=$(ECPREFIX)/share/slsh/scripts/sldb
 file path=$(ECPREFIX)/share/slsh/scripts/slprof
+file path=$(ECPREFIX)/share/slsh/scripts/slstkchk
 file path=$(ECPREFIX)/share/slsh/scripts/svnsh
 file path=$(ECPREFIX)/share/slsh/select.sl
+file path=$(ECPREFIX)/share/slsh/setfuns.sl
 file path=$(ECPREFIX)/share/slsh/sldb.sl
 file path=$(ECPREFIX)/share/slsh/sldbcore.sl
 file path=$(ECPREFIX)/share/slsh/sldbsock.sl
@@ -162,12 +189,13 @@ file path=$(ECPREFIX)/share/slsh/slsmg.sl
 file path=$(ECPREFIX)/share/slsh/socket.sl
 file path=$(ECPREFIX)/share/slsh/stkcheck.sl
 file path=$(ECPREFIX)/share/slsh/structfuns.sl
+file path=$(ECPREFIX)/share/slsh/sysconf.sl
 file path=$(ECPREFIX)/share/slsh/termios.sl
 file path=$(ECPREFIX)/share/slsh/varray.sl
-link path=$(ECPREFIX)/lib/$(MACH64)/libslang.so \
-    target=libslang.so.$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/share/slsh/zlib.sl
+link path=$(ECPREFIX)/lib/$(MACH64)/libslang.so target=libslang.so.2
 link path=$(ECPREFIX)/lib/$(MACH64)/libslang.so.2 \
     target=libslang.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libslang.so target=libslang.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/libslang.so target=libslang.so.2
 link path=$(ECPREFIX)/lib/libslang.so.2 \
     target=libslang.so.$(COMPONENT_VERSION)

@@ -1,33 +1,29 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
-# CDDL HEADER END
-#
-# Copyright 2011 EveryCity Ltd. All rights reserved.
-#
+
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		slang
-COMPONENT_VERSION=	2.1.4
+COMPONENT_FMRI=		library/slang
+COMPONENT_VERSION=	2.2.4
+COMPONENT_LICENSE=	GPLv2
+COMPONENT_PROJECT_URL=	"http://www.jedsoft.org/slang/"
+COMPONENT_SUMMARY=	S-Lang is a multi-platform library designed to allow a developer to create robust multi-platform software.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:8670420f870f3f5b92e72ec5962aefa52fd546a5
-COMPONENT_ARCHIVE_URL=	ftp://space.mit.edu/pub/davis/slang/v2.1/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:9a8257a9a2a55099af858b13338dc8f3a06dd2069f46f0df2c9c3bb84a01d5db
+COMPONENT_ARCHIVE_URL=	http://www.jedsoft.org/releases/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
@@ -43,7 +39,10 @@ $(BUILD_DIR)/%/.configured:	$(SOURCE_DIR)/.prep
 	(cd $(@D) ; $(ENV) $(CONFIGURE_ENV) $(CONFIG_SHELL) \
 		./configure $(CONFIGURE_OPTIONS))
 	$(TOUCH) $@
+LDFLAGS+=	-lreadline
 
+COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
+CONFIGURE_SCRIPT =	$(@D)/configure
 
 build:		$(BUILD_32_and_64)
 
