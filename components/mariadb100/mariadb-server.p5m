@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -82,7 +82,6 @@ dir path=$(ECPREFIX)/lib/mariadb/10.0/share/hungarian
 dir path=$(ECPREFIX)/lib/mariadb/10.0/share/italian
 dir path=$(ECPREFIX)/lib/mariadb/10.0/share/japanese
 dir path=$(ECPREFIX)/lib/mariadb/10.0/share/korean
-dir path=$(ECPREFIX)/lib/mariadb/10.0/share/mroonga
 dir path=$(ECPREFIX)/lib/mariadb/10.0/share/norwegian
 dir path=$(ECPREFIX)/lib/mariadb/10.0/share/norwegian-ny
 dir path=$(ECPREFIX)/lib/mariadb/10.0/share/polish
@@ -193,7 +192,6 @@ file path=$(ECPREFIX)/lib/mariadb/10.0/plugins/$(MACH64)/ha_connect.so
 file path=$(ECPREFIX)/lib/mariadb/10.0/plugins/$(MACH64)/ha_example.so
 file path=$(ECPREFIX)/lib/mariadb/10.0/plugins/$(MACH64)/ha_federated.so
 file path=$(ECPREFIX)/lib/mariadb/10.0/plugins/$(MACH64)/ha_innodb.so
-file path=$(ECPREFIX)/lib/mariadb/10.0/plugins/$(MACH64)/ha_mroonga.so
 file path=$(ECPREFIX)/lib/mariadb/10.0/plugins/$(MACH64)/ha_sequence.so
 file path=$(ECPREFIX)/lib/mariadb/10.0/plugins/$(MACH64)/ha_sphinx.so
 file path=$(ECPREFIX)/lib/mariadb/10.0/plugins/$(MACH64)/ha_spider.so
@@ -223,7 +221,6 @@ file path=$(ECPREFIX)/lib/mariadb/10.0/plugins/ha_connect.so
 file path=$(ECPREFIX)/lib/mariadb/10.0/plugins/ha_example.so
 file path=$(ECPREFIX)/lib/mariadb/10.0/plugins/ha_federated.so
 file path=$(ECPREFIX)/lib/mariadb/10.0/plugins/ha_innodb.so
-file path=$(ECPREFIX)/lib/mariadb/10.0/plugins/ha_mroonga.so
 file path=$(ECPREFIX)/lib/mariadb/10.0/plugins/ha_sequence.so
 file path=$(ECPREFIX)/lib/mariadb/10.0/plugins/ha_sphinx.so
 file path=$(ECPREFIX)/lib/mariadb/10.0/plugins/ha_spider.so
@@ -284,8 +281,6 @@ file path=$(ECPREFIX)/lib/mariadb/10.0/share/install_spider.sql
 file path=$(ECPREFIX)/lib/mariadb/10.0/share/italian/errmsg.sys
 file path=$(ECPREFIX)/lib/mariadb/10.0/share/japanese/errmsg.sys
 file path=$(ECPREFIX)/lib/mariadb/10.0/share/korean/errmsg.sys
-file path=$(ECPREFIX)/lib/mariadb/10.0/share/mroonga/install.sql
-file path=$(ECPREFIX)/lib/mariadb/10.0/share/mroonga/uninstall.sql
 file path=$(ECPREFIX)/lib/mariadb/10.0/share/mysql_performance_tables.sql
 file path=$(ECPREFIX)/lib/mariadb/10.0/share/mysql_system_tables.sql
 file path=$(ECPREFIX)/lib/mariadb/10.0/share/mysql_system_tables_data.sql
@@ -312,7 +307,6 @@ file $(ECPREFIX)/support-files/my-small.cnf path=$(ECPREFIX)/lib/mariadb/10.0/su
 file $(ECPREFIX)/support-files/mysql-log-rotate path=$(ECPREFIX)/lib/mariadb/10.0/support-files/mysql-log-rotate
 file $(ECPREFIX)/support-files/mysql.server path=$(ECPREFIX)/lib/mariadb/10.0/support-files/mysql.server
 file $(ECPREFIX)/support-files/mysqld_multi.server path=$(ECPREFIX)/lib/mariadb/10.0/support-files/mysqld_multi.server
-file $(ECPREFIX)/support-files/solaris/postinstall-solaris path=$(ECPREFIX)/lib/mariadb/10.0/support-files/solaris/postinstall-solaris
 link path=$(ECPREFIX)/lib/mariadb/10.0/lib/$(MACH64)/libmysqlclient.so target=libmysqlclient.so.18
 link path=$(ECPREFIX)/lib/mariadb/10.0/lib/$(MACH64)/libmysqlclient.so.18 target=libmysqlclient.so.18.0.0
 link path=$(ECPREFIX)/lib/mariadb/10.0/lib/$(MACH64)/libmysqlclient_r.a target=libmysqlclient.a
