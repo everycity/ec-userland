@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -57,13 +57,13 @@ file path=$(ECPREFIX)/lib/$(MACH64)/cairo/libcairo-trace.la
 file path=$(ECPREFIX)/lib/$(MACH64)/cairo/libcairo-trace.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libcairo-gobject.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libcairo-gobject.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libcairo-gobject.so.2.11200.16
+file path=$(ECPREFIX)/lib/$(MACH64)/libcairo-gobject.so.2.11400.4
 file path=$(ECPREFIX)/lib/$(MACH64)/libcairo-script-interpreter.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libcairo-script-interpreter.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libcairo-script-interpreter.so.2.11200.16
+file path=$(ECPREFIX)/lib/$(MACH64)/libcairo-script-interpreter.so.2.11400.4
 file path=$(ECPREFIX)/lib/$(MACH64)/libcairo.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libcairo.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libcairo.so.2.11200.16
+file path=$(ECPREFIX)/lib/$(MACH64)/libcairo.so.2.11400.4
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/cairo-fc.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/cairo-ft.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/cairo-gobject.pc
@@ -81,13 +81,13 @@ file path=$(ECPREFIX)/lib/cairo/libcairo-trace.la
 file path=$(ECPREFIX)/lib/cairo/libcairo-trace.so.0.0.0
 file path=$(ECPREFIX)/lib/libcairo-gobject.a
 file path=$(ECPREFIX)/lib/libcairo-gobject.la
-file path=$(ECPREFIX)/lib/libcairo-gobject.so.2.11200.16
+file path=$(ECPREFIX)/lib/libcairo-gobject.so.2.11400.4
 file path=$(ECPREFIX)/lib/libcairo-script-interpreter.a
 file path=$(ECPREFIX)/lib/libcairo-script-interpreter.la
-file path=$(ECPREFIX)/lib/libcairo-script-interpreter.so.2.11200.16
+file path=$(ECPREFIX)/lib/libcairo-script-interpreter.so.2.11400.4
 file path=$(ECPREFIX)/lib/libcairo.a
 file path=$(ECPREFIX)/lib/libcairo.la
-file path=$(ECPREFIX)/lib/libcairo.so.2.11200.16
+file path=$(ECPREFIX)/lib/libcairo.so.2.11400.4
 file path=$(ECPREFIX)/lib/pkgconfig/cairo-fc.pc
 file path=$(ECPREFIX)/lib/pkgconfig/cairo-ft.pc
 file path=$(ECPREFIX)/lib/pkgconfig/cairo-gobject.pc
@@ -127,6 +127,7 @@ file path=$(ECPREFIX)/share/gtk-doc/html/cairo/cairo-Script-Surfaces.html
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/cairo-Transformations.html
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/cairo-Types.html
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/cairo-User-Fonts.html
+file path=$(ECPREFIX)/share/gtk-doc/html/cairo/cairo-Version-Information.html
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/cairo-Win32-Fonts.html
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/cairo-Win32-Surfaces.html
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/cairo-XCB-Surfaces.html
@@ -149,6 +150,7 @@ file path=$(ECPREFIX)/share/gtk-doc/html/cairo/cairo.devhelp2
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/home.png
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/index-1.10.html
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/index-1.12.html
+file path=$(ECPREFIX)/share/gtk-doc/html/cairo/index-1.14.html
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/index-1.2.html
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/index-1.4.html
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/index-1.6.html
@@ -157,36 +159,38 @@ file path=$(ECPREFIX)/share/gtk-doc/html/cairo/index-all.html
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/index.html
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/index.sgml
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/language-bindings.html
+file path=$(ECPREFIX)/share/gtk-doc/html/cairo/left-insensitive.png
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/left.png
+file path=$(ECPREFIX)/share/gtk-doc/html/cairo/right-insensitive.png
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/right.png
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/style.css
+file path=$(ECPREFIX)/share/gtk-doc/html/cairo/up-insensitive.png
 file path=$(ECPREFIX)/share/gtk-doc/html/cairo/up.png
 link path=$(ECPREFIX)/lib/$(MACH64)/cairo/libcairo-trace.so \
     target=libcairo-trace.so.0.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/cairo/libcairo-trace.so.0 \
     target=libcairo-trace.so.0.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libcairo-gobject.so \
-    target=libcairo-gobject.so.2.11200.16
+    target=libcairo-gobject.so.2.11400.4
 link path=$(ECPREFIX)/lib/$(MACH64)/libcairo-gobject.so.2 \
-    target=libcairo-gobject.so.2.11200.16
+    target=libcairo-gobject.so.2.11400.4
 link path=$(ECPREFIX)/lib/$(MACH64)/libcairo-script-interpreter.so \
-    target=libcairo-script-interpreter.so.2.11200.16
+    target=libcairo-script-interpreter.so.2.11400.4
 link path=$(ECPREFIX)/lib/$(MACH64)/libcairo-script-interpreter.so.2 \
-    target=libcairo-script-interpreter.so.2.11200.16
-link path=$(ECPREFIX)/lib/$(MACH64)/libcairo.so target=libcairo.so.2.11200.16
-link path=$(ECPREFIX)/lib/$(MACH64)/libcairo.so.2 \
-    target=libcairo.so.2.11200.16
+    target=libcairo-script-interpreter.so.2.11400.4
+link path=$(ECPREFIX)/lib/$(MACH64)/libcairo.so target=libcairo.so.2.11400.4
+link path=$(ECPREFIX)/lib/$(MACH64)/libcairo.so.2 target=libcairo.so.2.11400.4
 link path=$(ECPREFIX)/lib/cairo/libcairo-trace.so \
     target=libcairo-trace.so.0.0.0
 link path=$(ECPREFIX)/lib/cairo/libcairo-trace.so.0 \
     target=libcairo-trace.so.0.0.0
 link path=$(ECPREFIX)/lib/libcairo-gobject.so \
-    target=libcairo-gobject.so.2.11200.16
+    target=libcairo-gobject.so.2.11400.4
 link path=$(ECPREFIX)/lib/libcairo-gobject.so.2 \
-    target=libcairo-gobject.so.2.11200.16
+    target=libcairo-gobject.so.2.11400.4
 link path=$(ECPREFIX)/lib/libcairo-script-interpreter.so \
-    target=libcairo-script-interpreter.so.2.11200.16
+    target=libcairo-script-interpreter.so.2.11400.4
 link path=$(ECPREFIX)/lib/libcairo-script-interpreter.so.2 \
-    target=libcairo-script-interpreter.so.2.11200.16
-link path=$(ECPREFIX)/lib/libcairo.so target=libcairo.so.2.11200.16
-link path=$(ECPREFIX)/lib/libcairo.so.2 target=libcairo.so.2.11200.16
+    target=libcairo-script-interpreter.so.2.11400.4
+link path=$(ECPREFIX)/lib/libcairo.so target=libcairo.so.2.11400.4
+link path=$(ECPREFIX)/lib/libcairo.so.2 target=libcairo.so.2.11400.4

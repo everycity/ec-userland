@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		cairo
 COMPONENT_FMRI=		library/cairo
-COMPONENT_VERSION=	1.12.16
+COMPONENT_VERSION=	1.14.4
 COMPONENT_LICENSE=	LGPLv2.1/MPLv1.1
 COMPONENT_PROJECT_URL=	"http://cairographics.org/"
 COMPONENT_SUMMARY=	The Cairo 2D vector graphics library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
-COMPONENT_ARCHIVE_HASH=	sha256:2505959eb3f1de3e1841023b61585bfd35684b9733c7b6a3643f4f4cbde6d846
+COMPONENT_ARCHIVE_HASH=	sha256:f6ec9c7c844db9ec011f0d66b57ef590c45adf55393d1fc249003512522ee716
 COMPONENT_ARCHIVE_URL=	http://cairographics.org/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
