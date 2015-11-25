@@ -31,13 +31,11 @@ include ../../make-rules/ips.mk
 
 PATH=   $(ECPREFIX)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin:/usr/sbin
 
-#CFLAGS+=	-I/ec/include/luajit-2.0
-LDFLAGS+=	-llua-5.1
+LDFLAGS+=	-llua
 
 CONFIGURE_OPTIONS+=	--enable-dtrace
 CONFIGURE_OPTIONS.32+=	--with-mysql=$(ECPREFIX)/lib/mysql/5.5/bin/mysql_config
 CONFIGURE_OPTIONS.64+=	--with-mysql=$(ECPREFIX)/lib/mysql/5.5/bin/$(MACH64)/mysql_config
-#CONFIGURE_OPTIONS+=	--with-lua=lua5.1
 
 build:		$(BUILD_32_and_64)
 
