@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		boost
 COMPONENT_FMRI=		library/boost
-COMPONENT_VERSION=	1.57.0
-COMPONENT_OTHER_VERSION= 1_57_0
+COMPONENT_VERSION=	1.59.0
+COMPONENT_OTHER_VERSION= 1_59_0
 COMPONENT_LICENSE=	Boost Software License v1.0
 COMPONENT_PROJECT_URL=	"http://www.boost.org/"
 COMPONENT_SUMMARY=	Boost C++ Libraries
 COMPONENT_SRC=		$(COMPONENT_NAME)_$(COMPONENT_OTHER_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:910c8c022a33ccec7f088bd65d4f14b466588dda94ba2124e78b8c57db264967
+COMPONENT_ARCHIVE_HASH=	sha256:727a932322d94287b62abb1bd2d41723eec4356a7728909e38adb65ca25241ca
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
