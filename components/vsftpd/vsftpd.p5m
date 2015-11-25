@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -38,6 +38,7 @@ dir path=$(ECPREFIX)/share/empty
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man5
 dir path=$(ECPREFIX)/share/man/man8
+dir path=$(ECPREFIX)/var/log
 file path=$(ECPREFIX)/bin/vsftpd
 file path=$(ECPREFIX)/etc/vsftpd/vsftpd.conf
 file path=$(ECPREFIX)/share/man/man5/vsftpd.conf.5

@@ -9,16 +9,16 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		vsftpd
-COMPONENT_VERSION=	3.0.2
+COMPONENT_VERSION=	3.0.3
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:be46f0e2c5528fe021fafc8dab1ecfea0c1f183063a06977f8537fcd0b195e56
+COMPONENT_ARCHIVE_HASH=	sha256:9d4d2bf6e6e2884852ba4e69e157a2cecd68c5a7635d66a3a8cf8d898c955ef7
 COMPONENT_ARCHIVE_URL=	https://security.appspot.com/downloads/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -42,6 +42,7 @@ $(BUILD_DIR)/.installed:	build
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin
 	$(INSTALL) $(BUILD_DIR_32)/vsftpd $(PROTO_DIR)$(ECPREFIX)/bin/vsftpd
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/etc/$(COMPONENT_NAME)
+	$(TOUCH) $(PROTO_DIR)$(ECPREFIX)/etc/$(COMPONENT_NAME)/user_list
 	$(INSTALL) $(BUILD_DIR_32)/vsftpd.conf $(PROTO_DIR)$(ECPREFIX)/etc/$(COMPONENT_NAME)/vsftpd.conf
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/man/man5
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/share/man/man8
