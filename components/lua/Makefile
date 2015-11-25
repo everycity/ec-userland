@@ -16,15 +16,15 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		lua
 COMPONENT_FMRI=		developer/lua
-COMPONENT_MJR_VERSION=	5.2
-COMPONENT_MNR_VERSION=	4
+COMPONENT_MJR_VERSION=	5.1
+COMPONENT_MNR_VERSION=	5
 COMPONENT_VERSION=	$(COMPONENT_MJR_VERSION).$(COMPONENT_MNR_VERSION)
 COMPONENT_LICENSE=	MIT
 COMPONENT_PROJECT_URL=	"http://www.lua.org/"
 COMPONENT_SUMMARY=	Lua is a powerful, fast, lightweight, embeddable scripting language.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:b9e2e4aad6789b3b63a056d442f7b39f0ecfca3ae0f1fc0ae4e9614401b69f4b
+COMPONENT_ARCHIVE_HASH=	sha256:2640fc56a795f29d28ef15e13c34a47e223960b0240e8cb0a82d9b0738695333
 COMPONENT_ARCHIVE_URL=	http://www.lua.org/ftp/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -41,7 +41,7 @@ build:		$(BUILD_32_and_64)
 
 # Update this list from src/Makefile in the lua source
 TO_BIN= lua luac
-TO_INC= lua.h luaconf.h lualib.h lauxlib.h lua.hpp
+TO_INC= lua.h luaconf.h lualib.h lauxlib.h ../etc/lua.hpp
 TO_MAN= lua.1 luac.1
 # Don't update this line however
 TO_LIB= liblua-$(COMPONENT_MJR_VERSION).so
