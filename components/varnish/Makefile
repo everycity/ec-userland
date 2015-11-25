@@ -15,13 +15,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		varnish
 COMPONENT_FMRI=		web/cache/varnish
-COMPONENT_VERSION=	4.0.3
+COMPONENT_VERSION=	4.1.0
 COMPONENT_LICENSE=	Varnish
 COMPONENT_PROJECT_URL=	"https://www.varnish-cache.org/"
 COMPONENT_SUMMARY=	Varnish Web Application Accelerator
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:94b9a174097f47db2286acd2c35f235e49a2b7a9ddfdbd6eb7aa4da9ae8f8206
+COMPONENT_ARCHIVE_HASH=	sha256:4a6ea08e30b62fbf25f884a65f0d8af42e9cc9d25bf70f45ae4417c4f1c99017
 COMPONENT_ARCHIVE_URL=	http://repo.varnish-cache.org/source/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
