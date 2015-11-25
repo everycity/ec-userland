@@ -99,14 +99,14 @@ file path=$(ECPREFIX)/include/gnutls/x509.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libgnutls-openssl.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libgnutls-openssl.so.27.0.2
 file path=$(ECPREFIX)/lib/$(MACH64)/libgnutls.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libgnutls.so.28.41.5
+file path=$(ECPREFIX)/lib/$(MACH64)/libgnutls.so.28.41.11
 file path=$(ECPREFIX)/lib/$(MACH64)/libgnutlsxx.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libgnutlsxx.so.28.1.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/gnutls.pc
 file path=$(ECPREFIX)/lib/libgnutls-openssl.la
 file path=$(ECPREFIX)/lib/libgnutls-openssl.so.27.0.2
 file path=$(ECPREFIX)/lib/libgnutls.la
-file path=$(ECPREFIX)/lib/libgnutls.so.28.41.5
+file path=$(ECPREFIX)/lib/libgnutls.so.28.41.11
 file path=$(ECPREFIX)/lib/libgnutlsxx.la
 file path=$(ECPREFIX)/lib/libgnutlsxx.so.28.1.0
 file path=$(ECPREFIX)/lib/pkgconfig/gnutls.pc
@@ -1187,9 +1187,9 @@ link path=$(ECPREFIX)/lib/$(MACH64)/libgnutls-openssl.so \
     target=libgnutls-openssl.so.27.0.2
 link path=$(ECPREFIX)/lib/$(MACH64)/libgnutls-openssl.so.27 \
     target=libgnutls-openssl.so.27.0.2
-link path=$(ECPREFIX)/lib/$(MACH64)/libgnutls.so target=libgnutls.so.28.41.5
+link path=$(ECPREFIX)/lib/$(MACH64)/libgnutls.so target=libgnutls.so.28.41.11
 link path=$(ECPREFIX)/lib/$(MACH64)/libgnutls.so.28 \
-    target=libgnutls.so.28.41.5
+    target=libgnutls.so.28.41.11
 link path=$(ECPREFIX)/lib/$(MACH64)/libgnutlsxx.so \
     target=libgnutlsxx.so.28.1.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libgnutlsxx.so.28 \
@@ -1198,7 +1198,7 @@ link path=$(ECPREFIX)/lib/libgnutls-openssl.so \
     target=libgnutls-openssl.so.27.0.2
 link path=$(ECPREFIX)/lib/libgnutls-openssl.so.27 \
     target=libgnutls-openssl.so.27.0.2
-link path=$(ECPREFIX)/lib/libgnutls.so target=libgnutls.so.28.41.5
-link path=$(ECPREFIX)/lib/libgnutls.so.28 target=libgnutls.so.28.41.5
+link path=$(ECPREFIX)/lib/libgnutls.so target=libgnutls.so.28.41.11
+link path=$(ECPREFIX)/lib/libgnutls.so.28 target=libgnutls.so.28.41.11
 link path=$(ECPREFIX)/lib/libgnutlsxx.so target=libgnutlsxx.so.28.1.0
 link path=$(ECPREFIX)/lib/libgnutlsxx.so.28 target=libgnutlsxx.so.28.1.0

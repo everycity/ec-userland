@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gnutls
 COMPONENT_FMRI=         library/security/gnutls
-COMPONENT_VERSION=      3.3.13
+COMPONENT_VERSION=      3.3.19
 COMPONENT_LICENSE=      GPLv3
 COMPONENT_PROJECT_URL=  http://www.gnutls.org/
 COMPONENT_SUMMARY=	A secure communications library implementing the SSL, TLS and DTLS protocols
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
-COMPONENT_ARCHIVE_HASH=	sha256:91bf1ef5c159b7f2176f972184545b287af6507ab55a543f6007d31406b97a99
+COMPONENT_ARCHIVE_HASH=	sha256:888d8779b48f21959b33d4d9ad0b546e5ec3dea20abf0d9bb03869d56b1f44cf
 COMPONENT_ARCHIVE_URL=	ftp://ftp.gnutls.org/gcrypt/gnutls/v3.3/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
