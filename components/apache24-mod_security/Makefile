@@ -9,33 +9,38 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		modsecurity-apache
 COMPONENT_FMRI=		web/server/apache-24/module/apache-security
-COMPONENT_VERSION=	2.8.0
+COMPONENT_VERSION=	2.9.0
 COMPONENT_LICENSE=	Apache
 COMPONENT_PROJECT_URL=	http://www.modsecurity.org/
 COMPONENT_SUMMARY=	mod_security provides in-line security filtering for Apache
-COMPONENT_SRC=		$(COMPONENT_NAME)_$(COMPONENT_VERSION)
+COMPONENT_SRC=		modsecurity-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME)_$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:95de6ec30982e5bde7981929ba89be89488e9f237ee8c4236e064b074bbb6f28
+COMPONENT_ARCHIVE_HASH=	sha256:e2bbf789966c1f80094d88d9085a81bde082b2054f8e38e0db571ca49208f434
 COMPONENT_ARCHIVE_URL=	http://www.modsecurity.org/tarball/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+LDFLAGS+=	-llua
+
 CONFIGURE_OPTIONS.32+=	--with-apxs=$(ECPREFIX)/lib/apache/2.4/bin/apxs
 CONFIGURE_OPTIONS.64+=	--with-apxs=$(ECPREFIX)/lib/apache/2.4/bin/$(MACH64)/apxs
 CONFIGURE_OPTIONS+=	--with-pcre=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--with-curl=$(ECPREFIX)
 CONFIGURE_OPTIONS+=	--with-libxml=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-apr=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--with-apu=$(ECPREFIX)
+CONFIGURE_OPTIONS.32+=	--with-apr=$(ECPREFIX)/bin/apr-1-config
+CONFIGURE_OPTIONS.64+=	--with-apr=$(ECPREFIX)/bin/$(MACH64)/apr-1-config
+CONFIGURE_OPTIONS.32+=	--with-apu=$(ECPREFIX)/bin/apu-1-config
+CONFIGURE_OPTIONS.64+=	--with-apu=$(ECPREFIX)/bin/$(MACH64)/apu-1-config
+CONFIGURE_OPTIONS+=	--with-lua
 
 build:		$(BUILD_32_and_64)
 

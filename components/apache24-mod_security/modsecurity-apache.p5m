@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -21,8 +21,6 @@ set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
-
-depend fmri=developer/lua type=require
 
 dir path=$(ECPREFIX)/var/apache/2.4/run/modsecurity group=webservd user=webservd mode=0750
 dir path=$(ECPREFIX)/var/apache/2.4/run/modsecurity/tmp group=webservd user=webservd mode=0750
