@@ -19,19 +19,19 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gnupg
 COMPONENT_FMRI=		crypto/gnupg
-COMPONENT_VERSION=	1.4.18
+COMPONENT_VERSION=	1.4.19
 COMPONENT_LICENSE=	GPLv3
 COMPONENT_PROJECT_URL=	"http://www.gnupg.org/"
 COMPONENT_SUMMARY=	GnuPG - secure communication and data storage utility
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:b7b5fdda78849955e0cdbc5a085f3a08f8b7fba126c622085debb62def5d6388
+COMPONENT_ARCHIVE_HASH=	sha256:7f09319d044b0f6ee71fe3587bb873be701723ac0952cff5069046a78de8fd86
 COMPONENT_ARCHIVE_URL=	ftp://ftp.gnupg.org/gcrypt/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
