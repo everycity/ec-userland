@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2015 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		goaccess
 COMPONENT_FMRI=         diagnostic/goaccess
-COMPONENT_VERSION=      0.9
+COMPONENT_VERSION=      0.9.6
 COMPONENT_LICENSE=      GPLv2
 COMPONENT_PROJECT_URL=  http://goaccess.io/
 COMPONENT_SUMMARY=	An open source real-time web log analyzer and interactive viewer
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:49d8ec4ca2b2ff2e848f278c6eed4a541082cfbf781540140ca16d58735f27fa
+COMPONENT_ARCHIVE_HASH=	sha256:e848064c8555f95e770aa1c0475c784c094b42e4ae53ff852975f6498d8f649a
 COMPONENT_ARCHIVE_URL=	http://tar.goaccess.io/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
