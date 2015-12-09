@@ -15,14 +15,14 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tomcat
-COMPONENT_VERSION=	8.0.28
+COMPONENT_VERSION=	8.0.30
 COMPONENT_FMRI=         web/java-servlet/tomcat8
 COMPONENT_LICENSE=      Apache v2.0
 COMPONENT_SUMMARY=      Tomcat Servlet/JSP Container
 COMPONENT_PROJECT_URL=	$(PROJECT_APACHE)
 COMPONENT_SRC=		apache-tomcat-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	apache-tomcat-$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:a7a6c092b79fc5a8cffe5916d0e5554254eddcb3c1911ed90696c153b4f13d10
+COMPONENT_ARCHIVE_HASH=	sha256:2fc3dde305e08388a12bd2868063ab6829a1d70acd9affe3a8707bd9679e0059
 COMPONENT_ARCHIVE_URL=	http://mirror.ox.ac.uk/sites/rsync.apache.org/tomcat/tomcat-8/v$(COMPONENT_VERSION)/bin/$(COMPONENT_ARCHIVE)
 #COMPONENT_ARCHIVE_URL=	$(APACHE_ARCHIVE)/tomcat/tomcat-7/v$(COMPONENT_VERSION)/bin/$(COMPONENT_ARCHIVE)
 COMPONENT_JMX_URL=	http://mirror.ox.ac.uk/sites/rsync.apache.org/tomcat/tomcat-8/v$(COMPONENT_VERSION)/bin/extras/catalina-jmx-remote.jar
