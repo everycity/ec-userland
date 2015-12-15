@@ -1,0 +1,20 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2015 EveryCity Ltd. All rights reserved.
+#
+
+set name=pkg.fmri value=pkg:/monitoring/icinga/icinga-common@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Icinga monitoring system"
+
+group gid=454 groupname=icinga
+user gcos-field="Icinga Account" group=icinga uid=454 username=icinga login-shell=/bin/false home-dir=/
+

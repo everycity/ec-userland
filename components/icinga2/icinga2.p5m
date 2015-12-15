@@ -1,0 +1,222 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2015 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+<transform file dir link hardlink path=.*/etc/icinga2/.* -> default user icinga>
+<transform file dir link hardlink path=.*/etc/icinga2/.* -> default group icinga>
+<transform file path=.*/etc/.+ -> default preserve true>
+<transform file path=.*/etc/.+ -> default mode 0644>
+<transform dir path=.*/var/.+/icinga2 -> default user icinga>
+<transform dir path=.*/var/.+/icinga2 -> default group icinga>
+<transform file path=.*/lib/icinga2/sbin/icinga2 -> default mode 0555>
+<transform file path=.+/libdb_ido_mysql.so -> default pkg.depend.bypass-generate .*>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license COPYING license="$(COMPONENT_LICENSE)"
+
+# Dependencies
+depend fmri=pkg:/monitoring/icinga/icinga-common type=require
+
+# SMF stuff
+dir path=$(ECPREFIX)/var
+dir path=$(ECPREFIX)/var/svc
+dir path=$(ECPREFIX)/var/svc/method
+dir path=var
+dir path=var/svc
+dir path=var/svc/manifest
+dir path=var/svc/manifest/site
+file files/icinga2-method.sh path=$(ECPREFIX)/var/svc/method/icinga2 mode=0555
+file files/icinga2-manifest.xml path=var/svc/manifest/site/icinga2.xml \
+    restart_fmri=svc:/system/manifest-import:default
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/bash_completion.d
+dir path=$(ECPREFIX)/etc/icinga2
+dir path=$(ECPREFIX)/etc/icinga2/conf.d
+dir path=$(ECPREFIX)/etc/icinga2/features-available
+dir path=$(ECPREFIX)/etc/icinga2/features-enabled
+dir path=$(ECPREFIX)/etc/icinga2/pki
+dir path=$(ECPREFIX)/etc/icinga2/repository.d
+dir path=$(ECPREFIX)/etc/icinga2/scripts
+dir path=$(ECPREFIX)/etc/icinga2/zones.d
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/icinga2
+dir path=$(ECPREFIX)/lib/icinga2/sbin
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/icinga2
+dir path=$(ECPREFIX)/share/doc/icinga2/markdown
+dir path=$(ECPREFIX)/share/icinga2
+dir path=$(ECPREFIX)/share/icinga2-ido-mysql
+dir path=$(ECPREFIX)/share/icinga2-ido-mysql/schema
+dir path=$(ECPREFIX)/share/icinga2-ido-mysql/schema/upgrade
+dir path=$(ECPREFIX)/share/icinga2/include
+dir path=$(ECPREFIX)/share/icinga2/include/plugins-contrib.d
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man8
+dir path=$(ECPREFIX)/var
+dir path=$(ECPREFIX)/var/cache
+dir path=$(ECPREFIX)/var/cache/icinga2
+dir path=$(ECPREFIX)/var/lib
+dir path=$(ECPREFIX)/var/lib/icinga2
+dir path=$(ECPREFIX)/var/lib/icinga2/api
+dir path=$(ECPREFIX)/var/lib/icinga2/api/log
+dir path=$(ECPREFIX)/var/lib/icinga2/api/repository
+dir path=$(ECPREFIX)/var/lib/icinga2/api/zones
+dir path=$(ECPREFIX)/var/log
+dir path=$(ECPREFIX)/var/log/icinga2
+dir path=$(ECPREFIX)/var/log/icinga2/compat
+dir path=$(ECPREFIX)/var/log/icinga2/compat/archives
+dir path=$(ECPREFIX)/var/log/icinga2/crash
+dir path=$(ECPREFIX)/var/run
+dir path=$(ECPREFIX)/var/run/icinga2
+dir path=$(ECPREFIX)/var/run/icinga2/cmd
+dir path=$(ECPREFIX)/var/spool
+dir path=$(ECPREFIX)/var/spool/icinga2
+dir path=$(ECPREFIX)/var/spool/icinga2/perfdata
+dir path=$(ECPREFIX)/var/spool/icinga2/tmp
+file path=$(ECPREFIX)/bin/icinga2
+file path=$(ECPREFIX)/etc/bash_completion.d/icinga2
+file path=$(ECPREFIX)/etc/icinga2/conf.d/app.conf
+file path=$(ECPREFIX)/etc/icinga2/conf.d/commands.conf
+file path=$(ECPREFIX)/etc/icinga2/conf.d/downtimes.conf
+file path=$(ECPREFIX)/etc/icinga2/conf.d/groups.conf
+file path=$(ECPREFIX)/etc/icinga2/conf.d/hosts.conf
+file path=$(ECPREFIX)/etc/icinga2/conf.d/notifications.conf
+file path=$(ECPREFIX)/etc/icinga2/conf.d/satellite.conf
+file path=$(ECPREFIX)/etc/icinga2/conf.d/services.conf
+file path=$(ECPREFIX)/etc/icinga2/conf.d/templates.conf
+file path=$(ECPREFIX)/etc/icinga2/conf.d/timeperiods.conf
+file path=$(ECPREFIX)/etc/icinga2/conf.d/users.conf
+file path=$(ECPREFIX)/etc/icinga2/constants.conf
+file path=$(ECPREFIX)/etc/icinga2/features-available/api.conf
+file path=$(ECPREFIX)/etc/icinga2/features-available/checker.conf
+file path=$(ECPREFIX)/etc/icinga2/features-available/command.conf
+file path=$(ECPREFIX)/etc/icinga2/features-available/compatlog.conf
+file path=$(ECPREFIX)/etc/icinga2/features-available/debuglog.conf
+file path=$(ECPREFIX)/etc/icinga2/features-available/gelf.conf
+file path=$(ECPREFIX)/etc/icinga2/features-available/graphite.conf
+file path=$(ECPREFIX)/etc/icinga2/features-available/icingastatus.conf
+file path=$(ECPREFIX)/etc/icinga2/features-available/ido-mysql.conf
+file path=$(ECPREFIX)/etc/icinga2/features-available/livestatus.conf
+file path=$(ECPREFIX)/etc/icinga2/features-available/mainlog.conf
+file path=$(ECPREFIX)/etc/icinga2/features-available/notification.conf
+file path=$(ECPREFIX)/etc/icinga2/features-available/opentsdb.conf
+file path=$(ECPREFIX)/etc/icinga2/features-available/perfdata.conf
+file path=$(ECPREFIX)/etc/icinga2/features-available/statusdata.conf
+file path=$(ECPREFIX)/etc/icinga2/features-available/syslog.conf
+file path=$(ECPREFIX)/etc/icinga2/icinga2.conf
+file path=$(ECPREFIX)/etc/icinga2/init.conf
+file path=$(ECPREFIX)/etc/icinga2/repository.d/README
+file path=$(ECPREFIX)/etc/icinga2/scripts/mail-host-notification.sh
+file path=$(ECPREFIX)/etc/icinga2/scripts/mail-service-notification.sh
+file path=$(ECPREFIX)/etc/icinga2/zones.conf
+file path=$(ECPREFIX)/etc/icinga2/zones.d/README
+file path=$(ECPREFIX)/lib/icinga2/libbase.so
+file path=$(ECPREFIX)/lib/icinga2/libchecker.so
+file path=$(ECPREFIX)/lib/icinga2/libcli.so
+file path=$(ECPREFIX)/lib/icinga2/libcompat.so
+file path=$(ECPREFIX)/lib/icinga2/libconfig.so
+file path=$(ECPREFIX)/lib/icinga2/libdb_ido.so
+file path=$(ECPREFIX)/lib/icinga2/libdb_ido_mysql.so
+file path=$(ECPREFIX)/lib/icinga2/libexecvpe.so
+file path=$(ECPREFIX)/lib/icinga2/libicinga.so
+file path=$(ECPREFIX)/lib/icinga2/liblivestatus.so
+file path=$(ECPREFIX)/lib/icinga2/libmethods.so
+file path=$(ECPREFIX)/lib/icinga2/libmmatch.so
+file path=$(ECPREFIX)/lib/icinga2/libnotification.so
+file path=$(ECPREFIX)/lib/icinga2/libperfdata.so
+file path=$(ECPREFIX)/lib/icinga2/libremote.so
+file path=$(ECPREFIX)/lib/icinga2/libsocketpair.so
+file path=$(ECPREFIX)/lib/icinga2/libyajl.so.2.1.0
+file path=$(ECPREFIX)/lib/icinga2/sbin/icinga2
+file path=$(ECPREFIX)/share/doc/icinga2/AUTHORS
+file path=$(ECPREFIX)/share/doc/icinga2/COPYING
+file path=$(ECPREFIX)/share/doc/icinga2/COPYING.Exceptions
+file path=$(ECPREFIX)/share/doc/icinga2/ChangeLog
+file path=$(ECPREFIX)/share/doc/icinga2/NEWS
+file path=$(ECPREFIX)/share/doc/icinga2/README.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/1-about.md
+file \
+    path=$(ECPREFIX)/share/doc/icinga2/markdown/10-monitoring-remote-systems.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/11-icinga2-client.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/12-agent-based-checks.md
+file \
+    path=$(ECPREFIX)/share/doc/icinga2/markdown/13-distributed-monitoring-ha.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/14-addons-plugins.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/15-features.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/16-troubleshooting.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/17-upgrading-icinga-2.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/18-language-reference.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/19-library-reference.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/2-getting-started.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/20-script-debugger.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/21-development.md
+file \
+    path=$(ECPREFIX)/share/doc/icinga2/markdown/22-migrating-from-icinga-1x.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/23-appendix.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/3-monitoring-basics.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/4-configuring-icinga-2.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/5-advanced-topics.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/6-object-types.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/7-icinga-template-library.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/8-cli-commands.md
+file path=$(ECPREFIX)/share/doc/icinga2/markdown/9-icinga2-api.md
+file path=$(ECPREFIX)/share/icinga2-ido-mysql/schema/mysql.sql
+file path=$(ECPREFIX)/share/icinga2-ido-mysql/schema/upgrade/2.0.2.sql
+file path=$(ECPREFIX)/share/icinga2-ido-mysql/schema/upgrade/2.1.0.sql
+file path=$(ECPREFIX)/share/icinga2-ido-mysql/schema/upgrade/2.2.0.sql
+file path=$(ECPREFIX)/share/icinga2-ido-mysql/schema/upgrade/2.3.0.sql
+file path=$(ECPREFIX)/share/icinga2-ido-mysql/schema/upgrade/2.4.0.sql
+file path=$(ECPREFIX)/share/icinga2/include/command-icinga.conf
+file path=$(ECPREFIX)/share/icinga2/include/command-nscp-local.conf
+file path=$(ECPREFIX)/share/icinga2/include/command-plugins-manubulon.conf
+file path=$(ECPREFIX)/share/icinga2/include/command-plugins-windows.conf
+file path=$(ECPREFIX)/share/icinga2/include/command-plugins.conf
+file path=$(ECPREFIX)/share/icinga2/include/command.conf
+file path=$(ECPREFIX)/share/icinga2/include/hangman
+file path=$(ECPREFIX)/share/icinga2/include/itl
+file path=$(ECPREFIX)/share/icinga2/include/manubulon
+file path=$(ECPREFIX)/share/icinga2/include/nscp
+file path=$(ECPREFIX)/share/icinga2/include/plugins
+file path=$(ECPREFIX)/share/icinga2/include/plugins-contrib
+file path=$(ECPREFIX)/share/icinga2/include/plugins-contrib.d/databases.conf
+file path=$(ECPREFIX)/share/icinga2/include/plugins-contrib.d/hardware.conf
+file path=$(ECPREFIX)/share/icinga2/include/plugins-contrib.d/ipmi.conf
+file \
+    path=$(ECPREFIX)/share/icinga2/include/plugins-contrib.d/network-components.conf
+file \
+    path=$(ECPREFIX)/share/icinga2/include/plugins-contrib.d/operating-system.conf
+file \
+    path=$(ECPREFIX)/share/icinga2/include/plugins-contrib.d/virtualization.conf
+file path=$(ECPREFIX)/share/icinga2/include/plugins-contrib.d/vmware.conf
+file path=$(ECPREFIX)/share/icinga2/include/plugins-contrib.d/web.conf
+file path=$(ECPREFIX)/share/icinga2/include/timeperiod.conf
+file path=$(ECPREFIX)/share/icinga2/include/windows-plugins
+file path=$(ECPREFIX)/share/man/man8/icinga2.8
+link path=$(ECPREFIX)/etc/icinga2/features-enabled/checker.conf \
+    target=../features-available/checker.conf
+link path=$(ECPREFIX)/etc/icinga2/features-enabled/mainlog.conf \
+    target=../features-available/mainlog.conf
+link path=$(ECPREFIX)/etc/icinga2/features-enabled/notification.conf \
+    target=../features-available/notification.conf
+link path=$(ECPREFIX)/lib/icinga2/libyajl.so target=libyajl.so.2
+link path=$(ECPREFIX)/lib/icinga2/libyajl.so.2 target=libyajl.so.2.1.0
