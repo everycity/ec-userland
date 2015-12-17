@@ -1,0 +1,68 @@
+Steps to generate updated binary tarball
+========================================
+
+Install pkgsrc
+==============
+release: 2014Q3 - latest release compatible with EC 201311xx images
+architecture: multiarch
+
+URL=https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2014Q3-multiarch.tar.gz 
+
+cd /root && /usr/bin/wget --no-check-certificate $URL && cd / && /usr/bin/rm -rf opt/local && \
+/usr/bin/gzip -dc /root/$(basename $URL) | /usr/bin/tar xvf - && /opt/local/bin/pkgin -y full-upgrade
+
+pkgin -y install \
+coreutils \
+diffutils \
+wget curl mc
+
+
+Icinga2 build
+=============
+
+export PATH=/opt/local/bin:/usr/sbin:/sbin:/bin
+export LD_LIBRARY_PATH=/opt/local/lib
+
+pfexec pkgin -y install \
+  flex \
+  gmake \
+  bison \
+  boost \
+  gcc47 \
+  cmake \
+  wget
+
+VERS=2.4.1
+
+[[ -f icinga2-${VERS}.tar.gz ]] || \
+  wget https://github.com/Icinga/icinga2/archive/v${VERS}.tar.gz -O icinga2-${VERS}.tar.gz
+[[ -d icinga2-${VERS} ]] && rm -rf icinga2-${VERS} 
+tar zxf icinga2-${VERS}.tar.gz
+
+cd icinga2-${VERS}
+
+cmake . \
+-DCMAKE_INSTALL_PREFIX=/ec \
+-DCMAKE_INSTALL_SBINDIR=/ec//bin \
+-DCMAKE_C_COMPILER="/opt/local/bin/gcc" \
+-DCMAKE_CXX_COMPILER="/opt/local/bin/g++" \
+-DCMAKE_C_FLAGS="-m32 -O3  -I/opt/local/include -march=i686 -pthread -DSOLARIS2=11 -D_POSIX_PTHREAD_SEMANTICS" \
+-DCMAKE_CXX_FLAGS="-m32 -O3  -I/opt/local/include -march=i686 -pthread -DSOLARIS2=11 -D_POSIX_PTHREAD_SEMANTICS" \
+-DCMAKE_SHARED_LINKER_FLAGS="-m32 -L/opt/local/lib -R/opt/local/lib -L/ec/lib/icinga2 -R/ec/lib/icinga2 -lumem" \
+-DCMAKE_EXE_LINKER_FLAGS="-m32 -L/opt/local/lib -R/opt/local/lib -L/ec/lib/icinga2 -R/ec/lib/icinga2 -lumem" \
+-DICINGA2_WITH_MYSQL=OFF \
+-DICINGA2_WITH_PGSQL=OFF
+
+gmake -j16
+
+gmake install DESTDIR=/tmp/icinga2-${VERS}-bin
+
+for i in $(ldd $(find /tmp/icinga2-${VERS}-bin -type f -exec file {} \;|grep -i elf|awk -F: '{ print $1 }')|grep "=>.*/opt/local"|awk '{ print $NF }'|sort -u|grep -v icinga2); do
+  cat $i > /tmp/icinga2-${VERS}-bin/ec/lib/icinga2/$(basename $i)
+done
+
+cd /tmp
+tar cvf - icinga2-${VERS}-bin | bzip2 -9 > /tmp/icinga2-${VERS}-bin.tar.bz2
+
+rm -rf /tmp/icinga2-${VERS}-bin
+

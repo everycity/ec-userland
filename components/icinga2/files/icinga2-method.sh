@@ -51,6 +51,8 @@ varprop options
 case "$1" in
   start)
     echo "Starting Icinga2: \c"
+    LD_LIBRARY_PATH=/ec/lib/icinga2
+    export LD_LIBRARY_PATH
     $binary $options
     echo "icinga2."
     ;;

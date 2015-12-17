@@ -1,0 +1,12 @@
+diff -ruN icinga2-2.4.1-bin.orig/ec/bin/icinga2 icinga2-2.4.1-bin/ec/bin/icinga2
+--- icinga2-2.4.1-bin.orig/ec/bin/icinga2	2015-12-16 14:19:18.000000000 +0000
++++ icinga2-2.4.1-bin/ec/bin/icinga2	2015-12-17 09:20:27.721843173 +0000
+@@ -1,4 +1,8 @@
+ #!/bin/sh
++
++LD_LIBRARY_PATH=/ec/lib/icinga2
++export LD_LIBRARY_PATH
++
+ ICINGA2_BIN=/ec/lib/icinga2/sbin/icinga2
+ 
+ if test "x`uname -s`" = "xLinux" -a "x$1" = "xconsole"; then
