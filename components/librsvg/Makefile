@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		librsvg
 COMPONENT_FMRI=         library/librsvg
-COMPONENT_VERSION=      2.40.11
+COMPONENT_VERSION=      2.40.12
 COMPONENT_LICENSE=      LGPLv2
 COMPONENT_PROJECT_URL=  "http://live.gnome.org/LibRsvg"
 COMPONENT_SUMMARY=	librsvg is a library to render SVG files using cairo
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
-COMPONENT_ARCHIVE_HASH=	sha256:611ac0f544debd0c9bf1ef5509c990d218e83dd1d8c83297075c4b29796a2e02
+COMPONENT_ARCHIVE_HASH=	sha256:ffe40c4378bf3899f4d679a475726bab03a127a5bdccddec86404cc329ffb550
 COMPONENT_ARCHIVE_URL=	https://download.gnome.org/sources/$(COMPONENT_NAME)/2.40/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
