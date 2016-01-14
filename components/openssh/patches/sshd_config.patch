@@ -1,8 +1,6 @@
 --- openssh-6.5p1/sshd_config.orig	2014-01-31 16:36:24.133613309 +0000
 +++ openssh-6.5p1/sshd_config	2014-01-31 16:37:44.063297381 +0000
-@@ -1,10 +1,6 @@
--#	$OpenBSD: sshd_config,v 1.93 2014/01/10 05:59:19 djm Exp $
--
+@@ -3,8 +3,6 @@
  # This is the sshd server system-wide configuration file.  See
  # sshd_config(5) for more information.
  
@@ -11,7 +9,7 @@
  # The strategy used for options in the default sshd_config shipped with
  # OpenSSH is to specify options with their default value where
  # possible, but leave them commented.  Uncommented options override the
-@@ -12,7 +8,7 @@
+@@ -12,7 +10,7 @@
  
  #Port 22
  #AddressFamily any
@@ -20,12 +18,3 @@
  #ListenAddress ::
  
  # The default requires explicit activation of protocol 1
-@@ -112,7 +108,7 @@
- #Compression delayed
- #ClientAliveInterval 0
- #ClientAliveCountMax 3
--#UseDNS yes
-+UseDNS no
- #PidFile /var/run/sshd.pid
- #MaxStartups 10:30:100
- #PermitTunnel no
