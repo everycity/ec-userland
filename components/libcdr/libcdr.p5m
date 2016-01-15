@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -49,12 +49,12 @@ file path=$(ECPREFIX)/include/libcdr-0.1/libcdr/CMXDocument.h
 file path=$(ECPREFIX)/include/libcdr-0.1/libcdr/libcdr.h
 file path=$(ECPREFIX)/include/libcdr-0.1/libcdr/libcdr_api.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libcdr-0.1.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libcdr-0.1.so.1.0.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libcdr-0.1.so.1.0.2
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libcdr-0.1.pc
 file path=$(ECPREFIX)/lib/libcdr-0.1.la
-file path=$(ECPREFIX)/lib/libcdr-0.1.so.1.0.1
+file path=$(ECPREFIX)/lib/libcdr-0.1.so.1.0.2
 file path=$(ECPREFIX)/lib/pkgconfig/libcdr-0.1.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libcdr-0.1.so target=libcdr-0.1.so.1.0.1
-link path=$(ECPREFIX)/lib/$(MACH64)/libcdr-0.1.so.1 target=libcdr-0.1.so.1.0.1
-link path=$(ECPREFIX)/lib/libcdr-0.1.so target=libcdr-0.1.so.1.0.1
-link path=$(ECPREFIX)/lib/libcdr-0.1.so.1 target=libcdr-0.1.so.1.0.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libcdr-0.1.so target=libcdr-0.1.so.1.0.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libcdr-0.1.so.1 target=libcdr-0.1.so.1.0.2
+link path=$(ECPREFIX)/lib/libcdr-0.1.so target=libcdr-0.1.so.1.0.2
+link path=$(ECPREFIX)/lib/libcdr-0.1.so.1 target=libcdr-0.1.so.1.0.2
