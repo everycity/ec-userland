@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		node
 COMPONENT_FMRI=		runtime/nodejs
-COMPONENT_VERSION=	0.12.9
+COMPONENT_VERSION=	0.12.10
 COMPONENT_LICENSE=	BSD-like, MIT, Apache
 COMPONENT_PROJECT_URL=	"http://nodejs.org"
 COMPONENT_SUMMARY=	Evented I/O for V8 JavaScript.
 COMPONENT_SRC=		$(COMPONENT_NAME)-v$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:35daad301191e5f8dd7e5d2fbb711d081b82d1837d59837b8ee224c256cfe5e4
+COMPONENT_ARCHIVE_HASH=	sha256:edbd3710512ec7518a3de4cabf9bfee6d12f278eef2e4b53422c7b063f6b976d
 COMPONENT_ARCHIVE_URL=	https://nodejs.org/dist/v$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
