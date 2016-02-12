@@ -17,7 +17,7 @@
 <service_bundle type='manifest' name='icinga2'>
 
 <service
-	name='application/database/icinga2'
+	name='application/monitoring/icinga2'
 	type='service'
 	version='1'>
 
