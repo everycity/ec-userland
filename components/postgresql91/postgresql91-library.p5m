@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -450,6 +450,7 @@ file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/pg_co
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/pg_config_os.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/pg_trace.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/pgstat.h
+file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/pgtar.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/pgtime.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/port.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/port/aix.h
@@ -729,6 +730,7 @@ file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/libpq.
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/libpqwalreceiver.so
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/pgcrypto.so
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/pgxs/config/install-sh
+file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/pgxs/config/missing
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/pgxs/src/Makefile.global
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/pgxs/src/Makefile.port
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/pgxs/src/Makefile.shlib
@@ -779,6 +781,7 @@ file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/libpq.so.5.4
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/libpqwalreceiver.so
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/pgcrypto.so
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/pgxs/config/install-sh
+file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/pgxs/config/missing
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/pgxs/src/Makefile.global
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/pgxs/src/Makefile.port
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/pgxs/src/Makefile.shlib
