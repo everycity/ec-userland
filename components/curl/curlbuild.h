@@ -16,7 +16,7 @@
  *
  * This software is licensed as described in the file COPYING, which
  * you should have received as part of this distribution. The terms
- * are also available at http://curl.haxx.se/docs/copyright.html.
+ * are also available at https://curl.haxx.se/docs/copyright.html.
  *
  * You may opt to use, copy, modify, merge, publish, distribute and/or sell
  * copies of the Software, and permit persons to whom the Software is
@@ -40,7 +40,7 @@
  *
  * If you think that something actually needs to be changed, adjusted
  * or fixed in this file, then, report it on the libcurl development
- * mailing list: http://cool.haxx.se/mailman/listinfo/curl-library/
+ * mailing list: https://cool.haxx.se/mailman/listinfo/curl-library/
  *
  * This header file shall only export symbols which are 'curl' or 'CURL'
  * prefixed, otherwise public name space would be polluted.
@@ -217,7 +217,7 @@ typedef CURL_TYPEOF_CURL_OFF_T curl_off_t;
  *
  * This software is licensed as described in the file COPYING, which
  * you should have received as part of this distribution. The terms
- * are also available at http://curl.haxx.se/docs/copyright.html.
+ * are also available at https://curl.haxx.se/docs/copyright.html.
  *
  * You may opt to use, copy, modify, merge, publish, distribute and/or sell
  * copies of the Software, and permit persons to whom the Software is
@@ -241,7 +241,7 @@ typedef CURL_TYPEOF_CURL_OFF_T curl_off_t;
  *
  * If you think that something actually needs to be changed, adjusted
  * or fixed in this file, then, report it on the libcurl development
- * mailing list: http://cool.haxx.se/mailman/listinfo/curl-library/
+ * mailing list: https://cool.haxx.se/mailman/listinfo/curl-library/
  *
  * This header file shall only export symbols which are 'curl' or 'CURL'
  * prefixed, otherwise public name space would be polluted.
