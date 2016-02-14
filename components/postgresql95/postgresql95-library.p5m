@@ -1090,7 +1090,29 @@ file \
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ja/LC_MESSAGES/psql-9.5.mo
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/ecpg-9.5.mo
 file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/ecpglib6-9.5.mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/initdb-9.5.mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/libpq5-9.5.mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/pg_basebackup-9.5.mo
+file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/pg_config-9.5.mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/pg_controldata-9.5.mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/pg_ctl-9.5.mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/pg_dump-9.5.mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/pg_resetxlog-9.5.mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/pg_rewind-9.5.mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/pgscripts-9.5.mo
+file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/plpgsql-9.5.mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/plpython-9.5.mo
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/psql-9.5.mo
