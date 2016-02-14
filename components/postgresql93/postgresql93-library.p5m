@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -771,6 +771,7 @@ file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/libpq.
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/libpqwalreceiver.so
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/pgcrypto.so
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/pgxs/config/install-sh
+file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/pgxs/config/missing
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/pgxs/src/Makefile.global
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/pgxs/src/Makefile.port
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/pgxs/src/Makefile.shlib
@@ -827,6 +828,7 @@ file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/libpq.so.5.6
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/libpqwalreceiver.so
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/pgcrypto.so
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/pgxs/config/install-sh
+file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/pgxs/config/missing
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/pgxs/src/Makefile.global
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/pgxs/src/Makefile.port
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/pgxs/src/Makefile.shlib
