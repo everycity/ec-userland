@@ -1,0 +1,36 @@
+diff -ruN htop-2.0.0.orig/linux/Battery.c htop-2.0.0/linux/Battery.c
+--- htop-2.0.0.orig/linux/Battery.c	2016-02-02 14:58:45.000000000 +0000
++++ htop-2.0.0/linux/Battery.c	2016-02-12 16:43:20.113222307 +0000
+@@ -44,8 +44,8 @@
+    struct dirent result;
+    struct dirent* dirEntry;
+    while (nBatteries < MAX_BATTERIES) {
+-      int err = readdir_r(batteryDir, &result, &dirEntry);
+-      if (err || !dirEntry)
++      dirEntry = readdir_r(batteryDir, &result);
++      if (!dirEntry)
+          break;
+       char* entryName = dirEntry->d_name;
+       if (strncmp(entryName, "BAT", 3))
+@@ -98,8 +98,8 @@
+    struct dirent result;
+    struct dirent* dirEntry;
+    for (;;) {
+-      int err = readdir_r((DIR *) dir, &result, &dirEntry);
+-      if (err || !dirEntry)
++      dirEntry = readdir_r((DIR *) dir, &result);
++      if (!dirEntry)
+          break;
+ 
+       char* entryName = (char *) dirEntry->d_name;
+@@ -212,8 +212,8 @@
+    struct dirent result;
+    struct dirent* dirEntry;
+    for (;;) {
+-      int err = readdir_r((DIR *) dir, &result, &dirEntry);
+-      if (err || !dirEntry)
++      dirEntry = readdir_r((DIR *) dir, &result);
++      if (!dirEntry)
+          break;
+       char* entryName = (char *) dirEntry->d_name;
+       const char filePath[50];

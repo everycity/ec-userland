@@ -16,14 +16,14 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		htop
 COMPONENT_FMRI=		system/utility/htop
-COMPONENT_VERSION=	1.0.2
+COMPONENT_VERSION=	2.0.0
 COMPONENT_LICENSE=	GPLv2
 COMPONENT_PROJECT_URL=	"http://hisham.hm/htop/"
 COMPONENT_SUMMARY=	An interactive process viewer
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:ee60657b044ece0df096c053060df7abf3cce3a568ab34d260049e6a37ccd8a1
-COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
+COMPONENT_ARCHIVE_HASH=	sha256:d15ca2a0abd6d91d6d17fd685043929cfe7aa91199a9f4b3ebbb370a2c2424b5
+COMPONENT_ARCHIVE_URL=	http://hisham.hm/htop/releases/$(COMPONENT_VERSION)/htop-$(COMPONENT_VERSION).tar.gz
 
 ifeq ($(SOLARIS_VERSION), 2.10)
 PUBLISH_STAMP=
@@ -36,8 +36,10 @@ include ../../make-rules/ips.mk
 COMPONENT_PRE_CONFIGURE_ACTION = $(CLONEY) $(SOURCE_DIR) $(@D)
 
 CONFIGURE_OPTIONS+= CPPFLAGS=-I$(ECPREFIX)/include/ncurses
+CONFIGURE_OPTIONS+= --enable-proc
 CONFIGURE_OPTIONS+= --with-proc=/system/lxproc
 CONFIGURE_OPTIONS+= --enable-unicode
+
 
 build_2.10:
 	@echo "Not available."
