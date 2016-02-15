@@ -16,13 +16,23 @@
 <include ec-drop-common>
 <transform file path=.+/etc/.+ -> default preserve true>
 
-set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.fmri value=pkg:/network/filebeat@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
 set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license LICENSE license="$(COMPONENT_LICENSE)"
 
-# Dependencies
-depend fmri=pkg:/network/filebeat type=require
-depend fmri=pkg:/network/packetbeat type=require
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/filebeat
+dir path=var
+dir path=var/svc
+dir path=var/svc/manifest
+dir path=var/svc/manifest/site
+file path=$(ECPREFIX)/bin/$(MACH64)/filebeat
+file path=$(ECPREFIX)/etc/filebeat/filebeat.yml
+file path=var/svc/manifest/site/filebeat.xml
+link path=$(ECPREFIX)/bin/filebeat target=$(MACH64)/filebeat
