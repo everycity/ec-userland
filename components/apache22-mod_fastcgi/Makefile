@@ -9,17 +9,21 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		mod_fastcgi
-COMPONENT_VERSION=	2.4.6
-COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
+COMPONENT_FMRI=		web/server/apache-22/module/apache-fastcgi
+COMPONENT_VERSION=	2.4.7
+COMPONENT_LICENSE=	FastCGI
+COMPONENT_PROJECT_URL=	"http://www.fastcgi.com/drupal/"
+COMPONENT_SUMMARY=	Apache FastCGI module
+COMPONENT_SRC=		$(COMPONENT_NAME)-SNAP-0811090952
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:a5a887eecc8fe13e4cb1cab4d140188a3d2b5e6f337f8a1cce88ca441ddbe689
-COMPONENT_ARCHIVE_URL=	http://test.fastcgi.com/dist/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:0759ede04552f51f4a2b5f37348030ebf96d82f79dd6e8d14eb384f5866b6130
+COMPONENT_ARCHIVE_URL=	http://www.fastcgi.com/dist/mod_fastcgi-SNAP-0811090952.tar.gz
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
@@ -48,9 +52,15 @@ COMPONENT_PRE_BUILD_ACTION += $(COMPONENT_PRE_BUILD_ACTION.$(BITS))
 
 build:		$(BUILD_32_and_64)
 
-install: build
+$(BUILD_DIR)/.installed:	$(BUILD_32_and_64)
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.2/mods-available
+	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.2/mods-enabled
+	$(CP) fastcgi.load $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.2/mods-available
+	cd $(PROTO_DIR)$(ECPREFIX)/etc/apache/2.2/mods-enabled && $(SYMLINK) ../mods-available/fastcgi.load . 
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
-	$(CP) $(BUILD_DIR_32)/.libs/mod_fastcgi.so \
-	    $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules
-	$(CP) $(BUILD_DIR_64)/.libs/mod_fastcgi.so \
-	    $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
+	$(CP) $(BUILD_DIR_32)/.libs/mod_fastcgi.so $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules
+	$(CP) $(BUILD_DIR_64)/.libs/mod_fastcgi.so $(PROTO_DIR)$(ECPREFIX)/lib/apache/2.2/modules/$(MACH64)
+	$(TOUCH) $@
+
+install:	$(BUILD_DIR)/.installed
+
