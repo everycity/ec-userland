@@ -21,7 +21,7 @@
 # Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
 #
 
-set name=pkg.fmri value=pkg:/library/python-2/m2crypto@0.21.1,$(BUILD_VERSION)
+set name=pkg.fmri value=pkg:/library/python-2/m2crypto@0.23.0,$(BUILD_VERSION)
 set name=pkg.summary value="Python interface for openssl"
 set name=pkg.description value="M2Crypto provides a python interface to the openssl library."
 #set name=info.classification value=org.opensolaris.category.2008:Development/Python
@@ -35,11 +35,11 @@ dir path=ec/lib
 dir path=ec/lib/python2.6
 dir path=ec/lib/python2.6/vendor-packages
 dir path=ec/lib/python2.6/vendor-packages/M2Crypto
-dir path=ec/lib/python2.6/vendor-packages/M2Crypto-0.21.1-py2.6.egg-info
-file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto-0.21.1-py2.6.egg-info/PKG-INFO
-file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto-0.21.1-py2.6.egg-info/SOURCES.txt
-file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto-0.21.1-py2.6.egg-info/dependency_links.txt
-file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto-0.21.1-py2.6.egg-info/top_level.txt
+dir path=ec/lib/python2.6/vendor-packages/M2Crypto-0.23.0-py2.6.egg-info
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto-0.23.0-py2.6.egg-info/PKG-INFO
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto-0.23.0-py2.6.egg-info/SOURCES.txt
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto-0.23.0-py2.6.egg-info/dependency_links.txt
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto-0.23.0-py2.6.egg-info/top_level.txt
 file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/ASN1.py
 file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/AuthCookie.py
 file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/BIO.py

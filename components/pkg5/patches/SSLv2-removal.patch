@@ -1,0 +1,19 @@
+--- /dev/null	2016-03-07 16:37:35.000000000 +0000
++++ pkg-gate/src/patch/M2Crypto/swig-ssl-i.patch	2016-03-07 16:42:11.362768418 +0000
+@@ -0,0 +1,16 @@
++--- SWIG/_ssl.i.orig	2016-03-07 16:37:38.247737845 +0000
+++++ SWIG/_ssl.i	2016-03-07 16:40:53.584755926 +0000
++@@ -51,11 +51,12 @@
++ extern const char *SSL_alert_desc_string(int);
++ %rename(ssl_get_alert_desc_v) SSL_alert_desc_string_long;
++ extern const char *SSL_alert_desc_string_long(int);
++-
+++/*
++ #ifndef OPENSSL_NO_SSL2
++ %rename(sslv2_method) SSLv2_method;
++ extern SSL_METHOD *SSLv2_method(void);
++ #endif
+++*/
++ %rename(sslv3_method) SSLv3_method;
++ extern SSL_METHOD *SSLv3_method(void);
++ %rename(sslv23_method) SSLv23_method;
