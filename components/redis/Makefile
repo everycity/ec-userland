@@ -19,19 +19,19 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		redis
 COMPONENT_FMRI=		database/redis
-COMPONENT_VERSION=	2.8.23
+COMPONENT_VERSION=	2.8.24
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://redis.io/"
 COMPONENT_SUMMARY=	Redis is an open source, BSD licensed, advanced key-value store.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:f3c79778f478a01237035b67edaaa19332e5624dfa849d66815a4328d3e95ace
+COMPONENT_ARCHIVE_HASH=	sha256:6c86ca5291ca7f4e37d9c90511eed67beb6649befe57e2e26307f74adb8630fe
 COMPONENT_ARCHIVE_URL=	http://download.redis.io/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
