@@ -16,15 +16,15 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		openssh
 COMPONENT_FMRI=         security/openssh
-COMPONENT_VERSION=	7.2p1
-IPS_COMPONENT_VERSION=	7.2.1
+COMPONENT_VERSION=	7.2p2
+IPS_COMPONENT_VERSION=	7.2.2
 COMPONENT_LICENSE=	OpenSSH
 COMPONENT_PROJECT_URL=	http://www.openssh.com/
 COMPONENT_SUMMARY=	OpenSSH Secure Shell
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:973cc37b2f3597e4cf599b09e604e79c0fe5d9b6f595a24e91ed0662860b4ac3
-COMPONENT_ARCHIVE_URL=	http://mirror.bytemark.co.uk/pub/OpenBSD/OpenSSH/portable/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:a72781d1a043876a224ff1b0032daa4094d87565a68528759c1c2cab5482548c
+COMPONENT_ARCHIVE_URL=	http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
