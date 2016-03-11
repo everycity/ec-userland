@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		proftpd
 COMPONENT_FMRI=		network/ftp/proftpd
-COMPONENT_VERSION=	1.3.5a
-IPS_COMPONENT_VERSION=	1.3.5.1
+COMPONENT_VERSION=	1.3.5b
+IPS_COMPONENT_VERSION=	1.3.5.2
 COMPONENT_LICENSE=	GPLv2
 COMPONENT_PROJECT_URL=	"http://www.proftpd.org/"
 COMPONENT_SUMMARY=	Highly configurable FTP server software
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:a1f48df8539c414ec56e0cea63dcf4b8e16e606c05f10156f030a4a67fae5696
+COMPONENT_ARCHIVE_HASH=	sha256:afc1789f2478acf88dfdc7d70da90a4fa2786d628218e9574273295d044b4fc8
 COMPONENT_ARCHIVE_URL=	ftp://ftp.proftpd.org/distrib/source/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
