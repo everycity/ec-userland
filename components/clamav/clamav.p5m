@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -69,18 +69,18 @@ file path=$(ECPREFIX)/etc/clamd.conf.sample
 file path=$(ECPREFIX)/etc/freshclam.conf.sample
 file path=$(ECPREFIX)/include/clamav.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libclamav.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.6.1.26
+file path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.7.1.1
 file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so.6.1.26
+file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so.7.1.1
 file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so.6.1.26
+file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so.7.1.1
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libclamav.pc
 file path=$(ECPREFIX)/lib/libclamav.la
-file path=$(ECPREFIX)/lib/libclamav.so.6.1.26
+file path=$(ECPREFIX)/lib/libclamav.so.7.1.1
 file path=$(ECPREFIX)/lib/libclamunrar.la
-file path=$(ECPREFIX)/lib/libclamunrar.so.6.1.26
+file path=$(ECPREFIX)/lib/libclamunrar.so.7.1.1
 file path=$(ECPREFIX)/lib/libclamunrar_iface.la
-file path=$(ECPREFIX)/lib/libclamunrar_iface.so.6.1.26
+file path=$(ECPREFIX)/lib/libclamunrar_iface.so.7.1.1
 file path=$(ECPREFIX)/lib/pkgconfig/libclamav.pc
 file path=$(ECPREFIX)/share/man/man1/clambc.1
 file path=$(ECPREFIX)/share/man/man1/clamconf.1
@@ -95,21 +95,21 @@ file path=$(ECPREFIX)/share/man/man5/clamd.conf.5
 file path=$(ECPREFIX)/share/man/man5/freshclam.conf.5
 file path=$(ECPREFIX)/share/man/man8/clamav-milter.8
 file path=$(ECPREFIX)/share/man/man8/clamd.8
-link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so target=libclamav.so.6.1.26
-link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.6 target=libclamav.so.6.1.26
+link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so target=libclamav.so.7.1.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.7 target=libclamav.so.7.1.1
 link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so \
-    target=libclamunrar.so.6.1.26
-link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so.6 \
-    target=libclamunrar.so.6.1.26
+    target=libclamunrar.so.7.1.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so.7 \
+    target=libclamunrar.so.7.1.1
 link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so \
-    target=libclamunrar_iface.so.6.1.26
-link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so.6 \
-    target=libclamunrar_iface.so.6.1.26
-link path=$(ECPREFIX)/lib/libclamav.so target=libclamav.so.6.1.26
-link path=$(ECPREFIX)/lib/libclamav.so.6 target=libclamav.so.6.1.26
-link path=$(ECPREFIX)/lib/libclamunrar.so target=libclamunrar.so.6.1.26
-link path=$(ECPREFIX)/lib/libclamunrar.so.6 target=libclamunrar.so.6.1.26
+    target=libclamunrar_iface.so.7.1.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so.7 \
+    target=libclamunrar_iface.so.7.1.1
+link path=$(ECPREFIX)/lib/libclamav.so target=libclamav.so.7.1.1
+link path=$(ECPREFIX)/lib/libclamav.so.7 target=libclamav.so.7.1.1
+link path=$(ECPREFIX)/lib/libclamunrar.so target=libclamunrar.so.7.1.1
+link path=$(ECPREFIX)/lib/libclamunrar.so.7 target=libclamunrar.so.7.1.1
 link path=$(ECPREFIX)/lib/libclamunrar_iface.so \
-    target=libclamunrar_iface.so.6.1.26
-link path=$(ECPREFIX)/lib/libclamunrar_iface.so.6 \
-    target=libclamunrar_iface.so.6.1.26
+    target=libclamunrar_iface.so.7.1.1
+link path=$(ECPREFIX)/lib/libclamunrar_iface.so.7 \
+    target=libclamunrar_iface.so.7.1.1
