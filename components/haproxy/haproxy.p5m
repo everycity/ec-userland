@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -26,7 +26,6 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/etc/haproxy mode=0755
 file files/haproxy.cfg path=$(ECPREFIX)/etc/haproxy/haproxy.cfg mode=0644 preserve=true
-file examples/haproxy.cfg path=$(ECPREFIX)/share/doc/haproxy/haproxy.cfg.example
 
 # SMF Service
 dir path=$(ECPREFIX)/var
@@ -45,14 +44,18 @@ dir path=$(ECPREFIX)/share/doc/haproxy
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 file path=$(ECPREFIX)/bin/$(MACH64)/haproxy
-file path=$(ECPREFIX)/bin/$(MACH64)/haproxy-systemd-wrapper
 file path=$(ECPREFIX)/bin/halog
 file path=$(ECPREFIX)/bin/haproxy
-file path=$(ECPREFIX)/bin/haproxy-systemd-wrapper
 file files/haproxy-wrapper path=$(ECPREFIX)/bin/haproxy-wrapper
 file path=$(ECPREFIX)/share/doc/haproxy/architecture.txt
+file path=$(ECPREFIX)/share/doc/haproxy/close-options.txt
 file path=$(ECPREFIX)/share/doc/haproxy/configuration.txt
-file path=$(ECPREFIX)/share/doc/haproxy/haproxy-en.txt
-file path=$(ECPREFIX)/share/doc/haproxy/haproxy-fr.txt
+file path=$(ECPREFIX)/share/doc/haproxy/cookie-options.txt
+file path=$(ECPREFIX)/share/doc/haproxy/intro.txt
+file path=$(ECPREFIX)/share/doc/haproxy/linux-syn-cookies.txt
+file path=$(ECPREFIX)/share/doc/haproxy/lua.txt
+file path=$(ECPREFIX)/share/doc/haproxy/management.txt
+file path=$(ECPREFIX)/share/doc/haproxy/network-namespaces.txt
+file path=$(ECPREFIX)/share/doc/haproxy/proxy-protocol.txt
 file path=$(ECPREFIX)/share/man/man1/haproxy.1
 link path=$(ECPREFIX)/bin/$(MACH64)/haproxy-wrapper target=../haproxy-wrapper
