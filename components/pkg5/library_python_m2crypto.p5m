@@ -76,6 +76,7 @@ file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/SSL/timeout.py
 file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/X509.py
 file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/__init__.py
 file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/__m2crypto.so
+file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/_m2crypto.py
 file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/callback.py
 file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/ftpslib.py
 file NOHASH path=ec/lib/python2.6/vendor-packages/M2Crypto/httpslib.py
