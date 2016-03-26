@@ -24,12 +24,11 @@
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		M2Crypto
-COMPONENT_VERSION=	0.21.1
+COMPONENT_VERSION=	0.23.0
 COMPONENT_PROJECT_URL=	http://chandlerproject.org/Projects/MeTooCrypto/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	\
-    sha256:25b94498505c2d800ee465db0cc1aff097b1615adc3ac042a1c85ceca264fc0a
+COMPONENT_ARCHIVE_HASH=	sha256:1ac3b6eafa5ff7e2a0796675316d7569b28aada45a7ab74042ad089d15a9567f
 COMPONENT_ARCHIVE_URL=	http://pypi.python.org/packages/source/M/M2Crypto/$(COMPONENT_ARCHIVE)
 
 include $(WS_TOP)/make-rules/prep.mk

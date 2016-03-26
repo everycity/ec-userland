@@ -43,6 +43,7 @@ file path=$(USRDIR)/lib/python2.7/vendor-packages/M2Crypto-0.21.1-py2.7.egg-info
 file path=$(USRDIR)/lib/python2.7/vendor-packages/M2Crypto-0.21.1-py2.7.egg-info/PKG-INFO
 file path=$(USRDIR)/lib/python2.7/vendor-packages/M2Crypto/__init__.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/M2Crypto/__m2crypto.so
+file path=$(USRDIR)/lib/python2.7/vendor-packages/M2Crypto/_m2crypto.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/M2Crypto/64/__m2crypto.so
 file path=$(USRDIR)/lib/python2.7/vendor-packages/M2Crypto/ASN1.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/M2Crypto/AuthCookie.py

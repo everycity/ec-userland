@@ -1,0 +1,19 @@
+--- M2Crypto-0.23.0/setup.py.~1~	2016-01-29 00:18:58.000000000 +0000
++++ M2Crypto-0.23.0/setup.py	2016-03-26 21:38:48.432263003 +0000
+@@ -62,7 +62,7 @@
+             self.openssl = 'c:\\pkg'
+         else:
+             self.libraries = ['ssl', 'crypto']
+-            self.openssl = '/usr'
++            self.openssl = '/ec'
+ 
+     def finalize_options(self):
+         '''Overloaded build_ext implementation to append custom openssl
+@@ -89,6 +89,7 @@
+             self.swig_opts.append('-D__%s__' % platform.machine().lower())
+ 
+         self.swig_opts.extend(['-I%s' % i for i in self.include_dirs])
++        self.swig_opts.append('-DOPENSSL_NO_SSL2')
+         self.swig_opts.append('-includeall')
+         self.swig_opts.append('-modern')
+         self.swig_opts.append('-builtin')
