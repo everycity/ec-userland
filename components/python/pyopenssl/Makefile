@@ -36,6 +36,8 @@ include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/setup.py.mk
 include $(WS_TOP)/make-rules/ips.mk
 
+CFLAGS+=	-DOPENSSL_NO_SSL2
+
 COMPONENT_TEST_DIR = $(COMPONENT_SRC)/OpenSSL/test
 # The .so files are under ./OpenSSL/64 not ./64/OpenSSL so the
 # $(PYTHON_VENDOR_PACKAGES) variable for 64bit Python is wrong.
