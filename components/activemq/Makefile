@@ -10,24 +10,40 @@
 
 #
 # Copyright 2011, Andrzej Szeszo
+# Copyright 2016, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		activemq
-COMPONENT_VERSION=	5.5.1
+COMPONENT_FMRI=		service/activemq
+COMPONENT_VERSION=	5.13.2
+COMPONENT_LICENSE=	APLv2
+COMPONENT_LICENSE_FILE=	LICENSE
+COMPONENT_PROJECT_URL=	"http://activemq.apache.org/"
+COMPONENT_SUMMARY=	Apache ActiveMQ messaging provider
 COMPONENT_SRC=		apache-$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-bin.tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:7ffffac52a529ebfe989de05609f3a8a1383ce8e
-COMPONENT_ARCHIVE_URL=	http://mirrors.ukfast.co.uk/sites/ftp.apache.org//activemq/apache-activemq/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:be178babf4a22f8774480ab30705030b944f880e8c133ef2eee324ee90b72f6f
+COMPONENT_ARCHIVE_URL=	http://archive.apache.org/dist/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
 
 CLEAN_PATHS +=	$(BUILD_DIR)
 
-build: prep
+$(BUILD_DIR)/%/.built:  $(SOURCE_DIR)/.prep
+	$(MKDIR) -p $(@D)
+	$(TOUCH) $@
 
-install: build
-	[ -d $(PROTO_DIR)$(ECPREFIX)/var ] || mkdir -p $(PROTO_DIR)$(ECPREFIX)/var
-	[ -h $(PROTO_DIR)$(ECPREFIX)/var/activemq ] || ln -s $(SOURCE_DIR) $(PROTO_DIR)$(ECPREFIX)/var/activemq
+$(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
+	mkdir -p $(PROTO_DIR)$(ECPREFIX)/var/$(COMPONENT_NAME)
+	for i in bin conf data docs examples lib webapps webapps-demo ; \
+		do $(CP) -R $(SOURCE_DIR)/$$i $(PROTO_DIR)$(ECPREFIX)/var/$(COMPONENT_NAME)/ ; done
+	for i in LICENSE NOTICE README.txt activemq-all-5.13.2.jar ; \
+		do $(CP) $(SOURCE_DIR)/$$i $(PROTO_DIR)$(ECPREFIX)/var/$(COMPONENT_NAME)/ ; done
+	$(TOUCH) $@
+
+build:		$(BUILD_32)
+
+install:	$(INSTALL_32)

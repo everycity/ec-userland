@@ -1,36 +1,19 @@
-diff -ruN apache-activemq-5.5.0.orig/bin/activemq apache-activemq-5.5.0/bin/activemq
---- apache-activemq-5.5.0.orig/bin/activemq	2011-03-28 19:39:43.000000000 +0100
-+++ apache-activemq-5.5.0/bin/activemq	2011-06-09 14:11:29.257577118 +0100
-@@ -29,7 +29,7 @@
- 
- # ------------------------------------------------------------------------
- # CONFIGURATION
--ACTIVEMQ_CONFIGS="/etc/default/activemq $HOME/.activemqrc"
-+ACTIVEMQ_CONFIGS="/ec/etc/default/activemq $HOME/.activemqrc"
- 
- # Backup invocation parameters
- COMMANDLINE_ARGS="$@"
-@@ -37,7 +37,7 @@
+--- apache-activemq-5.13.2/bin/activemq.orig	2016-03-27 13:56:06.582311389 +0000
++++ apache-activemq-5.13.2/bin/activemq	2016-03-27 14:08:48.532784871 +0000
+@@ -170,10 +170,10 @@
  # For using instances
  if ( basename $0 | grep "activemq-instance-" > /dev/null);then
-    INST="$(basename $0|sed 's/^activemq-instance-//;s/\.sh$//')"
--   ACTIVEMQ_CONFIGS="/etc/default/activemq-instance-${INST} $HOME/.activemqrc-instance-${INST}"
-+   ACTIVEMQ_CONFIGS="/ec/etc/default/activemq-instance-${INST} $HOME/.activemqrc-instance-${INST}"
-    echo "INFO: Using alternative activemq configuration files: $ACCTIVEMQ_CONFIGS"
+   INST="`basename $0|sed 's/^activemq-instance-//;s/\.sh$//'`"
+-  ACTIVEMQ_CONFIGS="/etc/default/activemq-instance-${INST} $HOME/.activemqrc-instance-${INST}"
++  ACTIVEMQ_CONFIGS="/ec/etc/default/activemq-instance-${INST} $HOME/.activemqrc-instance-${INST}"
+   echo "INFO: Using alternative activemq configuration files: $ACTIVEMQ_CONFIGS"
+ else
+-  ACTIVEMQ_CONFIGS="/etc/default/activemq $HOME/.activemqrc $ACTIVEMQ_HOME/bin/env"
++  ACTIVEMQ_CONFIGS="/ec/etc/default/activemq $HOME/.activemqrc $ACTIVEMQ_HOME/bin/env"
  fi
  
-@@ -50,8 +50,8 @@
- # Active MQ installation dir
- if [ -z "$ACTIVEMQ_HOME" ] ; then
-   # try to find ACTIVEMQ
--  if [ -d /opt/activemq ] ; then
--    ACTIVEMQ_HOME=/opt/activemq
-+  if [ -d /ec/var/activemq ] ; then
-+    ACTIVEMQ_HOME=/ec/var/activemq
-   fi
- 
-   if [ -d "${HOME}/opt/activemq" ] ; then
-@@ -279,10 +279,7 @@
+ # load activemq configuration
+@@ -246,10 +246,7 @@
  
  # Hm, we still do not know the location of the java binary
  if [ ! -x "$JAVACMD" ] ; then
@@ -42,53 +25,19 @@ diff -ruN apache-activemq-5.5.0.orig/bin/activemq apache-activemq-5.5.0/bin/acti
  fi
  # Stop here if no java installation is defined/found
  if [ ! -x "$JAVACMD" ] ; then
-@@ -610,10 +607,10 @@
-                       (see next usage section)
- 
- Configuration of this script:
--    The configuration of this script can be placed on /etc/default/activemq or $HOME/.activemqrc.
-+    The configuration of this script can be placed on /ec/etc/default/activemq or $HOME/.activemqrc.
+@@ -631,7 +628,7 @@
+     Modify $ACTIVEMQ_BASE/bin/env or create a copy of that file on a suitable location.
      To use additional configurations for running multiple instances on the same operating system
      rename or symlink script to a name matching to activemq-instance-<INSTANCENAME>.
 -    This changes the configuration location to /etc/default/activemq-instance-<INSTANCENAME> and
 +    This changes the configuration location to /ec/etc/default/activemq-instance-<INSTANCENAME> and
-     \$HOME/.activemqrc-instance-<INSTANCENAME>. Configuration files in /etc have higher precedence. 
+     \$HOME/.activemqrc-instance-<INSTANCENAME>.
  EOF
-   exit $RET
-diff -ruN apache-activemq-5.5.0.orig/bin/activemq-admin apache-activemq-5.5.0/bin/activemq-admin
---- apache-activemq-5.5.0.orig/bin/activemq-admin	2011-03-28 19:39:43.000000000 +0100
-+++ apache-activemq-5.5.0/bin/activemq-admin	2011-06-09 14:10:57.534853359 +0100
-@@ -17,8 +17,8 @@
- # ------------------------------------------------------------------------
- 
- # load system-wide activemq configuration
--if [ -f "/etc/activemq.conf" ] ; then
--  . /etc/activemq.conf
-+if [ -f "/ec/etc/activemq.conf" ] ; then
-+  . /ec/etc/activemq.conf
- fi
- 
- # provide default values for people who don't use RPMs
-@@ -45,8 +45,8 @@
- 
- if [ -z "$ACTIVEMQ_HOME" ] ; then
-   # try to find ACTIVEMQ
--  if [ -d /opt/activemq ] ; then
--    ACTIVEMQ_HOME=/opt/activemq
-+  if [ -d /ec/var/activemq ] ; then
-+    ACTIVEMQ_HOME=/ec/var/activemq
-   fi
- 
-   if [ -d "${HOME}/opt/activemq" ] ; then
-@@ -99,10 +99,7 @@
-       JAVACMD="$JAVA_HOME/bin/java"
-     fi
-   else
--    JAVACMD=`which java 2> /dev/null `
--    if [ -z "$JAVACMD" ] ; then
--        JAVACMD=java
--    fi
-+    JAVACMD=/ec/bin/java
-   fi
- fi
- 
+   exit 1
+@@ -675,4 +672,4 @@
+   *)
+     invoke_task checknotforrunning
+     exit $?
+-esac
+\ No newline at end of file
++esac
