@@ -10,21 +10,21 @@
 
 #
 # Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ant
 COMPONENT_FMRI=		developer/build/ant
-COMPONENT_VERSION=	1.8.4
+COMPONENT_VERSION=	1.9.6
 COMPONENT_LICENSE=	ANT
 COMPONENT_PROJECT_URL=	$(PROJECT_APACHE)
 COMPONENT_SUMMARY=	Apache Ant Java-based build tool
 COMPONENT_SRC_NAME=	apache-ant
 COMPONENT_SRC=		$(COMPONENT_SRC_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-src.tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:5de65f7ba3f67e436ffffcdc0a73f591d1006e9fb41af8632c1f1f84d4a3e0b1
+COMPONENT_ARCHIVE_HASH=	sha256:2ad98dd3a4805452e546e0f5b682360370ae11692a2157fff8ec6d177c957123
 COMPONENT_ARCHIVE_URL=	$(APACHE_ARCHIVE)/$(COMPONENT_NAME)/source/$(COMPONENT_ARCHIVE)
 COMPONENT_BUGDB=	utility/ant
 

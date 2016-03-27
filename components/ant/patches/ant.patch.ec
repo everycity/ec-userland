@@ -10,7 +10,7 @@
  # The ASF licenses this file to You under the Apache License, Version 2.0
  # (the "License"); you may not use this file except in compliance with
  # the License.  You may obtain a copy of the License at
-@@ -120,7 +123,11 @@
+@@ -133,7 +136,11 @@
  fi
  
  # set ANT_LIB location
