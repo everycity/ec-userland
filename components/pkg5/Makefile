@@ -130,9 +130,7 @@ $(BUILD_DIR)/$(MACH)/.published: $(BUILD_DIR)/$(MACH)/publish.transforms
 publish: update $(BUILD_DIR)/$(MACH)/.published
 
 clean:
-	$(RM) -r $(BUILD_DIR)
-	cd $(SOURCE_DIR)/src && \
-	$(ENV) $(COMPONENT_BUILD_ENV) $(MAKE) clean
+	$(RM) -r $(BUILD_DIR) $(SOURCE_DIR)
 
 clobber: clean
 	$(RM) -r source
