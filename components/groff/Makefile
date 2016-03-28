@@ -25,7 +25,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-#override COMPONENT_BUILD_GMAKE_ARGS=
+override COMPONENT_BUILD_GMAKE_ARGS=
 
 CONFIGURE_OPTIONS+=	--with-libiconv-prefix=$(USRDIR)
 CONFIGURE_OPTIONS+=	--with-gs=$(USRDIR)/bin/gs
