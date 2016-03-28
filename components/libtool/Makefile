@@ -1,41 +1,33 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
-# CDDL HEADER END
-#
-# Copyright 2011-2014 EveryCity Ltd. All rights reserved.
-#
+
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libtool
-COMPONENT_VERSION=	2.4.2
-COMPONENT_PROJECT_URL=	http://www.gnu.org/software/libtool/
+COMPONENT_FMRI=		developer/build/libtool
+COMPONENT_VERSION=	2.4.6
+COMPONENT_LICENSE=	GPLv3
+COMPONENT_PROJECT_URL=	"http://www.gnu.org/software/libtool/"
+COMPONENT_SUMMARY=	GNU libtool
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	\
-    sha256:b38de44862a987293cd3d8dfae1c409d514b6c4e794ebc93648febf9afc38918
+COMPONENT_ARCHIVE_HASH=	sha256:e3bd4d5d3d025a36c21dd6af7ea818a2afcd4dfc1ea5a17b39d7854bcd0c06e3
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-
-COMPONENT_PREP_ACTION = (cd $(@D) ; ./bootstrap)
 
 CONFIGURE_OPTIONS  +=           --infodir=$(CONFIGURE_INFODIR)
 CONFIGURE_OPTIONS  +=           --disable-static

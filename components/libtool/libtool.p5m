@@ -9,92 +9,91 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/developer/build/libtool@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="GNU libtool"
-set name=info.classification \
-    value=org.opensolaris.category.2008:Development/GNU
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license libtool.license license='GPLv3'
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 file path=$(USRDIR)/bin/$(MACH64)/libtool
 file path=$(USRDIR)/bin/$(MACH64)/libtoolize
 file path=$(USRDIR)/bin/libtool
 file path=$(USRDIR)/bin/libtoolize
-
+dir  path=$(USRDIR)/include/libltdl
 file path=$(USRDIR)/include/libltdl/lt_dlloader.h
 file path=$(USRDIR)/include/libltdl/lt_error.h
 file path=$(USRDIR)/include/libltdl/lt_system.h
 file path=$(USRDIR)/include/ltdl.h
-
-link path=$(USRDIR)/lib/$(MACH64)/libltdl.so target=libltdl.so.7.3.0
-link path=$(USRDIR)/lib/$(MACH64)/libltdl.so.7 target=libltdl.so.7.3.0
-file path=$(USRDIR)/lib/$(MACH64)/libltdl.so.7.3.0
-link path=$(USRDIR)/lib/libltdl.so target=libltdl.so.7.3.0
-link path=$(USRDIR)/lib/libltdl.so.7 target=libltdl.so.7.3.0
-file path=$(USRDIR)/lib/libltdl.so.7.3.0
-
-file path=$(USRDIR)/share/aclocal/argz.m4
+file path=$(USRDIR)/lib/$(MACH64)/libltdl.la
+link path=$(USRDIR)/lib/$(MACH64)/libltdl.so target=libltdl.so.7.3.1
+link path=$(USRDIR)/lib/$(MACH64)/libltdl.so.7 target=libltdl.so.7.3.1
+file path=$(USRDIR)/lib/$(MACH64)/libltdl.so.7.3.1
+file path=$(USRDIR)/lib/libltdl.la
+link path=$(USRDIR)/lib/libltdl.so target=libltdl.so.7.3.1
+link path=$(USRDIR)/lib/libltdl.so.7 target=libltdl.so.7.3.1
+file path=$(USRDIR)/lib/libltdl.so.7.3.1
 file path=$(USRDIR)/share/aclocal/libtool.m4
+file path=$(USRDIR)/share/aclocal/ltargz.m4
 file path=$(USRDIR)/share/aclocal/ltdl.m4
 file path=$(USRDIR)/share/aclocal/ltoptions.m4
 file path=$(USRDIR)/share/aclocal/ltsugar.m4
 file path=$(USRDIR)/share/aclocal/ltversion.m4
 file path=$(USRDIR)/share/aclocal/lt~obsolete.m4
-
 file path=$(USRDIR)/share/info/libtool.info
 file path=$(USRDIR)/share/info/libtool.info-1
 file path=$(USRDIR)/share/info/libtool.info-2
-
-file path=$(USRDIR)/share/libtool/config/compile
-file path=$(USRDIR)/share/libtool/config/config.guess
-file path=$(USRDIR)/share/libtool/config/config.sub
-file path=$(USRDIR)/share/libtool/config/depcomp
-file path=$(USRDIR)/share/libtool/config/install-sh
-file path=$(USRDIR)/share/libtool/config/ltmain.sh
-file path=$(USRDIR)/share/libtool/config/missing
-file path=$(USRDIR)/share/libtool/libltdl/COPYING.LIB
-file path=$(USRDIR)/share/libtool/libltdl/Makefile.am
-file path=$(USRDIR)/share/libtool/libltdl/Makefile.in
-file path=$(USRDIR)/share/libtool/libltdl/Makefile.inc
-file path=$(USRDIR)/share/libtool/libltdl/README
-file path=$(USRDIR)/share/libtool/libltdl/aclocal.m4
-file path=$(USRDIR)/share/libtool/libltdl/argz.c
-file path=$(USRDIR)/share/libtool/libltdl/argz_.h
-file path=$(USRDIR)/share/libtool/libltdl/config-h.in
-file path=$(USRDIR)/share/libtool/libltdl/configure
-file path=$(USRDIR)/share/libtool/libltdl/configure.ac
-file path=$(USRDIR)/share/libtool/libltdl/libltdl/lt__alloc.h
-file path=$(USRDIR)/share/libtool/libltdl/libltdl/lt__dirent.h
-file path=$(USRDIR)/share/libtool/libltdl/libltdl/lt__glibc.h
-file path=$(USRDIR)/share/libtool/libltdl/libltdl/lt__private.h
-file path=$(USRDIR)/share/libtool/libltdl/libltdl/lt__strl.h
-file path=$(USRDIR)/share/libtool/libltdl/libltdl/lt_dlloader.h
-file path=$(USRDIR)/share/libtool/libltdl/libltdl/lt_error.h
-file path=$(USRDIR)/share/libtool/libltdl/libltdl/lt_system.h
-file path=$(USRDIR)/share/libtool/libltdl/libltdl/slist.h
-file path=$(USRDIR)/share/libtool/libltdl/loaders/dld_link.c
-file path=$(USRDIR)/share/libtool/libltdl/loaders/dlopen.c
-file path=$(USRDIR)/share/libtool/libltdl/loaders/dyld.c
-file path=$(USRDIR)/share/libtool/libltdl/loaders/load_add_on.c
-file path=$(USRDIR)/share/libtool/libltdl/loaders/loadlibrary.c
-file path=$(USRDIR)/share/libtool/libltdl/loaders/preopen.c
-file path=$(USRDIR)/share/libtool/libltdl/loaders/shl_load.c
-file path=$(USRDIR)/share/libtool/libltdl/lt__alloc.c
-file path=$(USRDIR)/share/libtool/libltdl/lt__dirent.c
-file path=$(USRDIR)/share/libtool/libltdl/lt__strl.c
-file path=$(USRDIR)/share/libtool/libltdl/lt_dlloader.c
-file path=$(USRDIR)/share/libtool/libltdl/lt_error.c
-file path=$(USRDIR)/share/libtool/libltdl/ltdl.c
-file path=$(USRDIR)/share/libtool/libltdl/ltdl.h
-file path=$(USRDIR)/share/libtool/libltdl/slist.c
-
+dir  path=$(USRDIR)/share/libtool
+file path=$(USRDIR)/share/libtool/COPYING.LIB
+file path=$(USRDIR)/share/libtool/Makefile.am
+file path=$(USRDIR)/share/libtool/Makefile.in
+file path=$(USRDIR)/share/libtool/README
+file path=$(USRDIR)/share/libtool/aclocal.m4
+dir  path=$(USRDIR)/share/libtool/build-aux
+file path=$(USRDIR)/share/libtool/build-aux/compile
+file path=$(USRDIR)/share/libtool/build-aux/config.guess
+file path=$(USRDIR)/share/libtool/build-aux/config.sub
+file path=$(USRDIR)/share/libtool/build-aux/depcomp
+file path=$(USRDIR)/share/libtool/build-aux/install-sh
+file path=$(USRDIR)/share/libtool/build-aux/ltmain.sh
+file path=$(USRDIR)/share/libtool/build-aux/missing
+file path=$(USRDIR)/share/libtool/config-h.in
+file path=$(USRDIR)/share/libtool/configure
+file path=$(USRDIR)/share/libtool/configure.ac
+dir  path=$(USRDIR)/share/libtool/libltdl
+file path=$(USRDIR)/share/libtool/libltdl/lt__alloc.h
+file path=$(USRDIR)/share/libtool/libltdl/lt__argz_.h
+file path=$(USRDIR)/share/libtool/libltdl/lt__dirent.h
+file path=$(USRDIR)/share/libtool/libltdl/lt__glibc.h
+file path=$(USRDIR)/share/libtool/libltdl/lt__private.h
+file path=$(USRDIR)/share/libtool/libltdl/lt__strl.h
+file path=$(USRDIR)/share/libtool/libltdl/lt_dlloader.h
+file path=$(USRDIR)/share/libtool/libltdl/lt_error.h
+file path=$(USRDIR)/share/libtool/libltdl/lt_system.h
+file path=$(USRDIR)/share/libtool/libltdl/slist.h
+dir  path=$(USRDIR)/share/libtool/loaders
+file path=$(USRDIR)/share/libtool/loaders/dld_link.c
+file path=$(USRDIR)/share/libtool/loaders/dlopen.c
+file path=$(USRDIR)/share/libtool/loaders/dyld.c
+file path=$(USRDIR)/share/libtool/loaders/load_add_on.c
+file path=$(USRDIR)/share/libtool/loaders/loadlibrary.c
+file path=$(USRDIR)/share/libtool/loaders/preopen.c
+file path=$(USRDIR)/share/libtool/loaders/shl_load.c
+file path=$(USRDIR)/share/libtool/lt__alloc.c
+file path=$(USRDIR)/share/libtool/lt__argz.c
+file path=$(USRDIR)/share/libtool/lt__dirent.c
+file path=$(USRDIR)/share/libtool/lt__strl.c
+file path=$(USRDIR)/share/libtool/lt_dlloader.c
+file path=$(USRDIR)/share/libtool/lt_error.c
+file path=$(USRDIR)/share/libtool/ltdl.c
+file path=$(USRDIR)/share/libtool/ltdl.h
+file path=$(USRDIR)/share/libtool/ltdl.mk
+file path=$(USRDIR)/share/libtool/slist.c
 file path=$(USRDIR)/share/man/man1/libtool.1
 file path=$(USRDIR)/share/man/man1/libtoolize.1
