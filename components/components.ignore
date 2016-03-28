@@ -1,5 +1,4 @@
 # failed with some updates - need re-check
-/^tcl$/d
 /^expect$/d
 /^nginx$/d
 # failed
@@ -47,3 +46,5 @@
 /^tomcat8$/d
 /^git-repo$/d
 /^lua52$/d
+/^bitlbee$/d
+/^gnuplot$/d
