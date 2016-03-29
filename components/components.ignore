@@ -41,7 +41,6 @@
 /^meta-packages\/haproxy-dev$/d
 /^ca-certificates$/d
 /^openvpn$/d
-/^tomcat8$/d
 /^git-repo$/d
 /^lua52$/d
 /^bitlbee$/d

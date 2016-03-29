@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -19,67 +19,64 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)/admin@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY) - management webapps"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 depend fmri=$(COMPONENT_FMRI) type=require
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/tomcat8
-dir path=$(ECPREFIX)/lib/tomcat8/webapps
-dir path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager
-dir path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/META-INF
-dir path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/WEB-INF
-dir path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/WEB-INF/jsp
-dir path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/images
-dir path=$(ECPREFIX)/lib/tomcat8/webapps/manager
-dir path=$(ECPREFIX)/lib/tomcat8/webapps/manager/META-INF
-dir path=$(ECPREFIX)/lib/tomcat8/webapps/manager/WEB-INF
-dir path=$(ECPREFIX)/lib/tomcat8/webapps/manager/WEB-INF/jsp
-dir path=$(ECPREFIX)/lib/tomcat8/webapps/manager/images
-dir path=$(ECPREFIX)/var
-dir path=$(ECPREFIX)/var/tomcat8
-dir path=$(ECPREFIX)/var/tomcat8/webapps
-file path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/META-INF/context.xml
-file path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/WEB-INF/web.xml
-file path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/WEB-INF/jsp/401.jsp
-file path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/WEB-INF/jsp/403.jsp
-file path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/WEB-INF/jsp/404.jsp
-file path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/images/add.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/images/asf-logo.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/images/code.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/images/design.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/images/docs.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/images/fix.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/images/tomcat.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/images/update.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/images/void.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/host-manager/manager.xml
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/META-INF/context.xml
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/WEB-INF/jsp/401.jsp
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/WEB-INF/jsp/403.jsp
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/WEB-INF/jsp/404.jsp
+dir path=$(USRDIR)/lib/tomcat8
+dir path=$(USRDIR)/lib/tomcat8/webapps
+dir path=$(USRDIR)/lib/tomcat8/webapps/host-manager
+dir path=$(USRDIR)/lib/tomcat8/webapps/host-manager/META-INF
+dir path=$(USRDIR)/lib/tomcat8/webapps/host-manager/WEB-INF
+dir path=$(USRDIR)/lib/tomcat8/webapps/host-manager/WEB-INF/jsp
+dir path=$(USRDIR)/lib/tomcat8/webapps/host-manager/images
+dir path=$(USRDIR)/lib/tomcat8/webapps/manager
+dir path=$(USRDIR)/lib/tomcat8/webapps/manager/META-INF
+dir path=$(USRDIR)/lib/tomcat8/webapps/manager/WEB-INF
+dir path=$(USRDIR)/lib/tomcat8/webapps/manager/WEB-INF/jsp
+dir path=$(USRDIR)/lib/tomcat8/webapps/manager/images
+dir path=$(USRDIR)/var/tomcat8
+dir path=$(USRDIR)/var/tomcat8/webapps
+file path=$(USRDIR)/lib/tomcat8/webapps/host-manager/META-INF/context.xml
+file path=$(USRDIR)/lib/tomcat8/webapps/host-manager/WEB-INF/web.xml
+file path=$(USRDIR)/lib/tomcat8/webapps/host-manager/WEB-INF/jsp/401.jsp
+file path=$(USRDIR)/lib/tomcat8/webapps/host-manager/WEB-INF/jsp/403.jsp
+file path=$(USRDIR)/lib/tomcat8/webapps/host-manager/WEB-INF/jsp/404.jsp
+file path=$(USRDIR)/lib/tomcat8/webapps/host-manager/images/add.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/host-manager/images/asf-logo.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/host-manager/images/code.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/host-manager/images/design.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/host-manager/images/docs.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/host-manager/images/fix.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/host-manager/images/tomcat.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/host-manager/images/update.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/host-manager/images/void.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/host-manager/manager.xml
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/META-INF/context.xml
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/WEB-INF/jsp/401.jsp
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/WEB-INF/jsp/403.jsp
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/WEB-INF/jsp/404.jsp
 file \
-    path=$(ECPREFIX)/lib/tomcat8/webapps/manager/WEB-INF/jsp/connectorCiphers.jsp
+    path=$(USRDIR)/lib/tomcat8/webapps/manager/WEB-INF/jsp/connectorCiphers.jsp
 file \
-    path=$(ECPREFIX)/lib/tomcat8/webapps/manager/WEB-INF/jsp/sessionDetail.jsp
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/WEB-INF/jsp/sessionsList.jsp
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/WEB-INF/web.xml
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/images/add.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/images/asf-logo.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/images/code.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/images/design.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/images/docs.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/images/fix.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/images/tomcat.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/images/update.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/images/void.gif
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/index.jsp
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/status.xsd
-file path=$(ECPREFIX)/lib/tomcat8/webapps/manager/xform.xsl
-link path=$(ECPREFIX)/var/tomcat8/webapps/host-manager \
+    path=$(USRDIR)/lib/tomcat8/webapps/manager/WEB-INF/jsp/sessionDetail.jsp
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/WEB-INF/jsp/sessionsList.jsp
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/WEB-INF/web.xml
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/images/add.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/images/asf-logo.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/images/code.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/images/design.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/images/docs.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/images/fix.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/images/tomcat.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/images/update.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/images/void.gif
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/index.jsp
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/status.xsd
+file path=$(USRDIR)/lib/tomcat8/webapps/manager/xform.xsl
+link path=$(USRDIR)/var/tomcat8/webapps/host-manager \
     target=../../../lib/tomcat8/webapps/host-manager preserve=true
-link path=$(ECPREFIX)/var/tomcat8/webapps/manager \
+link path=$(USRDIR)/var/tomcat8/webapps/manager \
     target=../../../lib/tomcat8/webapps/manager preserve=true
