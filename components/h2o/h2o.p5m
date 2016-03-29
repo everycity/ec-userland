@@ -1,0 +1,106 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2016 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+
+file path=$(USRDIR)/bin/h2o
+dir  path=$(USRDIR)/include/h2o
+file path=$(USRDIR)/include/h2o.h
+file path=$(USRDIR)/include/h2o/configurator.h
+file path=$(USRDIR)/include/h2o/file.h
+file path=$(USRDIR)/include/h2o/filecache.h
+file path=$(USRDIR)/include/h2o/hostinfo.h
+file path=$(USRDIR)/include/h2o/http1.h
+file path=$(USRDIR)/include/h2o/http1client.h
+file path=$(USRDIR)/include/h2o/http2.h
+file path=$(USRDIR)/include/h2o/http2_casper.h
+file path=$(USRDIR)/include/h2o/http2_internal.h
+file path=$(USRDIR)/include/h2o/http2_scheduler.h
+file path=$(USRDIR)/include/h2o/linklist.h
+file path=$(USRDIR)/include/h2o/memcached.h
+file path=$(USRDIR)/include/h2o/memory.h
+file path=$(USRDIR)/include/h2o/mruby_.h
+file path=$(USRDIR)/include/h2o/multithread.h
+file path=$(USRDIR)/include/h2o/serverutil.h
+dir  path=$(USRDIR)/include/h2o/socket
+file path=$(USRDIR)/include/h2o/socket.h
+file path=$(USRDIR)/include/h2o/socket/evloop.h
+file path=$(USRDIR)/include/h2o/socket/uv-binding.h
+file path=$(USRDIR)/include/h2o/socketpool.h
+file path=$(USRDIR)/include/h2o/string_.h
+file path=$(USRDIR)/include/h2o/time_.h
+file path=$(USRDIR)/include/h2o/timeout.h
+file path=$(USRDIR)/include/h2o/token.h
+file path=$(USRDIR)/include/h2o/tunnel.h
+file path=$(USRDIR)/include/h2o/url.h
+file path=$(USRDIR)/include/h2o/version.h
+file path=$(USRDIR)/include/h2o/websocket.h
+link path=$(USRDIR)/lib/libh2o-evloop.so target=libh2o-evloop.so.0.9
+link path=$(USRDIR)/lib/libh2o-evloop.so.0.9 target=libh2o-evloop.so.0.9.22
+file path=$(USRDIR)/lib/libh2o-evloop.so.0.9.22
+file path=$(USRDIR)/lib/pkgconfig/libh2o-evloop.pc
+dir  path=$(USRDIR)/share/doc/h2o
+dir  path=$(USRDIR)/share/doc/h2o/assets
+file path=$(USRDIR)/share/doc/h2o/assets/8mbps100msec-nginx195-h2o150.png
+file path=$(USRDIR)/share/doc/h2o/assets/firstpaintbench.png
+file path=$(USRDIR)/share/doc/h2o/assets/remotebench.png
+file path=$(USRDIR)/share/doc/h2o/assets/searchstyle.css
+file path=$(USRDIR)/share/doc/h2o/assets/staticfile612-nginx1910-h2o170.png
+file path=$(USRDIR)/share/doc/h2o/assets/style.css
+file path=$(USRDIR)/share/doc/h2o/benchmarks.html
+dir  path=$(USRDIR)/share/doc/h2o/configure
+file path=$(USRDIR)/share/doc/h2o/configure.html
+file path=$(USRDIR)/share/doc/h2o/configure/access_log_directives.html
+file path=$(USRDIR)/share/doc/h2o/configure/base_directives.html
+file path=$(USRDIR)/share/doc/h2o/configure/basic_auth.html
+file path=$(USRDIR)/share/doc/h2o/configure/cgi.html
+file path=$(USRDIR)/share/doc/h2o/configure/command_options.html
+file path=$(USRDIR)/share/doc/h2o/configure/errordoc_directives.html
+file path=$(USRDIR)/share/doc/h2o/configure/expires_directives.html
+file path=$(USRDIR)/share/doc/h2o/configure/fastcgi_directives.html
+file path=$(USRDIR)/share/doc/h2o/configure/file_directives.html
+file path=$(USRDIR)/share/doc/h2o/configure/gzip_directives.html
+file path=$(USRDIR)/share/doc/h2o/configure/headers_directives.html
+file path=$(USRDIR)/share/doc/h2o/configure/http1_directives.html
+file path=$(USRDIR)/share/doc/h2o/configure/http2_directives.html
+file path=$(USRDIR)/share/doc/h2o/configure/mruby.html
+file path=$(USRDIR)/share/doc/h2o/configure/mruby_directives.html
+file path=$(USRDIR)/share/doc/h2o/configure/proxy_directives.html
+file path=$(USRDIR)/share/doc/h2o/configure/quick_start.html
+file path=$(USRDIR)/share/doc/h2o/configure/redirect_directives.html
+file path=$(USRDIR)/share/doc/h2o/configure/reproxy_directives.html
+file path=$(USRDIR)/share/doc/h2o/configure/syntax_and_structure.html
+file path=$(USRDIR)/share/doc/h2o/faq.html
+file path=$(USRDIR)/share/doc/h2o/index.html
+file path=$(USRDIR)/share/doc/h2o/install.html
+dir  path=$(USRDIR)/share/doc/h2o/search
+file path=$(USRDIR)/share/doc/h2o/search/jquery-1.9.1.min.js
+file path=$(USRDIR)/share/doc/h2o/search/oktavia-english-search.js
+file path=$(USRDIR)/share/doc/h2o/search/oktavia-jquery-ui.js
+file path=$(USRDIR)/share/doc/h2o/search/searchindex.js
+dir  path=$(USRDIR)/share/h2o
+file path=$(USRDIR)/share/h2o/annotate-backtrace-symbols
+file path=$(USRDIR)/share/h2o/fastcgi-cgi
+file path=$(USRDIR)/share/h2o/fetch-ocsp-response
+file path=$(USRDIR)/share/h2o/kill-on-close
+file path=$(USRDIR)/share/h2o/setuidgid
+file path=$(USRDIR)/share/h2o/start_server
