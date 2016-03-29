@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -27,7 +27,7 @@ user gcos-field="Exim Account" group=exim uid=456 username=exim login-shell=/bin
 
 file path=$(USRDIR)/bin/exicyclog
 file path=$(USRDIR)/bin/exigrep
-file path=$(USRDIR)/bin/exim-$(COMPONENT_VERSION)-3 mode=4555 user=root group=root
+file path=$(USRDIR)/bin/exim-4.86_2-2 mode=4555 user=root group=root
 file path=$(USRDIR)/bin/exim_checkaccess
 file path=$(USRDIR)/bin/exim_dbmbuild
 file path=$(USRDIR)/bin/exim_dumpdb
@@ -48,6 +48,6 @@ file path=$(LOCALSTATEDIR)/log/exim/panic.log mode=0664 owner=exim group=exim pr
 file path=$(LOCALSTATEDIR)/log/exim/reject.log mode=0664 owner=exim group=exim preserve=true
 file files/exim-startup.sh.$(ZTYPE) path=$(SVCMETHOD)/exim mode=0555
 file files/exim-manifest.xml.$(ZTYPE) path=$(SVCMANIFEST)/site/exim.xml restart_fmri=svc:/system/manifest-import:default
-link path=$(USRDIR)/bin/exim target=exim-$(COMPONENT_VERSION)-3
+link path=$(USRDIR)/bin/exim target=exim-4.86_2-2
 dir  path=$(LOCALSTATEDIR)/spool/exim owner=exim group=exim mode=0750
 dir  path=$(LOCALSTATEDIR)/spool/exim/db owner=exim group=exim mode=0750
