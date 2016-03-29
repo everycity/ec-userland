@@ -16,7 +16,6 @@
 /^mariadb100$/d
 /^php55-ext-suhosin$/d
 /^php54-ext-suhosin$/d
-/^redis$/d
 /^xapian\/bindings-php54$/d
 # in progress
 /^make$/d
