@@ -9,16 +9,20 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		geos
-COMPONENT_VERSION=	3.3.3
+COMPONENT_FMRI=		library/geos
+COMPONENT_VERSION=	3.5.0
+COMPONENT_LICENSE=	LGPLv2.1
+COMPONENT_PROJECT_URL=	"http://trac.osgeo.org/geos/"
+COMPONENT_SUMMARY=	GEOS - Geometry Engine, Open Source
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:2ecd23c38d74e5f04757dc528ec30858006fb6a7
+COMPONENT_ARCHIVE_HASH=	sha256:49982b23bcfa64a53333dab136b82e25354edeb806e5a2e2f5b8aa98b1d0ae02
 COMPONENT_ARCHIVE_URL=	http://download.osgeo.org/geos/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

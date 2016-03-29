@@ -5,7 +5,6 @@
 /^cloog-ppl$/d
 /^dbt2$/d
 /^exiftool$/d
-/^geos$/d
 /^mariadb55$/d
 /^mongodb$/d
 /^mplayer$/d
