@@ -26,7 +26,7 @@ source directory.
  	grep "MORY ALLO" .memdump  | grep -v "MEMORY ALLOCATED : 0" || true;\
 --- libxslt-1.1.27/tests/general/Makefile.am	Fri Sep  7 00:49:41 2012
 +++ libxslt-1.1.27/tests/general/Makefile.am	Mon Oct 15 02:41:07 2012
-@@ -207,10 +207,11 @@
+@@ -209,10 +209,11 @@
  	  if [ ! -f $$j ] ; then continue ; fi ; \
  	  if [ -d $$j ] ; then continue ; fi ; \
  	  name=`basename $$j .xsl`; \
@@ -39,7 +39,7 @@ source directory.
  	  if [ ! -f $$out ] ; then \
  	  	cp result.$$name $$out ; \
  		if [ -s err.$$name ] ; then \
-@@ -217,6 +218,9 @@
+@@ -219,6 +220,9 @@
  			cp err.$$name $$err ; \
  		fi ; \
  	  else \
@@ -49,7 +49,7 @@ source directory.
  	  	diff $$out result.$$name; \
  		if [ -s $$err ] ; then \
  	  		diff $$err err.$$name; \
-@@ -239,10 +243,11 @@
+@@ -241,10 +245,11 @@
  	  if [ ! -f $$j ] ; then continue ; fi ; \
  	  if [ -d $$j ] ; then continue ; fi ; \
  	  name=`basename $$j .xsl`; \
@@ -62,7 +62,7 @@ source directory.
  	  if [ ! -f $$out ] ; then \
  	  	cp result.$$name $$out ; \
  		if [ -s err.$$name ] ; then \
-@@ -249,6 +254,9 @@
+@@ -251,6 +256,9 @@
  			cp err.$$name $$err ; \
  		fi ; \
  	  else \

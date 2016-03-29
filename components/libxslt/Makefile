@@ -22,6 +22,7 @@
 #
 # Copyright (c) 2012, Igor Kozhukhov <ikozhukhov@gmail.com>.  All rights reserved.
 # Copyright (c) 2011, 2013, Oracle and/or its affiliates. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -31,8 +32,7 @@ COMPONENT_VERSION=	1.1.28
 COMPONENT_PROJECT_URL=	http://xmlsoft.org/XSLT/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	\
-    sha256:5fc7151a57b89c03d7b825df5a0fae0a8d5f05674c0e7cf2937ecec4d54a028c
+COMPONENT_ARCHIVE_HASH=	sha256:5fc7151a57b89c03d7b825df5a0fae0a8d5f05674c0e7cf2937ecec4d54a028c
 COMPONENT_ARCHIVE_URL=	ftp://xmlsoft.org/libxslt/$(COMPONENT_ARCHIVE)
 COMPONENT_BUGDB=	library/libxslt
 
@@ -57,7 +57,7 @@ COMPONENT_PREP_ACTION = \
 	(cd $(@D) ; cp ../../mapfile.xslt libxslt/libxslt.syms ; \
 		    $(RM) libxslt/xsltconfig.h libexslt/exsltconfig.h ; \
 		    libtoolize --force --copy ; aclocal ; \
-		    automake-1.11 --add-missing --copy ; autoconf)
+		    automake --add-missing --copy ; autoconf)
 
 # After we have configured, make a copy of the python bits so we
 # can build separate python 2.7 support.
