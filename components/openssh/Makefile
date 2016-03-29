@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		openssh
 COMPONENT_FMRI=         security/openssh
-COMPONENT_VERSION=	7.0p1
-IPS_COMPONENT_VERSION=	7.0.0.1
+COMPONENT_VERSION=	7.2p2
+IPS_COMPONENT_VERSION=	7.2.2
 COMPONENT_LICENSE=	OpenSSH
 COMPONENT_PROJECT_URL=	http://www.openssh.com/
 COMPONENT_SUMMARY=	OpenSSH Secure Shell
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:fd5932493a19f4c81153d812ee4e042b49bbd3b759ab3d9344abecc2bc1485e5
+COMPONENT_ARCHIVE_HASH=	sha256:a72781d1a043876a224ff1b0032daa4094d87565a68528759c1c2cab5482548c
 COMPONENT_ARCHIVE_URL=	http://mirror.bytemark.co.uk/pub/OpenBSD/OpenSSH/portable/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
