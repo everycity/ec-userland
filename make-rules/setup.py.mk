@@ -118,5 +118,5 @@ clean::
 	$(RM) -r $(SOURCE_DIR) $(BUILD_DIR)
 
 # Make it easy to construct a URL for a pypi source download.
-PYPI_BASE = http://pypi.python.org/packages/source
+PYPI_BASE = https://pypi.python.org/packages/source
 pypi_url = $(PYPI_BASE)/$(shell echo $(COMPONENT_NAME) | cut -c1)/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
