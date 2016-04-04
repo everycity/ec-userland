@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -17,13 +17,14 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 file path=$(USRDIR)/bin/$(MACH64)/pcap-config
 file path=$(USRDIR)/bin/pcap-config
+dir  path=$(USRDIR)/include/pcap
 file path=$(USRDIR)/include/pcap-bpf.h
 file path=$(USRDIR)/include/pcap-namedb.h
 file path=$(USRDIR)/include/pcap.h
@@ -37,9 +38,14 @@ file path=$(USRDIR)/include/pcap/sll.h
 file path=$(USRDIR)/include/pcap/usb.h
 file path=$(USRDIR)/include/pcap/vlan.h
 file path=$(USRDIR)/lib/$(MACH64)/libpcap.a
+link path=$(USRDIR)/lib/$(MACH64)/libpcap.so target=libpcap.so.1
 file path=$(USRDIR)/lib/$(MACH64)/libpcap.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/$(MACH64)/libpcap.so.1 \
+    target=libpcap.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/libpcap.a
+link path=$(USRDIR)/lib/libpcap.so target=libpcap.so.1
 file path=$(USRDIR)/lib/libpcap.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libpcap.so.1 target=libpcap.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/share/man/man1/pcap-config.1
 file path=$(USRDIR)/share/man/man3/pcap.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_activate.3pcap
@@ -50,20 +56,38 @@ file path=$(USRDIR)/share/man/man3/pcap_compile.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_create.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_datalink.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_datalink_name_to_val.3pcap
+link path=$(USRDIR)/share/man/man3/pcap_datalink_val_to_description.3pcap \
+    target=pcap_datalink_val_to_name.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_datalink_val_to_name.3pcap
+link path=$(USRDIR)/share/man/man3/pcap_dispatch.3pcap target=pcap_loop.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_dump.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_dump_close.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_dump_file.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_dump_flush.3pcap
+link path=$(USRDIR)/share/man/man3/pcap_dump_fopen.3pcap \
+    target=pcap_dump_open.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_dump_ftell.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_dump_open.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_file.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_fileno.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_findalldevs.3pcap
+link path=$(USRDIR)/share/man/man3/pcap_fopen_offline.3pcap \
+    target=pcap_open_offline.3pcap
+link \
+    path=$(USRDIR)/share/man/man3/pcap_fopen_offline_with_tstamp_precision.3pcap \
+    target=pcap_open_offline.3pcap
+link path=$(USRDIR)/share/man/man3/pcap_free_datalinks.3pcap \
+    target=pcap_list_datalinks.3pcap
+link path=$(USRDIR)/share/man/man3/pcap_free_tstamp_types.3pcap \
+    target=pcap_list_tstamp_types.3pcap
+link path=$(USRDIR)/share/man/man3/pcap_freealldevs.3pcap \
+    target=pcap_findalldevs.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_freecode.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_get_selectable_fd.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_get_tstamp_precision.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_geterr.3pcap
+link path=$(USRDIR)/share/man/man3/pcap_getnonblock.3pcap \
+    target=pcap_setnonblock.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_inject.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_is_swapped.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_lib_version.3pcap
@@ -73,11 +97,22 @@ file path=$(USRDIR)/share/man/man3/pcap_lookupdev.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_lookupnet.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_loop.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_major_version.3pcap
+link path=$(USRDIR)/share/man/man3/pcap_minor_version.3pcap \
+    target=pcap_major_version.3pcap
+link path=$(USRDIR)/share/man/man3/pcap_next.3pcap target=pcap_next_ex.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_next_ex.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_offline_filter.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_open_dead.3pcap
+link path=$(USRDIR)/share/man/man3/pcap_open_dead_with_tstamp_precision.3pcap \
+    target=pcap_open_dead.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_open_live.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_open_offline.3pcap
+link \
+    path=$(USRDIR)/share/man/man3/pcap_open_offline_with_tstamp_precision.3pcap \
+    target=pcap_open_offline.3pcap
+link path=$(USRDIR)/share/man/man3/pcap_perror.3pcap target=pcap_geterr.3pcap
+link path=$(USRDIR)/share/man/man3/pcap_sendpacket.3pcap \
+    target=pcap_inject.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_set_buffer_size.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_set_datalink.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_set_immediate_mode.3pcap
@@ -95,47 +130,10 @@ file path=$(USRDIR)/share/man/man3/pcap_stats.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_statustostr.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_strerror.3pcap
 file path=$(USRDIR)/share/man/man3/pcap_tstamp_type_name_to_val.3pcap
-file path=$(USRDIR)/share/man/man3/pcap_tstamp_type_val_to_name.3pcap
-file path=$(USRDIR)/share/man/man4/pcap-savefile.4
-file path=$(USRDIR)/share/man/man5/pcap-filter.5
-file path=$(USRDIR)/share/man/man5/pcap-linktype.5
-file path=$(USRDIR)/share/man/man5/pcap-tstamp.5
-link path=$(USRDIR)/lib/$(MACH64)/libpcap.so target=libpcap.so.1
-link path=$(USRDIR)/lib/$(MACH64)/libpcap.so.1 \
-    target=libpcap.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libpcap.so target=libpcap.so.1
-link path=$(USRDIR)/lib/libpcap.so.1 target=libpcap.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/share/man/man3/pcap_datalink_val_to_description.3pcap \
-    target=pcap_datalink_val_to_name.3pcap
-link path=$(USRDIR)/share/man/man3/pcap_dispatch.3pcap \
-    target=pcap_loop.3pcap
-link path=$(USRDIR)/share/man/man3/pcap_dump_fopen.3pcap \
-    target=pcap_dump_open.3pcap
-link path=$(USRDIR)/share/man/man3/pcap_fopen_offline.3pcap \
-    target=pcap_open_offline.3pcap
-link \
-    path=$(USRDIR)/share/man/man3/pcap_fopen_offline_with_tstamp_precision.3pcap \
-    target=pcap_open_offline.3pcap
-link path=$(USRDIR)/share/man/man3/pcap_free_datalinks.3pcap \
-    target=pcap_list_datalinks.3pcap
-link path=$(USRDIR)/share/man/man3/pcap_free_tstamp_types.3pcap \
-    target=pcap_list_tstamp_types.3pcap
-link path=$(USRDIR)/share/man/man3/pcap_freealldevs.3pcap \
-    target=pcap_findalldevs.3pcap
-link path=$(USRDIR)/share/man/man3/pcap_getnonblock.3pcap \
-    target=pcap_setnonblock.3pcap
-link path=$(USRDIR)/share/man/man3/pcap_minor_version.3pcap \
-    target=pcap_major_version.3pcap
-link path=$(USRDIR)/share/man/man3/pcap_next.3pcap target=pcap_next_ex.3pcap
-link \
-    path=$(USRDIR)/share/man/man3/pcap_open_dead_with_tstamp_precision.3pcap \
-    target=pcap_open_dead.3pcap
-link \
-    path=$(USRDIR)/share/man/man3/pcap_open_offline_with_tstamp_precision.3pcap \
-    target=pcap_open_offline.3pcap
-link path=$(USRDIR)/share/man/man3/pcap_perror.3pcap \
-    target=pcap_geterr.3pcap
-link path=$(USRDIR)/share/man/man3/pcap_sendpacket.3pcap \
-    target=pcap_inject.3pcap
 link path=$(USRDIR)/share/man/man3/pcap_tstamp_type_val_to_description.3pcap \
     target=pcap_tstamp_type_val_to_name.3pcap
+file path=$(USRDIR)/share/man/man3/pcap_tstamp_type_val_to_name.3pcap
+file path=$(USRDIR)/share/man/man5/pcap-savefile.5
+file path=$(USRDIR)/share/man/man7/pcap-filter.7
+file path=$(USRDIR)/share/man/man7/pcap-linktype.7
+file path=$(USRDIR)/share/man/man7/pcap-tstamp.7

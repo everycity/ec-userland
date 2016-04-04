@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -18,6 +18,7 @@ COMPONENT_NAME=		libpcap
 COMPONENT_FMRI=         library/libpcap
 COMPONENT_VERSION=      1.7.4
 COMPONENT_LICENSE=      BSD
+COMPONENT_LICENSE_FILE=	LICENSE
 COMPONENT_PROJECT_URL=  http://www.tcpdump.org/
 COMPONENT_SUMMARY=	Packet Capture Library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
@@ -30,6 +31,11 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 COMPONENT_PRE_CONFIGURE_ACTION+=	($(CLONEY) $(SOURCE_DIR) $(@D))
+
+CONFIGURE_OPTIONS+=	--with-pcap=dlpi
+CONFIGURE_ENV+=		ac_cv_func_getifaddrs=no
+
+LDFLAGS+=	-lnsl -lsocket
 
 build:		$(BUILD_32_and_64)
 
