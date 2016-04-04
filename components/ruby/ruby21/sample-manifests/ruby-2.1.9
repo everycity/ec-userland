@@ -22,6 +22,9 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/bin
+dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/erb2.1
 file path=$(USRDIR)/bin/$(MACH64)/gem2.1
 file path=$(USRDIR)/bin/$(MACH64)/irb2.1
@@ -38,6 +41,7 @@ file path=$(USRDIR)/bin/rdoc2.1
 file path=$(USRDIR)/bin/ri2.1
 file path=$(USRDIR)/bin/ruby2.1
 file path=$(USRDIR)/bin/testrb2.1
+dir  path=$(USRDIR)/include
 dir  path=$(USRDIR)/include/ruby-2.1.0
 dir  path=$(USRDIR)/include/ruby-2.1.0/$(MACH)-solaris$(SOLARIS_VERSION)
 dir  path=$(USRDIR)/include/ruby-2.1.0/$(MACH)-solaris$(SOLARIS_VERSION)/ruby
@@ -71,10 +75,13 @@ file path=$(USRDIR)/include/ruby-2.1.0/ruby/thread.h
 file path=$(USRDIR)/include/ruby-2.1.0/ruby/util.h
 file path=$(USRDIR)/include/ruby-2.1.0/ruby/version.h
 file path=$(USRDIR)/include/ruby-2.1.0/ruby/vm.h
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/$(MACH64)
 file path=$(USRDIR)/lib/$(MACH64)/libruby2.1-static.a
 link path=$(USRDIR)/lib/$(MACH64)/libruby2.1.so target=libruby2.1.so.2
 file path=$(USRDIR)/lib/$(MACH64)/libruby2.1.so.2
 link path=$(USRDIR)/lib/$(MACH64)/libruby2.1.so.2.1.0 target=libruby2.1.so.2
+dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/ruby-2.1.pc
 dir  path=$(USRDIR)/lib/$(MACH64)/ruby
 dir  path=$(USRDIR)/lib/$(MACH64)/ruby/2.1.0
