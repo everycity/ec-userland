@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -33,8 +33,8 @@ dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man3
-dir path=$(ECPREFIX)/share/man/man4
 dir path=$(ECPREFIX)/share/man/man5
+dir path=$(ECPREFIX)/share/man/man7
 file path=$(ECPREFIX)/bin/$(MACH64)/pcap-config
 file path=$(ECPREFIX)/bin/pcap-config
 file path=$(ECPREFIX)/include/pcap-bpf.h
@@ -109,10 +109,10 @@ file path=$(ECPREFIX)/share/man/man3/pcap_statustostr.3pcap
 file path=$(ECPREFIX)/share/man/man3/pcap_strerror.3pcap
 file path=$(ECPREFIX)/share/man/man3/pcap_tstamp_type_name_to_val.3pcap
 file path=$(ECPREFIX)/share/man/man3/pcap_tstamp_type_val_to_name.3pcap
-file path=$(ECPREFIX)/share/man/man4/pcap-savefile.4
-file path=$(ECPREFIX)/share/man/man5/pcap-filter.5
-file path=$(ECPREFIX)/share/man/man5/pcap-linktype.5
-file path=$(ECPREFIX)/share/man/man5/pcap-tstamp.5
+file path=$(ECPREFIX)/share/man/man5/pcap-savefile.5
+file path=$(ECPREFIX)/share/man/man7/pcap-filter.7
+file path=$(ECPREFIX)/share/man/man7/pcap-linktype.7
+file path=$(ECPREFIX)/share/man/man7/pcap-tstamp.7
 link path=$(ECPREFIX)/lib/$(MACH64)/libpcap.so target=libpcap.so.1
 link path=$(ECPREFIX)/lib/$(MACH64)/libpcap.so.1 \
     target=libpcap.so.$(COMPONENT_VERSION)

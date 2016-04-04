@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -30,6 +30,11 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 COMPONENT_PRE_CONFIGURE_ACTION+=	($(CLONEY) $(SOURCE_DIR) $(@D))
+
+CONFIGURE_OPTIONS+=	--with-pcap=dlpi
+CONFIGURE_ENV+=		ac_cv_func_getifaddrs=no
+
+LDFLAGS+=	-lnsl -lsocket
 
 build:		$(BUILD_32_and_64)
 
