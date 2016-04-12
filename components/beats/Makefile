@@ -18,13 +18,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		beats
 COMPONENT_FMRI=		network/beats
-COMPONENT_VERSION=      1.1.1
+COMPONENT_VERSION=      1.2.1
 COMPONENT_LICENSE=      APLv2
 COMPONENT_PROJECT_URL=  "https://www.elastic.co/products/beats"
 COMPONENT_SUMMARY=	Data Shippers for Elasticsearch
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME)-$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:5cf4751e6cd5199e6cef5b9d86ef62923901e659f4f15c70a4a9e007c32c4eb5
+COMPONENT_ARCHIVE_HASH=	sha256:d7aa53dddb36bae62846fcdf091c9e70d279252bdbc0ebe976d2ed7ca0c71e7a
 COMPONENT_ARCHIVE_URL=	https://codeload.github.com/elastic/beats/tar.gz/v${COMPONENT_VERSION}
 
 
