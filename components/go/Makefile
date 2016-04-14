@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		go
 COMPONENT_FMRI=		developer/go
-COMPONENT_VERSION=	1.4.2
+COMPONENT_VERSION=	1.6.1
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://golang.org/"
 COMPONENT_SUMMARY=	The Go Programming Language
 COMPONENT_SRC=		$(COMPONENT_NAME)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC)$(COMPONENT_VERSION).src.tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:299a6fd8f8adfdce15bc06bde926e7b252ae8e24dd5b16b7d8791ed79e7b5e9b
+COMPONENT_ARCHIVE_HASH=	sha256:1d4b53cdee51b2298afcf50926a7fa44b286f0bf24ff8323ce690a66daa7193f
 COMPONENT_ARCHIVE_URL=	https://storage.googleapis.com/golang/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -30,7 +30,8 @@ include ../../make-rules/ips.mk
 
 CLEAN_PATHS+=	$(BUILD_DIR)
 
-COMPONENT_BUILD_ENV+= GOOS=solaris
+COMPONENT_BUILD_ENV+= GOOS=solaris GOROOT_BOOTSTRAP=$(COMPONENT_DIR)/bsgo14
+#COMPONENT_BUILD_ENV+= GOROOT=$(PROTO_DIR)$(ECPREFIX)/lib/go
 COMPONENT_BUILD_ENV+= GOROOT_FINAL=$(ECPREFIX)/lib/go
 COMPONENT_BUILD_ARGS+= --no-banner
 
@@ -39,7 +40,7 @@ $(BUILD_DIR)/%/.built:	$(SOURCE_DIR)/.prep
 	$(CLONEY) $(SOURCE_DIR) $(@D)
 	$(COMPONENT_PRE_BUILD_ACTION)
 	(cd $(@D)/src ; $(ENV) $(COMPONENT_BUILD_ENV) \
-		./all.bash $(COMPONENT_BUILD_ARGS))
+		./make.bash $(COMPONENT_BUILD_ARGS))
 	$(COMPONENT_POST_BUILD_ACTION)
 	$(TOUCH) $@
 
