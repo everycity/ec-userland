@@ -24,28 +24,28 @@ license COPYRIGHT license="BSD Style"
 
 # Symlinks
 # 32bit
-link path=$(ECPREFIX)/bin/clusterdb target=../lib/postgres/active/bin/$(MACH64)/clusterdb
-link path=$(ECPREFIX)/bin/createdb target=../lib/postgres/active/bin/$(MACH64)/createdb
-link path=$(ECPREFIX)/bin/createlang target=../lib/postgres/active/bin/$(MACH64)/createlang
-link path=$(ECPREFIX)/bin/createuser target=../lib/postgres/active/bin/$(MACH64)/createuser
-link path=$(ECPREFIX)/bin/dropdb target=../lib/postgres/active/bin/$(MACH64)/dropdb
-link path=$(ECPREFIX)/bin/droplang target=../lib/postgres/active/bin/$(MACH64)/droplang
-link path=$(ECPREFIX)/bin/dropuser target=../lib/postgres/active/bin/$(MACH64)/dropuser
-link path=$(ECPREFIX)/bin/ecpg target=../lib/postgres/active/bin/$(MACH64)/ecpg
-link path=$(ECPREFIX)/bin/initdb target=../lib/postgres/active/bin/$(MACH64)/initdb
-link path=$(ECPREFIX)/bin/pg_archivecleanup target=../lib/postgres/active/bin/$(MACH64)/pg_archivecleanup
-link path=$(ECPREFIX)/bin/pg_basebackup target=../lib/postgres/active/bin/$(MACH64)/pg_basebackup
-link path=$(ECPREFIX)/bin/pg_controldata target=../lib/postgres/active/bin/$(MACH64)/pg_controldata
-link path=$(ECPREFIX)/bin/pg_dump target=../lib/postgres/active/bin/$(MACH64)/pg_dump
-link path=$(ECPREFIX)/bin/pg_dumpall target=../lib/postgres/active/bin/$(MACH64)/pg_dumpall
-link path=$(ECPREFIX)/bin/pg_receivexlog target=../lib/postgres/active/bin/$(MACH64)/pg_receivexlog
-link path=$(ECPREFIX)/bin/pg_recvlogical target=../lib/postgres/active/bin/$(MACH64)/pg_recvlogical
-link path=$(ECPREFIX)/bin/pg_resetxlog target=../lib/postgres/active/bin/$(MACH64)/pg_resetxlog
-link path=$(ECPREFIX)/bin/pg_restore target=../lib/postgres/active/bin/$(MACH64)/pg_restore
-link path=$(ECPREFIX)/bin/pgbench target=../lib/postgres/active/bin/$(MACH64)/pgbench
-link path=$(ECPREFIX)/bin/psql target=../lib/postgres/active/bin/$(MACH64)/psql
-link path=$(ECPREFIX)/bin/reindexdb target=../lib/postgres/active/bin/$(MACH64)/reindexdb
-link path=$(ECPREFIX)/bin/vacuumdb target=../lib/postgres/active/bin/$(MACH64)/vacuumdb
+link path=$(ECPREFIX)/bin/clusterdb target=../lib/postgres/active/bin/clusterdb
+link path=$(ECPREFIX)/bin/createdb target=../lib/postgres/active/bin/createdb
+link path=$(ECPREFIX)/bin/createlang target=../lib/postgres/active/bin/createlang
+link path=$(ECPREFIX)/bin/createuser target=../lib/postgres/active/bin/createuser
+link path=$(ECPREFIX)/bin/dropdb target=../lib/postgres/active/bin/dropdb
+link path=$(ECPREFIX)/bin/droplang target=../lib/postgres/active/bin/droplang
+link path=$(ECPREFIX)/bin/dropuser target=../lib/postgres/active/bin/dropuser
+link path=$(ECPREFIX)/bin/ecpg target=../lib/postgres/active/bin/ecpg
+link path=$(ECPREFIX)/bin/initdb target=../lib/postgres/active/bin/initdb
+link path=$(ECPREFIX)/bin/pg_archivecleanup target=../lib/postgres/active/bin/pg_archivecleanup
+link path=$(ECPREFIX)/bin/pg_basebackup target=../lib/postgres/active/bin/pg_basebackup
+link path=$(ECPREFIX)/bin/pg_controldata target=../lib/postgres/active/bin/pg_controldata
+link path=$(ECPREFIX)/bin/pg_dump target=../lib/postgres/active/bin/pg_dump
+link path=$(ECPREFIX)/bin/pg_dumpall target=../lib/postgres/active/bin/pg_dumpall
+link path=$(ECPREFIX)/bin/pg_receivexlog target=../lib/postgres/active/bin/pg_receivexlog
+link path=$(ECPREFIX)/bin/pg_recvlogical target=../lib/postgres/active/bin/pg_recvlogical
+link path=$(ECPREFIX)/bin/pg_resetxlog target=../lib/postgres/active/bin/pg_resetxlog
+link path=$(ECPREFIX)/bin/pg_restore target=../lib/postgres/active/bin/pg_restore
+link path=$(ECPREFIX)/bin/pgbench target=../lib/postgres/active/bin/pgbench
+link path=$(ECPREFIX)/bin/psql target=../lib/postgres/active/bin/psql
+link path=$(ECPREFIX)/bin/reindexdb target=../lib/postgres/active/bin/reindexdb
+link path=$(ECPREFIX)/bin/vacuumdb target=../lib/postgres/active/bin/vacuumdb
 # 64bit
 link path=$(ECPREFIX)/bin/$(MACH64)/clusterdb target=../../lib/postgres/active/bin/$(MACH64)/clusterdb
 link path=$(ECPREFIX)/bin/$(MACH64)/createdb target=../../lib/postgres/active/bin/$(MACH64)/createdb
@@ -103,3 +103,30 @@ file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pgbenc
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/psql
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/reindexdb
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/vacuumdb
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/clusterdb target=$(MACH64)/clusterdb
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/createdb target=$(MACH64)/createdb
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/createlang target=$(MACH64)/createlang
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/createuser target=$(MACH64)/createuser
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/dropdb target=$(MACH64)/dropdb
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/droplang target=$(MACH64)/droplang
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/dropuser target=$(MACH64)/dropuser
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/ecpg target=$(MACH64)/ecpg
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/initdb target=$(MACH64)/initdb
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_archivecleanup target=$(MACH64)/pg_archivecleanup
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_basebackup target=$(MACH64)/pg_basebackup
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_controldata target=$(MACH64)/pg_controldata
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_dump target=$(MACH64)/pg_dump
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_dumpall target=$(MACH64)/pg_dumpall
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_receivexlog target=$(MACH64)/pg_receivexlog
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_recvlogical target=$(MACH64)/pg_recvlogical
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_resetxlog target=$(MACH64)/pg_resetxlog
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_restore target=$(MACH64)/pg_restore
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_rewind target=$(MACH64)/pg_rewind
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_test_fsync target=$(MACH64)/pg_test_fsync
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_test_timing target=$(MACH64)/pg_test_timing
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_upgrade target=$(MACH64)/pg_upgrade
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_xlogdump target=$(MACH64)/pg_xlogdump
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pgbench target=$(MACH64)/pgbench
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/psql target=$(MACH64)/psql
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/reindexdb target=$(MACH64)/reindexdb
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/vacuumdb target=$(MACH64)/vacuumdb

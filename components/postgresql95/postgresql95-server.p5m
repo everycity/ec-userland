@@ -28,9 +28,9 @@ depend fmri=pkg:/database/postgresql-common type=require
 
 # Symlinks
 # 32bit
-link path=$(ECPREFIX)/bin/pg_ctl target=../lib/postgres/active/bin/$(MACH64)/pg_ctl
-link path=$(ECPREFIX)/bin/pg_isready target=../lib/postgres/active/bin/$(MACH64)/pg_isready
-link path=$(ECPREFIX)/bin/postgres target=../lib/postgres/active/bin/$(MACH64)/postgres
+link path=$(ECPREFIX)/bin/pg_ctl target=../lib/postgres/active/bin/pg_ctl
+link path=$(ECPREFIX)/bin/pg_isready target=../lib/postgres/active/bin/pg_isready
+link path=$(ECPREFIX)/bin/postgres target=../lib/postgres/active/bin/postgres
 # 64bit
 link path=$(ECPREFIX)/bin/$(MACH64)/pg_ctl target=../../lib/postgres/active/bin/$(MACH64)/pg_ctl
 link path=$(ECPREFIX)/bin/$(MACH64)/pg_isready target=../../lib/postgres/active/bin/$(MACH64)/pg_isready
@@ -71,3 +71,7 @@ file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/postgr
 
 link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/postmaster \
     target=postgres
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_ctl target=$(MACH64)/pg_ctl
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_isready \
+    target=$(MACH64)/pg_isready
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/postgres target=$(MACH64)/postgres

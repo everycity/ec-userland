@@ -23,7 +23,7 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 license COPYRIGHT license="BSD Style"
 
 link path=$(ECPREFIX)/bin/pg_config \
-    target=../lib/postgres/active/bin/$(MACH64)/pg_config preserve=true
+    target=../lib/postgres/active/bin/pg_config preserve=true
 link path=$(ECPREFIX)/bin/$(MACH64)/pg_config \
     target=../../lib/postgres/active/bin/$(MACH64)/pg_config preserve=true
 file files/postgresql95-postinstall.xml path=var/svc/manifest/site/postgresql95-postinstall.xml \
@@ -1320,6 +1320,8 @@ file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/tsearch_data/s
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/tsearch_data/synonym_sample.syn
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/tsearch_data/thesaurus_sample.ths
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/tsearch_data/turkish.stop
+link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_config \
+    target=$(MACH64)/pg_config
 link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/libecpg.so \
     target=libecpg.so.6.7
 link path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/$(MACH64)/libecpg.so.6 \
