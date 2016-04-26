@@ -14,32 +14,23 @@
 
 # Transforms
 <include ec-drop-common>
-<transform dir file link hardlink path=ec/var/apache/.*/manual(/.+){0,1}$ -> \
-    default facet.doc.html true>
-<transform file path=.+/etc/.+ -> default preserve true>
-<transform file path=.+/etc/.+ -> default mode 0644>
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-file files/a2enmod.$(ZTYPE) path=$(USRDIR)/lib/apache/2.4/bin/a2enmod
-file files/apache24-startup.sh.$(ZTYPE) path=$(SVCMETHOD)/http-apache24 mode=555
-file files/apache24-manifest.xml.$(ZTYPE) path=$(SVCMANIFEST)/site/http-apache24.xml \
-    restart_fmri=svc:/system/manifest-import:default
-
-link path=$(USRDIR)/lib/apache/2.4/logs target=var/apache/2.4/logs
-
-dir path=$(LOCALSTATEDIR)/apache/2.4/logs mode=0755 owner=webservd group=webservd preserve=true
-dir path=$(LOCALSTATEDIR)/apache/2.4/run mode=0755 owner=webservd group=webservd preserve=true
-
+dir  path=$(LOCALSTATEDIR)
+dir  path=$(LOCALSTATEDIR)/apache
+dir  path=$(LOCALSTATEDIR)/apache/2.4
+dir  path=$(LOCALSTATEDIR)/apache/2.4/cgi-bin
 file path=$(LOCALSTATEDIR)/apache/2.4/cgi-bin/printenv
 file path=$(LOCALSTATEDIR)/apache/2.4/cgi-bin/printenv.vbs
 file path=$(LOCALSTATEDIR)/apache/2.4/cgi-bin/printenv.wsf
 file path=$(LOCALSTATEDIR)/apache/2.4/cgi-bin/test-cgi
+dir  path=$(LOCALSTATEDIR)/apache/2.4/error
 file path=$(LOCALSTATEDIR)/apache/2.4/error/HTTP_BAD_GATEWAY.html.var
 file path=$(LOCALSTATEDIR)/apache/2.4/error/HTTP_BAD_REQUEST.html.var
 file path=$(LOCALSTATEDIR)/apache/2.4/error/HTTP_FORBIDDEN.html.var
@@ -59,10 +50,13 @@ file path=$(LOCALSTATEDIR)/apache/2.4/error/HTTP_UNSUPPORTED_MEDIA_TYPE.html.var
 file path=$(LOCALSTATEDIR)/apache/2.4/error/HTTP_VARIANT_ALSO_VARIES.html.var
 file path=$(LOCALSTATEDIR)/apache/2.4/error/README
 file path=$(LOCALSTATEDIR)/apache/2.4/error/contact.html.var
+dir  path=$(LOCALSTATEDIR)/apache/2.4/error/include
 file path=$(LOCALSTATEDIR)/apache/2.4/error/include/bottom.html
 file path=$(LOCALSTATEDIR)/apache/2.4/error/include/spacer.html
 file path=$(LOCALSTATEDIR)/apache/2.4/error/include/top.html
+dir  path=$(LOCALSTATEDIR)/apache/2.4/htdocs
 file path=$(LOCALSTATEDIR)/apache/2.4/htdocs/index.html
+dir  path=$(LOCALSTATEDIR)/apache/2.4/icons
 file path=$(LOCALSTATEDIR)/apache/2.4/icons/README
 file path=$(LOCALSTATEDIR)/apache/2.4/icons/README.html
 file path=$(LOCALSTATEDIR)/apache/2.4/icons/a.gif
@@ -209,6 +203,7 @@ file path=$(LOCALSTATEDIR)/apache/2.4/icons/screw2.gif
 file path=$(LOCALSTATEDIR)/apache/2.4/icons/screw2.png
 file path=$(LOCALSTATEDIR)/apache/2.4/icons/script.gif
 file path=$(LOCALSTATEDIR)/apache/2.4/icons/script.png
+dir  path=$(LOCALSTATEDIR)/apache/2.4/icons/small
 file path=$(LOCALSTATEDIR)/apache/2.4/icons/small/back.gif
 file path=$(LOCALSTATEDIR)/apache/2.4/icons/small/back.png
 file path=$(LOCALSTATEDIR)/apache/2.4/icons/small/binary.gif
@@ -303,6 +298,8 @@ file path=$(LOCALSTATEDIR)/apache/2.4/icons/world1.png
 file path=$(LOCALSTATEDIR)/apache/2.4/icons/world2.gif
 file path=$(LOCALSTATEDIR)/apache/2.4/icons/world2.png
 file path=$(LOCALSTATEDIR)/apache/2.4/icons/xml.png
+dir  path=$(LOCALSTATEDIR)/apache/2.4/logs
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/BUILDING
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/LICENSE
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/bind.html
@@ -337,6 +334,7 @@ file path=$(LOCALSTATEDIR)/apache/2.4/manual/custom-error.html.fr
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/custom-error.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/custom-error.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/custom-error.html.tr.utf8
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/developer
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/developer/API.html
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/developer/API.html.en
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/developer/debugging.html
@@ -385,6 +383,7 @@ file path=$(LOCALSTATEDIR)/apache/2.4/manual/env.html.tr.utf8
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/expr.html
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/expr.html.en
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/expr.html.fr
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/faq
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/faq/index.html
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/faq/index.html.en
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/faq/index.html.fr
@@ -416,6 +415,7 @@ file path=$(LOCALSTATEDIR)/apache/2.4/manual/handler.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/handler.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/handler.html.tr.utf8
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/handler.html.zh-cn.utf8
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/howto
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/howto/access.html
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/howto/access.html.en
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/howto/access.html.fr
@@ -455,6 +455,7 @@ file path=$(LOCALSTATEDIR)/apache/2.4/manual/howto/ssi.html.en
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/howto/ssi.html.fr
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/howto/ssi.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/howto/ssi.html.ko.euc-kr
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/images
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/images/apache_header.gif
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/images/bal-man-b.png
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/images/bal-man-w.png
@@ -535,6 +536,7 @@ file path=$(LOCALSTATEDIR)/apache/2.4/manual/logs.html.fr
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/logs.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/logs.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/logs.html.tr.utf8
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/misc
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/misc/index.html
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/misc/index.html.en
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/misc/index.html.fr
@@ -558,6 +560,7 @@ file path=$(LOCALSTATEDIR)/apache/2.4/manual/misc/security_tips.html.en
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/misc/security_tips.html.fr
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/misc/security_tips.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/misc/security_tips.html.tr.utf8
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/mod
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/mod/core.html
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/mod/core.html.de
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/mod/core.html.en
@@ -1117,6 +1120,7 @@ file path=$(LOCALSTATEDIR)/apache/2.4/manual/new_features_2_4.html
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/new_features_2_4.html.en
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/new_features_2_4.html.fr
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/new_features_2_4.html.tr.utf8
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/platform
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/platform/ebcdic.html
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/platform/ebcdic.html.en
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/platform/ebcdic.html.ko.euc-kr
@@ -1143,6 +1147,7 @@ file path=$(LOCALSTATEDIR)/apache/2.4/manual/platform/windows.html
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/platform/windows.html.en
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/platform/windows.html.fr
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/platform/windows.html.ko.euc-kr
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/programs
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/programs/ab.html
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/programs/ab.html.en
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/programs/ab.html.fr
@@ -1230,6 +1235,7 @@ file path=$(LOCALSTATEDIR)/apache/2.4/manual/programs/suexec.html
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/programs/suexec.html.en
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/programs/suexec.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/programs/suexec.html.tr.utf8
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/rewrite
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/rewrite/access.html
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/rewrite/access.html.en
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/rewrite/access.html.fr
@@ -1292,6 +1298,7 @@ file path=$(LOCALSTATEDIR)/apache/2.4/manual/sitemap.html.zh-cn.utf8
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/socache.html
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/socache.html.en
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/socache.html.fr
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/ssl
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/ssl/index.html
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/ssl/index.html.en
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/ssl/index.html.fr
@@ -1319,8 +1326,10 @@ file path=$(LOCALSTATEDIR)/apache/2.4/manual/stopping.html.fr
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/stopping.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/stopping.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/stopping.html.tr.utf8
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/style
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/build.properties
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/common.dtd
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/style/css
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/css/manual-chm.css
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/css/manual-loose-100pc.css
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/css/manual-print.css
@@ -1329,15 +1338,20 @@ file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/css/manual-zip.css
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/css/manual.css
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/css/prettify.css
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/faq.dtd
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/style/lang
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/lang.dtd
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/style/latex
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/latex/atbeginend.sty
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/manualpage.dtd
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/modulesynopsis.dtd
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/style/scripts
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/scripts/MINIFY
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/scripts/prettify.js
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/scripts/prettify.min.js
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/sitemap.dtd
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/style/version.ent
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/style/xsl
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/style/xsl/util
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/suexec.html
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/suexec.html.en
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/suexec.html.fr
@@ -1353,6 +1367,7 @@ file path=$(LOCALSTATEDIR)/apache/2.4/manual/urlmapping.html.fr
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/urlmapping.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/urlmapping.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/urlmapping.html.tr.utf8
+dir  path=$(LOCALSTATEDIR)/apache/2.4/manual/vhosts
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/vhosts/details.html
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/vhosts/details.html.en
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/vhosts/details.html.fr
@@ -1396,7 +1411,11 @@ file path=$(LOCALSTATEDIR)/apache/2.4/manual/vhosts/name-based.html.fr
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/vhosts/name-based.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/vhosts/name-based.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.4/manual/vhosts/name-based.html.tr.utf8
-
+dir  path=$(LOCALSTATEDIR)/apache/2.4/run
+dir  path=$(SYSCONFDIR)
+dir  path=$(SYSCONFDIR)/apache
+dir  path=$(SYSCONFDIR)/apache/2.4
+dir  path=$(SYSCONFDIR)/apache/2.4/conf.d
 file path=$(SYSCONFDIR)/apache/2.4/conf.d/charset
 file path=$(SYSCONFDIR)/apache/2.4/conf.d/localized-error-pages
 file path=$(SYSCONFDIR)/apache/2.4/conf.d/other-vhosts-access-log
@@ -1405,6 +1424,7 @@ file path=$(SYSCONFDIR)/apache/2.4/envvars
 file path=$(SYSCONFDIR)/apache/2.4/httpd.conf
 file path=$(SYSCONFDIR)/apache/2.4/magic
 file path=$(SYSCONFDIR)/apache/2.4/mime.types
+dir  path=$(SYSCONFDIR)/apache/2.4/mods-available
 file path=$(SYSCONFDIR)/apache/2.4/mods-available/access_compat.load
 file path=$(SYSCONFDIR)/apache/2.4/mods-available/actions.conf
 file path=$(SYSCONFDIR)/apache/2.4/mods-available/actions.load
@@ -1530,6 +1550,7 @@ file path=$(SYSCONFDIR)/apache/2.4/mods-available/usertrack.load
 file path=$(SYSCONFDIR)/apache/2.4/mods-available/version.load
 file path=$(SYSCONFDIR)/apache/2.4/mods-available/vhost_alias.load
 file path=$(SYSCONFDIR)/apache/2.4/mods-available/watchdog.load
+dir  path=$(SYSCONFDIR)/apache/2.4/mods-enabled
 link path=$(SYSCONFDIR)/apache/2.4/mods-enabled/access_compat.load \
     target=../mods-available/access_compat.load
 link path=$(SYSCONFDIR)/apache/2.4/mods-enabled/alias.conf \
@@ -1603,12 +1624,17 @@ link path=$(SYSCONFDIR)/apache/2.4/mods-enabled/status.load \
 link path=$(SYSCONFDIR)/apache/2.4/mods-enabled/unixd.load \
     target=../mods-available/unixd.load
 file path=$(SYSCONFDIR)/apache/2.4/ports.conf
+dir  path=$(SYSCONFDIR)/apache/2.4/sites-available
 file path=$(SYSCONFDIR)/apache/2.4/sites-available/default
 file path=$(SYSCONFDIR)/apache/2.4/sites-available/default-ssl
 file path=$(SYSCONFDIR)/apache/2.4/sites-available/example
+dir  path=$(SYSCONFDIR)/apache/2.4/sites-enabled
 link path=$(SYSCONFDIR)/apache/2.4/sites-enabled/000-default \
     target=../sites-available/default
-
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/include
+dir  path=$(USRDIR)/include/apache
+dir  path=$(USRDIR)/include/apache/2.4
 file path=$(USRDIR)/include/apache/2.4/ap_compat.h
 file path=$(USRDIR)/include/apache/2.4/ap_config.h
 file path=$(USRDIR)/include/apache/2.4/ap_config_auto.h
@@ -1672,6 +1698,7 @@ file path=$(USRDIR)/include/apache/2.4/util_script.h
 file path=$(USRDIR)/include/apache/2.4/util_time.h
 file path=$(USRDIR)/include/apache/2.4/util_varbuf.h
 file path=$(USRDIR)/include/apache/2.4/util_xml.h
+dir  path=$(USRDIR)/include/apache/2.4/worker
 file path=$(USRDIR)/include/apache/2.4/worker/ap_compat.h
 file path=$(USRDIR)/include/apache/2.4/worker/ap_config.h
 file path=$(USRDIR)/include/apache/2.4/worker/ap_config_auto.h
@@ -1735,7 +1762,11 @@ file path=$(USRDIR)/include/apache/2.4/worker/util_script.h
 file path=$(USRDIR)/include/apache/2.4/worker/util_time.h
 file path=$(USRDIR)/include/apache/2.4/worker/util_varbuf.h
 file path=$(USRDIR)/include/apache/2.4/worker/util_xml.h
-
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/apache
+dir  path=$(USRDIR)/lib/apache/2.4
+dir  path=$(USRDIR)/lib/apache/2.4/bin
+dir  path=$(USRDIR)/lib/apache/2.4/bin/$(MACH64)
 file path=$(USRDIR)/lib/apache/2.4/bin/$(MACH64)/ab
 file path=$(USRDIR)/lib/apache/2.4/bin/$(MACH64)/apachectl
 file path=$(USRDIR)/lib/apache/2.4/bin/$(MACH64)/apxs
@@ -1770,6 +1801,8 @@ file path=$(USRDIR)/lib/apache/2.4/bin/httxt2dbm
 file path=$(USRDIR)/lib/apache/2.4/bin/logresolve
 file path=$(USRDIR)/lib/apache/2.4/bin/rotatelogs
 file path=$(USRDIR)/lib/apache/2.4/bin/suexec
+dir  path=$(USRDIR)/lib/apache/2.4/modules
+dir  path=$(USRDIR)/lib/apache/2.4/modules/$(MACH64)
 file path=$(USRDIR)/lib/apache/2.4/modules/$(MACH64)/httpd.exp
 file path=$(USRDIR)/lib/apache/2.4/modules/$(MACH64)/mod_access_compat.so
 file path=$(USRDIR)/lib/apache/2.4/modules/$(MACH64)/mod_actions.so
@@ -1978,44 +2011,51 @@ file path=$(USRDIR)/lib/apache/2.4/modules/mod_usertrack.so
 file path=$(USRDIR)/lib/apache/2.4/modules/mod_version.so
 file path=$(USRDIR)/lib/apache/2.4/modules/mod_vhost_alias.so
 file path=$(USRDIR)/lib/apache/2.4/modules/mod_watchdog.so
-
+dir  path=$(USRDIR)/share
+dir  path=$(USRDIR)/share/apache
+dir  path=$(USRDIR)/share/apache/2.4
+dir  path=$(USRDIR)/share/apache/2.4/build
+dir  path=$(USRDIR)/share/apache/2.4/build/$(MACH64)
 file path=$(USRDIR)/share/apache/2.4/build/$(MACH64)/config.nice
 file path=$(USRDIR)/share/apache/2.4/build/$(MACH64)/config_vars.mk
-file path=$(USRDIR)/share/apache/2.4/build/$(MACH64)/instdso.sh mode=0555
+file path=$(USRDIR)/share/apache/2.4/build/$(MACH64)/instdso.sh
 file path=$(USRDIR)/share/apache/2.4/build/$(MACH64)/library.mk
 file path=$(USRDIR)/share/apache/2.4/build/$(MACH64)/ltlib.mk
-file path=$(USRDIR)/share/apache/2.4/build/$(MACH64)/mkdir.sh mode=0555
+file path=$(USRDIR)/share/apache/2.4/build/$(MACH64)/mkdir.sh
 file path=$(USRDIR)/share/apache/2.4/build/$(MACH64)/program.mk
 file path=$(USRDIR)/share/apache/2.4/build/$(MACH64)/rules.mk
 file path=$(USRDIR)/share/apache/2.4/build/$(MACH64)/special.mk
 file path=$(USRDIR)/share/apache/2.4/build/config.nice
 file path=$(USRDIR)/share/apache/2.4/build/config_vars.mk
-file path=$(USRDIR)/share/apache/2.4/build/instdso.sh mode=0555
+file path=$(USRDIR)/share/apache/2.4/build/instdso.sh
 file path=$(USRDIR)/share/apache/2.4/build/library.mk
 file path=$(USRDIR)/share/apache/2.4/build/ltlib.mk
-file path=$(USRDIR)/share/apache/2.4/build/mkdir.sh mode=0555
+file path=$(USRDIR)/share/apache/2.4/build/mkdir.sh
 file path=$(USRDIR)/share/apache/2.4/build/program.mk
 file path=$(USRDIR)/share/apache/2.4/build/rules.mk
 file path=$(USRDIR)/share/apache/2.4/build/special.mk
+dir  path=$(USRDIR)/share/apache/2.4/build/worker
+dir  path=$(USRDIR)/share/apache/2.4/build/worker/$(MACH64)
 file path=$(USRDIR)/share/apache/2.4/build/worker/$(MACH64)/config.nice
 file path=$(USRDIR)/share/apache/2.4/build/worker/$(MACH64)/config_vars.mk
-file path=$(USRDIR)/share/apache/2.4/build/worker/$(MACH64)/instdso.sh mode=0555
+file path=$(USRDIR)/share/apache/2.4/build/worker/$(MACH64)/instdso.sh
 file path=$(USRDIR)/share/apache/2.4/build/worker/$(MACH64)/library.mk
 file path=$(USRDIR)/share/apache/2.4/build/worker/$(MACH64)/ltlib.mk
-file path=$(USRDIR)/share/apache/2.4/build/worker/$(MACH64)/mkdir.sh mode=0555
+file path=$(USRDIR)/share/apache/2.4/build/worker/$(MACH64)/mkdir.sh
 file path=$(USRDIR)/share/apache/2.4/build/worker/$(MACH64)/program.mk
 file path=$(USRDIR)/share/apache/2.4/build/worker/$(MACH64)/rules.mk
 file path=$(USRDIR)/share/apache/2.4/build/worker/$(MACH64)/special.mk
 file path=$(USRDIR)/share/apache/2.4/build/worker/config.nice
 file path=$(USRDIR)/share/apache/2.4/build/worker/config_vars.mk
-file path=$(USRDIR)/share/apache/2.4/build/worker/instdso.sh mode=0555
+file path=$(USRDIR)/share/apache/2.4/build/worker/instdso.sh
 file path=$(USRDIR)/share/apache/2.4/build/worker/library.mk
 file path=$(USRDIR)/share/apache/2.4/build/worker/ltlib.mk
-file path=$(USRDIR)/share/apache/2.4/build/worker/mkdir.sh mode=0555
+file path=$(USRDIR)/share/apache/2.4/build/worker/mkdir.sh
 file path=$(USRDIR)/share/apache/2.4/build/worker/program.mk
 file path=$(USRDIR)/share/apache/2.4/build/worker/rules.mk
 file path=$(USRDIR)/share/apache/2.4/build/worker/special.mk
-
+dir  path=$(USRDIR)/share/apache/2.4/man
+dir  path=$(USRDIR)/share/apache/2.4/man/man1
 file path=$(USRDIR)/share/apache/2.4/man/man1/ab.1
 file path=$(USRDIR)/share/apache/2.4/man/man1/apxs.1
 file path=$(USRDIR)/share/apache/2.4/man/man1/dbmmanage.1
@@ -2024,86 +2064,10 @@ file path=$(USRDIR)/share/apache/2.4/man/man1/htdigest.1
 file path=$(USRDIR)/share/apache/2.4/man/man1/htpasswd.1
 file path=$(USRDIR)/share/apache/2.4/man/man1/httxt2dbm.1
 file path=$(USRDIR)/share/apache/2.4/man/man1/logresolve.1
+dir  path=$(USRDIR)/share/apache/2.4/man/man8
 file path=$(USRDIR)/share/apache/2.4/man/man8/apachectl.8
 file path=$(USRDIR)/share/apache/2.4/man/man8/fcgistarter.8
 file path=$(USRDIR)/share/apache/2.4/man/man8/htcacheclean.8
 file path=$(USRDIR)/share/apache/2.4/man/man8/httpd.8
 file path=$(USRDIR)/share/apache/2.4/man/man8/rotatelogs.8
 file path=$(USRDIR)/share/apache/2.4/man/man8/suexec.8
-
-link path=$(USRDIR)/bin/ab \
-    target=../lib/apache/2.4/bin/ab preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/ab \
-    target=../../lib/apache/2.4/bin/$(MACH64)/ab preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/apachectl \
-    target=../lib/apache/2.4/bin/apachectl preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/apachectl \
-    target=../../lib/apache/2.4/bin/$(MACH64)/apachectl preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/apxs \
-    target=../lib/apache/2.4/bin/apxs preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/apxs \
-    target=../../lib/apache/2.4/bin/$(MACH64)/apxs preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/apxs.worker \
-    target=../lib/apache/2.4/bin/apxs.worker preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/apxs.worker \
-    target=../../lib/apache/2.4/bin/$(MACH64)/apxs.worker preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/checkgid \
-    target=../lib/apache/2.4/bin/checkgid preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/checkgid \
-    target=../../lib/apache/2.4/bin/$(MACH64)/checkgid preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/dbmmanage \
-    target=../lib/apache/2.4/bin/dbmmanage preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/dbmmanage \
-    target=../../lib/apache/2.4/bin/$(MACH64)/dbmmanage preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/htcacheclean \
-    target=../lib/apache/2.4/bin/htcacheclean preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/htcacheclean \
-    target=../../lib/apache/2.4/bin/$(MACH64)/htcacheclean preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/htdbm \
-    target=../lib/apache/2.4/bin/htdbm preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/htdbm \
-    target=../../lib/apache/2.4/bin/$(MACH64)/htdbm preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/htdigest \
-    target=../lib/apache/2.4/bin/htdigest preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/htdigest \
-    target=../../lib/apache/2.4/bin/$(MACH64)/htdigest preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/htpasswd \
-    target=../lib/apache/2.4/bin/htpasswd preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/htpasswd \
-    target=../../lib/apache/2.4/bin/$(MACH64)/htpasswd preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/httpd \
-    target=../lib/apache/2.4/bin/httpd preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/httpd \
-    target=../../lib/apache/2.4/bin/$(MACH64)/httpd preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/httxt2dbm \
-    target=../lib/apache/2.4/bin/httxt2dbm preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/httxt2dbm \
-    target=../../lib/apache/2.4/bin/$(MACH64)/httxt2dbm preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/logresolve \
-    target=../lib/apache/2.4/bin/logresolve preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/logresolve \
-    target=../../lib/apache/2.4/bin/$(MACH64)/logresolve preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/rotatelogs \
-    target=../lib/apache/2.4/bin/rotatelogs preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/rotatelogs \
-    target=../../lib/apache/2.4/bin/$(MACH64)/rotatelogs preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/suexec \
-    target=../lib/apache/2.4/bin/suexec preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/suexec \
-    target=../../lib/apache/2.4/bin/$(MACH64)/suexec preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/a2enmod \
-    target=../lib/apache/2.4/bin/a2enmod preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/a2enmod \
-    target=../../lib/apache/2.4/bin/$(MACH64)/a2enmod preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/a2dismod \
-    target=../lib/apache/2.4/bin/a2dismod preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/a2dismod \
-    target=../../lib/apache/2.4/bin/$(MACH64)/a2dismod preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/a2ensite \
-    target=../lib/apache/2.4/bin/a2ensite preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/a2ensite \
-    target=../../lib/apache/2.4/bin/$(MACH64)/a2ensite preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/a2dissite \
-    target=../lib/apache/2.4/bin/a2dissite preserve=true pkg.linted=true mediator=apache mediator-version=2.4
-link path=$(USRDIR)/bin/$(MACH64)/a2dissite \
-    target=../../lib/apache/2.4/bin/$(MACH64)/a2dissite preserve=true pkg.linted=true mediator=apache mediator-version=2.4
