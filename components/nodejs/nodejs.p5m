@@ -170,6 +170,7 @@ file path=$(USRDIR)/include/node/uv-version.h
 file path=$(USRDIR)/include/node/uv-win.h
 file path=$(USRDIR)/include/node/uv.h
 file path=$(USRDIR)/include/node/v8-debug.h
+file path=$(USRDIR)/include/node/v8-experimental.h
 file path=$(USRDIR)/include/node/v8-platform.h
 file path=$(USRDIR)/include/node/v8-profiler.h
 file path=$(USRDIR)/include/node/v8-testing.h
