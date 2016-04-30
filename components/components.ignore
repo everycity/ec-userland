@@ -45,3 +45,4 @@
 /^lua52$/d
 /^bitlbee$/d
 /^gnuplot$/d
+/^mysqlproxy55$/d
