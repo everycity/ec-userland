@@ -9,20 +9,21 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		librsvg
 COMPONENT_FMRI=         library/librsvg
-COMPONENT_VERSION=      2.40.5
+COMPONENT_VERSION=      2.40.15
 COMPONENT_LICENSE=      LGPLv2
+COMPONENT_LICENSE_FILE=	COPYING.LIB
 COMPONENT_PROJECT_URL=  "http://live.gnome.org/LibRsvg"
 COMPONENT_SUMMARY=	librsvg is a library to render SVG files using cairo
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
-COMPONENT_ARCHIVE_HASH=	sha256:d14d7b3e25023ce34302022fd7c9b3a468629c94dff6c177874629686bfc71a7
+COMPONENT_ARCHIVE_HASH=	sha256:d9cac4a123eec6e553a26e120979bab7425def9ae7ce7c079eba5e4a45db05f4
 COMPONENT_ARCHIVE_URL=	https://download.gnome.org/sources/$(COMPONENT_NAME)/2.40/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
