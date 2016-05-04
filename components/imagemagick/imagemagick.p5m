@@ -32,6 +32,7 @@ file path=$(SYSCONFDIR)/ImageMagick-6/mime.xml
 file path=$(SYSCONFDIR)/ImageMagick-6/policy.xml
 file path=$(SYSCONFDIR)/ImageMagick-6/quantization-table.xml
 file path=$(SYSCONFDIR)/ImageMagick-6/thresholds.xml
+file path=$(SYSCONFDIR)/ImageMagick-6/type-apple.xml
 file path=$(SYSCONFDIR)/ImageMagick-6/type-dejavu.xml
 file path=$(SYSCONFDIR)/ImageMagick-6/type-ghostscript.xml
 file path=$(SYSCONFDIR)/ImageMagick-6/type-windows.xml
