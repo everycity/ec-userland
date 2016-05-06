@@ -1,0 +1,8 @@
+--- go/src/crypto/x509/root_solaris.go.orig	2016-05-06 13:29:25.195227962 +0100
++++ go/src/crypto/x509/root_solaris.go	2016-05-06 13:29:45.572307297 +0100
+@@ -9,4 +9,5 @@
+ 	"/etc/certs/ca-certificates.crt",     // Solaris 11.2+
+ 	"/etc/ssl/certs/ca-certificates.crt", // Joyent SmartOS
+ 	"/etc/ssl/cacert.pem",                // OmniOS
++	"/ec/etc/openssl/cabundle.pem",       // EveryCity
+ }
