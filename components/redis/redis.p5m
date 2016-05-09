@@ -42,7 +42,7 @@ dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/etc/redis
 file path=$(ECPREFIX)/bin/redis-benchmark
 file path=$(ECPREFIX)/bin/redis-check-aof
-file path=$(ECPREFIX)/bin/redis-check-dump
+file path=$(ECPREFIX)/bin/redis-check-rdb
 file path=$(ECPREFIX)/bin/redis-cli
 file path=$(ECPREFIX)/bin/redis-server
 link path=$(ECPREFIX)/bin/redis-sentinel target=redis-server
