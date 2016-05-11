@@ -19,7 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -45,12 +45,12 @@ file path=$(ECPREFIX)/bin/$(MACH64)/ksba-config
 file path=$(ECPREFIX)/bin/ksba-config
 file path=$(ECPREFIX)/include/ksba.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libksba.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libksba.so.8.11.4
+file path=$(ECPREFIX)/lib/$(MACH64)/libksba.so.8.11.5
 file path=$(ECPREFIX)/lib/libksba.la
-file path=$(ECPREFIX)/lib/libksba.so.8.11.4
+file path=$(ECPREFIX)/lib/libksba.so.8.11.5
 file path=$(ECPREFIX)/share/aclocal/ksba.m4
 file path=$(ECPREFIX)/share/info/ksba.info
-link path=$(ECPREFIX)/lib/$(MACH64)/libksba.so target=libksba.so.8.11.4
-link path=$(ECPREFIX)/lib/$(MACH64)/libksba.so.8 target=libksba.so.8.11.4
-link path=$(ECPREFIX)/lib/libksba.so target=libksba.so.8.11.4
-link path=$(ECPREFIX)/lib/libksba.so.8 target=libksba.so.8.11.4
+link path=$(ECPREFIX)/lib/$(MACH64)/libksba.so target=libksba.so.8.11.5
+link path=$(ECPREFIX)/lib/$(MACH64)/libksba.so.8 target=libksba.so.8.11.5
+link path=$(ECPREFIX)/lib/libksba.so target=libksba.so.8.11.5
+link path=$(ECPREFIX)/lib/libksba.so.8 target=libksba.so.8.11.5
