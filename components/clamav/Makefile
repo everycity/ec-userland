@@ -16,14 +16,14 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		clamav
 COMPONENT_FMRI=		security/antivirus/clamav
-COMPONENT_VERSION=	0.99.1
+COMPONENT_VERSION=	0.99.2
 COMPONENT_LICENSE=	GPLv2
 COMPONENT_PROJECT_URL=	"http://www.clamav.net/"
 COMPONENT_SUMMARY=	ClamAV is an open source (GPL) antivirus engine
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:e144689122d3f91293808c82cbb06b7d3ac9eca7ae29564c5d148ffe7b25d58a
-COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
+COMPONENT_ARCHIVE_HASH=	sha256:167bd6a13e05ece326b968fdb539b05c2ffcfef6018a274a10aeda85c2c0027a
+COMPONENT_ARCHIVE_URL=	http://www.clamav.net/downloads/production/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
