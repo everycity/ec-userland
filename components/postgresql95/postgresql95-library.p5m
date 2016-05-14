@@ -1171,6 +1171,8 @@ file \
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/pt_BR/LC_MESSAGES/pg_resetxlog-9.5.mo
 file \
+    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/pt_BR/LC_MESSAGES/pg_rewind-9.5.mo
+file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/pt_BR/LC_MESSAGES/pgscripts-9.5.mo
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/pt_BR/LC_MESSAGES/plpgsql-9.5.mo
