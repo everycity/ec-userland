@@ -17,8 +17,8 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
@@ -30,7 +30,9 @@ file Solaris/curl-config.64 path=$(USRDIR)/bin/$(MACH64)/curl-config
 file Solaris/curl-config.32 path=$(USRDIR)/bin/curl-config
 
 file path=$(USRDIR)/bin/$(MACH64)/curl
+file path=$(USRDIR)/bin/$(MACH64)/curl-config
 file path=$(USRDIR)/bin/curl
+file path=$(USRDIR)/bin/curl-config
 file path=$(USRDIR)/include/curl/curl.h
 file path=$(USRDIR)/include/curl/curlbuild-32.h
 file path=$(USRDIR)/include/curl/curlbuild-64.h
@@ -132,6 +134,7 @@ file path=$(USRDIR)/share/man/man3/CURLOPT_CLOSESOCKETFUNCTION.3
 file path=$(USRDIR)/share/man/man3/CURLOPT_CONNECTTIMEOUT.3
 file path=$(USRDIR)/share/man/man3/CURLOPT_CONNECTTIMEOUT_MS.3
 file path=$(USRDIR)/share/man/man3/CURLOPT_CONNECT_ONLY.3
+file path=$(USRDIR)/share/man/man3/CURLOPT_CONNECT_TO.3
 file path=$(USRDIR)/share/man/man3/CURLOPT_CONV_FROM_NETWORK_FUNCTION.3
 file path=$(USRDIR)/share/man/man3/CURLOPT_CONV_FROM_UTF8_FUNCTION.3
 file path=$(USRDIR)/share/man/man3/CURLOPT_CONV_TO_NETWORK_FUNCTION.3
@@ -307,6 +310,7 @@ file path=$(USRDIR)/share/man/man3/CURLOPT_STDERR.3
 file path=$(USRDIR)/share/man/man3/CURLOPT_STREAM_DEPENDS.3
 file path=$(USRDIR)/share/man/man3/CURLOPT_STREAM_DEPENDS_E.3
 file path=$(USRDIR)/share/man/man3/CURLOPT_STREAM_WEIGHT.3
+file path=$(USRDIR)/share/man/man3/CURLOPT_TCP_FASTOPEN.3
 file path=$(USRDIR)/share/man/man3/CURLOPT_TCP_KEEPALIVE.3
 file path=$(USRDIR)/share/man/man3/CURLOPT_TCP_KEEPIDLE.3
 file path=$(USRDIR)/share/man/man3/CURLOPT_TCP_KEEPINTVL.3
