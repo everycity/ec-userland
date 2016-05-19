@@ -30,9 +30,7 @@ file Solaris/curl-config.64 path=$(USRDIR)/bin/$(MACH64)/curl-config
 file Solaris/curl-config.32 path=$(USRDIR)/bin/curl-config
 
 file path=$(USRDIR)/bin/$(MACH64)/curl
-file path=$(USRDIR)/bin/$(MACH64)/curl-config
 file path=$(USRDIR)/bin/curl
-file path=$(USRDIR)/bin/curl-config
 file path=$(USRDIR)/include/curl/curl.h
 file path=$(USRDIR)/include/curl/curlbuild-32.h
 file path=$(USRDIR)/include/curl/curlbuild-64.h
