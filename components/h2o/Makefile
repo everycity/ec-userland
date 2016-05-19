@@ -16,14 +16,14 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		h2o
 COMPONENT_FMRI=         web/server/h2o
-COMPONENT_VERSION=      1.7.1
+COMPONENT_VERSION=      1.7.2
 COMPONENT_LICENSE=      MIT
 COMPONENT_LICENSE_FILE=	LICENSE
 COMPONENT_PROJECT_URL=  "http://h2o.github.io/"
 COMPONENT_SUMMARY=	H2O is a very fast HTTP server written in C. It can also be used as a library.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:a9488667f0b73a66d5ef593660f6c0f66311d6eb4bf9378c6b7e74ab7ec9eea2
+COMPONENT_ARCHIVE_HASH=	sha256:fd75eab905dff9bcfd6c9c45d83a4cd0c133cc82a7d3dd48537244b12c2327a8
 COMPONENT_ARCHIVE_URL=	https://github.com/$(COMPONENT_NAME)/$(COMPONENT_NAME)/archive/v$(COMPONENT_VERSION).tar.gz
 
 include ../../make-rules/prep.mk
