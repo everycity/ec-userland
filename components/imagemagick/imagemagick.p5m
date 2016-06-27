@@ -1947,6 +1947,7 @@ file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/porting.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/quantize.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/resources.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/search.html
+file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/security-policy.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/sitemap.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/source/analyze.c
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/source/coder.xml
