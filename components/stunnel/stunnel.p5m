@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -79,6 +79,8 @@ file path=$(ECPREFIX)/share/doc/stunnel/examples/importCA.html
 file path=$(ECPREFIX)/share/doc/stunnel/examples/importCA.sh
 file path=$(ECPREFIX)/share/doc/stunnel/examples/script.sh
 file path=$(ECPREFIX)/share/doc/stunnel/examples/stunnel.init
+file path=$(ECPREFIX)/share/doc/stunnel/examples/stunnel.logrotate
+file path=$(ECPREFIX)/share/doc/stunnel/examples/stunnel.rh.init
 file path=$(ECPREFIX)/share/doc/stunnel/examples/stunnel.service
 file path=$(ECPREFIX)/share/doc/stunnel/examples/stunnel.spec
 file path=$(ECPREFIX)/share/doc/stunnel/stunnel.html
