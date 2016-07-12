@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -37,7 +37,9 @@ file path=$(USRDIR)/bin/$(MACH64)/stunnel3
 file path=$(USRDIR)/bin/stunnel
 file path=$(USRDIR)/bin/stunnel3
 file path=$(USRDIR)/etc/stunnel/stunnel.conf-sample
+file path=$(USRDIR)/lib/$(MACH64)/stunnel/libstunnel.la
 file path=$(USRDIR)/lib/$(MACH64)/stunnel/libstunnel.so
+file path=$(USRDIR)/lib/stunnel/libstunnel.la
 file path=$(USRDIR)/lib/stunnel/libstunnel.so
 file path=$(USRDIR)/share/doc/stunnel/AUTHORS
 file path=$(USRDIR)/share/doc/stunnel/BUGS
@@ -58,6 +60,8 @@ file path=$(USRDIR)/share/doc/stunnel/examples/importCA.html
 file path=$(USRDIR)/share/doc/stunnel/examples/importCA.sh
 file path=$(USRDIR)/share/doc/stunnel/examples/script.sh
 file path=$(USRDIR)/share/doc/stunnel/examples/stunnel.init
+file path=$(USRDIR)/share/doc/stunnel/examples/stunnel.logrotate
+file path=$(USRDIR)/share/doc/stunnel/examples/stunnel.rh.init
 file path=$(USRDIR)/share/doc/stunnel/examples/stunnel.service
 file path=$(USRDIR)/share/doc/stunnel/examples/stunnel.spec
 file path=$(USRDIR)/share/doc/stunnel/stunnel.html
