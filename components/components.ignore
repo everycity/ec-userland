@@ -46,3 +46,4 @@
 /^bitlbee$/d
 /^gnuplot$/d
 /^mysqlproxy55$/d
+/^h2o$/d
