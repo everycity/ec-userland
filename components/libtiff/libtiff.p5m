@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -91,14 +91,14 @@ file path=$(ECPREFIX)/include/tiffio.h
 file path=$(ECPREFIX)/include/tiffio.hxx
 file path=$(ECPREFIX)/include/tiffvers.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libtiff.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so.5.2.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so.5.2.4
 file path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so.5.2.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so.5.2.4
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libtiff-4.pc
 file path=$(ECPREFIX)/lib/libtiff.la
-file path=$(ECPREFIX)/lib/libtiff.so.5.2.0
+file path=$(ECPREFIX)/lib/libtiff.so.5.2.4
 file path=$(ECPREFIX)/lib/libtiffxx.la
-file path=$(ECPREFIX)/lib/libtiffxx.so.5.2.0
+file path=$(ECPREFIX)/lib/libtiffxx.so.5.2.4
 file path=$(ECPREFIX)/lib/pkgconfig/libtiff-4.pc
 file path=$(ECPREFIX)/share/doc/tiffx/COPYRIGHT
 file path=$(ECPREFIX)/share/doc/tiffx/ChangeLog
@@ -247,6 +247,11 @@ file path=$(ECPREFIX)/share/doc/tiffx/html/v3.9.2.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/v4.0.0.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/v4.0.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/v4.0.2.html
+file path=$(ECPREFIX)/share/doc/tiffx/html/v4.0.3.html
+file path=$(ECPREFIX)/share/doc/tiffx/html/v4.0.4.html
+file path=$(ECPREFIX)/share/doc/tiffx/html/v4.0.4beta.html
+file path=$(ECPREFIX)/share/doc/tiffx/html/v4.0.5.html
+file path=$(ECPREFIX)/share/doc/tiffx/html/v4.0.6.html
 file path=$(ECPREFIX)/share/man/man1/bmp2tiff.1
 file path=$(ECPREFIX)/share/man/man1/fax2ps.1
 file path=$(ECPREFIX)/share/man/man1/fax2tiff.1
@@ -317,11 +322,11 @@ file path=$(ECPREFIX)/share/man/man3/TIFFstrip.3tiff
 file path=$(ECPREFIX)/share/man/man3/TIFFswab.3tiff
 file path=$(ECPREFIX)/share/man/man3/TIFFtile.3tiff
 file path=$(ECPREFIX)/share/man/man3/libtiff.3tiff
-link path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so target=libtiff.so.5.2.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so.5 target=libtiff.so.5.2.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so target=libtiffxx.so.5.2.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so.5 target=libtiffxx.so.5.2.0
-link path=$(ECPREFIX)/lib/libtiff.so target=libtiff.so.5.2.0
-link path=$(ECPREFIX)/lib/libtiff.so.5 target=libtiff.so.5.2.0
-link path=$(ECPREFIX)/lib/libtiffxx.so target=libtiffxx.so.5.2.0
-link path=$(ECPREFIX)/lib/libtiffxx.so.5 target=libtiffxx.so.5.2.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so target=libtiff.so.5.2.4
+link path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so.5 target=libtiff.so.5.2.4
+link path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so target=libtiffxx.so.5.2.4
+link path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so.5 target=libtiffxx.so.5.2.4
+link path=$(ECPREFIX)/lib/libtiff.so target=libtiff.so.5.2.4
+link path=$(ECPREFIX)/lib/libtiff.so.5 target=libtiff.so.5.2.4
+link path=$(ECPREFIX)/lib/libtiffxx.so target=libtiffxx.so.5.2.4
+link path=$(ECPREFIX)/lib/libtiffxx.so.5 target=libtiffxx.so.5.2.4
