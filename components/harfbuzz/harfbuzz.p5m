@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -58,27 +58,28 @@ file path=$(ECPREFIX)/include/harfbuzz/hb-unicode.h
 file path=$(ECPREFIX)/include/harfbuzz/hb-version.h
 file path=$(ECPREFIX)/include/harfbuzz/hb.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libharfbuzz-icu.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libharfbuzz-icu.so.0.936.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libharfbuzz-icu.so.0.10200.7
 file path=$(ECPREFIX)/lib/$(MACH64)/libharfbuzz.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libharfbuzz.so.0.936.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libharfbuzz.so.0.10200.7
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/harfbuzz-icu.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/harfbuzz.pc
 file path=$(ECPREFIX)/lib/libharfbuzz-icu.la
-file path=$(ECPREFIX)/lib/libharfbuzz-icu.so.0.936.0
+file path=$(ECPREFIX)/lib/libharfbuzz-icu.so.0.10200.7
 file path=$(ECPREFIX)/lib/libharfbuzz.la
-file path=$(ECPREFIX)/lib/libharfbuzz.so.0.936.0
+file path=$(ECPREFIX)/lib/libharfbuzz.so.0.10200.7
 file path=$(ECPREFIX)/lib/pkgconfig/harfbuzz-icu.pc
 file path=$(ECPREFIX)/lib/pkgconfig/harfbuzz.pc
 link path=$(ECPREFIX)/lib/$(MACH64)/libharfbuzz-icu.so \
-    target=libharfbuzz-icu.so.0.936.0
+    target=libharfbuzz-icu.so.0.10200.7
 link path=$(ECPREFIX)/lib/$(MACH64)/libharfbuzz-icu.so.0 \
-    target=libharfbuzz-icu.so.0.936.0
+    target=libharfbuzz-icu.so.0.10200.7
 link path=$(ECPREFIX)/lib/$(MACH64)/libharfbuzz.so \
-    target=libharfbuzz.so.0.936.0
+    target=libharfbuzz.so.0.10200.7
 link path=$(ECPREFIX)/lib/$(MACH64)/libharfbuzz.so.0 \
-    target=libharfbuzz.so.0.936.0
-link path=$(ECPREFIX)/lib/libharfbuzz-icu.so target=libharfbuzz-icu.so.0.936.0
+    target=libharfbuzz.so.0.10200.7
+link path=$(ECPREFIX)/lib/libharfbuzz-icu.so \
+    target=libharfbuzz-icu.so.0.10200.7
 link path=$(ECPREFIX)/lib/libharfbuzz-icu.so.0 \
-    target=libharfbuzz-icu.so.0.936.0
-link path=$(ECPREFIX)/lib/libharfbuzz.so target=libharfbuzz.so.0.936.0
-link path=$(ECPREFIX)/lib/libharfbuzz.so.0 target=libharfbuzz.so.0.936.0
+    target=libharfbuzz-icu.so.0.10200.7
+link path=$(ECPREFIX)/lib/libharfbuzz.so target=libharfbuzz.so.0.10200.7
+link path=$(ECPREFIX)/lib/libharfbuzz.so.0 target=libharfbuzz.so.0.10200.7
