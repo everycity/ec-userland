@@ -384,6 +384,7 @@ file path=$(ECPREFIX)/share/man/man3/curl_multi_remove_handle.3
 file path=$(ECPREFIX)/share/man/man3/curl_multi_setopt.3
 file path=$(ECPREFIX)/share/man/man3/curl_multi_socket.3
 file path=$(ECPREFIX)/share/man/man3/curl_multi_socket_action.3
+file path=$(ECPREFIX)/share/man/man3/curl_multi_socket_all.3
 file path=$(ECPREFIX)/share/man/man3/curl_multi_strerror.3
 file path=$(ECPREFIX)/share/man/man3/curl_multi_timeout.3
 file path=$(ECPREFIX)/share/man/man3/curl_multi_wait.3
