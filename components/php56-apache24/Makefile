@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
 COMPONENT_FMRI=		web/server/apache-24/module/apache-php56
-COMPONENT_VERSION=	5.6.23
+COMPONENT_VERSION=	5.6.24
 COMPONENT_LICENSE=	PHPv3.01
 COMPONENT_PROJECT_URL=	"http://www.php.net"
 COMPONENT_SUMMARY=	PHP Server 5.6 Apache 2.4 module
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:5f2274a13970887e8c81500c2afe292d51c3524d1a06554b0a87c74ce0a24ffe
+COMPONENT_ARCHIVE_HASH=	sha256:5f8b2e4e00360fee6eb1b89447266ae45993265955bd1ea9866270d75cdb6ec1
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_UK)
 
 include ../../make-rules/prep.mk
@@ -129,6 +129,7 @@ endif
 CONFIGURE_OPTIONS     +=	--enable-shared
 CONFIGURE_OPTIONS     +=	--enable-filter
 CONFIGURE_OPTIONS     +=	--enable-gd-jis-conv
+CONFIGURE_OPTIONS     +=	--enable-gd-native-ttf
 CONFIGURE_OPTIONS     +=	--enable-short-tags
 CONFIGURE_OPTIONS     +=	--enable-pcntl
 CONFIGURE_OPTIONS     +=	--enable-shmop
@@ -143,20 +144,21 @@ CONFIGURE_OPTIONS     +=	--enable-opcache
 
 # Shared Extensions
 CONFIGURE_OPTIONS     +=	--enable-bcmath=shared
-CONFIGURE_OPTIONS     +=	--enable-json=shared
-CONFIGURE_OPTIONS     +=	--enable-libxml=shared
 CONFIGURE_OPTIONS     +=	--enable-ctype=shared
 CONFIGURE_OPTIONS     +=	--enable-calendar=shared
-CONFIGURE_OPTIONS     +=	--enable-tokenizer=shared
 CONFIGURE_OPTIONS     +=	--enable-exif=shared
 CONFIGURE_OPTIONS     +=	--enable-dom=shared
+CONFIGURE_OPTIONS     +=	--enable-fileinfo=shared
 CONFIGURE_OPTIONS     +=	--enable-ftp=shared
+CONFIGURE_OPTIONS     +=	--enable-json=shared
+CONFIGURE_OPTIONS     +=	--enable-libxml=shared
 CONFIGURE_OPTIONS     +=	--enable-pdo=shared
 CONFIGURE_OPTIONS     +=	--enable-mbstring=shared
 CONFIGURE_OPTIONS     +=	--enable-xmlreader=shared
 CONFIGURE_OPTIONS     +=	--enable-xmlwriter=shared
 CONFIGURE_OPTIONS     +=	--enable-soap=shared
-#CONFIGURE_OPTIONS     +=	--enable-sockets=shared
+CONFIGURE_OPTIONS     +=	--enable-sockets=shared
+CONFIGURE_OPTIONS     +=	--enable-tokenizer=shared
 CONFIGURE_OPTIONS     +=	--enable-wddx=shared
 CONFIGURE_OPTIONS     +=	--enable-zip=shared
 
@@ -164,7 +166,7 @@ CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
 
 COMPONENT_POST_CONFIGURE_ACTION_64= \
 	( cd $(@D) ; $(GSED) -i -e 's!-L[ ]*/ec/lib!-L/ec/lib/amd64!g' -e 's!-R[ ]*/ec/lib!-R/ec/lib/amd64!g' Makefile )
-COMPONENT_POST_CONFIGURE_ACTION=       $(COMPONENT_POST_CONFIGURE_ACTION_$(BITS))
+COMPONENT_POST_CONFIGURE_ACTION=	$(COMPONENT_POST_CONFIGURE_ACTION_$(BITS))
 
 # Installation Arguments
 COMPONENT_INSTALL_ARGS  += INSTALL_ROOT=$(PROTO_DIR)
@@ -189,4 +191,3 @@ COMPONENT_INSTALL_TARGETS =	install-sapi
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
-
