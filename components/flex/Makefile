@@ -9,16 +9,20 @@
 #
 
 #
-# Copyright 2011, 2013, EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		flex
-COMPONENT_VERSION=	2.5.35
+COMPONENT_FMRI=		developer/lexer/flex
+COMPONENT_VERSION=	2.6.0
+COMPONENT_LICENSE=	BSD
+COMPONENT_PROJECT_URL=	"http://flex.sourceforge.net/"
+COMPONENT_SUMMARY=	flex: the fast lexical analyser is a tool for creating scanners
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:0becbd4b2b36b99c67f8c22ab98f7f80c9860aec70f0350a0018f29a88704e7b
+COMPONENT_ARCHIVE_HASH=	sha256:24e611ef5a4703a191012f80c1027dc9d12555183ce0ecd46f3636e587e9b8e9
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk

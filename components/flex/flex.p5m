@@ -9,24 +9,26 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/developer/lexer/flex@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="Flex Lexer"
-set name=info.upstream_url value="http://flex.sourceforge.net/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license flex.license license="GPLv3"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/flex
 dir path=$(ECPREFIX)/share/info
 dir path=$(ECPREFIX)/share/locale
 dir path=$(ECPREFIX)/share/locale/ca
@@ -35,12 +37,22 @@ dir path=$(ECPREFIX)/share/locale/da
 dir path=$(ECPREFIX)/share/locale/da/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/de
 dir path=$(ECPREFIX)/share/locale/de/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/en@boldquot
+dir path=$(ECPREFIX)/share/locale/en@boldquot/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/en@quot
+dir path=$(ECPREFIX)/share/locale/en@quot/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/eo
+dir path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/es
 dir path=$(ECPREFIX)/share/locale/es/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/fi
+dir path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/fr
 dir path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/ga
 dir path=$(ECPREFIX)/share/locale/ga/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/hr
+dir path=$(ECPREFIX)/share/locale/hr/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/ko
 dir path=$(ECPREFIX)/share/locale/ko/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/nl
@@ -53,6 +65,8 @@ dir path=$(ECPREFIX)/share/locale/ro
 dir path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/ru
 dir path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/sr
+dir path=$(ECPREFIX)/share/locale/sr/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/sv
 dir path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/tr
@@ -61,29 +75,53 @@ dir path=$(ECPREFIX)/share/locale/vi
 dir path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES
 dir path=$(ECPREFIX)/share/locale/zh_CN
 dir path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES
+dir path=$(ECPREFIX)/share/locale/zh_TW
+dir path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 file path=$(ECPREFIX)/bin/flex
 file path=$(ECPREFIX)/include/FlexLexer.h
 file path=$(ECPREFIX)/lib/libfl.a
+file path=$(ECPREFIX)/lib/libfl.la
+file path=$(ECPREFIX)/lib/libfl.so.2.0.0
 file path=$(ECPREFIX)/lib/libfl_pic.a
+file path=$(ECPREFIX)/lib/libfl_pic.la
+file path=$(ECPREFIX)/lib/libfl_pic.so.2.0.0
+file path=$(ECPREFIX)/share/doc/flex/AUTHORS
+file path=$(ECPREFIX)/share/doc/flex/COPYING
+file path=$(ECPREFIX)/share/doc/flex/NEWS
+file path=$(ECPREFIX)/share/doc/flex/ONEWS
+file path=$(ECPREFIX)/share/doc/flex/README
+file path=$(ECPREFIX)/share/doc/flex/flex.pdf
 file path=$(ECPREFIX)/share/info/flex.info
 file path=$(ECPREFIX)/share/info/flex.info-1
 file path=$(ECPREFIX)/share/info/flex.info-2
 file path=$(ECPREFIX)/share/locale/ca/LC_MESSAGES/flex.mo
 file path=$(ECPREFIX)/share/locale/da/LC_MESSAGES/flex.mo
 file path=$(ECPREFIX)/share/locale/de/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/en@boldquot/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/en@quot/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES/flex.mo
 file path=$(ECPREFIX)/share/locale/es/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES/flex.mo
 file path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES/flex.mo
 file path=$(ECPREFIX)/share/locale/ga/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/hr/LC_MESSAGES/flex.mo
 file path=$(ECPREFIX)/share/locale/ko/LC_MESSAGES/flex.mo
 file path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES/flex.mo
 file path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES/flex.mo
 file path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES/flex.mo
 file path=$(ECPREFIX)/share/locale/ro/LC_MESSAGES/flex.mo
 file path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/sr/LC_MESSAGES/flex.mo
 file path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES/flex.mo
 file path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES/flex.mo
 file path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES/flex.mo
 file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/flex.mo
+file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/flex.mo
 file path=$(ECPREFIX)/share/man/man1/flex.1
+link path=$(ECPREFIX)/bin/flex++ target=flex
+link path=$(ECPREFIX)/lib/libfl.so target=libfl.so.2.0.0
+link path=$(ECPREFIX)/lib/libfl.so.2 target=libfl.so.2.0.0
+link path=$(ECPREFIX)/lib/libfl_pic.so target=libfl_pic.so.2.0.0
+link path=$(ECPREFIX)/lib/libfl_pic.so.2 target=libfl_pic.so.2.0.0
