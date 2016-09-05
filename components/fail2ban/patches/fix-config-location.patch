@@ -1,0 +1,11 @@
+--- fail2ban-0.9.5/bin/fail2ban-client.orig	2016-09-02 11:26:56.122605413 +0100
++++ fail2ban-0.9.5/bin/fail2ban-client	2016-09-02 11:30:55.576722677 +0100
+@@ -58,7 +58,7 @@
+ 		self.__stream = None
+ 		self.__configurator = Configurator()
+ 		self.__conf = dict()
+-		self.__conf["conf"] = "/etc/fail2ban"
++		self.__conf["conf"] = "/ec/etc/fail2ban"
+ 		self.__conf["dump"] = False
+ 		self.__conf["force"] = False
+ 		self.__conf["background"] = True

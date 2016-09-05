@@ -1,0 +1,16 @@
+--- fail2ban-0.9.5/fail2ban/client/fail2banregex.py.orig	2016-09-02 11:59:21.398539771 +0100
++++ fail2ban-0.9.5/fail2ban/client/fail2banregex.py	2016-09-02 11:59:35.145718164 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/ec/bin/python2.6
+ # emacs: -*- mode: python; py-indent-offset: 4; indent-tabs-mode: t -*-
+ # vi: set ft=python sts=4 ts=4 sw=4 noet :
+ #
+--- fail2ban-0.9.5/fail2ban/tests/files/config/apache-auth/digest.py.orig	2016-09-02 12:07:12.469454972 +0100
++++ fail2ban-0.9.5/fail2ban/tests/files/config/apache-auth/digest.py	2016-09-02 12:07:25.747463113 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/ec/bin/python2.6
+ import requests
+ 
+ try:
