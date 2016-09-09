@@ -16,14 +16,14 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ImageMagick
 COMPONENT_FMRI=		multimedia/imagemagick
-COMPONENT_VERSION=	6.9.5-5
-IPS_COMPONENT_VERSION=	6.9.5.5
+COMPONENT_VERSION=	6.9.5-9
+IPS_COMPONENT_VERSION=	6.9.5.9
 COMPONENT_LICENSE=	ImageMagick
 COMPONENT_PROJECT_URL=	http://www.imagemagick.org/
 COMPONENT_SUMMARY=	Convert, Edit, And Compose Images
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:b64e4aafd6dfae2d83bc0b14a0462cbdd2c267cb908e81014e0aa51dff346b4b
+COMPONENT_ARCHIVE_HASH=	sha256:19622d90d7dbb67bba7b7cc28cb82a170d2996c827c8a69bedbc96f18230ad02
 COMPONENT_ARCHIVE_URL=	ftp://ftp.imagemagick.org/pub/ImageMagick/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
