@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		GraphicsMagick
 COMPONENT_FMRI=         multimedia/graphicsmagick
-COMPONENT_VERSION=      1.3.24
+COMPONENT_VERSION=      1.3.25
 COMPONENT_LICENSE=      MIT
 COMPONENT_PROJECT_URL=  "http://www.graphicsmagick.org/"
 COMPONENT_SUMMARY=	GraphicsMagick is the swiss army knife of image processing.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
-COMPONENT_ARCHIVE_HASH=	sha256:52bfbacef4be3fbae756dbfd342e4843d2a446bef96450bfbe2c23ca60e180e0
+COMPONENT_ARCHIVE_HASH=	sha256:d64bfa52d2e0730eff9ce3ed51d4fc78dbb68e2adaa317b2bb3c56e6ee61ac9f
 SF_PROJECT_NAME=	graphicsmagick
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF_PROJECT)
 
