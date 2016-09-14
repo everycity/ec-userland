@@ -1,13 +1,11 @@
 --- boost_1_57_0/libs/log/build/Jamfile.v2.orig	2015-04-10 12:44:02.022694996 +0000
 +++ boost_1_57_0/libs/log/build/Jamfile.v2	2015-04-10 12:44:49.490192226 +0000
-@@ -178,8 +178,8 @@
+@@ -202,7 +202,7 @@
          <target-os>linux:<define>_XOPEN_SOURCE=600
          <target-os>linux:<define>_GNU_SOURCE=1
  
--        <target-os>solaris:<define>_XOPEN_SOURCE=500
--        <target-os>solaris:<define>__EXTENSIONS__
+-        <target-os>solaris:<define>_XOPEN_SOURCE=500 # Solaris headers are broken and cannot be included in C++ when _XOPEN_SOURCE=600
 +        <target-os>solaris:<define>_XOPEN_SOURCE=600
-+        #<target-os>solaris:<define>__EXTENSIONS__
+         <target-os>solaris:<define>__EXTENSIONS__
          <target-os>solaris:<library>socket
          <target-os>solaris:<library>nsl
- 
