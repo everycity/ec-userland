@@ -1,0 +1,12 @@
+diff -ruN quagga-1.0.20160315.orig/solaris/quagga.init.in quagga-1.0.20160315/solaris/quagga.init.in
+--- quagga-1.0.20160315.orig/solaris/quagga.init.in	2016-03-15 23:17:17.000000000 +0000
++++ quagga-1.0.20160315/solaris/quagga.init.in	2016-09-14 14:49:44.933312190 +0000
+@@ -229,7 +229,7 @@
+ 	fi
+ fi
+ 
+-upgrade_config "$DAEMON"
++#upgrade_config "$DAEMON"
+ 
+ if [ ! -f "@sysconfdir@/${DAEMON}.conf" ] ; then
+ 	echo "Could not find config file, @sysconfdir@/${DAEMON}.conf"
