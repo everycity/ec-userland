@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -22,73 +22,41 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(SYSCONFDIR)
 file path=$(SYSCONFDIR)/lftp.conf
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/bin
-dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/lftp
 file path=$(USRDIR)/bin/$(MACH64)/lftpget
 file path=$(USRDIR)/bin/lftp
 file path=$(USRDIR)/bin/lftpget
-dir  path=$(USRDIR)/lib
-dir  path=$(USRDIR)/lib/$(MACH64)
 file path=$(USRDIR)/lib/$(MACH64)/charset.alias
 file path=$(USRDIR)/lib/$(MACH64)/liblftp-jobs.a
+file path=$(USRDIR)/lib/$(MACH64)/liblftp-jobs.la
 file path=$(USRDIR)/lib/$(MACH64)/liblftp-tasks.a
+file path=$(USRDIR)/lib/$(MACH64)/liblftp-tasks.la
+file path=$(USRDIR)/lib/charset.alias
 file path=$(USRDIR)/lib/liblftp-jobs.a
+file path=$(USRDIR)/lib/liblftp-jobs.la
 file path=$(USRDIR)/lib/liblftp-tasks.a
+file path=$(USRDIR)/lib/liblftp-tasks.la
+dir  path=$(USRDIR)/share/lftp
 file path=$(USRDIR)/share/lftp/convert-mozilla-cookies
 file path=$(USRDIR)/share/lftp/import-ncftp
 file path=$(USRDIR)/share/lftp/import-netscape
 file path=$(USRDIR)/share/lftp/verify-file
 file path=$(USRDIR)/share/lftp/xdg-move
-dir  path=$(USRDIR)/share/locale
-dir  path=$(USRDIR)/share/locale/cs
-dir  path=$(USRDIR)/share/locale/cs/LC_MESSAGES
 file path=$(USRDIR)/share/locale/cs/LC_MESSAGES/lftp.mo
-dir  path=$(USRDIR)/share/locale/de
-dir  path=$(USRDIR)/share/locale/de/LC_MESSAGES
 file path=$(USRDIR)/share/locale/de/LC_MESSAGES/lftp.mo
-dir  path=$(USRDIR)/share/locale/es
-dir  path=$(USRDIR)/share/locale/es/LC_MESSAGES
 file path=$(USRDIR)/share/locale/es/LC_MESSAGES/lftp.mo
-dir  path=$(USRDIR)/share/locale/fr
-dir  path=$(USRDIR)/share/locale/fr/LC_MESSAGES
 file path=$(USRDIR)/share/locale/fr/LC_MESSAGES/lftp.mo
-dir  path=$(USRDIR)/share/locale/it
-dir  path=$(USRDIR)/share/locale/it/LC_MESSAGES
 file path=$(USRDIR)/share/locale/it/LC_MESSAGES/lftp.mo
-dir  path=$(USRDIR)/share/locale/ja
-dir  path=$(USRDIR)/share/locale/ja/LC_MESSAGES
 file path=$(USRDIR)/share/locale/ja/LC_MESSAGES/lftp.mo
-dir  path=$(USRDIR)/share/locale/ko
-dir  path=$(USRDIR)/share/locale/ko/LC_MESSAGES
 file path=$(USRDIR)/share/locale/ko/LC_MESSAGES/lftp.mo
-dir  path=$(USRDIR)/share/locale/pl
-dir  path=$(USRDIR)/share/locale/pl/LC_MESSAGES
 file path=$(USRDIR)/share/locale/pl/LC_MESSAGES/lftp.mo
-dir  path=$(USRDIR)/share/locale/pt_BR
-dir  path=$(USRDIR)/share/locale/pt_BR/LC_MESSAGES
 file path=$(USRDIR)/share/locale/pt_BR/LC_MESSAGES/lftp.mo
-dir  path=$(USRDIR)/share/locale/ru
-dir  path=$(USRDIR)/share/locale/ru/LC_MESSAGES
 file path=$(USRDIR)/share/locale/ru/LC_MESSAGES/lftp.mo
-dir  path=$(USRDIR)/share/locale/uk
-dir  path=$(USRDIR)/share/locale/uk/LC_MESSAGES
 file path=$(USRDIR)/share/locale/uk/LC_MESSAGES/lftp.mo
-dir  path=$(USRDIR)/share/locale/zh_CN
-dir  path=$(USRDIR)/share/locale/zh_CN/LC_MESSAGES
 file path=$(USRDIR)/share/locale/zh_CN/LC_MESSAGES/lftp.mo
-dir  path=$(USRDIR)/share/locale/zh_HK
-dir  path=$(USRDIR)/share/locale/zh_HK/LC_MESSAGES
 file path=$(USRDIR)/share/locale/zh_HK/LC_MESSAGES/lftp.mo
-dir  path=$(USRDIR)/share/locale/zh_TW
-dir  path=$(USRDIR)/share/locale/zh_TW/LC_MESSAGES
 file path=$(USRDIR)/share/locale/zh_TW/LC_MESSAGES/lftp.mo
-dir  path=$(USRDIR)/share/man
-dir  path=$(USRDIR)/share/man/man1
 file path=$(USRDIR)/share/man/man1/lftp.1
 file path=$(USRDIR)/share/man/man1/lftpget.1
-dir  path=$(USRDIR)/share/man/man5
 file path=$(USRDIR)/share/man/man5/lftp.conf.5
