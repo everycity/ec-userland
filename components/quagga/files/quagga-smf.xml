@@ -4,7 +4,7 @@
 
 <!DOCTYPE service_bundle SYSTEM "/usr/share/lib/xml/dtd/service_bundle.dtd.1">
 <service_bundle type='manifest' name='export'>
-  <service name='network/quagga' type='service' version='1'>
+  <service name='network/routing/quagga' type='service' version='1'>
     <instance name='zebra' enabled='false'>
       <dependency name='fs' grouping='require_all' restart_on='none' type='service'>
         <service_fmri value='svc:/system/filesystem/usr:default' />
@@ -91,7 +91,7 @@
       </dependency>
       <!-- ensure that restart of zebra is propogated to daemon -->
       <dependency name='zebra' grouping='require_all' restart_on='restart' type='service'>
-        <service_fmri value='svc:/network/quagga:zebra' />
+        <service_fmri value='svc:/network/routing/quagga:zebra' />
       </dependency>
       <exec_method type='method' name='start' exec='/ec/var/svc/method/quagga ripd' timeout_seconds='60'>
         <method_context>
@@ -162,7 +162,7 @@
       </dependency>
       <!-- ensure that restart of zebra is propogated to daemon -->
       <dependency name='zebra' grouping='require_all' restart_on='restart' type='service'>
-        <service_fmri value='svc:/network/quagga:zebra' />
+        <service_fmri value='svc:/network/routing/quagga:zebra' />
       </dependency>
       <exec_method type='method' name='start' exec='/ec/var/svc/method/quagga ripngd' timeout_seconds='60'>
         <method_context>
@@ -232,7 +232,7 @@
       </dependency>
       <!-- ensure that restart of zebra is propogated to daemon -->
       <dependency name='zebra' grouping='require_all' restart_on='restart' type='service'>
-        <service_fmri value='svc:/network/quagga:zebra' />
+        <service_fmri value='svc:/network/routing/quagga:zebra' />
       </dependency>
       <exec_method type='method' name='start' exec='/ec/var/svc/method/quagga ospfd' timeout_seconds='60'>
         <method_context>
@@ -304,7 +304,7 @@
       </dependency>
       <!-- ensure that restart of zebra is propogated to daemon -->
       <dependency name='zebra' grouping='require_all' restart_on='restart' type='service'>
-        <service_fmri value='svc:/network/quagga:zebra' />
+        <service_fmri value='svc:/network/routing/quagga:zebra' />
       </dependency>
       <exec_method type='method' name='start' exec='/ec/var/svc/method/quagga ospf6d' timeout_seconds='60'>
         <method_context>
@@ -375,7 +375,7 @@
       </dependency>
       <!-- ensure that restart of zebra is propogated to daemon -->
       <dependency name='zebra' grouping='require_all' restart_on='restart' type='service'>
-        <service_fmri value='svc:/network/quagga:zebra' />
+        <service_fmri value='svc:/network/routing/quagga:zebra' />
       </dependency>
       <exec_method type='method' name='start' exec='/ec/var/svc/method/quagga bgpd' timeout_seconds='60'>
         <method_context>
