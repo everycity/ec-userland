@@ -1,6 +1,6 @@
---- logrotate-3.8.1/Makefile.~1~	2011-08-31 12:39:04.000000000 +0000
-+++ logrotate-3.8.1/Makefile	2011-12-18 00:43:55.954742198 +0000
-@@ -44,7 +44,7 @@
+--- logrotate-3.9.1/Makefile.~1~	2015-04-03 07:39:35.000000000 +0000
++++ logrotate-3.9.1/Makefile	2016-10-10 15:24:03.224307091 +0000
+@@ -54,7 +54,7 @@
      CFLAGS = -D_GNU_SOURCE -D$(OS_NAME) -DVERSION=\"$(VERSION)\" $(RPM_OPT_FLAGS) $(LFS)
      CC ?= gcc
      CPP = $(CC) -E -M
@@ -9,7 +9,7 @@
      ifeq ($(CC),cc)
          CPP = cc -xM
      endif
-@@ -80,7 +80,7 @@
+@@ -90,7 +90,7 @@
      CFLAGS += -DSTATEFILE=\"$(STATEFILE)\"
  endif
  

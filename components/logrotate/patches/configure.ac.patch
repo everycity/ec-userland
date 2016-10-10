@@ -1,0 +1,11 @@
+--- logrotate-3.9.1/configure.ac.orig	2016-10-10 15:06:14.003627639 +0000
++++ logrotate-3.9.1/configure.ac	2016-10-10 15:06:36.508586673 +0000
+@@ -3,8 +3,6 @@
+ AM_INIT_AUTOMAKE
+ AC_DEFINE(_GNU_SOURCE)
+ 
+-AM_EXTRA_RECURSIVE_TARGETS([test])
+-
+ AC_PROG_CC
+ AC_PROG_CC_STDC
+ AC_STRUCT_ST_BLKSIZE
