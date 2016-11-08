@@ -33,6 +33,15 @@ RUBY_VER=	2.3
 CONFIGURE_OPTIONS+=	--with-soname=ruby$(RUBY_VER) --program-suffix=$(RUBY_VER)
 CONFIGURE_OPTIONS+=	--enable-shared
 
+COMPONENT_POST_INSTALL_ACTION.32 = \
+	$(GSED) -i -e 's/-std=iso9899:1999 -D_XOPEN_SOURCE=600//' \
+	  $(PROTO_DIR)$(ECPREFIX)/lib/ruby/2.3.0/*/rbconfig.rb
+COMPONENT_POST_INSTALL_ACTION.64 = \
+	$(GSED) -i -e 's/-std=iso9899:1999 -D_XOPEN_SOURCE=600//' \
+	  $(PROTO_DIR)$(ECPREFIX)/lib/$(MACH64)/ruby/2.3.0/*/rbconfig.rb
+
+COMPONENT_POST_INSTALL_ACTION = $(COMPONENT_POST_INSTALL_ACTION.$(BITS))
+
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
