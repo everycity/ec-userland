@@ -1,0 +1,85 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2016 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+# User/Group Accounts
+group gid=488 groupname=pgpool
+user gcos-field="Pgpool Account" group=pgpool uid=488 username=pgpool login-shell=/bin/false
+
+file files/pgpool-manifest.xml path=var/svc/manifest/site/pgpool.xml \
+	restart_fmri=svc:/system/manifest-import:default
+
+dir path=$(ECPREFIX)/share/pgpool-II
+dir path=var/log/pgpool user=pgpool group=pgpool
+file path=$(ECPREFIX)/bin/$(MACH64)/pcp_attach_node
+file path=$(ECPREFIX)/bin/$(MACH64)/pcp_detach_node
+file path=$(ECPREFIX)/bin/$(MACH64)/pcp_node_count
+file path=$(ECPREFIX)/bin/$(MACH64)/pcp_node_info
+file path=$(ECPREFIX)/bin/$(MACH64)/pcp_pool_status
+file path=$(ECPREFIX)/bin/$(MACH64)/pcp_proc_count
+file path=$(ECPREFIX)/bin/$(MACH64)/pcp_proc_info
+file path=$(ECPREFIX)/bin/$(MACH64)/pcp_promote_node
+file path=$(ECPREFIX)/bin/$(MACH64)/pcp_recovery_node
+file path=$(ECPREFIX)/bin/$(MACH64)/pcp_stop_pgpool
+file path=$(ECPREFIX)/bin/$(MACH64)/pcp_watchdog_info
+file path=$(ECPREFIX)/bin/$(MACH64)/pg_md5
+file path=$(ECPREFIX)/bin/$(MACH64)/pgpool
+file path=$(ECPREFIX)/bin/$(MACH64)/pgpool_setup
+file path=$(ECPREFIX)/bin/$(MACH64)/watchdog_setup
+file path=$(ECPREFIX)/bin/pcp_attach_node
+file path=$(ECPREFIX)/bin/pcp_detach_node
+file path=$(ECPREFIX)/bin/pcp_node_count
+file path=$(ECPREFIX)/bin/pcp_node_info
+file path=$(ECPREFIX)/bin/pcp_pool_status
+file path=$(ECPREFIX)/bin/pcp_proc_count
+file path=$(ECPREFIX)/bin/pcp_proc_info
+file path=$(ECPREFIX)/bin/pcp_promote_node
+file path=$(ECPREFIX)/bin/pcp_recovery_node
+file path=$(ECPREFIX)/bin/pcp_stop_pgpool
+file path=$(ECPREFIX)/bin/pcp_watchdog_info
+file path=$(ECPREFIX)/bin/pg_md5
+file path=$(ECPREFIX)/bin/pgpool
+file path=$(ECPREFIX)/bin/pgpool_setup
+file path=$(ECPREFIX)/bin/watchdog_setup
+file path=$(ECPREFIX)/etc/pcp.conf.sample
+file path=$(ECPREFIX)/etc/pgpool.conf.sample
+file path=$(ECPREFIX)/etc/pgpool.conf.sample-master-slave
+file path=$(ECPREFIX)/etc/pgpool.conf.sample-replication
+file path=$(ECPREFIX)/etc/pgpool.conf.sample-stream
+file path=$(ECPREFIX)/etc/pool_hba.conf.sample
+file path=$(ECPREFIX)/include/libpcp_ext.h
+file path=$(ECPREFIX)/include/pcp.h
+file path=$(ECPREFIX)/include/pool_process_reporting.h
+file path=$(ECPREFIX)/include/pool_type.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libpcp.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libpcp.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libpcp.so.1.0.0
+file path=$(ECPREFIX)/lib/libpcp.a
+file path=$(ECPREFIX)/lib/libpcp.la
+file path=$(ECPREFIX)/lib/libpcp.so.1.0.0
+file path=$(ECPREFIX)/share/pgpool-II/insert_lock.sql
+file path=$(ECPREFIX)/share/pgpool-II/pgpool.pam
+link path=$(ECPREFIX)/lib/$(MACH64)/libpcp.so target=libpcp.so.1.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libpcp.so.1 target=libpcp.so.1.0.0
+link path=$(ECPREFIX)/lib/libpcp.so target=libpcp.so.1.0.0
+link path=$(ECPREFIX)/lib/libpcp.so.1 target=libpcp.so.1.0.0

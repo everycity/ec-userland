@@ -1,0 +1,11 @@
+--- pgpool-II-3.6.0/src/watchdog/watchdog.c.orig	2016-11-23 16:33:30.958761427 +0000
++++ pgpool-II-3.6.0/src/watchdog/watchdog.c	2016-11-23 16:34:00.479260973 +0000
+@@ -466,7 +466,7 @@
+ static void print_watchdog_node_info(WatchdogNode* wdNode);
+ static int wd_create_recv_socket(int port);
+ static void wd_check_config(void);
+-static pid_t watchdog_main(void);
++static int watchdog_main(void);
+ static pid_t fork_watchdog_child(void);
+ static void cluster_in_stable_state(void);
+ static bool check_IPC_client_authentication(json_value *rootObj, bool internal_client_only);

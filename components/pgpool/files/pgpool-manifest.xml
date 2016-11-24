@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE service_bundle SYSTEM "/usr/share/lib/xml/dtd/service_bundle.dtd.1">
+<service_bundle type="manifest" name="export">
+	<service name="database/proxy/pgpool" type="service" version="1">
+		<dependency name="network" grouping="require_all" restart_on="error" type="service">
+			<service_fmri value="svc:/milestone/network:default" />
+		</dependency>
+		<dependency name="filesystem" grouping="require_all" restart_on="error" type="service">
+			<service_fmri value="svc:/system/filesystem/local" />
+		</dependency>
+
+		<method_context>
+			<method_credential user="pgpool" group="pgpool" />
+		</method_context>
+
+		<exec_method type="method" name="start" timeout_seconds="300"
+			exec="/ec/bin/pgpool -f %{pgpool/config} -a %{pgpool/pool_hba_config} -F %{pgpool/pcp_config}" />
+		<exec_method type="method" name="stop" timeout_seconds="3600"
+			exec="/ec/bin/pgpool -f %{pgpool/config} -a %{pgpool/pool_hba_config} -F %{pgpool/pcp_config} stop" />
+		<exec_method type="method" name="refresh" timeout_seconds="300"
+			exec="/ec/bin/pgpool -f %{pgpool/config} -a %{pgpool/pool_hba_config} -F %{pgpool/pcp_config} reload" />
+
+		<property_group name="pgpool" type="application">
+			<propval name="config" type="astring" value="/ec/etc/pgpool.conf" />
+			<propval name="pool_hba_config" type="astring" value="/ec/etc/pool_hba.conf" />
+			<propval name="pcp_config" type="astring" value="/ec/etc/pcp.conf" />
+		</property_group>
+
+		<property_group name="startd" type="framework">
+			<propval name="duration" type="astring" value="contract" />
+			<propval name="ignore_error" type="astring" value="core,signal" />
+		</property_group>
+
+		<template>
+			<common_name>
+				<loctext xml:lang="C">pgpool-II</loctext>
+			</common_name>
+		</template>
+	</service>
+</service_bundle>
