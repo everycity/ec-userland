@@ -15,15 +15,15 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		stunnel
-COMPONENT_FMRI=         security/stunnel
-COMPONENT_VERSION=      5.35
-IPS_COMPONENT_VERSION=	5.35
-COMPONENT_LICENSE=      stunnel
-COMPONENT_PROJECT_URL=  https://www.stunnel.org/
+COMPONENT_FMRI=		security/stunnel
+COMPONENT_VERSION=	5.38
+IPS_COMPONENT_VERSION=	5.38
+COMPONENT_LICENSE=	stunnel
+COMPONENT_PROJECT_URL=	https://www.stunnel.org/
 COMPONENT_SUMMARY=	The stunnel program is designed to work as an SSL encryption wrapper between remote client and local (inetd-startable) or remote server
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:ffa386ae4c825f35f35157c285e7402a6d58779ad8c3822f74a9d355b54aba1d
+COMPONENT_ARCHIVE_HASH=	sha256:09ada29ba1683ab1fd1f31d7bed8305127a0876537e836a40cb83851da034fd5
 COMPONENT_ARCHIVE_URL=	https://www.stunnel.org/downloads/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
