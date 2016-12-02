@@ -15,7 +15,7 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		collectd
-COMPONENT_FMRI=		collectd
+COMPONENT_FMRI=		monitoring/collectd
 COMPONENT_VERSION=	5.6.2
 COMPONENT_LICENSE=	MIT
 COMPONENT_PROJECT_URL=	"https://collectd.org/"
