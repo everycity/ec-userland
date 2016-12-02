@@ -1,7 +1,7 @@
 #!/sbin/sh
 
-PIDFILE=/opt/collectd/var/run/collectd.pid
-DAEMON=/opt/collectd/sbin/collectd
+PIDFILE=/var/run/collectd.pid
+DAEMON=/ec/bin/amd64/collectd
 
 . /lib/svc/share/smf_include.sh
 
