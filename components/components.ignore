@@ -42,8 +42,11 @@
 /^ca-certificates$/d
 /^openvpn$/d
 /^git-repo$/d
-/^lua52$/d
 /^bitlbee$/d
+/^geoip-db-city$/d
+/^geoip-db-country$/d
 /^gnuplot$/d
-/^mysqlproxy55$/d
 /^h2o$/d
+/^lua52$/d
+/^mysqlproxy55$/d
+/^vlc2$/d
