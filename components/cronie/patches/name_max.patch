@@ -1,0 +1,19 @@
+--- cronie-1.5.0/src/database.c.~1~	2015-05-28 11:00:24.000000000 +0000
++++ cronie-1.5.0/src/database.c	2016-04-30 20:23:09.773586229 +0000
+@@ -32,7 +32,15 @@
+ #include <dirent.h>
+ #include <errno.h>
+ #include <fcntl.h>
+-#include <limits.h>
++#include <limits.h> /* NAME_MAX */
++
++#if defined (__SVR4) && defined (__sun)
++# ifndef NAME_MAX
++#  include <sys/param.h> /* MAXNAMELEN */
++#  define NAME_MAX MAXNAMELEN
++# endif
++#endif
++
+ #include <pwd.h>
+ #include <stdlib.h>
+ #include <string.h>
