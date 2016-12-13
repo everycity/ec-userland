@@ -16,24 +16,31 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		rabbitmq
 COMPONENT_FMRI=		service/rabbitmq
-COMPONENT_VERSION=	3.4.4
+COMPONENT_VERSION=	3.6.6
 COMPONENT_LICENSE=	MPL
 COMPONENT_PROJECT_URL=	"http://www.rabbitmq.com/"
 COMPONENT_SUMMARY=	Messaging for applications
 COMPONENT_SRC=		$(COMPONENT_NAME)-server-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:9241b3465e4026c6590aca9324308d31b60e552fd2a8c464322d34e9479bd5da
-COMPONENT_ARCHIVE_URL=	http://www.rabbitmq.com/releases/rabbitmq-server/v$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
+COMPONENT_ARCHIVE_HASH=	sha256:395689bcf57fd48aed452fcd43ff9a992de40067d3ea5c44e14680d69db7b78e
+COMPONENT_ARCHIVE_URL=	https://www.rabbitmq.com/releases/rabbitmq-server/v$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
+COMPONENT_BUILD_ENV+= \
+	PREFIX=$(ECPREFIX) \
+	MAN_INSTALL_PATH=$(PROTO_DIR)$(ECPREFIX)/share/man
+
 COMPONENT_INSTALL_ENV+= \
+	PREFIX=$(ECPREFIX) \
 	TARGET_DIR=$(PROTO_DIR)$(ECPREFIX)/lib/rabbitmq \
 	SBIN_DIR=$(PROTO_DIR)$(ECPREFIX)/lib/rabbitmq/sbin \
-	MAN_DIR=$(PROTO_DIR)$(ECPREFIX)/share/man \
+	MAN_INSTALL_PATH=$(PROTO_DIR)$(ECPREFIX)/share/man \
 	DOC_INSTALL_DIR=$(PROTO_DIR)$(ECPREFIX)/share/doc
+
+COMPONENT_INSTALL_TARGETS+=	install-bin install-man
 
 COMPONENT_POST_INSTALL_ACTION= \
 	( perl -pi -e 's/^SYS_PREFIX=.*/SYS_PREFIX=\/ec/g' \
