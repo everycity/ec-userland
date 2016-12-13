@@ -60,8 +60,8 @@ file path=$(USRDIR)/include/h2o/version.h
 file path=$(USRDIR)/include/h2o/websocket.h
 dir  path=$(USRDIR)/lib
 link path=$(USRDIR)/lib/libh2o-evloop.so target=libh2o-evloop.so.0.11
-link path=$(USRDIR)/lib/libh2o-evloop.so.0.11 target=libh2o-evloop.so.0.11.1
-file path=$(USRDIR)/lib/libh2o-evloop.so.0.11.1
+link path=$(USRDIR)/lib/libh2o-evloop.so.0.11 target=libh2o-evloop.so.0.11.4
+file path=$(USRDIR)/lib/libh2o-evloop.so.0.11.4
 dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/libh2o-evloop.pc
 dir  path=$(USRDIR)/share
