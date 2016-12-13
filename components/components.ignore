@@ -46,7 +46,6 @@
 /^geoip-db-city$/d
 /^geoip-db-country$/d
 /^gnuplot$/d
-/^h2o$/d
 /^lua52$/d
 /^mysqlproxy55$/d
 /^vlc2$/d
