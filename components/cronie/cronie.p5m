@@ -9,38 +9,43 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/service/cronie@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="crond and anacron - daemons for executing programs at set times"
-set name=info.upstream_url value="https://fedorahosted.org/cronie/"
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license COPYING license="MIT, BSD, ISC, GPLv2"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 depend fmri=pkg:/text/gnu-awk type=require
 
+file files/run-parts.$(ZTYPE) path=$(USRDIR)/bin/run-parts
+file files/svc-cronie.$(ZTYPE) path=$(SVCMETHOD)/svc-cronie mode=0555
+file files/cron.deny path=$(SYSCONFDIR)/cron.d/cron.deny preserve=true
+file files/cronie.xml.$(ZTYPE) path=$(SVCMANIFEST)/site/cronie.xml \
+	restart_fmri=svc:/system/manifest-import:default
+
+dir  path=$(LOCALSTATEDIR)/spool/anacron
+file path=$(LOCALSTATEDIR)/spool/anacron/cron.daily preserve=true
+file path=$(LOCALSTATEDIR)/spool/anacron/cron.monthly preserve=true
+file path=$(LOCALSTATEDIR)/spool/anacron/cron.weekly preserve=true
 dir  path=$(LOCALSTATEDIR)/spool/cron
+file path=$(SYSCONFDIR)/anacrontab preserve=true
+dir  path=$(SYSCONFDIR)/cron.d
+file path=$(SYSCONFDIR)/cron.d/0hourly
+dir  path=$(SYSCONFDIR)/cron.hourly
+file path=$(SYSCONFDIR)/cron.hourly/0anacron mode=0555
 file path=$(USRDIR)/bin/anacron
 file path=$(USRDIR)/bin/crond
 file path=$(USRDIR)/bin/crontab mode=4555
-file files/run-parts.$(ZTYPE) path=$(USRDIR)/bin/run-parts
 file path=$(USRDIR)/share/man/man1/crontab.1
 file path=$(USRDIR)/share/man/man5/anacrontab.5
 file path=$(USRDIR)/share/man/man5/crontab.5
 file path=$(USRDIR)/share/man/man8/anacron.8
 file path=$(USRDIR)/share/man/man8/cron.8
 file path=$(USRDIR)/share/man/man8/crond.8
-file files/svc-cronie.$(ZTYPE) path=$(SVCMETHOD)/svc-cronie mode=0555
-file path=$(SYSCONFDIR)/anacrontab preserve=true
-file path=$(SYSCONFDIR)/cron.d/0hourly
-file files/cron.deny path=$(SYSCONFDIR)/cron.d/cron.deny preserve=true
-file path=$(SYSCONFDIR)/cron.hourly/0anacron mode=0555
-file path=$(LOCALSTATEDIR)/spool/anacron/cron.daily preserve=true
-file path=$(LOCALSTATEDIR)/spool/anacron/cron.monthly preserve=true
-file path=$(LOCALSTATEDIR)/spool/anacron/cron.weekly preserve=true
-file files/cronie.xml.$(ZTYPE) path=$(SVCMANIFEST)/site/cronie.xml restart_fmri=svc:/system/manifest-import:default
