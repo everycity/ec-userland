@@ -24,7 +24,7 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
 # User/Group Accounts
 group gid=488 groupname=pgpool
-user gcos-field="Pgpool Account" group=pgpool uid=488 username=pgpool login-shell=/bin/false
+user gcos-field="Pgpool Account" group=pgpool uid=488 username=pgpool login-shell=/bin/bash
 
 file files/pgpool-manifest.xml path=var/svc/manifest/site/pgpool.xml \
 	restart_fmri=svc:/system/manifest-import:default
