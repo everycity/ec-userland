@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -44,13 +44,12 @@ COMPONENT_INSTALL_TARGETS+=	install-bin install-man
 
 COMPONENT_POST_INSTALL_ACTION= \
 	( perl -pi -e 's/^SYS_PREFIX=.*/SYS_PREFIX=\/ec/g' \
-		$(PROTO_DIR)$(ECPREFIX)/lib/rabbitmq/sbin/rabbitmq-defaults ) && \
+		$(PROTO_DIR)$(ECPREFIX)/lib/erlang/lib/rabbitmq_server-0.0.0/sbin/rabbitmq-defaults ) && \
 	( perl -pi -e 's/.*next line potentially.*//g' \
-		$(PROTO_DIR)$(ECPREFIX)/lib/rabbitmq/sbin/rabbitmq-defaults ) && \
+		$(PROTO_DIR)$(ECPREFIX)/lib/erlang/lib/rabbitmq_server-0.0.0/sbin/rabbitmq-defaults ) && \
 	( perl -pi -e "s/\/etc\/rabbitmq/\/ec\/etc\/rabbitmq/g" \
-		$(PROTO_DIR)$(ECPREFIX)/lib/rabbitmq/sbin/rabbitmq-env )
+		$(PROTO_DIR)$(ECPREFIX)/lib/erlang/lib/rabbitmq_server-0.0.0/sbin/rabbitmq-env )
 
 build:		$(BUILD_32)
 
 install:	$(INSTALL_32)
-
