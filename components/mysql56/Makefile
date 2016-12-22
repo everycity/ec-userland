@@ -17,10 +17,10 @@ include ../../make-rules/shared-macros.mk
 CMAKE= cmake
 
 COMPONENT_NAME=		mysql
-COMPONENT_VERSION=	5.6.34
+COMPONENT_VERSION=	5.6.35
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:ee90bafec6af3abe2715ccb0b3cc9345ed8d1cce025d41e6ec2b2b7a7d820823
+COMPONENT_ARCHIVE_HASH=	sha256:dddcba169b98844d7c65346cbd791c853edf942d78440381685087b84aa35020
 COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.mysql.com/Downloads/MySQL-5.6/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -80,7 +80,7 @@ LDFLAGS.64	+=	-L$(ECPREFIX)/lib/mysql/5.6/lib/$(MACH64) -R$(ECPREFIX)/lib/mysql/
 COMPONENT_PRE_BUILD_ACTION += cd $(@D);
 COMPONENT_PRE_BUILD_ACTION += export LDFLAGS="$(LDFLAGS)";
 COMPONENT_PRE_BUILD_ACTION += $(CMAKE) . $(CMAKE_OPTIONS);
-COMPONENT_PRE_BUILD_ACTION += sed -i -e 's!/ec/bin/gcc!/ec/bin/g++!' libmysql/CMakeFiles/libmysql.dir/link.txt;
+#COMPONENT_PRE_BUILD_ACTION += sed -i -e 's!/ec/bin/gcc!/ec/bin/g++!' libmysql/CMakeFiles/libmysql.dir/link.txt;
 
 COMPONENT_POST_BUILD_ACTION.32 += sed -i -e 's!"share","share/mysql","support-files"!"lib/mysql/5.6/share"!' $(BUILD_DIR_32)/scripts/mysql_install_db;
 COMPONENT_POST_BUILD_ACTION.64 += sed -i -e 's!"share","share/mysql","support-files"!"lib/mysql/5.6/share"!' $(BUILD_DIR_64)/scripts/mysql_install_db;
