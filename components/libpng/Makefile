@@ -9,19 +9,20 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libpng
 COMPONENT_FMRI=		library/libpng
-COMPONENT_VERSION=	1.6.15
+COMPONENT_VERSION=	1.6.27
 COMPONENT_LICENSE=	libpng
+COMPONENT_LICENSE_FILE=	LICENSE
 COMPONENT_PROJECT_URL=	http://www.libpng.org/pub/png/
 COMPONENT_SUMMARY=	The official PNG reference library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-#COMPONENT_ARCHIVE_HASH=	sha256:73bec855f265e86cf247c8e60069338bba7f16deade54b459b6465ffa86f7076
+COMPONENT_ARCHIVE_HASH=	sha256:c9d164ec247f426a525a7b89936694aefbc91fb7a50182b198898b8fc91174b4
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
