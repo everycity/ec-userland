@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		pcre
 COMPONENT_FMRI=		library/pcre
-COMPONENT_VERSION=	8.37
+COMPONENT_VERSION=	8.39
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	http://www.pcre.org/
 COMPONENT_SUMMARY=	Perl-Compatible Regular Expressions
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:19d490a714274a8c4c9d131f651489b8647cdb40a159e9fb7ce17ba99ef992ab
+COMPONENT_ARCHIVE_HASH=	sha256:ccdf7e788769838f8285b3ee672ed573358202305ee361cfec7a4a4fb005bbc7
 COMPONENT_ARCHIVE_URL=	ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
