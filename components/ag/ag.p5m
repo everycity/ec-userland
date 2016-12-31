@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -30,7 +30,10 @@ dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/the_silver_searcher
 dir path=$(ECPREFIX)/share/the_silver_searcher/completions
+dir path=$(ECPREFIX)/share/zsh
+dir path=$(ECPREFIX)/share/zsh/site-functions
 file path=$(ECPREFIX)/bin/$(MACH64)/ag
 file path=$(ECPREFIX)/bin/ag
 file path=$(ECPREFIX)/share/man/man1/ag.1
 file path=$(ECPREFIX)/share/the_silver_searcher/completions/ag.bashcomp.sh
+file path=$(ECPREFIX)/share/zsh/site-functions/_the_silver_searcher
