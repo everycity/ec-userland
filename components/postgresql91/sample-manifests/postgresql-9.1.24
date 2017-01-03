@@ -74,7 +74,6 @@ link path=$(USRDIR)/lib/postgres/9.1/bin/postmaster target=postgres
 file path=$(USRDIR)/lib/postgres/9.1/bin/psql
 file path=$(USRDIR)/lib/postgres/9.1/bin/reindexdb
 file path=$(USRDIR)/lib/postgres/9.1/bin/vacuumdb
-dir  path=$(USRDIR)/lib/postgres/9.1/extension
 dir  path=$(USRDIR)/lib/postgres/9.1/include
 file path=$(USRDIR)/lib/postgres/9.1/include/ecpg_config.h
 file path=$(USRDIR)/lib/postgres/9.1/include/ecpg_informix.h
