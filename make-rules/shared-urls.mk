@@ -10,7 +10,7 @@
 
 #
 # Copyright (c) 2010, 2011, Oracle and/or its affiliates. All rights reserved.
-# Copyright 2011-2014 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Default to looking for source archives on the internal mirror before we
@@ -40,6 +40,7 @@ MIRROR_APACHE=		$(MIRRORSERVICE_ROOT)/ftp.apache.org
 DOWNLOAD_APACHE=	$(MIRROR_APACHE)/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_EC=		$(EC_ARCHIVE)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_GITHUB=	https://github.com/downloads/$(COMPONENT_NAME)/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
+DOWNLOAD_GITHUB2=	https://github.com/$(COMPONENT_NAME)/$(COMPONENT_NAME)/releases/download/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_GNU_FTP=	http://ftp.gnu.org/gnu/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_GNU_SAVANNAH=	http://download.savannah.gnu.org/releases/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_LIBRDF=	http://download.librdf.org/source/$(COMPONENT_ARCHIVE)
