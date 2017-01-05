@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -28,70 +28,42 @@ dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
 file path=$(ECPREFIX)/bin/$(MACH64)/gif2rgb
-file path=$(ECPREFIX)/bin/$(MACH64)/gif2x11
-file path=$(ECPREFIX)/bin/$(MACH64)/gifasm
-file path=$(ECPREFIX)/bin/$(MACH64)/gifbg
-file path=$(ECPREFIX)/bin/$(MACH64)/gifburst
-file path=$(ECPREFIX)/bin/$(MACH64)/gifclip
+file path=$(ECPREFIX)/bin/$(MACH64)/gifbuild
 file path=$(ECPREFIX)/bin/$(MACH64)/gifclrmp
-file path=$(ECPREFIX)/bin/$(MACH64)/gifcolor
-file path=$(ECPREFIX)/bin/$(MACH64)/gifcomb
-file path=$(ECPREFIX)/bin/$(MACH64)/gifcompose
-file path=$(ECPREFIX)/bin/$(MACH64)/giffiltr
+file path=$(ECPREFIX)/bin/$(MACH64)/gifecho
 file path=$(ECPREFIX)/bin/$(MACH64)/giffix
-file path=$(ECPREFIX)/bin/$(MACH64)/gifflip
-file path=$(ECPREFIX)/bin/$(MACH64)/gifhisto
-file path=$(ECPREFIX)/bin/$(MACH64)/gifinfo
-file path=$(ECPREFIX)/bin/$(MACH64)/gifinter
 file path=$(ECPREFIX)/bin/$(MACH64)/gifinto
-file path=$(ECPREFIX)/bin/$(MACH64)/gifovly
-file path=$(ECPREFIX)/bin/$(MACH64)/gifpos
-file path=$(ECPREFIX)/bin/$(MACH64)/gifrotat
-file path=$(ECPREFIX)/bin/$(MACH64)/gifrsize
-file path=$(ECPREFIX)/bin/$(MACH64)/gifspnge
 file path=$(ECPREFIX)/bin/$(MACH64)/giftext
-file path=$(ECPREFIX)/bin/$(MACH64)/gifwedge
-file path=$(ECPREFIX)/bin/$(MACH64)/icon2gif
-file path=$(ECPREFIX)/bin/$(MACH64)/raw2gif
-file path=$(ECPREFIX)/bin/$(MACH64)/rgb2gif
-file path=$(ECPREFIX)/bin/$(MACH64)/text2gif
+file path=$(ECPREFIX)/bin/$(MACH64)/giftool
 file path=$(ECPREFIX)/bin/gif2rgb
-file path=$(ECPREFIX)/bin/gif2x11
-file path=$(ECPREFIX)/bin/gifasm
-file path=$(ECPREFIX)/bin/gifbg
-file path=$(ECPREFIX)/bin/gifburst
-file path=$(ECPREFIX)/bin/gifclip
+file path=$(ECPREFIX)/bin/gifbuild
 file path=$(ECPREFIX)/bin/gifclrmp
-file path=$(ECPREFIX)/bin/gifcolor
-file path=$(ECPREFIX)/bin/gifcomb
-file path=$(ECPREFIX)/bin/gifcompose
-file path=$(ECPREFIX)/bin/giffiltr
+file path=$(ECPREFIX)/bin/gifecho
 file path=$(ECPREFIX)/bin/giffix
-file path=$(ECPREFIX)/bin/gifflip
-file path=$(ECPREFIX)/bin/gifhisto
-file path=$(ECPREFIX)/bin/gifinfo
-file path=$(ECPREFIX)/bin/gifinter
 file path=$(ECPREFIX)/bin/gifinto
-file path=$(ECPREFIX)/bin/gifovly
-file path=$(ECPREFIX)/bin/gifpos
-file path=$(ECPREFIX)/bin/gifrotat
-file path=$(ECPREFIX)/bin/gifrsize
-file path=$(ECPREFIX)/bin/gifspnge
 file path=$(ECPREFIX)/bin/giftext
-file path=$(ECPREFIX)/bin/gifwedge
-file path=$(ECPREFIX)/bin/icon2gif
-file path=$(ECPREFIX)/bin/raw2gif
-file path=$(ECPREFIX)/bin/rgb2gif
-file path=$(ECPREFIX)/bin/text2gif
+file path=$(ECPREFIX)/bin/giftool
 file path=$(ECPREFIX)/include/gif_lib.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libgif.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libgif.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libgif.so.4.1.7
+file path=$(ECPREFIX)/lib/$(MACH64)/libgif.so.7.0.0
 file path=$(ECPREFIX)/lib/libgif.a
 file path=$(ECPREFIX)/lib/libgif.la
-file path=$(ECPREFIX)/lib/libgif.so.4.1.7
-link path=$(ECPREFIX)/lib/$(MACH64)/libgif.so target=libgif.so.4.1.7
-link path=$(ECPREFIX)/lib/$(MACH64)/libgif.so.4 target=libgif.so.4.1.7
-link path=$(ECPREFIX)/lib/libgif.so target=libgif.so.4.1.7
-link path=$(ECPREFIX)/lib/libgif.so.4 target=libgif.so.4.1.7
+file path=$(ECPREFIX)/lib/libgif.so.7.0.0
+file path=$(ECPREFIX)/share/man/man1/gif2rgb.1
+file path=$(ECPREFIX)/share/man/man1/gifbuild.1
+file path=$(ECPREFIX)/share/man/man1/gifclrmp.1
+file path=$(ECPREFIX)/share/man/man1/gifecho.1
+file path=$(ECPREFIX)/share/man/man1/giffix.1
+file path=$(ECPREFIX)/share/man/man1/gifinto.1
+file path=$(ECPREFIX)/share/man/man1/giflib.1
+file path=$(ECPREFIX)/share/man/man1/giftext.1
+file path=$(ECPREFIX)/share/man/man1/giftool.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libgif.so target=libgif.so.7.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libgif.so.7 target=libgif.so.7.0.0
+link path=$(ECPREFIX)/lib/libgif.so target=libgif.so.7.0.0
+link path=$(ECPREFIX)/lib/libgif.so.7 target=libgif.so.7.0.0

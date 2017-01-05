@@ -1,6 +1,6 @@
---- giflib-4.2.3/doc/Makefile.in.~1~	2013-09-03 14:47:52.000000000 +0100
-+++ giflib-4.2.3/doc/Makefile.in	2013-09-16 13:46:41.114642593 +0100
-@@ -401,15 +401,15 @@
+--- giflib-5.1.4/doc/Makefile.in.orig	2017-01-05 14:25:42.867349667 +0000
++++ giflib-5.1.4/doc/Makefile.in	2016-04-02 15:36:45.000000000 +0000
+@@ -609,18 +609,18 @@
  
  
  .xml.html:
@@ -15,8 +15,11 @@
 -	xmlto txt $<
 +#	xmlto txt $<
  
+ .asc.html:
+ 	asciidoc $<
+ 
 -all: allhtml manpages
 +all: manpages
  
- allhtml: $(XMLALL:.xml=.html)
- 
+ # Philosophical choice: the website gets the internal manual pages
+ allhtml: $(XMLALL:.xml=.html) $(XMLINTERNAL:.xml=.html)
