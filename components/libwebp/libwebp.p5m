@@ -1,0 +1,121 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2017 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
+dir path=$(ECPREFIX)/include/webp
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/$(MACH64)/cwebp
+file path=$(ECPREFIX)/bin/$(MACH64)/dwebp
+file path=$(ECPREFIX)/bin/$(MACH64)/gif2webp
+file path=$(ECPREFIX)/bin/$(MACH64)/webpmux
+file path=$(ECPREFIX)/bin/cwebp
+file path=$(ECPREFIX)/bin/dwebp
+file path=$(ECPREFIX)/bin/gif2webp
+file path=$(ECPREFIX)/bin/webpmux
+file path=$(ECPREFIX)/include/webp/decode.h
+file path=$(ECPREFIX)/include/webp/demux.h
+file path=$(ECPREFIX)/include/webp/encode.h
+file path=$(ECPREFIX)/include/webp/extras.h
+file path=$(ECPREFIX)/include/webp/mux.h
+file path=$(ECPREFIX)/include/webp/mux_types.h
+file path=$(ECPREFIX)/include/webp/types.h
+file path=$(ECPREFIX)/lib/$(MACH64)/libwebp.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libwebp.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libwebp.so.6.0.2
+file path=$(ECPREFIX)/lib/$(MACH64)/libwebpdecoder.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libwebpdecoder.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libwebpdecoder.so.2.0.2
+file path=$(ECPREFIX)/lib/$(MACH64)/libwebpdemux.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libwebpdemux.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libwebpdemux.so.2.0.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libwebpextras.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libwebpextras.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libwebpextras.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libwebpmux.a
+file path=$(ECPREFIX)/lib/$(MACH64)/libwebpmux.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libwebpmux.so.2.0.2
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libwebp.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libwebpdecoder.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libwebpdemux.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libwebpextras.pc
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libwebpmux.pc
+file path=$(ECPREFIX)/lib/libwebp.a
+file path=$(ECPREFIX)/lib/libwebp.la
+file path=$(ECPREFIX)/lib/libwebp.so.6.0.2
+file path=$(ECPREFIX)/lib/libwebpdecoder.a
+file path=$(ECPREFIX)/lib/libwebpdecoder.la
+file path=$(ECPREFIX)/lib/libwebpdecoder.so.2.0.2
+file path=$(ECPREFIX)/lib/libwebpdemux.a
+file path=$(ECPREFIX)/lib/libwebpdemux.la
+file path=$(ECPREFIX)/lib/libwebpdemux.so.2.0.1
+file path=$(ECPREFIX)/lib/libwebpextras.a
+file path=$(ECPREFIX)/lib/libwebpextras.la
+file path=$(ECPREFIX)/lib/libwebpextras.so.0.0.0
+file path=$(ECPREFIX)/lib/libwebpmux.a
+file path=$(ECPREFIX)/lib/libwebpmux.la
+file path=$(ECPREFIX)/lib/libwebpmux.so.2.0.2
+file path=$(ECPREFIX)/lib/pkgconfig/libwebp.pc
+file path=$(ECPREFIX)/lib/pkgconfig/libwebpdecoder.pc
+file path=$(ECPREFIX)/lib/pkgconfig/libwebpdemux.pc
+file path=$(ECPREFIX)/lib/pkgconfig/libwebpextras.pc
+file path=$(ECPREFIX)/lib/pkgconfig/libwebpmux.pc
+file path=$(ECPREFIX)/share/man/man1/cwebp.1
+file path=$(ECPREFIX)/share/man/man1/dwebp.1
+file path=$(ECPREFIX)/share/man/man1/gif2webp.1
+file path=$(ECPREFIX)/share/man/man1/webpmux.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libwebp.so target=libwebp.so.6.0.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libwebp.so.6 target=libwebp.so.6.0.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libwebpdecoder.so \
+    target=libwebpdecoder.so.2.0.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libwebpdecoder.so.2 \
+    target=libwebpdecoder.so.2.0.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libwebpdemux.so \
+    target=libwebpdemux.so.2.0.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libwebpdemux.so.2 \
+    target=libwebpdemux.so.2.0.1
+link path=$(ECPREFIX)/lib/$(MACH64)/libwebpextras.so \
+    target=libwebpextras.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libwebpextras.so.0 \
+    target=libwebpextras.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libwebpmux.so target=libwebpmux.so.2.0.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libwebpmux.so.2 target=libwebpmux.so.2.0.2
+link path=$(ECPREFIX)/lib/libwebp.so target=libwebp.so.6.0.2
+link path=$(ECPREFIX)/lib/libwebp.so.6 target=libwebp.so.6.0.2
+link path=$(ECPREFIX)/lib/libwebpdecoder.so target=libwebpdecoder.so.2.0.2
+link path=$(ECPREFIX)/lib/libwebpdecoder.so.2 target=libwebpdecoder.so.2.0.2
+link path=$(ECPREFIX)/lib/libwebpdemux.so target=libwebpdemux.so.2.0.1
+link path=$(ECPREFIX)/lib/libwebpdemux.so.2 target=libwebpdemux.so.2.0.1
+link path=$(ECPREFIX)/lib/libwebpextras.so target=libwebpextras.so.0.0.0
+link path=$(ECPREFIX)/lib/libwebpextras.so.0 target=libwebpextras.so.0.0.0
+link path=$(ECPREFIX)/lib/libwebpmux.so target=libwebpmux.so.2.0.2
+link path=$(ECPREFIX)/lib/libwebpmux.so.2 target=libwebpmux.so.2.0.2
