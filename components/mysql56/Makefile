@@ -28,6 +28,7 @@ include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
 CFLAGS+=	-DHAVE_CURSES_H
+CXXFLAGS+=	-DHAVE_CURSES_H
 LDFLAGS+=	-lpthread
 
 CMAKE_BINDIR.32 =	lib/mysql/5.6/bin
@@ -43,7 +44,7 @@ CMAKE_SHAREDIR =	lib/mysql/5.6/share
 CMAKE_OPTIONS+= -DCMAKE_C_COMPILER="$(CC)"
 CMAKE_OPTIONS+= -DCMAKE_CXX_COMPILER="$(CXX)"
 CMAKE_OPTIONS+= -DCMAKE_C_FLAGS="$(CFLAGS)"
-CMAKE_OPTIONS+= -DCMAKE_CXX_FLAGS="$(CFLAGS)"
+CMAKE_OPTIONS+= -DCMAKE_CXX_FLAGS="$(CXXFLAGS)"
 
 CMAKE_OPTIONS+= -DWITH_SSL=system
 
@@ -78,7 +79,7 @@ LDFLAGS.32	+=	-L$(ECPREFIX)/lib/mysql/5.6/lib -R$(ECPREFIX)/lib/mysql/5.6/lib
 LDFLAGS.64	+=	-L$(ECPREFIX)/lib/mysql/5.6/lib/$(MACH64) -R$(ECPREFIX)/lib/mysql/5.6/lib/$(MACH64)
 
 COMPONENT_PRE_BUILD_ACTION += cd $(@D);
-COMPONENT_PRE_BUILD_ACTION += export LDFLAGS="$(LDFLAGS)";
+COMPONENT_PRE_BUILD_ACTION += export LDFLAGS="$(LDFLAGS) -lstdc++";
 COMPONENT_PRE_BUILD_ACTION += $(CMAKE) . $(CMAKE_OPTIONS);
 #COMPONENT_PRE_BUILD_ACTION += sed -i -e 's!/ec/bin/gcc!/ec/bin/g++!' libmysql/CMakeFiles/libmysql.dir/link.txt;
 
