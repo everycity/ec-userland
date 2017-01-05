@@ -39,16 +39,11 @@ dir path=$(ECPREFIX)/share/doc/tiffx/html/man
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man3
-file path=$(ECPREFIX)/bin/$(MACH64)/bmp2tiff
 file path=$(ECPREFIX)/bin/$(MACH64)/fax2ps
 file path=$(ECPREFIX)/bin/$(MACH64)/fax2tiff
-file path=$(ECPREFIX)/bin/$(MACH64)/gif2tiff
 file path=$(ECPREFIX)/bin/$(MACH64)/pal2rgb
 file path=$(ECPREFIX)/bin/$(MACH64)/ppm2tiff
-file path=$(ECPREFIX)/bin/$(MACH64)/ras2tiff
 file path=$(ECPREFIX)/bin/$(MACH64)/raw2tiff
-file path=$(ECPREFIX)/bin/$(MACH64)/rgb2ycbcr
-file path=$(ECPREFIX)/bin/$(MACH64)/thumbnail
 file path=$(ECPREFIX)/bin/$(MACH64)/tiff2bw
 file path=$(ECPREFIX)/bin/$(MACH64)/tiff2pdf
 file path=$(ECPREFIX)/bin/$(MACH64)/tiff2ps
@@ -62,16 +57,11 @@ file path=$(ECPREFIX)/bin/$(MACH64)/tiffinfo
 file path=$(ECPREFIX)/bin/$(MACH64)/tiffmedian
 file path=$(ECPREFIX)/bin/$(MACH64)/tiffset
 file path=$(ECPREFIX)/bin/$(MACH64)/tiffsplit
-file path=$(ECPREFIX)/bin/bmp2tiff
 file path=$(ECPREFIX)/bin/fax2ps
 file path=$(ECPREFIX)/bin/fax2tiff
-file path=$(ECPREFIX)/bin/gif2tiff
 file path=$(ECPREFIX)/bin/pal2rgb
 file path=$(ECPREFIX)/bin/ppm2tiff
-file path=$(ECPREFIX)/bin/ras2tiff
 file path=$(ECPREFIX)/bin/raw2tiff
-file path=$(ECPREFIX)/bin/rgb2ycbcr
-file path=$(ECPREFIX)/bin/thumbnail
 file path=$(ECPREFIX)/bin/tiff2bw
 file path=$(ECPREFIX)/bin/tiff2pdf
 file path=$(ECPREFIX)/bin/tiff2ps
@@ -91,14 +81,14 @@ file path=$(ECPREFIX)/include/tiffio.h
 file path=$(ECPREFIX)/include/tiffio.hxx
 file path=$(ECPREFIX)/include/tiffvers.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libtiff.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so.5.2.4
+file path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so.5.2.5
 file path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so.5.2.4
+file path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so.5.2.5
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libtiff-4.pc
 file path=$(ECPREFIX)/lib/libtiff.la
-file path=$(ECPREFIX)/lib/libtiff.so.5.2.4
+file path=$(ECPREFIX)/lib/libtiff.so.5.2.5
 file path=$(ECPREFIX)/lib/libtiffxx.la
-file path=$(ECPREFIX)/lib/libtiffxx.so.5.2.4
+file path=$(ECPREFIX)/lib/libtiffxx.so.5.2.5
 file path=$(ECPREFIX)/lib/pkgconfig/libtiff-4.pc
 file path=$(ECPREFIX)/share/doc/tiffx/COPYRIGHT
 file path=$(ECPREFIX)/share/doc/tiffx/ChangeLog
@@ -178,18 +168,14 @@ file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFsize.3tiff.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFstrip.3tiff.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFswab.3tiff.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/TIFFtile.3tiff.html
-file path=$(ECPREFIX)/share/doc/tiffx/html/man/bmp2tiff.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/fax2ps.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/fax2tiff.1.html
-file path=$(ECPREFIX)/share/doc/tiffx/html/man/gif2tiff.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/index.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/libtiff.3tiff.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/pal2rgb.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/ppm2tiff.1.html
-file path=$(ECPREFIX)/share/doc/tiffx/html/man/ras2tiff.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/raw2tiff.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/rgb2ycbcr.1.html
-file path=$(ECPREFIX)/share/doc/tiffx/html/man/sgi2tiff.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/thumbnail.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/tiff2bw.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/tiff2pdf.1.html
@@ -205,10 +191,10 @@ file path=$(ECPREFIX)/share/doc/tiffx/html/man/tiffinfo.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/tiffmedian.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/tiffset.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/man/tiffsplit.1.html
-file path=$(ECPREFIX)/share/doc/tiffx/html/man/tiffsv.1.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/misc.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/support.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/tools.html
+file path=$(ECPREFIX)/share/doc/tiffx/html/v$(COMPONENT_VERSION).html
 file path=$(ECPREFIX)/share/doc/tiffx/html/v3.4beta007.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/v3.4beta016.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/v3.4beta018.html
@@ -252,16 +238,12 @@ file path=$(ECPREFIX)/share/doc/tiffx/html/v4.0.4.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/v4.0.4beta.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/v4.0.5.html
 file path=$(ECPREFIX)/share/doc/tiffx/html/v4.0.6.html
-file path=$(ECPREFIX)/share/man/man1/bmp2tiff.1
 file path=$(ECPREFIX)/share/man/man1/fax2ps.1
 file path=$(ECPREFIX)/share/man/man1/fax2tiff.1
-file path=$(ECPREFIX)/share/man/man1/gif2tiff.1
 file path=$(ECPREFIX)/share/man/man1/pal2rgb.1
 file path=$(ECPREFIX)/share/man/man1/ppm2tiff.1
-file path=$(ECPREFIX)/share/man/man1/ras2tiff.1
 file path=$(ECPREFIX)/share/man/man1/raw2tiff.1
 file path=$(ECPREFIX)/share/man/man1/rgb2ycbcr.1
-file path=$(ECPREFIX)/share/man/man1/sgi2tiff.1
 file path=$(ECPREFIX)/share/man/man1/thumbnail.1
 file path=$(ECPREFIX)/share/man/man1/tiff2bw.1
 file path=$(ECPREFIX)/share/man/man1/tiff2pdf.1
@@ -277,7 +259,6 @@ file path=$(ECPREFIX)/share/man/man1/tiffinfo.1
 file path=$(ECPREFIX)/share/man/man1/tiffmedian.1
 file path=$(ECPREFIX)/share/man/man1/tiffset.1
 file path=$(ECPREFIX)/share/man/man1/tiffsplit.1
-file path=$(ECPREFIX)/share/man/man1/tiffsv.1
 file path=$(ECPREFIX)/share/man/man3/TIFFClose.3tiff
 file path=$(ECPREFIX)/share/man/man3/TIFFDataWidth.3tiff
 file path=$(ECPREFIX)/share/man/man3/TIFFError.3tiff
@@ -322,11 +303,11 @@ file path=$(ECPREFIX)/share/man/man3/TIFFstrip.3tiff
 file path=$(ECPREFIX)/share/man/man3/TIFFswab.3tiff
 file path=$(ECPREFIX)/share/man/man3/TIFFtile.3tiff
 file path=$(ECPREFIX)/share/man/man3/libtiff.3tiff
-link path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so target=libtiff.so.5.2.4
-link path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so.5 target=libtiff.so.5.2.4
-link path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so target=libtiffxx.so.5.2.4
-link path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so.5 target=libtiffxx.so.5.2.4
-link path=$(ECPREFIX)/lib/libtiff.so target=libtiff.so.5.2.4
-link path=$(ECPREFIX)/lib/libtiff.so.5 target=libtiff.so.5.2.4
-link path=$(ECPREFIX)/lib/libtiffxx.so target=libtiffxx.so.5.2.4
-link path=$(ECPREFIX)/lib/libtiffxx.so.5 target=libtiffxx.so.5.2.4
+link path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so target=libtiff.so.5.2.5
+link path=$(ECPREFIX)/lib/$(MACH64)/libtiff.so.5 target=libtiff.so.5.2.5
+link path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so target=libtiffxx.so.5.2.5
+link path=$(ECPREFIX)/lib/$(MACH64)/libtiffxx.so.5 target=libtiffxx.so.5.2.5
+link path=$(ECPREFIX)/lib/libtiff.so target=libtiff.so.5.2.5
+link path=$(ECPREFIX)/lib/libtiff.so.5 target=libtiff.so.5.2.5
+link path=$(ECPREFIX)/lib/libtiffxx.so target=libtiffxx.so.5.2.5
+link path=$(ECPREFIX)/lib/libtiffxx.so.5 target=libtiffxx.so.5.2.5

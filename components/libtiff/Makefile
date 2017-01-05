@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tiff
 COMPONENT_FMRI=		library/libtiff
-COMPONENT_VERSION=	4.0.6
+COMPONENT_VERSION=	4.0.7
 COMPONENT_LICENSE=	MIT
 COMPONENT_PROJECT_URL=	"http://www.remotesensing.org/libtiff/"
 COMPONENT_SUMMARY=	Tag Image File Format (TIFF) Library and Utilities
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:4d57a50907b510e3049a4bba0d7888930fdfc16ce49f1bf693e5b6247370d68c
+COMPONENT_ARCHIVE_HASH=	sha256:9f43a2cfb9589e5cecaa66e16bf87f814c945f22df7ba600d63aac4632c4f019
 COMPONENT_ARCHIVE_URL=	http://download.osgeo.org/libtiff/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
