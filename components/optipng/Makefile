@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		optipng
 COMPONENT_FMRI=         graphics/$(COMPONENT_NAME)
-COMPONENT_VERSION=      0.7.5
+COMPONENT_VERSION=      0.7.6
 COMPONENT_LICENSE=      zlib
 COMPONENT_PROJECT_URL=  "http://optipng.sourceforge.net/"
 COMPONENT_SUMMARY=	OptiPNG is a PNG optimizer that recompresses image files to a smaller size losslessly.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:74e54b798b012dff8993fb8d90185ca83f18cfa4935f4a93b0bcfc33c849619d
+COMPONENT_ARCHIVE_HASH=	sha256:4870631fcbd3825605f00a168b8debf44ea1cda8ef98a73e5411eee97199be80
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
