@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -17,12 +17,16 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
+depend fmri=pkg:/runtime/perl-518 type=require
+
+link path=$(USRDIR)/bin/exiftool target=../lib/perl/5.18/bin/exiftool
 file path=$(USRDIR)/lib/perl/5.18/bin/exiftool
+file path=$(USRDIR)/lib/perl/5.18/lib/i86pc-solaris-thread-multi-64/perllocal.pod
 file path=$(USRDIR)/lib/perl/5.18/man/man1/exiftool.1
 file path=$(USRDIR)/lib/perl/5.18/man/man3/File::RandomAccess.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool.3
@@ -33,7 +37,9 @@ file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::APE.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::APP12.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::ASF.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Apple.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Audible.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::BMP.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::BPG.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::BZZ.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::BigTIFF.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::BuildTagLookup.3
@@ -45,6 +51,7 @@ file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::CaptureOne.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Casio.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Charset.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::DICOM.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::DJI.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::DNG.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::DPX.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::DV.3
@@ -53,6 +60,7 @@ file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::DjVu.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::EXE.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Exif.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::FLAC.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::FLIF.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::FLIR.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Fixup.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Flash.3
@@ -73,6 +81,7 @@ file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::HtmlDump.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::ICC_Profile.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::ID3.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::IPTC.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::ISO.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::ITC.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Import.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::InDesign.3
@@ -101,11 +110,13 @@ file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Lang::tr.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Lang::zh_cn.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Lang::zh_tw.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Leaf.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Lytro.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::M2TS.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::MIE.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::MIEUnits.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::MIFF.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::MNG.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::MOI.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::MPC.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::MPEG.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::MPF.3
@@ -116,6 +127,7 @@ file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Matroska.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Microsoft.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Minolta.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::MinoltaRaw.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Motorola.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Nikon.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::NikonCapture.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::NikonCustom.3
@@ -124,13 +136,16 @@ file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::OOXML.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Ogg.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Olympus.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::OpenEXR.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Opus.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::PDF.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::PGF.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::PICT.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::PLIST.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::PLUS.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::PNG.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::PPM.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::PSP.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Palm.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Panasonic.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::PanasonicRaw.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Pentax.3
@@ -166,6 +181,7 @@ file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::TagNames.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Theora.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Torrent.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Unknown.3
+file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::VCard.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::Vorbis.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::WriteCanonRaw.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::WriteExif.3
@@ -182,8 +198,11 @@ file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::XMP2.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::XMPStruct.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::ZIP.3
 file path=$(USRDIR)/lib/perl/5.18/man/man3/Image::ExifTool::iWork.3
+dir  path=$(USRDIR)/lib/perl/vendor_perl/5.18/File
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/File/RandomAccess.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/File/RandomAccess.pod
+dir  path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image
+dir  path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool.pod
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/AES.pm
@@ -193,7 +212,9 @@ file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/APE.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/APP12.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/ASF.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Apple.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Audible.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/BMP.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/BPG.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/BZZ.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/BigTIFF.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/BuildTagLookup.pm
@@ -203,6 +224,7 @@ file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/CanonRaw.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/CanonVRD.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/CaptureOne.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Casio.pm
+dir  path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Charset
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Charset.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Charset/Arabic.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Charset/Baltic.pm
@@ -235,6 +257,7 @@ file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Charset/Thai.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Charset/Turkish.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Charset/Vietnam.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/DICOM.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/DJI.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/DNG.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/DPX.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/DV.pm
@@ -243,6 +266,7 @@ file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/DjVu.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/EXE.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Exif.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/FLAC.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/FLIF.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/FLIR.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Fixup.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Flash.pm
@@ -263,6 +287,7 @@ file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/HtmlDump.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/ICC_Profile.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/ID3.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/IPTC.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/ISO.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/ITC.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Import.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/InDesign.pm
@@ -273,6 +298,7 @@ file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Jpeg2000.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Kodak.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/KyoceraRaw.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/LNK.pm
+dir  path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Lang
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Lang/cs.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Lang/de.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Lang/en_ca.pm
@@ -291,11 +317,13 @@ file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Lang/tr.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Lang/zh_cn.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Lang/zh_tw.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Leaf.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Lytro.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/M2TS.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/MIE.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/MIEUnits.pod
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/MIFF.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/MNG.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/MOI.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/MPC.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/MPEG.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/MPF.pm
@@ -306,6 +334,7 @@ file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Matroska.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Microsoft.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Minolta.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/MinoltaRaw.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Motorola.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Nikon.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/NikonCapture.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/NikonCustom.pm
@@ -314,13 +343,16 @@ file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/OOXML.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Ogg.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Olympus.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/OpenEXR.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Opus.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/PDF.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/PGF.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/PICT.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/PLIST.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/PLUS.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/PNG.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/PPM.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/PSP.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Palm.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Panasonic.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/PanasonicRaw.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Pentax.pm
@@ -357,6 +389,7 @@ file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/TagNames.pod
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Theora.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Torrent.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Unknown.pm
+file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/VCard.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/Vorbis.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/WriteCanonRaw.pl
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/WriteExif.pl
@@ -373,4 +406,6 @@ file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/XMP2.pl
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/XMPStruct.pl
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/ZIP.pm
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/Image/ExifTool/iWork.pm
+dir  path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/auto/Image
+dir  path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/auto/Image/ExifTool
 file path=$(USRDIR)/lib/perl/vendor_perl/5.18/i86pc-solaris-thread-multi-64/auto/Image/ExifTool/.packlist

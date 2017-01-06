@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		Image-ExifTool
 COMPONENT_FMRI=         library/perl-5/perl-image-exiftool-518
-COMPONENT_VERSION=      9.60
+COMPONENT_VERSION=      10.38
 COMPONENT_LICENSE=      PERL
-COMPONENT_PROJECT_URL=  http://search.cpan.org/dist/Image-ExifTool/
+COMPONENT_PROJECT_URL=  "http://www.sno.phy.queensu.ca/~phil/exiftool/"
 COMPONENT_SUMMARY=	PERL ExifTool module
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:ad8976dc338bf0462eac4f6a38633c4dfa6316969d157b1c8ac53c54d2fdf9a7
-COMPONENT_ARCHIVE_URL=	http://search.cpan.org/CPAN/authors/id/E/EX/EXIFTOOL/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:b94a406f63cff2c0cccc75037076d0f54775c5adfc620ceae7e7523d85c9fc7b
+COMPONENT_ARCHIVE_URL=	http://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-10.38.tar.gz
 
 include ../../../make-rules/prep.mk
 include ../../../make-rules/justmake.mk
@@ -35,4 +35,3 @@ COMPONENT_INSTALL_TARGETS = install_vendor
 build:		$(BUILD_64)
 
 install:	$(INSTALL_64)
-
