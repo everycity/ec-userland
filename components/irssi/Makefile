@@ -9,24 +9,28 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		irssi
-COMPONENT_VERSION=	0.8.15
+COMPONENT_FMRI=		network/chat/irssi
+COMPONENT_VERSION=	0.8.21
+COMPONENT_LICENSE=	GPLv2
+COMPONENT_PROJECT_URL=	"https://irssi.org/"
+COMPONENT_SUMMARY=	Irssi is a terminal based IRC client for UNIX systems
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:b7cdcbd0399fac6e1dd14d5604c435a3d2e3eb18
-COMPONENT_ARCHIVE_URL=	http://irssi.org/files/$(COMPONENT_ARCHIVE)
-
+COMPONENT_ARCHIVE_HASH=	sha256:42c1a35a70b51fecc0d46bc1af0a922ec8ca9ed812d73004b083fe069b62aa3b
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GITHUB2)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS+=	--with-ncurses=$(ECPREFIX)
+CONFIGURE_OPTIONS+=	--with-perl-lib=$(ECPREFIX)/lib/perl/site_perl/5.12
 
 build:		$(BUILD_32)
 
