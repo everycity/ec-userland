@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -1090,19 +1090,15 @@ file path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.1.0/specifications/default/psych-2
 file path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.1.0/specifications/default/rake-10.1.0.gemspec
 file path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.1.0/specifications/default/rdoc-4.1.0.gemspec
 file path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.1.0/specifications/default/test-unit-$(COMPONENT_VERSION).0.gemspec
-dir  path=$(USRDIR)/lib/$(MACH64)/ruby/site_ruby
 dir  path=$(USRDIR)/lib/$(MACH64)/ruby/site_ruby/2.1.0
 dir  path=$(USRDIR)/lib/$(MACH64)/ruby/site_ruby/2.1.0/$(MACH64_GNU)-solaris$(SOLARIS_VERSION)
-dir  path=$(USRDIR)/lib/$(MACH64)/ruby/vendor_ruby
 dir  path=$(USRDIR)/lib/$(MACH64)/ruby/vendor_ruby/2.1.0
 dir  path=$(USRDIR)/lib/$(MACH64)/ruby/vendor_ruby/2.1.0/$(MACH64_GNU)-solaris$(SOLARIS_VERSION)
 file path=$(USRDIR)/lib/libruby2.1-static.a
 link path=$(USRDIR)/lib/libruby2.1.so target=libruby2.1.so.2
 file path=$(USRDIR)/lib/libruby2.1.so.2
 link path=$(USRDIR)/lib/libruby2.1.so.2.1.0 target=libruby2.1.so.2
-dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/ruby-2.1.pc
-dir  path=$(USRDIR)/lib/ruby
 dir  path=$(USRDIR)/lib/ruby/2.1.0
 dir  path=$(USRDIR)/lib/ruby/2.1.0/$(MACH)-solaris$(SOLARIS_VERSION)
 file path=$(USRDIR)/lib/ruby/2.1.0/$(MACH)-solaris$(SOLARIS_VERSION)/bigdecimal.so
@@ -2116,23 +2112,15 @@ file path=$(USRDIR)/lib/ruby/gems/2.1.0/specifications/default/psych-2.0.5.gemsp
 file path=$(USRDIR)/lib/ruby/gems/2.1.0/specifications/default/rake-10.1.0.gemspec
 file path=$(USRDIR)/lib/ruby/gems/2.1.0/specifications/default/rdoc-4.1.0.gemspec
 file path=$(USRDIR)/lib/ruby/gems/2.1.0/specifications/default/test-unit-$(COMPONENT_VERSION).0.gemspec
-dir  path=$(USRDIR)/lib/ruby/site_ruby
 dir  path=$(USRDIR)/lib/ruby/site_ruby/2.1.0
 dir  path=$(USRDIR)/lib/ruby/site_ruby/2.1.0/$(MACH)-solaris$(SOLARIS_VERSION)
-dir  path=$(USRDIR)/lib/ruby/vendor_ruby
 dir  path=$(USRDIR)/lib/ruby/vendor_ruby/2.1.0
 dir  path=$(USRDIR)/lib/ruby/vendor_ruby/2.1.0/$(MACH)-solaris$(SOLARIS_VERSION)
-dir  path=$(USRDIR)/share
-dir  path=$(USRDIR)/share/doc
-dir  path=$(USRDIR)/share/doc/ruby
-dir  path=$(USRDIR)/share/man
-dir  path=$(USRDIR)/share/man/man1
 file path=$(USRDIR)/share/man/man1/erb2.1.1
 file path=$(USRDIR)/share/man/man1/irb2.1.1
 file path=$(USRDIR)/share/man/man1/rake2.1.1
 file path=$(USRDIR)/share/man/man1/ri2.1.1
 file path=$(USRDIR)/share/man/man1/ruby2.1.1
-dir  path=$(USRDIR)/share/ri
 dir  path=$(USRDIR)/share/ri/2.1.0
 dir  path=$(USRDIR)/share/ri/2.1.0/system
 dir  path=$(USRDIR)/share/ri/2.1.0/system/ACL
