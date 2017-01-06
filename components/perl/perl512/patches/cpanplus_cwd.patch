@@ -1,0 +1,11 @@
+--- perl-5.12.4/cpan/CPANPLUS/lib/CPANPLUS/Internals/Utils.pm.orig	2017-01-04 21:35:51.538658095 +0000
++++ perl-5.12.4/cpan/CPANPLUS/lib/CPANPLUS/Internals/Utils.pm	2017-01-04 21:36:12.106529151 +0000
+@@ -5,7 +5,7 @@
+ use CPANPLUS::Error;
+ use CPANPLUS::Internals::Constants;
+ 
+-use Cwd qw[chdir];
++use Cwd qw[chdir cwd];
+ use File::Copy;
+ use Params::Check               qw[check];
+ use Module::Load::Conditional   qw[can_load];

@@ -56,6 +56,7 @@ COMPONENT_PRE_BUILD_ACTION= \
 			    -Dcc="gcc" \
 			    -Duse64bitint \
 			    -Dusedtrace \
+			    -Duseshrplib \
 			    -Dlibperl=libperl.so \
 			    -Dcf_email="support@everycity.com" \
 			    -Dcf_by="perl-bugs" \
