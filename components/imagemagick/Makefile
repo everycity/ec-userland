@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ImageMagick
 COMPONENT_FMRI=		multimedia/imagemagick
-COMPONENT_VERSION=	6.9.6-7
-IPS_COMPONENT_VERSION=	6.9.6.7
+COMPONENT_VERSION=	6.9.7-2
+IPS_COMPONENT_VERSION=	6.9.7.2
 COMPONENT_LICENSE=	ImageMagick
 COMPONENT_PROJECT_URL=	http://www.imagemagick.org/
 COMPONENT_SUMMARY=	Convert, Edit, And Compose Images
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:6a677b917bab99e9ad6a370e75726525909167d646f7902bcaf546053ecd540f
+COMPONENT_ARCHIVE_HASH=	sha256:1f0cac67d8d5c14fd568676c2a262f0804d42c7d2b744b2cf8e43c43a65ff03e
 COMPONENT_ARCHIVE_URL=	ftp://ftp.imagemagick.org/pub/ImageMagick/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -34,8 +34,7 @@ CONFIGURE_OPTIONS+=	--enable-shared=yes
 CONFIGURE_OPTIONS+=	--enable-static=no
 CONFIGURE_OPTIONS+=	--without-gvc
 CONFIGURE_OPTIONS+=	--without-modules
-CONFIGURE_OPTIONS.32+=	--with-perl=$(ECPREFIX)/bin/perl
-CONFIGURE_OPTIONS.32+=	--with-perl-options="INSTALLDIRS=vendor"
+CONFIGURE_OPTIONS.32+=	--with-perl
 CONFIGURE_OPTIONS.64+=	--without-perl
 CONFIGURE_OPTIONS+=	--with-rsvg=yes
 CONFIGURE_OPTIONS+=	--with-gslib
@@ -84,9 +83,9 @@ COMPONENT_BUILD_ARGS += LD_RUN_PATH="$(CONFIGURE_LIBDIR.$(BITS))"
 # OpenEXR           --with-openexr=yes            no
 # PERL              --with-perl=no                no
 # PNG               --with-png=yes                yes
-# RSVG              --with-rsvg=yes               no
+# RSVG              --with-rsvg=yes               yes
 # TIFF              --with-tiff=yes               yes
-# WEBP              --with-webp=yes               no
+# WEBP              --with-webp=yes               yes
 # Windows fonts     --with-windows-font-dir=      none
 # WMF               --with-wmf=yes                no
 # X11               --with-x=                     yes
