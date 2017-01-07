@@ -1,0 +1,21 @@
+--- lz4-1.7.5/programs/Makefile.~1~	2017-01-03 05:09:52.000000000 +0000
++++ lz4-1.7.5/programs/Makefile	2017-01-07 18:38:11.035963082 +0000
+@@ -49,7 +49,7 @@
+            -Wswitch-enum -Wdeclaration-after-statement -Wstrict-prototypes \
+            -Wpointer-arith -Wstrict-aliasing=1
+ CFLAGS  += $(MOREFLAGS)
+-FLAGS    = $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
++FLAGS    = $(CPPFLAGS) $(CFLAGS) $(LDFLAGS)
+ 
+ LZ4_VERSION=$(LIBVER)
+ MD2ROFF  =ronn
+@@ -65,7 +65,8 @@
+ EXT  :=
+ endif
+ 
+-
++%.o : %.c
++	$(CC) -c $(CPPFLAGS) $(CFLAGS) $< -o $@
+ 
+ default: lz4-release
+ 
