@@ -15,20 +15,22 @@ include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ruby
 COMPONENT_FMRI=		runtime/ruby-21
-COMPONENT_VERSION=	2.1.10
+COMPONENT_MJR_VERSION=	2.1
+COMPONENT_MNR_VERSION=	10
+COMPONENT_VERSION=	$(COMPONENT_MJR_VERSION).$(COMPONENT_MNR_VERSION)
 COMPONENT_LICENSE=	2-clause BSDL
 COMPONENT_PROJECT_URL=	http://www.ruby-lang.org/
 COMPONENT_SUMMARY=	The Ruby Programming Language & RubyGems
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha256:fb2e454d7a5e5a39eb54db0ec666f53eeb6edc593d1d2b970ae4d150b831dd20
-COMPONENT_ARCHIVE_URL=	ftp://ftp.ruby-lang.org//pub/ruby/2.1/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_RUBY)
 
 include ../../../make-rules/prep.mk
 include ../../../make-rules/configure.mk
 include ../../../make-rules/ips.mk
 
-RUBY_VER=	2.1
+RUBY_VER=	$(COMPONENT_MJR_VERSION)
 
 # Build weird when threaded.
 COMPONENT_BUILD_GMAKE_ARGS=
