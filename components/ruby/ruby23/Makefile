@@ -15,20 +15,22 @@ include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ruby
 COMPONENT_FMRI=		runtime/ruby-23
-COMPONENT_VERSION=	2.3.1
+COMPONENT_MJR_VERSION=	2.3
+COMPONENT_MNR_VERSION=	3
+COMPONENT_VERSION=	$(COMPONENT_MJR_VERSION).$(COMPONENT_MNR_VERSION)
 COMPONENT_LICENSE=	2-clause BSDL
 COMPONENT_PROJECT_URL=	http://www.ruby-lang.org/
 COMPONENT_SUMMARY=	The Ruby Programming Language & RubyGems
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:b87c738cb2032bf4920fef8e3864dc5cf8eae9d89d8d523ce0236945c5797dcd
-COMPONENT_ARCHIVE_URL=	https://cache.ruby-lang.org/pub/ruby/2.3/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:241408c8c555b258846368830a06146e4849a1d58dcaf6b14a3b6a73058115b7
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_RUBY)
 
 include ../../../make-rules/prep.mk
 include ../../../make-rules/configure.mk
 include ../../../make-rules/ips.mk
 
-RUBY_VER=	2.3
+RUBY_VER=	$(COMPONENT_MJR_VERSION)
 
 CONFIGURE_OPTIONS+=	--with-soname=ruby$(RUBY_VER) --program-suffix=$(RUBY_VER)
 CONFIGURE_OPTIONS+=	--enable-shared

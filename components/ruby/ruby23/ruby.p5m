@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -20,13 +20,8 @@ set name=pkg.summary value="$(COMPONENT_SUMMARY)"
 set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license BSDL license="$(COMPONENT_LICENSE)"
-license COPYING license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/bin/$(MACH64)
-dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/include/ruby-2.3.0
 dir path=$(ECPREFIX)/include/ruby-2.3.0/$(MACH)-solaris$(SOLARIS_VERSION)
 dir path=$(ECPREFIX)/include/ruby-2.3.0/$(MACH)-solaris$(SOLARIS_VERSION)/ruby
@@ -36,9 +31,6 @@ dir \
     path=$(ECPREFIX)/include/ruby-2.3.0/$(MACH64_GNU)-solaris$(SOLARIS_VERSION)/ruby
 dir path=$(ECPREFIX)/include/ruby-2.3.0/ruby
 dir path=$(ECPREFIX)/include/ruby-2.3.0/ruby/backward
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)
-dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 dir path=$(ECPREFIX)/lib/$(MACH64)/ruby
 dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.3.0
 dir \
@@ -195,14 +187,14 @@ dir \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/did_you_mean-1.0.0/test/edit_distance
 dir \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/did_you_mean-1.0.0/test/extra_features
-dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3
-dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/lib
-dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/hoe
+dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5
+dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/hoe
 dir \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest
-dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/test
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest
+dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/test
 dir \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/test/minitest
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/test/minitest
 dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/net-telnet-0.1.1
 dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/net-telnet-0.1.1/bin
 dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/net-telnet-0.1.1/lib
@@ -280,7 +272,6 @@ dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/vendor_ruby
 dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/vendor_ruby/2.3.0
 dir \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/vendor_ruby/2.3.0/$(MACH64_GNU)-solaris$(SOLARIS_VERSION)
-dir path=$(ECPREFIX)/lib/pkgconfig
 dir path=$(ECPREFIX)/lib/ruby
 dir path=$(ECPREFIX)/lib/ruby/2.3.0
 dir path=$(ECPREFIX)/lib/ruby/2.3.0/$(MACH)-solaris$(SOLARIS_VERSION)
@@ -416,12 +407,12 @@ dir \
     path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/did_you_mean-1.0.0/test/edit_distance
 dir \
     path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/did_you_mean-1.0.0/test/extra_features
-dir path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3
-dir path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/lib
-dir path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/hoe
-dir path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest
-dir path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/test
-dir path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/test/minitest
+dir path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5
+dir path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/lib
+dir path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/hoe
+dir path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest
+dir path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/test
+dir path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/test/minitest
 dir path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/net-telnet-0.1.1
 dir path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/net-telnet-0.1.1/bin
 dir path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/net-telnet-0.1.1/lib
@@ -482,11 +473,7 @@ dir path=$(ECPREFIX)/lib/ruby/vendor_ruby
 dir path=$(ECPREFIX)/lib/ruby/vendor_ruby/2.3.0
 dir \
     path=$(ECPREFIX)/lib/ruby/vendor_ruby/2.3.0/$(MACH)-solaris$(SOLARIS_VERSION)
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
 dir path=$(ECPREFIX)/share/doc/ruby
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/ri
 dir path=$(ECPREFIX)/share/ri/2.3.0
 dir path=$(ECPREFIX)/share/ri/2.3.0/system
@@ -824,6 +811,7 @@ dir \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/Molinillo/VersionConflict
 dir path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/RequirementList
 dir path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/Set
+dir path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/SourceSet
 dir path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/SpecSpecification
 dir path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/Specification
 dir path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/Stats
@@ -3432,6 +3420,7 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.3.0/rubygems/resolver/requirement_list.rb
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.3.0/rubygems/resolver/set.rb
+file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.3.0/rubygems/resolver/source_set.rb
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.3.0/rubygems/resolver/spec_specification.rb
 file \
@@ -3472,6 +3461,8 @@ file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.3.0/rubygems/ssl_certs/EntrustnetSecureServerCertificationAuthority.pem
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.3.0/rubygems/ssl_certs/GeoTrustGlobalCA.pem
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.3.0/rubygems/ssl_certs/GlobalSignRootCA.pem
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.3.0/rubygems/stub_specification.rb
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.3.0/rubygems/syck_hack.rb
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.3.0/rubygems/test_case.rb
@@ -3582,7 +3573,7 @@ file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.3.0/yaml/dbm.rb
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.3.0/yaml/store.rb
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/cache/did_you_mean-1.0.0.gem
-file path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/cache/minitest-5.8.3.gem
+file path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/cache/minitest-5.8.5.gem
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/cache/net-telnet-0.1.1.gem
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/cache/power_assert-0.2.6.gem
@@ -3675,55 +3666,55 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/did_you_mean-1.0.0/test/verbose_formatter_test.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/History.rdoc
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/History.rdoc
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/Manifest.txt
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/Manifest.txt
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/README.rdoc
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/README.rdoc
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/Rakefile
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/Rakefile
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/design_rationale.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/design_rationale.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/hoe/minitest.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/hoe/minitest.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/assertions.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/assertions.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/autorun.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/autorun.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/benchmark.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/benchmark.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/expectations.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/expectations.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/hell.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/hell.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/mock.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/mock.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/parallel.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/parallel.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/pride.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/pride.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/pride_plugin.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/pride_plugin.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/spec.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/spec.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/test.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/test.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/unit.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/unit.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/test/minitest/metametameta.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/test/minitest/metametameta.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/test/minitest/test_minitest_benchmark.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/test/minitest/test_minitest_benchmark.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/test/minitest/test_minitest_mock.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/test/minitest/test_minitest_mock.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/test/minitest/test_minitest_reporter.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/test/minitest/test_minitest_reporter.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/test/minitest/test_minitest_spec.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/test/minitest/test_minitest_spec.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.3/test/minitest/test_minitest_unit.rb
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/minitest-5.8.5/test/minitest/test_minitest_unit.rb
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/gems/net-telnet-0.1.1/Gemfile
 file \
@@ -4292,13 +4283,13 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/specifications/default/json-1.8.3.gemspec
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/specifications/default/psych-2.0.17.gemspec
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/specifications/default/psych-2.1.0.gemspec
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/specifications/default/rdoc-4.2.1.gemspec
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/specifications/did_you_mean-1.0.0.gemspec
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/specifications/minitest-5.8.3.gemspec
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/specifications/minitest-5.8.5.gemspec
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/specifications/net-telnet-0.1.1.gemspec
 file \
@@ -5181,6 +5172,7 @@ file \
     path=$(ECPREFIX)/lib/ruby/2.3.0/rubygems/resolver/molinillo/lib/molinillo/state.rb
 file path=$(ECPREFIX)/lib/ruby/2.3.0/rubygems/resolver/requirement_list.rb
 file path=$(ECPREFIX)/lib/ruby/2.3.0/rubygems/resolver/set.rb
+file path=$(ECPREFIX)/lib/ruby/2.3.0/rubygems/resolver/source_set.rb
 file path=$(ECPREFIX)/lib/ruby/2.3.0/rubygems/resolver/spec_specification.rb
 file path=$(ECPREFIX)/lib/ruby/2.3.0/rubygems/resolver/specification.rb
 file path=$(ECPREFIX)/lib/ruby/2.3.0/rubygems/resolver/stats.rb
@@ -5215,6 +5207,7 @@ file \
 file \
     path=$(ECPREFIX)/lib/ruby/2.3.0/rubygems/ssl_certs/EntrustnetSecureServerCertificationAuthority.pem
 file path=$(ECPREFIX)/lib/ruby/2.3.0/rubygems/ssl_certs/GeoTrustGlobalCA.pem
+file path=$(ECPREFIX)/lib/ruby/2.3.0/rubygems/ssl_certs/GlobalSignRootCA.pem
 file path=$(ECPREFIX)/lib/ruby/2.3.0/rubygems/stub_specification.rb
 file path=$(ECPREFIX)/lib/ruby/2.3.0/rubygems/syck_hack.rb
 file path=$(ECPREFIX)/lib/ruby/2.3.0/rubygems/test_case.rb
@@ -5318,7 +5311,7 @@ file path=$(ECPREFIX)/lib/ruby/2.3.0/yaml.rb
 file path=$(ECPREFIX)/lib/ruby/2.3.0/yaml/dbm.rb
 file path=$(ECPREFIX)/lib/ruby/2.3.0/yaml/store.rb
 file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/cache/did_you_mean-1.0.0.gem
-file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/cache/minitest-5.8.3.gem
+file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/cache/minitest-5.8.5.gem
 file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/cache/net-telnet-0.1.1.gem
 file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/cache/power_assert-0.2.6.gem
 file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/cache/rake-10.4.2.gem
@@ -5404,51 +5397,51 @@ file \
     path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/did_you_mean-1.0.0/test/test_helper.rb
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/did_you_mean-1.0.0/test/verbose_formatter_test.rb
-file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/History.rdoc
-file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/Manifest.txt
-file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/README.rdoc
-file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/Rakefile
+file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/History.rdoc
+file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/Manifest.txt
+file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/README.rdoc
+file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/Rakefile
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/design_rationale.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/design_rationale.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/hoe/minitest.rb
-file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/hoe/minitest.rb
+file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/assertions.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/assertions.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/autorun.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/autorun.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/benchmark.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/benchmark.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/expectations.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/expectations.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/hell.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/hell.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/mock.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/mock.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/parallel.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/parallel.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/pride.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/pride.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/pride_plugin.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/pride_plugin.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/spec.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/spec.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/test.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/test.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/lib/minitest/unit.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/lib/minitest/unit.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/test/minitest/metametameta.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/test/minitest/metametameta.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/test/minitest/test_minitest_benchmark.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/test/minitest/test_minitest_benchmark.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/test/minitest/test_minitest_mock.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/test/minitest/test_minitest_mock.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/test/minitest/test_minitest_reporter.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/test/minitest/test_minitest_reporter.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/test/minitest/test_minitest_spec.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/test/minitest/test_minitest_spec.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.3/test/minitest/test_minitest_unit.rb
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/minitest-5.8.5/test/minitest/test_minitest_unit.rb
 file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/net-telnet-0.1.1/Gemfile
 file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/net-telnet-0.1.1/LICENSE.txt
 file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/gems/net-telnet-0.1.1/README.md
@@ -5974,13 +5967,13 @@ file \
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.3.0/specifications/default/json-1.8.3.gemspec
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/specifications/default/psych-2.0.17.gemspec
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/specifications/default/psych-2.1.0.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.3.0/specifications/default/rdoc-4.2.1.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.3.0/specifications/did_you_mean-1.0.0.gemspec
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/specifications/minitest-5.8.3.gemspec
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/specifications/minitest-5.8.5.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.3.0/specifications/net-telnet-0.1.1.gemspec
 file \
@@ -5988,10 +5981,10 @@ file \
 file path=$(ECPREFIX)/lib/ruby/gems/2.3.0/specifications/rake-10.4.2.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.3.0/specifications/test-unit-3.1.5.gemspec
-file path=$(ECPREFIX)/share/man/man1/erb$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/share/man/man1/irb$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/share/man/man1/ri$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/share/man/man1/ruby$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/share/man/man1/erb2.3.1
+file path=$(ECPREFIX)/share/man/man1/irb2.3.1
+file path=$(ECPREFIX)/share/man/man1/ri2.3.1
+file path=$(ECPREFIX)/share/man/man1/ruby2.3.1
 file path=$(ECPREFIX)/share/ri/2.3.0/system/ACL/ACLEntry/cdesc-ACLEntry.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/ACL/ACLEntry/dot_pat-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/ACL/ACLEntry/dot_pat_str-i.ri
@@ -8557,8 +8550,6 @@ file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Commands/YankCommand/get_version_from_requirements-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Commands/YankCommand/new-c.ri
 file \
-    path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Commands/YankCommand/unyank_gem-i.ri
-file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Commands/YankCommand/yank_api_request-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Commands/YankCommand/yank_gem-i.ri
@@ -8930,6 +8921,7 @@ file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/InvalidSpecificationException/cdesc-InvalidSpecificationException.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Licenses/cdesc-Licenses.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Licenses/match%3f-c.ri
+file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Licenses/suggestions-c.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/List/cdesc-List.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/List/each-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/List/new-c.ri
@@ -9188,6 +9180,7 @@ file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/PackageTask/init-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/PackageTask/new-c.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/PathSupport/cdesc-PathSupport.ri
+file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/PathSupport/default_path-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/PathSupport/home-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/PathSupport/new-c.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/PathSupport/path%3d-i.ri
@@ -9385,6 +9378,7 @@ file \
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/RequestSet/soft_missing-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/RequestSet/sorted_requests-i.ri
+file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/RequestSet/source_set-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/RequestSet/specs-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/RequestSet/specs_in-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Requirement/%3d%3d%3d-i.ri
@@ -9563,6 +9557,8 @@ file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/LockSpecification/install-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/LockSpecification/new-c.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/LockSpecification/sources-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/LockSpecification/spec-i.ri
 file \
@@ -9817,6 +9813,13 @@ file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/Set/find_all-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/Set/prefetch-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/Set/prerelease-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/Set/remote-i.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/SourceSet/add_source_gem-i.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/SourceSet/cdesc-SourceSet.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/SourceSet/get_set-i.ri
+file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/SourceSet/new-c.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Resolver/SpecSpecification/cdesc-SpecSpecification.ri
 file \
@@ -10470,6 +10473,7 @@ file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/TestCase/refute_path_exists-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/TestCase/req-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/TestCase/rubybin-c.ri
+file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/TestCase/save_gemspec-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/TestCase/save_loaded_features-i.ri
 file \
@@ -13200,6 +13204,7 @@ file path=$(ECPREFIX)/share/ri/2.3.0/system/OpenSSL/BN/copy-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/OpenSSL/BN/eql%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/OpenSSL/BN/gcd-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/OpenSSL/BN/generate_prime-c.ri
+file path=$(ECPREFIX)/share/ri/2.3.0/system/OpenSSL/BN/hash-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/OpenSSL/BN/lshift%21-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/OpenSSL/BN/mod_add-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/OpenSSL/BN/mod_exp-i.ri
@@ -13967,8 +13972,6 @@ file \
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/OpenSSL/X509/ExtensionFactory/cdesc-ExtensionFactory.ri
 file \
-    path=$(ECPREFIX)/share/ri/2.3.0/system/OpenSSL/X509/ExtensionFactory/config%3d-i.ri
-file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/OpenSSL/X509/ExtensionFactory/config-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/OpenSSL/X509/ExtensionFactory/create_ext-i.ri
@@ -14636,8 +14639,11 @@ file path=$(ECPREFIX)/share/ri/2.3.0/system/Prime/each-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Prime/int_from_prime_division-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Prime/prime%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Prime/prime_division-i.ri
+file path=$(ECPREFIX)/share/ri/2.3.0/system/Proc/%3d%3d%3d-i.ri
+file path=$(ECPREFIX)/share/ri/2.3.0/system/Proc/%5b%5d-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Proc/arity-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Proc/binding-i.ri
+file path=$(ECPREFIX)/share/ri/2.3.0/system/Proc/call-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Proc/cdesc-Proc.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Proc/curry-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Proc/hash-i.ri
@@ -14648,6 +14654,7 @@ file path=$(ECPREFIX)/share/ri/2.3.0/system/Proc/parameters-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Proc/source_location-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Proc/to_proc-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Proc/to_s-i.ri
+file path=$(ECPREFIX)/share/ri/2.3.0/system/Proc/yield-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Process/GID/cdesc-GID.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Process/GID/change_privilege-c.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Process/GID/eid-c.ri
