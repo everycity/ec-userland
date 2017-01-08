@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -3404,6 +3404,8 @@ file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.2.0/rubygems/ssl_certs/EntrustnetSecureServerCertificationAuthority.pem
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.2.0/rubygems/ssl_certs/GeoTrustGlobalCA.pem
+file \
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.2.0/rubygems/ssl_certs/GlobalSignRootCA.pem
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.2.0/rubygems/stub_specification.rb
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.2.0/rubygems/syck_hack.rb
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.2.0/rubygems/test_case.rb
@@ -4755,6 +4757,7 @@ file \
 file \
     path=$(ECPREFIX)/lib/ruby/2.2.0/rubygems/ssl_certs/EntrustnetSecureServerCertificationAuthority.pem
 file path=$(ECPREFIX)/lib/ruby/2.2.0/rubygems/ssl_certs/GeoTrustGlobalCA.pem
+file path=$(ECPREFIX)/lib/ruby/2.2.0/rubygems/ssl_certs/GlobalSignRootCA.pem
 file path=$(ECPREFIX)/lib/ruby/2.2.0/rubygems/stub_specification.rb
 file path=$(ECPREFIX)/lib/ruby/2.2.0/rubygems/syck_hack.rb
 file path=$(ECPREFIX)/lib/ruby/2.2.0/rubygems/test_case.rb
@@ -12014,6 +12017,7 @@ file path=$(ECPREFIX)/share/ri/2.2.0/system/OpenSSL/BN/coerce-i.ri
 file path=$(ECPREFIX)/share/ri/2.2.0/system/OpenSSL/BN/copy-i.ri
 file path=$(ECPREFIX)/share/ri/2.2.0/system/OpenSSL/BN/eql%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.2.0/system/OpenSSL/BN/generate_prime-c.ri
+file path=$(ECPREFIX)/share/ri/2.2.0/system/OpenSSL/BN/hash-i.ri
 file path=$(ECPREFIX)/share/ri/2.2.0/system/OpenSSL/BN/new-c.ri
 file path=$(ECPREFIX)/share/ri/2.2.0/system/OpenSSL/BN/pretty_print-i.ri
 file path=$(ECPREFIX)/share/ri/2.2.0/system/OpenSSL/BN/prime%3f-i.ri
