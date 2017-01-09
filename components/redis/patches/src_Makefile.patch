@@ -1,0 +1,36 @@
+$NetBSD: patch-ab,v 1.4 2016/11/14 14:30:17 fhajny Exp $
+
+Add DESTDIR support. Fix NetBSD support.
+
+--- a/src/Makefile.orig	2016-10-26 07:17:45.000000000 +0000
++++ b/src/Makefile
+@@ -23,8 +23,8 @@ WARN=-Wall -W
+ OPT=$(OPTIMIZATION)
+ 
+ PREFIX?=/usr/local
+-INSTALL_BIN=$(PREFIX)/bin
+-INSTALL=install
++INSTALL_BIN=$(DESTDIR)$(PREFIX)/bin
++INSTALL=$(BSD_INSTALL_PROGRAM)
+ 
+ # Default allocator
+ ifeq ($(uname_S),Linux)
+@@ -77,6 +77,10 @@ ifeq ($(uname_S),OpenBSD)
+ 	# OpenBSD
+ 	FINAL_LIBS+= -lpthread
+ else
++ifeq ($(uname_S),NetBSD)
++	# NetBSD
++	FINAL_LIBS+= -lpthread
++else
+ ifeq ($(uname_S),FreeBSD)
+ 	# FreeBSD
+ 	FINAL_LIBS+= -lpthread
+@@ -87,6 +91,7 @@ else
+ endif
+ endif
+ endif
++endif
+ endif
+ endif
+ # Include paths to dependencies

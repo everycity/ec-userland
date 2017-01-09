@@ -19,31 +19,28 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		redis
 COMPONENT_FMRI=		database/redis
-COMPONENT_VERSION=	3.2.0
+COMPONENT_VERSION=	3.2.6
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://redis.io/"
 COMPONENT_SUMMARY=	Redis is an open source, BSD licensed, advanced key-value store.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:989f1af3dc0ac1828fdac48cd6c608f5a32a235046dddf823226f760c0fd8762
+COMPONENT_ARCHIVE_HASH=	sha256:2e1831c5a315e400d72bda4beaa98c0cfbe3f4eb8b20c269371634390cf729fa
 COMPONENT_ARCHIVE_URL=	http://download.redis.io/releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-include ../../make-rules/shared-targets.mk
+COMPONENT_BUILD_GMAKE_ARGS+= CC=$(CC) CFLAGS="$(CFLAGS) -D_POSIX_PTHREAD_SEMANTICS" LDFLAGS="$(LDFLAGS)" V=1
 
-COMPONENT_BUILD_GMAKE_ARGS+= CFLAGS="$(CFLAGS) -D_POSIX_PTHREAD_SEMANTICS" LDFLAGS="$(LDFLAGS)" V=1
-
-COMPONENT_INSTALL_TARGETS += os=solaris PREFIX=$(PROTO_DIR)$(ECPREFIX)
-COMPONENT_PRE_INSTALL_ACTION=	( mkdir -p $(PROTO_DIR)$(ECPREFIX)/bin )
+COMPONENT_INSTALL_TARGETS += os=solaris PREFIX=$(ECPREFIX)
 
 build:		$(BUILD_64)
 
@@ -52,5 +49,3 @@ $(BUILD_DIR)/.installed:	$(INSTALL_64)
 	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed
-
-include ../../make-rules/depend.mk
