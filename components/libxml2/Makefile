@@ -9,21 +9,27 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libxml2
 COMPONENT_FMRI=		library/libxml2
-COMPONENT_VERSION=	2.9.2
+COMPONENT_VERSION=	2.9.4
 COMPONENT_LICENSE=	MIT
 COMPONENT_PROJECT_URL=	"http://xmlsoft.org/"
 COMPONENT_SUMMARY=	The XML library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:5178c30b151d044aefb1b08bf54c3003a0ac55c59c866763997529d60770d5bc
+COMPONENT_ARCHIVE_HASH=	sha256:ffb911191e509b966deb55de705387f14156e1a56b21824357cdf0053233633c
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_XMLSOFT)
+
+# W3C XML Conformance Test Suites
+COMPONENT_ARCHIVE_1= xmlts20080827.tar.gz
+COMPONENT_ARCHIVE_HASH_1= \
+    sha256:96151685cec997e1f9f3387e3626d61e6284d4d6e66e0e440c209286c03e9cc7
+COMPONENT_ARCHIVE_URL_1= http://www.w3.org/XML/Test/$(COMPONENT_ARCHIVE_1)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
@@ -35,6 +41,7 @@ LDFLAGS +=	$(LD_Z_DEFS) $(LD_Z_TEXT) -lpthread
 CONFIGURE_OPTIONS += --disable-static
 CONFIGURE_OPTIONS += --with-pic
 CONFIGURE_OPTIONS += --with-threads
+CONFIGURE_OPTIONS += --with-icu
 CONFIGURE_OPTIONS += --with-python=$(PYTHON.$(BITS))
 CONFIGURE_OPTIONS += --with-python-install-dir=$(PYTHON_VENDOR_PACKAGES)
 # Cannot link to lzma since it's not in /lib.
@@ -51,7 +58,7 @@ $(BUILD_DIR)/$(MACH64)/.tested: COMPONENT_PRE_TEST_ACTION = ( \
     $(SYMLINK) ../libxml2mod.so $(@D)/python2.7/.libs/64/libxml2mod.so);
 
 COMPONENT_PRE_TEST_ACTION += \
-    (cd $(@D) ; gtar xf $(COMPONENT_DIR)/$(COMPONENT_ARCHIVE_1));
+    (cd $(@D) ; gtar xf $(USERLAND_ARCHIVES)/$(COMPONENT_ARCHIVE_1));
 
 # common targets
 build:		$(BUILD_32_and_64)

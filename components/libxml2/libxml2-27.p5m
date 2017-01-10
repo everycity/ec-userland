@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 set name=pkg.fmri \
@@ -17,11 +17,70 @@ set name=pkg.fmri \
 set name=pkg.summary value="The XML library - Python 2.7 bindings"
 set name=info.classification \
     value=org.opensolaris.category.2008:Development/Python
-set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+
+file path=$(USRDIR)/lib/python2.7/vendor-packages/64/drv_libxml2.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/64/libxml2.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/64/libxml2mod.la
 file path=$(USRDIR)/lib/python2.7/vendor-packages/64/libxml2mod.so
 file path=$(USRDIR)/lib/python2.7/vendor-packages/drv_libxml2.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/libxml2.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/libxml2mod.la
 file path=$(USRDIR)/lib/python2.7/vendor-packages/libxml2mod.so
-license COPYING license="libxml license"
+dir  path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/TODO
+dir  path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/attribs.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/build.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/compareNodes.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/ctxterror.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/cutnpaste.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/dtdvalid.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/error.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/inbuf.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/indexes.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/input_callback.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/invalid.xml
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/nsdel.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/outbuf.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/push.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/pushSAX.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/pushSAXhtml.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/reader.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/reader2.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/reader3.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/reader4.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/reader5.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/reader6.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/reader7.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/reader8.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/readererr.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/readernext.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/regexp.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/relaxng.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/resolver.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/schema.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/serialize.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/sync.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/test.dtd
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/thread2.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/tst.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/tst.xml
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/tstLastError.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/tstURI.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/tstmem.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/tstxpath.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/valid.xml
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/validDTD.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/validRNG.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/validSchemas.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/validate.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/walker.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/xpath.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/xpathext.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/xpathleak.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/xpathns.py
+file path=$(USRDIR)/share/doc/libxml2-python-$(COMPONENT_VERSION)/examples/xpathret.py
