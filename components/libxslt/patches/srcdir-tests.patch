@@ -26,7 +26,7 @@ source directory.
  	grep "MORY ALLO" .memdump  | grep -v "MEMORY ALLOCATED : 0" || true;\
 --- libxslt-1.1.27/tests/general/Makefile.am	Fri Sep  7 00:49:41 2012
 +++ libxslt-1.1.27/tests/general/Makefile.am	Mon Oct 15 02:41:07 2012
-@@ -209,10 +209,11 @@
+@@ -217,10 +217,11 @@
  	  if [ ! -f $$j ] ; then continue ; fi ; \
  	  if [ -d $$j ] ; then continue ; fi ; \
  	  name=`basename $$j .xsl`; \
@@ -39,7 +39,7 @@ source directory.
  	  if [ ! -f $$out ] ; then \
  	  	cp result.$$name $$out ; \
  		if [ -s err.$$name ] ; then \
-@@ -219,6 +220,9 @@
+@@ -227,6 +228,9 @@
  			cp err.$$name $$err ; \
  		fi ; \
  	  else \
@@ -49,7 +49,7 @@ source directory.
  	  	diff $$out result.$$name; \
  		if [ -s $$err ] ; then \
  	  		diff $$err err.$$name; \
-@@ -241,10 +245,11 @@
+@@ -249,10 +253,11 @@
  	  if [ ! -f $$j ] ; then continue ; fi ; \
  	  if [ -d $$j ] ; then continue ; fi ; \
  	  name=`basename $$j .xsl`; \
@@ -62,7 +62,7 @@ source directory.
  	  if [ ! -f $$out ] ; then \
  	  	cp result.$$name $$out ; \
  		if [ -s err.$$name ] ; then \
-@@ -251,6 +256,9 @@
+@@ -259,6 +264,9 @@
  			cp err.$$name $$err ; \
  		fi ; \
  	  else \
@@ -74,7 +74,7 @@ source directory.
  	  		diff $$err err.$$name; \
 --- libxslt-1.1.27/tests/REC/Makefile.am	Fri Sep  7 00:49:41 2012
 +++ libxslt-1.1.27/tests/REC/Makefile.am	Thu Oct 11 08:04:48 2012
-@@ -96,7 +96,7 @@
+@@ -99,7 +99,7 @@
  	  fi ; \
  	  log=`$(CHECKER) $(top_builddir)/xsltproc/xsltproc \
  	  	$(srcdir)/$$name.xsl $(srcdir)/$$name.xml \
@@ -83,7 +83,7 @@ source directory.
  	  if [ ! -f $(srcdir)/$$name.out ] ; then \
  	  	cp $$name.res $(srcdir)/$$name.out ; \
  		if [ -s $$name.bad ] ; then \
-@@ -158,7 +158,7 @@
+@@ -161,7 +161,7 @@
  	  fi ; \
  	  log=`$(CHECKER) $(top_builddir)/xsltproc/xsltproc --nodict \
  	  	$(srcdir)/$$name.xsl $(srcdir)/$$name.xml \

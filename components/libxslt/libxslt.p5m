@@ -27,15 +27,20 @@ set name=pkg.fmri \
 set name=pkg.summary value="The XSLT library"
 set name=info.classification \
     value=org.opensolaris.category.2008:System/Libraries
-set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
-#set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
+license xsl.license license=SUNWlxsl.copyright
+
+file path=$(USRDIR)/bin/amd64/xslt-config facet.devel=true
+file path=$(USRDIR)/bin/amd64/xsltproc
 file path=$(USRDIR)/bin/xslt-config facet.devel=true
 file path=$(USRDIR)/bin/xsltproc
+dir  path=$(USRDIR)/include/libexslt
 file path=$(USRDIR)/include/libexslt/exslt.h
 file path=$(USRDIR)/include/libexslt/exsltconfig.h
 file path=$(USRDIR)/include/libexslt/exsltexports.h
+dir  path=$(USRDIR)/include/libxslt
 file path=$(USRDIR)/include/libxslt/attributes.h
 file path=$(USRDIR)/include/libxslt/documents.h
 file path=$(USRDIR)/include/libxslt/extensions.h
@@ -57,21 +62,36 @@ file path=$(USRDIR)/include/libxslt/xsltconfig.h
 file path=$(USRDIR)/include/libxslt/xsltexports.h
 file path=$(USRDIR)/include/libxslt/xsltlocale.h
 file path=$(USRDIR)/include/libxslt/xsltutils.h
-file path=$(USRDIR)/lib/$(MACH64)/libexslt.so.0
-file path=$(USRDIR)/lib/$(MACH64)/libxslt.so.1
-#file path=$(USRDIR)/lib/$(MACH64)/llib-lexslt.ln
-#file path=$(USRDIR)/lib/$(MACH64)/llib-lxslt.ln
+file path=$(USRDIR)/lib/$(MACH64)/libexslt.la
+link path=$(USRDIR)/lib/$(MACH64)/libexslt.so target=libexslt.so.0.8.17
+link path=$(USRDIR)/lib/$(MACH64)/libexslt.so.0 target=libexslt.so.0.8.17
+file path=$(USRDIR)/lib/$(MACH64)/libexslt.so.0.8.17
+dir  path=$(USRDIR)/lib/$(MACH64)/libxslt-plugins
+file path=$(USRDIR)/lib/$(MACH64)/libxslt.la
+link path=$(USRDIR)/lib/$(MACH64)/libxslt.so \
+    target=libxslt.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/$(MACH64)/libxslt.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/$(MACH64)/libxslt.so.1 \
+    target=libxslt.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libexslt.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libxslt.pc
-file path=$(USRDIR)/lib/libexslt.so.0
-file path=$(USRDIR)/lib/libxslt.so.1
-#file llib-lexslt path=$(USRDIR)/lib/llib-lexslt
-#file path=$(USRDIR)/lib/llib-lexslt.ln
-#file llib-lexslt path=$(USRDIR)/lib/llib-lxslt
-#file path=$(USRDIR)/lib/llib-lxslt.ln
+file path=$(USRDIR)/lib/$(MACH64)/xsltConf.sh
+file path=$(USRDIR)/lib/libexslt.la
+link path=$(USRDIR)/lib/libexslt.so target=libexslt.so.0.8.17
+link path=$(USRDIR)/lib/libexslt.so.0 target=libexslt.so.0.8.17
+file path=$(USRDIR)/lib/libexslt.so.0.8.17
+dir  path=$(USRDIR)/lib/libxslt-plugins
+file path=$(USRDIR)/lib/libxslt.la
+link path=$(USRDIR)/lib/libxslt.so target=libxslt.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/libxslt.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libxslt.so.1 target=libxslt.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/pkgconfig/libexslt.pc
 file path=$(USRDIR)/lib/pkgconfig/libxslt.pc
+file path=$(USRDIR)/lib/xsltConf.sh
 file path=$(USRDIR)/share/aclocal/libxslt.m4
+dir  path=$(USRDIR)/share/lib/xslt
+dir  path=$(USRDIR)/share/lib/xslt/doc
+dir  path=$(USRDIR)/share/lib/xslt/doc/html
 file path=$(USRDIR)/share/lib/xslt/doc/html/API.html
 file path=$(USRDIR)/share/lib/xslt/doc/html/APIchunk0.html
 file path=$(USRDIR)/share/lib/xslt/doc/html/APIchunk1.html
@@ -91,6 +111,7 @@ file path=$(USRDIR)/share/lib/xslt/doc/html/APIconstructors.html
 file path=$(USRDIR)/share/lib/xslt/doc/html/APIfiles.html
 file path=$(USRDIR)/share/lib/xslt/doc/html/APIfunctions.html
 file path=$(USRDIR)/share/lib/xslt/doc/html/APIsymbols.html
+dir  path=$(USRDIR)/share/lib/xslt/doc/html/EXSLT
 file path=$(USRDIR)/share/lib/xslt/doc/html/EXSLT/APIchunk0.html
 file path=$(USRDIR)/share/lib/xslt/doc/html/EXSLT/APIconstructors.html
 file path=$(USRDIR)/share/lib/xslt/doc/html/EXSLT/APIfiles.html
@@ -114,6 +135,7 @@ file path=$(USRDIR)/share/lib/xslt/doc/html/docs.html
 file path=$(USRDIR)/share/lib/xslt/doc/html/downloads.html
 file path=$(USRDIR)/share/lib/xslt/doc/html/extensions.html
 file path=$(USRDIR)/share/lib/xslt/doc/html/help.html
+dir  path=$(USRDIR)/share/lib/xslt/doc/html/html
 file path=$(USRDIR)/share/lib/xslt/doc/html/html/book1.html
 file path=$(USRDIR)/share/lib/xslt/doc/html/html/home.png
 file path=$(USRDIR)/share/lib/xslt/doc/html/html/index.html
@@ -149,12 +171,15 @@ file path=$(USRDIR)/share/lib/xslt/doc/html/node.gif
 file path=$(USRDIR)/share/lib/xslt/doc/html/object.gif
 file path=$(USRDIR)/share/lib/xslt/doc/html/processing.gif
 file path=$(USRDIR)/share/lib/xslt/doc/html/python.html
+file path=$(USRDIR)/share/lib/xslt/doc/html/redhat.gif
 file path=$(USRDIR)/share/lib/xslt/doc/html/smallfootonly.gif
 file path=$(USRDIR)/share/lib/xslt/doc/html/stylesheet.gif
 file path=$(USRDIR)/share/lib/xslt/doc/html/templates.gif
+dir  path=$(USRDIR)/share/lib/xslt/doc/html/tutorial
 file path=$(USRDIR)/share/lib/xslt/doc/html/tutorial/libxslt_tutorial.c
 file path=$(USRDIR)/share/lib/xslt/doc/html/tutorial/libxslttutorial.html
 file path=$(USRDIR)/share/lib/xslt/doc/html/tutorial/libxslttutorial.xml
+dir  path=$(USRDIR)/share/lib/xslt/doc/html/tutorial2
 file path=$(USRDIR)/share/lib/xslt/doc/html/tutorial2/libxslt_pipes.c
 file path=$(USRDIR)/share/lib/xslt/doc/html/tutorial2/libxslt_pipes.html
 file path=$(USRDIR)/share/lib/xslt/doc/html/tutorial2/libxslt_pipes.xml
@@ -165,12 +190,6 @@ file xslt-config.1 path=$(USRDIR)/share/man/man1/xslt-config.1 facet.devel=all
 file path=$(USRDIR)/share/man/man1/xsltproc.1
 file path=$(USRDIR)/share/man/man3/libexslt.3
 file path=$(USRDIR)/share/man/man3/libxslt.3
-#legacy pkg=SUNWlxsl desc="The XSLT library" name="The XSLT library"
-license xsl.license license=SUNWlxsl.copyright
-link path=$(USRDIR)/lib/$(MACH64)/libexslt.so target=libexslt.so.0
-link path=$(USRDIR)/lib/$(MACH64)/libxslt.so target=libxslt.so.1
-link path=$(USRDIR)/lib/libexslt.so target=./libexslt.so.0
-link path=$(USRDIR)/lib/libxslt.so target=./libxslt.so.1
 
 #depend fmri=library/python-2/libxsl-26 \
 #    predicate=runtime/python-26 \
