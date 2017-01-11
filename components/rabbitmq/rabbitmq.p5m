@@ -22,6 +22,8 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
+depend fmri=runtime/erlang type=require
+
 # Main symlinks
 link path=$(ECPREFIX)/bin/rabbitmq-defaults target=../lib/rabbitmq/sbin/rabbitmq-defaults
 link path=$(ECPREFIX)/bin/rabbitmq-env      target=../lib/rabbitmq/sbin/rabbitmq-env
