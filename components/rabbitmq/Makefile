@@ -29,6 +29,11 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
+# rabbitmq doesn't like cloney
+COMPONENT_PRE_BUILD_ACTION = ($(CP) -rp $(SOURCE_DIR)/. $(@D))
+
+COMPONENT_BUILD_ACTION +=       /usr/bin/true
+
 COMPONENT_INSTALL_ENV +=        DESTDIR=$(PROTO_DIR)
 COMPONENT_INSTALL_ENV +=        MANDIR=$(ECPREFIX)/share/man
 COMPONENT_INSTALL_ENV +=        RMQ_ROOTDIR=$(ECPREFIX)

@@ -1,0 +1,40 @@
+--- rabbitmq-server-3.6.6/deps/rabbit/scripts/rabbitmq-defaults.orig	2017-01-11 13:49:53.159791574 +0000
++++ rabbitmq-server-3.6.6/deps/rabbit/scripts/rabbitmq-defaults	2017-01-11 13:50:04.437141796 +0000
+@@ -1,4 +1,4 @@
+-#!/bin/sh -e
++#!/bin/bash -e
+ ##  The contents of this file are subject to the Mozilla Public License
+ ##  Version 1.1 (the "License"); you may not use this file except in
+ ##  compliance with the License. You may obtain a copy of the License
+--- rabbitmq-server-3.6.6/deps/rabbit/scripts/rabbitmq-env.orig	2017-01-11 13:51:00.723995086 +0000
++++ rabbitmq-server-3.6.6/deps/rabbit/scripts/rabbitmq-env	2017-01-11 13:51:08.540247515 +0000
+@@ -1,4 +1,4 @@
+-#!/bin/sh -e
++#!/bin/bash -e
+ ##  The contents of this file are subject to the Mozilla Public License
+ ##  Version 1.1 (the "License"); you may not use this file except in
+ ##  compliance with the License. You may obtain a copy of the License
+--- rabbitmq-server-3.6.6/deps/rabbit/scripts/rabbitmq-plugins.orig	2017-01-11 13:51:48.077848844 +0000
++++ rabbitmq-server-3.6.6/deps/rabbit/scripts/rabbitmq-plugins	2017-01-11 13:51:55.831311625 +0000
+@@ -1,4 +1,4 @@
+-#!/bin/sh -e
++#!/bin/bash -e
+ ##  The contents of this file are subject to the Mozilla Public License
+ ##  Version 1.1 (the "License"); you may not use this file except in
+ ##  compliance with the License. You may obtain a copy of the License
+--- rabbitmq-server-3.6.6/deps/rabbit/scripts/rabbitmq-server.orig	2017-01-11 13:52:22.874142749 +0000
++++ rabbitmq-server-3.6.6/deps/rabbit/scripts/rabbitmq-server	2017-01-11 13:52:31.244177533 +0000
+@@ -1,4 +1,4 @@
+-#!/bin/sh -e
++#!/bin/bash -e
+ ##  The contents of this file are subject to the Mozilla Public License
+ ##  Version 1.1 (the "License"); you may not use this file except in
+ ##  compliance with the License. You may obtain a copy of the License
+--- rabbitmq-server-3.6.6/deps/rabbit/scripts/rabbitmqctl.orig	2017-01-11 13:53:04.663194082 +0000
++++ rabbitmq-server-3.6.6/deps/rabbit/scripts/rabbitmqctl	2017-01-11 13:53:12.529599922 +0000
+@@ -1,4 +1,4 @@
+-#!/bin/sh -e
++#!/bin/bash -e
+ ##  The contents of this file are subject to the Mozilla Public License
+ ##  Version 1.1 (the "License"); you may not use this file except in
+ ##  compliance with the License. You may obtain a copy of the License
