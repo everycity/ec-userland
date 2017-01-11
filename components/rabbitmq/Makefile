@@ -29,26 +29,20 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_BUILD_ENV+= \
-	PREFIX=$(ECPREFIX) \
-	MAN_INSTALL_PATH=$(PROTO_DIR)$(ECPREFIX)/share/man
+COMPONENT_INSTALL_ENV +=        DESTDIR=$(PROTO_DIR)
+COMPONENT_INSTALL_ENV +=        MANDIR=$(ECPREFIX)/share/man
+COMPONENT_INSTALL_ENV +=        RMQ_ROOTDIR=$(ECPREFIX)
+COMPONENT_INSTALL_ENV +=        RMQ_BINDIR=$(ECPREFIX)/lib/rabbitmq/bin
+COMPONENT_INSTALL_ENV +=        RMQ_LIBDIR=$(ECPREFIX)/lib
+COMPONENT_INSTALL_ENV +=        RMQ_ERLAPP_DIR=$(ECPREFIX)/lib/rabbitmq
 
-COMPONENT_INSTALL_ENV+= \
-	PREFIX=$(ECPREFIX) \
-	TARGET_DIR=$(PROTO_DIR)$(ECPREFIX)/lib/rabbitmq \
-	SBIN_DIR=$(PROTO_DIR)$(ECPREFIX)/lib/rabbitmq/sbin \
-	MAN_INSTALL_PATH=$(PROTO_DIR)$(ECPREFIX)/share/man \
-	DOC_INSTALL_DIR=$(PROTO_DIR)$(ECPREFIX)/share/doc
-
-COMPONENT_INSTALL_TARGETS+=	install-bin install-man
+COMPONENT_INSTALL_TARGETS=	all install install-man
 
 COMPONENT_POST_INSTALL_ACTION= \
 	( perl -pi -e 's/^SYS_PREFIX=.*/SYS_PREFIX=\/ec/g' \
-		$(PROTO_DIR)$(ECPREFIX)/lib/erlang/lib/rabbitmq_server-0.0.0/sbin/rabbitmq-defaults ) && \
+		$(PROTO_DIR)$(ECPREFIX)/lib/rabbitmq/sbin/rabbitmq-defaults ) && \
 	( perl -pi -e 's/.*next line potentially.*//g' \
-		$(PROTO_DIR)$(ECPREFIX)/lib/erlang/lib/rabbitmq_server-0.0.0/sbin/rabbitmq-defaults ) && \
-	( perl -pi -e "s/\/etc\/rabbitmq/\/ec\/etc\/rabbitmq/g" \
-		$(PROTO_DIR)$(ECPREFIX)/lib/erlang/lib/rabbitmq_server-0.0.0/sbin/rabbitmq-env )
+		$(PROTO_DIR)$(ECPREFIX)/lib/rabbitmq/sbin/rabbitmq-defaults )
 
 build:		$(BUILD_32)
 

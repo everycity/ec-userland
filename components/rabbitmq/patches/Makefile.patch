@@ -1,5 +1,16 @@
---- rabbitmq-server-3.6.6/Makefile.orig	2016-12-13 11:38:39.638882745 +0000
-+++ rabbitmq-server-3.6.6/Makefile	2016-12-13 11:39:15.693955368 +0000
+--- rabbitmq-server-3.6.6/Makefile.~1~	2016-11-08 12:28:12.000000000 +0000
++++ rabbitmq-server-3.6.6/Makefile	2017-01-11 12:10:48.324845966 +0000
+@@ -312,8 +312,8 @@
+ 	for section in $$sections; do \
+ 		mkdir -p $(DESTDIR)$(MANDIR)/man$$section; \
+ 		for manpage in $(DEPS_DIR)/rabbit/docs/*.$$section; do \
+-			gzip < $$manpage \
+-			 > $(DESTDIR)$(MANDIR)/man$$section/$$(basename $$manpage).gz; \
++			cp $$manpage \
++			 $(DESTDIR)$(MANDIR)/man$$section/$$(basename $$manpage); \
+ 		done; \
+ 	done
+ 
 @@ -351,7 +351,7 @@
  
  install-windows-docs: install-windows-erlapp
