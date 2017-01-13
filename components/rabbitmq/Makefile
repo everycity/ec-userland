@@ -29,6 +29,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
+RABBITMQ_BINS=rabbitmq-defaults rabbitmq-env rabbitmq-plugins rabbitmq-server rabbitmqctl
+
 # rabbitmq doesn't like cloney
 COMPONENT_PRE_BUILD_ACTION = ($(CP) -rp $(SOURCE_DIR)/. $(@D))
 
@@ -47,7 +49,13 @@ COMPONENT_POST_INSTALL_ACTION= \
 	( perl -pi -e 's/^SYS_PREFIX=.*/SYS_PREFIX=\/ec/g' \
 		$(PROTO_DIR)$(ECPREFIX)/lib/rabbitmq/sbin/rabbitmq-defaults ) && \
 	( perl -pi -e 's/.*next line potentially.*//g' \
-		$(PROTO_DIR)$(ECPREFIX)/lib/rabbitmq/sbin/rabbitmq-defaults )
+		$(PROTO_DIR)$(ECPREFIX)/lib/rabbitmq/sbin/rabbitmq-defaults ) && \
+	( $(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin ) && \
+	( cd $(PROTO_DIR)$(ECPREFIX)/bin && \
+		$(foreach bin, $(RABBITMQ_BINS), $(SYMLINK) ../lib/rabbitmq/sbin/$(bin) $(bin); ) ) && \
+	( sed -e 's/%%%%VSN%%%%/$(COMPONENT_VERSION)/' \
+		$(BUILD_DIR_32)/deps/rabbitmq_management/bin/rabbitmqadmin \
+		> $(PROTO_DIR)$(ECPREFIX)/bin/rabbitmqadmin )
 
 build:		$(BUILD_32)
 
