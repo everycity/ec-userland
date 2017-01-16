@@ -22,13 +22,44 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
+dir  path=$(LOCALSTATEDIR)
 dir  path=$(LOCALSTATEDIR)/openldap-data
 file path=$(LOCALSTATEDIR)/openldap-data/DB_CONFIG.example
+dir  path=$(LOCALSTATEDIR)/run
+dir  path=$(SYSCONFDIR)
 dir  path=$(SYSCONFDIR)/openldap
 file path=$(SYSCONFDIR)/openldap/DB_CONFIG.example
 file path=$(SYSCONFDIR)/openldap/ldap.conf
 file path=$(SYSCONFDIR)/openldap/ldap.conf.default
 dir  path=$(SYSCONFDIR)/openldap/schema
+dir  path=$(SYSCONFDIR)/openldap/schema.23927
+file path=$(SYSCONFDIR)/openldap/schema.23927/README
+file path=$(SYSCONFDIR)/openldap/schema.23927/collective.ldif
+file path=$(SYSCONFDIR)/openldap/schema.23927/collective.schema
+file path=$(SYSCONFDIR)/openldap/schema.23927/corba.ldif
+file path=$(SYSCONFDIR)/openldap/schema.23927/corba.schema
+file path=$(SYSCONFDIR)/openldap/schema.23927/core.ldif
+file path=$(SYSCONFDIR)/openldap/schema.23927/core.schema
+file path=$(SYSCONFDIR)/openldap/schema.23927/cosine.ldif
+file path=$(SYSCONFDIR)/openldap/schema.23927/cosine.schema
+file path=$(SYSCONFDIR)/openldap/schema.23927/duaconf.ldif
+file path=$(SYSCONFDIR)/openldap/schema.23927/duaconf.schema
+file path=$(SYSCONFDIR)/openldap/schema.23927/dyngroup.ldif
+file path=$(SYSCONFDIR)/openldap/schema.23927/dyngroup.schema
+file path=$(SYSCONFDIR)/openldap/schema.23927/inetorgperson.ldif
+file path=$(SYSCONFDIR)/openldap/schema.23927/inetorgperson.schema
+file path=$(SYSCONFDIR)/openldap/schema.23927/java.ldif
+file path=$(SYSCONFDIR)/openldap/schema.23927/java.schema
+file path=$(SYSCONFDIR)/openldap/schema.23927/misc.ldif
+file path=$(SYSCONFDIR)/openldap/schema.23927/misc.schema
+file path=$(SYSCONFDIR)/openldap/schema.23927/nis.ldif
+file path=$(SYSCONFDIR)/openldap/schema.23927/nis.schema
+file path=$(SYSCONFDIR)/openldap/schema.23927/openldap.ldif
+file path=$(SYSCONFDIR)/openldap/schema.23927/openldap.schema
+file path=$(SYSCONFDIR)/openldap/schema.23927/pmi.ldif
+file path=$(SYSCONFDIR)/openldap/schema.23927/pmi.schema
+file path=$(SYSCONFDIR)/openldap/schema.23927/ppolicy.ldif
+file path=$(SYSCONFDIR)/openldap/schema.23927/ppolicy.schema
 file path=$(SYSCONFDIR)/openldap/schema/README
 file path=$(SYSCONFDIR)/openldap/schema/collective.ldif
 file path=$(SYSCONFDIR)/openldap/schema/collective.schema
@@ -60,6 +91,9 @@ file path=$(SYSCONFDIR)/openldap/slapd.conf
 file path=$(SYSCONFDIR)/openldap/slapd.conf.default
 file path=$(SYSCONFDIR)/openldap/slapd.ldif
 file path=$(SYSCONFDIR)/openldap/slapd.ldif.default
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/bin
+dir  path=$(USRDIR)/bin/$(MACH64)
 link path=$(USRDIR)/bin/$(MACH64)/ldapadd target=ldapmodify
 file path=$(USRDIR)/bin/$(MACH64)/ldapcompare
 file path=$(USRDIR)/bin/$(MACH64)/ldapdelete
@@ -100,6 +134,7 @@ link path=$(USRDIR)/bin/slapindex target=slapd
 link path=$(USRDIR)/bin/slappasswd target=slapd
 link path=$(USRDIR)/bin/slapschema target=slapd
 link path=$(USRDIR)/bin/slaptest target=slapd
+dir  path=$(USRDIR)/include
 file path=$(USRDIR)/include/lber.h
 file path=$(USRDIR)/include/lber_types.h
 file path=$(USRDIR)/include/ldap.h
@@ -109,6 +144,8 @@ file path=$(USRDIR)/include/ldap_schema.h
 file path=$(USRDIR)/include/ldap_utf8.h
 file path=$(USRDIR)/include/ldif.h
 file path=$(USRDIR)/include/slapi-plugin.h
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/$(MACH64)
 link path=$(USRDIR)/lib/$(MACH64)/liblber-2.4.so.2 target=liblber-2.4.so.2.10.7
 file path=$(USRDIR)/lib/$(MACH64)/liblber-2.4.so.2.10.7
 file path=$(USRDIR)/lib/$(MACH64)/liblber.a
@@ -140,6 +177,9 @@ file path=$(USRDIR)/lib/libldap_r-2.4.so.2.10.7
 file path=$(USRDIR)/lib/libldap_r.a
 file path=$(USRDIR)/lib/libldap_r.la
 link path=$(USRDIR)/lib/libldap_r.so target=libldap_r-2.4.so.2.10.7
+dir  path=$(USRDIR)/share
+dir  path=$(USRDIR)/share/man
+dir  path=$(USRDIR)/share/man/man1
 link path=$(USRDIR)/share/man/man1/ldapadd.1 target=ldapmodify.1
 file path=$(USRDIR)/share/man/man1/ldapcompare.1
 file path=$(USRDIR)/share/man/man1/ldapdelete.1
@@ -150,6 +190,7 @@ file path=$(USRDIR)/share/man/man1/ldappasswd.1
 file path=$(USRDIR)/share/man/man1/ldapsearch.1
 file path=$(USRDIR)/share/man/man1/ldapurl.1
 file path=$(USRDIR)/share/man/man1/ldapwhoami.1
+dir  path=$(USRDIR)/share/man/man3
 link path=$(USRDIR)/share/man/man3/ber_alloc_t.3 target=lber-encode.3
 link path=$(USRDIR)/share/man/man3/ber_bvarray_add.3 target=lber-types.3
 link path=$(USRDIR)/share/man/man3/ber_bvarray_free.3 target=lber-types.3
@@ -346,6 +387,7 @@ link path=$(USRDIR)/share/man/man3/ldap_url_parse.3 target=ldap_url.3
 link path=$(USRDIR)/share/man/man3/ldap_value_free.3 target=ldap_get_values.3
 link path=$(USRDIR)/share/man/man3/ldap_value_free_len.3 \
     target=ldap_get_values.3
+dir  path=$(USRDIR)/share/man/man5
 file path=$(USRDIR)/share/man/man5/ldap.conf.5
 file path=$(USRDIR)/share/man/man5/ldif.5
 file path=$(USRDIR)/share/man/man5/slapd-bdb.5
@@ -392,6 +434,7 @@ file path=$(USRDIR)/share/man/man5/slapo-syncprov.5
 file path=$(USRDIR)/share/man/man5/slapo-translucent.5
 file path=$(USRDIR)/share/man/man5/slapo-unique.5
 file path=$(USRDIR)/share/man/man5/slapo-valsort.5
+dir  path=$(USRDIR)/share/man/man8
 file path=$(USRDIR)/share/man/man8/slapacl.8
 file path=$(USRDIR)/share/man/man8/slapadd.8
 file path=$(USRDIR)/share/man/man8/slapauth.8
