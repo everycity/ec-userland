@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -2120,6 +2120,7 @@ link path=$(USRDIR)/share/man/man3/bn_wexpand.3 target=bn_internal.3
 file path=$(USRDIR)/share/man/man3/buffer.3
 file path=$(USRDIR)/share/man/man3/crypto.3
 file path=$(USRDIR)/share/man/man3/d2i_ASN1_OBJECT.3
+link path=$(USRDIR)/share/man/man3/d2i_AutoPrivateKey.3 target=d2i_PrivateKey.3
 file path=$(USRDIR)/share/man/man3/d2i_CMS_ContentInfo.3
 file path=$(USRDIR)/share/man/man3/d2i_DHparams.3
 link path=$(USRDIR)/share/man/man3/d2i_DSAPrivateKey.3 target=d2i_DSAPublicKey.3
@@ -2141,6 +2142,8 @@ link path=$(USRDIR)/share/man/man3/d2i_PKCS8PrivateKey_bio.3 \
     target=d2i_PKCS8PrivateKey.3
 link path=$(USRDIR)/share/man/man3/d2i_PKCS8PrivateKey_fp.3 \
     target=d2i_PKCS8PrivateKey.3
+file path=$(USRDIR)/share/man/man3/d2i_PrivateKey.3
+link path=$(USRDIR)/share/man/man3/d2i_Private_key.3 target=d2i_PrivateKey.3
 link path=$(USRDIR)/share/man/man3/d2i_RSAPrivateKey.3 target=d2i_RSAPublicKey.3
 file path=$(USRDIR)/share/man/man3/d2i_RSAPublicKey.3
 link path=$(USRDIR)/share/man/man3/d2i_RSA_PUBKEY.3 target=d2i_RSAPublicKey.3
@@ -2198,6 +2201,7 @@ link path=$(USRDIR)/share/man/man3/i2d_PKCS8PrivateKey_nid_bio.3 \
     target=d2i_PKCS8PrivateKey.3
 link path=$(USRDIR)/share/man/man3/i2d_PKCS8PrivateKey_nid_fp.3 \
     target=d2i_PKCS8PrivateKey.3
+link path=$(USRDIR)/share/man/man3/i2d_PrivateKey.3 target=d2i_PrivateKey.3
 link path=$(USRDIR)/share/man/man3/i2d_RSAPrivateKey.3 target=d2i_RSAPublicKey.3
 link path=$(USRDIR)/share/man/man3/i2d_RSAPublicKey.3 target=d2i_RSAPublicKey.3
 link path=$(USRDIR)/share/man/man3/i2d_RSA_PUBKEY.3 target=d2i_RSAPublicKey.3
