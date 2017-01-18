@@ -12,8 +12,8 @@
 # Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
-set name=pkg.fmri value=pkg:/web/server/lighttpd-$(LIGHTTPD_MAJOR)/module/lighttpd-expire@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="expire lighttpd module"
+set name=pkg.fmri value=pkg:/web/server/lighttpd-$(LIGHTTPD_MAJOR)/module/lighttpd-deflate@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="deflate lighttpd module"
 set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
@@ -27,6 +27,5 @@ dir path=$(ECPREFIX)/lib/lighttpd
 dir path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)
 dir path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)/lib
 dir path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)/lib/$(MACH64)
-file path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)/lib/$(MACH64)/mod_expire.so
-file path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)/lib/mod_expire.so
-
+file path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)/lib/$(MACH64)/mod_deflate.so
+file path=$(ECPREFIX)/lib/lighttpd/$(LIGHTTPD_MAJOR)/lib/mod_deflate.so
