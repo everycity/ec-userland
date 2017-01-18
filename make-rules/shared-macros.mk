@@ -562,6 +562,7 @@ CXXFLAGS +=	$(CXXFLAGS.$(BITS))
 LDFLAGS +=	$(LDFLAGS.$(BITS))
 
 # Link with libumem by default
+LIBS +=		-lumem
 LDFLAGS +=	-lumem
 
 # Reduce the symbol table size, effectively conflicting with -g.  We should
