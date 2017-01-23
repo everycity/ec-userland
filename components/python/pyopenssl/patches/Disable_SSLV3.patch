@@ -1,0 +1,15 @@
+--- pyOpenSSL-0.13/OpenSSL/ssl/context.c.orig	2017-01-23 13:44:11.391281727 +0000
++++ pyOpenSSL-0.13/OpenSSL/ssl/context.c	2017-01-23 13:45:28.056164373 +0000
+@@ -1204,7 +1204,12 @@
+             method = SSLv23_method();
+             break;
+         case ssl_SSLv3_METHOD:
++#ifdef OPENSSL_NO_SSL3
++            PyErr_SetString(PyExc_ValueError, "SSLv3_METHOD not supported by this version of OpenSSL");
++            return NULL;
++#else
+             method = SSLv3_method();
++#endif
+             break;
+         case ssl_TLSv1_METHOD:
+             method = TLSv1_method();
