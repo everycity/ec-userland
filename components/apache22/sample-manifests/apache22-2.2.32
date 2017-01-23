@@ -14,10 +14,6 @@
 
 # Transforms
 <include ec-drop-common>
-<transform dir file link hardlink path=ec/var/apache/.*/manual(/.+){0,1}$ -> \
-    default facet.doc.html true>
-<transform file path=.+/etc/.+ -> default preserve true>
-<transform file path=.+/etc/.+ -> default mode 0644>
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
@@ -26,12 +22,8 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-file files/a2enmod.$(ZTYPE) path=$(USRDIR)/lib/apache/2.2/bin/a2enmod
-file files/apache22-startup.sh.$(ZTYPE) path=$(SVCMETHOD)/http-apache22 mode=555
-file files/apache22-manifest.xml.$(ZTYPE) path=$(SVCMANIFEST)/site/http-apache22.xml \
-    restart_fmri=svc:/system/manifest-import:default
-link path=$(USRDIR)/lib/apache/2.2/logs target=$(LOCALSTATEDIR)/apache/2.2/logs
-
+dir  path=$(LOCALSTATEDIR)
+dir  path=$(LOCALSTATEDIR)/apache
 dir  path=$(LOCALSTATEDIR)/apache/2.2
 dir  path=$(LOCALSTATEDIR)/apache/2.2/cgi-bin
 file path=$(LOCALSTATEDIR)/apache/2.2/cgi-bin/printenv
@@ -285,7 +277,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/icons/world1.gif
 file path=$(LOCALSTATEDIR)/apache/2.2/icons/world1.png
 file path=$(LOCALSTATEDIR)/apache/2.2/icons/world2.gif
 file path=$(LOCALSTATEDIR)/apache/2.2/icons/world2.png
-dir  path=$(LOCALSTATEDIR)/apache/2.2/logs mode=0755 owner=webservd group=webservd preserve=true
+dir  path=$(LOCALSTATEDIR)/apache/2.2/logs
 dir  path=$(LOCALSTATEDIR)/apache/2.2/manual
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/LICENSE
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/bind.html
@@ -1059,6 +1051,7 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/css/manual-zip.css
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/css/manual.css
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/css/prettify.css
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/faq.dtd
+dir  path=$(LOCALSTATEDIR)/apache/2.2/manual/style/lang
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/lang.dtd
 dir  path=$(LOCALSTATEDIR)/apache/2.2/manual/style/latex
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/latex/atbeginend.sty
@@ -1070,6 +1063,8 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/scripts/prettify.js
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/scripts/prettify.min.js
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/sitemap.dtd
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/style/version.ent
+dir  path=$(LOCALSTATEDIR)/apache/2.2/manual/style/xsl
+dir  path=$(LOCALSTATEDIR)/apache/2.2/manual/style/xsl/util
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/suexec.html
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/suexec.html.en
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/suexec.html.fr
@@ -1130,7 +1125,9 @@ file path=$(LOCALSTATEDIR)/apache/2.2/manual/vhosts/name-based.html.fr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/vhosts/name-based.html.ja.utf8
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/vhosts/name-based.html.ko.euc-kr
 file path=$(LOCALSTATEDIR)/apache/2.2/manual/vhosts/name-based.html.tr.utf8
-dir  path=$(LOCALSTATEDIR)/apache/2.2/run mode=0755 owner=webservd group=webservd preserve=true
+dir  path=$(LOCALSTATEDIR)/apache/2.2/run
+dir  path=$(SYSCONFDIR)
+dir  path=$(SYSCONFDIR)/apache
 dir  path=$(SYSCONFDIR)/apache/2.2
 dir  path=$(SYSCONFDIR)/apache/2.2/conf.d
 file path=$(SYSCONFDIR)/apache/2.2/conf.d/charset
@@ -1300,6 +1297,9 @@ file path=$(SYSCONFDIR)/apache/2.2/sites-available/example
 dir  path=$(SYSCONFDIR)/apache/2.2/sites-enabled
 link path=$(SYSCONFDIR)/apache/2.2/sites-enabled/000-default \
     target=../sites-available/default
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/include
+dir  path=$(USRDIR)/include/apache
 dir  path=$(USRDIR)/include/apache/2.2
 file path=$(USRDIR)/include/apache/2.2/ap_compat.h
 file path=$(USRDIR)/include/apache/2.2/ap_config.h
@@ -1396,6 +1396,8 @@ file path=$(USRDIR)/include/apache/2.2/worker/util_md5.h
 file path=$(USRDIR)/include/apache/2.2/worker/util_script.h
 file path=$(USRDIR)/include/apache/2.2/worker/util_time.h
 file path=$(USRDIR)/include/apache/2.2/worker/util_xml.h
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/apache
 dir  path=$(USRDIR)/lib/apache/2.2
 dir  path=$(USRDIR)/lib/apache/2.2/bin
 dir  path=$(USRDIR)/lib/apache/2.2/bin/$(MACH64)
@@ -1569,24 +1571,27 @@ file path=$(USRDIR)/lib/apache/2.2/modules/mod_userdir.so
 file path=$(USRDIR)/lib/apache/2.2/modules/mod_usertrack.so
 file path=$(USRDIR)/lib/apache/2.2/modules/mod_version.so
 file path=$(USRDIR)/lib/apache/2.2/modules/mod_vhost_alias.so
+link path=$(USRDIR)/lib/apache/active target=2.2
+dir  path=$(USRDIR)/share
+dir  path=$(USRDIR)/share/apache
 dir  path=$(USRDIR)/share/apache/2.2
 dir  path=$(USRDIR)/share/apache/2.2/build
 dir  path=$(USRDIR)/share/apache/2.2/build/$(MACH64)
 file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/config.nice
 file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/config_vars.mk
-file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/instdso.sh mode=555
+file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/instdso.sh
 file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/library.mk
 file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/ltlib.mk
-file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/mkdir.sh mode=555
+file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/mkdir.sh
 file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/program.mk
 file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/rules.mk
 file path=$(USRDIR)/share/apache/2.2/build/$(MACH64)/special.mk
 file path=$(USRDIR)/share/apache/2.2/build/config.nice
 file path=$(USRDIR)/share/apache/2.2/build/config_vars.mk
-file path=$(USRDIR)/share/apache/2.2/build/instdso.sh mode=555
+file path=$(USRDIR)/share/apache/2.2/build/instdso.sh
 file path=$(USRDIR)/share/apache/2.2/build/library.mk
 file path=$(USRDIR)/share/apache/2.2/build/ltlib.mk
-file path=$(USRDIR)/share/apache/2.2/build/mkdir.sh mode=555
+file path=$(USRDIR)/share/apache/2.2/build/mkdir.sh
 file path=$(USRDIR)/share/apache/2.2/build/program.mk
 file path=$(USRDIR)/share/apache/2.2/build/rules.mk
 file path=$(USRDIR)/share/apache/2.2/build/special.mk
@@ -1594,19 +1599,19 @@ dir  path=$(USRDIR)/share/apache/2.2/build/worker
 dir  path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)
 file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/config.nice
 file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/config_vars.mk
-file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/instdso.sh mode=555
+file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/instdso.sh
 file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/library.mk
 file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/ltlib.mk
-file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/mkdir.sh mode=555
+file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/mkdir.sh
 file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/program.mk
 file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/rules.mk
 file path=$(USRDIR)/share/apache/2.2/build/worker/$(MACH64)/special.mk
 file path=$(USRDIR)/share/apache/2.2/build/worker/config.nice
 file path=$(USRDIR)/share/apache/2.2/build/worker/config_vars.mk
-file path=$(USRDIR)/share/apache/2.2/build/worker/instdso.sh mode=555
+file path=$(USRDIR)/share/apache/2.2/build/worker/instdso.sh
 file path=$(USRDIR)/share/apache/2.2/build/worker/library.mk
 file path=$(USRDIR)/share/apache/2.2/build/worker/ltlib.mk
-file path=$(USRDIR)/share/apache/2.2/build/worker/mkdir.sh mode=555
+file path=$(USRDIR)/share/apache/2.2/build/worker/mkdir.sh
 file path=$(USRDIR)/share/apache/2.2/build/worker/program.mk
 file path=$(USRDIR)/share/apache/2.2/build/worker/rules.mk
 file path=$(USRDIR)/share/apache/2.2/build/worker/special.mk
@@ -1626,84 +1631,3 @@ file path=$(USRDIR)/share/apache/2.2/man/man8/httpd.8
 file path=$(USRDIR)/share/apache/2.2/man/man8/logresolve.8
 file path=$(USRDIR)/share/apache/2.2/man/man8/rotatelogs.8
 file path=$(USRDIR)/share/apache/2.2/man/man8/suexec.8
-
-link path=$(USRDIR)/lib/apache/2.2/bin/a2dismod target=a2enmod
-link path=$(USRDIR)/lib/apache/2.2/bin/a2ensite target=a2enmod
-link path=$(USRDIR)/lib/apache/2.2/bin/a2dissite target=a2enmod
-
-link path=$(USRDIR)/bin/ab \
-    target=../lib/apache/2.2/bin/ab preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/ab \
-    target=../../lib/apache/2.2/bin/$(MACH64)/ab preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/apachectl \
-    target=../lib/apache/2.2/bin/apachectl preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/apachectl \
-    target=../../lib/apache/2.2/bin/$(MACH64)/apachectl preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/apxs \
-    target=../lib/apache/2.2/bin/apxs preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/apxs \
-    target=../../lib/apache/2.2/bin/$(MACH64)/apxs preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/apxs.worker \
-    target=../lib/apache/2.2/bin/apxs.worker preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/apxs.worker \
-    target=../../lib/apache/2.2/bin/$(MACH64)/apxs.worker preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/checkgid \
-    target=../lib/apache/2.2/bin/checkgid preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/checkgid \
-    target=../../lib/apache/2.2/bin/$(MACH64)/checkgid preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/dbmmanage \
-    target=../lib/apache/2.2/bin/dbmmanage preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/dbmmanage \
-    target=../../lib/apache/2.2/bin/$(MACH64)/dbmmanage preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/htcacheclean \
-    target=../lib/apache/2.2/bin/htcacheclean preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/htcacheclean \
-    target=../../lib/apache/2.2/bin/$(MACH64)/htcacheclean preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/htdbm \
-    target=../lib/apache/2.2/bin/htdbm preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/htdbm \
-    target=../../lib/apache/2.2/bin/$(MACH64)/htdbm preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/htdigest \
-    target=../lib/apache/2.2/bin/htdigest preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/htdigest \
-    target=../../lib/apache/2.2/bin/$(MACH64)/htdigest preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/htpasswd \
-    target=../lib/apache/2.2/bin/htpasswd preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/htpasswd \
-    target=../../lib/apache/2.2/bin/$(MACH64)/htpasswd preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/httpd \
-    target=../lib/apache/2.2/bin/httpd preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/httpd \
-    target=../../lib/apache/2.2/bin/$(MACH64)/httpd preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/httxt2dbm \
-    target=../lib/apache/2.2/bin/httxt2dbm preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/httxt2dbm \
-    target=../../lib/apache/2.2/bin/$(MACH64)/httxt2dbm preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/logresolve \
-    target=../lib/apache/2.2/bin/logresolve preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/logresolve \
-    target=../../lib/apache/2.2/bin/$(MACH64)/logresolve preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/rotatelogs \
-    target=../lib/apache/2.2/bin/rotatelogs preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/rotatelogs \
-    target=../../lib/apache/2.2/bin/$(MACH64)/rotatelogs preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/suexec \
-    target=../lib/apache/2.2/bin/suexec preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/suexec \
-    target=../../lib/apache/2.2/bin/$(MACH64)/suexec preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/a2enmod \
-    target=../lib/apache/2.2/bin/a2enmod preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/a2enmod \
-    target=../../lib/apache/2.2/bin/$(MACH64)/a2enmod preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/a2dismod \
-    target=../lib/apache/2.2/bin/a2dismod preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/a2dismod \
-    target=../../lib/apache/2.2/bin/$(MACH64)/a2dismod preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/a2ensite \
-    target=../lib/apache/2.2/bin/a2ensite preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/a2ensite \
-    target=../../lib/apache/2.2/bin/$(MACH64)/a2ensite preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/a2dissite \
-    target=../lib/apache/2.2/bin/a2dissite preserve=true pkg.linted=true mediator=apache mediator-version=2.2
-link path=$(USRDIR)/bin/$(MACH64)/a2dissite \
-    target=../../lib/apache/2.2/bin/$(MACH64)/a2dissite preserve=true pkg.linted=true mediator=apache mediator-version=2.2
