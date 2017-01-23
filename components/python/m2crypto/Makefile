@@ -24,11 +24,12 @@
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		M2Crypto
-COMPONENT_VERSION=	0.23.0
-COMPONENT_PROJECT_URL=	http://chandlerproject.org/Projects/MeTooCrypto/
+COMPONENT_VERSION=	0.24.0
+COMPONENT_PROJECT_URL=	"http://chandlerproject.org/Projects/MeTooCrypto/"
+COMPONENT_SUMMARY=	Python interface for openssl
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:1ac3b6eafa5ff7e2a0796675316d7569b28aada45a7ab74042ad089d15a9567f
+COMPONENT_ARCHIVE_HASH=	sha256:80a56441a1d2c0cf27e725be7554c92598b938fc8767ee2c71fdbc2fdc055ee8
 COMPONENT_ARCHIVE_URL=	http://pypi.python.org/packages/source/M/M2Crypto/$(COMPONENT_ARCHIVE)
 
 include $(WS_TOP)/make-rules/prep.mk
@@ -37,12 +38,18 @@ include $(WS_TOP)/make-rules/ips.mk
 
 #PYTHON_PRE_SETUP_ARGS += CFLAGS="$(CFLAGS)"
 
+COMPONENT_TEST_ARGS =	setup.py test
+COMPONENT_TEST_DIR =	$(SOURCE_DIR)
+COMPONENT_TEST_ENV =	CC=$(CC)
+COMPONENT_TEST_ENV +=	PATH="/ec/bin:/usr/bin"
+COMPONENT_TEST_ENV +=	PYTHONPATH=$(PROTO_DIR)$(PYTHON_VENDOR_PACKAGES.32)
+
 # common targets
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
 
-test:		$(NO_TESTS)
+test:		$(TEST_32_and_64)
 
 BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
 
