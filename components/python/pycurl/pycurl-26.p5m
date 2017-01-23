@@ -28,9 +28,9 @@ set name=info.classification value="org.opensolaris.category.2008:Development/Py
 set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license pycurl.copyright license=MIT
+license COPYING-MIT license=MIT
 
 file path=$(USRDIR)/lib/python2.6/vendor-packages/64/pycurl.so
 file path=$(USRDIR)/lib/python2.6/vendor-packages/curl/__init__.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/pycurl-7.19.0-py2.6.egg-info
+file path=$(USRDIR)/lib/python2.6/vendor-packages/pycurl-$(COMPONENT_VERSION)-py2.6.egg-info
 file path=$(USRDIR)/lib/python2.6/vendor-packages/pycurl.so
