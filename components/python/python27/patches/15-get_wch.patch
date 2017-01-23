@@ -1,9 +1,5 @@
-This patch adds wget_wch support to the curses module.  It may be contributed
-upstream at some point, but the suitability (or lack thereof) has not yet
-been determined.
-
---- Python-2.7.6/Modules/_cursesmodule.c.~1~	2013-11-09 23:36:41.000000000 -0800
-+++ Python-2.7.6/Modules/_cursesmodule.c	2014-05-14 13:36:59.388642793 -0700
+--- Python-2.7.13/Modules/_cursesmodule.c.~1~	2016-12-17 20:05:07.000000000 +0000
++++ Python-2.7.13/Modules/_cursesmodule.c	2017-01-09 16:00:32.199999414 +0000
 @@ -861,6 +861,37 @@
  }
  
@@ -42,7 +38,7 @@ been determined.
  PyCursesWindow_GetKey(PyCursesWindowObject *self, PyObject *args)
  {
      int x, y;
-@@ -1572,6 +1603,7 @@
+@@ -1588,6 +1619,7 @@
      {"getbegyx",        (PyCFunction)PyCursesWindow_getbegyx, METH_NOARGS},
      {"getbkgd",         (PyCFunction)PyCursesWindow_GetBkgd, METH_NOARGS},
      {"getch",           (PyCFunction)PyCursesWindow_GetCh, METH_VARARGS},

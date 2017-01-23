@@ -18,6 +18,7 @@
 #
 # CDDL HEADER END
 #
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 # Copyright 2014, Igor Kozhukhov <ikozhukhov@gmail.com>
 # Copyright (c) 2011, 2014, Oracle and/or its affiliates. All rights reserved.
 
@@ -28,12 +29,11 @@ include ../../../make-rules/shared-macros.mk
 #PATH=$(USRDIR)/bin:/usr/bin:/sbin:/usr/sbin
 
 COMPONENT_NAME=		Python
-COMPONENT_VERSION=	2.7.9
+COMPONENT_VERSION=	2.7.13
 COMPONENT_PROJECT_URL=	http://python.org/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
-COMPONENT_ARCHIVE_HASH=	\
-    sha256:90d27e14ea7e03570026850e2e50ba71ad20b7eb31035aada1cf3def8f8d4916
+COMPONENT_ARCHIVE_HASH=	sha256:35d543986882f78261f97787fd3e06274bfa6df29fac9b4a94f73930ff98f731
 COMPONENT_ARCHIVE_URL=	$(COMPONENT_PROJECT_URL)ftp/python/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 COMPONENT_BUGDB=	utility/python
 
@@ -52,12 +52,12 @@ COMPONENT_PREP_ACTION = \
 
 #C99MODE=
 CPPFLAGS +=	-IPython
-
 # to find the ncurses headers
 CPPFLAGS +=	-I$(USRDIR)/include/ncursesw
 # enable large files how they did in JDS
 CPPFLAGS +=	-D_LARGEFILE64_SOURCE
-
+# Turn off SSL
+CPPFLAGS +=	-DOPENSSL_NO_SSL2 -DOPENSSL_NO_SSL3
 # libffi for _ctypes
 CPPFLAGS +=	$(shell pkg-config --cflags-only-I libffi)
 

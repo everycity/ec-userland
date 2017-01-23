@@ -30,18 +30,14 @@ set name=info.classification \
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 
-#file path=$(USRDIR)/bin/smtpd.py
-#file path=$(USRDIR)/bin/$(MACH64)/smtpd.py
-#
-file path=$(USRDIR)/bin/python2.7
-file path=$(USRDIR)/bin/$(MACH64)/python2.7
-
 link path=$(USRDIR)/bin/$(MACH64)/python target=python2.7 mediator=python \
     mediator-version=2.7
 link path=$(USRDIR)/bin/$(MACH64)/python-config target=python2.7-config \
     mediator=python mediator-version=2.7
 
+file path=$(USRDIR)/bin/$(MACH64)/python2.7
 file path=$(USRDIR)/bin/$(MACH64)/python2.7-config
+#file path=$(USRDIR)/bin/$(MACH64)/smtpd.py
 link path=$(USRDIR)/bin/2to3 target=2to3-2.7 mediator=python mediator-version=2.7
 
 file $(USRDIR)/bin/2to3 path=$(USRDIR)/bin/2to3-2.7
@@ -54,7 +50,9 @@ link path=$(USRDIR)/bin/python target=python2.7 mediator=python mediator-version
 link path=$(USRDIR)/bin/python-config target=python2.7-config mediator=python \
     mediator-version=2.7
 
+file path=$(USRDIR)/bin/python2.7
 file path=$(USRDIR)/bin/python2.7-config
+#file path=$(USRDIR)/bin/smtpd.py
 file path=$(USRDIR)/include/python2.7/Python-ast.h
 file path=$(USRDIR)/include/python2.7/Python.h
 file path=$(USRDIR)/include/python2.7/abstract.h
@@ -149,7 +147,6 @@ file path=$(USRDIR)/include/python2.7/ucnhash.h
 file path=$(USRDIR)/include/python2.7/unicodeobject.h
 file path=$(USRDIR)/include/python2.7/warnings.h
 file path=$(USRDIR)/include/python2.7/weakrefobject.h
-
 link path=$(USRDIR)/lib/$(MACH64)/libpython2.7.so target=libpython2.7.so.1.0
 file path=$(USRDIR)/lib/$(MACH64)/libpython2.7.so.1.0
 link path=$(USRDIR)/lib/$(MACH64)/libpython2.7_db.so target=libpython2.7_db.so.1.0
@@ -157,6 +154,16 @@ file path=$(USRDIR)/lib/$(MACH64)/libpython2.7_db.so.1.0
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/python-2.7.pc
 link path=$(USRDIR)/lib/$(MACH64)/pkgconfig/python.pc target=python-2.7.pc \
     mediator=python mediator-version=2.7
+file path=$(USRDIR)/lib/$(MACH64)/python2.7/config/Makefile
+file path=$(USRDIR)/lib/$(MACH64)/python2.7/config/Setup
+file path=$(USRDIR)/lib/$(MACH64)/python2.7/config/Setup.config
+file path=$(USRDIR)/lib/$(MACH64)/python2.7/config/Setup.local
+file path=$(USRDIR)/lib/$(MACH64)/python2.7/config/config.c
+file path=$(USRDIR)/lib/$(MACH64)/python2.7/config/config.c.in
+file path=$(USRDIR)/lib/$(MACH64)/python2.7/config/install-sh mode=0555
+file path=$(USRDIR)/lib/$(MACH64)/python2.7/config/libpython2.7.a
+file path=$(USRDIR)/lib/$(MACH64)/python2.7/config/makesetup mode=0555
+file path=$(USRDIR)/lib/$(MACH64)/python2.7/config/python.o
 link path=$(USRDIR)/lib/libpython2.7.so target=libpython2.7.so.1.0
 file path=$(USRDIR)/lib/libpython2.7.so.1.0
 link path=$(USRDIR)/lib/libpython2.7_db.so target=libpython2.7_db.so.1.0
@@ -474,8 +481,8 @@ file path=$(USRDIR)/lib/python2.7/encodings/uu_codec.py
 file path=$(USRDIR)/lib/python2.7/encodings/zlib_codec.py
 file path=$(USRDIR)/lib/python2.7/ensurepip/__init__.py pkg.depend.bypass-generate=.*
 file path=$(USRDIR)/lib/python2.7/ensurepip/__main__.py
-file path=$(USRDIR)/lib/python2.7/ensurepip/_bundled/pip-1.5.6-py2.py3-none-any.whl
-file path=$(USRDIR)/lib/python2.7/ensurepip/_bundled/setuptools-7.0-py2.py3-none-any.whl
+file path=$(USRDIR)/lib/python2.7/ensurepip/_bundled/pip-9.0.1-py2.py3-none-any.whl
+file path=$(USRDIR)/lib/python2.7/ensurepip/_bundled/setuptools-28.8.0-py2.py3-none-any.whl
 file path=$(USRDIR)/lib/python2.7/ensurepip/_uninstall.py
 file path=$(USRDIR)/lib/python2.7/filecmp.py
 file path=$(USRDIR)/lib/python2.7/fileinput.py
@@ -576,6 +583,8 @@ file path=$(USRDIR)/lib/python2.7/idlelib/configHelpSourceEdit.py
 file path=$(USRDIR)/lib/python2.7/idlelib/configSectionNameDialog.py
 file path=$(USRDIR)/lib/python2.7/idlelib/dynOptionMenuWidget.py
 file path=$(USRDIR)/lib/python2.7/idlelib/extend.txt
+file path=$(USRDIR)/lib/python2.7/idlelib/help.html
+file path=$(USRDIR)/lib/python2.7/idlelib/help.py
 file path=$(USRDIR)/lib/python2.7/idlelib/help.txt
 file path=$(USRDIR)/lib/python2.7/idlelib/idle.bat mode=0555
 file path=$(USRDIR)/lib/python2.7/idlelib/idle.py
@@ -766,7 +775,6 @@ file path=$(USRDIR)/lib/python2.7/lib2to3/fixes/fix_apply.py
 file path=$(USRDIR)/lib/python2.7/lib2to3/fixes/fix_asserts.py
 file path=$(USRDIR)/lib/python2.7/lib2to3/fixes/fix_basestring.py
 file path=$(USRDIR)/lib/python2.7/lib2to3/fixes/fix_buffer.py
-file path=$(USRDIR)/lib/python2.7/lib2to3/fixes/fix_callable.py
 file path=$(USRDIR)/lib/python2.7/lib2to3/fixes/fix_dict.py
 file path=$(USRDIR)/lib/python2.7/lib2to3/fixes/fix_except.py
 file path=$(USRDIR)/lib/python2.7/lib2to3/fixes/fix_exec.py
@@ -965,21 +973,6 @@ file path=$(USRDIR)/lib/python2.7/unittest/result.py
 file path=$(USRDIR)/lib/python2.7/unittest/runner.py
 file path=$(USRDIR)/lib/python2.7/unittest/signals.py
 file path=$(USRDIR)/lib/python2.7/unittest/suite.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/__init__.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/dummy.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/support.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_assertions.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_break.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_case.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_discovery.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_functiontestcase.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_loader.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_program.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_result.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_runner.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_setups.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_skipping.py
-file path=$(USRDIR)/lib/python2.7/unittest/test/test_suite.py
 file path=$(USRDIR)/lib/python2.7/unittest/util.py
 file path=$(USRDIR)/lib/python2.7/urllib.py
 file path=$(USRDIR)/lib/python2.7/urllib2.py
