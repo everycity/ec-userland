@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libxpm
 COMPONENT_FMRI=		x11/library/libxpm
-COMPONENT_VERSION=	3.5.11
+COMPONENT_VERSION=	3.5.12
 COMPONENT_LICENSE=	MIT License (libxpm)
 COMPONENT_PROJECT_URL=	"http://cgit.freedesktop.org/xorg/lib/libXpm"
 COMPONENT_SUMMARY=	XPM format pixmap library
 COMPONENT_SRC=		libXpm-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:53ddf924441b7ed2de994d4934358c13d9abf4828b1b16e1255ade5032b31df7
+COMPONENT_ARCHIVE_HASH=	sha256:2523acc780eac01db5163267b36f5b94374bfb0de26fc0b5a7bee76649fd8501
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_XORG_LIB)
 
 include ../../make-rules/prep.mk
