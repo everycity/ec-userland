@@ -32,6 +32,11 @@ $(BUILD_DIR)/%-2.7/.installed:		PYTHON_VERSION=2.7
 $(BUILD_DIR)/$(MACH32)-%/.installed:	BITS=32
 $(BUILD_DIR)/$(MACH64)-%/.installed:	BITS=64
 
+$(BUILD_DIR)/%-2.6/.tested:             PYTHON_VERSION=2.6
+$(BUILD_DIR)/%-2.7/.tested:             PYTHON_VERSION=2.7
+$(BUILD_DIR)/$(MACH32)-%/.tested:       BITS=32
+$(BUILD_DIR)/$(MACH64)-%/.tested:       BITS=64
+
 BUILD_32 = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH32)-%/.built)
 BUILD_64 = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH64)-%/.built)
 BUILD_NO_ARCH = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH)-%/.built)
@@ -40,6 +45,8 @@ INSTALL_32 = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH32)-%/.installed)
 INSTALL_64 = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH64)-%/.installed)
 INSTALL_NO_ARCH = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH)-%/.installed)
 
+TEST_32 = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH32)-%/.tested)
+TEST_64 = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH64)-%/.tested)
 TEST_NO_ARCH = $(PYTHON_VERSIONS:%=$(BUILD_DIR)/$(MACH)-%/.tested)
 
 PYTHON_ENV =	CC="$(CC)"
