@@ -22,10 +22,7 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(LOCALSTATEDIR)
-dir  path=$(LOCALSTATEDIR)/lib
 dir  path=$(LOCALSTATEDIR)/lib/dbus
-dir  path=$(LOCALSTATEDIR)/run
 dir  path=$(LOCALSTATEDIR)/run/dbus
 dir  path=$(SYSCONFDIR)/dbus-1
 file path=$(SYSCONFDIR)/dbus-1/session.conf
@@ -83,9 +80,7 @@ file path=$(USRDIR)/lib/libdbus-1.a
 link path=$(USRDIR)/lib/libdbus-1.so target=libdbus-1.so.3.7.2
 link path=$(USRDIR)/lib/libdbus-1.so.3 target=libdbus-1.so.3.7.2
 file path=$(USRDIR)/lib/libdbus-1.so.3.7.2
-dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/dbus-1.pc
-
 dir  path=$(USRDIR)/share/dbus-1
 dir  path=$(USRDIR)/share/dbus-1/services
 dir  path=$(USRDIR)/share/dbus-1/system-services
@@ -97,7 +92,6 @@ file path=$(USRDIR)/share/doc/dbus/dbus-tutorial.html
 file path=$(USRDIR)/share/doc/dbus/diagram.png
 file path=$(USRDIR)/share/doc/dbus/diagram.svg
 file path=$(USRDIR)/share/doc/dbus/system-activation.txt
-
 file path=$(USRDIR)/share/man/man1/dbus-cleanup-sockets.1
 file path=$(USRDIR)/share/man/man1/dbus-daemon.1
 file path=$(USRDIR)/share/man/man1/dbus-launch.1
