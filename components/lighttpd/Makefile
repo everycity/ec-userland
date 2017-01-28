@@ -9,23 +9,27 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		lighttpd
 COMPONENT_MJR_VERSION=	1.4
-COMPONENT_MNR_VERSION=	36
+COMPONENT_MNR_VERSION=	45
 COMPONENT_VERSION=	$(COMPONENT_MJR_VERSION).$(COMPONENT_MNR_VERSION)
+COMPONENT_LICENSE=	Lighttpd license
+COMPONENT_PROJECT_URL=	"https://www.lighttpd.net"
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:8afc12cd40412cd94679f08725c68e4f5a3d91dfff7abc12d217c4f489b1819b
+COMPONENT_ARCHIVE_HASH=	sha256:bfc0d87ff9396185e3556c2bf2e685fc5b28d9461c8ce65e4f88286d4eb0ebc6
 COMPONENT_ARCHIVE_URL=	http://download.lighttpd.net/lighttpd/releases-$(COMPONENT_MJR_VERSION).x/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+LIBS+= -lsendfile
 
 CONFIGURE_PREFIX=		$(USRDIR)/lib/lighttpd/$(COMPONENT_MJR_VERSION)
 CONFIGURE_SYSCONFDIR=		$(USRDIR)/etc/lighttpd/$(COMPONENT_MJR_VERSION)
@@ -35,12 +39,16 @@ PKG_MACROS+=			LIGHTTPD_MAJOR=$(COMPONENT_MJR_VERSION)
 CONFIGURE_OPTIONS+=	--with-pic
 CONFIGURE_OPTIONS+=	--enable-shared
 CONFIGURE_OPTIONS+=	--disable-static
-CONFIGURE_OPTIONS+=	--with-zlib
 CONFIGURE_OPTIONS+=	--with-bzip2
-CONFIGURE_OPTIONS+=	--with-openssl
-CONFIGURE_OPTIONS+=	--with-pcre
+CONFIGURE_OPTIONS+=	--with-gdbm
+CONFIGURE_OPTIONS+=	--with-geoip
+CONFIGURE_OPTIONS+=	--with-ldap
+CONFIGURE_OPTIONS+=	--with-memcached
 CONFIGURE_OPTIONS.32+=	--with-mysql=$(USRDIR)/bin/mysql_config
 CONFIGURE_OPTIONS.64+=	--with-mysql=$(USRDIR)/bin/$(MACH64)/mysql_config
+CONFIGURE_OPTIONS+=	--with-openssl
+CONFIGURE_OPTIONS+=	--with-pcre
+CONFIGURE_OPTIONS+=	--with-zlib
 
 build:		$(BUILD_32_and_64)
 
