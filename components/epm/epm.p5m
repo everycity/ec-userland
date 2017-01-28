@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -17,10 +17,10 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 file path=$(USRDIR)/bin/$(MACH64)/epm
 file path=$(USRDIR)/bin/$(MACH64)/epminstall
@@ -28,16 +28,10 @@ file path=$(USRDIR)/bin/$(MACH64)/mkepmlist
 file path=$(USRDIR)/bin/epm
 file path=$(USRDIR)/bin/epminstall
 file path=$(USRDIR)/bin/mkepmlist
+dir  path=$(USRDIR)/share/doc/epm
 file path=$(USRDIR)/share/doc/epm/COPYING
 file path=$(USRDIR)/share/doc/epm/README
-file path=$(USRDIR)/share/doc/epm/epm-manual.html
-file path=$(USRDIR)/share/doc/epm/epm-manual.pdf
-file path=$(USRDIR)/share/man/cat1/epm.1
-file path=$(USRDIR)/share/man/cat1/epminstall.1
-file path=$(USRDIR)/share/man/cat1/mkepmlist.1
-file path=$(USRDIR)/share/man/cat1/setup.1
-file path=$(USRDIR)/share/man/cat5/epm.list.5
-file path=$(USRDIR)/share/man/cat5/setup.types.5
+file path=$(USRDIR)/share/doc/epm/epm-book.html
 file path=$(USRDIR)/share/man/man1/epm.1
 file path=$(USRDIR)/share/man/man1/epminstall.1
 file path=$(USRDIR)/share/man/man1/mkepmlist.1

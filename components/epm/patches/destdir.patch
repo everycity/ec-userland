@@ -1,29 +1,20 @@
---- epm-3.7/Makefile.in.orig	2013-12-16 10:27:41.624807579 +0000
-+++ epm-3.7/Makefile.in	2013-12-16 10:30:21.233115059 +0000
-@@ -130,76 +130,76 @@
+--- epm-4.3/Makefile.in.orig	2017-01-28 17:52:24.171771171 +0000
++++ epm-4.3/Makefile.in	2017-01-28 17:56:18.265883200 +0000
+@@ -170,58 +170,58 @@
  #
  
- install: epm @INSTALL_GUIS@ @INSTALL_OSX@
+ install: all @INSTALL_GUIS@ @INSTALL_OSX@
 -	echo Installing EPM programs in $(bindir)
 -	-$(MKDIR) $(bindir)
 -	$(RM) $(bindir)/epm
 -	$(CP) epm $(bindir)
--	-$(STRIP) $(bindir)/epm
+-	$(STRIP) $(bindir)/epm
 -	$(RM) $(bindir)/epminstall
 -	$(CP) epminstall $(bindir)
--	-$(STRIP) $(bindir)/epminstall
+-	$(STRIP) $(bindir)/epminstall
 -	$(RM) $(bindir)/mkepmlist
 -	$(CP) mkepmlist $(bindir)
--	echo Installing EPM manpages in $(mandir)/cat1 and $(mandir)/man1
--	-$(MKDIR) $(mandir)/cat1
--	$(RM) $(mandir)/cat1/epm.$(CAT1EXT)
--	$(CP) $(srcdir)/doc/epm.1 $(mandir)/cat1/epm.$(CAT1EXT)
--	$(RM) $(mandir)/cat1/epminstall.$(CAT1EXT)
--	$(CP) $(srcdir)/doc/epminstall.1 $(mandir)/cat1/epminstall.$(CAT1EXT)
--	$(RM) $(mandir)/cat1/mkepmlist.$(CAT1EXT)
--	$(CP) $(srcdir)/doc/mkepmlist.1 $(mandir)/cat1/mkepmlist.$(CAT1EXT)
--	$(RM) $(mandir)/cat1/setup.$(CAT1EXT)
--	$(CP) $(srcdir)/doc/setup.1 $(mandir)/cat1/setup.$(CAT1EXT)
+-	echo Installing EPM manpages in $(mandir)/man1
 -	-$(MKDIR) $(mandir)/man1
 -	$(RM) $(mandir)/man1/epm.1
 -	$(CP) $(srcdir)/doc/epm.man $(mandir)/man1/epm.1
@@ -33,12 +24,7 @@
 -	$(CP) $(srcdir)/doc/mkepmlist.man $(mandir)/man1/mkepmlist.1
 -	$(RM) $(mandir)/man1/setup.1
 -	$(CP) $(srcdir)/doc/setup.man $(mandir)/man1/setup.1
--	echo Installing EPM manpages in $(mandir)/cat5 and $(mandir)/man5
--	-$(MKDIR) $(mandir)/cat5
--	$(RM) $(mandir)/cat5/epm.list.$(CAT5EXT)
--	$(CP) $(srcdir)/doc/epm.list.5 $(mandir)/cat5/epm.list.$(CAT5EXT)
--	$(RM) $(mandir)/cat5/setup.types.$(CAT5EXT)
--	$(CP) $(srcdir)/doc/setup.types.5 $(mandir)/cat5/setup.types.$(CAT5EXT)
+-	echo Installing EPM manpages in $(mandir)/man5
 -	-$(MKDIR) $(mandir)/man5
 -	$(RM) $(mandir)/man5/epm.list.5
 -	$(CP) $(srcdir)/doc/epm.list.man $(mandir)/man5/epm.list.5
@@ -50,30 +36,19 @@
 -	$(CP) $(srcdir)/COPYING $(docdir)
 -	$(RM) $(docdir)/README
 -	$(CP) $(srcdir)/README $(docdir)
--	$(RM) $(docdir)/epm-manual.html
--	$(CP) $(srcdir)/doc/epm-manual.html $(docdir)
--	$(RM) $(docdir)/epm-manual.pdf
--	$(CP) $(srcdir)/doc/epm-manual.pdf $(docdir)
+-	$(RM) $(docdir)/epm-book.html
+-	$(CP) $(srcdir)/doc/epm-book.html $(docdir)
 +	echo Installing EPM programs in $(DESTDIR)$(bindir)
 +	-$(MKDIR) $(DESTDIR)$(bindir)
 +	$(RM) $(DESTDIR)$(bindir)/epm
 +	$(CP) epm $(DESTDIR)$(bindir)
-+	-$(STRIP) $(DESTDIR)$(bindir)/epm
++	$(STRIP) $(DESTDIR)$(bindir)/epm
 +	$(RM) $(DESTDIR)$(bindir)/epminstall
 +	$(CP) epminstall $(DESTDIR)$(bindir)
-+	-$(STRIP) $(DESTDIR)$(bindir)/epminstall
++	$(STRIP) $(DESTDIR)$(bindir)/epminstall
 +	$(RM) $(DESTDIR)$(bindir)/mkepmlist
 +	$(CP) mkepmlist $(DESTDIR)$(bindir)
-+	echo Installing EPM manpages in $(DESTDIR)$(mandir)/cat1 and $(mandir)/man1
-+	-$(MKDIR) $(DESTDIR)$(mandir)/cat1
-+	$(RM) $(DESTDIR)$(mandir)/cat1/epm.$(CAT1EXT)
-+	$(CP) $(srcdir)/doc/epm.1 $(DESTDIR)$(mandir)/cat1/epm.$(CAT1EXT)
-+	$(RM) $(DESTDIR)$(mandir)/cat1/epminstall.$(CAT1EXT)
-+	$(CP) $(srcdir)/doc/epminstall.1 $(DESTDIR)$(mandir)/cat1/epminstall.$(CAT1EXT)
-+	$(RM) $(DESTDIR)$(mandir)/cat1/mkepmlist.$(CAT1EXT)
-+	$(CP) $(srcdir)/doc/mkepmlist.1 $(DESTDIR)$(mandir)/cat1/mkepmlist.$(CAT1EXT)
-+	$(RM) $(DESTDIR)$(mandir)/cat1/setup.$(CAT1EXT)
-+	$(CP) $(srcdir)/doc/setup.1 $(DESTDIR)$(mandir)/cat1/setup.$(CAT1EXT)
++	echo Installing EPM manpages in $(DESTDIR)$(mandir)/man1
 +	-$(MKDIR) $(DESTDIR)$(mandir)/man1
 +	$(RM) $(DESTDIR)$(mandir)/man1/epm.1
 +	$(CP) $(srcdir)/doc/epm.man $(DESTDIR)$(mandir)/man1/epm.1
@@ -83,12 +58,7 @@
 +	$(CP) $(srcdir)/doc/mkepmlist.man $(DESTDIR)$(mandir)/man1/mkepmlist.1
 +	$(RM) $(DESTDIR)$(mandir)/man1/setup.1
 +	$(CP) $(srcdir)/doc/setup.man $(DESTDIR)$(mandir)/man1/setup.1
-+	echo Installing EPM manpages in $(DESTDIR)$(mandir)/cat5 and $(mandir)/man5
-+	-$(MKDIR) $(DESTDIR)$(mandir)/cat5
-+	$(RM) $(DESTDIR)$(mandir)/cat5/epm.list.$(CAT5EXT)
-+	$(CP) $(srcdir)/doc/epm.list.5 $(DESTDIR)$(mandir)/cat5/epm.list.$(CAT5EXT)
-+	$(RM) $(DESTDIR)$(mandir)/cat5/setup.types.$(CAT5EXT)
-+	$(CP) $(srcdir)/doc/setup.types.5 $(DESTDIR)$(mandir)/cat5/setup.types.$(CAT5EXT)
++	echo Installing EPM manpages in $(DESTDIR)$(mandir)/man5
 +	-$(MKDIR) $(DESTDIR)$(mandir)/man5
 +	$(RM) $(DESTDIR)$(mandir)/man5/epm.list.5
 +	$(CP) $(srcdir)/doc/epm.list.man $(DESTDIR)$(mandir)/man5/epm.list.5
@@ -100,10 +70,8 @@
 +	$(CP) $(srcdir)/COPYING $(DESTDIR)$(docdir)
 +	$(RM) $(DESTDIR)$(docdir)/README
 +	$(CP) $(srcdir)/README $(DESTDIR)$(docdir)
-+	$(RM) $(DESTDIR)$(docdir)/epm-manual.html
-+	$(CP) $(srcdir)/doc/epm-manual.html $(DESTDIR)$(docdir)
-+	$(RM) $(DESTDIR)$(docdir)/epm-manual.pdf
-+	$(CP) $(srcdir)/doc/epm-manual.pdf $(DESTDIR)$(docdir)
++	$(RM) $(DESTDIR)$(docdir)/epm-book.html
++	$(CP) $(srcdir)/doc/epm-book.html $(DESTDIR)$(docdir)
  
  install-guis:	setup uninst
 -	echo Installing EPM setup/uninst in $(libdir)/epm
@@ -127,56 +95,15 @@
 -	-$(MKDIR) $(datadir)/epm
 -	$(CP) macosx/setup.icns $(datadir)/epm
 -	$(CP) macosx/setup.info $(datadir)/epm
--	$(CP) macosx/setup.plist $(datadir)/epm
 -	$(CP) macosx/uninst.icns $(datadir)/epm
 -	$(CP) macosx/uninst.info $(datadir)/epm
--	$(CP) macosx/uninst.plist $(datadir)/epm
 +	echo Installing EPM OSX data files in $(DESTDIR)$(datadir)/epm
 +	$(RM) -r $(DESTDIR)$(datadir)/epm
 +	-$(MKDIR) $(DESTDIR)$(datadir)/epm
 +	$(CP) macosx/setup.icns $(DESTDIR)$(datadir)/epm
 +	$(CP) macosx/setup.info $(DESTDIR)$(datadir)/epm
-+	$(CP) macosx/setup.plist $(DESTDIR)$(datadir)/epm
 +	$(CP) macosx/uninst.icns $(DESTDIR)$(datadir)/epm
 +	$(CP) macosx/uninst.info $(DESTDIR)$(datadir)/epm
-+	$(CP) macosx/uninst.plist $(DESTDIR)$(datadir)/epm
- 
- 
- #
-@@ -207,21 +207,21 @@
- #
- 
- uninstall:
--	echo Uninstalling EPM programs from $(bindir)
--	$(RM) $(bindir)/epm
--	$(RM) $(bindir)/epminstall
--	$(RM) $(bindir)/mkepmlist
--	echo Installing EPM manpages in $(mandir)/cat1 and $(mandir)/man1
--	$(RM) $(mandir)/cat5/epm.list.$(CAT5EXT)
--	$(RM) $(mandir)/cat5/setup.types.$(CAT5EXT)
--	$(RM) $(mandir)/man5/epm.list.5
--	$(RM) $(mandir)/man5/setup.types.5
--	echo Uninstalling EPM documentation from $(docdir)
--	$(RM) -r $(docdir)
--	echo Uninstalling EPM setup/uninstall from $(libdir)/epm
--	$(RM) -r $(libdir)/epm
--	echo Uninstalling EPM OSX data files from $(datadir)/epm
--	$(RM) -r $(datadir)/epm
-+	echo Uninstalling EPM programs from $(DESTDIR)$(bindir)
-+	$(RM) $(DESTDIR)$(bindir)/epm
-+	$(RM) $(DESTDIR)$(bindir)/epminstall
-+	$(RM) $(DESTDIR)$(bindir)/mkepmlist
-+	echo Installing EPM manpages in $(DESTDIR)$(mandir)/cat1 and $(mandir)/man1
-+	$(RM) $(DESTDIR)$(mandir)/cat5/epm.list.$(CAT5EXT)
-+	$(RM) $(DESTDIR)$(mandir)/cat5/setup.types.$(CAT5EXT)
-+	$(RM) $(DESTDIR)$(mandir)/man5/epm.list.5
-+	$(RM) $(DESTDIR)$(mandir)/man5/setup.types.5
-+	echo Uninstalling EPM documentation from $(DESTDIR)$(docdir)
-+	$(RM) -r $(DESTDIR)$(docdir)
-+	echo Uninstalling EPM setup/uninstall from $(DESTDIR)$(libdir)/epm
-+	$(RM) -r $(DESTDIR)$(libdir)/epm
-+	echo Uninstalling EPM OSX data files from $(DESTDIR)$(datadir)/epm
-+	$(RM) -r $(DESTDIR)$(datadir)/epm
  
  
  #
