@@ -1,0 +1,438 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2017 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)/server@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY) - Server"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+
+depend fmri=pkg:/database/mysql-57/library type=require
+
+dir path=$(LOCALSTATEDIR)/mysql/5.7 mode=0770 owner=mysql group=mysql preserve=true
+dir path=$(LOCALSTATEDIR)/mysql/5.7/data mode=0770 owner=mysql group=mysql preserve=true
+
+file files/mysql57-manifest.xml.$(ZTYPE) path=$(SVCMANIFEST)/site/mysql57.xml \
+    restart_fmri=svc:/system/manifest-import:default
+file files/mysql57-startup.sh.$(ZTYPE)  path=$(SVCMETHOD)/mysql57 mode=0555
+
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/innochecksum
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/lz4_decompress
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/my_print_defaults
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/myisam_ftdump
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/myisamchk
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/myisamlog
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/myisampack
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysql_embedded
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysql_install_db
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysql_plugin
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysql_secure_installation
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysql_server_config
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysql_ssl_rsa_setup
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysql_tzinfo_to_sql
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysql_upgrade
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysqld
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysqld_multi
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysqld_safe
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/perror
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/replace
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/resolve_stack_dump
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/resolveip
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/zlib_decompress
+file path=$(USRDIR)/lib/mysql/5.7/bin/innochecksum
+file path=$(USRDIR)/lib/mysql/5.7/bin/lz4_decompress
+file path=$(USRDIR)/lib/mysql/5.7/bin/my_print_defaults
+file path=$(USRDIR)/lib/mysql/5.7/bin/myisam_ftdump
+file path=$(USRDIR)/lib/mysql/5.7/bin/myisamchk
+file path=$(USRDIR)/lib/mysql/5.7/bin/myisamlog
+file path=$(USRDIR)/lib/mysql/5.7/bin/myisampack
+file path=$(USRDIR)/lib/mysql/5.7/bin/mysql_embedded
+file path=$(USRDIR)/lib/mysql/5.7/bin/mysql_install_db
+file path=$(USRDIR)/lib/mysql/5.7/bin/mysql_plugin
+file path=$(USRDIR)/lib/mysql/5.7/bin/mysql_secure_installation
+file path=$(USRDIR)/lib/mysql/5.7/bin/mysql_server_config
+file path=$(USRDIR)/lib/mysql/5.7/bin/mysql_ssl_rsa_setup
+file path=$(USRDIR)/lib/mysql/5.7/bin/mysql_tzinfo_to_sql
+file path=$(USRDIR)/lib/mysql/5.7/bin/mysql_upgrade
+file path=$(USRDIR)/lib/mysql/5.7/bin/mysqld
+file path=$(USRDIR)/lib/mysql/5.7/bin/mysqld_multi
+file path=$(USRDIR)/lib/mysql/5.7/bin/mysqld_safe
+file path=$(USRDIR)/lib/mysql/5.7/bin/perror
+file path=$(USRDIR)/lib/mysql/5.7/bin/replace
+file path=$(USRDIR)/lib/mysql/5.7/bin/resolve_stack_dump
+file path=$(USRDIR)/lib/mysql/5.7/bin/resolveip
+file path=$(USRDIR)/lib/mysql/5.7/bin/zlib_decompress
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/comp_err.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/innochecksum.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/lz4_decompress.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/my_print_defaults.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/myisam_ftdump.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/myisamchk.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/myisamlog.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/myisampack.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/mysql.server.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/mysql_install_db.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/mysql_plugin.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/mysql_secure_installation.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/mysql_ssl_rsa_setup.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/mysql_tzinfo_to_sql.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/mysql_upgrade.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/mysqld_multi.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/mysqld_safe.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/perror.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/replace.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/resolve_stack_dump.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/resolveip.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man1/zlib_decompress.1
+file path=$(USRDIR)/lib/mysql/5.7/man/man8/mysqld.8
+dir  path=$(USRDIR)/lib/mysql/5.7/plugins
+dir  path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/adt_null.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/auth.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/auth_test_plugin.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/connection_control.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/daemon_example.ini
+dir  path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/debug
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/group_replication.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/keyring_file.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/keyring_udf.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libdaemon_example.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_framework.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_services.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_services_threaded.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_session_detach.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_session_in_thd.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_session_info.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_sql_2_sessions.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_sql_all_col_types.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_sql_cmds_1.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_sql_commit.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_sql_complex.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_sql_errors.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_sql_lock.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_sql_processlist.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_sql_replication.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_sql_shutdown.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_sql_sqlmode.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_sql_stored_procedures_functions.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_sql_views_triggers.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_x_sessions_deinit.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_x_sessions_init.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/locking_service.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/mypluglib.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/mysql_no_login.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/mysqlx.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/qa_auth_client.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/qa_auth_interface.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/qa_auth_server.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/replication_observers_example_plugin.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/rewrite_example.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/rewriter.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/semisync_master.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/semisync_slave.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/test_security_context.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/test_udf_services.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/validate_password.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/version_token.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/adt_null.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/auth.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/auth_test_plugin.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/connection_control.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/daemon_example.ini
+dir  path=$(USRDIR)/lib/mysql/5.7/plugins/debug
+file path=$(USRDIR)/lib/mysql/5.7/plugins/group_replication.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/keyring_file.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/keyring_udf.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libdaemon_example.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_framework.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_services.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_services_threaded.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_session_detach.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_session_in_thd.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_session_info.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_sql_2_sessions.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_sql_all_col_types.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_sql_cmds_1.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_sql_commit.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_sql_complex.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_sql_errors.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_sql_lock.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_sql_processlist.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_sql_replication.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_sql_shutdown.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_sql_sqlmode.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_sql_stored_procedures_functions.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_sql_views_triggers.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_x_sessions_deinit.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_x_sessions_init.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/locking_service.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/mypluglib.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/mysql_no_login.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/mysqlx.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/qa_auth_client.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/qa_auth_interface.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/qa_auth_server.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/replication_observers_example_plugin.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/rewrite_example.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/rewriter.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/semisync_master.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/semisync_slave.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/test_security_context.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/test_udf_services.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/validate_password.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/version_token.so
+dir  path=$(USRDIR)/lib/mysql/5.7/share
+dir  path=$(USRDIR)/lib/mysql/5.7/share/aclocal
+file path=$(USRDIR)/lib/mysql/5.7/share/aclocal/mysql.m4
+dir  path=$(USRDIR)/lib/mysql/5.7/share/bulgarian
+file path=$(USRDIR)/lib/mysql/5.7/share/bulgarian/errmsg.sys
+dir  path=$(USRDIR)/lib/mysql/5.7/share/charsets
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/Index.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/README
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/armscii8.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/ascii.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/cp1250.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/cp1251.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/cp1256.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/cp1257.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/cp850.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/cp852.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/cp866.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/dec8.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/geostd8.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/greek.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/hebrew.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/hp8.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/keybcs2.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/koi8r.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/koi8u.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/latin1.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/latin2.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/latin5.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/latin7.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/macce.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/macroman.xml
+file path=$(USRDIR)/lib/mysql/5.7/share/charsets/swe7.xml
+dir  path=$(USRDIR)/lib/mysql/5.7/share/czech
+file path=$(USRDIR)/lib/mysql/5.7/share/czech/errmsg.sys
+dir  path=$(USRDIR)/lib/mysql/5.7/share/danish
+file path=$(USRDIR)/lib/mysql/5.7/share/danish/errmsg.sys
+file path=$(USRDIR)/lib/mysql/5.7/share/dictionary.txt
+dir  path=$(USRDIR)/lib/mysql/5.7/share/dutch
+file path=$(USRDIR)/lib/mysql/5.7/share/dutch/errmsg.sys
+dir  path=$(USRDIR)/lib/mysql/5.7/share/english
+file path=$(USRDIR)/lib/mysql/5.7/share/english/errmsg.sys
+file path=$(USRDIR)/lib/mysql/5.7/share/errmsg-utf8.txt
+dir  path=$(USRDIR)/lib/mysql/5.7/share/estonian
+file path=$(USRDIR)/lib/mysql/5.7/share/estonian/errmsg.sys
+file path=$(USRDIR)/lib/mysql/5.7/share/fill_help_tables.sql
+dir  path=$(USRDIR)/lib/mysql/5.7/share/french
+file path=$(USRDIR)/lib/mysql/5.7/share/french/errmsg.sys
+dir  path=$(USRDIR)/lib/mysql/5.7/share/german
+file path=$(USRDIR)/lib/mysql/5.7/share/german/errmsg.sys
+dir  path=$(USRDIR)/lib/mysql/5.7/share/greek
+file path=$(USRDIR)/lib/mysql/5.7/share/greek/errmsg.sys
+dir  path=$(USRDIR)/lib/mysql/5.7/share/hungarian
+file path=$(USRDIR)/lib/mysql/5.7/share/hungarian/errmsg.sys
+file path=$(USRDIR)/lib/mysql/5.7/share/innodb_memcached_config.sql
+file path=$(USRDIR)/lib/mysql/5.7/share/install_rewriter.sql
+dir  path=$(USRDIR)/lib/mysql/5.7/share/italian
+file path=$(USRDIR)/lib/mysql/5.7/share/italian/errmsg.sys
+dir  path=$(USRDIR)/lib/mysql/5.7/share/japanese
+file path=$(USRDIR)/lib/mysql/5.7/share/japanese/errmsg.sys
+dir  path=$(USRDIR)/lib/mysql/5.7/share/korean
+file path=$(USRDIR)/lib/mysql/5.7/share/korean/errmsg.sys
+file path=$(USRDIR)/lib/mysql/5.7/share/magic
+file path=$(USRDIR)/lib/mysql/5.7/share/my-default.cnf
+file path=$(USRDIR)/lib/mysql/5.7/share/mysql-log-rotate
+file path=$(USRDIR)/lib/mysql/5.7/share/mysql.server
+file path=$(USRDIR)/lib/mysql/5.7/share/mysql_security_commands.sql
+file path=$(USRDIR)/lib/mysql/5.7/share/mysql_sys_schema.sql
+file path=$(USRDIR)/lib/mysql/5.7/share/mysql_system_tables.sql
+file path=$(USRDIR)/lib/mysql/5.7/share/mysql_system_tables_data.sql
+file path=$(USRDIR)/lib/mysql/5.7/share/mysql_test_data_timezone.sql
+file path=$(USRDIR)/lib/mysql/5.7/share/mysqld_multi.server
+dir  path=$(USRDIR)/lib/mysql/5.7/share/norwegian
+dir  path=$(USRDIR)/lib/mysql/5.7/share/norwegian-ny
+file path=$(USRDIR)/lib/mysql/5.7/share/norwegian-ny/errmsg.sys
+file path=$(USRDIR)/lib/mysql/5.7/share/norwegian/errmsg.sys
+dir  path=$(USRDIR)/lib/mysql/5.7/share/polish
+file path=$(USRDIR)/lib/mysql/5.7/share/polish/errmsg.sys
+dir  path=$(USRDIR)/lib/mysql/5.7/share/portuguese
+file path=$(USRDIR)/lib/mysql/5.7/share/portuguese/errmsg.sys
+dir  path=$(USRDIR)/lib/mysql/5.7/share/romanian
+file path=$(USRDIR)/lib/mysql/5.7/share/romanian/errmsg.sys
+dir  path=$(USRDIR)/lib/mysql/5.7/share/russian
+file path=$(USRDIR)/lib/mysql/5.7/share/russian/errmsg.sys
+dir  path=$(USRDIR)/lib/mysql/5.7/share/serbian
+file path=$(USRDIR)/lib/mysql/5.7/share/serbian/errmsg.sys
+dir  path=$(USRDIR)/lib/mysql/5.7/share/slovak
+file path=$(USRDIR)/lib/mysql/5.7/share/slovak/errmsg.sys
+dir  path=$(USRDIR)/lib/mysql/5.7/share/solaris
+file path=$(USRDIR)/lib/mysql/5.7/share/solaris/postinstall-solaris
+dir  path=$(USRDIR)/lib/mysql/5.7/share/spanish
+file path=$(USRDIR)/lib/mysql/5.7/share/spanish/errmsg.sys
+dir  path=$(USRDIR)/lib/mysql/5.7/share/swedish
+file path=$(USRDIR)/lib/mysql/5.7/share/swedish/errmsg.sys
+dir  path=$(USRDIR)/lib/mysql/5.7/share/ukrainian
+file path=$(USRDIR)/lib/mysql/5.7/share/ukrainian/errmsg.sys
+file path=$(USRDIR)/lib/mysql/5.7/share/uninstall_rewriter.sql
+dir  path=$(USRDIR)/share/doc/mysql/5.7
+file path=$(USRDIR)/share/doc/mysql/5.7/ChangeLog
+file path=$(USRDIR)/share/doc/mysql/5.7/INFO_BIN
+file path=$(USRDIR)/share/doc/mysql/5.7/INFO_SRC
+
+link path=$(USRDIR)/bin/innochecksum target=../lib/mysql/5.7/bin/innochecksum \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/lz4_decompress target=../lib/mysql/5.7/bin/lz4_decompress \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/my_print_defaults target=../lib/mysql/5.7/bin/my_print_defaults \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/myisam_ftdump target=../lib/mysql/5.7/bin/myisam_ftdump \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/myisamchk target=../lib/mysql/5.7/bin/myisamchk \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/myisamlog target=../lib/mysql/5.7/bin/myisamlog \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/myisampack target=../lib/mysql/5.7/bin/myisampack \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/mysql_embedded target=../lib/mysql/5.7/bin/mysql_embedded \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/mysql_install_db target=../lib/mysql/5.7/bin/mysql_install_db \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/mysql_plugin target=../lib/mysql/5.7/bin/mysql_plugin \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/mysql_secure_installation target=../lib/mysql/5.7/bin/mysql_secure_installation \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/mysql_server_config target=../lib/mysql/5.7/bin/mysql_server_config \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/mysql_ssl_rsa_setup target=../lib/mysql/5.7/bin/mysql_ssl_rsa_setup \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/mysql_tzinfo_to_sql target=../lib/mysql/5.7/bin/mysql_tzinfo_to_sql \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/mysql_upgrade target=../lib/mysql/5.7/bin/mysql_upgrade \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/mysqld target=../lib/mysql/5.7/bin/mysqld \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/mysqld_multi target=../lib/mysql/5.7/bin/mysqld_multi \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/mysqld_safe target=../lib/mysql/5.7/bin/mysqld_safe \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/perror target=../lib/mysql/5.7/bin/perror \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/replace target=../lib/mysql/5.7/bin/replace \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/resolve_stack_dump target=../lib/mysql/5.7/bin/resolve_stack_dump \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/resolveip target=../lib/mysql/5.7/bin/resolveip \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/zlib_decompress target=../lib/mysql/5.7/bin/zlib_decompress \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+
+link path=$(USRDIR)/bin/$(MACH64)/innochecksum target=../lib/mysql/5.7/bin/$(MACH64)/innochecksum \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/lz4_decompress target=../lib/mysql/5.7/bin/$(MACH64)/lz4_decompress \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/my_print_defaults target=../lib/mysql/5.7/bin/$(MACH64)/my_print_defaults \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/myisam_ftdump target=../lib/mysql/5.7/bin/$(MACH64)/myisam_ftdump \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/myisamchk target=../lib/mysql/5.7/bin/$(MACH64)/myisamchk \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/myisamlog target=../lib/mysql/5.7/bin/$(MACH64)/myisamlog \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/myisampack target=../lib/mysql/5.7/bin/$(MACH64)/myisampack \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/mysql_embedded target=../lib/mysql/5.7/bin/$(MACH64)/mysql_embedded \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/mysql_install_db target=../lib/mysql/5.7/bin/$(MACH64)/mysql_install_db \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/mysql_plugin target=../lib/mysql/5.7/bin/$(MACH64)/mysql_plugin \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/mysql_secure_installation target=../lib/mysql/5.7/bin/$(MACH64)/mysql_secure_installation \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/mysql_server_config target=../lib/mysql/5.7/bin/$(MACH64)/mysql_server_config \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/mysql_ssl_rsa_setup target=../lib/mysql/5.7/bin/$(MACH64)/mysql_ssl_rsa_setup \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/mysql_tzinfo_to_sql target=../lib/mysql/5.7/bin/$(MACH64)/mysql_tzinfo_to_sql \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/mysql_upgrade target=../lib/mysql/5.7/bin/$(MACH64)/mysql_upgrade \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/mysqld target=../lib/mysql/5.7/bin/$(MACH64)/mysqld \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/mysqld_multi target=../lib/mysql/5.7/bin/$(MACH64)/mysqld_multi \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/mysqld_safe target=../lib/mysql/5.7/bin/$(MACH64)/mysqld_safe \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/perror target=../lib/mysql/5.7/bin/$(MACH64)/perror \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/replace target=../lib/mysql/5.7/bin/$(MACH64)/replace \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/resolve_stack_dump target=../lib/mysql/5.7/bin/$(MACH64)/resolve_stack_dump \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/resolveip target=../lib/mysql/5.7/bin/$(MACH64)/resolveip \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/bin/$(MACH64)/zlib_decompress target=../lib/mysql/5.7/bin/$(MACH64)/zlib_decompress \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+
+link path=$(USRDIR)/share/man/man1/comp_err.1 target=../../../lib/mysql/5.7/man/man1/comp_err.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/innochecksum.1 target=../../../lib/mysql/5.7/man/man1/innochecksum.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/lz4_decompress.1 target=../../../lib/mysql/5.7/man/man1/lz4_decompress.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/my_print_defaults.1 target=../../../lib/mysql/5.7/man/man1/my_print_defaults.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/myisam_ftdump.1 target=../../../lib/mysql/5.7/man/man1/myisam_ftdump.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/myisamchk.1 target=../../../lib/mysql/5.7/man/man1/myisamchk.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/myisamlog.1 target=../../../lib/mysql/5.7/man/man1/myisamlog.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/myisampack.1 target=../../../lib/mysql/5.7/man/man1/myisampack.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/mysql_install_db.1 target=../../../lib/mysql/5.7/man/man1/mysql_install_db.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/mysql_plugin.1 target=../../../lib/mysql/5.7/man/man1/mysql_plugin.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/mysql_secure_installation.1 target=../../../lib/mysql/5.7/man/man1/mysql_secure_installation.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/mysql_ssl_rsa_setup.1 target=../../../lib/mysql/5.7/man/man1/mysql_ssl_rsa_setup.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/mysql_tzinfo_to_sql.1 target=../../../lib/mysql/5.7/man/man1/mysql_tzinfo_to_sql.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/mysql_upgrade.1 target=../../../lib/mysql/5.7/man/man1/mysql_upgrade.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/mysqld_multi.1 target=../../../lib/mysql/5.7/man/man1/mysqld_multi.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/mysqld_safe.1 target=../../../lib/mysql/5.7/man/man1/mysqld_safe.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/perror.1 target=../../../lib/mysql/5.7/man/man1/perror.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/replace.1 target=../../../lib/mysql/5.7/man/man1/replace.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/resolve_stack_dump.1 target=../../../lib/mysql/5.7/man/man1/resolve_stack_dump.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/resolveip.1 target=../../../lib/mysql/5.7/man/man1/resolveip.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+link path=$(USRDIR)/share/man/man1/zlib_decompress.1 target=../../../lib/mysql/5.7/man/man1/zlib_decompress.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+
+link path=$(USRDIR)/share/man/man8/mysqld.8 target=../../../lib/mysql/5.7/man/man8/mysqld.8 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7

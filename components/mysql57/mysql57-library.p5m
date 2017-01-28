@@ -1,0 +1,287 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2017 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)/library@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY) - Libraries"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+
+dir  path=$(USRDIR)/lib/mysql/5.7
+dir  path=$(USRDIR)/lib/mysql/5.7/bin
+dir  path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)
+file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysql_config
+file path=$(USRDIR)/lib/mysql/5.7/bin/mysql_config
+dir  path=$(USRDIR)/lib/mysql/5.7/include
+dir  path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/big_endian.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/binary_log_types.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/byte_order_generic.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/byte_order_generic_x86.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/decimal.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/errmsg.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/keycache.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/little_endian.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/m_ctype.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/m_string.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/my_alloc.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/my_byteorder.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/my_command.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/my_compiler.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/my_config.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/my_dbug.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/my_dir.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/my_getopt.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/my_global.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/my_list.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/my_sys.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/my_thread.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/my_thread_local.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/my_xml.h
+dir  path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/client_authentication.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/client_plugin.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/client_plugin.h.pp
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/com_data.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/get_password.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/group_replication_priv.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/innodb_priv.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/mysql_lex_string.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/plugin.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/plugin_audit.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/plugin_audit.h.pp
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/plugin_auth.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/plugin_auth.h.pp
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/plugin_auth_common.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/plugin_ftparser.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/plugin_ftparser.h.pp
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/plugin_group_replication.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/plugin_keyring.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/plugin_keyring.h.pp
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/plugin_trace.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/plugin_validate_password.h
+dir  path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/psi
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/psi/mysql_file.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/psi/mysql_idle.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/psi/mysql_mdl.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/psi/mysql_memory.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/psi/mysql_ps.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/psi/mysql_socket.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/psi/mysql_sp.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/psi/mysql_stage.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/psi/mysql_statement.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/psi/mysql_table.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/psi/mysql_thread.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/psi/mysql_transaction.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/psi/psi.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/psi/psi_base.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/psi/psi_memory.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_command.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_locking.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_my_plugin_log.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_my_snprintf.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_mysql_alloc.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_mysql_keyring.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_mysql_password_policy.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_mysql_string.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_parser.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_rpl_transaction_ctx.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_rpl_transaction_write_set.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_rules_table.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_security_context.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_srv_session.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_srv_session_info.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_ssl_wrapper.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_thd_alloc.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_thd_engine_lock.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_thd_wait.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/service_thread_scheduler.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/services.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/services.h.pp
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/thread_pool_priv.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql/thread_type.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql_com.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql_com_server.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql_embed.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql_time.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysql_version.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysqld_ername.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysqld_error.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysqlx_ername.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysqlx_error.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/mysqlx_version.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/plugin.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/plugin_audit.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/plugin_ftparser.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/plugin_group_replication.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/plugin_keyring.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/plugin_validate_password.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/sql_common.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/sql_state.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/sslopt-case.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/sslopt-longopts.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/sslopt-vars.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/thr_cond.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/thr_mutex.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/thr_rwlock.h
+file path=$(USRDIR)/lib/mysql/5.7/include/$(MACH64)/typelib.h
+file path=$(USRDIR)/lib/mysql/5.7/include/big_endian.h
+file path=$(USRDIR)/lib/mysql/5.7/include/binary_log_types.h
+file path=$(USRDIR)/lib/mysql/5.7/include/byte_order_generic.h
+file path=$(USRDIR)/lib/mysql/5.7/include/byte_order_generic_x86.h
+file path=$(USRDIR)/lib/mysql/5.7/include/decimal.h
+file path=$(USRDIR)/lib/mysql/5.7/include/errmsg.h
+file path=$(USRDIR)/lib/mysql/5.7/include/keycache.h
+file path=$(USRDIR)/lib/mysql/5.7/include/little_endian.h
+file path=$(USRDIR)/lib/mysql/5.7/include/m_ctype.h
+file path=$(USRDIR)/lib/mysql/5.7/include/m_string.h
+file path=$(USRDIR)/lib/mysql/5.7/include/my_alloc.h
+file path=$(USRDIR)/lib/mysql/5.7/include/my_byteorder.h
+file path=$(USRDIR)/lib/mysql/5.7/include/my_command.h
+file path=$(USRDIR)/lib/mysql/5.7/include/my_compiler.h
+file path=$(USRDIR)/lib/mysql/5.7/include/my_config.h
+file path=$(USRDIR)/lib/mysql/5.7/include/my_dbug.h
+file path=$(USRDIR)/lib/mysql/5.7/include/my_dir.h
+file path=$(USRDIR)/lib/mysql/5.7/include/my_getopt.h
+file path=$(USRDIR)/lib/mysql/5.7/include/my_global.h
+file path=$(USRDIR)/lib/mysql/5.7/include/my_list.h
+file path=$(USRDIR)/lib/mysql/5.7/include/my_sys.h
+file path=$(USRDIR)/lib/mysql/5.7/include/my_thread.h
+file path=$(USRDIR)/lib/mysql/5.7/include/my_thread_local.h
+file path=$(USRDIR)/lib/mysql/5.7/include/my_xml.h
+dir  path=$(USRDIR)/lib/mysql/5.7/include/mysql
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/client_authentication.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/client_plugin.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/client_plugin.h.pp
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/com_data.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/get_password.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/group_replication_priv.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/innodb_priv.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/mysql_lex_string.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/plugin.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/plugin_audit.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/plugin_audit.h.pp
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/plugin_auth.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/plugin_auth.h.pp
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/plugin_auth_common.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/plugin_ftparser.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/plugin_ftparser.h.pp
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/plugin_group_replication.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/plugin_keyring.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/plugin_keyring.h.pp
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/plugin_trace.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/plugin_validate_password.h
+dir  path=$(USRDIR)/lib/mysql/5.7/include/mysql/psi
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/psi/mysql_file.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/psi/mysql_idle.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/psi/mysql_mdl.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/psi/mysql_memory.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/psi/mysql_ps.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/psi/mysql_socket.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/psi/mysql_sp.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/psi/mysql_stage.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/psi/mysql_statement.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/psi/mysql_table.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/psi/mysql_thread.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/psi/mysql_transaction.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/psi/psi.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/psi/psi_base.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/psi/psi_memory.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_command.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_locking.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_my_plugin_log.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_my_snprintf.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_mysql_alloc.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_mysql_keyring.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_mysql_password_policy.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_mysql_string.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_parser.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_rpl_transaction_ctx.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_rpl_transaction_write_set.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_rules_table.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_security_context.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_srv_session.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_srv_session_info.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_ssl_wrapper.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_thd_alloc.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_thd_engine_lock.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_thd_wait.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/service_thread_scheduler.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/services.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/services.h.pp
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/thread_pool_priv.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql/thread_type.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql_com.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql_com_server.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql_embed.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql_time.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysql_version.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysqld_ername.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysqld_error.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysqlx_ername.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysqlx_error.h
+file path=$(USRDIR)/lib/mysql/5.7/include/mysqlx_version.h
+file path=$(USRDIR)/lib/mysql/5.7/include/plugin.h
+file path=$(USRDIR)/lib/mysql/5.7/include/plugin_audit.h
+file path=$(USRDIR)/lib/mysql/5.7/include/plugin_ftparser.h
+file path=$(USRDIR)/lib/mysql/5.7/include/plugin_group_replication.h
+file path=$(USRDIR)/lib/mysql/5.7/include/plugin_keyring.h
+file path=$(USRDIR)/lib/mysql/5.7/include/plugin_validate_password.h
+file path=$(USRDIR)/lib/mysql/5.7/include/sql_common.h
+file path=$(USRDIR)/lib/mysql/5.7/include/sql_state.h
+file path=$(USRDIR)/lib/mysql/5.7/include/sslopt-case.h
+file path=$(USRDIR)/lib/mysql/5.7/include/sslopt-longopts.h
+file path=$(USRDIR)/lib/mysql/5.7/include/sslopt-vars.h
+file path=$(USRDIR)/lib/mysql/5.7/include/thr_cond.h
+file path=$(USRDIR)/lib/mysql/5.7/include/thr_mutex.h
+file path=$(USRDIR)/lib/mysql/5.7/include/thr_rwlock.h
+file path=$(USRDIR)/lib/mysql/5.7/include/typelib.h
+dir  path=$(USRDIR)/lib/mysql/5.7/lib
+dir  path=$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)
+file path=$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)/libmysqlclient.a
+link path=$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)/libmysqlclient.so \
+    target=libmysqlclient.so.20
+link path=$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)/libmysqlclient.so.20 \
+    target=libmysqlclient.so.20.3.4
+file path=$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)/libmysqlclient.so.20.3.4
+file path=$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)/libmysqld.a
+file path=$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)/libmysqlservices.a
+dir  path=$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)/pkgconfig
+file path=$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)/pkgconfig/mysqlclient.pc
+file path=$(USRDIR)/lib/mysql/5.7/lib/libmysqlclient.a
+link path=$(USRDIR)/lib/mysql/5.7/lib/libmysqlclient.so \
+    target=libmysqlclient.so.20
+link path=$(USRDIR)/lib/mysql/5.7/lib/libmysqlclient.so.20 \
+    target=libmysqlclient.so.20.3.4
+file path=$(USRDIR)/lib/mysql/5.7/lib/libmysqlclient.so.20.3.4
+file path=$(USRDIR)/lib/mysql/5.7/lib/libmysqld.a
+file path=$(USRDIR)/lib/mysql/5.7/lib/libmysqlservices.a
+dir  path=$(USRDIR)/lib/mysql/5.7/lib/pkgconfig
+file path=$(USRDIR)/lib/mysql/5.7/lib/pkgconfig/mysqlclient.pc
+
+link path=$(USRDIR)/bin/mysql_config target=../lib/mysql/5.7/bin/mysql_config \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+
+link path=$(USRDIR)/bin/$(MACH64)/mysql_config target=../lib/mysql/5.7/bin/$(MACH64)/mysql_config \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7
+
+link path=$(USRDIR)/share/man/man1/mysql_config.1 \
+    target=../../../lib/mysql/5.7/man/man1/mysql_config.1 \
+    preserve=true pkg.linted=true mediator=mysql mediator-version=5.7

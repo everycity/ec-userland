@@ -1,0 +1,21 @@
+--- mysql-5.7.17/rapid/plugin/group_replication/rpcgen.cmake.orig	2016-11-28 13:32:52.000000000 +0000
++++ mysql-5.7.17/rapid/plugin/group_replication/rpcgen.cmake	2017-01-07 16:23:26.959083708 +0000
+@@ -64,7 +64,7 @@
+   SET (x_vanilla_h      ${XCOM_BASEDIR}/${X}.h.gen)
+   SET (x_vanilla_c      ${XCOM_BASEDIR}/${X}_xdr.c.gen)
+ 
+-  IF(WIN32)
++#  IF(WIN32)
+     # on windows system's there is no rpcgen, thence copy
+     # the files in the source directory
+     ADD_CUSTOM_COMMAND(OUTPUT ${x_gen_h} ${x_gen_c} ${x_tmp_plat_h}
+@@ -86,7 +86,8 @@
+         ${x_vanilla_plat_h}
+         ${XCOM_BASEDIR}/xcom_proto_enum.h
+         ${XCOM_BASEDIR}/xcom_limits.h)
+-  ELSE()
++#  ELSE()
++  IF(0)
+     # on unix systems try to generate them if needed
+     ADD_CUSTOM_COMMAND(OUTPUT ${x_gen_h} ${x_gen_c} ${x_tmp_plat_h}
+       COMMAND ${CMAKE_COMMAND} -E copy_if_different

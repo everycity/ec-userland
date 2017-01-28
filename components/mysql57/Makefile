@@ -1,0 +1,96 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2017 EveryCity Ltd. All rights reserved.
+#
+
+include ../../make-rules/shared-macros.mk
+
+CMAKE= cmake
+
+COMPONENT_NAME=		mysql
+COMPONENT_FMRI=		database/mysql-57
+COMPONENT_VERSION=	5.7.17
+COMPONENT_LICENSE=	GPLv2
+COMPONENT_PROJECT_URL=	"https://dev.mysql.com/"
+COMPONENT_SUMMARY=	MySQL Server 5.7
+COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
+COMPONENT_ARCHIVE_HASH=	sha256:cebf23e858aee11e354c57d30de7a079754bdc2ef85eb684782458332a4b9651
+COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.mysql.com/Downloads/MySQL-5.7/$(COMPONENT_ARCHIVE)
+
+include ../../make-rules/prep.mk
+include ../../make-rules/justmake.mk
+include ../../make-rules/ips.mk
+
+LDFLAGS +=	-ltinfo
+
+CMAKE_BINDIR.32 =	lib/mysql/5.7/bin
+CMAKE_BINDIR.64 =	lib/mysql/5.7/bin/$(MACH64)
+CMAKE_LIBDIR.32 =	lib/mysql/5.7/lib
+CMAKE_LIBDIR.64 =	lib/mysql/5.7/lib/$(MACH64)
+CMAKE_PLUGINDIR.32 =	lib/mysql/5.7/plugins
+CMAKE_PLUGINDIR.64 =	lib/mysql/5.7/plugins/$(MACH64)
+CMAKE_INCLUDEDIR.32 =	lib/mysql/5.7/include
+CMAKE_INCLUDEDIR.64 =	lib/mysql/5.7/include/$(MACH64)
+CMAKE_SHAREDIR =	lib/mysql/5.7/share
+
+CMAKE_OPTIONS+= -DCMAKE_C_COMPILER="$(CC)"
+CMAKE_OPTIONS+= -DCMAKE_CXX_COMPILER="$(CXX)"
+CMAKE_OPTIONS+= -DCMAKE_C_FLAGS="$(CFLAGS)"
+CMAKE_OPTIONS+= -DCMAKE_CXX_FLAGS="$(CFLAGS)"
+
+CMAKE_OPTIONS+= -DWITH_SSL=system
+
+CMAKE_OPTIONS+= -DBUILD_CONFIG=mysql_release
+CMAKE_OPTIONS+= -DINSTALL_LAYOUT=SVR4
+CMAKE_OPTIONS+= -DCMAKE_INSTALL_PREFIX=$(USRDIR)
+CMAKE_OPTIONS+= -DINSTALL_BINDIR=$(CMAKE_BINDIR.$(BITS))
+CMAKE_OPTIONS+= -DINSTALL_DOCDIR=share/doc/mysql/5.7
+CMAKE_OPTIONS+= -DINSTALL_INCLUDEDIR=$(CMAKE_INCLUDEDIR.$(BITS))
+CMAKE_OPTIONS+= -DINSTALL_LIBDIR=$(CMAKE_LIBDIR.$(BITS))
+CMAKE_OPTIONS+= -DINSTALL_MANDIR=lib/mysql/5.7/man
+CMAKE_OPTIONS+= -DINSTALL_SHAREDIR=$(CMAKE_SHAREDIR)
+CMAKE_OPTIONS+= -DINSTALL_MYSQLSHAREDIR=$(CMAKE_SHAREDIR)
+CMAKE_OPTIONS+= -DINSTALL_SUPPORTFILESDIR=$(CMAKE_SHAREDIR)
+CMAKE_OPTIONS+= -DINSTALL_PLUGINDIR=$(CMAKE_PLUGINDIR.$(BITS))
+CMAKE_OPTIONS+= -DINSTALL_SBINDIR=$(CMAKE_BINDIR.$(BITS))
+CMAKE_OPTIONS+= -DINSTALL_SCRIPTDIR=$(CMAKE_BINDIR.$(BITS))
+CMAKE_OPTIONS+= -DMYSQL_DATADIR=$(CONFIGURE_LOCALSTATEDIR)/mysql/5.7/data
+CMAKE_OPTIONS+= -DSYSCONFDIR=$(CONFIGURE_SYSCONFDIR)/mysql/5.7
+CMAKE_OPTIONS+= -DWITH_EXAMPLE_STORAGE_ENGINE=1
+CMAKE_OPTIONS+= -DWITH_INNOBASE_STORAGE_ENGINE=1
+CMAKE_OPTIONS+= -DWITH_LIBEDIT=OFF
+CMAKE_OPTIONS+= -DWITH_READLINE=OFF
+CMAKE_OPTIONS+= -DWITH_EXTRA_CHARSETS=all
+CMAKE_OPTIONS+= -DENABLE_DTRACE=OFF
+CMAKE_OPTIONS+= -DCMAKE_SKIP_INSTALL_RPATH=ON
+CMAKE_OPTIONS+= -DCMAKE_SKIP_INSTALL_RPATH-ADVANCED=1
+CMAKE_OPTIONS+= -DCMAKE_SKIP_RPATH=ON
+CMAKE_OPTIONS+= -DCMAKE_SKIP_RPATH-ADVANCED=1
+#CMAKE_OPTIONS+=	-DENABLE_DTRACE=on
+
+LDFLAGS.32	+=	-L$(USRDIR)/lib/mysql/5.7/lib -R$(USRDIR)/lib/mysql/5.7/lib
+LDFLAGS.64	+=	-L$(USRDIR)/lib/mysql/5.7/lib/$(MACH64) -R$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)
+LDFLAGS += $(LDFLAGS.$(BITS))
+
+COMPONENT_PRE_BUILD_ACTION += cd $(@D);
+COMPONENT_PRE_BUILD_ACTION += export LDFLAGS="$(LDFLAGS)";
+COMPONENT_PRE_BUILD_ACTION += $(CMAKE) -j$(JOBS) . $(CMAKE_OPTIONS);
+COMPONENT_PRE_BUILD_ACTION += $(GSED) -i -e 's!$(CC)!$(CXX)!' libmysql/CMakeFiles/libmysql.dir/link.txt;
+
+#COMPONENT_POST_BUILD_ACTION.32 += $(GSED) -i -e 's!"share","share/mysql","support-files"!"lib/mysql/5.6/share"!' $(BUILD_DIR_32)/scripts/mysql_install_db;
+#COMPONENT_POST_BUILD_ACTION.64 += $(GSED) -i -e 's!"share","share/mysql","support-files"!"lib/mysql/5.6/share"!' $(BUILD_DIR_64)/scripts/mysql_install_db;
+#COMPONENT_POST_BUILD_ACTION += $(COMPONENT_POST_BUILD_ACTION.$(BITS))
+
+build:		$(BUILD_32_and_64)
+
+install:	$(INSTALL_32_and_64)
