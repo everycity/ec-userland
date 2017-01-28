@@ -22,7 +22,6 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(SYSCONFDIR)
 dir  path=$(SYSCONFDIR)/openssl
 dir  path=$(SYSCONFDIR)/openssl/certs
 dir  path=$(SYSCONFDIR)/openssl/misc
@@ -35,13 +34,9 @@ file path=$(SYSCONFDIR)/openssl/misc/c_name
 file path=$(SYSCONFDIR)/openssl/misc/tsget
 file path=$(SYSCONFDIR)/openssl/openssl.cnf
 dir  path=$(SYSCONFDIR)/openssl/private
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/bin
-dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/openssl
 file path=$(USRDIR)/bin/c_rehash
 file path=$(USRDIR)/bin/openssl
-dir  path=$(USRDIR)/include
 dir  path=$(USRDIR)/include/openssl
 file path=$(USRDIR)/include/openssl/aes.h
 file path=$(USRDIR)/include/openssl/asn1.h
