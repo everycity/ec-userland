@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -24,7 +24,7 @@ set name=pkg.summary value="$(COMPONENT_SUMMARY)"
 set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+license $(COMPONENT_NAME).license license='$(COMPONENT_LICENSE)'
 
 # Custom Entries
 dir path=$(LOCALSTATEDIR)/run/stunnel
@@ -32,15 +32,20 @@ dir path=$(LOCALSTATEDIR)/run/stunnel
 file files/stunnel-manifest.xml path=$(SVCMANIFEST)/site/stunnel.xml \
     restart_fmri=svc:/system/manifest-import:default
 
+dir  path=$(LOCALSTATEDIR)/lib/stunnel
+dir  path=$(SYSCONFDIR)/stunnel
+file path=$(SYSCONFDIR)/stunnel/stunnel.conf-sample
 file path=$(USRDIR)/bin/$(MACH64)/stunnel
 file path=$(USRDIR)/bin/$(MACH64)/stunnel3
 file path=$(USRDIR)/bin/stunnel
 file path=$(USRDIR)/bin/stunnel3
-file path=$(USRDIR)/etc/stunnel/stunnel.conf-sample
+dir  path=$(USRDIR)/lib/$(MACH64)/stunnel
 file path=$(USRDIR)/lib/$(MACH64)/stunnel/libstunnel.la
 file path=$(USRDIR)/lib/$(MACH64)/stunnel/libstunnel.so
+dir  path=$(USRDIR)/lib/stunnel
 file path=$(USRDIR)/lib/stunnel/libstunnel.la
 file path=$(USRDIR)/lib/stunnel/libstunnel.so
+dir  path=$(USRDIR)/share/doc/stunnel
 file path=$(USRDIR)/share/doc/stunnel/AUTHORS
 file path=$(USRDIR)/share/doc/stunnel/BUGS
 file path=$(USRDIR)/share/doc/stunnel/COPYING
@@ -54,6 +59,7 @@ file path=$(USRDIR)/share/doc/stunnel/INSTALL.WCE
 file path=$(USRDIR)/share/doc/stunnel/PORTS
 file path=$(USRDIR)/share/doc/stunnel/README
 file path=$(USRDIR)/share/doc/stunnel/TODO
+dir  path=$(USRDIR)/share/doc/stunnel/examples
 file path=$(USRDIR)/share/doc/stunnel/examples/ca.html
 file path=$(USRDIR)/share/doc/stunnel/examples/ca.pl
 file path=$(USRDIR)/share/doc/stunnel/examples/importCA.html
