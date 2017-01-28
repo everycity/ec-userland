@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		wavpack
 COMPONENT_FMRI=		audio/wavpack
-COMPONENT_VERSION=	4.70.0
+COMPONENT_VERSION=	5.1.0
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://www.wavpack.com/"
 COMPONENT_SUMMARY=	WavPack (.WV) free open source audio codec
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:2cade379b0aba99fbc4e442ccc6dac6c609f6212e46516a083e24c8c364430a4
+COMPONENT_ARCHIVE_HASH=	sha256:1939627d5358d1da62bc6158d63f7ed12905552f3a799c799ee90296a7612944
 COMPONENT_ARCHIVE_URL=	http://www.wavpack.com/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

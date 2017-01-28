@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -17,26 +17,32 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 file path=$(USRDIR)/bin/$(MACH64)/wavpack
 file path=$(USRDIR)/bin/$(MACH64)/wvgain
+file path=$(USRDIR)/bin/$(MACH64)/wvtag
 file path=$(USRDIR)/bin/$(MACH64)/wvunpack
 file path=$(USRDIR)/bin/wavpack
 file path=$(USRDIR)/bin/wvgain
+file path=$(USRDIR)/bin/wvtag
 file path=$(USRDIR)/bin/wvunpack
+dir  path=$(USRDIR)/include/wavpack
 file path=$(USRDIR)/include/wavpack/wavpack.h
-file path=$(USRDIR)/lib/$(MACH64)/libwavpack.so.1.1.5
+file path=$(USRDIR)/lib/$(MACH64)/libwavpack.la
+link path=$(USRDIR)/lib/$(MACH64)/libwavpack.so target=libwavpack.so.1.2.0
+link path=$(USRDIR)/lib/$(MACH64)/libwavpack.so.1 target=libwavpack.so.1.2.0
+file path=$(USRDIR)/lib/$(MACH64)/libwavpack.so.1.2.0
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/wavpack.pc
-file path=$(USRDIR)/lib/libwavpack.so.1.1.5
+file path=$(USRDIR)/lib/libwavpack.la
+link path=$(USRDIR)/lib/libwavpack.so target=libwavpack.so.1.2.0
+link path=$(USRDIR)/lib/libwavpack.so.1 target=libwavpack.so.1.2.0
+file path=$(USRDIR)/lib/libwavpack.so.1.2.0
 file path=$(USRDIR)/lib/pkgconfig/wavpack.pc
 file path=$(USRDIR)/share/man/man1/wavpack.1
 file path=$(USRDIR)/share/man/man1/wvgain.1
+file path=$(USRDIR)/share/man/man1/wvtag.1
 file path=$(USRDIR)/share/man/man1/wvunpack.1
-link path=$(USRDIR)/lib/$(MACH64)/libwavpack.so target=libwavpack.so.1.1.5
-link path=$(USRDIR)/lib/$(MACH64)/libwavpack.so.1 target=libwavpack.so.1.1.5
-link path=$(USRDIR)/lib/libwavpack.so target=libwavpack.so.1.1.5
-link path=$(USRDIR)/lib/libwavpack.so.1 target=libwavpack.so.1.1.5
