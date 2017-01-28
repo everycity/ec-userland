@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -29,6 +29,7 @@ dir  path=$(USRDIR)/include
 dir  path=$(USRDIR)/include/h2o
 file path=$(USRDIR)/include/h2o.h
 file path=$(USRDIR)/include/h2o/cache.h
+file path=$(USRDIR)/include/h2o/cache_digests.h
 file path=$(USRDIR)/include/h2o/configurator.h
 file path=$(USRDIR)/include/h2o/file.h
 file path=$(USRDIR)/include/h2o/filecache.h
@@ -44,6 +45,8 @@ file path=$(USRDIR)/include/h2o/memcached.h
 file path=$(USRDIR)/include/h2o/memory.h
 file path=$(USRDIR)/include/h2o/mruby_.h
 file path=$(USRDIR)/include/h2o/multithread.h
+file path=$(USRDIR)/include/h2o/openssl_backport.h
+file path=$(USRDIR)/include/h2o/rand.h
 file path=$(USRDIR)/include/h2o/serverutil.h
 dir  path=$(USRDIR)/include/h2o/socket
 file path=$(USRDIR)/include/h2o/socket.h
@@ -59,9 +62,9 @@ file path=$(USRDIR)/include/h2o/url.h
 file path=$(USRDIR)/include/h2o/version.h
 file path=$(USRDIR)/include/h2o/websocket.h
 dir  path=$(USRDIR)/lib
-link path=$(USRDIR)/lib/libh2o-evloop.so target=libh2o-evloop.so.0.11
-link path=$(USRDIR)/lib/libh2o-evloop.so.0.11 target=libh2o-evloop.so.0.11.4
-file path=$(USRDIR)/lib/libh2o-evloop.so.0.11.4
+link path=$(USRDIR)/lib/libh2o-evloop.so target=libh2o-evloop.so.0.12
+link path=$(USRDIR)/lib/libh2o-evloop.so.0.12 target=libh2o-evloop.so.0.12.0
+file path=$(USRDIR)/lib/libh2o-evloop.so.0.12.0
 dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/libh2o-evloop.pc
 dir  path=$(USRDIR)/share
@@ -77,12 +80,14 @@ file path=$(USRDIR)/share/doc/h2o/assets/style.css
 file path=$(USRDIR)/share/doc/h2o/benchmarks.html
 dir  path=$(USRDIR)/share/doc/h2o/configure
 file path=$(USRDIR)/share/doc/h2o/configure.html
+file path=$(USRDIR)/share/doc/h2o/configure/access_control.html
 file path=$(USRDIR)/share/doc/h2o/configure/access_log_directives.html
 file path=$(USRDIR)/share/doc/h2o/configure/base_directives.html
 file path=$(USRDIR)/share/doc/h2o/configure/basic_auth.html
 file path=$(USRDIR)/share/doc/h2o/configure/cgi.html
 file path=$(USRDIR)/share/doc/h2o/configure/command_options.html
 file path=$(USRDIR)/share/doc/h2o/configure/compress_directives.html
+file path=$(USRDIR)/share/doc/h2o/configure/dos_detection.html
 file path=$(USRDIR)/share/doc/h2o/configure/errordoc_directives.html
 file path=$(USRDIR)/share/doc/h2o/configure/expires_directives.html
 file path=$(USRDIR)/share/doc/h2o/configure/fastcgi_directives.html
@@ -98,6 +103,7 @@ file path=$(USRDIR)/share/doc/h2o/configure/redirect_directives.html
 file path=$(USRDIR)/share/doc/h2o/configure/reproxy_directives.html
 file path=$(USRDIR)/share/doc/h2o/configure/status_directives.html
 file path=$(USRDIR)/share/doc/h2o/configure/syntax_and_structure.html
+file path=$(USRDIR)/share/doc/h2o/configure/throttle_response_directives.html
 dir  path=$(USRDIR)/share/doc/h2o/examples
 dir  path=$(USRDIR)/share/doc/h2o/examples/doc_root
 dir  path=$(USRDIR)/share/doc/h2o/examples/doc_root.alternate
@@ -114,6 +120,7 @@ file path=$(USRDIR)/share/doc/h2o/examples/h2o_mruby/h2o.conf
 file path=$(USRDIR)/share/doc/h2o/examples/h2o_mruby/hello.rb
 dir  path=$(USRDIR)/share/doc/h2o/examples/libh2o
 file path=$(USRDIR)/share/doc/h2o/examples/libh2o/http1client.c
+file path=$(USRDIR)/share/doc/h2o/examples/libh2o/latency-optimization.c
 file path=$(USRDIR)/share/doc/h2o/examples/libh2o/simple.c
 file path=$(USRDIR)/share/doc/h2o/examples/libh2o/socket-client.c
 file path=$(USRDIR)/share/doc/h2o/examples/libh2o/websocket.c
