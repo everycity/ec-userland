@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		perl
 COMPONENT_FMRI=		runtime/perl-518
-COMPONENT_VERSION=	5.18.2
+COMPONENT_VERSION=	5.18.4
 PERL_VERSION=		5.18
 COMPONENT_LICENSE=	Artistic
 COMPONENT_PROJECT_URL=	http://www.perl.org/
 COMPONENT_SUMMARY=	The Perl Programming Language
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:7cbed5ef11900e8f68041215eea0de5e443d53393f84c41d5c9c69c150a4982f
+COMPONENT_ARCHIVE_HASH=	sha256:01a4e11a9a34616396c4a77b3cef51f76a297e1a2c2c490ae6138bf0351eb29f
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PERL5)
 
 include ../../../make-rules/prep.mk
@@ -60,7 +60,7 @@ CONFIGURE_OPTIONS = \
 			-Uloclibpth= \
                         -Dbin=$(USRDIR)/lib/perl/$(PERL_VERSION)/bin \
 			-Dcc="$(CC)" \
-			-Accflags="-fno-stack-protector $(CFLAGS)" \
+			-Accflags="-fstack-protector $(CFLAGS)" \
 			-Dcf_email="userland-discuss@opensolaris.org" \
 			-Dcf_by="perl-bugs" \
 			-Dlibperl=libperl.so.$(PERL_VERSION) \
@@ -74,6 +74,7 @@ CONFIGURE_OPTIONS = \
 			-Dvendorprefix=$(USRDIR)/lib/perl/$(PERL_VERSION) \
 			-Duseshrplib \
 			-Duse64bitall \
+			-Dusedtrace \
 			-Uuselargefiles \
 			-Dman1dir=$(USRDIR)/lib/perl/$(PERL_VERSION)/man/man1 \
 			-Dman1ext=1 \
@@ -84,7 +85,6 @@ CONFIGURE_OPTIONS = \
 			-Dlocincpth="$(CPPFLAGS)" \
 			-Dloclibpth="$(USRDIR)/lib/$(MACH64)"
 
-#			-Dusedtrace \
 
 CONFIGURE_THREAD_OPTIONS =  -Dusethreads \
 			    -Duseithreads
@@ -118,3 +118,4 @@ build:		$(BUILD_64)
 
 install:	$(INSTALL_64)
 
+test:		$(TEST_64)

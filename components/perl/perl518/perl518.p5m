@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2016 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -18,8 +18,8 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
@@ -769,8 +769,8 @@ file path=$(USRDIR)/lib/perl/5.18/lib/i86pc-solaris-thread-multi-64/CORE/intrpva
 file path=$(USRDIR)/lib/perl/5.18/lib/i86pc-solaris-thread-multi-64/CORE/iperlsys.h
 file path=$(USRDIR)/lib/perl/5.18/lib/i86pc-solaris-thread-multi-64/CORE/keywords.h
 file path=$(USRDIR)/lib/perl/5.18/lib/i86pc-solaris-thread-multi-64/CORE/l1_char_class_tab.h
+file path=$(USRDIR)/lib/perl/5.18/lib/i86pc-solaris-thread-multi-64/CORE/libperl.so
 file path=$(USRDIR)/lib/perl/5.18/lib/i86pc-solaris-thread-multi-64/CORE/libperl.so.5.18
-link path=$(USRDIR)/lib/perl/5.18/lib/i86pc-solaris-thread-multi-64/CORE/libperl.so target=libperl.so.5.18
 file path=$(USRDIR)/lib/perl/5.18/lib/i86pc-solaris-thread-multi-64/CORE/malloc_ctl.h
 file path=$(USRDIR)/lib/perl/5.18/lib/i86pc-solaris-thread-multi-64/CORE/metaconfig.h
 file path=$(USRDIR)/lib/perl/5.18/lib/i86pc-solaris-thread-multi-64/CORE/mg.h
@@ -1080,6 +1080,8 @@ file path=$(USRDIR)/lib/perl/5.18/lib/pod/perl5163delta.pod
 file path=$(USRDIR)/lib/perl/5.18/lib/pod/perl5180delta.pod
 file path=$(USRDIR)/lib/perl/5.18/lib/pod/perl5181delta.pod
 file path=$(USRDIR)/lib/perl/5.18/lib/pod/perl5182delta.pod
+file path=$(USRDIR)/lib/perl/5.18/lib/pod/perl5183delta.pod
+file path=$(USRDIR)/lib/perl/5.18/lib/pod/perl5184delta.pod
 file path=$(USRDIR)/lib/perl/5.18/lib/pod/perl561delta.pod
 file path=$(USRDIR)/lib/perl/5.18/lib/pod/perl56delta.pod
 file path=$(USRDIR)/lib/perl/5.18/lib/pod/perl581delta.pod
@@ -2168,6 +2170,8 @@ file path=$(USRDIR)/lib/perl/5.18/man/man1/perl5163delta.1
 file path=$(USRDIR)/lib/perl/5.18/man/man1/perl5180delta.1
 file path=$(USRDIR)/lib/perl/5.18/man/man1/perl5181delta.1
 file path=$(USRDIR)/lib/perl/5.18/man/man1/perl5182delta.1
+file path=$(USRDIR)/lib/perl/5.18/man/man1/perl5183delta.1
+file path=$(USRDIR)/lib/perl/5.18/man/man1/perl5184delta.1
 file path=$(USRDIR)/lib/perl/5.18/man/man1/perl561delta.1
 file path=$(USRDIR)/lib/perl/5.18/man/man1/perl56delta.1
 file path=$(USRDIR)/lib/perl/5.18/man/man1/perl581delta.1
