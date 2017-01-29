@@ -15,8 +15,6 @@
 /^wackamole$/d
 /^mariadb100$/d
 /^php55-ext-suhosin$/d
-/^php54-ext-suhosin$/d
-/^xapian\/bindings-php54$/d
 # in progress
 /^make$/d
 /^meta-packages\/build-essential$/d
@@ -49,3 +47,4 @@
 /^lua52$/d
 /^mysqlproxy55$/d
 /^vlc2$/d
+/^mysql57$/d
