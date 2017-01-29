@@ -1,0 +1,11 @@
+--- mysql-5.7.17/mysys/stacktrace.c.~1~	2016-11-28 13:32:52.000000000 +0000
++++ mysql-5.7.17/mysys/stacktrace.c	2017-01-29 14:31:58.306823104 +0000
+@@ -247,7 +247,7 @@
+ {
+   signal(sig, SIG_DFL);
+   pthread_kill(my_thread_self(), sig);
+-#if defined(P_MYID)
++#if HAVE_SIGSEND && defined(P_MYID)
+   /* On Solaris, the above kill is not enough */
+   sigsend(P_PID,P_MYID,sig);
+ #endif

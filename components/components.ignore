@@ -47,5 +47,4 @@
 /^lua52$/d
 /^mysqlproxy55$/d
 /^vlc2$/d
-/^mysql57$/d
 /^xapian\/bindings-php54$/d
