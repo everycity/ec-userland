@@ -1,0 +1,21 @@
+--- gettext-0.19.8/gettext-tools/tests/init.cfg.orig	2017-01-24 21:56:02.593897922 +0000
++++ gettext-0.19.8/gettext-tools/tests/init.cfg	2017-01-24 21:57:04.330912544 +0000
+@@ -6,11 +6,11 @@
+   # Solaris 11 doesn't strip the CODESET part from the locale name,
+   # when looking for a message catalog.  Create a directory link with
+   # CODESET, to work around this.
+-  if test "$1" != "$2" && test "$GLIBC2" = no; then
+-    case "$host_os" in
+-      solaris2.11)
+-        cp -R "$1" "$2"
+-        ;;
+-    esac
+-  fi
++  #if test "$1" != "$2" && test "$GLIBC2" = no; then
++  #  case "$host_os" in
++  #    solaris2.11)
++  #      cp -R "$1" "$2"
++  #      ;;
++  #  esac
++  #fi
+ }

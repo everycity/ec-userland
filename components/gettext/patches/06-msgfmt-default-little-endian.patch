@@ -1,13 +1,8 @@
-From: Santiago Vila <sanvila@debian.org>
-Subject: Modified msgfmt to always create little endian .mo files
-Bug-Debian: http://bugs.debian.org/671257
-X-Debian-version: 0.18.1.1-8
-
---- a/gettext-tools/src/msgfmt.c
-+++ b/gettext-tools/src/msgfmt.c
-@@ -208,6 +208,9 @@
-   /* Set default value for global variables.  */
+--- gettext-0.19.8/gettext-tools/src/msgfmt.c.~1~	2016-05-30 09:12:33.000000000 +0000
++++ gettext-0.19.8/gettext-tools/src/msgfmt.c	2017-01-23 22:25:20.468106374 +0000
+@@ -254,6 +254,9 @@
    alignment = DEFAULT_OUTPUT_ALIGNMENT;
+   byteswap = 0 ^ ENDIANNESS;
  
 +  /* Changed by Debian: Default is little-endian, not native */
 +  byteswap = ENDIANNESS;

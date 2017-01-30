@@ -24,20 +24,17 @@
 # Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
 
-#CONFIGURE_DEFAULT_HOST = no
-#CONFIGURE_DEFAULT_LDFLAGS = no
-#CONFIGURE_DEFAULT_CPPFLAGS = no
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gettext
 COMPONENT_FMRI=		text/gnu-gettext
-COMPONENT_VERSION=	0.18.3.2
+COMPONENT_VERSION=	0.19.8.1
 COMPONENT_LICENSE=	GPLv3
 COMPONENT_PROJECT_URL=	"http://www.gnu.org/software/gettext/"
 COMPONENT_SUMMARY=	GNU gettext
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:d1a4e452d60eb407ab0305976529a45c18124bd518d976971ac6dc7aa8b4c5d7
+COMPONENT_ARCHIVE_HASH=	sha256:ff942af0e438ced4a8b0ea4b0b6e0d6d657157c5e2364de57baa279c1c125c43
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include ../../make-rules/prep.mk
@@ -46,13 +43,30 @@ include ../../make-rules/ips.mk
 
 CPPFLAGS += -I$(USRDIR)/include/libxml2
 
-CONFIGURE_OPTIONS  +=		--disable-java
-CONFIGURE_OPTIONS  +=		--disable-libasprintf
-CONFIGURE_OPTIONS  +=		--without-emacs
-CONFIGURE_OPTIONS  +=		--without-cvs
-CONFIGURE_OPTIONS  +=		--disable-openmp
-CONFIGURE_OPTIONS  +=		--disable-static
-CONFIGURE_OPTIONS  +=		--disable-shared
+CONFIGURE_OPTIONS +=	--enable-shared
+CONFIGURE_OPTIONS +=	--without-git
+CONFIGURE_OPTIONS +=    --disable-java
+CONFIGURE_OPTIONS +=    --disable-native-java
+CONFIGURE_OPTIONS +=    --disable-libasprintf
+CONFIGURE_OPTIONS +=    --without-emacs
+CONFIGURE_OPTIONS +=    --without-cvs
+CONFIGURE_OPTIONS +=    --disable-openmp
+CONFIGURE_OPTIONS +=    --with-included-gettext
+CONFIGURE_OPTIONS +=    --with-included-glib
+CONFIGURE_OPTIONS +=    --with-included-libcroco
+# Fixes coredump in gnulib-test/test-localename test
+CONFIGURE_OPTIONS +=	ac_cv_func_newlocale=no
+
+# Tests should run in a clean environment
+COMPONENT_TEST_ENV =	-i
+COMPONENT_TEST_ENV +=	PATH=${PATH}
+
+# Strip compilation lines from test output
+COMPONENT_TEST_TRANSFORMS += \
+	'-e "s|^.*$(CC).*$$|XXX_CC_XXX|g" ' \
+	'-e "s|^.*source=.*libtool=no.*$$|XXX_CC_XXX|g" ' \
+	'-e "s|^.*DEPDIR=.deps.*$$|XXX_CC_XXX|g" ' \
+	'-e "/^XXX_CC_XXX$$/d" '
 
 # common targets
 build:		$(BUILD_32_and_64)
@@ -60,7 +74,3 @@ build:		$(BUILD_32_and_64)
 install:	$(INSTALL_32_and_64)
 
 test:		$(TEST_32_and_64)
-
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
