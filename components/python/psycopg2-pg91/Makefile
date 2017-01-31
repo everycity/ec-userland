@@ -9,34 +9,10 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
-include ../../../make-rules/shared-macros.mk
+POSTGRES_MJR_VERSION=		9.1
+POSTGRES_MJR_VERSION_SHORT=	91
 
-COMPONENT_NAME=		psycopg2
-COMPONENT_FMRI=		library/python/psycopg2-pg91
-COMPONENT_VERSION=	2.5.2
-COMPONENT_LICENSE=	GPL with exceptions or ZPL
-COMPONENT_PROJECT_URL=	"http://initd.org/psycopg/"
-COMPONENT_SUMMARY=	Python-PostgreSQL Database Adapter (PG 9.1)
-COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:50382d8703a16c3c615f328c2676f002787095925c99f0afb125a59962a5bd2e
-COMPONENT_ARCHIVE_URL=	http://initd.org/psycopg/tarballs/PSYCOPG-2-5/$(COMPONENT_ARCHIVE)
-
-include ../../../make-rules/prep.mk
-include ../../../make-rules/setup.py.mk
-include ../../../make-rules/ips.mk
-
-LDFLAGS.32+=	-L$(ECPREFIX)/lib/postgres/9.1/lib -R$(ECPREFIX)/lib/postgres/9.1/lib
-LDFLAGS.64+=	-L$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64) -R$(ECPREFIX)/lib/postgres/9.1/lib/$(MACH64)
-
-PYTHON_PRE_SETUP_ARGS.32 =	build_ext --pg-config $(ECPREFIX)/lib/postgres/9.1/bin/pg_config
-PYTHON_PRE_SETUP_ARGS.64 =	build_ext --pg-config $(ECPREFIX)/lib/postgres/9.1/bin/$(MACH64)/pg_config
-PYTHON_PRE_SETUP_ARGS =		$(PYTHON_PRE_SETUP_ARGS.$(BITS))
-
-build:		$(BUILD_32_and_64)
-
-install:	$(INSTALL_32_and_64)
-
+include ../../meta-packages/postgresql/PsycoPG2.common
