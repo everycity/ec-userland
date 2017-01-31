@@ -19,4 +19,6 @@ COMPONENT_ARCHIVE_HASH=	sha256:7061678bed1981c681ce54c76b98b6ec17743f090a9775104
 PG_CONTRIB_BINS+=	pgbench
 PG_CONTRIB_LIBS+=	uuid-ossp
 
+CONFIGURE_OPTIONS+=	--with-uuid=e2fs
+
 include ../meta-packages/postgresql/Makefile.common
