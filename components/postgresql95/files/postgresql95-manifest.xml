@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE service_bundle SYSTEM "/usr/share/lib/xml/dtd/service_bundle.dtd.1">
+<!--
+//
+// This file and its contents are supplied under the terms of the
+// Common Development and Distribution License ("CDDL)". You may
+// only use this file in accordance with the terms of the CDDL.
+//
+// A full copy of the text of the CDDL should have accompanied this
+// source. A copy of the CDDL is also available via the Internet at
+// http://www.illumos.org/license/CDDL.
+//
+//
+// Copyright 2017 EveryCity Ltd. All rights reserved.
+//
+-->
+<service_bundle type='manifest' name='postgresql9.5'>
+
+<service
+	name='application/database/postgresql95'
+	type='service'
+	version='1'>
+
+	<!--
+		Wait for network interfaces to be initialized.
+	-->
+	<dependency name='network'
+		grouping='require_all'
+		restart_on='error'
+		type='service'>
+		<service_fmri value='svc:/milestone/network:default'/>
+	</dependency>
+
+	<!--
+		Wait for all local filesystems to be mounted.
+	-->
+	<dependency name='filesystem-local'
+		grouping='require_all'
+		restart_on='none'
+		type='service'>
+		<service_fmri
+			value='svc:/system/filesystem/local:default'/>
+	</dependency>
+
+	<exec_method
+		type='method'
+		name='start'
+		exec='/var/svc/method/postgresql9.5 start'
+		timeout_seconds='60'/>
+
+	<exec_method
+		type='method'
+		name='stop'
+		exec='/var/svc/method/postgresql9.5 stop'
+		timeout_seconds='120'/>
+
+	<exec_method
+		type='method'
+		name='refresh'
+		exec='/var/svc/method/postgresql9.5 reload'
+		timeout_seconds='60'/>
+
+	<instance name='default' enabled='false'>
+
+		<method_context>
+			<method_credential user="postgres" group="postgres"/>
+		</method_context>
+
+		<property_group name='postgres' type='application'>
+			<stability value='Evolving'/>
+			<propval name='data_dir' type='astring' value='/ec/var/postgres/9.5/data'/>
+			<propval name='config_file' type='astring' value='/ec/etc/postgres/9.5/postgresql.conf'/>
+			<propval name='additional_startup_options' type='astring' value=''/>
+			<propval name='enable_64bit' type='boolean' value='true'/>
+		</property_group>
+
+	</instance>
+
+	<stability value='Evolving'/>
+
+</service>
+
+</service_bundle>
