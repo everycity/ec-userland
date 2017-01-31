@@ -1,0 +1,141 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2017 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/database/postgresql-96/client@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+
+# Symlinks
+# 32bit
+link path=$(USRDIR)/bin/clusterdb         target=../lib/postgres/9.6/bin/clusterdb mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/createdb          target=../lib/postgres/9.6/bin/createdb mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/createlang        target=../lib/postgres/9.6/bin/createlang mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/createuser        target=../lib/postgres/9.6/bin/createuser mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/dropdb            target=../lib/postgres/9.6/bin/dropdb mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/droplang          target=../lib/postgres/9.6/bin/droplang mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/dropuser          target=../lib/postgres/9.6/bin/dropuser mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/ecpg              target=../lib/postgres/9.6/bin/ecpg mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/initdb            target=../lib/postgres/9.6/bin/initdb mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/pg_archivecleanup target=../lib/postgres/9.6/bin/pg_archivecleanup mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/pg_basebackup     target=../lib/postgres/9.6/bin/pg_basebackup mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/pg_controldata    target=../lib/postgres/9.6/bin/pg_controldata mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/pg_dump           target=../lib/postgres/9.6/bin/pg_dump mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/pg_dumpall        target=../lib/postgres/9.6/bin/pg_dumpall mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/pg_receivexlog    target=../lib/postgres/9.6/bin/pg_receivexlog mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/pg_recvlogical    target=../lib/postgres/9.6/bin/pg_recvlogical mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/pg_resetxlog      target=../lib/postgres/9.6/bin/pg_resetxlog mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/pg_restore        target=../lib/postgres/9.6/bin/pg_restore mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/pg_rewind         target=../lib/postgres/9.6/bin/pg_rewind mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/pg_test_fsync     target=../lib/postgres/9.6/bin/pg_test_fsync mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/pg_test_timing    target=../lib/postgres/9.6/bin/pg_test_timing mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/pg_upgrade        target=../lib/postgres/9.6/bin/pg_upgrade mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/pg_xlogdump       target=../lib/postgres/9.6/bin/pg_xlogdump mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/pgbench           target=../lib/postgres/9.6/bin/pgbench mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/psql              target=../lib/postgres/9.6/bin/psql mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/reindexdb         target=../lib/postgres/9.6/bin/reindexdb mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/vacuumdb          target=../lib/postgres/9.6/bin/vacuumdb mediator=pg mediator-version=9.6
+# 64bit
+link path=$(USRDIR)/bin/$(MACH64)/clusterdb         target=../../lib/postgres/9.6/bin/$(MACH64)/clusterdb mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/createdb          target=../../lib/postgres/9.6/bin/$(MACH64)/createdb mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/createlang        target=../../lib/postgres/9.6/bin/$(MACH64)/createlang mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/createuser        target=../../lib/postgres/9.6/bin/$(MACH64)/createuser mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/dropdb            target=../../lib/postgres/9.6/bin/$(MACH64)/dropdb mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/droplang          target=../../lib/postgres/9.6/bin/$(MACH64)/droplang mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/dropuser          target=../../lib/postgres/9.6/bin/$(MACH64)/dropuser mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/ecpg              target=../../lib/postgres/9.6/bin/$(MACH64)/ecpg mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/initdb            target=../../lib/postgres/9.6/bin/$(MACH64)/initdb mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/pg_archivecleanup target=../../lib/postgres/9.6/bin/$(MACH64)/pg_archivecleanup mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/pg_basebackup     target=../../lib/postgres/9.6/bin/$(MACH64)/pg_basebackup mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/pg_controldata    target=../../lib/postgres/9.6/bin/$(MACH64)/pg_controldata mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/pg_dump           target=../../lib/postgres/9.6/bin/$(MACH64)/pg_dump mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/pg_dumpall        target=../../lib/postgres/9.6/bin/$(MACH64)/pg_dumpall mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/pg_receivexlog    target=../../lib/postgres/9.6/bin/$(MACH64)/pg_receivexlog mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/pg_recvlogical    target=../../lib/postgres/9.6/bin/$(MACH64)/pg_recvlogical mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/pg_resetxlog      target=../../lib/postgres/9.6/bin/$(MACH64)/pg_resetxlog mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/pg_restore        target=../../lib/postgres/9.6/bin/$(MACH64)/pg_restore mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/pg_rewind         target=../../lib/postgres/9.6/bin/$(MACH64)/pg_rewind mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/pg_test_fsync     target=../../lib/postgres/9.6/bin/$(MACH64)/pg_test_fsync mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/pg_test_timing    target=../../lib/postgres/9.6/bin/$(MACH64)/pg_test_timing mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/pg_upgrade        target=../../lib/postgres/9.6/bin/$(MACH64)/pg_upgrade mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/pg_xlogdump       target=../../lib/postgres/9.6/bin/$(MACH64)/pg_xlogdump mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/pgbench           target=../../lib/postgres/9.6/bin/$(MACH64)/pgbench mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/psql              target=../../lib/postgres/9.6/bin/$(MACH64)/psql mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/reindexdb         target=../../lib/postgres/9.6/bin/$(MACH64)/reindexdb mediator=pg mediator-version=9.6
+link path=$(USRDIR)/bin/$(MACH64)/vacuumdb          target=../../lib/postgres/9.6/bin/$(MACH64)/vacuumdb mediator=pg mediator-version=9.6
+
+# Autogenerated content
+dir  path=$(USRDIR)/lib/postgres
+dir  path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)
+dir  path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin
+dir  path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/clusterdb
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/createdb
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/createlang
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/createuser
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/dropdb
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/droplang
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/dropuser
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/ecpg
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/initdb
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pg_archivecleanup
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pg_basebackup
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pg_controldata
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pg_dump
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pg_dumpall
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pg_receivexlog
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pg_recvlogical
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pg_resetxlog
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pg_restore
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pg_rewind
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pg_test_fsync
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pg_test_timing
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pg_upgrade
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pg_xlogdump
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/pgbench
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/psql
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/reindexdb
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/$(MACH64)/vacuumdb
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/clusterdb
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/createdb
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/createlang
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/createuser
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/dropdb
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/droplang
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/dropuser
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/ecpg
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/initdb
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_archivecleanup
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_basebackup
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_controldata
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_dump
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_dumpall
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_receivexlog
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_recvlogical
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_resetxlog
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_restore
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_rewind
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_test_fsync
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_test_timing
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_upgrade
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pg_xlogdump
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/pgbench
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/psql
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/reindexdb
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/bin/vacuumdb
