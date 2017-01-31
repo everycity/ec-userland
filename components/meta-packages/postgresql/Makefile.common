@@ -47,6 +47,8 @@ endif
 CONFIGURE_ENV +=	PERL="$(PERL.$(BITS))" PYTHON="$(PYTHON.$(BITS))"
 CONFIGURE_ENV +=	ac_cv_header_sys_ucred_h=no
 
+CONFIGURE_OPTIONS +=	'LIBS=-lintl'
+
 CONFIGURE_OPTIONS +=	--enable-nls
 CONFIGURE_OPTIONS +=	--enable-thread-safety
 CONFIGURE_OPTIONS +=	--enable-integer-datetimes
@@ -60,7 +62,6 @@ CONFIGURE_OPTIONS +=	--with-ldap
 CONFIGURE_OPTIONS +=	--with-openssl
 CONFIGURE_OPTIONS +=	--with-libxml
 CONFIGURE_OPTIONS +=	--with-libxslt
-CONFIGURE_OPTIONS +=	--with-uuid=e2fs
 
 PG_CONTRIB_LIBS +=	hstore pgcrypto tablefunc
 
