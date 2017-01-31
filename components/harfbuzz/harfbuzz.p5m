@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -17,10 +17,10 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 file path=$(USRDIR)/bin/$(MACH64)/hb-ot-shape-closure
 file path=$(USRDIR)/bin/$(MACH64)/hb-shape
@@ -28,7 +28,7 @@ file path=$(USRDIR)/bin/$(MACH64)/hb-view
 file path=$(USRDIR)/bin/hb-ot-shape-closure
 file path=$(USRDIR)/bin/hb-shape
 file path=$(USRDIR)/bin/hb-view
-
+dir  path=$(USRDIR)/include/harfbuzz
 file path=$(USRDIR)/include/harfbuzz/hb-blob.h
 file path=$(USRDIR)/include/harfbuzz/hb-buffer.h
 file path=$(USRDIR)/include/harfbuzz/hb-common.h
@@ -40,6 +40,7 @@ file path=$(USRDIR)/include/harfbuzz/hb-glib.h
 file path=$(USRDIR)/include/harfbuzz/hb-icu.h
 file path=$(USRDIR)/include/harfbuzz/hb-ot-font.h
 file path=$(USRDIR)/include/harfbuzz/hb-ot-layout.h
+file path=$(USRDIR)/include/harfbuzz/hb-ot-math.h
 file path=$(USRDIR)/include/harfbuzz/hb-ot-shape.h
 file path=$(USRDIR)/include/harfbuzz/hb-ot-tag.h
 file path=$(USRDIR)/include/harfbuzz/hb-ot.h
@@ -49,22 +50,26 @@ file path=$(USRDIR)/include/harfbuzz/hb-shape.h
 file path=$(USRDIR)/include/harfbuzz/hb-unicode.h
 file path=$(USRDIR)/include/harfbuzz/hb-version.h
 file path=$(USRDIR)/include/harfbuzz/hb.h
-
+file path=$(USRDIR)/lib/$(MACH64)/libharfbuzz-icu.la
 link path=$(USRDIR)/lib/$(MACH64)/libharfbuzz-icu.so \
-    target=libharfbuzz-icu.so.0.936.0
+    target=libharfbuzz-icu.so.0.10400.1
 link path=$(USRDIR)/lib/$(MACH64)/libharfbuzz-icu.so.0 \
-    target=libharfbuzz-icu.so.0.936.0
-file path=$(USRDIR)/lib/$(MACH64)/libharfbuzz-icu.so.0.936.0
-link path=$(USRDIR)/lib/$(MACH64)/libharfbuzz.so target=libharfbuzz.so.0.936.0
-link path=$(USRDIR)/lib/$(MACH64)/libharfbuzz.so.0 target=libharfbuzz.so.0.936.0
-file path=$(USRDIR)/lib/$(MACH64)/libharfbuzz.so.0.936.0
+    target=libharfbuzz-icu.so.0.10400.1
+file path=$(USRDIR)/lib/$(MACH64)/libharfbuzz-icu.so.0.10400.1
+file path=$(USRDIR)/lib/$(MACH64)/libharfbuzz.la
+link path=$(USRDIR)/lib/$(MACH64)/libharfbuzz.so target=libharfbuzz.so.0.10400.1
+link path=$(USRDIR)/lib/$(MACH64)/libharfbuzz.so.0 \
+    target=libharfbuzz.so.0.10400.1
+file path=$(USRDIR)/lib/$(MACH64)/libharfbuzz.so.0.10400.1
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/harfbuzz-icu.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/harfbuzz.pc
-link path=$(USRDIR)/lib/libharfbuzz-icu.so target=libharfbuzz-icu.so.0.936.0
-link path=$(USRDIR)/lib/libharfbuzz-icu.so.0 target=libharfbuzz-icu.so.0.936.0
-file path=$(USRDIR)/lib/libharfbuzz-icu.so.0.936.0
-link path=$(USRDIR)/lib/libharfbuzz.so target=libharfbuzz.so.0.936.0
-link path=$(USRDIR)/lib/libharfbuzz.so.0 target=libharfbuzz.so.0.936.0
-file path=$(USRDIR)/lib/libharfbuzz.so.0.936.0
+file path=$(USRDIR)/lib/libharfbuzz-icu.la
+link path=$(USRDIR)/lib/libharfbuzz-icu.so target=libharfbuzz-icu.so.0.10400.1
+link path=$(USRDIR)/lib/libharfbuzz-icu.so.0 target=libharfbuzz-icu.so.0.10400.1
+file path=$(USRDIR)/lib/libharfbuzz-icu.so.0.10400.1
+file path=$(USRDIR)/lib/libharfbuzz.la
+link path=$(USRDIR)/lib/libharfbuzz.so target=libharfbuzz.so.0.10400.1
+link path=$(USRDIR)/lib/libharfbuzz.so.0 target=libharfbuzz.so.0.10400.1
+file path=$(USRDIR)/lib/libharfbuzz.so.0.10400.1
 file path=$(USRDIR)/lib/pkgconfig/harfbuzz-icu.pc
 file path=$(USRDIR)/lib/pkgconfig/harfbuzz.pc
