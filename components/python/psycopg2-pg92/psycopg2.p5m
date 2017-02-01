@@ -14,7 +14,6 @@
 
 # Transforms
 <include ec-drop-common>
-<transform file path=.+/psycopg2/tests/.+ -> add pkg.depend.bypass-generate .*>
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
@@ -23,97 +22,45 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/lib
-dir  path=$(USRDIR)/lib/python2.6
-dir  path=$(USRDIR)/lib/python2.6/vendor-packages
-dir  path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2
-dir  path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.6.egg-info
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.6.egg-info/PKG-INFO
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.6.egg-info/SOURCES.txt
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.6.egg-info/dependency_links.txt
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.6.egg-info/top_level.txt
-dir  path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/64
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/64/_psycopg.so
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/__init__.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/_json.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/_psycopg.so
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/_range.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/errorcodes.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/extensions.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/extras.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/pool.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/psycopg1.py
-dir  path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/__init__.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/dbapi20.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/dbapi20_tpc.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_async.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_bugX000.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_bug_gc.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_cancel.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_connection.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_copy.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_cursor.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_dates.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_errcodes.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_extras_dictcursor.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_green.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_lobject.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_module.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_notify.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_psycopg2_dbapi20.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_quote.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_transaction.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_types_basic.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_types_extras.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/test_with.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/testconfig.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tests/testutils.py
-file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2/tz.py
-dir  path=$(USRDIR)/lib/python2.7
-dir  path=$(USRDIR)/lib/python2.7/vendor-packages
-dir  path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2
-dir  path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.7.egg-info
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.7.egg-info/PKG-INFO
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.7.egg-info/SOURCES.txt
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.7.egg-info/dependency_links.txt
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.7.egg-info/top_level.txt
-dir  path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/64
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/64/_psycopg.so
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/__init__.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/_json.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/_psycopg.so
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/_range.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/errorcodes.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/extensions.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/extras.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/pool.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/psycopg1.py
-dir  path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/__init__.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/dbapi20.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/dbapi20_tpc.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_async.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_bugX000.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_bug_gc.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_cancel.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_connection.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_copy.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_cursor.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_dates.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_errcodes.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_extras_dictcursor.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_green.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_lobject.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_module.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_notify.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_psycopg2_dbapi20.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_quote.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_transaction.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_types_basic.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_types_extras.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/test_with.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/testconfig.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tests/testutils.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2/tz.py
+link path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2 \
+    target=psycopg2-9.2 mediator=pg mediator-version=9.2
+link path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.6.egg-info \
+    target=path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.6.egg-info-9.2 \
+    mediator=pg mediator-version=9.2
+
+dir  path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.6.egg-info-9.2
+file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.6.egg-info-9.2/PKG-INFO
+file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.6.egg-info-9.2/SOURCES.txt
+file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.6.egg-info-9.2/dependency_links.txt
+file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.6.egg-info-9.2/top_level.txt
+dir  path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-9.2
+dir  path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-9.2/64
+file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-9.2/64/_psycopg.so
+file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-9.2/__init__.py
+file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-9.2/_json.py
+file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-9.2/_psycopg.so
+file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-9.2/_range.py
+file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-9.2/errorcodes.py
+file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-9.2/extensions.py
+file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-9.2/extras.py
+file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-9.2/pool.py
+file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-9.2/psycopg1.py
+file path=$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-9.2/tz.py
+dir  path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.7.egg-info-9.2
+file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.7.egg-info-9.2/PKG-INFO
+file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.7.egg-info-9.2/SOURCES.txt
+file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.7.egg-info-9.2/dependency_links.txt
+file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-$(COMPONENT_VERSION)-py2.7.egg-info-9.2/top_level.txt
+dir  path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-9.2
+dir  path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-9.2/64
+file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-9.2/64/_psycopg.so
+file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-9.2/__init__.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-9.2/_json.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-9.2/_psycopg.so
+file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-9.2/_range.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-9.2/errorcodes.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-9.2/extensions.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-9.2/extras.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-9.2/pool.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-9.2/psycopg1.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-9.2/tz.py
