@@ -30,15 +30,27 @@ include ../../../make-rules/prep.mk
 include ../../../make-rules/setup.py.mk
 include ../../../make-rules/ips.mk
 
-LDFLAGS_LIBPATH.32+=	-L$(ECPREFIX)/lib/postgres/$(POSTGRES_MJR_VERSION)/lib
-LDFLAGS_LIBPATH.32+=	-R$(ECPREFIX)/lib/postgres/$(POSTGRES_MJR_VERSION)/lib
-LDFLAGS_LIBPATH.64+=	-L$(ECPREFIX)/lib/postgres/$(POSTGRES_MJR_VERSION)/lib/$(MACH64)
-LDFLAGS_LIBPATH.64+=	-R$(ECPREFIX)/lib/postgres/$(POSTGRES_MJR_VERSION)/lib/$(MACH64)
+LDFLAGS_LIBPATH.32+=	-L$(USRDIR)/lib/postgres/$(POSTGRES_MJR_VERSION)/lib
+LDFLAGS_LIBPATH.32+=	-R$(USRDIR)/lib/postgres/$(POSTGRES_MJR_VERSION)/lib
+LDFLAGS_LIBPATH.64+=	-L$(USRDIR)/lib/postgres/$(POSTGRES_MJR_VERSION)/lib/$(MACH64)
+LDFLAGS_LIBPATH.64+=	-R$(USRDIR)/lib/postgres/$(POSTGRES_MJR_VERSION)/lib/$(MACH64)
 
-PYTHON_PRE_SETUP_ARGS.32 =	build_ext --pg-config $(ECPREFIX)/lib/postgres/$(POSTGRES_MJR_VERSION)/bin/pg_config
-PYTHON_PRE_SETUP_ARGS.64 =	build_ext --pg-config $(ECPREFIX)/lib/postgres/$(POSTGRES_MJR_VERSION)/bin/$(MACH64)/pg_config
-PYTHON_PRE_SETUP_ARGS =		$(PYTHON_PRE_SETUP_ARGS.$(BITS))
+COMPONENT_BUILD_ARGS.32 =	build_ext --pg-config $(USRDIR)/lib/postgres/$(POSTGRES_MJR_VERSION)/bin/pg_config
+COMPONENT_BUILD_ARGS.64 =	build_ext --pg-config $(USRDIR)/lib/postgres/$(POSTGRES_MJR_VERSION)/bin/$(MACH64)/pg_config
+COMPONENT_BUILD_ARGS =		$(COMPONENT_BUILD_ARGS.$(BITS))
 
 build:		$(BUILD_32_and_64)
 
-install:	$(INSTALL_32_and_64)
+$(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
+	$(RM) -r $(PROTO_DIR)$(USRDIR)/lib/python2.[67]/vendor-packages/psycopg2/tests
+	$(MV) $(PROTO_DIR)$(USRDIR)/lib/python2.6/vendor-packages/psycopg2 \
+		$(PROTO_DIR)$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-$(POSTGRES_MJR_VERSION)
+	$(MV) $(PROTO_DIR)$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-2.6.2-py2.6.egg-info \
+		$(PROTO_DIR)$(USRDIR)/lib/python2.6/vendor-packages/psycopg2-2.6.2-py2.6.egg-info-$(POSTGRES_MJR_VERSION)
+	$(MV) $(PROTO_DIR)$(USRDIR)/lib/python2.7/vendor-packages/psycopg2 \
+		$(PROTO_DIR)$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-$(POSTGRES_MJR_VERSION)
+	$(MV) $(PROTO_DIR)$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-2.6.2-py2.7.egg-info \
+		$(PROTO_DIR)$(USRDIR)/lib/python2.7/vendor-packages/psycopg2-2.6.2-py2.7.egg-info-$(POSTGRES_MJR_VERSION)
+	$(TOUCH) $@
+
+install:	$(BUILD_DIR)/.installed
