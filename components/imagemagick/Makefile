@@ -9,22 +9,22 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ImageMagick
 COMPONENT_FMRI=		multimedia/imagemagick
-COMPONENT_VERSION=	6.9.3-10
-IPS_COMPONENT_VERSION=	6.9.3.10
+COMPONENT_VERSION=	7.0.4-6
+IPS_COMPONENT_VERSION=	7.0.4.6
 COMPONENT_LICENSE=	ImageMagick
 COMPONENT_LICENSE_FILE=	LICENSE
 COMPONENT_PROJECT_URL=	http://www.imagemagick.org/
 COMPONENT_SUMMARY=	Convert, Edit, And Compose Images
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:640b40b4907986523b81bda4d4429c3a5b233a1d465e652d6e64d1cfecca4592
+COMPONENT_ARCHIVE_HASH=	sha256:25b3c6813cb2e2d90d54005bc9e857923299a19fd0923cbce2bbeb7a3589d5fe
 COMPONENT_ARCHIVE_URL=	ftp://ftp.imagemagick.org/pub/ImageMagick/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -94,7 +94,7 @@ COMPONENT_BUILD_ARGS += LD_RUN_PATH="$(CONFIGURE_LIBDIR.$(BITS))"
 # XML               --with-xml=yes                yes
 # ZLIB              --with-zlib=yes               yes
 
-COMPONENT_POST_INSTALL_ACTION+= ( \
+#COMPONENT_POST_INSTALL_ACTION+= ( \
 	$(ECHO) -e "/* EC: combining 32 and 64bit versions */\n\n\#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/magick-baseconfig.h; \
 	$(CAT) $(BUILD_DIR_64)/magick/magick-baseconfig.h >> $(COMPONENT_DIR)/magick-baseconfig.h; \
 	$(ECHO) -e "\n\#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/magick-baseconfig.h; \
@@ -110,11 +110,12 @@ COMPONENT_POST_INSTALL_ACTION+= ( \
 build:		$(BUILD_32_and_64)
 
 $(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
-	$(RM) $(PROTO_DIR)$(USRDIR)/include/ImageMagick-6/magick/magick-baseconfig.h
-	$(INSTALL) $(COMPONENT_DIR)/magick-baseconfig.h $(PROTO_DIR)$(USRDIR)/include/ImageMagick-6/magick/magick-baseconfig.h
-	$(RM) $(PROTO_DIR)$(USRDIR)/include/ImageMagick-6/magick/version.h
-	$(INSTALL) $(COMPONENT_DIR)/version.h $(PROTO_DIR)$(USRDIR)/include/ImageMagick-6/magick/version.h
 	$(TOUCH) $@
+#	$(RM) $(PROTO_DIR)$(USRDIR)/include/ImageMagick-7/magick/magick-baseconfig.h
+#	$(INSTALL) $(COMPONENT_DIR)/magick-baseconfig.h $(PROTO_DIR)$(USRDIR)/include/ImageMagick-7/magick/magick-baseconfig.h
+#	$(RM) $(PROTO_DIR)$(USRDIR)/include/ImageMagick-7/magick/version.h
+#	$(INSTALL) $(COMPONENT_DIR)/version.h $(PROTO_DIR)$(USRDIR)/include/ImageMagick-7/magick/version.h
+#	$(TOUCH) $@
 
 install:	$(BUILD_DIR)/.installed
 

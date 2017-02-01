@@ -1,6 +1,6 @@
 --- ImageMagick-6.3.4/coders/png.c.orig	Mon Aug 23 12:50:12 2010
 +++ ImageMagick-6.3.4/coders/png.c	Mon Aug 23 12:51:35 2010
-@@ -100,6 +100,10 @@
+@@ -102,6 +102,10 @@
  
  #include "png.h"
  #include "zlib.h"
