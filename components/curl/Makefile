@@ -15,13 +15,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		curl
 COMPONENT_FMRI=		web/curl
-COMPONENT_VERSION=	7.49.0
+COMPONENT_VERSION=	7.52.1
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	http://curl.haxx.se/
 COMPONENT_SUMMARY=	The C-URL Wrappers Library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:14f44ed7b5207fea769ddb2c31bd9e720d37312e1c02315def67923a4a636078
+COMPONENT_ARCHIVE_HASH=	sha256:d16185a767cb2c1ba3d5b9096ec54e5ec198b213f45864a38b3bda4bbf87389b
 COMPONENT_ARCHIVE_URL=	http://curl.haxx.se/download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -52,32 +52,30 @@ CONFIGURE_OPTIONS += --with-random=/dev/urandom
 CONFIGURE_OPTIONS += --with-ssl
 CONFIGURE_OPTIONS += --with-pic
 CONFIGURE_OPTIONS += --with-libssh2
-
 CONFIGURE_OPTIONS += --with-zlib=$(USRDIR)
 CONFIGURE_OPTIONS += --with-libidn=$(USRDIR)
 CONFIGURE_OPTIONS += --with-ca-bundle=$(CONFIGURE_SYSCONFDIR)/openssl/cabundle.pem
 CONFIGURE_OPTIONS += --without-librtmp
 CONFIGURE_OPTIONS += --disable-ldap
 CONFIGURE_OPTIONS += --disable-ldaps
-
 CONFIGURE_OPTIONS += --with-gssapi-includes=$(USRDIR)/include/gssapi
 CONFIGURE_OPTIONS += --with-gssapi-libs=$(GSSAPI_LIBDIR_$(BITS))
 CONFIGURE_OPTIONS += --with-gssapi=$(USRDIR)
 CONFIGURE_OPTIONS += "curl_disallow_getifaddrs=yes"
 
-#COMPONENT_POST_INSTALL_ACTION.32 =	( perl -pi -e \
-#	's/CURLLIBDIR=.*/CURLLIBDIR="-L$(USRDIR)\/lib -R$(USRDIR)\/lib "/' \
-#	$(PROTO_DIR)$(USRDIR)/bin/curl-config )
-#COMPONENT_POST_INSTALL_ACTION.64 =	( perl -pi -e \
-#	's/CURLLIBDIR=.*/CURLLIBDIR="-L$(USRDIR)\/lib\/$(MACH64) -R$(USRDIR)\/lib\/$(MACH64) "/' \
-#	$(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/curl-config )
-#COMPONENT_POST_INSTALL_ACTION=$(COMPONENT_POST_INSTALL_ACTION.$(BITS))
+COMPONENT_POST_INSTALL_ACTION.32 = \
+	perl -pi -e 's!CURLLIBDIR=.*!CURLLIBDIR="-L$(USRDIR)/lib -R$(USRDIR)/lib "!' \
+		$(PROTO_DIR)$(USRDIR)/bin/curl-config ; \
+	perl -pi -e 's! -I/ec/include  !!g; s/((-\b[lL]\S+\b)\h?)/$$count{$$2}++ ? '"'"''"'"' : "$$1"/eg; %count = ();' \
+		$(PROTO_DIR)$(USRDIR)/bin/curl-config ;
+COMPONENT_POST_INSTALL_ACTION.64 = \
+	perl -pi -e 's!CURLLIBDIR=.*!CURLLIBDIR="-L$(USRDIR)/lib\/$(MACH64) -R$(USRDIR)/lib\/$(MACH64) "!' \
+		$(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/curl-config ; \
+	perl -pi -e 's! -I/ec/include  !!g; s/((-\b[lL]\S+\b)\h?)/$$count{$$2}++ ? '"'"''"'"' : "$$1"/eg; %count = ();' \
+		$(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/curl-config ;
+COMPONENT_POST_INSTALL_ACTION = $(COMPONENT_POST_INSTALL_ACTION.$(BITS)) \
+	$(MV) $(PROTOUSRDIR)/include/curl/curlbuild.h $(PROTOUSRDIR)/include/curl/curlbuild-$(BITS).h
 
-COMPONENT_POST_INSTALL_ACTION += \
-	($(MV) $(PROTOUSRDIR)/include/curl/curlbuild.h \
-		$(PROTOUSRDIR)/include/curl/curlbuild-$(BITS).h )
-
-# common targets
 build:		$(BUILD_32_and_64)
 
 install: 	$(INSTALL_32_and_64)
