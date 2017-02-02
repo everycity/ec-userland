@@ -353,8 +353,6 @@ GPATCH =	$(USRBINDIR)/patch
 PATCH_LEVEL =	1
 GPATCH_BACKUP =	--backup --version-control=numbered
 GPATCH_FLAGS =	-p$(PATCH_LEVEL) $(GPATCH_BACKUP)
-GSED =		$(USRBINDIR)/gsed
-SED =		$(USRBINDIR)/sed
 
 PKGREPO =	pkgrepo
 PKGSEND =	pkgsend
@@ -364,24 +362,27 @@ ACLOCAL =	$(USRBINDIR)/aclocal-1.10
 AUTOMAKE =	$(USRBINDIR)/automake-1.10
 AUTORECONF = 	$(USRBINDIR)/autoreconf
 
-TOUCH =		$(USRBINDIR)/touch
 MKDIR =		/bin/mkdir -p
 RM =		/bin/rm -f
 CP =		/bin/cp -f
 MV =		/bin/mv -f
 LN =		/bin/ln
 SYMLINK =	/bin/ln -s
-ECHO =		$(USRBINDIR)/echo
+STRIP =		/usr/bin/strip -x
 CAT =		$(USRBINDIR)/cat
-ENV =		$(USRBINDIR)/env
-INSTALL =	$(USRBINDIR)/install
 CHMOD =		$(USRBINDIR)/chmod
-NAWK =		$(USRBINDIR)/nawk
-TEE =		$(USRBINDIR)/tee
+ECHO =		$(USRBINDIR)/echo
+ENV =		$(USRBINDIR)/env
+GFIND =		$(USRBINDIR)/gfind
+GSED =		$(USRBINDIR)/gsed
+GTAR =		$(USRBINDIR)/gtar
 GUNZIP =	$(USRBINDIR)/gunzip
 GZIP =		$(USRBINDIR)/gzip
-GTAR =		$(USRBINDIR)/gtar
-GFIND =		$(USRBINDIR)/gfind
+INSTALL =	$(USRBINDIR)/install
+NAWK =		$(USRBINDIR)/nawk
+SED =		$(USRBINDIR)/sed
+TEE =		$(USRBINDIR)/tee
+TOUCH =		$(USRBINDIR)/touch
 IPS2TGZ =	$(WS_TOOLS)/ips2tgz
 MAKEISA_SH =	$(WS_TOOLS)/makeisa.sh
 
