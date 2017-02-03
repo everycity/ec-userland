@@ -1,0 +1,95 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2017 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+
+file path=$(USRDIR)/bin/$(MACH64)/cwebp
+file path=$(USRDIR)/bin/$(MACH64)/dwebp
+file path=$(USRDIR)/bin/$(MACH64)/gif2webp
+file path=$(USRDIR)/bin/$(MACH64)/img2webp
+file path=$(USRDIR)/bin/$(MACH64)/webpmux
+file path=$(USRDIR)/bin/cwebp
+file path=$(USRDIR)/bin/dwebp
+file path=$(USRDIR)/bin/gif2webp
+file path=$(USRDIR)/bin/img2webp
+file path=$(USRDIR)/bin/webpmux
+dir  path=$(USRDIR)/include/webp
+file path=$(USRDIR)/include/webp/decode.h
+file path=$(USRDIR)/include/webp/demux.h
+file path=$(USRDIR)/include/webp/encode.h
+file path=$(USRDIR)/include/webp/mux.h
+file path=$(USRDIR)/include/webp/mux_types.h
+file path=$(USRDIR)/include/webp/types.h
+file path=$(USRDIR)/lib/$(MACH64)/libwebp.a
+file path=$(USRDIR)/lib/$(MACH64)/libwebp.la
+link path=$(USRDIR)/lib/$(MACH64)/libwebp.so target=libwebp.so.7.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libwebp.so.7 target=libwebp.so.7.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libwebp.so.7.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libwebpdecoder.a
+file path=$(USRDIR)/lib/$(MACH64)/libwebpdecoder.la
+link path=$(USRDIR)/lib/$(MACH64)/libwebpdecoder.so \
+    target=libwebpdecoder.so.3.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libwebpdecoder.so.3 \
+    target=libwebpdecoder.so.3.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libwebpdecoder.so.3.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libwebpdemux.a
+file path=$(USRDIR)/lib/$(MACH64)/libwebpdemux.la
+link path=$(USRDIR)/lib/$(MACH64)/libwebpdemux.so target=libwebpdemux.so.2.0.2
+link path=$(USRDIR)/lib/$(MACH64)/libwebpdemux.so.2 target=libwebpdemux.so.2.0.2
+file path=$(USRDIR)/lib/$(MACH64)/libwebpdemux.so.2.0.2
+file path=$(USRDIR)/lib/$(MACH64)/libwebpmux.a
+file path=$(USRDIR)/lib/$(MACH64)/libwebpmux.la
+link path=$(USRDIR)/lib/$(MACH64)/libwebpmux.so target=libwebpmux.so.3.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libwebpmux.so.3 target=libwebpmux.so.3.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libwebpmux.so.3.0.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libwebp.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libwebpdecoder.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libwebpdemux.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libwebpmux.pc
+file path=$(USRDIR)/lib/libwebp.a
+file path=$(USRDIR)/lib/libwebp.la
+link path=$(USRDIR)/lib/libwebp.so target=libwebp.so.7.0.0
+link path=$(USRDIR)/lib/libwebp.so.7 target=libwebp.so.7.0.0
+file path=$(USRDIR)/lib/libwebp.so.7.0.0
+file path=$(USRDIR)/lib/libwebpdecoder.a
+file path=$(USRDIR)/lib/libwebpdecoder.la
+link path=$(USRDIR)/lib/libwebpdecoder.so target=libwebpdecoder.so.3.0.0
+link path=$(USRDIR)/lib/libwebpdecoder.so.3 target=libwebpdecoder.so.3.0.0
+file path=$(USRDIR)/lib/libwebpdecoder.so.3.0.0
+file path=$(USRDIR)/lib/libwebpdemux.a
+file path=$(USRDIR)/lib/libwebpdemux.la
+link path=$(USRDIR)/lib/libwebpdemux.so target=libwebpdemux.so.2.0.2
+link path=$(USRDIR)/lib/libwebpdemux.so.2 target=libwebpdemux.so.2.0.2
+file path=$(USRDIR)/lib/libwebpdemux.so.2.0.2
+file path=$(USRDIR)/lib/libwebpmux.a
+file path=$(USRDIR)/lib/libwebpmux.la
+link path=$(USRDIR)/lib/libwebpmux.so target=libwebpmux.so.3.0.0
+link path=$(USRDIR)/lib/libwebpmux.so.3 target=libwebpmux.so.3.0.0
+file path=$(USRDIR)/lib/libwebpmux.so.3.0.0
+file path=$(USRDIR)/lib/pkgconfig/libwebp.pc
+file path=$(USRDIR)/lib/pkgconfig/libwebpdecoder.pc
+file path=$(USRDIR)/lib/pkgconfig/libwebpdemux.pc
+file path=$(USRDIR)/lib/pkgconfig/libwebpmux.pc
+file path=$(USRDIR)/share/man/man1/cwebp.1
+file path=$(USRDIR)/share/man/man1/dwebp.1
+file path=$(USRDIR)/share/man/man1/gif2webp.1
+file path=$(USRDIR)/share/man/man1/webpmux.1
