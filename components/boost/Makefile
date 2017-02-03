@@ -16,43 +16,42 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		boost
 COMPONENT_FMRI=		library/boost
-COMPONENT_VERSION=	1.62.0
-COMPONENT_OTHER_VERSION= 1_62_0
+COMPONENT_VERSION=	1.63.0
+COMPONENT_OTHER_VERSION= 1_63_0
 COMPONENT_LICENSE=	Boost Software License v1.0
 COMPONENT_LICENSE_FILE=	LICENSE_1_0.txt
 COMPONENT_PROJECT_URL=	"http://www.boost.org/"
 COMPONENT_SUMMARY=	Boost C++ Libraries
 COMPONENT_SRC=		$(COMPONENT_NAME)_$(COMPONENT_OTHER_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:36c96b0f6155c98404091d8ceb48319a28279ca0333fba1ad8611eb90afb2ca0
+COMPONENT_ARCHIVE_HASH=	sha256:b9ae97ebc5d8129091041838b1537c5ff54e61a519f49dee864045f174491108
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
+COMPONENT_BUILD_ENV += CC="$(CC)" CXX="$(CXX)" CPPFLAGS="$(CPPFLAGS)" CFLAGS="$(CFLAGS)" CXXFLAGS="$(CXXFLAGS)" LDFLAGS="$(LDFLAGS)"
+
 LIBDIR.32= $(USRDIR)/lib
 LIBDIR.64= $(USRDIR)/lib/$(MACH64)
 LIBDIR= $(LIBDIR.$(BITS))
 
-CXXFLAGS+=	-std=c++11
+#CXXFLAGS+=	-std=c++0x
 
 BJAM=./b2 --v2 -d+2 -j4 -q address-model=$(BITS) \
-    -sBUILD="release <threading>single/multi" \
     --user-config=./user-config.jam \
+    -sBUILD="release <threading>single/multi" \
     --prefix=$(PROTO_DIR)$(USRDIR) \
-    --libdir=$(PROTO_DIR)$(LIBDIR) \
-    cxxflags=-std=c++11
+    --libdir=$(PROTO_DIR)$(LIBDIR)
+#    cxxflags=-std=c++0x
 
 COMPONENT_PRE_BUILD_ACTION = cd $(@D); \
-	echo 'using gcc : 4.8.5 : $(CXX) : <cflags>"$(CFLAGS) $(CC_PIC) -pthreads" <cxxflags>"$(CXXFLAGS)" <linkflags>"$(LDFLAGS)" ;' > ./user-config.jam; \
-	$(ENV) $(COMPONENT_BUILD_ENV) \
-	./bootstrap.sh --prefix=$(USRDIR) --libdir=$(LIBDIR) \
-        --with-toolset=gcc --with-icu=$(USRDIR); \
-    $(BJAM) release stage
+	echo 'using gcc : 4.8.5 : $(CXX) : <cflags>"$(CFLAGS) $(CC_PIC) -pthreads" <cxxflags>"$(CXXFLAGS) $(CC_PIC)" <linkflags>"$(LDFLAGS)" ;' > ./user-config.jam; \
+	$(ENV) $(COMPONENT_BUILD_ENV) ./bootstrap.sh --prefix=$(USRDIR) --libdir=$(LIBDIR) --with-toolset=gcc --with-icu=$(USRDIR); \
+	$(BJAM) release stage
 
-COMPONENT_PRE_INSTALL_ACTION = cd $(@D); \
-    $(BJAM) install
+COMPONENT_PRE_INSTALL_ACTION = cd $(@D); $(BJAM) install
 
 $(BUILD_32): GMAKE=/bin/true
 $(BUILD_64): GMAKE=/bin/true

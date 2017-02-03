@@ -1,0 +1,44 @@
+--- boost_1_63_0/libs/log/config/native-syslog/Jamfile.jam.orig	2017-02-02 22:47:04.479863820 +0000
++++ boost_1_63_0/libs/log/config/native-syslog/Jamfile.jam	2017-02-02 22:48:05.146305639 +0000
+@@ -14,7 +14,7 @@
+         <target-os>linux:<define>_XOPEN_SOURCE=600
+         <target-os>linux:<define>_GNU_SOURCE=1
+ 
+-        <target-os>solaris:<define>_XOPEN_SOURCE=500
++        <target-os>solaris:<define>_XOPEN_SOURCE=600
+         <target-os>solaris:<define>__EXTENSIONS__
+ 
+         <target-os>hpux,<toolset>gcc:<define>_XOPEN_SOURCE_EXTENDED
+--- boost_1_63_0/libs/log/config/atomic-int32/Jamfile.jam.orig	2017-02-02 22:47:11.879353217 +0000
++++ boost_1_63_0/libs/log/config/atomic-int32/Jamfile.jam	2017-02-02 22:48:16.172621561 +0000
+@@ -14,7 +14,7 @@
+         <target-os>linux:<define>_XOPEN_SOURCE=600
+         <target-os>linux:<define>_GNU_SOURCE=1
+ 
+-        <target-os>solaris:<define>_XOPEN_SOURCE=500
++        <target-os>solaris:<define>_XOPEN_SOURCE=600
+         <target-os>solaris:<define>__EXTENSIONS__
+ 
+         <target-os>hpux,<toolset>gcc:<define>_XOPEN_SOURCE_EXTENDED
+--- boost_1_63_0/libs/log/config/pthread-mutex-robust/Jamfile.jam.orig	2017-02-02 22:47:24.634566727 +0000
++++ boost_1_63_0/libs/log/config/pthread-mutex-robust/Jamfile.jam	2017-02-02 22:48:32.790313764 +0000
+@@ -14,7 +14,7 @@
+         <target-os>linux:<define>_XOPEN_SOURCE=600
+         <target-os>linux:<define>_GNU_SOURCE=1
+ 
+-        <target-os>solaris:<define>_XOPEN_SOURCE=500
++        <target-os>solaris:<define>_XOPEN_SOURCE=600
+         <target-os>solaris:<define>__EXTENSIONS__
+ 
+         <target-os>hpux,<toolset>gcc:<define>_XOPEN_SOURCE_EXTENDED
+--- boost_1_63_0/libs/log/build/Jamfile.v2.orig	2017-02-02 22:49:14.567184410 +0000
++++ boost_1_63_0/libs/log/build/Jamfile.v2	2017-02-02 22:43:25.755200773 +0000
+@@ -253,7 +253,7 @@
+         <target-os>linux:<define>_XOPEN_SOURCE=600
+         <target-os>linux:<library>rt
+ 
+-        <target-os>solaris:<define>_XOPEN_SOURCE=500 # Solaris headers are broken and cannot be included in C++ when _XOPEN_SOURCE=600
++        <target-os>solaris:<define>_XOPEN_SOURCE=600
+         <target-os>solaris:<define>__EXTENSIONS__
+         <target-os>solaris:<library>socket
+         <target-os>solaris:<library>nsl
