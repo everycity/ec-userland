@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -24,8 +24,8 @@ COMPONENT_PROJECT_URL=	"http://www.boost.org/"
 COMPONENT_SUMMARY=	Boost C++ Libraries
 COMPONENT_SRC=		$(COMPONENT_NAME)_$(COMPONENT_OTHER_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:b9ae97ebc5d8129091041838b1537c5ff54e61a519f49dee864045f174491108
-COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
+COMPONENT_ARCHIVE_HASH=	sha256:beae2529f759f6b3bf3f4969a19c2e9d6f0c503edcb2de4a61d1428519fcb3b0
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF2)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
@@ -37,14 +37,11 @@ LIBDIR.32= $(USRDIR)/lib
 LIBDIR.64= $(USRDIR)/lib/$(MACH64)
 LIBDIR= $(LIBDIR.$(BITS))
 
-#CXXFLAGS+=	-std=c++0x
-
 BJAM=./b2 --v2 -d+2 -j4 -q address-model=$(BITS) \
     --user-config=./user-config.jam \
     -sBUILD="release <threading>single/multi" \
     --prefix=$(PROTO_DIR)$(USRDIR) \
     --libdir=$(PROTO_DIR)$(LIBDIR)
-#    cxxflags=-std=c++0x
 
 COMPONENT_PRE_BUILD_ACTION = cd $(@D); \
 	echo 'using gcc : 4.8.5 : $(CXX) : <cflags>"$(CFLAGS) $(CC_PIC) -pthreads" <cxxflags>"$(CXXFLAGS) $(CC_PIC)" <linkflags>"$(LDFLAGS)" ;' > ./user-config.jam; \
