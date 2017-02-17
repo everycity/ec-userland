@@ -22,9 +22,9 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-file files/http-squid path=lib/svc/method/http-squid \
-     restart_fmri=svc:/network/http:squid
-file files/http-squid.xml path=lib/svc/manifest/network/http-squid.xml
+file files/http-squid path=$(ECPREFIX)/var/svc/method/http-squid mode=555 \
+    restart_fmri=svc:/system/manifest-import:default
+file files/http-squid.xml path=var/svc/manifest/site/http-squid.xml
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
