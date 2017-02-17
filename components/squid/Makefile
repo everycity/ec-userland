@@ -41,13 +41,16 @@ CONFIGURE_OPTIONS+=	--enable-cachemgr-hostname=localhost
 CONFIGURE_OPTIONS+=	--enable-delay-pools
 CONFIGURE_OPTIONS+=	--enable-icap-client
 CONFIGURE_OPTIONS+=	--enable-icmp
+CONFIGURE_OPTIONS+=	--enable-large-cache-files
 CONFIGURE_OPTIONS+=	--enable-poll
 CONFIGURE_OPTIONS+=	--enable-removal-policies=lru,heap
 CONFIGURE_OPTIONS+=	--enable-storeio="aufs diskd rock ufs"
 CONFIGURE_OPTIONS+=	--with-aio
 CONFIGURE_OPTIONS+=	--with-default-user=webservd
 CONFIGURE_OPTIONS+=	--disable-arch-native
-CONFIGURE_OPTIONS+=	--with-openssl
+CONFIGURE_OPTIONS+=	--with-gnutls
+CONFIGURE_OPTIONS+=	--with-nettle
+CONFIGURE_OPTIONS+=	--with-pthreads
 CONFIGURE_OPTIONS+=	ac_cv_dbopen_libdb=yes
 
 build:		$(BUILD_32_and_64)
