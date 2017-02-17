@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		lftp
 COMPONENT_FMRI=         ftp/client/lftp
-COMPONENT_VERSION=      4.7.1
+COMPONENT_VERSION=      4.7.6
 COMPONENT_LICENSE=      GPLv3
 COMPONENT_PROJECT_URL=  http://lftp.yar.ru/
 COMPONENT_SUMMARY=	A sophisticated ftp/http client, and a file transfer program supporting a number of network protocols
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:98335d6f006286b3900cacf215f6341777f921ba2d412fa88b16727954daee58
-COMPONENT_ARCHIVE_URL=	http://lftp.yar.ru/ftp/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:2c8773993ec06f59d7a5734090e64ec37f106f98b250b8c476c55cc0b35aa75d
+COMPONENT_ARCHIVE_URL=	http://lftp.tech/ftp/lftp-4.7.6.tar.gz
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
