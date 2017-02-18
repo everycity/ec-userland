@@ -962,6 +962,7 @@ file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MES
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/plperl-9.6.mo
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/plpgsql-9.6.mo
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/plpython-9.6.mo
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/postgres-9.6.mo
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/ko/LC_MESSAGES/psql-9.6.mo
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/nb/LC_MESSAGES/pg_config-9.6.mo
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/pl/LC_MESSAGES/ecpg-9.6.mo
