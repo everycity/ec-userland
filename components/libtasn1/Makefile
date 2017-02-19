@@ -17,7 +17,7 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=		libtasn1
 COMPONENT_FMRI=         library/security/libtasn1
 COMPONENT_VERSION=      4.10
-COMPONENT_LICENSE=      LGPLv2.1
+COMPONENT_LICENSE=      LGPLv2.1,GPLv3
 COMPONENT_PROJECT_URL=  "https://www.gnu.org/software/libtasn1/"
 COMPONENT_SUMMARY=	ANSI C99 ASN.1 library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
