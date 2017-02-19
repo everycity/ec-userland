@@ -17,7 +17,7 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=		nettle
 COMPONENT_FMRI=         library/security/nettle
 COMPONENT_VERSION=      3.3
-COMPONENT_LICENSE=      LGPLv2.1
+COMPONENT_LICENSE=      LGPLv3,GPLv2,GPLv3
 COMPONENT_PROJECT_URL=  http://www.lysator.liu.se/~nisse/nettle/
 COMPONENT_SUMMARY=	A cryptographic library that is designed to fit easily in more or less any context
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
