@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -17,19 +17,26 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/bin
+dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/nettle-hash
 file path=$(USRDIR)/bin/$(MACH64)/nettle-lfib-stream
+file path=$(USRDIR)/bin/$(MACH64)/nettle-pbkdf2
 file path=$(USRDIR)/bin/$(MACH64)/pkcs1-conv
 file path=$(USRDIR)/bin/$(MACH64)/sexp-conv
 file path=$(USRDIR)/bin/nettle-hash
 file path=$(USRDIR)/bin/nettle-lfib-stream
+file path=$(USRDIR)/bin/nettle-pbkdf2
 file path=$(USRDIR)/bin/pkcs1-conv
 file path=$(USRDIR)/bin/sexp-conv
+dir  path=$(USRDIR)/include
+dir  path=$(USRDIR)/include/nettle
 file path=$(USRDIR)/include/nettle/aes.h
 file path=$(USRDIR)/include/nettle/arcfour.h
 file path=$(USRDIR)/include/nettle/arctwo.h
@@ -42,13 +49,20 @@ file path=$(USRDIR)/include/nettle/buffer.h
 file path=$(USRDIR)/include/nettle/camellia.h
 file path=$(USRDIR)/include/nettle/cast128.h
 file path=$(USRDIR)/include/nettle/cbc.h
+file path=$(USRDIR)/include/nettle/ccm.h
+file path=$(USRDIR)/include/nettle/chacha-poly1305.h
+file path=$(USRDIR)/include/nettle/chacha.h
 file path=$(USRDIR)/include/nettle/ctr.h
+file path=$(USRDIR)/include/nettle/curve25519.h
 file path=$(USRDIR)/include/nettle/des-compat.h
 file path=$(USRDIR)/include/nettle/des.h
+file path=$(USRDIR)/include/nettle/dsa-compat.h
 file path=$(USRDIR)/include/nettle/dsa.h
+file path=$(USRDIR)/include/nettle/eax.h
 file path=$(USRDIR)/include/nettle/ecc-curve.h
 file path=$(USRDIR)/include/nettle/ecc.h
 file path=$(USRDIR)/include/nettle/ecdsa.h
+file path=$(USRDIR)/include/nettle/eddsa.h
 file path=$(USRDIR)/include/nettle/gcm.h
 file path=$(USRDIR)/include/nettle/gosthash94.h
 file path=$(USRDIR)/include/nettle/hmac.h
@@ -58,6 +72,7 @@ file path=$(USRDIR)/include/nettle/md2.h
 file path=$(USRDIR)/include/nettle/md4.h
 file path=$(USRDIR)/include/nettle/md5-compat.h
 file path=$(USRDIR)/include/nettle/md5.h
+file path=$(USRDIR)/include/nettle/memops.h
 file path=$(USRDIR)/include/nettle/memxor.h
 file path=$(USRDIR)/include/nettle/nettle-meta.h
 file path=$(USRDIR)/include/nettle/nettle-stdint.h
@@ -65,9 +80,9 @@ file path=$(USRDIR)/include/nettle/nettle-types.h
 file path=$(USRDIR)/include/nettle/pbkdf2.h
 file path=$(USRDIR)/include/nettle/pgp.h
 file path=$(USRDIR)/include/nettle/pkcs1.h
+file path=$(USRDIR)/include/nettle/poly1305.h
 file path=$(USRDIR)/include/nettle/realloc.h
 file path=$(USRDIR)/include/nettle/ripemd160.h
-file path=$(USRDIR)/include/nettle/rsa-compat.h
 file path=$(USRDIR)/include/nettle/rsa.h
 file path=$(USRDIR)/include/nettle/salsa20.h
 file path=$(USRDIR)/include/nettle/serpent.h
@@ -78,25 +93,33 @@ file path=$(USRDIR)/include/nettle/sha2.h
 file path=$(USRDIR)/include/nettle/sha3.h
 file path=$(USRDIR)/include/nettle/twofish.h
 file path=$(USRDIR)/include/nettle/umac.h
+file path=$(USRDIR)/include/nettle/version.h
 file path=$(USRDIR)/include/nettle/yarrow.h
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/$(MACH64)
 file path=$(USRDIR)/lib/$(MACH64)/libhogweed.a
-file path=$(USRDIR)/lib/$(MACH64)/libhogweed.so.2.5
+link path=$(USRDIR)/lib/$(MACH64)/libhogweed.so target=libhogweed.so.4.3
+link path=$(USRDIR)/lib/$(MACH64)/libhogweed.so.4 target=libhogweed.so.4.3
+file path=$(USRDIR)/lib/$(MACH64)/libhogweed.so.4.3
 file path=$(USRDIR)/lib/$(MACH64)/libnettle.a
-file path=$(USRDIR)/lib/$(MACH64)/libnettle.so.4.7
+link path=$(USRDIR)/lib/$(MACH64)/libnettle.so target=libnettle.so.6.3
+link path=$(USRDIR)/lib/$(MACH64)/libnettle.so.6 target=libnettle.so.6.3
+file path=$(USRDIR)/lib/$(MACH64)/libnettle.so.6.3
+dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/hogweed.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/nettle.pc
 file path=$(USRDIR)/lib/libhogweed.a
-file path=$(USRDIR)/lib/libhogweed.so.2.5
+link path=$(USRDIR)/lib/libhogweed.so target=libhogweed.so.4.3
+link path=$(USRDIR)/lib/libhogweed.so.4 target=libhogweed.so.4.3
+file path=$(USRDIR)/lib/libhogweed.so.4.3
 file path=$(USRDIR)/lib/libnettle.a
-file path=$(USRDIR)/lib/libnettle.so.4.7
+link path=$(USRDIR)/lib/libnettle.so target=libnettle.so.6.3
+link path=$(USRDIR)/lib/libnettle.so.6 target=libnettle.so.6.3
+file path=$(USRDIR)/lib/libnettle.so.6.3
+dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/hogweed.pc
 file path=$(USRDIR)/lib/pkgconfig/nettle.pc
+dir  path=$(USRDIR)/share
+dir  path=$(USRDIR)/share/info
+file path=$(USRDIR)/share/info/dir
 file path=$(USRDIR)/share/info/nettle.info
-link path=$(USRDIR)/lib/$(MACH64)/libhogweed.so target=libhogweed.so.2.5
-link path=$(USRDIR)/lib/$(MACH64)/libhogweed.so.2 target=libhogweed.so.2.5
-link path=$(USRDIR)/lib/$(MACH64)/libnettle.so target=libnettle.so.4.7
-link path=$(USRDIR)/lib/$(MACH64)/libnettle.so.4 target=libnettle.so.4.7
-link path=$(USRDIR)/lib/libhogweed.so target=libhogweed.so.2.5
-link path=$(USRDIR)/lib/libhogweed.so.2 target=libhogweed.so.2.5
-link path=$(USRDIR)/lib/libnettle.so target=libnettle.so.4.7
-link path=$(USRDIR)/lib/libnettle.so.4 target=libnettle.so.4.7
