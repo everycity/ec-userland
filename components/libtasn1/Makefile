@@ -9,35 +9,28 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libtasn1
 COMPONENT_FMRI=		library/libtasn1
-COMPONENT_VERSION=	4.4
-COMPONENT_LICENSE=	LGPLv2
+COMPONENT_VERSION=	4.10
+COMPONENT_LICENSE=	LGPLv2,GPLv3
+COMPONENT_LICENSE_FILE=	$(COMPONENT_NAME).license
 COMPONENT_PROJECT_URL=	"https://www.gnu.org/software/libtasn1/"
 COMPONENT_SUMMARY=	Libtasn1 is the ASN.1 library used by GnuTLS, GNU Shishi and some other packages
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:f8349db1b4fe634105c77e11d26b2173e587827e86e1a489b5e38ffa822e0c5d
-COMPONENT_ARCHIVE_URL=	http://ftp.gnu.org/gnu/libtasn1/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:681a4d9a0d259f2125713f2e5766c5809f151b3a1392fd91390f780b4b8f5a02
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/configure.mk
 include $(WS_TOP)/make-rules/ips.mk
 
-CONFIGURE_OPTIONS+=	--disable-static
-CONFIGURE_OPTIONS+=	--enable-shared
-
 build:			$(BUILD_32_and_64)
 
 install:		$(INSTALL_32_and_64)
 
-test: $(NO_TESTS)
-
-BUILD_PKG_DEPENDENCIES = $(BUILD_TOOLS)
-
-include $(WS_TOP)/make-rules/depend.mk
