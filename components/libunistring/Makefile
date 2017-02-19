@@ -9,32 +9,30 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libunistring
 COMPONENT_FMRI=		library/libunistring
-COMPONENT_VERSION=	0.9.5
-COMPONENT_LICENSE=	GPLv3
+COMPONENT_VERSION=	0.9.7
+COMPONENT_LICENSE=	LGPLv3,GPLv3
+COMPONENT_LICENSE_FILE=	$(COMPONENT_NAME).license
 COMPONENT_PROJECT_URL=	"http://www.gnu.org/software/libunistring/"
 COMPONENT_SUMMARY=	Unicode string library for C
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:1a8c0772467850bef7197318a95f44abbb678ea83cbf119a3500cc7848276a17
-COMPONENT_ARCHIVE_URL=	http://ftp.gnu.org/gnu/libunistring/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:9ce081cbee1951b55597b30e7030bda9d7b2f034ef901a135ff3a020be5a41e5
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/configure.mk
 include $(WS_TOP)/make-rules/ips.mk
 
+CONFIGURE_OPTIONS+=	ac_cv_func_uselocale=no
+
 build:			$(BUILD_32_and_64)
 
 install:		$(INSTALL_32_and_64)
 
-test: $(NO_TESTS)
-
-BUILD_PKG_DEPENDENCIES = $(BUILD_TOOLS)
-
-include $(WS_TOP)/make-rules/depend.mk
