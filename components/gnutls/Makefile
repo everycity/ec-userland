@@ -9,33 +9,35 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gnutls
-COMPONENT_FMRI=         library/security/gnutls
-COMPONENT_VERSION=      3.3.13
-COMPONENT_LICENSE=      GPLv3
-COMPONENT_PROJECT_URL=  http://www.gnutls.org/
+COMPONENT_FMRI=		library/security/gnutls
+COMPONENT_MJR_VERSION=	3.5
+COMPONENT_MNR_VERSION=	9
+COMPONENT_VERSION=	$(COMPONENT_MJR_VERSION).$(COMPONENT_MNR_VERSION)
+COMPONENT_LICENSE=	LGPLv2.1+,GPLv3
+COMPONENT_LICENSE_FILE=	$(COMPONENT_NAME).license
+COMPONENT_PROJECT_URL=	"http://www.gnutls.org/"
 COMPONENT_SUMMARY=	A secure communications library implementing the SSL, TLS and DTLS protocols
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
-COMPONENT_ARCHIVE_HASH=	sha256:91bf1ef5c159b7f2176f972184545b287af6507ab55a543f6007d31406b97a99
-COMPONENT_ARCHIVE_URL=	ftp://ftp.gnutls.org/gcrypt/gnutls/v3.3/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:82b10f0c4ef18f4e64ad8cef5dbaf14be732f5095a41cf366b4ecb4050382951
+COMPONENT_ARCHIVE_URL=	ftp://ftp.gnutls.org/gcrypt/gnutls/v$(COMPONENT_MJR_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-
-#LDFLAGS += -lsocket -lnsl
 
 CFLAGS+=	$(CC_PIC)
 CONFIGURE_OPTIONS+=	--enable-shared
 CONFIGURE_OPTIONS+=	--disable-static
 CONFIGURE_OPTIONS+=	--with-pic
 CONFIGURE_OPTIONS+=	--disable-hardware-acceleration
+CONFIGURE_OPTIONS+=	--without-p11-kit
 
 build:		$(BUILD_32_and_64)
 
