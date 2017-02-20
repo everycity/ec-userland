@@ -17,8 +17,8 @@ index 5e973f1..7d5d93c 100644
  SSH_PKCS11_HELPER=$(libexecdir)/ssh-pkcs11-helper
 -ROOTDLIBDIR64=$(DESTDIR)/usr/lib/dtrace/64
 +ROOTDLIBDIR=$(DESTDIR)/usr/lib/dtrace
- SMFMETHODDIR=$(DESTDIR)/var/svc/method
- SMFSITEMANIDIR=$(DESTDIR)/var/svc/manifest/site
+ SMFMETHODDIR=/var/svc/method
+ SMFSITEMANIDIR=/var/svc/manifest/site
  PRIVSEP_PATH=@PRIVSEP_PATH@
 @@ -238,7 +238,7 @@ sftp_provider.h: $(srcdir)/sftp_provider.d
  	    -o $(srcdir)/sftp_provider.h
