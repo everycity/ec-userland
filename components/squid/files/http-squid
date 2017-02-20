@@ -1,0 +1,93 @@
+#!/usr/bin/ksh93
+
+#
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+# or http://www.opensolaris.org/os/licensing.
+# See the License for the specific language governing permissions
+# and limitations under the License.
+#
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+#
+# Copyright (c) 2009, 2011, Oracle and/or its affiliates. All rights reserved.
+#
+
+source /lib/svc/share/smf_include.sh
+
+typeset -r CONF_FILE=/ec/etc/squid/squid.conf
+typeset -r PIDFILE=/ec/var/run/squid.pid
+
+[[ ! -f ${CONF_FILE} ]] && exit $SMF_EXIT_ERR_CONFIG
+
+getprop() {
+    PROPVAL=""
+    svcprop -q -p $1 ${SMF_FMRI}
+    if [ $? -eq 0 ] ; then
+        PROPVAL=`svcprop -p $1 ${SMF_FMRI}`
+        if [ "${PROPVAL}" = "\"\"" ] ; then
+            PROPVAL=""
+        fi
+        return
+    fi
+    return
+}
+
+getprop squid/enable_64bit
+if [ "${PROPVAL}" != "" ] ; then
+    case ${PROPVAL} in
+    true|1)
+        # Check if the system architecture supports 64-bit applications
+        PLATFORM=`isainfo -b`
+        if [ "${PLATFORM}" != "64" ]; then
+            echo "This system is not capable of supporting 64-bit applications."
+            echo "Set \"enable_64bit\" property value to \"false\" to start the 32-bit server."
+            exit $SMF_EXIT_ERR_CONFIG
+        fi
+
+        # 64 bit Squid
+        PLATFORM_DIR=/amd64
+        ;;
+    false|0)
+        # 32 bit Squid
+        PLATFORM_DIR=
+        ;;
+    *)
+        # Invalid value for "bitness"
+        echo "\"bitness\" property value is invalid. Starting the server in 32-bit mode"
+        PLATFORM_DIR=
+        ;;
+    esac
+fi
+
+typeset -r SQUID="/ec/bin${PLATFORM_DIR}/squid"
+
+case "$1" in
+start)
+        /bin/rm -f ${PIDFILE}
+        if [[ ! -d /ec/var/squid/cache/00 ]] ; then
+                out="$(${SQUID} -z)"
+        fi
+
+        exec ${SQUID} 2>&1
+        ;;
+stop)
+        exec ${SQUID} -k shutdown 2>&1
+        ;;
+*)
+        print "Usage: $0 {start|stop}"
+        exit 1
+        ;;
+esac
+
+# not reached
