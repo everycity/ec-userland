@@ -19,8 +19,8 @@ index 47dbceff..1ab8bc90 100644
  SSH_KEYSIGN=$(libexecdir)/ssh-keysign
  SSH_PKCS11_HELPER=$(libexecdir)/ssh-pkcs11-helper
  ROOTDLIBDIR64=$(DESTDIR)/usr/lib/dtrace/64
-+SMFMETHODDIR=$(DESTDIR)/var/svc/method
-+SMFSITEMANIDIR=$(DESTDIR)/var/svc/manifest/site
++SMFMETHODDIR=/var/svc/method
++SMFSITEMANIDIR=/var/svc/manifest/site
  PRIVSEP_PATH=@PRIVSEP_PATH@
  SSH_PRIVSEP_USER=@SSH_PRIVSEP_USER@
  STRIP_OPT=@STRIP_OPT@
@@ -138,7 +138,7 @@ index 00000000..50452966
 +		restart_on='restart'
 +		type='path'>
 +		<service_fmri
-+		    value='file://localhost/etc/ssh/sshd_config' />
++		    value='file://localhost/ec/etc/ssh/sshd_config' />
 +	</dependency>
 +
 +	<dependent
