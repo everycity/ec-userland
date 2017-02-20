@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -68,6 +68,7 @@ link path=$(USRDIR)/bin/xzfgrep target=xzgrep
 file path=$(USRDIR)/bin/xzgrep
 file path=$(USRDIR)/bin/xzless
 file path=$(USRDIR)/bin/xzmore
+dir  path=$(USRDIR)/include/lzma
 file path=$(USRDIR)/include/lzma.h
 file path=$(USRDIR)/include/lzma/base.h
 file path=$(USRDIR)/include/lzma/bcj.h
@@ -83,16 +84,20 @@ file path=$(USRDIR)/include/lzma/lzma12.h
 file path=$(USRDIR)/include/lzma/stream_flags.h
 file path=$(USRDIR)/include/lzma/version.h
 file path=$(USRDIR)/include/lzma/vli.h
+file path=$(USRDIR)/lib/$(MACH64)/liblzma.la
 link path=$(USRDIR)/lib/$(MACH64)/liblzma.so \
     target=liblzma.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/$(MACH64)/liblzma.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/$(MACH64)/liblzma.so.5 \
     target=liblzma.so.$(COMPONENT_VERSION)
+dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/liblzma.pc
+file path=$(USRDIR)/lib/liblzma.la
 link path=$(USRDIR)/lib/liblzma.so target=liblzma.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/liblzma.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/liblzma.so.5 target=liblzma.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/pkgconfig/liblzma.pc
+dir  path=$(USRDIR)/share/doc/xz
 file path=$(USRDIR)/share/doc/xz/AUTHORS
 file path=$(USRDIR)/share/doc/xz/COPYING
 file path=$(USRDIR)/share/doc/xz/COPYING.GPLv2
@@ -100,12 +105,14 @@ file path=$(USRDIR)/share/doc/xz/NEWS
 file path=$(USRDIR)/share/doc/xz/README
 file path=$(USRDIR)/share/doc/xz/THANKS
 file path=$(USRDIR)/share/doc/xz/TODO
+dir  path=$(USRDIR)/share/doc/xz/examples
 file path=$(USRDIR)/share/doc/xz/examples/00_README.txt
 file path=$(USRDIR)/share/doc/xz/examples/01_compress_easy.c
 file path=$(USRDIR)/share/doc/xz/examples/02_decompress.c
 file path=$(USRDIR)/share/doc/xz/examples/03_compress_custom.c
 file path=$(USRDIR)/share/doc/xz/examples/04_compress_easy_mt.c
 file path=$(USRDIR)/share/doc/xz/examples/Makefile
+dir  path=$(USRDIR)/share/doc/xz/examples_old
 file path=$(USRDIR)/share/doc/xz/examples_old/xz_pipe_comp.c
 file path=$(USRDIR)/share/doc/xz/examples_old/xz_pipe_decomp.c
 file path=$(USRDIR)/share/doc/xz/faq.txt

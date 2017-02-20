@@ -9,31 +9,27 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		xz
 COMPONENT_FMRI=		compress/xz
-COMPONENT_VERSION=	5.2.0
+COMPONENT_VERSION=	5.2.3
 COMPONENT_LICENSE=	Public Domain,LGPLv2.1,GPLv2
 COMPONENT_PROJECT_URL=	"http://tukanni.org/xz"
 COMPONENT_SUMMARY=	XZ Utils - general-purpose data compression software
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:231ef369982240bb20ed7cffa52bb12a4a297ce6871f480ab85e8a7ba98bf3d6
+COMPONENT_ARCHIVE_HASH=	sha256:71928b357d0a09a12a4b4c5fafca8c31c19b0e7d3b8ebb19622e96f26dbf28cb
 COMPONENT_ARCHIVE_URL=	http://tukaani.org/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
-#COMPONENT_AUTOGEN_MANIFEST=	yes
-COMPONENT_LICENSE_FILE=	COPYING
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS  +=           --disable-static
-
-include ../../make-rules/shared-targets.mk
+CONFIGURE_OPTIONS+=	--disable-static
 
 build:		$(BUILD_32_and_64)
 
