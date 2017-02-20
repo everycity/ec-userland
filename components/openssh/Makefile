@@ -9,21 +9,22 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		openssh
 COMPONENT_FMRI=         security/openssh
-COMPONENT_VERSION=	7.2p2
-IPS_COMPONENT_VERSION=	7.2.2
+COMPONENT_VERSION=	7.4p1
+IPS_COMPONENT_VERSION=	7.4.1
 COMPONENT_LICENSE=	OpenSSH
+COMPONENT_LICENSE_FILE=	LICENCE
 COMPONENT_PROJECT_URL=	http://www.openssh.com/
 COMPONENT_SUMMARY=	OpenSSH Secure Shell
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:a72781d1a043876a224ff1b0032daa4094d87565a68528759c1c2cab5482548c
+COMPONENT_ARCHIVE_HASH=	sha256:1b1fc4a14e2024293181924ed24872e6f2e06293f3e8926a376b8aec481f19d1
 COMPONENT_ARCHIVE_URL=	http://mirror.bytemark.co.uk/pub/OpenBSD/OpenSSH/portable/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -33,6 +34,7 @@ include ../../make-rules/ips.mk
 COMPONENT_PREP_ACTION = \
 	( $(CP) $(COMPONENT_DIR)/patches/if_tun.h $(SOURCE_DIR)/openbsd-compat/ )
 
+COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; autoreconf -fi )
 
 CFLAGS += -fno-stack-protector
 CFLAGS += -DSET_USE_PAM
@@ -41,16 +43,18 @@ CFLAGS += -DLASTLOG_FIX
 CFLAGS += -DAUE_openssh=6172
 CFLAGS += -DDTRACE_SFTP
 CFLAGS += -DDISABLE_BANNER
+CFLAGS += -DKRB5_BUILD_FIX
 CFLAGS += -DPAM_ENHANCEMENT
 CFLAGS += -DPAM_BUGFIX
 CFLAGS += -DSSH_TUN_ILLUMOS=1
+CFLAGS += -I/usr/include/kerberosv5
 
 #LDFLAGS += -B direct -z nolazyload
 LDFLAGS += -B direct
 
+CONFIGURE_OPTIONS+=	--libexecdir=$(USRDIR)/bin
 CONFIGURE_OPTIONS+=	--sysconfdir=$(CONFIGURE_SYSCONFDIR)/ssh
 CONFIGURE_OPTIONS+=	--sbindir=$(USRDIR)/bin
-CONFIGURE_OPTIONS+=	--libexecdir=$(USRDIR)/bin
 
 CONFIGURE_OPTIONS+=	--with-ssl-dir=$(USRDIR)
 CONFIGURE_OPTIONS+=	--with-default-path=$(USRDIR)/bin:$(USRDIR)/sbin:/usr/bin:/usr/sbin:/usr/ccs/bin
@@ -61,6 +65,7 @@ CONFIGURE_OPTIONS+=	--with-pam
 CONFIGURE_OPTIONS+=	--with-ssl-engine
 CONFIGURE_OPTIONS+=	--with-kerberos5=/usr
 CONFIGURE_OPTIONS+=	--with-solaris-contracts
+CONFIGURE_OPTIONS+=	--with-solaris-privs
 CONFIGURE_OPTIONS+=	--with-solaris-projects
 CONFIGURE_OPTIONS+=	--with-audit=bsm
 CONFIGURE_OPTIONS+=	--with-zlib=$(USRDIR)

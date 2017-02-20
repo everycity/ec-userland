@@ -3,9 +3,9 @@ Index: openssh-6.9p1/auth.h
 --- openssh-6.9p1/auth.h.orig
 +++ openssh-6.9p1/auth.h
 @@ -81,6 +81,8 @@ struct Authctxt {
- 
- 	struct sshkey	**prev_userkeys;
- 	u_int		 nprev_userkeys;
+ #ifdef HAVE_PAM_AUSER
+ 	char		*auser;
+ #endif
 +
 +	int		chanid; /**/
  };
@@ -118,6 +118,24 @@ Index: openssh-6.6p1/channels.c
  	nc->mux_rcb = c->mux_rcb;
  	debug3("%s: new mux channel %d fd %d", __func__,
  	    nc->self, nc->sock);
+@@ -2506,7 +2516,7 @@
+ 			goto out;
+ 		}
+ 		c = channel_new("mux proxy", SSH_CHANNEL_MUX_PROXY,
+-		   -1, -1, -1, 0, 0, 0, ctype, 1);
++		   -1, -1, -1, 0, 0, 0, ctype, 1, -1, -1);
+ 		c->mux_ctx = downstream;	/* point to mux client */
+ 		c->mux_downstream_id = id;	/* original downstream id */
+ 		if ((r = sshbuf_put_cstring(modified, ctype)) != 0 ||
+@@ -2533,7 +2543,7 @@
+ 			goto out;
+ 		}
+ 		c = channel_new("mux proxy", SSH_CHANNEL_MUX_PROXY,
+-		   -1, -1, -1, 0, 0, 0, "mux-down-connect", 1);
++		   -1, -1, -1, 0, 0, 0, "mux-down-connect", 1, -1, -1);
+ 		c->mux_ctx = downstream;	/* point to mux client */
+ 		c->mux_downstream_id = id;
+ 		c->remote_id = remote_id;
 @@ -2866,7 +2876,7 @@ channel_setup_fwd_listener(int type, con
  		/* Allocate a channel number for the socket. */
  		c = channel_new("port listener", type, sock, sock, -1,
@@ -168,9 +186,9 @@ Index: openssh-6.6p1/channels.h
 --- openssh-6.6p1/channels.h.orig
 +++ openssh-6.6p1/channels.h
 @@ -160,6 +160,8 @@ struct Channel {
- 	mux_callback_fn		*mux_rcb;
  	void			*mux_ctx;
  	int			mux_pause;
+ 	int     		mux_downstream_id;
 +	int			local_tun; /* tun id if it available, -1 for others*/
 +	int			ip_fd; /* need only for ILLUMOS */
  };
