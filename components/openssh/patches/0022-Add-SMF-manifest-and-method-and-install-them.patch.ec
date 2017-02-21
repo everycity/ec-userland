@@ -19,8 +19,8 @@ index 47dbceff..1ab8bc90 100644
  SSH_KEYSIGN=$(libexecdir)/ssh-keysign
  SSH_PKCS11_HELPER=$(libexecdir)/ssh-pkcs11-helper
  ROOTDLIBDIR64=$(DESTDIR)/usr/lib/dtrace/64
-+SMFMETHODDIR=/var/svc/method
-+SMFSITEMANIDIR=/var/svc/manifest/site
++SMFMETHODDIR=$(DESTDIR)/var/svc/method
++SMFSITEMANIDIR=$(DESTDIR)/var/svc/manifest/site
  PRIVSEP_PATH=@PRIVSEP_PATH@
  SSH_PRIVSEP_USER=@SSH_PRIVSEP_USER@
  STRIP_OPT=@STRIP_OPT@
