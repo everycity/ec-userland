@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -40,6 +40,4 @@ dir path=$(ECPREFIX)/lib/php/5.6/include/php/ext
 dir path=$(ECPREFIX)/lib/php/5.6/include/php/ext/imagick
 file path=$(ECPREFIX)/lib/php/5.6/extensions/$(MACH64)/imagick.so
 file path=$(ECPREFIX)/lib/php/5.6/extensions/imagick.so
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/imagick/php_imagick.h
-file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/imagick/php_imagick_defs.h
 file path=$(ECPREFIX)/lib/php/5.6/include/php/ext/imagick/php_imagick_shared.h

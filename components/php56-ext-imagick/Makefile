@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		imagick
 COMPONENT_FMRI=		web/php-56/extension/php-imagick
-COMPONENT_VERSION=	3.1.2
+COMPONENT_VERSION=	3.4.3
 COMPONENT_LICENSE=	PHP3.01
 COMPONENT_PROJECT_URL=	"http://pecl.php.net/package/imagick"
 COMPONENT_SUMMARY=	Imagick is a native php extension to create and modify images using the ImageMagick API.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH=	sha256:528769ac304a0bbe9a248811325042188c9d16e06de16f111fee317c85a36c93
+COMPONENT_ARCHIVE_HASH=	sha256:1f3c5b5eeaa02800ad22f506cd100e8889a66b2ec937e192eaaa30d74562567c
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_PECL)
 
 include ../../make-rules/prep.mk
