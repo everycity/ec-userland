@@ -18,7 +18,7 @@ $NetBSD: patch-common_uposixdefs.h,v 1.2 2014/07/18 10:28:11 ryoon Exp $
   * z/OS needs this definition for timeval and to get usleep.
   */
 +#if !defined(__sun) && !defined(_SCO_DS)
- #if !defined(_XOPEN_SOURCE_EXTENDED)
+ #if !defined(_XOPEN_SOURCE_EXTENDED) && defined(__TOS_MVS__)
  #   define _XOPEN_SOURCE_EXTENDED 1
  #endif
 +#endif

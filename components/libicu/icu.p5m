@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -22,10 +22,8 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/bin
-dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/derb
+file path=$(USRDIR)/bin/$(MACH64)/escapesrc
 file path=$(USRDIR)/bin/$(MACH64)/genbrk
 file path=$(USRDIR)/bin/$(MACH64)/genccode
 file path=$(USRDIR)/bin/$(MACH64)/gencfu
@@ -42,6 +40,7 @@ file path=$(USRDIR)/bin/$(MACH64)/makeconv
 file path=$(USRDIR)/bin/$(MACH64)/pkgdata
 file path=$(USRDIR)/bin/$(MACH64)/uconv
 file path=$(USRDIR)/bin/derb
+file path=$(USRDIR)/bin/escapesrc
 file path=$(USRDIR)/bin/genbrk
 file path=$(USRDIR)/bin/genccode
 file path=$(USRDIR)/bin/gencfu
@@ -57,7 +56,6 @@ file path=$(USRDIR)/bin/icupkg
 file path=$(USRDIR)/bin/makeconv
 file path=$(USRDIR)/bin/pkgdata
 file path=$(USRDIR)/bin/uconv
-dir  path=$(USRDIR)/include
 dir  path=$(USRDIR)/include/unicode
 file path=$(USRDIR)/include/unicode/alphaindex.h
 file path=$(USRDIR)/include/unicode/appendable.h
@@ -68,6 +66,8 @@ file path=$(USRDIR)/include/unicode/bytestrie.h
 file path=$(USRDIR)/include/unicode/bytestriebuilder.h
 file path=$(USRDIR)/include/unicode/calendar.h
 file path=$(USRDIR)/include/unicode/caniter.h
+file path=$(USRDIR)/include/unicode/casemap.h
+file path=$(USRDIR)/include/unicode/char16ptr.h
 file path=$(USRDIR)/include/unicode/chariter.h
 file path=$(USRDIR)/include/unicode/choicfmt.h
 file path=$(USRDIR)/include/unicode/coleitr.h
@@ -87,6 +87,7 @@ file path=$(USRDIR)/include/unicode/dtitvfmt.h
 file path=$(USRDIR)/include/unicode/dtitvinf.h
 file path=$(USRDIR)/include/unicode/dtptngen.h
 file path=$(USRDIR)/include/unicode/dtrule.h
+file path=$(USRDIR)/include/unicode/edits.h
 file path=$(USRDIR)/include/unicode/enumset.h
 file path=$(USRDIR)/include/unicode/errorcode.h
 file path=$(USRDIR)/include/unicode/fieldpos.h
@@ -231,8 +232,6 @@ file path=$(USRDIR)/include/unicode/utypes.h
 file path=$(USRDIR)/include/unicode/uvernum.h
 file path=$(USRDIR)/include/unicode/uversion.h
 file path=$(USRDIR)/include/unicode/vtzone.h
-dir  path=$(USRDIR)/lib
-dir  path=$(USRDIR)/lib/$(MACH64)
 dir  path=$(USRDIR)/lib/$(MACH64)/icu
 dir  path=$(USRDIR)/lib/$(MACH64)/icu/$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/$(MACH64)/icu/$(COMPONENT_VERSION)/Makefile.inc
@@ -243,34 +242,33 @@ link path=$(USRDIR)/lib/$(MACH64)/icu/pkgdata.inc target=current/pkgdata.inc
 link path=$(USRDIR)/lib/$(MACH64)/libicudata.so \
     target=libicudata.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/$(MACH64)/libicudata.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/$(MACH64)/libicudata.so.58 \
+link path=$(USRDIR)/lib/$(MACH64)/libicudata.so.59 \
     target=libicudata.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/$(MACH64)/libicui18n.so \
     target=libicui18n.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/$(MACH64)/libicui18n.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/$(MACH64)/libicui18n.so.58 \
+link path=$(USRDIR)/lib/$(MACH64)/libicui18n.so.59 \
     target=libicui18n.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/$(MACH64)/libicuio.so \
     target=libicuio.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/$(MACH64)/libicuio.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/$(MACH64)/libicuio.so.58 \
+link path=$(USRDIR)/lib/$(MACH64)/libicuio.so.59 \
     target=libicuio.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/$(MACH64)/libicutest.so \
     target=libicutest.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/$(MACH64)/libicutest.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/$(MACH64)/libicutest.so.58 \
+link path=$(USRDIR)/lib/$(MACH64)/libicutest.so.59 \
     target=libicutest.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/$(MACH64)/libicutu.so \
     target=libicutu.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/$(MACH64)/libicutu.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/$(MACH64)/libicutu.so.58 \
+link path=$(USRDIR)/lib/$(MACH64)/libicutu.so.59 \
     target=libicutu.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/$(MACH64)/libicuuc.so \
     target=libicuuc.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/$(MACH64)/libicuuc.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/$(MACH64)/libicuuc.so.58 \
+link path=$(USRDIR)/lib/$(MACH64)/libicuuc.so.59 \
     target=libicuuc.so.$(COMPONENT_VERSION)
-dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/icu-i18n.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/icu-io.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/icu-uc.pc
@@ -283,30 +281,28 @@ link path=$(USRDIR)/lib/icu/current target=$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/icu/pkgdata.inc target=current/pkgdata.inc
 link path=$(USRDIR)/lib/libicudata.so target=libicudata.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/libicudata.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libicudata.so.58 \
+link path=$(USRDIR)/lib/libicudata.so.59 \
     target=libicudata.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/libicui18n.so target=libicui18n.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/libicui18n.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libicui18n.so.58 \
+link path=$(USRDIR)/lib/libicui18n.so.59 \
     target=libicui18n.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/libicuio.so target=libicuio.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/libicuio.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libicuio.so.58 target=libicuio.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libicuio.so.59 target=libicuio.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/libicutest.so target=libicutest.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/libicutest.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libicutest.so.58 \
+link path=$(USRDIR)/lib/libicutest.so.59 \
     target=libicutest.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/libicutu.so target=libicutu.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/libicutu.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libicutu.so.58 target=libicutu.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libicutu.so.59 target=libicutu.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/libicuuc.so target=libicuuc.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/libicuuc.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libicuuc.so.58 target=libicuuc.so.$(COMPONENT_VERSION)
-dir  path=$(USRDIR)/lib/pkgconfig
+link path=$(USRDIR)/lib/libicuuc.so.59 target=libicuuc.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/pkgconfig/icu-i18n.pc
 file path=$(USRDIR)/lib/pkgconfig/icu-io.pc
 file path=$(USRDIR)/lib/pkgconfig/icu-uc.pc
-dir  path=$(USRDIR)/share
 dir  path=$(USRDIR)/share/icu
 dir  path=$(USRDIR)/share/icu/$(COMPONENT_VERSION)
 file path=$(USRDIR)/share/icu/$(COMPONENT_VERSION)/LICENSE
@@ -314,8 +310,6 @@ dir  path=$(USRDIR)/share/icu/$(COMPONENT_VERSION)/config
 file path=$(USRDIR)/share/icu/$(COMPONENT_VERSION)/config/mh-solaris-gcc
 file path=$(USRDIR)/share/icu/$(COMPONENT_VERSION)/install-sh
 file path=$(USRDIR)/share/icu/$(COMPONENT_VERSION)/mkinstalldirs
-dir  path=$(USRDIR)/share/man
-dir  path=$(USRDIR)/share/man/man1
 file path=$(USRDIR)/share/man/man1/derb.1
 file path=$(USRDIR)/share/man/man1/genbrk.1
 file path=$(USRDIR)/share/man/man1/gencfu.1
@@ -326,7 +320,6 @@ file path=$(USRDIR)/share/man/man1/icu-config.1
 file path=$(USRDIR)/share/man/man1/makeconv.1
 file path=$(USRDIR)/share/man/man1/pkgdata.1
 file path=$(USRDIR)/share/man/man1/uconv.1
-dir  path=$(USRDIR)/share/man/man8
 file path=$(USRDIR)/share/man/man8/genccode.8
 file path=$(USRDIR)/share/man/man8/gencmn.8
 file path=$(USRDIR)/share/man/man8/gensprep.8
