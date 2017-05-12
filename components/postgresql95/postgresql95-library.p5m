@@ -346,6 +346,7 @@ file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/comma
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/commands/variable.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/commands/view.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/common/fe_memutils.h
+file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/common/int128.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/common/pg_lzcompress.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/common/relpath.h
 file \
