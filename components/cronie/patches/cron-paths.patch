@@ -1,7 +1,7 @@
-diff -ruN cronie-1.4.8.orig/src/Makefile.am cronie-1.4.8/src/Makefile.am
---- cronie-1.4.8.orig/src/Makefile.am	2010-12-16 08:59:02.000000000 +0000
-+++ cronie-1.4.8/src/Makefile.am	2011-07-20 14:43:53.914877642 +0100
-@@ -43,7 +43,7 @@
+diff -ruN cronie-1.5.1.orig/src/Makefile.am cronie-1.5.1/src/Makefile.am
+--- cronie-1.5.1.orig/src/Makefile.am	2013-08-26 09:16:36.000000000 +0000
++++ cronie-1.5.1/src/Makefile.am	2017-06-14 15:00:57.555288309 +0000
+@@ -45,7 +45,7 @@
  			 * didn't exist last time around...) \
  			 * or it will be checked by inotify \
  			 */ \
@@ -10,7 +10,7 @@ diff -ruN cronie-1.4.8.orig/src/Makefile.am cronie-1.4.8/src/Makefile.am
  	\
  			/* CRON_HOSTNAME is file in SPOOL_DIR which, if it \
  			 * exists, and does not just contain a line matching \
-@@ -58,8 +58,8 @@
+@@ -60,8 +60,8 @@
  			/* cron allow/deny file.  At least cron.deny must \
  			 * exist for ordinary users to run crontab. \
  			 */ \
