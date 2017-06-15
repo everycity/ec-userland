@@ -1,15 +1,7 @@
---- cronie-1.4.8/src/pathnames.h.~1~	2010-12-16 08:59:02.000000000 +0000
-+++ cronie-1.4.8/src/pathnames.h	2015-03-12 12:34:59.222882759 +0000
-@@ -51,7 +51,7 @@
- #if defined(_PATH_VI)
- # define EDITOR _PATH_VI
- #else
--# define EDITOR "/usr/ucb/vi"
-+# define EDITOR "/ec/bin/vim"
- #endif
- 
- #ifndef _PATH_BSHELL
-@@ -59,7 +59,7 @@
+diff -ruN cronie-1.5.1.orig/src/pathnames.h cronie-1.5.1/src/pathnames.h
+--- cronie-1.5.1.orig/src/pathnames.h	2012-11-26 16:27:52.000000000 +0000
++++ cronie-1.5.1/src/pathnames.h	2017-06-14 15:02:09.457933076 +0000
+@@ -50,7 +50,7 @@
  #endif
  
  #ifndef _PATH_DEFPATH

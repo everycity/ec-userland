@@ -1,0 +1,12 @@
+diff -ruN cronie-1.5.1/src/env.c /home/aszeszo/ec-userland/components/cronie/source/cronie-1.5.1//src/env.c
+--- cronie-1.5.1/src/env.c	2014-11-04 16:51:09.000000000 +0000
++++ /home/aszeszo/ec-userland/components/cronie/source/cronie-1.5.1//src/env.c	2017-06-14 15:14:55.708718393 +0000
+@@ -31,7 +31,7 @@
+ #include "globals.h"
+ #include "funcs.h"
+ 
+-#if defined(BSD)
++#if defined(BSD) || defined(__sun)
+ extern char **environ;
+ #endif
+ 

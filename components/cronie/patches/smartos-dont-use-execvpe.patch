@@ -1,0 +1,49 @@
+diff -ruN cronie-1.5.1.orig/src/do_command.c cronie-1.5.1/src/do_command.c
+--- cronie-1.5.1.orig/src/do_command.c	2015-05-28 11:01:04.000000000 +0000
++++ cronie-1.5.1/src/do_command.c	2017-06-14 15:26:30.707583914 +0000
+@@ -436,7 +436,7 @@
+ 				else {
+ 					strncpy(mailcmd, MailCmd, MAX_COMMAND);
+ 				}
+-				if (!(mail = cron_popen(mailcmd, "w", e->pwd, jobenv))) {
++				if (!(mail = cron_popen(mailcmd, "w", e->pwd))) {
+ 					perror(mailcmd);
+ 					(void) _exit(ERROR_EXIT);
+ 				}
+diff -ruN cronie-1.5.1.orig/src/funcs.h cronie-1.5.1/src/funcs.h
+--- cronie-1.5.1.orig/src/funcs.h	2015-05-28 11:01:04.000000000 +0000
++++ cronie-1.5.1/src/funcs.h	2017-06-14 15:26:32.782513705 +0000
+@@ -90,7 +90,7 @@
+ 
+ entry		*load_entry(FILE *, void (*)(), struct passwd *, char **);
+ 
+-FILE		*cron_popen(char *, const char *, struct passwd *, char **);
++FILE		*cron_popen(char *, const char *, struct passwd *);
+ 
+ struct passwd	*pw_dup(const struct passwd *);
+ 
+diff -ruN cronie-1.5.1.orig/src/popen.c cronie-1.5.1/src/popen.c
+--- cronie-1.5.1.orig/src/popen.c	2015-05-28 11:01:04.000000000 +0000
++++ cronie-1.5.1/src/popen.c	2017-06-14 15:26:33.857621949 +0000
+@@ -60,7 +60,7 @@
+ 
+ #define MAX_ARGS 1024
+ 
+-FILE *cron_popen(char *program, const char *type, struct passwd *pw, char **jobenv) {
++FILE *cron_popen(char *program, const char *type, struct passwd *pw) {
+ 	char *cp;
+ 	FILE *iop;
+ 	int argc, pdes[2];
+@@ -127,10 +127,10 @@
+ 			close(fd);
+ 		}
+ 
+-		if (cron_change_user_permanently(pw, env_get("HOME", jobenv)) != 0)
++		if (cron_change_user_permanently(pw, pw->pw_dir) != 0)
+ 			_exit(2);
+ 
+-		if (execvpe(argv[0], argv, jobenv) < 0) {
++		if (execvp(argv[0], argv) < 0) {
+ 			int save_errno = errno;
+ 
+ 			log_it("CRON", getpid(), "EXEC FAILED", program, save_errno);

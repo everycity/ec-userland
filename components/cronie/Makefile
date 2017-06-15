@@ -15,11 +15,11 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		cronie
-COMPONENT_VERSION=	1.4.8
+COMPONENT_VERSION=	1.5.1
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:1d2ce3a6ca2a6f96ff31921e4060be3199dc10f3
-COMPONENT_ARCHIVE_URL=	https://fedorahosted.org/releases/c/r/cronie/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:6c73666102a6b5d35e2eaf1bd06925f2d4b0cef8d3323c37286dda3089a85338
+COMPONENT_ARCHIVE_URL=	https://github.com/cronie-crond/cronie/releases/download/cronie-$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
@@ -30,6 +30,7 @@ CONFIGURE_OPTIONS+=	--sysconfdir=/etc
 CONFIGURE_OPTIONS+=	--localstatedir=/var
 CONFIGURE_OPTIONS+=	--enable-anacron
 CONFIGURE_OPTIONS+=	--enable-pie
+CONFIGURE_OPTIONS+=	--with-editor=/ec/bin/vim
 
 COMPONENT_PRE_CONFIGURE_ACTION+= ( cd $(SOURCE_DIR) ; autoreconf )
 

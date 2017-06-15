@@ -1,0 +1,12 @@
+diff -ruN cronie-1.5.1/src/database.c /home/aszeszo/ec-userland/components/cronie/source/cronie-1.5.1//src/database.c
+--- cronie-1.5.1/src/database.c	2016-06-23 17:17:48.000000000 +0000
++++ /home/aszeszo/ec-userland/components/cronie/source/cronie-1.5.1//src/database.c	2017-06-14 15:19:13.077818581 +0000
+@@ -57,6 +57,8 @@
+ /* reasonable guess as to size of 1024 events */
+ #define BUF_LEN 	(1024 * (EVENT_SIZE + 16))
+ 
++#define NAME_MAX 255
++
+ static void overwrite_database(cron_db *, cron_db *);
+ 
+ static void process_crontab(const char *, const char *,
