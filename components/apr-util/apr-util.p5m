@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -55,10 +55,12 @@ file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_memcache.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_optional.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_optional_hooks.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_queue.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_redis.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_reslist.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_rmm.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_sdbm.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_sha1.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_siphash.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_strmatch.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_thread_pool.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_uri.h
@@ -88,10 +90,12 @@ file path=$(ECPREFIX)/include/apr-1.0/apr_memcache.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_optional.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_optional_hooks.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_queue.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_redis.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_reslist.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_rmm.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_sdbm.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_sha1.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_siphash.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_strmatch.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_thread_pool.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_uri.h
@@ -117,7 +121,7 @@ file path=$(ECPREFIX)/lib/$(MACH64)/apr-util-1/apr_ldap.la
 file path=$(ECPREFIX)/lib/$(MACH64)/aprutil.exp
 file path=$(ECPREFIX)/lib/$(MACH64)/libaprutil-1.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libaprutil-1.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libaprutil-1.so.0.5.4
+file path=$(ECPREFIX)/lib/$(MACH64)/libaprutil-1.so.0.6.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/apr-util-1.pc
 file path=$(ECPREFIX)/lib/apr-util-1/apr_dbd_odbc-1.so
 file path=$(ECPREFIX)/lib/apr-util-1/apr_dbd_odbc.a
@@ -134,7 +138,7 @@ file path=$(ECPREFIX)/lib/apr-util-1/apr_ldap.la
 file path=$(ECPREFIX)/lib/aprutil.exp
 file path=$(ECPREFIX)/lib/libaprutil-1.a
 file path=$(ECPREFIX)/lib/libaprutil-1.la
-file path=$(ECPREFIX)/lib/libaprutil-1.so.0.5.4
+file path=$(ECPREFIX)/lib/libaprutil-1.so.0.6.0
 file path=$(ECPREFIX)/lib/pkgconfig/apr-util-1.pc
 link path=$(ECPREFIX)/lib/$(MACH64)/apr-util-1/apr_dbd_odbc.so \
     target=apr_dbd_odbc-1.so
@@ -145,14 +149,14 @@ link path=$(ECPREFIX)/lib/$(MACH64)/apr-util-1/apr_dbd_sqlite3.so \
 link path=$(ECPREFIX)/lib/$(MACH64)/apr-util-1/apr_ldap.so \
     target=apr_ldap-1.so
 link path=$(ECPREFIX)/lib/$(MACH64)/libaprutil-1.so \
-    target=libaprutil-1.so.0.5.4
+    target=libaprutil-1.so.0.6.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libaprutil-1.so.0 \
-    target=libaprutil-1.so.0.5.4
+    target=libaprutil-1.so.0.6.0
 link path=$(ECPREFIX)/lib/apr-util-1/apr_dbd_odbc.so target=apr_dbd_odbc-1.so
 link path=$(ECPREFIX)/lib/apr-util-1/apr_dbd_pgsql.so \
     target=apr_dbd_pgsql-1.so
 link path=$(ECPREFIX)/lib/apr-util-1/apr_dbd_sqlite3.so \
     target=apr_dbd_sqlite3-1.so
 link path=$(ECPREFIX)/lib/apr-util-1/apr_ldap.so target=apr_ldap-1.so
-link path=$(ECPREFIX)/lib/libaprutil-1.so target=libaprutil-1.so.0.5.4
-link path=$(ECPREFIX)/lib/libaprutil-1.so.0 target=libaprutil-1.so.0.5.4
+link path=$(ECPREFIX)/lib/libaprutil-1.so target=libaprutil-1.so.0.6.0
+link path=$(ECPREFIX)/lib/libaprutil-1.so.0 target=libaprutil-1.so.0.6.0
