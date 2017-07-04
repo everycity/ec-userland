@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -41,6 +41,7 @@ file path=$(ECPREFIX)/bin/apr-1-config
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_allocator.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_atomic.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_cstr.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_dso.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_env.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_errno.h
@@ -56,6 +57,7 @@ file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_inherit.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_lib.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_mmap.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_network_io.h
+file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_perms_set.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_poll.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_pools.h
 file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_portable.h
@@ -79,6 +81,7 @@ file path=$(ECPREFIX)/include/apr-1.0/$(MACH64)/apr_want.h
 file path=$(ECPREFIX)/include/apr-1.0/apr.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_allocator.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_atomic.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_cstr.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_dso.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_env.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_errno.h
@@ -94,6 +97,7 @@ file path=$(ECPREFIX)/include/apr-1.0/apr_inherit.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_lib.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_mmap.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_network_io.h
+file path=$(ECPREFIX)/include/apr-1.0/apr_perms_set.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_poll.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_pools.h
 file path=$(ECPREFIX)/include/apr-1.0/apr_portable.h
@@ -117,24 +121,28 @@ file path=$(ECPREFIX)/include/apr-1.0/apr_want.h
 file path=$(ECPREFIX)/lib/$(MACH64)/apr.exp
 file path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so.0.5.2
+file path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so.0.6.2
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/apr-1.pc
 file path=$(ECPREFIX)/lib/apr.exp
 file path=$(ECPREFIX)/lib/libapr-1.a
 file path=$(ECPREFIX)/lib/libapr-1.la
-file path=$(ECPREFIX)/lib/libapr-1.so.0.5.2
+file path=$(ECPREFIX)/lib/libapr-1.so.0.6.2
 file path=$(ECPREFIX)/lib/pkgconfig/apr-1.pc
+file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/apr_common.m4
 file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/apr_rules.mk
+file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/find_apr.m4
 file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/libtool mode=0555
 file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/make_exports.awk
 file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/make_var_export.awk
 file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/mkdir.sh mode=0555
+file path=$(ECPREFIX)/share/apr-1.0/build/apr_common.m4
 file path=$(ECPREFIX)/share/apr-1.0/build/apr_rules.mk
+file path=$(ECPREFIX)/share/apr-1.0/build/find_apr.m4
 file path=$(ECPREFIX)/share/apr-1.0/build/libtool mode=0555
 file path=$(ECPREFIX)/share/apr-1.0/build/make_exports.awk
 file path=$(ECPREFIX)/share/apr-1.0/build/make_var_export.awk
 file path=$(ECPREFIX)/share/apr-1.0/build/mkdir.sh mode=0555
-link path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so target=libapr-1.so.0.5.2
-link path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so.0 target=libapr-1.so.0.5.2
-link path=$(ECPREFIX)/lib/libapr-1.so target=libapr-1.so.0.5.2
-link path=$(ECPREFIX)/lib/libapr-1.so.0 target=libapr-1.so.0.5.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so target=libapr-1.so.0.6.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so.0 target=libapr-1.so.0.6.2
+link path=$(ECPREFIX)/lib/libapr-1.so target=libapr-1.so.0.6.2
+link path=$(ECPREFIX)/lib/libapr-1.so.0 target=libapr-1.so.0.6.2
