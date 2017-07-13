@@ -266,6 +266,6 @@ file path=$(ECPREFIX)/share/man/man8/ftpdctl.8
 file path=$(ECPREFIX)/share/man/man8/ftpscrub.8
 file path=$(ECPREFIX)/share/man/man8/ftpshut.8
 file path=$(ECPREFIX)/share/man/man8/proftpd.8
-file path=$(ECPREFIX)/var/svc/method/proftpd
+file path=$(ECPREFIX)/var/svc/method/proftpd mode=0555
 file path=var/svc/manifest/site/proftpd.xml
 link path=$(ECPREFIX)/bin/in.proftpd target=proftpd
