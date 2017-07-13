@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -109,7 +109,6 @@ file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/Archive/Tar.php
 file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/Console/Getopt.php
 file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/OS/Guess.php
 file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/PEAR.php
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/PEAR/Autoloader.php
 file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/PEAR/Builder.php
 file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/PEAR/ChannelFile.php
 file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/PEAR/ChannelFile/Parser.php
@@ -180,6 +179,7 @@ file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/PEAR/PackageFile/v2.php
 file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/PEAR/PackageFile/v2/Validator.php
 file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/PEAR/PackageFile/v2/rw.php
 file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/PEAR/Packager.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/PEAR/Proxy.php
 file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/PEAR/REST.php
 file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/PEAR/REST/10.php
 file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/PEAR/REST/11.php
@@ -225,24 +225,28 @@ file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/Structures_Graph/tests/AllTest
 file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/Structures_Graph/tests/BasicGraphTest.php
 file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/Structures_Graph/tests/TopologicalSorterTest.php
 file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/Structures_Graph/tests/helper.inc
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBasic_apiVersion.phpt
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBasic_attributesToString.phpt
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBasic_collapseEmptyTags.phpt
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBasic_createCDataSection.phpt
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBasic_createComment.phpt
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBasic_createEndElement.phpt
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBasic_createStartElement.phpt
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBasic_createTag.phpt
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBasic_createTagFromArray.phpt
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBasic_getDocTypeDeclaration.phpt
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBasic_getXmlDeclaration.phpt
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBasic_isValidName.phpt
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBasic_raiseError.phpt
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBasic_replaceEntities.phpt
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBasic_reverseEntities.phpt
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBasic_splitQualifiedName.phpt
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBug_18343.phpt
-file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/testBug_4950.phpt
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/AbstractUnitTests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/ApiVersionTests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/AttributesToStringTests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/Bug18343Tests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/Bug21177Tests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/Bug21184Tests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/Bug4950Tests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/Bug5392Tests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/CollapseEmptyTagsTests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/CreateCDataSectionTests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/CreateCommentTests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/CreateEndElementTests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/CreateStartElementTests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/CreateTagFromArrayTests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/CreateTagTests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/GetDocTypeDeclarationTests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/GetXmlDeclarationTests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/IsValidNameTests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/RaiseErrorTests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/ReplaceEntitiesTests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/ReverseEntitiesTests.php
+file path=$(ECPREFIX)/lib/php/5.6/share/PEAR/test/XML_Util/tests/SplitQualifiedNameTests.php
 link path=$(ECPREFIX)/bin/pear target=../lib/php/active/bin/pear preserve=true pkg.linted=true
 link path=$(ECPREFIX)/bin/peardev target=../lib/php/active/bin/peardev preserve=true pkg.linted=true
 link path=$(ECPREFIX)/bin/$(MACH64)/pear target=../../lib/php/active/bin/$(MACH64)/pear preserve=true pkg.linted=true
