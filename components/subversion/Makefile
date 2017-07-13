@@ -19,15 +19,15 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		subversion
-COMPONENT_VERSION=	1.8.14
+COMPONENT_VERSION=	1.8.18
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:7f3883cdfcad4174e06dd94d6e3e8ec91856823268eebe60c924be76f5229a1f
+COMPONENT_ARCHIVE_HASH=	sha256:e56b00ad3e927183bb6568781b85fe66dd3a7372c342af6e73b21a4473c397a6
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_APACHE)
 
 include ../../make-rules/prep.mk
