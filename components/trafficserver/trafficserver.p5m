@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -32,6 +32,7 @@ dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/include/ts
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 dir path=$(ECPREFIX)/lib/i86pc-solaris-64int
 dir path=$(ECPREFIX)/lib/site_perl
 dir path=$(ECPREFIX)/lib/site_perl/5.12.4
@@ -45,15 +46,15 @@ dir path=$(ECPREFIX)/lib/site_perl/Apache/TS/Config
 dir path=$(ECPREFIX)/man
 dir path=$(ECPREFIX)/man/man3
 dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
-dir path=$(ECPREFIX)/share/doc/trafficserver
-dir path=$(ECPREFIX)/share/doc/trafficserver/trafficshell
 dir path=$(ECPREFIX)/share/trafficserver
 dir path=$(ECPREFIX)/var
 dir path=$(ECPREFIX)/var/log
 dir path=$(ECPREFIX)/var/log/trafficserver
 dir path=$(ECPREFIX)/var/trafficserver
 file path=$(ECPREFIX)/bin/$(MACH64)/traffic_cop
+file path=$(ECPREFIX)/bin/$(MACH64)/traffic_crashlog
+file path=$(ECPREFIX)/bin/$(MACH64)/traffic_ctl
+file path=$(ECPREFIX)/bin/$(MACH64)/traffic_layout
 file path=$(ECPREFIX)/bin/$(MACH64)/traffic_line
 file path=$(ECPREFIX)/bin/$(MACH64)/traffic_logcat
 file path=$(ECPREFIX)/bin/$(MACH64)/traffic_logstats
@@ -61,6 +62,7 @@ file path=$(ECPREFIX)/bin/$(MACH64)/traffic_manager
 file path=$(ECPREFIX)/bin/$(MACH64)/traffic_sac
 file path=$(ECPREFIX)/bin/$(MACH64)/traffic_server
 file path=$(ECPREFIX)/bin/$(MACH64)/traffic_top
+file path=$(ECPREFIX)/bin/$(MACH64)/traffic_via
 file path=$(ECPREFIX)/bin/$(MACH64)/trafficserver
 file path=$(ECPREFIX)/bin/$(MACH64)/tspush
 file path=$(ECPREFIX)/bin/$(MACH64)/tsxs
@@ -129,12 +131,13 @@ file path=$(ECPREFIX)/lib/$(MACH64)/header_rewrite.la
 file path=$(ECPREFIX)/lib/$(MACH64)/header_rewrite.so
 file path=$(ECPREFIX)/lib/$(MACH64)/libloader.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libloader.so
+file path=$(ECPREFIX)/lib/$(MACH64)/libtsconfig.la
+file path=$(ECPREFIX)/lib/$(MACH64)/libtsconfig.so.$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/$(MACH64)/libtsmgmt.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libtsmgmt.so.$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/lib/$(MACH64)/libtsmgmtshare.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libtsmgmtshare.so.$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/$(MACH64)/libtsutil.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libtsutil.so.$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/trafficserver.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/regex_remap.la
 file path=$(ECPREFIX)/lib/$(MACH64)/regex_remap.so
 file path=$(ECPREFIX)/lib/$(MACH64)/stats_over_http.la
@@ -152,46 +155,15 @@ file path=$(ECPREFIX)/lib/site_perl/Apache/TS/Config/Records.pm
 file path=$(ECPREFIX)/man/man3/Apache::TS.3
 file path=$(ECPREFIX)/man/man3/Apache::TS::AdminClient.3
 file path=$(ECPREFIX)/man/man3/Apache::TS::Config::Records.3
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_alarms.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_cache-stats.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_cache.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_cluster.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_dns-resolver.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_dns-stats.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_hostdb-stats.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_hostdb.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_http-stats.1
-file \
-    path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_http-trans-stats.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_http.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_icp-stats.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_icp.1
-file \
-    path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_logging-stats.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_logging.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_network.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_parent.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_port-tunnels.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_proxy-stats.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_proxy.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_remap.1
-file \
-    path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_scheduled-update.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_security.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_socks.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_ssl.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_status.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_version.1
-file path=$(ECPREFIX)/share/doc/trafficserver/trafficshell/show_virtual-ip.1
 link path=$(ECPREFIX)/bin/$(MACH64)/tstop target=traffic_top
+link path=$(ECPREFIX)/lib/$(MACH64)/libtsconfig.so \
+    target=libtsconfig.so.$(COMPONENT_VERSION)
+link path=$(ECPREFIX)/lib/$(MACH64)/libtsconfig.so.5 \
+    target=libtsconfig.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/$(MACH64)/libtsmgmt.so \
     target=libtsmgmt.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/$(MACH64)/libtsmgmt.so.5 \
     target=libtsmgmt.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libtsmgmtshare.so \
-    target=libtsmgmtshare.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/$(MACH64)/libtsmgmtshare.so.5 \
-    target=libtsmgmtshare.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/$(MACH64)/libtsutil.so \
     target=libtsutil.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/$(MACH64)/libtsutil.so.5 \

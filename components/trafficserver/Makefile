@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		trafficserver
 COMPONENT_FMRI=         web/loadbalancer/apachetrafficserver
-COMPONENT_VERSION=      5.1.2
+COMPONENT_VERSION=      5.3.2
 COMPONENT_LICENSE=      APLv2
 COMPONENT_PROJECT_URL=  "http://trafficserver.apache.org/"
 COMPONENT_SUMMARY=	Apache Traffic Server software is a fast, scalable and extensible HTTP/1.1 compliant caching proxy server
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:65102a7181c8f3b8fb893cb32de0f54818cefb40592a21f517082bdceb26ddcd
+COMPONENT_ARCHIVE_HASH=	sha256:78a7875ac97795fba3a72db43aa2146b52b12642bafc71059e06a21603e4db6e
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_APACHE)
 
 include ../../make-rules/prep.mk
