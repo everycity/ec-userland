@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -105,22 +105,22 @@ file path=$(ECPREFIX)/include/ldap_schema.h
 file path=$(ECPREFIX)/include/ldap_utf8.h
 file path=$(ECPREFIX)/include/ldif.h
 file path=$(ECPREFIX)/include/slapi-plugin.h
-file path=$(ECPREFIX)/lib/$(MACH64)/liblber-2.4.so.2.10.7
+file path=$(ECPREFIX)/lib/$(MACH64)/liblber-2.4.so.2.10.8
 file path=$(ECPREFIX)/lib/$(MACH64)/liblber.a
 file path=$(ECPREFIX)/lib/$(MACH64)/liblber.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libldap-2.4.so.2.10.7
+file path=$(ECPREFIX)/lib/$(MACH64)/libldap-2.4.so.2.10.8
 file path=$(ECPREFIX)/lib/$(MACH64)/libldap.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libldap.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libldap_r-2.4.so.2.10.7
+file path=$(ECPREFIX)/lib/$(MACH64)/libldap_r-2.4.so.2.10.8
 file path=$(ECPREFIX)/lib/$(MACH64)/libldap_r.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libldap_r.la
-file path=$(ECPREFIX)/lib/liblber-2.4.so.2.10.7
+file path=$(ECPREFIX)/lib/liblber-2.4.so.2.10.8
 file path=$(ECPREFIX)/lib/liblber.a
 file path=$(ECPREFIX)/lib/liblber.la
-file path=$(ECPREFIX)/lib/libldap-2.4.so.2.10.7
+file path=$(ECPREFIX)/lib/libldap-2.4.so.2.10.8
 file path=$(ECPREFIX)/lib/libldap.a
 file path=$(ECPREFIX)/lib/libldap.la
-file path=$(ECPREFIX)/lib/libldap_r-2.4.so.2.10.7
+file path=$(ECPREFIX)/lib/libldap_r-2.4.so.2.10.8
 file path=$(ECPREFIX)/lib/libldap_r.a
 file path=$(ECPREFIX)/lib/libldap_r.la
 file path=$(ECPREFIX)/share/man/man1/ldapcompare.1
@@ -246,21 +246,21 @@ link path=$(ECPREFIX)/bin/slappasswd target=slapd
 link path=$(ECPREFIX)/bin/slapschema target=slapd
 link path=$(ECPREFIX)/bin/slaptest target=slapd
 link path=$(ECPREFIX)/lib/$(MACH64)/liblber-2.4.so.2 \
-    target=liblber-2.4.so.2.10.7
-link path=$(ECPREFIX)/lib/$(MACH64)/liblber.so target=liblber-2.4.so.2.10.7
+    target=liblber-2.4.so.2.10.8
+link path=$(ECPREFIX)/lib/$(MACH64)/liblber.so target=liblber-2.4.so.2.10.8
 link path=$(ECPREFIX)/lib/$(MACH64)/libldap-2.4.so.2 \
-    target=libldap-2.4.so.2.10.7
-link path=$(ECPREFIX)/lib/$(MACH64)/libldap.so target=libldap-2.4.so.2.10.7
+    target=libldap-2.4.so.2.10.8
+link path=$(ECPREFIX)/lib/$(MACH64)/libldap.so target=libldap-2.4.so.2.10.8
 link path=$(ECPREFIX)/lib/$(MACH64)/libldap_r-2.4.so.2 \
-    target=libldap_r-2.4.so.2.10.7
+    target=libldap_r-2.4.so.2.10.8
 link path=$(ECPREFIX)/lib/$(MACH64)/libldap_r.so \
-    target=libldap_r-2.4.so.2.10.7
-link path=$(ECPREFIX)/lib/liblber-2.4.so.2 target=liblber-2.4.so.2.10.7
-link path=$(ECPREFIX)/lib/liblber.so target=liblber-2.4.so.2.10.7
-link path=$(ECPREFIX)/lib/libldap-2.4.so.2 target=libldap-2.4.so.2.10.7
-link path=$(ECPREFIX)/lib/libldap.so target=libldap-2.4.so.2.10.7
-link path=$(ECPREFIX)/lib/libldap_r-2.4.so.2 target=libldap_r-2.4.so.2.10.7
-link path=$(ECPREFIX)/lib/libldap_r.so target=libldap_r-2.4.so.2.10.7
+    target=libldap_r-2.4.so.2.10.8
+link path=$(ECPREFIX)/lib/liblber-2.4.so.2 target=liblber-2.4.so.2.10.8
+link path=$(ECPREFIX)/lib/liblber.so target=liblber-2.4.so.2.10.8
+link path=$(ECPREFIX)/lib/libldap-2.4.so.2 target=libldap-2.4.so.2.10.8
+link path=$(ECPREFIX)/lib/libldap.so target=libldap-2.4.so.2.10.8
+link path=$(ECPREFIX)/lib/libldap_r-2.4.so.2 target=libldap_r-2.4.so.2.10.8
+link path=$(ECPREFIX)/lib/libldap_r.so target=libldap_r-2.4.so.2.10.8
 link path=$(ECPREFIX)/share/man/man1/ldapadd.1 target=ldapmodify.1
 link path=$(ECPREFIX)/share/man/man3/ber_alloc_t.3 target=lber-encode.3
 link path=$(ECPREFIX)/share/man/man3/ber_bvarray_add.3 target=lber-types.3
