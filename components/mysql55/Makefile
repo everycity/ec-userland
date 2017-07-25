@@ -17,10 +17,10 @@ include ../../make-rules/shared-macros.mk
 CMAKE= cmake
 
 COMPONENT_NAME=		mysql
-COMPONENT_VERSION=	5.5.56
+COMPONENT_VERSION=	5.5.57
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:3fd30a24267cef84ee8aeb327a5b08a669d3ab8c4d76d1b1b3b66d26cf777a0a
+COMPONENT_ARCHIVE_HASH=	sha256:c1c2bd321e524f92e43fe73d0d6745badd538c984c7561b273ae10e9aef57384
 COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/ftp.mysql.com/Downloads/MySQL-5.5/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
