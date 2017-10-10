@@ -1,0 +1,17 @@
+--- memcached-1.5.2/configure.orig	2017-10-10 19:23:49.800471902 +0000
++++ memcached-1.5.2/configure	2017-10-10 19:24:24.056706740 +0000
+@@ -4895,13 +4895,7 @@
+ $as_echo "#define ENABLE_DTRACE 1" >>confdefs.h
+ 
+     build_dtrace=yes
+-    # DTrace on MacOSX does not use -G option
+-    $DTRACE -G -o conftest.$$ -s memcached_dtrace.d 2>/dev/zero
+-    if test $? -eq 0
+-    then
+-        dtrace_instrument_obj=yes
+-        rm conftest.$$
+-    fi
++    dtrace_instrument_obj=yes
+ 
+     if test "`which tr`" = "/usr/ucb/tr"; then
+         as_fn_error $? "Please remove /usr/ucb from your path. See man standards for more info" "$LINENO" 5
