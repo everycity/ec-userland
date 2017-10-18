@@ -1,0 +1,44 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2017 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+
+dir  path=$(USRDIR)/include/sass
+file path=$(USRDIR)/include/sass.h
+file path=$(USRDIR)/include/sass/base.h
+file path=$(USRDIR)/include/sass/context.h
+file path=$(USRDIR)/include/sass/functions.h
+file path=$(USRDIR)/include/sass/values.h
+file path=$(USRDIR)/include/sass/version.h
+file path=$(USRDIR)/include/sass2scss.h
+file path=$(USRDIR)/lib/$(MACH64)/libsass.a
+file path=$(USRDIR)/lib/$(MACH64)/libsass.la
+link path=$(USRDIR)/lib/$(MACH64)/libsass.so target=libsass.so.0.0.9
+link path=$(USRDIR)/lib/$(MACH64)/libsass.so.0 target=libsass.so.0.0.9
+file path=$(USRDIR)/lib/$(MACH64)/libsass.so.0.0.9
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libsass.pc
+file path=$(USRDIR)/lib/libsass.a
+file path=$(USRDIR)/lib/libsass.la
+link path=$(USRDIR)/lib/libsass.so target=libsass.so.0.0.9
+link path=$(USRDIR)/lib/libsass.so.0 target=libsass.so.0.0.9
+file path=$(USRDIR)/lib/libsass.so.0.0.9
+file path=$(USRDIR)/lib/pkgconfig/libsass.pc
