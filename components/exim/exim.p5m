@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -39,8 +39,8 @@ file path=$(SYSCONFDIR)/exim/aliases.conf mode=0644 preserve=true
 file path=$(SYSCONFDIR)/exim/exim.conf mode=0644 preserve=true
 file path=$(USRDIR)/bin/exicyclog
 file path=$(USRDIR)/bin/exigrep
-link path=$(USRDIR)/bin/exim target=exim-4.88-2
-file path=$(USRDIR)/bin/exim-4.88-2 mode=4555 user=root group=root
+link path=$(USRDIR)/bin/exim target=exim-4.89-2
+file path=$(USRDIR)/bin/exim-4.89-2 mode=4555 user=root group=root
 file path=$(USRDIR)/bin/exim_checkaccess
 file path=$(USRDIR)/bin/exim_dbmbuild
 file path=$(USRDIR)/bin/exim_dumpdb
