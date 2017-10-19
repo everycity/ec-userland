@@ -18,7 +18,7 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 # Copyright 2014, Igor Kozhukhov <ikozhukhov@gmail.com>
 # Copyright (c) 2011, 2014, Oracle and/or its affiliates. All rights reserved.
 
@@ -29,11 +29,11 @@ include ../../../make-rules/shared-macros.mk
 #PATH=$(USRDIR)/bin:/usr/bin:/sbin:/usr/sbin
 
 COMPONENT_NAME=		Python
-COMPONENT_VERSION=	2.7.13
+COMPONENT_VERSION=	2.7.14
 COMPONENT_PROJECT_URL=	http://python.org/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
-COMPONENT_ARCHIVE_HASH=	sha256:35d543986882f78261f97787fd3e06274bfa6df29fac9b4a94f73930ff98f731
+COMPONENT_ARCHIVE_HASH=	sha256:71ffb26e09e78650e424929b2b457b9c912ac216576e6bd9e7d204ed03296a66
 COMPONENT_ARCHIVE_URL=	$(COMPONENT_PROJECT_URL)ftp/python/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 COMPONENT_BUGDB=	utility/python
 
