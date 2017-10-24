@@ -119,6 +119,7 @@ file path=$(ECPREFIX)/etc/ImageMagick-6/thresholds.xml
 file path=$(ECPREFIX)/etc/ImageMagick-6/type-apple.xml
 file path=$(ECPREFIX)/etc/ImageMagick-6/type-dejavu.xml
 file path=$(ECPREFIX)/etc/ImageMagick-6/type-ghostscript.xml
+file path=$(ECPREFIX)/etc/ImageMagick-6/type-urw-base35.xml
 file path=$(ECPREFIX)/etc/ImageMagick-6/type-windows.xml
 file path=$(ECPREFIX)/etc/ImageMagick-6/type.xml
 file path=$(ECPREFIX)/include/ImageMagick-6/Magick++.h
@@ -291,11 +292,17 @@ file \
 file \
     path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/Image/Magick/.packlist
 file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/Image/Magick/Magick.bs
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/Image/Magick/Magick.so
+file \
     path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/Image/Magick/Q16/Q16.bs
 file \
     path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/Image/Magick/Q16/Q16.so
 file \
     path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/Image/Magick/Q16/autosplit.ix
+file \
+    path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/Image/Magick/autosplit.ix
 file path=$(ECPREFIX)/lib/pkgconfig/ImageMagick++-6.Q16.pc
 file path=$(ECPREFIX)/lib/pkgconfig/ImageMagick++.pc
 file path=$(ECPREFIX)/lib/pkgconfig/ImageMagick-6.Q16.pc
