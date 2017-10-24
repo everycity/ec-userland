@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -17,10 +17,10 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 file path=$(USRDIR)/bin/$(MACH64)/apr-1-config
 file path=$(USRDIR)/bin/apr-1-config
@@ -28,6 +28,7 @@ dir  path=$(USRDIR)/include/apr-1.0
 file path=$(USRDIR)/include/apr-1.0/apr.h
 file path=$(USRDIR)/include/apr-1.0/apr_allocator.h
 file path=$(USRDIR)/include/apr-1.0/apr_atomic.h
+file path=$(USRDIR)/include/apr-1.0/apr_cstr.h
 file path=$(USRDIR)/include/apr-1.0/apr_dso.h
 file path=$(USRDIR)/include/apr-1.0/apr_env.h
 file path=$(USRDIR)/include/apr-1.0/apr_errno.h
@@ -43,6 +44,7 @@ file path=$(USRDIR)/include/apr-1.0/apr_inherit.h
 file path=$(USRDIR)/include/apr-1.0/apr_lib.h
 file path=$(USRDIR)/include/apr-1.0/apr_mmap.h
 file path=$(USRDIR)/include/apr-1.0/apr_network_io.h
+file path=$(USRDIR)/include/apr-1.0/apr_perms_set.h
 file path=$(USRDIR)/include/apr-1.0/apr_poll.h
 file path=$(USRDIR)/include/apr-1.0/apr_pools.h
 file path=$(USRDIR)/include/apr-1.0/apr_portable.h
@@ -65,25 +67,31 @@ file path=$(USRDIR)/include/apr-1.0/apr_version.h
 file path=$(USRDIR)/include/apr-1.0/apr_want.h
 file path=$(USRDIR)/lib/$(MACH64)/apr.exp
 file path=$(USRDIR)/lib/$(MACH64)/libapr-1.a
-link path=$(USRDIR)/lib/$(MACH64)/libapr-1.so target=libapr-1.so.0.5.2
-link path=$(USRDIR)/lib/$(MACH64)/libapr-1.so.0 target=libapr-1.so.0.5.2
-file path=$(USRDIR)/lib/$(MACH64)/libapr-1.so.0.5.2
+file path=$(USRDIR)/lib/$(MACH64)/libapr-1.la
+link path=$(USRDIR)/lib/$(MACH64)/libapr-1.so target=libapr-1.so.0.6.3
+link path=$(USRDIR)/lib/$(MACH64)/libapr-1.so.0 target=libapr-1.so.0.6.3
+file path=$(USRDIR)/lib/$(MACH64)/libapr-1.so.0.6.3
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/apr-1.pc
 file path=$(USRDIR)/lib/apr.exp
 file path=$(USRDIR)/lib/libapr-1.a
-link path=$(USRDIR)/lib/libapr-1.so target=libapr-1.so.0.5.2
-link path=$(USRDIR)/lib/libapr-1.so.0 target=libapr-1.so.0.5.2
-file path=$(USRDIR)/lib/libapr-1.so.0.5.2
+file path=$(USRDIR)/lib/libapr-1.la
+link path=$(USRDIR)/lib/libapr-1.so target=libapr-1.so.0.6.3
+link path=$(USRDIR)/lib/libapr-1.so.0 target=libapr-1.so.0.6.3
+file path=$(USRDIR)/lib/libapr-1.so.0.6.3
 file path=$(USRDIR)/lib/pkgconfig/apr-1.pc
 dir  path=$(USRDIR)/share/apr-1.0
 dir  path=$(USRDIR)/share/apr-1.0/build
 dir  path=$(USRDIR)/share/apr-1.0/build/$(MACH64)
+file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/apr_common.m4
 file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/apr_rules.mk
+file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/find_apr.m4
 file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/libtool mode=0555
 file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/make_exports.awk
 file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/make_var_export.awk
 file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/mkdir.sh mode=0555
+file path=$(USRDIR)/share/apr-1.0/build/apr_common.m4
 file path=$(USRDIR)/share/apr-1.0/build/apr_rules.mk
+file path=$(USRDIR)/share/apr-1.0/build/find_apr.m4
 file path=$(USRDIR)/share/apr-1.0/build/libtool mode=0555
 file path=$(USRDIR)/share/apr-1.0/build/make_exports.awk
 file path=$(USRDIR)/share/apr-1.0/build/make_var_export.awk
