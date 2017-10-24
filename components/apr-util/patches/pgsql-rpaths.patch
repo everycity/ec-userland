@@ -1,6 +1,6 @@
 --- apr-util-1.5.2/configure.orig	2013-05-04 15:59:43.165713231 +0100
 +++ apr-util-1.5.2/configure	2013-05-04 16:01:16.627573894 +0100
-@@ -18749,7 +18749,7 @@
+@@ -18948,7 +18948,7 @@
  
        if test "x$PGSQL_CONFIG" != 'x'; then
          pgsql_CPPFLAGS="-I`$PGSQL_CONFIG --includedir`"
@@ -9,7 +9,7 @@
  
  
    if test "x$CPPFLAGS" = "x"; then
-@@ -19107,7 +19107,7 @@
+@@ -19306,7 +19306,7 @@
  
        if test "x$PGSQL_CONFIG" != 'x'; then
          pgsql_CPPFLAGS="-I`$PGSQL_CONFIG --includedir`"
@@ -18,7 +18,7 @@
        else
          pgsql_CPPFLAGS="-I$withval/include"
          pgsql_LDFLAGS="-L$withval/lib "
-@@ -19471,7 +19471,7 @@
+@@ -19670,7 +19670,7 @@
  
      if test "x$PGSQL_CONFIG" != 'x'; then
        pgsql_CPPFLAGS="-I`$PGSQL_CONFIG --includedir`"
