@@ -22,6 +22,10 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/include/ruby-2.3.0
 dir path=$(ECPREFIX)/include/ruby-2.3.0/$(MACH)-solaris$(SOLARIS_VERSION)
 dir path=$(ECPREFIX)/include/ruby-2.3.0/$(MACH)-solaris$(SOLARIS_VERSION)/ruby
@@ -31,6 +35,9 @@ dir \
     path=$(ECPREFIX)/include/ruby-2.3.0/$(MACH64_GNU)-solaris$(SOLARIS_VERSION)/ruby
 dir path=$(ECPREFIX)/include/ruby-2.3.0/ruby
 dir path=$(ECPREFIX)/include/ruby-2.3.0/ruby/backward
+dir path=$(ECPREFIX)/lib
+dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
 dir path=$(ECPREFIX)/lib/$(MACH64)/ruby
 dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.3.0
 dir \
@@ -272,6 +279,7 @@ dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/vendor_ruby
 dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/vendor_ruby/2.3.0
 dir \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/vendor_ruby/2.3.0/$(MACH64_GNU)-solaris$(SOLARIS_VERSION)
+dir path=$(ECPREFIX)/lib/pkgconfig
 dir path=$(ECPREFIX)/lib/ruby
 dir path=$(ECPREFIX)/lib/ruby/2.3.0
 dir path=$(ECPREFIX)/lib/ruby/2.3.0/$(MACH)-solaris$(SOLARIS_VERSION)
@@ -473,7 +481,11 @@ dir path=$(ECPREFIX)/lib/ruby/vendor_ruby
 dir path=$(ECPREFIX)/lib/ruby/vendor_ruby/2.3.0
 dir \
     path=$(ECPREFIX)/lib/ruby/vendor_ruby/2.3.0/$(MACH)-solaris$(SOLARIS_VERSION)
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
 dir path=$(ECPREFIX)/share/doc/ruby
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/ri
 dir path=$(ECPREFIX)/share/ri/2.3.0
 dir path=$(ECPREFIX)/share/ri/2.3.0/system
@@ -2190,7 +2202,6 @@ dir path=$(ECPREFIX)/share/ri/2.3.0/system/Shellwords
 dir path=$(ECPREFIX)/share/ri/2.3.0/system/Signal
 dir path=$(ECPREFIX)/share/ri/2.3.0/system/SignalException
 dir path=$(ECPREFIX)/share/ri/2.3.0/system/SimpleDelegator
-dir path=$(ECPREFIX)/share/ri/2.3.0/system/SingleForwardable
 dir path=$(ECPREFIX)/share/ri/2.3.0/system/Singleton
 dir path=$(ECPREFIX)/share/ri/2.3.0/system/SizedQueue
 dir path=$(ECPREFIX)/share/ri/2.3.0/system/Socket
@@ -4281,9 +4292,9 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/specifications/default/io-console-0.4.5.gemspec
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/specifications/default/json-1.8.3.gemspec
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/specifications/default/json-1.8.3.1.gemspec
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/specifications/default/psych-2.1.0.gemspec
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/specifications/default/psych-2.1.0.1.gemspec
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.3.0/specifications/default/rdoc-4.2.1.gemspec
 file \
@@ -5965,9 +5976,9 @@ file \
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.3.0/specifications/default/io-console-0.4.5.gemspec
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/specifications/default/json-1.8.3.gemspec
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/specifications/default/json-1.8.3.1.gemspec
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/specifications/default/psych-2.1.0.gemspec
+    path=$(ECPREFIX)/lib/ruby/gems/2.3.0/specifications/default/psych-2.1.0.1.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.3.0/specifications/default/rdoc-4.2.1.gemspec
 file \
@@ -7998,6 +8009,7 @@ file path=$(ECPREFIX)/share/ri/2.3.0/system/Float/truncate-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Float/zero%3f-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/FloatDomainError/cdesc-FloatDomainError.ri
+file path=$(ECPREFIX)/share/ri/2.3.0/system/Forwardable/_delegator_method-c.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Forwardable/cdesc-Forwardable.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Forwardable/debug-c.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Forwardable/def_delegator-i.ri
@@ -8896,6 +8908,8 @@ file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Installer/shebang-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Installer/spec-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Installer/spec_file-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Installer/unpack-i.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Installer/verify_spec_name-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Installer/windows_stub_script-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Installer/wrappers-i.ri
@@ -10511,8 +10525,10 @@ file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/TestCase/win_platform%3f-c.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/TestCase/win_platform%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/TestCase/write_file-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Text/cdesc-Text.ri
+file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Text/clean_text-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Text/format_text-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Text/levenshtein_distance-i.ri
+file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Text/truncate_text-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Uninstaller/bin_dir-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Uninstaller/cdesc-Uninstaller.ri
@@ -12318,54 +12334,9 @@ file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPGone/cdesc-HTTPGone.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/%5b%5d%3d-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/%5b%5d-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/add_field-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/basic_auth-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/basic_encode-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/canonical_each-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/capitalize-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/cdesc-HTTPHeader.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/chunked%3f-i.ri
-file \
-    path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/connection_close%3f-i.ri
-file \
-    path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/connection_keep_alive%3f-i.ri
-file \
-    path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/content_length%3d-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/content_length-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/content_range-i.ri
-file \
-    path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/content_type%3d-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/content_type-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/delete-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/each-i.ri
-file \
-    path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/each_capitalized-i.ri
-file \
-    path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/each_capitalized_name-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/each_header-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/each_key-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/each_name-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/each_value-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/fetch-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/form_data%3d-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/get_fields-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/initialize_http_header-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/key%3f-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/main_type-i.ri
-file \
-    path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/proxy_basic_auth-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/range%3d-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/range-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/range_length-i.ri
-file \
-    path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/set_content_type-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/set_form-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/set_form_data-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/set_range-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/sub_type-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/to_hash-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/tokens-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeader/type_params-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPHeaderSyntaxError/cdesc-HTTPHeaderSyntaxError.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/HTTPIMUsed/cdesc-HTTPIMUsed.ri
@@ -12876,6 +12847,7 @@ file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/SMTP/starttls_auto%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/SMTP/tcp_socket-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/SMTP/tls%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/SMTP/tlsconnect-i.ri
+file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/SMTP/validate_line-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Net/SMTPAuthenticationError/cdesc-SMTPAuthenticationError.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Net/SMTPError/cdesc-SMTPError.ri
@@ -17513,8 +17485,6 @@ file path=$(ECPREFIX)/share/ri/2.3.0/system/REXML/Functions/id-c.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/REXML/Functions/lang-c.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/REXML/Functions/last-c.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/REXML/Functions/local_name-c.ri
-file \
-    path=$(ECPREFIX)/share/ri/2.3.0/system/REXML/Functions/method_missing-c.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/REXML/Functions/name-c.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/REXML/Functions/namespace_context%3d-c.ri
@@ -17529,6 +17499,9 @@ file path=$(ECPREFIX)/share/ri/2.3.0/system/REXML/Functions/position-c.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/REXML/Functions/processing_instruction-c.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/REXML/Functions/round-c.ri
+file path=$(ECPREFIX)/share/ri/2.3.0/system/REXML/Functions/send-c.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.3.0/system/REXML/Functions/singleton_method_added-c.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/REXML/Functions/starts_with-c.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/REXML/Functions/string-c.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/REXML/Functions/string_length-c.ri
@@ -21370,19 +21343,6 @@ file path=$(ECPREFIX)/share/ri/2.3.0/system/SimpleDelegator/__getobj__-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/SimpleDelegator/__setobj__-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/SimpleDelegator/cdesc-SimpleDelegator.ri
-file \
-    path=$(ECPREFIX)/share/ri/2.3.0/system/SingleForwardable/cdesc-SingleForwardable.ri
-file \
-    path=$(ECPREFIX)/share/ri/2.3.0/system/SingleForwardable/def_delegator-i.ri
-file \
-    path=$(ECPREFIX)/share/ri/2.3.0/system/SingleForwardable/def_delegators-i.ri
-file \
-    path=$(ECPREFIX)/share/ri/2.3.0/system/SingleForwardable/def_single_delegator-i.ri
-file \
-    path=$(ECPREFIX)/share/ri/2.3.0/system/SingleForwardable/def_single_delegators-i.ri
-file path=$(ECPREFIX)/share/ri/2.3.0/system/SingleForwardable/delegate-i.ri
-file \
-    path=$(ECPREFIX)/share/ri/2.3.0/system/SingleForwardable/single_delegate-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Singleton/_dump-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Singleton/_load-c.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Singleton/append_features-c.ri
@@ -23839,6 +23799,8 @@ file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/lib/racc/rdoc/page-grammar_en_rdoc.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/lib/rdoc/page-rdoc_gemspec.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/lib/rubygems/page-LICENSE_txt.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.3.0/system/lib/rubygems/page-installer_rb_~1~.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/page-ChangeLog-0_60_to_1_1.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/page-ChangeLog-1_8_0.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/page-ChangeLog-1_9_3.ri

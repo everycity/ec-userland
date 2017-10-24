@@ -1,0 +1,11 @@
+--- ruby-2.3.3/lib/rubygems/installer.rb.orig	2017-01-25 15:31:48.974975236 +0000
++++ ruby-2.3.3/lib/rubygems/installer.rb	2017-01-25 15:34:36.332260413 +0000
+@@ -230,7 +230,7 @@
+     question = "#{spec.name}'s executable \"#{filename}\" conflicts with ".dup
+ 
+     if ruby_executable then
+-      question << existing
++      question << (existing || 'an unknown executable')
+ 
+       return if ask_yes_no "#{question}\nOverwrite the executable?", false
+ 
