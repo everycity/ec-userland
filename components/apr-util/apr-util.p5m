@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2017 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -17,16 +17,18 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/bin
+dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/apu-1-config
-link path=$(USRDIR)/bin/$(MACH64)/apu-config target=apu-1-config
 file path=$(USRDIR)/bin/apu-1-config
-link path=$(USRDIR)/bin/apu-config target=apu-1-config
-
+dir  path=$(USRDIR)/include
+dir  path=$(USRDIR)/include/apr-1.0
 file path=$(USRDIR)/include/apr-1.0/apr_anylock.h
 file path=$(USRDIR)/include/apr-1.0/apr_base64.h
 file path=$(USRDIR)/include/apr-1.0/apr_buckets.h
@@ -46,10 +48,12 @@ file path=$(USRDIR)/include/apr-1.0/apr_memcache.h
 file path=$(USRDIR)/include/apr-1.0/apr_optional.h
 file path=$(USRDIR)/include/apr-1.0/apr_optional_hooks.h
 file path=$(USRDIR)/include/apr-1.0/apr_queue.h
+file path=$(USRDIR)/include/apr-1.0/apr_redis.h
 file path=$(USRDIR)/include/apr-1.0/apr_reslist.h
 file path=$(USRDIR)/include/apr-1.0/apr_rmm.h
 file path=$(USRDIR)/include/apr-1.0/apr_sdbm.h
 file path=$(USRDIR)/include/apr-1.0/apr_sha1.h
+file path=$(USRDIR)/include/apr-1.0/apr_siphash.h
 file path=$(USRDIR)/include/apr-1.0/apr_strmatch.h
 file path=$(USRDIR)/include/apr-1.0/apr_thread_pool.h
 file path=$(USRDIR)/include/apr-1.0/apr_uri.h
@@ -60,60 +64,78 @@ file path=$(USRDIR)/include/apr-1.0/apu.h
 file path=$(USRDIR)/include/apr-1.0/apu_errno.h
 file path=$(USRDIR)/include/apr-1.0/apu_version.h
 file path=$(USRDIR)/include/apr-1.0/apu_want.h
-
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/$(MACH64)
+dir  path=$(USRDIR)/lib/$(MACH64)/apr-util-1
 file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_crypto_openssl-1.so
 file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_crypto_openssl.a
+file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_crypto_openssl.la
 link path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_crypto_openssl.so \
     target=apr_crypto_openssl-1.so
 file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbd_odbc-1.so
 file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbd_odbc.a
+file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbd_odbc.la
 link path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbd_odbc.so \
     target=apr_dbd_odbc-1.so
 file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbd_pgsql-1.so
 file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbd_pgsql.a
+file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbd_pgsql.la
 link path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbd_pgsql.so \
     target=apr_dbd_pgsql-1.so
 file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbd_sqlite3-1.so
 file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbd_sqlite3.a
+file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbd_sqlite3.la
 link path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbd_sqlite3.so \
     target=apr_dbd_sqlite3-1.so
 file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbm_db-1.so
 file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbm_db.a
+file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbm_db.la
 link path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_dbm_db.so \
     target=apr_dbm_db-1.so
 file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_ldap-1.so
 file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_ldap.a
+file path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_ldap.la
 link path=$(USRDIR)/lib/$(MACH64)/apr-util-1/apr_ldap.so target=apr_ldap-1.so
 file path=$(USRDIR)/lib/$(MACH64)/aprutil.exp
 file path=$(USRDIR)/lib/$(MACH64)/libaprutil-1.a
-link path=$(USRDIR)/lib/$(MACH64)/libaprutil-1.so target=libaprutil-1.so.0.5.4
-link path=$(USRDIR)/lib/$(MACH64)/libaprutil-1.so.0 target=libaprutil-1.so.0.5.4
-file path=$(USRDIR)/lib/$(MACH64)/libaprutil-1.so.0.5.4
+file path=$(USRDIR)/lib/$(MACH64)/libaprutil-1.la
+link path=$(USRDIR)/lib/$(MACH64)/libaprutil-1.so target=libaprutil-1.so.0.6.1
+link path=$(USRDIR)/lib/$(MACH64)/libaprutil-1.so.0 target=libaprutil-1.so.0.6.1
+file path=$(USRDIR)/lib/$(MACH64)/libaprutil-1.so.0.6.1
+dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/apr-util-1.pc
-
+dir  path=$(USRDIR)/lib/apr-util-1
 file path=$(USRDIR)/lib/apr-util-1/apr_crypto_openssl-1.so
 file path=$(USRDIR)/lib/apr-util-1/apr_crypto_openssl.a
+file path=$(USRDIR)/lib/apr-util-1/apr_crypto_openssl.la
 link path=$(USRDIR)/lib/apr-util-1/apr_crypto_openssl.so \
     target=apr_crypto_openssl-1.so
 file path=$(USRDIR)/lib/apr-util-1/apr_dbd_odbc-1.so
 file path=$(USRDIR)/lib/apr-util-1/apr_dbd_odbc.a
+file path=$(USRDIR)/lib/apr-util-1/apr_dbd_odbc.la
 link path=$(USRDIR)/lib/apr-util-1/apr_dbd_odbc.so target=apr_dbd_odbc-1.so
 file path=$(USRDIR)/lib/apr-util-1/apr_dbd_pgsql-1.so
 file path=$(USRDIR)/lib/apr-util-1/apr_dbd_pgsql.a
+file path=$(USRDIR)/lib/apr-util-1/apr_dbd_pgsql.la
 link path=$(USRDIR)/lib/apr-util-1/apr_dbd_pgsql.so target=apr_dbd_pgsql-1.so
 file path=$(USRDIR)/lib/apr-util-1/apr_dbd_sqlite3-1.so
 file path=$(USRDIR)/lib/apr-util-1/apr_dbd_sqlite3.a
+file path=$(USRDIR)/lib/apr-util-1/apr_dbd_sqlite3.la
 link path=$(USRDIR)/lib/apr-util-1/apr_dbd_sqlite3.so \
     target=apr_dbd_sqlite3-1.so
 file path=$(USRDIR)/lib/apr-util-1/apr_dbm_db-1.so
 file path=$(USRDIR)/lib/apr-util-1/apr_dbm_db.a
+file path=$(USRDIR)/lib/apr-util-1/apr_dbm_db.la
 link path=$(USRDIR)/lib/apr-util-1/apr_dbm_db.so target=apr_dbm_db-1.so
 file path=$(USRDIR)/lib/apr-util-1/apr_ldap-1.so
 file path=$(USRDIR)/lib/apr-util-1/apr_ldap.a
+file path=$(USRDIR)/lib/apr-util-1/apr_ldap.la
 link path=$(USRDIR)/lib/apr-util-1/apr_ldap.so target=apr_ldap-1.so
 file path=$(USRDIR)/lib/aprutil.exp
 file path=$(USRDIR)/lib/libaprutil-1.a
-link path=$(USRDIR)/lib/libaprutil-1.so target=libaprutil-1.so.0.5.4
-link path=$(USRDIR)/lib/libaprutil-1.so.0 target=libaprutil-1.so.0.5.4
-file path=$(USRDIR)/lib/libaprutil-1.so.0.5.4
+file path=$(USRDIR)/lib/libaprutil-1.la
+link path=$(USRDIR)/lib/libaprutil-1.so target=libaprutil-1.so.0.6.1
+link path=$(USRDIR)/lib/libaprutil-1.so.0 target=libaprutil-1.so.0.6.1
+file path=$(USRDIR)/lib/libaprutil-1.so.0.6.1
+dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/apr-util-1.pc

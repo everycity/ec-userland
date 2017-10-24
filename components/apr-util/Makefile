@@ -9,20 +9,21 @@
 #
 
 #
-# Copyright 2011-2014, EveryCity Ltd. All rights reserved.
+# Copyright 2017, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		apr-util
 COMPONENT_FMRI=		library/apr-util-15
-COMPONENT_VERSION=	1.5.4
+COMPONENT_VERSION=	1.6.1
 COMPONENT_LICENSE=	APLv2
+COMPONENT_LICENSE_FILE=	LICENSE
 COMPONENT_PROJECT_URL=	"http://apr.apache.org/"
 COMPONENT_SUMMARY=	Apache Portable Runtime Utility (APR-util) 1.3
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:a6cf327189ca0df2fb9d5633d7326c460fe2b61684745fd7963e79a6dd0dc82e
+COMPONENT_ARCHIVE_HASH=	sha256:d3e12f7b6ad12687572a3a39475545a072608f4ba03a6ce8a3778f607dd0035b
 COMPONENT_ARCHIVE_URL=	$(APACHE_ARCHIVE)/apr/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
