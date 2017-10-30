@@ -209,6 +209,7 @@ file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/command
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/commands/variable.h
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/commands/view.h
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/common/fe_memutils.h
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/common/int128.h
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/common/relpath.h
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/common/string.h
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/common/username.h
