@@ -1,58 +1,6 @@
 --- libxslt-1.1.28/libxslt/libxslt.syms.~1~	2012-11-21 07:22:03.000000000 +0000
 +++ libxslt-1.1.28/libxslt/libxslt.syms	2013-01-10 13:40:42.011022743 +0000
-@@ -107,7 +107,7 @@
-   xsltFreeCompMatchList;
-   xsltFreeTemplateHashes;
-   xsltGetTemplate;
--  xsltMatchPattern;
-+#  xsltMatchPattern;
-   xsltTestCompMatchList;
- 
- # preproc
-@@ -407,7 +407,7 @@
-     global:
- 
- # xsltInternals
--  xsltConstNamespaceNameXSLT; # variable
-+#  xsltConstNamespaceNameXSLT; # variable
-   xsltExtensionInstructionResultFinalize;
-   xsltExtensionInstructionResultRegister;
-   xsltInitCtxtKey;
-@@ -416,24 +416,24 @@
-   xsltInit;
- 
- # xsltInternals
--  xsltParseAnyXSLTElem;
--  xsltParseSequenceConstructor;
--  xsltPointerListAddSize;
--  xsltPointerListClear;
--  xsltPointerListCreate;
--  xsltPointerListFree;
-+#  xsltParseAnyXSLTElem;
-+#  xsltParseSequenceConstructor;
-+#  xsltPointerListAddSize;
-+#  xsltPointerListClear;
-+#  xsltPointerListCreate;
-+#  xsltPointerListFree;
-   xsltRegisterLocalRVT;
-   xsltReleaseRVT;
--  xsltRestoreDocumentNamespaces;
-+#  xsltRestoreDocumentNamespaces;
- 
- # extensions
--  xsltStyleStylesheetLevelGetExtData;
-+#  xsltStyleStylesheetLevelGetExtData;
- 
- # xsltInternals
- # xsltTransStorageAdd; removed in 1.1.28
- # xsltTransStorageRemove; removed in 1.1.28
-   xsltUninit;
--  xsltXSLTAttrMarker; # variable
-+#  xsltXSLTAttrMarker; # variable
- } LIBXML2_1.1.9;
- 
- LIBXML2_1.1.20 {
-@@ -476,6 +476,10 @@
+@@ -479,6 +479,10 @@
  
  # transform
    xsltProcessOneNode;
