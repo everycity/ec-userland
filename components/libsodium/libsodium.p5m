@@ -65,13 +65,13 @@ file path=$(ECPREFIX)/include/sodium/crypto_scalarmult_curve25519.h
 file path=$(ECPREFIX)/include/sodium/crypto_secretbox.h
 file path=$(ECPREFIX)/include/sodium/crypto_secretbox_xchacha20poly1305.h
 file path=$(ECPREFIX)/include/sodium/crypto_secretbox_xsalsa20poly1305.h
+file path=$(ECPREFIX)/include/sodium/crypto_secretstream_xchacha20poly1305.h
 file path=$(ECPREFIX)/include/sodium/crypto_shorthash.h
 file path=$(ECPREFIX)/include/sodium/crypto_shorthash_siphash24.h
 file path=$(ECPREFIX)/include/sodium/crypto_sign.h
 file path=$(ECPREFIX)/include/sodium/crypto_sign_ed25519.h
 file path=$(ECPREFIX)/include/sodium/crypto_sign_edwards25519sha512batch.h
 file path=$(ECPREFIX)/include/sodium/crypto_stream.h
-file path=$(ECPREFIX)/include/sodium/crypto_stream_aes128ctr.h
 file path=$(ECPREFIX)/include/sodium/crypto_stream_chacha20.h
 file path=$(ECPREFIX)/include/sodium/crypto_stream_salsa20.h
 file path=$(ECPREFIX)/include/sodium/crypto_stream_salsa2012.h
@@ -90,13 +90,13 @@ file path=$(ECPREFIX)/include/sodium/utils.h
 file path=$(ECPREFIX)/include/sodium/version.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libsodium.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libsodium.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libsodium.so.18.3.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libsodium.so.23.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libsodium.pc
 file path=$(ECPREFIX)/lib/libsodium.a
 file path=$(ECPREFIX)/lib/libsodium.la
-file path=$(ECPREFIX)/lib/libsodium.so.18.3.0
+file path=$(ECPREFIX)/lib/libsodium.so.23.0.0
 file path=$(ECPREFIX)/lib/pkgconfig/libsodium.pc
-link path=$(ECPREFIX)/lib/$(MACH64)/libsodium.so target=libsodium.so.18.3.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libsodium.so.18 target=libsodium.so.18.3.0
-link path=$(ECPREFIX)/lib/libsodium.so target=libsodium.so.18.3.0
-link path=$(ECPREFIX)/lib/libsodium.so.18 target=libsodium.so.18.3.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsodium.so target=libsodium.so.23.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libsodium.so.23 target=libsodium.so.23.0.0
+link path=$(ECPREFIX)/lib/libsodium.so target=libsodium.so.23.0.0
+link path=$(ECPREFIX)/lib/libsodium.so.23 target=libsodium.so.23.0.0
