@@ -18,14 +18,14 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		openssl
 COMPONENT_FMRI=		library/security/openssl
-COMPONENT_VERSION=	1.0.2l
-IPS_COMPONENT_VERSION=  1.0.2.12
+COMPONENT_VERSION=	1.0.2m
+IPS_COMPONENT_VERSION=  1.0.2.13
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://www.openssl.org/"
 COMPONENT_SUMMARY=	OpenSSL - a Toolkit for Secure Sockets Layer (SSL v2/v3) and Transport Layer (TLS v1) protocols and general purpose cryptographic library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:ce07195b659e75f4e1db43552860070061f156a98bb37b672b101ba6e3ddf30c
+COMPONENT_ARCHIVE_HASH=	sha256:8c6ff15ec6b319b50788f42c7abc2890c08ba5a1cdcd3810eb9092deada37b0f
 COMPONENT_ARCHIVE_URL=	https://www.openssl.org/source/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -79,7 +79,7 @@ CONFIGURE_OPTIONS += no-hw_cswift
 CONFIGURE_OPTIONS += no-seed
 CONFIGURE_OPTIONS += no-whirlpool
 CONFIGURE_OPTIONS += no-whrlpool
-CONFIGURE_OPTIONS += no-ssl2
+CONFIGURE_OPTIONS += no-ssl2 no-ssl2-method
 CONFIGURE_OPTIONS += no-ssl3 no-ssl3-method
 
 COMPONENT_BUILD_TARGETS+= LDFLAGS="$(LDFLAGS)"
