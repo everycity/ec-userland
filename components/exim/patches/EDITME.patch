@@ -54,7 +54,7 @@
  # SUPPORT_MAILSTORE=yes
  # SUPPORT_MBX=yes
  
-@@ -294,17 +294,17 @@
+@@ -299,18 +299,18 @@
  
  LOOKUP_DBM=yes
  LOOKUP_LSEARCH=yes
@@ -69,15 +69,16 @@
 -# LOOKUP_MYSQL=yes
 +LOOKUP_LDAP=yes
 +LOOKUP_MYSQL=yes
+ # LOOKUP_MYSQL_PC=mariadb
  # LOOKUP_NIS=yes
  # LOOKUP_NISPLUS=yes
  # LOOKUP_ORACLE=yes
 -# LOOKUP_PASSWD=yes
 +LOOKUP_PASSWD=yes
  # LOOKUP_PGSQL=yes
+ # LOOKUP_REDIS=yes
  # LOOKUP_SQLITE=yes
- # LOOKUP_SQLITE_PC=sqlite3
-@@ -327,7 +327,7 @@
+@@ -334,7 +334,7 @@
  # with Solaris 7 onwards. Uncomment whichever of these you are using.
  
  # LDAP_LIB_TYPE=OPENLDAP1
@@ -86,7 +87,7 @@
  # LDAP_LIB_TYPE=NETSCAPE
  # LDAP_LIB_TYPE=SOLARIS
  
-@@ -363,6 +363,8 @@
+@@ -371,6 +371,8 @@
  
  # LOOKUP_INCLUDE=-I /usr/local/ldap/include -I /usr/local/mysql/include -I /usr/local/pgsql/include
  # LOOKUP_LIBS=-L/usr/local/lib -lldap -llber -lmysqlclient -lpq -lgds -lsqlite3
@@ -113,7 +114,7 @@
  
  # If you want to use the deprecated "demime" condition in the DATA ACL,
  # uncomment the line below. Doing so will also explicitly turn on the
-@@ -583,7 +585,7 @@
+@@ -578,7 +580,7 @@
  # CONFIGURE_OWNER setting, to specify a configuration file which is listed in
  # the TRUSTED_CONFIG_LIST file, then root privileges are not dropped by Exim.
  
