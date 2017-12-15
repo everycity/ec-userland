@@ -869,6 +869,7 @@ dir path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Resolver/Stats
 dir path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Resolver/VendorSet
 dir path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Resolver/VendorSpecification
 dir path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/RubyVersionMismatch
+dir path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/SafeYAML
 dir path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Security
 dir path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Security/Exception
 dir path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Security/Policy
@@ -3390,6 +3391,7 @@ file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.4.0/rubygems/resolver/stats.rb
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.4.0/rubygems/resolver/vendor_set.rb
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.4.0/rubygems/resolver/vendor_specification.rb
+file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.4.0/rubygems/safe_yaml.rb
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.4.0/rubygems/security.rb
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.4.0/rubygems/security/policies.rb
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.4.0/rubygems/security/policy.rb
@@ -4996,6 +4998,7 @@ file path=$(ECPREFIX)/lib/ruby/2.4.0/rubygems/resolver/specification.rb
 file path=$(ECPREFIX)/lib/ruby/2.4.0/rubygems/resolver/stats.rb
 file path=$(ECPREFIX)/lib/ruby/2.4.0/rubygems/resolver/vendor_set.rb
 file path=$(ECPREFIX)/lib/ruby/2.4.0/rubygems/resolver/vendor_specification.rb
+file path=$(ECPREFIX)/lib/ruby/2.4.0/rubygems/safe_yaml.rb
 file path=$(ECPREFIX)/lib/ruby/2.4.0/rubygems/security.rb
 file path=$(ECPREFIX)/lib/ruby/2.4.0/rubygems/security/policies.rb
 file path=$(ECPREFIX)/lib/ruby/2.4.0/rubygems/security/policy.rb
@@ -9737,6 +9740,9 @@ file \
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Resolver/stats-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/RubyVersionMismatch/cdesc-RubyVersionMismatch.ri
+file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/SafeYAML/cdesc-SafeYAML.ri
+file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/SafeYAML/load-c.ri
+file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/SafeYAML/safe_load-c.ri
 file \
     path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Security/Exception/cdesc-Exception.ri
 file \
