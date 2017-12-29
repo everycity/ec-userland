@@ -15,13 +15,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		memcached
 COMPONENT_FMRI=		database/memcached
-COMPONENT_VERSION=	1.5.3
+COMPONENT_VERSION=	1.5.4
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://memcached.org/"
 COMPONENT_SUMMARY=	The memcached memory object cache
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:258cc3ddb7613685465acfd0215f827220a3bbdd167fd2c080632105b2d2f3ce
+COMPONENT_ARCHIVE_HASH=	sha256:e0c3cfa89fa4c2ffd8aa45df7825c6d1a2423ac89ab1a7c4f42bb9803f7403d4
 COMPONENT_ARCHIVE_URL=	http://www.memcached.org/files/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
