@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2017, EveryCity Ltd. All rights reserved.
+# Copyright 2018, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		rsync
 COMPONENT_FMRI=		network/rsync
-COMPONENT_VERSION=	3.1.2
+COMPONENT_VERSION=	3.1.3
 COMPONENT_LICENSE=	GPLv3
 COMPONENT_PROJECT_URL=	"http://rsync.samba.org/"
 COMPONENT_SUMMARY=	rsync - faster, flexible replacement for rcp
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:ecfa62a7fa3c4c18b9eccd8c16eaddee4bd308a76ea50b5c02a5840f09c0a1c2
+COMPONENT_ARCHIVE_HASH=	sha256:55cc554efec5fdaad70de921cd5a5eeb6c29a95524c715f3bbf849235b0800c0
 COMPONENT_ARCHIVE_URL=	http://rsync.samba.org/ftp/rsync/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
