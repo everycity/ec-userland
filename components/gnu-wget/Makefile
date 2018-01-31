@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		wget
 COMPONENT_FMRI=		web/gnu-wget
-COMPONENT_VERSION=	1.19.2
+COMPONENT_VERSION=	1.19.4
 COMPONENT_LICENSE=	GPLv3
 COMPONENT_PROJECT_URL=	"http://www.gnu.org/software/wget/"
 COMPONENT_SUMMARY=	GNU wget
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:4f4a673b6d466efa50fbfba796bd84a46ae24e370fa562ede5b21ab53c11a920
+COMPONENT_ARCHIVE_HASH=	sha256:93fb96b0f48a20ff5be0d9d9d3c4a986b469cb853131f9d5fe4cc9cecbc8b5b5
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include ../../make-rules/prep.mk
