@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tomcat
-COMPONENT_VERSION=	7.0.82
+COMPONENT_VERSION=	7.0.84
 COMPONENT_FMRI=         web/java-servlet/tomcat7
 COMPONENT_LICENSE=      Apache v2.0
 COMPONENT_SUMMARY=      Tomcat Servlet/JSP Container
 COMPONENT_PROJECT_URL=	$(PROJECT_APACHE)
 COMPONENT_SRC=		apache-tomcat-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	apache-tomcat-$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:2f19ca3fd578b8d04e72a7fd20b43beddbcece2c49eb3472265465506261676d
+COMPONENT_ARCHIVE_HASH=	sha256:4ba4f80724d32d22d91342b25903601dea02da5338b1faa7561bb819e9ffe37b
 COMPONENT_ARCHIVE_URL=	http://mirror.ox.ac.uk/sites/rsync.apache.org/tomcat/tomcat-7/v$(COMPONENT_VERSION)/bin/$(COMPONENT_ARCHIVE)
 #COMPONENT_ARCHIVE_URL=	$(APACHE_ARCHIVE)/tomcat/tomcat-7/v$(COMPONENT_VERSION)/bin/$(COMPONENT_ARCHIVE)
 COMPONENT_JMX_URL=	http://mirror.ox.ac.uk/sites/rsync.apache.org/tomcat/tomcat-7/v$(COMPONENT_VERSION)/bin/extras/catalina-jmx-remote.jar
