@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -131,6 +131,8 @@ file path=$(ECPREFIX)/lib/tomcat8/webapps/examples/WEB-INF/classes/async/Async2.
 file path=$(ECPREFIX)/lib/tomcat8/webapps/examples/WEB-INF/classes/async/Async2.java
 file path=$(ECPREFIX)/lib/tomcat8/webapps/examples/WEB-INF/classes/async/Async3.class
 file path=$(ECPREFIX)/lib/tomcat8/webapps/examples/WEB-INF/classes/async/Async3.java
+file path=$(ECPREFIX)/lib/tomcat8/webapps/examples/WEB-INF/classes/async/AsyncStockContextListener.class
+file path=$(ECPREFIX)/lib/tomcat8/webapps/examples/WEB-INF/classes/async/AsyncStockContextListener.java
 file path=$(ECPREFIX)/lib/tomcat8/webapps/examples/WEB-INF/classes/async/AsyncStockServlet.class
 file path=$(ECPREFIX)/lib/tomcat8/webapps/examples/WEB-INF/classes/async/AsyncStockServlet.java
 file path=$(ECPREFIX)/lib/tomcat8/webapps/examples/WEB-INF/classes/async/Stockticker$Stock.class

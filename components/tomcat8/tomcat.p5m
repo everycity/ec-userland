@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -301,6 +301,7 @@ file path=$(ECPREFIX)/lib/tomcat8/webapps/docs/logging.html
 file path=$(ECPREFIX)/lib/tomcat8/webapps/docs/manager-howto.html
 file path=$(ECPREFIX)/lib/tomcat8/webapps/docs/maven-jars.html
 file path=$(ECPREFIX)/lib/tomcat8/webapps/docs/mbeans-descriptors-howto.html
+file path=$(ECPREFIX)/lib/tomcat8/webapps/docs/mbeans-descriptors.dtd
 file path=$(ECPREFIX)/lib/tomcat8/webapps/docs/monitoring.html
 file path=$(ECPREFIX)/lib/tomcat8/webapps/docs/proxy-howto.html
 file path=$(ECPREFIX)/lib/tomcat8/webapps/docs/realm-howto.html
