@@ -18,13 +18,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		beats
 COMPONENT_FMRI=		network/beats
-COMPONENT_VERSION=      1.2.1
+COMPONENT_VERSION=      6.2.1
 COMPONENT_LICENSE=      APLv2
 COMPONENT_PROJECT_URL=  "https://www.elastic.co/products/beats"
 COMPONENT_SUMMARY=	Data Shippers for Elasticsearch
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME)-$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:d7aa53dddb36bae62846fcdf091c9e70d279252bdbc0ebe976d2ed7ca0c71e7a
+COMPONENT_ARCHIVE_HASH=	sha256:7fc935b65469acc728653c89ef7b8541db4c5dafdbb1459822f0c215d58d30e6
 COMPONENT_ARCHIVE_URL=	https://codeload.github.com/elastic/beats/tar.gz/v${COMPONENT_VERSION}
 
 
@@ -35,7 +35,6 @@ include ../../make-rules/ips.mk
 CLEAN_PATHS+=	$(BUILD_DIR)
 
 COMPONENT_BUILD_ENV+="GOPATH=$(BUILD_DIR)/$(COMPONENT_NAME)"
-COMPONENT_BUILD_ENV+="GO15VENDOREXPERIMENT=1"
 
 # build the configured source
 $(BUILD_DIR)/$(COMPONENT_NAME)/.built:  $(SOURCE_DIR)/.prep
@@ -63,8 +62,8 @@ $(BUILD_DIR)/$(COMPONENT_NAME)/.installed:	$(BUILD_DIR)/$(COMPONENT_NAME)/.built
 	$(CP) $(COMPONENT_DIR)/files/packetbeat-smf.xml $(PROTO_DIR)/var/svc/manifest/site/packetbeat.xml
 	$(CP) $(@D)/bin/filebeat $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
 	$(CP) $(@D)/bin/packetbeat $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)
-	$(CP) $(SOURCE_DIR)/filebeat/etc/filebeat.yml $(PROTO_DIR)$(ECPREFIX)/etc/filebeat
-	$(CP) $(SOURCE_DIR)/packetbeat/etc/packetbeat.yml $(PROTO_DIR)$(ECPREFIX)/etc/packetbeat
+	$(CP) $(SOURCE_DIR)/filebeat/filebeat.yml $(PROTO_DIR)$(ECPREFIX)/etc/filebeat
+	$(CP) $(SOURCE_DIR)/packetbeat/packetbeat.yml $(PROTO_DIR)$(ECPREFIX)/etc/packetbeat
 	$(SYMLINK) $(MACH64)/filebeat $(PROTO_DIR)$(ECPREFIX)/bin/filebeat
 	$(SYMLINK) $(MACH64)/packetbeat $(PROTO_DIR)$(ECPREFIX)/bin/packetbeat
 	$(TOUCH) $@
