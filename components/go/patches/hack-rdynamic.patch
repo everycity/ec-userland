@@ -1,0 +1,21 @@
+diff -ruN go.orig/src/cmd/link/internal/ld/lib.go go/src/cmd/link/internal/ld/lib.go
+--- go.orig/src/cmd/link/internal/ld/lib.go	2018-02-07 17:09:31.000000000 +0000
++++ go/src/cmd/link/internal/ld/lib.go	2018-02-09 14:01:08.185953951 +0000
+@@ -1198,7 +1198,7 @@
+ 
+ 	// Force global symbols to be exported for dlopen, etc.
+ 	if Iself {
+-		argv = append(argv, "-rdynamic")
++		argv = append(argv, "-dy")
+ 	}
+ 
+ 	if strings.Contains(argv[0], "clang") {
+@@ -1283,7 +1283,7 @@
+ 		// can override -rdynamic without using -static.
+ 		if Iself && p == "-static" {
+ 			for i := range argv {
+-				if argv[i] == "-rdynamic" {
++				if argv[i] == "-dy" {
+ 					argv[i] = "-static"
+ 				}
+ 			}
