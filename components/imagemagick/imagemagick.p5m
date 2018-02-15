@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -70,8 +70,7 @@ dir path=$(ECPREFIX)/share/doc/ImageMagick-6/www/Magick++
 dir path=$(ECPREFIX)/share/doc/ImageMagick-6/www/api
 dir path=$(ECPREFIX)/share/doc/ImageMagick-6/www/api/MagickCore
 dir path=$(ECPREFIX)/share/doc/ImageMagick-6/www/api/MagickWand
-dir path=$(ECPREFIX)/share/doc/ImageMagick-6/www/css
-dir path=$(ECPREFIX)/share/doc/ImageMagick-6/www/js
+dir path=$(ECPREFIX)/share/doc/ImageMagick-6/www/assets
 dir path=$(ECPREFIX)/share/doc/ImageMagick-6/www/source
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
@@ -292,17 +291,11 @@ file \
 file \
     path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/Image/Magick/.packlist
 file \
-    path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/Image/Magick/Magick.bs
-file \
-    path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/Image/Magick/Magick.so
-file \
     path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/Image/Magick/Q16/Q16.bs
 file \
     path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/Image/Magick/Q16/Q16.so
 file \
     path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/Image/Magick/Q16/autosplit.ix
-file \
-    path=$(ECPREFIX)/lib/perl/site_perl/5.12/i86pc-solaris-64int/auto/Image/Magick/autosplit.ix
 file path=$(ECPREFIX)/lib/pkgconfig/ImageMagick++-6.Q16.pc
 file path=$(ECPREFIX)/lib/pkgconfig/ImageMagick++.pc
 file path=$(ECPREFIX)/lib/pkgconfig/ImageMagick-6.Q16.pc
@@ -1894,6 +1887,8 @@ file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/api/transform.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/api/version.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/api/wand-view.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/architecture.html
+file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/assets/magick.css
+file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/assets/magick.js
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/binary-releases.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/changelog.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/cipher.html
@@ -1909,8 +1904,6 @@ file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/conjure.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/connected-components.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/contact.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/convert.html
-file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/css/README.txt
-file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/css/magick.css
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/develop.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/display.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/distribute-pixel-cache.html
@@ -1930,8 +1923,6 @@ file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/import.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/index.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/install-source.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/jp2.html
-file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/js/README.txt
-file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/js/magick.js
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/license.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/links.html
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/magick++.html
@@ -1972,8 +1963,13 @@ file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/source/mime.xml
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/source/piechart.mvg
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/source/piechart.svg
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/source/policy.xml
+file \
+    path=$(ECPREFIX)/share/doc/ImageMagick-6/www/source/quantization-table.xml
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/source/thresholds.xml
+file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/source/type-apple.xml
+file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/source/type-dejavu.xml
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/source/type-ghostscript.xml
+file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/source/type-urw-base35.xml
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/source/type-windows.xml
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/source/type.xml
 file path=$(ECPREFIX)/share/doc/ImageMagick-6/www/source/wand.c
