@@ -9,12 +9,12 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 COMPONENT_MJR_VERSION=	9.6
-COMPONENT_MNR_VERSION=	5
-COMPONENT_ARCHIVE_HASH=	sha256:06da12a7e3dddeb803962af8309fa06da9d6989f49e22865335f0a14bad0744c
+COMPONENT_MNR_VERSION=	7
+COMPONENT_ARCHIVE_HASH=	sha256:2ebe3df3c1d1eab78023bdc3ffa55a154aa84300416b075ef996598d78a624c6
 
 PG_CONTRIB_LIBS+=	uuid-ossp
 
