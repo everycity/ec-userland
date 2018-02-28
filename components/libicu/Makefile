@@ -9,22 +9,22 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		icu
 COMPONENT_FMRI=		library/icu
-COMPONENT_VERSION=	59.1
-COMPONENT_OTHER_VERSION=59_1
+COMPONENT_VERSION=	60.2
+COMPONENT_OTHER_VERSION=60_2
 COMPONENT_LICENSE=	MIT
 COMPONENT_LICENSE_FILE=	license.html
 COMPONENT_PROJECT_URL=	"http://site.icu-project.org/"
 COMPONENT_SUMMARY=	C/C++ and Java libraries providing Unicode and Globalization support for software applications.
 COMPONENT_SRC=		$(COMPONENT_NAME)
 COMPONENT_ARCHIVE=	icu4c-$(COMPONENT_OTHER_VERSION)-src.tgz
-COMPONENT_ARCHIVE_HASH=	sha256:7132fdaf9379429d004005217f10e00b7d2319d0fea22bdfddef8991c45b75fe
+COMPONENT_ARCHIVE_HASH=	sha256:f073ea8f35b926d70bb33e6577508aa642a8b316a803f11be20af384811db418
 COMPONENT_ARCHIVE_URL=	http://download.icu-project.org/files/icu4c/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
