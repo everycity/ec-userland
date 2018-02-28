@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libxml2
 COMPONENT_FMRI=		library/libxml2
-COMPONENT_VERSION=	2.9.4
+COMPONENT_VERSION=	2.9.7
 COMPONENT_LICENSE=	MIT
 COMPONENT_PROJECT_URL=	"http://xmlsoft.org/"
 COMPONENT_SUMMARY=	The XML library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:ffb911191e509b966deb55de705387f14156e1a56b21824357cdf0053233633c
+COMPONENT_ARCHIVE_HASH=	sha256:f63c5e7d30362ed28b38bfa1ac6313f9a80230720b7fb6c80575eeab3ff5900c
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_XMLSOFT)
 
 # W3C XML Conformance Test Suites
@@ -35,7 +35,7 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CFLAGS +=	$(CPP_LARGEFILES)
+CFLAGS +=	$(CPP_LARGEFILES) -std=c99
 LDFLAGS +=	$(LD_Z_DEFS) $(LD_Z_TEXT) -lpthread
 
 CONFIGURE_OPTIONS += --disable-static
