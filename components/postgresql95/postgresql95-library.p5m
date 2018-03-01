@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -48,6 +48,7 @@ dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/comman
 dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/common
 dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/datatype
 dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/executor
+dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/fe_utils
 dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/foreign
 dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/lib
 dir path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/libpq
@@ -413,6 +414,7 @@ file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/execu
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/executor/tstoreReceiver.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/executor/tuptable.h
+file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/fe_utils/connect.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/fmgr.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/foreign/fdwapi.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/foreign/foreign.h
