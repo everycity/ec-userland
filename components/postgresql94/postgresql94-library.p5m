@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -258,6 +258,7 @@ file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/executo
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/executor/spi_priv.h
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/executor/tstoreReceiver.h
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/executor/tuptable.h
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/fe_utils/connect.h
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/fmgr.h
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/foreign/fdwapi.h
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/foreign/foreign.h
