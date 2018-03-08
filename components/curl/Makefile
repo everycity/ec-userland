@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		curl
 COMPONENT_FMRI=		web/curl
-COMPONENT_VERSION=	7.54.0
+COMPONENT_VERSION=	7.58.0
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	http://curl.haxx.se/
 COMPONENT_SUMMARY=	The C-URL Wrappers Library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:f50ebaf43c507fa7cc32be4b8108fa8bbd0f5022e90794388f3c7694a302ff06
+COMPONENT_ARCHIVE_HASH=	sha256:1cb081f97807c01e3ed747b6e1c9fee7a01cb10048f1cd0b5f56cfe0209de731
 COMPONENT_ARCHIVE_URL=	http://curl.haxx.se/download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -73,7 +73,7 @@ COMPONENT_POST_INSTALL_ACTION.64 = \
 		$(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/curl-config ; \
 	perl -pi -e 's! -I/ec/include  !!g; s/((-\b[lL]\S+\b)\h?)/$$count{$$2}++ ? '"'"''"'"' : "$$1"/eg; %count = ();' \
 		$(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/curl-config ;
-COMPONENT_POST_INSTALL_ACTION = $(COMPONENT_POST_INSTALL_ACTION.$(BITS)) \
+#COMPONENT_POST_INSTALL_ACTION = $(COMPONENT_POST_INSTALL_ACTION.$(BITS)) \
 	$(MV) $(PROTOUSRDIR)/include/curl/curlbuild.h $(PROTOUSRDIR)/include/curl/curlbuild-$(BITS).h
 
 build:		$(BUILD_32_and_64)

@@ -22,13 +22,14 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-# Dependency on ca-bundle
-depend fmri=pkg:/crypto/ca-bundle type=require
-
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/bin
+dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/curl
 file path=$(USRDIR)/bin/$(MACH64)/curl-config
 file path=$(USRDIR)/bin/curl
 file path=$(USRDIR)/bin/curl-config
+dir  path=$(USRDIR)/include
 dir  path=$(USRDIR)/include/curl
 file path=$(USRDIR)/include/curl/curl.h
 file path=$(USRDIR)/include/curl/curlver.h
@@ -38,19 +39,28 @@ file path=$(USRDIR)/include/curl/multi.h
 file path=$(USRDIR)/include/curl/stdcheaders.h
 file path=$(USRDIR)/include/curl/system.h
 file path=$(USRDIR)/include/curl/typecheck-gcc.h
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/$(MACH64)
 file path=$(USRDIR)/lib/$(MACH64)/libcurl.la
 link path=$(USRDIR)/lib/$(MACH64)/libcurl.so target=libcurl.so.4.5.0
 link path=$(USRDIR)/lib/$(MACH64)/libcurl.so.4 target=libcurl.so.4.5.0
 file path=$(USRDIR)/lib/$(MACH64)/libcurl.so.4.5.0
+dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libcurl.pc
 file path=$(USRDIR)/lib/libcurl.la
 link path=$(USRDIR)/lib/libcurl.so target=libcurl.so.4.5.0
 link path=$(USRDIR)/lib/libcurl.so.4 target=libcurl.so.4.5.0
 file path=$(USRDIR)/lib/libcurl.so.4.5.0
+dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/libcurl.pc
+dir  path=$(USRDIR)/share
+dir  path=$(USRDIR)/share/aclocal
 file path=$(USRDIR)/share/aclocal/libcurl.m4
+dir  path=$(USRDIR)/share/man
+dir  path=$(USRDIR)/share/man/man1
 file path=$(USRDIR)/share/man/man1/curl-config.1
 file path=$(USRDIR)/share/man/man1/curl.1
+dir  path=$(USRDIR)/share/man/man3
 file path=$(USRDIR)/share/man/man3/CURLINFO_ACTIVESOCKET.3
 file path=$(USRDIR)/share/man/man3/CURLINFO_APPCONNECT_TIME.3
 file path=$(USRDIR)/share/man/man3/CURLINFO_CERTINFO.3
