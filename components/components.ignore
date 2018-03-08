@@ -48,5 +48,3 @@
 /^mysqlproxy55$/d
 /^vlc2$/d
 /^xapian\/bindings-php54$/d
-/^librsvg$/d
-/^libxslt$/d
