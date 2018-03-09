@@ -9,28 +9,30 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		boost
 COMPONENT_FMRI=		library/boost
-COMPONENT_VERSION=	1.63.0
-COMPONENT_OTHER_VERSION= 1_63_0
+COMPONENT_VERSION=	1.66.0
+COMPONENT_OTHER_VERSION= 1_66_0
 COMPONENT_LICENSE=	Boost Software License v1.0
 COMPONENT_LICENSE_FILE=	LICENSE_1_0.txt
 COMPONENT_PROJECT_URL=	"http://www.boost.org/"
 COMPONENT_SUMMARY=	Boost C++ Libraries
 COMPONENT_SRC=		$(COMPONENT_NAME)_$(COMPONENT_OTHER_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:beae2529f759f6b3bf3f4969a19c2e9d6f0c503edcb2de4a61d1428519fcb3b0
+COMPONENT_ARCHIVE_HASH=	sha256:5721818253e6a0989583192f96782c4a98eb6204965316df9f5ad75819225ca9
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF2)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
+#CFLAGS +=	-std=c99
+CXXFLAGS +=	-std=c++0x
 COMPONENT_BUILD_ENV += CC="$(CC)" CXX="$(CXX)" CPPFLAGS="$(CPPFLAGS)" CFLAGS="$(CFLAGS)" CXXFLAGS="$(CXXFLAGS)" LDFLAGS="$(LDFLAGS)"
 
 LIBDIR.32= $(USRDIR)/lib
