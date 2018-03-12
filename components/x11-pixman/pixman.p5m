@@ -9,30 +9,33 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/x11/library/pixman@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="Pixman: The pixel-manipulation library for X and Cairo."
-set name=info.upstream_url value="http://xorg.freedesktop.org/releases/individual/lib/"
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license pixman.license license="MIT License (pixman)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
+dir  path=$(USRDIR)/include/pixman-1
 file path=$(USRDIR)/include/pixman-1/pixman-version.h
 file path=$(USRDIR)/include/pixman-1/pixman.h
-file path=$(USRDIR)/lib/$(MACH64)/libpixman-1.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/pixman-1.pc
-file path=$(USRDIR)/lib/libpixman-1.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/pkgconfig/pixman-1.pc
+file path=$(USRDIR)/lib/$(MACH64)/libpixman-1.la
 link path=$(USRDIR)/lib/$(MACH64)/libpixman-1.so \
     target=libpixman-1.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/$(MACH64)/libpixman-1.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/$(MACH64)/libpixman-1.so.0 \
     target=libpixman-1.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/pixman-1.pc
+file path=$(USRDIR)/lib/libpixman-1.la
 link path=$(USRDIR)/lib/libpixman-1.so \
     target=libpixman-1.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/libpixman-1.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/libpixman-1.so.0 \
     target=libpixman-1.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/pkgconfig/pixman-1.pc

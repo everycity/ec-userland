@@ -9,15 +9,19 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		pixman
-COMPONENT_VERSION=	0.28.2
+COMPONENT_FMRI=		x11/library/pixman
+COMPONENT_VERSION=	0.34.0
+COMPONENT_LICENSE=	MIT
+COMPONENT_PROJECT_URL=	"http://xorg.freedesktop.org/releases/individual/lib/"
+COMPONENT_SUMMARY=	Pixman: The pixel-manipulation library for X and Cairo.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:2afac9006adbc3fba28830007d7a9521b118d516342478dfe7818ffe4aeb9b55
+COMPONENT_ARCHIVE_HASH=	sha256:21b6b249b51c6800dc9553b65106e1e37d0e25df942c90531d4c3997aa20a88e
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_XORG_LIB)
 
 include ../../make-rules/prep.mk
