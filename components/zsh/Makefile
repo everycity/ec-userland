@@ -9,25 +9,37 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		zsh
 COMPONENT_FMRI=         shell/zsh
-COMPONENT_VERSION=      5.0.5
+COMPONENT_VERSION=      5.4.2
 COMPONENT_LICENSE=      ZSH/GPL
+COMPONENT_LICENSE_FILE=	LICENCE
 COMPONENT_PROJECT_URL=  "http://zsh.sourceforge.net/"
 COMPONENT_SUMMARY=	Zsh is a shell designed for interactive use, although it is also a powerful scripting language
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:6624d2fb6c8fa4e044d2b009f86ed1617fe8583c83acfceba7ec82826cfa8eaf
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
+COMPONENT_ARCHIVE_HASH=	sha256:957bcdb2c57f64c02f673693ea5a7518ef24b6557aeb3a4ce222cefa6d74acc9
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+CPPFLAGS+=	-I$(USRPREFIX)/include/ncurses -D__EXTENSIONS__
+CFLAGS+=	-std=c99
+LIBS+=		-ltinfo
+
+CONFIGURE_OPTIONS+=	--enable-maildir-support
+CONFIGURE_OPTIONS+=	--enable-pcre
+CONFIGURE_OPTIONS+=	--enable-multibyte
+CONFIGURE_OPTIONS+=	--disable-gdbm
+
+COMPONENT_PRE_CONFIGURE_ACTION+=	( cd $(SOURCE_DIR) ; autoreconf -fiv )
 
 build:		$(BUILD_32)
 
