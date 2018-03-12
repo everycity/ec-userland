@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -30,6 +30,7 @@ dir path=$(ECPREFIX)/lib/zsh/$(COMPONENT_VERSION)
 dir path=$(ECPREFIX)/lib/zsh/$(COMPONENT_VERSION)/zsh
 dir path=$(ECPREFIX)/lib/zsh/$(COMPONENT_VERSION)/zsh/db
 dir path=$(ECPREFIX)/lib/zsh/$(COMPONENT_VERSION)/zsh/net
+dir path=$(ECPREFIX)/lib/zsh/$(COMPONENT_VERSION)/zsh/param
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
@@ -58,6 +59,7 @@ file path=$(ECPREFIX)/lib/zsh/$(COMPONENT_VERSION)/zsh/mathfunc.so
 file path=$(ECPREFIX)/lib/zsh/$(COMPONENT_VERSION)/zsh/net/socket.so
 file path=$(ECPREFIX)/lib/zsh/$(COMPONENT_VERSION)/zsh/net/tcp.so
 file path=$(ECPREFIX)/lib/zsh/$(COMPONENT_VERSION)/zsh/newuser.so
+file path=$(ECPREFIX)/lib/zsh/$(COMPONENT_VERSION)/zsh/param/private.so
 file path=$(ECPREFIX)/lib/zsh/$(COMPONENT_VERSION)/zsh/parameter.so
 file path=$(ECPREFIX)/lib/zsh/$(COMPONENT_VERSION)/zsh/regex.so
 file path=$(ECPREFIX)/lib/zsh/$(COMPONENT_VERSION)/zsh/rlimits.so
@@ -147,25 +149,36 @@ file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/VCS_INFO_get_data_svn
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/VCS_INFO_get_data_tla
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/VCS_INFO_hexdump
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/VCS_INFO_hook
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/VCS_INFO_maxexports
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/VCS_INFO_nvcsformats
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/VCS_INFO_patch2subject
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/VCS_INFO_quilt
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/VCS_INFO_realpath
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/VCS_INFO_reposub
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/VCS_INFO_set
-file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_SuSEconfig
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/VCS_INFO_set-patch-format
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_SUSEconfig
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_a2ps
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_a2utils
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_aap
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_absolute_command_paths
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_acpi
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_acpitool
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_acroread
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_adb
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_add-zle-hook-widget
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_add-zsh-hook
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_alias
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_aliases
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_all_labels
@@ -193,30 +206,40 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_arrays
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_assign
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_at
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_attr
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_augeas
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_auto-apt
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_autocd
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_awk
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_axi-cache
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_basename
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_bash_completions
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_baudrates
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_baz
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_be_name
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_beadm
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_beep
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_bibtex
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_bind_addresses
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_bindkey
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_bison
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_bittorrent
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_bogofilter
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_bpf_filters
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_bpython
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_brace_parameter
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_brctl
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_bsd_pkg
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_bsdconfig
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_bsdinstall
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_btrfs
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_bts
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_bug
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_builtin
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_bzip2
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_bzr
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cabal
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cache_invalid
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cal
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_calendar
@@ -238,12 +261,17 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_chkconfig
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_chmod
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_chown
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_chrt
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_chsh
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_clay
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cmdambivalent
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cmdstring
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cmp
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_combination
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_comm
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_command
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_command_names
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_comp_locale
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_compadd
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_compdef
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_complete
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_complete_debug
@@ -251,6 +279,7 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_complete_help
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_complete_help_generic
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_complete_tag
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_completers
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_compress
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_condition
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_configure
@@ -263,10 +292,14 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cowsay
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cp
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cpio
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cplay
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cpupower
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cryptsetup
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cscope
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cssh
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_csup
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ctags_tags
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cu
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_curl
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cut
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cvs
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cvsup
@@ -278,14 +311,22 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_cygstart
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dak
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_darcs
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_date
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_date_formats
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dates
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dbus
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dchroot
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dchroot-dsa
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dcop
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dcut
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dd
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_deb_architectures
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_deb_codenames
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_deb_packages
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_debbugs_bugnumber
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_debchange
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_debcheckout
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_debdiff
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_debfoster
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_debsign
@@ -303,6 +344,7 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dict_words
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_diff
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_diff_options
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_diffstat
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dig
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dir_list
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_directories
 file \
@@ -313,7 +355,10 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dispatch
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_django
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dladm
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dlocate
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dmesg
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dmidecode
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dnf
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_doas
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_domains
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dpatch-edit-patch
@@ -324,6 +369,7 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dpkg-cross
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dpkg-repack
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dpkg_source
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dput
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dsh
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dtrace
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_du
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_dumpadm
@@ -335,6 +381,7 @@ file \
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ecasound
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_echotc
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_echoti
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_elfdump
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_elinks
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_elm
 file \
@@ -342,14 +389,18 @@ file \
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_emulate
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_enable
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_enscript
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_entr
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_env
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_equal
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_espeak
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_etags
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ethtool
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_evince
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_expand
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_expand_alias
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_expand_word
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_extensions
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_external_pwds
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_fakeroot
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_fc
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_feh
@@ -362,6 +413,8 @@ file \
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_file_systems
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_files
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_find
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_find_net_interfaces
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_finger
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_fink
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_first
@@ -370,6 +423,7 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_flex
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_floppy
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_flowadm
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_fmadm
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_fmt
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_fortune
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_freebsd-update
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_fsh
@@ -379,6 +433,7 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_fuse_arguments
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_fuse_values
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_fuser
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_fusermount
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_fw_update
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_gcc
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_gcore
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_gdb
@@ -403,6 +458,7 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_gnu_generic
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_gnupod
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_gnutls
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_go
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_gpasswd
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_gpg
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_gphoto2
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_gprof
@@ -415,6 +471,8 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_groff
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_groups
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_growisofs
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_gs
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_gsettings
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_gstat
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_guard
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_guilt
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_gv
@@ -422,6 +480,7 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_gzip
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_hash
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_have_glob_qual
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_hdiutil
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_head
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_hg
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_history
 file \
@@ -429,8 +488,10 @@ file \
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_history_modifiers
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_hosts
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_htop
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_hwinfo
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_iconv
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_iconvconfig
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_id
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ifconfig
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_iftop
@@ -442,6 +503,7 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_init_d
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_initctl
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_invoke-rc.d
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ionice
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_iostat
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ip
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ipadm
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ipset
@@ -449,25 +511,31 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_iptables
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_irssi
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ispell
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_iwconfig
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_jails
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_java
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_java_class
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_jexec
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_jls
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_jobs
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_jobs_bg
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_jobs_builtin
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_jobs_fg
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_joe
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_join
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_jot
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_kfmclient
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_kill
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_killall
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_kld
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_knock
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_kpartx
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_kvno
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_last
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ld_debug
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ldd
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_less
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_lha
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_libvirt
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_lighttpd
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_limit
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_limits
@@ -475,8 +543,11 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_links
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_lintian
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_list
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_list_files
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_lldb
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ln
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_loadkeys
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_locale
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_localedef
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_locales
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_locate
 file \
@@ -485,6 +556,7 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_look
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_losetup
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_lp
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ls
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_lsblk
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_lscfg
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_lsdev
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_lslv
@@ -492,6 +564,7 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_lsof
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_lspv
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_lsusb
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_lsvg
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ltrace
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_lynx
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_lzop
 file \
@@ -521,6 +594,7 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_metaflac
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_mh
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_mii-tool
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_mime_types
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_mixerctl
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_mkdir
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_mkshortcut
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_mkzsh
@@ -532,6 +606,7 @@ file \
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_modutils
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_mondo
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_monotone
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_moosic
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_mosh
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_most_recent_file
@@ -557,8 +632,10 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_netstat
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_newsgroups
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_next_label
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_next_tags
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ngrep
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_nice
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_nkf
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_nl
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_nm
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_nmap
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_nmcli
@@ -567,10 +644,14 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_nothing
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_notmuch
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_npm
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_nslookup
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_objdump
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_object_classes
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_object_files
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_od
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_okular
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_oldlist
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_open
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_openstack
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_options
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_options_set
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_options_unset
@@ -579,7 +660,9 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_other_accounts
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_pack
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_parameter
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_parameters
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_paste
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_patch
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_patchutils
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_path_commands
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_path_files
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_pax
@@ -599,6 +682,8 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_php
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_physical_volumes
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_pick_variant
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_picocom
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_pidof
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_pids
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_pine
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ping
@@ -639,6 +724,8 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_pump
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_putclip
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_pydoc
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_python
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_python_modules
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_qdbus
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_qemu
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_qiv
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_qtplay
@@ -647,9 +734,12 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_raggle
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_rake
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ranlib
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_rar
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_rcctl
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_rcs
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_rdesktop
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_read
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_read_comp
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_readelf
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_readshortcut
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_rebootin
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_redirect
@@ -666,6 +756,7 @@ file \
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ri
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_rlogin
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_rm
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_route
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_rpm
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_rpmbuild
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_rrdtool
@@ -673,6 +764,7 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_rsync
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_rubber
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ruby
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_run-help
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_runit
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_sablotron
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_samba
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_savecore
@@ -680,9 +772,12 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_sccs
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_sched
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_schedtool
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_schroot
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_scl
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_screen
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_script
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_sed
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_sep_parts
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_sequence
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_service
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_services
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_set
@@ -706,12 +801,14 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_source
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_spamassassin
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_sqlite
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_sqsh
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ss
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ssh
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_sshfs
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_stat
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_stgit
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_store_cache
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_strace
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_strftime
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_strip
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_stty
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_su
@@ -729,9 +826,17 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_svcs
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_svcs_fmri
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_svn-buildpackage
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_swaks
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_swift
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_sys_calls
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_sysctl
-file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_systemd
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_sysrc
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_sysstat
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_systat
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_system_profiler
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_tags
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_tail
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_tar
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_tar_archive
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_tardy
@@ -755,20 +860,27 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_todo.sh
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_toilet
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_toolchain-source
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_top
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_topgit
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_totd
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_touch
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_tpb
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_tpconfig
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_tput
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_tr
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_tracepath
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_trap
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_tree
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_truss
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ttyctl
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ttys
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_tune2fs
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_twidge
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_twisted
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_typeset
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ulimit
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_uml
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_umountable
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_unace
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_uname
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_unexpand
@@ -776,7 +888,6 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_unhash
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_uniq
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_unison
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_units
-file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_unsetopt
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_update-alternatives
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_update-rc.d
@@ -799,12 +910,14 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_vars
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_vcsh
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_vim
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_vim-addons
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_vmstat
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_vnc
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_volume_groups
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_vorbis
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_vorbiscomment
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_vserver
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_vux
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_w
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_w3m
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_wait
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_wajig
@@ -812,11 +925,16 @@ file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_wakeup_capable_devices
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_wanna-build
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_wanted
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_watch
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_watch-snoop
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_wc
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_webbrowser
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_wget
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_whereis
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_which
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_who
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_whois
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_widgets
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_wiggle
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_wpa_cli
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_x_arguments
@@ -841,6 +959,7 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_x_visual
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_x_window
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_xargs
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_xauth
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_xautolock
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_xclip
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_xdvi
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_xfig
@@ -859,15 +978,16 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_xt_session_id
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_xterm
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_xv
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_xwit
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_xxd
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_xz
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_yafc
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_yast
-file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_yast2
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_yodl
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_yp
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_yum
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_zargs
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_zattr
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_zcalc
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_zcalc_line
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_zcat
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_zcompile
@@ -888,12 +1008,17 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_zoneadm
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_zones
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_zpool
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_zpty
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_zsh
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_zsh-mime-handler
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_zsocket
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_zstyle
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_ztodo
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/_zypper
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/add-zle-hook-widget
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/add-zsh-hook
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/after
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/age
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/allopt
 file \
@@ -901,6 +1026,11 @@ file \
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/backward-word-match
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/bashcompinit
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/before
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/bracketed-paste-magic
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/bracketed-paste-url-magic
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/calendar
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/calendar_add
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/calendar_edit
@@ -944,6 +1074,8 @@ file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/down-line-or-beginning-search
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/edit-command-line
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/expand-absolute-path
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/forward-word-match
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/getjobs
@@ -994,6 +1126,8 @@ file \
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/prompt_clint_setup
 file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/prompt_default_setup
+file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/prompt_elite2_setup
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/prompt_elite_setup
@@ -1010,6 +1144,8 @@ file \
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/prompt_redhat_setup
 file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/prompt_restore_setup
+file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/prompt_special_chars
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/prompt_suse_setup
@@ -1025,17 +1161,25 @@ file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/read-from-minibuffer
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/regexp-replace
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/relative
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/replace-argument
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/replace-string
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/replace-string-again
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/run-help
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/run-help-git
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/run-help-ip
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/run-help-openssl
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/run-help-p4
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/run-help-sudo
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/run-help-svk
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/run-help-svn
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/select-bracketed
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/select-quoted
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/select-word-match
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/select-word-style
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/send-invisible
@@ -1044,6 +1188,7 @@ file \
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/split-shell-arguments
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/sticky-note
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/surround
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/tcp_alias
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/tcp_close
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/tcp_command
@@ -1063,6 +1208,7 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/tcp_spam
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/tcp_talk
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/tcp_wait
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/tetris
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/tetriscurses
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/throw
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/transpose-lines
 file \
@@ -1082,10 +1228,13 @@ file \
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/vcs_info_printsys
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/vcs_info_setsys
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/vi-pipe
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/which-command
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/xtermctl
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/zargs
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/zcalc
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/zcalc-auto-insert
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/zed
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/zed-set-file-name
@@ -1121,6 +1270,7 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/zftype
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/zfuget
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/zfuput
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/zkbd
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/zmathfunc
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/zmathfuncdef
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/zmv
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/zrecompile
@@ -1133,9 +1283,12 @@ file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/zsh-newuser-install
 file \
     path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/zsh_directory_name_cdr
+file \
+    path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/zsh_directory_name_generic
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/zstyle+
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/functions/ztodo
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/help/alias
+file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/help/autoload
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/help/bg
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/help/bindkey
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/help/break
@@ -1227,8 +1380,6 @@ file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/help/zstyle
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/help/ztcp
 file path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/scripts/newuser
 hardlink path=$(ECPREFIX)/bin/zsh-$(COMPONENT_VERSION) target=zsh
-link path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/help/autoload \
-    target=functions
 link path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/help/bye target=exit
 link path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/help/chdir target=cd
 link path=$(ECPREFIX)/share/zsh/$(COMPONENT_VERSION)/help/declare \
