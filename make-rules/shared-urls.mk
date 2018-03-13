@@ -15,7 +15,7 @@
 
 # Default to looking for source archives on the internal mirror before we
 # hammer on the external repositories.
-export DOWNLOAD_SEARCH_PATH ?=	http://dlc.everycity.com/ec-userland/source-archives
+export DOWNLOAD_SEARCH_PATH ?=	http://download.everycity.co.uk/ec-userland/archives
 
 # URL roots
 APACHE_ARCHIVE=		http://archive.apache.org/dist
@@ -40,8 +40,9 @@ MIRROR_APACHE=		$(MIRRORSERVICE_ROOT)/ftp.apache.org
 DOWNLOAD_APACHE=	$(MIRROR_APACHE)/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_EC=		$(EC_ARCHIVE)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_GITHUB=	https://github.com/downloads/$(COMPONENT_NAME)/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
+DOWNLOAD_GITHUB1=	https://github.com/$(GITHUB_PROJECT)/$(COMPONENT_NAME)/archive/$(COMPONENT_VERSION).tar.gz
 DOWNLOAD_GITHUB2=	https://github.com/$(COMPONENT_NAME)/$(COMPONENT_NAME)/releases/download/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
-DOWNLOAD_GNU_FTP=	http://ftp.gnu.org/gnu/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
+DOWNLOAD_GNU_FTP=	https://ftp.gnu.org/gnu/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_GNU_SAVANNAH=	http://download.savannah.gnu.org/releases/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_LIBRDF=	http://download.librdf.org/source/$(COMPONENT_ARCHIVE)
 DOWNLOAD_PERL5=		http://www.cpan.org/src/5.0/$(COMPONENT_ARCHIVE)
