@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		curl
 COMPONENT_FMRI=		web/curl
-COMPONENT_VERSION=	7.54.1
+COMPONENT_VERSION=	7.59.0
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	http://curl.haxx.se/
 COMPONENT_SUMMARY=	The C-URL Wrappers Library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:fdfc4df2d001ee0c44ec071186e770046249263c491fcae48df0e1a3ca8f25a0
+COMPONENT_ARCHIVE_HASH=	sha256:b5920ffd6a8c95585fb95070e0ced38322790cb335c39d0dab852d12e157b5a0
 COMPONENT_ARCHIVE_URL=	http://curl.haxx.se/download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -52,14 +52,15 @@ COMPONENT_POST_INSTALL_ACTION=$(COMPONENT_POST_INSTALL_ACTION.$(BITS))
 # common targets
 build:		$(BUILD_32_and_64)
 
-$(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
+#$(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
 	# Note: curl generates a header file, include/curl/curlbuild.h, during the build
 	# This header file is different depending on 32bit or 64bit build
-	/usr/bin/echo "/* EC: combining 32 and 64bit headers */\n\n#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/curlbuild.h
-	/usr/bin/cat $(BUILD_DIR_64)/include/curl/curlbuild.h >> $(COMPONENT_DIR)/curlbuild.h
-	/usr/bin/echo "\n#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/curlbuild.h
-	/usr/bin/cat $(BUILD_DIR_32)/include/curl/curlbuild.h >> $(COMPONENT_DIR)/curlbuild.h
-	/usr/bin/echo "\n#endif /* EC */" >> $(COMPONENT_DIR)/curlbuild.h
-	$(TOUCH) $@
+#	/usr/bin/echo "/* EC: combining 32 and 64bit headers */\n\n#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/curlbuild.h
+#	/usr/bin/cat $(BUILD_DIR_64)/include/curl/curlbuild.h >> $(COMPONENT_DIR)/curlbuild.h
+#	/usr/bin/echo "\n#else /* EC: following is 32bit */\n" >> $(COMPONENT_DIR)/curlbuild.h
+#	/usr/bin/cat $(BUILD_DIR_32)/include/curl/curlbuild.h >> $(COMPONENT_DIR)/curlbuild.h
+#	/usr/bin/echo "\n#endif /* EC */" >> $(COMPONENT_DIR)/curlbuild.h
+#	$(TOUCH) $@
 
-install:	$(BUILD_DIR)/.installed
+install:	$(INSTALL_32_and_64)
+#$(BUILD_DIR)/.installed
