@@ -19,7 +19,7 @@
 # CDDL HEADER END
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2018, EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -51,25 +51,25 @@ file path=$(ECPREFIX)/include/vorbis/vorbisenc.h
 file path=$(ECPREFIX)/include/vorbis/vorbisfile.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libvorbis.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libvorbis.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libvorbis.so.0.4.6
+file path=$(ECPREFIX)/lib/$(MACH64)/libvorbis.so.0.4.8
 file path=$(ECPREFIX)/lib/$(MACH64)/libvorbisenc.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libvorbisenc.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libvorbisenc.so.2.0.9
+file path=$(ECPREFIX)/lib/$(MACH64)/libvorbisenc.so.2.0.11
 file path=$(ECPREFIX)/lib/$(MACH64)/libvorbisfile.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libvorbisfile.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libvorbisfile.so.3.3.5
+file path=$(ECPREFIX)/lib/$(MACH64)/libvorbisfile.so.3.3.7
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/vorbis.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/vorbisenc.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/vorbisfile.pc
 file path=$(ECPREFIX)/lib/libvorbis.a
 file path=$(ECPREFIX)/lib/libvorbis.la
-file path=$(ECPREFIX)/lib/libvorbis.so.0.4.6
+file path=$(ECPREFIX)/lib/libvorbis.so.0.4.8
 file path=$(ECPREFIX)/lib/libvorbisenc.a
 file path=$(ECPREFIX)/lib/libvorbisenc.la
-file path=$(ECPREFIX)/lib/libvorbisenc.so.2.0.9
+file path=$(ECPREFIX)/lib/libvorbisenc.so.2.0.11
 file path=$(ECPREFIX)/lib/libvorbisfile.a
 file path=$(ECPREFIX)/lib/libvorbisfile.la
-file path=$(ECPREFIX)/lib/libvorbisfile.so.3.3.5
+file path=$(ECPREFIX)/lib/libvorbisfile.so.3.3.7
 file path=$(ECPREFIX)/lib/pkgconfig/vorbis.pc
 file path=$(ECPREFIX)/lib/pkgconfig/vorbisenc.pc
 file path=$(ECPREFIX)/lib/pkgconfig/vorbisfile.pc
@@ -77,7 +77,6 @@ file path=$(ECPREFIX)/share/aclocal/vorbis.m4
 file \
     path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/doxygen-build.stamp
 file path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/eightphase.png
-file path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/evenlsp.png
 file \
     path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/fish_xiph_org.png
 file \
@@ -177,8 +176,6 @@ file \
     path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/libvorbis/vorbis_synthesis_trackonly.html
 file \
     path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/libvorbis/vorbis_version_string.html
-file path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/lspmap.png
-file path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/oddlsp.png
 file path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/oggstream.html
 file \
     path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/programming.html
@@ -193,7 +190,6 @@ file \
     path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/vorbis-errors.txt
 file \
     path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/vorbis-fidelity.html
-file path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/vorbis.html
 file \
     path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/vorbisenc/changes.html
 file \
@@ -336,23 +332,19 @@ file \
     path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/vorbisfile/threads.html
 file \
     path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/vorbisfile/vorbisfile_example_c.html
-file path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/vorbisword2.png
-file path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/wait.png
-file \
-    path=$(ECPREFIX)/share/doc/libvorbis-$(COMPONENT_VERSION)/white-xifish.png
-link path=$(ECPREFIX)/lib/$(MACH64)/libvorbis.so target=libvorbis.so.0.4.6
-link path=$(ECPREFIX)/lib/$(MACH64)/libvorbis.so.0 target=libvorbis.so.0.4.6
+link path=$(ECPREFIX)/lib/$(MACH64)/libvorbis.so target=libvorbis.so.0.4.8
+link path=$(ECPREFIX)/lib/$(MACH64)/libvorbis.so.0 target=libvorbis.so.0.4.8
 link path=$(ECPREFIX)/lib/$(MACH64)/libvorbisenc.so \
-    target=libvorbisenc.so.2.0.9
+    target=libvorbisenc.so.2.0.11
 link path=$(ECPREFIX)/lib/$(MACH64)/libvorbisenc.so.2 \
-    target=libvorbisenc.so.2.0.9
+    target=libvorbisenc.so.2.0.11
 link path=$(ECPREFIX)/lib/$(MACH64)/libvorbisfile.so \
-    target=libvorbisfile.so.3.3.5
+    target=libvorbisfile.so.3.3.7
 link path=$(ECPREFIX)/lib/$(MACH64)/libvorbisfile.so.3 \
-    target=libvorbisfile.so.3.3.5
-link path=$(ECPREFIX)/lib/libvorbis.so target=libvorbis.so.0.4.6
-link path=$(ECPREFIX)/lib/libvorbis.so.0 target=libvorbis.so.0.4.6
-link path=$(ECPREFIX)/lib/libvorbisenc.so target=libvorbisenc.so.2.0.9
-link path=$(ECPREFIX)/lib/libvorbisenc.so.2 target=libvorbisenc.so.2.0.9
-link path=$(ECPREFIX)/lib/libvorbisfile.so target=libvorbisfile.so.3.3.5
-link path=$(ECPREFIX)/lib/libvorbisfile.so.3 target=libvorbisfile.so.3.3.5
+    target=libvorbisfile.so.3.3.7
+link path=$(ECPREFIX)/lib/libvorbis.so target=libvorbis.so.0.4.8
+link path=$(ECPREFIX)/lib/libvorbis.so.0 target=libvorbis.so.0.4.8
+link path=$(ECPREFIX)/lib/libvorbisenc.so target=libvorbisenc.so.2.0.11
+link path=$(ECPREFIX)/lib/libvorbisenc.so.2 target=libvorbisenc.so.2.0.11
+link path=$(ECPREFIX)/lib/libvorbisfile.so target=libvorbisfile.so.3.3.7
+link path=$(ECPREFIX)/lib/libvorbisfile.so.3 target=libvorbisfile.so.3.3.7
