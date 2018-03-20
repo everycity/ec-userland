@@ -36,7 +36,7 @@
    exit 1
 @@ -675,4 +672,4 @@
    *)
-     invoke_task checknotforrunning
+     invoke_task
      exit $?
 -esac
 \ No newline at end of file

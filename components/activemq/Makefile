@@ -10,21 +10,21 @@
 
 #
 # Copyright 2011, Andrzej Szeszo
-# Copyright 2016, EveryCity Ltd. All rights reserved.
+# Copyright 2018, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		activemq
 COMPONENT_FMRI=		service/activemq
-COMPONENT_VERSION=	5.13.2
+COMPONENT_VERSION=	5.15.3
 COMPONENT_LICENSE=	APLv2
 COMPONENT_LICENSE_FILE=	LICENSE
 COMPONENT_PROJECT_URL=	"http://activemq.apache.org/"
 COMPONENT_SUMMARY=	Apache ActiveMQ messaging provider
 COMPONENT_SRC=		apache-$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-bin.tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:be178babf4a22f8774480ab30705030b944f880e8c133ef2eee324ee90b72f6f
+COMPONENT_ARCHIVE_HASH=	sha256:5755d298bd136842b0e2479e5aa1c1dda4f61ad358af6f3b16231a3bf711fa61
 COMPONENT_ARCHIVE_URL=	http://archive.apache.org/dist/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -40,7 +40,7 @@ $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
 	mkdir -p $(PROTO_DIR)$(ECPREFIX)/var/$(COMPONENT_NAME)
 	for i in bin conf data docs examples lib webapps webapps-demo ; \
 		do $(CP) -R $(SOURCE_DIR)/$$i $(PROTO_DIR)$(ECPREFIX)/var/$(COMPONENT_NAME)/ ; done
-	for i in LICENSE NOTICE README.txt activemq-all-5.13.2.jar ; \
+	for i in LICENSE NOTICE README.txt activemq-all-$(COMPONENT_VERSION).jar ; \
 		do $(CP) $(SOURCE_DIR)/$$i $(PROTO_DIR)$(ECPREFIX)/var/$(COMPONENT_NAME)/ ; done
 	$(TOUCH) $@
 
