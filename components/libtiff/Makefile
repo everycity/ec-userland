@@ -9,20 +9,21 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tiff
 COMPONENT_FMRI=		library/libtiff
-COMPONENT_VERSION=	4.0.3
+COMPONENT_VERSION=	4.0.9
 COMPONENT_LICENSE=	MIT
+COMPONENT_LICENSE_FILE=	COPYRIGHT
 COMPONENT_PROJECT_URL=	"http://www.remotesensing.org/libtiff/"
 COMPONENT_SUMMARY=	Tag Image File Format (TIFF) Library and Utilities
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:ea1aebe282319537fb2d4d7805f478dd4e0e05c33d0928baba76a7c963684872
+COMPONENT_ARCHIVE_HASH=	sha256:6e7bdeec2c310734e734d19aae3a71ebe37a4d842e0e23dbb1b8921c0026cfcd
 COMPONENT_ARCHIVE_URL=	http://download.osgeo.org/libtiff/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

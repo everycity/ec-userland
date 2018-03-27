@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -17,21 +17,19 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-file path=$(USRDIR)/bin/$(MACH64)/bmp2tiff
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/bin
+dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/fax2ps
 file path=$(USRDIR)/bin/$(MACH64)/fax2tiff
-file path=$(USRDIR)/bin/$(MACH64)/gif2tiff
 file path=$(USRDIR)/bin/$(MACH64)/pal2rgb
 file path=$(USRDIR)/bin/$(MACH64)/ppm2tiff
-file path=$(USRDIR)/bin/$(MACH64)/ras2tiff
 file path=$(USRDIR)/bin/$(MACH64)/raw2tiff
-file path=$(USRDIR)/bin/$(MACH64)/rgb2ycbcr
-file path=$(USRDIR)/bin/$(MACH64)/thumbnail
 file path=$(USRDIR)/bin/$(MACH64)/tiff2bw
 file path=$(USRDIR)/bin/$(MACH64)/tiff2pdf
 file path=$(USRDIR)/bin/$(MACH64)/tiff2ps
@@ -45,16 +43,11 @@ file path=$(USRDIR)/bin/$(MACH64)/tiffinfo
 file path=$(USRDIR)/bin/$(MACH64)/tiffmedian
 file path=$(USRDIR)/bin/$(MACH64)/tiffset
 file path=$(USRDIR)/bin/$(MACH64)/tiffsplit
-file path=$(USRDIR)/bin/bmp2tiff
 file path=$(USRDIR)/bin/fax2ps
 file path=$(USRDIR)/bin/fax2tiff
-file path=$(USRDIR)/bin/gif2tiff
 file path=$(USRDIR)/bin/pal2rgb
 file path=$(USRDIR)/bin/ppm2tiff
-file path=$(USRDIR)/bin/ras2tiff
 file path=$(USRDIR)/bin/raw2tiff
-file path=$(USRDIR)/bin/rgb2ycbcr
-file path=$(USRDIR)/bin/thumbnail
 file path=$(USRDIR)/bin/tiff2bw
 file path=$(USRDIR)/bin/tiff2pdf
 file path=$(USRDIR)/bin/tiff2ps
@@ -68,17 +61,37 @@ file path=$(USRDIR)/bin/tiffinfo
 file path=$(USRDIR)/bin/tiffmedian
 file path=$(USRDIR)/bin/tiffset
 file path=$(USRDIR)/bin/tiffsplit
+dir  path=$(USRDIR)/include
 file path=$(USRDIR)/include/tiff.h
 file path=$(USRDIR)/include/tiffconf.h
 file path=$(USRDIR)/include/tiffio.h
 file path=$(USRDIR)/include/tiffio.hxx
 file path=$(USRDIR)/include/tiffvers.h
-file path=$(USRDIR)/lib/$(MACH64)/libtiff.so.5.2.0
-file path=$(USRDIR)/lib/$(MACH64)/libtiffxx.so.5.2.0
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/$(MACH64)
+file path=$(USRDIR)/lib/$(MACH64)/libtiff.la
+link path=$(USRDIR)/lib/$(MACH64)/libtiff.so target=libtiff.so.5.3.0
+link path=$(USRDIR)/lib/$(MACH64)/libtiff.so.5 target=libtiff.so.5.3.0
+file path=$(USRDIR)/lib/$(MACH64)/libtiff.so.5.3.0
+file path=$(USRDIR)/lib/$(MACH64)/libtiffxx.la
+link path=$(USRDIR)/lib/$(MACH64)/libtiffxx.so target=libtiffxx.so.5.3.0
+link path=$(USRDIR)/lib/$(MACH64)/libtiffxx.so.5 target=libtiffxx.so.5.3.0
+file path=$(USRDIR)/lib/$(MACH64)/libtiffxx.so.5.3.0
+dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libtiff-4.pc
-file path=$(USRDIR)/lib/libtiff.so.5.2.0
-file path=$(USRDIR)/lib/libtiffxx.so.5.2.0
+file path=$(USRDIR)/lib/libtiff.la
+link path=$(USRDIR)/lib/libtiff.so target=libtiff.so.5.3.0
+link path=$(USRDIR)/lib/libtiff.so.5 target=libtiff.so.5.3.0
+file path=$(USRDIR)/lib/libtiff.so.5.3.0
+file path=$(USRDIR)/lib/libtiffxx.la
+link path=$(USRDIR)/lib/libtiffxx.so target=libtiffxx.so.5.3.0
+link path=$(USRDIR)/lib/libtiffxx.so.5 target=libtiffxx.so.5.3.0
+file path=$(USRDIR)/lib/libtiffxx.so.5.3.0
+dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/libtiff-4.pc
+dir  path=$(USRDIR)/share
+dir  path=$(USRDIR)/share/doc
+dir  path=$(USRDIR)/share/doc/tiffx
 file path=$(USRDIR)/share/doc/tiffx/COPYRIGHT
 file path=$(USRDIR)/share/doc/tiffx/ChangeLog
 file path=$(USRDIR)/share/doc/tiffx/README
@@ -86,12 +99,14 @@ file path=$(USRDIR)/share/doc/tiffx/README.vms
 file path=$(USRDIR)/share/doc/tiffx/RELEASE-DATE
 file path=$(USRDIR)/share/doc/tiffx/TODO
 file path=$(USRDIR)/share/doc/tiffx/VERSION
+dir  path=$(USRDIR)/share/doc/tiffx/html
 file path=$(USRDIR)/share/doc/tiffx/html/TIFFTechNote2.html
 file path=$(USRDIR)/share/doc/tiffx/html/addingtags.html
 file path=$(USRDIR)/share/doc/tiffx/html/bugs.html
 file path=$(USRDIR)/share/doc/tiffx/html/build.html
 file path=$(USRDIR)/share/doc/tiffx/html/contrib.html
 file path=$(USRDIR)/share/doc/tiffx/html/document.html
+dir  path=$(USRDIR)/share/doc/tiffx/html/images
 file path=$(USRDIR)/share/doc/tiffx/html/images.html
 file path=$(USRDIR)/share/doc/tiffx/html/images/back.gif
 file path=$(USRDIR)/share/doc/tiffx/html/images/bali.jpg
@@ -113,6 +128,7 @@ file path=$(USRDIR)/share/doc/tiffx/html/index.html
 file path=$(USRDIR)/share/doc/tiffx/html/internals.html
 file path=$(USRDIR)/share/doc/tiffx/html/intro.html
 file path=$(USRDIR)/share/doc/tiffx/html/libtiff.html
+dir  path=$(USRDIR)/share/doc/tiffx/html/man
 file path=$(USRDIR)/share/doc/tiffx/html/man/TIFFClose.3tiff.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/TIFFDataWidth.3tiff.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/TIFFError.3tiff.html
@@ -141,8 +157,7 @@ file path=$(USRDIR)/share/doc/tiffx/html/man/TIFFSetDirectory.3tiff.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/TIFFSetField.3tiff.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/TIFFWarning.3tiff.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/TIFFWriteDirectory.3tiff.html
-file \
-    path=$(USRDIR)/share/doc/tiffx/html/man/TIFFWriteEncodedStrip.3tiff.html
+file path=$(USRDIR)/share/doc/tiffx/html/man/TIFFWriteEncodedStrip.3tiff.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/TIFFWriteEncodedTile.3tiff.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/TIFFWriteRawStrip.3tiff.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/TIFFWriteRawTile.3tiff.html
@@ -157,19 +172,13 @@ file path=$(USRDIR)/share/doc/tiffx/html/man/TIFFsize.3tiff.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/TIFFstrip.3tiff.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/TIFFswab.3tiff.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/TIFFtile.3tiff.html
-file path=$(USRDIR)/share/doc/tiffx/html/man/bmp2tiff.1.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/fax2ps.1.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/fax2tiff.1.html
-file path=$(USRDIR)/share/doc/tiffx/html/man/gif2tiff.1.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/index.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/libtiff.3tiff.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/pal2rgb.1.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/ppm2tiff.1.html
-file path=$(USRDIR)/share/doc/tiffx/html/man/ras2tiff.1.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/raw2tiff.1.html
-file path=$(USRDIR)/share/doc/tiffx/html/man/rgb2ycbcr.1.html
-file path=$(USRDIR)/share/doc/tiffx/html/man/sgi2tiff.1.html
-file path=$(USRDIR)/share/doc/tiffx/html/man/thumbnail.1.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/tiff2bw.1.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/tiff2pdf.1.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/tiff2ps.1.html
@@ -184,10 +193,10 @@ file path=$(USRDIR)/share/doc/tiffx/html/man/tiffinfo.1.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/tiffmedian.1.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/tiffset.1.html
 file path=$(USRDIR)/share/doc/tiffx/html/man/tiffsplit.1.html
-file path=$(USRDIR)/share/doc/tiffx/html/man/tiffsv.1.html
 file path=$(USRDIR)/share/doc/tiffx/html/misc.html
 file path=$(USRDIR)/share/doc/tiffx/html/support.html
 file path=$(USRDIR)/share/doc/tiffx/html/tools.html
+file path=$(USRDIR)/share/doc/tiffx/html/v$(COMPONENT_VERSION).html
 file path=$(USRDIR)/share/doc/tiffx/html/v3.4beta007.html
 file path=$(USRDIR)/share/doc/tiffx/html/v3.4beta016.html
 file path=$(USRDIR)/share/doc/tiffx/html/v3.4beta018.html
@@ -226,17 +235,20 @@ file path=$(USRDIR)/share/doc/tiffx/html/v3.9.2.html
 file path=$(USRDIR)/share/doc/tiffx/html/v4.0.0.html
 file path=$(USRDIR)/share/doc/tiffx/html/v4.0.1.html
 file path=$(USRDIR)/share/doc/tiffx/html/v4.0.2.html
-file path=$(USRDIR)/share/man/man1/bmp2tiff.1
+file path=$(USRDIR)/share/doc/tiffx/html/v4.0.3.html
+file path=$(USRDIR)/share/doc/tiffx/html/v4.0.4.html
+file path=$(USRDIR)/share/doc/tiffx/html/v4.0.4beta.html
+file path=$(USRDIR)/share/doc/tiffx/html/v4.0.5.html
+file path=$(USRDIR)/share/doc/tiffx/html/v4.0.6.html
+file path=$(USRDIR)/share/doc/tiffx/html/v4.0.7.html
+file path=$(USRDIR)/share/doc/tiffx/html/v4.0.8.html
+dir  path=$(USRDIR)/share/man
+dir  path=$(USRDIR)/share/man/man1
 file path=$(USRDIR)/share/man/man1/fax2ps.1
 file path=$(USRDIR)/share/man/man1/fax2tiff.1
-file path=$(USRDIR)/share/man/man1/gif2tiff.1
 file path=$(USRDIR)/share/man/man1/pal2rgb.1
 file path=$(USRDIR)/share/man/man1/ppm2tiff.1
-file path=$(USRDIR)/share/man/man1/ras2tiff.1
 file path=$(USRDIR)/share/man/man1/raw2tiff.1
-file path=$(USRDIR)/share/man/man1/rgb2ycbcr.1
-file path=$(USRDIR)/share/man/man1/sgi2tiff.1
-file path=$(USRDIR)/share/man/man1/thumbnail.1
 file path=$(USRDIR)/share/man/man1/tiff2bw.1
 file path=$(USRDIR)/share/man/man1/tiff2pdf.1
 file path=$(USRDIR)/share/man/man1/tiff2ps.1
@@ -251,7 +263,7 @@ file path=$(USRDIR)/share/man/man1/tiffinfo.1
 file path=$(USRDIR)/share/man/man1/tiffmedian.1
 file path=$(USRDIR)/share/man/man1/tiffset.1
 file path=$(USRDIR)/share/man/man1/tiffsplit.1
-file path=$(USRDIR)/share/man/man1/tiffsv.1
+dir  path=$(USRDIR)/share/man/man3
 file path=$(USRDIR)/share/man/man3/TIFFClose.3tiff
 file path=$(USRDIR)/share/man/man3/TIFFDataWidth.3tiff
 file path=$(USRDIR)/share/man/man3/TIFFError.3tiff
@@ -296,11 +308,3 @@ file path=$(USRDIR)/share/man/man3/TIFFstrip.3tiff
 file path=$(USRDIR)/share/man/man3/TIFFswab.3tiff
 file path=$(USRDIR)/share/man/man3/TIFFtile.3tiff
 file path=$(USRDIR)/share/man/man3/libtiff.3tiff
-link path=$(USRDIR)/lib/$(MACH64)/libtiff.so target=libtiff.so.5.2.0
-link path=$(USRDIR)/lib/$(MACH64)/libtiff.so.5 target=libtiff.so.5.2.0
-link path=$(USRDIR)/lib/$(MACH64)/libtiffxx.so target=libtiffxx.so.5.2.0
-link path=$(USRDIR)/lib/$(MACH64)/libtiffxx.so.5 target=libtiffxx.so.5.2.0
-link path=$(USRDIR)/lib/libtiff.so target=libtiff.so.5.2.0
-link path=$(USRDIR)/lib/libtiff.so.5 target=libtiff.so.5.2.0
-link path=$(USRDIR)/lib/libtiffxx.so target=libtiffxx.so.5.2.0
-link path=$(USRDIR)/lib/libtiffxx.so.5 target=libtiffxx.so.5.2.0
