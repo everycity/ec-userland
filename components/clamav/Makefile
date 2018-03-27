@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		clamav
 COMPONENT_FMRI=		security/antivirus/clamav
-COMPONENT_VERSION=	0.99.2
+COMPONENT_VERSION=	0.99.4
 COMPONENT_LICENSE=	GPLv2
 COMPONENT_PROJECT_URL=	"http://www.clamav.net/"
 COMPONENT_SUMMARY=	ClamAV is an open source (GPL) antivirus engine
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:167bd6a13e05ece326b968fdb539b05c2ffcfef6018a274a10aeda85c2c0027a
+COMPONENT_ARCHIVE_HASH=	sha256:d72ac3273bde8d2e5e28ec9978373ee3ab4529fd868bc3fc4d2d2671228f2461
 COMPONENT_ARCHIVE_URL=	http://www.clamav.net/downloads/production/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
