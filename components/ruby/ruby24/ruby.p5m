@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -2284,6 +2284,8 @@ dir path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPAuth/UserDB
 dir path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPProxyServer
 dir path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPRequest
 dir path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPResponse
+dir path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPResponse/ChunkedWrapper
+dir path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPResponse/InvalidHeader
 dir path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPServer
 dir path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPServerError
 dir path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPServlet
@@ -4067,13 +4069,13 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.4.0/gems/xmlrpc-0.2.1/lib/xmlrpc/utils.rb
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.4.0/specifications/default/bigdecimal-1.3.0.gemspec
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.4.0/specifications/default/bigdecimal-1.3.2.gemspec
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.4.0/specifications/default/io-console-0.4.6.gemspec
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.4.0/specifications/default/json-2.0.4.gemspec
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.4.0/specifications/default/openssl-2.0.5.gemspec
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.4.0/specifications/default/openssl-2.0.7.gemspec
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.4.0/specifications/default/psych-2.2.2.gemspec
 file \
@@ -5609,13 +5611,13 @@ file \
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.4.0/gems/xmlrpc-0.2.1/lib/xmlrpc/utils.rb
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.4.0/specifications/default/bigdecimal-1.3.0.gemspec
+    path=$(ECPREFIX)/lib/ruby/gems/2.4.0/specifications/default/bigdecimal-1.3.2.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.4.0/specifications/default/io-console-0.4.6.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.4.0/specifications/default/json-2.0.4.gemspec
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.4.0/specifications/default/openssl-2.0.5.gemspec
+    path=$(ECPREFIX)/lib/ruby/gems/2.4.0/specifications/default/openssl-2.0.7.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.4.0/specifications/default/psych-2.2.2.gemspec
 file \
@@ -8714,6 +8716,8 @@ file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/TarHeader/header-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/TarHeader/new-c.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/TarHeader/oct-i.ri
 file \
+    path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/TarHeader/strict_oct-c.ri
+file \
     path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/TarHeader/update_checksum-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/TarInvalidError/cdesc-TarInvalidError.ri
@@ -8838,8 +8842,10 @@ file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/extract_files-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/files-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/gzip_to-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/initialize-i.ri
+file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/mkdir_p_safe-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/new-c.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/read_checksums-i.ri
+file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/realpath-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/security_policy-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/setup_signer-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/spec-i.ri
@@ -14058,6 +14064,8 @@ file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenSSL/debug%3d-c.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenSSL/debug-c.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenSSL/errors-c.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenSSL/fips_mode%3d-c.ri
+file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenSSL/mem_check_start-c.ri
+file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenSSL/print_mem_leaks-c.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenStruct/%3d%3d-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenStruct/%5b%5d%3d-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenStruct/%5b%5d-i.ri
@@ -14069,14 +14077,11 @@ file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenStruct/each_pair-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenStruct/eql%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenStruct/freeze-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenStruct/hash-i.ri
-file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenStruct/initialize_copy-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenStruct/inspect-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenStruct/json_create-c.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenStruct/marshal_dump-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenStruct/marshal_load-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenStruct/new-c.ri
-file \
-    path=$(ECPREFIX)/share/ri/2.4.0/system/OpenStruct/respond_to_missing%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenStruct/to_h-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenStruct/to_json-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/OpenStruct/to_s-i.ri
@@ -21537,9 +21542,15 @@ file path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPRequest/user-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPResponse/%5b%5d%3d-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPResponse/%5b%5d-i.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPResponse/ChunkedWrapper/cdesc-ChunkedWrapper.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPResponse/InvalidHeader/cdesc-InvalidHeader.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPResponse/body-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPResponse/cdesc-HTTPResponse.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPResponse/check_header-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.4.0/system/WEBrick/HTTPResponse/chunked%3d-i.ri
 file \
