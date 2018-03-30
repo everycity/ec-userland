@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -2313,6 +2313,8 @@ dir path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPAuth/UserDB
 dir path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPProxyServer
 dir path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPRequest
 dir path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPResponse
+dir path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPResponse/ChunkedWrapper
+dir path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPResponse/InvalidHeader
 dir path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPServer
 dir path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPServerError
 dir path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPServlet
@@ -9057,6 +9059,8 @@ file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Package/TarHeader/header-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Package/TarHeader/new-c.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Package/TarHeader/oct-i.ri
 file \
+    path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Package/TarHeader/strict_oct-c.ri
+file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Package/TarHeader/update_checksum-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Package/TarInvalidError/cdesc-TarInvalidError.ri
@@ -9181,8 +9185,10 @@ file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Package/extract_files-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Package/files-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Package/gzip_to-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Package/initialize-i.ri
+file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Package/mkdir_p_safe-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Package/new-c.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Package/read_checksums-i.ri
+file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Package/realpath-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Package/security_policy-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Package/setup_signer-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/Gem/Package/spec-i.ri
@@ -22744,9 +22750,15 @@ file path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPRequest/user-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPResponse/%5b%5d%3d-i.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPResponse/%5b%5d-i.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPResponse/ChunkedWrapper/cdesc-ChunkedWrapper.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPResponse/InvalidHeader/cdesc-InvalidHeader.ri
 file path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPResponse/body-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPResponse/cdesc-HTTPResponse.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPResponse/check_header-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.3.0/system/WEBrick/HTTPResponse/chunked%3d-i.ri
 file \
