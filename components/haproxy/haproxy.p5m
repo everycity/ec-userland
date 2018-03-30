@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -23,25 +23,16 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 # Custom entries
-dir path=$(USRDIR)/etc
 dir path=$(USRDIR)/etc/haproxy mode=0755
 file files/haproxy.cfg path=$(USRDIR)/etc/haproxy/haproxy.cfg mode=0644 preserve=true
 
 # SMF Service
-dir path=$(USRDIR)/var
-dir path=$(USRDIR)/var/svc
-dir path=$(USRDIR)/var/svc/method
 file files/http-haproxy.xml path=var/svc/manifest/site/http-haproxy.xml restart_fmri=svc:/system/manifest-import:default
 file files/http-haproxy path=$(USRDIR)/var/svc/method/http-haproxy mode=0555
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/bin
-dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/haproxy
 file path=$(USRDIR)/bin/halog
 file path=$(USRDIR)/bin/haproxy
-dir  path=$(USRDIR)/share
-dir  path=$(USRDIR)/share/doc
 dir  path=$(USRDIR)/share/doc/haproxy
 file path=$(USRDIR)/share/doc/haproxy/51Degrees-device-detection.txt
 file path=$(USRDIR)/share/doc/haproxy/DeviceAtlas-device-detection.txt
@@ -57,7 +48,7 @@ file path=$(USRDIR)/share/doc/haproxy/lua.txt
 file path=$(USRDIR)/share/doc/haproxy/management.txt
 file path=$(USRDIR)/share/doc/haproxy/netscaler-client-ip-insertion-protocol.txt
 file path=$(USRDIR)/share/doc/haproxy/network-namespaces.txt
+file path=$(USRDIR)/share/doc/haproxy/peers-v2.0.txt
+file path=$(USRDIR)/share/doc/haproxy/peers.txt
 file path=$(USRDIR)/share/doc/haproxy/proxy-protocol.txt
-dir  path=$(USRDIR)/share/man
-dir  path=$(USRDIR)/share/man/man1
 file path=$(USRDIR)/share/man/man1/haproxy.1
