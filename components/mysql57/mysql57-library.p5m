@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -259,8 +259,8 @@ file path=$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)/libmysqlclient.a
 link path=$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)/libmysqlclient.so \
     target=libmysqlclient.so.20
 link path=$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)/libmysqlclient.so.20 \
-    target=libmysqlclient.so.20.3.4
-file path=$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)/libmysqlclient.so.20.3.4
+    target=libmysqlclient.so.20.3.8
+file path=$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)/libmysqlclient.so.20.3.8
 file path=$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)/libmysqld.a
 file path=$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)/libmysqlservices.a
 dir  path=$(USRDIR)/lib/mysql/5.7/lib/$(MACH64)/pkgconfig
@@ -269,8 +269,8 @@ file path=$(USRDIR)/lib/mysql/5.7/lib/libmysqlclient.a
 link path=$(USRDIR)/lib/mysql/5.7/lib/libmysqlclient.so \
     target=libmysqlclient.so.20
 link path=$(USRDIR)/lib/mysql/5.7/lib/libmysqlclient.so.20 \
-    target=libmysqlclient.so.20.3.4
-file path=$(USRDIR)/lib/mysql/5.7/lib/libmysqlclient.so.20.3.4
+    target=libmysqlclient.so.20.3.8
+file path=$(USRDIR)/lib/mysql/5.7/lib/libmysqlclient.so.20.3.8
 file path=$(USRDIR)/lib/mysql/5.7/lib/libmysqld.a
 file path=$(USRDIR)/lib/mysql/5.7/lib/libmysqlservices.a
 dir  path=$(USRDIR)/lib/mysql/5.7/lib/pkgconfig

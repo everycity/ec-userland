@@ -1,6 +1,8 @@
---- mysql-5.7.17/mysys/stacktrace.c.~1~	2016-11-28 13:32:52.000000000 +0000
-+++ mysql-5.7.17/mysys/stacktrace.c	2017-01-29 14:31:58.306823104 +0000
-@@ -247,7 +247,7 @@
+$NetBSD: patch-mysys_stacktrace.c,v 1.1 2016/09/16 06:49:11 adam Exp $
+
+--- a/mysys/stacktrace.c.orig	2016-03-28 18:06:12.000000000 +0000
++++ b/mysys/stacktrace.c
+@@ -245,7 +245,7 @@ void my_write_core(int sig)
  {
    signal(sig, SIG_DFL);
    pthread_kill(my_thread_self(), sig);

@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -105,13 +105,16 @@ dir  path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/adt_null.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/auth.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/auth_test_plugin.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/authentication_ldap_sasl_client.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/connection_control.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/daemon_example.ini
 dir  path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/debug
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/group_replication.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/innodb_engine.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/keyring_file.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/keyring_udf.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libdaemon_example.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libmemcached.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_framework.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_services.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_services_threaded.so
@@ -152,13 +155,16 @@ file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/version_token.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/adt_null.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/auth.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/auth_test_plugin.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/authentication_ldap_sasl_client.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/connection_control.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/daemon_example.ini
 dir  path=$(USRDIR)/lib/mysql/5.7/plugins/debug
 file path=$(USRDIR)/lib/mysql/5.7/plugins/group_replication.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/innodb_engine.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/keyring_file.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/keyring_udf.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/libdaemon_example.so
+file path=$(USRDIR)/lib/mysql/5.7/plugins/libmemcached.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_framework.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_services.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_services_threaded.so
@@ -258,7 +264,6 @@ file path=$(USRDIR)/lib/mysql/5.7/share/japanese/errmsg.sys
 dir  path=$(USRDIR)/lib/mysql/5.7/share/korean
 file path=$(USRDIR)/lib/mysql/5.7/share/korean/errmsg.sys
 file path=$(USRDIR)/lib/mysql/5.7/share/magic
-file path=$(USRDIR)/lib/mysql/5.7/share/my-default.cnf
 file path=$(USRDIR)/lib/mysql/5.7/share/mysql-log-rotate
 file path=$(USRDIR)/lib/mysql/5.7/share/mysql.server
 file path=$(USRDIR)/lib/mysql/5.7/share/mysql_security_commands.sql
