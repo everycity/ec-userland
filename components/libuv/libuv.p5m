@@ -1,0 +1,42 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2018 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+
+file path=$(USRDIR)/include/uv-errno.h
+file path=$(USRDIR)/include/uv-sunos.h
+file path=$(USRDIR)/include/uv-threadpool.h
+file path=$(USRDIR)/include/uv-unix.h
+file path=$(USRDIR)/include/uv-version.h
+file path=$(USRDIR)/include/uv.h
+file path=$(USRDIR)/lib/$(MACH64)/libuv.a
+file path=$(USRDIR)/lib/$(MACH64)/libuv.la
+link path=$(USRDIR)/lib/$(MACH64)/libuv.so target=libuv.so.1.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libuv.so.1 target=libuv.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libuv.so.1.0.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libuv.pc
+file path=$(USRDIR)/lib/libuv.a
+file path=$(USRDIR)/lib/libuv.la
+link path=$(USRDIR)/lib/libuv.so target=libuv.so.1.0.0
+link path=$(USRDIR)/lib/libuv.so.1 target=libuv.so.1.0.0
+file path=$(USRDIR)/lib/libuv.so.1.0.0
+file path=$(USRDIR)/lib/pkgconfig/libuv.pc
