@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -22,10 +22,7 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/bin
 file path=$(USRDIR)/bin/h2o
-dir  path=$(USRDIR)/include
 dir  path=$(USRDIR)/include/h2o
 file path=$(USRDIR)/include/h2o.h
 file path=$(USRDIR)/include/h2o/cache.h
@@ -61,14 +58,14 @@ file path=$(USRDIR)/include/h2o/tunnel.h
 file path=$(USRDIR)/include/h2o/url.h
 file path=$(USRDIR)/include/h2o/version.h
 file path=$(USRDIR)/include/h2o/websocket.h
-dir  path=$(USRDIR)/lib
-link path=$(USRDIR)/lib/libh2o-evloop.so target=libh2o-evloop.so.0.12
-link path=$(USRDIR)/lib/libh2o-evloop.so.0.12 target=libh2o-evloop.so.0.12.0
-file path=$(USRDIR)/lib/libh2o-evloop.so.0.12.0
-dir  path=$(USRDIR)/lib/pkgconfig
+link path=$(USRDIR)/lib/libh2o-evloop.so target=libh2o-evloop.so.0.13
+link path=$(USRDIR)/lib/libh2o-evloop.so.0.13 target=libh2o-evloop.so.0.13.4
+file path=$(USRDIR)/lib/libh2o-evloop.so.0.13.4
+link path=$(USRDIR)/lib/libh2o.so target=libh2o.so.0.13
+link path=$(USRDIR)/lib/libh2o.so.0.13 target=libh2o.so.0.13.4
+file path=$(USRDIR)/lib/libh2o.so.0.13.4
 file path=$(USRDIR)/lib/pkgconfig/libh2o-evloop.pc
-dir  path=$(USRDIR)/share
-dir  path=$(USRDIR)/share/doc
+file path=$(USRDIR)/lib/pkgconfig/libh2o.pc
 dir  path=$(USRDIR)/share/doc/h2o
 dir  path=$(USRDIR)/share/doc/h2o/assets
 file path=$(USRDIR)/share/doc/h2o/assets/8mbps100msec-nginx195-h2o150.png

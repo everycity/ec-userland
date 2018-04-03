@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		h2o
 COMPONENT_FMRI=         web/server/h2o
-COMPONENT_VERSION=      2.1.0
+COMPONENT_VERSION=      2.2.4
 COMPONENT_LICENSE=      MIT
 COMPONENT_LICENSE_FILE=	LICENSE
 COMPONENT_PROJECT_URL=  "http://h2o.github.io/"
 COMPONENT_SUMMARY=	H2O is a very fast HTTP server written in C. It can also be used as a library.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:41f3853f3083c2fe8e70d3ab7be02c3de3c26fb77ba5fc56fdaf46712418b999
+COMPONENT_ARCHIVE_HASH=	sha256:ebacf3b15f40958c950e18e79ad5a647f61e989c6dbfdeea858ce943ef5e3cd8
 COMPONENT_ARCHIVE_URL=	https://github.com/$(COMPONENT_NAME)/$(COMPONENT_NAME)/archive/v$(COMPONENT_VERSION).tar.gz
 
 include ../../make-rules/prep.mk
@@ -31,6 +31,8 @@ include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
 CMAKE_INSTALL_RPATH_64=	/ec/gcc/4.8/lib/64:/ec/lib/64
+
+CFLAGS+=	-std=gnu99
 
 CMAKE_OPTIONS+=	-DCMAKE_C_COMPILER="$(CC)"
 CMAKE_OPTIONS+=	-DCMAKE_CXX_COMPILER="$(CXX)"
