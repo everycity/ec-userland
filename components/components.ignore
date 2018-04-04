@@ -49,4 +49,3 @@
 /^vlc2$/d
 /^xapian\/bindings-php54$/d
 /^librsvg$/d
-/^h2o$/d
