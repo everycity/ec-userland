@@ -9,432 +9,1060 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
+<transform file dir path=.*/var/activemq.* -> default owner activemq>
+<transform file dir path=.*/var/activemq.* -> default group activemq>
+<transform file path=.+/activemq/bin/.+\.jar -> default mode 0444>
+<transform file path=.+/activemq/conf/.+ -> default mode 0644>
+<transform file path=.+/activemq/conf/.+ -> default preserve true>
+<transform file path=.+/activemq/data/activemq.log -> default mode 0644>
 
-set name=pkg.fmri value=pkg:/service/activemq@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="Apache ActiveMQ messaging provider"
-set name=info.upstream_url value="http://activemq.apache.org/"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
-license activemq.license license="APLv2"
+license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/var
-dir path=$(ECPREFIX)/var/activemq owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/bin owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/bin/linux-x86-32 owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/bin/linux-x86-64 owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/bin/macosx owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/conf owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/data owner=activemq group=activemq mode=0755
-dir path=$(ECPREFIX)/var/activemq/docs owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/example owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/example/conf owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/example/perfharness owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/example/ruby owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/example/src owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/example/transactions owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/example/transactions/src owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/lib owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/lib/optional owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/lib/web owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/META-INF owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/filter owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/handler owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/jsp owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/jspf owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/jms owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/decorators owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/images owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/js owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/js/mochi owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/styles owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/test owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/admin/xml owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/META-INF owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/META-INF/maven owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/META-INF/maven/org.apache.camel owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/META-INF/maven/org.apache.camel/camel-web owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/META-INF owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/model owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/resources owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/classes/org/apache/camel/web/util owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/decorators owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/jspf owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/lib owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/tags owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/WEB-INF/tags/api owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/com owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/com/sun owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/com/sun/jersey owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/com/sun/jersey/server owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/com/sun/jersey/server/impl owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/com/sun/jersey/server/impl/wadl owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/com/sun/jersey/server/impl/wadl/WadlResource owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/com/sun/jersey/server/impl/wadl/WadlResourceResource owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/css owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/css/prettify owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/images owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/js owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/js/dojo owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/js/prettify owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/js/th owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/org owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/CamelContextResource owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/ComponentResource owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/ComponentsResource owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/ConvertersFromResource owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/ConvertersResource owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/EndpointResource owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/EndpointsResource owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/ExchangeResource owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/LanguageResource owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/LanguagesResource owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/RouteResource owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/camel/org/apache/camel/web/resources/RoutesResource owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/demo owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/demo/META-INF owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/demo/WEB-INF owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/demo/js owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/demo/portfolio owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/demo/sandbox owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/demo/test owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/demo/test/assets owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/fileserver owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/fileserver/META-INF owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes/org owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes/org/apache owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes/org/apache/activemq owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes/org/apache/activemq/util owner=activemq group=activemq
-dir path=$(ECPREFIX)/var/activemq/webapps/styles owner=activemq group=activemq
-dir path=var
-dir path=var/svc
-dir path=var/svc/manifest
-dir path=var/svc/manifest/site
-file path=$(ECPREFIX)/var/activemq/LICENSE owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/NOTICE owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/README.txt owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/WebConsole-README.txt owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/activemq-all-$(COMPONENT_VERSION).jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/bin/activemq owner=activemq group=activemq mode=0555
-file path=$(ECPREFIX)/var/activemq/bin/activemq-admin owner=activemq group=activemq mode=0555
-file path=$(ECPREFIX)/var/activemq/bin/linux-x86-32/activemq owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/bin/linux-x86-32/libwrapper.so owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/bin/linux-x86-32/wrapper owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/bin/linux-x86-32/wrapper.conf owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/bin/linux-x86-64/activemq owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/bin/linux-x86-64/libwrapper.so owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/bin/linux-x86-64/wrapper owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/bin/linux-x86-64/wrapper.conf owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/bin/macosx/activemq owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/bin/macosx/libwrapper.jnilib owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/bin/macosx/wrapper owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/bin/macosx/wrapper.conf owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/bin/run.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/bin/wrapper.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/conf/activemq-command.xml preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/activemq-demo.xml preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/activemq-dynamic-network-broker1.xml preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/activemq-dynamic-network-broker2.xml preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/activemq-jdbc.xml preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/activemq-scalability.xml preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/activemq-security.xml preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/activemq-specjms.xml preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/activemq-static-network-broker1.xml preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/activemq-static-network-broker2.xml preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/activemq-stomp.xml preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/activemq-throughput.xml preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/activemq.xml preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/broker-localhost.cert preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/broker.ks preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/broker.ts preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/camel.xml preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/client.ks preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/client.ts preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/credentials-enc.properties preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/credentials.properties preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/jetty-realm.properties preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/jetty.xml preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/jmx.access preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/jmx.password preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/log4j.properties preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/conf/logging.properties preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/data/activemq.log preserve=true owner=activemq group=activemq mode=0644
-file path=$(ECPREFIX)/var/activemq/docs/index.html owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/build.xml owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/conf/activemq.xml owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/conf/log4j.properties owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/conf/resin-web.xml owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/conf/web.xml owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/perfharness/perfharness-activemq.sh owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/ruby/README.txt owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/ruby/catstomp.rb owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/ruby/listener.rb owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/ruby/publisher.rb owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/ruby/stompcat.rb owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/src/CommandLineSupport.java owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/src/ConsumerTool.java owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/src/EmbeddedBroker.java owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/src/Log4jJMSAppenderExample.java owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/src/ProducerAndConsumerTool.java owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/src/ProducerTool.java owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/src/RequesterTool.java owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/src/StompExample.java owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/src/TopicListener.java owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/src/TopicPublisher.java owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/src/jndi.properties owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/src/log4j-jms.properties owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/transactions/README.txt owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/transactions/build.xml owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/transactions/src/Retailer.java owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/transactions/src/Supplier.java owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/transactions/src/TransactionsDemo.java owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/example/transactions/src/Vendor.java owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/activation-1.1.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/activemq-camel-$(COMPONENT_VERSION).jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/activemq-console-$(COMPONENT_VERSION).jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/activemq-core-$(COMPONENT_VERSION).jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/activemq-jaas-$(COMPONENT_VERSION).jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/activemq-protobuf-1.1.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/activemq-rar.txt owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/activemq-web-$(COMPONENT_VERSION).jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/camel-core-2.7.0.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/camel-jetty-2.7.0.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/camel-jms-2.7.0.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/camel-spring-2.7.0.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/geronimo-j2ee-management_1.1_spec-1.0.1.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/geronimo-jms_1.1_spec-1.1.1.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/geronimo-jta_1.0.1B_spec-1.0.1.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/jaxb-api-2.1.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/jaxb-impl-2.1.6.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/jcl-over-slf4j-1.5.11.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/kahadb-$(COMPONENT_VERSION).jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/activeio-core-3.1.2.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/activemq-jmdns_1.0-$(COMPONENT_VERSION).jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/activemq-optional-$(COMPONENT_VERSION).jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/activemq-pool-$(COMPONENT_VERSION).jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/activemq-spring-$(COMPONENT_VERSION).jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/activemq-xmpp-$(COMPONENT_VERSION).jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/commons-beanutils-1.6.1.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/commons-codec-1.2.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/commons-collections-3.2.1.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/commons-dbcp-1.2.2.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/commons-httpclient-3.1.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/commons-lang-2.4.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/commons-net-2.0.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/commons-pool-1.5.4.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/geronimo-j2ee-connector_1.5_spec-2.0.0.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/jasypt-1.7.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/jettison-1.2.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/josql-1.5.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/log4j-1.2.14.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/slf4j-log4j12-1.5.11.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/spring-aop-3.0.3.RELEASE.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/spring-asm-3.0.3.RELEASE.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/spring-beans-3.0.3.RELEASE.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/spring-context-3.0.3.RELEASE.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/spring-core-3.0.3.RELEASE.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/spring-expression-3.0.3.RELEASE.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/spring-jms-3.0.3.RELEASE.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/spring-oxm-tiger-1.5.8.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/spring-tx-3.0.3.RELEASE.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/stax2-api-3.0.1.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/velocity-1.6.2.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/woodstox-core-asl-4.0.7.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/xbean-spring-3.7.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/xpp3-1.1.4c.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/optional/xstream-1.3.1.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/slf4j-api-1.5.11.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/stax-1.2.0.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/stax-api-1.0.1.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/web/commons-management-1.0.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/web/core-3.1.1.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/web/geronimo-servlet_2.5_spec-1.2.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/web/jdom-1.0.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/web/jetty-all-server-7.1.6.v20100715.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/web/jetty-websocket-7.1.6.v20100715.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/web/jsp-2.1-glassfish-2.1.v20100127.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/web/jsp-api-2.1-glassfish-2.1.v20100127.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/web/rome-0.8.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/web/sitemesh-2.2.1.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/web/spring-web-3.0.3.RELEASE.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/lib/web/spring-webmvc-3.0.3.RELEASE.jar owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/user-guide.html owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/404.html owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/500.html owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/META-INF/LICENSE owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/META-INF/NOTICE owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/WebConsoleStarter.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/CopyMessage.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/CreateDestination.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/CreateSubscriber.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/DeleteDestination.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/DeleteJob.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/DeleteMessage.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/DeleteSubscriber.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/MoveMessage.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/PurgeDestination.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/SendMessage.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/filter/ApplicationContextFilter$1.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/filter/ApplicationContextFilter$2.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/filter/ApplicationContextFilter.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/handler/BindingBeanNameUrlHandlerMapping.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/decorators.xml owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/dispatcher-servlet.xml owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/jspf/headertags.jspf owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/jspf/old.jspf owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/checkbox.tag owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/forEachMapEntry.tag owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/option.tag owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/short.tag owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/text.tag owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/tooltip.tag owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/uri.tag owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/jms/forEachConnection.tag owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/jms/forEachMessage.tag owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/jms/formatTimestamp.tag owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/jms/persistent.tag owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/web.xml owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-default.xml owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-embedded.xml owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-invm.xml owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-jndi.xml owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-properties.xml owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-query.xml owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/browse.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/connection.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/connections.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/decorators/main.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/decorators/panel.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/decorators/printable.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/graph.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/activemq-logo.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/asf-logo.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/big-bullet.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/black-footer-bottom.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/black-footer-left.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/black-footer-right.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/bottom-red-bar.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/checker-bg.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/content-left.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/content-right.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/feed_atom.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/feed_rss.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/left-box-bottom.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/left-box-right.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/left-box-top.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/oval-arrow.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/right-box-bottom.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/right-box-left.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/right-box-top.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/small-bullet-gray.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/small-bullet-red.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/spacer.gif owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/top-red-bar.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/white-header-left.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/white-header-right.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/images/white-header-top.png owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/index.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/js/common.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/js/css.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/js/mochi/MochiKit.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/js/mochi/__package__.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/Base.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/Canvas.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/Layout.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/SVG.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/SweetCanvas.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/SweetSVG.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/dummy.svg owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/iecanvas.htc owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/js/prettify.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/js/standardista-table-sorting.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/message.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/network.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/queueConsumers.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/queueGraph.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/queues.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/scheduled.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/send.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/styles/prettify.css owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/styles/site.css owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/styles/sorttable.css owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/styles/type-settings.css owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/subscribers.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/test/dummy.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/test/index.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/test/systemProperties.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/topics.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/xml/queues.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/admin/xml/topics.jsp owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/META-INF/LICENSE owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/META-INF/NOTICE owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/WEB-INF/web.xml owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/chat.css owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/chat.html owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/index.html owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/js/amq.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/js/amq_dojo_adapter.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/js/amq_jquery_adapter.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/js/amq_prototype_adapter.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/js/chat.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/js/dojo.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/js/jquery-1.4.2.min.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/js/prototype.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/portfolio/portfolio.html owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/portfolio/portfolio.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/sandbox/index.html owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/sandbox/portfolio.html owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/sandbox/portfolio.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/sandbox/util.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/sandbox/webmq.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/send.html owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/style.css owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/test/amq_test.html owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/test/assets/README owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/test/assets/jsunittest.js owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/demo/test/assets/unittest.css owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/favicon.ico owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/fileserver/META-INF/LICENSE owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/fileserver/META-INF/NOTICE owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes/org/apache/activemq/util/FilenameGuardFilter$GuardedHttpServletRequest.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes/org/apache/activemq/util/FilenameGuardFilter.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes/org/apache/activemq/util/IOHelper.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/classes/org/apache/activemq/util/RestFilter.class owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/fileserver/WEB-INF/web.xml owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/fileserver/index.html owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/index.html owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/styles/site.css owner=activemq group=activemq
-file path=$(ECPREFIX)/var/activemq/webapps/styles/type-settings.css owner=activemq group=activemq
 file files/activemq-manifest.xml path=var/svc/manifest/site/activemq.xml restart_fmri=svc:/system/manifest-import:default
 group gid=478 groupname=activemq
 user gcos-field="ActiveMQ Account" group=activemq uid=478 username=activemq login-shell=/bin/false home-dir=$(ECPREFIX)/var/activemq
+
+dir path=$(ECPREFIX)/var/activemq
+dir path=$(ECPREFIX)/var/activemq/bin
+dir path=$(ECPREFIX)/var/activemq/conf
+dir path=$(ECPREFIX)/var/activemq/data
+dir path=$(ECPREFIX)/var/activemq/docs
+dir path=$(ECPREFIX)/var/activemq/examples
+dir path=$(ECPREFIX)/var/activemq/examples/amqp
+dir path=$(ECPREFIX)/var/activemq/examples/amqp/java
+dir path=$(ECPREFIX)/var/activemq/examples/amqp/java/src
+dir path=$(ECPREFIX)/var/activemq/examples/amqp/java/src/main
+dir path=$(ECPREFIX)/var/activemq/examples/amqp/java/src/main/java
+dir path=$(ECPREFIX)/var/activemq/examples/amqp/java/src/main/java/example
+dir path=$(ECPREFIX)/var/activemq/examples/amqp/python
+dir path=$(ECPREFIX)/var/activemq/examples/conf
+dir path=$(ECPREFIX)/var/activemq/examples/mqtt
+dir path=$(ECPREFIX)/var/activemq/examples/mqtt/java
+dir path=$(ECPREFIX)/var/activemq/examples/mqtt/java/src
+dir path=$(ECPREFIX)/var/activemq/examples/mqtt/java/src/main
+dir path=$(ECPREFIX)/var/activemq/examples/mqtt/java/src/main/java
+dir path=$(ECPREFIX)/var/activemq/examples/mqtt/java/src/main/java/example
+dir path=$(ECPREFIX)/var/activemq/examples/mqtt/websocket
+dir path=$(ECPREFIX)/var/activemq/examples/mqtt/websocket/css
+dir path=$(ECPREFIX)/var/activemq/examples/mqtt/websocket/img
+dir path=$(ECPREFIX)/var/activemq/examples/mqtt/websocket/js
+dir path=$(ECPREFIX)/var/activemq/examples/openwire
+dir path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-composite-destinations
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-composite-destinations/src
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-composite-destinations/src/main
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-composite-destinations/src/main/java
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-composite-destinations/src/main/java/example
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-composite-destinations/src/main/java/example/composite
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-composite-destinations/src/main/java/example/composite/dest
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-durable-sub
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-durable-sub/src
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-durable-sub/src/main
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-durable-sub/src/main/java
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-durable-sub/src/main/java/example
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-durable-sub/src/main/java/example/topic
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-durable-sub/src/main/java/example/topic/durable
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-exclusive-consumer
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-exclusive-consumer/src
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-exclusive-consumer/src/main
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-exclusive-consumer/src/main/java
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-exclusive-consumer/src/main/java/example
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-exclusive-consumer/src/main/java/example/queue
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-exclusive-consumer/src/main/java/example/queue/exclusive
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-message-browser
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-message-browser/src
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-message-browser/src/main
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-message-browser/src/main/java
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-message-browser/src/main/java/example
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-message-browser/src/main/java/example/browser
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue-selector
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue-selector/src
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue-selector/src/main
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue-selector/src/main/java
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue-selector/src/main/java/example
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue-selector/src/main/java/example/queue
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue-selector/src/main/java/example/queue/selector
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue/src
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue/src/main
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue/src/main/java
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue/src/main/java/example
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue/src/main/java/example/queue
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue/src/main/resources
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-temp-destinations
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-temp-destinations/src
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-temp-destinations/src/main
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-temp-destinations/src/main/java
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-temp-destinations/src/main/java/example
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-temp-destinations/src/main/java/example/tempdest
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-topic
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-topic/src
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-topic/src/main
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-topic/src/main/java
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-topic/src/main/java/example
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-topic/src/main/java/example/topic
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-topic/src/main/resources
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-transaction
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-transaction/src
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-transaction/src/main
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-transaction/src/main/java
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-transaction/src/main/java/example
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-transaction/src/main/java/example/transaction
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-wildcard-consumer
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-wildcard-consumer/src
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-wildcard-consumer/src/main
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-wildcard-consumer/src/main/java
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-wildcard-consumer/src/main/java/example
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-wildcard-consumer/src/main/java/example/wildcard
+dir path=$(ECPREFIX)/var/activemq/examples/openwire/cpp
+dir path=$(ECPREFIX)/var/activemq/examples/openwire/csharp
+dir path=$(ECPREFIX)/var/activemq/examples/openwire/csharp/ActiveMQExamples
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/csharp/ActiveMQExamples/Listener
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/csharp/ActiveMQExamples/Publisher
+dir path=$(ECPREFIX)/var/activemq/examples/openwire/ecommerce
+dir path=$(ECPREFIX)/var/activemq/examples/openwire/ecommerce/src
+dir path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/QueuePTPSamples
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/QueuePTPSamples/QueueMonitor
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/QueuePTPSamples/QueueRoundTrip
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/QueuePTPSamples/RequestReply
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/QueuePTPSamples/SelectorTalk
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/QueuePTPSamples/Talk
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/QueuePTPSamples/TransactedTalk
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/TopicPubSubSamples
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/TopicPubSubSamples/Chat
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/TopicPubSubSamples/DurableChat
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/TopicPubSubSamples/HierarchicalChat
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/TopicPubSubSamples/MessageMonitor
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/TopicPubSubSamples/RequestReply
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/TopicPubSubSamples/SelectorChat
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/TopicPubSubSamples/TransactedChat
+dir path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/conf
+dir path=$(ECPREFIX)/var/activemq/examples/openwire/java
+dir path=$(ECPREFIX)/var/activemq/examples/openwire/java/src
+dir path=$(ECPREFIX)/var/activemq/examples/openwire/java/src/main
+dir path=$(ECPREFIX)/var/activemq/examples/openwire/java/src/main/java
+dir path=$(ECPREFIX)/var/activemq/examples/openwire/java/src/main/java/example
+dir path=$(ECPREFIX)/var/activemq/examples/openwire/swissarmy
+dir path=$(ECPREFIX)/var/activemq/examples/openwire/swissarmy/src
+dir path=$(ECPREFIX)/var/activemq/examples/stomp
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/cpp
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/csharp
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/csharp/ActiveMQExamples
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/csharp/ActiveMQExamples/Listener
+dir \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/csharp/ActiveMQExamples/Publisher
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/java
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/java/src
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/java/src/main
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/java/src/main/java
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/java/src/main/java/example
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/perl
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/php
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/python
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/python/stompest
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/python/stompest/async
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/python/stompest/sync
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/python/stomppy
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/ruby
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/websocket
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/websocket/css
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/websocket/img
+dir path=$(ECPREFIX)/var/activemq/examples/stomp/websocket/js
+dir path=$(ECPREFIX)/var/activemq/lib
+dir path=$(ECPREFIX)/var/activemq/lib/camel
+dir path=$(ECPREFIX)/var/activemq/lib/extra
+dir path=$(ECPREFIX)/var/activemq/lib/optional
+dir path=$(ECPREFIX)/var/activemq/lib/web
+dir path=$(ECPREFIX)/var/activemq/webapps
+dir path=$(ECPREFIX)/var/activemq/webapps-demo
+dir path=$(ECPREFIX)/var/activemq/webapps-demo/demo
+dir path=$(ECPREFIX)/var/activemq/webapps-demo/demo/META-INF
+dir path=$(ECPREFIX)/var/activemq/webapps-demo/demo/WEB-INF
+dir path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images
+dir path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js
+dir path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/mochi
+dir path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/plotkit
+dir path=$(ECPREFIX)/var/activemq/webapps-demo/demo/mqtt
+dir path=$(ECPREFIX)/var/activemq/webapps-demo/demo/portfolio
+dir path=$(ECPREFIX)/var/activemq/webapps-demo/demo/styles
+dir path=$(ECPREFIX)/var/activemq/webapps-demo/demo/test
+dir path=$(ECPREFIX)/var/activemq/webapps-demo/demo/test/assets
+dir path=$(ECPREFIX)/var/activemq/webapps-demo/demo/websocket
+dir path=$(ECPREFIX)/var/activemq/webapps/admin
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/META-INF
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache
+dir \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq
+dir \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web
+dir \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/config
+dir \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller
+dir \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/filter
+dir \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/handler
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/jspf
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/jms
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/decorators
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/images
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/js
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/js/mochi
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/styles
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/test
+dir path=$(ECPREFIX)/var/activemq/webapps/admin/xml
+dir path=$(ECPREFIX)/var/activemq/webapps/api
+dir path=$(ECPREFIX)/var/activemq/webapps/api/WEB-INF
+dir path=$(ECPREFIX)/var/activemq/webapps/api/WEB-INF/classes
+dir path=$(ECPREFIX)/var/activemq/webapps/images
+dir path=$(ECPREFIX)/var/activemq/webapps/styles
+file path=$(ECPREFIX)/var/activemq/LICENSE
+file path=$(ECPREFIX)/var/activemq/NOTICE
+file path=$(ECPREFIX)/var/activemq/README.txt
+file path=$(ECPREFIX)/var/activemq/activemq-all-$(COMPONENT_VERSION).jar
+file path=$(ECPREFIX)/var/activemq/bin/activemq
+file path=$(ECPREFIX)/var/activemq/bin/activemq-diag
+file path=$(ECPREFIX)/var/activemq/bin/activemq.jar
+file path=$(ECPREFIX)/var/activemq/bin/env
+file path=$(ECPREFIX)/var/activemq/bin/wrapper.jar
+file path=$(ECPREFIX)/var/activemq/conf/activemq.xml
+file path=$(ECPREFIX)/var/activemq/conf/broker-localhost.cert
+file path=$(ECPREFIX)/var/activemq/conf/broker.ks
+file path=$(ECPREFIX)/var/activemq/conf/broker.ts
+file path=$(ECPREFIX)/var/activemq/conf/client.ks
+file path=$(ECPREFIX)/var/activemq/conf/client.ts
+file path=$(ECPREFIX)/var/activemq/conf/credentials-enc.properties
+file path=$(ECPREFIX)/var/activemq/conf/credentials.properties
+file path=$(ECPREFIX)/var/activemq/conf/groups.properties
+file path=$(ECPREFIX)/var/activemq/conf/java.security
+file path=$(ECPREFIX)/var/activemq/conf/jetty-realm.properties
+file path=$(ECPREFIX)/var/activemq/conf/jetty.xml
+file path=$(ECPREFIX)/var/activemq/conf/jmx.access
+file path=$(ECPREFIX)/var/activemq/conf/jmx.password
+file path=$(ECPREFIX)/var/activemq/conf/log4j.properties
+file path=$(ECPREFIX)/var/activemq/conf/logging.properties
+file path=$(ECPREFIX)/var/activemq/conf/login.config
+file path=$(ECPREFIX)/var/activemq/conf/users.properties
+file path=$(ECPREFIX)/var/activemq/data/activemq.log
+file path=$(ECPREFIX)/var/activemq/docs/WebConsole-README.txt
+file path=$(ECPREFIX)/var/activemq/docs/index.html
+file path=$(ECPREFIX)/var/activemq/docs/user-guide.html
+file path=$(ECPREFIX)/var/activemq/examples/amqp/java/pom.xml
+file path=$(ECPREFIX)/var/activemq/examples/amqp/java/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/amqp/java/src/main/java/example/Listener.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/amqp/java/src/main/java/example/Publisher.java
+file path=$(ECPREFIX)/var/activemq/examples/amqp/python/address.py
+file path=$(ECPREFIX)/var/activemq/examples/amqp/python/content.py
+file path=$(ECPREFIX)/var/activemq/examples/amqp/python/readme.md
+file path=$(ECPREFIX)/var/activemq/examples/amqp/python/receiver.py
+file path=$(ECPREFIX)/var/activemq/examples/amqp/python/sender.py
+file path=$(ECPREFIX)/var/activemq/examples/conf/activemq-demo.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/conf/activemq-dynamic-network-broker1.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/conf/activemq-dynamic-network-broker2.xml
+file path=$(ECPREFIX)/var/activemq/examples/conf/activemq-jdbc-performance.xml
+file path=$(ECPREFIX)/var/activemq/examples/conf/activemq-jdbc.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/conf/activemq-leveldb-replicating.xml
+file path=$(ECPREFIX)/var/activemq/examples/conf/activemq-mqtt.xml
+file path=$(ECPREFIX)/var/activemq/examples/conf/activemq-scalability.xml
+file path=$(ECPREFIX)/var/activemq/examples/conf/activemq-security.xml
+file path=$(ECPREFIX)/var/activemq/examples/conf/activemq-specjms.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/conf/activemq-static-network-broker1.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/conf/activemq-static-network-broker2.xml
+file path=$(ECPREFIX)/var/activemq/examples/conf/activemq-stomp.xml
+file path=$(ECPREFIX)/var/activemq/examples/conf/activemq-throughput.xml
+file path=$(ECPREFIX)/var/activemq/examples/conf/activemq.xml
+file path=$(ECPREFIX)/var/activemq/examples/conf/camel.xml
+file path=$(ECPREFIX)/var/activemq/examples/conf/jetty-demo.xml
+file path=$(ECPREFIX)/var/activemq/examples/conf/log4j.properties
+file path=$(ECPREFIX)/var/activemq/examples/conf/resin-web.xml
+file path=$(ECPREFIX)/var/activemq/examples/conf/web.xml
+file path=$(ECPREFIX)/var/activemq/examples/mqtt/java/pom.xml
+file path=$(ECPREFIX)/var/activemq/examples/mqtt/java/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/mqtt/java/src/main/java/example/Listener.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/mqtt/java/src/main/java/example/Publisher.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/mqtt/websocket/css/bootstrap.min.css
+file \
+    path=$(ECPREFIX)/var/activemq/examples/mqtt/websocket/css/bootstrap.min.responsive.css
+file \
+    path=$(ECPREFIX)/var/activemq/examples/mqtt/websocket/img/glyphicons-halflings-white.png
+file \
+    path=$(ECPREFIX)/var/activemq/examples/mqtt/websocket/img/glyphicons-halflings.png
+file path=$(ECPREFIX)/var/activemq/examples/mqtt/websocket/index.html
+file \
+    path=$(ECPREFIX)/var/activemq/examples/mqtt/websocket/js/jquery-1.7.2.min.js
+file path=$(ECPREFIX)/var/activemq/examples/mqtt/websocket/js/mqttws31.js
+file path=$(ECPREFIX)/var/activemq/examples/mqtt/websocket/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-composite-destinations/pom.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-composite-destinations/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-composite-destinations/src/main/java/example/composite/dest/Consumer.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-composite-destinations/src/main/java/example/composite/dest/Producer.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-durable-sub/pom.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-durable-sub/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-durable-sub/src/main/java/example/topic/durable/Publisher.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-durable-sub/src/main/java/example/topic/durable/Subscriber.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-exclusive-consumer/pom.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-exclusive-consumer/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-exclusive-consumer/src/main/java/example/queue/exclusive/Consumer.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-exclusive-consumer/src/main/java/example/queue/exclusive/Producer.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-message-browser/pom.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-message-browser/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-message-browser/src/main/java/example/browser/Browser.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-message-browser/src/main/java/example/browser/Producer.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue-selector/pom.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue-selector/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue-selector/src/main/java/example/queue/selector/Consumer.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue-selector/src/main/java/example/queue/selector/Producer.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue/pom.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue/src/main/java/example/queue/Consumer.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue/src/main/java/example/queue/Producer.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-queue/src/main/resources/log4j.properties
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-temp-destinations/pom.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-temp-destinations/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-temp-destinations/src/main/java/example/tempdest/Consumer.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-temp-destinations/src/main/java/example/tempdest/ProducerRequestReply.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-topic/pom.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-topic/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-topic/src/main/java/example/topic/Publisher.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-topic/src/main/java/example/topic/Subscriber.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-topic/src/main/resources/log4j.properties
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-transaction/pom.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-transaction/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-transaction/src/main/java/example/transaction/Client.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-wildcard-consumer/pom.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-wildcard-consumer/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/jms-example-wildcard-consumer/src/main/java/example/wildcard/Client.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/pom.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/advanced-scenarios/readme.md
+file path=$(ECPREFIX)/var/activemq/examples/openwire/cpp/Listener.cpp
+file path=$(ECPREFIX)/var/activemq/examples/openwire/cpp/Publisher.cpp
+file path=$(ECPREFIX)/var/activemq/examples/openwire/cpp/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/csharp/ActiveMQExamples/ActiveMQExamples.sln
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/csharp/ActiveMQExamples/ActiveMQExamples.userprefs
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/csharp/ActiveMQExamples/Listener/AssemblyInfo.cs
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/csharp/ActiveMQExamples/Listener/Listener.cs
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/csharp/ActiveMQExamples/Listener/Listener.csproj
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/csharp/ActiveMQExamples/Listener/NMSTracer.cs
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/csharp/ActiveMQExamples/Publisher/AssemblyInfo.cs
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/csharp/ActiveMQExamples/Publisher/NMSTracer.cs
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/csharp/ActiveMQExamples/Publisher/Publisher.cs
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/csharp/ActiveMQExamples/Publisher/Publisher.csproj
+file path=$(ECPREFIX)/var/activemq/examples/openwire/csharp/readme.md
+file path=$(ECPREFIX)/var/activemq/examples/openwire/ecommerce/README.txt
+file path=$(ECPREFIX)/var/activemq/examples/openwire/ecommerce/build.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/ecommerce/src/Retailer.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/ecommerce/src/Supplier.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/ecommerce/src/TransactionsDemo.java
+file path=$(ECPREFIX)/var/activemq/examples/openwire/ecommerce/src/Vendor.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/QueuePTPSamples/QueueMonitor/QueueMonitor.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/QueuePTPSamples/QueueMonitor/QueueMonitor.properties
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/QueuePTPSamples/QueueRoundTrip/QueueRoundTrip.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/QueuePTPSamples/RequestReply/Replier.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/QueuePTPSamples/RequestReply/Requestor.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/QueuePTPSamples/SelectorTalk/SelectorTalk.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/QueuePTPSamples/Talk/Talk.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/QueuePTPSamples/TransactedTalk/TransactedTalk.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/TopicPubSubSamples/Chat/Chat.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/TopicPubSubSamples/DurableChat/DurableChat.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/TopicPubSubSamples/HierarchicalChat/HierarchicalChat.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/TopicPubSubSamples/MessageMonitor/MessageMonitor.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/TopicPubSubSamples/MessageMonitor/MessageMonitor.properties
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/TopicPubSubSamples/RequestReply/TopicReplier.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/TopicPubSubSamples/RequestReply/TopicRequestor.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/TopicPubSubSamples/SelectorChat/SelectorChat.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/TopicPubSubSamples/TransactedChat/TransactedChat.java
+file path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/build.xml
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/conf/log4j.properties
+file path=$(ECPREFIX)/var/activemq/examples/openwire/exploring-jms/readme.txt
+file path=$(ECPREFIX)/var/activemq/examples/openwire/java/pom.xml
+file path=$(ECPREFIX)/var/activemq/examples/openwire/java/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/java/src/main/java/example/Listener.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/java/src/main/java/example/Publisher.java
+file path=$(ECPREFIX)/var/activemq/examples/openwire/swissarmy/build.xml
+file path=$(ECPREFIX)/var/activemq/examples/openwire/swissarmy/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/swissarmy/src/CommandLineSupport.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/swissarmy/src/ConsumerTool.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/swissarmy/src/EmbeddedBroker.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/swissarmy/src/Log4jJMSAppenderExample.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/swissarmy/src/ProducerAndConsumerTool.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/swissarmy/src/ProducerTool.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/swissarmy/src/RequesterTool.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/swissarmy/src/StompExample.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/swissarmy/src/TopicListener.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/swissarmy/src/TopicPublisher.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/swissarmy/src/jndi.properties
+file \
+    path=$(ECPREFIX)/var/activemq/examples/openwire/swissarmy/src/log4j-jms.properties
+file path=$(ECPREFIX)/var/activemq/examples/stomp/cpp/Listener.cpp
+file path=$(ECPREFIX)/var/activemq/examples/stomp/cpp/Publisher.cpp
+file path=$(ECPREFIX)/var/activemq/examples/stomp/cpp/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/csharp/ActiveMQExamples/ActiveMQExamples.sln
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/csharp/ActiveMQExamples/ActiveMQExamples.userprefs
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/csharp/ActiveMQExamples/Listener/AssemblyInfo.cs
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/csharp/ActiveMQExamples/Listener/Listener.cs
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/csharp/ActiveMQExamples/Listener/Listener.csproj
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/csharp/ActiveMQExamples/Listener/NMSTracer.cs
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/csharp/ActiveMQExamples/Publisher/AssemblyInfo.cs
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/csharp/ActiveMQExamples/Publisher/NMSTracer.cs
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/csharp/ActiveMQExamples/Publisher/Publisher.cs
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/csharp/ActiveMQExamples/Publisher/Publisher.csproj
+file path=$(ECPREFIX)/var/activemq/examples/stomp/csharp/readme.md
+file path=$(ECPREFIX)/var/activemq/examples/stomp/java/pom.xml
+file path=$(ECPREFIX)/var/activemq/examples/stomp/java/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/java/src/main/java/example/Listener.java
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/java/src/main/java/example/Publisher.java
+file path=$(ECPREFIX)/var/activemq/examples/stomp/perl/listener
+file path=$(ECPREFIX)/var/activemq/examples/stomp/perl/publisher
+file path=$(ECPREFIX)/var/activemq/examples/stomp/perl/readme.md
+file path=$(ECPREFIX)/var/activemq/examples/stomp/php/listener.php
+file path=$(ECPREFIX)/var/activemq/examples/stomp/php/publisher.php
+file path=$(ECPREFIX)/var/activemq/examples/stomp/php/readme.md
+file path=$(ECPREFIX)/var/activemq/examples/stomp/python/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/python/stompest/async/__init__.py
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/python/stompest/async/listener.py
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/python/stompest/async/publisher.py
+file path=$(ECPREFIX)/var/activemq/examples/stomp/python/stompest/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/python/stompest/sync/__init__.py
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/python/stompest/sync/listener.py
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/python/stompest/sync/publisher.py
+file path=$(ECPREFIX)/var/activemq/examples/stomp/python/stomppy/listener.py
+file path=$(ECPREFIX)/var/activemq/examples/stomp/python/stomppy/publisher.py
+file path=$(ECPREFIX)/var/activemq/examples/stomp/python/stomppy/readme.md
+file path=$(ECPREFIX)/var/activemq/examples/stomp/ruby/catstomp.rb
+file path=$(ECPREFIX)/var/activemq/examples/stomp/ruby/listener.rb
+file path=$(ECPREFIX)/var/activemq/examples/stomp/ruby/publisher.rb
+file path=$(ECPREFIX)/var/activemq/examples/stomp/ruby/readme.md
+file path=$(ECPREFIX)/var/activemq/examples/stomp/ruby/stompcat.rb
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/websocket/css/bootstrap.min.css
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/websocket/css/bootstrap.min.responsive.css
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/websocket/img/glyphicons-halflings-white.png
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/websocket/img/glyphicons-halflings.png
+file path=$(ECPREFIX)/var/activemq/examples/stomp/websocket/index.html
+file \
+    path=$(ECPREFIX)/var/activemq/examples/stomp/websocket/js/jquery-1.7.2.min.js
+file path=$(ECPREFIX)/var/activemq/examples/stomp/websocket/js/stomp.js
+file path=$(ECPREFIX)/var/activemq/examples/stomp/websocket/readme.md
+file \
+    path=$(ECPREFIX)/var/activemq/lib/activemq-broker-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/activemq-client-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/activemq-console-$(COMPONENT_VERSION).jar
+file path=$(ECPREFIX)/var/activemq/lib/activemq-jaas-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/activemq-kahadb-store-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/activemq-openwire-legacy-$(COMPONENT_VERSION).jar
+file path=$(ECPREFIX)/var/activemq/lib/activemq-protobuf-1.1.jar
+file path=$(ECPREFIX)/var/activemq/lib/activemq-rar.txt
+file \
+    path=$(ECPREFIX)/var/activemq/lib/activemq-spring-$(COMPONENT_VERSION).jar
+file path=$(ECPREFIX)/var/activemq/lib/activemq-web-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/camel/activemq-camel-$(COMPONENT_VERSION).jar
+file path=$(ECPREFIX)/var/activemq/lib/camel/camel-core-2.19.3.jar
+file path=$(ECPREFIX)/var/activemq/lib/camel/camel-jms-2.19.3.jar
+file path=$(ECPREFIX)/var/activemq/lib/camel/camel-spring-2.19.3.jar
+file path=$(ECPREFIX)/var/activemq/lib/extra/mqtt-client-1.14.jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/geronimo-j2ee-management_1.1_spec-1.0.1.jar
+file path=$(ECPREFIX)/var/activemq/lib/geronimo-jms_1.1_spec-1.1.1.jar
+file path=$(ECPREFIX)/var/activemq/lib/geronimo-jta_1.0.1B_spec-1.0.1.jar
+file path=$(ECPREFIX)/var/activemq/lib/hawtbuf-1.11.jar
+file path=$(ECPREFIX)/var/activemq/lib/jcl-over-slf4j-1.7.25.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/activeio-core-3.1.4.jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/activemq-amqp-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/activemq-http-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/activemq-jdbc-store-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/activemq-jms-pool-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/activemq-leveldb-store-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/activemq-log4j-appender-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/activemq-mqtt-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/activemq-partition-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/activemq-pool-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/activemq-runtime-config-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/activemq-shiro-$(COMPONENT_VERSION).jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/activemq-stomp-$(COMPONENT_VERSION).jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/commons-beanutils-1.9.3.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/commons-codec-1.9.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/commons-collections-3.2.2.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/commons-dbcp2-2.1.1.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/commons-lang-2.6.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/commons-net-3.6.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/commons-pool2-2.4.2.jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/geronimo-j2ee-connector_1.5_spec-2.0.0.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/guava-18.0.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/hawtbuf-proto-1.11.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/hawtdispatch-1.22.jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/hawtdispatch-scala-2.11-1.22.jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/hawtdispatch-transport-1.22.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/hawtjni-runtime-1.9.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/httpclient-4.5.3.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/httpcore-4.4.6.jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/insight-log-core-1.2.0.Beta4.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/insight-log4j-1.2.0.Beta4.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/jackson-annotations-2.6.7.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/jackson-core-2.6.7.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/jackson-databind-2.6.7.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/jasypt-1.9.2.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/jasypt-spring31-1.9.2.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/jaxb2-basics-runtime-0.6.4.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/jettison-1.3.8.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/jmdns-3.4.1.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/leveldb-0.9.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/leveldb-api-0.9.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/leveldbjni-1.8.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/log4j-1.2.17.jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/org.apache.servicemix.bundles.josql-1.5_5.jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/org.linkedin.util-core-1.4.0.jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/org.linkedin.zookeeper-impl-1.4.0.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/proton-j-0.25.0.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/scala-library-2.11.0.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/shiro-core-1.2.4.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/shiro-spring-1.2.4.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/slf4j-log4j12-1.7.25.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/snappy-0.2.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/snappy-java-1.1.2.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/spring-aop-4.3.9.RELEASE.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/spring-beans-4.3.9.RELEASE.jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/spring-context-4.3.9.RELEASE.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/spring-core-4.3.9.RELEASE.jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/optional/spring-expression-4.3.10.RELEASE.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/spring-jms-4.3.9.RELEASE.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/spring-oxm-4.3.9.RELEASE.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/spring-tx-4.3.9.RELEASE.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/velocity-1.7.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/xbean-spring-4.2.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/xpp3-1.1.4c.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/xstream-1.4.10.jar
+file path=$(ECPREFIX)/var/activemq/lib/optional/zookeeper-3.4.6.jar
+file path=$(ECPREFIX)/var/activemq/lib/slf4j-api-1.7.25.jar
+file path=$(ECPREFIX)/var/activemq/lib/web/apache-el-8.0.33.jar
+file path=$(ECPREFIX)/var/activemq/lib/web/apache-jsp-8.0.33.jar
+file path=$(ECPREFIX)/var/activemq/lib/web/apache-jsp-9.2.22.v20170606.jar
+file path=$(ECPREFIX)/var/activemq/lib/web/apache-jstl-9.2.22.v20170606.jar
+file path=$(ECPREFIX)/var/activemq/lib/web/asm-5.0.4.jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/web/geronimo-annotation_1.0_spec-1.1.1.jar
+file path=$(ECPREFIX)/var/activemq/lib/web/jdom-1.0.jar
+file path=$(ECPREFIX)/var/activemq/lib/web/jetty-all-9.2.22.v20170606.jar
+file path=$(ECPREFIX)/var/activemq/lib/web/jolokia-core-1.3.4.jar
+file path=$(ECPREFIX)/var/activemq/lib/web/json-simple-1.1.1.jar
+file \
+    path=$(ECPREFIX)/var/activemq/lib/web/org.eclipse.jdt.core-3.8.2.v20130121.jar
+file path=$(ECPREFIX)/var/activemq/lib/web/rome-1.0.jar
+file path=$(ECPREFIX)/var/activemq/lib/web/spring-web-4.3.9.RELEASE.jar
+file path=$(ECPREFIX)/var/activemq/lib/web/spring-webmvc-4.3.9.RELEASE.jar
+file path=$(ECPREFIX)/var/activemq/lib/web/taglibs-standard-impl-1.2.5.jar
+file path=$(ECPREFIX)/var/activemq/lib/web/taglibs-standard-spec-1.2.5.jar
+file path=$(ECPREFIX)/var/activemq/lib/web/tomcat-servlet-api-8.0.24.jar
+file path=$(ECPREFIX)/var/activemq/lib/web/tomcat-websocket-api-8.0.24.jar
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/META-INF/LICENSE
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/META-INF/NOTICE
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/WEB-INF/web.xml
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/chat.css
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/chat.html
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/activemq-logo.png
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/asf-logo.png
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/big-bullet.png
+file \
+    path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/black-footer-bottom.png
+file \
+    path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/black-footer-left.png
+file \
+    path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/black-footer-right.png
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/bottom-red-bar.png
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/checker-bg.png
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/content-left.png
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/content-right.png
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/feed_atom.png
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/feed_rss.png
+file \
+    path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/left-box-bottom.png
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/left-box-right.png
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/left-box-top.png
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/oval-arrow.png
+file \
+    path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/right-box-bottom.png
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/right-box-left.png
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/right-box-top.png
+file \
+    path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/small-bullet-gray.png
+file \
+    path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/small-bullet-red.png
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/spacer.gif
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/top-red-bar.png
+file \
+    path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/white-header-left.png
+file \
+    path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/white-header-right.png
+file \
+    path=$(ECPREFIX)/var/activemq/webapps-demo/demo/images/white-header-top.png
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/index.html
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/amq.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/amq_dojo_adapter.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/amq_jquery_adapter.js
+file \
+    path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/amq_prototype_adapter.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/chat.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/common.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/css.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/dojo.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/jquery-1.4.2.min.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/mochi/MochiKit.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/mochi/__package__.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/plotkit/Base.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/plotkit/Canvas.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/plotkit/Layout.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/plotkit/SVG.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/plotkit/SweetCanvas.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/plotkit/SweetSVG.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/plotkit/dummy.svg
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/plotkit/iecanvas.htc
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/prettify.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/prototype.js
+file \
+    path=$(ECPREFIX)/var/activemq/webapps-demo/demo/js/standardista-table-sorting.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/mqtt/chat.css
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/mqtt/chat.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/mqtt/index.html
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/mqtt/mqttws31.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/portfolio/portfolio.html
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/portfolio/portfolio.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/send.html
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/style.css
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/styles/prettify.css
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/styles/site.css
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/styles/sorttable.css
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/styles/type-settings.css
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/test/amq_test.html
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/test/assets/README
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/test/assets/jsunittest.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/test/assets/unittest.css
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/websocket/chat.css
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/websocket/chat.js
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/websocket/index.html
+file path=$(ECPREFIX)/var/activemq/webapps-demo/demo/websocket/stomp.js
+file path=$(ECPREFIX)/var/activemq/webapps/admin/403.html
+file path=$(ECPREFIX)/var/activemq/webapps/admin/404.html
+file path=$(ECPREFIX)/var/activemq/webapps/admin/500.html
+file path=$(ECPREFIX)/var/activemq/webapps/admin/META-INF/LICENSE
+file path=$(ECPREFIX)/var/activemq/webapps/admin/META-INF/NOTICE
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/WebConsoleStarter$OsgiUtil.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/WebConsoleStarter.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/config/OsgiConfiguration.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/CopyMessage.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/CreateDestination.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/CreateSubscriber.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/DeleteDestination.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/DeleteJob.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/DeleteMessage.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/DeleteSubscriber.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/MoveMessage.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/PurgeDestination.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/RetryMessage.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/SendMessage.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/filter/ApplicationContextFilter$1.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/filter/ApplicationContextFilter$2.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/filter/ApplicationContextFilter.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/classes/org/apache/activemq/web/handler/BindingBeanNameUrlHandlerMapping.class
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/dispatcher-servlet.xml
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/jspf/headertags.jspf
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/checkbox.tag
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/escape.tag
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/forEachMapEntry.tag
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/option.tag
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/short.tag
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/text.tag
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/tooltip.tag
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/form/uri.tag
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/jms/forEachConnection.tag
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/jms/forEachMessage.tag
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/jms/formatTimestamp.tag
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/tags/jms/persistent.tag
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/web.xml
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-default.xml
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-embedded.xml
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-invm.xml
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-jndi.xml
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-osgi.xml
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-properties.xml
+file path=$(ECPREFIX)/var/activemq/webapps/admin/WEB-INF/webconsole-query.xml
+file path=$(ECPREFIX)/var/activemq/webapps/admin/browse.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/connection.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/connections.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/decorators/footer.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/decorators/head.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/decorators/header.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/graph.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/activemq-logo.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/asf-logo.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/big-bullet.png
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/images/black-footer-bottom.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/black-footer-left.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/black-footer-right.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/bottom-red-bar.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/checker-bg.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/content-left.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/content-right.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/feed_atom.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/feed_rss.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/left-box-bottom.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/left-box-right.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/left-box-top.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/oval-arrow.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/right-box-bottom.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/right-box-left.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/right-box-top.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/small-bullet-gray.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/small-bullet-red.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/spacer.gif
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/top-red-bar.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/white-header-left.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/white-header-right.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/images/white-header-top.png
+file path=$(ECPREFIX)/var/activemq/webapps/admin/index.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/common.js
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/css.js
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/mochi/MochiKit.js
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/mochi/__package__.js
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/Base.js
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/Canvas.js
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/Layout.js
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/SVG.js
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/SweetCanvas.js
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/SweetSVG.js
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/dummy.svg
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/plotkit/iecanvas.htc
+file path=$(ECPREFIX)/var/activemq/webapps/admin/js/prettify.js
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/admin/js/standardista-table-sorting.js
+file path=$(ECPREFIX)/var/activemq/webapps/admin/login.html
+file path=$(ECPREFIX)/var/activemq/webapps/admin/message.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/network.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/queueConsumers.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/queueGraph.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/queueProducers.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/queues.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/scheduled.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/send.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/slave.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/styles/prettify.css
+file path=$(ECPREFIX)/var/activemq/webapps/admin/styles/site.css
+file path=$(ECPREFIX)/var/activemq/webapps/admin/styles/sorttable.css
+file path=$(ECPREFIX)/var/activemq/webapps/admin/styles/type-settings.css
+file path=$(ECPREFIX)/var/activemq/webapps/admin/subscribers.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/test/dummy.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/test/index.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/test/systemProperties.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/topicProducers.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/topicSubscribers.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/topics.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/xml/queues.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/xml/subscribers.jsp
+file path=$(ECPREFIX)/var/activemq/webapps/admin/xml/topics.jsp
+file \
+    path=$(ECPREFIX)/var/activemq/webapps/api/WEB-INF/classes/jolokia-access.xml
+file path=$(ECPREFIX)/var/activemq/webapps/api/WEB-INF/web.xml
+file path=$(ECPREFIX)/var/activemq/webapps/favicon.ico
+file path=$(ECPREFIX)/var/activemq/webapps/images/activemq-logo.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/asf-logo.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/big-bullet.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/black-footer-bottom.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/black-footer-left.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/black-footer-right.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/bottom-red-bar.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/checker-bg.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/content-left.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/content-right.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/feed_atom.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/feed_rss.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/left-box-bottom.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/left-box-right.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/left-box-top.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/oval-arrow.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/right-box-bottom.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/right-box-left.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/right-box-top.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/small-bullet-gray.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/small-bullet-red.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/spacer.gif
+file path=$(ECPREFIX)/var/activemq/webapps/images/top-red-bar.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/white-header-left.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/white-header-right.png
+file path=$(ECPREFIX)/var/activemq/webapps/images/white-header-top.png
+file path=$(ECPREFIX)/var/activemq/webapps/index.html
+file path=$(ECPREFIX)/var/activemq/webapps/styles/prettify.css
+file path=$(ECPREFIX)/var/activemq/webapps/styles/site.css
+file path=$(ECPREFIX)/var/activemq/webapps/styles/sorttable.css
+file path=$(ECPREFIX)/var/activemq/webapps/styles/type-settings.css

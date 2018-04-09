@@ -11,7 +11,7 @@
 -->
 
 <!--
-	Copyright 2011 EveryCity Ltd. All rights reserved.
+	Copyright 2018 EveryCity Ltd. All rights reserved.
 -->
 
 <service_bundle type='manifest' name='activemq'>
@@ -38,8 +38,7 @@
 		grouping='require_all'
 		restart_on='none'
 		type='service'>
-		<service_fmri
-			value='svc:/system/filesystem/local:default'/>
+		<service_fmri value='svc:/system/filesystem/local:default'/>
 	</dependency>
 
 	<method_context>
@@ -49,13 +48,13 @@
 	<exec_method
 		type='method'
 		name='start'
-		exec='/ec/var/activemq/bin/activemq-admin start'
+		exec='/ec/var/activemq/bin/activemq start'
 		timeout_seconds='60'/>
 
 	<exec_method
 		type='method'
 		name='stop'
-		exec='/ec/var/activemq/bin/activemq-admin stop'
+		exec='/ec/var/activemq/bin/activemq stop'
 		timeout_seconds='60'/>
 
         <property_group name="startd" type="framework">
