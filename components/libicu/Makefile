@@ -16,15 +16,15 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		icu
 COMPONENT_FMRI=		library/icu
-COMPONENT_VERSION=	60.2
-COMPONENT_OTHER_VERSION=60_2
+COMPONENT_VERSION=	61.1
+COMPONENT_OTHER_VERSION=61_1
 COMPONENT_LICENSE=	MIT
 COMPONENT_LICENSE_FILE=	license.html
 COMPONENT_PROJECT_URL=	"http://site.icu-project.org/"
 COMPONENT_SUMMARY=	C/C++ and Java libraries providing Unicode and Globalization support for software applications.
 COMPONENT_SRC=		$(COMPONENT_NAME)
 COMPONENT_ARCHIVE=	icu4c-$(COMPONENT_OTHER_VERSION)-src.tgz
-COMPONENT_ARCHIVE_HASH=	sha256:f073ea8f35b926d70bb33e6577508aa642a8b316a803f11be20af384811db418
+COMPONENT_ARCHIVE_HASH=	sha256:d007f89ae8a2543a53525c74359b65b36412fa84b3349f1400be6dcf409fafef
 COMPONENT_ARCHIVE_URL=	http://download.icu-project.org/files/icu4c/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
