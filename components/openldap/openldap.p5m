@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -109,37 +109,37 @@ file path=$(USRDIR)/include/ldap_schema.h
 file path=$(USRDIR)/include/ldap_utf8.h
 file path=$(USRDIR)/include/ldif.h
 file path=$(USRDIR)/include/slapi-plugin.h
-link path=$(USRDIR)/lib/$(MACH64)/liblber-2.4.so.2 target=liblber-2.4.so.2.10.7
-file path=$(USRDIR)/lib/$(MACH64)/liblber-2.4.so.2.10.7
+link path=$(USRDIR)/lib/$(MACH64)/liblber-2.4.so.2 target=liblber-2.4.so.2.10.9
+file path=$(USRDIR)/lib/$(MACH64)/liblber-2.4.so.2.10.9
 file path=$(USRDIR)/lib/$(MACH64)/liblber.a
 file path=$(USRDIR)/lib/$(MACH64)/liblber.la
-link path=$(USRDIR)/lib/$(MACH64)/liblber.so target=liblber-2.4.so.2.10.7
-link path=$(USRDIR)/lib/$(MACH64)/libldap-2.4.so.2 target=libldap-2.4.so.2.10.7
-file path=$(USRDIR)/lib/$(MACH64)/libldap-2.4.so.2.10.7
+link path=$(USRDIR)/lib/$(MACH64)/liblber.so target=liblber-2.4.so.2.10.9
+link path=$(USRDIR)/lib/$(MACH64)/libldap-2.4.so.2 target=libldap-2.4.so.2.10.9
+file path=$(USRDIR)/lib/$(MACH64)/libldap-2.4.so.2.10.9
 file path=$(USRDIR)/lib/$(MACH64)/libldap.a
 file path=$(USRDIR)/lib/$(MACH64)/libldap.la
-link path=$(USRDIR)/lib/$(MACH64)/libldap.so target=libldap-2.4.so.2.10.7
+link path=$(USRDIR)/lib/$(MACH64)/libldap.so target=libldap-2.4.so.2.10.9
 link path=$(USRDIR)/lib/$(MACH64)/libldap_r-2.4.so.2 \
-    target=libldap_r-2.4.so.2.10.7
-file path=$(USRDIR)/lib/$(MACH64)/libldap_r-2.4.so.2.10.7
+    target=libldap_r-2.4.so.2.10.9
+file path=$(USRDIR)/lib/$(MACH64)/libldap_r-2.4.so.2.10.9
 file path=$(USRDIR)/lib/$(MACH64)/libldap_r.a
 file path=$(USRDIR)/lib/$(MACH64)/libldap_r.la
-link path=$(USRDIR)/lib/$(MACH64)/libldap_r.so target=libldap_r-2.4.so.2.10.7
-link path=$(USRDIR)/lib/liblber-2.4.so.2 target=liblber-2.4.so.2.10.7
-file path=$(USRDIR)/lib/liblber-2.4.so.2.10.7
+link path=$(USRDIR)/lib/$(MACH64)/libldap_r.so target=libldap_r-2.4.so.2.10.9
+link path=$(USRDIR)/lib/liblber-2.4.so.2 target=liblber-2.4.so.2.10.9
+file path=$(USRDIR)/lib/liblber-2.4.so.2.10.9
 file path=$(USRDIR)/lib/liblber.a
 file path=$(USRDIR)/lib/liblber.la
-link path=$(USRDIR)/lib/liblber.so target=liblber-2.4.so.2.10.7
-link path=$(USRDIR)/lib/libldap-2.4.so.2 target=libldap-2.4.so.2.10.7
-file path=$(USRDIR)/lib/libldap-2.4.so.2.10.7
+link path=$(USRDIR)/lib/liblber.so target=liblber-2.4.so.2.10.9
+link path=$(USRDIR)/lib/libldap-2.4.so.2 target=libldap-2.4.so.2.10.9
+file path=$(USRDIR)/lib/libldap-2.4.so.2.10.9
 file path=$(USRDIR)/lib/libldap.a
 file path=$(USRDIR)/lib/libldap.la
-link path=$(USRDIR)/lib/libldap.so target=libldap-2.4.so.2.10.7
-link path=$(USRDIR)/lib/libldap_r-2.4.so.2 target=libldap_r-2.4.so.2.10.7
-file path=$(USRDIR)/lib/libldap_r-2.4.so.2.10.7
+link path=$(USRDIR)/lib/libldap.so target=libldap-2.4.so.2.10.9
+link path=$(USRDIR)/lib/libldap_r-2.4.so.2 target=libldap_r-2.4.so.2.10.9
+file path=$(USRDIR)/lib/libldap_r-2.4.so.2.10.9
 file path=$(USRDIR)/lib/libldap_r.a
 file path=$(USRDIR)/lib/libldap_r.la
-link path=$(USRDIR)/lib/libldap_r.so target=libldap_r-2.4.so.2.10.7
+link path=$(USRDIR)/lib/libldap_r.so target=libldap_r-2.4.so.2.10.9
 link path=$(USRDIR)/share/man/man1/ldapadd.1 target=ldapmodify.1
 file path=$(USRDIR)/share/man/man1/ldapcompare.1
 file path=$(USRDIR)/share/man/man1/ldapdelete.1
@@ -353,7 +353,6 @@ file path=$(USRDIR)/share/man/man5/slapd-config.5
 file path=$(USRDIR)/share/man/man5/slapd-dnssrv.5
 link path=$(USRDIR)/share/man/man5/slapd-hdb.5 target=slapd-bdb.5
 file path=$(USRDIR)/share/man/man5/slapd-ldap.5
-file path=$(USRDIR)/share/man/man5/slapd-ldbm.5
 file path=$(USRDIR)/share/man/man5/slapd-ldif.5
 file path=$(USRDIR)/share/man/man5/slapd-mdb.5
 file path=$(USRDIR)/share/man/man5/slapd-meta.5
