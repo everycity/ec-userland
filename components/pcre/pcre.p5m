@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -50,30 +50,30 @@ file path=$(ECPREFIX)/include/pcrecpp.h
 file path=$(ECPREFIX)/include/pcrecpparg.h
 file path=$(ECPREFIX)/include/pcreposix.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libpcre.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libpcre.so.1.2.9
+file path=$(ECPREFIX)/lib/$(MACH64)/libpcre.so.1.2.10
 file path=$(ECPREFIX)/lib/$(MACH64)/libpcre16.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libpcre16.so.0.2.9
+file path=$(ECPREFIX)/lib/$(MACH64)/libpcre16.so.0.2.10
 file path=$(ECPREFIX)/lib/$(MACH64)/libpcre32.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libpcre32.so.0.0.9
+file path=$(ECPREFIX)/lib/$(MACH64)/libpcre32.so.0.0.10
 file path=$(ECPREFIX)/lib/$(MACH64)/libpcrecpp.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libpcrecpp.so.0.0.1
 file path=$(ECPREFIX)/lib/$(MACH64)/libpcreposix.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libpcreposix.so.0.0.5
+file path=$(ECPREFIX)/lib/$(MACH64)/libpcreposix.so.0.0.6
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpcre.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpcre16.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpcre32.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpcrecpp.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libpcreposix.pc
 file path=$(ECPREFIX)/lib/libpcre.la
-file path=$(ECPREFIX)/lib/libpcre.so.1.2.9
+file path=$(ECPREFIX)/lib/libpcre.so.1.2.10
 file path=$(ECPREFIX)/lib/libpcre16.la
-file path=$(ECPREFIX)/lib/libpcre16.so.0.2.9
+file path=$(ECPREFIX)/lib/libpcre16.so.0.2.10
 file path=$(ECPREFIX)/lib/libpcre32.la
-file path=$(ECPREFIX)/lib/libpcre32.so.0.0.9
+file path=$(ECPREFIX)/lib/libpcre32.so.0.0.10
 file path=$(ECPREFIX)/lib/libpcrecpp.la
 file path=$(ECPREFIX)/lib/libpcrecpp.so.0.0.1
 file path=$(ECPREFIX)/lib/libpcreposix.la
-file path=$(ECPREFIX)/lib/libpcreposix.so.0.0.5
+file path=$(ECPREFIX)/lib/libpcreposix.so.0.0.6
 file path=$(ECPREFIX)/lib/pkgconfig/libpcre.pc
 file path=$(ECPREFIX)/lib/pkgconfig/libpcre16.pc
 file path=$(ECPREFIX)/lib/pkgconfig/libpcre32.pc
@@ -194,28 +194,28 @@ file path=$(ECPREFIX)/share/man/man3/pcresample.3
 file path=$(ECPREFIX)/share/man/man3/pcrestack.3
 file path=$(ECPREFIX)/share/man/man3/pcresyntax.3
 file path=$(ECPREFIX)/share/man/man3/pcreunicode.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libpcre.so target=libpcre.so.1.2.9
-link path=$(ECPREFIX)/lib/$(MACH64)/libpcre.so.1 target=libpcre.so.1.2.9
-link path=$(ECPREFIX)/lib/$(MACH64)/libpcre16.so target=libpcre16.so.0.2.9
-link path=$(ECPREFIX)/lib/$(MACH64)/libpcre16.so.0 target=libpcre16.so.0.2.9
-link path=$(ECPREFIX)/lib/$(MACH64)/libpcre32.so target=libpcre32.so.0.0.9
-link path=$(ECPREFIX)/lib/$(MACH64)/libpcre32.so.0 target=libpcre32.so.0.0.9
+link path=$(ECPREFIX)/lib/$(MACH64)/libpcre.so target=libpcre.so.1.2.10
+link path=$(ECPREFIX)/lib/$(MACH64)/libpcre.so.1 target=libpcre.so.1.2.10
+link path=$(ECPREFIX)/lib/$(MACH64)/libpcre16.so target=libpcre16.so.0.2.10
+link path=$(ECPREFIX)/lib/$(MACH64)/libpcre16.so.0 target=libpcre16.so.0.2.10
+link path=$(ECPREFIX)/lib/$(MACH64)/libpcre32.so target=libpcre32.so.0.0.10
+link path=$(ECPREFIX)/lib/$(MACH64)/libpcre32.so.0 target=libpcre32.so.0.0.10
 link path=$(ECPREFIX)/lib/$(MACH64)/libpcrecpp.so target=libpcrecpp.so.0.0.1
 link path=$(ECPREFIX)/lib/$(MACH64)/libpcrecpp.so.0 target=libpcrecpp.so.0.0.1
 link path=$(ECPREFIX)/lib/$(MACH64)/libpcreposix.so \
-    target=libpcreposix.so.0.0.5
+    target=libpcreposix.so.0.0.6
 link path=$(ECPREFIX)/lib/$(MACH64)/libpcreposix.so.0 \
-    target=libpcreposix.so.0.0.5
-link path=$(ECPREFIX)/lib/libpcre.so target=libpcre.so.1.2.9
-link path=$(ECPREFIX)/lib/libpcre.so.1 target=libpcre.so.1.2.9
-link path=$(ECPREFIX)/lib/libpcre16.so target=libpcre16.so.0.2.9
-link path=$(ECPREFIX)/lib/libpcre16.so.0 target=libpcre16.so.0.2.9
-link path=$(ECPREFIX)/lib/libpcre32.so target=libpcre32.so.0.0.9
-link path=$(ECPREFIX)/lib/libpcre32.so.0 target=libpcre32.so.0.0.9
+    target=libpcreposix.so.0.0.6
+link path=$(ECPREFIX)/lib/libpcre.so target=libpcre.so.1.2.10
+link path=$(ECPREFIX)/lib/libpcre.so.1 target=libpcre.so.1.2.10
+link path=$(ECPREFIX)/lib/libpcre16.so target=libpcre16.so.0.2.10
+link path=$(ECPREFIX)/lib/libpcre16.so.0 target=libpcre16.so.0.2.10
+link path=$(ECPREFIX)/lib/libpcre32.so target=libpcre32.so.0.0.10
+link path=$(ECPREFIX)/lib/libpcre32.so.0 target=libpcre32.so.0.0.10
 link path=$(ECPREFIX)/lib/libpcrecpp.so target=libpcrecpp.so.0.0.1
 link path=$(ECPREFIX)/lib/libpcrecpp.so.0 target=libpcrecpp.so.0.0.1
-link path=$(ECPREFIX)/lib/libpcreposix.so target=libpcreposix.so.0.0.5
-link path=$(ECPREFIX)/lib/libpcreposix.so.0 target=libpcreposix.so.0.0.5
+link path=$(ECPREFIX)/lib/libpcreposix.so target=libpcreposix.so.0.0.6
+link path=$(ECPREFIX)/lib/libpcreposix.so.0 target=libpcreposix.so.0.0.6
 link path=$(ECPREFIX)/share/man/man3/pcre16_assign_jit_stack.3 \
     target=pcre_assign_jit_stack.3
 link path=$(ECPREFIX)/share/man/man3/pcre16_compile.3 target=pcre_compile.3
