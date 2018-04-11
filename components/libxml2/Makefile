@@ -9,27 +9,27 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libxml2
 COMPONENT_FMRI=		library/libxml2
-COMPONENT_VERSION=	2.9.7
+COMPONENT_VERSION=	2.9.8
 COMPONENT_LICENSE=	MIT
 COMPONENT_PROJECT_URL=	"http://xmlsoft.org/"
 COMPONENT_SUMMARY=	The XML library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:f63c5e7d30362ed28b38bfa1ac6313f9a80230720b7fb6c80575eeab3ff5900c
+COMPONENT_ARCHIVE_HASH=	sha256:0b74e51595654f958148759cfef0993114ddccccbb6f31aee018f3558e8e2732
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_XMLSOFT)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-#CONFIGURE_OPTIONS+= --with-python=/ec
+CFLAGS+=	-std=c99
 
 build:		$(BUILD_32_and_64)
 
