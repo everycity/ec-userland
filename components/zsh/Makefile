@@ -16,14 +16,15 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		zsh
 COMPONENT_FMRI=         shell/zsh
-COMPONENT_VERSION=      5.4.2
+COMPONENT_VERSION=      5.5
+IPS_COMPONENT_VERSION=	5.5.0
 COMPONENT_LICENSE=      ZSH/GPL
 COMPONENT_LICENSE_FILE=	LICENCE
 COMPONENT_PROJECT_URL=  "http://zsh.sourceforge.net/"
 COMPONENT_SUMMARY=	Zsh is a shell designed for interactive use, although it is also a powerful scripting language
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:957bcdb2c57f64c02f673693ea5a7518ef24b6557aeb3a4ce222cefa6d74acc9
+COMPONENT_ARCHIVE_HASH=	sha256:d05606a545672ae8623828802dbcc4c83d9a4d3dbfb960e94a9fd9f62467c159
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
 
 include ../../make-rules/prep.mk

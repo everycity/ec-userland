@@ -9,7 +9,7 @@ Fix SunOS flags.
 
 --- a/configure.ac.orig	2016-12-12 21:35:28.000000000 +0000
 +++ b/configure.ac
-@@ -1920,85 +1920,9 @@ zsh_LIMIT_PRESENT(RLIMIT_NPTS)
+@@ -1922,85 +1922,9 @@ zsh_LIMIT_PRESENT(RLIMIT_NPTS)
  zsh_LIMIT_PRESENT(RLIMIT_SWAP)
  zsh_LIMIT_PRESENT(RLIMIT_KQUEUES)
  
@@ -98,7 +98,7 @@ Fix SunOS flags.
  
  
  dnl --------------------------------------------
-@@ -2900,7 +2824,7 @@ char *argv[];
+@@ -2897,7 +2821,7 @@ char *argv[];
      sunos*)       DLLDFLAGS="${DLLDFLAGS=-assert nodefinitions}" ;;
      sysv4*|esix*) DLLDFLAGS="${DLLDFLAGS=-G $ldflags}" ;;
      aix*)         DLLDFLAGS="${DLLDFLAGS=-G -bexpall -lc}" ;;
