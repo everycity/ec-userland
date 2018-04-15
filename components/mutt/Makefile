@@ -9,22 +9,21 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		mutt
 COMPONENT_FMRI=		mail/mutt
-COMPONENT_VERSION=	1.5.23
+COMPONENT_VERSION=	1.9.5
 COMPONENT_LICENSE=	GPLv2
 COMPONENT_PROJECT_URL=	"http://www.mutt.org/"
 COMPONENT_SUMMARY=	Mutt is a small but very powerful text-based mail client for Unix operating systems
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:3af0701e57b9e1880ed3a0dee34498a228939e854a16cdccd24e5e502626fd37
-#COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
-COMPONENT_ARCHIVE_URL=	ftp://ftp.mutt.org/mutt/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:bf617e64ae4e08a998bef8e42a965a211587e051f1437a3a4884b351a9385753
+COMPONENT_ARCHIVE_URL=	ftp://ftp.mutt.org/pub/mutt/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

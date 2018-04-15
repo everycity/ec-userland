@@ -1,13 +1,13 @@
---- mutt-1.5.22/configure.orig	2013-12-30 21:50:18.504501280 +0000
-+++ mutt-1.5.22/configure	2013-12-30 21:50:46.490385552 +0000
-@@ -9285,8 +9285,8 @@
+--- mutt-1.9.5/configure.orig	2018-04-15 20:15:27.986338360 +0000
++++ mutt-1.9.5/configure	2018-04-15 20:16:46.527214183 +0000
+@@ -9850,8 +9850,8 @@
  
    if test "$KRB5CFGPATH" != "none"
    then
--    GSSAPI_CFLAGS="$CPPFLAGS `$KRB5CFGPATH --cflags gssapi`"
--    GSSAPI_LIBS="$MUTTLIBS `$KRB5CFGPATH --libs gssapi`"
-+    GSSAPI_CFLAGS="$CPPFLAGS `$KRB5CFGPATH --cflags `"
-+    GSSAPI_LIBS="$MUTTLIBS `$KRB5CFGPATH --libs` -lgss"
+-    GSSAPI_CFLAGS="`$KRB5CFGPATH --cflags gssapi`"
+-    GSSAPI_LIBS="`$KRB5CFGPATH --libs gssapi`"
++    GSSAPI_CFLAGS="`$KRB5CFGPATH --cflags`"
++    GSSAPI_LIBS="`$KRB5CFGPATH --libs` -lgss"
      case "`$KRB5CFGPATH --version`" in
        "Kerberos 5 "*)	GSSAPI_IMPL="MIT";;
        ?eimdal*)		GSSAPI_IMPL="Heimdal";;

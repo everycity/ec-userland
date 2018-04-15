@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -154,7 +154,10 @@ file path=$(ECPREFIX)/share/doc/mutt/samples/pgp5.rc
 file path=$(ECPREFIX)/share/doc/mutt/samples/pgp6.rc
 file path=$(ECPREFIX)/share/doc/mutt/samples/sample.mailcap
 file path=$(ECPREFIX)/share/doc/mutt/samples/sample.muttrc
+file path=$(ECPREFIX)/share/doc/mutt/samples/sample.muttrc-compress
+file path=$(ECPREFIX)/share/doc/mutt/samples/sample.muttrc-sidebar
 file path=$(ECPREFIX)/share/doc/mutt/samples/sample.muttrc-tlr
+file path=$(ECPREFIX)/share/doc/mutt/samples/sample.vimrc-sidebar
 file path=$(ECPREFIX)/share/doc/mutt/samples/smime.rc
 file path=$(ECPREFIX)/share/doc/mutt/samples/smime_keys_test.pl
 file path=$(ECPREFIX)/share/doc/mutt/smime-notes.txt
@@ -187,9 +190,7 @@ file path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES/mutt.mo
 file path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES/mutt.mo
 file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/mutt.mo
 file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/mutt.mo
-file path=$(ECPREFIX)/share/man/man1/flea.1
 file path=$(ECPREFIX)/share/man/man1/mutt.1
-file path=$(ECPREFIX)/share/man/man1/muttbug.1
 file path=$(ECPREFIX)/share/man/man1/pgpewrap.1
 file path=$(ECPREFIX)/share/man/man1/pgpring.1
 file path=$(ECPREFIX)/share/man/man1/smime_keys.1
