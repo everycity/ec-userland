@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -17,18 +17,20 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 file path=$(USRDIR)/bin/scons
 file path=$(USRDIR)/bin/scons-$(COMPONENT_VERSION)
+file path=$(USRDIR)/bin/scons-configure-cache
+file path=$(USRDIR)/bin/scons-configure-cache-$(COMPONENT_VERSION)
 file path=$(USRDIR)/bin/scons-time
 file path=$(USRDIR)/bin/scons-time-$(COMPONENT_VERSION)
 file path=$(USRDIR)/bin/sconsign
 file path=$(USRDIR)/bin/sconsign-$(COMPONENT_VERSION)
-
+dir  path=$(USRDIR)/lib/python2.7/vendor-packages/SCons
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Action.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Builder.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/CacheDir.py
@@ -40,10 +42,12 @@ file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Errors.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Executor.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Job.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Memoize.py
+dir  path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Node
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Node/Alias.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Node/FS.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Node/Python.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Node/__init__.py
+dir  path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Options
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Options/BoolOption.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Options/EnumOption.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Options/ListOption.py
@@ -51,6 +55,7 @@ file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Options/PackageOption.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Options/PathOption.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Options/__init__.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/PathList.py
+dir  path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Platform
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Platform/__init__.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Platform/aix.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Platform/cygwin.py
@@ -63,6 +68,7 @@ file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Platform/sunos.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Platform/win32.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/SConf.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/SConsign.py
+dir  path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Scanner
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Scanner/C.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Scanner/D.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Scanner/Dir.py
@@ -71,21 +77,23 @@ file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Scanner/IDL.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Scanner/LaTeX.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Scanner/Prog.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Scanner/RC.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Scanner/SWIG.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Scanner/__init__.py
+dir  path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Script
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Script/Interactive.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Script/Main.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Script/SConsOptions.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Script/SConscript.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Script/__init__.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Sig.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Subst.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Taskmaster.py
+dir  path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/386asm.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/BitKeeper.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/CVS.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/DCommon.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/FortranCommon.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/GettextCommon.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/JavaCommon.py
+dir  path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/MSCommon
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/MSCommon/__init__.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/MSCommon/arch.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/MSCommon/common.py
@@ -93,14 +101,11 @@ file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/MSCommon/netframewo
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/MSCommon/sdk.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/MSCommon/vc.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/MSCommon/vs.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/Perforce.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/PharLapCommon.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/RCS.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/SCCS.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/Subversion.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/__init__.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/aixc++.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/aixcc.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/aixcxx.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/aixf77.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/aixlink.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/applelink.py
@@ -109,13 +114,20 @@ file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/as.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/bcc32.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/c++.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/cc.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/clang.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/clangxx.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/cvf.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/cxx.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/cyglink.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/default.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/dmd.py
+dir  path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/docbook
+file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/docbook/__init__.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/dvi.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/dvipdf.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/dvips.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/f03.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/f08.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/f77.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/f90.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/f95.py
@@ -125,12 +137,15 @@ file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/g++.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/g77.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/gas.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/gcc.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/gettext.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/gdc.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/gettext_tool.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/gfortran.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/gnulink.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/gs.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/gxx.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/hpc++.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/hpcc.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/hpcxx.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/hplink.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/icc.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/icl.py
@@ -145,6 +160,7 @@ file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/jar.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/javac.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/javah.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/latex.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/ldc.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/lex.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/link.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/linkloc.py
@@ -163,6 +179,7 @@ file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/msvs.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/mwcc.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/mwld.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/nasm.py
+dir  path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/packaging
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/packaging/__init__.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/packaging/ipk.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/packaging/msi.py
@@ -184,10 +201,12 @@ file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/rpmutils.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/sgiar.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/sgic++.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/sgicc.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/sgicxx.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/sgilink.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/sunar.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/sunc++.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/suncc.py
+file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/suncxx.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/sunf77.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/sunf90.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/sunf95.py
@@ -202,6 +221,7 @@ file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/xgettext.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/yacc.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Tool/zip.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Util.py
+dir  path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Variables
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Variables/BoolVariable.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Variables/EnumVariable.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Variables/ListVariable.py
@@ -210,18 +230,12 @@ file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Variables/PathVariable.p
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Variables/__init__.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/Warnings.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/__init__.py
+dir  path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/compat
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/compat/__init__.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/compat/_scons_builtins.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/compat/_scons_collections.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/compat/_scons_dbm.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/compat/_scons_hashlib.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/compat/_scons_io.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/compat/_scons_sets.py
-file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/compat/_scons_subprocess.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/cpp.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/dblite.py
 file path=$(USRDIR)/lib/python2.7/vendor-packages/SCons/exitfuncs.py
-
 file $(USRDIR)/lib/python2.7/vendor-packages/man/man1/scons-time.1 path=$(USRDIR)/man/man1/scons-time.1
 file $(USRDIR)/lib/python2.7/vendor-packages/man/man1/scons.1 path=$(USRDIR)/man/man1/scons.1
 file $(USRDIR)/lib/python2.7/vendor-packages/man/man1/sconsign.1 path=$(USRDIR)/man/man1/sconsign.1

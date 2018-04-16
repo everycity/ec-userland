@@ -20,7 +20,7 @@ Index: scons-2.3.0/engine/SCons/Tool/sunar.py
  
      env['SHLINK']      = '$LINK'
      env['SHLINKFLAGS'] = SCons.Util.CLVar('$LINKFLAGS -G')
-@@ -58,7 +53,7 @@ def generate(env):
+@@ -55,7 +50,7 @@ def generate(env):
      env['LIBSUFFIX']   = '.a'
  
  def exists(env):
