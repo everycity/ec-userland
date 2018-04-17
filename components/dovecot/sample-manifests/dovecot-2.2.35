@@ -14,24 +14,20 @@
 
 # Transforms
 <include ec-drop-common>
-<transform file path=.*/libexec/dovecot/.* -> default mode 0555>
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
 set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license='$(COMPONENT_LICENSE)'
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-# Customised content
-group gid=470 groupname=dovecot
-user gcos-field="Dovecot Account" group=dovecot uid=470 username=dovecot login-shell=/bin/false home-dir=/ec/var/dovecot
-dir path=$(USRDIR)/var/dovecot
-file files/dovecot-manifest.xml path=var/svc/manifest/site/dovecot.xml restart_fmri=svc:/system/manifest-import:default
-
-# Auto-generated content
+dir  path=$(SYSCONFDIR)
 dir  path=$(SYSCONFDIR)/dovecot
 file path=$(SYSCONFDIR)/dovecot/README
+dir  path=$(USRDIR)
+dir  path=$(USRDIR)/bin
+dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/doveadm
 file path=$(USRDIR)/bin/$(MACH64)/doveconf
 file path=$(USRDIR)/bin/$(MACH64)/dovecot
@@ -40,6 +36,7 @@ file path=$(USRDIR)/bin/doveadm
 file path=$(USRDIR)/bin/doveconf
 file path=$(USRDIR)/bin/dovecot
 link path=$(USRDIR)/bin/dsync target=doveadm
+dir  path=$(USRDIR)/include
 dir  path=$(USRDIR)/include/dovecot
 file path=$(USRDIR)/include/dovecot/abspath.h
 file path=$(USRDIR)/include/dovecot/access-lookup.h
@@ -591,6 +588,8 @@ file path=$(USRDIR)/include/dovecot/var-expand-private.h
 file path=$(USRDIR)/include/dovecot/var-expand.h
 file path=$(USRDIR)/include/dovecot/wildcard-match.h
 file path=$(USRDIR)/include/dovecot/write-full.h
+dir  path=$(USRDIR)/lib
+dir  path=$(USRDIR)/lib/$(MACH64)
 dir  path=$(USRDIR)/lib/$(MACH64)/dovecot
 dir  path=$(USRDIR)/lib/$(MACH64)/dovecot/auth
 file path=$(USRDIR)/lib/$(MACH64)/dovecot/auth/lib20_auth_var_expand_crypt.a
@@ -984,6 +983,7 @@ file path=$(USRDIR)/lib/dovecot/stats/libstats_auth.so
 file path=$(USRDIR)/lib/dovecot/stats/libstats_mail.a
 file path=$(USRDIR)/lib/dovecot/stats/libstats_mail.la
 file path=$(USRDIR)/lib/dovecot/stats/libstats_mail.so
+dir  path=$(USRDIR)/libexec
 dir  path=$(USRDIR)/libexec/dovecot
 file path=$(USRDIR)/libexec/dovecot/aggregator
 file path=$(USRDIR)/libexec/dovecot/anvil
@@ -1020,7 +1020,10 @@ file path=$(USRDIR)/libexec/dovecot/script-login
 file path=$(USRDIR)/libexec/dovecot/ssl-params
 file path=$(USRDIR)/libexec/dovecot/stats
 file path=$(USRDIR)/libexec/dovecot/xml2text
+dir  path=$(USRDIR)/share
+dir  path=$(USRDIR)/share/aclocal
 file path=$(USRDIR)/share/aclocal/dovecot.m4
+dir  path=$(USRDIR)/share/doc
 dir  path=$(USRDIR)/share/doc/dovecot
 file path=$(USRDIR)/share/doc/dovecot/documentation.txt
 file path=$(USRDIR)/share/doc/dovecot/dovecot-openssl.cnf
@@ -1344,6 +1347,8 @@ file path=$(USRDIR)/share/dovecot/stopwords/stopwords_pt.txt
 file path=$(USRDIR)/share/dovecot/stopwords/stopwords_ro.txt
 file path=$(USRDIR)/share/dovecot/stopwords/stopwords_ru.txt
 file path=$(USRDIR)/share/dovecot/stopwords/stopwords_sv.txt
+dir  path=$(USRDIR)/share/man
+dir  path=$(USRDIR)/share/man/man1
 file path=$(USRDIR)/share/man/man1/deliver.1
 file path=$(USRDIR)/share/man/man1/doveadm-acl.1
 file path=$(USRDIR)/share/man/man1/doveadm-altmove.1
@@ -1390,4 +1395,5 @@ file path=$(USRDIR)/share/man/man1/doveconf.1
 file path=$(USRDIR)/share/man/man1/dovecot-lda.1
 file path=$(USRDIR)/share/man/man1/dovecot.1
 file path=$(USRDIR)/share/man/man1/dsync.1
+dir  path=$(USRDIR)/share/man/man7
 file path=$(USRDIR)/share/man/man7/doveadm-search-query.7
