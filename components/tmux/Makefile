@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tmux
 COMPONENT_FMRI=		terminal/tmux
-COMPONENT_VERSION=	2.3
+COMPONENT_VERSION=	2.7
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	$(PROJECT_SOURCEFORGE1)
 COMPONENT_SUMMARY=	tmux terminal multiplexer
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:55313e132f0f42de7e020bf6323a1939ee02ab79c48634aa07475db41573852b
-COMPONENT_ARCHIVE_URL=	https://github.com/tmux/tmux/releases/download/2.3/tmux-2.3.tar.gz
+COMPONENT_ARCHIVE_HASH=	sha256:9ded7d100313f6bc5a87404a4048b3745d61f2332f99ec1400a7c4ed9485d452
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GITHUB2)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
