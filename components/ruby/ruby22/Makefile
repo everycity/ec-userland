@@ -15,13 +15,13 @@ include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ruby
 COMPONENT_FMRI=		runtime/ruby-22
-COMPONENT_VERSION=	2.2.9
+COMPONENT_VERSION=	2.2.10
 COMPONENT_LICENSE=	2-clause BSDL
 COMPONENT_PROJECT_URL=	http://www.ruby-lang.org/
 COMPONENT_SUMMARY=	The Ruby Programming Language & RubyGems
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:2f47c77054fc40ccfde22501425256d32c4fa0ccaf9554f0d699ed436beca1a6
+COMPONENT_ARCHIVE_HASH=	sha256:cd51019eb9d9c786d6cb178c37f6812d8a41d6914a1edaf0050c051c75d7c358
 COMPONENT_ARCHIVE_URL=	ftp://ftp.ruby-lang.org//pub/ruby/2.2/$(COMPONENT_ARCHIVE)
 
 include ../../../make-rules/prep.mk
