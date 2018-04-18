@@ -28,15 +28,12 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-GSSAPI_LIBDIR_32 = /usr/lib
-GSSAPI_LIBDIR_64 = /usr/lib/$(MACH64)
-
 CFLAGS += $(CPP_LARGEFILES)
 CFLAGS += `pkg-config --cflags libidn`
 CPPFLAGS += `pkg-config --cflags libidn`
 
 CONFIGURE_OPTIONS += --localstatedir=$(CONFIGURE_LOCALSTATEDIR)
-CONFIGURE_OPTIONS += --enable-shared --disable-static
+CONFIGURE_OPTIONS += --enable-shared
 CONFIGURE_OPTIONS += --enable-http --enable-ftp
 CONFIGURE_OPTIONS += --enable-file --enable-dict
 CONFIGURE_OPTIONS += --enable-manual
@@ -49,18 +46,15 @@ CONFIGURE_OPTIONS += --disable-sspi --enable-crypto-auth
 CONFIGURE_OPTIONS += --enable-cookies --disable-hidden-symbols
 CONFIGURE_OPTIONS += --disable-soname-bump
 CONFIGURE_OPTIONS += --with-random=/dev/urandom
-CONFIGURE_OPTIONS += --with-ssl
 CONFIGURE_OPTIONS += --with-pic
+CONFIGURE_OPTIONS += --with-gssapi
 CONFIGURE_OPTIONS += --with-libssh2
-CONFIGURE_OPTIONS += --with-zlib=$(USRDIR)
-CONFIGURE_OPTIONS += --with-libidn=$(USRDIR)
+CONFIGURE_OPTIONS += --with-ssl=$(USRDIR)
+CONFIGURE_OPTIONS += --with-zlib
 CONFIGURE_OPTIONS += --with-ca-bundle=$(CONFIGURE_SYSCONFDIR)/openssl/cabundle.pem
 CONFIGURE_OPTIONS += --without-librtmp
 CONFIGURE_OPTIONS += --disable-ldap
 CONFIGURE_OPTIONS += --disable-ldaps
-CONFIGURE_OPTIONS += --with-gssapi-includes=$(USRDIR)/include/gssapi
-CONFIGURE_OPTIONS += --with-gssapi-libs=$(GSSAPI_LIBDIR_$(BITS))
-CONFIGURE_OPTIONS += --with-gssapi=$(USRDIR)
 CONFIGURE_OPTIONS += "curl_disallow_getifaddrs=yes"
 
 COMPONENT_POST_INSTALL_ACTION.32 = \

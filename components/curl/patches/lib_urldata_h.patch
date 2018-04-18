@@ -1,0 +1,11 @@
+--- curl-7.59.0/lib/urldata.h.orig	2018-04-18 09:20:23.298610831 +0000
++++ curl-7.59.0/lib/urldata.h	2018-04-18 09:20:48.089217171 +0000
+@@ -116,7 +116,7 @@
+ #  include <gss.h>
+ # elif defined HAVE_GSSMIT
+ #  include <gssapi/gssapi.h>
+-#  include <gssapi/gssapi_generic.h>
++#  include <gssapi/gssapi_ext.h>
+ # else
+ #  include <gssapi.h>
+ # endif

@@ -1,0 +1,12 @@
+--- curl-7.59.0/lib/curl_gssapi.h.orig	2018-04-18 09:18:47.494335960 +0000
++++ curl-7.59.0/lib/curl_gssapi.h	2018-04-18 09:19:21.836660566 +0000
+@@ -32,8 +32,7 @@
+ #elif defined HAVE_GSSMIT
+    /* MIT style */
+ #  include <gssapi/gssapi.h>
+-#  include <gssapi/gssapi_generic.h>
+-#  include <gssapi/gssapi_krb5.h>
++#  include <gssapi/gssapi_ext.h>
+ #else
+    /* Heimdal-style */
+ #  include <gssapi.h>

@@ -1,0 +1,96 @@
+--- curl-7.59.0/configure.~1~	2018-03-12 22:47:13.000000000 +0000
++++ curl-7.59.0/configure	2018-04-18 09:45:07.995730010 +0000
+@@ -3847,6 +3847,7 @@
+         ;;
+     esac
+   done
++  xc_bad_var_cflags=no
+   if test $xc_bad_var_cflags = yes; then
+     { $as_echo "$as_me:${as_lineno-$LINENO}: using CFLAGS: $CFLAGS" >&5
+ $as_echo "$as_me: using CFLAGS: $CFLAGS" >&6;}
+@@ -17182,7 +17183,7 @@
+ 
+ 
+       #
+-  if test "$compiler_id" != "unknown"; then
++  if false; then
+     #
+     if test "$compiler_id" = "GNU_C" ||
+       test "$compiler_id" = "CLANG"; then
+@@ -17505,13 +17506,6 @@
+       tmp_options="$flags_dbg_off"
+     fi
+     #
+-    if test "$flags_prefer_cppflags" = "yes"; then
+-      CPPFLAGS="$tmp_CPPFLAGS $tmp_options"
+-      CFLAGS="$tmp_CFLAGS"
+-    else
+-      CPPFLAGS="$tmp_CPPFLAGS"
+-      CFLAGS="$tmp_CFLAGS $tmp_options"
+-    fi
+     squeeze CPPFLAGS
+     squeeze CFLAGS
+ 
+@@ -19145,7 +19139,7 @@
+   tst_cflags="no"
+   case $host_os in
+     darwin*)
+-      tst_cflags="yes"
++      tst_cflags="no"
+       ;;
+   esac
+ 
+@@ -22070,7 +22064,11 @@
+      if test -n "$host_alias" -a -f "$GSSAPI_ROOT/bin/$host_alias-krb5-config"; then
+         GSSAPI_INCS=`$GSSAPI_ROOT/bin/$host_alias-krb5-config --cflags gssapi`
+      elif test -f "$KRB5CONFIG"; then
+-        GSSAPI_INCS=`$KRB5CONFIG --cflags gssapi`
++        if $KRB5CONFIG --cflags gssapi 2>&1 | grep "Unknown option" >/dev/null; then
++           GSSAPI_INCS=`$KRB5CONFIG --cflags`
++        else
++           GSSAPI_INCS=`$KRB5CONFIG --cflags gssapi`
++        fi
+      elif test "$GSSAPI_ROOT" != "yes"; then
+         GSSAPI_INCS="-I$GSSAPI_ROOT/include"
+      fi
+@@ -22102,7 +22100,7 @@
+ 
+ done
+ 
+-      for ac_header in gssapi/gssapi_generic.h gssapi/gssapi_krb5.h
++      for ac_header in gssapi/gssapi_ext.h
+ do :
+   as_ac_Header=`$as_echo "ac_cv_header_$ac_header" | $as_tr_sh`
+ ac_fn_c_check_header_compile "$LINENO" "$ac_header" "$as_ac_Header" "
+@@ -22152,8 +22150,7 @@
+ 
+ 
+ #include <gssapi/gssapi.h>
+-#include <gssapi/gssapi_generic.h>
+-#include <gssapi/gssapi_krb5.h>
++#include <gssapi/gssapi_ext.h>
+ 
+ int main (void)
+ {
+@@ -22215,7 +22212,11 @@
+                                  gss_libs=`$GSSAPI_ROOT/bin/$host_alias-krb5-config --libs gssapi`
+            LIBS="$gss_libs $LIBS"
+         elif test -f "$KRB5CONFIG"; then
+-                                 gss_libs=`$KRB5CONFIG --libs gssapi`
++           if $KRB5CONFIG --cflags gssapi 2>&1 | grep "Unknown option" >/dev/null; then
++              gss_libs="`$KRB5CONFIG --libs` -lgss"
++           else
++              gss_libs=`$KRB5CONFIG --libs gssapi`
++           fi
+            LIBS="$gss_libs $LIBS"
+         else
+            case $host in
+@@ -22243,7 +22245,7 @@
+         LIBS="-lgss $LIBS"
+         ;;
+      *)
+-        LIBS="-lgssapi $LIBS"
++        LIBS="-lgssapi -lkrb5 $LIBS"
+         ;;
+      esac
+   fi
