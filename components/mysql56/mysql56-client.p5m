@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -67,12 +67,8 @@ file path=$(ECPREFIX)/lib/mysql/5.6/bin/mysqlshow
 file path=$(ECPREFIX)/lib/mysql/5.6/bin/mysqlslap
 file path=$(ECPREFIX)/lib/mysql/5.6/man/man1/comp_err.1
 file path=$(ECPREFIX)/lib/mysql/5.6/man/man1/myisam_ftdump.1
-file path=$(ECPREFIX)/lib/mysql/5.6/man/man1/mysql-stress-test.pl.1
-file path=$(ECPREFIX)/lib/mysql/5.6/man/man1/mysql-test-run.pl.1
 file path=$(ECPREFIX)/lib/mysql/5.6/man/man1/mysql.1
 file path=$(ECPREFIX)/lib/mysql/5.6/man/man1/mysql.server.1
-file path=$(ECPREFIX)/lib/mysql/5.6/man/man1/mysql_client_test.1
-file path=$(ECPREFIX)/lib/mysql/5.6/man/man1/mysql_client_test_embedded.1
 file path=$(ECPREFIX)/lib/mysql/5.6/man/man1/mysql_find_rows.1
 file path=$(ECPREFIX)/lib/mysql/5.6/man/man1/mysql_fix_extensions.1
 file path=$(ECPREFIX)/lib/mysql/5.6/man/man1/mysql_waitpid.1
