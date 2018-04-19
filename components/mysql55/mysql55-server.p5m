@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -81,8 +81,6 @@ file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysqlbinlog.1
 file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysqld_multi.1
 file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysqld_safe.1
 file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysqlhotcopy.1
-file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysqltest.1
-file path=$(USRDIR)/lib/mysql/5.5/man/man1/mysqltest_embedded.1
 file path=$(USRDIR)/lib/mysql/5.5/man/man1/perror.1
 file path=$(USRDIR)/lib/mysql/5.5/man/man1/replace.1
 file path=$(USRDIR)/lib/mysql/5.5/man/man1/resolve_stack_dump.1
