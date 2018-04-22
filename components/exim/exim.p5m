@@ -33,7 +33,7 @@ dir path=$(ECPREFIX)/var/spool/exim/input mode=0770 owner=exim group=exim
 dir path=$(ECPREFIX)/var/spool/exim/msglog mode=0770 owner=exim group=exim
 file path=$(ECPREFIX)/bin/exicyclog
 file path=$(ECPREFIX)/bin/exigrep
-file path=$(ECPREFIX)/bin/exim-4.90_1-4 mode=4555 user=root group=root
+file path=$(ECPREFIX)/bin/exim-4.91-4 mode=4555 user=root group=root
 file path=$(ECPREFIX)/bin/exim_checkaccess
 file path=$(ECPREFIX)/bin/exim_dbmbuild
 file path=$(ECPREFIX)/bin/exim_dumpdb
@@ -53,4 +53,4 @@ file path=$(ECPREFIX)/var/log/exim/panic.log mode=0664 owner=exim group=exim pre
 file path=$(ECPREFIX)/var/log/exim/reject.log mode=0664 owner=exim group=exim preserve=true
 file path=$(ECPREFIX)/var/svc/method/exim mode=0555
 file path=var/svc/manifest/site/exim.xml restart_fmri=svc:/system/manifest-import:default
-link path=$(ECPREFIX)/bin/exim target=exim-4.90_1-4
+link path=$(ECPREFIX)/bin/exim target=exim-4.91-4
