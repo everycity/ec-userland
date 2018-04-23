@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -35,6 +35,7 @@ dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Scanner
 dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Script
 dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool
 dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/MSCommon
+dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/docbook
 dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/packaging
 dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Variables
 dir path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/compat
@@ -141,6 +142,8 @@ file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Scanner/Prog.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Scanner/Prog.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Scanner/RC.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Scanner/RC.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Scanner/SWIG.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Scanner/SWIG.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Scanner/__init__.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Scanner/__init__.pyc
 file \
@@ -170,6 +173,8 @@ file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/BitKeeper.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/BitKeeper.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/CVS.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/CVS.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/DCommon.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/DCommon.pyc
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/FortranCommon.py
 file \
@@ -239,10 +244,16 @@ file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/cc.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/cc.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/cvf.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/cvf.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/cyglink.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/cyglink.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/default.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/default.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/dmd.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/dmd.pyc
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/docbook/__init__.py
+file \
+    path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/docbook/__init__.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/dvi.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/dvi.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/dvipdf.py
@@ -269,6 +280,8 @@ file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gas.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gas.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gcc.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gcc.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gdc.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gdc.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gettext.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gettext.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/gfortran.py
@@ -309,6 +322,8 @@ file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/javah.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/javah.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/latex.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/latex.pyc
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/ldc.py
+file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/ldc.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/lex.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/lex.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/Tool/link.py
@@ -473,31 +488,9 @@ file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/__init__.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/__init__.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/compat/__init__.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/compat/__init__.pyc
-file \
-    path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/compat/_scons_builtins.py
-file \
-    path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/compat/_scons_builtins.pyc
-file \
-    path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/compat/_scons_collections.py
-file \
-    path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/compat/_scons_collections.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/compat/_scons_dbm.py
 file \
     path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/compat/_scons_dbm.pyc
-file \
-    path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/compat/_scons_hashlib.py
-file \
-    path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/compat/_scons_hashlib.pyc
-file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/compat/_scons_io.py
-file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/compat/_scons_io.pyc
-file \
-    path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/compat/_scons_sets.py
-file \
-    path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/compat/_scons_sets.pyc
-file \
-    path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/compat/_scons_subprocess.py
-file \
-    path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/compat/_scons_subprocess.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/cpp.py
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/cpp.pyc
 file path=$(ECPREFIX)/lib/python2.6/vendor-packages/SCons/dblite.py
