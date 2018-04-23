@@ -9,21 +9,22 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		serf
 COMPONENT_FMRI=         library/serf
-COMPONENT_VERSION=      1.3.3
+COMPONENT_VERSION=      1.3.9
 COMPONENT_LICENSE=      Apachev2
+COMPONENT_LICENSE_FILE=	LICENSE
 COMPONENT_PROJECT_URL=  "http://code.google.com/p/serf/"
 COMPONENT_SUMMARY=	A high performance C-based HTTP client library built upon the Apache Portable Runtime (APR) library.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:02eae04176296347be3c32b0da8d8610064f4a9f40065fb1cefbe5b656f8ad2b
-COMPONENT_ARCHIVE_URL=	http://serf.googlecode.com/files/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:549c2d21c577a8a9c0450facb5cca809f26591f048e466552240947bdf7a87cc
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_APACHE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
