@@ -13,7 +13,7 @@
 #
 
 # Transforms
-<include ec-drop-common>
+#<include ec-drop-common>
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
@@ -218,6 +218,7 @@ file path=$(ECPREFIX)/include/ImageMagick-6/magick/semaphore.h
 file path=$(ECPREFIX)/include/ImageMagick-6/magick/shear.h
 file path=$(ECPREFIX)/include/ImageMagick-6/magick/signature.h
 file path=$(ECPREFIX)/include/ImageMagick-6/magick/splay-tree.h
+file path=$(ECPREFIX)/include/ImageMagick-6/magick/static.h
 file path=$(ECPREFIX)/include/ImageMagick-6/magick/statistic.h
 file path=$(ECPREFIX)/include/ImageMagick-6/magick/stream.h
 file path=$(ECPREFIX)/include/ImageMagick-6/magick/string_.h
@@ -259,9 +260,9 @@ file path=$(ECPREFIX)/lib/$(MACH64)/ImageMagick-6.9.9/config-Q16/configure.xml
 file path=$(ECPREFIX)/lib/$(MACH64)/libMagick++-6.Q16.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libMagick++-6.Q16.so.8.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libMagickCore-6.Q16.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libMagickCore-6.Q16.so.5.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libMagickCore-6.Q16.so.6.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libMagickWand-6.Q16.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libMagickWand-6.Q16.so.5.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libMagickWand-6.Q16.so.6.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/ImageMagick++-6.Q16.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/ImageMagick++.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/ImageMagick-6.Q16.pc
@@ -278,9 +279,9 @@ file path=$(ECPREFIX)/lib/ImageMagick-6.9.9/config-Q16/configure.xml
 file path=$(ECPREFIX)/lib/libMagick++-6.Q16.la
 file path=$(ECPREFIX)/lib/libMagick++-6.Q16.so.8.0.0
 file path=$(ECPREFIX)/lib/libMagickCore-6.Q16.la
-file path=$(ECPREFIX)/lib/libMagickCore-6.Q16.so.5.0.0
+file path=$(ECPREFIX)/lib/libMagickCore-6.Q16.so.6.0.0
 file path=$(ECPREFIX)/lib/libMagickWand-6.Q16.la
-file path=$(ECPREFIX)/lib/libMagickWand-6.Q16.so.5.0.0
+file path=$(ECPREFIX)/lib/libMagickWand-6.Q16.so.6.0.0
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/perllocal.pod
 file path=$(ECPREFIX)/lib/perl/5.12/man/man3/Image::Magick.3
 file path=$(ECPREFIX)/lib/perl/5.12/man/man3/Image::Magick::Q16.3
@@ -1999,22 +2000,22 @@ link path=$(ECPREFIX)/lib/$(MACH64)/libMagick++-6.Q16.so \
 link path=$(ECPREFIX)/lib/$(MACH64)/libMagick++-6.Q16.so.8 \
     target=libMagick++-6.Q16.so.8.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libMagickCore-6.Q16.so \
-    target=libMagickCore-6.Q16.so.5.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libMagickCore-6.Q16.so.5 \
-    target=libMagickCore-6.Q16.so.5.0.0
+    target=libMagickCore-6.Q16.so.6.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libMagickCore-6.Q16.so.6 \
+    target=libMagickCore-6.Q16.so.6.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libMagickWand-6.Q16.so \
-    target=libMagickWand-6.Q16.so.5.0.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libMagickWand-6.Q16.so.5 \
-    target=libMagickWand-6.Q16.so.5.0.0
+    target=libMagickWand-6.Q16.so.6.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libMagickWand-6.Q16.so.6 \
+    target=libMagickWand-6.Q16.so.6.0.0
 link path=$(ECPREFIX)/lib/libMagick++-6.Q16.so \
     target=libMagick++-6.Q16.so.8.0.0
 link path=$(ECPREFIX)/lib/libMagick++-6.Q16.so.8 \
     target=libMagick++-6.Q16.so.8.0.0
 link path=$(ECPREFIX)/lib/libMagickCore-6.Q16.so \
-    target=libMagickCore-6.Q16.so.5.0.0
-link path=$(ECPREFIX)/lib/libMagickCore-6.Q16.so.5 \
-    target=libMagickCore-6.Q16.so.5.0.0
+    target=libMagickCore-6.Q16.so.6.0.0
+link path=$(ECPREFIX)/lib/libMagickCore-6.Q16.so.6 \
+    target=libMagickCore-6.Q16.so.6.0.0
 link path=$(ECPREFIX)/lib/libMagickWand-6.Q16.so \
-    target=libMagickWand-6.Q16.so.5.0.0
-link path=$(ECPREFIX)/lib/libMagickWand-6.Q16.so.5 \
-    target=libMagickWand-6.Q16.so.5.0.0
+    target=libMagickWand-6.Q16.so.6.0.0
+link path=$(ECPREFIX)/lib/libMagickWand-6.Q16.so.6 \
+    target=libMagickWand-6.Q16.so.6.0.0
