@@ -1,0 +1,6 @@
+<IfDefine 64bit>
+LoadModule http2_module modules/amd64/mod_http2.so
+</IfDefine>
+<IfDefine !64bit>
+LoadModule http2_module modules/mod_http2.so
+</IfDefine>

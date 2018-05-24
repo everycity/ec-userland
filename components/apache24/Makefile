@@ -78,11 +78,13 @@ CONFIGURE_OPTIONS  +=	--enable-mods-shared=all
 CONFIGURE_OPTIONS  +=	--enable-so
 CONFIGURE_OPTIONS  +=	--enable-suexec
 CONFIGURE_OPTIONS  +=	--with-suexec-caller=webservd
+CONFIGURE_OPTIONS  +=	--enable-http2
 CONFIGURE_OPTIONS  +=	--enable-proxy
 CONFIGURE_OPTIONS  +=	--enable-proxy-connect
 CONFIGURE_OPTIONS  +=	--enable-proxy-fcgi
 CONFIGURE_OPTIONS  +=	--enable-proxy-ftp
 CONFIGURE_OPTIONS  +=	--enable-proxy-http
+CONFIGURE_OPTIONS  +=	--enable-proxy-http2
 CONFIGURE_OPTIONS  +=	--enable-proxy-ajp
 CONFIGURE_OPTIONS  +=	--enable-proxy-wstunnel
 CONFIGURE_OPTIONS  +=	--enable-proxy-balancer
