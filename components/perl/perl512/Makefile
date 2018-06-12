@@ -55,8 +55,6 @@ COMPONENT_PRE_BUILD_ACTION= \
 			    -Dvendorlib=$(ECPREFIX)/lib/perl/vendor_perl/$(PERL_VERSION) \
 			    -Dcc="gcc" \
 			    -Duse64bitint \
-			    -Dusedtrace \
-			    -Duseshrplib \
 			    -Dlibperl=libperl.so \
 			    -Dcf_email="support@everycity.com" \
 			    -Dcf_by="perl-bugs" \

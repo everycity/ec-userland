@@ -968,7 +968,7 @@ file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/CORE/hv.h
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/CORE/intrpvar.h
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/CORE/iperlsys.h
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/CORE/keywords.h
-file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/CORE/libperl.so
+file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/CORE/libperl.a
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/CORE/malloc_ctl.h
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/CORE/mg.h
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/CORE/mydtrace.h
@@ -982,7 +982,6 @@ file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/CORE/parser.h
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/CORE/patchlevel.h
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/CORE/perl.h
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/CORE/perlapi.h
-file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/CORE/perldtrace.h
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/CORE/perlio.h
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/CORE/perliol.h
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/CORE/perlsdio.h
@@ -1123,28 +1122,46 @@ file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/Time/Seconds.pm
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/Unicode/Normalize.pm
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/attributes.pm
+file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/B/B.bs
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/B/B.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Compress/Raw/Bzip2/Bzip2.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Compress/Raw/Bzip2/Bzip2.so
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Compress/Raw/Bzip2/autosplit.ix
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Compress/Raw/Zlib/Zlib.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Compress/Raw/Zlib/Zlib.so
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Compress/Raw/Zlib/autosplit.ix
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Compress/Zlib/autosplit.ix
+file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Cwd/Cwd.bs
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Cwd/Cwd.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Data/Dumper/Dumper.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Data/Dumper/Dumper.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Devel/DProf/DProf.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Devel/DProf/DProf.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Devel/PPPort/PPPort.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Devel/PPPort/PPPort.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Devel/Peek/Peek.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Devel/Peek/Peek.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Digest/MD5/MD5.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Digest/MD5/MD5.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Digest/SHA/SHA.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Digest/SHA/SHA.so
 file \
@@ -1156,52 +1173,99 @@ file \
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/DynaLoader/dl_findfile.al
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/Byte/Byte.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/Byte/Byte.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/CN/CN.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/CN/CN.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/EBCDIC/EBCDIC.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/EBCDIC/EBCDIC.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/Encode.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/Encode.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/JP/JP.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/JP/JP.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/KR/KR.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/KR/KR.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/Symbol/Symbol.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/Symbol/Symbol.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/TW/TW.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/TW/TW.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/Unicode/Unicode.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Encode/Unicode/Unicode.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Fcntl/Fcntl.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Fcntl/Fcntl.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/File/Glob/Glob.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/File/Glob/Glob.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Filter/Util/Call/Call.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Filter/Util/Call/Call.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Hash/Util/FieldHash/FieldHash.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Hash/Util/FieldHash/FieldHash.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Hash/Util/Util.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Hash/Util/Util.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/I18N/Langinfo/Langinfo.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/I18N/Langinfo/Langinfo.so
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/I18N/Langinfo/autosplit.ix
+file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/IO/IO.bs
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/IO/IO.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/IPC/SysV/SysV.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/IPC/SysV/SysV.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/List/Util/Util.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/List/Util/Util.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/MIME/Base64/Base64.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/MIME/Base64/Base64.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Math/BigInt/FastCalc/FastCalc.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Math/BigInt/FastCalc/FastCalc.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/NDBM_File/NDBM_File.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/NDBM_File/NDBM_File.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/ODBM_File/ODBM_File.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/ODBM_File/ODBM_File.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Opcode/Opcode.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Opcode/Opcode.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/POSIX/POSIX.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/POSIX/POSIX.so
 file \
@@ -1513,13 +1577,23 @@ file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/POSIX/wait.al
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/POSIX/waitpid.al
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/PerlIO/encoding/encoding.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/PerlIO/encoding/encoding.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/PerlIO/scalar/scalar.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/PerlIO/scalar/scalar.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/PerlIO/via/via.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/PerlIO/via/via.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/SDBM_File/SDBM_File.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/SDBM_File/SDBM_File.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Socket/Socket.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Socket/Socket.so
 file \
@@ -1528,6 +1602,8 @@ file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Storable/BIN_WRITE_VERSION_NV.al
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Storable/CAN_FLOCK.al
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Storable/Storable.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Storable/Storable.so
 file \
@@ -1575,27 +1651,47 @@ file \
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Storable/thaw.al
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Sys/Hostname/Hostname.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Sys/Hostname/Hostname.so
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Sys/Hostname/autosplit.ix
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Sys/Syslog/Syslog.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Sys/Syslog/Syslog.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Text/Soundex/Soundex.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Text/Soundex/Soundex.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Time/HiRes/HiRes.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Time/HiRes/HiRes.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Time/Piece/Piece.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Time/Piece/Piece.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Unicode/Normalize/Normalize.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/Unicode/Normalize/Normalize.so
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/attributes/attributes.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/attributes/attributes.so
+file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/mro/mro.bs
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/mro/mro.so
+file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/re/re.bs
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/re/re.so
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/sdbm/extralibs.ld
 file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/threads/shared/shared.bs
+file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/threads/shared/shared.so
+file \
+    path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/threads/threads.bs
 file \
     path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/auto/threads/threads.so
 file path=$(ECPREFIX)/lib/perl/5.12/lib/i86pc-solaris-64int/encoding.pm
