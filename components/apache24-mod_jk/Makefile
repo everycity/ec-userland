@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tomcat-connectors
 COMPONENT_FMRI=		web/server/apache-24/module/apache-jk
-COMPONENT_VERSION=	1.2.42
+COMPONENT_VERSION=	1.2.43
 COMPONENT_LICENSE=	Apache v2
 COMPONENT_PROJECT_URL=	"http://tomcat.apache.org/"
 COMPONENT_SUMMARY=	mod_jk is the connector used to connect to the Tomcat servlet container with webservers
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)-src
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME)-$(COMPONENT_VERSION)-src.tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:ea119f234c716649d4e7d4abd428852185b6b23a9205655e45554b88f01f3e31
+COMPONENT_ARCHIVE_HASH=	sha256:2ebeba53d26b3a82fca277082c3a3ffd1f67a2b2970d3a4dfcbf0c5dd5b8e671
 COMPONENT_ARCHIVE_URL=	http://mirrors.ukfast.co.uk/sites/ftp.apache.org//tomcat/tomcat-connectors/jk/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
