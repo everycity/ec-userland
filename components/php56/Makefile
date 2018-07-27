@@ -14,10 +14,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	5.6.36
+COMPONENT_VERSION=	5.6.37
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:06086a8b6a9964ef8009c4d9176b4eeb0c564ea39c1213f015e24f3466d2d69f
+COMPONENT_ARCHIVE_HASH=	sha256:b7ec077f35ef3a8cdd33c29124140b1761111a1429878b4c463bb20d2a31b184
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_UK)
 
 include ../../make-rules/prep.mk
@@ -83,6 +83,7 @@ CONFIGURE_OPTIONS     +=	--with-openssl=shared
 CONFIGURE_OPTIONS     +=	--with-sqlite3=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-pdo-sqlite=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-ldap=shared
+CONFIGURE_OPTIONS     +=	--with-gmp=shared,$(ECPREFIX)
 
 # Shared Extensions
 CONFIGURE_OPTIONS     +=	--with-bz2=shared,$(ECPREFIX)
