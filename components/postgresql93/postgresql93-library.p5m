@@ -840,7 +840,6 @@ file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/pkgconfig/libecp
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/pkgconfig/libecpg_compat.pc
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/pkgconfig/libpgtypes.pc
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/pkgconfig/libpq.pc
-file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/plperl.so
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/plpgsql.so
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/plpython2.so
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/lib/tablefunc.so
@@ -868,14 +867,6 @@ file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/extension/hsto
 file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/extension/hstore--unpackaged--1.0.sql
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/extension/hstore.control
-file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/extension/plperl--1.0.sql
-file \
-    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/extension/plperl--unpackaged--1.0.sql
-file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/extension/plperl.control
-file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/extension/plperlu--1.0.sql
-file \
-    path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/extension/plperlu--unpackaged--1.0.sql
-file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/extension/plperlu.control
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/extension/pgcrypto--1.0.sql
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/extension/pgcrypto--unpackaged--1.0.sql
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/extension/pgcrypto.control

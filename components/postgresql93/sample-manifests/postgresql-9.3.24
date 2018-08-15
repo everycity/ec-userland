@@ -880,7 +880,6 @@ file path=$(ECPREFIX)/lib/postgres/9.3/lib/pkgconfig/libecpg.pc
 file path=$(ECPREFIX)/lib/postgres/9.3/lib/pkgconfig/libecpg_compat.pc
 file path=$(ECPREFIX)/lib/postgres/9.3/lib/pkgconfig/libpgtypes.pc
 file path=$(ECPREFIX)/lib/postgres/9.3/lib/pkgconfig/libpq.pc
-file path=$(ECPREFIX)/lib/postgres/9.3/lib/plperl.so
 file path=$(ECPREFIX)/lib/postgres/9.3/lib/plpgsql.so
 file path=$(ECPREFIX)/lib/postgres/9.3/lib/plpython2.so
 file path=$(ECPREFIX)/lib/postgres/9.3/lib/tablefunc.so
@@ -912,14 +911,6 @@ file path=$(ECPREFIX)/lib/postgres/9.3/share/extension/pgcrypto--1.0.sql
 file \
     path=$(ECPREFIX)/lib/postgres/9.3/share/extension/pgcrypto--unpackaged--1.0.sql
 file path=$(ECPREFIX)/lib/postgres/9.3/share/extension/pgcrypto.control
-file path=$(ECPREFIX)/lib/postgres/9.3/share/extension/plperl--1.0.sql
-file \
-    path=$(ECPREFIX)/lib/postgres/9.3/share/extension/plperl--unpackaged--1.0.sql
-file path=$(ECPREFIX)/lib/postgres/9.3/share/extension/plperl.control
-file path=$(ECPREFIX)/lib/postgres/9.3/share/extension/plperlu--1.0.sql
-file \
-    path=$(ECPREFIX)/lib/postgres/9.3/share/extension/plperlu--unpackaged--1.0.sql
-file path=$(ECPREFIX)/lib/postgres/9.3/share/extension/plperlu.control
 file path=$(ECPREFIX)/lib/postgres/9.3/share/extension/plpgsql--1.0.sql
 file \
     path=$(ECPREFIX)/lib/postgres/9.3/share/extension/plpgsql--unpackaged--1.0.sql
