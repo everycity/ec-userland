@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -2123,6 +2123,8 @@ link path=$(ECPREFIX)/share/man/man3/SSL_get_servername.3 \
     target=SSL_CTX_set_tlsext_servername_callback.3
 link path=$(ECPREFIX)/share/man/man3/SSL_get_servername_type.3 \
     target=SSL_CTX_set_tlsext_servername_callback.3
+link path=$(ECPREFIX)/share/man/man3/SSL_get_shared_ciphers.3 \
+    target=SSL_get_ciphers.3
 link path=$(ECPREFIX)/share/man/man3/SSL_get_shared_curve.3 \
     target=SSL_CTX_set1_curves.3
 link path=$(ECPREFIX)/share/man/man3/SSL_get_shutdown.3 \
