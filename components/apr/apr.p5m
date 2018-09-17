@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -121,12 +121,12 @@ file path=$(ECPREFIX)/include/apr-1.0/apr_want.h
 file path=$(ECPREFIX)/lib/$(MACH64)/apr.exp
 file path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so.0.6.3
+file path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so.0.6.5
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/apr-1.pc
 file path=$(ECPREFIX)/lib/apr.exp
 file path=$(ECPREFIX)/lib/libapr-1.a
 file path=$(ECPREFIX)/lib/libapr-1.la
-file path=$(ECPREFIX)/lib/libapr-1.so.0.6.3
+file path=$(ECPREFIX)/lib/libapr-1.so.0.6.5
 file path=$(ECPREFIX)/lib/pkgconfig/apr-1.pc
 file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/apr_common.m4
 file path=$(ECPREFIX)/share/apr-1.0/build/$(MACH64)/apr_rules.mk
@@ -142,7 +142,7 @@ file path=$(ECPREFIX)/share/apr-1.0/build/libtool mode=0555
 file path=$(ECPREFIX)/share/apr-1.0/build/make_exports.awk
 file path=$(ECPREFIX)/share/apr-1.0/build/make_var_export.awk
 file path=$(ECPREFIX)/share/apr-1.0/build/mkdir.sh mode=0555
-link path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so target=libapr-1.so.0.6.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so.0 target=libapr-1.so.0.6.3
-link path=$(ECPREFIX)/lib/libapr-1.so target=libapr-1.so.0.6.3
-link path=$(ECPREFIX)/lib/libapr-1.so.0 target=libapr-1.so.0.6.3
+link path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so target=libapr-1.so.0.6.5
+link path=$(ECPREFIX)/lib/$(MACH64)/libapr-1.so.0 target=libapr-1.so.0.6.5
+link path=$(ECPREFIX)/lib/libapr-1.so target=libapr-1.so.0.6.5
+link path=$(ECPREFIX)/lib/libapr-1.so.0 target=libapr-1.so.0.6.5
