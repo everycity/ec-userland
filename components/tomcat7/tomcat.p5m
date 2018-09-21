@@ -146,6 +146,7 @@ file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-dbcp.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-i18n-es.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-i18n-fr.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-i18n-ja.jar
+file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-i18n-ru.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-jdbc.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-util.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat7-websocket.jar
