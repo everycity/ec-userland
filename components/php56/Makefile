@@ -162,6 +162,10 @@ CONFIGURE_OPTIONS     +=	--enable-tokenizer=shared
 CONFIGURE_OPTIONS     +=	--enable-wddx=shared
 CONFIGURE_OPTIONS     +=	--enable-zip=shared
 
+# NFS exclusive lock workaround
+CONFIGURE_OPTIONS     +=	ac_cv_func_flock=no
+CONFIGURE_OPTIONS     +=	ac_cv_struct_flock=no
+
 CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
 
 #CONFIGURE_OPTIONS += $(CONFIGURE_VARIANT_OPTIONS)
