@@ -4075,7 +4075,7 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.4.0/specifications/default/json-2.0.4.gemspec
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.4.0/specifications/default/openssl-2.0.7.gemspec
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.4.0/specifications/default/openssl-2.0.9.gemspec
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.4.0/specifications/default/psych-2.2.2.gemspec
 file \
@@ -5617,7 +5617,7 @@ file \
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.4.0/specifications/default/json-2.0.4.gemspec
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.4.0/specifications/default/openssl-2.0.7.gemspec
+    path=$(ECPREFIX)/lib/ruby/gems/2.4.0/specifications/default/openssl-2.0.9.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.4.0/specifications/default/psych-2.2.2.gemspec
 file \
@@ -8844,6 +8844,7 @@ file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/gzip_to-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/initialize-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/mkdir_p_safe-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/new-c.ri
+file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/normalize_path-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/read_checksums-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/realpath-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Package/security_policy-i.ri
