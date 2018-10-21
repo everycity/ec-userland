@@ -4152,7 +4152,7 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.5.0/specifications/default/json-2.1.0.gemspec
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.5.0/specifications/default/openssl-2.1.0.gemspec
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.5.0/specifications/default/openssl-2.1.2.gemspec
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.5.0/specifications/default/psych-3.0.2.gemspec
 file \
@@ -5748,7 +5748,7 @@ file \
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.5.0/specifications/default/json-2.1.0.gemspec
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.5.0/specifications/default/openssl-2.1.0.gemspec
+    path=$(ECPREFIX)/lib/ruby/gems/2.5.0/specifications/default/openssl-2.1.2.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.5.0/specifications/default/psych-3.0.2.gemspec
 file \
@@ -5777,10 +5777,10 @@ file path=$(ECPREFIX)/lib/ruby/gems/2.5.0/specifications/rake-12.3.0.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.5.0/specifications/test-unit-3.2.7.gemspec
 file path=$(ECPREFIX)/lib/ruby/gems/2.5.0/specifications/xmlrpc-0.3.0.gemspec
-file path=$(ECPREFIX)/share/man/man1/erb$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/share/man/man1/irb$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/share/man/man1/ri$(COMPONENT_VERSION)
-file path=$(ECPREFIX)/share/man/man1/ruby$(COMPONENT_VERSION)
+file path=$(ECPREFIX)/share/man/man1/erb2.5.1
+file path=$(ECPREFIX)/share/man/man1/irb2.5.1
+file path=$(ECPREFIX)/share/man/man1/ri2.5.1
+file path=$(ECPREFIX)/share/man/man1/ruby2.5.1
 file path=$(ECPREFIX)/share/ri/2.5.0/system/ACL/ACLEntry/cdesc-ACLEntry.ri
 file path=$(ECPREFIX)/share/ri/2.5.0/system/ACL/ACLEntry/dot_pat-i.ri
 file path=$(ECPREFIX)/share/ri/2.5.0/system/ACL/ACLEntry/dot_pat_str-i.ri
