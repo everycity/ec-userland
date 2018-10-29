@@ -1,20 +1,78 @@
 #!/bin/sh
 
-[ ! x$1 = x ] && CFGFILE=$1 || CFGFILE="/ec/etc/haproxy/haproxy.cfg"
-
-CTID=$(ps -o ctid= -p $$)
+CFGFILE="/ec/etc/haproxy/haproxy.cfg"
 HAPROXY=$(dirname $0)/haproxy
 CMD="$HAPROXY -f $CFGFILE"
 
+check_config() {
+
+    # check HAProxy config syntax
+
+    $CMD -c > /dev/null 2>&1 || return 1
+
+    # check if IP addresses referenced in the config file are present
+    # on the current machine
+
+    IPS=$(/usr/sbin/ipadm show-addr -p -o addr | sed 's/\/.*//' | sort -u)
+    IPS_CONFIG=$(grep -E $'^( |\t)*bind( |\t)*((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?):' $CFGFILE | \
+        sed -E $'s/^( |\t)*bind( |\t)*//;s/:.*//' | sort -u)
+
+    for i in $IPS_CONFIG; do
+
+      ip=$i; match=0
+
+      for j in $IPS; do
+          [ $i == $j ] && ((match++))
+      done
+
+      [ $match == 0 ] && return 2
+
+    done
+
+    return 0
+
+}
+
 restart() {
-    $CMD -$1 $(pgrep -f -c $CTID "$CMD") &
-    wait $!
+
+    check_config; rc=$?
+    
+    if [ $rc == 2 ]; then
+        echo ""
+        echo "There are problems with HAProxy config. $ip address that is"
+        echo "referenced in the $CFGFILE config file is not present"
+        echo "on the current machine. HAProxy will not be restarted to prevent an outage."
+        echo ""
+    elif [ $rc == 1 ]; then
+        echo ""
+        echo "There are problems with HAProxy config. The following command can be used to"
+        echo "display configuration file errors:"
+        echo ""
+        echo "$CMD -c"
+        echo ""
+        echo "HAProxy will not be restarted to prevent an outage."
+        echo ""
+    else
+        # USR1 signal causes haproxy processes to unbind all ports. $CMD command below
+        # should send USR1 signal to PIDs specified on the command line by itself but it is
+        # not doing it reliably on SmartOS.
+        kill -USR1 $(pgrep -f "$CMD")
+        $CMD -$1 $(pgrep -f "$CMD") &
+    fi
+
 }
 
 # graceful restart
 trap "restart sf" SIGUSR1
+trap "restart sf" SIGUSR2
 # forceful restart
 trap "restart st" SIGHUP
 
 $CMD &
-wait $!
+
+while pgrep -f "$CMD" > /dev/null 2>&1; do
+    #echo main loop $(pgrep -f "$CMD"|wc -l)
+    wait $(pgrep -f "$CMD" | head -1)
+done
+
+sleep 3
