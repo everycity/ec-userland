@@ -25,12 +25,15 @@ license COPYING license="GPLv2"
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/info
+dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/info
 dir path=$(ECPREFIX)/share/man
 dir path=$(ECPREFIX)/share/man/man1
+file path=$(ECPREFIX)/bin/$(MACH64)/cronolog
+file path=$(ECPREFIX)/bin/$(MACH64)/cronosplit
 file path=$(ECPREFIX)/bin/cronolog
 file path=$(ECPREFIX)/bin/cronosplit
-file path=$(ECPREFIX)/info/cronolog.info
+file path=$(ECPREFIX)/share/info/cronolog.info
 file path=$(ECPREFIX)/share/man/man1/cronolog.1m
 file path=$(ECPREFIX)/share/man/man1/cronosplit.1m

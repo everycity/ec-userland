@@ -25,12 +25,6 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS=	--prefix=$(ECPREFIX)
-CONFIGURE_OPTIONS+=	--mandir=$(ECPREFIX)/share/man
-CONFIGURE_OPTIONS+=	--bindir=$(ECPREFIX)/bin
-CONFIGURE_OPTIONS+=	--libdir=$(ECPREFIX)/lib
-CONFIGURE_OPTIONS+=	--sbindir=$(ECPREFIX)/bin
+build:		$(BUILD_32_and_64)
 
-build:		$(BUILD_32)
-
-install:	$(INSTALL_32)
+install:	$(INSTALL_32_and_64)
