@@ -21,7 +21,7 @@ COMPONENT_PROJECT_URL=	"http://pecl.php.net/package/imagick"
 COMPONENT_SUMMARY=	Imagick is a native php extension to create and modify images using the ImageMagick API.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH=	sha272:1f3c5b5eeaa02800ad22f506cd100e8889a66b2ec937e192eaaa30d74722727c
+COMPONENT_ARCHIVE_HASH=	sha256:1f3c5b5eeaa02800ad22f506cd100e8889a66b2ec937e192eaaa30d74562567c
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_PECL)
 
 include ../../make-rules/prep.mk

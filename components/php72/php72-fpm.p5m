@@ -42,4 +42,7 @@ file path=$(ECPREFIX)/lib/php/7.2/bin/$(MACH64)/php-fpm
 file path=$(ECPREFIX)/lib/php/7.2/bin/php-fpm
 file path=$(ECPREFIX)/lib/php/7.2/share/man/man8/php-fpm.8
 file path=$(LOCALSTATEDIR)/php/7.2/fpm/status.html
+
 file path=$(SYSCONFDIR)/php/7.2/php-fpm.conf.default
+dir path=$(SYSCONFDIR)/php/7.2/php-fpm.d
+file path=$(SYSCONFDIR)/php/7.2/php-fpm.d/www.conf.default

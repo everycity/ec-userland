@@ -14,10 +14,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	7.2.38
+COMPONENT_VERSION=	7.2.12
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha272:3b74d46cd79a45cce90c8059e09d8bd0beeb5de722cbb0cb42f96ff8fa665fd4
+COMPONENT_ARCHIVE_HASH=	sha256:d7cabdf4e51db38121daf0d494dc074743b24b6c79e592037eeedd731f1719dd
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_UK)
 
 include ../../make-rules/prep.mk
@@ -45,22 +45,22 @@ CONFIGURE_OPTIONS     +=	--with-zlib-dir=$(ECPREFIX)
 CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris2.10
 CONFIGURE_OPTIONS.32  +=	--with-php-config=$(PHP_PREFIX)/bin/php-config
 CONFIGURE_OPTIONS.64  +=	--with-php-config=$(PHP_PREFIX)/bin/$(MACH64)/php-config
-CONFIGURE_OPTIONS     +=	--with-pdo-mysql=$(ECPREFIX)/lib/mysql/7.2
+CONFIGURE_OPTIONS     +=	--with-pdo-mysql=$(ECPREFIX)/lib/mysql/5.6
 
 CONFIGURE_OPTIONS     +=	$(CONFIGURE_OPTIONS.$(BITS))
 
 CFLAGS			+=	-D_POSIX_PTHREAD_SEMANTICS
-CFLAGS.32		=	-I$(ECPREFIX)/lib/mysql/7.2/include
-CFLAGS.64		=	-I$(ECPREFIX)/lib/mysql/7.2/include/$(MACH64)
-CPPFLAGS.32           +=	-I$(ECPREFIX)/lib/mysql/7.2/include
-CPPFLAGS.64           +=	-I$(ECPREFIX)/lib/mysql/7.2/include/$(MACH64)
-LDFLAGS.32            +=	-L$(ECPREFIX)/lib/mysql/7.2/lib -R$(ECPREFIX)/lib/mysql/7.2/lib
-LDFLAGS.64            +=	-L$(ECPREFIX)/lib/mysql/7.2/lib/$(MACH64) -R$(ECPREFIX)/lib/mysql/7.2/lib/$(MACH64)
+CFLAGS.32		=	-I$(ECPREFIX)/lib/mysql/5.6/include
+CFLAGS.64		=	-I$(ECPREFIX)/lib/mysql/5.6/include/$(MACH64)
+CPPFLAGS.32           +=	-I$(ECPREFIX)/lib/mysql/5.6/include
+CPPFLAGS.64           +=	-I$(ECPREFIX)/lib/mysql/5.6/include/$(MACH64)
+LDFLAGS.32            +=	-L$(ECPREFIX)/lib/mysql/5.6/lib -R$(ECPREFIX)/lib/mysql/5.6/lib
+LDFLAGS.64            +=	-L$(ECPREFIX)/lib/mysql/5.6/lib/$(MACH64) -R$(ECPREFIX)/lib/mysql/5.6/lib/$(MACH64)
 
 CFLAGS                +=	$(CFLAGS.$(BITS))
 CPPFLAGS              +=	$(CPPFLAGS.$(BITS))
 
-CONFIGURE_ENV         +=	PHP_PDO_MYSQL="$(ECPREFIX)/lib/mysql/7.2/bin/mysql_config"
+CONFIGURE_ENV         +=	PHP_PDO_MYSQL="$(ECPREFIX)/lib/mysql/5.6/bin/mysql_config"
 CONFIGURE_SCRIPT       =	$(@D)/configure
 
 COMPONENT_PRE_CONFIGURE_ACTION	=	cp -R $(SOURCE_DIR)/ext/pdo_mysql/* $(@D) ; cd $(@D) ; $(PHP_PREFIX)/bin/phpize

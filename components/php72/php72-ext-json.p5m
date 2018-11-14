@@ -37,6 +37,8 @@ dir path=$(ECPREFIX)/lib/php/7.2/include/php/ext/json
 dir path=$(ECPREFIX)/lib/php/7.2/extensions
 dir path=$(ECPREFIX)/lib/php/7.2/extensions/$(MACH64)
 file path=$(ECPREFIX)/lib/php/7.2/include/php/ext/json/php_json.h
+file path=$(ECPREFIX)/lib/php/7.2/include/php/ext/json/php_json_parser.h
+file path=$(ECPREFIX)/lib/php/7.2/include/php/ext/json/php_json_scanner.h
 file files/json.ini path=$(ECPREFIX)/etc/php/7.2/conf.d/json.ini preserve=true
 file path=$(ECPREFIX)/lib/php/7.2/extensions/$(MACH64)/json.so
 file path=$(ECPREFIX)/lib/php/7.2/extensions/json.so
