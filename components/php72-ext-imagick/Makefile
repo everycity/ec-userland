@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		imagick
-COMPONENT_FMRI=		web/php-56/extension/php-imagick
+COMPONENT_FMRI=		web/php-72/extension/php-imagick
 COMPONENT_VERSION=	3.4.3
 COMPONENT_LICENSE=	PHP3.01
 COMPONENT_PROJECT_URL=	"http://pecl.php.net/package/imagick"
 COMPONENT_SUMMARY=	Imagick is a native php extension to create and modify images using the ImageMagick API.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH=	sha256:1f3c5b5eeaa02800ad22f506cd100e8889a66b2ec937e192eaaa30d74562567c
+COMPONENT_ARCHIVE_HASH=	sha272:1f3c5b5eeaa02800ad22f506cd100e8889a66b2ec937e192eaaa30d74722727c
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_PECL)
 
 include ../../make-rules/prep.mk
@@ -30,9 +30,9 @@ include ../../make-rules/ips.mk
 
 CLEAN_PATHS +=	package.xml
 
-PHP_PREFIX=$(ECPREFIX)/lib/php/5.6
-PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.6
-PHP_DATADIR=$(ECPREFIX)/var/php/5.6
+PHP_PREFIX=$(ECPREFIX)/lib/php/7.2
+PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/7.2
+PHP_DATADIR=$(ECPREFIX)/var/php/7.2
 
 CONFIGURE_OPTIONS      =	--prefix=$(PHP_PREFIX)
 CONFIGURE_OPTIONS.32  +=	--bindir=$(PHP_PREFIX)/bin

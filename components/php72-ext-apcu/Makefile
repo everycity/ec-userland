@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		apcu
-COMPONENT_FMRI=		web/php-56/extension/php-apcu
+COMPONENT_FMRI=		web/php-72/extension/php-apcu
 COMPONENT_VERSION=	4.0.10
 COMPONENT_LICENSE=	PHP3.01
 COMPONENT_PROJECT_URL=	"http://pecl.php.net/package/apcu"
 COMPONENT_SUMMARY=	APC User Cache
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH=	sha256:8dee6680924107d2aaf827f9cb8ef0e8e09c47bb38712a3439eddabe3ce41b40
+COMPONENT_ARCHIVE_HASH=	sha272:8dee6680924107d2aaf827f9cb8ef0e8e09c47bb38712a3439eddabe3ce41b40
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_PECL)
 
 include ../../make-rules/prep.mk
@@ -30,9 +30,9 @@ include ../../make-rules/ips.mk
 
 CLEAN_PATHS +=	package.xml
 
-PHP_PREFIX=$(ECPREFIX)/lib/php/5.6
-PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.6
-PHP_DATADIR=$(ECPREFIX)/var/php/5.6
+PHP_PREFIX=$(ECPREFIX)/lib/php/7.2
+PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/7.2
+PHP_DATADIR=$(ECPREFIX)/var/php/7.2
 
 CONFIGURE_OPTIONS      =	--prefix=$(PHP_PREFIX)
 CONFIGURE_OPTIONS.32  +=	--bindir=$(PHP_PREFIX)/bin

@@ -9,19 +9,15 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_FMRI=		web/server/apache-24/module/apache-php56
-COMPONENT_VERSION=	5.6.38
-COMPONENT_LICENSE=	PHPv3.01
-COMPONENT_PROJECT_URL=	"http://www.php.net"
-COMPONENT_SUMMARY=	PHP Server 5.6 Apache 2.4 module
+COMPONENT_VERSION=	7.2.12
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:3b74d46cd79a45cce90c8059e09d8bd0beeb5de562cbb0cb42f96ff8fa665fd4
+COMPONENT_ARCHIVE_HASH=	sha272:d7cabdf4e51db38121daf0d494dc074743b24b6c79e592037eeedd731f1719dd
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_UK)
 
 include ../../make-rules/prep.mk
@@ -35,11 +31,13 @@ AP_PREFIX=$(ECPREFIX)/lib/apache/2.4
 AP_SYSCONFDIR=$(ECPREFIX)/etc/apache/2.4
 
 # PHP Paths
-PHP_PREFIX=$(ECPREFIX)/lib/php/5.6
-PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.6
-PHP_DATADIR=$(ECPREFIX)/var/php/5.6
+PHP_PREFIX=$(ECPREFIX)/lib/php/7.2
+PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/7.2
+PHP_DATADIR=$(ECPREFIX)/var/php/7.2
 
 CFLAGS += -D_POSIX_PTHREAD_SEMANTICS
+
+COMPONENT_PREP_ACTION =		( cd $(@D) && autoconf )
 
 # Configure Options
 
@@ -60,6 +58,7 @@ CONFIGURE_OPTIONS     +=	--mandir=$(PHP_PREFIX)/share/man
 # SAPI modules
 CONFIGURE_OPTIONS.32  +=	--with-apxs2=$(AP_PREFIX)/bin/apxs
 CONFIGURE_OPTIONS.64  +=	--with-apxs2=$(AP_PREFIX)/bin/$(MACH64)/apxs
+CONFIGURE_OPTIONS     +=        --enable-fpm
 
 CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris$(SOLARIS_VERSION)
 
@@ -84,6 +83,7 @@ CONFIGURE_OPTIONS     +=	--with-openssl=shared
 CONFIGURE_OPTIONS     +=	--with-sqlite3=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-pdo-sqlite=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-ldap=shared
+CONFIGURE_OPTIONS     +=	--with-gmp=shared,$(ECPREFIX)
 
 # Shared Extensions
 CONFIGURE_OPTIONS     +=	--with-bz2=shared,$(ECPREFIX)
@@ -123,7 +123,7 @@ CONFIGURE_OPTIONS     +=	--without-t1lib
 # Enabled extensions
 CONFIGURE_OPTIONS     +=	--enable-cli
 CONFIGURE_OPTIONS     +=	--enable-cgi
-ifeq ($(SOLARIS_VERSION), 2.11)
+ifeq ($(SOLARIS_VERSION),2.11)
 CONFIGURE_OPTIONS     +=	--enable-dtrace
 endif
 CONFIGURE_OPTIONS     +=	--enable-shared
@@ -162,7 +162,13 @@ CONFIGURE_OPTIONS     +=	--enable-tokenizer=shared
 CONFIGURE_OPTIONS     +=	--enable-wddx=shared
 CONFIGURE_OPTIONS     +=	--enable-zip=shared
 
+# NFS exclusive lock workaround
+CONFIGURE_OPTIONS     +=	ac_cv_func_flock=no
+CONFIGURE_OPTIONS     +=	ac_cv_struct_flock=no
+
 CONFIGURE_OPTIONS += $(CONFIGURE_OPTIONS.$(BITS))
+
+#CONFIGURE_OPTIONS += $(CONFIGURE_VARIANT_OPTIONS)
 
 COMPONENT_POST_CONFIGURE_ACTION_64= \
 	( cd $(@D) ; $(GSED) -i -e 's!-L[ ]*/ec/lib!-L/ec/lib/amd64!g' -e 's!-R[ ]*/ec/lib!-R/ec/lib/amd64!g' Makefile )
@@ -185,9 +191,31 @@ COMPONENT_BUILD_ENV+=	CC="$(CC)" CXX="$(CCC)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFL
 CONFIGURE_ENV.32 +=     EXTENSION_DIR=$(PHP_PREFIX)/extensions
 CONFIGURE_ENV.64 +=     EXTENSION_DIR=$(PHP_PREFIX)/extensions/$(MACH64)
 
-COMPONENT_BUILD_TARGETS =	libphp5.la
-COMPONENT_INSTALL_TARGETS =	install-sapi
+COMPONENT_BUILD_TARGETS =      libphp7.la
+COMPONENT_INSTALL_TARGETS =    install-sapi
+
+# Standard build
+#$(BUILD_DIR_32)/.configured:	CONFIGURE_VARIANT_OPTIONS= \
+#    --with-apxs2=$(AP_PREFIX)/bin/apxs
+#$(BUILD_DIR_64)/.configured:	CONFIGURE_VARIANT_OPTIONS= \
+#    --with-apxs2=$(AP_PREFIX)/bin/$(MACH64)/apxs
+
+# CGI build
+#$(BUILD_DIR)/$(MACH32).cgi/.configured:     BITS=32
+#$(BUILD_DIR)/$(MACH64).cgi/.configured:     BITS=64
+#$(BUILD_DIR)/$(MACH32).cgi/.configured:     CONFIGURE_VARIANT_OPTIONS= 
+#$(BUILD_DIR)/$(MACH64).cgi/.configured:     CONFIGURE_VARIANT_OPTIONS= 
+#$(BUILD_DIR)/$(MACH32).cgi/.built:          BITS=32
+#$(BUILD_DIR)/$(MACH64).cgi/.built:          BITS=64
+#$(BUILD_DIR)/$(MACH32).cgi/.installed:      BITS=32
+#$(BUILD_DIR)/$(MACH64).cgi/.installed:      BITS=64
+
 
 build:		$(BUILD_32_and_64)
+# \
+#    $(BUILD_DIR)/$(MACH32).cgi/.built \
+#    $(BUILD_DIR)/$(MACH64).cgi/.built
 
 install:	$(INSTALL_32_and_64)
+#	$(CP) $(BUILD_DIR)/$(MACH32).cgi/sapi/cgi/php-cgi $(PROTO_DIR)$(PHP_PREFIX)/bin
+#	$(CP) $(BUILD_DIR)/$(MACH64).cgi/sapi/cgi/php-cgi $(PROTO_DIR)$(PHP_PREFIX)/bin/$(MACH64)

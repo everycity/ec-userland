@@ -14,19 +14,19 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	5.6.38
+COMPONENT_VERSION=	7.2.38
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:3b74d46cd79a45cce90c8059e09d8bd0beeb5de562cbb0cb42f96ff8fa665fd4
+COMPONENT_ARCHIVE_HASH=	sha272:3b74d46cd79a45cce90c8059e09d8bd0beeb5de722cbb0cb42f96ff8fa665fd4
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_UK)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-PHP_PREFIX=$(ECPREFIX)/lib/php/5.6
-PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.6
-PHP_DATADIR=$(ECPREFIX)/var/php/5.6
+PHP_PREFIX=$(ECPREFIX)/lib/php/7.2
+PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/7.2
+PHP_DATADIR=$(ECPREFIX)/var/php/7.2
 
 CONFIGURE_OPTIONS	=	--prefix=$(PHP_PREFIX)
 CONFIGURE_OPTIONS.32	=	--bindir=$(PHP_PREFIX)/bin
@@ -45,17 +45,17 @@ CONFIGURE_OPTIONS     +=	--with-zlib-dir=$(ECPREFIX)
 CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris2.10
 CONFIGURE_OPTIONS.32  +=	--with-php-config=$(PHP_PREFIX)/bin/php-config
 CONFIGURE_OPTIONS.64  +=	--with-php-config=$(PHP_PREFIX)/bin/$(MACH64)/php-config
-CONFIGURE_OPTIONS     +=	--with-mysql=$(ECPREFIX)/lib/mysql/5.6
+CONFIGURE_OPTIONS     +=	--with-mysql=$(ECPREFIX)/lib/mysql/7.2
 
 CONFIGURE_OPTIONS     +=	$(CONFIGURE_OPTIONS.$(BITS))
 
 CFLAGS			+=	-D_POSIX_PTHREAD_SEMANTICS
-CFLAGS.32		=	-I$(ECPREFIX)/lib/mysql/5.6/include
-CFLAGS.64		=	-I$(ECPREFIX)/lib/mysql/5.6/include/$(MACH64)
-CPPFLAGS.32           +=	-I$(ECPREFIX)/lib/mysql/5.6/include
-CPPFLAGS.64           +=	-I$(ECPREFIX)/lib/mysql/5.6/include/$(MACH64)
-LDFLAGS.32            +=	-L$(ECPREFIX)/lib/mysql/5.6/lib -R$(ECPREFIX)/lib/mysql/5.6/lib
-LDFLAGS.64            +=	-L$(ECPREFIX)/lib/mysql/5.6/lib/$(MACH64) -R$(ECPREFIX)/lib/mysql/5.6/lib/$(MACH64)
+CFLAGS.32		=	-I$(ECPREFIX)/lib/mysql/7.2/include
+CFLAGS.64		=	-I$(ECPREFIX)/lib/mysql/7.2/include/$(MACH64)
+CPPFLAGS.32           +=	-I$(ECPREFIX)/lib/mysql/7.2/include
+CPPFLAGS.64           +=	-I$(ECPREFIX)/lib/mysql/7.2/include/$(MACH64)
+LDFLAGS.32            +=	-L$(ECPREFIX)/lib/mysql/7.2/lib -R$(ECPREFIX)/lib/mysql/7.2/lib
+LDFLAGS.64            +=	-L$(ECPREFIX)/lib/mysql/7.2/lib/$(MACH64) -R$(ECPREFIX)/lib/mysql/7.2/lib/$(MACH64)
 
 CFLAGS			+=	$(CFLAGS.$(BITS))
 CPPFLAGS		+=	$(CPPFLAGS.$(BITS))

@@ -1,0 +1,10 @@
+<IfModule prefork.c>
+    <IfModule !mod_php7.c>
+        <IfDefine 64bit>
+            LoadModule php7_module modules/amd64/mod_php72.so
+        </IfDefine>
+        <IfDefine !64bit>
+            LoadModule php7_module modules/mod_php72.so
+        </IfDefine>
+    </IfModule>
+</IfModule>

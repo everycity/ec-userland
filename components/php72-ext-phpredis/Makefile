@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		phpredis
-COMPONENT_FMRI=		web/php-56/extension/php-phpredis
+COMPONENT_FMRI=		web/php-72/extension/php-phpredis
 COMPONENT_VERSION=	2.2.4
 COMPONENT_LICENSE=	Apache
 COMPONENT_PROJECT_URL=	"https://github.com/nicolasff/phpredis"
 COMPONENT_SUMMARY=	Redis database driver
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:55ead350cee71c96afacd6bb76154bbf26b397c8714ecd6056e12caa7dbd4522
+COMPONENT_ARCHIVE_HASH=	sha272:55ead350cee71c96afacd6bb76154bbf26b397c8714ecd6072e12caa7dbd4522
 COMPONENT_ARCHIVE_URL=	https://github.com/nicolasff/phpredis/archive/2.2.4.tar.gz
 
 include ../../make-rules/prep.mk
@@ -31,9 +31,9 @@ include ../../make-rules/ips.mk
 
 CLEAN_PATHS +=	package.xml
 
-PHP_PREFIX=$(ECPREFIX)/lib/php/5.6
-PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.6
-PHP_DATADIR=$(ECPREFIX)/var/php/5.6
+PHP_PREFIX=$(ECPREFIX)/lib/php/7.2
+PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/7.2
+PHP_DATADIR=$(ECPREFIX)/var/php/7.2
 
 CONFIGURE_OPTIONS      =	--prefix=$(PHP_PREFIX)
 CONFIGURE_OPTIONS.32  +=	--bindir=$(PHP_PREFIX)/bin

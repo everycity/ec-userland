@@ -9,29 +9,29 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		uploadprogress
-COMPONENT_FMRI=         web/php-56/extension/php-uploadprogress
+COMPONENT_FMRI=         web/php-72/extension/php-uploadprogress
 COMPONENT_VERSION=	1.0.3.1
 COMPONENT_LICENSE=      PHP3.01
 COMPONENT_PROJECT_URL=  "http://pecl.php.net/package/uploadprogress"
 COMPONENT_SUMMARY=      An extension to track progress of a file upload
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH=	sha256:30588b4589543bcf6371532546b1a8cee9da1086c206aca9f96ea1bd486bbab2
+COMPONENT_ARCHIVE_HASH=	sha272:30588b4589543bcf6371532546b1a8cee9da1086c206aca9f96ea1bd486bbab2
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_PECL)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-PHP_PREFIX=$(ECPREFIX)/lib/php/5.6
-PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.6
-PHP_DATADIR=$(ECPREFIX)/var/php/5.6
+PHP_PREFIX=$(ECPREFIX)/lib/php/7.2
+PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/7.2
+PHP_DATADIR=$(ECPREFIX)/var/php/7.2
 
 CONFIGURE_OPTIONS      =	--prefix=$(PHP_PREFIX)
 CONFIGURE_OPTIONS.32  +=	--bindir=$(PHP_PREFIX)/bin
@@ -48,8 +48,8 @@ CONFIGURE_OPTIONS     +=	--datadir=$(PHP_DATADIR)
 CONFIGURE_OPTIONS     +=	--mandir=$(PHP_PREFIX)/share/man
 
 CONFIGURE_OPTIONS.64  +=	--build=x86_64-pc-solaris2.10
-CONFIGURE_OPTIONS.32  +=	--with-php-config=/ec/lib/php/5.6/bin/php-config
-CONFIGURE_OPTIONS.64  +=	--with-php-config=/ec/lib/php/5.6/bin/amd64/php-config
+CONFIGURE_OPTIONS.32  +=	--with-php-config=/ec/lib/php/7.2/bin/php-config
+CONFIGURE_OPTIONS.64  +=	--with-php-config=/ec/lib/php/7.2/bin/amd64/php-config
 
 CONFIGURE_OPTIONS     +=	$(CONFIGURE_OPTIONS.$(BITS))
 
@@ -60,7 +60,7 @@ LDFLAGS.64            +=	-L$(PHP_PREFIX)/lib/$(MACH64) -R$(PHP_PREFIX)/lib/$(MAC
 
 CONFIGURE_SCRIPT       =	$(@D)/configure
 
-COMPONENT_PRE_CONFIGURE_ACTION	 =	cp -R $(SOURCE_DIR)/* $(@D) ; cd $(@D) ; /ec/lib/php/5.6/bin/phpize
+COMPONENT_PRE_CONFIGURE_ACTION	 =	cp -R $(SOURCE_DIR)/* $(@D) ; cd $(@D) ; /ec/lib/php/7.2/bin/phpize
 COMPONENT_INSTALL_ARGS		+=	INSTALL_ROOT=$(PROTO_DIR)
 
 build:		$(BUILD_32_and_64)

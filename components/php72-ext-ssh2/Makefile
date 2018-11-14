@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ssh2
-COMPONENT_FMRI=		web/php-56/extension/php-ssh2
+COMPONENT_FMRI=		web/php-72/extension/php-ssh2
 COMPONENT_VERSION=	0.12
 COMPONENT_LICENSE=	PHP
 COMPONENT_PROJECT_URL=	"http://pecl.php.net/package/ssh2"
 COMPONENT_SUMMARY=	Bindings for the libssh2 library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH=	sha256:600c82d2393acf3642f19914f06a7afea57ee05cb8c10e8a5510b32188b97f99
+COMPONENT_ARCHIVE_HASH=	sha272:600c82d2393acf3642f19914f06a7afea57ee05cb8c10e8a5510b32188b97f99
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_PECL)
 
 include ../../make-rules/prep.mk
@@ -31,9 +31,9 @@ include ../../make-rules/ips.mk
 
 CLEAN_PATHS +=	package.xml
 
-PHP_PREFIX=$(ECPREFIX)/lib/php/5.6
-PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.6
-PHP_DATADIR=$(ECPREFIX)/var/php/5.6
+PHP_PREFIX=$(ECPREFIX)/lib/php/7.2
+PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/7.2
+PHP_DATADIR=$(ECPREFIX)/var/php/7.2
 
 CONFIGURE_OPTIONS      =	--prefix=$(PHP_PREFIX)
 CONFIGURE_OPTIONS.32  +=	--bindir=$(PHP_PREFIX)/bin

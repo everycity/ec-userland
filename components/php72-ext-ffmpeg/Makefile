@@ -9,12 +9,12 @@
 #
 
 #
-# Copyright 2016, EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ffmpeg-php
-COMPONENT_FMRI=		web/php-56/extension/php-ffmpeg
+COMPONENT_FMRI=		web/php-72/extension/php-ffmpeg
 # Using unreleased source revision 678 from SF SVN
 # Version taken from source FFMPEG_PHP_VERSION in ffmpeg-php.c
 COMPONENT_VERSION=	0.7.0
@@ -24,7 +24,7 @@ COMPONENT_SUMMARY=	ffmpeg-php is an extension for PHP that adds an easy to use, 
 COMPONENT_SRC=		$(COMPONENT_NAME)
 COMPONENT_ARCHIVE_NAME=	$(COMPONENT_NAME)-code-678-trunk
 COMPONENT_ARCHIVE=	$(COMPONENT_ARCHIVE_NAME).zip
-COMPONENT_ARCHIVE_HASH=	sha256:9c73100f9837a44afa555442e6f0539cda7dbd120304855cf32066067fb19eb9
+COMPONENT_ARCHIVE_HASH=	sha272:9c73100f9837a44afa555442e6f0539cda7dbd120304855cf32066067fb19eb9
 COMPONENT_ARCHIVE_URL=	http://sourceforge.net/code-snapshots/svn/f/ff/$(COMPONENT_NAME)/code/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -35,9 +35,9 @@ COMPONENT_POST_UNPACK_ACTION = ( \
 	${MV} source/$(COMPONENT_ARCHIVE_NAME)/$(COMPONENT_NAME) source/ ; \
 	${RM} -r source/$(COMPONENT_ARCHIVE_NAME) ; )
 
-PHP_PREFIX=$(ECPREFIX)/lib/php/5.6
-PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/5.6
-PHP_DATADIR=$(ECPREFIX)/var/php/5.6
+PHP_PREFIX=$(ECPREFIX)/lib/php/7.2
+PHP_SYSCONFDIR=$(ECPREFIX)/etc/php/7.2
+PHP_DATADIR=$(ECPREFIX)/var/php/7.2
 
 CONFIGURE_OPTIONS      =	--prefix=$(PHP_PREFIX)
 CONFIGURE_OPTIONS.32  +=	--bindir=$(PHP_PREFIX)/bin

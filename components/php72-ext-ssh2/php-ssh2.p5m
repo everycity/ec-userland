@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -25,13 +25,13 @@ license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/etc/php
-dir path=$(ECPREFIX)/etc/php/5.6
-dir path=$(ECPREFIX)/etc/php/5.6/conf.d
+dir path=$(ECPREFIX)/etc/php/7.2
+dir path=$(ECPREFIX)/etc/php/7.2/conf.d
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/php
-dir path=$(ECPREFIX)/lib/php/5.6
-dir path=$(ECPREFIX)/lib/php/5.6/extensions
-dir path=$(ECPREFIX)/lib/php/5.6/extensions/$(MACH64)
-file ssh2.ini path=$(ECPREFIX)/etc/php/5.6/conf.d/ssh2.ini preserve=true
-file path=$(ECPREFIX)/lib/php/5.6/extensions/$(MACH64)/ssh2.so
-file path=$(ECPREFIX)/lib/php/5.6/extensions/ssh2.so
+dir path=$(ECPREFIX)/lib/php/7.2
+dir path=$(ECPREFIX)/lib/php/7.2/extensions
+dir path=$(ECPREFIX)/lib/php/7.2/extensions/$(MACH64)
+file ssh2.ini path=$(ECPREFIX)/etc/php/7.2/conf.d/ssh2.ini preserve=true
+file path=$(ECPREFIX)/lib/php/7.2/extensions/$(MACH64)/ssh2.so
+file path=$(ECPREFIX)/lib/php/7.2/extensions/ssh2.so
