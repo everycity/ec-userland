@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		memcached
 COMPONENT_FMRI=		web/php-72/extension/php-memcached
-COMPONENT_VERSION=	2.2.0
+COMPONENT_VERSION=	3.0.4
 COMPONENT_LICENSE=	PHP3.01
 COMPONENT_PROJECT_URL=	"http://pecl.php.net/package/memcached"
 COMPONENT_SUMMARY=	PHP extension for interfacing with memcached via libmemcached library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH=	sha272:17b9600f6d4c807f23a3f5c45fcd8775ca2e61d6eda70370af2bef4c6e159f58
+COMPONENT_ARCHIVE_HASH=	sha256:561db4c8abdb7c344703a6b7b0ff4f29c2fe0fbacf7b2a2a704d0ed9b1a17d11
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_PECL)
 
 include ../../make-rules/prep.mk

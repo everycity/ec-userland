@@ -16,14 +16,14 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		phpredis
 COMPONENT_FMRI=		web/php-72/extension/php-phpredis
-COMPONENT_VERSION=	2.2.4
+COMPONENT_VERSION=	4.1.1
 COMPONENT_LICENSE=	Apache
 COMPONENT_PROJECT_URL=	"https://github.com/nicolasff/phpredis"
 COMPONENT_SUMMARY=	Redis database driver
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha272:55ead350cee71c96afacd6bb76154bbf26b397c8714ecd6072e12caa7dbd4522
-COMPONENT_ARCHIVE_URL=	https://github.com/nicolasff/phpredis/archive/2.2.4.tar.gz
+COMPONENT_ARCHIVE_HASH=	sha256:720994a079f4cd6acc0cd2c8f312b0a01454780ff8032fe954954375732ed8d2
+COMPONENT_ARCHIVE_URL=	https://github.com/nicolasff/phpredis/archive/$(COMPONENT_VERSION).tar.gz
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
