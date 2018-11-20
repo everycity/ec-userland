@@ -1703,6 +1703,8 @@ link path=$(ECPREFIX)/share/man/man3/OBJ_obj2txt.3 target=OBJ_nid2obj.3
 link path=$(ECPREFIX)/share/man/man3/OBJ_sn2nid.3 target=OBJ_nid2obj.3
 link path=$(ECPREFIX)/share/man/man3/OBJ_txt2nid.3 target=OBJ_nid2obj.3
 link path=$(ECPREFIX)/share/man/man3/OBJ_txt2obj.3 target=OBJ_nid2obj.3
+link path=$(ECPREFIX)/share/man/man3/OPENSSL_VERSION_TEXT.3 \
+    target=OPENSSL_VERSION_NUMBER.3
 link path=$(ECPREFIX)/share/man/man3/OPENSSL_ia32cap_loc.3 \
     target=OPENSSL_ia32cap.3
 link path=$(ECPREFIX)/share/man/man3/OPENSSL_instrument_bus2.3 \
