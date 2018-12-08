@@ -14,10 +14,10 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		php
-COMPONENT_VERSION=	7.2.12
+COMPONENT_VERSION=	7.2.13
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:d7cabdf4e51db38121daf0d494dc074743b24b6c79e592037eeedd731f1719dd
+COMPONENT_ARCHIVE_HASH=	sha256:e563cee406b1ec96649c22ed2b35796cfe4e9aa9afa6eab6be4cf2fe5d724744
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_PHP_UK)
 
 include ../../make-rules/prep.mk
@@ -68,7 +68,6 @@ CONFIGURE_OPTIONS     +=	--with-config-file-scan-dir=$(PHP_SYSCONFDIR)/conf.d
 CONFIGURE_OPTIONS     +=	--with-pear=$(PHP_PREFIX)/share/PEAR
 
 CONFIGURE_OPTIONS     +=	--with-layout=PHP
-CONFIGURE_OPTIONS     +=	--with-zend-vm=CALL
 
 CONFIGURE_OPTIONS     +=	--with-cdb
 CONFIGURE_OPTIONS     +=	--with-kerberos
@@ -91,7 +90,6 @@ CONFIGURE_OPTIONS     +=	--with-bz2=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-iconv=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-tidy=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-mhash=shared,$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-mcrypt=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-xsl=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-curl=shared,$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-readline=shared,$(ECPREFIX)
@@ -108,7 +106,6 @@ CONFIGURE_OPTIONS     +=	--with-zlib-dir=$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-xpm-dir=$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-libexpat-dir=$(ECPREFIX)
 CONFIGURE_OPTIONS     +=	--with-openssl-dir=$(ECPREFIX)
-CONFIGURE_OPTIONS     +=	--with-vpx-dir=$(ECPREFIX)
 
 # Disabled extensions & Options
 CONFIGURE_OPTIONS     +=	--disable-static
@@ -119,7 +116,6 @@ CONFIGURE_OPTIONS     +=	--disable-libgcc
 #CONFIGURE_OPTIONS     +=	--disable-libtool-lock
 #CONFIGURE_OPTIONS     +=	--disable-rpath
 CONFIGURE_OPTIONS     +=	--without-dbm
-CONFIGURE_OPTIONS     +=	--without-t1lib
 
 # Enabled extensions
 CONFIGURE_OPTIONS     +=	--enable-cli
@@ -130,7 +126,6 @@ endif
 CONFIGURE_OPTIONS     +=	--enable-shared
 CONFIGURE_OPTIONS     +=	--enable-filter
 CONFIGURE_OPTIONS     +=	--enable-gd-jis-conv
-CONFIGURE_OPTIONS     +=	--enable-gd-native-ttf
 CONFIGURE_OPTIONS     +=	--enable-short-tags
 CONFIGURE_OPTIONS     +=	--enable-pcntl
 CONFIGURE_OPTIONS     +=	--enable-shmop
