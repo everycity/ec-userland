@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2018 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -17,14 +17,14 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=		haproxy
 COMPONENT_FMRI=		web/loadbalancer/haproxy
 COMPONENT_VERSION_MJR=	1.8
-COMPONENT_VERSION_MNR=	14
+COMPONENT_VERSION_MNR=	17
 COMPONENT_VERSION=	$(COMPONENT_VERSION_MJR).$(COMPONENT_VERSION_MNR)
 COMPONENT_LICENSE=	HAPROXY
 COMPONENT_PROJECT_URL=	"http://haproxy.1wt.eu/"
 COMPONENT_SUMMARY=	A reliable, high performance TCP/HTTP load balancer
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:b17e402578be85e58af7a3eac99b1f675953bea9f67af2e964cf8bdbd1bd3fdf
+COMPONENT_ARCHIVE_HASH=	sha256:7b789b177875afdd5ddeff058e7efde73aa895dc2dcf728b464358635ae3948e
 COMPONENT_ARCHIVE_URL=	http://haproxy.1wt.eu/download/$(COMPONENT_VERSION_MJR)/src/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
