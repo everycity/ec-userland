@@ -169,6 +169,7 @@ file path=$(ECPREFIX)/share/man/man3/CURLOPT_COOKIESESSION.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_COPYPOSTFIELDS.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_CRLF.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_CRLFILE.3
+file path=$(ECPREFIX)/share/man/man3/CURLOPT_CURLU.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_CUSTOMREQUEST.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_DEBUGDATA.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_DEBUGFUNCTION.3
