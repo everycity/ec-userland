@@ -22,14 +22,13 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-depend fmri=library/libuuid type=require
-
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/etc/openldap
 dir path=$(ECPREFIX)/etc/openldap/schema
+dir path=$(ECPREFIX)/etc/openldap/schema.38096
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
@@ -65,6 +64,33 @@ file path=$(ECPREFIX)/bin/slapd
 file path=$(ECPREFIX)/etc/openldap/DB_CONFIG.example
 file path=$(ECPREFIX)/etc/openldap/ldap.conf
 file path=$(ECPREFIX)/etc/openldap/ldap.conf.default
+file path=$(ECPREFIX)/etc/openldap/schema.38096/README
+file path=$(ECPREFIX)/etc/openldap/schema.38096/collective.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.38096/collective.schema
+file path=$(ECPREFIX)/etc/openldap/schema.38096/corba.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.38096/corba.schema
+file path=$(ECPREFIX)/etc/openldap/schema.38096/core.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.38096/core.schema
+file path=$(ECPREFIX)/etc/openldap/schema.38096/cosine.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.38096/cosine.schema
+file path=$(ECPREFIX)/etc/openldap/schema.38096/duaconf.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.38096/duaconf.schema
+file path=$(ECPREFIX)/etc/openldap/schema.38096/dyngroup.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.38096/dyngroup.schema
+file path=$(ECPREFIX)/etc/openldap/schema.38096/inetorgperson.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.38096/inetorgperson.schema
+file path=$(ECPREFIX)/etc/openldap/schema.38096/java.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.38096/java.schema
+file path=$(ECPREFIX)/etc/openldap/schema.38096/misc.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.38096/misc.schema
+file path=$(ECPREFIX)/etc/openldap/schema.38096/nis.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.38096/nis.schema
+file path=$(ECPREFIX)/etc/openldap/schema.38096/openldap.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.38096/openldap.schema
+file path=$(ECPREFIX)/etc/openldap/schema.38096/pmi.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.38096/pmi.schema
+file path=$(ECPREFIX)/etc/openldap/schema.38096/ppolicy.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.38096/ppolicy.schema
 file path=$(ECPREFIX)/etc/openldap/schema/README
 file path=$(ECPREFIX)/etc/openldap/schema/collective.ldif
 file path=$(ECPREFIX)/etc/openldap/schema/collective.schema
