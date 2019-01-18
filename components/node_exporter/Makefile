@@ -18,15 +18,17 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		node_exporter
 COMPONENT_FMRI=		monitoring/prometheus/node_exporter
-COMPONENT_VERSION=      0.16.0
+COMPONENT_VERSION=      0.17.0.20190112
+GIT_COMMIT_ID=		e7664852867694265b093f79a8d8a4dcf27d0e82
 COMPONENT_LICENSE=      APLv2
 COMPONENT_PROJECT_URL=  https://github.com/prometheus/node_exporter
 COMPONENT_SUMMARY=	Prometheus node/system metrics exporter
-COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_NAME)-$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:2ed1c1c199e047b1524b49a6662d5969936e81520d6613b8b68cc3effda450cf
-COMPONENT_ARCHIVE_URL=	https://github.com/prometheus/node_exporter/archive/v$(COMPONENT_VERSION).tar.gz
-
+#COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
+COMPONENT_SRC=		$(COMPONENT_NAME)-$(GIT_COMMIT_ID)
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
+COMPONENT_ARCHIVE_HASH=	sha256:1c5db35ea3f478ba042952fe36e71002e57abb377333b16cb222f4be7c2acec8
+#COMPONENT_ARCHIVE_URL=	https://github.com/prometheus/node_exporter/archive/v$(COMPONENT_VERSION).tar.gz
+COMPONENT_ARCHIVE_URL=	https://github.com/prometheus/node_exporter/archive/$(GIT_COMMIT_ID).tar.gz
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
@@ -36,6 +38,8 @@ CLEAN_PATHS+=	$(BUILD_DIR)
 
 COMPONENT_BUILD_ENV+="GOPATH=$(BUILD_DIR)/$(COMPONENT_NAME)"
 
+COMPONENT_POST_UNPACK_ACTION+= find $(SOURCE_DIR) -exec chmod u+w {} \;
+
 $(BUILD_DIR)/$(COMPONENT_NAME)/.built:  $(SOURCE_DIR)/.prep
 	$(RM) -r $(@D) ; $(MKDIR) $(@D)/src/github.com/prometheus/node_exporter
 	$(CLONEY) $(SOURCE_DIR) $(@D)/src/github.com/prometheus/node_exporter
@@ -44,7 +48,6 @@ $(BUILD_DIR)/$(COMPONENT_NAME)/.built:  $(SOURCE_DIR)/.prep
 		$(GMAKE) $(COMPONENT_BUILD_GMAKE_ARGS) \
 		$(COMPONENT_BUILD_TARGETS))
 	$(TOUCH) $@
-
 
 $(BUILD_DIR)/$(COMPONENT_NAME)/.installed:	$(BUILD_DIR)/$(COMPONENT_NAME)/.built
 	$(MKDIR) $(PROTO_DIR)$(ECPREFIX)/bin/$(MACH64)

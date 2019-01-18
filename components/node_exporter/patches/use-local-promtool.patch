@@ -1,0 +1,18 @@
+diff -ruN node_exporter-e7664852867694265b093f79a8d8a4dcf27d0e82.orig/Makefile node_exporter-e7664852867694265b093f79a8d8a4dcf27d0e82/Makefile
+--- node_exporter-e7664852867694265b093f79a8d8a4dcf27d0e82.orig/Makefile	2019-01-12 12:33:56.000000000 +0000
++++ node_exporter-e7664852867694265b093f79a8d8a4dcf27d0e82/Makefile	2019-01-18 11:38:54.793005568 +0000
+@@ -145,9 +145,10 @@
+ promtool: $(PROMTOOL)
+ 
+ $(PROMTOOL):
+-	$(eval PROMTOOL_TMP := $(shell mktemp -d))
+-	curl -s -L $(PROMTOOL_URL) | tar -xvzf - -C $(PROMTOOL_TMP)
++#	$(eval PROMTOOL_TMP := $(shell mktemp -d))
++#	curl -s -L $(PROMTOOL_URL) | tar -xvzf - -C $(PROMTOOL_TMP)
+ 	mkdir -p $(FIRST_GOPATH)/bin
+-	cp $(PROMTOOL_TMP)/prometheus-$(PROMTOOL_VERSION).$(GO_BUILD_PLATFORM)/promtool $(FIRST_GOPATH)/bin/promtool
+-	rm -r $(PROMTOOL_TMP)
++#	cp $(PROMTOOL_TMP)/prometheus-$(PROMTOOL_VERSION).$(GO_BUILD_PLATFORM)/promtool $(FIRST_GOPATH)/bin/promtool
++	cp /ec/bin/amd64/promtool $(FIRST_GOPATH)/bin/promtool
++#	rm -r $(PROMTOOL_TMP)
+ 
