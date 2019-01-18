@@ -1,0 +1,20 @@
+diff -ruN prometheus-2.6.1.orig/Makefile.common prometheus-2.6.1/Makefile.common
+--- prometheus-2.6.1.orig/Makefile.common	2019-01-15 16:41:34.000000000 +0000
++++ prometheus-2.6.1/Makefile.common	2019-01-18 10:00:56.678983864 +0000
+@@ -176,11 +176,12 @@
+ promu: $(PROMU)
+ 
+ $(PROMU):
+-	$(eval PROMU_TMP := $(shell mktemp -d))
+-	curl -s -L $(PROMU_URL) | tar -xvzf - -C $(PROMU_TMP)
++#	$(eval PROMU_TMP := $(shell mktemp -d))
++#	curl -s -L $(PROMU_URL) | tar -xvzf - -C $(PROMU_TMP)
+ 	mkdir -p $(FIRST_GOPATH)/bin
+-	cp $(PROMU_TMP)/promu-$(PROMU_VERSION).$(GO_BUILD_PLATFORM)/promu $(FIRST_GOPATH)/bin/promu
+-	rm -r $(PROMU_TMP)
++#	cp $(PROMU_TMP)/promu-$(PROMU_VERSION).$(GO_BUILD_PLATFORM)/promu $(FIRST_GOPATH)/bin/promu
++	cp /ec/bin/amd64/promu $(FIRST_GOPATH)/bin/promu
++#	rm -r $(PROMU_TMP)
+ 
+ .PHONY: proto
+ proto:
