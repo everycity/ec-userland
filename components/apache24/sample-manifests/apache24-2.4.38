@@ -14,10 +14,6 @@
 
 # Transforms
 <include ec-drop-common>
-<transform dir file link hardlink path=ec/var/apache/.*/manual(/.+){0,1}$ -> \
-    default facet.doc.html true>
-<transform file path=.+/etc/.+ -> default preserve true>
-<transform file path=.+/etc/.+ -> default mode 0644>
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
@@ -25,13 +21,6 @@ set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
-
-file files/apache24-startup.sh path=$(ECPREFIX)/var/svc/method/http-apache24 mode=555
-file files/apache24-manifest.xml path=var/svc/manifest/site/http-apache24.xml \
-    restart_fmri=svc:/system/manifest-import:default
-file files/apache24-postinstall.xml path=var/svc/manifest/site/apache24-postinstall.xml \
-    restart_fmri=svc:/system/manifest-import:default
-link path=$(ECPREFIX)/lib/apache/2.4/logs target=/$(ECPREFIX)/var/apache/2.4/logs
 
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/etc
@@ -614,37 +603,37 @@ file path=$(ECPREFIX)/lib/apache/2.4/modules/mod_vhost_alias.so
 file path=$(ECPREFIX)/lib/apache/2.4/modules/mod_watchdog.so
 file path=$(ECPREFIX)/share/apache/2.4/build/$(MACH64)/config.nice
 file path=$(ECPREFIX)/share/apache/2.4/build/$(MACH64)/config_vars.mk
-file path=$(ECPREFIX)/share/apache/2.4/build/$(MACH64)/instdso.sh mode=0555
+file path=$(ECPREFIX)/share/apache/2.4/build/$(MACH64)/instdso.sh
 file path=$(ECPREFIX)/share/apache/2.4/build/$(MACH64)/library.mk
 file path=$(ECPREFIX)/share/apache/2.4/build/$(MACH64)/ltlib.mk
-file path=$(ECPREFIX)/share/apache/2.4/build/$(MACH64)/mkdir.sh mode=0555
+file path=$(ECPREFIX)/share/apache/2.4/build/$(MACH64)/mkdir.sh
 file path=$(ECPREFIX)/share/apache/2.4/build/$(MACH64)/program.mk
 file path=$(ECPREFIX)/share/apache/2.4/build/$(MACH64)/rules.mk
 file path=$(ECPREFIX)/share/apache/2.4/build/$(MACH64)/special.mk
 file path=$(ECPREFIX)/share/apache/2.4/build/config.nice
 file path=$(ECPREFIX)/share/apache/2.4/build/config_vars.mk
-file path=$(ECPREFIX)/share/apache/2.4/build/instdso.sh mode=0555
+file path=$(ECPREFIX)/share/apache/2.4/build/instdso.sh
 file path=$(ECPREFIX)/share/apache/2.4/build/library.mk
 file path=$(ECPREFIX)/share/apache/2.4/build/ltlib.mk
-file path=$(ECPREFIX)/share/apache/2.4/build/mkdir.sh mode=0555
+file path=$(ECPREFIX)/share/apache/2.4/build/mkdir.sh
 file path=$(ECPREFIX)/share/apache/2.4/build/program.mk
 file path=$(ECPREFIX)/share/apache/2.4/build/rules.mk
 file path=$(ECPREFIX)/share/apache/2.4/build/special.mk
 file path=$(ECPREFIX)/share/apache/2.4/build/worker/$(MACH64)/config.nice
 file path=$(ECPREFIX)/share/apache/2.4/build/worker/$(MACH64)/config_vars.mk
-file path=$(ECPREFIX)/share/apache/2.4/build/worker/$(MACH64)/instdso.sh mode=0555
+file path=$(ECPREFIX)/share/apache/2.4/build/worker/$(MACH64)/instdso.sh
 file path=$(ECPREFIX)/share/apache/2.4/build/worker/$(MACH64)/library.mk
 file path=$(ECPREFIX)/share/apache/2.4/build/worker/$(MACH64)/ltlib.mk
-file path=$(ECPREFIX)/share/apache/2.4/build/worker/$(MACH64)/mkdir.sh mode=0555
+file path=$(ECPREFIX)/share/apache/2.4/build/worker/$(MACH64)/mkdir.sh
 file path=$(ECPREFIX)/share/apache/2.4/build/worker/$(MACH64)/program.mk
 file path=$(ECPREFIX)/share/apache/2.4/build/worker/$(MACH64)/rules.mk
 file path=$(ECPREFIX)/share/apache/2.4/build/worker/$(MACH64)/special.mk
 file path=$(ECPREFIX)/share/apache/2.4/build/worker/config.nice
 file path=$(ECPREFIX)/share/apache/2.4/build/worker/config_vars.mk
-file path=$(ECPREFIX)/share/apache/2.4/build/worker/instdso.sh mode=0555
+file path=$(ECPREFIX)/share/apache/2.4/build/worker/instdso.sh
 file path=$(ECPREFIX)/share/apache/2.4/build/worker/library.mk
 file path=$(ECPREFIX)/share/apache/2.4/build/worker/ltlib.mk
-file path=$(ECPREFIX)/share/apache/2.4/build/worker/mkdir.sh mode=0555
+file path=$(ECPREFIX)/share/apache/2.4/build/worker/mkdir.sh
 file path=$(ECPREFIX)/share/apache/2.4/build/worker/program.mk
 file path=$(ECPREFIX)/share/apache/2.4/build/worker/rules.mk
 file path=$(ECPREFIX)/share/apache/2.4/build/worker/special.mk
