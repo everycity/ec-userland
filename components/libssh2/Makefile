@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libssh2
 COMPONENT_FMRI=         library/libssh2
-COMPONENT_VERSION=      1.4.3
+COMPONENT_VERSION=      1.8.1
 COMPONENT_LICENSE=      BSD
 COMPONENT_PROJECT_URL=  http://www.libssh2.org/
 COMPONENT_SUMMARY=	Client-side C library implementing the SSH2 protocol
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:eac6f85f9df9db2e6386906a6227eb2cd7b3245739561cad7d6dc1d5d021b96d
+COMPONENT_ARCHIVE_HASH=	sha256:40b517f35b1bb869d0075b15125c7a015557f53a5a3a6a8bffb89b69fd70f159
 COMPONENT_ARCHIVE_URL=	http://www.libssh2.org/download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
