@@ -114,7 +114,7 @@
  
  # If you have content scanning you may wish to only include some of the scanner
  # interfaces.  Uncomment any of these lines to remove that code.
-@@ -590,7 +592,7 @@
+@@ -595,7 +597,7 @@
  # CONFIGURE_OWNER setting, to specify a configuration file which is listed in
  # the TRUSTED_CONFIG_LIST file, then root privileges are not dropped by Exim.
  
@@ -123,7 +123,7 @@
  
  
  #------------------------------------------------------------------------------
-@@ -635,17 +637,17 @@
+@@ -640,17 +642,17 @@
  # included in the Exim binary. You will then need to set up the run time
  # configuration to make use of the mechanism(s) selected.
  
@@ -146,7 +146,7 @@
  
  # Heimdal through 1.5 required pkg-config 'heimdal-gssapi'; Heimdal 7.1
  # requires multiple pkg-config files to work with Exim, so the second example
-@@ -696,9 +698,9 @@
+@@ -701,9 +703,9 @@
  # and its header file are not in the default places. You might need to use
  # something like this:
  #
@@ -159,7 +159,7 @@
  #
  # but of course there may need to be other things in CFLAGS and EXTRALIBS_EXIM
  # as well.
-@@ -724,7 +726,7 @@
+@@ -729,7 +731,7 @@
  # "{crypt16}". If you want the default handling (without any preceding
  # indicator) to use crypt16(), uncomment the following line:
  
@@ -168,7 +168,7 @@
  
  # If you do that, you can still access the basic crypt() function by preceding
  # an encrypted password with "{crypt}". For more details, see the description
-@@ -758,11 +760,11 @@
+@@ -763,11 +765,11 @@
  # leave these settings commented out.
  
  # This setting is required for any TLS support (either OpenSSL or GnuTLS)
@@ -182,7 +182,7 @@
  
  # Uncomment the first and either the second or the third of these if you
  # are using GnuTLS.  If you have pkg-config, then the second, else the third.
-@@ -799,7 +801,7 @@
+@@ -804,7 +806,7 @@
  # with all your other libraries. If they are in a special directory, you may
  # need something like
  
@@ -191,7 +191,7 @@
  # or
  # TLS_LIBS=-L/opt/gnu/lib -lgnutls -ltasn1 -lgcrypt
  
-@@ -810,7 +812,7 @@
+@@ -815,7 +817,7 @@
  # auxiliary programs. If the include files are not in a standard place, you can
  # set TLS_INCLUDE to specify where they are, for example:
  
@@ -200,7 +200,7 @@
  # or
  # TLS_INCLUDE=-I/opt/gnu/include
  
-@@ -847,7 +849,7 @@
+@@ -852,7 +854,7 @@
  # %s. This will be replaced by one of the strings "main", "panic", or "reject"
  # to form the final file names. Some installations may want something like this:
  
@@ -209,7 +209,7 @@
  
  # which results in files with names /var/log/exim_mainlog, etc. The directory
  # in which the log files are placed must exist; Exim does not try to create
-@@ -896,7 +898,7 @@
+@@ -901,7 +903,7 @@
  # files. Both the name of the command and the suffix that it adds to files
  # need to be defined here. See also the EXICYCLOG_MAX configuration.
  
@@ -218,7 +218,7 @@
  COMPRESS_SUFFIX=gz
  
  
-@@ -911,7 +913,7 @@
+@@ -916,7 +918,7 @@
  # ZCAT_COMMAND=zcat
  #
  # Or specify the full pathname:
@@ -227,7 +227,7 @@
  
  #------------------------------------------------------------------------------
  # Compiling in support for embedded Perl: If you want to be able to
-@@ -939,7 +941,7 @@
+@@ -944,7 +946,7 @@
  # support, which is intended for use in conjunction with the SMTP AUTH
  # facilities, is included only when requested by the following setting:
  
@@ -236,7 +236,7 @@
  
  # You probably need to add -lpam to EXTRALIBS, and in some releases of
  # GNU/Linux -ldl is also needed.
-@@ -1095,7 +1097,7 @@
+@@ -1100,7 +1102,7 @@
  # aliases). The following setting can be changed to specify a different
  # location for the system alias file.
  
@@ -245,7 +245,7 @@
  
  
  #------------------------------------------------------------------------------
-@@ -1114,7 +1116,8 @@
+@@ -1119,7 +1121,8 @@
  # is "yes", as well as supporting line editing, a history of input lines in the
  # current run is maintained.
  
@@ -255,7 +255,7 @@
  
  # You may need to add -ldl to EXTRALIBS when you set USE_READLINE=yes.
  # Note that this option adds to the size of the Exim binary, because the
-@@ -1360,7 +1363,7 @@
+@@ -1365,7 +1368,7 @@
  # (process id) to a file so that it can easily be identified. The path of the
  # file can be specified here. Some installations may want something like this:
  
@@ -264,7 +264,7 @@
  
  # If PID_FILE_PATH is not defined, Exim writes a file in its spool directory
  # using the name "exim-daemon.pid".
-@@ -1431,4 +1434,6 @@
+@@ -1436,4 +1439,6 @@
  
  # ENABLE_DISABLE_FSYNC=yes
  

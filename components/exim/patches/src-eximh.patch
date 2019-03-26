@@ -1,6 +1,6 @@
 --- exim-4.84/src/exim.h.orig	2014-08-23 14:16:06.112683601 +0100
 +++ exim-4.84/src/exim.h	2014-08-23 14:16:36.199456395 +0100
-@@ -520,7 +520,7 @@
+@@ -508,7 +508,7 @@
  requires various things that are set therein. */
  
  #if HAVE_ICONV             /* Not all OS have this */
