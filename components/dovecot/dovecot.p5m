@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2018 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -23,14 +23,12 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-# Customised content
 group gid=470 groupname=dovecot
 user gcos-field="Dovecot Account" group=dovecot uid=470 username=dovecot login-shell=/bin/false home-dir=/ec/var/dovecot
 dir path=$(ECPREFIX)/var
 dir path=$(ECPREFIX)/var/dovecot
 file files/dovecot-manifest.xml path=var/svc/manifest/site/dovecot.xml restart_fmri=svc:/system/manifest-import:default
 
-# Auto-generated content
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
@@ -42,10 +40,12 @@ dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
 dir path=$(ECPREFIX)/lib/$(MACH64)/dovecot
 dir path=$(ECPREFIX)/lib/$(MACH64)/dovecot/auth
+dir path=$(ECPREFIX)/lib/$(MACH64)/dovecot/dict
 dir path=$(ECPREFIX)/lib/$(MACH64)/dovecot/doveadm
 dir path=$(ECPREFIX)/lib/$(MACH64)/dovecot/stats
 dir path=$(ECPREFIX)/lib/dovecot
 dir path=$(ECPREFIX)/lib/dovecot/auth
+dir path=$(ECPREFIX)/lib/dovecot/dict
 dir path=$(ECPREFIX)/lib/dovecot/doveadm
 dir path=$(ECPREFIX)/lib/dovecot/stats
 dir path=$(ECPREFIX)/libexec
@@ -356,6 +356,7 @@ file path=$(ECPREFIX)/include/dovecot/istream.h
 file path=$(ECPREFIX)/include/dovecot/json-parser.h
 file path=$(ECPREFIX)/include/dovecot/json-tree.h
 file path=$(ECPREFIX)/include/dovecot/lda-settings.h
+file path=$(ECPREFIX)/include/dovecot/ldap-client.h
 file path=$(ECPREFIX)/include/dovecot/lib-signals.h
 file path=$(ECPREFIX)/include/dovecot/lib.h
 file path=$(ECPREFIX)/include/dovecot/llist.h
@@ -629,6 +630,9 @@ file \
 file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/auth/libauthdb_imap.a
 file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/auth/libauthdb_imap.la
 file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/auth/libauthdb_imap.so
+file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/dict/libdict_ldap.a
+file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/dict/libdict_ldap.la
+file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/dict/libdict_ldap.so
 file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/doveadm/lib10_doveadm_acl_plugin.a
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/dovecot/doveadm/lib10_doveadm_acl_plugin.la
@@ -769,6 +773,9 @@ file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-fts.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-lda.a
 file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-lda.la
 file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-lda.so.0.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-ldap.a
+file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-ldap.la
+file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-ldap.so.0.0.0
 file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-login.a
 file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-login.la
 file path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-login.so.0.0.0
@@ -805,6 +812,9 @@ file path=$(ECPREFIX)/lib/dovecot/auth/lib20_auth_var_expand_crypt.so
 file path=$(ECPREFIX)/lib/dovecot/auth/libauthdb_imap.a
 file path=$(ECPREFIX)/lib/dovecot/auth/libauthdb_imap.la
 file path=$(ECPREFIX)/lib/dovecot/auth/libauthdb_imap.so
+file path=$(ECPREFIX)/lib/dovecot/dict/libdict_ldap.a
+file path=$(ECPREFIX)/lib/dovecot/dict/libdict_ldap.la
+file path=$(ECPREFIX)/lib/dovecot/dict/libdict_ldap.so
 file path=$(ECPREFIX)/lib/dovecot/doveadm/lib10_doveadm_acl_plugin.a
 file path=$(ECPREFIX)/lib/dovecot/doveadm/lib10_doveadm_acl_plugin.la
 file path=$(ECPREFIX)/lib/dovecot/doveadm/lib10_doveadm_acl_plugin.so
@@ -932,6 +942,9 @@ file path=$(ECPREFIX)/lib/dovecot/libdovecot-fts.so.0.0.0
 file path=$(ECPREFIX)/lib/dovecot/libdovecot-lda.a
 file path=$(ECPREFIX)/lib/dovecot/libdovecot-lda.la
 file path=$(ECPREFIX)/lib/dovecot/libdovecot-lda.so.0.0.0
+file path=$(ECPREFIX)/lib/dovecot/libdovecot-ldap.a
+file path=$(ECPREFIX)/lib/dovecot/libdovecot-ldap.la
+file path=$(ECPREFIX)/lib/dovecot/libdovecot-ldap.so.0.0.0
 file path=$(ECPREFIX)/lib/dovecot/libdovecot-login.a
 file path=$(ECPREFIX)/lib/dovecot/libdovecot-login.la
 file path=$(ECPREFIX)/lib/dovecot/libdovecot-login.so.0.0.0
@@ -1109,6 +1122,7 @@ file path=$(ECPREFIX)/share/doc/dovecot/wiki/Design.Lua.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Design.MailProcess.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Design.Memory.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Design.OutputStreams.txt
+file path=$(ECPREFIX)/share/doc/dovecot/wiki/Design.ParameterForwarding.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Design.Plugins.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Design.Processes.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Design.Storage.ErrorHandling.txt
@@ -1131,6 +1145,7 @@ file path=$(ECPREFIX)/share/doc/dovecot/wiki/Dictionary.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Director.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/DomainLost.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Errors.ChgrpNoPerm.txt
+file path=$(ECPREFIX)/share/doc/dovecot/wiki/Events.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/FindMailLocation.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/FinishBasicConfiguration.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/HAProxy.txt
@@ -1144,6 +1159,7 @@ file path=$(ECPREFIX)/share/doc/dovecot/wiki/HowTo.Rootless.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/HowTo.SimpleVirtualInstall.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/HowTo.WriteConfiguration.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/HowTo.txt
+file path=$(ECPREFIX)/share/doc/dovecot/wiki/IMAPServer.Hibernation.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/IMAPServer.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/ImapMetadata.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/IndexFiles.txt
@@ -1246,11 +1262,15 @@ file \
     path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Extensions.SpamtestVirustest.txt
 file \
     path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Extensions.Vacation.txt
+file \
+    path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Extensions.Variables.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Extensions.txt
 file \
     path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Plugins.Extdata.txt
 file \
     path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Plugins.Extprograms.txt
+file \
+    path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Plugins.IMAPFilterSieve.txt
 file \
     path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Plugins.IMAPSieve.txt
 file path=$(ECPREFIX)/share/doc/dovecot/wiki/Pigeonhole.Sieve.Plugins.Pipe.txt
@@ -1391,6 +1411,7 @@ file path=$(ECPREFIX)/share/man/man1/doveadm-proxy.1
 file path=$(ECPREFIX)/share/man/man1/doveadm-purge.1
 file path=$(ECPREFIX)/share/man/man1/doveadm-pw.1
 file path=$(ECPREFIX)/share/man/man1/doveadm-quota.1
+file path=$(ECPREFIX)/share/man/man1/doveadm-rebuild.1
 file path=$(ECPREFIX)/share/man/man1/doveadm-reload.1
 file path=$(ECPREFIX)/share/man/man1/doveadm-replicator.1
 file path=$(ECPREFIX)/share/man/man1/doveadm-search.1
@@ -1423,6 +1444,10 @@ link path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-lda.so \
     target=libdovecot-lda.so.0.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-lda.so.0 \
     target=libdovecot-lda.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-ldap.so \
+    target=libdovecot-ldap.so.0.0.0
+link path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-ldap.so.0 \
+    target=libdovecot-ldap.so.0.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-login.so \
     target=libdovecot-login.so.0.0.0
 link path=$(ECPREFIX)/lib/$(MACH64)/dovecot/libdovecot-login.so.0 \
@@ -1455,6 +1480,10 @@ link path=$(ECPREFIX)/lib/dovecot/libdovecot-lda.so \
     target=libdovecot-lda.so.0.0.0
 link path=$(ECPREFIX)/lib/dovecot/libdovecot-lda.so.0 \
     target=libdovecot-lda.so.0.0.0
+link path=$(ECPREFIX)/lib/dovecot/libdovecot-ldap.so \
+    target=libdovecot-ldap.so.0.0.0
+link path=$(ECPREFIX)/lib/dovecot/libdovecot-ldap.so.0 \
+    target=libdovecot-ldap.so.0.0.0
 link path=$(ECPREFIX)/lib/dovecot/libdovecot-login.so \
     target=libdovecot-login.so.0.0.0
 link path=$(ECPREFIX)/lib/dovecot/libdovecot-login.so.0 \
