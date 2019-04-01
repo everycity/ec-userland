@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -27,6 +27,8 @@ dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/include/lzo
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
+dir path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig
+dir path=$(ECPREFIX)/lib/pkgconfig
 dir path=$(ECPREFIX)/share
 dir path=$(ECPREFIX)/share/doc
 dir path=$(ECPREFIX)/share/doc/lzo
@@ -43,10 +45,14 @@ file path=$(ECPREFIX)/include/lzo/lzo_asm.h
 file path=$(ECPREFIX)/include/lzo/lzoconf.h
 file path=$(ECPREFIX)/include/lzo/lzodefs.h
 file path=$(ECPREFIX)/include/lzo/lzoutil.h
+file path=$(ECPREFIX)/lib/$(MACH64)/liblzo2.a
 file path=$(ECPREFIX)/lib/$(MACH64)/liblzo2.la
 file path=$(ECPREFIX)/lib/$(MACH64)/liblzo2.so.2.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/lzo2.pc
+file path=$(ECPREFIX)/lib/liblzo2.a
 file path=$(ECPREFIX)/lib/liblzo2.la
 file path=$(ECPREFIX)/lib/liblzo2.so.2.0.0
+file path=$(ECPREFIX)/lib/pkgconfig/lzo2.pc
 file path=$(ECPREFIX)/share/doc/lzo/AUTHORS
 file path=$(ECPREFIX)/share/doc/lzo/COPYING
 file path=$(ECPREFIX)/share/doc/lzo/LZO.FAQ
