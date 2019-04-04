@@ -1,0 +1,11 @@
+--- gcc-8.2.0/gcc/graphite.h.orig	2019-03-14 18:13:26.905776756 +0000
++++ gcc-8.2.0/gcc/graphite.h	2019-03-14 18:13:50.386638900 +0000
+@@ -37,6 +37,8 @@
+ #include <isl/schedule.h>
+ #include <isl/ast_build.h>
+ #include <isl/schedule_node.h>
++#include <isl/id.h>
++#include <isl/space.h>
+ 
+ typedef struct poly_dr *poly_dr_p;
+ 
