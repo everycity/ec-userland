@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2011, 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2019, EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		bash
 COMPONENT_FMRI=         shell/bash
-COMPONENT_VERSION=	4.2
+COMPONENT_VERSION=	5.0
 COMPONENT_LICENSE=      GPLv3, FDLv1.2
 COMPONENT_PROJECT_URL=  http://www.gnu.org/software/bash/
 COMPONENT_SUMMARY=      GNU Bourne-Again shell (bash)
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:a27a1179ec9c0830c65c6aa5d7dab60f7ce1a2a608618570f96bfa72e95ab3d8
+COMPONENT_ARCHIVE_HASH=	sha256:b4a80f2ac66170b2913efbfb9f2594f1f76c7b1afd11f799e22035d63077fb4d
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 CONFIGURE_DEFAULT_SHAREDLIB=no
@@ -29,8 +29,6 @@ CONFIGURE_DEFAULT_SHAREDLIB=no
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-
-#CONFIGURE_ENV+=	LIBS="$(LIBS)"
 
 GPATCH_FLAGS=	-p0
 

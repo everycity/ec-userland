@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2012 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -17,13 +17,105 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 file path=$(USRDIR)/bin/bash
 file path=$(USRDIR)/bin/bashbug
+dir  path=$(USRDIR)/include/bash
+file path=$(USRDIR)/include/bash/alias.h
+file path=$(USRDIR)/include/bash/array.h
+file path=$(USRDIR)/include/bash/arrayfunc.h
+file path=$(USRDIR)/include/bash/assoc.h
+file path=$(USRDIR)/include/bash/bashansi.h
+file path=$(USRDIR)/include/bash/bashintl.h
+file path=$(USRDIR)/include/bash/bashjmp.h
+file path=$(USRDIR)/include/bash/bashtypes.h
+dir  path=$(USRDIR)/include/bash/builtins
+file path=$(USRDIR)/include/bash/builtins.h
+file path=$(USRDIR)/include/bash/builtins/bashgetopt.h
+file path=$(USRDIR)/include/bash/builtins/builtext.h
+file path=$(USRDIR)/include/bash/builtins/common.h
+file path=$(USRDIR)/include/bash/builtins/getopt.h
+file path=$(USRDIR)/include/bash/command.h
+file path=$(USRDIR)/include/bash/config-bot.h
+file path=$(USRDIR)/include/bash/config-top.h
+file path=$(USRDIR)/include/bash/config.h
+file path=$(USRDIR)/include/bash/conftypes.h
+file path=$(USRDIR)/include/bash/dispose_cmd.h
+file path=$(USRDIR)/include/bash/error.h
+file path=$(USRDIR)/include/bash/externs.h
+file path=$(USRDIR)/include/bash/general.h
+file path=$(USRDIR)/include/bash/hashlib.h
+dir  path=$(USRDIR)/include/bash/include
+file path=$(USRDIR)/include/bash/include/ansi_stdlib.h
+file path=$(USRDIR)/include/bash/include/chartypes.h
+file path=$(USRDIR)/include/bash/include/filecntl.h
+file path=$(USRDIR)/include/bash/include/gettext.h
+file path=$(USRDIR)/include/bash/include/maxpath.h
+file path=$(USRDIR)/include/bash/include/memalloc.h
+file path=$(USRDIR)/include/bash/include/ocache.h
+file path=$(USRDIR)/include/bash/include/posixdir.h
+file path=$(USRDIR)/include/bash/include/posixjmp.h
+file path=$(USRDIR)/include/bash/include/posixstat.h
+file path=$(USRDIR)/include/bash/include/posixtime.h
+file path=$(USRDIR)/include/bash/include/posixwait.h
+file path=$(USRDIR)/include/bash/include/shmbchar.h
+file path=$(USRDIR)/include/bash/include/shmbutil.h
+file path=$(USRDIR)/include/bash/include/shtty.h
+file path=$(USRDIR)/include/bash/include/stat-time.h
+file path=$(USRDIR)/include/bash/include/stdc.h
+file path=$(USRDIR)/include/bash/include/systimes.h
+file path=$(USRDIR)/include/bash/include/typemax.h
+file path=$(USRDIR)/include/bash/include/unionwait.h
+file path=$(USRDIR)/include/bash/jobs.h
+file path=$(USRDIR)/include/bash/make_cmd.h
+file path=$(USRDIR)/include/bash/pathnames.h
+file path=$(USRDIR)/include/bash/quit.h
+file path=$(USRDIR)/include/bash/shell.h
+file path=$(USRDIR)/include/bash/sig.h
+file path=$(USRDIR)/include/bash/siglist.h
+file path=$(USRDIR)/include/bash/signames.h
+file path=$(USRDIR)/include/bash/subst.h
+file path=$(USRDIR)/include/bash/syntax.h
+file path=$(USRDIR)/include/bash/unwind_prot.h
+file path=$(USRDIR)/include/bash/variables.h
+file path=$(USRDIR)/include/bash/version.h
+file path=$(USRDIR)/include/bash/xmalloc.h
+dir  path=$(USRDIR)/lib/bash
+file path=$(USRDIR)/lib/bash/Makefile.inc
+file path=$(USRDIR)/lib/bash/basename
+file path=$(USRDIR)/lib/bash/dirname
+file path=$(USRDIR)/lib/bash/fdflags
+file path=$(USRDIR)/lib/bash/finfo
+file path=$(USRDIR)/lib/bash/head
+file path=$(USRDIR)/lib/bash/id
+file path=$(USRDIR)/lib/bash/ln
+file path=$(USRDIR)/lib/bash/loadables.h
+file path=$(USRDIR)/lib/bash/logname
+file path=$(USRDIR)/lib/bash/mkdir
+file path=$(USRDIR)/lib/bash/mypid
+file path=$(USRDIR)/lib/bash/pathchk
+file path=$(USRDIR)/lib/bash/print
+file path=$(USRDIR)/lib/bash/printenv
+file path=$(USRDIR)/lib/bash/push
+file path=$(USRDIR)/lib/bash/realpath
+file path=$(USRDIR)/lib/bash/rmdir
+file path=$(USRDIR)/lib/bash/seq
+file path=$(USRDIR)/lib/bash/setpgid
+file path=$(USRDIR)/lib/bash/sleep
+file path=$(USRDIR)/lib/bash/strftime
+file path=$(USRDIR)/lib/bash/sync
+file path=$(USRDIR)/lib/bash/tee
+file path=$(USRDIR)/lib/bash/truefalse
+file path=$(USRDIR)/lib/bash/tty
+file path=$(USRDIR)/lib/bash/uname
+file path=$(USRDIR)/lib/bash/unlink
+file path=$(USRDIR)/lib/bash/whoami
+file path=$(USRDIR)/lib/pkgconfig/bash.pc
+dir  path=$(USRDIR)/share/bash
 file path=$(USRDIR)/share/bash/alias
 file path=$(USRDIR)/share/bash/arith
 file path=$(USRDIR)/share/bash/arith_for
@@ -100,13 +192,25 @@ file path=$(USRDIR)/share/bash/until
 file path=$(USRDIR)/share/bash/variable_help
 file path=$(USRDIR)/share/bash/wait
 file path=$(USRDIR)/share/bash/while
+dir  path=$(USRDIR)/share/doc/bash
+file path=$(USRDIR)/share/doc/bash/CHANGES
+file path=$(USRDIR)/share/doc/bash/COMPAT
+file path=$(USRDIR)/share/doc/bash/FAQ
+file path=$(USRDIR)/share/doc/bash/INTRO
+file path=$(USRDIR)/share/doc/bash/NEWS
+file path=$(USRDIR)/share/doc/bash/POSIX
+file path=$(USRDIR)/share/doc/bash/RBASH
+file path=$(USRDIR)/share/doc/bash/README
+file path=$(USRDIR)/share/doc/bash/bash.html
+file path=$(USRDIR)/share/doc/bash/bashref.html
 file path=$(USRDIR)/share/info/bash.info
-file path=$(USRDIR)/share/info/dir
 file path=$(USRDIR)/share/locale/af/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/bg/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/ca/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/cs/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/da/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/de/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/el/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/en@boldquot/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/en@quot/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/eo/LC_MESSAGES/bash.mo
@@ -115,16 +219,23 @@ file path=$(USRDIR)/share/locale/et/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/fi/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/fr/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/ga/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/gl/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/hr/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/hu/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/id/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/it/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/ja/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/lt/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/nb/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/nl/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/pl/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/pt/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/pt_BR/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/ro/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/ru/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/sk/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/sl/LC_MESSAGES/bash.mo
+file path=$(USRDIR)/share/locale/sr/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/sv/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/tr/LC_MESSAGES/bash.mo
 file path=$(USRDIR)/share/locale/uk/LC_MESSAGES/bash.mo
