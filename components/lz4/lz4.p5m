@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -20,18 +20,19 @@ set name=pkg.summary value="$(COMPONENT_SUMMARY)"
 set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
 set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license='$(COMPONENT_LICENSE)'
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 file path=$(USRDIR)/bin/$(MACH64)/lz4
-file path=$(USRDIR)/bin/$(MACH64)/lz4c
+link path=$(USRDIR)/bin/$(MACH64)/lz4c target=lz4
 link path=$(USRDIR)/bin/$(MACH64)/lz4cat target=lz4
 link path=$(USRDIR)/bin/$(MACH64)/unlz4 target=lz4
 file path=$(USRDIR)/bin/lz4
-file path=$(USRDIR)/bin/lz4c
+link path=$(USRDIR)/bin/lz4c target=lz4
 link path=$(USRDIR)/bin/lz4cat target=lz4
 link path=$(USRDIR)/bin/unlz4 target=lz4
 file path=$(USRDIR)/include/lz4.h
 file path=$(USRDIR)/include/lz4frame.h
+file path=$(USRDIR)/include/lz4frame_static.h
 file path=$(USRDIR)/include/lz4hc.h
 file path=$(USRDIR)/lib/$(MACH64)/liblz4.a
 link path=$(USRDIR)/lib/$(MACH64)/liblz4.so \
@@ -45,7 +46,7 @@ link path=$(USRDIR)/lib/liblz4.so target=liblz4.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/liblz4.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/liblz4.so.1 target=liblz4.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/pkgconfig/liblz4.pc
-file path=$(USRDIR)/share/man/man1/lz4.1
-link path=$(USRDIR)/share/man/man1/lz4c.1 target=lz4.1
-link path=$(USRDIR)/share/man/man1/lz4cat.1 target=lz4.1
-link path=$(USRDIR)/share/man/man1/unlz4.1 target=lz4.1
+file path=$(USRDIR)/share/man/man1/man1/lz4.1
+link path=$(USRDIR)/share/man/man1/man1/lz4c.1 target=lz4.1
+link path=$(USRDIR)/share/man/man1/man1/lz4cat.1 target=lz4.1
+link path=$(USRDIR)/share/man/man1/man1/unlz4.1 target=lz4.1

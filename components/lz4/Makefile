@@ -9,21 +9,22 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		lz4
 COMPONENT_FMRI=		compress/lz4
-COMPONENT_VERSION=	1.7.5
+COMPONENT_VERSION=	1.8.3
 COMPONENT_LICENSE=	BSD,GPLv2
+COMPONENT_LICENSE_FILE=	LICENSE
 COMPONENT_PROJECT_URL=	"http://lz4.github.io/lz4/"
 COMPONENT_SUMMARY=	LZ4 is a very fast lossless compression algorithm
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:0190cacd63022ccb86f44fa5041dc6c3804407ad61550ca21c382827319e7e7e
-COMPONENT_ARCHIVE_URL=	https://github.com/lz4/lz4/archive/v1.7.5.tar.gz
+COMPONENT_ARCHIVE=	v$(COMPONENT_VERSION).tar.gz
+COMPONENT_ARCHIVE_HASH=	sha256:33af5936ac06536805f9745e0b6d61da606a1f8b4cc5c04dd3cbaca3b9b4fc43
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GITHUB1)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk
