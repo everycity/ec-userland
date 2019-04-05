@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -27,11 +27,13 @@ file path=$(USRDIR)/bin/sqlite3
 file path=$(USRDIR)/include/sqlite3.h
 file path=$(USRDIR)/include/sqlite3ext.h
 file path=$(USRDIR)/lib/$(MACH64)/libsqlite3.a
+file path=$(USRDIR)/lib/$(MACH64)/libsqlite3.la
 link path=$(USRDIR)/lib/$(MACH64)/libsqlite3.so target=libsqlite3.so.0.8.6
 link path=$(USRDIR)/lib/$(MACH64)/libsqlite3.so.0 target=libsqlite3.so.0.8.6
 file path=$(USRDIR)/lib/$(MACH64)/libsqlite3.so.0.8.6
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/sqlite3.pc
 file path=$(USRDIR)/lib/libsqlite3.a
+file path=$(USRDIR)/lib/libsqlite3.la
 link path=$(USRDIR)/lib/libsqlite3.so target=libsqlite3.so.0.8.6
 link path=$(USRDIR)/lib/libsqlite3.so.0 target=libsqlite3.so.0.8.6
 file path=$(USRDIR)/lib/libsqlite3.so.0.8.6
