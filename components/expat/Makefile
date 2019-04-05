@@ -9,17 +9,21 @@
 #
 
 #
-# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2019, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		expat
-COMPONENT_VERSION=	2.1.0
+COMPONENT_FMRI=		library/expat
+COMPONENT_VERSION=	2.2.6
+COMPONENT_LICENSE=	MIT
+COMPONENT_PROJECT_URL=	https://libexpat.github.io/
+COMPONENT_SUMMARY=	A stream-oriented XML parser library written in C
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:823705472f816df21c8f6aa026dd162b280806838bb55b3432b0fb1fcca7eb86
-COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF)
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
+COMPONENT_ARCHIVE_HASH=	sha256:17b43c2716d521369f82fc2dc70f359860e90fa440bea65b3b85f0b246ea81f2
+COMPONENT_ARCHIVE_URL=	https://github.com/libexpat/libexpat/releases/download/R_2_2_6/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
