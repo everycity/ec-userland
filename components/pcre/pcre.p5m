@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2018 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -35,17 +35,17 @@ file path=$(USRDIR)/include/pcrecpp.h
 file path=$(USRDIR)/include/pcrecpparg.h
 file path=$(USRDIR)/include/pcreposix.h
 file path=$(USRDIR)/lib/$(MACH64)/libpcre.la
-link path=$(USRDIR)/lib/$(MACH64)/libpcre.so target=libpcre.so.1.2.10
-link path=$(USRDIR)/lib/$(MACH64)/libpcre.so.1 target=libpcre.so.1.2.10
-file path=$(USRDIR)/lib/$(MACH64)/libpcre.so.1.2.10
+link path=$(USRDIR)/lib/$(MACH64)/libpcre.so target=libpcre.so.1.2.11
+link path=$(USRDIR)/lib/$(MACH64)/libpcre.so.1 target=libpcre.so.1.2.11
+file path=$(USRDIR)/lib/$(MACH64)/libpcre.so.1.2.11
 file path=$(USRDIR)/lib/$(MACH64)/libpcre16.la
-link path=$(USRDIR)/lib/$(MACH64)/libpcre16.so target=libpcre16.so.0.2.10
-link path=$(USRDIR)/lib/$(MACH64)/libpcre16.so.0 target=libpcre16.so.0.2.10
-file path=$(USRDIR)/lib/$(MACH64)/libpcre16.so.0.2.10
+link path=$(USRDIR)/lib/$(MACH64)/libpcre16.so target=libpcre16.so.0.2.11
+link path=$(USRDIR)/lib/$(MACH64)/libpcre16.so.0 target=libpcre16.so.0.2.11
+file path=$(USRDIR)/lib/$(MACH64)/libpcre16.so.0.2.11
 file path=$(USRDIR)/lib/$(MACH64)/libpcre32.la
-link path=$(USRDIR)/lib/$(MACH64)/libpcre32.so target=libpcre32.so.0.0.10
-link path=$(USRDIR)/lib/$(MACH64)/libpcre32.so.0 target=libpcre32.so.0.0.10
-file path=$(USRDIR)/lib/$(MACH64)/libpcre32.so.0.0.10
+link path=$(USRDIR)/lib/$(MACH64)/libpcre32.so target=libpcre32.so.0.0.11
+link path=$(USRDIR)/lib/$(MACH64)/libpcre32.so.0 target=libpcre32.so.0.0.11
+file path=$(USRDIR)/lib/$(MACH64)/libpcre32.so.0.0.11
 file path=$(USRDIR)/lib/$(MACH64)/libpcrecpp.la
 link path=$(USRDIR)/lib/$(MACH64)/libpcrecpp.so target=libpcrecpp.so.0.0.1
 link path=$(USRDIR)/lib/$(MACH64)/libpcrecpp.so.0 target=libpcrecpp.so.0.0.1
@@ -60,17 +60,17 @@ file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libpcre32.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libpcrecpp.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libpcreposix.pc
 file path=$(USRDIR)/lib/libpcre.la
-link path=$(USRDIR)/lib/libpcre.so target=libpcre.so.1.2.10
-link path=$(USRDIR)/lib/libpcre.so.1 target=libpcre.so.1.2.10
-file path=$(USRDIR)/lib/libpcre.so.1.2.10
+link path=$(USRDIR)/lib/libpcre.so target=libpcre.so.1.2.11
+link path=$(USRDIR)/lib/libpcre.so.1 target=libpcre.so.1.2.11
+file path=$(USRDIR)/lib/libpcre.so.1.2.11
 file path=$(USRDIR)/lib/libpcre16.la
-link path=$(USRDIR)/lib/libpcre16.so target=libpcre16.so.0.2.10
-link path=$(USRDIR)/lib/libpcre16.so.0 target=libpcre16.so.0.2.10
-file path=$(USRDIR)/lib/libpcre16.so.0.2.10
+link path=$(USRDIR)/lib/libpcre16.so target=libpcre16.so.0.2.11
+link path=$(USRDIR)/lib/libpcre16.so.0 target=libpcre16.so.0.2.11
+file path=$(USRDIR)/lib/libpcre16.so.0.2.11
 file path=$(USRDIR)/lib/libpcre32.la
-link path=$(USRDIR)/lib/libpcre32.so target=libpcre32.so.0.0.10
-link path=$(USRDIR)/lib/libpcre32.so.0 target=libpcre32.so.0.0.10
-file path=$(USRDIR)/lib/libpcre32.so.0.0.10
+link path=$(USRDIR)/lib/libpcre32.so target=libpcre32.so.0.0.11
+link path=$(USRDIR)/lib/libpcre32.so.0 target=libpcre32.so.0.0.11
+file path=$(USRDIR)/lib/libpcre32.so.0.0.11
 file path=$(USRDIR)/lib/libpcrecpp.la
 link path=$(USRDIR)/lib/libpcrecpp.so target=libpcrecpp.so.0.0.1
 link path=$(USRDIR)/lib/libpcrecpp.so.0 target=libpcrecpp.so.0.0.1
