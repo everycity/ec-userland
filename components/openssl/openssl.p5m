@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -1367,6 +1367,8 @@ link path=$(USRDIR)/share/man/man3/OBJ_txt2nid.3 target=OBJ_nid2obj.3
 link path=$(USRDIR)/share/man/man3/OBJ_txt2obj.3 target=OBJ_nid2obj.3
 file path=$(USRDIR)/share/man/man3/OPENSSL_Applink.3
 file path=$(USRDIR)/share/man/man3/OPENSSL_VERSION_NUMBER.3
+link path=$(USRDIR)/share/man/man3/OPENSSL_VERSION_TEXT.3 \
+    target=OPENSSL_VERSION_NUMBER.3
 file path=$(USRDIR)/share/man/man3/OPENSSL_config.3
 file path=$(USRDIR)/share/man/man3/OPENSSL_ia32cap.3
 link path=$(USRDIR)/share/man/man3/OPENSSL_ia32cap_loc.3 \
@@ -1892,6 +1894,8 @@ link path=$(USRDIR)/share/man/man3/SSL_get_servername.3 \
 link path=$(USRDIR)/share/man/man3/SSL_get_servername_type.3 \
     target=SSL_CTX_set_tlsext_servername_callback.3
 file path=$(USRDIR)/share/man/man3/SSL_get_session.3
+link path=$(USRDIR)/share/man/man3/SSL_get_shared_ciphers.3 \
+    target=SSL_get_ciphers.3
 link path=$(USRDIR)/share/man/man3/SSL_get_shared_curve.3 \
     target=SSL_CTX_set1_curves.3
 link path=$(USRDIR)/share/man/man3/SSL_get_shutdown.3 target=SSL_set_shutdown.3
@@ -2198,6 +2202,7 @@ file path=$(USRDIR)/share/man/man3/X509_check_host.3
 link path=$(USRDIR)/share/man/man3/X509_check_ip.3 target=X509_check_host.3
 link path=$(USRDIR)/share/man/man3/X509_check_ip_asc.3 target=X509_check_host.3
 file path=$(USRDIR)/share/man/man3/X509_check_private_key.3
+file path=$(USRDIR)/share/man/man3/X509_cmp_time.3
 link path=$(USRDIR)/share/man/man3/X509_free.3 target=X509_new.3
 file path=$(USRDIR)/share/man/man3/X509_new.3
 file path=$(USRDIR)/share/man/man3/X509_verify_cert.3

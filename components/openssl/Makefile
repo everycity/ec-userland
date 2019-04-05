@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2018, EveryCity Ltd. All rights reserved.
+# Copyright 2019, EveryCity Ltd. All rights reserved.
 #
 
 # we need JOBS=1 for this component
@@ -18,21 +18,20 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		openssl
 COMPONENT_FMRI=		library/security/openssl
-COMPONENT_VERSION=	1.0.2o
-IPS_COMPONENT_VERSION=  1.0.2.15
+COMPONENT_VERSION=	1.0.2r
+IPS_COMPONENT_VERSION=  1.0.2.18
 COMPONENT_LICENSE=	BSD
+COMPONENT_LICENSE_FILE=	$(COMPONENT_NAME).license
 COMPONENT_PROJECT_URL=	"http://www.openssl.org/"
 COMPONENT_SUMMARY=	OpenSSL - a Toolkit for Secure Sockets Layer (SSL v2/v3) and Transport Layer (TLS v1) protocols and general purpose cryptographic library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:ec3f5c9714ba0fd45cb4e087301eb1336c317e0d20b575a125050470e8089e4d
+COMPONENT_ARCHIVE_HASH=	sha256:ae51d08bba8a83958e894946f15303ff894d75c2b8bbd44a852b64e3fe11d0d6
 COMPONENT_ARCHIVE_URL=	https://www.openssl.org/source/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-
-COMPONENT_LICENSE_FILE=	$(COMPONENT_NAME).license
 
 CLEAN_PATHS +=	opensslconf.h
 
@@ -129,8 +128,6 @@ $(BUILD_DIR)/.installed:	$(BUILD_32_and_64) $(INSTALL_32)
 	$(INSTALL) $(BUILD_DIR_64)/openssl.pc $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/pkgconfig
 	(chmod +w $(PROTO_DIR)$(USRDIR)/bin/openssl $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/openssl \
 		$(PROTO_DIR)$(USRDIR)/lib/*so.* $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/*so.*)
-#	(strip $(PROTO_DIR)$(USRDIR)/bin/openssl $(PROTO_DIR)$(USRDIR)/bin/$(MACH64)/openssl \
-#		$(PROTO_DIR)$(USRDIR)/lib/*so.* $(PROTO_DIR)$(USRDIR)/lib/$(MACH64)/*so.*)
 	# Note: OpenSSL generates a header file, include/openssl/opensslconf.h
 	# This header file is different depending on 32bit or 64bit build
 	$(ECHO) -e "/* EC: combining 32 and 64bit versions */\n\n#if (defined (__x86_64__))\n" > $(COMPONENT_DIR)/opensslconf.h
