@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2011,2012 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gmp
 COMPONENT_FMRI=		library/gmp
-COMPONENT_VERSION=	5.1.2
+COMPONENT_VERSION=	6.1.2
 COMPONENT_LICENSE=	LGPLv3
 COMPONENT_PROJECT_URL=	http://www.gmplib.org/
 COMPONENT_SUMMARY=	The GNU Multiple Precision (Bignum) Library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:2099deea64ef3e58ac2b42eaaa0286c3231430a8e893359d806bfa31611c1b8f
-COMPONENT_ARCHIVE_URL=	ftp://ftp.gmplib.org/pub/$(COMPONENT_NAME)-$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:5275bb04f4863a13516b2f39392ac5e272f5e1bb8057b18aec1c9b79d73d8fb2
+COMPONENT_ARCHIVE_URL=	https://gmplib.org/download/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

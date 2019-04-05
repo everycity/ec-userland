@@ -5,6 +5,6 @@ includedir=${prefix}/include
 
 Name: libgmpxx
 Description: The GNU Multiple Precision Bignum Library
-Version: 4.3.2
+Version: 6.1.2
 Libs: -L${libdir} -lgmp -lgmpxx
 Cflags: -I${includedir}
