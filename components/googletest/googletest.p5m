@@ -1,0 +1,109 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2019 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+
+dir  path=$(USRDIR)/include/gmock
+file path=$(USRDIR)/include/gmock/gmock-actions.h
+file path=$(USRDIR)/include/gmock/gmock-cardinalities.h
+file path=$(USRDIR)/include/gmock/gmock-generated-actions.h
+file path=$(USRDIR)/include/gmock/gmock-generated-actions.h.pump
+file path=$(USRDIR)/include/gmock/gmock-generated-function-mockers.h
+file path=$(USRDIR)/include/gmock/gmock-generated-function-mockers.h.pump
+file path=$(USRDIR)/include/gmock/gmock-generated-matchers.h
+file path=$(USRDIR)/include/gmock/gmock-generated-matchers.h.pump
+file path=$(USRDIR)/include/gmock/gmock-generated-nice-strict.h
+file path=$(USRDIR)/include/gmock/gmock-generated-nice-strict.h.pump
+file path=$(USRDIR)/include/gmock/gmock-matchers.h
+file path=$(USRDIR)/include/gmock/gmock-more-actions.h
+file path=$(USRDIR)/include/gmock/gmock-more-matchers.h
+file path=$(USRDIR)/include/gmock/gmock-spec-builders.h
+file path=$(USRDIR)/include/gmock/gmock.h
+dir  path=$(USRDIR)/include/gmock/internal
+dir  path=$(USRDIR)/include/gmock/internal/custom
+file path=$(USRDIR)/include/gmock/internal/custom/README.md
+file path=$(USRDIR)/include/gmock/internal/custom/gmock-generated-actions.h
+file path=$(USRDIR)/include/gmock/internal/custom/gmock-generated-actions.h.pump
+file path=$(USRDIR)/include/gmock/internal/custom/gmock-matchers.h
+file path=$(USRDIR)/include/gmock/internal/custom/gmock-port.h
+file path=$(USRDIR)/include/gmock/internal/gmock-generated-internal-utils.h
+file path=$(USRDIR)/include/gmock/internal/gmock-generated-internal-utils.h.pump
+file path=$(USRDIR)/include/gmock/internal/gmock-internal-utils.h
+file path=$(USRDIR)/include/gmock/internal/gmock-port.h
+dir  path=$(USRDIR)/include/gtest
+file path=$(USRDIR)/include/gtest/gtest-death-test.h
+file path=$(USRDIR)/include/gtest/gtest-message.h
+file path=$(USRDIR)/include/gtest/gtest-param-test.h
+file path=$(USRDIR)/include/gtest/gtest-param-test.h.pump
+file path=$(USRDIR)/include/gtest/gtest-printers.h
+file path=$(USRDIR)/include/gtest/gtest-spi.h
+file path=$(USRDIR)/include/gtest/gtest-test-part.h
+file path=$(USRDIR)/include/gtest/gtest-typed-test.h
+file path=$(USRDIR)/include/gtest/gtest.h
+file path=$(USRDIR)/include/gtest/gtest_pred_impl.h
+file path=$(USRDIR)/include/gtest/gtest_prod.h
+dir  path=$(USRDIR)/include/gtest/internal
+dir  path=$(USRDIR)/include/gtest/internal/custom
+file path=$(USRDIR)/include/gtest/internal/custom/README.md
+file path=$(USRDIR)/include/gtest/internal/custom/gtest-port.h
+file path=$(USRDIR)/include/gtest/internal/custom/gtest-printers.h
+file path=$(USRDIR)/include/gtest/internal/custom/gtest.h
+file path=$(USRDIR)/include/gtest/internal/gtest-death-test-internal.h
+file path=$(USRDIR)/include/gtest/internal/gtest-filepath.h
+file path=$(USRDIR)/include/gtest/internal/gtest-internal.h
+file path=$(USRDIR)/include/gtest/internal/gtest-linked_ptr.h
+file path=$(USRDIR)/include/gtest/internal/gtest-param-util-generated.h
+file path=$(USRDIR)/include/gtest/internal/gtest-param-util-generated.h.pump
+file path=$(USRDIR)/include/gtest/internal/gtest-param-util.h
+file path=$(USRDIR)/include/gtest/internal/gtest-port-arch.h
+file path=$(USRDIR)/include/gtest/internal/gtest-port.h
+file path=$(USRDIR)/include/gtest/internal/gtest-string.h
+file path=$(USRDIR)/include/gtest/internal/gtest-tuple.h
+file path=$(USRDIR)/include/gtest/internal/gtest-tuple.h.pump
+file path=$(USRDIR)/include/gtest/internal/gtest-type-util.h
+file path=$(USRDIR)/include/gtest/internal/gtest-type-util.h.pump
+dir  path=$(USRDIR)/lib/$(MACH64)/cmake/GTest
+file path=$(USRDIR)/lib/$(MACH64)/cmake/GTest/GTestConfig.cmake
+file path=$(USRDIR)/lib/$(MACH64)/cmake/GTest/GTestConfigVersion.cmake
+file path=$(USRDIR)/lib/$(MACH64)/cmake/GTest/GTestTargets-noconfig.cmake
+file path=$(USRDIR)/lib/$(MACH64)/cmake/GTest/GTestTargets.cmake
+file path=$(USRDIR)/lib/$(MACH64)/libgmock.so
+file path=$(USRDIR)/lib/$(MACH64)/libgmock_main.so
+file path=$(USRDIR)/lib/$(MACH64)/libgtest.so
+file path=$(USRDIR)/lib/$(MACH64)/libgtest_main.so
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/gmock.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/gmock_main.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/gtest.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/gtest_main.pc
+dir  path=$(USRDIR)/lib/cmake/GTest
+file path=$(USRDIR)/lib/cmake/GTest/GTestConfig.cmake
+file path=$(USRDIR)/lib/cmake/GTest/GTestConfigVersion.cmake
+file path=$(USRDIR)/lib/cmake/GTest/GTestTargets-noconfig.cmake
+file path=$(USRDIR)/lib/cmake/GTest/GTestTargets.cmake
+file path=$(USRDIR)/lib/libgmock.so
+file path=$(USRDIR)/lib/libgmock_main.so
+file path=$(USRDIR)/lib/libgtest.so
+file path=$(USRDIR)/lib/libgtest_main.so
+file path=$(USRDIR)/lib/pkgconfig/gmock.pc
+file path=$(USRDIR)/lib/pkgconfig/gmock_main.pc
+file path=$(USRDIR)/lib/pkgconfig/gtest.pc
+file path=$(USRDIR)/lib/pkgconfig/gtest_main.pc
