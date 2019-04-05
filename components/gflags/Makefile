@@ -9,35 +9,35 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gflags
 COMPONENT_FMRI=         library/gflags
-COMPONENT_VERSION=      2.1.2
+COMPONENT_VERSION=      2.2.2
 COMPONENT_LICENSE=      BSD3CLAUSE
+COMPONENT_LICENSE_FILE=	COPYING.txt
 COMPONENT_PROJECT_URL=  "https://gflags.github.io/gflags/"
 COMPONENT_SUMMARY=	C++ library that implements commandline flags processing
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:d8331bd0f7367c8afd5fcb5f5e85e96868a00fd24b7276fa5fcee1e5575c2662
-COMPONENT_ARCHIVE_URL=	https://github.com/gflags/gflags/archive/v2.1.2.tar.gz
+COMPONENT_ARCHIVE=	v$(COMPONENT_VERSION).tar.gz
+COMPONENT_ARCHIVE_HASH=	sha256:34af2f15cf7367513b352bdcd2493ab14ce43692d2dcd9dfc499492966c64dcf
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GITHUB1)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_LICENSE_FILE=	COPYING.txt
-
 CMAKE= cmake
 
-CMAKE_OPTIONS+= -DCMAKE_RELEASE_TYPE=Release
+CMAKE_LIBDIR.32 =       lib
+CMAKE_LIBDIR.64 =       lib/$(MACH64)
+
 CMAKE_OPTIONS+= -DCMAKE_INSTALL_PREFIX=$(USRDIR)
+CMAKE_OPTIONS+=	-DGFLAGS_LIBRARY_INSTALL_DIR=$(CMAKE_LIBDIR.$(BITS))
 CMAKE_OPTIONS+= -DBUILD_SHARED_LIBS=ON
-CMAKE_OPTIONS+= -DINSTALL_BINDIR=$(CONFIGURE_BINDIR.$(BITS))
-CMAKE_OPTIONS+= -DINSTALL_LIBDIR=$(CONFIGURE_LIBDIR.$(BITS))
 
 $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
 	($(RM) -rf $(@D) ; $(MKDIR) $(@D))
@@ -49,4 +49,3 @@ $(BUILD_DIR)/%/.configured:     $(SOURCE_DIR)/.prep
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)
-

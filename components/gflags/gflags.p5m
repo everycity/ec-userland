@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -22,26 +22,42 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/bin
 file path=$(USRDIR)/bin/gflags_completions.sh
-dir  path=$(USRDIR)/include
 dir  path=$(USRDIR)/include/gflags
 file path=$(USRDIR)/include/gflags/gflags.h
 file path=$(USRDIR)/include/gflags/gflags_completions.h
 file path=$(USRDIR)/include/gflags/gflags_declare.h
 file path=$(USRDIR)/include/gflags/gflags_gflags.h
-dir  path=$(USRDIR)/lib
-dir  path=$(USRDIR)/lib/cmake
+dir  path=$(USRDIR)/lib/$(MACH64)/cmake/gflags
+file path=$(USRDIR)/lib/$(MACH64)/cmake/gflags/gflags-config-version.cmake
+file path=$(USRDIR)/lib/$(MACH64)/cmake/gflags/gflags-config.cmake
+file path=$(USRDIR)/lib/$(MACH64)/cmake/gflags/gflags-nonamespace-targets-noconfig.cmake
+file path=$(USRDIR)/lib/$(MACH64)/cmake/gflags/gflags-nonamespace-targets.cmake
+file path=$(USRDIR)/lib/$(MACH64)/cmake/gflags/gflags-targets-noconfig.cmake
+file path=$(USRDIR)/lib/$(MACH64)/cmake/gflags/gflags-targets.cmake
+link path=$(USRDIR)/lib/$(MACH64)/libgflags.so target=libgflags.so.2.2
+file path=$(USRDIR)/lib/$(MACH64)/libgflags.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/$(MACH64)/libgflags.so.2.2 \
+    target=libgflags.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/$(MACH64)/libgflags_nothreads.so \
+    target=libgflags_nothreads.so.2.2
+file path=$(USRDIR)/lib/$(MACH64)/libgflags_nothreads.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/$(MACH64)/libgflags_nothreads.so.2.2 \
+    target=libgflags_nothreads.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/gflags.pc
 dir  path=$(USRDIR)/lib/cmake/gflags
 file path=$(USRDIR)/lib/cmake/gflags/gflags-config-version.cmake
 file path=$(USRDIR)/lib/cmake/gflags/gflags-config.cmake
-file path=$(USRDIR)/lib/cmake/gflags/gflags-export-noconfig.cmake
-file path=$(USRDIR)/lib/cmake/gflags/gflags-export.cmake
-link path=$(USRDIR)/lib/libgflags.so target=libgflags.so.2
+file path=$(USRDIR)/lib/cmake/gflags/gflags-nonamespace-targets-noconfig.cmake
+file path=$(USRDIR)/lib/cmake/gflags/gflags-nonamespace-targets.cmake
+file path=$(USRDIR)/lib/cmake/gflags/gflags-targets-noconfig.cmake
+file path=$(USRDIR)/lib/cmake/gflags/gflags-targets.cmake
+link path=$(USRDIR)/lib/libgflags.so target=libgflags.so.2.2
 file path=$(USRDIR)/lib/libgflags.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libgflags.so.2 target=libgflags.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libgflags_nothreads.so target=libgflags_nothreads.so.2
+link path=$(USRDIR)/lib/libgflags.so.2.2 \
+    target=libgflags.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libgflags_nothreads.so target=libgflags_nothreads.so.2.2
 file path=$(USRDIR)/lib/libgflags_nothreads.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libgflags_nothreads.so.2 \
+link path=$(USRDIR)/lib/libgflags_nothreads.so.2.2 \
     target=libgflags_nothreads.so.$(COMPONENT_VERSION)
+file path=$(USRDIR)/lib/pkgconfig/gflags.pc
