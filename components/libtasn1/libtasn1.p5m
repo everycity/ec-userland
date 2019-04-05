@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -31,15 +31,15 @@ file path=$(USRDIR)/bin/asn1Parser
 file path=$(USRDIR)/include/libtasn1.h
 file path=$(USRDIR)/lib/$(MACH64)/libtasn1.a
 file path=$(USRDIR)/lib/$(MACH64)/libtasn1.la
-link path=$(USRDIR)/lib/$(MACH64)/libtasn1.so target=libtasn1.so.6.5.3
-link path=$(USRDIR)/lib/$(MACH64)/libtasn1.so.6 target=libtasn1.so.6.5.3
-file path=$(USRDIR)/lib/$(MACH64)/libtasn1.so.6.5.3
+link path=$(USRDIR)/lib/$(MACH64)/libtasn1.so target=libtasn1.so.6.5.5
+link path=$(USRDIR)/lib/$(MACH64)/libtasn1.so.6 target=libtasn1.so.6.5.5
+file path=$(USRDIR)/lib/$(MACH64)/libtasn1.so.6.5.5
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libtasn1.pc
 file path=$(USRDIR)/lib/libtasn1.a
 file path=$(USRDIR)/lib/libtasn1.la
-link path=$(USRDIR)/lib/libtasn1.so target=libtasn1.so.6.5.3
-link path=$(USRDIR)/lib/libtasn1.so.6 target=libtasn1.so.6.5.3
-file path=$(USRDIR)/lib/libtasn1.so.6.5.3
+link path=$(USRDIR)/lib/libtasn1.so target=libtasn1.so.6.5.5
+link path=$(USRDIR)/lib/libtasn1.so.6 target=libtasn1.so.6.5.5
+file path=$(USRDIR)/lib/libtasn1.so.6.5.5
 file path=$(USRDIR)/lib/pkgconfig/libtasn1.pc
 file path=$(USRDIR)/share/info/libtasn1.info
 file path=$(USRDIR)/share/man/man1/asn1Coding.1
