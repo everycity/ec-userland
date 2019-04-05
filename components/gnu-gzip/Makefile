@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2011-2013 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gzip
 COMPONENT_FMRI=		compress/gnu-gzip
-COMPONENT_VERSION=	1.5
+COMPONENT_VERSION=	1.10
 COMPONENT_LICENSE=	GPLv3
 COMPONENT_PROJECT_URL=	http://www.gnu.org/software/gzip/
 COMPONENT_SUMMARY=	The GNU Zip (gzip) compression utility
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:b5d56e8ffc9918e8c941fab56e04121194f9870adeeb859e09c09eac264035a3
+COMPONENT_ARCHIVE_HASH=	sha256:c91f74430bf7bc20402e1f657d0b252cb80aa66ba333a25704512af346633c68
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include $(WS_TOP)/make-rules/prep.mk
