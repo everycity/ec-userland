@@ -74,11 +74,12 @@ endif
 
 build install publish test: $(COMPONENT_DIRS)
 
-COMPONENT_DIRS.nosetup =	$(COMPONENT_DIRS:%=%.nosetup)
+COMPONENT_DIRS.nosetup=	$(COMPONENT_DIRS:%=%.nosetup)
+COMPONENT_DIRS.quick=	$(COMPONENT_DIRS:%=%.quick)
 
 download prep:	$(WS_ARCHIVES) $(COMPONENT_DIRS.nosetup)
 
-clean:		$(COMPONENT_DIRS.nosetup)
+clean:		$(COMPONENT_DIRS.quick)
 	$(RM) components.mk depends.mk .profile
 
 clobber:	$(COMPONENT_DIRS.nosetup) clean
@@ -148,5 +149,8 @@ $(COMPONENT_DIRS.nosetup):	$(WS_LOGS) FORCE
 	@cd $(@:%.nosetup=%) && echo "$(TARGET) $(@:%.nosetup=%)" && \
 	 $(BASS_O_MATIC) $(TEMPLATE_ZONE:%=--template-zone %) \
 			 $(@:%.nosetup=--component %) --make $(TARGET) $(LOG)
+
+$(COMPONENT_DIRS.quick):	$(WS_LOGS) FORCE
+	@cd $(@:%.quick=%) && echo "$(TARGET) $(@:%.quick=%)" && make $(TARGET) $(LOG)
 
 FORCE:
