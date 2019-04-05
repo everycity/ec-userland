@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -17,19 +17,19 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=		libedit
 COMPONENT_FMRI=         library/libedit
 COMPONENT_VERSION=      3.1
+COMPONENT_DATE=		20181209
+IPS_COMPONENT_VERSION=	$(COMPONENT_VERSION).$(COMPONENT_DATE)
 COMPONENT_LICENSE=      BSD
 COMPONENT_PROJECT_URL=  "http://thrysoee.dk/editline/"
 COMPONENT_SUMMARY=	CLI editor library providing line editing, history, and tokenization functions, similar to those found in GNU Readline
-COMPONENT_SRC=		$(COMPONENT_NAME)-20141029-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_NAME)-20141030-$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:9701e16570fb8f7fa407b506986652221b701a9dd61defc05bb7d1c61cdf5a40
+COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_DATE)-$(COMPONENT_VERSION)
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
+COMPONENT_ARCHIVE_HASH=	sha256:2811d70c0b000f2ca91b7cb1a37203134441743c4fcc9c37b0b687f328611064
 COMPONENT_ARCHIVE_URL=	http://thrysoee.dk/editline/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-
-#CONFIGURE_OPTIONS+=	
 
 build:		$(BUILD_32_and_64)
 
