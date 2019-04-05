@@ -1,0 +1,39 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2018 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+
+dir  path=$(USRDIR)/include/ev
+file path=$(USRDIR)/include/ev/ev++.h
+file path=$(USRDIR)/include/ev/ev.h
+file path=$(USRDIR)/include/ev/event.h
+file path=$(USRDIR)/lib/$(MACH64)/libev.a
+file path=$(USRDIR)/lib/$(MACH64)/libev.la
+link path=$(USRDIR)/lib/$(MACH64)/libev.so target=libev.so.4.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libev.so.4 target=libev.so.4.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libev.so.4.0.0
+file path=$(USRDIR)/lib/libev.a
+file path=$(USRDIR)/lib/libev.la
+link path=$(USRDIR)/lib/libev.so target=libev.so.4.0.0
+link path=$(USRDIR)/lib/libev.so.4 target=libev.so.4.0.0
+file path=$(USRDIR)/lib/libev.so.4.0.0
+file path=$(USRDIR)/share/man/man3/ev.3
