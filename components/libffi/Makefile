@@ -9,17 +9,21 @@
 #
 
 #
-# Copyright 2011-2013, EveryCity Ltd. All rights reserved.
+# Copyright 2019, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libffi
-COMPONENT_VERSION=	3.0.13
+COMPONENT_FMRI=		library/libffi
+COMPONENT_VERSION=	3.2.1
+COMPONENT_LICENSE=	MIT
+COMPONENT_LICENSE_FILE=	LICENSE
+COMPONENT_PROJECT_URL=	http://sourceware.org/libffi/
+COMPONENT_SUMMARY=	Foreign Function Interface Library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_PROJECT_URL=	http://sources.redhat.com/libffi/
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:1dddde1400c3bcb7749d398071af88c3e4754058d2d4c0b3696c2f82dc5cf11c
+COMPONENT_ARCHIVE_HASH=	sha256:d06ebb8e1d9a22d19e38d63fdb83954253f39bedc5d46232a05645685722ca37
 COMPONENT_ARCHIVE_URL=	http://www.mirrorservice.org/sites/sources.redhat.com/pub/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
