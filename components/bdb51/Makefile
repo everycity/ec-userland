@@ -9,24 +9,35 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		db
-COMPONENT_VERSION=	5.1.25
+COMPONENT_FMRI=		database/berkeleydb-51
+COMPONENT_VERSION_MJR=	5.1
+COMPONENT_VERSION_MNR=	29
+COMPONENT_VERSION=	$(COMPONENT_VERSION_MJR).$(COMPONENT_VERSION_MNR)
+COMPONENT_LICENSE=	BSD
+COMPONENT_LICENSE_FILE=	LICENSE
+COMPONENT_PROJECT_URL=	"http://www.oracle.com/technetwork/database/berkeleydb/"
+COMPONENT_SUMMARY=	Berkeley DB library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:1a216821957ce910a269bf9916bf49aba0f08b4d
-COMPONENT_ARCHIVE_URL=	http://ftp.freebsd.org/pub/FreeBSD/ports/distfiles/bdb/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:a943cb4920e62df71de1069ddca486d408f6d7a09ddbbb5637afe7a229389182
+COMPONENT_ARCHIVE_URL=	http://download.oracle.com/berkeley-db/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CONFIGURE_SCRIPT=	$(SOURCE_DIR)/dist/configure
-COMPONENT_INSTALL_ARGS  += docdir=$(USRDIR)/share/doc/$(COMPONENT_NAME)-$(COMPONENT_VERSION)
+
+CONFIGURE_OPTIONS+=	--includedir=$(USRINCDIR)/$(COMPONENT_NAME)-$(COMPONENT_VERSION_MJR)
+CONFIGURE_OPTIONS+=	--program-suffix=-$(COMPONENT_VERSION_MJR)
+
+COMPONENT_INSTALL_ARGS+=	docdir=$(USRDIR)/share/doc/$(COMPONENT_NAME)-$(COMPONENT_VERSION_MJR)
 
 build:		$(BUILD_32_and_64)
 
