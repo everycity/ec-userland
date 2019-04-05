@@ -9,13 +9,13 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ca-bundle
 COMPONENT_FMRI=		crypto/ca-bundle
-COMPONENT_VERSION=	2017.1.18
+COMPONENT_VERSION=	2019.1.23
 COMPONENT_LICENSE=	MPL 2.0
 COMPONENT_PROJECT_URL=	"https://curl.haxx.se/docs/caextract.html"
 COMPONENT_ARCHIVE_URL=	https://curl.haxx.se/ca/cacert.pem
