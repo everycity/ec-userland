@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2018 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -23,7 +23,9 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 file path=$(USRDIR)/bin/$(MACH64)/gpatch
+link path=$(USRDIR)/bin/$(MACH64)/patch target=gpatch
 file path=$(USRDIR)/bin/gpatch
-file path=$(USRDIR)/share/man/man1/gpatch.1
 link path=$(USRDIR)/bin/patch target=gpatch
+file path=$(USRDIR)/lib/$(MACH64)/charset.alias
+file path=$(USRDIR)/share/man/man1/gpatch.1
 link path=$(USRDIR)/share/man/man1/patch.1 target=gpatch.1

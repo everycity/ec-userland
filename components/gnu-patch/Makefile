@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2018 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -29,14 +29,15 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-CONFIGURE_OPTIONS  +=           --program-prefix=g
+CONFIGURE_OPTIONS +=	--program-prefix=g
 
 build:		$(BUILD_32_and_64)
 
-include ../../make-rules/shared-targets.mk
+$(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
+	cd $(PROTOUSRBINDIR) && $(SYMLINK) gpatch patch
+	cd $(PROTOUSRBINDIR64) && $(SYMLINK) gpatch patch
+	cd $(PROTOUSRSHAREMAN1DIR) && $(SYMLINK) gpatch.1 patch.1
+	$(TOUCH) $@
 
-install:	$(INSTALL_32_and_64)
+install:	$(BUILD_DIR)/.installed
 
-BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
-
-include ../../make-rules/depend.mk
