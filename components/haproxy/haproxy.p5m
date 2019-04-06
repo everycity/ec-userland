@@ -51,4 +51,5 @@ file path=$(USRDIR)/share/doc/haproxy/network-namespaces.txt
 file path=$(USRDIR)/share/doc/haproxy/peers-v2.0.txt
 file path=$(USRDIR)/share/doc/haproxy/peers.txt
 file path=$(USRDIR)/share/doc/haproxy/proxy-protocol.txt
+file path=$(USRDIR)/share/doc/haproxy/regression-testing.txt
 file path=$(USRDIR)/share/man/man1/haproxy.1
