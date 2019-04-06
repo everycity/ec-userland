@@ -9,21 +9,22 @@
 #
 
 #
-# Copyright 2011-2014 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 CONFIGURE_DEFAULT_CPPFLAGS = yes
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		mpc
 COMPONENT_FMRI=		library/mpc
-COMPONENT_VERSION=	1.0.1
-COMPONENT_LICENSE=	LGPLv2.1
+COMPONENT_VERSION=	1.1.0
+COMPONENT_LICENSE=	LGPLv3
+COMPONENT_LICENSE_FILE=	COPYING.LESSER
 COMPONENT_PROJECT_URL=	http://www.multiprecision.org/
 COMPONENT_SUMMARY=	A C library for the arithmetic of complex numbers with arbitrarily high precision and correct rounding
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:ed5a815cfea525dc778df0cb37468b9c1b554aaf30d9328b1431ca705b7400ff
-COMPONENT_ARCHIVE_URL=	http://www.multiprecision.org/mpc/download/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:6985c538143c1208dcb1ac42cedad6ff52e267b47e5f970183a3e75125b43c2e
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
@@ -31,11 +32,10 @@ include ../../make-rules/ips.mk
 
 CPPFLAGS += $(CPP_LARGEFILES)
 
-CONFIGURE_OPTIONS  +=		--infodir=$(CONFIGURE_INFODIR)
-CONFIGURE_OPTIONS  +=		--disable-static
-CONFIGURE_OPTIONS  +=		--with-pic
+CONFIGURE_OPTIONS += --infodir=$(CONFIGURE_INFODIR)
+CONFIGURE_OPTIONS += --disable-static
+CONFIGURE_OPTIONS += --with-pic
 
-# common targets
 build:		$(BUILD_32_and_64)
 
 install:	$(INSTALL_32_and_64)	
