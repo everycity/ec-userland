@@ -9,22 +9,22 @@
 #
 
 #
-# Copyright 2018 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		boost
 COMPONENT_FMRI=		library/boost
-COMPONENT_VERSION=	1.66.0
-COMPONENT_OTHER_VERSION= 1_66_0
+COMPONENT_VERSION=	1.69.0
+COMPONENT_OTHER_VERSION= 1_69_0
 COMPONENT_LICENSE=	Boost Software License v1.0
 COMPONENT_LICENSE_FILE=	LICENSE_1_0.txt
 COMPONENT_PROJECT_URL=	"http://www.boost.org/"
 COMPONENT_SUMMARY=	Boost C++ Libraries
 COMPONENT_SRC=		$(COMPONENT_NAME)_$(COMPONENT_OTHER_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:5721818253e6a0989583192f96782c4a98eb6204965316df9f5ad75819225ca9
+COMPONENT_ARCHIVE_HASH=	sha256:8f32d4617390d1c2d16f26a27ab60d97807b35440d45891fa340fc2648b04406
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF2)
 
 include ../../make-rules/prep.mk
@@ -32,7 +32,7 @@ include ../../make-rules/justmake.mk
 include ../../make-rules/ips.mk
 
 #CFLAGS +=	-std=c99
-CXXFLAGS +=	-std=c++0x
+CXXFLAGS +=	-std=c++14 $(CPPFLAGS)
 COMPONENT_BUILD_ENV += CC="$(CC)" CXX="$(CXX)" CPPFLAGS="$(CPPFLAGS)" CFLAGS="$(CFLAGS)" CXXFLAGS="$(CXXFLAGS)" LDFLAGS="$(LDFLAGS)"
 
 LIBDIR.32= $(USRDIR)/lib
@@ -46,7 +46,7 @@ BJAM=./b2 --v2 -d+2 -j4 -q address-model=$(BITS) \
     --libdir=$(PROTO_DIR)$(LIBDIR)
 
 COMPONENT_PRE_BUILD_ACTION = cd $(@D); \
-	echo 'using gcc : 4.8.5 : $(CXX) : <cflags>"$(CFLAGS) $(CC_PIC) -pthreads" <cxxflags>"$(CXXFLAGS) $(CC_PIC)" <linkflags>"$(LDFLAGS)" ;' > ./user-config.jam; \
+	echo 'using gcc : 8.2.0 : $(CXX) : <cflags>"$(CFLAGS) $(CC_PIC) -pthreads" <cxxflags>"$(CXXFLAGS) $(CC_PIC)" <linkflags>"$(LDFLAGS)" ;' > ./user-config.jam; \
 	$(ENV) $(COMPONENT_BUILD_ENV) ./bootstrap.sh --prefix=$(USRDIR) --libdir=$(LIBDIR) --with-toolset=gcc --with-icu=$(USRDIR); \
 	$(BJAM) release stage
 

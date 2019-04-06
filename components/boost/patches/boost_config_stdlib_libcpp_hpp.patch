@@ -2,7 +2,7 @@ $NetBSD: patch-boost_config_stdlib_libcpp.hpp,v 1.5 2017/01/01 15:32:47 adam Exp
 
 --- a/boost/config/stdlib/libcpp.hpp.orig	2017-01-01 02:18:57.000000000 +0000
 +++ b/boost/config/stdlib/libcpp.hpp
-@@ -73,6 +73,8 @@
+@@ -75,6 +75,8 @@
  #  define BOOST_NO_CXX11_HDR_FUTURE
  #endif
  
