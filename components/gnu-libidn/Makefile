@@ -9,19 +9,21 @@
 #
 
 #
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libidn
-COMPONENT_VERSION=	1.23
-COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
+COMPONENT_FMRI=		library/libidn
+COMPONENT_VERSION=	1.35
+COMPONENT_LICENSE=	GPLv3
 COMPONENT_PROJECT_URL=	http://www.gnu.org/software/libidn/
+COMPONENT_SUMMARY=	A fully documented implementation of the Stringprep, Punycode and IDNA specifications for the purpose of encoding and decoding internationalized domain names
+COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:98b00aeb8240a7a6e02f338edd6ef08adbc31a34
-#COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
-COMPONENT_ARCHIVE_URL=	http://ftp.gnu.org/gnu/libidn/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:f11af1005b46b7b15d057d7f107315a1ad46935c7fcdf243c16e46ec14f0fe1e
+COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
