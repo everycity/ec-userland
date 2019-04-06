@@ -9,24 +9,26 @@
 #
 
 #
-# Copyright 2011-2013 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libiconv
 COMPONENT_FMRI=		library/gnu-libiconv
-COMPONENT_VERSION=	1.14
-COMPONENT_LICENSE=	GPLv3
+COMPONENT_VERSION=	1.15
+COMPONENT_LICENSE=	GPLv3,LGPLv2
 COMPONENT_PROJECT_URL=	http://www.gnu.org/software/libiconv/
 COMPONENT_SUMMARY=	Library used to convert between different character encodings
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:72b24ded17d687193c3366d0ebe7cde1e6b18f0df8c55438ac95be39e8a30613
+COMPONENT_ARCHIVE_HASH=	sha256:ccf536620a45458d26ba83887a983b96827001e92a13847b45e4925cc8913178
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/configure.mk
 include $(WS_TOP)/make-rules/ips.mk
+
+CONFIGURE_OPTIONS+=	--docdir=$(USRSHAREDOCDIR)/libiconv
 
 build:		$(BUILD_32_and_64)
 
