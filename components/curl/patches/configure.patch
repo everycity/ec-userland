@@ -1,6 +1,6 @@
 --- curl-7.59.0/configure.~1~	2018-03-12 22:47:13.000000000 +0000
 +++ curl-7.59.0/configure	2018-04-18 09:45:07.995730010 +0000
-@@ -3847,6 +3847,7 @@
+@@ -3746,6 +3746,7 @@
          ;;
      esac
    done
@@ -8,7 +8,7 @@
    if test $xc_bad_var_cflags = yes; then
      { $as_echo "$as_me:${as_lineno-$LINENO}: using CFLAGS: $CFLAGS" >&5
  $as_echo "$as_me: using CFLAGS: $CFLAGS" >&6;}
-@@ -17182,7 +17183,7 @@
+@@ -16931,7 +16932,7 @@
  
  
        #
@@ -17,7 +17,7 @@
      #
      if test "$compiler_id" = "GNU_C" ||
        test "$compiler_id" = "CLANG"; then
-@@ -17505,13 +17506,6 @@
+@@ -17259,13 +17260,6 @@
        tmp_options="$flags_dbg_off"
      fi
      #
@@ -31,7 +31,7 @@
      squeeze CPPFLAGS
      squeeze CFLAGS
  
-@@ -19145,7 +19139,7 @@
+@@ -18933,7 +18927,7 @@
    tst_cflags="no"
    case $host_os in
      darwin*)
@@ -40,7 +40,7 @@
        ;;
    esac
  
-@@ -22070,7 +22064,11 @@
+@@ -21934,7 +21928,11 @@
       if test -n "$host_alias" -a -f "$GSSAPI_ROOT/bin/$host_alias-krb5-config"; then
          GSSAPI_INCS=`$GSSAPI_ROOT/bin/$host_alias-krb5-config --cflags gssapi`
       elif test -f "$KRB5CONFIG"; then
@@ -53,7 +53,7 @@
       elif test "$GSSAPI_ROOT" != "yes"; then
          GSSAPI_INCS="-I$GSSAPI_ROOT/include"
       fi
-@@ -22102,7 +22100,7 @@
+@@ -21966,7 +21964,7 @@
  
  done
  
@@ -62,7 +62,7 @@
  do :
    as_ac_Header=`$as_echo "ac_cv_header_$ac_header" | $as_tr_sh`
  ac_fn_c_check_header_compile "$LINENO" "$ac_header" "$as_ac_Header" "
-@@ -22152,8 +22150,7 @@
+@@ -22016,8 +22014,7 @@
  
  
  #include <gssapi/gssapi.h>
@@ -72,7 +72,7 @@
  
  int main (void)
  {
-@@ -22215,7 +22212,11 @@
+@@ -22079,7 +22076,11 @@
                                   gss_libs=`$GSSAPI_ROOT/bin/$host_alias-krb5-config --libs gssapi`
             LIBS="$gss_libs $LIBS"
          elif test -f "$KRB5CONFIG"; then
@@ -85,7 +85,7 @@
             LIBS="$gss_libs $LIBS"
          else
             case $host in
-@@ -22243,7 +22245,7 @@
+@@ -22107,7 +22108,7 @@
          LIBS="-lgss $LIBS"
          ;;
       *)
