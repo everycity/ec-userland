@@ -22,18 +22,18 @@
 #
 # Copyright (c) 2012, Igor Kozhukhov <ikozhukhov@gmail.com>.  All rights reserved.
 # Copyright (c) 2011, 2013, Oracle and/or its affiliates. All rights reserved.
-# Copyright 2016 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libxslt
-COMPONENT_VERSION=	1.1.29
+COMPONENT_VERSION=	1.1.33
 COMPONENT_PROJECT_URL=	http://xmlsoft.org/XSLT/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:b5976e3857837e7617b29f2249ebb5eeac34e249208d31f1fbf7a6ba7a4090ce
-COMPONENT_ARCHIVE_URL=	ftp://xmlsoft.org/libxslt/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:8e36605144409df979cab43d835002f63988f3dc94d5d3537c12796db90e38c8
+COMPONENT_ARCHIVE_URL=	ftp://xmlsoft.org/libxml2/$(COMPONENT_ARCHIVE)
 COMPONENT_BUGDB=	library/libxslt
 
 include ../../make-rules/prep.mk

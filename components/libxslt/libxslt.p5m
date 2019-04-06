@@ -63,9 +63,9 @@ file path=$(USRDIR)/include/libxslt/xsltexports.h
 file path=$(USRDIR)/include/libxslt/xsltlocale.h
 file path=$(USRDIR)/include/libxslt/xsltutils.h
 file path=$(USRDIR)/lib/$(MACH64)/libexslt.la
-link path=$(USRDIR)/lib/$(MACH64)/libexslt.so target=libexslt.so.0.8.17
-link path=$(USRDIR)/lib/$(MACH64)/libexslt.so.0 target=libexslt.so.0.8.17
-file path=$(USRDIR)/lib/$(MACH64)/libexslt.so.0.8.17
+link path=$(USRDIR)/lib/$(MACH64)/libexslt.so target=libexslt.so.0.8.20
+link path=$(USRDIR)/lib/$(MACH64)/libexslt.so.0 target=libexslt.so.0.8.20
+file path=$(USRDIR)/lib/$(MACH64)/libexslt.so.0.8.20
 dir  path=$(USRDIR)/lib/$(MACH64)/libxslt-plugins
 file path=$(USRDIR)/lib/$(MACH64)/libxslt.la
 link path=$(USRDIR)/lib/$(MACH64)/libxslt.so \
@@ -77,9 +77,9 @@ file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libexslt.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libxslt.pc
 file path=$(USRDIR)/lib/$(MACH64)/xsltConf.sh
 file path=$(USRDIR)/lib/libexslt.la
-link path=$(USRDIR)/lib/libexslt.so target=libexslt.so.0.8.17
-link path=$(USRDIR)/lib/libexslt.so.0 target=libexslt.so.0.8.17
-file path=$(USRDIR)/lib/libexslt.so.0.8.17
+link path=$(USRDIR)/lib/libexslt.so target=libexslt.so.0.8.20
+link path=$(USRDIR)/lib/libexslt.so.0 target=libexslt.so.0.8.20
+file path=$(USRDIR)/lib/libexslt.so.0.8.20
 dir  path=$(USRDIR)/lib/libxslt-plugins
 file path=$(USRDIR)/lib/libxslt.la
 link path=$(USRDIR)/lib/libxslt.so target=libxslt.so.$(COMPONENT_VERSION)
@@ -195,6 +195,6 @@ file path=$(USRDIR)/share/man/man3/libxslt.3
 #    predicate=runtime/python-26 \
 #    type=conditional
 
-depend fmri=library/python-2/libxsl-27 \
+depend fmri=library/python-2/libxslt-27 \
     predicate=runtime/python-27 \
     type=conditional

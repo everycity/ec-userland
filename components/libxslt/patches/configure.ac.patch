@@ -1,6 +1,6 @@
---- libxslt-1.1.26/configure.in.orig	Mon Mar 21 13:06:53 2011
-+++ libxslt-1.1.26/configure.in	Mon Mar 21 13:08:28 2011
-@@ -365,6 +365,10 @@
+--- libxslt-1.1.33/configure.ac.orig	2019-03-20 13:15:17.061674950 +0000
++++ libxslt-1.1.33/configure.ac	2019-03-20 13:16:24.449174499 +0000
+@@ -300,6 +300,10 @@
      else
          pythondir='$(libdir)/python$(PYTHON_VERSION)/site-packages'
      fi

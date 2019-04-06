@@ -15,6 +15,13 @@
 #
 $mapfile_version 2
 
+SYMBOL_VERSION SUNWpublic {
+	global:
+		xsltDecimalFormatGetByQName;
+		xsltFlagRVTs;
+		xsltInitCtxtKey;
+} SUNW_1.5;
+
 SYMBOL_VERSION SUNW_1.5 {
 	global:
 		xsltMaxVars;
@@ -59,7 +66,6 @@ SYMBOL_VERSION SUNW_1.2 {
 		xsltDebugGetDefaultTrace;
 		xsltDebugSetDefaultTrace;
 		xsltDefaultSortFunction;
-		xsltDefaultTrace;
 		xsltEvalAVT;
 		xsltEvalXPathStringNs;
 		xsltFreeAVTList;
@@ -127,7 +133,6 @@ SYMBOL_VERSION SUNW_1.1 {
 		xsltCopyNamespace;
 		xsltCopyNamespaceList;
 		xsltCopyOf;
-		xsltCopyTree;
 		xsltDebug;
 		xsltDebugDumpExtensions;
 		xsltDecimalFormatGetByName;
