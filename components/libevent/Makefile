@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -17,6 +17,7 @@ COMPONENT_NAME=		libevent
 COMPONENT_FMRI=		library/libevent
 COMPONENT_VERSION=	2.0.22
 COMPONENT_LICENSE=	BSD3c
+COMPONENT_LICENSE_FILE=	LICENSE
 COMPONENT_PROJECT_URL=	"http://libevent.org/"
 COMPONENT_SUMMARY=	The libevent event notification library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)-stable
