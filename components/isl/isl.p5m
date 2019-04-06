@@ -1,0 +1,99 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2019 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
+
+dir  path=$(USRDIR)/include/isl
+file path=$(USRDIR)/include/isl/aff.h
+file path=$(USRDIR)/include/isl/aff_type.h
+file path=$(USRDIR)/include/isl/arg.h
+file path=$(USRDIR)/include/isl/ast.h
+file path=$(USRDIR)/include/isl/ast_build.h
+file path=$(USRDIR)/include/isl/ast_type.h
+file path=$(USRDIR)/include/isl/constraint.h
+file path=$(USRDIR)/include/isl/ctx.h
+file path=$(USRDIR)/include/isl/fixed_box.h
+file path=$(USRDIR)/include/isl/flow.h
+file path=$(USRDIR)/include/isl/hash.h
+file path=$(USRDIR)/include/isl/hmap.h
+file path=$(USRDIR)/include/isl/hmap_templ.c
+file path=$(USRDIR)/include/isl/id.h
+file path=$(USRDIR)/include/isl/id_to_ast_expr.h
+file path=$(USRDIR)/include/isl/id_to_id.h
+file path=$(USRDIR)/include/isl/id_to_pw_aff.h
+file path=$(USRDIR)/include/isl/id_type.h
+file path=$(USRDIR)/include/isl/ilp.h
+file path=$(USRDIR)/include/isl/list.h
+file path=$(USRDIR)/include/isl/local_space.h
+file path=$(USRDIR)/include/isl/lp.h
+file path=$(USRDIR)/include/isl/map.h
+file path=$(USRDIR)/include/isl/map_to_basic_set.h
+file path=$(USRDIR)/include/isl/map_type.h
+file path=$(USRDIR)/include/isl/mat.h
+file path=$(USRDIR)/include/isl/maybe.h
+file path=$(USRDIR)/include/isl/maybe_ast_expr.h
+file path=$(USRDIR)/include/isl/maybe_basic_set.h
+file path=$(USRDIR)/include/isl/maybe_id.h
+file path=$(USRDIR)/include/isl/maybe_pw_aff.h
+file path=$(USRDIR)/include/isl/maybe_templ.h
+file path=$(USRDIR)/include/isl/multi.h
+file path=$(USRDIR)/include/isl/obj.h
+file path=$(USRDIR)/include/isl/options.h
+file path=$(USRDIR)/include/isl/point.h
+file path=$(USRDIR)/include/isl/polynomial.h
+file path=$(USRDIR)/include/isl/polynomial_type.h
+file path=$(USRDIR)/include/isl/printer.h
+file path=$(USRDIR)/include/isl/printer_type.h
+file path=$(USRDIR)/include/isl/schedule.h
+file path=$(USRDIR)/include/isl/schedule_node.h
+file path=$(USRDIR)/include/isl/schedule_type.h
+file path=$(USRDIR)/include/isl/set.h
+file path=$(USRDIR)/include/isl/set_type.h
+file path=$(USRDIR)/include/isl/space.h
+file path=$(USRDIR)/include/isl/space_type.h
+file path=$(USRDIR)/include/isl/stdint.h
+file path=$(USRDIR)/include/isl/stream.h
+file path=$(USRDIR)/include/isl/stride_info.h
+file path=$(USRDIR)/include/isl/union_map.h
+file path=$(USRDIR)/include/isl/union_map_type.h
+file path=$(USRDIR)/include/isl/union_set.h
+file path=$(USRDIR)/include/isl/union_set_type.h
+file path=$(USRDIR)/include/isl/val.h
+file path=$(USRDIR)/include/isl/val_gmp.h
+file path=$(USRDIR)/include/isl/val_type.h
+file path=$(USRDIR)/include/isl/vec.h
+file path=$(USRDIR)/include/isl/version.h
+file path=$(USRDIR)/include/isl/vertices.h
+file path=$(USRDIR)/lib/$(MACH64)/libisl.a
+file path=$(USRDIR)/lib/$(MACH64)/libisl.la
+link path=$(USRDIR)/lib/$(MACH64)/libisl.so target=libisl.so.19.1.0
+link path=$(USRDIR)/lib/$(MACH64)/libisl.so.19 target=libisl.so.19.1.0
+file path=$(USRDIR)/lib/$(MACH64)/libisl.so.19.1.0
+file path=$(USRDIR)/lib/$(MACH64)/libisl.so.19.1.0-gdb.py
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/isl.pc
+file path=$(USRDIR)/lib/libisl.a
+file path=$(USRDIR)/lib/libisl.la
+link path=$(USRDIR)/lib/libisl.so target=libisl.so.19.1.0
+link path=$(USRDIR)/lib/libisl.so.19 target=libisl.so.19.1.0
+file path=$(USRDIR)/lib/libisl.so.19.1.0
+file path=$(USRDIR)/lib/libisl.so.19.1.0-gdb.py
+file path=$(USRDIR)/lib/pkgconfig/isl.pc
