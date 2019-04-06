@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -17,22 +17,30 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
+dir  path=$(USRDIR)/include/glog
 file path=$(USRDIR)/include/glog/log_severity.h
 file path=$(USRDIR)/include/glog/logging.h
 file path=$(USRDIR)/include/glog/raw_logging.h
 file path=$(USRDIR)/include/glog/stl_logging.h
 file path=$(USRDIR)/include/glog/vlog_is_on.h
 file path=$(USRDIR)/lib/$(MACH64)/libglog.a
+file path=$(USRDIR)/lib/$(MACH64)/libglog.la
+link path=$(USRDIR)/lib/$(MACH64)/libglog.so target=libglog.so.0.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libglog.so.0 target=libglog.so.0.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libglog.so.0.0.0
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/libglog.pc
 file path=$(USRDIR)/lib/libglog.a
+file path=$(USRDIR)/lib/libglog.la
+link path=$(USRDIR)/lib/libglog.so target=libglog.so.0.0.0
+link path=$(USRDIR)/lib/libglog.so.0 target=libglog.so.0.0.0
 file path=$(USRDIR)/lib/libglog.so.0.0.0
 file path=$(USRDIR)/lib/pkgconfig/libglog.pc
+dir  path=$(USRDIR)/share/doc/glog-$(COMPONENT_VERSION)
 file path=$(USRDIR)/share/doc/glog-$(COMPONENT_VERSION)/AUTHORS
 file path=$(USRDIR)/share/doc/glog-$(COMPONENT_VERSION)/COPYING
 file path=$(USRDIR)/share/doc/glog-$(COMPONENT_VERSION)/ChangeLog
@@ -42,7 +50,3 @@ file path=$(USRDIR)/share/doc/glog-$(COMPONENT_VERSION)/README
 file path=$(USRDIR)/share/doc/glog-$(COMPONENT_VERSION)/README.windows
 file path=$(USRDIR)/share/doc/glog-$(COMPONENT_VERSION)/designstyle.css
 file path=$(USRDIR)/share/doc/glog-$(COMPONENT_VERSION)/glog.html
-link path=$(USRDIR)/lib/$(MACH64)/libglog.so target=libglog.so.0.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libglog.so.0 target=libglog.so.0.0.0
-link path=$(USRDIR)/lib/libglog.so target=libglog.so.0.0.0
-link path=$(USRDIR)/lib/libglog.so.0 target=libglog.so.0.0.0
