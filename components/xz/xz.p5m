@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -90,7 +90,6 @@ link path=$(USRDIR)/lib/$(MACH64)/liblzma.so \
 file path=$(USRDIR)/lib/$(MACH64)/liblzma.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/$(MACH64)/liblzma.so.5 \
     target=liblzma.so.$(COMPONENT_VERSION)
-dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/liblzma.pc
 file path=$(USRDIR)/lib/liblzma.la
 link path=$(USRDIR)/lib/liblzma.so target=liblzma.so.$(COMPONENT_VERSION)
