@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libunistring
 COMPONENT_FMRI=		library/libunistring
-COMPONENT_VERSION=	0.9.7
+COMPONENT_VERSION=	0.9.10
 COMPONENT_LICENSE=	LGPLv3,GPLv3
 COMPONENT_LICENSE_FILE=	$(COMPONENT_NAME).license
 COMPONENT_PROJECT_URL=	"http://www.gnu.org/software/libunistring/"
 COMPONENT_SUMMARY=	Unicode string library for C
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:9ce081cbee1951b55597b30e7030bda9d7b2f034ef901a135ff3a020be5a41e5
+COMPONENT_ARCHIVE_HASH=	sha256:a82e5b333339a88ea4608e4635479a1cfb2e01aafb925e1290b65710d43f610b
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include $(WS_TOP)/make-rules/prep.mk

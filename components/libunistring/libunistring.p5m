@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -45,14 +45,14 @@ file path=$(USRDIR)/include/uniwbrk.h
 file path=$(USRDIR)/include/uniwidth.h
 file path=$(USRDIR)/lib/$(MACH64)/libunistring.a
 file path=$(USRDIR)/lib/$(MACH64)/libunistring.la
-link path=$(USRDIR)/lib/$(MACH64)/libunistring.so target=libunistring.so.2.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libunistring.so.2 target=libunistring.so.2.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libunistring.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libunistring.so target=libunistring.so.2.1.0
+link path=$(USRDIR)/lib/$(MACH64)/libunistring.so.2 target=libunistring.so.2.1.0
+file path=$(USRDIR)/lib/$(MACH64)/libunistring.so.2.1.0
 file path=$(USRDIR)/lib/libunistring.a
 file path=$(USRDIR)/lib/libunistring.la
-link path=$(USRDIR)/lib/libunistring.so target=libunistring.so.2.0.0
-link path=$(USRDIR)/lib/libunistring.so.2 target=libunistring.so.2.0.0
-file path=$(USRDIR)/lib/libunistring.so.2.0.0
+link path=$(USRDIR)/lib/libunistring.so target=libunistring.so.2.1.0
+link path=$(USRDIR)/lib/libunistring.so.2 target=libunistring.so.2.1.0
+file path=$(USRDIR)/lib/libunistring.so.2.1.0
 dir  path=$(USRDIR)/share/doc/libunistring
 file path=$(USRDIR)/share/doc/libunistring/libunistring_1.html
 file path=$(USRDIR)/share/doc/libunistring/libunistring_10.html
@@ -67,6 +67,7 @@ file path=$(USRDIR)/share/doc/libunistring/libunistring_18.html
 file path=$(USRDIR)/share/doc/libunistring/libunistring_19.html
 file path=$(USRDIR)/share/doc/libunistring/libunistring_2.html
 file path=$(USRDIR)/share/doc/libunistring/libunistring_20.html
+file path=$(USRDIR)/share/doc/libunistring/libunistring_21.html
 file path=$(USRDIR)/share/doc/libunistring/libunistring_3.html
 file path=$(USRDIR)/share/doc/libunistring/libunistring_4.html
 file path=$(USRDIR)/share/doc/libunistring/libunistring_5.html
