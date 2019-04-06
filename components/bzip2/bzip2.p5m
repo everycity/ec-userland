@@ -1,53 +1,54 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
-#
-# Copyright 2011-2014 EveryCity Ltd. All rights reserved.
+# Copyright 2018 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/compress/bzip2@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="The bzip compression utility"
-set name=info.upstream_url value="http://bzip.org/"
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license bzip2.license license="bzip2"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
+hardlink path=$(USRDIR)/bin/$(MACH64)/bunzip2 target=bzip2
+hardlink path=$(USRDIR)/bin/$(MACH64)/bzcat target=bzip2
+link path=$(USRDIR)/bin/$(MACH64)/bzcmp target=./bzdiff
 file path=$(USRDIR)/bin/$(MACH64)/bzdiff
+link path=$(USRDIR)/bin/$(MACH64)/bzegrep target=./bzgrep
+link path=$(USRDIR)/bin/$(MACH64)/bzfgrep target=./bzgrep
 file path=$(USRDIR)/bin/$(MACH64)/bzgrep
 file path=$(USRDIR)/bin/$(MACH64)/bzip2
 file path=$(USRDIR)/bin/$(MACH64)/bzip2recover
+link path=$(USRDIR)/bin/$(MACH64)/bzless target=./bzmore
 file path=$(USRDIR)/bin/$(MACH64)/bzmore
+file path=$(USRDIR)/bin/bunzip2
+file path=$(USRDIR)/bin/bzcat
+link path=$(USRDIR)/bin/bzcmp target=./bzdiff
 file path=$(USRDIR)/bin/bzdiff
+link path=$(USRDIR)/bin/bzegrep target=./bzgrep
+link path=$(USRDIR)/bin/bzfgrep target=./bzgrep
 file path=$(USRDIR)/bin/bzgrep
 file path=$(USRDIR)/bin/bzip2
 file path=$(USRDIR)/bin/bzip2recover
+link path=$(USRDIR)/bin/bzless target=./bzmore
 file path=$(USRDIR)/bin/bzmore
 file path=$(USRDIR)/include/bzlib.h
-file path=$(USRDIR)/lib/$(MACH64)/libbz2.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/bzip2.pc
-file path=$(USRDIR)/lib/libbz2.so.$(COMPONENT_VERSION)
-file path=$(USRDIR)/lib/pkgconfig/bzip2.pc
-file path=$(USRDIR)/share/man/man1/bunzip2.1
-file path=$(USRDIR)/share/man/man1/bzcat.1
+link path=$(USRDIR)/lib/$(MACH64)/libbz2.so target=libbz2.so.1
+file path=$(USRDIR)/lib/$(MACH64)/libbz2.so.1
+link path=$(USRDIR)/lib/libbz2.so target=libbz2.so.1
+file path=$(USRDIR)/lib/libbz2.so.1
 file path=$(USRDIR)/share/man/man1/bzcmp.1
 file path=$(USRDIR)/share/man/man1/bzdiff.1
 file path=$(USRDIR)/share/man/man1/bzegrep.1
@@ -56,21 +57,3 @@ file path=$(USRDIR)/share/man/man1/bzgrep.1
 file path=$(USRDIR)/share/man/man1/bzip2.1
 file path=$(USRDIR)/share/man/man1/bzless.1
 file path=$(USRDIR)/share/man/man1/bzmore.1
-link path=$(USRDIR)/bin/$(MACH64)/bunzip2 target=bzip2
-link path=$(USRDIR)/bin/$(MACH64)/bzcat target=bzip2
-link path=$(USRDIR)/bin/$(MACH64)/bzcmp target=bzdiff
-link path=$(USRDIR)/bin/$(MACH64)/bzegrep target=bzgrep
-link path=$(USRDIR)/bin/$(MACH64)/bzfgrep target=bzgrep
-link path=$(USRDIR)/bin/$(MACH64)/bzless target=bzmore
-link path=$(USRDIR)/bin/bunzip2 target=bzip2
-link path=$(USRDIR)/bin/bzcat target=bzip2
-link path=$(USRDIR)/bin/bzcmp target=bzdiff
-link path=$(USRDIR)/bin/bzegrep target=bzgrep
-link path=$(USRDIR)/bin/bzfgrep target=bzgrep
-link path=$(USRDIR)/bin/bzless target=bzmore
-link path=$(USRDIR)/lib/$(MACH64)/libbz2.so \
-    target=libbz2.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/$(MACH64)/libbz2.so.1 \
-    target=libbz2.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libbz2.so target=libbz2.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libbz2.so.1 target=libbz2.so.$(COMPONENT_VERSION)
