@@ -156,36 +156,36 @@ file path=$(USRDIR)/include/google/protobuf/wrappers.proto
 file path=$(USRDIR)/lib/$(MACH64)/libprotobuf-lite.a
 file path=$(USRDIR)/lib/$(MACH64)/libprotobuf-lite.la
 link path=$(USRDIR)/lib/$(MACH64)/libprotobuf-lite.so \
-    target=libprotobuf-lite.so.18.0.0
+    target=libprotobuf-lite.so.18.0.1
 link path=$(USRDIR)/lib/$(MACH64)/libprotobuf-lite.so.18 \
-    target=libprotobuf-lite.so.18.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libprotobuf-lite.so.18.0.0
+    target=libprotobuf-lite.so.18.0.1
+file path=$(USRDIR)/lib/$(MACH64)/libprotobuf-lite.so.18.0.1
 file path=$(USRDIR)/lib/$(MACH64)/libprotobuf.a
 file path=$(USRDIR)/lib/$(MACH64)/libprotobuf.la
-link path=$(USRDIR)/lib/$(MACH64)/libprotobuf.so target=libprotobuf.so.18.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libprotobuf.so.18 target=libprotobuf.so.18.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libprotobuf.so.18.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libprotobuf.so target=libprotobuf.so.18.0.1
+link path=$(USRDIR)/lib/$(MACH64)/libprotobuf.so.18 target=libprotobuf.so.18.0.1
+file path=$(USRDIR)/lib/$(MACH64)/libprotobuf.so.18.0.1
 file path=$(USRDIR)/lib/$(MACH64)/libprotoc.a
 file path=$(USRDIR)/lib/$(MACH64)/libprotoc.la
-link path=$(USRDIR)/lib/$(MACH64)/libprotoc.so target=libprotoc.so.18.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libprotoc.so.18 target=libprotoc.so.18.0.0
-file path=$(USRDIR)/lib/$(MACH64)/libprotoc.so.18.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libprotoc.so target=libprotoc.so.18.0.1
+link path=$(USRDIR)/lib/$(MACH64)/libprotoc.so.18 target=libprotoc.so.18.0.1
+file path=$(USRDIR)/lib/$(MACH64)/libprotoc.so.18.0.1
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/protobuf-lite.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/protobuf.pc
 file path=$(USRDIR)/lib/libprotobuf-lite.a
 file path=$(USRDIR)/lib/libprotobuf-lite.la
-link path=$(USRDIR)/lib/libprotobuf-lite.so target=libprotobuf-lite.so.18.0.0
-link path=$(USRDIR)/lib/libprotobuf-lite.so.18 target=libprotobuf-lite.so.18.0.0
-file path=$(USRDIR)/lib/libprotobuf-lite.so.18.0.0
+link path=$(USRDIR)/lib/libprotobuf-lite.so target=libprotobuf-lite.so.18.0.1
+link path=$(USRDIR)/lib/libprotobuf-lite.so.18 target=libprotobuf-lite.so.18.0.1
+file path=$(USRDIR)/lib/libprotobuf-lite.so.18.0.1
 file path=$(USRDIR)/lib/libprotobuf.a
 file path=$(USRDIR)/lib/libprotobuf.la
-link path=$(USRDIR)/lib/libprotobuf.so target=libprotobuf.so.18.0.0
-link path=$(USRDIR)/lib/libprotobuf.so.18 target=libprotobuf.so.18.0.0
-file path=$(USRDIR)/lib/libprotobuf.so.18.0.0
+link path=$(USRDIR)/lib/libprotobuf.so target=libprotobuf.so.18.0.1
+link path=$(USRDIR)/lib/libprotobuf.so.18 target=libprotobuf.so.18.0.1
+file path=$(USRDIR)/lib/libprotobuf.so.18.0.1
 file path=$(USRDIR)/lib/libprotoc.a
 file path=$(USRDIR)/lib/libprotoc.la
-link path=$(USRDIR)/lib/libprotoc.so target=libprotoc.so.18.0.0
-link path=$(USRDIR)/lib/libprotoc.so.18 target=libprotoc.so.18.0.0
-file path=$(USRDIR)/lib/libprotoc.so.18.0.0
+link path=$(USRDIR)/lib/libprotoc.so target=libprotoc.so.18.0.1
+link path=$(USRDIR)/lib/libprotoc.so.18 target=libprotoc.so.18.0.1
+file path=$(USRDIR)/lib/libprotoc.so.18.0.1
 file path=$(USRDIR)/lib/pkgconfig/protobuf-lite.pc
 file path=$(USRDIR)/lib/pkgconfig/protobuf.pc
