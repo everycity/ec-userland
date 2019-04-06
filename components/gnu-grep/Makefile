@@ -9,26 +9,26 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		grep
 COMPONENT_FMRI=		text/gnu-grep
-COMPONENT_VERSION=	2.21
+COMPONENT_VERSION=	3.3
 COMPONENT_LICENSE=	GPLv3
 COMPONENT_PROJECT_URL=	"http://gnu.org/software/grep/"
 COMPONENT_SUMMARY=	GNU grep utilities
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
-COMPONENT_ARCHIVE_HASH=	sha256:5244a11c00dee8e7e5e714b9aaa053ac6cbfa27e104abee20d3c778e4bb0e5de
+COMPONENT_ARCHIVE_HASH=	sha256:b960541c499619efd6afe1fa795402e4733c8e11ebf9fafccc0bb4bccdc5b514
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-LDFLAGS+=	-liconv
+#LDFLAGS+=	-liconv
 
 CONFIGURE_OPTIONS+=	--program-prefix=g
 
@@ -37,12 +37,22 @@ GNUPROGS=	$(PROGS)
 GNUMAN1=	$(PROGS:%=%.1)
 SFWPROGS=	$(PROGS:%=g%)
 
-build:		$(BUILD_32)
+build:		$(BUILD_32_and_64)
 
-install:	$(INSTALL_32)
+$(BUILD_DIR)/.installed:	$(INSTALL_32_and_64)
+	cd $(PROTOUSRBINDIR) && \
+		$(SYMLINK) gegrep egrep && \
+		$(SYMLINK) gfgrep fgrep && \
+		$(SYMLINK) ggrep grep
+	cd $(PROTOUSRBINDIR64) && \
+		$(SYMLINK) gegrep egrep && \
+		$(SYMLINK) gfgrep fgrep && \
+		$(SYMLINK) ggrep grep
+	cd $(PROTOUSRSHAREMAN1DIR) && \
+		$(SYMLINK) gegrep.1 egrep.1 && \
+		$(SYMLINK) gfgrep.1 fgrep.1 && \
+		$(SYMLINK) ggrep.1 grep.1 
+	$(TOUCH) $@
 
-test32:		$(BUILD_32)
-	(cd $(BUILD_DIR_32); env - $(GMAKE) check)
-
-test:	test32
+install:	$(BUILD_DIR)/.installed
 

@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -17,14 +17,23 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
+link path=$(USRDIR)/bin/$(MACH64)/egrep target=gegrep
+link path=$(USRDIR)/bin/$(MACH64)/fgrep target=gfgrep
+file path=$(USRDIR)/bin/$(MACH64)/gegrep
+file path=$(USRDIR)/bin/$(MACH64)/gfgrep
+file path=$(USRDIR)/bin/$(MACH64)/ggrep
+link path=$(USRDIR)/bin/$(MACH64)/grep target=ggrep
+link path=$(USRDIR)/bin/egrep target=gegrep
+link path=$(USRDIR)/bin/fgrep target=gfgrep
 file path=$(USRDIR)/bin/gegrep
 file path=$(USRDIR)/bin/gfgrep
 file path=$(USRDIR)/bin/ggrep
+link path=$(USRDIR)/bin/grep target=ggrep
 file path=$(USRDIR)/share/info/grep.info
 file path=$(USRDIR)/share/locale/af/LC_MESSAGES/grep.mo
 file path=$(USRDIR)/share/locale/be/LC_MESSAGES/grep.mo
@@ -69,12 +78,9 @@ file path=$(USRDIR)/share/locale/uk/LC_MESSAGES/grep.mo
 file path=$(USRDIR)/share/locale/vi/LC_MESSAGES/grep.mo
 file path=$(USRDIR)/share/locale/zh_CN/LC_MESSAGES/grep.mo
 file path=$(USRDIR)/share/locale/zh_TW/LC_MESSAGES/grep.mo
+link path=$(USRDIR)/share/man/man1/egrep.1 target=gegrep.1
+link path=$(USRDIR)/share/man/man1/fgrep.1 target=gfgrep.1
 file path=$(USRDIR)/share/man/man1/gegrep.1
 file path=$(USRDIR)/share/man/man1/gfgrep.1
 file path=$(USRDIR)/share/man/man1/ggrep.1
-link path=$(USRDIR)/bin/egrep target=gegrep
-link path=$(USRDIR)/bin/fgrep target=gfgrep
-link path=$(USRDIR)/bin/grep target=ggrep
-link path=$(USRDIR)/share/man/man1/egrep.1 target=gegrep.1
-link path=$(USRDIR)/share/man/man1/fgrep.1 target=gfgrep.1
 link path=$(USRDIR)/share/man/man1/grep.1 target=ggrep.1
