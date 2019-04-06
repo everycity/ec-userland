@@ -9,21 +9,20 @@
 #
 
 #
-# Copyright 2011-2014 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		mpfr
 COMPONENT_FMRI=		library/mpfr
-COMPONENT_VERSION=	3.1.2
+COMPONENT_VERSION=	4.0.2
 COMPONENT_LICENSE=	LGPLv3
 COMPONENT_PROJECT_URL=	http://www.mpfr.org/
 COMPONENT_SUMMARY=	MPFR library - C library for multiple-precision floating-point computations with correct rounding
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH= \
-    sha256:79c73f60af010a30a5c27a955a1d2d01ba095b72537dab0ecaad57f5a7bb1b6b
-COMPONENT_ARCHIVE_URL=	http://www.mpfr.org/mpfr-current/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:c05e3f02d09e0e9019384cdd58e0f19c64e6db1fd6f5ecf77b4b1c61ca253acc
+COMPONENT_ARCHIVE_URL=	https://www.mpfr.org/mpfr-current/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
