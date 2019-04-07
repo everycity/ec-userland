@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2018 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -51,6 +51,7 @@ file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/pg_config.h
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/pg_config_ext.h
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/pg_config_manual.h
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/pg_config_os.h
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/pgtypes.h
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/pgtypes_date.h
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/pgtypes_error.h
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/pgtypes_interval.h
@@ -774,6 +775,7 @@ file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/cs/LC_MES
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/cs/LC_MESSAGES/ecpglib6-9.4.mo
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/cs/LC_MESSAGES/initdb-9.4.mo
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/cs/LC_MESSAGES/libpq5-9.4.mo
+file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/cs/LC_MESSAGES/pg_basebackup-9.4.mo
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/cs/LC_MESSAGES/pg_config-9.4.mo
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/cs/LC_MESSAGES/pg_controldata-9.4.mo
 file path=$(USRDIR)/lib/postgres/$(COMPONENT_MJR_VERSION)/share/locale/cs/LC_MESSAGES/pg_ctl-9.4.mo
