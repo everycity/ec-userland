@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -17,10 +17,10 @@
 
 set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
 set name=pkg.summary value="$(COMPONENT_SUMMARY)"
-set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
 file path=$(USRDIR)/bin/$(MACH64)/dltest
 file path=$(USRDIR)/bin/$(MACH64)/isql
@@ -34,38 +34,53 @@ file path=$(USRDIR)/bin/iusql
 file path=$(USRDIR)/bin/odbc_config
 file path=$(USRDIR)/bin/odbcinst
 file path=$(USRDIR)/bin/slencheck
+dir  path=$(USRDIR)/include/odbc
 file path=$(USRDIR)/include/odbc/autotest.h
 file path=$(USRDIR)/include/odbc/odbcinst.h
 file path=$(USRDIR)/include/odbc/odbcinstext.h
 file path=$(USRDIR)/include/odbc/sql.h
 file path=$(USRDIR)/include/odbc/sqlext.h
+file path=$(USRDIR)/include/odbc/sqlspi.h
 file path=$(USRDIR)/include/odbc/sqltypes.h
 file path=$(USRDIR)/include/odbc/sqlucode.h
 file path=$(USRDIR)/include/odbc/unixodbc_conf.h
 file path=$(USRDIR)/include/odbc/uodbc_extras.h
 file path=$(USRDIR)/include/odbc/uodbc_stats.h
+file path=$(USRDIR)/lib/$(MACH64)/libodbc.la
+link path=$(USRDIR)/lib/$(MACH64)/libodbc.so target=libodbc.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libodbc.so.2 target=libodbc.so.2.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libodbc.so.2.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libodbccr.la
+link path=$(USRDIR)/lib/$(MACH64)/libodbccr.so target=libodbccr.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libodbccr.so.2 target=libodbccr.so.2.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libodbccr.so.2.0.0
+file path=$(USRDIR)/lib/$(MACH64)/libodbcinst.la
+link path=$(USRDIR)/lib/$(MACH64)/libodbcinst.so target=libodbcinst.so.2.0.0
+link path=$(USRDIR)/lib/$(MACH64)/libodbcinst.so.2 target=libodbcinst.so.2.0.0
 file path=$(USRDIR)/lib/$(MACH64)/libodbcinst.so.2.0.0
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/odbc.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/odbccr.pc
+file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/odbcinst.pc
+file path=$(USRDIR)/lib/libodbc.la
+link path=$(USRDIR)/lib/libodbc.so target=libodbc.so.2.0.0
+link path=$(USRDIR)/lib/libodbc.so.2 target=libodbc.so.2.0.0
 file path=$(USRDIR)/lib/libodbc.so.2.0.0
+file path=$(USRDIR)/lib/libodbccr.la
+link path=$(USRDIR)/lib/libodbccr.so target=libodbccr.so.2.0.0
+link path=$(USRDIR)/lib/libodbccr.so.2 target=libodbccr.so.2.0.0
 file path=$(USRDIR)/lib/libodbccr.so.2.0.0
+file path=$(USRDIR)/lib/libodbcinst.la
+link path=$(USRDIR)/lib/libodbcinst.so target=libodbcinst.so.2.0.0
+link path=$(USRDIR)/lib/libodbcinst.so.2 target=libodbcinst.so.2.0.0
 file path=$(USRDIR)/lib/libodbcinst.so.2.0.0
+file path=$(USRDIR)/lib/pkgconfig/odbc.pc
+file path=$(USRDIR)/lib/pkgconfig/odbccr.pc
+file path=$(USRDIR)/lib/pkgconfig/odbcinst.pc
+file path=$(USRDIR)/share/man/man1/dltest.1
 file path=$(USRDIR)/share/man/man1/isql.1
+file path=$(USRDIR)/share/man/man1/iusql.1
+file path=$(USRDIR)/share/man/man1/odbc_config.1
 file path=$(USRDIR)/share/man/man1/odbcinst.1
 file path=$(USRDIR)/share/man/man5/odbc.ini.5
 file path=$(USRDIR)/share/man/man5/odbcinst.ini.5
-file path=$(SYSCONFDIR)/odbc.ini mode=0644 preserve=true
-file path=$(SYSCONFDIR)/odbcinst.ini mode=0644 preserve=true
-link path=$(USRDIR)/lib/$(MACH64)/libodbc.so target=libodbc.so.2.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libodbc.so.2 target=libodbc.so.2.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libodbccr.so target=libodbccr.so.2.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libodbccr.so.2 target=libodbccr.so.2.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libodbcinst.so target=libodbcinst.so.2.0.0
-link path=$(USRDIR)/lib/$(MACH64)/libodbcinst.so.2 \
-    target=libodbcinst.so.2.0.0
-link path=$(USRDIR)/lib/libodbc.so target=libodbc.so.2.0.0
-link path=$(USRDIR)/lib/libodbc.so.2 target=libodbc.so.2.0.0
-link path=$(USRDIR)/lib/libodbccr.so target=libodbccr.so.2.0.0
-link path=$(USRDIR)/lib/libodbccr.so.2 target=libodbccr.so.2.0.0
-link path=$(USRDIR)/lib/libodbcinst.so target=libodbcinst.so.2.0.0
-link path=$(USRDIR)/lib/libodbcinst.so.2 target=libodbcinst.so.2.0.0
+file path=$(USRDIR)/share/man/man7/unixODBC.7

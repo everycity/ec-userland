@@ -1,0 +1,104 @@
+--- unixODBC-2.3.7/odbcinst/SQLGetPrivateProfileString.c.orig	2019-03-26 14:07:48.585506462 +0000
++++ unixODBC-2.3.7/odbcinst/SQLGetPrivateProfileString.c	2019-03-26 14:11:22.392523890 +0000
+@@ -29,7 +29,7 @@
+ static pth_mutex_t mutex_ini = PTH_MUTEX_INIT;
+ static int pth_init_called = 0;
+ 
+-static int mutex_entry( pth_mutex_t *mutex )
++static int odbc_mutex_entry( pth_mutex_t *mutex )
+ {
+     if ( !pth_init_called )
+     {
+@@ -39,7 +39,7 @@
+     return pth_mutex_acquire( mutex, 0, NULL );
+ }
+ 
+-static int mutex_exit( pth_mutex_t *mutex )
++static int odbc_mutex_exit( pth_mutex_t *mutex )
+ {
+     return pth_mutex_release( mutex );
+ }
+@@ -50,12 +50,12 @@
+ 
+ static pthread_mutex_t mutex_ini = PTHREAD_MUTEX_INITIALIZER;
+ 
+-static int mutex_entry( pthread_mutex_t *mutex )
++static int odbc_mutex_entry( pthread_mutex_t *mutex )
+ {
+     return pthread_mutex_lock( mutex );
+ }
+ 
+-static int mutex_exit( pthread_mutex_t *mutex )
++static int odbc_mutex_exit( pthread_mutex_t *mutex )
+ {
+     return pthread_mutex_unlock( mutex );
+ }
+@@ -66,20 +66,20 @@
+ 
+ static mutex_t mutex_ini;
+ 
+-static int mutex_entry( mutex_t *mutex )
++static int odbc_mutex_entry( mutex_t *mutex )
+ {
+     return mutex_lock( mutex );
+ }
+ 
+-static int mutex_exit( mutex_t *mutex )
++static int odbc_mutex_exit( mutex_t *mutex )
+ {
+     return mutex_unlock( mutex );
+ }
+ 
+ #else
+ 
+-#define mutex_entry(x)
+-#define mutex_exit(x)
++#define odbc_mutex_entry(x)
++#define odbc_mutex_exit(x)
+ 
+ #endif
+ 
+@@ -290,12 +290,12 @@
+ {
+ 	int rval;
+ 
+-	mutex_entry( &mutex_ini );
++	odbc_mutex_entry( &mutex_ini );
+ 
+ 	rval = _check_ini_cache( ret, pszSection, pszEntry, pszDefault,
+ 			pRetBuffer, nRetBuffer, pszFileName );
+ 
+-	mutex_exit( &mutex_ini );
++	odbc_mutex_exit( &mutex_ini );
+ 
+ 	return rval;
+ }
+@@ -310,7 +310,7 @@
+ {
+ 	int cval;
+ 
+-	mutex_entry( &mutex_ini );
++	odbc_mutex_entry( &mutex_ini );
+ 
+ 	/*
+ 	 * check its not been inserted since the last check
+@@ -323,16 +323,16 @@
+ 			pRetBuffer, nRetBuffer, pszFileName );
+ 	}
+ 
+-	mutex_exit( &mutex_ini );
++	odbc_mutex_exit( &mutex_ini );
+ }
+ 
+ void __clear_ini_cache( void ) 
+ {
+-	mutex_entry( &mutex_ini );
++	odbc_mutex_entry( &mutex_ini );
+ 
+     _clear_ini_cache();
+ 
+-	mutex_exit( &mutex_ini );
++	odbc_mutex_exit( &mutex_ini );
+ }
+ 
+ #else
