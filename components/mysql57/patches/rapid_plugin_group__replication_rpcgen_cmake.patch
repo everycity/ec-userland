@@ -1,5 +1,5 @@
---- mysql-5.7.17/rapid/plugin/group_replication/rpcgen.cmake.orig	2016-11-28 13:32:52.000000000 +0000
-+++ mysql-5.7.17/rapid/plugin/group_replication/rpcgen.cmake	2017-01-07 16:23:26.959083708 +0000
+--- mysql-5.7.22/rapid/plugin/group_replication/rpcgen.cmake.orig	2018-04-19 15:40:06.324377143 +0000
++++ mysql-5.7.22/rapid/plugin/group_replication/rpcgen.cmake	2018-04-19 15:41:56.908434694 +0000
 @@ -64,7 +64,7 @@
    SET (x_vanilla_h      ${XCOM_BASEDIR}/${X}.h.gen)
    SET (x_vanilla_c      ${XCOM_BASEDIR}/${X}_xdr.c.gen)
@@ -16,6 +16,6 @@
 -  ELSE()
 +#  ELSE()
 +  IF(0)
-     # on unix systems try to generate them if needed
-     ADD_CUSTOM_COMMAND(OUTPUT ${x_gen_h} ${x_gen_c} ${x_tmp_plat_h}
-       COMMAND ${CMAKE_COMMAND} -E copy_if_different
+     FIND_PROGRAM(RPCGEN_EXECUTABLE rpcgen DOC "path to the rpcgen executable")
+     MARK_AS_ADVANCED(RPCGEN_EXECUTABLE)
+     IF(NOT RPCGEN_EXECUTABLE)

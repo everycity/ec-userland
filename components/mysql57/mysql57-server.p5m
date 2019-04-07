@@ -22,8 +22,6 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-depend fmri=pkg:/database/mysql-57/library type=require
-
 dir path=$(LOCALSTATEDIR)/mysql/5.7 mode=0770 owner=mysql group=mysql preserve=true
 dir path=$(LOCALSTATEDIR)/mysql/5.7/data mode=0770 owner=mysql group=mysql preserve=true
 
@@ -42,7 +40,6 @@ file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysql_embedded
 file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysql_install_db
 file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysql_plugin
 file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysql_secure_installation
-file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysql_server_config
 file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysql_ssl_rsa_setup
 file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysql_tzinfo_to_sql
 file path=$(USRDIR)/lib/mysql/5.7/bin/$(MACH64)/mysql_upgrade
@@ -65,7 +62,6 @@ file path=$(USRDIR)/lib/mysql/5.7/bin/mysql_embedded
 file path=$(USRDIR)/lib/mysql/5.7/bin/mysql_install_db
 file path=$(USRDIR)/lib/mysql/5.7/bin/mysql_plugin
 file path=$(USRDIR)/lib/mysql/5.7/bin/mysql_secure_installation
-file path=$(USRDIR)/lib/mysql/5.7/bin/mysql_server_config
 file path=$(USRDIR)/lib/mysql/5.7/bin/mysql_ssl_rsa_setup
 file path=$(USRDIR)/lib/mysql/5.7/bin/mysql_tzinfo_to_sql
 file path=$(USRDIR)/lib/mysql/5.7/bin/mysql_upgrade
@@ -110,11 +106,9 @@ file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/connection_control.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/daemon_example.ini
 dir  path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/debug
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/group_replication.so
-file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/innodb_engine.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/keyring_file.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/keyring_udf.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libdaemon_example.so
-file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libmemcached.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_framework.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_services.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/$(MACH64)/libtest_services_threaded.so
@@ -160,11 +154,9 @@ file path=$(USRDIR)/lib/mysql/5.7/plugins/connection_control.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/daemon_example.ini
 dir  path=$(USRDIR)/lib/mysql/5.7/plugins/debug
 file path=$(USRDIR)/lib/mysql/5.7/plugins/group_replication.so
-file path=$(USRDIR)/lib/mysql/5.7/plugins/innodb_engine.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/keyring_file.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/keyring_udf.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/libdaemon_example.so
-file path=$(USRDIR)/lib/mysql/5.7/plugins/libmemcached.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_framework.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_services.so
 file path=$(USRDIR)/lib/mysql/5.7/plugins/libtest_services_threaded.so

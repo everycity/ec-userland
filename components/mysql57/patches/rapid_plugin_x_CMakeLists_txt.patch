@@ -5,12 +5,11 @@ Fix mysqlxtest binary linking.
 
 --- a/rapid/plugin/x/CMakeLists.txt.orig	2017-03-18 07:45:14.000000000 +0000
 +++ b/rapid/plugin/x/CMakeLists.txt
-@@ -92,14 +92,14 @@ ELSE()
+@@ -92,13 +92,13 @@ ELSE()
      ${CMAKE_SOURCE_DIR}/include #temporary
      ${CMAKE_CURRENT_SOURCE_DIR}/include/mysql
      ${CMAKE_CURRENT_BINARY_DIR}/generated
 -    ${SSL_INCLUDE_DIRS}
--    ${ZLIB_INCLUDE_DIR}
    )
  
    INCLUDE_DIRECTORIES(SYSTEM
@@ -18,7 +17,6 @@ Fix mysqlxtest binary linking.
      ${PROTOBUF_INCLUDE_DIRS}
      ${LIBEVENT_INCLUDE_DIR}
 +    ${SSL_INCLUDE_DIRS}
-+    ${ZLIB_INCLUDE_DIR}
    )
  
    IF(XPLUGIN_NO_LITE_PROTOBUF)

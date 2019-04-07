@@ -1,0 +1,11 @@
+--- mysql-5.7.25/extra/rapidjson/CMakeModules/FindGTestSrc.cmake.orig	2019-03-25 21:39:10.426527671 +0000
++++ mysql-5.7.25/extra/rapidjson/CMakeModules/FindGTestSrc.cmake	2019-03-25 21:39:55.723686037 +0000
+@@ -1,6 +1,7 @@
+ SET(GTEST_SEARCH_PATH 
+     "${GTEST_SOURCE_DIR}"
+-    "${CMAKE_SOURCE_DIR}/thirdparty/gtest")
++    "${CMAKE_SOURCE_DIR}/thirdparty/gtest"
++    "${CMAKE_INSTALL_PREFIX}")
+ 
+ IF(UNIX)
+     LIST(INSERT GTEST_SEARCH_PATH 1 "/usr/src/gtest")

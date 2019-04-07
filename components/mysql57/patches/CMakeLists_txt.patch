@@ -1,0 +1,11 @@
+--- mysql-5.7.25/CMakeLists.txt.orig	2019-03-15 22:09:05.692075900 +0000
++++ mysql-5.7.25/CMakeLists.txt	2019-03-15 22:09:39.456036574 +0000
+@@ -408,7 +408,7 @@
+ ENDIF()
+ 
+ OPTION(ENABLED_LOCAL_INFILE
+- "If we should enable LOAD DATA LOCAL by default" ${IF_WIN})
++ "If we should enable LOAD DATA LOCAL by default" OFF)
+ MARK_AS_ADVANCED(ENABLED_LOCAL_INFILE)
+ 
+ OPTION(OPTIMIZER_TRACE "Support tracing of Optimizer" ON)

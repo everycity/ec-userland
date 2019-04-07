@@ -1,0 +1,20 @@
+--- mysql-5.7.25/cmake/build_configurations/compiler_options.cmake.orig	2019-03-26 16:13:59.269415596 +0000
++++ mysql-5.7.25/cmake/build_configurations/compiler_options.cmake	2019-03-26 16:14:34.971841857 +0000
+@@ -59,7 +59,7 @@
+     EXECUTE_PROCESS(COMMAND ${CMAKE_CXX_COMPILER} -dumpversion
+                     OUTPUT_VARIABLE GXX_VERSION)
+     IF(GXX_VERSION VERSION_EQUAL 6.0 OR GXX_VERSION VERSION_GREATER 6.0)
+-      SET(COMMON_CXX_FLAGS             "${COMMON_CXX_FLAGS} -std=gnu++03")
++      SET(COMMON_CXX_FLAGS             "${COMMON_CXX_FLAGS} -std=c++11")
+     ENDIF()
+     # Disable inline optimizations for valgrind testing to avoid false positives
+     IF(WITH_VALGRIND)
+@@ -95,7 +95,7 @@
+     IF(CMAKE_CXX_COMPILER_VERSION VERSION_EQUAL 6.0 OR
+         CMAKE_CXX_COMPILER_VERSION VERSION_GREATER 6.0)
+       IF(CMAKE_SYSTEM_NAME MATCHES "Linux")
+-        SET(COMMON_CXX_FLAGS           "${COMMON_CXX_FLAGS} -std=gnu++03")
++        SET(COMMON_CXX_FLAGS           "${COMMON_CXX_FLAGS} -std=c++11")
+       ENDIF()
+     ENDIF()
+     SET(CMAKE_CXX_FLAGS_DEBUG          "${COMMON_CXX_FLAGS}")
