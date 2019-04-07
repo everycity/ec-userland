@@ -1,0 +1,13 @@
+--- grep-3.3/gnu/sys-limits.h.orig	2019-03-20 14:52:20.439344113 +0000
++++ grep-3.3/gnu/sys-limits.h	2019-03-20 14:52:42.143932092 +0000
+@@ -15,8 +15,8 @@
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, see <https://www.gnu.org/licenses/>.  */
+ 
+-#ifndef _SYS_LIMITS_H
+-#define _SYS_LIMITS_H
++#ifndef GNU_SYS_LIMITS_H
++#define GNU_SYS_LIMITS_H
+ 
+ #include <limits.h>
+ 

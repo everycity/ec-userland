@@ -9,23 +9,29 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/compress/gnu-tar@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="The GNU Tar (tar) archiver"
-set name=info.upstream_url value="http://www.gnu.org/software/tar/"
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license gnu-tar.license license="GPLv3"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-file path=$(USRDIR)/bin/$(MACH64)/tar
-file path=$(USRDIR)/bin/tar
-file path=$(USRDIR)/lib/$(MACH64)/rmt
-file path=$(USRDIR)/lib/rmt
+depend fmri=pkg:/compress/bzip2 type=require
+depend fmri=pkg:/compress/gnu-gzip type=require
+depend fmri=pkg:/compress/xz type=require
+
+file path=$(USRDIR)/bin/$(MACH64)/gtar
+link path=$(USRDIR)/bin/$(MACH64)/tar target=gtar
+file path=$(USRDIR)/bin/gtar
+link path=$(USRDIR)/bin/tar target=gtar
+file path=$(USRDIR)/lib/$(MACH64)/grmt
+file path=$(USRDIR)/lib/grmt
 file path=$(USRDIR)/share/info/tar.info
 file path=$(USRDIR)/share/info/tar.info-1
 file path=$(USRDIR)/share/info/tar.info-2
@@ -35,6 +41,7 @@ file path=$(USRDIR)/share/locale/cs/LC_MESSAGES/tar.mo
 file path=$(USRDIR)/share/locale/da/LC_MESSAGES/tar.mo
 file path=$(USRDIR)/share/locale/de/LC_MESSAGES/tar.mo
 file path=$(USRDIR)/share/locale/el/LC_MESSAGES/tar.mo
+file path=$(USRDIR)/share/locale/eo/LC_MESSAGES/tar.mo
 file path=$(USRDIR)/share/locale/es/LC_MESSAGES/tar.mo
 file path=$(USRDIR)/share/locale/et/LC_MESSAGES/tar.mo
 file path=$(USRDIR)/share/locale/eu/LC_MESSAGES/tar.mo
@@ -59,13 +66,14 @@ file path=$(USRDIR)/share/locale/ro/LC_MESSAGES/tar.mo
 file path=$(USRDIR)/share/locale/ru/LC_MESSAGES/tar.mo
 file path=$(USRDIR)/share/locale/sk/LC_MESSAGES/tar.mo
 file path=$(USRDIR)/share/locale/sl/LC_MESSAGES/tar.mo
+file path=$(USRDIR)/share/locale/sr/LC_MESSAGES/tar.mo
 file path=$(USRDIR)/share/locale/sv/LC_MESSAGES/tar.mo
 file path=$(USRDIR)/share/locale/tr/LC_MESSAGES/tar.mo
 file path=$(USRDIR)/share/locale/uk/LC_MESSAGES/tar.mo
 file path=$(USRDIR)/share/locale/vi/LC_MESSAGES/tar.mo
 file path=$(USRDIR)/share/locale/zh_CN/LC_MESSAGES/tar.mo
 file path=$(USRDIR)/share/locale/zh_TW/LC_MESSAGES/tar.mo
-link path=$(USRDIR)/bin/gtar target=tar
-depend fmri=pkg:/compress/gnu-gzip type=require
-depend fmri=pkg:/compress/bzip2 type=require
-depend fmri=pkg:/compress/xz type=require
+file path=$(USRDIR)/share/man/man1/gtar.1
+link path=$(USRDIR)/share/man/man1/tar.1 target=gtar.1
+file path=$(USRDIR)/share/man/man8/grmt.8
+link path=$(USRDIR)/share/man/man8/rmt.8 target=grmt.8
