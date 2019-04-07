@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017, EveryCity Ltd. All rights reserved.
+# Copyright 2019, EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -30,8 +30,8 @@ include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-PATH.32 =	$(USRDIR)/lib/postgres/9.3/bin:$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
-PATH.64 =	$(USRDIR)/lib/postgres/9.3/bin/$(MACH64):$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH.32 =	$(USRDIR)/lib/postgres/9.6/bin:$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
+PATH.64 =	$(USRDIR)/lib/postgres/9.6/bin/$(MACH64):$(USRDIR)/bin:/usr/bin:/usr/sfw/bin:/usr/ccs/bin
 PATH =	$(PATH.$(BITS))
 
 LDFLAGS += $(CC_BITS)
