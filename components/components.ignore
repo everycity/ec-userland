@@ -49,3 +49,5 @@
 /^vlc2$/d
 /^xapian\/bindings-php54$/d
 /^librsvg$/d
+# Don't need
+/^apache22/d
