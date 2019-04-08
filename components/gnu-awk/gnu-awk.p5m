@@ -1,44 +1,69 @@
 #
-# CDDL HEADER START
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
 #
-# The contents of this file are subject to the terms of the
-# Common Development and Distribution License (the "License").
-# You may not use this file except in compliance with the License.
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
 #
-# You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
-# or http://www.opensolaris.org/os/licensing.
-# See the License for the specific language governing permissions
-# and limitations under the License.
+
 #
-# When distributing Covered Code, include this CDDL HEADER in each
-# file and include the License file at usr/src/OPENSOLARIS.LICENSE.
-# If applicable, add the following below this CDDL HEADER, with the
-# fields enclosed by brackets "[]" replaced with your own identifying
-# information: Portions Copyright [yyyy] [name of copyright owner]
-#
-# CDDL HEADER END
-#
-# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
 <include ec-drop-common>
 
-set name=pkg.fmri value=pkg:/text/gnu-awk@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="gawk - GNU implementation of awk"
-set name=info.upstream_url value="http://www.gnu.org/software/gawk/"
-set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream-url value=$(COMPONENT_PROJECT_URL)
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
-license gnu-awk.license license="GPLv3"
+license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
+file path=$(SYSCONFDIR)/profile.d/gawk.csh
+file path=$(SYSCONFDIR)/profile.d/gawk.sh
+link path=$(USRDIR)/bin/$(MACH64)/awk target=gawk
 file path=$(USRDIR)/bin/$(MACH64)/gawk
-file path=$(USRDIR)/bin/$(MACH64)/igawk
-file path=$(USRDIR)/bin/$(MACH64)/pgawk-$(COMPONENT_VERSION)
-file path=$(USRDIR)/bin/gawk
-file path=$(USRDIR)/bin/igawk
-file path=$(USRDIR)/bin/pgawk-$(COMPONENT_VERSION)
+hardlink path=$(USRDIR)/bin/$(MACH64)/gawk-$(COMPONENT_VERSION) target=gawk
+link path=$(USRDIR)/bin/awk target=gawk
+hardlink path=$(USRDIR)/bin/gawk target=gawk-$(COMPONENT_VERSION)
+file path=$(USRDIR)/bin/gawk-$(COMPONENT_VERSION)
+file path=$(USRDIR)/include/gawkapi.h
+dir  path=$(USRDIR)/lib/$(MACH64)/awk
+file path=$(USRDIR)/lib/$(MACH64)/awk/grcat
+file path=$(USRDIR)/lib/$(MACH64)/awk/pwcat
+dir  path=$(USRDIR)/lib/$(MACH64)/gawk
+file path=$(USRDIR)/lib/$(MACH64)/gawk/filefuncs.so
+file path=$(USRDIR)/lib/$(MACH64)/gawk/fnmatch.so
+file path=$(USRDIR)/lib/$(MACH64)/gawk/fork.so
+file path=$(USRDIR)/lib/$(MACH64)/gawk/inplace.so
+file path=$(USRDIR)/lib/$(MACH64)/gawk/intdiv.so
+file path=$(USRDIR)/lib/$(MACH64)/gawk/ordchr.so
+file path=$(USRDIR)/lib/$(MACH64)/gawk/readdir.so
+file path=$(USRDIR)/lib/$(MACH64)/gawk/readfile.so
+file path=$(USRDIR)/lib/$(MACH64)/gawk/revoutput.so
+file path=$(USRDIR)/lib/$(MACH64)/gawk/revtwoway.so
+file path=$(USRDIR)/lib/$(MACH64)/gawk/rwarray.so
+file path=$(USRDIR)/lib/$(MACH64)/gawk/time.so
+dir  path=$(USRDIR)/lib/awk
 file path=$(USRDIR)/lib/awk/grcat
 file path=$(USRDIR)/lib/awk/pwcat
+dir  path=$(USRDIR)/lib/gawk
+file path=$(USRDIR)/lib/gawk/filefuncs.so
+file path=$(USRDIR)/lib/gawk/fnmatch.so
+file path=$(USRDIR)/lib/gawk/fork.so
+file path=$(USRDIR)/lib/gawk/inplace.so
+file path=$(USRDIR)/lib/gawk/intdiv.so
+file path=$(USRDIR)/lib/gawk/ordchr.so
+file path=$(USRDIR)/lib/gawk/readdir.so
+file path=$(USRDIR)/lib/gawk/readfile.so
+file path=$(USRDIR)/lib/gawk/revoutput.so
+file path=$(USRDIR)/lib/gawk/revtwoway.so
+file path=$(USRDIR)/lib/gawk/rwarray.so
+file path=$(USRDIR)/lib/gawk/time.so
+dir  path=$(USRDIR)/share/awk
 file path=$(USRDIR)/share/awk/assert.awk
 file path=$(USRDIR)/share/awk/bits2str.awk
 file path=$(USRDIR)/share/awk/cliff_rand.awk
@@ -47,46 +72,52 @@ file path=$(USRDIR)/share/awk/ftrans.awk
 file path=$(USRDIR)/share/awk/getopt.awk
 file path=$(USRDIR)/share/awk/gettime.awk
 file path=$(USRDIR)/share/awk/group.awk
+file path=$(USRDIR)/share/awk/have_mpfr.awk
+file path=$(USRDIR)/share/awk/inplace.awk
+file path=$(USRDIR)/share/awk/intdiv0.awk
 file path=$(USRDIR)/share/awk/join.awk
 file path=$(USRDIR)/share/awk/libintl.awk
-file path=$(USRDIR)/share/awk/nextfile.awk
 file path=$(USRDIR)/share/awk/noassign.awk
 file path=$(USRDIR)/share/awk/ord.awk
 file path=$(USRDIR)/share/awk/passwd.awk
+file path=$(USRDIR)/share/awk/processarray.awk
+file path=$(USRDIR)/share/awk/quicksort.awk
 file path=$(USRDIR)/share/awk/readable.awk
+file path=$(USRDIR)/share/awk/readfile.awk
 file path=$(USRDIR)/share/awk/rewind.awk
 file path=$(USRDIR)/share/awk/round.awk
+file path=$(USRDIR)/share/awk/shellquote.awk
 file path=$(USRDIR)/share/awk/strtonum.awk
+file path=$(USRDIR)/share/awk/walkarray.awk
 file path=$(USRDIR)/share/awk/zerofile.awk
 file path=$(USRDIR)/share/info/gawk.info
 file path=$(USRDIR)/share/info/gawkinet.info
-file path=$(USRDIR)/share/locale/ast/LC_MESSAGES/gawk.mo
+file path=$(USRDIR)/share/info/gawkworkflow.info
 file path=$(USRDIR)/share/locale/ca/LC_MESSAGES/gawk.mo
 file path=$(USRDIR)/share/locale/da/LC_MESSAGES/gawk.mo
 file path=$(USRDIR)/share/locale/de/LC_MESSAGES/gawk.mo
 file path=$(USRDIR)/share/locale/es/LC_MESSAGES/gawk.mo
+file path=$(USRDIR)/share/locale/fi/LC_MESSAGES/gawk.mo
 file path=$(USRDIR)/share/locale/fr/LC_MESSAGES/gawk.mo
-file path=$(USRDIR)/share/locale/ga/LC_MESSAGES/gawk.mo
-file path=$(USRDIR)/share/locale/he/LC_MESSAGES/gawk.mo
 file path=$(USRDIR)/share/locale/id/LC_MESSAGES/gawk.mo
 file path=$(USRDIR)/share/locale/it/LC_MESSAGES/gawk.mo
 file path=$(USRDIR)/share/locale/ja/LC_MESSAGES/gawk.mo
+file path=$(USRDIR)/share/locale/ms/LC_MESSAGES/gawk.mo
 file path=$(USRDIR)/share/locale/nl/LC_MESSAGES/gawk.mo
 file path=$(USRDIR)/share/locale/pl/LC_MESSAGES/gawk.mo
 file path=$(USRDIR)/share/locale/pt_BR/LC_MESSAGES/gawk.mo
-file path=$(USRDIR)/share/locale/ro/LC_MESSAGES/gawk.mo
-file path=$(USRDIR)/share/locale/rw/LC_MESSAGES/gawk.mo
 file path=$(USRDIR)/share/locale/sv/LC_MESSAGES/gawk.mo
-file path=$(USRDIR)/share/locale/tr/LC_MESSAGES/gawk.mo
 file path=$(USRDIR)/share/locale/vi/LC_MESSAGES/gawk.mo
 file path=$(USRDIR)/share/locale/zh_CN/LC_MESSAGES/gawk.mo
 file path=$(USRDIR)/share/man/man1/gawk.1
-file path=$(USRDIR)/share/man/man1/igawk.1
-file path=$(USRDIR)/share/man/man1/pgawk.1
-hardlink path=$(USRDIR)/bin/$(MACH64)/gawk-$(COMPONENT_VERSION) target=gawk
-hardlink path=$(USRDIR)/bin/$(MACH64)/pgawk \
-    target=pgawk-$(COMPONENT_VERSION)
-hardlink path=$(USRDIR)/bin/gawk-$(COMPONENT_VERSION) target=gawk
-hardlink path=$(USRDIR)/bin/pgawk target=pgawk-$(COMPONENT_VERSION)
-link path=$(USRDIR)/bin/$(MACH64)/awk target=gawk
-link path=$(USRDIR)/bin/awk target=gawk
+file path=$(USRDIR)/share/man/man3/filefuncs.3am
+file path=$(USRDIR)/share/man/man3/fnmatch.3am
+file path=$(USRDIR)/share/man/man3/fork.3am
+file path=$(USRDIR)/share/man/man3/inplace.3am
+file path=$(USRDIR)/share/man/man3/ordchr.3am
+file path=$(USRDIR)/share/man/man3/readdir.3am
+file path=$(USRDIR)/share/man/man3/readfile.3am
+file path=$(USRDIR)/share/man/man3/revoutput.3am
+file path=$(USRDIR)/share/man/man3/revtwoway.3am
+file path=$(USRDIR)/share/man/man3/rwarray.3am
+file path=$(USRDIR)/share/man/man3/time.3am
