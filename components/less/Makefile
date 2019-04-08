@@ -9,26 +9,26 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		less
 COMPONENT_FMRI=         text/less
-COMPONENT_VERSION=	451
+COMPONENT_VERSION=	530
 COMPONENT_LICENSE=      GPLv3
 COMPONENT_PROJECT_URL=  http://www.gnu.org/software/less/
 COMPONENT_SUMMARY=	The GNU pager (less)
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:9fe8287c647afeafb4149c5dedaeacfd20971ed7c26c7553794bb750536b5f57
+COMPONENT_ARCHIVE_HASH=	sha256:503f91ab0af4846f34f0444ab71c4b286123f0044a4964f1ae781486c617f2e2
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_GNU_FTP)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-build:		$(BUILD_32)
+build:		$(BUILD_32_and_64)
 
-install:	$(INSTALL_32)
+install:	$(INSTALL_32_and_64)
 
