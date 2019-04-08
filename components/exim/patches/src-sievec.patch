@@ -4,8 +4,8 @@
  #include "exim.h"
  
  #if HAVE_ICONV
--#include <iconv.h>
-+#include </ec/include/iconv.h>
+-# include <iconv.h>
++# include </ec/include/iconv.h>
  #endif
  
  /* Define this for RFC compliant \r\n end-of-line terminators.      */
