@@ -1256,7 +1256,7 @@ new file mode 100644
 +};
 --- Python-2.7.6/setup.py.~4~	2014-05-14 13:16:33.749494047 -0700
 +++ Python-2.7.6/setup.py	2014-05-14 13:16:33.803607449 -0700
-@@ -1549,6 +1549,22 @@
+@@ -1573,6 +1573,22 @@
              exts.append( Extension('dlpi', ['dlpimodule.c'],
                                     libraries = ['dlpi']) )
  

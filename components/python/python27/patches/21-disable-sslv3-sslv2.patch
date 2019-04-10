@@ -14,7 +14,7 @@ It disables SSLv3.
  HOST = support.HOST
  IS_LIBRESSL = ssl.OPENSSL_VERSION.startswith('LibreSSL')
  IS_OPENSSL_1_1 = not IS_LIBRESSL and ssl.OPENSSL_VERSION_INFO >= (1, 1, 0)
-@@ -2318,7 +2321,7 @@
+@@ -2357,7 +2360,7 @@
                  sys.stdout.write("\n")
              if hasattr(ssl, 'PROTOCOL_SSLv2'):
                  try:

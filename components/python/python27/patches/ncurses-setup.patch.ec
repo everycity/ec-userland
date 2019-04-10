@@ -1,6 +1,6 @@
 --- Python-2.7.8/setup.py.~7~	2014-07-09 10:01:47.977524330 +0400
 +++ Python-2.7.8/setup.py	2014-07-09 10:06:22.690906040 +0400
-@@ -1372,20 +1372,37 @@
+@@ -1364,20 +1364,37 @@
  
          # Curses support, requiring the System V version of curses, often
          # provided by the ncurses library.
@@ -46,7 +46,7 @@
                  # OSX has an old Berkeley curses, not good enough for
                  # the _curses module.
              if (self.compiler.find_library_file(lib_dirs, 'terminfo')):
-@@ -1402,10 +1419,12 @@
+@@ -1394,10 +1411,12 @@
  
          # If the curses module is enabled, check for the panel module
          if (module_enabled(exts, '_curses') and

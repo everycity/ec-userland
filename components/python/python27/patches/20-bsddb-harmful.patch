@@ -5,7 +5,7 @@ is not being submitted upstream.
 
 --- Python-2.7.13/Makefile.pre.in.~3~	2016-12-19 19:49:29.882892296 +0300
 +++ Python-2.7.13/Makefile.pre.in	2016-12-19 19:49:29.987869375 +0300
-@@ -1073,7 +1073,7 @@
+@@ -1084,7 +1084,7 @@
  		ensurepip ensurepip/_bundled \
  		json json/tests \
  		sqlite3 sqlite3/test \

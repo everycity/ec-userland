@@ -1129,14 +1129,14 @@ new file mode 100644
 +	PyObject *list = (PyObject *)arg;
 +
 +	if ((list == NULL) || !PyList_Check(list))
-+		return (B_FALSE);
++		return (_B_FALSE);
 +
 +	linkname = Py_BuildValue("s", name);
 +	if (PyList_Append(list, linkname) == -1)
-+		return (B_TRUE);
++		return (_B_TRUE);
 +
 +	Py_DECREF(linkname);
-+	return (B_FALSE);
++	return (_B_FALSE);
 +}
 +
 +PyDoc_STRVAR(listlink_doc,
@@ -1212,7 +1212,7 @@ new file mode 100644
 +}
 --- Python-2.7.6/setup.py.~3~	2014-05-14 13:10:30.979598710 -0700
 +++ Python-2.7.6/setup.py	2014-05-14 13:10:31.006864446 -0700
-@@ -1543,6 +1543,12 @@
+@@ -1567,6 +1567,12 @@
              exts.append( Extension('ucred', ['ucred.c'],
                                     libraries = ['tsol']) )
  

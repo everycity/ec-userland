@@ -481,8 +481,8 @@ file path=$(USRDIR)/lib/python2.7/encodings/uu_codec.py
 file path=$(USRDIR)/lib/python2.7/encodings/zlib_codec.py
 file path=$(USRDIR)/lib/python2.7/ensurepip/__init__.py pkg.depend.bypass-generate=.*
 file path=$(USRDIR)/lib/python2.7/ensurepip/__main__.py
-file path=$(USRDIR)/lib/python2.7/ensurepip/_bundled/pip-9.0.1-py2.py3-none-any.whl
-file path=$(USRDIR)/lib/python2.7/ensurepip/_bundled/setuptools-28.8.0-py2.py3-none-any.whl
+file path=$(USRDIR)/lib/python2.7/ensurepip/_bundled/pip-18.1-py2.py3-none-any.whl
+file path=$(USRDIR)/lib/python2.7/ensurepip/_bundled/setuptools-40.6.2-py2.py3-none-any.whl
 file path=$(USRDIR)/lib/python2.7/ensurepip/_uninstall.py
 file path=$(USRDIR)/lib/python2.7/filecmp.py
 file path=$(USRDIR)/lib/python2.7/fileinput.py

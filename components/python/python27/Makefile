@@ -18,7 +18,7 @@
 #
 # CDDL HEADER END
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 # Copyright 2014, Igor Kozhukhov <ikozhukhov@gmail.com>
 # Copyright (c) 2011, 2014, Oracle and/or its affiliates. All rights reserved.
 
@@ -29,11 +29,11 @@ include ../../../make-rules/shared-macros.mk
 #PATH=$(USRDIR)/bin:/usr/bin:/sbin:/usr/sbin
 
 COMPONENT_NAME=		Python
-COMPONENT_VERSION=	2.7.14
+COMPONENT_VERSION=	2.7.16
 COMPONENT_PROJECT_URL=	http://python.org/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
-COMPONENT_ARCHIVE_HASH=	sha256:71ffb26e09e78650e424929b2b457b9c912ac216576e6bd9e7d204ed03296a66
+COMPONENT_ARCHIVE_HASH=	sha256:f222ef602647eecb6853681156d32de4450a2c39f4de93bd5b20235f2e660ed7
 COMPONENT_ARCHIVE_URL=	$(COMPONENT_PROJECT_URL)ftp/python/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 COMPONENT_BUGDB=	utility/python
 
@@ -61,9 +61,13 @@ CPPFLAGS +=	-DOPENSSL_NO_SSL2 -DOPENSSL_NO_SSL3
 # libffi for _ctypes
 CPPFLAGS +=	$(shell pkg-config --cflags-only-I libffi)
 
+# XPG6
+CFLAGS += -std=c99 -D_XOPEN_SOURCE=600
+
 CFLAGS.32= -I$(USRDIR)/include
 CXXFLAGS.32= -I$(USRDIR)/include
-LDFLAGS = -lumem
+LDFLAGS = $(LDFLAGS_LIBPATH)
+LDFLAGS += -lumem
 
 EXTRA_CFLAGS = $(CFLAGS)
 

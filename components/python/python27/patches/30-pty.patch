@@ -43,7 +43,7 @@ it to fix a bug.
  
 --- Python-2.7.13/Lib/test/test_pty.py.orig	2016-12-17 12:05:06.000000000 +0000
 +++ Python-2.7.13/Lib/test/test_pty.py	2017-04-26 13:39:11.397817862 +0000
-@@ -270,7 +270,7 @@
+@@ -284,7 +284,7 @@
          socketpair[1].close()
          os.close(write_to_stdin_fd)
  
@@ -52,7 +52,7 @@ it to fix a bug.
          pty.select = self._mock_select
          self.select_rfds_lengths.append(2)
          self.select_rfds_results.append([mock_stdin_fd, masters[0]])
-@@ -278,8 +278,7 @@
+@@ -292,8 +292,7 @@
          # both encountered an EOF before the second select call.
          self.select_rfds_lengths.append(0)
  
