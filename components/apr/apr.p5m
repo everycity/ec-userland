@@ -30,6 +30,7 @@ file path=$(USRDIR)/include/apr-1.0/apr_allocator.h
 file path=$(USRDIR)/include/apr-1.0/apr_atomic.h
 file path=$(USRDIR)/include/apr-1.0/apr_cstr.h
 file path=$(USRDIR)/include/apr-1.0/apr_dso.h
+file path=$(USRDIR)/include/apr-1.0/apr_encode.h
 file path=$(USRDIR)/include/apr-1.0/apr_env.h
 file path=$(USRDIR)/include/apr-1.0/apr_errno.h
 file path=$(USRDIR)/include/apr-1.0/apr_escape.h
@@ -68,31 +69,27 @@ file path=$(USRDIR)/include/apr-1.0/apr_want.h
 file path=$(USRDIR)/lib/$(MACH64)/apr.exp
 file path=$(USRDIR)/lib/$(MACH64)/libapr-1.a
 file path=$(USRDIR)/lib/$(MACH64)/libapr-1.la
-link path=$(USRDIR)/lib/$(MACH64)/libapr-1.so target=libapr-1.so.0.6.5
-link path=$(USRDIR)/lib/$(MACH64)/libapr-1.so.0 target=libapr-1.so.0.6.5
-file path=$(USRDIR)/lib/$(MACH64)/libapr-1.so.0.6.5
+link path=$(USRDIR)/lib/$(MACH64)/libapr-1.so target=libapr-1.so.0.7.0
+link path=$(USRDIR)/lib/$(MACH64)/libapr-1.so.0 target=libapr-1.so.0.7.0
+file path=$(USRDIR)/lib/$(MACH64)/libapr-1.so.0.7.0
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/apr-1.pc
 file path=$(USRDIR)/lib/apr.exp
 file path=$(USRDIR)/lib/libapr-1.a
 file path=$(USRDIR)/lib/libapr-1.la
-link path=$(USRDIR)/lib/libapr-1.so target=libapr-1.so.0.6.5
-link path=$(USRDIR)/lib/libapr-1.so.0 target=libapr-1.so.0.6.5
-file path=$(USRDIR)/lib/libapr-1.so.0.6.5
+link path=$(USRDIR)/lib/libapr-1.so target=libapr-1.so.0.7.0
+link path=$(USRDIR)/lib/libapr-1.so.0 target=libapr-1.so.0.7.0
+file path=$(USRDIR)/lib/libapr-1.so.0.7.0
 file path=$(USRDIR)/lib/pkgconfig/apr-1.pc
 dir  path=$(USRDIR)/share/apr-1.0
 dir  path=$(USRDIR)/share/apr-1.0/build
 dir  path=$(USRDIR)/share/apr-1.0/build/$(MACH64)
-file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/apr_common.m4
 file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/apr_rules.mk
-file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/find_apr.m4
-file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/libtool mode=0555
+file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/libtool
 file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/make_exports.awk
 file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/make_var_export.awk
-file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/mkdir.sh mode=0555
-file path=$(USRDIR)/share/apr-1.0/build/apr_common.m4
+file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/mkdir.sh
 file path=$(USRDIR)/share/apr-1.0/build/apr_rules.mk
-file path=$(USRDIR)/share/apr-1.0/build/find_apr.m4
-file path=$(USRDIR)/share/apr-1.0/build/libtool mode=0555
+file path=$(USRDIR)/share/apr-1.0/build/libtool
 file path=$(USRDIR)/share/apr-1.0/build/make_exports.awk
 file path=$(USRDIR)/share/apr-1.0/build/make_var_export.awk
-file path=$(USRDIR)/share/apr-1.0/build/mkdir.sh mode=0555
+file path=$(USRDIR)/share/apr-1.0/build/mkdir.sh
