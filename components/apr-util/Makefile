@@ -15,7 +15,7 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		apr-util
-COMPONENT_FMRI=		library/apr-util-15
+COMPONENT_FMRI=		library/apr-util
 COMPONENT_VERSION=	1.6.1
 COMPONENT_LICENSE=	APLv2
 COMPONENT_LICENSE_FILE=	LICENSE
