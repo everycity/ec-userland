@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2018 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		httpd
 COMPONENT_FMRI=		web/server/apache-24/httpd
-COMPONENT_VERSION=	2.4.33
+COMPONENT_VERSION=	2.4.39
 COMPONENT_LICENSE=	Apachev2.0
 COMPONENT_LICENSE_FILE=	LICENSE
 COMPONENT_PROJECT_URL=	"http://httpd.apache.org/"
 COMPONENT_SUMMARY=	Apache HTTP Server
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:de02511859b00d17845b9abdd1f975d5ccb5d0b280c567da5bf2ad4b70846f05
+COMPONENT_ARCHIVE_HASH=	sha256:b4ca9d05773aa59b54d66cd8f4744b945289f084d3be17d7981d1783a5decfa2
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_APACHE)
 
 include ../../make-rules/prep.mk
