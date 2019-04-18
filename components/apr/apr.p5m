@@ -84,12 +84,12 @@ dir  path=$(USRDIR)/share/apr-1.0
 dir  path=$(USRDIR)/share/apr-1.0/build
 dir  path=$(USRDIR)/share/apr-1.0/build/$(MACH64)
 file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/apr_rules.mk
-file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/libtool
+file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/libtool mode=0555
 file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/make_exports.awk
 file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/make_var_export.awk
-file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/mkdir.sh
+file path=$(USRDIR)/share/apr-1.0/build/$(MACH64)/mkdir.sh mode=0555
 file path=$(USRDIR)/share/apr-1.0/build/apr_rules.mk
-file path=$(USRDIR)/share/apr-1.0/build/libtool
+file path=$(USRDIR)/share/apr-1.0/build/libtool mode=0555
 file path=$(USRDIR)/share/apr-1.0/build/make_exports.awk
 file path=$(USRDIR)/share/apr-1.0/build/make_var_export.awk
-file path=$(USRDIR)/share/apr-1.0/build/mkdir.sh
+file path=$(USRDIR)/share/apr-1.0/build/mkdir.sh mode=0555
