@@ -49,7 +49,6 @@ CONFIGURE_OPTIONS +=	--with-system-tzdata=/usr/share/lib/zoneinfo
 CONFIGURE_OPTIONS +=	--with-pam
 CONFIGURE_OPTIONS +=	--with-libedit-preferred
 CONFIGURE_OPTIONS +=	--with-gssapi
-CONFIGURE_OPTIONS.32 +=	--with-perl
 CONFIGURE_OPTIONS +=	--with-python
 CONFIGURE_OPTIONS +=	--with-ldap
 CONFIGURE_OPTIONS +=	--with-openssl
