@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2018 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -8557,8 +8557,7 @@ file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Installer/shebang-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Installer/spec-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Installer/spec_file-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Installer/unpack-i.ri
-file \
-    path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Installer/verify_spec_name-i.ri
+file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Installer/verify_spec-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Installer/windows_stub_script-i.ri
 file path=$(ECPREFIX)/share/ri/2.4.0/system/Gem/Installer/wrappers-i.ri
