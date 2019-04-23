@@ -9,19 +9,19 @@
 #
 
 #
-# Copyright 2018 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		memcached
 COMPONENT_FMRI=		database/memcached
-COMPONENT_VERSION=	1.5.12
+COMPONENT_VERSION=	1.5.13
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://memcached.org/"
 COMPONENT_SUMMARY=	The memcached memory object cache
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:c02f97d5685617b209fbe25f3464317b234d765b427d254c2413410a5c095b29
+COMPONENT_ARCHIVE_HASH=	sha256:61e1a774949735a9eb6e40992bb04083d8427f3d0ce1a52a15c0116db39c4d63
 COMPONENT_ARCHIVE_URL=	http://www.memcached.org/files/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
