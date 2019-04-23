@@ -998,6 +998,7 @@ dir path=$(ECPREFIX)/share/ri/2.6.0/system/CGI/Session/PStore
 dir path=$(ECPREFIX)/share/ri/2.6.0/system/CGI/Util
 dir path=$(ECPREFIX)/share/ri/2.6.0/system/CMath
 dir path=$(ECPREFIX)/share/ri/2.6.0/system/CSV
+dir path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/DeleteSuffix
 dir path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/FieldsConverter
 dir path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/MalformedCSVError
 dir path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/MatchP
@@ -3454,6 +3455,7 @@ file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.6.0/coverage.rb
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.6.0/csv.rb
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.6.0/csv/core_ext/array.rb
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.6.0/csv/core_ext/string.rb
+file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.6.0/csv/delete_suffix.rb
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.6.0/csv/fields_converter.rb
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.6.0/csv/match_p.rb
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.6.0/csv/parser.rb
@@ -4965,7 +4967,7 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/specifications/default/cmath-1.0.0.gemspec
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/specifications/default/csv-3.0.4.gemspec
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/specifications/default/csv-3.0.9.gemspec
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/specifications/default/date-2.0.0.gemspec
 file \
@@ -5533,6 +5535,7 @@ file path=$(ECPREFIX)/lib/ruby/2.6.0/coverage.rb
 file path=$(ECPREFIX)/lib/ruby/2.6.0/csv.rb
 file path=$(ECPREFIX)/lib/ruby/2.6.0/csv/core_ext/array.rb
 file path=$(ECPREFIX)/lib/ruby/2.6.0/csv/core_ext/string.rb
+file path=$(ECPREFIX)/lib/ruby/2.6.0/csv/delete_suffix.rb
 file path=$(ECPREFIX)/lib/ruby/2.6.0/csv/fields_converter.rb
 file path=$(ECPREFIX)/lib/ruby/2.6.0/csv/match_p.rb
 file path=$(ECPREFIX)/lib/ruby/2.6.0/csv/parser.rb
@@ -6887,7 +6890,7 @@ file \
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.6.0/specifications/default/cmath-1.0.0.gemspec
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.6.0/specifications/default/csv-3.0.4.gemspec
+    path=$(ECPREFIX)/lib/ruby/gems/2.6.0/specifications/default/csv-3.0.9.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.6.0/specifications/default/date-2.0.0.gemspec
 file \
@@ -11637,6 +11640,10 @@ file path=$(ECPREFIX)/share/ri/2.6.0/system/CMath/tanh-c.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CMath/tanh-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/%3c%3c-i.ri
 file \
+    path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/DeleteSuffix/cdesc-DeleteSuffix.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/DeleteSuffix/delete_suffix-i.ri
+file \
     path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/FieldsConverter/add_converter-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/FieldsConverter/cdesc-FieldsConverter.ri
@@ -11659,6 +11666,8 @@ file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/MatchP/match%3f-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/InputsScanner/cdesc-InputsScanner.ri
 file \
+    path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/InputsScanner/each_line-i.ri
+file \
     path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/InputsScanner/eos%3f-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/InputsScanner/keep_back-i.ri
@@ -11679,6 +11688,7 @@ file \
     path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/InvalidEncoding/cdesc-InvalidEncoding.ri
 file \
     path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/Scanner/cdesc-Scanner.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/Scanner/each_line-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/Scanner/keep_back-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/Scanner/keep_drop-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/Scanner/keep_end-i.ri
@@ -11686,6 +11696,8 @@ file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/Scanner/keep_start-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/Scanner/new-c.ri
 file \
     path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/UnoptimizedStringIO/cdesc-UnoptimizedStringIO.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/UnoptimizedStringIO/each_line-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/UnoptimizedStringIO/eof%3f-i.ri
 file \
@@ -11704,6 +11716,7 @@ file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/emit_row-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/field_size_limit-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/header_row%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/headers-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/ignore_broken_line-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/last_line-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/liberal_parsing%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/line-i.ri
@@ -11714,16 +11727,28 @@ file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/parse-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/parse_column_end-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/parse_column_value-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/parse_headers-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/parse_no_quote-i.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/parse_quotable_loose-i.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/parse_quotable_robust-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/parse_quoted_column_value-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/parse_row_end-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/parse_unquoted_column_value-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/prepare-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/prepare_backslash-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/prepare_header-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/prepare_line-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/prepare_parser-i.ri
-file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/prepare_regexp-i.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/prepare_quote_character-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/prepare_quoted-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/prepare_separators-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/prepare_skip_lines-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/prepare_strip-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/prepare_unquoted-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/prepare_variable-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/quote_character-i.ri
 file \
@@ -11736,6 +11761,7 @@ file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/skip_lines-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/skip_needless_lines-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/start_row-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/strip_value-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/unconverted_fields%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Parser/use_headers%3f-i.ri
@@ -11810,9 +11836,14 @@ file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Writer/quote-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Writer/quote_field-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/Writer/rewind-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/add_row-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/binmode%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/build_fields_converter-i.ri
 file \
     path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/build_header_fields_converter-i.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/build_parser_fields_converter-i.ri
+file \
+    path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/build_writer_fields_converter-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/cdesc-CSV.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/col_sep-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/convert-i.ri
@@ -11821,9 +11852,11 @@ file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/converters-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/determine_encoding-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/each-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/encoding-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/eof%3f-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/eof-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/field_size_limit-i.ri
-file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/fields_converter-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/filter-c.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/flock-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/force_quotes%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/foreach-c.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/generate-c.ri
@@ -11836,6 +11869,7 @@ file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/header_row%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/headers-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/inspect-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/instance-c.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/ioctl-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/liberal_parsing%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/line-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/lineno-i.ri
@@ -11845,7 +11879,10 @@ file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/open-c.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/parse-c.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/parse_line-c.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/parser-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/parser_enumerator-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/parser_fields_converter-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/parser_options-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/path-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/puts-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/quote_char-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/raw_encoding-i.ri
@@ -11860,10 +11897,14 @@ file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/row_sep-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/shift-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/skip_blanks%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/skip_lines-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/stat-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/table-c.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/to_i-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/to_io-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/unconverted_fields%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/write_headers%3f-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/writer-i.ri
+file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/writer_fields_converter-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/CSV/writer_options-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/Class/allocate-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/Class/cdesc-Class.ri
