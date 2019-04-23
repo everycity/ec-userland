@@ -1,0 +1,23 @@
+--- nginx-1.14.2/auto/install.~1~	2018-12-04 14:52:24.000000000 +0000
++++ nginx-1.14.2/auto/install	2019-04-23 12:54:38.015501594 +0000
+@@ -8,7 +8,7 @@
+     cat << END                                                >> $NGX_MAKEFILE
+ 
+ install_perl_modules:
+-	cd $NGX_OBJS/src/http/modules/perl && \$(MAKE) install
++	cd $NGX_OBJS/src/http/modules/perl && \$(MAKE) pure_install
+ END
+ 
+     NGX_INSTALL_PERL_MODULES=install_perl_modules
+@@ -154,8 +154,9 @@
+ 	test -d '\$(DESTDIR)`dirname "$NGX_HTTP_LOG_PATH"`' \\
+ 		|| mkdir -p '\$(DESTDIR)`dirname "$NGX_HTTP_LOG_PATH"`'
+ 
+-	test -d '\$(DESTDIR)$NGX_PREFIX/html' \\
+-		|| cp -R $NGX_HTML '\$(DESTDIR)$NGX_PREFIX'
++	test -d '\$(DESTDIR)$NGX_PREFIX/share/nginx/html' \\
++		|| mkdir -p '\$(DESTDIR)$NGX_PREFIX/share/nginx
++	cp -R $NGX_HTML '\$(DESTDIR)$NGX_PREFIX/share/nginx'
+ END
+ 
+ 
