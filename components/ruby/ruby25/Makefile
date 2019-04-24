@@ -9,36 +9,12 @@
 #
 
 #
-# Copyright 2018 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
-include ../../../make-rules/shared-macros.mk
 
-COMPONENT_NAME=		ruby
 COMPONENT_FMRI=		runtime/ruby-25
-COMPONENT_VERSION=	2.5.1
-COMPONENT_LICENSE=	2-clause BSDL
-COMPONENT_PROJECT_URL=	http://www.ruby-lang.org/
-COMPONENT_SUMMARY=	The Ruby Programming Language & RubyGems
-COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:dac81822325b79c3ba9532b048c2123357d3310b2b40024202f360251d9829b1
-COMPONENT_ARCHIVE_URL=	ftp://ftp.ruby-lang.org//pub/ruby/2.5/$(COMPONENT_ARCHIVE)
+COMPONENT_MJR_VERSION=	2.5
+COMPONENT_MNR_VERSION=	5
+COMPONENT_ARCHIVE_HASH=	sha256:28a945fdf340e6ba04fc890b98648342e3cccfd6d223a48f3810572f11b2514c
 
-include ../../../make-rules/prep.mk
-include ../../../make-rules/configure.mk
-include ../../../make-rules/ips.mk
-
-RUBY_VER=	2.5
-
-# Build weird when threaded.
-COMPONENT_BUILD_GMAKE_ARGS=
-
-CONFIGURE_OPTIONS+=	--with-soname=ruby$(RUBY_VER) --program-suffix=$(RUBY_VER)
-CONFIGURE_OPTIONS+=	--enable-shared
-CONFIGURE_OPTIONS.32+=	ac_cv_func_dl_iterate_phdr=no
-CONFIGURE_OPTIONS+=	--disable-dtrace
-
-build:		$(BUILD_32_and_64)
-
-install:	$(INSTALL_32_and_64)
-
+include ../../meta-packages/ruby/Makefile.common

@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2018 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -22,9 +22,6 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/bin
-dir  path=$(USRDIR)/bin/$(MACH64)
 file path=$(USRDIR)/bin/$(MACH64)/erb2.5
 file path=$(USRDIR)/bin/$(MACH64)/gem2.5
 file path=$(USRDIR)/bin/$(MACH64)/irb2.5
@@ -39,7 +36,6 @@ file path=$(USRDIR)/bin/rake2.5
 file path=$(USRDIR)/bin/rdoc2.5
 file path=$(USRDIR)/bin/ri2.5
 file path=$(USRDIR)/bin/ruby2.5
-dir  path=$(USRDIR)/include
 dir  path=$(USRDIR)/include/ruby-2.5.0
 dir  path=$(USRDIR)/include/ruby-2.5.0/$(MACH)-solaris$(SOLARIS_VERSION)
 dir  path=$(USRDIR)/include/ruby-2.5.0/$(MACH)-solaris$(SOLARIS_VERSION)/ruby
@@ -75,13 +71,10 @@ file path=$(USRDIR)/include/ruby-2.5.0/ruby/thread_native.h
 file path=$(USRDIR)/include/ruby-2.5.0/ruby/util.h
 file path=$(USRDIR)/include/ruby-2.5.0/ruby/version.h
 file path=$(USRDIR)/include/ruby-2.5.0/ruby/vm.h
-dir  path=$(USRDIR)/lib
-dir  path=$(USRDIR)/lib/$(MACH64)
 link path=$(USRDIR)/lib/$(MACH64)/libruby2.5.so target=libruby2.5.so.2
 link path=$(USRDIR)/lib/$(MACH64)/libruby2.5.so.$(COMPONENT_VERSION) \
     target=libruby2.5.so.2
 file path=$(USRDIR)/lib/$(MACH64)/libruby2.5.so.2
-dir  path=$(USRDIR)/lib/$(MACH64)/pkgconfig
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/ruby-2.5.pc
 dir  path=$(USRDIR)/lib/$(MACH64)/ruby
 dir  path=$(USRDIR)/lib/$(MACH64)/ruby/2.5.0
@@ -1023,7 +1016,6 @@ dir  path=$(USRDIR)/lib/$(MACH64)/ruby/2.5.0/yaml
 file path=$(USRDIR)/lib/$(MACH64)/ruby/2.5.0/yaml.rb
 file path=$(USRDIR)/lib/$(MACH64)/ruby/2.5.0/yaml/dbm.rb
 file path=$(USRDIR)/lib/$(MACH64)/ruby/2.5.0/yaml/store.rb
-dir  path=$(USRDIR)/lib/$(MACH64)/ruby/gems
 dir  path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.5.0
 dir  path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.5.0/build_info
 dir  path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.5.0/cache
@@ -1415,7 +1407,7 @@ file path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.5.0/specifications/default/gdbm-2.
 file path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.5.0/specifications/default/io-console-0.4.6.gemspec
 file path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.5.0/specifications/default/ipaddr-1.2.0.gemspec
 file path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.5.0/specifications/default/json-2.1.0.gemspec
-file path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.5.0/specifications/default/openssl-2.1.0.gemspec
+file path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.5.0/specifications/default/openssl-2.1.2.gemspec
 file path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.5.0/specifications/default/psych-3.0.2.gemspec
 file path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.5.0/specifications/default/rdoc-6.0.1.gemspec
 file path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.5.0/specifications/default/scanf-1.0.0.gemspec
@@ -1431,19 +1423,15 @@ file path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.5.0/specifications/power_assert-1.
 file path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.5.0/specifications/rake-12.3.0.gemspec
 file path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.5.0/specifications/test-unit-3.2.7.gemspec
 file path=$(USRDIR)/lib/$(MACH64)/ruby/gems/2.5.0/specifications/xmlrpc-0.3.0.gemspec
-dir  path=$(USRDIR)/lib/$(MACH64)/ruby/site_ruby
 dir  path=$(USRDIR)/lib/$(MACH64)/ruby/site_ruby/2.5.0
 dir  path=$(USRDIR)/lib/$(MACH64)/ruby/site_ruby/2.5.0/$(MACH64_GNU)-solaris$(SOLARIS_VERSION)
-dir  path=$(USRDIR)/lib/$(MACH64)/ruby/vendor_ruby
 dir  path=$(USRDIR)/lib/$(MACH64)/ruby/vendor_ruby/2.5.0
 dir  path=$(USRDIR)/lib/$(MACH64)/ruby/vendor_ruby/2.5.0/$(MACH64_GNU)-solaris$(SOLARIS_VERSION)
 link path=$(USRDIR)/lib/libruby2.5.so target=libruby2.5.so.2
 link path=$(USRDIR)/lib/libruby2.5.so.$(COMPONENT_VERSION) \
     target=libruby2.5.so.2
 file path=$(USRDIR)/lib/libruby2.5.so.2
-dir  path=$(USRDIR)/lib/pkgconfig
 file path=$(USRDIR)/lib/pkgconfig/ruby-2.5.pc
-dir  path=$(USRDIR)/lib/ruby
 dir  path=$(USRDIR)/lib/ruby/2.5.0
 dir  path=$(USRDIR)/lib/ruby/2.5.0/$(MACH)-solaris$(SOLARIS_VERSION)
 file path=$(USRDIR)/lib/ruby/2.5.0/$(MACH)-solaris$(SOLARIS_VERSION)/bigdecimal.so
@@ -2383,7 +2371,6 @@ dir  path=$(USRDIR)/lib/ruby/2.5.0/yaml
 file path=$(USRDIR)/lib/ruby/2.5.0/yaml.rb
 file path=$(USRDIR)/lib/ruby/2.5.0/yaml/dbm.rb
 file path=$(USRDIR)/lib/ruby/2.5.0/yaml/store.rb
-dir  path=$(USRDIR)/lib/ruby/gems
 dir  path=$(USRDIR)/lib/ruby/gems/2.5.0
 dir  path=$(USRDIR)/lib/ruby/gems/2.5.0/build_info
 dir  path=$(USRDIR)/lib/ruby/gems/2.5.0/cache
@@ -2775,7 +2762,7 @@ file path=$(USRDIR)/lib/ruby/gems/2.5.0/specifications/default/gdbm-2.0.0.gemspe
 file path=$(USRDIR)/lib/ruby/gems/2.5.0/specifications/default/io-console-0.4.6.gemspec
 file path=$(USRDIR)/lib/ruby/gems/2.5.0/specifications/default/ipaddr-1.2.0.gemspec
 file path=$(USRDIR)/lib/ruby/gems/2.5.0/specifications/default/json-2.1.0.gemspec
-file path=$(USRDIR)/lib/ruby/gems/2.5.0/specifications/default/openssl-2.1.0.gemspec
+file path=$(USRDIR)/lib/ruby/gems/2.5.0/specifications/default/openssl-2.1.2.gemspec
 file path=$(USRDIR)/lib/ruby/gems/2.5.0/specifications/default/psych-3.0.2.gemspec
 file path=$(USRDIR)/lib/ruby/gems/2.5.0/specifications/default/rdoc-6.0.1.gemspec
 file path=$(USRDIR)/lib/ruby/gems/2.5.0/specifications/default/scanf-1.0.0.gemspec
@@ -2791,22 +2778,15 @@ file path=$(USRDIR)/lib/ruby/gems/2.5.0/specifications/power_assert-1.1.1.gemspe
 file path=$(USRDIR)/lib/ruby/gems/2.5.0/specifications/rake-12.3.0.gemspec
 file path=$(USRDIR)/lib/ruby/gems/2.5.0/specifications/test-unit-3.2.7.gemspec
 file path=$(USRDIR)/lib/ruby/gems/2.5.0/specifications/xmlrpc-0.3.0.gemspec
-dir  path=$(USRDIR)/lib/ruby/site_ruby
 dir  path=$(USRDIR)/lib/ruby/site_ruby/2.5.0
 dir  path=$(USRDIR)/lib/ruby/site_ruby/2.5.0/$(MACH)-solaris$(SOLARIS_VERSION)
-dir  path=$(USRDIR)/lib/ruby/vendor_ruby
 dir  path=$(USRDIR)/lib/ruby/vendor_ruby/2.5.0
 dir  path=$(USRDIR)/lib/ruby/vendor_ruby/2.5.0/$(MACH)-solaris$(SOLARIS_VERSION)
-dir  path=$(USRDIR)/share
-dir  path=$(USRDIR)/share/doc
 dir  path=$(USRDIR)/share/doc/ruby
-dir  path=$(USRDIR)/share/man
-dir  path=$(USRDIR)/share/man/man1
-file path=$(USRDIR)/share/man/man1/erb$(COMPONENT_VERSION)
-file path=$(USRDIR)/share/man/man1/irb$(COMPONENT_VERSION)
-file path=$(USRDIR)/share/man/man1/ri$(COMPONENT_VERSION)
-file path=$(USRDIR)/share/man/man1/ruby$(COMPONENT_VERSION)
-dir  path=$(USRDIR)/share/ri
+file path=$(USRDIR)/share/man/man1/erb2.5.1
+file path=$(USRDIR)/share/man/man1/irb2.5.1
+file path=$(USRDIR)/share/man/man1/ri2.5.1
+file path=$(USRDIR)/share/man/man1/ruby2.5.1
 dir  path=$(USRDIR)/share/ri/2.5.0
 dir  path=$(USRDIR)/share/ri/2.5.0/system
 dir  path=$(USRDIR)/share/ri/2.5.0/system/ACL
@@ -5003,7 +4983,6 @@ file path=$(USRDIR)/share/ri/2.5.0/system/Gem/BundlerVersionFinder/filter%21-c.r
 file path=$(USRDIR)/share/ri/2.5.0/system/Gem/BundlerVersionFinder/lockfile_contents-c.ri
 file path=$(USRDIR)/share/ri/2.5.0/system/Gem/BundlerVersionFinder/lockfile_version-c.ri
 file path=$(USRDIR)/share/ri/2.5.0/system/Gem/BundlerVersionFinder/missing_version_message-c.ri
-file path=$(USRDIR)/share/ri/2.5.0/system/Gem/BundlerVersionFinder/without_filtering-c.ri
 dir  path=$(USRDIR)/share/ri/2.5.0/system/Gem/Command
 file path=$(USRDIR)/share/ri/2.5.0/system/Gem/Command/add_common_option-c.ri
 file path=$(USRDIR)/share/ri/2.5.0/system/Gem/Command/add_extra_args-i.ri
@@ -5558,7 +5537,7 @@ file path=$(USRDIR)/share/ri/2.5.0/system/Gem/Installer/shebang-i.ri
 file path=$(USRDIR)/share/ri/2.5.0/system/Gem/Installer/spec-i.ri
 file path=$(USRDIR)/share/ri/2.5.0/system/Gem/Installer/spec_file-i.ri
 file path=$(USRDIR)/share/ri/2.5.0/system/Gem/Installer/unpack-i.ri
-file path=$(USRDIR)/share/ri/2.5.0/system/Gem/Installer/verify_spec_name-i.ri
+file path=$(USRDIR)/share/ri/2.5.0/system/Gem/Installer/verify_spec-i.ri
 file path=$(USRDIR)/share/ri/2.5.0/system/Gem/Installer/windows_stub_script-i.ri
 file path=$(USRDIR)/share/ri/2.5.0/system/Gem/Installer/wrappers-i.ri
 file path=$(USRDIR)/share/ri/2.5.0/system/Gem/Installer/write_build_info_file-i.ri
