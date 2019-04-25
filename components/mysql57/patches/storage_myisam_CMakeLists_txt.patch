@@ -4,7 +4,7 @@ Build with newer DTrace.
 
 --- a/storage/myisam/CMakeLists.txt.orig	2016-03-28 18:06:12.000000000 +0000
 +++ b/storage/myisam/CMakeLists.txt
-@@ -38,7 +38,8 @@ SET(MYISAM_SOURCES  ft_boolean_search.c
+@@ -40,7 +40,8 @@ SET(MYISAM_SOURCES  ft_boolean_search.c
  MYSQL_ADD_PLUGIN(myisam ${MYISAM_SOURCES} 
    STORAGE_ENGINE 
    MANDATORY 
