@@ -9,34 +9,35 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		node
 COMPONENT_FMRI=		runtime/nodejs
-COMPONENT_VERSION=	8.8.1
+COMPONENT_VERSION=	12.0.0
 COMPONENT_LICENSE=	BSD-like, MIT, Apache
+COMPONENT_LICENSE_FILE=	LICENSE
 COMPONENT_PROJECT_URL=	"http://nodejs.org"
 COMPONENT_SUMMARY=	Evented I/O for V8 JavaScript.
 COMPONENT_SRC=		$(COMPONENT_NAME)-v$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:1725bbbe623d6a13ee14522730dfc90eac1c9ebe9a0a8f4c3322a402dd7e75a2
-COMPONENT_ARCHIVE_URL=	http://nodejs.org/dist/v$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:ef7a25d25370a0c618d50ea72f2e78b8777e015160694d7b7cac05188cc0db65
+COMPONENT_ARCHIVE_URL=	https://nodejs.org/dist/v$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
-COMPONENT_LICENSE_FILE=	LICENSE
-
 COMPONENT_PRE_CONFIGURE_ACTION = ($(CLONEY) $(SOURCE_DIR) $(@D))
-CONFIG_SHELL =	$(USRDIR)/bin/python
+
 CONFIGURE_SCRIPT =	$(@D)/configure
-CONFIGURE_OPTIONS =	--prefix=$(USRDIR)
+CONFIGURE_OPTIONS=	--prefix=$(USRDIR)
+CONFIGURE_OPTIONS+=	--dest-cpu=x64
+CONFIGURE_OPTIONS+=	--with-dtrace
 
-build:		$(BUILD_32)
+build:		$(BUILD_64)
 
-install:	$(INSTALL_32)
+install:	$(INSTALL_64)
 
