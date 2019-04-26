@@ -19,6 +19,7 @@ export DOWNLOAD_SEARCH_PATH ?=	http://download.everycity.co.uk/ec-userland/archi
 
 SF_PROJECT_NAME=	$(COMPONENT_NAME)
 GITHUB_PROJECT=		$(COMPONENT_NAME)
+GITHUB_RELEASE=		$(COMPONENT_SRC)
 
 # URL roots
 APACHE_ARCHIVE=		http://archive.apache.org/dist
@@ -46,6 +47,7 @@ DOWNLOAD_GITHUB=	https://github.com/downloads/$(COMPONENT_NAME)/$(COMPONENT_NAME
 DOWNLOAD_GITHUB1=	https://github.com/$(GITHUB_PROJECT)/$(COMPONENT_NAME)/archive/$(COMPONENT_ARCHIVE)
 DOWNLOAD_GITHUB2=	https://github.com/$(GITHUB_PROJECT)/$(COMPONENT_NAME)/releases/download/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_GITHUB3=	https://github.com/$(GITHUB_PROJECT)/$(COMPONENT_NAME)/releases/download/v$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
+DOWNLOAD_GITHUB4=	https://github.com/$(GITHUB_PROJECT)/$(COMPONENT_NAME)/releases/download/$(COMPONENT_RELEASE)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_GNOME=		https://ftp.gnome.org/pub/gnome/sources/$(COMPONENT_NAME)/$(COMPONENT_VERSION_MJR)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_GNU_FTP=	https://ftp.gnu.org/gnu/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 DOWNLOAD_GNU_SAVANNAH=	http://download.savannah.gnu.org/releases/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
