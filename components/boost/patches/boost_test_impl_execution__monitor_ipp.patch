@@ -2,7 +2,7 @@ $NetBSD: patch-boost_test_impl_execution__monitor.ipp,v 1.2 2018/04/29 20:41:11 
 
 --- a/boost/test/impl/execution_monitor.ipp.orig	2018-04-11 13:49:08.000000000 +0000
 +++ b/boost/test/impl/execution_monitor.ipp
-@@ -168,7 +168,8 @@ namespace { void _set_se_translator( voi
+@@ -171,7 +171,8 @@ namespace { void _set_se_translator( voi
  #  if defined(SIGPOLL) && !defined(__CYGWIN__)                              && \
        !(defined(macintosh) || defined(__APPLE__) || defined(__APPLE_CC__))  && \
        !defined(__NetBSD__)                                                  && \
@@ -12,7 +12,7 @@ $NetBSD: patch-boost_test_impl_execution__monitor.ipp,v 1.2 2018/04/29 20:41:11 
  #    define BOOST_TEST_CATCH_SIGPOLL
  #  endif
  
-@@ -367,6 +368,7 @@ system_signal_exception::report() const
+@@ -371,6 +372,7 @@ system_signal_exception::report() const
      if( !m_sig_info )
          return; // no error actually occur?
  
@@ -20,7 +20,7 @@ $NetBSD: patch-boost_test_impl_execution__monitor.ipp,v 1.2 2018/04/29 20:41:11 
      switch( m_sig_info->si_code ) {
  #ifdef __VXWORKS__
  // a bit of a hack to adapt code to small m_sig_info VxWorks uses             
-@@ -387,14 +389,18 @@ system_signal_exception::report() const
+@@ -391,14 +393,18 @@ system_signal_exception::report() const
          report_error( execution_exception::system_error,
                        "signal: the expiration of a timer set by timer_settimer()" );
          break;
@@ -39,7 +39,7 @@ $NetBSD: patch-boost_test_impl_execution__monitor.ipp,v 1.2 2018/04/29 20:41:11 
      default:
          break;
      }
-@@ -613,6 +619,7 @@ system_signal_exception::report() const
+@@ -617,6 +623,7 @@ system_signal_exception::report() const
          report_error( execution_exception::system_error,
                        "unrecognized signal %d", m_sig_info->si_signo );
      }

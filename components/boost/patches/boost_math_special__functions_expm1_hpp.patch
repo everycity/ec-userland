@@ -2,7 +2,7 @@ $NetBSD: patch-boost_math_special__functions_expm1.hpp,v 1.1 2017/05/29 14:39:29
 
 --- a/boost/math/special_functions/expm1.hpp.orig	2017-04-17 02:22:22.000000000 +0000
 +++ b/boost/math/special_functions/expm1.hpp
-@@ -303,7 +303,7 @@ inline typename tools::promote_args<T>::
+@@ -313,7 +313,7 @@ inline typename tools::promote_args<T>::
  #endif
  
  #if defined(BOOST_HAS_EXPM1) && !(defined(__osf__) && defined(__DECCXX_VER))

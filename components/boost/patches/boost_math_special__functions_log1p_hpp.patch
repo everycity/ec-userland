@@ -2,7 +2,7 @@ $NetBSD: patch-boost_math_special__functions_log1p.hpp,v 1.1 2017/05/29 14:39:29
 
 --- a/boost/math/special_functions/log1p.hpp.orig	2017-04-17 02:22:22.000000000 +0000
 +++ b/boost/math/special_functions/log1p.hpp
-@@ -348,7 +348,7 @@ inline long double log1p(long double z)
+@@ -358,7 +358,7 @@ inline long double log1p(long double z)
  #  undef log1p
  #endif
  
