@@ -94,6 +94,7 @@ file path=$(USRDIR)/include/unicode/fieldpos.h
 file path=$(USRDIR)/include/unicode/filteredbrk.h
 file path=$(USRDIR)/include/unicode/fmtable.h
 file path=$(USRDIR)/include/unicode/format.h
+file path=$(USRDIR)/include/unicode/formattedvalue.h
 file path=$(USRDIR)/include/unicode/fpositer.h
 file path=$(USRDIR)/include/unicode/gender.h
 file path=$(USRDIR)/include/unicode/gregocal.h
@@ -101,6 +102,7 @@ file path=$(USRDIR)/include/unicode/icudataver.h
 file path=$(USRDIR)/include/unicode/icuplug.h
 file path=$(USRDIR)/include/unicode/idna.h
 file path=$(USRDIR)/include/unicode/listformatter.h
+file path=$(USRDIR)/include/unicode/localebuilder.h
 file path=$(USRDIR)/include/unicode/localpointer.h
 file path=$(USRDIR)/include/unicode/locdspnm.h
 file path=$(USRDIR)/include/unicode/locid.h
@@ -186,6 +188,7 @@ file path=$(USRDIR)/include/unicode/udisplaycontext.h
 file path=$(USRDIR)/include/unicode/uenum.h
 file path=$(USRDIR)/include/unicode/ufieldpositer.h
 file path=$(USRDIR)/include/unicode/uformattable.h
+file path=$(USRDIR)/include/unicode/uformattedvalue.h
 file path=$(USRDIR)/include/unicode/ugender.h
 file path=$(USRDIR)/include/unicode/uidna.h
 file path=$(USRDIR)/include/unicode/uiter.h
@@ -250,32 +253,32 @@ link path=$(USRDIR)/lib/$(MACH64)/icu/pkgdata.inc target=current/pkgdata.inc
 link path=$(USRDIR)/lib/$(MACH64)/libicudata.so \
     target=libicudata.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/$(MACH64)/libicudata.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/$(MACH64)/libicudata.so.63 \
+link path=$(USRDIR)/lib/$(MACH64)/libicudata.so.64 \
     target=libicudata.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/$(MACH64)/libicui18n.so \
     target=libicui18n.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/$(MACH64)/libicui18n.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/$(MACH64)/libicui18n.so.63 \
+link path=$(USRDIR)/lib/$(MACH64)/libicui18n.so.64 \
     target=libicui18n.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/$(MACH64)/libicuio.so \
     target=libicuio.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/$(MACH64)/libicuio.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/$(MACH64)/libicuio.so.63 \
+link path=$(USRDIR)/lib/$(MACH64)/libicuio.so.64 \
     target=libicuio.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/$(MACH64)/libicutest.so \
     target=libicutest.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/$(MACH64)/libicutest.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/$(MACH64)/libicutest.so.63 \
+link path=$(USRDIR)/lib/$(MACH64)/libicutest.so.64 \
     target=libicutest.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/$(MACH64)/libicutu.so \
     target=libicutu.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/$(MACH64)/libicutu.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/$(MACH64)/libicutu.so.63 \
+link path=$(USRDIR)/lib/$(MACH64)/libicutu.so.64 \
     target=libicutu.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/$(MACH64)/libicuuc.so \
     target=libicuuc.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/$(MACH64)/libicuuc.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/$(MACH64)/libicuuc.so.63 \
+link path=$(USRDIR)/lib/$(MACH64)/libicuuc.so.64 \
     target=libicuuc.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/icu-i18n.pc
 file path=$(USRDIR)/lib/$(MACH64)/pkgconfig/icu-io.pc
@@ -289,25 +292,25 @@ link path=$(USRDIR)/lib/icu/current target=$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/icu/pkgdata.inc target=current/pkgdata.inc
 link path=$(USRDIR)/lib/libicudata.so target=libicudata.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/libicudata.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libicudata.so.63 \
+link path=$(USRDIR)/lib/libicudata.so.64 \
     target=libicudata.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/libicui18n.so target=libicui18n.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/libicui18n.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libicui18n.so.63 \
+link path=$(USRDIR)/lib/libicui18n.so.64 \
     target=libicui18n.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/libicuio.so target=libicuio.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/libicuio.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libicuio.so.63 target=libicuio.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libicuio.so.64 target=libicuio.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/libicutest.so target=libicutest.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/libicutest.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libicutest.so.63 \
+link path=$(USRDIR)/lib/libicutest.so.64 \
     target=libicutest.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/libicutu.so target=libicutu.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/libicutu.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libicutu.so.63 target=libicutu.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libicutu.so.64 target=libicutu.so.$(COMPONENT_VERSION)
 link path=$(USRDIR)/lib/libicuuc.so target=libicuuc.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/libicuuc.so.$(COMPONENT_VERSION)
-link path=$(USRDIR)/lib/libicuuc.so.63 target=libicuuc.so.$(COMPONENT_VERSION)
+link path=$(USRDIR)/lib/libicuuc.so.64 target=libicuuc.so.$(COMPONENT_VERSION)
 file path=$(USRDIR)/lib/pkgconfig/icu-i18n.pc
 file path=$(USRDIR)/lib/pkgconfig/icu-io.pc
 file path=$(USRDIR)/lib/pkgconfig/icu-uc.pc
