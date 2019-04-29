@@ -1,0 +1,23 @@
+--- mysql-proxy-0.8.5/src/chassis-mainloop.c.orig	2019-04-29 20:02:34.440569314 +0000
++++ mysql-proxy-0.8.5/src/chassis-mainloop.c	2019-04-29 20:03:11.500172948 +0000
+@@ -99,9 +99,9 @@
+ chassis *chassis_new() {
+ 	chassis *chas;
+ 
+-	if (0 != chassis_check_version(event_get_version(), _EVENT_VERSION)) {
++	if (0 != chassis_check_version(event_get_version(), EVENT__VERSION)) {
+ 		g_critical("%s: chassis is build against libevent %s, but now runs against %s",
+-				G_STRLOC, _EVENT_VERSION, event_get_version());
++				G_STRLOC, EVENT__VERSION, event_get_version());
+ 		return NULL;
+ 	}
+ 
+@@ -116,7 +116,7 @@
+ 
+ 	chas->threads = chassis_event_threads_new();
+ 
+-	chas->event_hdr_version = g_strdup(_EVENT_VERSION);
++	chas->event_hdr_version = g_strdup(EVENT__VERSION);
+ 
+ 	chas->shutdown_hooks = chassis_shutdown_hooks_new();
+ 
