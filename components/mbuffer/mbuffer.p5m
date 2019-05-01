@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2015 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -22,12 +22,7 @@ set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_LICENSE_FILE) license='$(COMPONENT_LICENSE)'
 
-dir  path=$(USRDIR)
-dir  path=$(USRDIR)/bin
-dir  path=$(USRDIR)/bin/$(MACH64)
+file path=$(SYSCONFDIR)/mbuffer.rc
 file path=$(USRDIR)/bin/$(MACH64)/mbuffer
 file path=$(USRDIR)/bin/mbuffer
-dir  path=$(USRDIR)/share
-dir  path=$(USRDIR)/share/man
-dir  path=$(USRDIR)/share/man/man1
 file path=$(USRDIR)/share/man/man1/mbuffer.1

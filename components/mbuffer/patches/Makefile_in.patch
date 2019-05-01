@@ -1,0 +1,30 @@
+--- mbuffer-20190127/Makefile.in.~1~	2019-01-27 20:36:54.000000000 +0000
++++ mbuffer-20190127/Makefile.in	2019-05-01 13:05:34.237384305 +0000
+@@ -37,7 +37,7 @@
+ 	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJECTS) $(LIBS) -o $@
+ 
+ have-af: have-af.c
+-	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) have-af.c $(LIBS) -o $@
++	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) $(VPATH)/have-af.c $(LIBS) -o $@
+ 
+ clean:
+ 	-$(RM) $(OBJECTS)
+@@ -48,7 +48,7 @@
+ 
+ $(DESTDIR)$(etcdir)/mbuffer.rc:
+ 	-$(INSTALL) -d -m 755 $(DESTDIR)$(etcdir)
+-	$(INSTALL) -m 644 mbuffer.rc $(DESTDIR)$(etcdir)
++	$(INSTALL) -m 644 $(VPATH)/mbuffer.rc $(DESTDIR)$(etcdir)
+ 
+ install: $(TARGET) $(DESTDIR)$(etcdir)/mbuffer.rc
+ 	-$(INSTALL) -d -m 755 $(DESTDIR)$(bindir)
+@@ -157,7 +157,7 @@
+ 	./mbuffer -P90 --md5 -i INSTALL -o /dev/null
+ 
+ tapetest.so: tapetest.c config.h
+-	$(CC) $(CFLAGS) -shared -fPIC tapetest.c -o $@ $(LIBS)
++	$(CC) $(CFLAGS) -shared -fPIC $(VPATH)/tapetest.c -o $@ $(LIBS)
+ 
+ idev.so: idev.c config.h
+-	$(CC) $(CFLAGS) -shared -g -fPIC idev.c -o $@ $(LIBS)
++	$(CC) $(CFLAGS) -shared -g -fPIC $(VPATH)/idev.c -o $@ $(LIBS)
