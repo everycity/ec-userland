@@ -499,6 +499,7 @@ file \
     path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/optimizer/geqo_selection.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/optimizer/joininfo.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/optimizer/orclauses.h
+file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/optimizer/paramassign.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/optimizer/pathnode.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/optimizer/paths.h
 file path=$(ECPREFIX)/lib/postgres/$(COMPONENT_MJR_VERSION)/include/server/optimizer/placeholder.h
