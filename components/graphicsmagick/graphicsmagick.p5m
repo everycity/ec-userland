@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -154,13 +154,13 @@ file \
     path=$(ECPREFIX)/lib/$(MACH64)/GraphicsMagick-$(COMPONENT_VERSION)/config/type.mgk
 file path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagick++.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagick++.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagick++.so.12.3.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagick++.so.12.4.1
 file path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagick.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagick.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagick.so.3.17.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagick.so.3.20.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagickWand.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagickWand.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagickWand.so.2.8.1
+file path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagickWand.so.2.9.2
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/GraphicsMagick++.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/GraphicsMagick.pc
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/GraphicsMagickWand.pc
@@ -175,13 +175,13 @@ file \
 file path=$(ECPREFIX)/lib/GraphicsMagick-$(COMPONENT_VERSION)/config/type.mgk
 file path=$(ECPREFIX)/lib/libGraphicsMagick++.a
 file path=$(ECPREFIX)/lib/libGraphicsMagick++.la
-file path=$(ECPREFIX)/lib/libGraphicsMagick++.so.12.3.0
+file path=$(ECPREFIX)/lib/libGraphicsMagick++.so.12.4.1
 file path=$(ECPREFIX)/lib/libGraphicsMagick.a
 file path=$(ECPREFIX)/lib/libGraphicsMagick.la
-file path=$(ECPREFIX)/lib/libGraphicsMagick.so.3.17.0
+file path=$(ECPREFIX)/lib/libGraphicsMagick.so.3.20.0
 file path=$(ECPREFIX)/lib/libGraphicsMagickWand.a
 file path=$(ECPREFIX)/lib/libGraphicsMagickWand.la
-file path=$(ECPREFIX)/lib/libGraphicsMagickWand.so.2.8.1
+file path=$(ECPREFIX)/lib/libGraphicsMagickWand.so.2.9.2
 file path=$(ECPREFIX)/lib/pkgconfig/GraphicsMagick++.pc
 file path=$(ECPREFIX)/lib/pkgconfig/GraphicsMagick.pc
 file path=$(ECPREFIX)/lib/pkgconfig/GraphicsMagickWand.pc
@@ -206,6 +206,9 @@ file path=$(ECPREFIX)/share/doc/GraphicsMagick/ChangeLog.2012
 file path=$(ECPREFIX)/share/doc/GraphicsMagick/ChangeLog.2013
 file path=$(ECPREFIX)/share/doc/GraphicsMagick/ChangeLog.2014
 file path=$(ECPREFIX)/share/doc/GraphicsMagick/ChangeLog.2015
+file path=$(ECPREFIX)/share/doc/GraphicsMagick/ChangeLog.2016
+file path=$(ECPREFIX)/share/doc/GraphicsMagick/ChangeLog.2017
+file path=$(ECPREFIX)/share/doc/GraphicsMagick/ChangeLog.2018
 file path=$(ECPREFIX)/share/doc/GraphicsMagick/Copyright.txt
 file path=$(ECPREFIX)/share/doc/GraphicsMagick/NEWS.txt
 file path=$(ECPREFIX)/share/doc/GraphicsMagick/www/ChangeLog-2001.html
@@ -224,6 +227,8 @@ file path=$(ECPREFIX)/share/doc/GraphicsMagick/www/ChangeLog-2013.html
 file path=$(ECPREFIX)/share/doc/GraphicsMagick/www/ChangeLog-2014.html
 file path=$(ECPREFIX)/share/doc/GraphicsMagick/www/ChangeLog-2015.html
 file path=$(ECPREFIX)/share/doc/GraphicsMagick/www/ChangeLog-2016.html
+file path=$(ECPREFIX)/share/doc/GraphicsMagick/www/ChangeLog-2017.html
+file path=$(ECPREFIX)/share/doc/GraphicsMagick/www/ChangeLog-2018.html
 file path=$(ECPREFIX)/share/doc/GraphicsMagick/www/Changelog.html
 file path=$(ECPREFIX)/share/doc/GraphicsMagick/www/Changes.html
 file path=$(ECPREFIX)/share/doc/GraphicsMagick/www/Copyright.html
@@ -383,26 +388,26 @@ file path=$(ECPREFIX)/share/man/man1/gm.1
 file path=$(ECPREFIX)/share/man/man4/miff.4
 file path=$(ECPREFIX)/share/man/man5/quantize.5
 link path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagick++.so \
-    target=libGraphicsMagick++.so.12.3.0
+    target=libGraphicsMagick++.so.12.4.1
 link path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagick++.so.12 \
-    target=libGraphicsMagick++.so.12.3.0
+    target=libGraphicsMagick++.so.12.4.1
 link path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagick.so \
-    target=libGraphicsMagick.so.3.17.0
+    target=libGraphicsMagick.so.3.20.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagick.so.3 \
-    target=libGraphicsMagick.so.3.17.0
+    target=libGraphicsMagick.so.3.20.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagickWand.so \
-    target=libGraphicsMagickWand.so.2.8.1
+    target=libGraphicsMagickWand.so.2.9.2
 link path=$(ECPREFIX)/lib/$(MACH64)/libGraphicsMagickWand.so.2 \
-    target=libGraphicsMagickWand.so.2.8.1
+    target=libGraphicsMagickWand.so.2.9.2
 link path=$(ECPREFIX)/lib/libGraphicsMagick++.so \
-    target=libGraphicsMagick++.so.12.3.0
+    target=libGraphicsMagick++.so.12.4.1
 link path=$(ECPREFIX)/lib/libGraphicsMagick++.so.12 \
-    target=libGraphicsMagick++.so.12.3.0
+    target=libGraphicsMagick++.so.12.4.1
 link path=$(ECPREFIX)/lib/libGraphicsMagick.so \
-    target=libGraphicsMagick.so.3.17.0
+    target=libGraphicsMagick.so.3.20.0
 link path=$(ECPREFIX)/lib/libGraphicsMagick.so.3 \
-    target=libGraphicsMagick.so.3.17.0
+    target=libGraphicsMagick.so.3.20.0
 link path=$(ECPREFIX)/lib/libGraphicsMagickWand.so \
-    target=libGraphicsMagickWand.so.2.8.1
+    target=libGraphicsMagickWand.so.2.9.2
 link path=$(ECPREFIX)/lib/libGraphicsMagickWand.so.2 \
-    target=libGraphicsMagickWand.so.2.8.1
+    target=libGraphicsMagickWand.so.2.9.2

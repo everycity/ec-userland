@@ -9,20 +9,20 @@
 #
 
 #
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		GraphicsMagick
 COMPONENT_FMRI=         multimedia/graphicsmagick
-COMPONENT_VERSION=      1.3.27
+COMPONENT_VERSION=      1.3.32
 COMPONENT_LICENSE=      MIT
 COMPONENT_PROJECT_URL=  "http://www.graphicsmagick.org/"
 COMPONENT_SUMMARY=	GraphicsMagick is the swiss army knife of image processing.
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.xz
-COMPONENT_ARCHIVE_HASH=	sha256:d03278d2790efc1dc72309f85a539810d2a81deb47932f7e6720d09ac72d0367
+COMPONENT_ARCHIVE_HASH=	sha256:b842a5a0d6c84fd6c5f161b5cd8e02bbd210b0c0b6728dd762b7c53062ba94e1
 SF_PROJECT_NAME=	graphicsmagick
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_SF_PROJECT)
 
