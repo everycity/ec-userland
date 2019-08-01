@@ -9,16 +9,16 @@
 #
 
 #
-# Copyright 2011-2013 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ca-bundle
 COMPONENT_FMRI=		crypto/ca-bundle
-COMPONENT_VERSION=	2013.5.20
+COMPONENT_VERSION=	2019.5.15
 COMPONENT_LICENSE=	GPLv2 LGPLv2.1 MPL 1.1
-COMPONENT_PROJECT_URL=	http://curl.haxx.se/ca/cacert.pem
-COMPONENT_ARCHIVE_URL=	http://curl.haxx.se/ca/cacert.pem
+COMPONENT_PROJECT_URL=	https://curl.haxx.se/ca/cacert.pem
+COMPONENT_ARCHIVE_URL=	https://curl.haxx.se/ca/cacert.pem
 COMPONENT_SUMMARY=	Bundle of CA Root Certificates (From Mozilla)
 
 include ../../make-rules/justmake.mk
