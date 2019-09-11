@@ -53,10 +53,10 @@ file path=$(ECPREFIX)/include/curl/system.h
 file path=$(ECPREFIX)/include/curl/typecheck-gcc.h
 file path=$(ECPREFIX)/include/curl/urlapi.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libcurl.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libcurl.so.4.5.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libcurl.so.4.6.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libcurl.pc
 file path=$(ECPREFIX)/lib/libcurl.la
-file path=$(ECPREFIX)/lib/libcurl.so.4.5.0
+file path=$(ECPREFIX)/lib/libcurl.so.4.6.0
 file path=$(ECPREFIX)/lib/pkgconfig/libcurl.pc
 file path=$(ECPREFIX)/share/aclocal/libcurl.m4
 file path=$(ECPREFIX)/share/man/man1/curl-config.1
@@ -103,6 +103,7 @@ file path=$(ECPREFIX)/share/man/man3/CURLINFO_REDIRECT_TIME_T.3
 file path=$(ECPREFIX)/share/man/man3/CURLINFO_REDIRECT_URL.3
 file path=$(ECPREFIX)/share/man/man3/CURLINFO_REQUEST_SIZE.3
 file path=$(ECPREFIX)/share/man/man3/CURLINFO_RESPONSE_CODE.3
+file path=$(ECPREFIX)/share/man/man3/CURLINFO_RETRY_AFTER.3
 file path=$(ECPREFIX)/share/man/man3/CURLINFO_RTSP_CLIENT_CSEQ.3
 file path=$(ECPREFIX)/share/man/man3/CURLINFO_RTSP_CSEQ_RECV.3
 file path=$(ECPREFIX)/share/man/man3/CURLINFO_RTSP_SERVER_CSEQ.3
@@ -329,6 +330,7 @@ file path=$(ECPREFIX)/share/man/man3/CURLOPT_RTSP_SERVER_CSEQ.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_RTSP_SESSION_ID.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_RTSP_STREAM_URI.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_RTSP_TRANSPORT.3
+file path=$(ECPREFIX)/share/man/man3/CURLOPT_SASL_AUTHZID.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_SASL_IR.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_SEEKDATA.3
 file path=$(ECPREFIX)/share/man/man3/CURLOPT_SEEKFUNCTION.3
@@ -453,6 +455,7 @@ file path=$(ECPREFIX)/share/man/man3/curl_multi_fdset.3
 file path=$(ECPREFIX)/share/man/man3/curl_multi_info_read.3
 file path=$(ECPREFIX)/share/man/man3/curl_multi_init.3
 file path=$(ECPREFIX)/share/man/man3/curl_multi_perform.3
+file path=$(ECPREFIX)/share/man/man3/curl_multi_poll.3
 file path=$(ECPREFIX)/share/man/man3/curl_multi_remove_handle.3
 file path=$(ECPREFIX)/share/man/man3/curl_multi_setopt.3
 file path=$(ECPREFIX)/share/man/man3/curl_multi_socket.3
@@ -488,7 +491,7 @@ file path=$(ECPREFIX)/share/man/man3/libcurl-thread.3
 file path=$(ECPREFIX)/share/man/man3/libcurl-tutorial.3
 file path=$(ECPREFIX)/share/man/man3/libcurl-url.3
 file path=$(ECPREFIX)/share/man/man3/libcurl.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libcurl.so target=libcurl.so.4.5.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libcurl.so.4 target=libcurl.so.4.5.0
-link path=$(ECPREFIX)/lib/libcurl.so target=libcurl.so.4.5.0
-link path=$(ECPREFIX)/lib/libcurl.so.4 target=libcurl.so.4.5.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libcurl.so target=libcurl.so.4.6.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libcurl.so.4 target=libcurl.so.4.6.0
+link path=$(ECPREFIX)/lib/libcurl.so target=libcurl.so.4.6.0
+link path=$(ECPREFIX)/lib/libcurl.so.4 target=libcurl.so.4.6.0
