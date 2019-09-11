@@ -16,14 +16,14 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		openssl
 COMPONENT_FMRI=		library/security/openssl
-COMPONENT_VERSION=	1.0.2s
-IPS_COMPONENT_VERSION=  1.0.2.19
+COMPONENT_VERSION=	1.0.2t
+IPS_COMPONENT_VERSION=  1.0.2.20
 COMPONENT_LICENSE=	BSD
 COMPONENT_PROJECT_URL=	"http://www.openssl.org/"
 COMPONENT_SUMMARY=	OpenSSL - a Toolkit for Secure Sockets Layer (SSL v2/v3) and Transport Layer (TLS v1) protocols and general purpose cryptographic library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:cabd5c9492825ce5bd23f3c3aeed6a97f8142f606d893df216411f07d1abab96
+COMPONENT_ARCHIVE_HASH=	sha256:14cb464efe7ac6b54799b34456bd69558a749a4931ecfd9cf9f71d7881cac7bc
 COMPONENT_ARCHIVE_URL=	https://www.openssl.org/source/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
