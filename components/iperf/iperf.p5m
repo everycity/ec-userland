@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2013 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -32,6 +32,10 @@ dir path=$(ECPREFIX)/share/man/man1
 dir path=$(ECPREFIX)/share/man/man3
 file path=$(ECPREFIX)/bin/iperf3
 file path=$(ECPREFIX)/include/iperf_api.h
-#file path=$(ECPREFIX)/lib/libiperf.a
+file path=$(ECPREFIX)/lib/libiperf.a
+file path=$(ECPREFIX)/lib/libiperf.la
+file path=$(ECPREFIX)/lib/libiperf.so.0.0.0
 file path=$(ECPREFIX)/share/man/man1/iperf3.1
 file path=$(ECPREFIX)/share/man/man3/libiperf.3
+link path=$(ECPREFIX)/lib/libiperf.so target=libiperf.so.0.0.0
+link path=$(ECPREFIX)/lib/libiperf.so.0 target=libiperf.so.0.0.0
