@@ -54,6 +54,7 @@
 <transform depend pkg.debug.depend.file=librt\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libsasl\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libscf\.so.* -> drop>
+<transform depend pkg.debug.depend.file=libsctp\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libsec\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libsecdb\.so.* -> drop>
 <transform depend pkg.debug.depend.file=libsendfile\.so.* -> drop>
