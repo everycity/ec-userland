@@ -317,8 +317,8 @@ dir \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/ext
 dir \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/loaders
-dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/gems/rdoc-6.1.0
-dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/gems/rdoc-6.1.0/exe
+dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/gems/rdoc-6.1.2
+dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/gems/rdoc-6.1.2/exe
 dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/gems/test-unit-3.2.9
 dir path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/gems/test-unit-3.2.9/doc
 dir \
@@ -606,8 +606,8 @@ dir path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib
 dir path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake
 dir path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/ext
 dir path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/loaders
-dir path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/rdoc-6.1.0
-dir path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/rdoc-6.1.0/exe
+dir path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/rdoc-6.1.2
+dir path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/rdoc-6.1.2/exe
 dir path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/test-unit-3.2.9
 dir path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/test-unit-3.2.9/doc
 dir path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/test-unit-3.2.9/doc/text
@@ -3785,8 +3785,6 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.6.0/rdoc/generator/template/darkfish/js/darkfish.js
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.6.0/rdoc/generator/template/darkfish/js/jquery.js
-file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.6.0/rdoc/generator/template/darkfish/js/search.js
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/2.6.0/rdoc/generator/template/darkfish/page.rhtml
@@ -4719,8 +4717,8 @@ file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/win32.rb
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/gems/rake-12.3.2/rake.gemspec
-file path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/gems/rdoc-6.1.0/exe/rdoc
-file path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/gems/rdoc-6.1.0/exe/ri
+file path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/gems/rdoc-6.1.2/exe/rdoc
+file path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/gems/rdoc-6.1.2/exe/ri
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/gems/test-unit-3.2.9/COPYING
 file path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/gems/test-unit-3.2.9/GPL
@@ -5009,7 +5007,7 @@ file \
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/specifications/default/psych-3.1.0.gemspec
 file \
-    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/specifications/default/rdoc-6.1.0.gemspec
+    path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/specifications/default/rdoc-6.1.2.gemspec
 file \
     path=$(ECPREFIX)/lib/$(MACH64)/ruby/gems/2.6.0/specifications/default/rexml-3.1.9.gemspec
 file \
@@ -5862,8 +5860,6 @@ file \
 file \
     path=$(ECPREFIX)/lib/ruby/2.6.0/rdoc/generator/template/darkfish/js/darkfish.js
 file \
-    path=$(ECPREFIX)/lib/ruby/2.6.0/rdoc/generator/template/darkfish/js/jquery.js
-file \
     path=$(ECPREFIX)/lib/ruby/2.6.0/rdoc/generator/template/darkfish/js/search.js
 file \
     path=$(ECPREFIX)/lib/ruby/2.6.0/rdoc/generator/template/darkfish/page.rhtml
@@ -6654,8 +6650,8 @@ file \
 file path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/version.rb
 file path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/win32.rb
 file path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/rake-12.3.2/rake.gemspec
-file path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/rdoc-6.1.0/exe/rdoc
-file path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/rdoc-6.1.0/exe/ri
+file path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/rdoc-6.1.2/exe/rdoc
+file path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/rdoc-6.1.2/exe/ri
 file path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/test-unit-3.2.9/COPYING
 file path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/test-unit-3.2.9/GPL
 file path=$(ECPREFIX)/lib/ruby/gems/2.6.0/gems/test-unit-3.2.9/LGPL
@@ -6932,7 +6928,7 @@ file \
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.6.0/specifications/default/psych-3.1.0.gemspec
 file \
-    path=$(ECPREFIX)/lib/ruby/gems/2.6.0/specifications/default/rdoc-6.1.0.gemspec
+    path=$(ECPREFIX)/lib/ruby/gems/2.6.0/specifications/default/rdoc-6.1.2.gemspec
 file \
     path=$(ECPREFIX)/lib/ruby/gems/2.6.0/specifications/default/rexml-3.1.9.gemspec
 file \
@@ -6997,7 +6993,7 @@ file path=$(ECPREFIX)/share/man/man1/erb2.6.1
 file path=$(ECPREFIX)/share/man/man1/irb2.6.1
 file path=$(ECPREFIX)/share/man/man1/ri2.6.1
 file path=$(ECPREFIX)/share/man/man1/ruby2.6.1
-file path=$(ECPREFIX)/share/man/man5/gemfile2.6.5
+file path=$(ECPREFIX)/share/man/man5/gemfile$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/share/ri/2.6.0/system/ACL/ACLEntry/cdesc-ACLEntry.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/ACL/ACLEntry/dot_pat-i.ri
 file path=$(ECPREFIX)/share/ri/2.6.0/system/ACL/ACLEntry/dot_pat_str-i.ri
