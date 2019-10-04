@@ -1,0 +1,53 @@
+To avoid dependency on libtool/libltdl, change "*.la" extension to "*.so".
+This also changes the path for the *.so files necessary for testing to the
+correct location.
+This patch comes from in-house.  It has not been submitted upstream; plans
+unclear.
+
+diff --git a/common.shi.in b/common.shi.in
+index 67f3772..f08a1df 100644
+--- a/common.shi.in
++++ b/common.shi.in
+@@ -18,9 +18,9 @@ VALIDATE="@abs_top_builddir@/tests/validate"
+ DRAWTEST="@abs_top_builddir@/tests/drawtest"
+ WANDTEST="@abs_top_builddir@/tests/wandtest"
+ LD_LIBRARY_PATH="@abs_top_builddir@/magick/.libs:@abs_top_builddir@/wand/.libs:${LD_LIBRARY_PATH}"
+-MAGICK_CODER_MODULE_PATH="@abs_top_builddir@/coders"
++MAGICK_CODER_MODULE_PATH="@abs_top_builddir@/coders/.libs"
+ MAGICK_CONFIGURE_PATH="@abs_top_builddir@/config:@abs_top_srcdir@/config"
+-MAGICK_FILTER_MODULE_PATH="@abs_top_builddir@/filters"
++MAGICK_FILTER_MODULE_PATH="@abs_top_builddir@/filters/.libs"
+ MAGICK_FONT="@abs_top_srcdir@/PerlMagick/demo/Generic.ttf"
+ PATH="@abs_top_builddir@/utilities:@abs_top_builddir@/tests:${PATH}"
+ set +a
+diff --git a/magick/module.c b/magick/module.c
+index 50afbdd..8fc77bb 100644
+--- a/magick/module.c
++++ b/magick/module.c
+@@ -75,7 +75,7 @@ typedef void *ModuleHandle;
+   Define declarations.
+ */
+ #if defined(MAGICKCORE_LTDL_DELEGATE)
+-#  define ModuleGlobExpression "*.la"
++#  define ModuleGlobExpression "*.so"
+ #else
+ #  if defined(_DEBUG)
+ #    define ModuleGlobExpression "IM_MOD_DB_*.dll"
+@@ -1496,7 +1496,7 @@ static void TagToCoderModuleName(const char *tag,char *name)
+   (void) LogMagickEvent(TraceEvent,GetMagickModule(),"%s",tag);
+   assert(name != (char *) NULL);
+ #if defined(MAGICKCORE_LTDL_DELEGATE)
+-  (void) FormatLocaleString(name,MaxTextExtent,"%s.la",tag);
++  (void) FormatLocaleString(name,MaxTextExtent,"%s.so",tag);
+   (void) LocaleLower(name);
+ #else
+ #if defined(MAGICKCORE_WINDOWS_SUPPORT)
+@@ -1547,7 +1547,7 @@ static void TagToFilterModuleName(const char *tag,char *name)
+ #if !defined(MAGICKCORE_LTDL_DELEGATE)
+   (void) FormatLocaleString(name,MaxTextExtent,"%s.dll",tag);
+ #else
+-  (void) FormatLocaleString(name,MaxTextExtent,"%s.la",tag);
++  (void) FormatLocaleString(name,MaxTextExtent,"%s.so",tag);
+ #endif
+ }
+ 

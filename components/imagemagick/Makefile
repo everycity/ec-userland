@@ -16,35 +16,56 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ImageMagick
 COMPONENT_FMRI=		multimedia/imagemagick
-COMPONENT_VERSION=	6.9.10-41
-IPS_COMPONENT_VERSION=	6.9.10.41
+COMPONENT_VERSION=	6.9.10-67
+IPS_COMPONENT_VERSION=	6.9.10.67
 COMPONENT_LICENSE=	ImageMagick
 COMPONENT_PROJECT_URL=	http://www.imagemagick.org/
 COMPONENT_SUMMARY=	Convert, Edit, And Compose Images
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:984f34b4dbf80f9e604541ddd86504f82e9beacf89ac6d72a072086f722b5ed2
+COMPONENT_ARCHIVE_HASH=	sha256:6b0e71b7989905ee03b6efdac447a4faf7c7be0233b17c2fea224d63d15600e9
 COMPONENT_ARCHIVE_URL=	ftp://ftp.imagemagick.org/pub/ImageMagick/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+COMPONENT_PREP_ACTION = (cd $(@D) && libtoolize -f && autoreconf -fi)
+
+# To get the Perl modules built it is necessary to copy the PerlMagick directory
+# to the build directory
+#
+COMPONENT_PRE_CONFIGURE_ACTION= ($(CP) -R $(SOURCE_DIR)/PerlMagick $(@D))
+
+# Don't use rpath, or relink!
+COMPONENT_POST_CONFIGURE_ACTION = \
+	(cd $(BUILD_DIR_$(BITS)) ; \
+	$(GSED) -i \
+	-e 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' \
+	-e 's|need_relink=yes|need_relink=not_on_solaris|' \
+	libtool)
+
+LIBS += -lsocket -lnsl
+CONFIGURE_ENV += LIBS="$(LIBS)"
+
+# Prevent older versions of libMagick{Core,Wand}-6.Q16.so from the build
+# machine from being found ahead of new versions from the proto area.
+LD_OPTIONS_SO=		-L. -L../../magick/.libs
+COMPONENT_BUILD_ENV +=	LD_OPTIONS_SO="$(LD_OPTIONS_SO)"
+
+
 CONFIGURE_OPTIONS+=	--enable-shared=yes
 CONFIGURE_OPTIONS+=	--enable-static=no
 CONFIGURE_OPTIONS+=	--without-gvc
+CONFIGURE_OPTIONS+=	--disable-openmp
 CONFIGURE_OPTIONS+=	--without-modules
 CONFIGURE_OPTIONS.32+=	--with-perl
 CONFIGURE_OPTIONS.64+=	--without-perl
 CONFIGURE_OPTIONS+=	--with-rsvg=yes
 CONFIGURE_OPTIONS+=	--with-gslib
 
-# To get the Perl modules built it is necessary to copy the PerlMagick directory
-# to the build directory
-COMPONENT_PRE_CONFIGURE_ACTION= ($(CP) -R $(SOURCE_DIR)/PerlMagick $(@D); )
-
-COMPONENT_BUILD_ARGS += LD="$(CC)"
-COMPONENT_BUILD_ARGS += LD_RUN_PATH="$(CONFIGURE_LIBDIR.$(BITS))"
+#COMPONENT_BUILD_ARGS += LD="$(CC)"
+#COMPONENT_BUILD_ARGS += LD_RUN_PATH="$(CONFIGURE_LIBDIR.$(BITS))"
 
 # Your build time output from ImageMagick should look like this:
 #
