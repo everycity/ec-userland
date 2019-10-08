@@ -22,14 +22,13 @@ set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license $(COMPONENT_NAME).license license="$(COMPONENT_LICENSE)"
 
-depend fmri=library/libuuid type=require
-
 dir path=$(ECPREFIX)
 dir path=$(ECPREFIX)/bin
 dir path=$(ECPREFIX)/bin/$(MACH64)
 dir path=$(ECPREFIX)/etc
 dir path=$(ECPREFIX)/etc/openldap
 dir path=$(ECPREFIX)/etc/openldap/schema
+dir path=$(ECPREFIX)/etc/openldap/schema.607787
 dir path=$(ECPREFIX)/include
 dir path=$(ECPREFIX)/lib
 dir path=$(ECPREFIX)/lib/$(MACH64)
@@ -65,6 +64,33 @@ file path=$(ECPREFIX)/bin/slapd
 file path=$(ECPREFIX)/etc/openldap/DB_CONFIG.example
 file path=$(ECPREFIX)/etc/openldap/ldap.conf
 file path=$(ECPREFIX)/etc/openldap/ldap.conf.default
+file path=$(ECPREFIX)/etc/openldap/schema.607787/README
+file path=$(ECPREFIX)/etc/openldap/schema.607787/collective.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.607787/collective.schema
+file path=$(ECPREFIX)/etc/openldap/schema.607787/corba.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.607787/corba.schema
+file path=$(ECPREFIX)/etc/openldap/schema.607787/core.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.607787/core.schema
+file path=$(ECPREFIX)/etc/openldap/schema.607787/cosine.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.607787/cosine.schema
+file path=$(ECPREFIX)/etc/openldap/schema.607787/duaconf.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.607787/duaconf.schema
+file path=$(ECPREFIX)/etc/openldap/schema.607787/dyngroup.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.607787/dyngroup.schema
+file path=$(ECPREFIX)/etc/openldap/schema.607787/inetorgperson.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.607787/inetorgperson.schema
+file path=$(ECPREFIX)/etc/openldap/schema.607787/java.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.607787/java.schema
+file path=$(ECPREFIX)/etc/openldap/schema.607787/misc.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.607787/misc.schema
+file path=$(ECPREFIX)/etc/openldap/schema.607787/nis.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.607787/nis.schema
+file path=$(ECPREFIX)/etc/openldap/schema.607787/openldap.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.607787/openldap.schema
+file path=$(ECPREFIX)/etc/openldap/schema.607787/pmi.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.607787/pmi.schema
+file path=$(ECPREFIX)/etc/openldap/schema.607787/ppolicy.ldif
+file path=$(ECPREFIX)/etc/openldap/schema.607787/ppolicy.schema
 file path=$(ECPREFIX)/etc/openldap/schema/README
 file path=$(ECPREFIX)/etc/openldap/schema/collective.ldif
 file path=$(ECPREFIX)/etc/openldap/schema/collective.schema
@@ -104,6 +130,7 @@ file path=$(ECPREFIX)/include/ldap_features.h
 file path=$(ECPREFIX)/include/ldap_schema.h
 file path=$(ECPREFIX)/include/ldap_utf8.h
 file path=$(ECPREFIX)/include/ldif.h
+file path=$(ECPREFIX)/include/openldap.h
 file path=$(ECPREFIX)/include/slapi-plugin.h
 file path=$(ECPREFIX)/lib/$(MACH64)/liblber-2.4.so.2.10.11
 file path=$(ECPREFIX)/lib/$(MACH64)/liblber.a
