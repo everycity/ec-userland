@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2011, 2012, EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -27,56 +27,37 @@
 <transform file path=$(ECPREFIX)/bin/sudo -> default mode 04111>
 <transform file path=$(ECPREFIX)/lib/sesh -> default mode 0111>
 
-set name=pkg.fmri value=pkg:/security/sudo@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
-set name=pkg.summary value="Sudo security authentication utility"
-set name=info.upstream_url value="http://www.sudo.ws"
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 
 license sudo.license license="SUDO"
 
-dir path=$(SYSCONFDIR)
-dir path=$(SYSCONFDIR)/sudoers.d
-dir path=$(ECPREFIX)
-dir path=$(ECPREFIX)/bin
-dir path=$(ECPREFIX)/include
-dir path=$(ECPREFIX)/lib
-dir path=$(ECPREFIX)/share
-dir path=$(ECPREFIX)/share/doc
+depend fmri=pkg:/editor/vim type=require
+
+dir path=$(ECPREFIX)/etc/sudoers.d
+dir path=$(ECPREFIX)/lib/sudo
 dir path=$(ECPREFIX)/share/doc/sudo
-dir path=$(ECPREFIX)/share/locale
-dir path=$(ECPREFIX)/share/locale/da
-dir path=$(ECPREFIX)/share/locale/da/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/eo
-dir path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/eu
-dir path=$(ECPREFIX)/share/locale/eu/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/fi
-dir path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/it
-dir path=$(ECPREFIX)/share/locale/it/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/ja
-dir path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/pl
-dir path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/ru
-dir path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/uk
-dir path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES
-dir path=$(ECPREFIX)/share/locale/zh_CN
-dir path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES
-dir path=$(ECPREFIX)/share/man
-dir path=$(ECPREFIX)/share/man/man1m
-dir path=$(ECPREFIX)/share/man/man4
-dir path=$(ECPREFIX)/var
-dir path=$(ECPREFIX)/var/adm
+dir path=$(ECPREFIX)/share/doc/sudo/examples
 dir path=$(ECPREFIX)/var/adm/sudo
-file path=$(ECPREFIX)/bin/sudoedit
+file path=$(ECPREFIX)/bin/cvtsudoers
+file path=$(ECPREFIX)/bin/sudo
 file path=$(ECPREFIX)/bin/sudoreplay
 file path=$(ECPREFIX)/bin/visudo
-file path=$(SYSCONFDIR)/sudoers
+file path=$(ECPREFIX)/etc/sudoers
+file path=$(ECPREFIX)/etc/sudoers.dist
 file path=$(ECPREFIX)/include/sudo_plugin.h
-file path=$(ECPREFIX)/lib/sudo_noexec.so
-file path=$(ECPREFIX)/lib/sudoers.so
+file path=$(ECPREFIX)/lib/sudo/group_file.la
+file path=$(ECPREFIX)/lib/sudo/group_file.so
+file path=$(ECPREFIX)/lib/sudo/libsudo_util.la
+file path=$(ECPREFIX)/lib/sudo/libsudo_util.so.0.0.0
+file path=$(ECPREFIX)/lib/sudo/sudo_noexec.la
+file path=$(ECPREFIX)/lib/sudo/sudo_noexec.so
+file path=$(ECPREFIX)/lib/sudo/sudoers.la
+file path=$(ECPREFIX)/lib/sudo/sudoers.so
+file path=$(ECPREFIX)/lib/sudo/system_group.la
+file path=$(ECPREFIX)/lib/sudo/system_group.so
 file path=$(ECPREFIX)/share/doc/sudo/CONTRIBUTORS
 file path=$(ECPREFIX)/share/doc/sudo/ChangeLog
 file path=$(ECPREFIX)/share/doc/sudo/HISTORY
@@ -85,33 +66,119 @@ file path=$(ECPREFIX)/share/doc/sudo/NEWS
 file path=$(ECPREFIX)/share/doc/sudo/README
 file path=$(ECPREFIX)/share/doc/sudo/TROUBLESHOOTING
 file path=$(ECPREFIX)/share/doc/sudo/UPGRADE
-file path=$(ECPREFIX)/share/doc/sudo/sample.pam
-file path=$(ECPREFIX)/share/doc/sudo/sample.sudo.conf
-file path=$(ECPREFIX)/share/doc/sudo/sample.sudoers
-file path=$(ECPREFIX)/share/doc/sudo/sample.syslog.conf
+file path=$(ECPREFIX)/share/doc/sudo/examples/pam.conf
+file path=$(ECPREFIX)/share/doc/sudo/examples/sudo.conf
+file path=$(ECPREFIX)/share/doc/sudo/examples/sudoers
+file path=$(ECPREFIX)/share/doc/sudo/examples/syslog.conf
+file path=$(ECPREFIX)/share/locale/ast/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/ast/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/ca/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/ca/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/cs/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/cs/LC_MESSAGES/sudoers.mo
 file path=$(ECPREFIX)/share/locale/da/LC_MESSAGES/sudo.mo
 file path=$(ECPREFIX)/share/locale/da/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/de/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/de/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/el/LC_MESSAGES/sudoers.mo
 file path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES/sudo.mo
 file path=$(ECPREFIX)/share/locale/eo/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/es/LC_MESSAGES/sudo.mo
 file path=$(ECPREFIX)/share/locale/eu/LC_MESSAGES/sudo.mo
 file path=$(ECPREFIX)/share/locale/eu/LC_MESSAGES/sudoers.mo
 file path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES/sudo.mo
 file path=$(ECPREFIX)/share/locale/fi/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/fr/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/fur/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/fur/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/gl/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/hr/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/hr/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/hu/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/hu/LC_MESSAGES/sudoers.mo
 file path=$(ECPREFIX)/share/locale/it/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/it/LC_MESSAGES/sudoers.mo
 file path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES/sudo.mo
 file path=$(ECPREFIX)/share/locale/ja/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/ko/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/ko/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/lt/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/nb/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/nb/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/nl/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/nn/LC_MESSAGES/sudo.mo
 file path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES/sudo.mo
 file path=$(ECPREFIX)/share/locale/pl/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/pt/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/pt/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/pt_BR/LC_MESSAGES/sudoers.mo
 file path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/ru/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/sk/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/sk/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/sl/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/sl/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/sr/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/sr/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/sv/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/tr/LC_MESSAGES/sudoers.mo
 file path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES/sudo.mo
 file path=$(ECPREFIX)/share/locale/uk/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/vi/LC_MESSAGES/sudoers.mo
 file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/sudo.mo
 file path=$(ECPREFIX)/share/locale/zh_CN/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/sudo.mo
+file path=$(ECPREFIX)/share/locale/zh_TW/LC_MESSAGES/sudoers.mo
+file path=$(ECPREFIX)/share/man/man1/cvtsudoers.1
+file path=$(ECPREFIX)/share/man/man1m/sudo.1m
 file path=$(ECPREFIX)/share/man/man1m/sudo_plugin.1m
-file path=$(ECPREFIX)/share/man/man1m/sudoedit.1m
 file path=$(ECPREFIX)/share/man/man1m/sudoreplay.1m
 file path=$(ECPREFIX)/share/man/man1m/visudo.1m
+file path=$(ECPREFIX)/share/man/man4/sudo.conf.4
 file path=$(ECPREFIX)/share/man/man4/sudoers.4
-hardlink path=$(ECPREFIX)/bin/sudo target=sudoedit
-hardlink path=$(ECPREFIX)/share/man/man1m/sudo.1m target=sudoedit.1m
-depend fmri=pkg:/editor/vim type=require
+file path=$(ECPREFIX)/share/man/man4/sudoers_timestamp.4
+link path=$(ECPREFIX)/bin/sudoedit target=sudo
+link path=$(ECPREFIX)/lib/sudo/libsudo_util.so target=libsudo_util.so.0.0.0
+link path=$(ECPREFIX)/lib/sudo/libsudo_util.so.0 target=libsudo_util.so.0.0.0
+link path=$(ECPREFIX)/share/locale/ast.UTF-8 target=ast
+link path=$(ECPREFIX)/share/locale/ca.UTF-8 target=ca
+link path=$(ECPREFIX)/share/locale/cs.UTF-8 target=cs
+link path=$(ECPREFIX)/share/locale/da.UTF-8 target=da
+link path=$(ECPREFIX)/share/locale/de.UTF-8 target=de
+link path=$(ECPREFIX)/share/locale/el.UTF-8 target=el
+link path=$(ECPREFIX)/share/locale/eo.UTF-8 target=eo
+link path=$(ECPREFIX)/share/locale/es.UTF-8 target=es
+link path=$(ECPREFIX)/share/locale/eu.UTF-8 target=eu
+link path=$(ECPREFIX)/share/locale/fi.UTF-8 target=fi
+link path=$(ECPREFIX)/share/locale/fr.UTF-8 target=fr
+link path=$(ECPREFIX)/share/locale/fur.UTF-8 target=fur
+link path=$(ECPREFIX)/share/locale/gl.UTF-8 target=gl
+link path=$(ECPREFIX)/share/locale/hr.UTF-8 target=hr
+link path=$(ECPREFIX)/share/locale/hu.UTF-8 target=hu
+link path=$(ECPREFIX)/share/locale/it.UTF-8 target=it
+link path=$(ECPREFIX)/share/locale/ja.UTF-8 target=ja
+link path=$(ECPREFIX)/share/locale/ko.UTF-8 target=ko
+link path=$(ECPREFIX)/share/locale/lt.UTF-8 target=lt
+link path=$(ECPREFIX)/share/locale/nb.UTF-8 target=nb
+link path=$(ECPREFIX)/share/locale/nl.UTF-8 target=nl
+link path=$(ECPREFIX)/share/locale/nn.UTF-8 target=nn
+link path=$(ECPREFIX)/share/locale/pl.UTF-8 target=pl
+link path=$(ECPREFIX)/share/locale/pt.UTF-8 target=pt
+link path=$(ECPREFIX)/share/locale/pt_BR.UTF-8 target=pt_BR
+link path=$(ECPREFIX)/share/locale/ru.UTF-8 target=ru
+link path=$(ECPREFIX)/share/locale/sk.UTF-8 target=sk
+link path=$(ECPREFIX)/share/locale/sl.UTF-8 target=sl
+link path=$(ECPREFIX)/share/locale/sr.UTF-8 target=sr
+link path=$(ECPREFIX)/share/locale/sv.UTF-8 target=sv
+link path=$(ECPREFIX)/share/locale/tr.UTF-8 target=tr
+link path=$(ECPREFIX)/share/locale/uk.UTF-8 target=uk
+link path=$(ECPREFIX)/share/locale/vi.UTF-8 target=vi
+link path=$(ECPREFIX)/share/locale/zh_CN.UTF-8 target=zh_CN
+link path=$(ECPREFIX)/share/locale/zh_TW.UTF-8 target=zh_TW
+link path=$(ECPREFIX)/share/man/man1m/sudoedit.1m target=sudo.1m

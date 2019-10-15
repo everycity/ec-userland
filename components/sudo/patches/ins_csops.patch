@@ -1,6 +1,6 @@
 --- sudo-1.8.1p2/plugins/sudoers/ins_csops.h.orig	2011-06-28 16:01:26.322432688 +0100
 +++ sudo-1.8.1p2/plugins/sudoers/ins_csops.h	2011-06-28 16:06:25.163205771 +0100
-@@ -23,17 +23,5 @@
+@@ -25,17 +25,5 @@
       */
  
      "Maybe if you used more than just two fingers...",
@@ -17,4 +17,4 @@
 -    "Have you considered trying to match wits with a rutabaga?",
 -    "You speak an infinite deal of nothing",
  
- #endif /* _SUDO_INS_CSOPS_H */
+ #endif /* SUDOERS_INS_CSOPS_H */
