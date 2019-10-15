@@ -1,6 +1,6 @@
 --- mysql-5.6.37/CMakeLists.txt.orig	2017-07-25 10:12:02.907291864 +0000
 +++ mysql-5.6.37/CMakeLists.txt	2017-07-25 10:12:28.699105703 +0000
-@@ -202,6 +202,7 @@
+@@ -232,6 +232,7 @@
    SET(WITHOUT_DYNAMIC_PLUGINS 1)
  ENDIF()
  OPTION(ENABLED_PROFILING "Enable profiling" ON)

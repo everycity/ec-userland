@@ -4,7 +4,7 @@ Build with newer DTrace.
 
 --- a/cmake/dtrace.cmake.orig	2014-07-18 15:48:39.000000000 +0000
 +++ b/cmake/dtrace.cmake
-@@ -35,10 +35,11 @@ MACRO(CHECK_DTRACE)
+@@ -42,10 +42,11 @@ MACRO(CHECK_DTRACE)
   MARK_AS_ADVANCED(DTRACE)
  
   # On FreeBSD, dtrace does not handle userland tracing yet
