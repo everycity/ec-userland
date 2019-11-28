@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2014 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -259,8 +259,6 @@ file \
     path=$(ECPREFIX)/share/doc/libxml2-$(COMPONENT_VERSION)/html/html/libxml-xpathInternals.html
 file \
     path=$(ECPREFIX)/share/doc/libxml2-$(COMPONENT_VERSION)/html/html/libxml-xpointer.html
-file \
-    path=$(ECPREFIX)/share/doc/libxml2-$(COMPONENT_VERSION)/html/html/libxml-xzlib.html
 file \
     path=$(ECPREFIX)/share/doc/libxml2-$(COMPONENT_VERSION)/html/html/right.png
 file path=$(ECPREFIX)/share/doc/libxml2-$(COMPONENT_VERSION)/html/html/up.png
