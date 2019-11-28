@@ -65,5 +65,6 @@ file path=$(ECPREFIX)/share/doc/haproxy/network-namespaces.txt
 file path=$(ECPREFIX)/share/doc/haproxy/peers-v2.0.txt
 file path=$(ECPREFIX)/share/doc/haproxy/peers.txt
 file path=$(ECPREFIX)/share/doc/haproxy/proxy-protocol.txt
+file path=$(ECPREFIX)/share/doc/haproxy/regression-testing.txt
 file path=$(ECPREFIX)/share/man/man1/haproxy.1
 link path=$(ECPREFIX)/bin/$(MACH64)/haproxy-wrapper target=../haproxy-wrapper
