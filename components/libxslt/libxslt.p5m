@@ -10,7 +10,7 @@
 
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -82,7 +82,7 @@ file path=$(ECPREFIX)/include/libxslt/xsltexports.h
 file path=$(ECPREFIX)/include/libxslt/xsltlocale.h
 file path=$(ECPREFIX)/include/libxslt/xsltutils.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libexslt.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libexslt.so.0.8.19
+file path=$(ECPREFIX)/lib/$(MACH64)/libexslt.so.0.8.20
 file path=$(ECPREFIX)/lib/$(MACH64)/libxslt.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libxslt.so.$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libexslt.pc
@@ -92,7 +92,7 @@ file path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/libxsltmod.la
 file path=$(ECPREFIX)/lib/$(MACH64)/python2.6/site-packages/libxsltmod.so
 file path=$(ECPREFIX)/lib/$(MACH64)/xsltConf.sh
 file path=$(ECPREFIX)/lib/libexslt.la
-file path=$(ECPREFIX)/lib/libexslt.so.0.8.19
+file path=$(ECPREFIX)/lib/libexslt.so.0.8.20
 file path=$(ECPREFIX)/lib/libxslt.la
 file path=$(ECPREFIX)/lib/libxslt.so.$(COMPONENT_VERSION)
 file path=$(ECPREFIX)/lib/pkgconfig/libexslt.pc
@@ -113,8 +113,6 @@ file \
     path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk11.html
 file \
     path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk12.html
-file \
-    path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk13.html
 file \
     path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/APIchunk2.html
 file \
@@ -266,7 +264,6 @@ file \
     path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/xsltproc.html
 file \
     path=$(ECPREFIX)/share/doc/libxslt-$(COMPONENT_VERSION)/html/xsltproc2.html
-file path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/TODO
 file \
     path=$(ECPREFIX)/share/doc/libxslt-python-$(COMPONENT_VERSION)/examples/basic.py
 file \
@@ -284,13 +281,13 @@ file \
 file path=$(ECPREFIX)/share/man/man1/xsltproc.1
 file path=$(ECPREFIX)/share/man/man3/libexslt.3
 file path=$(ECPREFIX)/share/man/man3/libxslt.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libexslt.so target=libexslt.so.0.8.19
-link path=$(ECPREFIX)/lib/$(MACH64)/libexslt.so.0 target=libexslt.so.0.8.19
+link path=$(ECPREFIX)/lib/$(MACH64)/libexslt.so target=libexslt.so.0.8.20
+link path=$(ECPREFIX)/lib/$(MACH64)/libexslt.so.0 target=libexslt.so.0.8.20
 link path=$(ECPREFIX)/lib/$(MACH64)/libxslt.so \
     target=libxslt.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/$(MACH64)/libxslt.so.1 \
     target=libxslt.so.$(COMPONENT_VERSION)
-link path=$(ECPREFIX)/lib/libexslt.so target=libexslt.so.0.8.19
-link path=$(ECPREFIX)/lib/libexslt.so.0 target=libexslt.so.0.8.19
+link path=$(ECPREFIX)/lib/libexslt.so target=libexslt.so.0.8.20
+link path=$(ECPREFIX)/lib/libexslt.so.0 target=libexslt.so.0.8.20
 link path=$(ECPREFIX)/lib/libxslt.so target=libxslt.so.$(COMPONENT_VERSION)
 link path=$(ECPREFIX)/lib/libxslt.so.1 target=libxslt.so.$(COMPONENT_VERSION)

@@ -10,19 +10,19 @@
 
 #
 # Copyright 2011 Audioboo Ltd. All rights reserved.
-# Copyright 2017 EveryCity Ltd. All rights reserved.
+# Copyright 2019 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		libxslt
 COMPONENT_FMRI=		library/libxslt
-COMPONENT_VERSION=	1.1.31
+COMPONENT_VERSION=	1.1.34
 COMPONENT_LICENSE=	MIT
 COMPONENT_PROJECT_URL=	"http://xmlsoft.org/XSLT/"
 COMPONENT_SUMMARY=	XSLT library
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:db25e96b6b801144277e67c05b10560ac09dfff82ccd53a154ce86e43622f3ab
+COMPONENT_ARCHIVE_HASH=	sha256:98b1bd46d6792925ad2dfe9a87452ea2adebf69dcb9919ffd55bf926a7f93f7f
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_XMLSOFT)
 
 include ../../make-rules/prep.mk
