@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2018 EveryCity Ltd. All rights reserved.
+# Copyright 2020 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -143,10 +143,13 @@ file path=$(ECPREFIX)/lib/tomcat7/lib/servlet-api.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-api.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-coyote.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-dbcp.jar
+file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-i18n-de.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-i18n-es.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-i18n-fr.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-i18n-ja.jar
+file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-i18n-ko.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-i18n-ru.jar
+file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-i18n-zh-CN.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-jdbc.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat-util.jar
 file path=$(ECPREFIX)/lib/tomcat7/lib/tomcat7-websocket.jar
@@ -156,7 +159,6 @@ file path=$(ECPREFIX)/lib/tomcat7/webapps/ROOT/WEB-INF/web.xml
 file path=$(ECPREFIX)/lib/tomcat7/webapps/ROOT/asf-logo-wide.svg
 file path=$(ECPREFIX)/lib/tomcat7/webapps/ROOT/bg-button.png
 file path=$(ECPREFIX)/lib/tomcat7/webapps/ROOT/bg-middle.png
-file path=$(ECPREFIX)/lib/tomcat7/webapps/ROOT/bg-nav-item.png
 file path=$(ECPREFIX)/lib/tomcat7/webapps/ROOT/bg-nav.png
 file path=$(ECPREFIX)/lib/tomcat7/webapps/ROOT/bg-upper.png
 file path=$(ECPREFIX)/lib/tomcat7/webapps/ROOT/favicon.ico

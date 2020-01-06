@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2018 EveryCity Ltd. All rights reserved.
+# Copyright 2020 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -113,10 +113,14 @@ file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/classes/CookieExample
 file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/classes/HelloWorldExample.class
 file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/classes/HelloWorldExample.java
 file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/classes/LocalStrings.properties
-file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/classes/LocalStrings_en.properties
+file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/classes/LocalStrings_de.properties
 file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/classes/LocalStrings_es.properties
 file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/classes/LocalStrings_fr.properties
+file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/classes/LocalStrings_ja.properties
+file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/classes/LocalStrings_ko.properties
 file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/classes/LocalStrings_pt.properties
+file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/classes/LocalStrings_ru.properties
+file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/classes/LocalStrings_zh_CN.properties
 file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/classes/RequestHeaderExample.class
 file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/classes/RequestHeaderExample.java
 file path=$(ECPREFIX)/lib/tomcat7/webapps/examples/WEB-INF/classes/RequestInfoExample.class
