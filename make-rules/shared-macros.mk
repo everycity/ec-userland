@@ -539,31 +539,24 @@ CONFIGURE_PREFIX=	$(ECPREFIX)
 endif
 
 ifeq ($(CONFIGURE_PREFIX), $(ECPREFIX))
-	CFLAGS +=	-I$(ECPREFIX)/include
-	CXXFLAGS +=	-I$(ECPREFIX)/include
+	CPPFLAGS +=	-I$(ECPREFIX)/include
 	LDFLAGS.32 =	-L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
 	LDFLAGS.64 =	-L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)
 else
-	CFLAGS +=	-I$(CONFIGURE_PREFIX)/include -I$(ECPREFIX)/include
-	CXXFLAGS +=	-I$(CONFIGURE_PREFIX)/include -I$(ECPREFIX)/include
+	CPPFLAGS +=	-I$(CONFIGURE_PREFIX)/include -I$(ECPREFIX)/include
 	LDFLAGS.32 =	-L$(CONFIGURE_PREFIX)/lib -R$(CONFIGURE_PREFIX)/lib -L$(ECPREFIX)/lib -R$(ECPREFIX)/lib
 	LDFLAGS.64 =	-L$(CONFIGURE_PREFIX)/lib/amd64 -R$(CONFIGURE_PREFIX)/lib/amd64 -L$(ECPREFIX)/lib/$(MACH64) -R$(ECPREFIX)/lib/$(MACH64)
 endif
 
-
 # Generally create code for less ancient CPUs.
 # Also enables support for the GCC atomic builtins when requested.
-CFLAGS.32 =	-march=i686
-CXXFLAGS.32 =	-march=i686
-
-CFLAGS +=	$(CFLAGS.$(BITS))
-CXXFLAGS +=	$(CXXFLAGS.$(BITS))
+CFLAGS +=	-march=core2
+CXXFLAGS +=	-march=core2
 
 LDFLAGS +=	$(LDFLAGS.$(BITS))
 
 # Link with libumem by default
 LIBS +=		-lumem
-LDFLAGS +=	-lumem
 
 # Reduce the symbol table size, effectively conflicting with -g.  We should
 # get linker guidance here.
