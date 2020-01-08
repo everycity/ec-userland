@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2019 EveryCity Ltd. All rights reserved.
+# Copyright 2020 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -465,6 +465,7 @@ file path=$(ECPREFIX)/share/man/man3/curl_multi_socket_all.3
 file path=$(ECPREFIX)/share/man/man3/curl_multi_strerror.3
 file path=$(ECPREFIX)/share/man/man3/curl_multi_timeout.3
 file path=$(ECPREFIX)/share/man/man3/curl_multi_wait.3
+file path=$(ECPREFIX)/share/man/man3/curl_multi_wakeup.3
 file path=$(ECPREFIX)/share/man/man3/curl_share_cleanup.3
 file path=$(ECPREFIX)/share/man/man3/curl_share_init.3
 file path=$(ECPREFIX)/share/man/man3/curl_share_setopt.3
