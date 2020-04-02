@@ -1,10 +1,9 @@
 --- a/config.layout.orig	2011-03-24 05:00:41.865236354 -0700
 +++ b/config.layout	2011-03-24 05:11:45.205694672 -0700
-@@ -370,3 +370,28 @@
-     installbuilddir: ${prefix}/etc/apache/build
-     errordir:      ${datadir}/error
+@@ -370,3 +370,27 @@
+    proxycachedir:   ${localstatedir}/cache/apache2
  </Layout>
-+
+ 
 +# EveryCity layout
 +<Layout EveryCity>
 +    prefix:        /ec/lib/apache/2.4
