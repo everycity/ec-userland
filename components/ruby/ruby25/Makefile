@@ -9,21 +9,21 @@
 #
 
 #
-# Copyright 2019 EveryCity Ltd. All rights reserved.
+# Copyright 2020 EveryCity Ltd. All rights reserved.
 #
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ruby
 COMPONENT_FMRI=		runtime/ruby-25
 COMPONENT_MJR_VERSION=	2.5
-COMPONENT_MNR_VERSION=	7
+COMPONENT_MNR_VERSION=	8
 COMPONENT_VERSION=	$(COMPONENT_MJR_VERSION).$(COMPONENT_MNR_VERSION)
 COMPONENT_LICENSE=	2-clause BSDL
 COMPONENT_PROJECT_URL=	http://www.ruby-lang.org/
 COMPONENT_SUMMARY=	The Ruby Programming Language & RubyGems
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:0b2d0d5e3451b6ab454f81b1bfca007407c0548dea403f1eba2e429da4add6d4
+COMPONENT_ARCHIVE_HASH=	sha256:6c0bdf07876c69811a9e7dc237c43d40b1cb6369f68e0e17953d7279b524ad9a
 COMPONENT_ARCHIVE_URL=	$(DOWNLOAD_RUBY)
 
 include ../../../make-rules/prep.mk
