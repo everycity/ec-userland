@@ -1,6 +1,6 @@
 --- apache-tomcat-7.0.30/conf/server.xml.orig	2012-09-26 16:10:35.315540364 +0000
 +++ apache-tomcat-7.0.30/conf/server.xml	2012-09-26 16:11:19.583111782 +0000
-@@ -69,6 +69,7 @@
+@@ -70,6 +70,7 @@
      -->
      <Connector port="8080" protocol="HTTP/1.1"
                 connectionTimeout="20000"
