@@ -15,7 +15,7 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ca-bundle
 COMPONENT_FMRI=		crypto/ca-bundle
-COMPONENT_VERSION=	2020.1.1
+COMPONENT_VERSION=	2020.7.22
 COMPONENT_LICENSE=	GPLv2 LGPLv2.1 MPL 1.1
 COMPONENT_PROJECT_URL=	https://curl.haxx.se/ca/cacert.pem
 COMPONENT_ARCHIVE_URL=	https://curl.haxx.se/ca/cacert.pem
