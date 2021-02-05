@@ -9,22 +9,22 @@
 #
 
 #
-# Copyright 2020 EveryCity Ltd. All rights reserved.
+# Copyright 2021 EveryCity Ltd. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		tomcat
-COMPONENT_VERSION=	7.0.106
+COMPONENT_VERSION=	7.0.108
 COMPONENT_FMRI=         web/java-servlet/tomcat7
 COMPONENT_LICENSE=      Apache v2.0
 COMPONENT_SUMMARY=      Tomcat Servlet/JSP Container
 COMPONENT_PROJECT_URL=	$(PROJECT_APACHE)
 COMPONENT_SRC=		apache-tomcat-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	apache-tomcat-$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:533c246def2624de7f79ff6edfdf5695d56f7267ddc337385c2e4b502f963606
-COMPONENT_ARCHIVE_URL=	http://mirror.ox.ac.uk/sites/rsync.apache.org/tomcat/tomcat-7/v$(COMPONENT_VERSION)/bin/$(COMPONENT_ARCHIVE)
-COMPONENT_JMX_URL=	http://mirror.ox.ac.uk/sites/rsync.apache.org/tomcat/tomcat-7/v$(COMPONENT_VERSION)/bin/extras/catalina-jmx-remote.jar
+COMPONENT_ARCHIVE_HASH=	sha256:6dbf37fe4362cf1bc68959ad83ffea8daddd49c89ea273238765778eb229aa6a
+COMPONENT_ARCHIVE_URL=	https://mirrors.gethosted.online/apache/tomcat/tomcat-7/v$(COMPONENT_VERSION)/bin/$(COMPONENT_ARCHIVE)
+COMPONENT_JMX_URL=	https://mirrors.gethosted.online/apache/tomcat/tomcat-7/v$(COMPONENT_VERSION)/bin/extras/catalina-jmx-remote.jar
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
