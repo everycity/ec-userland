@@ -1,0 +1,55 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2021 EveryCity Ltd. All rights reserved.
+#
+
+# Transforms
+<include ec-drop-common>
+
+set name=pkg.fmri value=pkg:/$(COMPONENT_FMRI)@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="$(COMPONENT_SUMMARY)"
+set name=info.upstream_url value=$(COMPONENT_PROJECT_URL)
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+
+license COPYRIGHT license="$(COMPONENT_LICENSE)"
+
+# We need postgres user
+depend type=require fmri=database/postgresql-common
+
+dir path=$(ECPREFIX)
+dir path=$(ECPREFIX)/bin
+dir path=$(ECPREFIX)/bin/$(MACH64)
+dir path=$(ECPREFIX)/etc
+dir path=$(ECPREFIX)/etc/pgbouncer
+dir path=$(ECPREFIX)/share
+dir path=$(ECPREFIX)/share/doc
+dir path=$(ECPREFIX)/share/doc/pgbouncer
+dir path=$(ECPREFIX)/share/man
+dir path=$(ECPREFIX)/share/man/man1
+dir path=$(ECPREFIX)/share/man/man5
+dir path=$(ECPREFIX)/var
+dir path=$(ECPREFIX)/var/postgres
+dir path=$(ECPREFIX)/var/postgres/pgbouncer owner=postgres group=postgres
+dir path=var
+dir path=var/svc
+dir path=var/svc/manifest
+dir path=var/svc/manifest/site
+file path=$(ECPREFIX)/bin/$(MACH64)/pgbouncer
+file path=$(ECPREFIX)/etc/pgbouncer/pgbouncer.ini group=postgres mode=0640 preserve=true
+file path=$(ECPREFIX)/share/doc/pgbouncer/NEWS.md
+file path=$(ECPREFIX)/share/doc/pgbouncer/README.md
+file path=$(ECPREFIX)/share/doc/pgbouncer/pgbouncer.ini
+file path=$(ECPREFIX)/share/doc/pgbouncer/userlist.txt
+file path=$(ECPREFIX)/share/man/man1/pgbouncer.1
+file path=$(ECPREFIX)/share/man/man5/pgbouncer.5
+file path=var/svc/manifest/site/ec-pgbouncer.xml restart_fmri=svc:/system/manifest-import:default
+hardlink path=$(ECPREFIX)/bin/pgbouncer target=$(MACH64)/pgbouncer
