@@ -38,11 +38,11 @@ file path=$(ECPREFIX)/include/ares_rules.h
 file path=$(ECPREFIX)/include/ares_version.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libcares.a
 file path=$(ECPREFIX)/lib/$(MACH64)/libcares.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libcares.so.2.4.2
+file path=$(ECPREFIX)/lib/$(MACH64)/libcares.so.2.4.3
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libcares.pc
 file path=$(ECPREFIX)/lib/libcares.a
 file path=$(ECPREFIX)/lib/libcares.la
-file path=$(ECPREFIX)/lib/libcares.so.2.4.2
+file path=$(ECPREFIX)/lib/libcares.so.2.4.3
 file path=$(ECPREFIX)/lib/pkgconfig/libcares.pc
 file path=$(ECPREFIX)/share/man/man3/ares_cancel.3
 file path=$(ECPREFIX)/share/man/man3/ares_create_query.3
@@ -102,7 +102,7 @@ file path=$(ECPREFIX)/share/man/man3/ares_set_sortlist.3
 file path=$(ECPREFIX)/share/man/man3/ares_strerror.3
 file path=$(ECPREFIX)/share/man/man3/ares_timeout.3
 file path=$(ECPREFIX)/share/man/man3/ares_version.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libcares.so target=libcares.so.2.4.2
-link path=$(ECPREFIX)/lib/$(MACH64)/libcares.so.2 target=libcares.so.2.4.2
-link path=$(ECPREFIX)/lib/libcares.so target=libcares.so.2.4.2
-link path=$(ECPREFIX)/lib/libcares.so.2 target=libcares.so.2.4.2
+link path=$(ECPREFIX)/lib/$(MACH64)/libcares.so target=libcares.so.2.4.3
+link path=$(ECPREFIX)/lib/$(MACH64)/libcares.so.2 target=libcares.so.2.4.3
+link path=$(ECPREFIX)/lib/libcares.so target=libcares.so.2.4.3
+link path=$(ECPREFIX)/lib/libcares.so.2 target=libcares.so.2.4.3

@@ -16,13 +16,13 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		c-ares
 COMPONENT_FMRI=         library/c-ares
-COMPONENT_VERSION=      1.17.1
+COMPONENT_VERSION=      1.17.2
 COMPONENT_LICENSE=      MIT
 COMPONENT_PROJECT_URL=  "https://c-ares.haxx.se/"
 COMPONENT_SUMMARY=	c-ares is a C library for asynchronous DNS requests
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha256:d73dd0f6de824afd407ce10750ea081af47eba52b8a6cb307d220131ad93fc40
+COMPONENT_ARCHIVE_HASH=	sha256:4803c844ce20ce510ef0eb83f8ea41fa24ecaae9d280c468c582d2bb25b3913d
 COMPONENT_ARCHIVE_URL=	https://c-ares.haxx.se/download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
