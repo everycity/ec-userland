@@ -9,16 +9,16 @@
 #
 
 #
-# Copyright 2020 EveryCity Ltd. All rights reserved.
+# Copyright 2021 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ca-bundle
 COMPONENT_FMRI=		crypto/ca-bundle
-COMPONENT_VERSION=	2020.7.22
+COMPONENT_VERSION=	2021.7.5
 COMPONENT_LICENSE=	GPLv2 LGPLv2.1 MPL 1.1
-COMPONENT_PROJECT_URL=	https://curl.haxx.se/ca/cacert.pem
-COMPONENT_ARCHIVE_URL=	https://curl.haxx.se/ca/cacert.pem
+COMPONENT_PROJECT_URL=	https://curl.se/ca/cacert.pem
+COMPONENT_ARCHIVE_URL=	https://curl.se/ca/cacert.pem
 COMPONENT_SUMMARY=	Bundle of CA Root Certificates (From Mozilla)
 
 include ../../make-rules/justmake.mk
@@ -26,14 +26,14 @@ include ../../make-rules/ips.mk
 
 CABUNDLE_DIR=	$(PROTO_DIR)$(ECPREFIX)/etc/openssl
 CABUNDLE_FILE=	$(CABUNDLE_DIR)/cabundle.pem
-CABUNDLE_URL=	http://curl.haxx.se/ca/cacert.pem
+CABUNDLE_URL=	https://curl.se/ca/cacert.pem
 
 $(BUILD_DIR)/%/.built: 
 	$(RM) -r $(@D) $(PROTO_DIR) ; $(MKDIR) -p $(@D) $(CABUNDLE_DIR)
 	$(TOUCH) $@
 
 $(BUILD_DIR)/%/.installed:	$(BUILD_DIR)/%/.built
-	( wget -O $(CABUNDLE_FILE) $(CABUNDLE_URL) )
+	( wget --no-check-certificate -O $(CABUNDLE_FILE) $(CABUNDLE_URL) )
 	$(TOUCH) $@
 
 download:
