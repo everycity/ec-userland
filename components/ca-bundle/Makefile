@@ -9,13 +9,13 @@
 #
 
 #
-# Copyright 2021 EveryCity Ltd. All rights reserved.
+# Copyright 2022 EveryCity Ltd. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		ca-bundle
 COMPONENT_FMRI=		crypto/ca-bundle
-COMPONENT_VERSION=	2021.7.5
+COMPONENT_VERSION=	2022.2.1
 COMPONENT_LICENSE=	GPLv2 LGPLv2.1 MPL 1.1
 COMPONENT_PROJECT_URL=	https://curl.se/ca/cacert.pem
 COMPONENT_ARCHIVE_URL=	https://curl.se/ca/cacert.pem
