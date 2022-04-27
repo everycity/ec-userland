@@ -46,6 +46,7 @@ file path=$(ECPREFIX)/bin/curl-config
 file path=$(ECPREFIX)/include/curl/curl.h
 file path=$(ECPREFIX)/include/curl/curlver.h
 file path=$(ECPREFIX)/include/curl/easy.h
+file path=$(ECPREFIX)/include/curl/header.h
 file path=$(ECPREFIX)/include/curl/mprintf.h
 file path=$(ECPREFIX)/include/curl/multi.h
 file path=$(ECPREFIX)/include/curl/options.h
@@ -54,10 +55,10 @@ file path=$(ECPREFIX)/include/curl/system.h
 file path=$(ECPREFIX)/include/curl/typecheck-gcc.h
 file path=$(ECPREFIX)/include/curl/urlapi.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libcurl.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libcurl.so.4.7.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libcurl.so.4.8.0
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libcurl.pc
 file path=$(ECPREFIX)/lib/libcurl.la
-file path=$(ECPREFIX)/lib/libcurl.so.4.7.0
+file path=$(ECPREFIX)/lib/libcurl.so.4.8.0
 file path=$(ECPREFIX)/lib/pkgconfig/libcurl.pc
 file path=$(ECPREFIX)/share/aclocal/libcurl.m4
 file path=$(ECPREFIX)/share/man/man1/curl-config.1
@@ -450,7 +451,9 @@ file path=$(ECPREFIX)/share/man/man3/curl_easy_cleanup.3
 file path=$(ECPREFIX)/share/man/man3/curl_easy_duphandle.3
 file path=$(ECPREFIX)/share/man/man3/curl_easy_escape.3
 file path=$(ECPREFIX)/share/man/man3/curl_easy_getinfo.3
+file path=$(ECPREFIX)/share/man/man3/curl_easy_header.3
 file path=$(ECPREFIX)/share/man/man3/curl_easy_init.3
+file path=$(ECPREFIX)/share/man/man3/curl_easy_nextheader.3
 file path=$(ECPREFIX)/share/man/man3/curl_easy_option_by_id.3
 file path=$(ECPREFIX)/share/man/man3/curl_easy_option_by_name.3
 file path=$(ECPREFIX)/share/man/man3/curl_easy_option_next.3
@@ -532,7 +535,7 @@ file path=$(ECPREFIX)/share/man/man3/libcurl-thread.3
 file path=$(ECPREFIX)/share/man/man3/libcurl-tutorial.3
 file path=$(ECPREFIX)/share/man/man3/libcurl-url.3
 file path=$(ECPREFIX)/share/man/man3/libcurl.3
-link path=$(ECPREFIX)/lib/$(MACH64)/libcurl.so target=libcurl.so.4.7.0
-link path=$(ECPREFIX)/lib/$(MACH64)/libcurl.so.4 target=libcurl.so.4.7.0
-link path=$(ECPREFIX)/lib/libcurl.so target=libcurl.so.4.7.0
-link path=$(ECPREFIX)/lib/libcurl.so.4 target=libcurl.so.4.7.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libcurl.so target=libcurl.so.4.8.0
+link path=$(ECPREFIX)/lib/$(MACH64)/libcurl.so.4 target=libcurl.so.4.8.0
+link path=$(ECPREFIX)/lib/libcurl.so target=libcurl.so.4.8.0
+link path=$(ECPREFIX)/lib/libcurl.so.4 target=libcurl.so.4.8.0
