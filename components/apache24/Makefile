@@ -16,14 +16,14 @@ include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		httpd
 COMPONENT_FMRI=		web/server/apache-24/httpd
-COMPONENT_VERSION=	2.4.53
+COMPONENT_VERSION=	2.4.54
 COMPONENT_LICENSE=	Apachev2.0
 COMPONENT_PROJECT_URL=	"http://httpd.apache.org/"
 COMPONENT_SUMMARY=	Apache HTTP Server
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha256:d0bbd1121a57b5f2a6ff92d7b96f8050c5a45d3f14db118f64979d525858db63
-COMPONENT_ARCHIVE_URL=	https://dlcdn.apache.org//$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_HASH=	sha256:eb397feeefccaf254f8d45de3768d9d68e8e73851c49afd5b7176d1ecf80c340
+COMPONENT_ARCHIVE_URL=	https://dlcdn.apache.org/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
