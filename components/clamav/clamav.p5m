@@ -9,7 +9,7 @@
 #
 
 #
-# Copyright 2019 EveryCity Ltd. All rights reserved.
+# Copyright 2022 EveryCity Ltd. All rights reserved.
 #
 
 # Transforms
@@ -70,26 +70,26 @@ file path=$(ECPREFIX)/include/clamav-version.h
 file path=$(ECPREFIX)/include/clamav.h
 file path=$(ECPREFIX)/include/libfreshclam.h
 file path=$(ECPREFIX)/lib/$(MACH64)/libclamav.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.9.0.4
+file path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.9.0.5
 file path=$(ECPREFIX)/lib/$(MACH64)/libclammspack.la
 file path=$(ECPREFIX)/lib/$(MACH64)/libclammspack.so.0.1.0
 file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so.9.0.4
+file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so.9.0.5
 file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so.9.0.4
+file path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so.9.0.5
 file path=$(ECPREFIX)/lib/$(MACH64)/libfreshclam.la
-file path=$(ECPREFIX)/lib/$(MACH64)/libfreshclam.so.2.0.0
+file path=$(ECPREFIX)/lib/$(MACH64)/libfreshclam.so.2.0.1
 file path=$(ECPREFIX)/lib/$(MACH64)/pkgconfig/libclamav.pc
 file path=$(ECPREFIX)/lib/libclamav.la
-file path=$(ECPREFIX)/lib/libclamav.so.9.0.4
+file path=$(ECPREFIX)/lib/libclamav.so.9.0.5
 file path=$(ECPREFIX)/lib/libclammspack.la
 file path=$(ECPREFIX)/lib/libclammspack.so.0.1.0
 file path=$(ECPREFIX)/lib/libclamunrar.la
-file path=$(ECPREFIX)/lib/libclamunrar.so.9.0.4
+file path=$(ECPREFIX)/lib/libclamunrar.so.9.0.5
 file path=$(ECPREFIX)/lib/libclamunrar_iface.la
-file path=$(ECPREFIX)/lib/libclamunrar_iface.so.9.0.4
+file path=$(ECPREFIX)/lib/libclamunrar_iface.so.9.0.5
 file path=$(ECPREFIX)/lib/libfreshclam.la
-file path=$(ECPREFIX)/lib/libfreshclam.so.2.0.0
+file path=$(ECPREFIX)/lib/libfreshclam.so.2.0.1
 file path=$(ECPREFIX)/lib/pkgconfig/libclamav.pc
 file path=$(ECPREFIX)/share/man/man1/clambc.1
 file path=$(ECPREFIX)/share/man/man1/clamconf.1
@@ -103,33 +103,33 @@ file path=$(ECPREFIX)/share/man/man5/clamd.conf.5
 file path=$(ECPREFIX)/share/man/man5/freshclam.conf.5
 file path=$(ECPREFIX)/share/man/man8/clamav-milter.8
 file path=$(ECPREFIX)/share/man/man8/clamd.8
-link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so target=libclamav.so.9.0.4
-link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.9 target=libclamav.so.9.0.4
+link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so target=libclamav.so.9.0.5
+link path=$(ECPREFIX)/lib/$(MACH64)/libclamav.so.9 target=libclamav.so.9.0.5
 link path=$(ECPREFIX)/lib/$(MACH64)/libclammspack.so \
     target=libclammspack.so.0.1.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libclammspack.so.0 \
     target=libclammspack.so.0.1.0
 link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so \
-    target=libclamunrar.so.9.0.4
+    target=libclamunrar.so.9.0.5
 link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar.so.9 \
-    target=libclamunrar.so.9.0.4
+    target=libclamunrar.so.9.0.5
 link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so \
-    target=libclamunrar_iface.so.9.0.4
+    target=libclamunrar_iface.so.9.0.5
 link path=$(ECPREFIX)/lib/$(MACH64)/libclamunrar_iface.so.9 \
-    target=libclamunrar_iface.so.9.0.4
+    target=libclamunrar_iface.so.9.0.5
 link path=$(ECPREFIX)/lib/$(MACH64)/libfreshclam.so \
-    target=libfreshclam.so.2.0.0
+    target=libfreshclam.so.2.0.1
 link path=$(ECPREFIX)/lib/$(MACH64)/libfreshclam.so.2 \
-    target=libfreshclam.so.2.0.0
-link path=$(ECPREFIX)/lib/libclamav.so target=libclamav.so.9.0.4
-link path=$(ECPREFIX)/lib/libclamav.so.9 target=libclamav.so.9.0.4
+    target=libfreshclam.so.2.0.1
+link path=$(ECPREFIX)/lib/libclamav.so target=libclamav.so.9.0.5
+link path=$(ECPREFIX)/lib/libclamav.so.9 target=libclamav.so.9.0.5
 link path=$(ECPREFIX)/lib/libclammspack.so target=libclammspack.so.0.1.0
 link path=$(ECPREFIX)/lib/libclammspack.so.0 target=libclammspack.so.0.1.0
-link path=$(ECPREFIX)/lib/libclamunrar.so target=libclamunrar.so.9.0.4
-link path=$(ECPREFIX)/lib/libclamunrar.so.9 target=libclamunrar.so.9.0.4
+link path=$(ECPREFIX)/lib/libclamunrar.so target=libclamunrar.so.9.0.5
+link path=$(ECPREFIX)/lib/libclamunrar.so.9 target=libclamunrar.so.9.0.5
 link path=$(ECPREFIX)/lib/libclamunrar_iface.so \
-    target=libclamunrar_iface.so.9.0.4
+    target=libclamunrar_iface.so.9.0.5
 link path=$(ECPREFIX)/lib/libclamunrar_iface.so.9 \
-    target=libclamunrar_iface.so.9.0.4
-link path=$(ECPREFIX)/lib/libfreshclam.so target=libfreshclam.so.2.0.0
-link path=$(ECPREFIX)/lib/libfreshclam.so.2 target=libfreshclam.so.2.0.0
+    target=libclamunrar_iface.so.9.0.5
+link path=$(ECPREFIX)/lib/libfreshclam.so target=libfreshclam.so.2.0.1
+link path=$(ECPREFIX)/lib/libfreshclam.so.2 target=libfreshclam.so.2.0.1
